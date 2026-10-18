@@ -230,6 +230,448 @@ _ENTRIES = (
         "Giving how many pictures the whole row should have, not how many more it needs.",
         area="early-years",
     ),
+    # -- w6b batch (generated block) --
+    CatalogueEntry(
+        "rotation-wrong-direction",
+        "Rotating the opposite way, clockwise where anticlockwise was asked or the reverse.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-swaps-real-and-imaginary",
+        "Swapping the real and imaginary parts to turn a point through a quarter turn, which reflects it in the line y = x instead.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-quarter-turn-as-half-turn",
+        "Negating the number (a half turn) where a quarter turn was asked.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-adds-instead-of-multiplies",
+        "Adding the unit number to the point instead of multiplying by it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-reflects",
+        "Taking a half turn to be the conjugate, which reflects the point in the real axis.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-negates-one-part",
+        "Negating only the real part (or only the imaginary part) for a half turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-as-quarter-turn",
+        "Multiplying by i for a half turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-ignored",
+        "Rotating about the origin when the centre of rotation is another point.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-not-added-back",
+        "Rotating the vector from the centre to the point but not adding the centre back.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-added-to-rotated-point",
+        "Rotating the point itself and then adding the centre, instead of rotating the vector from the centre.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-multiplies-by-cos-plus-sin",
+        "Multiplying by cos θ + sin θ, a real number, instead of cos θ + i sin θ.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-sine-and-cosine-swapped",
+        "Multiplying by sin θ + i cos θ, which turns through 90° − θ instead of θ.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-wrong-orientation",
+        "Turning the wrong way for the labelling of the square, so the vertex is on the other side of AB.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-vertices-swapped",
+        "Giving the other missing vertex of the square, C for D or D for C.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-rotates-position-not-side",
+        "Rotating the position of a vertex about the origin instead of rotating the side vector.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-extends-the-side",
+        "Continuing along the line AB instead of turning through a right angle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-opposite-vertex",
+        "Giving the vertex opposite A (the reflection of A in the centre) where the neighbouring vertex was asked for.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "triangle-wrong-orientation",
+        "Giving the third vertex on the wrong side of AB for the labelling of the triangle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "triangle-height-equals-side",
+        "Placing the apex a whole side length above the midpoint, forgetting that the height of an equilateral triangle is √3/2 of its side.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-difference-reversed",
+        "Subtracting the vertices in the wrong order, so the vector points from B to A.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-sum-for-difference",
+        "Adding the two vertices instead of subtracting them.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-parts-swapped",
+        "Swapping the real and imaginary parts of the side vector.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-adds-the-parts",
+        "Adding the real and imaginary parts to get a length, instead of using Pythagoras.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-forgets-square-root",
+        "Leaving the length as the sum of the squares, without taking the square root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-takes-the-larger-part",
+        "Giving the larger of the real and imaginary parts as the length of the side.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-as-perimeter",
+        "Giving the perimeter of the square where the area was asked.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-doubles-side",
+        "Doubling the side length instead of squaring it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-halved",
+        "Halving the square of the side, as for the area of a triangle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-from-the-parts",
+        "Multiplying the real and imaginary parts of the side vector to get the area.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-wrong-direction",
+        "Going round the polygon clockwise when the question says anticlockwise, or the reverse.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-uses-interior-angle",
+        "Turning through the interior angle of the polygon at each step instead of the angle 360°/n at the centre.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-off-by-one",
+        "Counting the starting vertex as a step, so the vertex reached is one too far or one too few.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-forgets-modulus",
+        "Giving the point on the unit circle with the right argument, forgetting the radius of the polygon.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-diameter",
+        "Taking the side of the polygon to be the diameter of the circle through its vertices.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-radius",
+        "Taking the side of the polygon to be the radius, which is true only for a hexagon.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-half-angle-missing",
+        "Using sin(π/2n) in the side formula 2r sin(π/n), halving the angle twice.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-full-angle",
+        "Using sin(2π/n), the angle at the centre, instead of half of it in 2r sin(π/n).",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-doubled",
+        "Doubling the chord formula, so the side is twice what it should be.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-counts-n-minus-one",
+        "Multiplying the side by one less than the number of sides.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-doubled",
+        "Doubling the perimeter, perhaps by counting each side twice.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-halved",
+        "Halving the perimeter.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-is-one-side",
+        "Giving one side where the perimeter was asked for.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-divides-by-n",
+        "Dividing the constant in zⁿ = w by n to find the modulus, instead of taking an n-th root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-is-the-constant",
+        "Taking the modulus of the roots of zⁿ = w to be w itself.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-multiplies-by-n",
+        "Multiplying the n-th root by n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-off-by-one",
+        "Taking the n-th root of w and then adding one.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-forgets-n",
+        "Forgetting the factor n in the product of the distances from a vertex to the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-adds-instead",
+        "Adding instead of multiplying the distances, or multiplying n by r.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-uses-n-factors",
+        "Taking the product to be n·rⁿ, one power of r too many.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-counts-n-minus-one",
+        "Using n - 1 in place of n in the product (1 - ω)(1 - ω²)…(1 - ω^(n-1)).",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-forgets-factor-two",
+        "Giving n r², leaving out the factor 2 in the sum of the squares of the distances.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-uses-one-diameter",
+        "Squaring a single diameter, 4r², as if the sum had one term.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-counts-n-minus-one",
+        "Summing over the n - 1 other vertices only, using the factor n - 1 where n is needed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-forgets-to-square",
+        "Leaving the distances unsquared in the sum.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-is-one",
+        "Taking 1 + ω + … + ω^(n-1) to equal 1 instead of 0.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-counts-terms",
+        "Giving the number of terms, as if each power of ω were 1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-drops-the-one",
+        "Taking the sum of all the powers to be -1, forgetting that the first term, 1, is part of it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-forgets-the-one",
+        "Treating ω + … + ω^(n-1) as 0, forgetting that the missing 1 must be taken away.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-sign",
+        "Getting the sign wrong: ω + … + ω^(n-1) = -1, not +1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-factor-kept",
+        "Leaving the common factor in the answer once the bracket has been shown to be 0.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-power-sum-swapped",
+        "Swapping the two possible values: giving n when ω^m is not 1 and 0 when it is.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-power-sum-counts-terms-less-one",
+        "Giving n - 1 for a sum of n terms, each equal to 1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-gives-the-root",
+        "Giving the root itself, without the minus sign, as the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-gives-the-conjugate",
+        "Giving the conjugate of the root as the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-forgets-to-remove-the-root",
+        "Giving the sum of all the roots (0) instead of the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-conjugates-and-negates",
+        "Negating and conjugating the root to find the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "trig-eq-solutions-stop-at-first-period",
+        "Giving only the solutions from the first turn of the angle inside the brackets, so the later solutions of a multiple-angle equation are missing.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-solutions-miss-second-family",
+        "Giving only one of the two solution families, for example α + 2πn without π - α + 2πn for sine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-sine-second-solution-uses-pi-plus",
+        "Using π + α instead of π - α as the second solution of a sine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-cosine-second-solution-uses-pi-minus",
+        "Using π - α instead of -α (that is, 2π - α) as the second solution of a cosine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-period-is-two-pi",
+        "Adding 2π instead of π to find the other solutions of a tangent equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-multiple-angle-not-divided",
+        "Solving for the angle inside the brackets but not dividing by the multiple, so the answers are not values of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-shift-ignored",
+        "Leaving out the horizontal shift, solving f(ax) = c in place of f(a(x - b)) = c.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-shift-wrong-way",
+        "Subtracting the horizontal shift where it should be added, moving the solutions the wrong way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-calculator-in-degree-mode",
+        "Using a calculator in degree mode, so the solutions are in degrees and not in radians.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-second-solution-uses-the-wrong-quadrant",
+        "Taking the second solution from the wrong quadrant, such as π + α for sine or π - α for cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-ignores-the-multiple",
+        "Giving the period of the basic function, 2π, when x is multiplied by a number greater than 1.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-multiplies-by-the-multiple",
+        "Multiplying the period 2π by the multiple instead of dividing.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-uses-pi-not-two-pi",
+        "Using π/a, the period of a tangent, for a sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-doubled-with-the-multiple",
+        "Doubling the period and multiplying by the multiple.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-one-solution-per-period",
+        "Counting one solution per period of a sine or cosine equation, where there are two.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-ignores-the-multiple",
+        "Counting the two solutions of one period only, ignoring that the interval holds several periods.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-doubles-twice",
+        "Counting two solutions per period and then doubling the number of periods again.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-off-by-one",
+        "Counting one solution too many by including a solution at the end of the interval that is not there.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-smallest-solution-is-the-second",
+        "Giving the second smallest solution in place of the smallest.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-smallest-solution-is-the-principal-angle",
+        "Giving the principal angle α of the basic equation as the smallest solution, without dividing by the multiple and adding the shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-solved-like-sine",
+        "Solving a tangent equation as if it were a sine equation, with the second solution π - α and a period of 2π.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-sign-of-angle-lost",
+        "Losing the sign of the angle when the value of the tangent is negative, so the solutions are reflected.",
+        area="trigonometry",
+    ),
+    # -- end w6b batch --
     # -- quadratics -----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "sign-flip-both-roots",

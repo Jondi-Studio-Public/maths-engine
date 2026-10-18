@@ -301,6 +301,8 @@ OPTION_NOTES_TOPICS = frozenset(
         "w6a_aux_angle",
         "w6a_line_conic",
         "w6a_boolean_logic",
+        "w6b_complex_polygon_roots",
+        "w6b_complex_rotation",
         "fy1la_column_space",
         "fy1la_consistency",
         "fy1la_eigenvalues",

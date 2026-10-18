@@ -1,0 +1,132 @@
+id: complex-polygon-vertices-and-roots-of-unity
+name: Find polygon vertices and sum roots of unity
+domain: senior-mathematics
+year_level:
+- '12'
+description: 'Find the vertices of a regular polygon in the complex plane by repeated rotation through 360 degrees over n,
+  and use the roots of unity: the sum of consecutive powers of a primitive root, the product and the sum of squares of the
+  distances from one vertex to the rest, and the sum of the other roots of zⁿ = w. The exam chain takes the roots of zⁿ =
+  rⁿ as a polygon: radius, side, perimeter and one root.'
+status: active
+placement_eligible: false
+prerequisites:
+- complex-rotation-and-vertex-completion
+- senior-determine-and-examine-the-n-th-roots-of-acmsm088
+answer: expression
+sources:
+- topic: w6b_complex_polygon_roots
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6b_complex_polygon_roots
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6b_complex_polygon_roots
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6b_complex_polygon_roots
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: polygon-perimeter-counts-n-minus-one
+  description: Multiplying the side by one less than the number of sides.
+- id: polygon-perimeter-doubled
+  description: Doubling the perimeter, perhaps by counting each side twice.
+- id: polygon-perimeter-is-one-side
+  description: Giving one side where the perimeter was asked for.
+- id: polygon-product-adds-instead
+  description: Adding instead of multiplying the distances, or multiplying n by r.
+- id: polygon-product-counts-n-minus-one
+  description: Using n - 1 in place of n in the product (1 - ω)(1 - ω²)…(1 - ω^(n-1)).
+- id: polygon-product-forgets-n
+  description: Forgetting the factor n in the product of the distances from a vertex to the others.
+- id: polygon-product-uses-n-factors
+  description: Taking the product to be n·rⁿ, one power of r too many.
+- id: polygon-radius-divides-by-n
+  description: Dividing the constant in zⁿ = w by n to find the modulus, instead of taking an n-th root.
+- id: polygon-radius-is-the-constant
+  description: Taking the modulus of the roots of zⁿ = w to be w itself.
+- id: polygon-radius-multiplies-by-n
+  description: Multiplying the n-th root by n.
+- id: polygon-radius-off-by-one
+  description: Taking the n-th root of w and then adding one.
+- id: polygon-side-doubled
+  description: Doubling the chord formula, so the side is twice what it should be.
+- id: polygon-side-half-angle-missing
+  description: Using sin(π/2n) in the side formula 2r sin(π/n), halving the angle twice.
+- id: polygon-side-uses-diameter
+  description: Taking the side of the polygon to be the diameter of the circle through its vertices.
+- id: polygon-side-uses-full-angle
+  description: Using sin(2π/n), the angle at the centre, instead of half of it in 2r sin(π/n).
+- id: polygon-side-uses-radius
+  description: Taking the side of the polygon to be the radius, which is true only for a hexagon.
+- id: polygon-squares-counts-n-minus-one
+  description: Summing over the n - 1 other vertices only, using the factor n - 1 where n is needed.
+- id: polygon-squares-forgets-factor-two
+  description: Giving n r², leaving out the factor 2 in the sum of the squares of the distances.
+- id: polygon-squares-forgets-to-square
+  description: Leaving the distances unsquared in the sum.
+- id: polygon-squares-uses-one-diameter
+  description: Squaring a single diameter, 4r², as if the sum had one term.
+- id: polygon-vertex-forgets-modulus
+  description: Giving the point on the unit circle with the right argument, forgetting the radius of the polygon.
+- id: polygon-vertex-off-by-one
+  description: Counting the starting vertex as a step, so the vertex reached is one too far or one too few.
+- id: polygon-vertex-uses-interior-angle
+  description: Turning through the interior angle of the polygon at each step instead of the angle 360°/n at the centre.
+- id: polygon-vertex-wrong-direction
+  description: Going round the polygon clockwise when the question says anticlockwise, or the reverse.
+- id: roots-of-unity-power-sum-counts-terms-less-one
+  description: Giving n - 1 for a sum of n terms, each equal to 1.
+- id: roots-of-unity-power-sum-swapped
+  description: 'Swapping the two possible values: giving n when ω^m is not 1 and 0 when it is.'
+- id: roots-of-unity-sum-counts-terms
+  description: Giving the number of terms, as if each power of ω were 1.
+- id: roots-of-unity-sum-drops-the-one
+  description: Taking the sum of all the powers to be -1, forgetting that the first term, 1, is part of it.
+- id: roots-of-unity-sum-factor-kept
+  description: Leaving the common factor in the answer once the bracket has been shown to be 0.
+- id: roots-of-unity-sum-forgets-the-one
+  description: Treating ω + … + ω^(n-1) as 0, forgetting that the missing 1 must be taken away.
+- id: roots-of-unity-sum-is-one
+  description: Taking 1 + ω + … + ω^(n-1) to equal 1 instead of 0.
+- id: roots-of-unity-sum-sign
+  description: 'Getting the sign wrong: ω + … + ω^(n-1) = -1, not +1.'
+- id: roots-sum-forgets-to-remove-the-root
+  description: Giving the sum of all the roots (0) instead of the sum of the others.
+- id: roots-sum-others-conjugates-and-negates
+  description: Negating and conjugating the root to find the sum of the others.
+- id: roots-sum-others-gives-the-conjugate
+  description: Giving the conjugate of the root as the sum of the others.
+- id: roots-sum-others-gives-the-root
+  description: Giving the root itself, without the minus sign, as the sum of the others.
+- id: rotation-centre-ignored
+  description: Rotating about the origin when the centre of rotation is another point.
+- id: rotation-centre-not-added-back
+  description: Rotating the vector from the centre to the point but not adding the centre back.
+- id: rotation-sine-and-cosine-swapped
+  description: Multiplying by sin θ + i cos θ, which turns through 90° − θ instead of θ.
+difficulty_progression: 'Easy finds the vertex k steps round a regular polygon centred at the origin, from a vertex on an
+  axis. Medium moves the centre off the origin, or sums a run of powers of a primitive root of unity so that 1 + ω + … + ω^(n-1)
+  = 0 does the work. Hard uses facts true of every regular polygon: the product of the distances from a vertex to the others
+  is n rⁿ⁻¹, the sum of their squares is 2n r², the other roots of zⁿ = w sum to minus the one given, and Σ ω^(mk) is n or
+  0 according to whether n divides m. The exam chain follows the roots of zⁿ = rⁿ through radius, side length, perimeter and
+  an exact root.'
+tags:
+- complex-numbers
+- roots-of-unity
+- regular-polygons
+- argand-diagram
+- nsw-extension-2
