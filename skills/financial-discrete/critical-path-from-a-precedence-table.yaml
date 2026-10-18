@@ -29,7 +29,7 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_w5b_precedence_table
-  params: {}
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 difficulty_progression:

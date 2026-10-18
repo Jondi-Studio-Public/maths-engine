@@ -62,8 +62,11 @@ def source_shapes(topic: str, difficulty: str | None, params: dict, seeds: int) 
 
 def per_tier_shapes(skill, seeds: int = DEFAULT_SEEDS) -> list[set[str]]:
     """`[shape_set, ...]` one per source, in the skill's own YAML declaration
-    order -- that order IS the tier ordering."""
-    return [source_shapes(src.topic, src.difficulty, src.params, seeds) for src in skill.sources]
+    order -- that order IS the tier ordering. A single-part `exam-single` source is a second exam source
+    beside the skill's exam chain, not a further tier, so it is left out."""
+    return [
+        source_shapes(src.topic, src.difficulty, src.params, seeds) for src in skill.sources if src.key != "exam-single"
+    ]
 
 
 def classify_skill(skill, seeds: int = DEFAULT_SEEDS) -> tuple[str, list[bool]]:

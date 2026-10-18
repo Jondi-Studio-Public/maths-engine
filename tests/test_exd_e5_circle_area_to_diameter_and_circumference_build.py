@@ -401,9 +401,12 @@ class TestSkillLoads:
         stages_covered = set()
         for source in skill.sources:
             # The exam tier is now the multi-part chain (tests/test_exam_parts_circle_radius_arc.py).
-            assert source.topic == ("exam_parts_circle_radius_arc" if source.difficulty == "exam" else TOPIC)
+            # ...and the single-part exam question is back as a second exam source, key exam-single (bf2fca7).
+            chain = source.difficulty == "exam" and source.key != "exam-single"
+            assert source.topic == ("exam_parts_circle_radius_arc" if chain else TOPIC)
             stages_covered.update(source.stages)
         assert stages_covered == {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
         exam_sources = [s for s in skill.sources if s.difficulty == "exam"]
-        assert len(exam_sources) == 1
-        assert exam_sources[0].stages == ["exam"]
+        assert len(exam_sources) == 2  # the multi-part chain, then the exam-single source
+        assert exam_sources[-1].key == "exam-single"
+        assert all(s.stages == ["exam"] for s in exam_sources)

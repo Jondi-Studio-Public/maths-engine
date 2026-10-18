@@ -24,6 +24,7 @@ from __future__ import annotations
 import sympy
 
 from ..core import attempts, check, generator, rounds_unambiguously
+from ._exd_distinct_parts import answers_distinct
 from ._r3h_kit import (
     X,
     Redraw,
@@ -397,8 +398,16 @@ def _undivided(fp):
     return out
 
 
+def _exam_distinct(rng):
+    """`_exam_once`, drawn again when two parts share an answer (a learner could copy one into the other)."""
+    built = _exam_once(rng)
+    if not answers_distinct(built["parts"]):
+        raise Redraw
+    return built
+
+
 @generator("exd_x_r3h_families", level=18, presets={"exam": dict(tier="exam")})
 def exd_x_r3h_families(rng, tier="exam"):
     """Exam tier: antiderivative, constant, value, integral by linearity."""
     check(tier == "exam", f"unknown tier {tier!r}")
-    return build_with_redraws(rng, _exam_once)
+    return build_with_redraws(rng, _exam_distinct)

@@ -22,10 +22,6 @@ sources:
 - topic: ey_shape_recognise
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: ey6a_shape_names
-  key: glyphs-and-clues
-  params: {}
-  difficulty: easy
 misconceptions:
 - id: names-the-wrong-shape
   description: Mixes up the names of the basic shapes, for example calling a rectangle a square.

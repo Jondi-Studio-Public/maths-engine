@@ -498,8 +498,6 @@ compare-lengths:
   sources:
   - topic: compare_length_picture
     module: mathgen/generators/ey_compare_build.py
-  - topic: ey6a_compare_length
-    module: mathgen/generators/ey6a_early_variety_build.py
 compare-linear-representations:
   domain: linear-relations
   status: active
@@ -672,8 +670,6 @@ continue-patterns:
     module: mathgen/generators/ey_patterns_build.py
   - topic: ey_pattern_match
     module: mathgen/generators/ey_patterns_build.py
-  - topic: ey6a_repeating_pattern
-    module: mathgen/generators/ey6a_early_variety_build.py
 convert-imperial-length:
   domain: measurement
   status: active
@@ -1406,8 +1402,6 @@ f10-compare-measurement-attributes:
   sources:
   - topic: compare_mass_capacity_picture
     module: mathgen/generators/ey_compare_build.py
-  - topic: ey6a_compare_attributes
-    module: mathgen/generators/ey6a_early_variety_build.py
 f10-compare-order-measure-attributes:
   domain: measurement
   status: active
@@ -3526,8 +3520,6 @@ name-basic-shapes:
   sources:
   - topic: ey_shape_recognise
     module: mathgen/generators/ey_shapes_build.py
-  - topic: ey6a_shape_names
-    module: mathgen/generators/ey6a_early_variety_build.py
 network-model-from-situation:
   domain: financial-discrete
   status: active

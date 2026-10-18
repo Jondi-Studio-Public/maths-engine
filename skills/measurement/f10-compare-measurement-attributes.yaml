@@ -22,18 +22,6 @@ sources:
 - topic: compare_mass_capacity_picture
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: ey6a_compare_attributes
-  params: {attr_pool: ["length", "mass"], equal_fraction: 0.0}
-  difficulty: easy
-  stages: [0, 1, 2]
-- topic: ey6a_compare_attributes
-  params: {attr_pool: ["capacity", "duration"], equal_fraction: 0.0}
-  difficulty: medium
-  stages: [3, 4]
-- topic: ey6a_compare_attributes
-  params: {attr_pool: ["length", "mass", "capacity", "duration"], equal_fraction: 0.333}
-  difficulty: hard
-  stages: [5, 6, maintenance]
 misconceptions:
 - id: bigger-is-heavier
   description: Says the bigger-looking object is the heavier one, when the balance shows the smaller one is heavier.

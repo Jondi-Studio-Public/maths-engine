@@ -604,18 +604,12 @@
 {"answer": "The pencil", "id": "compare-lengths/easy/0/d2c35b065d3e", "text": "Look at the two things. Which is longer?"}
 {"answer": "The snake", "id": "compare-lengths/easy/1/84c37bd4a0b6", "text": "Look at the two things. Which is longer?"}
 {"answer": "The snake", "id": "compare-lengths/easy/2/a32f8486de73", "text": "Which of these is shorter?"}
-{"answer": "C", "id": "compare-lengths/four-lines/0/09bd5b713dfb", "text": "Tap the longest line. A ━━━━━━━━━ B ━━━━━ C ━━━━━━━━━━ D ━━━━━━━━"}
-{"answer": "D", "id": "compare-lengths/four-lines/1/3c047c2a40fc", "text": "Which one is the longest? A ━━ B ━━━ C ━━━━━ D ━━━━━━━━━"}
-{"answer": "D", "id": "compare-lengths/four-lines/2/39ff21c21c72", "text": "Which line is the longest? A ━━ B ━━━━━━━━━ C ━━━ D ━━━━━━━━━━"}
 {"answer": "The ribbon", "id": "compare-lengths/hard/0/b454d2c0ef05", "text": "Not lined up. Which one is the longest?"}
 {"answer": "The ribbon", "id": "compare-lengths/hard/1/4e94e586e6b2", "text": "Not lined up. Which one is the shortest?"}
 {"answer": "The train", "id": "compare-lengths/hard/2/e05bc8d41eb2", "text": "They are not lined up. Which is the shortest?"}
 {"answer": "The ribbon", "id": "compare-lengths/medium/0/f626b70b1b37", "text": "Which one is the shortest?"}
 {"answer": "The train", "id": "compare-lengths/medium/1/6870ef20220b", "text": "Which of these is the longest?"}
 {"answer": "The train", "id": "compare-lengths/medium/2/3d84b8fd6eb9", "text": "Look at them all. Which is longest?"}
-{"answer": "C", "id": "compare-lengths/three-lines/0/e15d7d4c23db", "text": "Tap the longest line. A ━━━━━━━━━ B ━━━━━ C ━━━━━━━━━━"}
-{"answer": "orange", "id": "compare-lengths/three-lines/1/d1a2a3d0e77b", "text": "Which one is the longest? red ━━ blue ━━━ orange ━━━━━"}
-{"answer": "B", "id": "compare-lengths/three-lines/2/95bd11de67fd", "text": "Which line is the longest? A ━━ B ━━━━━━━━━ C ━━━"}
 {"answer": "They have the same gradient", "id": "compare-linear-representations/easy/0/403ee1b71e2d", "text": "Relationship A is shown in the graph. Relationship B is y = x - 5. Which relati…"}
 {"answer": "Relationship A", "id": "compare-linear-representations/easy/1/d4f79544e8ca", "text": "The graph shows relationship A. Relationship B has the equation y = 2x + 6. Whi…"}
 {"answer": "They have the same gradient", "id": "compare-linear-representations/easy/2/0e337d286348", "text": "The graph shows relationship A. Relationship B is given by y = 3x + 3. Which re…"}
@@ -829,9 +823,6 @@
 {"answer": "a stamp", "id": "continue-patterns/medium/0/c3b77a591620", "text": "What is missing from the pattern?"}
 {"answer": "a solid heart", "id": "continue-patterns/medium/1/1b2e6ef76a80", "text": "Look at the pattern. What fills the empty box?"}
 {"answer": "the number 5", "id": "continue-patterns/medium/2/00cbae691f0e", "text": "What is missing from the pattern?"}
-{"answer": "■", "id": "continue-patterns/varied-units/0/0efedf6b3bb7", "text": "What comes next? ▲ ★ ■ ▲ ★ ■ ▲ ★ __"}
-{"answer": "🐶", "id": "continue-patterns/varied-units/1/c0c920f98e03", "text": "Continue the pattern. What comes next? 🐶 🐶 🐦 🐦 🐶 🐶 🐦 🐦 🐶 __"}
-{"answer": "☀", "id": "continue-patterns/varied-units/2/2e7393f94f86", "text": "What goes in the gap? ☀ ☂ ☂ ☀ ☂ ☂ __ ☂"}
 {"answer": "3.25", "id": "convert-imperial-length/easy/0/cba8e728044f", "text": "Sophie measures a walking track as 5720 yards. Using 1 mile = 1760 yards, how m…"}
 {"answer": "5.50", "id": "convert-imperial-length/easy/1/c9a28712464a", "text": "Hamid measures a bush trail as 9680 yards. Using 1 mile = 1760 yards, how many …"}
 {"answer": "240.00", "id": "convert-imperial-length/easy/2/78cef1e891bb", "text": "Priya measures a curtain rail as 20 feet. Using 1 foot = 12 inches, how many in…"}
@@ -1871,22 +1862,13 @@
 {"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/1/0b6cd048f392", "text": "These parallel box plots show the marks for two groups of students. Which group…"}
 {"answer": "Group X (the upper plot)", "id": "f10-compare-box-plots/medium/2/75138002c59d", "text": "The box plots compare the masses of two groups of pumpkins. Which group's masse…"}
 {"answer": "The cup", "id": "f10-compare-measurement-attributes/easy/0/2838d01f715b", "text": "Which of these holds the most?"}
-{"answer": "The green strip of paper is longer.", "id": "f10-compare-measurement-attributes/easy/0/de242fcea7b1", "text": "Ingrid puts the green strip of paper and the purple strip of paper side by side…"}
-{"answer": "The green ribbon is longer.", "id": "f10-compare-measurement-attributes/easy/1/4d31410c1e2a", "text": "Lucas lines up the green ribbon and the purple ribbon at the start. The end of …"}
 {"answer": "The bottle", "id": "f10-compare-measurement-attributes/easy/1/50eba866b43c", "text": "Which of these holds the least?"}
 {"answer": "The book", "id": "f10-compare-measurement-attributes/easy/2/7ef9cc7180b0", "text": "Look at the balance. Which is lighter?"}
-{"answer": "The orange backpack is heavier.", "id": "f10-compare-measurement-attributes/easy/2/da5b1a377e55", "text": "Mateo puts the orange backpack on one side of a balance and the yellow backpack…"}
-{"answer": "They hold the same amount.", "id": "f10-compare-measurement-attributes/hard/0/5150afa7831e", "text": "Kenji fills the purple cup with water and pours all of it into the blue cup. Th…"}
 {"answer": "The bowl", "id": "f10-compare-measurement-attributes/hard/0/c1a36cc91e34", "text": "Look at the water. Which has more?"}
 {"answer": "They have the same amount", "id": "f10-compare-measurement-attributes/hard/1/55462d22efce", "text": "Which one has more water in it?"}
-{"answer": "They are the same length.", "id": "f10-compare-measurement-attributes/hard/1/e3770de120f4", "text": "Aisha lines up the purple rope and the red rope at the start. Their ends meet a…"}
-{"answer": "The green bottle holds more.", "id": "f10-compare-measurement-attributes/hard/2/a691fef6cbc2", "text": "Chloe fills the green bottle with water and pours all of it into the orange bot…"}
 {"answer": "They have the same amount", "id": "f10-compare-measurement-attributes/hard/2/e33ea2272156", "text": "Look at the water. Which has more?"}
-{"answer": "The red cup holds more.", "id": "f10-compare-measurement-attributes/medium/0/b09bc362d31d", "text": "Noah fills the red cup with water and pours all of it into the yellow cup. The …"}
 {"answer": "The banana", "id": "f10-compare-measurement-attributes/medium/0/fae43d393a39", "text": "Which one is heavier?"}
 {"answer": "The bowl", "id": "f10-compare-measurement-attributes/medium/1/9b869f113238", "text": "Which holds the most?"}
-{"answer": "The purple jug holds more.", "id": "f10-compare-measurement-attributes/medium/1/cb8bf65ad745", "text": "Amir fills the purple jug with water and pours all of it into the red jug. The …"}
-{"answer": "Kenji took longer.", "id": "f10-compare-measurement-attributes/medium/2/57c32fa33e96", "text": "Kai and Kenji start drawing a picture at the same time. Kai finishes when Kenji…"}
 {"answer": "The jar", "id": "f10-compare-measurement-attributes/medium/2/5d3361641b95", "text": "Which one is heavier?"}
 {"answer": "Item 1, Item 2, Item 3", "id": "f10-compare-order-measure-attributes/easy/0/5f3764d370de", "text": "These are the clues, in no particular order: Item 3 tips the balance down again…"}
 {"answer": "Event 1, Event 2, Event 3", "id": "f10-compare-order-measure-attributes/easy/1/e445e3af1b9c", "text": "These are the clues, in no particular order: Event 3 takes longer to finish tha…"}
@@ -4924,9 +4906,6 @@
 {"answer": "Square", "id": "name-basic-shapes/easy/0/2b2ac6f3a840", "text": "What shape is this?"}
 {"answer": "Rectangle", "id": "name-basic-shapes/easy/1/957403a34e89", "text": "Which shape can you see?"}
 {"answer": "Triangle", "id": "name-basic-shapes/easy/2/1a7e636c46b7", "text": "Which shape can you see?"}
-{"answer": "Triangle", "id": "name-basic-shapes/glyphs-and-clues/0/4c7dc822e285", "text": "Diego thinks of a shape. It has 3 corners. What is it?"}
-{"answer": "Rectangle", "id": "name-basic-shapes/glyphs-and-clues/1/d31ec828d6e1", "text": "Freya draws this shape. ▬ What is it called?"}
-{"answer": "Circle", "id": "name-basic-shapes/glyphs-and-clues/2/ba04cff74783", "text": "Name this shape. ●"}
 {"answer": "Square", "id": "name-basic-shapes/hard/0/66599108339e", "text": "Which shape is the walls of this house?"}
 {"answer": "Rectangular prism", "id": "name-basic-shapes/hard/1/7a11373363e3", "text": "Which shape does this box look like?"}
 {"answer": "Cylinder", "id": "name-basic-shapes/hard/2/277453cf5c90", "text": "Which shape is this can?"}

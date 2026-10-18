@@ -40,7 +40,7 @@ sources:
   stages:
   - exam
 - topic: exd_x_r3j_ratio_shares
-  params: {}
+  params: {tier: exam}
   difficulty: exam
   stages:
   - exam

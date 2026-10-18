@@ -22,14 +22,6 @@ sources:
 - topic: compare_length_picture
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: ey6a_compare_length
-  key: three-lines
-  params: {lines: 3}
-  difficulty: easy
-- topic: ey6a_compare_length
-  key: four-lines
-  params: {lines: 4}
-  difficulty: easy
 misconceptions:
 - id: picks-furthest-end
   description: Picks the object whose end reaches furthest right, even though it started further along and is not the longest.

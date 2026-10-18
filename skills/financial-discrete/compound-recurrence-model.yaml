@@ -30,7 +30,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r3j_recurrence_savings
-  params: {}
+  params: {tier: exam}
   difficulty: exam
   stages:
   - exam

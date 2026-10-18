@@ -275,7 +275,8 @@ def test_both_skills_load_through_api():
     assert locate_skill.prerequisites == ["simple-interest"]
     assert locate_skill.answer == "mcq"
     assert locate_skill.placement_eligible is False
-    assert len(locate_skill.sources) == 4  # easy, medium, hard, exam
+    # easy, medium, hard, exam chain, plus the single-part exam question re-added as key exam-single (bf2fca7)
+    assert len(locate_skill.sources) == 5
 
     float_skill = skills_dict.get("senior-calculate-float-times-for-non-critical-activities")
     assert float_skill is not None

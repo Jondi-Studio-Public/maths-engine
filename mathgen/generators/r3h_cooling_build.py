@@ -22,6 +22,7 @@ import math
 import sympy
 
 from ..core import attempts, check, generator, rounds_unambiguously
+from ._exd_distinct_parts import answers_distinct
 from ._r3h_kit import (
     T,
     PARAM,
@@ -373,8 +374,16 @@ def _exam_once(rng):
     return dict(text=stem, latex=latex, parts=parts)
 
 
+def _exam_distinct(rng):
+    """`_exam_once`, drawn again when two parts share an answer (a learner could copy one into the other)."""
+    built = _exam_once(rng)
+    if not answers_distinct(built["parts"]):
+        raise Redraw
+    return built
+
+
 @generator("exd_x_r3h_cooling", level=17, presets={"exam": dict(tier="exam")})
 def exd_x_r3h_cooling(rng, tier="exam"):
     """Exam tier: the initial excess, k, a later temperature and the time to reach a temperature."""
     check(tier == "exam", f"unknown tier {tier!r}")
-    return build_with_redraws(rng, _exam_once)
+    return build_with_redraws(rng, _exam_distinct)

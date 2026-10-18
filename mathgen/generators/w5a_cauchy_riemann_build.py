@@ -193,7 +193,7 @@ def _flip_terms(v):
 
 
 def _gauss(rng, lo=-3, hi=3, nonzero=True):
-    while True:
+    for _ in attempts(1000, "a Gaussian integer pair"):
         a, b = rng.randint(lo, hi), rng.randint(lo, hi)
         if not (nonzero and a == 0 and b == 0):
             return a, b

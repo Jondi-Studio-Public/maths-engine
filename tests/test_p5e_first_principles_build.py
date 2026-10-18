@@ -99,8 +99,11 @@ def test_skill_sources_cover_correct_stages():
     _, skills = load_skills()
     skill = next((s for s in skills if s.id == "senior-define-the-derivative-f-left-x-right-as"), None)
     assert skill is not None
-    assert len(skill.sources) == 4
+    # 3 tiers + the multi-part exam chain + the single-part exam source re-added as key exam-single (bf2fca7)
+    assert len(skill.sources) == 5
     assert skill.sources[3].difficulty == "exam"
+    assert skill.sources[4].difficulty == "exam"
+    assert skill.sources[4].key == "exam-single"
     # Check that all sources have the correct topic
     for source in skill.sources[:3]:
         assert source.topic == "define_the_derivative_f_left_x_right_as"
