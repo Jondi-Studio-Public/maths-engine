@@ -119,9 +119,10 @@ def test_exam_shape_and_grading():
 def test_exam_keys_match_sympy():
     for seed in range(80):
         q = sup.exam_question(EXAM, seed)
-        found = re.search(r"parabola y = (.+?) and the line y = (.+?) intersect at", q.text)
-        parabola, line = _expr(found.group(1)), _expr(found.group(2))
-        left, right = sorted(sympy.solve(sympy.Eq(parabola, line), X))
+        found = re.search(r"graph y = (\|.+?\|) and the line y = (.+?) intersect at", q.text)
+        assert found, (seed, q.text)  # the exam stem really contains an absolute value
+        parabola, line = _modulus(found.group(1)), _expr(found.group(2))
+        left, right = sorted(s for s in sympy.solve(sympy.Eq(parabola, line), X, dict=False) if line.subs(X, s) >= 0)
         slope = sympy.Poly(line, X).all_coeffs()[0]
         assert sympy.simplify(sympy.sympify(q.parts[0].answer_text) - left) == 0, seed
         assert sympy.simplify(sympy.sympify(q.parts[1].answer_text) - right) == 0, seed
@@ -138,7 +139,7 @@ def test_distance_follows_through_from_wrong_intersections():
     sk = sup.skill_object(SKILL)
     for seed in range(20):
         q = sup.exam_question(EXAM, seed)
-        found = re.search(r"parabola y = (.+?) and the line y = (.+?) intersect at", q.text)
+        found = re.search(r"graph y = (\|.+?\|) and the line y = (.+?) intersect at", q.text)
         slope = sympy.Poly(_expr(found.group(2)), X).all_coeffs()[0]
         canon = {p.label: p.answer_text for p in q.parts}
         replies = {**canon, "a": "1", "b": "4", "c": str(sympy.sqrt(1 + slope**2) * 3)}

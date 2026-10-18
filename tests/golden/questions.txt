@@ -1,9 +1,9 @@
 {"answer": "{-1, 8}", "id": "absolute-value-equations-inequalities/easy/0/b14158eac3d9", "text": "Solve |-2x + 7| = 9. Give the solutions separated by commas, for example -3, 7/…"}
 {"answer": "{-16/3, 8/3}", "id": "absolute-value-equations-inequalities/easy/1/9eeffa6fe0e1", "text": "Solve |3x + 4| + 5 = 17. Give the solutions separated by commas, for example -3…"}
 {"answer": "{-5/2, 1}", "id": "absolute-value-equations-inequalities/easy/2/5500bb1e4182", "text": "Solve |4x + 3| = 7. Give the solutions separated by commas, for example -3, 7/2."}
-{"answer": "(a) -3; (b) -2; (c) sqrt(5); (d) -3 < x < -2", "id": "absolute-value-equations-inequalities/exam/0/fa3a814e4ada", "text": "The parabola y = x² + 3x + 12 and the line y = -2x + 6 intersect at two points.…"}
-{"answer": "(a) -6; (b) 5; (c) 11*sqrt(5); (d) -6 < x < 5", "id": "absolute-value-equations-inequalities/exam/1/e3eb0ead1fa5", "text": "The parabola y = x² + 3x - 24 and the line y = 2x + 6 intersect at two points. …"}
-{"answer": "(a) 0; (b) 2; (c) 2*sqrt(10); (d) 0 < x < 2", "id": "absolute-value-equations-inequalities/exam/2/a80d192584dd", "text": "The parabola y = x² + x - 2 and the line y = 3x - 2 intersect at two points. (a…"}
+{"answer": "(a) -5; (b) 7; (c) 12*sqrt(5); (d) -5 < x < 7", "id": "absolute-value-equations-inequalities/exam/0/944e3be376a2", "text": "The graph y = |4x + 8| and the line y = 2x + 22 intersect at two points. (a) Fi…"}
+{"answer": "(a) -4; (b) 5; (c) 9*sqrt(5); (d) -4 < x < 5", "id": "absolute-value-equations-inequalities/exam/1/acd75295a55a", "text": "The graph y = |4x + 7| and the line y = 2x + 17 intersect at two points. (a) Fi…"}
+{"answer": "(a) -6; (b) 2; (c) 8*sqrt(2); (d) -6 < x < 2", "id": "absolute-value-equations-inequalities/exam/2/4b19fd7afd10", "text": "The graph y = |2x + 8| and the line y = x + 10 intersect at two points. (a) Fin…"}
 {"answer": "{0, 14/3}", "id": "absolute-value-equations-inequalities/hard/0/d1d027c57c2f", "text": "Solve |x + 7| = |4x - 7|. Give the solutions separated by commas, for example -…"}
 {"answer": "{12}", "id": "absolute-value-equations-inequalities/hard/1/895b48b99e6a", "text": "Solve |2x + 9| = 3x - 3. Give the solutions separated by commas, for example -3…"}
 {"answer": "{18}", "id": "absolute-value-equations-inequalities/hard/2/f5b7d8da484c", "text": "Solve |x + 9| = 2x - 9. Give the solutions separated by commas, for example -3,…"}

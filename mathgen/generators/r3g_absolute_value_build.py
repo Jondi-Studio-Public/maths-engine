@@ -8,12 +8,12 @@ inequalities with the absolute value (modulus) of a linear expression.
   is the set of integers from -6 to 6 that satisfy it, which is an interval for ``<`` and two rays for ``>``.
 * hard: a two-modulus equation ``|ax + b| = |cx + d|``; ``|ax + b| = cx + d``, where a candidate may have to be rejected
   because ``cx + d`` is negative there; or the integers from -6 to 6 satisfying ``|ax + b| < cx + d`` (or ``>``).
-* exam (``r3g_exam_absolute_value``): a line meets a parabola. (a) The smaller and (b) the larger x-coordinate of the
-  intersections, (c) the distance between them (follows through from (a) and (b)) and (d) the values of x for which the
-  parabola lies below the line.
+* exam (``r3g_exam_absolute_value``): a line meets the V-shaped graph y = |ax + e|. (a) The smaller and (b) the larger
+  x-coordinate of the intersections, (c) the distance between them (follows through from (a) and (b)) and (d) the values
+  of x for which the V lies below the line.
 
 Solutions are found by cases and confirmed by testing sample points directly in the stated equation or inequality; the
-intersections of the exam chain are confirmed against the roots found by SymPy.
+intersections of the exam chain are confirmed against the roots found by SymPy (squared, keeping mx + d >= 0).
 """
 
 from __future__ import annotations
@@ -28,11 +28,9 @@ from ..grading.inequality import set_text
 from ._r3g_kit import (
     TooFewDistractors,
     ex,
-    factor_text,
     in_real_set,
     latex,
     pick,
-    quad_text,
     retry_short,
     typed,
     value_set_dist,
@@ -397,31 +395,34 @@ def r3g_absolute_value(rng, tier="easy"):
 @generator("r3g_exam_absolute_value", level=12, presets={"exam": dict(tier="exam")})
 @retry_short
 def r3g_exam_absolute_value(rng, tier="exam"):
-    """Exam chain: where a line meets a parabola, the distance between the points and where the parabola is below."""
+    """Exam chain: where a line meets the V-shaped graph y = |ax + e|, the distance between the points and where the V is below."""
     check(tier == "exam", f"unknown tier {tier!r}")
-    for _ in attempts(300, "a line and parabola meeting at two points"):
-        r1, r2 = rng.randint(-6, 3), rng.randint(-2, 7)
-        m = rng.choice((1, 2, 3, -1, -2, -3))
-        d = rng.randint(-5, 6)
-        b = rng.randint(-5, 5)
-        if r1 >= r2:
+    for _ in attempts(500, "a line meeting a V-shaped modulus graph at two points"):
+        a = rng.choice((2, 3, 4))
+        m = rng.choice([v for v in (-3, -2, -1, 1, 2, 3) if abs(v) < a])
+        r1, r2 = rng.randint(-6, 2), rng.randint(-1, 7)
+        if r1 >= r2 or (r2 - r1) < 2:
             continue
-        # x² + bx + c = mx + d  ->  x² + (b - m)x + (c - d) = 0 with roots r1, r2
-        b = m - (r1 + r2)
-        c = d + r1 * r2
-        if b == 0 or c == 0:
+        # left root on the branch -(ax + e) = mx + d, right root on ax + e = mx + d
+        two_d, two_e = r2 * (a - m) - r1 * (a + m), -r1 * (a + m) - r2 * (a - m)
+        if two_d % 2 or two_e % 2:
+            continue
+        d, e = two_d // 2, two_e // 2
+        if e == 0 or d == 0 or a * r1 + e >= 0 or a * r2 + e <= 0:
             continue
         break
-    xs = sorted(sp.roots(sp.Poly(X**2 + b * X + c - m * X - d, X)))
+    # the roots of |ax + e| = mx + d, found independently by squaring and keeping those with mx + d >= 0
+    xs = sorted(r for r in sp.roots(sp.Poly((a * X + e) ** 2 - (m * X + d) ** 2, X)) if m * r + d >= 0)
     check(xs == [r1, r2], "intersections differ from SymPy")
     dist = (r2 - r1) * sp.sqrt(1 + m * m)
     p1 = (r1, m * r1 + d)
     p2 = (r2, m * r2 + d)
+    check(abs(a * r1 + e) == p1[1] and abs(a * r2 + e) == p2[1], "a point is not on the modulus graph")
     check(sp.simplify(sp.sqrt((p2[0] - p1[0]) ** 2 + (p2[1] - p1[1]) ** 2) - dist) == 0, "distance differs")
     solution = sp.Interval.open(r1, r2)
-    for x in (r1 - 1, r1, R(r1 + r2, 2), r2, r2 + 1):
-        below = x**2 + b * x + c < m * x + d
-        check(below == (x in solution), "the parabola is not below the line exactly between the intersections")
+    for x in (r1 - 1, r1, R(r1 + r2, 2), r2, r2 + 1, R(r1 + r2, 2) + R(1, 3)):
+        below = abs(a * x + e) < m * x + d
+        check(below == (x in solution), "the V is not below the line exactly between the intersections")
     fields = _ineq_fields(solution)
 
     def part(prompt, value, marks, working, cands, follow=None):
@@ -440,28 +441,31 @@ def r3g_exam_absolute_value(rng, tier="exam"):
             dct["follow_through"] = follow
         return dct
 
-    parab = f"y = {quad_text(1, b, c)}"
+    graph = f"y = |{lin(a, e)}|"
     line = f"y = {lin(m, d)}"
     return dict(
-        text=f"The parabola {parab} and the line {line} intersect at two points.",
+        text=f"The graph {graph} and the line {line} intersect at two points.",
         parts=[
             part(
                 "Find the x-coordinate of the left-hand point of intersection.",
                 r1,
                 2,
-                [f"{quad_text(1, b - m, c - d)} = 0 factorises as {factor_text(r1)}{factor_text(r2)} = 0."],
+                [
+                    f"Left of the vertex {lin(a, e)} is negative, so |{lin(a, e)}| = -({lin(a, e)}). "
+                    f"Then -({lin(a, e)}) = {lin(m, d)} gives x = {r1}."
+                ],
                 [
                     (-r1, "r3g-abs-sign-of-constant"),
                     (r2, "r3g-abs-wrong-root"),
-                    (b, "r3g-abs-line-not-subtracted"),
-                    (R(-b, 2), "r3g-abs-line-not-subtracted"),
+                    (R(e - d, a + m), "r3g-abs-negative-case-sign"),
+                    (R(d - e, a - m) if r1 != R(d - e, a - m) else r1 + 1, "r3g-abs-second-case-missed"),
                 ],
             ),
             part(
                 "Find the x-coordinate of the right-hand point of intersection.",
                 r2,
                 1,
-                [f"The other solution is x = {r2}."],
+                [f"Right of the vertex, {lin(a, e)} = {lin(m, d)} gives x = {r2}."],
                 [
                     (-r2, "r3g-abs-sign-of-constant"),
                     (r1, "r3g-abs-wrong-root"),
@@ -485,10 +489,12 @@ def r3g_exam_absolute_value(rng, tier="exam"):
                 f"sqrt(1 + ({m})^2)*(part_b - part_a)",
             ),
             dict(
-                prompt="Find the values of x for which the parabola lies below the line. Write your answer as an inequality or in interval notation.",
+                prompt="Find the values of x for which the graph of y = |"
+                + lin(a, e)
+                + "| lies below the line. Write your answer as an inequality or in interval notation.",
                 marks=2,
                 working=[
-                    f"The parabola is an upward U-shape, so it is below the line between the intersections: {fields['answer_text']}."
+                    f"|{lin(a, e)}| < {lin(m, d)} holds between the intersections, because the V is steeper than the line: {fields['answer_text']}."
                 ],
                 distractors=pick(
                     fields["answer_text"],
