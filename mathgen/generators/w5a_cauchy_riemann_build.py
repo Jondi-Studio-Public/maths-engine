@@ -255,7 +255,7 @@ def _easy_parameter(rng: random.Random) -> dict:
         u = p * x**3 + k * x * y**2
         ans = -3 * p
         shown = f"{p if p != 1 else ''}x³ + kxy²".replace("-1x", "-x").replace("+ -", "- ")
-        tex = f"{p if p != 1 else ''}x^3 + kxy^2".replace("-1x", "-x")
+        tex = f"{p if p != 1 else ''}x^3 + k x y^2".replace("-1x", "-x")
     elif kind == "square":
         u = p * x**2 + k * y**2 + t * x
         ans = -p
@@ -270,13 +270,13 @@ def _easy_parameter(rng: random.Random) -> dict:
         ans = -6 * p
         c = "" if p == 1 else "-" if p == -1 else str(p)
         shown = f"{c}x⁴ + kx²y² + {c}y⁴".replace("+ -", "- ")
-        tex = f"{c}x^4 + kx^2y^2 + {c}y^4".replace("+ -", "- ")
+        tex = f"{c}x^4 + k x^2 y^2 + {c}y^4".replace("+ -", "- ")
     else:
         u = p * x**3 * y + k * x * y**3
         ans = -p
         c = "" if p == 1 else "-" if p == -1 else str(p)
         shown = f"{c}x³y + kxy³"
-        tex = f"{c}x^3y + kxy^3"
+        tex = f"{c}x^3 y + k x y^3"
     lap = sympy.diff(u, x, 2) + sympy.diff(u, y, 2)
     check(sympy.expand(lap.subs(k, ans)) == 0, "u is harmonic at the answer")
     check(sympy.expand(lap.subs(k, ans + 1)) != 0, "k is determined")
@@ -782,7 +782,7 @@ def exd_x_w5a_cauchy_riemann(rng: random.Random, tier: str = "exam") -> dict:
     check(sympy.expand(ux.subs({x: 1, y: 1}) - I * uy.subs({x: 1, y: 1}) - deriv) == 0, "f'(1 + i)")
     # the text of u with the two unknowns
     shown = _signed(p, "x³", True) + " + axy²" + _signed(r, "x²") + " + by²" + _signed(t, "x")
-    tex = _signed(p, "x^3", True) + " + axy^2" + _signed(r, "x^2") + " + by^2" + _signed(t, "x")
+    tex = _signed(p, "x^3", True) + " + a x y^2" + _signed(r, "x^2") + " + by^2" + _signed(t, "x")
     stem = msay(
         "Let ",
         X(f"u(x, y) = {shown}", f"u(x, y) = {tex}"),

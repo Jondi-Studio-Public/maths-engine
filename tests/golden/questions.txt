@@ -10733,11 +10733,11 @@
 {"answer": "18", "id": "uc2-burnside-counting/medium/1/a3455f003a18", "text": "How many different bracelets can be made from 7 beads on a circular wire, each …"}
 {"answer": "231", "id": "uc2-burnside-counting/medium/2/96988bdb0b26", "text": "A bracelet has 4 beads, each of 6 possible colours. Bracelets that differ only …"}
 {"answer": "-x³ - 9x²y + 3x² + 3xy² + 4xy - 3x + 3y³ - 3y² + 3y", "id": "uc2-cauchy-riemann-harmonic-conjugate/easy/0/35373d84a010", "text": "Let u(x, y) = -3x³ + 3x²y + 2x² + 9xy² - 6xy + 3x - y³ - 2y² + 3y - 2. Find the…"}
-{"answer": "-3", "id": "uc2-cauchy-riemann-harmonic-conjugate/easy/1/76bed2fa1ccc", "text": "Find the value of the constant k for which u(x, y) = x³ + kxy² is harmonic."}
-{"answer": "-3", "id": "uc2-cauchy-riemann-harmonic-conjugate/easy/2/a77220d4f387", "text": "The function u(x, y) = 3x³y + kxy³ satisfies Laplace's equation for exactly one…"}
-{"answer": "(a) -3; (b) -3; (c) 3x²y + 6xy - y³ + 3y; (d) 9 + 12i", "id": "uc2-cauchy-riemann-harmonic-conjugate/exam/0/9491e79a7c97", "text": "Let u(x, y) = x³ + axy² + 3x² + by² + 3x, where a and b are constants, and let …"}
-{"answer": "(a) -3; (b) 1; (c) 3x²y - 2xy - y³ + y; (d) -1 + 4i", "id": "uc2-cauchy-riemann-harmonic-conjugate/exam/1/353e423df9c4", "text": "Let u(x, y) = x³ + axy² - x² + by² + x, where a and b are constants, and let u …"}
-{"answer": "(a) -3; (b) 2; (c) 3x²y - 4xy - y³ + y; (d) -3 + 2i", "id": "uc2-cauchy-riemann-harmonic-conjugate/exam/2/6ee52ec8a458", "text": "Let u(x, y) = x³ + axy² - 2x² + by² + x, where a and b are constants, and let u…"}
+{"answer": "-3", "id": "uc2-cauchy-riemann-harmonic-conjugate/easy/1/7c666130ed79", "text": "Find the value of the constant k for which u(x, y) = x³ + kxy² is harmonic."}
+{"answer": "-3", "id": "uc2-cauchy-riemann-harmonic-conjugate/easy/2/e044af9b196d", "text": "The function u(x, y) = 3x³y + kxy³ satisfies Laplace's equation for exactly one…"}
+{"answer": "(a) -3; (b) -3; (c) 3x²y + 6xy - y³ + 3y; (d) 9 + 12i", "id": "uc2-cauchy-riemann-harmonic-conjugate/exam/0/24f69f4e5d2a", "text": "Let u(x, y) = x³ + axy² + 3x² + by² + 3x, where a and b are constants, and let …"}
+{"answer": "(a) -3; (b) 1; (c) 3x²y - 2xy - y³ + y; (d) -1 + 4i", "id": "uc2-cauchy-riemann-harmonic-conjugate/exam/1/928272f66222", "text": "Let u(x, y) = x³ + axy² - x² + by² + x, where a and b are constants, and let u …"}
+{"answer": "(a) -3; (b) 2; (c) 3x²y - 4xy - y³ + y; (d) -3 + 2i", "id": "uc2-cauchy-riemann-harmonic-conjugate/exam/2/d7d9c4de0c67", "text": "Let u(x, y) = x³ + axy² - 2x² + by² + x, where a and b are constants, and let u…"}
 {"answer": "cosh(z) - 1 + 2i + e^(-z)", "id": "uc2-cauchy-riemann-harmonic-conjugate/hard/0/76a8b2118e14", "text": "An analytic function f = u + iv has u(x, y) = cos(y)cosh(x) - 1 + e^(-x)cos(y) …"}
 {"answer": "-2xsin(x)sinh(y) + 2ycos(x)cosh(y) + 2sin(y)cosh(x)", "id": "uc2-cauchy-riemann-harmonic-conjugate/hard/1/1807d9f08d0a", "text": "Determine, with v(0, 0) = 0, the harmonic conjugate of u(x, y) = 2xcos(x)cosh(y…"}
 {"answer": "y(-6x - 12)/(y² + (x + 2)²)²", "id": "uc2-cauchy-riemann-harmonic-conjugate/hard/2/11fb2f3bd31a", "text": "Find the harmonic conjugate v of u = (-3y² + 3(x + 2)²)/(y² + (x + 2)²)² that v…"}
