@@ -910,7 +910,8 @@ def directional_derivative(rng, coefficient_hi=5, point_hi=4):
             f"For f(x,y) = {_poly_display(function)}, find the directional derivative "
             f"at ({x0}, {y0}) in the unit direction ({ux}, {uy}).{rounding}"
         ),
-        latex=rf"D_{{({ux},{uy})}}f({x0},{y0}),\quad f={sympy.latex(function)}",
+        latex=rf"D_{{({ux},{uy})}}f({x0},{y0}),\quad f={sympy.latex(function)}"
+        + (r",\quad \text{Give your answer correct to 6 significant figures}" if rounding else ""),
         answer=answer,
         answer_text=answer_text,
         answer_latex=answer_text,

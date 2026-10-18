@@ -902,7 +902,7 @@
 {"answer": "-2*sin(x) + 4*cos(4*x)", "id": "differentiate-trig/medium/1/a1b11cef60c6", "text": "Differentiate sin(4*x) + 2*cos(x) with respect to x"}
 {"answer": "-10*sin(2*x) + 6*cos(2*x)", "id": "differentiate-trig/medium/2/1fb6e641b2ef", "text": "Differentiate 3*sin(2*x) + 5*cos(2*x) with respect to x"}
 {"answer": "4.4", "id": "directional-derivative/easy/0/97003790b2b6", "text": "For f(x,y) = 3x^2 - 3xy + 3x - 2y^2, find the directional derivative at (-2, -1…"}
-{"answer": "5.07692", "id": "directional-derivative/easy/1/957e25bfd56e", "text": "For f(x,y) = 2x^2 - xy - y^2, find the directional derivative at (1, -2) in the…"}
+{"answer": "5.07692", "id": "directional-derivative/easy/1/0154b3195b59", "text": "For f(x,y) = 2x^2 - xy - y^2, find the directional derivative at (1, -2) in the…"}
 {"answer": "5", "id": "directional-derivative/easy/2/cc9607fc6417", "text": "For f(x,y) = x^2 - 3xy - 2y^2, find the directional derivative at (0, -1) in th…"}
 {"answer": "(a) 1; (b) 8; (c) -2.88; (d) 8.06", "id": "directional-derivative/exam/0/472107db7f42", "text": "The height of a sand dune, in metres, at a point (x, y) hundreds of metres east…"}
 {"answer": "(a) 42; (b) 36; (c) 55.20; (d) 55.32", "id": "directional-derivative/exam/1/585d2bb19003", "text": "The height of a hillside, in metres, at a point (x, y) kilometres east and nort…"}
@@ -912,7 +912,7 @@
 {"answer": "48.4", "id": "directional-derivative/hard/2/65c4d5d70b1c", "text": "For f(x,y) = 3x^2 - xy - 8x + 5y^2, find the directional derivative at (-6, 2) …"}
 {"answer": "-9.2", "id": "directional-derivative/medium/0/19022b1ebbc2", "text": "For f(x,y) = x^2 - 2xy - 4x - 4y^2, find the directional derivative at (-2, 1) …"}
 {"answer": "-16", "id": "directional-derivative/medium/1/b1a56a948224", "text": "For f(x,y) = 4x^2 - 5y^2, find the directional derivative at (-2, -4) in the un…"}
-{"answer": "-21.5385", "id": "directional-derivative/medium/2/847cc5117f0a", "text": "For f(x,y) = 2x^2 + 5xy + 5x + 5y^2, find the directional derivative at (-2, -1…"}
+{"answer": "-21.5385", "id": "directional-derivative/medium/2/a0b2396b52f5", "text": "For f(x,y) = 2x^2 + 5xy + 5x + 5y^2, find the directional derivative at (-2, -1…"}
 {"answer": "3", "id": "discrete-expected-value/easy/0/1038822ee773", "text": "A discrete random variable X has P(X=2)=1/5, P(X=3)=3/5, P(X=4)=1/5. Find E[X]."}
 {"answer": "-4", "id": "discrete-expected-value/easy/1/c185ab2baeaf", "text": "A discrete random variable X has P(X=-5)=2/5, P(X=-4)=1/5, P(X=-3)=2/5. Find E[…"}
 {"answer": "-2", "id": "discrete-expected-value/easy/2/4e4738130b0b", "text": "A discrete random variable X has P(X=-4)=3/5, P(X=-1)=1/5, P(X=3)=1/5. Find E[X…"}
