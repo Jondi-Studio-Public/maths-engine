@@ -800,8 +800,9 @@ def test_all_20_levels_registered():
     # Levels 1-20 must all be covered; new foundational topics (added after
     # the original 20) may reuse a level 1-10 rather than each needing a
     # unique one, so this checks coverage, not a 1:1 count. Level 21 is the
-    # transformation-invariants pair (`f10_*_invariants_build.py`).
-    assert set(lvl for lvl, _t in topics()) == set(range(1, 22))
+    # transformation-invariants pair (`f10_*_invariants_build.py`); level 22 is the
+    # second-year university generators (`s2c1_*_build.py`).
+    assert set(lvl for lvl, _t in topics()) == set(range(1, 23))
     assert len(topics()) == len(REGISTRY)
 
 
