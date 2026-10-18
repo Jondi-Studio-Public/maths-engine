@@ -164,6 +164,14 @@ autonomous-equilibrium-stability:
     module: mathgen/generators/university_fourier_dynamics.py
   - topic: exd_x_sc1_harvested_equilibria
     module: mathgen/generators/exd_x_sc1_harvested_equilibria.py
+auxiliary-angle-max-min-solve:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: w6a_aux_angle
+    module: mathgen/generators/w6a_aux_angle_build.py
+  - topic: exd_x_w6a_aux_angle
+    module: mathgen/generators/w6a_aux_angle_build.py
 back-to-back-stem-plot-compare:
   domain: statistics-probability
   status: active
@@ -234,6 +242,14 @@ bisection-interval-update:
     module: mathgen/generators/university_scientific_computing.py
   - topic: exd_x_u4_bisection_steps
     module: mathgen/generators/exd_x_u4_bisection_steps.py
+boolean-algebra-logic-gates:
+  domain: logic-computability-and-information
+  status: active
+  sources:
+  - topic: w6a_boolean_logic
+    module: mathgen/generators/w6a_boolean_logic_build.py
+  - topic: exd_x_w6a_boolean_logic
+    module: mathgen/generators/w6a_boolean_logic_build.py
 calculate-mean:
   domain: statistics-probability
   status: active
@@ -468,6 +484,14 @@ complex-modulus:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r3d_complex_product_modulus
     module: mathgen/generators/exd_x_r3d_complex_product_modulus.py
+complex-polygon-vertices-and-roots-of-unity:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: w6b_complex_polygon_roots
+    module: mathgen/generators/w6b_complex_polygon_roots_build.py
+  - topic: exd_x_w6b_complex_polygon_roots
+    module: mathgen/generators/w6b_complex_polygon_roots_build.py
 complex-real-part:
   domain: senior-mathematics
   status: active
@@ -476,6 +500,14 @@ complex-real-part:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r3e_complex_quotient
     module: mathgen/generators/exd_x_r3e_complex_quotient.py
+complex-rotation-and-vertex-completion:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: w6b_complex_rotation
+    module: mathgen/generators/w6b_complex_rotation_build.py
+  - topic: exd_x_w6b_complex_rotation
+    module: mathgen/generators/w6b_complex_rotation_build.py
 composite-function-domain:
   domain: functions-sequences
   status: active
@@ -2436,6 +2468,14 @@ flat-loan-repayment:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r2d_flat_loan_term_chain
     module: mathgen/generators/exd_x_r2d_flat_loan_term_chain.py
+floor-ceiling-estimation:
+  domain: arithmetic
+  status: active
+  sources:
+  - topic: w7b_floor_ceiling_estimation
+    module: mathgen/generators/w7b_floor_ceiling_estimation_build.py
+  - topic: exd_x_w7b_floor_ceiling_estimation
+    module: mathgen/generators/w7b_floor_ceiling_estimation_build.py
 fourier-coefficient-simple:
   domain: fourier-analysis-and-pdes
   status: active
@@ -2526,6 +2566,14 @@ graph-adjacency-matrices:
     module: mathgen/generators/snet_adjacency_build.py
   - topic: snet_adjacency_chain
     module: mathgen/generators/snet_adjacency_build.py
+graph-complete-bipartite-connected:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w7a_graph_types
+    module: mathgen/generators/w7a_graph_types_build.py
+  - topic: exd_x_w7a_graph_types
+    module: mathgen/generators/w7a_graph_types_build.py
 graph-eulerian-trails-circuits:
   domain: financial-discrete
   status: active
@@ -2834,6 +2882,14 @@ limits-of-a-bivariate-claim:
     module: mathgen/generators/ir2a_limits_of_a_bivariate_claim_build.py
   - topic: exd_x_ir2a_limits_of_a_bivariate_claim
     module: mathgen/generators/ir2a_limits_of_a_bivariate_claim_build.py
+line-meets-parabola-circle:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: w6a_line_conic
+    module: mathgen/generators/w6a_line_conic_build.py
+  - topic: exd_x_w6a_line_conic
+    module: mathgen/generators/w6a_line_conic_build.py
 linear-equations-with-fractions:
   domain: equations
   status: active
@@ -3122,6 +3178,14 @@ name-basic-shapes:
   sources:
   - topic: ey_shape_recognise
     module: mathgen/generators/ey_shapes_build.py
+network-cut-capacity-max-flow:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w7a_network_cut
+    module: mathgen/generators/w7a_network_cut_build.py
+  - topic: exd_x_w7a_network_cut
+    module: mathgen/generators/w7a_network_cut_build.py
 network-model-from-situation:
   domain: financial-discrete
   status: active
@@ -3154,6 +3218,14 @@ nth-term-rule:
     module: mathgen/generators/foundations_algebra.py
   - topic: exd_x_f1_nth_term
     module: mathgen/generators/exd_x_f1_nth_term.py
+number-bases-primes-and-divisors:
+  domain: number-theory
+  status: active
+  sources:
+  - topic: w7b_number_systems_primes
+    module: mathgen/generators/w7b_number_systems_primes_build.py
+  - topic: exd_x_w7b_number_systems_primes
+    module: mathgen/generators/w7b_number_systems_primes_build.py
 number-bonds-to-10:
   domain: early-foundations
   status: active
@@ -3600,6 +3672,14 @@ recurring-decimal-to-fraction:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_n4_recurring_mixed
     module: mathgen/generators/exd_x_n4_recurring_decimals.py
+relative-velocity-vectors:
+  domain: vectors
+  status: active
+  sources:
+  - topic: w7b_relative_velocity
+    module: mathgen/generators/w7b_relative_velocity_build.py
+  - topic: exd_x_w7b_relative_velocity
+    module: mathgen/generators/w7b_relative_velocity_build.py
 residual-plot-linear-model-check:
   domain: statistics-probability
   status: active
@@ -6404,6 +6484,14 @@ sine-rule:
     module: mathgen/generators/p8b_trig_rules_build.py
   - topic: exd_x_f5_sinetower
     module: mathgen/generators/exd_x_f5_sinetower.py
+sinusoid-features-from-equation:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: w6b_sinusoid_features
+    module: mathgen/generators/w6b_sinusoid_features_build.py
+  - topic: exd_x_w6b_sinusoid_features
+    module: mathgen/generators/w6b_sinusoid_features_build.py
 skip-count-2-5-10:
   domain: early-foundations
   status: active
@@ -6656,6 +6744,14 @@ uc2-clt-approximation-sums:
     module: mathgen/generators/r4i_clt_sums_build.py
   - topic: exd_x_r4i_clt_sums
     module: mathgen/generators/r4i_clt_sums_build.py
+uc2-cofactor-expansion-4x4:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: w6c_cofactor
+    module: mathgen/generators/w6c_cofactor_build.py
+  - topic: exd_x_w6c_cofactor
+    module: mathgen/generators/w6c_cofactor_build.py
 uc2-cosets-and-index:
   domain: abstract-algebra
   status: active
@@ -6688,6 +6784,22 @@ uc2-dijkstra-trace:
     module: mathgen/generators/r4j_dijkstra_trace_build.py
   - topic: exd_x_r4j_dijkstra_trace
     module: mathgen/generators/r4j_dijkstra_trace_build.py
+uc2-dynamic-programming-tables:
+  domain: discrete-mathematics
+  status: active
+  sources:
+  - topic: w7a_dp_table
+    module: mathgen/generators/w7a_dp_table_build.py
+  - topic: exd_x_w7a_dp_table
+    module: mathgen/generators/w7a_dp_table_build.py
+uc2-error-correcting-codes:
+  domain: logic-computability-and-information
+  status: active
+  sources:
+  - topic: w7c_coding
+    module: mathgen/generators/w7c_coding_build.py
+  - topic: exd_x_w7c_coding
+    module: mathgen/generators/w7c_coding_build.py
 uc2-estimator-bias-and-mse:
   domain: statistics
   status: active
@@ -6768,6 +6880,14 @@ uc2-group-table-check:
     module: mathgen/generators/r4a_group_table_check_build.py
   - topic: exd_x_r4a_group_table_check
     module: mathgen/generators/r4a_group_table_check_build.py
+uc2-hermitian-unitary-matrices:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: w6c_hermitian
+    module: mathgen/generators/w6c_hermitian_build.py
+  - topic: exd_x_w6c_hermitian
+    module: mathgen/generators/w6c_hermitian_build.py
 uc2-homomorphism-kernel-image:
   domain: abstract-algebra
   status: active
@@ -6856,6 +6976,14 @@ uc2-matrix-norm-1-and-infinity:
     module: mathgen/generators/r4h_matrix_norm_condition_build.py
   - topic: exd_x_r4h_matrix_norm_condition
     module: mathgen/generators/r4h_matrix_norm_condition_build.py
+uc2-multivariable-taylor-hessian:
+  domain: multivariable-and-vector-calculus
+  status: active
+  sources:
+  - topic: w6c_taylor
+    module: mathgen/generators/w6c_taylor_build.py
+  - topic: exd_x_w6c_taylor
+    module: mathgen/generators/w6c_taylor_build.py
 uc2-newton-divided-differences:
   domain: numerical-and-computational-mathematics
   status: active
@@ -6952,6 +7080,14 @@ uc2-power-method-step:
     module: mathgen/generators/r4b_power_method_build.py
   - topic: exd_x_r4b_power_method
     module: mathgen/generators/r4b_power_method_build.py
+uc2-quadric-surfaces-level-sets:
+  domain: multivariable-and-vector-calculus
+  status: active
+  sources:
+  - topic: w7c_quadric
+    module: mathgen/generators/w7c_quadric_build.py
+  - topic: exd_x_w7c_quadric
+    module: mathgen/generators/w7c_quadric_build.py
 uc2-quotient-group-order-and-structure:
   domain: abstract-algebra
   status: active
@@ -7008,6 +7144,14 @@ uc2-subgroup-lattice-count:
     module: mathgen/generators/r4c_subgroup_lattice_count_build.py
   - topic: exd_x_r4c_subgroup_lattice_count
     module: mathgen/generators/r4c_subgroup_lattice_count_build.py
+uc2-svd-small-matrices:
+  domain: linear-algebra
+  status: active
+  sources:
+  - topic: w6c_svd
+    module: mathgen/generators/w6c_svd_build.py
+  - topic: exd_x_w6c_svd
+    module: mathgen/generators/w6c_svd_build.py
 uc2-symmetric-group-conjugacy:
   domain: abstract-algebra
   status: active
@@ -8080,6 +8224,14 @@ ucv1-weak-solution-regularity:
   sources:
   - topic: ucv1_weak_solution_regularity
     module: mathgen/generators/ucv1_weak_solution_regularity_build.py
+unit-cost-depreciation:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w7b_unit_cost_depreciation
+    module: mathgen/generators/w7b_unit_cost_depreciation_build.py
+  - topic: exd_x_w7b_unit_cost_depreciation
+    module: mathgen/generators/w7b_unit_cost_depreciation_build.py
 unit-pricing:
   domain: financial-discrete
   status: active
