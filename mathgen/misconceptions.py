@@ -35937,6 +35937,121 @@ _ENTRIES = (
         "Gives the component of the chaser's velocity relative to the target instead of its own velocity.",
         area="relative-velocity",
     ),
+    CatalogueEntry(
+        "ucd-cents-not-converted",
+        "Uses a rate given in cents as if it were dollars, so the amount is 100 times too large.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-decimal-slip",
+        "Misplaces the decimal point in the product of the rate and the units, so the amount is ten times too large or too small.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-rate-inverted",
+        "Divides the units by the amount depreciated instead of the amount by the units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-rate-to-units",
+        "Adds the rate to the number of units instead of multiplying them.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-amount-not-value",
+        "Gives the amount depreciated where the value after use was asked.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-to-price",
+        "Adds the depreciation to the purchase price instead of subtracting it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-one-unit-only",
+        "Subtracts the depreciation for a single unit instead of for all the units used.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-ignores-salvage",
+        "Divides the purchase price by the expected life in units, forgetting to subtract the salvage value first.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-salvage",
+        "Adds the salvage value to the purchase price before dividing, instead of subtracting it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-salvage-only",
+        "Divides the salvage value, not the amount to be depreciated, by the expected life in units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-units-from-value",
+        "Divides the target value by the rate instead of the depreciation needed to reach it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-units-from-price",
+        "Divides the purchase price by the rate, ignoring the value the asset is to reach.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-multiplies-for-units",
+        "Multiplies the depreciation needed by the rate instead of dividing by it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-single-rate",
+        "Uses the first rate for every unit of use, ignoring that the rate changes after a stated number of units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-second-rate-everywhere",
+        "Uses the later rate for every unit of use, ignoring that the first units depreciated at the earlier rate.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-forgets-first-stage",
+        "Depreciates only the units in the second stage and forgets the depreciation already taken in the first.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-second-stage-only",
+        "Gives the units used in the second stage only, where the total units used were asked.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-first-year-usage",
+        "Uses the first year's use for every year instead of each year's own use.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-last-year-only",
+        "Depreciates only the last year's use instead of all the years' use so far.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-divides-by-total-units",
+        "Divides the fall in value by the larger number of units, not by the difference in units between the two readings.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-reading-as-price",
+        "Takes the earlier reading of the value as the purchase price when finding a later value.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-years-miscounted",
+        "Uses one year too many or one year too few when working out the flat-rate depreciation.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-compares-depreciation-only",
+        "Gives the depreciation under one method where the difference between the two values was asked.",
+        area="unit-cost-depreciation",
+    ),
 )
 
 #: Every entry, by id.

@@ -575,6 +575,7 @@ OPTION_NOTES_TOPICS = frozenset(
         "y910_line_plane_angle",
         # build-b batch
         "w7b_relative_velocity",
+        "w7b_unit_cost_depreciation",
     }
 )
 

@@ -1,0 +1,109 @@
+id: unit-cost-depreciation
+name: Unit-cost depreciation
+domain: financial-discrete
+year_level:
+- '12'
+description: Depreciate an asset by the amount of use it has had, finding the depreciation per unit (per kilometre or per
+  hour), the value after a number of units, and the number of units needed to reach a stated value.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-arithmetic-sequences-to-model-and-analyse-practical
+answer: number
+sources:
+- topic: w7b_unit_cost_depreciation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w7b_unit_cost_depreciation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w7b_unit_cost_depreciation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w7b_unit_cost_depreciation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ucd-cents-not-converted
+  description: Uses a rate given in cents as if it were dollars, so the amount is 100 times too large.
+- id: ucd-decimal-slip
+  description: Misplaces the decimal point in the product of the rate and the units, so the amount is ten times too large
+    or too small.
+- id: ucd-rate-inverted
+  description: Divides the units by the amount depreciated instead of the amount by the units.
+- id: ucd-adds-rate-to-units
+  description: Adds the rate to the number of units instead of multiplying them.
+- id: ucd-amount-not-value
+  description: Gives the amount depreciated where the value after use was asked.
+- id: ucd-adds-to-price
+  description: Adds the depreciation to the purchase price instead of subtracting it.
+- id: ucd-one-unit-only
+  description: Subtracts the depreciation for a single unit instead of for all the units used.
+- id: ucd-ignores-salvage
+  description: Divides the purchase price by the expected life in units, forgetting to subtract the salvage value first.
+- id: ucd-adds-salvage
+  description: Adds the salvage value to the purchase price before dividing, instead of subtracting it.
+- id: ucd-salvage-only
+  description: Divides the salvage value, not the amount to be depreciated, by the expected life in units.
+- id: ucd-units-from-value
+  description: Divides the target value by the rate instead of the depreciation needed to reach it.
+- id: ucd-units-from-price
+  description: Divides the purchase price by the rate, ignoring the value the asset is to reach.
+- id: ucd-multiplies-for-units
+  description: Multiplies the depreciation needed by the rate instead of dividing by it.
+- id: ucd-single-rate
+  description: Uses the first rate for every unit of use, ignoring that the rate changes after a stated number of units.
+- id: ucd-second-rate-everywhere
+  description: Uses the later rate for every unit of use, ignoring that the first units depreciated at the earlier rate.
+- id: ucd-forgets-first-stage
+  description: Depreciates only the units in the second stage and forgets the depreciation already taken in the first.
+- id: ucd-second-stage-only
+  description: Gives the units used in the second stage only, where the total units used were asked.
+- id: ucd-first-year-usage
+  description: Uses the first year's use for every year instead of each year's own use.
+- id: ucd-last-year-only
+  description: Depreciates only the last year's use instead of all the years' use so far.
+- id: ucd-divides-by-total-units
+  description: Divides the fall in value by the larger number of units, not by the difference in units between the two readings.
+- id: ucd-reading-as-price
+  description: Takes the earlier reading of the value as the purchase price when finding a later value.
+- id: ucd-years-miscounted
+  description: Uses one year too many or one year too few when working out the flat-rate depreciation.
+- id: ucd-compares-depreciation-only
+  description: Gives the depreciation under one method where the difference between the two values was asked.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Multiply a stated depreciation per unit by the units used, then subtract from the purchase price, or divide a
+      total depreciation by the units used.
+  medium:
+    steps: 3
+    demand: Find the depreciation per unit from the purchase price, the salvage value and the expected life, then the value
+      after some use or the units needed to reach a value.
+  hard:
+    steps: 5
+    demand: Handle a rate that changes after a number of units, or yearly usage that differs from year to year, to find a
+      value or the units needed.
+  exam:
+    steps: 6
+    demand: Chain the rate per unit, the value after a stated use, the units needed to reach a target value and a comparison
+      with flat-rate depreciation.
+tags:
+- senior
+- financial
+- depreciation
+- unit-cost
+- vce-general
