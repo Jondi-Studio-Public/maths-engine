@@ -35297,6 +35297,183 @@ _ENTRIES = (
         "Takes the larger of the two coefficients as the amplitude R.",
         area="auxiliary-angle",
     ),
+    # -- build-d batch --
+    CatalogueEntry(
+        "sinusoid-amplitude-includes-the-vertical-shift",
+        "Adding the vertical translation to the amplitude, so the amplitude of y = 2 sin x + 3 is given as 5.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-is-the-full-height",
+        "Giving the full height from the minimum to the maximum, twice the amplitude.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-is-the-multiple-of-x",
+        "Taking the number multiplying x as the amplitude, so the amplitude of y = 2 sin(3x) is given as 3.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-keeps-the-sign",
+        "Giving a negative amplitude, the signed coefficient, when the coefficient of the sine or cosine is negative.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-is-the-shift",
+        "Giving the horizontal translation itself as the position of the vertical asymptote of a tangent graph.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-multiplies-instead-of-dividing",
+        "Multiplying by the coefficient of x, not dividing by it, when solving for the x-value of the asymptote.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-off-by-a-half-period",
+        "Giving a value half a period from the smallest positive asymptote, where the graph crosses its midline.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-uses-the-period-not-half",
+        "Stepping a whole period from the shift to find the first asymptote of a tangent graph, where it is half a period from the shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-forgets-the-vertical-shift",
+        "Giving the amplitude as the maximum or its negative as the minimum, leaving out the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-takes-the-other-end",
+        "Giving the minimum value when the maximum was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-uses-the-full-height",
+        "Adding twice the amplitude to the vertical translation to get the maximum, or subtracting it to get the minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-uses-the-signed-amplitude",
+        "Using the signed coefficient as the amplitude, so a negative coefficient swaps the maximum and the minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-not-the-first",
+        "Giving a later maximum or minimum, a whole period away, instead of the smallest positive one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-the-opposite-one",
+        "Giving the x-value of the minimum when the maximum was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-the-shift",
+        "Giving the horizontal translation as the x-value of the first maximum or minimum, as if the curve began at its peak.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-multiplies-instead-of-dividing",
+        "Multiplying by the coefficient of x, not dividing by it, when solving for the x-value of the first maximum or minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-off-by-a-half-period",
+        "Giving the x-value half a period from the right one, so it is where the graph is at its other extreme.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-divides-the-angle-by-the-multiple",
+        "Dividing the angle at x = 0 by the coefficient of x before taking the sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-forgets-the-vertical-shift",
+        "Leaving out the vertical translation when finding the y-intercept.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-is-the-vertical-shift",
+        "Giving the vertical translation as the y-intercept, as if the sine or cosine were zero at x = 0.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-sign-of-angle-reversed",
+        "Losing the sign of the angle when x = 0 is put into the bracket, so the shift is taken the wrong way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-takes-the-maximum",
+        "Giving the maximum value as the y-intercept, as if the curve peaked at x = 0.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-ignores-the-multiple",
+        "Giving the period of the basic sine or cosine, 2π, ignoring the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-is-the-multiple-of-x",
+        "Taking the coefficient of x as the period.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-multiplies-by-the-multiple",
+        "Multiplying 2π by the coefficient of x instead of dividing by it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-uses-pi-not-two-pi",
+        "Dividing π, not 2π, by the coefficient of x to find the period of a sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-divided-by-the-multiple",
+        "Dividing the horizontal translation by the coefficient of x when it is already the shift of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-is-the-constant-in-the-bracket",
+        "Reading the constant in the expanded bracket as the horizontal translation without dividing by the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-is-the-negated-constant-in-the-bracket",
+        "Reading the negative of the constant in the expanded bracket as the horizontal translation without dividing by the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-multiplied-by-the-multiple",
+        "Multiplying the horizontal translation by the coefficient of x instead of reading it from the factored bracket.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-sign-reversed",
+        "Reading a bracket (x + c) as a shift to the right, or (x - c) as a shift to the left.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-amplitude",
+        "Giving the amplitude as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-maximum",
+        "Giving the maximum value as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-minimum",
+        "Giving the minimum value as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-sign-reversed",
+        "Giving the vertical translation with the wrong sign, so a graph moved up is read as moved down.",
+        area="trigonometry",
+    ),
+    # -- end build-d batch --
 )
 
 #: Every entry, by id.

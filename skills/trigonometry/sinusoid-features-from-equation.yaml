@@ -1,0 +1,129 @@
+id: sinusoid-features-from-equation
+name: Read the features of a sinusoid from its equation
+domain: trigonometry
+year_level:
+- '11'
+description: 'From the equation of y = a sin(b(x - c)) + d, its cosine form or a tangent, state a feature in exact form, with
+  multiples of π where needed: the amplitude, period, horizontal and vertical translation, and the maximum or minimum value;
+  then, with the bracket expanded and a negative, the translation and extremes; then the smallest positive x at which the
+  maximum or minimum occurs, the y-intercept or the first vertical asymptote of a tangent. The exam chain finds the amplitude,
+  period, horizontal translation and (following through) the maximum value.'
+status: active
+placement_eligible: false
+prerequisites:
+- senior-model-periodic-motion-using-sine-and-cosine-functions
+- senior-examine-period-changes-and-the-graphs-of-y
+- senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034
+answer: expression
+sources:
+- topic: w6b_sinusoid_features
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6b_sinusoid_features
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6b_sinusoid_features
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6b_sinusoid_features
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sinusoid-amplitude-includes-the-vertical-shift
+  description: Adding the vertical translation to the amplitude, so the amplitude of y = 2 sin x + 3 is given as 5.
+- id: sinusoid-amplitude-is-the-full-height
+  description: Giving the full height from the minimum to the maximum, twice the amplitude.
+- id: sinusoid-amplitude-is-the-multiple-of-x
+  description: Taking the number multiplying x as the amplitude, so the amplitude of y = 2 sin(3x) is given as 3.
+- id: sinusoid-amplitude-keeps-the-sign
+  description: Giving a negative amplitude, the signed coefficient, when the coefficient of the sine or cosine is negative.
+- id: sinusoid-asymptote-is-the-shift
+  description: Giving the horizontal translation itself as the position of the vertical asymptote of a tangent graph.
+- id: sinusoid-asymptote-multiplies-instead-of-dividing
+  description: Multiplying by the coefficient of x, not dividing by it, when solving for the x-value of the asymptote.
+- id: sinusoid-asymptote-off-by-a-half-period
+  description: Giving a value half a period from the smallest positive asymptote, where the graph crosses its midline.
+- id: sinusoid-asymptote-uses-the-period-not-half
+  description: Stepping a whole period from the shift to find the first asymptote of a tangent graph, where it is half a period from the shift.
+- id: sinusoid-extreme-forgets-the-vertical-shift
+  description: Giving the amplitude as the maximum or its negative as the minimum, leaving out the vertical translation.
+- id: sinusoid-extreme-takes-the-other-end
+  description: Giving the minimum value when the maximum was asked for, or the reverse.
+- id: sinusoid-extreme-uses-the-full-height
+  description: Adding twice the amplitude to the vertical translation to get the maximum, or subtracting it to get the minimum.
+- id: sinusoid-extreme-uses-the-signed-amplitude
+  description: Using the signed coefficient as the amplitude, so a negative coefficient swaps the maximum and the minimum.
+- id: sinusoid-first-extreme-is-not-the-first
+  description: Giving a later maximum or minimum, a whole period away, instead of the smallest positive one.
+- id: sinusoid-first-extreme-is-the-opposite-one
+  description: Giving the x-value of the minimum when the maximum was asked for, or the reverse.
+- id: sinusoid-first-extreme-is-the-shift
+  description: Giving the horizontal translation as the x-value of the first maximum or minimum, as if the curve began at its peak.
+- id: sinusoid-first-extreme-multiplies-instead-of-dividing
+  description: Multiplying by the coefficient of x, not dividing by it, when solving for the x-value of the first maximum or minimum.
+- id: sinusoid-first-extreme-off-by-a-half-period
+  description: Giving the x-value half a period from the right one, so it is where the graph is at its other extreme.
+- id: sinusoid-intercept-divides-the-angle-by-the-multiple
+  description: Dividing the angle at x = 0 by the coefficient of x before taking the sine or cosine.
+- id: sinusoid-intercept-forgets-the-vertical-shift
+  description: Leaving out the vertical translation when finding the y-intercept.
+- id: sinusoid-intercept-is-the-vertical-shift
+  description: Giving the vertical translation as the y-intercept, as if the sine or cosine were zero at x = 0.
+- id: sinusoid-intercept-sign-of-angle-reversed
+  description: Losing the sign of the angle when x = 0 is put into the bracket, so the shift is taken the wrong way.
+- id: sinusoid-intercept-takes-the-maximum
+  description: Giving the maximum value as the y-intercept, as if the curve peaked at x = 0.
+- id: sinusoid-period-ignores-the-multiple
+  description: Giving the period of the basic sine or cosine, 2π, ignoring the coefficient of x.
+- id: sinusoid-period-is-the-multiple-of-x
+  description: Taking the coefficient of x as the period.
+- id: sinusoid-period-multiplies-by-the-multiple
+  description: Multiplying 2π by the coefficient of x instead of dividing by it.
+- id: sinusoid-period-uses-pi-not-two-pi
+  description: Dividing π, not 2π, by the coefficient of x to find the period of a sine or cosine.
+- id: sinusoid-shift-divided-by-the-multiple
+  description: Dividing the horizontal translation by the coefficient of x when it is already the shift of x.
+- id: sinusoid-shift-is-the-constant-in-the-bracket
+  description: Reading the constant in the expanded bracket as the horizontal translation without dividing by the coefficient of x.
+- id: sinusoid-shift-is-the-negated-constant-in-the-bracket
+  description: Reading the negative of the constant in the expanded bracket as the horizontal translation without dividing by the coefficient of x.
+- id: sinusoid-shift-multiplied-by-the-multiple
+  description: Multiplying the horizontal translation by the coefficient of x instead of reading it from the factored bracket.
+- id: sinusoid-shift-sign-reversed
+  description: Reading a bracket (x + c) as a shift to the right, or (x - c) as a shift to the left.
+- id: sinusoid-vertical-shift-is-the-amplitude
+  description: Giving the amplitude as the vertical translation.
+- id: sinusoid-vertical-shift-is-the-maximum
+  description: Giving the maximum value as the vertical translation.
+- id: sinusoid-vertical-shift-is-the-minimum
+  description: Giving the minimum value as the vertical translation.
+- id: sinusoid-vertical-shift-sign-reversed
+  description: Giving the vertical translation with the wrong sign, so a graph moved up is read as moved down.
+difficulty_progression: Easy reads one feature straight from y = a sin(b(x - c)) + d, with a positive and the bracket already
+  factored, so a shift to the left must be read from x + c. Medium expands the bracket to y = a sin(bx + k) + d and allows a negative
+  a, so the translation is -k/b, not k, and the extremes depend on the sign of a. Hard asks for features that need solving,
+  not reading, namely the smallest positive x at which the maximum or minimum occurs, the y-intercept (an exact value of
+  sine or cosine at a multiple of the bracket's shift) and the first vertical asymptote of a tangent graph. The exam chain
+  gives the amplitude, period and translation of one expanded equation and then the maximum value, following through from
+  the amplitude.
+tags:
+- trigonometry
+- sinusoid
+- amplitude
+- period
+- horizontal-translation
+- radians
+- specialist-mathematics

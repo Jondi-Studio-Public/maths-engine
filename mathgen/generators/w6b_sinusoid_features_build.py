@@ -56,8 +56,26 @@ def _coef(a: int) -> str:
     return "" if a == 1 else "-" if a == -1 else str(a)
 
 
+def _tail(d) -> str:
+    """`` + 3``, `` - 2`` or nothing."""
+    return "" if d == 0 else f" + {num_text(d)}" if d > 0 else f" - {num_text(-d)}"
+
+
 def _b_text(b: Fraction) -> str:
-    return str(b.numerator) if b.denominator == 1 else f"{b.numerator}/{b.denominator}"
+    return str(b.numerator) if b.denominator == 1 else f"({b.numerator}/{b.denominator})"
+
+
+def _bx(b: Fraction) -> str:
+    """The text ``bx``: ``x``, ``3x`` or ``x/2``."""
+    if b == 1:
+        return "x"
+    return f"{b.numerator}x" if b.denominator == 1 else f"x/{b.denominator}"
+
+
+def _bracket(b: Fraction, c: Fraction) -> str:
+    """``b(x - c)`` as working text, written ``b(x + c')`` when the shift is to the left."""
+    inside = f"x - {pi_text(c)}" if c > 0 else f"x + {pi_text(-c)}"
+    return f"{_b_text(b)}({inside})"
 
 
 def _signed_pi(c: Fraction) -> str:
@@ -70,10 +88,10 @@ def equation_text(fn, a, b, c, d, *, expanded=False) -> str:
     c = Fraction(c)
     if expanded:
         k = -b * c
-        inner = f"{_b_text(b) if b != 1 else ''}x" + (_signed_pi(-k) if k != 0 else "")
+        inner = _bx(b) + (_signed_pi(-k) if k != 0 else "")
         inner = inner.replace(" - -", " - ")
     elif c == 0:
-        inner = f"{_b_text(b) if b != 1 else ''}x"
+        inner = _bx(b)
     elif b == 1:
         inner = f"x{_signed_pi(c)}"
     elif b.denominator == 1:
@@ -84,8 +102,12 @@ def equation_text(fn, a, b, c, d, *, expanded=False) -> str:
             if b.numerator != 1
             else f"(x{_signed_pi(c)})/{b.denominator}"
         )
-    tail = "" if d == 0 else f" + {d}" if d > 0 else f" - {-d}"
-    return f"y = {_coef(a)}{fn}({inner}){tail}"
+    return f"y = {_coef(a)}{fn}({inner}){_tail(d)}"
+
+
+def _positive(options):
+    """For a "smallest positive x" question: keep only the (value, tag) options that are positive x, as option objects."""
+    return [_expr(value, tag) for value, tag in options if value > 0]
 
 
 def _expr(frac, tag, *, pi=True):
@@ -111,7 +133,7 @@ def _f(fn, a, b, c, d, x):
 
 def _scan_extremes(fn, a, b, c, d):
     period = 2 * math.pi / float(b)
-    xs = [i * period / 4000 * 2 for i in range(4001)]
+    xs = [i * period / 2000 for i in range(4001)]  # two periods, 2000 samples a period
     ys = [_f(fn, a, b, c, d, x) for x in xs]
     return max(ys), min(ys)
 
@@ -146,17 +168,16 @@ def _first_extreme(fn, a, b, c, kind):
 
 def _verify_first_extreme(fn, a, b, c, d, x_frac, kind):
     x = float(x_frac) * math.pi
-    target = max(_scan_extremes(fn, a, b, c, d)) if False else None
     hi, lo = _scan_extremes(fn, a, b, c, d)
     value = _f(fn, a, b, c, d, x)
-    check(abs(value - (hi if kind == "max" else lo)) < 1e-9, "not an extreme at that x")
+    goal = hi if kind == "max" else lo
+    check(abs(value - goal) < 1e-4, "not an extreme at that x")
     period = 2 * math.pi / float(b)
-    # nothing smaller and positive is also an extreme
-    step = period / 400
-    t = step
-    while t < x - 1e-9:
-        check(abs(_f(fn, a, b, c, d, t) - (hi if kind == "max" else lo)) > 1e-6, "a smaller positive extreme exists")
-        t += step
+    # nothing smaller and positive is also an extreme: sample the graph finely between just after 0 (which may itself
+    # be an extreme, but is not positive) and just before x
+    step = period / 4000
+    for i in range(40, int((x - 0.05 * period) / step) + 1):
+        check(abs(_f(fn, a, b, c, d, i * step) - goal) > 1e-5, "a smaller positive extreme exists")
 
 
 _SHIFTS = [Fraction(n, m) for n, m in ((1, 6), (1, 4), (1, 3), (1, 2), (1, 12), (2, 3), (3, 4), (5, 6))]
@@ -186,20 +207,12 @@ def _draw(rng, *, kind, expanded=False, negative_ok=False):
 _AMPLITUDE = (
     "State the amplitude of the function {eq}.",
     "What is the amplitude of {eq}?",
-    "The graph of {eq} oscillates about its midline. Find its amplitude.",
+    "Find the amplitude of the graph of {eq}, which oscillates about its midline.",
 )
 _PERIOD = (
     "State the period of the function {eq}.",
     "Find the period of {eq}.",
     "How long is one full cycle of the graph of {eq}?",
-)
-_SHIFT = (
-    "The graph of {eq} is a translation of a basic {fn} curve. State the horizontal translation, taking a shift to the "
-    "right as positive and a shift to the left as negative.",
-    "Compared with y = {a_fn}({bx}) the graph of {eq} has been moved horizontally. By how much? Give a negative value "
-    "for a move to the left.",
-    "Find the horizontal translation (right is positive) that takes the graph of y = {coef}{fn}({bx}) + {dtext} onto the graph "
-    "of {eq}.",
 )
 _VERTICAL = (
     "State the vertical translation of the graph of {eq}, that is, the amount by which its midline is above the x-axis.",
@@ -265,35 +278,20 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
                 _expr(k / b, "sinusoid-shift-sign-reversed"),
                 _expr(k * b, "sinusoid-shift-multiplied-by-the-multiple"),
             ]
-        text = (
-            phrase(
-                rng,
-                _SHIFT,
-                eq=eq,
-                fn=fn,
-                a_fn=fn,
-                bx=("x" if b == 1 else f"{_b_text(b)}x"),
-                coef=_coef(a),
-                dtext=num_text(d),
-            )
-            if False
-            else None
-        )
         stems = (
             "The graph of {eq} is a translation of the graph of y = {coef}{fn}({bx}){dtail}. State the horizontal translation, "
-            "taking a shift to the right as positive and a shift to the left as negative.",
+            "taking a shift to the right as positive and a shift to the left as negative. Give the shift of smallest size.",
             "Compared with y = {coef}{fn}({bx}){dtail}, the graph of {eq} has been moved horizontally. By how much? Give a "
-            "negative value for a move to the left.",
+            "negative value for a move to the left. Use the shift of smallest size.",
             "Find the horizontal translation (right is positive) that takes the graph of y = {coef}{fn}({bx}){dtail} onto the graph "
-            "of {eq}.",
+            "of {eq}. Use the shift of smallest size.",
         )
-        dtail = "" if d == 0 else f" + {num_text(d)}" if d > 0 else f" - {num_text(-d)}"
-        text = phrase(rng, stems, eq=eq, fn=fn, bx=("x" if b == 1 else f"{_b_text(b)}x"), coef=_coef(a), dtail=dtail)
+        text = phrase(rng, stems, eq=eq, fn=fn, bx=_bx(b), coef=_coef(a), dtail=_tail(d))
         out = dict(
             **_value_fields(shift, pi=True),
             distractors=need(pi_text(shift), cand, 4),
             working=[
-                f"Write the bracket as {_b_text(b)}(x - ({pi_text(shift)})): the graph moves {pi_text(shift)} horizontally."
+                f"Write the bracket as {_bracket(b, shift)}: the graph is translated {pi_text(shift)} (to the {'right' if shift > 0 else 'left'})."
             ],
         )
         return text, out
@@ -343,10 +341,11 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
 def _build(rng, features, *, expanded, negative_ok):
     fn, a, b, c, d = _draw(rng, kind="wave", expanded=expanded, negative_ok=negative_ok)
     feature = rng.choice(features)
-    want(not (feature == "shift" and c == 0), "no shift to ask about")
+    # a shift is only defined up to whole periods, so ask for one only when the smallest shift is the one in the equation
+    want(feature != "shift" or abs(c) * b < 1, "shift larger than half a period")
     # second route
     hi, lo = _scan_extremes(fn, a, b, c, d)
-    check(abs(hi - (abs(a) + d)) < 1e-6 and abs(lo - (d - abs(a))) < 1e-6, "extremes differ from |a| + d and d - |a|")
+    check(abs(hi - (abs(a) + d)) < 1e-4 and abs(lo - (d - abs(a))) < 1e-4, "extremes differ from |a| + d and d - |a|")
     _verify_periodic(fn, a, b, c, d, Fraction(2) / b, c)
     text, body = _feature_pack(rng, fn, a, b, c, d, feature, expanded=expanded)
     return dict(text=text, answer_kind="expression", **body)
@@ -366,9 +365,9 @@ def _medium(rng):
 
 
 _FIRST_STEMS = (
-    "Find the smallest positive value of x at which {eq} reaches its {which} value.",
+    "On the graph of {eq}, find the smallest positive value of x at which y takes its {which} value.",
     "For {eq}, what is the least x > 0 at which y is at its {which}?",
-    "The graph of {eq} first reaches its {which} value, for positive x, at x = ? Give the exact value.",
+    "For positive x, the graph of {eq} first reaches its {which} value at x = ? Give the exact value.",
 )
 _INTERCEPT_STEMS = (
     "Find the y-intercept of the graph of {eq}.",
@@ -383,25 +382,29 @@ _ASYMPTOTE_STEMS = (
 
 
 def _hard_extreme(rng):
-    fn, a, b, c, d = _draw(rng, kind="wave", expanded=rng.random() < 0.5, negative_ok=True)
     expanded = rng.random() < 0.5
+    fn, a, b, c, d = _draw(rng, kind="wave", expanded=expanded, negative_ok=True)
     kind = rng.choice(["max", "min"])
     x = _first_extreme(fn, a, b, c, kind)
     _verify_first_extreme(fn, a, b, c, d, x, kind)
     other = "min" if kind == "max" else "max"
     x_other = _first_extreme(fn, a, b, c, other)
     quarter = 1 / b / 2
-    cand = [
-        _expr(x_other, "sinusoid-first-extreme-is-the-opposite-one"),
-        _expr(c, "sinusoid-first-extreme-is-the-shift"),
-        _expr(
-            x + Fraction(1) / b if x - Fraction(1) / b <= 0 else x - Fraction(1) / b,
-            "sinusoid-first-extreme-off-by-a-half-period",
-        ),
-        _expr(x + 2 / b if x - 2 / b <= 0 else x - 2 / b, "sinusoid-first-extreme-is-not-the-first"),
-        _expr((x - c) * b + c, "sinusoid-first-extreme-multiplies-instead-of-dividing"),
-    ]
+    cand = _positive(
+        [
+            (x_other, "sinusoid-first-extreme-is-the-opposite-one"),
+            (c, "sinusoid-first-extreme-is-the-shift"),
+            (
+                x + Fraction(1) / b if x - Fraction(1) / b <= 0 else x - Fraction(1) / b,
+                "sinusoid-first-extreme-off-by-a-half-period",
+            ),
+            (x + 2 / b, "sinusoid-first-extreme-is-not-the-first"),
+            ((x - c) * b + c, "sinusoid-first-extreme-multiplies-instead-of-dividing"),
+        ]
+    )
     which = "greatest" if kind == "max" else "least"
+    high = (kind == "max") == (a > 0)
+    bracket = ("π/2" if high else "3π/2") if fn == "sin" else ("0" if high else "π")
     eq = equation_text(fn, a, b, c, d, expanded=expanded)
     return dict(
         text=phrase(rng, _FIRST_STEMS, eq=eq, which=which),
@@ -409,7 +412,7 @@ def _hard_extreme(rng):
         **_value_fields(x, pi=True),
         distractors=need(pi_text(x), cand, 4),
         working=[
-            f"{fn} reaches its {'largest' if (kind == 'max') == (a > 0) else 'smallest'} value when the bracket is {'π/2' if fn == 'sin' and (kind == 'max') == (a > 0) else '3π/2' if fn == 'sin' else '0' if (kind == 'max') == (a > 0) else 'π'} (plus whole turns).",
+            f"{'a is positive' if a > 0 else 'a is negative'}, so y is at its {which} when {fn} is at its {'largest' if (kind == 'max') == (a > 0) else 'smallest'} value, that is when the bracket is {bracket} (plus whole turns).",
             f"Solving for x and taking the smallest positive value gives x = {pi_text(x)}.",
         ],
     )
@@ -418,8 +421,6 @@ def _hard_extreme(rng):
 def _hard_intercept(rng):
     fn, a, b, c, d = _draw(rng, kind="wave", expanded=False, negative_ok=True)
     angle = -b * c  # in units of pi
-    f = (lambda t: math.sin(t * math.pi)) if fn == "sin" else (lambda t: math.cos(t * math.pi))
-    base = f(float(angle))
     exact = _exact_trig(fn, angle)
     want(exact is not None, "an angle with no simple exact value")
     value = a * exact + d
@@ -432,20 +433,16 @@ def _hard_intercept(rng):
     cand.append(_expr(Fraction(d) + a, "sinusoid-intercept-takes-the-maximum", pi=False))
     cand.append(_expr(Fraction(d), "sinusoid-intercept-is-the-vertical-shift", pi=False))
     cand.append(_expr(a * exact, "sinusoid-intercept-forgets-the-vertical-shift", pi=False))
-    cand.append(
-        _expr(
-            Fraction(a) * _exact_trig(fn, angle / b) + d if _exact_trig(fn, angle / b) is not None else Fraction(a) + d,
-            "sinusoid-intercept-divides-the-angle-by-the-multiple",
-            pi=False,
-        )
-    )
+    divided = _exact_trig(fn, angle / b)
+    if divided is not None:
+        cand.append(_expr(a * divided + d, "sinusoid-intercept-divides-the-angle-by-the-multiple", pi=False))
     eq = equation_text(fn, a, b, c, d)
     return dict(
         text=phrase(rng, _INTERCEPT_STEMS, eq=eq),
         answer_kind="expression",
         **_value_fields(value, pi=False),
         distractors=need(num_text(value), cand, 4),
-        working=[f"Put x = 0: y = {a}{fn}({pi_text(angle)}) + {num_text(d)} = {num_text(value)}."],
+        working=[f"Put x = 0: y = {_coef(a)}{fn}({pi_text(angle)}){_tail(d)} = {num_text(value)}."],
     )
 
 
@@ -482,15 +479,17 @@ def _hard_asymptote(rng):
     # second route: tan blows up at that x
     inner = float(b) * (float(best) * math.pi - float(c) * math.pi)
     check(abs(math.cos(inner)) < 1e-9, "not an asymptote")
-    cand = [
-        _expr(c, "sinusoid-asymptote-is-the-shift"),
-        _expr(
-            best + Fraction(1, 2) / b if best - Fraction(1, 2) / b <= 0 else best - Fraction(1, 2) / b,
-            "sinusoid-asymptote-off-by-a-half-period",
-        ),
-        _expr(c + Fraction(1) / b, "sinusoid-asymptote-uses-the-period-not-half"),
-        _expr((best - c) * b + c, "sinusoid-asymptote-multiplies-instead-of-dividing"),
-    ]
+    cand = _positive(
+        [
+            (c, "sinusoid-asymptote-is-the-shift"),
+            (
+                best + Fraction(1, 2) / b if best - Fraction(1, 2) / b <= 0 else best - Fraction(1, 2) / b,
+                "sinusoid-asymptote-off-by-a-half-period",
+            ),
+            (c + Fraction(1) / b, "sinusoid-asymptote-uses-the-period-not-half"),
+            ((best - c) * b + c, "sinusoid-asymptote-multiplies-instead-of-dividing"),
+        ]
+    )
     eq = equation_text("tan", a, b, c, d)
     return dict(
         text=phrase(rng, _ASYMPTOTE_STEMS, eq=eq),
@@ -498,7 +497,7 @@ def _hard_asymptote(rng):
         **_value_fields(best, pi=True),
         distractors=need(pi_text(best), cand, 4),
         working=[
-            f"tan is undefined when the bracket is π/2 + nπ, so {_b_text(b)}(x - ({pi_text(c)})) = π/2 + nπ.",
+            f"tan is undefined when the bracket is π/2 + nπ, so {_bracket(b, c)} = π/2 + nπ.",
             f"The smallest positive x is {pi_text(best)}.",
         ],
     )
@@ -539,8 +538,9 @@ def _exam(rng):
     c = rng.choice(_SHIFTS) * rng.choice([-1, 1])
     d = rng.choice([-3, -2, -1, 1, 2, 3, 4])
     want(abs(a) != abs(d), "amplitude and shift coincide")
+    want(abs(c) * b < 1, "shift larger than half a period")
     hi, lo = _scan_extremes(fn, a, b, c, d)
-    check(abs(hi - (abs(a) + d)) < 1e-6, "numeric maximum differs")
+    check(abs(hi - (abs(a) + d)) < 1e-4, "numeric maximum differs")
     _verify_periodic(fn, a, b, c, d, Fraction(2) / b, c)
     eq = equation_text(fn, a, b, c, d, expanded=True)
     amp, period, top = abs(a), Fraction(2) / b, abs(a) + d
@@ -576,7 +576,6 @@ def _exam(rng):
                 answer_kind="expression",
                 **_value_fields(amp, pi=False),
                 marks=1,
-                sensible_range=(0, None),
                 working=[f"The amplitude is |{a}| = {amp}."],
                 distractors=need(num_text(amp), amp_cand, 3),
             ),
@@ -585,21 +584,22 @@ def _exam(rng):
                 answer_kind="expression",
                 **_value_fields(period, pi=True),
                 marks=1,
-                sensible_range=(0, None),
                 working=[f"The period is 2π ÷ {_b_text(b)} = {pi_text(period)}."],
                 distractors=need(pi_text(period), period_cand, 3),
             ),
             dict(
                 prompt=(
-                    f"The graph is a horizontal translation of the graph of y = {_coef(a)}{fn}({_b_text(b)}x) + {d}"
+                    f"The graph is a horizontal translation of the graph of y = {_coef(a)}{fn}({_bx(b)}) + {d}"
                     if d > 0
-                    else f"The graph is a horizontal translation of the graph of y = {_coef(a)}{fn}({_b_text(b)}x) - {-d}"
+                    else f"The graph is a horizontal translation of the graph of y = {_coef(a)}{fn}({_bx(b)}) - {-d}"
                 )
-                + ". State the translation, with a shift to the right as positive.",
+                + ". State the translation of smallest size, with a shift to the right as positive.",
                 answer_kind="expression",
                 **_value_fields(c, pi=True),
                 marks=2,
-                working=[f"Factor the bracket: {_b_text(b)}x + ({pi_text(k)}) = {_b_text(b)}(x - ({pi_text(c)}))."],
+                working=[
+                    f"Factor out {_b_text(b)}: the bracket is {_bracket(b, c)}, so the translation is {pi_text(c)}."
+                ],
                 distractors=need(pi_text(c), shift_cand, 3),
             ),
             dict(
