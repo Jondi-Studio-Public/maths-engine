@@ -1,0 +1,111 @@
+id: uc2-dynamic-programming-tables
+name: Dynamic programming tables for routes, coins, knapsack and subsequences
+domain: discrete-mathematics
+year_level:
+- university
+description: 'Fill in the table of a dynamic programme by hand and read the answer from it: the cheapest staircase climb,
+  the cheapest route through a staged network, the fewest coins for an amount, the best value of a 0/1 knapsack, the number
+  of ways to make change and the length of a longest common subsequence. Most problems are ones where the obvious greedy choice
+  is not the best, and every answer is a whole number.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-dijkstra-trace
+answer: number
+sources:
+- topic: w7a_dp_table
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w7a_dp_table
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w7a_dp_table
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w7a_dp_table
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: dp-greedy-cheapest-arc
+  description: Takes the cheapest arc out of each node in turn instead of finding the cheapest whole route.
+- id: dp-cheapest-arc-per-stage
+  description: Adds the cheapest arc of each stage, although those arcs do not join up into one route.
+- id: dp-arithmetic-slip
+  description: Uses the right table but is out by one or two in the arithmetic.
+- id: dp-coin-greedy
+  description: Takes the largest coin that fits each time, which is not always the fewest coins.
+- id: dp-coin-ignores-remainder
+  description: Divides the amount by the largest coin and rounds up, ignoring how the remainder is made.
+- id: dp-stairs-no-skipping
+  description: Climbs one step at a time throughout, so pays every toll and never uses a two-step move.
+- id: dp-greedy-next-step
+  description: Always moves to the cheaper of the next two steps, without looking further ahead.
+- id: dp-stops-one-short
+  description: Gives the least cost of reaching the step before the top.
+- id: dp-knapsack-greedy-ratio
+  description: Takes items in order of value per kilogram until nothing more fits, which is not always the best.
+- id: dp-knapsack-reuse-items
+  description: Allows an item to be taken more than once.
+- id: dp-knapsack-ignores-capacity
+  description: Adds the values of all the items, ignoring the weight limit.
+- id: dp-knapsack-greedy-value
+  description: Takes the most valuable items first until nothing more fits.
+- id: dp-lcs-shorter-length
+  description: Gives the length of the shorter string as the longest common subsequence.
+- id: dp-lcs-aligned-matches
+  description: Counts the positions where the two strings have the same letter, without letting letters shift.
+- id: dp-lcs-contiguous
+  description: Finds the longest common run of consecutive letters instead of the longest common subsequence.
+- id: dp-ways-counts-orderings
+  description: Counts different orders of the same coins as different ways.
+- id: dp-ways-misses-a-coin
+  description: Leaves one coin value out when counting the ways.
+- id: dp-ways-fewest-coins
+  description: Gives the fewest coins where the number of ways was asked for.
+- id: dp-difference-gives-one-value
+  description: Gives one of the two values instead of the difference between them.
+- id: dp-table-wrong-row
+  description: Reads the entry for all the items where the entry for the first few items was asked for.
+- id: dp-weight-assumed-full
+  description: Takes the optimal selection to fill the knapsack exactly.
+- id: dp-weight-of-all-items
+  description: Gives the total weight of all the items rather than of the ones chosen.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: 'Fill a one-dimensional table, or a backward table over two stages, where the greedy choice fails: a staircase
+      with tolls, fewest coins for an amount, or the cheapest route through two intermediate stages.'
+  medium:
+    steps: 6
+    demand: 'Fill a two-dimensional table: a 0/1 knapsack over four or five items, fewest coins from four denominations up
+      to 60 cents, or the cheapest route through three intermediate stages.'
+  hard:
+    steps: 8
+    demand: 'Change what the table counts: the number of unordered ways to make an amount (where counting orders is the trap),
+      a longest common subsequence of two strings (where a common run is the trap), or the difference between the unlimited-copies
+      and once-only knapsack values.'
+  exam:
+    steps: 8
+    demand: On one knapsack, read an intermediate table entry, the final entry, trace back to the chosen items and their weight,
+      and find the value of one more kilogram of capacity from a second table.
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- dynamic-programming
+- algorithms
+- knapsack
+- optimisation

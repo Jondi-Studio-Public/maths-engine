@@ -35665,6 +35665,116 @@ _ENTRIES = (
         "Adds the capacity of every link that touches the source side of the cut, those inside it as well as those crossing it.",
         area="networks",
     ),
+    CatalogueEntry(
+        "dp-stairs-no-skipping",
+        "Climbs one step at a time throughout, so pays every toll and never uses a two-step move.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-greedy-next-step",
+        "Always moves to the cheaper of the next two steps, without looking further ahead.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-stops-one-short",
+        "Gives the least cost of reaching the step before the top.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-coin-greedy",
+        "Takes the largest coin that fits each time, which is not always the fewest coins.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-coin-ignores-remainder",
+        "Divides the amount by the largest coin and rounds up, ignoring how the remainder is made.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-greedy-cheapest-arc",
+        "Takes the cheapest arc out of each node in turn instead of finding the cheapest whole route.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-cheapest-arc-per-stage",
+        "Adds the cheapest arc of each stage, although those arcs do not join up into one route.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-greedy-ratio",
+        "Takes items in order of value per kilogram until nothing more fits, which is not always the best.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-greedy-value",
+        "Takes the most valuable items first until nothing more fits.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-reuse-items",
+        "Allows an item to be taken more than once.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-ignores-capacity",
+        "Adds the values of all the items, ignoring the weight limit.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-counts-orderings",
+        "Counts different orders of the same coins as different ways.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-fewest-coins",
+        "Gives the fewest coins where the number of ways was asked for.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-misses-a-coin",
+        "Leaves one coin value out when counting the ways.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-contiguous",
+        "Finds the longest common run of consecutive letters instead of the longest common subsequence.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-shorter-length",
+        "Gives the length of the shorter string as the longest common subsequence.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-aligned-matches",
+        "Counts the positions where the two strings have the same letter, without letting letters shift.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-difference-gives-one-value",
+        "Gives one of the two values instead of the difference between them.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-table-wrong-row",
+        "Reads the entry for all the items where the entry for the first few items was asked for.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-weight-assumed-full",
+        "Takes the optimal selection to fill the knapsack exactly.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-weight-of-all-items",
+        "Gives the total weight of all the items rather than of the ones chosen.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-arithmetic-slip",
+        "Uses the right table but is out by one or two in the arithmetic.",
+        area="dynamic-programming",
+    ),
     # -- end build-a batch --
 )
 
