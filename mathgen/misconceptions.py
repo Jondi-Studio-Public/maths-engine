@@ -36052,6 +36052,206 @@ _ENTRIES = (
         "Gives the depreciation under one method where the difference between the two values was asked.",
         area="unit-cost-depreciation",
     ),
+    CatalogueEntry(
+        "nsp-reads-bits-reversed",
+        "Reads the digits of the numeral in the wrong order, so the place values run backwards.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-ones",
+        "Counts the 1s in the binary numeral instead of adding the place values they stand for.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-reads-as-decimal",
+        "Reads the digits of a binary, octal or hexadecimal numeral as an ordinary decimal number.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-powers-start-at-one",
+        "Starts the place values at 2 (or 8, or 16) instead of 1, so every value is a base too large.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-hex-letter-off-by-one",
+        "Gives a hexadecimal letter a value one too large (A as 11 up to F as 16).",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-remainders-read-top-down",
+        "Writes the remainders of repeated division in the order they were found instead of from the last to the first.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-stops-division-early",
+        "Stops the repeated division one step early and leaves off the last digit.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-appends-a-digit",
+        "Divides once too often or multiplies in an extra place, giving a numeral one digit too long.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-no-conversion",
+        "Writes the decimal digits of the number as if they were already the numeral in the new base.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-groups-from-the-left",
+        "Groups the binary digits in threes from the left instead of from the right, so the groups do not line up with the place values.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-nibbles-swapped",
+        "Writes the four-digit groups for the hexadecimal digits in the wrong order.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-digit-values-not-nibbles",
+        "Writes each hexadecimal digit's value in binary without padding it to four digits.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-binary-no-carry",
+        "Adds binary digits without carrying, treating 1 + 1 as 0 in every column.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-adds-as-decimal",
+        "Adds the two binary numerals as if they were decimal numbers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-drops-final-carry",
+        "Loses the carry out of the leftmost column, so the sum has too few digits.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-cofactor",
+        "Gives the larger factor found when the smallest factor was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-square-root",
+        "Gives the whole-number part of the square root of the number instead of its smallest prime factor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-overshoots-first-factor",
+        "Gives the next prime after the smallest prime factor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-tests-every-integer",
+        "Counts every whole number up to the square root instead of only the primes.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-one-as-prime",
+        "Counts 1 as a prime when listing the primes up to the square root.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-omits-two",
+        "Leaves 2 out of the primes to be tried.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-uses-root-itself",
+        "Gives the whole-number part of the square root itself, although it is not prime.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-tests-up-to-half",
+        "Tests every prime up to half the number instead of stopping at its square root.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-rounds-root-up",
+        "Rounds the square root up to the next whole number before listing the primes, so one prime too many is tested.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-adds-exponents",
+        "Adds the exponents in the prime factorisation instead of adding one to each and multiplying.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-multiplies-exponents",
+        "Multiplies the exponents without adding one to each first.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-prime-factors",
+        "Gives the number of prime factors, counted with repeats, instead of the number of divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-distinct-primes-only",
+        "Counts only the distinct prime factors as divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-sum-one-and-n-only",
+        "Adds only 1 and the number itself when summing the divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-count-for-sum",
+        "Gives the number of divisors where their sum was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-sum-adds-one-to-powers",
+        "Multiplies (1 + p^a) for each prime instead of summing the whole geometric series of powers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-count-for-square",
+        "Gives the number of all divisors where the number of square divisors was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-rounds-halves-up",
+        "Rounds each half-exponent up instead of down when counting the even exponents a square divisor may use.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-lcm-swapped",
+        "Gives the lowest common multiple where the greatest common divisor was asked, or the reverse.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-is-difference",
+        "Gives the difference of the two numbers as their greatest common divisor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-lcm-is-product",
+        "Gives the product of the two numbers as their lowest common multiple.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-ignores-exponents",
+        "Multiplies the common primes each to the first power, ignoring the smaller exponent in the numbers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-lcm-drops-unshared",
+        "Multiplies only the primes the two numbers share when finding the lowest common multiple.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-up-to-factor-only",
+        "Counts the primes up to the smallest factor but forgets to count the factor itself.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-up-to-root",
+        "Counts the primes tried up to the square root, where the primes only up to the smallest factor were needed.",
+        area="number-bases-primes",
+    ),
 )
 
 #: Every entry, by id.
