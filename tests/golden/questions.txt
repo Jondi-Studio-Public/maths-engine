@@ -801,7 +801,7 @@
 {"answer": "14.99", "id": "decimal-arithmetic/hard/2/dfc2d4bded96", "text": "10.24 + 4.75"}
 {"answer": "27", "id": "decimal-arithmetic/medium/0/eb147e5bd4bd", "text": "9 × 3"}
 {"answer": "10.7", "id": "decimal-arithmetic/medium/1/f42481bced3b", "text": "12.6 - 1.9"}
-{"answer": "0.52459", "id": "decimal-arithmetic/medium/2/12850756c954", "text": "6.4 ÷ 12.2"}
+{"answer": "0.52459", "id": "decimal-arithmetic/medium/2/34a41ec7ecf1", "text": "6.4 ÷ 12.2, correct to 6 significant figures"}
 {"answer": "0.4", "id": "decimal-place-value/easy/0/577597f298ea", "text": "What is the value of the digit 4 in 14.4?"}
 {"answer": "0.4", "id": "decimal-place-value/easy/1/b803056cc964", "text": "What is the value of the digit 4 in 9.4?"}
 {"answer": "0.9", "id": "decimal-place-value/easy/2/58589fc30197", "text": "What is the value of the digit 9 in 16.9?"}
@@ -902,7 +902,7 @@
 {"answer": "-2*sin(x) + 4*cos(4*x)", "id": "differentiate-trig/medium/1/a1b11cef60c6", "text": "Differentiate sin(4*x) + 2*cos(x) with respect to x"}
 {"answer": "-10*sin(2*x) + 6*cos(2*x)", "id": "differentiate-trig/medium/2/1fb6e641b2ef", "text": "Differentiate 3*sin(2*x) + 5*cos(2*x) with respect to x"}
 {"answer": "4.4", "id": "directional-derivative/easy/0/97003790b2b6", "text": "For f(x,y) = 3x^2 - 3xy + 3x - 2y^2, find the directional derivative at (-2, -1…"}
-{"answer": "5.07692", "id": "directional-derivative/easy/1/80b5068524b5", "text": "For f(x,y) = 2x^2 - xy - y^2, find the directional derivative at (1, -2) in the…"}
+{"answer": "5.07692", "id": "directional-derivative/easy/1/957e25bfd56e", "text": "For f(x,y) = 2x^2 - xy - y^2, find the directional derivative at (1, -2) in the…"}
 {"answer": "5", "id": "directional-derivative/easy/2/cc9607fc6417", "text": "For f(x,y) = x^2 - 3xy - 2y^2, find the directional derivative at (0, -1) in th…"}
 {"answer": "(a) 1; (b) 8; (c) -2.88; (d) 8.06", "id": "directional-derivative/exam/0/472107db7f42", "text": "The height of a sand dune, in metres, at a point (x, y) hundreds of metres east…"}
 {"answer": "(a) 42; (b) 36; (c) 55.20; (d) 55.32", "id": "directional-derivative/exam/1/585d2bb19003", "text": "The height of a hillside, in metres, at a point (x, y) kilometres east and nort…"}
@@ -912,7 +912,7 @@
 {"answer": "48.4", "id": "directional-derivative/hard/2/65c4d5d70b1c", "text": "For f(x,y) = 3x^2 - xy - 8x + 5y^2, find the directional derivative at (-6, 2) …"}
 {"answer": "-9.2", "id": "directional-derivative/medium/0/19022b1ebbc2", "text": "For f(x,y) = x^2 - 2xy - 4x - 4y^2, find the directional derivative at (-2, 1) …"}
 {"answer": "-16", "id": "directional-derivative/medium/1/b1a56a948224", "text": "For f(x,y) = 4x^2 - 5y^2, find the directional derivative at (-2, -4) in the un…"}
-{"answer": "-21.5385", "id": "directional-derivative/medium/2/d2c660bec5dd", "text": "For f(x,y) = 2x^2 + 5xy + 5x + 5y^2, find the directional derivative at (-2, -1…"}
+{"answer": "-21.5385", "id": "directional-derivative/medium/2/847cc5117f0a", "text": "For f(x,y) = 2x^2 + 5xy + 5x + 5y^2, find the directional derivative at (-2, -1…"}
 {"answer": "3", "id": "discrete-expected-value/easy/0/1038822ee773", "text": "A discrete random variable X has P(X=2)=1/5, P(X=3)=3/5, P(X=4)=1/5. Find E[X]."}
 {"answer": "-4", "id": "discrete-expected-value/easy/1/c185ab2baeaf", "text": "A discrete random variable X has P(X=-5)=2/5, P(X=-4)=1/5, P(X=-3)=2/5. Find E[…"}
 {"answer": "-2", "id": "discrete-expected-value/easy/2/4e4738130b0b", "text": "A discrete random variable X has P(X=-4)=3/5, P(X=-1)=1/5, P(X=3)=1/5. Find E[X…"}
@@ -6877,9 +6877,9 @@
 {"answer": "(a) -2/5; (b) 29/25; (c) 2/29 - 5*exp(15*pi/4)/29; (d) -2*e…", "id": "senior-integrate-by-parts/exam/0/b57e9cf774c0", "text": "Let I = ∫ from x = 0 to x = 3π/4 of e^(5x)·sin(2x) dx and J = ∫ from x = 0 to x…"}
 {"answer": "(a) -5/2; (b) 29/4; (c) 5/29 - 5*exp(4*pi/5)/29; (d) -2/29 …", "id": "senior-integrate-by-parts/exam/1/51312212239a", "text": "Consider the integrals I = ∫ from x = 0 to x = 2π/5 of e^(2x)·sin(5x) dx and J …"}
 {"answer": "(a) -1/2; (b) 5/4; (c) 1/10 + exp(2*pi)/10; (d) -exp(2*pi)/…", "id": "senior-integrate-by-parts/exam/2/46f8601ca6dc", "text": "Two integrals are defined by I = ∫ from x = 0 to x = π/2 of e^(4x)·sin(2x) dx a…"}
-{"answer": "-15 + 32*log(4)", "id": "senior-integrate-by-parts/hard/0/38d1f5f82482", "text": "Find ∫ from x = 1 to x = 4 of 4·x·log(x) dx. Give your answer as an exact value."}
-{"answer": "-27*log(3)/2 - 12 + 75*log(5)/2", "id": "senior-integrate-by-parts/hard/1/5eb024bfaede", "text": "Find ∫ from x = 3 to x = 5 of 3·x·log(x) dx. Give your answer as an exact value."}
-{"answer": "-3 - 2*log(2) + 8*log(4)", "id": "senior-integrate-by-parts/hard/2/693f69671436", "text": "Find ∫ from x = 2 to x = 4 of x·log(x) dx. Give your answer as an exact value."}
+{"answer": "-15 + 32*ln(4)", "id": "senior-integrate-by-parts/hard/0/44542ca03558", "text": "Find ∫ from x = 1 to x = 4 of 4·x·ln(x) dx. Give your answer as an exact value."}
+{"answer": "-27*ln(3)/2 - 12 + 75*ln(5)/2", "id": "senior-integrate-by-parts/hard/1/2255b8d4df02", "text": "Find ∫ from x = 3 to x = 5 of 3·x·ln(x) dx. Give your answer as an exact value."}
+{"answer": "-3 - 2*ln(2) + 8*ln(4)", "id": "senior-integrate-by-parts/hard/2/891f098ac6dc", "text": "Find ∫ from x = 2 to x = 4 of x·ln(x) dx. Give your answer as an exact value."}
 {"answer": "-3/25 + 3*pi/25", "id": "senior-integrate-by-parts/medium/0/a52fc81d352b", "text": "Find ∫ from x = π/10 to x = π/5 of 3·x·sin(5·x) dx. Give your answer as an exac…"}
 {"answer": "-5/36 + 5*pi/36", "id": "senior-integrate-by-parts/medium/1/a16a2656599f", "text": "Find ∫ from x = π/12 to x = π/6 of 5·x·sin(6·x) dx. Give your answer as an exac…"}
 {"answer": "-2/9 + 2*pi/9", "id": "senior-integrate-by-parts/medium/2/7f7a3beeb339", "text": "Find ∫ from x = π/6 to x = π/3 of 2·x·sin(3·x) dx. Give your answer as an exact…"}
@@ -8689,18 +8689,18 @@
 {"answer": "8", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/medium/0/ed29c4f28960", "text": "Point A is (-3, -1). Point B is (5, 5). The vector from A to B can be written i…"}
 {"answer": "-8", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/medium/1/89d57f298c5c", "text": "Point A is (-9, 1). Point B is (-6, -7). The vector from A to B can be written …"}
 {"answer": "2", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/medium/2/af63b80f1731", "text": "Point A is (3, -9). Point B is (5, 1). The vector from A to B can be written in…"}
-{"answer": "-log(9)/5 + log(4)/5 + log(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/0/fbd39ed3219b", "text": "Find ∫ from x = 7 to x = 10 of 1/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
-{"answer": "-log(9)/4 - log(4)/4 + log(5)/4 + log(8)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/1/82cecd16a698", "text": "Find ∫ from x = 12 to x = 13 of 1/((x - 4)·(x - 8)) dx. Give your answer as an …"}
-{"answer": "-log(12)/5 - log(4)/5 + log(7)/5 + log(9)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/2/f3383ccdd139", "text": "Find ∫ from x = 11 to x = 14 of 1/((x - 2)·(x - 7)) dx. Give your answer as an …"}
-{"answer": "(a) 3; (b) 3; (c) 4; (d) 4*log(7/4) + 3*log(4) + 9", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/0/a991477d9b00", "text": "Let f(x) = (3x^2 + 4x - 11)/((x - 2)(x + 1)). The function can be written as k …"}
-{"answer": "(a) 1; (b) 3; (c) 1; (d) 3*log(5/2) + 33/10", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/1/479252aca73b", "text": "Let f(x) = (x^2 + 5x + 5)/((x + 1)^2). The function can be written as k + A/(x …"}
-{"answer": "(a) 3; (b) -2; (c) -5; (d) 13/6 - 2*log(3/2)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/2/fa6577df4b5b", "text": "The rational function f(x) = (3x^2 - 14x + 11)/((x - 2)^2) is to be integrated.…"}
-{"answer": "-log(6)/8 - log(7)/12 + log(2)/24 + log(8)/12 + log(5)/8", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/0/dc8e08c48eaf", "text": "Find ∫ from x = 9 to x = 10 of 1/((x - 2)·(x - 4)·(x - 8)) dx. Give your answer…"}
-{"answer": "-log(4)/8 - log(7)/24 + log(2)/12 + log(8)/24 + log(3)/8", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/1/231f67892ac0", "text": "Find ∫ from x = 10 to x = 11 of 1/((x - 3)·(x - 7)·(x - 9)) dx. Give your answe…"}
-{"answer": "-7*log(6)/30 + log(4)/10 + log(9)/15 + log(3)/6", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/2/d6f7627e2b36", "text": "Find ∫ from x = 10 to x = 13 of 1/((x - 4)·(x - 7)·(x - 9)) dx. Give your answe…"}
-{"answer": "-6*log(2)/5 - log(11)/5 + log(7)/5 + 6*log(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/0/a2f87f2aa64a", "text": "Find ∫ from x = 8 to x = 12 of x/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
-{"answer": "-log(7) - 2*log(2) + log(6) + 2*log(3)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/1/db1f88fbd310", "text": "Find ∫ from x = 10 to x = 11 of x/((x - 4)·(x - 8)) dx. Give your answer as an …"}
-{"answer": "-5*log(3)/4 - log(8)/4 + log(7)/4 + 5*log(4)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/2/7e57cbeb2a80", "text": "Find ∫ from x = 8 to x = 9 of x/((x - 1)·(x - 5)) dx. Give your answer as an ex…"}
+{"answer": "-ln(9)/5 + ln(4)/5 + ln(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/0/decce3de0e9a", "text": "Find ∫ from x = 7 to x = 10 of 1/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
+{"answer": "-ln(9)/4 - ln(4)/4 + ln(5)/4 + ln(8)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/1/319462098f08", "text": "Find ∫ from x = 12 to x = 13 of 1/((x - 4)·(x - 8)) dx. Give your answer as an …"}
+{"answer": "-ln(12)/5 - ln(4)/5 + ln(7)/5 + ln(9)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/2/be1da9c4a875", "text": "Find ∫ from x = 11 to x = 14 of 1/((x - 2)·(x - 7)) dx. Give your answer as an …"}
+{"answer": "(a) 3; (b) 3; (c) 4; (d) 4*ln(7/4) + 3*ln(4) + 9", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/0/9a98adfd589b", "text": "Let f(x) = (3x^2 + 4x - 11)/((x - 2)(x + 1)). The function can be written as k …"}
+{"answer": "(a) 1; (b) 3; (c) 1; (d) 3*ln(5/2) + 33/10", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/1/22c036ce2427", "text": "Let f(x) = (x^2 + 5x + 5)/((x + 1)^2). The function can be written as k + A/(x …"}
+{"answer": "(a) 3; (b) -2; (c) -5; (d) 13/6 - 2*ln(3/2)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/2/dfd0f922a0be", "text": "The rational function f(x) = (3x^2 - 14x + 11)/((x - 2)^2) is to be integrated.…"}
+{"answer": "-ln(6)/8 - ln(7)/12 + ln(2)/24 + ln(8)/12 + ln(5)/8", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/0/2ab92fdaa41b", "text": "Find ∫ from x = 9 to x = 10 of 1/((x - 2)·(x - 4)·(x - 8)) dx. Give your answer…"}
+{"answer": "-ln(4)/8 - ln(7)/24 + ln(2)/12 + ln(8)/24 + ln(3)/8", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/1/67e81a0704c2", "text": "Find ∫ from x = 10 to x = 11 of 1/((x - 3)·(x - 7)·(x - 9)) dx. Give your answe…"}
+{"answer": "-7*ln(6)/30 + ln(4)/10 + ln(9)/15 + ln(3)/6", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/2/b51193ecde6b", "text": "Find ∫ from x = 10 to x = 13 of 1/((x - 4)·(x - 7)·(x - 9)) dx. Give your answe…"}
+{"answer": "-6*ln(2)/5 - ln(11)/5 + ln(7)/5 + 6*ln(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/0/7f5457d9d944", "text": "Find ∫ from x = 8 to x = 12 of x/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
+{"answer": "-ln(7) - 2*ln(2) + ln(6) + 2*ln(3)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/1/b56905a9b217", "text": "Find ∫ from x = 10 to x = 11 of x/((x - 4)·(x - 8)) dx. Give your answer as an …"}
+{"answer": "-5*ln(3)/4 - ln(8)/4 + ln(7)/4 + 5*ln(4)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/2/7e7d2b3938ac", "text": "Find ∫ from x = 8 to x = 9 of x/((x - 1)·(x - 5)) dx. Give your answer as an ex…"}
 {"answer": "35", "id": "senior-use-pascal-s-triangle-and-its-properties/easy/0/515ca986a2ff", "text": "In Pascal's triangle, what is the value at position 4 in row 7?"}
 {"answer": "21", "id": "senior-use-pascal-s-triangle-and-its-properties/easy/1/c73e881ef507", "text": "In Pascal's triangle, what is the value at position 2 in row 7?"}
 {"answer": "6", "id": "senior-use-pascal-s-triangle-and-its-properties/easy/2/3d568feacdee", "text": "In Pascal's triangle, what is the value at position 2 in row 4?"}
@@ -10852,9 +10852,9 @@
 {"answer": "exp(-4*t)*sin(2*x)", "id": "ucv1-heat-equation-mode/easy/0/1e7431b7d9c5", "text": "The temperature u(x,t) on [0, pi] satisfies u_t = alpha u_xx with u(0,t) = u(pi…"}
 {"answer": "exp(-125*t)*sin(5*x)", "id": "ucv1-heat-equation-mode/easy/1/1f4e822063c3", "text": "The temperature u(x,t) on [0, pi] satisfies u_t = alpha u_xx with u(0,t) = u(pi…"}
 {"answer": "exp(-100*t)*sin(5*x)", "id": "ucv1-heat-equation-mode/easy/2/ec18873900f9", "text": "The temperature u(x,t) on [0, pi] satisfies u_t = alpha u_xx with u(0,t) = u(pi…"}
-{"answer": "(a) 7*pi^2/576; (b) 576*log(2)/(7*pi^2); (c) 5*pi/48", "id": "ucv1-heat-equation-mode/exam/0/60e722610465", "text": "The temperature u(x, t) in a rod of length 24 satisfies u_t = 7u_xx for 0 < x <…"}
-{"answer": "(a) 16*pi^2/9; (b) 9*log(2)/(16*pi^2); (c) -3*pi", "id": "ucv1-heat-equation-mode/exam/1/3749feb8f010", "text": "The temperature u(x, t) in a rod of length 6 satisfies u_t = 4u_xx for 0 < x < …"}
-{"answer": "(a) pi^2/4; (b) 4*log(2)/pi^2; (c) 3", "id": "ucv1-heat-equation-mode/exam/2/c7f426629282", "text": "The temperature u(x, t) in a rod of length 18 satisfies u_t = 9u_xx for 0 < x <…"}
+{"answer": "(a) 7*pi^2/576; (b) 576*ln(2)/(7*pi^2); (c) 5*pi/48", "id": "ucv1-heat-equation-mode/exam/0/1b172bd10dd3", "text": "The temperature u(x, t) in a rod of length 24 satisfies u_t = 7u_xx for 0 < x <…"}
+{"answer": "(a) 16*pi^2/9; (b) 9*ln(2)/(16*pi^2); (c) -3*pi", "id": "ucv1-heat-equation-mode/exam/1/3d3353cd6cc6", "text": "The temperature u(x, t) in a rod of length 6 satisfies u_t = 4u_xx for 0 < x < …"}
+{"answer": "(a) pi^2/4; (b) 4*ln(2)/pi^2; (c) 3", "id": "ucv1-heat-equation-mode/exam/2/2c2cfc430799", "text": "The temperature u(x, t) in a rod of length 18 satisfies u_t = 9u_xx for 0 < x <…"}
 {"answer": "4*exp(-5*pi^2*t/64)*cos(pi*x/8)", "id": "ucv1-heat-equation-mode/hard/0/9dc58a24789e", "text": "A rod [0, 8] has insulated ends u_x(0,t) = u_x(8,t) = 0 and obeys u_t = alpha u…"}
 {"answer": "2*exp(-pi^2*t/25)*cos(pi*x/5)", "id": "ucv1-heat-equation-mode/hard/1/e624592a8550", "text": "The temperature u(x,t) on [0, 5] satisfies u_t = alpha u_xx. The ends are insul…"}
 {"answer": "2*exp(-pi^2*t/4)*cos(pi*x/2)", "id": "ucv1-heat-equation-mode/hard/2/a6e4e86405b9", "text": "The temperature u(x,t) on [0, 4] satisfies u_t = alpha u_xx. The ends are insul…"}

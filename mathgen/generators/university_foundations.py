@@ -904,10 +904,11 @@ def directional_derivative(rng, coefficient_hi=5, point_hi=4):
     # cannot be spotted by its shape.
     shown_places = len(answer_text.partition(".")[2])
     _, shown_candidates = _aligned(Fraction(answer_text), [Fraction(value) for value in candidates], shown_places)
+    rounding = " Give your answer correct to 6 significant figures." if Fraction(answer_text) != expected else ""
     return dict(
         text=(
             f"For f(x,y) = {_poly_display(function)}, find the directional derivative "
-            f"at ({x0}, {y0}) in the unit direction ({ux}, {uy})."
+            f"at ({x0}, {y0}) in the unit direction ({ux}, {uy}).{rounding}"
         ),
         latex=rf"D_{{({ux},{uy})}}f({x0},{y0}),\quad f={sympy.latex(function)}",
         answer=answer,
