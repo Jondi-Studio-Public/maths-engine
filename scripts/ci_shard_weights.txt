@@ -55,3 +55,10 @@
 136.0 tests/test_generator_contract_exam_part_5.py
 136.0 tests/test_generator_contract_exam_part_6.py
 136.0 tests/test_generator_contract_exam_part_7.py
+# Heavy files that timed out shard 13 on the exam-depth train (PR #115), measured locally 2026-10-18
+# (x 0.575): test_skill_contract_part_3 holds the 193 s uc2-linear-system-complex-eigen round trip
+# and the partial-fractions determinism cases.
+350.0 tests/test_skill_contract_part_3.py
+43.0 tests/test_p16b_correlation_r_oracle.py
+24.0 tests/test_exd_x_f1_inverse_mobius.py
+40.0 tests/test_p17a_ftc_polynomial_oracle.py
