@@ -34065,6 +34065,266 @@ _ENTRIES = (
         "Saying two events take the same time when one fills more boxes than the other.",
         area="early-years",
     ),
+    CatalogueEntry(
+        "bool-reads-zero-rows",
+        "Counts or lists the rows where the output is 0 instead of the rows where it is 1.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-precedence-or-before-and",
+        "Applies the operations left to right, or the lower-priority operation first, instead of doing NOT, then AND, then OR or XOR.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-ignores-negation",
+        "Evaluates a negated input as if the NOT were not there.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-gate-type-confused",
+        "Evaluates a NAND, NOR or XOR gate as the AND or OR gate it is built from, forgetting the inversion or the exclusion.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-bit-order-reversed",
+        "Reads the input bits with the last variable as the most significant, so every row number is the wrong one.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-row-numbering-from-one",
+        "Numbers the truth table rows from 1 instead of 0, so every row number is one too large.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-compares-totals-not-rows",
+        "Compares how many ones each function has instead of comparing them row by row.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-counts-agreeing-rows",
+        "Counts the rows on which two functions agree where the rows on which they differ were asked for.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-no-grouping",
+        "Writes one full product term for every cell with a 1, without grouping any cells.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-terms-not-literals",
+        "Gives the number of groups where the total number of literals was asked for.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-groups-too-small",
+        "Stops at groups of two cells and misses a larger group of four or eight.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-literals-as-variables",
+        "Counts every variable in every group, forgetting that a variable which changes across a group drops out.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-dont-care-as-zero",
+        "Treats a don't-care cell as a 0, so the groups cannot use it.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-miscount-literals",
+        "Miscounts the literals in the simplified expression by one.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-saving-uses-terms",
+        "Subtracts the product terms instead of the literals when finding how many literals are saved.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "lcv-other-root",
+        "Gives the x-coordinate of the other intersection point, the smaller where the larger was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-x-for-y",
+        "Gives an x-coordinate where a y-coordinate was asked, or the reverse.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-root-sign",
+        "Reads a root of the substituted quadratic with the wrong sign, as x = -2 from the factor (x - 2).",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-product-for-sum",
+        "Gives the product of the x-coordinates where their sum was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-difference-for-sum",
+        "Gives the distance between the two x-coordinates where their sum was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-sign",
+        "Gets the sign of the discriminant condition wrong, so the intercept moves the wrong way from the vertex.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-drops-a",
+        "Leaves the leading coefficient out of the discriminant, using b² - 4c in place of b² - 4ac.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-slope-sign",
+        "Subtracts the gradient from the x coefficient with the wrong sign when forming the substituted quadratic.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-factor",
+        "Uses 2a in place of 4a in the zero-discriminant condition.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-midpoint-is-vertex",
+        "Gives the x-coordinate of the parabola's vertex as the midpoint of the chord.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-sum-not-halved",
+        "Gives the sum of the two x-coordinates where their mean (the midpoint) was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-radius-only",
+        "Takes the intercept of a tangent to a circle to be the radius, ignoring the gradient.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-gradient-unsquared",
+        "Uses r(1 + m) in place of r times the square root of (1 + m²) for the tangent intercept.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-unscaled",
+        "Forgets to divide by the sum of the squares of the coefficients when finding the point of contact.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-counted-as-two",
+        "Counts the intercept that gives a tangent as a line with two intersection points.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-no-intersection-counted",
+        "Counts the intercepts that give no intersection instead of those that give two points.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-count-misses-end",
+        "Leaves out one end of the range, or counts both ends, when counting whole-number values.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gradient-inverted",
+        "Gives the reciprocal of the tangent gradient, run over rise.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gradient-sign",
+        "Gives the negative gradient, taking the smaller of the two tangent gradients.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-line-value-in-parabola",
+        "Substitutes the x-coordinate into the line's gradient instead of its equation, so the y-value is wrong.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gap-sign",
+        "Adds the two intercepts instead of subtracting them to find the gap between parallel lines.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gap-from-intercept",
+        "Measures the gap from the parabola's own y-intercept rather than from the tangent line.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "aux-sums-coefficients",
+        "Takes R to be a + b instead of the square root of a² + b².",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-forgets-root",
+        "Gives R² = a² + b² as the amplitude, forgetting the square root.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-shift-ignored",
+        "Leaves out the vertical shift, giving the extreme value of the wave alone.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-multiplier-ignored",
+        "Leaves out the multiplier in front of the bracket when finding the extreme value.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-wrong-end",
+        "Applies the vertical shift to the wrong end, giving the maximum where the minimum was asked or the reverse.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-alpha-swapped",
+        "Finds α from arctan(a/b) instead of arctan(b/a), swapping the roles of the two coefficients.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-no-quadrant",
+        "Reads α straight from the arctangent without placing it in the quadrant given by the signs of a and b.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-min-for-max",
+        "Gives the position of the minimum where the maximum was asked, or the reverse (an error of π).",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-angle-left-negative",
+        "Leaves α negative instead of adding 2π to bring it into [0, 2π).",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-other-solution",
+        "Gives the other solution of cos(x - α) = c/R, the smaller where the larger was asked or the reverse.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-offset-not-added",
+        "Gives the offset δ from cos δ = c/R without adding α, solving the equation for x - α only.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-c-not-scaled",
+        "Solves cos(x - α) = c instead of cos(x - α) = c/R.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-threshold-rounded-down",
+        "Gives the whole part of R as the least c with no solution, instead of the next whole number.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-threshold-rounded",
+        "Rounds R to the nearest whole number to find the least c with no solution.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-larger-coefficient",
+        "Takes the larger of the two coefficients as the amplitude R.",
+        area="auxiliary-angle",
+    ),
 )
 
 #: Every entry, by id.

@@ -1,0 +1,94 @@
+id: auxiliary-angle-max-min-solve
+name: Use the auxiliary angle to find extremes and solve a cos x + b sin x = c
+domain: trigonometry
+year_level:
+- '12'
+description: Write a cos x + b sin x as R cos(x - α) and use it to find the greatest and least values of a wave, the x at
+  which they occur, and the solutions of a cos x + b sin x = c on an interval, without being told R or α.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-convert-sums-mathrm-a-cos-mathrm-x-mathrm
+answer: expression
+sources:
+- topic: w6a_aux_angle
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6a_aux_angle
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6a_aux_angle
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6a_aux_angle
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: aux-sums-coefficients
+  description: Takes R to be a + b instead of the square root of a² + b².
+- id: aux-larger-coefficient
+  description: Takes the larger of the two coefficients as the amplitude R.
+- id: aux-forgets-root
+  description: Gives R² = a² + b² as the amplitude, forgetting the square root.
+- id: aux-shift-ignored
+  description: Leaves out the vertical shift, giving the extreme value of the wave alone.
+- id: aux-multiplier-ignored
+  description: Leaves out the multiplier in front of the bracket when finding the extreme value.
+- id: aux-wrong-end
+  description: Applies the vertical shift to the wrong end, giving the maximum where the minimum was asked or the reverse.
+- id: aux-alpha-swapped
+  description: Finds α from arctan(a/b) instead of arctan(b/a), swapping the roles of the two coefficients.
+- id: aux-no-quadrant
+  description: Reads α straight from the arctangent without placing it in the quadrant given by the signs of a and b.
+- id: aux-min-for-max
+  description: Gives the position of the minimum where the maximum was asked, or the reverse (an error of π).
+- id: aux-angle-left-negative
+  description: Leaves α negative instead of adding 2π to bring it into [0, 2π).
+- id: aux-other-solution
+  description: Gives the other solution of cos(x - α) = c/R, the smaller where the larger was asked or the reverse.
+- id: aux-offset-not-added
+  description: Gives the offset δ from cos δ = c/R without adding α, solving the equation for x - α only.
+- id: aux-c-not-scaled
+  description: Solves cos(x - α) = c instead of cos(x - α) = c/R.
+- id: aux-threshold-rounded-down
+  description: Gives the whole part of R as the least c with no solution, instead of the next whole number.
+- id: aux-threshold-rounded
+  description: Rounds R to the nearest whole number to find the least c with no solution.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Recognise that a cos x + b sin x has amplitude the square root of a² + b², then apply the multiplier and vertical
+      shift to find the greatest or least value.
+  medium:
+    steps: 3
+    demand: Find α in the correct quadrant from the signs of a and b, then use it to locate the greatest or least value of
+      the wave within [0, 2π).
+  hard:
+    steps: 4
+    demand: Convert to R cos(x - α), divide c by R, undo the cosine for both solutions and choose the right one in [0, 2π),
+      or find the least whole number c beyond the amplitude.
+  exam:
+    steps: 5
+    demand: Chain R, α, the larger solution of an equation (carried forward from α) and the greatest value of the wave plus
+      a constant (carried forward from R).
+tags:
+- senior
+- trigonometry
+- auxiliary-angle
+- r-cos-form
+- maximum-minimum
+- trigonometric-equations
+- nsw-extension-1
