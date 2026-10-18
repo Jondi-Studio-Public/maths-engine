@@ -2216,6 +2216,536 @@ _ENTRIES = (
         "Summing a geometric series without the factor of its first term (a/(1 - r) taken as 1/(1 - r)).",
         area="series",
     ),
+    CatalogueEntry(
+        "svd-forgot-square-root",
+        "Giving an eigenvalue of AᵀA as the singular value, without taking its square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-wrong-ordering",
+        "Giving the smaller singular value where the larger was asked for, or the larger where the smaller was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-determinant-as-value",
+        "Giving the product of the singular values (the absolute value of the determinant, or the square root of det AAᵀ) as if it were one singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-frobenius-squared",
+        "Giving the sum of the squares of the entries, which is σ₁² + σ₂², as if it were a single singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-sum-of-values",
+        "Adding the singular values instead of reading off the largest one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-null-eigenvalue-used",
+        "Taking the smallest singular value of a 2×3 matrix to be 0 because AᵀA, which is 3×3, has the eigenvalue 0.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-error-uses-largest",
+        "Giving σ₁, the part the rank-1 approximation keeps, as the size of the error; the error is the part it discards.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-condition-inverted",
+        "Writing the condition number upside down as σ₂/σ₁.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-condition-squared",
+        "Dividing the eigenvalues of AᵀA instead of the singular values, which squares the condition number.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-of-sum",
+        "Dividing σ₁ by σ₁ + σ₂ instead of by σ₂.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-of-eigenvalue-gap",
+        "Dividing the gap σ₁ − σ₂ by σ₂ instead of dividing σ₁ by σ₂.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-forgot-squares-in-share",
+        "Using σ₁/(σ₁ + σ₂) as the share of the squared Frobenius norm, without squaring the singular values.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-discarded-share",
+        "Giving the share that the rank-1 approximation discards, σ₂²/(σ₁² + σ₂²), instead of the share it keeps.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-instead-of-share",
+        "Dividing σ₁² by σ₂² (a ratio of the two parts) instead of by the whole, σ₁² + σ₂².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-vector-for-other-value",
+        "Giving the singular vector that belongs to the other singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-null-direction-chosen",
+        "Giving the null vector of A, which belongs to the zero eigenvalue of AᵀA, instead of the vector for σ₁.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-left-vector-used",
+        "Giving a left singular vector (an eigenvector of AAᵀ) padded with a zero in place of a right singular vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-row-as-singular-vector",
+        "Giving a row of A as the right singular vector, as if the rows were eigenvectors of AᵀA.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-squares-dropped-in-denominator",
+        "Squaring the largest singular value in the numerator of the share but not the smaller one in the denominator.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-entry-omitted",
+        "Giving the cofactor of the single non-zero entry as the determinant, without multiplying by that entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-sign-pattern-ignored",
+        "Leaving out the sign (-1)^(i+j) of a cofactor, or applying it twice, so the term has the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-minor-wrong-position",
+        "Deleting the wrong row or column when forming the minor, so the cofactor belongs to a different entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-diagonal-product",
+        "Giving the product of the diagonal entries as the determinant of a matrix that is not triangular.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-swap-sign-ignored",
+        "Forgetting that each row swap changes the sign of the determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-alternating-signs-ignored",
+        "Adding the terms of a cofactor expansion along a row without the alternating + - + - signs.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-first-row-only-first-minor",
+        "Stopping a cofactor expansion after its first term.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-minor-without-sign",
+        "Giving the minor (the 3×3 determinant) as the cofactor, without its sign (-1)^(i+j).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-index-transposed",
+        "Giving the cofactor of the entry in row j, column i instead of row i, column j.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-entry-included",
+        "Multiplying the cofactor by the entry it belongs to, which gives one term of the expansion, not the cofactor.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-not-raised-to-size",
+        "Taking det(kM) = k det M, when each of the four rows contributes a factor k, so det(kM) = k⁴ det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-times-size",
+        "Multiplying the determinant by 4k instead of raising k to the fourth power.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-transpose-changes-sign",
+        "Thinking that transposing a matrix changes the sign of its determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-inverse-ignored",
+        "Treating det(M⁻¹) as det M instead of 1/det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-inverse-on-wrong-factor",
+        "Inverting the determinant of the wrong matrix in a product with an inverse.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-power-as-multiple",
+        "Reading det(M²) as 2 det M instead of (det M)².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-adjugate-exponent",
+        "Using the wrong power in det(adj M) = (det M)ⁿ⁻¹ for an n×n matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-adjugate-is-inverse",
+        "Treating the adjugate as the inverse, so det(adj M) = 1/det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-negative-sign-kept",
+        "Keeping the sign of a factor -1 on a 4×4 matrix, when (-1)⁴ = 1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-transposed-factor-dropped",
+        "Forgetting the factor det(Mᵀ) = det M when a transposed matrix is multiplied in.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-product-as-sum",
+        "Adding determinants where the determinant of a product multiplies them.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-addition-scales",
+        "Thinking that adding a multiple of one row to another multiplies the determinant by that multiple.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-scaled-as-whole-matrix",
+        "Raising the factor c to the fourth power when only one row is multiplied by c.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-operations-unchanged",
+        "Thinking that row operations leave the determinant unchanged.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-forgot-cofactor-divisor",
+        "Solving det M = 0 for k without dividing by the cofactor, the coefficient of k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-adjugate-not-transposed",
+        "Reading the entry of the inverse from the cofactor in the same position, instead of the transposed position.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-forgot-divide-by-det",
+        "Giving an entry of the adjugate as an entry of the inverse, without dividing by det A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-inverse-entry-inverted",
+        "Dividing det A by the cofactor instead of the cofactor by det A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-scaling-ignored",
+        "Forgetting that multiplying a row by c multiplies the determinant by c.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-power-off-by-one",
+        "Raising the scalar to the power 3 instead of 4 in det(kM), one less than the size of the matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-power-ignored",
+        "Reading det(M²) as det M, ignoring the power.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-ignored",
+        "Ignoring the scalar factor k in det(kM) altogether.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-expansion-term-dropped",
+        "Leaving one term out of the cofactor expansion along a row before solving for k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-both-columns-summed",
+        "Adding the squared lengths of both columns, 2N², and giving that as the normalising constant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-conjugate-forgotten",
+        "Transposing without conjugating (using AᵀA or Hᵀ) where the conjugate transpose A* is needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-diagonal-entry-as-eigenvalue",
+        "Reading a diagonal entry as an eigenvalue. That works for a triangular matrix, not for a Hermitian matrix with a non-zero off-diagonal entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-eigenvalue-sum-of-powers",
+        "Giving λ₁ + λ₂ (the trace) where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-entry-squared",
+        "Giving x² from the length condition instead of x.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-entry-transposed",
+        "Giving the (j, i) entry of A*A instead of the (i, j) entry, which has the opposite imaginary part.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-parts-ignored",
+        "Finding the length of a complex column from the real parts of its entries only.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-parts-only",
+        "Summing the squares of only the imaginary parts of the entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-sign",
+        "Giving the conjugate of the entry, with the sign of the imaginary part reversed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-mean-as-eigenvalue",
+        "Giving the mean of the diagonal entries, (a + d)/2, as an eigenvalue.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-as-square",
+        "Squaring each entry (z²) instead of taking its squared modulus |z|² = z z̄ when summing.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-not-squared",
+        "Using |b| + |c| in place of b² + c², the squared modulus of b + ci.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-squared-as-entry",
+        "Giving the squared modulus |q|² as the missing entry of a unitary matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-squared-unrooted",
+        "Giving k² from the characteristic equation as k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-norm-squared-not-root",
+        "Giving N², the squared length of a column, as the normalising constant N.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-normaliser-as-entry",
+        "Giving the normalising constant N as the missing entry of the matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-ignored",
+        "Ignoring the off-diagonal entries when finding the determinant of a Hermitian matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-real-part-added",
+        "Adding |b| to k when the real part b of the off-diagonal entry belongs under the root as b².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-sign",
+        "Adding (b + ci)(b - ci) to ad instead of subtracting it in the determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-squared-not-modulus",
+        "Squaring the off-diagonal entry, (b + ci)², instead of multiplying it by its conjugate, so b² - c² replaces b² + c².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-product-of-eigenvalues",
+        "Giving λ₁λ₂ (the determinant) where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-product-order-reversed",
+        "Computing AA* where A*A was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-radicand-with-offdiagonal",
+        "Giving (a - λ)(d - λ) as k, forgetting to subtract b² and take the square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-radius-as-eigenvalue",
+        "Giving the half-gap √(((a - d)/2)² + b² + c²), the distance of each eigenvalue from the mean, as an eigenvalue.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-real-parts-only",
+        "Summing the squares of only the real parts of the entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-sign-from-norm-only",
+        "Taking the wrong root of the length condition x² = p², when orthogonality fixes the sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-square-instead-of-modulus-squared",
+        "Using Re(z²) = a² - b² for |z|² = a² + b² when finding the length of a column.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-square-of-sum",
+        "Giving (λ₁ + λ₂)², the square of the trace, where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-sum-instead-of-gap",
+        "Adding the two eigenvalues (giving the trace) where their difference or the other eigenvalue was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-wrong-ordering",
+        "Giving the larger eigenvalue where the smaller was asked for, or the reverse.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-moduli-mixed",
+        "Adding |b| to c² when finding k, a mixture that no step of the working produces.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-real-part-instead-of-imaginary",
+        "Giving the real part of the entry where the imaginary part was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "taylor-second-order-no-half",
+        "Leaving out the factor ½ on the second-order terms of the Taylor polynomial, so each second derivative appears at twice its size.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-wrong-second-partial",
+        "Using the wrong second partial derivative for the term asked about, such as f_yy for the coefficient of (x - a)².",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-first-derivative-used",
+        "Giving a first partial derivative at the point where the coefficient of a second-order term was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-halved",
+        "Writing the mixed term as ½fₓ_y(x - a)(y - b) instead of fₓ_y(x - a)(y - b): the ½ and the 2 from the two orders of differentiation both applied.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-doubled",
+        "Giving 2fₓ_y as the coefficient of (x - a)(y - b), keeping the 2 from ½·2fₓ_y without the ½.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-second-order-omitted",
+        "Stopping at the linear terms and leaving the second-order terms out of the estimate.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-omitted",
+        "Leaving out the mixed term fₓ_y(x - a)(y - b) from the second-order part of the Taylor polynomial.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-offsets-swapped",
+        "Substituting the offsets the wrong way round, the y-step for x - a and the x-step for y - b.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-constant-omitted",
+        "Leaving out the constant term f(a, b) from the Taylor polynomial.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-one-sided-range",
+        "Counting only the positive integers k, or only one side of zero, when D > 0 allows k and -k alike.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-boundary-included",
+        "Including the integers on the boundary k² = 4AC, where D = 0 and the test is inconclusive.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-count-ceiling",
+        "Rounding the bound on k up instead of down, so the count includes integers with k² > 4AC.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-count-forgot-zero",
+        "Leaving k = 0 out of the count of integers in the range.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-boundary-off-by-one",
+        "Taking the largest integer that fails the strict inequality, or one beyond the smallest that satisfies it.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-unrooted",
+        "Giving k² (or 4AC) as the bound on k, without taking the square root.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-second-derivative-halved",
+        "Using A and C, the coefficients of x² and y², for fₓₓ and f_yy instead of 2A and 2C, which changes D.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-fxx-sign-ignored",
+        "Choosing a minimum when fₓₓ < 0, or a maximum when fₓₓ > 0, once D > 0.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-determinant-sign-misread",
+        "Reading D > 0 as a saddle point or D < 0 as an extremum.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-test-misapplied",
+        "Calling the test inconclusive when D is not zero.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-mixed-term-not-squared",
+        "Subtracting fₓ_y instead of fₓ_y² in D = fₓₓf_yy - fₓ_y².",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-trace-used",
+        "Adding fₓₓ and f_yy (the trace) instead of finding the determinant of the Hessian.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-diagonal-only",
+        "Forgetting the mixed term and taking D = fₓₓf_yy.",
+        area="multivariable",
+    ),
     # -- inequalities and matrix inverses -------------------------------------------------------------------------
     CatalogueEntry(
         "ineq-direction-not-reversed",
