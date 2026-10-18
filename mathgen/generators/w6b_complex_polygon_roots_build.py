@@ -426,7 +426,7 @@ def exd_x_w6b_complex_polygon_roots(rng, tier="exam"):
 
 
 # (n, r) pairs, each with r^n at most 3 x 10^8 so the constant stays a number a learner can read.
-_EXAM_POLYGONS = [(n, r) for n, top in ((3, 80), (4, 60), (6, 25)) for r in range(2, top + 1)]
+_EXAM_POLYGONS = [(n, r) for n, top in ((3, 600), (4, 120), (6, 26)) for r in range(2, top + 1)]
 
 
 def _exam(rng):
