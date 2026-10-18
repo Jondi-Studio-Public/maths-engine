@@ -1,0 +1,98 @@
+id: network-cut-capacity-max-flow
+name: Cut capacity, minimum cut and maximum flow in a network
+domain: financial-discrete
+year_level:
+- '12'
+description: Find the capacity of a cut in a directed network described in words (only links from the source side to the sink
+  side count), choose the smallest of several cuts, use the maximum-flow minimum-cut theorem to find the maximum flow, and
+  find the new maximum flow when one link is widened. Every answer is a whole number.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-solve-small-scale-network-flow-problems-including-the
+answer: number
+sources:
+- topic: w7a_network_cut
+  params: {}
+  difficulty: easy
+  stages:
+  - 6
+- topic: w7a_network_cut
+  params: {}
+  difficulty: medium
+  stages:
+  - 6
+- topic: w7a_network_cut
+  params: {}
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: exd_x_w7a_network_cut
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: cut-misses-a-crossing-pipe
+  description: Leaving one pipe that crosses the cut out of the cut's capacity.
+- id: cut-counts-both-ends
+  description: Adds the capacity of every link that touches the source side of the cut, those inside it as well as those crossing
+    it.
+- id: cut-sums-source-pipes
+  description: Giving the total capacity of the pipes leaving the source as the capacity of a cut that separates more than
+    the source.
+- id: sum-all-sink-incoming
+  description: Giving the total capacity of the pipes entering the sink as the maximum flow, ignoring bottlenecks upstream.
+- id: cut-sums-pipes-on-one-side
+  description: Adding up the pipes that lie wholly on the source side of a cut instead of the pipes that cross it.
+- id: cut-counts-backward-pipes
+  description: Adding to a cut's capacity the pipes that run from the sink side back to the source side; only pipes from the
+    source side to the sink side count.
+- id: cut-smallest-of-listed-ignored
+  description: Gives the middle or the largest of several stated cut capacities as the maximum flow, rather than the smallest.
+- id: flow-equals-capacity-of-a-non-minimum-cut
+  description: Giving the capacity of a cut as the maximum flow when a smaller cut exists; the maximum flow equals the smallest
+    cut.
+- id: sum-all-source-outgoing
+  description: Giving the total capacity of the pipes leaving the source as the maximum flow, ignoring bottlenecks downstream.
+- id: minimum-pipe-capacity
+  description: Giving the smallest single pipe capacity as the maximum flow, ignoring that flow can split across paths.
+- id: flow-increase-passes-fully
+  description: Adds the whole widening of a link to the maximum flow, forgetting that another cut then limits the flow.
+- id: flow-widening-ignored
+  description: Gives the old maximum flow, as if widening one link could not help.
+- id: flow-single-path-only
+  description: Gives the capacity of the best single route from the source to the sink as the maximum flow, ignoring that
+    flow can use several routes at once.
+- id: flow-spare-from-sink-side
+  description: Subtracts the maximum flow from the capacity into the sink where the capacity out of the source was meant.
+- id: flow-spare-reports-flow
+  description: Gives the maximum flow where the capacity out of the source that cannot be used was asked for.
+- id: graph-count-off-by-one
+  description: Uses the right method for the count but is out by one or two.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Add the capacities of the links that cross a stated cut from the source side to the sink side, in a network with
+      no link running back.
+  medium:
+    steps: 3
+    demand: Find the capacity of a cut when a link also runs back from the sink side, which must not be counted, or find the
+      capacities of three stated cuts and use the maximum-flow minimum-cut theorem to take the smallest as the maximum flow.
+  hard:
+    steps: 5
+    demand: Find the maximum flow of a four-junction network with no cut given, by locating the smallest of all the cuts,
+      or find the new maximum flow after one link is widened, where a different cut then becomes the smallest.
+  exam:
+    steps: 6
+    demand: Find the capacities of two stated cuts, one with a return link, then the maximum flow as the smallest cut, then
+      the source capacity that can never be used.
+tags:
+- senior
+- financial-discrete
+- networks
+- network-flow
+- minimum-cut
+- maximum-flow
+- qld-general-mathematics

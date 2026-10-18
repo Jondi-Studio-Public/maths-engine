@@ -306,6 +306,7 @@ OPTION_NOTES_TOPICS = frozenset(
         "w6b_sinusoid_features",
         "exd_x_w6b_sinusoid_features",
         "w7a_graph_types",
+        "w7a_network_cut",
         "fy1la_column_space",
         "fy1la_consistency",
         "fy1la_eigenvalues",

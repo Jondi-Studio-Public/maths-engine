@@ -35630,6 +35630,41 @@ _ENTRIES = (
         "Takes both parts of an odd number of vertices to be the larger size.",
         area="graph-types",
     ),
+    CatalogueEntry(
+        "flow-single-path-only",
+        "Gives the capacity of the best single route from the source to the sink as the maximum flow, ignoring that flow can use several routes at once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-increase-passes-fully",
+        "Adds the whole widening of a link to the maximum flow, forgetting that another cut then limits the flow.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-widening-ignored",
+        "Gives the old maximum flow, as if widening one link could not help.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-spare-reports-flow",
+        "Gives the maximum flow where the capacity out of the source that cannot be used was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-spare-from-sink-side",
+        "Subtracts the maximum flow from the capacity into the sink where the capacity out of the source was meant.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "cut-smallest-of-listed-ignored",
+        "Gives the middle or the largest of several stated cut capacities as the maximum flow, rather than the smallest.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "cut-counts-both-ends",
+        "Adds the capacity of every link that touches the source side of the cut, those inside it as well as those crossing it.",
+        area="networks",
+    ),
     # -- end build-a batch --
 )
 
