@@ -33,7 +33,7 @@ import secrets
 from dataclasses import asdict, dataclass, field
 from fractions import Fraction
 
-from . import __version__, engine
+from . import __version__, engine, misconceptions
 from .core import display_question, mcq_options, paper_notation
 from .engine import QuestionChanged  # noqa: F401  (re-exported for callers of grade_reply)
 from .grading.typed import table_prompt
@@ -47,6 +47,8 @@ MAX_VERSIONS = 10
 MIN_ID_SECRET_CHARS = 16
 #: How many extra seeds `make_questions` tries to find questions that differ, before it accepts repeats.
 _DISTINCT_TRIES = 4
+#: One past the largest seed (or nonce) an id can carry; `_regenerate` refuses anything from here up.
+MAX_NONCE = 2**63
 
 _V9_CODE = re.compile(r"^AC9M(F|10A|10|[1-9])[A-Z]{1,3}\d{2}$")
 _SENIOR_CODE = re.compile(r"^ACM[A-Z]{2}\d{3}$")
@@ -278,7 +280,7 @@ def _prompt_block(item, shown: dict, kind: str) -> dict:
     return out
 
 
-def _answer_block(item, shown: dict, kind: str) -> dict:
+def _answer_block(item, shown: dict, kind: str, skill: Skill | None = None) -> dict:
     out = {
         "text": shown["answer_text"],
         "latex": _latex(getattr(item, "answer_latex", "")),
@@ -289,6 +291,10 @@ def _answer_block(item, shown: dict, kind: str) -> dict:
         notes = getattr(item, "option_notes", None) or {}
         if notes:
             out["option_notes"] = {str(i): notes[o] for i, o in enumerate(mcq_options(item)) if o in notes}
+            # the same notes as words a learner can read: the skill's own wording first, then the catalogue's
+            said = {i: misconceptions.describe(m, skill) for i, m in out["option_notes"].items()}
+            if any(said.values()):
+                out["option_feedback"] = {i: d[0] for i, d in said.items() if d}
     return out
 
 
@@ -327,14 +333,14 @@ def question_view(skill: Skill, question, qid: str, *, answers: bool = False) ->
             entry = {"label": part.label, "answer_kind": part.answer_kind, "marks": part.marks}
             entry.update(_prompt_block(part, part_shown, part.answer_kind))
             if answers:
-                entry["answer"] = _answer_block(part, part_shown, part.answer_kind)
+                entry["answer"] = _answer_block(part, part_shown, part.answer_kind, skill)
             view["parts"].append(entry)
         view["marks"] = sum(p.marks for p in question.parts)
     else:
         view.update(_prompt_block(question, shown, kind))
         view["marks"] = 1
         if answers:
-            view["answer"] = _answer_block(question, shown, kind)
+            view["answer"] = _answer_block(question, shown, kind, skill)
     return view
 
 
@@ -402,6 +408,9 @@ def make_questions(
     out, seen = [], set()
     n = start
     budget = count * (1 + _DISTINCT_TRIES)
+    if start + budget > MAX_NONCE:
+        # Seeds run up to `budget` past `start`, and an id's seed field must stay below 2**63 to be graded.
+        raise BadRequest(f"seed {start} is too close to the top of the range for {count} question(s)")
     spare: list[dict] = []
     while len(out) < count and n < start + budget:
         question, qid = _make_with_id(lib, skill, n, src)
@@ -431,7 +440,7 @@ def _regenerate(lib: Library, qid: str):
         except KeyError as exc:
             raise NotFound(exc.args[0] if exc.args else str(exc)) from None
         return question, skill
-    if not 0 <= nonce < 2**63:
+    if not 0 <= nonce < MAX_NONCE:
         raise BadRequest(f"not a question id: seed out of range in {qid!r}")
     matches = [src for src in skill.sources if src.effective_key == key]
     if not matches:
@@ -587,13 +596,13 @@ def _option_reply(item, reply):
     grader as it is, which reads a letter ("B") or an index written as text.
     """
     if not isinstance(reply, str):
-        return str(reply)
+        return reply
     options = [" ".join(str(option).split()) for option in mcq_options(item)]
     text = " ".join(reply.split())
     if text in options:
-        return str(options.index(text))
+        return options.index(text)
     folded = [i for i, option in enumerate(options) if option.casefold() == text.casefold()]
-    return str(folded[0]) if len(folded) == 1 else reply
+    return folded[0] if len(folded) == 1 else reply
 
 
 def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:

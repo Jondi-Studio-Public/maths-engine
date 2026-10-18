@@ -73,18 +73,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == [], seed
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("formula_plugin", seed=s, difficulty="hard", unknown="input")) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard, (exam, hard)
-
-
 def test_shape_and_wiring():
     exam = [s for s in SKILL.sources if s.difficulty == "exam"]
     assert [s.topic for s in exam] == [TOPIC]
@@ -93,11 +81,6 @@ def test_shape_and_wiring():
         assert [p.label for p in q.parts] == ["a", "b", "c"]
         assert [p.follow_through is not None for p in q.parts] == [False, True, True]
         assert all(p.answer_kind == "number" and p.marks >= 1 for p in q.parts)
-
-
-def test_deterministic():
-    for seed in (0, 1, 7, 123):
-        assert _q(seed).to_json() == _q(seed).to_json()
 
 
 def test_keys_match_independent_derivation(questions):

@@ -80,7 +80,7 @@ def test_real_grader_accepts_answer_index_rejects_distractor_indices(tier):
         q = make(TOPIC, seed=seed, difficulty=tier)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grader(q, str(correct_index)).correct, f"{tier} seed={seed}: correct index rejected"
+        assert grader(q, correct_index).correct, f"{tier} seed={seed}: correct index rejected"
         for dist in q.distractors:
             dist_index = options.index(dist)
             assert not grader(q, str(dist_index)).correct, f"{tier} seed={seed}: distractor accepted"

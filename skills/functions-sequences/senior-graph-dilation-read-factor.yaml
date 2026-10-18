@@ -1,0 +1,55 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-graph-dilation-read-factor
+name: Read the dilation factor from the graphs of y = c f(x) and y = f(kx)
+domain: functions-sequences
+year_level: ['11']
+description: Given the graphs of y = f(x) and a dilated graph y = g(x) on one integer grid, read the dilation from
+  the picture. Easy reads the vertical factor c in g(x) = c f(x) from the y-intercepts, medium reads the horizontal
+  factor k in g(x) = f(kx) from the x-intercepts (where f(kx) divides the x-coordinates by k), hard picks the equation
+  that matches a vertical or a horizontal dilation, and the exam chain reads k, then c, then follows the marked
+  point P on f to its image on g under y = c f(kx). Every intercept and point sits on a grid crossing, and the factors
+  are never printed.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [function-notation]
+answer: mcq
+sources:
+- topic: ey_graph_dilation
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_graph_dilation
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_graph_dilation
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: ey_graph_dilation_exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: factor-inverted, description: 'Gives the reciprocal of the factor: for f(kx) the x-intercepts move to 1/k
+    of their old distance from the axis, and for c f(x) the heights are multiplied by c.'}
+- {id: heights-compared-by-difference, description: 'Subtracts the two heights instead of dividing them, treating
+    a vertical dilation as a shift.'}
+- {id: intercept-as-factor, description: 'Reports the y-intercept of g, or the x-intercept of g, as the factor.'}
+- {id: horizontal-factor-multiplies-x, description: 'Multiplies the x-coordinates by k for f(kx), when the graph
+    is squashed horizontally and the x-coordinates are divided by k.'}
+- {id: direction-confused, description: Chooses a horizontal dilation for a graph whose x-intercepts have not moved
+    (or a vertical one for a graph whose y-intercept has not moved).}
+- {id: sign-dropped, description: Ignores a reflection in the x-axis and gives a positive factor for a graph that
+    has been turned upside down.}
+- {id: image-x-multiplied, description: Multiplies the x-coordinate of the marked point by k instead of dividing
+    it.}
+- {id: image-y-divided, description: Divides the y-coordinate of the marked point by c instead of multiplying it.}
+difficulty_progression:
+  easy: {steps: 2, demand: "Compare the y-intercepts of f and g and divide to find the vertical factor c."}
+  medium: {steps: 3, demand: 'Compare the x-intercepts, divide the old distance by the new one, and see that f(kx)
+      divides x by k.'}
+  hard: {steps: 4, demand: 'Decide whether the dilation is vertical or horizontal from which intercepts moved, then
+      write the matching equation.'}
+  exam: {steps: 5, demand: 'Read k from the x-intercepts and c from the y-intercept, then move a marked point by
+      dividing x by k and multiplying y by c.'}
+tags: [acara-senior-v8-4, functions, dilation, transformations, acmmm026, figure]

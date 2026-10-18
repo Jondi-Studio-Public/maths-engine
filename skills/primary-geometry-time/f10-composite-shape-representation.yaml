@@ -1,0 +1,41 @@
+# Name and description adapted from the Australian Curriculum: Mathematics (Version 9.0),
+# (c) ACARA, https://v9.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: f10-composite-shape-representation
+name: Represent and approximate composite shapes
+domain: primary-geometry-time
+year_level: ['4']
+naplan_domain: [space]
+description: "Represent and approximate composite shapes using combinations of familiar shapes, on a square grid. Easy counts the squares inside a rectilinear outline. Medium splits an outline of a rectangle and a triangle into familiar parts and finds its area. Hard estimates the area of an irregular shape from squares drawn whole, more than half and less than half, or whole and partly covered, using a counting rule stated in the question."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [rectangle-area, name-basic-shapes]
+answer: number
+sources:
+- topic: grid_composite_area
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_composite_area
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_composite_area
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: gives-the-bounding-rectangle
+  description: "Gives the area of the rectangle that surrounds the shape, or its perimeter, instead of the area inside it."
+- id: triangle-not-halved
+  description: "Adds the area of a rectangle on the same base and height as the triangle, forgetting to halve it."
+- id: rectangle-or-triangle-only
+  description: "Finds the area of only one of the familiar parts, or counts a triangle's area as a whole rectangle."
+- id: counts-every-square-touched
+  description: "Counts every square the shape touches, the dotted ones too, and so over-estimates."
+- id: counts-whole-squares-only
+  description: "Counts only the whole squares and leaves out the more-than-half or partly covered ones."
+- id: part-squares-not-halved
+  description: "Counts each partly covered square as a whole square instead of half a square."
+tags: [acara-f10-v9, primary, geometry, composite-shapes, area, ac9m4sp01]

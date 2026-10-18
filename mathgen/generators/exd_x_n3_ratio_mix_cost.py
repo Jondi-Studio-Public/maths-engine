@@ -140,7 +140,7 @@ def exd_x_n3_ratio_mix_cost(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 working=[
                     f"The ratio has {ratio_text.replace(' : ', ' + ')} = {s} parts, so one part is {_kg(mass_total)} ÷ {s} = {_kg(k)} kg.",
-                    f"{names[j]} is {ratio[j]} parts: {ratio[j]} × {_kg(k)} = {a_text} kg.",
+                    f"{names[j]} is {ratio[j]} part{'' if ratio[j] == 1 else 's'}: {ratio[j]} × {_kg(k)} = {a_text} kg.",
                 ],
                 distractors=a_dist,
             ),

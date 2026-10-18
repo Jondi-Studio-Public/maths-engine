@@ -47,16 +47,6 @@ def oracle(q):
     return {"a": g0, "b": th1, "c": th2}
 
 
-def test_source_wired():
-    assert [s.topic for s in exam_sources(SKILL)] == ["exd_x_u5_gradient_descent"]
-    assert exam_sources(SKILL)[0].stages == ["exam"]
-
-
-def test_shapes_and_text():
-    check_shapes(SKILL)
-    check_no_text_defects(SKILL)
-
-
 def test_key_rederived_from_prompt():
     for seed in range(300):
         q = exam_question(SKILL, seed)

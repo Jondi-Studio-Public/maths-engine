@@ -179,11 +179,11 @@ def test_real_grader_accepts_canonical_and_rejects_every_distractor(tier):
     for q in _all(tier, seeds=range(30)):
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct, f"{tier} seed {q.seed}: canonical rejected"
+        assert grade_mcq(q, correct_idx).correct, f"{tier} seed {q.seed}: canonical rejected"
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct, f"{tier} seed {q.seed}: distractor {opt!r} wrongly accepted"
+            assert not grade_mcq(q, i).correct, f"{tier} seed {q.seed}: distractor {opt!r} wrongly accepted"
 
 
 @pytest.mark.parametrize("tier", TIERS)

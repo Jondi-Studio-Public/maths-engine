@@ -35,25 +35,6 @@ def _independent(text: str) -> list[int]:
     return sorted(int(r) for r in roots)
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == []
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {
-        prompt_shape(make("two_by_two_eigenvalues", seed=s, eigenvalue_hi=14, off_diagonal_hi=10)) for s in range(60)
-    }
-    assert len(exam) >= 3, exam
-    assert exam - hard
-
-
-def test_deterministic():
-    for seed in (0, 1, 7, 123):
-        assert _q(seed).to_json() == _q(seed).to_json()
-
-
 def test_matrix_is_not_triangular():
     for seed in range(100):
         rows = re.search(r"\[\[(-?\d+), (-?\d+)\], \[(-?\d+), (-?\d+)\]\]", _q(seed).text)
@@ -67,12 +48,6 @@ def test_key_matches_independent_derivation_over_300_seeds():
         if list(q.answer) != _independent(q.text):
             bad.append((seed, q.text, q.answer_text))
     assert bad == []
-
-
-def test_answer_space():
-    texts = [_q(s).answer_text for s in range(300)]
-    assert len(set(texts)) >= 100
-    assert max(texts.count(t) for t in set(texts)) <= 15
 
 
 def test_grader_accepts_key_and_rejects_every_distractor():

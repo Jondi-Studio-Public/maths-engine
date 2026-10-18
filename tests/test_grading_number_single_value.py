@@ -71,7 +71,6 @@ _NINE = [
     "9 dollars",
     "9 AUD",
     "A$9",
-    "9%",
     "9 degrees",
     "9°",
     "nine",
@@ -105,6 +104,23 @@ _NINE = [
 @pytest.mark.parametrize("reply", _NINE)
 def test_ordinary_ways_of_writing_nine_are_correct(reply):
     assert _correct(9, reply) is True
+
+
+_NINE_AS_AN_EXPRESSION = [
+    "sqrt(9)", "√9", "9!", "9%", "log(9)", "f(9)", "9^2", "9**2", "9²", "2*9", "9+0", "9 - 0", "x = sqrt(9)",
+]  # fmt: skip
+
+
+@pytest.mark.parametrize("reply", _NINE_AS_AN_EXPRESSION)
+def test_an_expression_around_the_value_is_not_the_value(reply):
+    assert _correct(9, reply) is False
+
+
+def test_percent_is_fine_when_the_question_is_about_percent():
+    question = _question(45, "45%", text="What percentage of the class walked?")
+    assert grade("number", question, "45%").correct is True
+    assert grade("number", question, "45 %").correct is True
+    assert grade("number", _question(9, text="Find 10% of 90."), "9%").correct is True
 
 
 @pytest.mark.parametrize(

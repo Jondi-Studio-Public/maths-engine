@@ -174,10 +174,10 @@ def test_shape_features_correct_answer_grades_correct_and_distractors_incorrect(
         # For mcq, grade_mcq expects an index into mcq_options(question)
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct
+        assert grade_mcq(question, correct_index).correct
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            assert not grade_mcq(question, str(distractor_index)).correct
+            assert not grade_mcq(question, distractor_index).correct
 
 
 def test_shape_features_out_of_range_index_rejected():

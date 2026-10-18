@@ -1,0 +1,44 @@
+id: f10-two-dimensional-object-representations
+name: Represent objects in two dimensions
+domain: primary-geometry-time
+year_level: ['3', '5']
+naplan_domain: [space]
+description: Represent a stack of cubes on a grid. Easy shades the plan view (the view from above) of a stack drawn on isometric dot paper. Medium is given a plan with the number of cubes written on each column and shades the front, right or left view. Hard shades a net of a cube on a canvas, any six squares that fold up into the cube, with a tight canvas leaving only a few nets that fit.
+status: deferred
+deferred_reason: visual
+capability_gates: [visual_construction]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-shape-features-classification, f10-position-location-language]
+answer: grid_cells
+sources:
+- topic: grid_plan_views
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_plan_views
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_plan_views
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: plan-front-back-swapped
+  description: Draws the plan with the front of the stack at the top of the drawing instead of the bottom.
+- id: plan-includes-bare-ground
+  description: Shades the whole rectangle the stack stands in, including the empty spots where there are no cubes.
+- id: plan-shows-front-view
+  description: Draws the front view, standing the columns up, when asked for the view from above.
+- id: reads-only-nearest-row
+  description: Draws a view using only the row of the plan nearest the viewer instead of the tallest column in each line.
+- id: adds-heights-in-a-line
+  description: Adds the numbers in a line of the plan instead of taking the tallest, so the view is too tall.
+- id: mirrored-view
+  description: Draws the view reversed left to right, or the view from the opposite side.
+- id: net-has-overlapping-faces
+  description: Draws six squares in which two faces would land on the same side of the cube, such as four squares round a corner or two flaps on the same side of a row of four.
+- id: net-has-wrong-number-of-faces
+  description: Draws five squares, a face missing, or seven squares.
+tags: [acara-f10-v9, primary-geometry-time, grid_plan_views, ac9m3sp02, ac9m5sp01, nets, plan-view, drawn-answer]

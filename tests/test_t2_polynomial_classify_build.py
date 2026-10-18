@@ -78,7 +78,7 @@ class TestClassifyPolynomials:
     def test_real_grader_accepts_canonical_answer(self, tier):
         for q in _all_questions(tier):
             options = mcq_options(q)
-            idx = str(options.index(q.answer_text))
+            idx = options.index(q.answer_text)
             result = GRADERS["mcq"](q, idx)
             assert result.correct, f"{tier}: grader rejected canonical index {idx!r} for {q.text!r}"
 
@@ -87,7 +87,7 @@ class TestClassifyPolynomials:
         for q in _all_questions(tier):
             options = mcq_options(q)
             for d in q.distractors:
-                idx = str(options.index(d))
+                idx = options.index(d)
                 result = GRADERS["mcq"](q, idx)
                 assert not result.correct, f"{tier}: grader accepted distractor index {idx!r} for {q.text!r}"
 

@@ -1,13 +1,27 @@
 id: f10-compare-measurement-attributes
-name: Compare measurement attributes
+name: Compare mass and capacity directly
 domain: measurement
-year_level: ['1']
-description: Given two objects or events and a stated attribute (length, mass, capacity or duration), determine which is greater, smaller, or that they are equal using direct comparison methods.
+year_level: [F, '1']
+naplan_domain: [measurement]
+learner_band: early
+description: Use a pan balance to say which object is heavier or lighter, and look at containers to say which holds more or less, including when the tall container is not the one that holds most and when the water level misleads.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
 placement_eligible: false
+read_aloud: true
 prerequisites: [compare-lengths]
 answer: mcq
 sources:
+- topic: compare_mass_capacity_picture
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: compare_mass_capacity_picture
+  difficulty: medium
+  stages: [3, 4]
+- topic: compare_mass_capacity_picture
+  difficulty: hard
+  stages: [5, 6, maintenance]
 - topic: ey6a_compare_attributes
   params: {attr_pool: ["length", "mass"], equal_fraction: 0.0}
   difficulty: easy
@@ -21,10 +35,14 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:
-- id: swapped-comparison
-  description: States the other direction of the comparison (that the second item is greater/smaller than the first, when the opposite is true).
-- id: false-equality
-  description: Chooses the equality option when the objects/events are not actually equal.
-- id: denies-equality
-  description: Chooses an inequality option when the objects/events are actually equal.
-tags: [f10, measurement, comparison, length, mass, capacity, duration, acara-v9-year-1]
+- id: bigger-is-heavier
+  description: Says the bigger-looking object is the heavier one, when the balance shows the smaller one is heavier.
+- id: more-things-is-heavier
+  description: Says the side with more blocks is heavier, without reading which way the balance tips.
+- id: taller-holds-more
+  description: Says the tallest container holds the most, ignoring how wide the others are.
+- id: higher-water-is-more
+  description: Says the container where the water stands higher has more water, ignoring how wide the container is.
+- id: reads-lighter-as-heavier
+  description: Answers the opposite question, giving the heavier side when asked which is lighter or the reverse.
+tags: [f10, measurement, comparison, mass, capacity, direct-comparison, balance, ac9mfm01, acara-v9-foundation, acara-v9-year-1]

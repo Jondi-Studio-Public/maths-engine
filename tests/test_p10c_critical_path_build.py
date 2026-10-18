@@ -66,10 +66,10 @@ def test_locate_real_grader_accepts_canonical_and_rejects_distractors(difficulty
         question = make(LOCATE_TOPIC, seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_idx = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_idx)).correct
+        assert grade_mcq(question, correct_idx).correct
         for idx, opt in enumerate(options):
             if opt != question.answer_text:
-                assert not grade_mcq(question, str(idx)).correct
+                assert not grade_mcq(question, idx).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)

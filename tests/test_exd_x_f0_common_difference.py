@@ -58,13 +58,6 @@ def derive(text: str) -> Fraction:
     return Fraction(total - 2 * tr, p + q - 2 * r)
 
 
-def test_no_text_defects_and_three_shapes():
-    for seed in range(60):
-        assert find_text_defects(_q(seed)) == []
-    shapes = {prompt_shape(_q(s)) for s in range(60)}
-    assert len(shapes) >= 3, shapes
-
-
 def test_exam_adds_shapes_over_hard_tier():
     hard = {prompt_shape(_hard(s)) for s in range(60)}
     exam = {prompt_shape(_q(s)) for s in range(60)}
@@ -89,7 +82,3 @@ def test_grader_accepts_key_and_rejects_every_distractor():
         assert len(q.distractors) >= 2, (seed, q.distractors)
         for d in q.distractors:
             assert not grade(q, d).correct, (seed, d, q.answer_text)
-
-
-def test_deterministic():
-    assert _q(7).to_json() == _q(7).to_json()

@@ -39,10 +39,10 @@ def test_prime_factorisation_exponent_uses_mcq_canonical_answer():
             options = mcq_options(question)
             assert len(options) == len(set(options))
             correct_index = options.index(question.answer_text)
-            assert grade_mcq(question, str(correct_index)).correct
+            assert grade_mcq(question, correct_index).correct
             for index, option in enumerate(options):
                 if option != question.answer_text:
-                    assert not grade_mcq(question, str(index)).correct
+                    assert not grade_mcq(question, index).correct
 
 
 def test_gap_skill_contracts_have_exact_prerequisites_answer_kinds_and_stage_sources():

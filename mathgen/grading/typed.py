@@ -575,11 +575,11 @@ def _mixed_number_as_fraction(match: re.Match) -> str:
     return f"{'-' if sign else ''}{value.numerator}/{value.denominator}"
 
 
-def _number_text(given: str) -> str:
-    """The part of a typed number reply that states the value, tidied for `extract_values`: the side after
-    the last "=", no thousands commas or spaces, "a × 10^n" written out, one minus sign, no precision note, a
-    sign attached to its number and a leading zero on a decimal that has none."""
-    text = _strip_comma_groups(_value_side(given)).translate(_MINUS_SIGNS)
+def _tidy_reply_text(text: str) -> str:
+    """`text` with a typed number's decoration written plainly: no thousands commas or spaces, "a × 10^n" written
+    out, mixed numbers and vulgar fractions as "a/b", one minus sign, no precision note, a sign attached to its
+    number and a leading zero on a decimal that has none."""
+    text = _strip_comma_groups(text).translate(_MINUS_SIGNS)
     text = _VULGAR_FRACTION_RE.sub(_vulgar_fraction, text)
     text = _MIXED_NUMBER_RE.sub(_mixed_number_as_fraction, text)
     text = _SPACE_GROUP_RE.sub(lambda match: re.sub(r"\s", "", match.group(0)), text)
@@ -587,6 +587,12 @@ def _number_text(given: str) -> str:
     text = _PRECISION_NOTE_RE.sub(" ", text)
     text = _SIGN_MINUS_RE.sub("-", text)
     return _LEADING_POINT_RE.sub("0.", text)
+
+
+def _number_text(given: str) -> str:
+    """The part of a typed number reply that states the value, tidied for `extract_values`: the side after
+    the last "=", then everything `_tidy_reply_text` does."""
+    return _tidy_reply_text(_value_side(given))
 
 
 def _read_values(text: str) -> list:
@@ -627,6 +633,88 @@ def _reply_negates_the_answer(question, given: str) -> bool:
     )
 
 
+# -- a reply that is an expression, not a statement of the value ---------------------------------------------
+#
+# The graders for number, pair, list and set read "the numbers in the reply", so "sqrt(9)", "9!", "2*9" and
+# "f(9)" all held the number 9 and passed for an answer of 9. A learner who types an operation around the value
+# has not stated the value. After the tidying above (labels, units, precision notes, thousands separators,
+# "a × 10^n", mixed numbers, a fraction bar), a reply that still carries operator or function syntax is refused.
+# Syntax the canonical answer itself uses is never held against a reply (a "%" answer, "y = 2x + 1").
+
+# A label such as "x =", "y1 =" or "f(3) =": one name, optionally with a bracketed argument, then "=".
+_VALUE_LABEL_RE = re.compile(r"(?<![\w)])[^\W\d_]\w*(?:[ \t]*\([^()]*\))?[ \t]*=(?!=)")
+# A word character or ")" directly followed by "(": a function call ("f(9)", "sqrt(9)") or implicit product ("2(9)").
+_FUNCTION_CALL_RE = re.compile(r"[\w)]\(")
+_FUNCTION_WORD_RE = re.compile(
+    r"\b(?:sqrt|square[ \t]+root|cube[ \t]+root|cbrt|log|ln|lg|sin|cos|tan|exp|abs|factorial)\b", re.IGNORECASE
+)
+_ROOT_SIGN_RE = re.compile(r"[√∛∜]")
+_FACTORIAL_RE = re.compile(r"!(?!=)")
+_POWER_RE = re.compile(r"\^|\*\*|[\d)][⁰¹²³⁴⁵⁶⁷⁸⁹]")
+# An operator between two values: directly after a digit or ")" and before another operand, or a spaced sign
+# ("9 - 0"). "3 -4" (a space only before the minus) is two values, the second negative, and is not matched. A
+# fraction bar between plain numbers ("3/4") is not an operator; a bar next to a bracket or a second bar is.
+_OPERATOR_RE = re.compile(
+    r"(?<=[\d)])[ \t]*[*×÷·⋅]"
+    r"|(?<=[\d)])[-+](?=[ \t]*[\d.(√$£€-])"
+    r"|(?<=[\d)])[ \t]+[-+][ \t]+(?=[\d.(√$£€-])"
+    r"|\)[ \t]*/|/[ \t]*[(-]|\d[ \t]*/[ \t]*\d+[ \t]*/"
+)
+_RANGE_DASH_RE = re.compile(r"(?<=\d)[ \t]*[–—‒―][ \t]*(?=\d)")
+_PERCENT_WORD_RE = re.compile(r"%|per[ \t]?cent", re.IGNORECASE)
+
+
+def _expression_marks(text: str) -> frozenset[str]:
+    """The operator and function syntax left in `text` once its labels and decoration are tidied away."""
+    # An en or em dash between values is a range ("5–9" is two numbers), not a subtraction.
+    tidy = _tidy_reply_text(_RANGE_DASH_RE.sub(", ", _VALUE_LABEL_RE.sub(" ", text or "")))
+    tidy = _DIGITLESS_BRACKET_RE.sub(" ", tidy)
+    first_end = _first_number_end(tidy)
+    tidy = _UNIT_EXPONENT_RE.sub(lambda match: _drop_unit_exponent(match, first_end), tidy)
+    marks = set()
+    if _FUNCTION_CALL_RE.search(tidy) or _FUNCTION_WORD_RE.search(tidy):
+        marks.add("function")
+    if _ROOT_SIGN_RE.search(tidy):
+        marks.add("root")
+    if _FACTORIAL_RE.search(tidy):
+        marks.add("factorial")
+    if _POWER_RE.search(tidy):
+        marks.add("power")
+    if "%" in tidy:
+        marks.add("percent")
+    if _OPERATOR_RE.search(tidy):
+        marks.add("operator")
+    return frozenset(marks)
+
+
+def _reply_is_an_expression(question, given: str, *, value_side: bool = False) -> bool:
+    """Whether a typed reply is an expression around its value ("sqrt(9)", "9!", "2*9", "9^2", "f(9)") rather than
+    a statement of it. `value_side` reads only the side after the last "=", as the number grader does. Syntax that
+    the canonical answer uses, and "%" when the question is about percent, does not count."""
+    text = _value_side(given) if value_side else given or ""
+    marks = _expression_marks(text)
+    if not marks:
+        return False
+    marks -= _expression_marks(getattr(question, "answer_text", "") or "")
+    if "percent" in marks and _PERCENT_WORD_RE.search(getattr(question, "text", "") or ""):
+        marks -= {"percent"}
+    return bool(marks)
+
+
+_PERCENT_IN_REPLY_RE = re.compile(r"%|\bper[ \t]?cent\b", re.IGNORECASE)
+
+
+def _states_an_unasked_percent(question, given: str) -> bool:
+    """Whether the reply puts "%" or "percent" after its value when the question is not about percent.
+
+    "0.27%" is 0.0027, not 0.27, and "3/4%" is not 3/4, so such a reply is refused unless the question's text
+    (or a part's prompt) mentions percent or the canonical answer is itself written with it."""
+    if _PERCENT_IN_REPLY_RE.search(given or "") is None:
+        return False
+    asked = " ".join(str(getattr(question, name, "") or "") for name in ("text", "prompt", "answer_text"))
+    return _PERCENT_WORD_RE.search(asked) is None
+
+
 @_multi_part_aware
 def grade_number(question, given: str) -> GradeResult:
     """Typed numeric answers are graded against a target/tolerance derived
@@ -656,7 +744,10 @@ def grade_number(question, given: str) -> GradeResult:
         text = answer.strip()
         answer = float(text) if "." in text else int(text)
     if isinstance(answer, bool) or not isinstance(answer, (int, float)):
-        return _check_answer_kind(question, given)
+        result = _check_answer_kind(question, given)
+        if result.correct and _reply_is_an_expression(question, given, value_side=True):
+            result.correct = False
+        return result
 
     given_normalised = _normalised_values(given)
     resolved = _typed_number_target(question, answer)
@@ -667,6 +758,10 @@ def grade_number(question, given: str) -> GradeResult:
         correct = False
     if correct and not unit_is_acceptable(question, given):
         correct = False  # "30 kg" for "Convert 3 cm to mm": see mathgen.grading.units
+    if correct and _reply_is_an_expression(question, given, value_side=True):
+        correct = False  # "sqrt(9)", "9!", "2*9": an operation on the value, not the value
+    if correct and _states_an_unasked_percent(question, given):
+        correct = False  # "0.27 percent" for 0.27: the same refusal as "0.27%", which is an expression above
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
 
 
@@ -749,6 +844,7 @@ def grade_fraction(question, given: str) -> GradeResult:
             parsed == expected
             and _ratio_form_is_acceptable(canonical, given)
             and _in_lowest_terms_if_asked(question, given)
+            and not _states_an_unasked_percent(question, given_with_unit)
         )
         return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
     return _check_answer_kind(question, given)
@@ -1149,6 +1245,21 @@ def _component_form(given: str, count: int) -> str | None:
     return "(" + ", ".join(coefficients.get(unit, "0") for unit in units) + ")"
 
 
+# "M(4, 3)": a point written with its name, as the question names it. A capital letter (with a prime or a digit)
+# right before the bracket is a point's name, not a function, when the question uses that name on its own.
+_POINT_NAME_RE = re.compile(r"^\s*([A-Z](?:['′’]|\d)?)[ \t]*(?=\()")
+
+
+def _without_point_name(question, given: str) -> str:
+    match = _POINT_NAME_RE.match(given or "")
+    if match is None:
+        return given
+    name = re.escape(match.group(1))
+    if re.search(rf"(?<![\w'′’]){name}(?![\w'′’])", getattr(question, "text", "") or ""):
+        return given[match.end() :]
+    return given
+
+
 @_multi_part_aware
 def grade_pair(question, given: str) -> GradeResult:
     """Unlike `check_answer`'s dict branch (which accepts the two values in
@@ -1167,7 +1278,9 @@ def grade_pair(question, given: str) -> GradeResult:
     expected_values = list(answer.values())
     given = _component_form(given, len(expected_values)) or given
     given_values = _normalised_values(given)
-    if _reply_negates_the_answer(question, given):
+    if _reply_negates_the_answer(question, given) or _reply_is_an_expression(
+        question, _without_point_name(question, given)
+    ):
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_values)
     equation_verdict = _equation_pair_matches(canonical, given)
     if equation_verdict is not None:
@@ -1208,7 +1321,7 @@ def grade_list(question, given: str) -> GradeResult:
     expected = question.answer
     if not isinstance(expected, (list, tuple)):
         return _check_answer_kind(question, given)
-    if _reply_negates_the_answer(question, given):
+    if _reply_negates_the_answer(question, given) or _reply_is_an_expression(question, given):
         return GradeResult(correct=False, canonical=question.answer_text, given_normalised=_normalised_values(given))
     try:
         values = extract_values(given) if given else []
@@ -1843,9 +1956,39 @@ def _too_costly_to_parse(candidate: str) -> bool:
     return too_costly(candidate, transformations=_TRANSFORMATIONS)
 
 
+# A mixed number inside an expression: "1 1/2", "x - 2 3/4", "(1 1/2, 3)". It stands where a whole operand can
+# start (the start, or after + - ( , =) and ends where one can end, so "2 3" (implicit multiplication) and
+# "x^2 3/4" are read as before.
+_MIXED_OPERAND_RE = re.compile(r"(^|[+\-(,=])(\s*)(\d+)[ \t]+(\d+)[ \t]*/[ \t]*(\d+)(?=\s*(?:$|[+\-),=]))")
+# "log10(x)", "log_10(x)", "log2(x)", "log_2(x)": a base written into the name.
+_LOG_BASE_RE = re.compile(r"\blog_?(10|2)\s*\(")
+
+
+def _mixed_numbers(text: str) -> str:
+    """`text` with each mixed number written as a sum ("1 1/2" -> "(1+1/2)") so it is not read as 1 * 1/2."""
+    return _MIXED_OPERAND_RE.sub(lambda m: f"{m[1]}{m[2]}({m[3]}+{m[4]}/{m[5]})", text)
+
+
+def _log_bases(text: str) -> str:
+    """`text` with "log10(x)" and "log2(x)" written as sympy's "log(x, 10)" and "log(x, 2)". A call whose brackets
+    never close is left as it is (it is unreadable anyway)."""
+    while True:
+        found = _LOG_BASE_RE.search(text)
+        if found is None:
+            return text
+        depth, i = 1, found.end()
+        while i < len(text) and depth:
+            depth += {"(": 1, ")": -1}.get(text[i], 0)
+            i += 1
+        if depth:
+            return text
+        text = f"{text[: found.start()]}log({text[found.end() : i - 1]}, {found.group(1)}){text[i:]}"
+
+
 def _sympy_text(text: str) -> str | None:
     """`text` rewritten for sympy's parser, or None when the learner notation has no single reading."""
-    candidate = _normalize_learner_notation(_round_brackets(text).translate(_MULTIPLICATION_SIGNS))
+    text = _log_bases(_mixed_numbers(_round_brackets(text)))
+    candidate = _normalize_learner_notation(text.translate(_MULTIPLICATION_SIGNS))
     if candidate is None:
         return None  # no single reading: never guess, never hand it to the spoken fallback
     candidate = _bars_to_abs(candidate)
@@ -2551,27 +2694,30 @@ def grade_expression(question, given: str) -> GradeResult:
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
 
 
-_INDEX_RE = re.compile(r"-?\d{1,9}")
+_INDEX_RE = re.compile(r"\d{1,9}")
 # "B", "b)", "(B)", "B.": an option's letter, A for the first option.
-_OPTION_LETTER_RE = re.compile(r"^\(?\s*([A-Za-z])\s*[).:]?$")
+_OPTION_LETTER_RE = re.compile(r"\(([A-Za-z])\)|([A-Za-z])[).]?")
 
 
 def _mcq_choice_by_text(options: list, given: str) -> int | None:
-    """The option a reply names by its text or its letter, or None to read it as an index.
+    """The option a reply names by its text or its letter, or None when it names neither.
 
-    A reply of digits only is always an index, as documented, even when an option's text is the same digits.
-    Option text is matched whole, ignoring case and spacing. A letter is read only when no option is itself a
-    single letter, so "x" is never mistaken for option X's position.
+    Option text is matched whole, ignoring case, spacing and one trailing full stop. A letter is read only when
+    no option is itself a single letter, so "x" is never mistaken for option X's position. When the options are
+    themselves numbers, a reply equal to an option's text is that option, never an index; only a reply that matches
+    no option's text is read as an index by `grade_mcq`.
     """
     reply = " ".join(given.split()).casefold()
-    if not reply or reply.lstrip("-").isdigit():
+    bare = reply.removesuffix(".").rstrip()
+    if not bare:
         return None
     texts = [" ".join(str(option).split()).casefold() for option in options]
-    if reply in texts:
-        return texts.index(reply)
-    letter = _OPTION_LETTER_RE.match(reply)
+    for candidate in (reply, bare):
+        if candidate in texts:
+            return texts.index(candidate)
+    letter = _OPTION_LETTER_RE.fullmatch(reply)
     if letter and not any(len(text) == 1 and text.isalpha() for text in texts):
-        index = ord(letter.group(1).lower()) - ord("a")
+        index = ord((letter.group(1) or letter.group(2)).lower()) - ord("a")
         if index < len(options):
             return index
     return None
@@ -2579,25 +2725,30 @@ def _mcq_choice_by_text(options: list, given: str) -> int | None:
 
 @_multi_part_aware
 def grade_mcq(question, given: str) -> GradeResult:
+    """Correct only for a reply that is exactly one option: its 0-based index, its letter, or its text.
+
+    Anything else -- extra words, a second number, a decimal, a sign -- is wrong rather than guessed at, so a reply
+    that names two options or hedges ("1 or 2", "not 1", "x=1") can never score by containing the right digit.
+    One trailing full stop is allowed ("1.", "B.", "the option text.").
+    """
     options = mcq_options(question)
     canonical = question.answer_text
+    chosen = None
     if isinstance(given, int) and not isinstance(given, bool):
-        # The documented reply is the option's 0-based index, and a library caller passes it as an int; the regex
-        # below takes text, so an int raised and every such reply was marked wrong.
+        # An int is the documented 0-based option index, never option text.
         given = str(given)
-    if not isinstance(given, str):
+    elif isinstance(given, str):
+        chosen = _mcq_choice_by_text(options, given)
+    else:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
-    chosen = _mcq_choice_by_text(options, given)
-    if chosen is not None:
-        return GradeResult(correct=options[chosen] == canonical, canonical=canonical, given_normalised=options[chosen])
-    match = _INDEX_RE.search(given)
-    if not match:
-        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
-    idx = int(match.group())
-    if not (0 <= idx < len(options)):
-        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
-    correct = options[idx] == question.answer_text
-    return GradeResult(correct=correct, canonical=canonical, given_normalised=options[idx])
+    if chosen is None:
+        reply = given.strip().removesuffix(".").rstrip()
+        if not _INDEX_RE.fullmatch(reply):
+            return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+        chosen = int(reply)
+        if not (0 <= chosen < len(options)):
+            return GradeResult(correct=False, canonical=canonical, given_normalised=None)
+    return GradeResult(correct=options[chosen] == canonical, canonical=canonical, given_normalised=options[chosen])
 
 
 # -- table ---------------
@@ -2792,6 +2943,8 @@ def grade_set(question, given: str) -> GradeResult:
         return GradeResult(correct=False, canonical=canonical)
     items = _split_set_items(given)
     given_normalised = "{" + ", ".join(items) + "}"
+    if _reply_is_an_expression(question, given):
+        return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
     if len(items) != len(expected):
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
     remaining = list(expected)
@@ -3242,6 +3395,39 @@ _DOUBLE_SIGN_RE = re.compile(r"-[ \t]*-[ \t]*\.?\d")
 _COPY_CHECKED_KINDS = frozenset({"number", "fraction", "pair"})
 
 
+# A reply that denies or doubts what it states: "9 is wrong", "no 9", "not 12", "isn't 12", "maybe 9".
+# The value readers find the right value in these and the expression reader parses around the words, so every
+# kind but `inequality` and `matrix` refuses such a reply here, once, before its grader runs. "no" counts only
+# right before a value: "no, it's 9", "9 (no units)" and "No. of sides = 9" state 9. A question mark is not a
+# hedge here either: "9?" is how many learners write an answer they then hand in. A word or sign that
+# the answer itself or one of its options uses ("no real roots", "Not enough information", "x ≠ 3") is not a
+# hedge in that question, so each word is checked against the answer and its options and only an unshared one
+# refuses the reply. `inequality` reads "no solution", "none" and "≠" as answers of its own, and `matrix` has
+# its own reader.
+_HEDGE_RE = re.compile(
+    r"\b(?:not|never|neither|nor|cannot|wrong|incorrect|false|maybe|perhaps|probably|possibly|unsure|guess)\b"
+    r"|\bno(?=[ \t]+[-+−$£€.(\d])"
+    r"|n['’]t\b|≠|!=",
+    re.IGNORECASE,
+)
+_HEDGE_CHECKED_KINDS = frozenset(GRADERS) - {"inequality", "matrix"}
+
+
+def _hedges(text: str) -> set[str]:
+    return {match.group(0).lower().replace("’", "'") for match in _HEDGE_RE.finditer(text or "")}
+
+
+def _reply_hedges(question, given: str) -> bool:
+    """Whether `given` uses a denying or doubting word or sign that neither the answer nor any option uses."""
+    words = _hedges(given)
+    if not words:
+        return False
+    shared = _hedges(getattr(question, "answer_text", "") or "")
+    for option in getattr(question, "distractors", None) or ():
+        shared |= _hedges(option if isinstance(option, str) else str(option))
+    return not words <= shared
+
+
 def _squeezed(text: str) -> str:
     return re.sub(r"\s+", "", (text or "").translate(_MINUS_SIGNS)).lower()
 
@@ -3268,6 +3454,24 @@ def _one_gap(match: re.Match) -> str:
     return "\n" if "\n" in match.group() else " "
 
 
+#: The kinds whose reply is a value or a list of values, which a learner may write as a sentence would end
+#: ("The answer is 3/13.") or as a line of working would begin ("= 3/13"). The other kinds read their text whole.
+_TIDIED_ENDS_KINDS = frozenset({"number", "fraction", "expression", "ordered_list", "pair", "list", "set"})
+
+
+def _without_sentence_ends(given: str) -> str:
+    """`given` without one leading "=" and one trailing full stop, so "= 3/13" and "3/13." read as "3/13".
+
+    A decimal point is not a full stop ("3." is 3, "3.5." is 3.5, and ".5" keeps its point), and an ellipsis
+    ("0.333...") is left whole."""
+    text = given.strip()
+    if text.endswith(".") and not text.endswith(".."):
+        text = text[:-1].rstrip()
+    if text.startswith("=") and not text.startswith("=="):
+        text = text[1:].lstrip()
+    return text
+
+
 def normalise_reply(kind: str, given: str) -> str:
     r"""`given` as every grader of `kind` reads it.
 
@@ -3275,7 +3479,10 @@ def normalise_reply(kind: str, given: str) -> str:
     every space of the run, and several together are quartic), so no run reaches them longer than one
     character: a run that holds a line break is that one line break, any other run one space. Nothing a
     parser reads is in the width of a gap."""
-    return _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, _WHITESPACE_RUN_RE.sub(_one_gap, given)))
+    given = _WHITESPACE_RUN_RE.sub(_one_gap, given)
+    if kind in _TIDIED_ENDS_KINDS:
+        given = _without_sentence_ends(given)
+    return _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, given))
 
 
 def grade(kind: str, question, given, *, skill=None) -> GradeResult:
@@ -3302,6 +3509,8 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
     if isinstance(given, str) and kind in _DOUBLE_SIGN_KINDS and _DOUBLE_SIGN_RE.search(given):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if isinstance(given, str) and kind in _COPY_CHECKED_KINDS and _copies_the_question(question, given):
+        return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
+    if isinstance(given, str) and kind in _HEDGE_CHECKED_KINDS and _reply_hedges(question, given):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     try:
         result = GRADERS[kind](question, given)

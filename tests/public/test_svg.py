@@ -2,13 +2,25 @@
 
 import hashlib
 import json
+import re
 import xml.etree.ElementTree as ET
 
 import pytest
 
 from mathgen import figures, svg
 from mathgen.engine import load_skills, make_for_skill
-from mathgen.figure_kinds import data, early, measure, space
+from mathgen.figure_kinds import (
+    calendar as calendar_kinds,
+    compare,
+    data,
+    early,
+    grid,
+    measure,
+    pattern,
+    scene,
+    space,
+    tally,
+)
 from mathgen.figure_kinds.measure import SCALE_VARIANTS
 
 SVG_NS = "{http://www.w3.org/2000/svg}"
@@ -41,6 +53,9 @@ FIGURE_SKILLS = [
     "senior-interpret-the-derivative-as-the-slope-or-gradient",
     "f3-read-a-column-graph",
     "f2-read-a-picture-graph",
+    "sort-and-count-objects",
+    "tally-tables",
+    "compare-tally-and-picture-displays",
     "f6-read-a-dot-plot",
     "f7-read-a-histogram",
     "f10-read-a-box-plot",
@@ -63,6 +78,116 @@ def _live_figures() -> list[dict]:
                 if fig:
                     found.append(fig)
     return found
+
+
+def _compare_samples() -> list[dict]:
+    """One of every compare_picture layout, with every object style, unit style and container shape."""
+    styles = ("pencil", "ribbon", "snake", "rope", "train")
+    objs = [{"label": st, "style": st, "start": i, "length": 6 - i % 3} for i, st in enumerate(styles)]
+    clips = [{"label": "pencil", "style": "bar", "start": 0, "length": 3, "units": 3}]
+    book = {"label": "book", "mass": 5, "size": 3}
+    apple = {"label": "apple", "mass": 2, "size": 1}
+    shoe = {"label": "shoe", "mass": 9, "size": 2}
+    pans = compare.pan
+    return [
+        compare.compare_lengths(objects=objs, lined_up=False, alt="Five objects"),
+        compare.compare_lengths(objects=[{**o, "start": 0} for o in objs[:2]], lined_up=True, alt="Two lined up"),
+        compare.compare_lengths(objects=clips, lined_up=True, alt="Clips", unit={"name": "block", "style": "block"}),
+        compare.compare_lengths(
+            objects=[{**clips[0], "start": 2}], lined_up=True, alt="Clips", unit={"name": "clip", "style": "paper_clip"}
+        ),
+        compare.compare_balance(
+            balances=[compare.balance(left=pans(objects=[book]), right=pans(blocks=3))], alt="A balance and blocks"
+        ),
+        compare.compare_balance(
+            balances=[
+                compare.balance(
+                    left=pans(objects=[apple, book], blocks=0), right=pans(objects=[shoe, shoe | {"label": "ball"}])
+                )
+            ],
+            alt="Two objects a side",
+        ),
+        compare.compare_balance(
+            balances=[
+                compare.balance(left=pans(objects=[book]), right=pans(objects=[apple])),
+                compare.balance(left=pans(objects=[apple]), right=pans(objects=[shoe])),
+            ],
+            alt="A chain of two balances",
+        ),
+        compare.compare_containers(
+            containers=[
+                {"label": "jug", "shape": "jug", "form": "tall_thin", "capacity": 8, "fill": 8, "cups": 8},
+                {"label": "bowl", "shape": "bowl", "form": "short_wide", "capacity": 8, "fill": 5, "cups": 5},
+                {"label": "bottle", "shape": "bottle", "form": "normal", "capacity": 4, "fill": 0},
+                {"label": "cup", "shape": "cup", "form": "normal", "capacity": 2, "fill": 2},
+            ],
+            alt="Four containers",
+        ),
+        compare.compare_durations(
+            events=[
+                {"label": "clap", "size": 3, "start": 0, "blocks": 2},
+                {"label": "sing", "size": 1, "start": 0, "blocks": 6},
+            ],
+            unit="sand",
+            same_start=True,
+            alt="Two events from one start line",
+        ),
+        compare.compare_durations(
+            events=[
+                {"label": "hop", "size": 2, "start": 4, "blocks": 3},
+                {"label": "bath", "size": 1, "start": 0, "blocks": 6},
+                {"label": "blink", "size": 3, "start": 7, "blocks": 1},
+            ],
+            unit="tick",
+            same_start=False,
+            alt="Three events that start at different places",
+        ),
+    ]
+
+
+def _grid_specimens() -> dict[str, dict]:
+    """A square map with everything, an isometric stack with a canvas, and a shape drawn on its own grid."""
+    return {
+        "map": grid.grid_drawing(
+            alt="A map on a square grid.",
+            title="Map of Kiama",
+            grid={"type": "square", "width": 8, "height": 6},
+            cells=[
+                {"cells": [[0, 0], [1, 0], [1, 1]], "style": "shaded"},
+                {"cells": [[5, 4], [6, 4]], "style": "hatched"},
+                {"cells": [[7, 0], [7, 1]], "style": "dotted"},
+            ],
+            polygons=[{"vertices": [[1, 2], [4, 2], [4, 4]], "style": "dashed", "label": "Oval"}],
+            lines=[
+                {"points": [[0, 3], [3, 3], [3, 6]], "style": "road"},
+                {"points": [[0, 5], [4, 5], [8, 4]], "style": "river"},
+                {"points": [[4, 0], [4, 2]], "style": "rail"},
+                {"points": [[5, 0], [8, 0]], "style": "wall"},
+                {"points": [[5, 2], [8, 2]], "style": "fence"},
+                {"points": [[0, 1.5], [3, 1.5]], "style": "mirror"},
+            ],
+            symbols=[{"at": [1.5, 3.5], "symbol": "school"}, {"at": [6.5, 3.5], "symbol": "post_office"}],
+            legend=True,
+            column_labels=list("ABCDEFGH"),
+            row_labels=["1", "2", "3", "4", "5", "6"],
+            labels=[{"at": [6, 3], "text": "Beach"}],
+            path=[[0, 4], [1, 4], [1, 5]],
+            scale={"text": "1 cm : 2 m", "bar_cells": 2},
+            north=True,
+        ),
+        "stack": grid.grid_drawing(
+            alt="A stack of cubes on isometric dot paper.",
+            grid={"type": "isometric", "width": 3, "height": 3, "layers": 3},
+            cubes=[[0, 0, 0], [0, 0, 1], [0, 0, 2], [1, 2, 0], [1, 2, 1], [2, 0, 0], [2, 1, 0]],
+            canvas={"width": 5, "height": 4},
+        ),
+        "shape": grid.grid_drawing(
+            alt="A shape on a square grid.",
+            grid={"type": "square", "width": 6, "height": 6},
+            cells=[{"cells": [[1, 1], [2, 1], [2, 2]], "style": "shaded"}],
+            canvas="grid",
+        ),
+    }
 
 
 def _hand_built() -> list[dict]:
@@ -95,6 +220,65 @@ def _hand_built() -> list[dict]:
         early.counters(layout="array", alt="An array", rows=2, cols=3, shape="square", colours=[[1, 2, 1], [2, 1, 2]]),
         early.counters(layout="groups", alt="Groups", groups=[3, 0, 5, 9], shape="diamond"),
         early.counters(layout="dice", alt="Dice", faces=[{"n": n, "colour": 1 + n % 2} for n in (1, 2, 6)]),
+        scene.shape_scene(
+            alt="Shapes",
+            layout="grid",
+            cols=3,
+            items=[
+                scene.scene_item("square", size="large", style="shaded", turn=45, label="A"),
+                scene.scene_item("semicircle", style="dotted"),
+                scene.scene_item("cone", size="small"),
+            ],
+        ),
+        scene.shape_scene(alt="A house", object="house"),
+        pattern.pattern_strip(
+            alt="Pattern rows",
+            numbered=True,
+            rows=[
+                {
+                    "label": "A",
+                    "cells": [
+                        pattern.shape_cell(s, f)
+                        for s, f in (("heart", "striped"), ("star", "open"), ("circle", "solid"))
+                    ]
+                    + [pattern.blank_cell(), pattern.mark_cell()],
+                    "bracket": [0, 2],
+                },
+                {
+                    "label": "B",
+                    "cells": [pattern.action_cell("clap"), pattern.action_cell("stamp"), pattern.action_cell("jump")]
+                    + [pattern.text_cell(7), pattern.text_cell("M"), pattern.stack_cell(10)],
+                },
+            ],
+        ),
+        tally.tally(
+            alt="Tally with counts and pictures",
+            rows=[("dogs", 14), ("cats", 0), ("fish", 20)],
+            show_counts=True,
+            pictures={"symbol": "heart", "each": 2, "counts": [7, 0, 10]},
+            title="Pets",
+        ),
+        tally.tally(
+            alt="Objects and a tally",
+            items=[(name, 0.14 * i, 0.33 * (i % 3)) for i, name in enumerate(tally.ICONS)],
+            rows=[("apples", 3), ("cats", 5)],
+        ),
+        calendar_kinds.calendar_month(
+            year=2026,
+            month=10,
+            alt="A calendar",
+            marks=[
+                {"day": 9, "style": "star", "label": "Party"},
+                {"day": 16, "style": "ring", "label": "Swim"},
+                {"day": 21, "style": "shade"},
+            ],
+        ),
+        calendar_kinds.calendar_month(year=2024, month=2, alt="A leap February", week_start="sun", show_year=True),
+        calendar_kinds.day_strip(cards=["wake_up", "breakfast", "school", "play", "dinner", "bed"], alt="A day"),
+        calendar_kinds.day_strip(cards=["sunrise", "bath", "moon", "lunch"], alt="Scrambled", numbered=True),
+        calendar_kinds.day_strip(cards=["bed"], alt="One card", numbered=True),
+        *_compare_samples(),
+        *_grid_specimens().values(),
     ]
 
 
@@ -550,3 +734,297 @@ def test_data_displays_validate_through_figures_check():
     ):
         with pytest.raises(ValueError):
             svg.figure_svg(fig)
+
+
+def test_a_step_segment_draws_a_filled_dot_at_its_closed_end():
+    spec = figures.cartesian(
+        x_range=(0, 4),
+        y_range=(0, 4),
+        segments=[{"from": [0, 2], "to": [2, 2], "open_start": True}],
+        alt="a step",
+    )
+    out = svg.figure_svg(spec)
+    assert out.count("<circle") == 2  # one open end, one filled closed end
+    assert 'fill="currentColor"' in out.split("<circle")[-1].split("/>")[0]
+
+
+def test_axis_numerals_are_drawn_over_the_plot_with_a_paper_halo():
+    spec = figures.cartesian(x_range=(-2, 2), y_range=(-2, 2), curves=[{"pieces": [[[-2, -2], [2, 2]]]}], alt="a curve")
+    out = svg.figure_svg(spec)
+    assert out.rindex('paint-order="stroke"') > out.index("<polyline")  # numerals come after the curve
+    assert 'stroke="#ffffff"' in out
+
+
+def test_a_dimension_label_clears_its_edge():
+    spec = space.diagram(
+        frame=(10, 10),
+        points=[{"id": "A", "at": [1, 1]}, {"id": "B", "at": [9, 1]}, {"id": "C", "at": [5, 8]}],
+        polygons=[{"points": ["A", "B", "C"]}],
+        segments=[{"from": "A", "to": "B", "label": "8 cm"}],
+        alt="a triangle",
+    )
+    out = svg.figure_svg(spec)
+    y = float(re.search(r'<text x="[\d.]+" y="([\d.]+)"[^>]*>8 cm', out).group(1))
+    edge = float(re.search(r'<line x1="[\d.]+" y1="([\d.]+)" x2="[\d.]+" y2="\1"', out).group(1))
+    assert abs(y - edge) >= 12  # half the text height plus a margin, so the edge cannot strike it
+
+
+# ---------------------------------------------------------------- grid drawings
+
+
+def _grid_root(fig):
+    return ET.fromstring(svg.figure_svg(fig))
+
+
+def _assert_inside_the_drawing(root) -> None:
+    """Every x coordinate outside a scaled symbol (whose coordinates are local to it) lies in the 400 units."""
+
+    def walk(el):
+        if el.get("transform") or el.tag == SVG_NS + "pattern":
+            return
+        for key in ("x", "x1", "x2", "cx"):
+            if el.get(key) is not None:
+                assert -1 <= float(el.get(key)) <= 401, (key, el.tag, el.get(key))
+        for child in el:
+            walk(child)
+
+    walk(root)
+
+
+def _grid_texts(fig) -> list[str]:
+    return [t.text for t in _grid_root(fig).iter(SVG_NS + "text")]
+
+
+@pytest.mark.parametrize("name", ["map", "stack", "shape"])
+def test_grid_specimens_fit_the_drawing_area_and_draw_only_the_specs_own_text(name):
+    fig = _grid_specimens()[name]
+    root = _grid_root(fig)
+    assert float(root.get("viewBox").split()[2]) == 400
+    _assert_inside_the_drawing(root)
+    shown = set(_grid_texts(fig))
+    assert shown <= set(figures.labels(fig)) | {fig.get("title")}
+    assert set(figures.labels(fig)[1:]) <= shown | {""}
+    assert "<script" not in svg.figure_svg(fig) and "ZZidprefixZZ" not in svg.figure_svg(fig)
+
+
+def _drawn_extent(root) -> tuple[float, float, float, float]:
+    """(min x, min y, max x, max y) of everything drawn, with symbol tiles (local coordinates inside a
+    ``translate scale`` group) taken as 11 local units either side of their centre, and text boxes estimated."""
+    import re
+
+    xs: list[float] = []
+    ys: list[float] = []
+
+    def walk(el, dx, dy):
+        tf = el.get("transform") or ""
+        t = re.fullmatch(r"translate\(([-\d.]+) ([-\d.]+)\)(?: scale\(([-\d.]+)\))?", tf)
+        if t:
+            ox, oy = dx + float(t.group(1)), dy + float(t.group(2))
+            if t.group(3):  # a symbol: a tile of +-11 local units
+                k = float(t.group(3))
+                xs.extend((ox - 11 * k, ox + 11 * k))
+                ys.extend((oy - 11 * k, oy + 11 * k))
+                return
+            dx, dy = ox, oy
+        elif tf:
+            return  # a rotated text or pattern: not part of the check
+        if el.tag == SVG_NS + "pattern":
+            return
+        get = lambda k: float(el.get(k)) if el.get(k) is not None else None  # noqa: E731
+        if el.tag == SVG_NS + "rect" and get("width") is not None and get("x") is not None:
+            xs.extend((dx + get("x"), dx + get("x") + get("width")))
+            ys.extend((dy + get("y"), dy + get("y") + get("height")))
+        elif el.tag == SVG_NS + "line":
+            xs.extend((dx + get("x1"), dx + get("x2")))
+            ys.extend((dy + get("y1"), dy + get("y2")))
+        elif el.tag == SVG_NS + "circle":
+            xs.extend((dx + get("cx") - get("r"), dx + get("cx") + get("r")))
+            ys.extend((dy + get("cy") - get("r"), dy + get("cy") + get("r")))
+        elif el.tag == SVG_NS + "polygon" or el.tag == SVG_NS + "polyline":
+            pts = [tuple(map(float, q.split(","))) for q in el.get("points").split()]
+            xs.extend(dx + a for a, _ in pts)
+            ys.extend(dy + b for _, b in pts)
+        elif el.tag == SVG_NS + "text":
+            size = float(el.get("font-size", 12))
+            half = len(el.text or "") * 6.2 * size / 12 / 2
+            x = float(el.get("x"))
+            anchor = el.get("text-anchor", "middle")
+            lo, hi = {"start": (x, x + 2 * half), "end": (x - 2 * half, x)}.get(anchor, (x - half, x + half))
+            xs.extend((dx + lo, dx + hi))
+            ys.extend((dy + float(el.get("y")) - size / 2, dy + float(el.get("y")) + size / 2))
+        for child in el:
+            walk(child, dx, dy)
+
+    walk(root, 0, 0)
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def _assert_drawn_inside_the_viewbox(fig) -> None:
+    root = _grid_root(fig)
+    _, _, vw, vh = (float(v) for v in root.get("viewBox").split())
+    x0, y0, x1, y1 = _drawn_extent(root)
+    assert x0 >= -0.01 and y0 >= -0.01, (x0, y0)
+    assert x1 <= vw + 0.01 and y1 <= vh + 0.01, (x1, y1, vw, vh)
+
+
+def test_row_labels_with_a_wide_canvas_stay_inside_the_viewbox():
+    for size, canvas in (((10, 8), (20, 4)), ((10, 8), (20, 20)), ((8, 6), (20, 2))):
+        fig = grid.grid_drawing(
+            alt="g",
+            grid={"type": "square", "width": size[0], "height": size[1]},
+            row_labels=[str(i) for i in range(1, size[1] + 1)],
+            canvas={"width": canvas[0], "height": canvas[1]},
+        )
+        _assert_drawn_inside_the_viewbox(fig)
+
+
+def test_long_row_labels_on_a_wide_grid_stay_inside_the_viewbox():
+    fig = grid.grid_drawing(
+        alt="g",
+        grid={"type": "square", "width": 30, "height": 5},
+        row_labels=[("R" * 23) + str(i) for i in range(5)],
+        canvas={"width": 20, "height": 3},
+    )
+    _assert_drawn_inside_the_viewbox(fig)
+
+
+@pytest.mark.parametrize("north", [False, True])
+def test_symbols_and_labels_on_the_grid_boundary_are_not_clipped(north):
+    for w, h in ((10, 10), (30, 30), (4, 3)):
+        fig = grid.grid_drawing(
+            alt="g",
+            grid={"type": "square", "width": w, "height": h},
+            symbols=[
+                {"at": [0, 0], "symbol": "house"},
+                {"at": [w, h], "symbol": "school"},
+                {"at": [0, h], "symbol": "tree"},
+                {"at": [w, 0], "symbol": "hospital"},
+            ],
+            labels=[{"at": [0, h / 2], "text": "Park lands"}, {"at": [w, h / 2], "text": "Estuary"}],
+            north=north,
+        )
+        _assert_drawn_inside_the_viewbox(fig)
+
+
+def test_grid_origin_is_bottom_left_so_row_zero_is_drawn_at_the_bottom():
+    # 6 by 4 grid, no labels: the grid starts at (10, 10) and a cell is 36 units, so the rows are drawn
+    # top to bottom at y = 10, 46, 82, 118 and the columns left to right at x = 10, 46, ..., 190.
+    fig = grid.grid_drawing(
+        alt="g",
+        grid={"type": "square", "width": 6, "height": 4},
+        cells=[{"cells": [[0, 0]], "style": "shaded"}, {"cells": [[5, 3]], "style": "hatched"}],
+        polygons=[{"vertices": [[0, 0], [0, 4], [2, 0]], "style": "solid"}],
+        labels=[{"at": [0, 0], "text": "O"}],
+    )
+    root = _grid_root(fig)
+    squares = {
+        (float(r.get("x")), float(r.get("y"))): r.get("fill")
+        for r in _tag(root, "rect")
+        if r.get("width") == "36" and r.get("height") == "36"
+    }
+    assert squares[(10.0, 118.0)] == svg.MID  # cell [0, 0]: left column, bottom row
+    assert squares[(190.0, 10.0)].startswith("url(#")  # cell [5, 3]: right column, top row
+    triangle = next(p for p in _tag(root, "polygon") if p.get("fill") in (None, "none") and "10,10" in p.get("points"))
+    assert [tuple(map(float, q.split(","))) for q in triangle.get("points").split()] == [
+        (10, 154),
+        (10, 10),
+        (82, 154),
+    ]  # the lattice point [0, 0] is the bottom-left corner, [0, 4] the top-left
+    note = next(t for t in _tag(root, "text") if t.text == "O")
+    assert (float(note.get("x")), float(note.get("y"))) == (10, 154)
+
+
+def test_grid_cell_styles_differ_by_more_than_tone():
+    fig = _grid_specimens()["map"]
+    text = svg.figure_svg(fig)
+    root = ET.fromstring(text)
+    patterns = _tag(root, "pattern")
+    assert len(patterns) == 2
+    inner = {next(p.iter(SVG_NS + "line"), None) is not None for p in patterns}
+    assert inner == {True, False}  # one pattern is lines, the other dots
+    fills = {
+        r.get("fill") for r in _tag(root, "rect") if r.get("stroke") == "none" and r.get("width") == r.get("height")
+    }
+    assert svg.MID in fills and sum(f.startswith("url(#") for f in fills) == 2
+    ids = {p.get("id") for p in patterns}
+    assert all(f"url(#{i})" in fills for i in ids)
+    # an unused style draws no pattern
+    assert not _tag(_grid_root(_grid_specimens()["shape"]), "pattern")
+
+
+def test_grid_cubes_are_three_greys_painted_back_to_front():
+    fig = _grid_specimens()["stack"]
+    root = _grid_root(fig)
+    faces = [p for p in _tag(root, "polygon") if p.get("fill") in (svg.LIGHT, svg.MID, svg.DARK)]
+    assert len(faces) == 3 * len(fig["cubes"])
+    assert {p.get("fill") for p in faces} == {svg.LIGHT, svg.MID, svg.DARK}
+    cubes = [g for g in _tag(root, "g") if len(g) == 3 and all(p.tag == SVG_NS + "polygon" for p in g)]
+    assert len(cubes) == len(fig["cubes"])
+    assert [p.get("fill") for p in cubes[0]] == [svg.DARK, svg.MID, svg.LIGHT]
+
+    # Cubes in front (larger x, smaller y, larger z) come after the cubes behind them: check on a two-cube pair.
+    pair = grid.grid_drawing(
+        alt="Two cubes.",
+        grid={"type": "isometric", "width": 2, "height": 2, "layers": 1},
+        cubes=[[1, 0, 0], [0, 1, 0]],
+    )
+    order = [c[1].get("points") for c in _tag(_grid_root(pair), "g") if len(c) == 3]
+    back = grid.grid_drawing(alt="One cube.", grid=pair["grid"], cubes=[[0, 1, 0]])
+    back_points = next(c[1].get("points") for c in _tag(_grid_root(back), "g") if len(c) == 3)
+    assert order[0] == back_points
+
+
+def test_grid_canvas_is_below_a_wide_figure_and_beside_a_tall_one():
+    def height(fig):
+        return int(_grid_root(fig).get("viewBox").split()[3])
+
+    wide = grid.grid_drawing(alt="Grid.", grid={"type": "square", "width": 8, "height": 4})
+    wide_c = grid.grid_drawing(
+        alt="Grid.", grid={"type": "square", "width": 8, "height": 4}, canvas={"width": 5, "height": 5}
+    )
+    assert height(wide_c) > height(wide) + 40
+    tall = grid.grid_drawing(alt="Grid.", grid={"type": "square", "width": 4, "height": 8})
+    tall_c = grid.grid_drawing(
+        alt="Grid.", grid={"type": "square", "width": 4, "height": 8}, canvas={"width": 5, "height": 5}
+    )
+    assert height(tall_c) == height(tall)
+    shape = _grid_specimens()["shape"]
+    assert svg.figure_svg(shape) == svg.figure_svg({k: v for k, v in shape.items() if k != "canvas"})
+
+
+@pytest.mark.parametrize("symbol", sorted(grid.SYMBOLS))
+def test_every_grid_symbol_and_the_largest_grids_render(symbol):
+    fig = grid.grid_drawing(
+        alt="A map.",
+        grid={"type": "square", "width": 30, "height": 30},
+        symbols=[{"at": [1.5, 1.5], "symbol": symbol}],
+        legend=True,
+        column_labels=[str(i) for i in range(30)],
+        row_labels=[str(i) for i in range(30)],
+        canvas={"width": 20, "height": 20},
+    )
+    root = _grid_root(fig)
+    assert grid.SYMBOLS[symbol] in _grid_texts(fig)
+    _assert_inside_the_drawing(root)
+    full = grid.grid_drawing(
+        alt="Cubes.",
+        grid={"type": "isometric", "width": 8, "height": 8, "layers": 8},
+        cubes=[[x, y, 0] for x in range(8) for y in range(8)],
+        canvas={"width": 20, "height": 20},
+        north=True,
+    )
+    assert float(_grid_root(full).get("viewBox").split()[2]) == 400
+
+
+def test_grid_hostile_text_is_escaped():
+    evil = "<b>&amp;</b>"
+    fig = grid.grid_drawing(
+        alt=evil,
+        grid={"type": "square", "width": 2, "height": 2},
+        labels=[{"at": [1, 1], "text": evil}],
+        scale={"text": evil},
+        column_labels=[evil, "b"],
+    )
+    text = svg.figure_svg(fig)
+    assert "<b>" not in text
+    assert evil in _grid_texts(fig)

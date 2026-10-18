@@ -61,13 +61,13 @@ def test_real_grader_accepts_canonical_rejects_distractors(difficulty):
         canonical_idx = options.index(question.answer_text)
 
         # Test canonical accepts
-        result = grade_mcq(question, str(canonical_idx))
+        result = grade_mcq(question, canonical_idx)
         assert result.correct, f"Seed {seed}: canonical index {canonical_idx} not accepted"
 
         # Test each distractor rejects
         for distractor in question.distractors:
             distractor_idx = options.index(distractor)
-            result = grade_mcq(question, str(distractor_idx))
+            result = grade_mcq(question, distractor_idx)
             assert not result.correct, f"Seed {seed}: distractor index {distractor_idx} ('{distractor}') was accepted"
 
 
@@ -78,7 +78,7 @@ def test_real_grader_rejects_out_of_bounds_index(difficulty):
         question = make(TOPIC, seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         wrong_idx = len(options) + 10  # way out of bounds
-        result = grade_mcq(question, str(wrong_idx))
+        result = grade_mcq(question, wrong_idx)
         assert not result.correct, f"Seed {seed}: out-of-bounds index accepted"
 
 

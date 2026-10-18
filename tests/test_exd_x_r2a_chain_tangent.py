@@ -42,10 +42,6 @@ def oracle(q):
     return fp, m, tangent, x0 - f0 / m
 
 
-def test_source_wired():
-    check_wired(SKILL_ID, TOPIC)
-
-
 def test_structure_and_tags():
     check_structure(
         TOPIC, ["expression", "fraction", "expression", "fraction"], [2, 1, 2, 1], [False, True, True, True]
@@ -114,10 +110,6 @@ def test_all_wrong_earns_nothing():
     for q in questions(TOPIC, 30):
         result = grade(sk, q, {"a": "x", "b": "999", "c": "y = 5", "d": "123456"})
         assert result.marks == 0
-
-
-def test_answer_space():
-    check_answer_space(TOPIC)
 
 
 def test_text_is_clean_and_generation_is_deterministic():

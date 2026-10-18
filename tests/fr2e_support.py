@@ -38,7 +38,7 @@ def exam(topic: str, seed: int):
 
 def reply(sk, q, text: str) -> str:
     """What a learner sends for option `text`: the option's 0-based index for an mcq skill (digit-only text is an index)."""
-    return str(mcq_options(q).index(text)) if sk.answer == "mcq" else text
+    return mcq_options(q).index(text) if sk.answer == "mcq" else text
 
 
 def assert_registered(skill_id: str, topic: str, exam_topic: str) -> None:

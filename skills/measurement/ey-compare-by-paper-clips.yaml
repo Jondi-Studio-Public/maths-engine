@@ -1,0 +1,34 @@
+id: ey-compare-by-paper-clips
+name: Compare lengths by counting paper clips
+domain: measurement
+year_level: ['1']
+naplan_domain: [measurement]
+learner_band: early
+description: Compare objects that are not lined up by counting the paper clips or blocks laid along each one, saying which is longer or shorter and which two are the same length.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [compare-lengths]
+answer: mcq
+sources:
+- topic: compare_by_paper_clips
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: compare_by_paper_clips
+  difficulty: medium
+  stages: [3, 4]
+- topic: compare_by_paper_clips
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: judges-by-where-it-ends
+  description: Picks the object whose end reaches furthest right instead of counting the units along each one.
+- id: same-end-means-same-length
+  description: Says two objects are the same length because they stop at the same place, when one started further along.
+- id: reads-shortest-as-longest
+  description: Answers the opposite question, giving the longest when asked for the shortest or the reverse.
+- id: miscounts-a-unit
+  description: Counts one unit too many or too few along an object, so two close lengths swap places.
+tags: [acara-f10-v9, early, measurement, length, indirect-comparison, informal-units, ac9m1m01, age-6, visual]

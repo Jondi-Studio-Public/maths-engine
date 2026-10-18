@@ -36,6 +36,7 @@ from ..core import (
     fmt_signed,
     generator,
     join_terms,
+    paren_negative,
     phrase,
     pick_distractors,
 )
@@ -568,7 +569,7 @@ def _make_disc_easy(rng):
     text = phrase(rng, _EASY_TEMPLATES2, poly=_quad_text(a, b, c) + " = 0") + _ANSWER_FORMAT_DISC
     cands = _row2_distractors(a, b, c, disc)
     working = [
-        f"D = {b}^2 - 4({a})({c}) = {disc}.",
+        f"D = {paren_negative(b)}^2 - 4({a})({c}) = {disc}.",
         f"{count} real zero(s).",
     ]
     return _finalise_pair(text, disc, count, cands, working, "D", "zeros", n_distractors=4)
@@ -582,7 +583,7 @@ def _make_disc_medium(rng):
     text = phrase(rng, _MEDIUM_TEMPLATES2, poly=_quad_text(a, b, c) + " = 0") + _ANSWER_FORMAT_DISC
     cands = _row2_distractors(a, b, c, disc)
     working = [
-        f"D = {b}^2 - 4({a})({c}) = {disc}.",
+        f"D = {paren_negative(b)}^2 - 4({a})({c}) = {disc}.",
         f"{count} real zero(s).",
     ]
     return _finalise_pair(text, disc, count, cands, working, "D", "zeros", n_distractors=4)
@@ -597,7 +598,7 @@ def _make_disc_hard(rng):
     cands = _row2_distractors(a, b, c, disc)
     working = [
         f"a = {a}, b = {b}, c = {c}.",
-        f"D = {b}^2 - 4({a})({c}) = {disc}.",
+        f"D = {paren_negative(b)}^2 - 4({a})({c}) = {disc}.",
         f"{count} real zero(s).",
     ]
     return _finalise_pair(text, disc, count, cands, working, "D", "zeros", n_distractors=4)
@@ -612,7 +613,7 @@ def _make_disc_exam(rng):
     text = phrase(rng, _EXAM_TEMPLATES2, poly_eq=poly_expr + " = 0", poly_expr=poly_expr) + _ANSWER_FORMAT_DISC
     cands = _row2_distractors(a, b, c, disc)
     working = [
-        f"D = {b}^2 - 4({a})({c}) = {disc}.",
+        f"D = {paren_negative(b)}^2 - 4({a})({c}) = {disc}.",
         f"{count} real zero(s).",
     ]
     return _finalise_pair(text, disc, count, cands, working, "D", "zeros", n_distractors=4)

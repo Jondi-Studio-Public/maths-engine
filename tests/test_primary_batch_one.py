@@ -72,7 +72,7 @@ def test_batch_one_sources_generate_reproducibly_with_answers_and_distractors():
                 assert len(first.distractors) >= 2
                 if skill.answer == "mcq":
                     correct_index = grading.mcq_options(first).index(first.answer_text)
-                    given = str(correct_index)
+                    given = correct_index
                 else:
                     given = first.answer_text
                 assert grading.grade(skill.answer, first, given).correct

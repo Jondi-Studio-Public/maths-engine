@@ -1,0 +1,41 @@
+id: ey-calendar-days-between
+name: Count the days between events
+domain: primary-geometry-time
+year_level: ['2']
+naplan_domain: [measurement]
+learner_band: early
+description: Use a calendar to find the number of days from one marked event to another, the date one to three weeks after an event, and the days from an event to the end of the month.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [ey-calendar-count-days]
+answer: number
+sources:
+- topic: ey_calendar_between
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_calendar_between
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_calendar_between
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Count the days from one marked event to another within the same week."}
+  medium: {steps: 2, demand: "Turn the weeks into days, then count on from the event to find the date."}
+  hard: {steps: 3, demand: "Find both dates, then subtract them across several weeks, or find the days left to the last date of the month."}
+misconceptions:
+- id: counts-both-ends
+  description: Counts the starting date as well as the finishing date, so gives one day too many.
+- id: misses-a-day
+  description: Leaves out the last day counted, so gives one day too few.
+- id: reads-the-date-not-the-gap
+  description: Gives the date of the later event instead of the days between the two events.
+- id: weeks-as-one-day
+  description: Adds the number of weeks, not seven days for each week, when finding a date some weeks later.
+tags: [acara-f10-v9, early, time, calendar, ac9m2m03]

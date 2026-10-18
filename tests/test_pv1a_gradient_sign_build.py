@@ -117,11 +117,11 @@ def test_reader_grader_and_options(skill, difficulty):
         q = _make(skill, difficulty, seed)
         options = mcq_options(q)
         assert reader(q) == q.answer_text
-        assert grade_mcq(q, str(options.index(reader(q)))).correct
+        assert grade_mcq(q, options.index(reader(q))).correct
         assert set(options) == LABELS and len(options) == 3
         assert len(q.distractors) == 2 and q.answer_text not in q.distractors
         for i, opt in enumerate(options):
-            assert grade_mcq(q, str(i)).correct is (opt == q.answer_text)
+            assert grade_mcq(q, i).correct is (opt == q.answer_text)
         assert set(q.option_notes) == set(q.distractors)
 
 

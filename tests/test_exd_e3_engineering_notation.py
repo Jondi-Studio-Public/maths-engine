@@ -186,11 +186,11 @@ def test_exam_tier_real_grader_accepts_canonical_and_rejects_distractors():
         q = make(TOPIC, seed=seed, difficulty="exam", variant="sum_difference")
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct
+            assert not grade_mcq(q, i).correct
 
 
 def test_exam_tier_real_grader_rejects_a_deliberately_wrong_index():
@@ -198,7 +198,7 @@ def test_exam_tier_real_grader_rejects_a_deliberately_wrong_index():
         q = make(TOPIC, seed=seed, difficulty="exam", variant="sum_difference")
         options = mcq_options(q)
         wrong_idx = next(i for i, opt in enumerate(options) if opt != q.answer_text)
-        assert not grade_mcq(q, str(wrong_idx)).correct
+        assert not grade_mcq(q, wrong_idx).correct
 
 
 # --- ignores-smaller-term misconception is genuinely exercisable -----------

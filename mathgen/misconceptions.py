@@ -43,6 +43,193 @@ _ENTRIES = (
         "Leaving out the constant term and dividing the other side by the coefficient straight away.",
         area="equations",
     ),
+    # -- early years: position, direction, turns and maps ---------------------------------------------------------
+    CatalogueEntry(
+        "eyp-opposite-direction",
+        "Choosing the opposite way: above for below, up for down, or the far end for the near end.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-names-the-reference",
+        "Choosing a picture the question already named, not the one it asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-not-next-to",
+        "Choosing a picture that is close, in the same line or a corner away, but not right next to the one named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-wrong-reference",
+        "Using the right word about the wrong picture, such as the picture above the second one named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-next-to-not-between",
+        "Choosing a picture beside the middle one but not in line between the two named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-wrong-axis",
+        "Mixing up across and up-and-down: left or right for above or below.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-counts-the-start",
+        "Counting the square you start on as step one, so a move ends a square short or a count is one too many.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-one-step-too-far",
+        "Moving one square too far.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-stops-early",
+        "Leaving out the last move or the last turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-back-moves-forward",
+        "Going on in the same direction for a move that says to go back.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-left-right-swapped",
+        "Turning or moving to the left when told right, or the other way round. Left and right are the mover's own sides, not the page's.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-quarter-as-half",
+        "Turning a half turn when told a quarter turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-half-as-quarter",
+        "Turning only a quarter turn when told a half turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-no-turn",
+        "Staying facing the same way after a turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-full-turn",
+        "Calling a turn that ends facing the other way a full turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-nearly-extreme",
+        "Choosing the picture second from the top, bottom, left or right instead of the very first one.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-farthest-for-closest",
+        "Choosing the farthest place when asked for the closest, or the closest when asked for the farthest.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-looks-one-way",
+        "Judging how near a place is by one direction only, such as the same row, and ignoring the other.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-cuts-corner",
+        "Counting a corner as one step, so the count is the larger of the steps across and the steps up.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-one-direction-only",
+        "Counting only the steps across, or only the steps up, and not both.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-misses-a-step",
+        "Counting one step too few.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-ignores-the-path",
+        "Counting the straight way between two places instead of the steps along the path.",
+        area="early-years",
+    ),
+    # -- early years: sorting, tally tables and picture displays ----------------------------------------------------
+    CatalogueEntry(
+        "eyt-counts-all-kinds",
+        "Counting every picture or every row when the question asked about one kind (or about two kinds).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-other-group",
+        "Using the count of a different group from the one the question named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-count-one-over",
+        "Counting one too many: a picture or a mark counted twice, or going one past the end.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-count-one-short",
+        "Counting one too few: missing a picture or a mark.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-reports-one-group",
+        "Giving the count of one group when the question asked how many more, how many fewer or how many altogether.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-adds-instead-of-compares",
+        "Adding two groups when the question asked how many more or how many fewer one group has than the other.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-wrong-group",
+        "Comparing the wrong pair of groups, such as the second biggest instead of the biggest.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-neighbouring-row",
+        "Reading the row above or below the one the question named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-skips-the-slash",
+        "Counting only the upright strokes of a tally, so each gate of five is read as four.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-gate-counted-as-one",
+        "Counting each gate of five tally marks as a single mark.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-misses-a-group",
+        "Leaving one row out when adding up every row.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-counts-the-rows",
+        "Giving the number of rows when the question asked how many there are altogether.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-picks-a-matching-row",
+        "Choosing a row where the two displays agree, so the row that does not match is missed.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-ignores-the-picture-key",
+        "Reading each picture as one when the key says each picture stands for two.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyt-reports-the-whole-row",
+        "Giving how many pictures the whole row should have, not how many more it needs.",
+        area="early-years",
+    ),
     # -- quadratics -----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "sign-flip-both-roots",
@@ -15070,6 +15257,16 @@ _ENTRIES = (
     CatalogueEntry(
         "net-base-area-for-volume",
         "Giving the area of the base of a box as its volume, leaving out the height.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "opposite-is-the-neighbour",
+        "Naming a face that touches the marked face in a cube net as its opposite: touching faces fold to meet at an edge.",
+        area="spatial",
+    ),
+    CatalogueEntry(
+        "opposite-is-across-the-row",
+        "Naming the face at the far end of a row of a cube net as opposite: faces two apart in a row are the opposite pair.",
         area="spatial",
     ),
     CatalogueEntry(
@@ -33847,6 +34044,28 @@ _ENTRIES = (
         "Using the z-value for a different confidence level or the wrong number of tails when finding the sample size.",
         area="clt",
     ),
+    CatalogueEntry(
+        "duration-picks-top-event",
+        "Choosing the event drawn first (at the top) instead of comparing how many boxes each one fills.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-picks-bigger-picture",
+        "Choosing the event with the biggest picture card, when the size of the card says nothing about how long it takes.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-reads-finish-line",
+        "Choosing the event that finishes last, when events that start at different times can finish in a different "
+        "order from how long they take.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-says-same",
+        "Saying two events take the same time when one fills more boxes than the other.",
+        area="early-years",
+    ),
+    # -- train 2: round 3, second-year university, complex analysis, early-years variety ---------------------------
     CatalogueEntry(
         "r3a-adds-standard-deviations",
         "Adding the standard deviations of two independent counts to get the standard deviation of their "

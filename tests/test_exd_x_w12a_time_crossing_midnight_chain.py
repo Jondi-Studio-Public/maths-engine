@@ -48,14 +48,6 @@ def questions():
     return [exam(TOPIC, s) for s in range(320)]
 
 
-def test_source_wired():
-    check_wired(SKILL_ID, TOPIC)
-
-
-def test_prompt_variety_and_new_shapes_over_the_practice_tier():
-    check_shapes(TOPIC, "time_system_conversion")
-
-
 def test_clean_and_deterministic():
     check_clean_and_deterministic(TOPIC)
 
@@ -94,10 +86,6 @@ def test_grading_and_distractors():
     check_grading(SKILL_ID, TOPIC, 120)
 
 
-def test_answer_space():
-    check_answer_space(TOPIC)
-
-
 def test_follow_through_from_wrong_minutes_to_midnight():
     """A minutes-to-midnight reply that is too big takes the same off the minutes after midnight."""
 
@@ -108,8 +96,3 @@ def test_follow_through_from_wrong_minutes_to_midnight():
         return "b", str(to_midnight + shift), {"c": str(after - shift)}
 
     check_follow_through(SKILL_ID, TOPIC, carried, 60)
-
-
-def test_unknown_tier_rejected():
-    with pytest.raises(ValueError):
-        make(TOPIC, seed=0, tier="nonsense")

@@ -1,0 +1,49 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-latitude-longitude-grid-places
+name: Locate places by latitude and longitude on a map grid
+domain: senior-mathematics
+year_level: ['12']
+description: "Use latitude and longitude to describe and compare the positions of places marked on a map grid with a line every 10 degrees. Easy reads the latitude, then the longitude, of a place. Medium picks the place at stated coordinates on a map that crosses the equator and the prime meridian. Hard finds the degrees of latitude or longitude between two places on opposite sides of the equator or the prime meridian. The exam tier finds the distance flown along a line of longitude, in kilometres, from the latitudes of two places and 111 km for each degree of latitude."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+learner_band: general
+prerequisites: [f10-position-location-language]
+answer: mcq
+sources:
+- topic: grid_latlong_places
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_latlong_places
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_latlong_places
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: grid_latlong_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: longitude-written-first
+  description: Writes the longitude before the latitude, when a position is written as latitude then longitude.
+- id: wrong-hemisphere-letter
+  description: Gives the right number of degrees with the wrong letter, N for S or E for W, so the place is on the wrong side of the equator or prime meridian.
+- id: one-line-out
+  description: Reads a line next to the right one, a place 10 degrees too far north, south, east or west.
+- id: swaps-latitude-and-longitude
+  description: Reads the latitude along the top and the longitude up the side, so the two numbers are swapped.
+- id: subtracts-across-zero
+  description: Subtracts the two numbers of degrees when the places are on opposite sides of the equator or prime meridian, instead of adding them.
+- id: counts-squares-not-degrees
+  description: Gives the number of squares between the places, not the degrees, forgetting each square is 10 degrees.
+- id: counts-both-end-lines
+  description: Counts both of the end lines as well, so the answer is one square, 10 degrees, too many.
+- id: wrong-axis-difference
+  description: Finds the difference of the other coordinate, the degrees of longitude for latitude or the reverse.
+tags: [acara-senior-v8-4, senior-mathematics, grid_latlong_places, acmem159, latitude, longitude, map-grid]

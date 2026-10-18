@@ -73,10 +73,10 @@ def test_real_grader_accepts_canonical_and_rejects_every_distractor(difficulty):
         options = mcq_options(q)
         assert len(options) == 4
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for index, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(index)).correct
+                assert not grade_mcq(q, index).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -85,7 +85,7 @@ def test_real_grader_rejects_a_deliberately_wrong_index(difficulty):
         q = _make(difficulty, seed)
         options = mcq_options(q)
         wrong_index = next(i for i, o in enumerate(options) if o != q.answer_text)
-        assert not grade_mcq(q, str(wrong_index)).correct
+        assert not grade_mcq(q, wrong_index).correct
         assert not grade_mcq(q, "not a number").correct
 
 

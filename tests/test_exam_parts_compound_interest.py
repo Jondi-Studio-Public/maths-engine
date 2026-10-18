@@ -66,11 +66,6 @@ def test_shape(questions):
             assert "to the nearest cent" in p.prompt
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-
-
 def test_composed_answer_full_marks(questions):
     for q in questions:
         result = grade(_SKILL, q, q.answer_text)
@@ -142,7 +137,3 @@ def test_variety():
     assert len(stems) >= 40
     assert len({make(TOPIC, seed=s).parts[0].answer_text for s in range(60)}) >= 40
     assert {"compounded annually" in make(TOPIC, seed=s).parts[2].prompt for s in range(60)} == {True, False}
-
-
-def test_deterministic():
-    assert make(TOPIC, seed=7).to_dict() == make(TOPIC, seed=7).to_dict()

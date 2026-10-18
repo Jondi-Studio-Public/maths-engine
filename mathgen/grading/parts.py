@@ -58,14 +58,27 @@ def symbol_name(label: str) -> str:
 # -- reading the reply --------------------------------------------------------------------------------------
 
 
-def _label_marker(label: str) -> re.Pattern:
+def _label_marker(label: str, glued: bool = False) -> re.Pattern:
     """A marker for part `label`, in any case, at the start of the reply or after whitespace, ";" or ",":
     "(a)", "(a):", "a)", "a:", "a=", or "a." followed by a space (so a decimal point in "1.5" or "6.1" is never
     a marker). Only the question's own labels are looked for, so a variable such as the "x" in "x = 3" is not
-    one, and a label letter inside a word or glued to a digit or operator ("2a = 4") does not count."""
+    one, and a label letter inside a word or glued to a digit or operator ("2a = 4") does not count.
+
+    With `glued`, a bracketed "(b)" may also follow a digit or a closing bracket with no space, as in
+    "(a)5(b)6" (see `_glued_markers`)."""
     escaped = re.escape(label)
     body = rf"(?:\(\s*{escaped}\s*\)\s*[:.=]?|{escaped}\s*(?:[):=]|\.(?=\s|$)))"
+    if glued:
+        bracketed = rf"(?<=[\d)])\(\s*{escaped}\s*\)\s*[:.=]?"
+        return re.compile(rf"(?:^|(?<=[\s;,])){body}\s*|{bracketed}\s*", re.IGNORECASE)
     return re.compile(rf"(?:^|(?<=[\s;,])){body}\s*", re.IGNORECASE)
+
+
+def _glued_markers(labels: list[str], text: str) -> bool:
+    """Whether `text` opens with a bracketed part label ("(a)5(b)6"), which is what lets a later bracketed label
+    follow its neighbour with no space. A reply that does not open that way keeps the strict markers, so "3(b)"
+    inside a working is never a label."""
+    return any(re.match(rf"\(\s*{re.escape(label)}\s*\)", text, re.IGNORECASE) for label in labels)
 
 
 #: `GradeResult.note_kind` of a multi-part result whose text reply could not be split into one reply per part.
@@ -115,8 +128,9 @@ def _split(parts, given) -> dict[str, str] | None:
     # "(a) 2.8 (b) 17.6" still marks (a) and (b). The text must open with a marker, or hold two or more
     # (so a lead-in such as "My answers: a) 2.8 b) 17.6" reads, and a lone "a" in prose does not).
     spans = []
+    glued = _glued_markers(labels, text)
     for label in labels:
-        match = _label_marker(label).search(text)
+        match = _label_marker(label, glued).search(text)
         if match is not None:
             spans.append((match.start(), match.end(), label))
     spans.sort()
@@ -208,10 +222,41 @@ def _perm_image(images, point, power):
     return sympy.Integer(cycle[int(power) % len(cycle)])
 
 
+# Functions that become a complex logarithm when applied outside their real domain.
+_BRANCH_FUNCTIONS = (
+    sympy.log,
+    sympy.asin,
+    sympy.acos,
+    sympy.asec,
+    sympy.acsc,
+    sympy.acosh,
+    sympy.atanh,
+    sympy.acoth,
+    sympy.asech,
+    sympy.acsch,
+)
+
+
+def _subs(expr, names, values):
+    """`expr` with `names` replaced by `values`.
+
+    A learner's earlier answer can be a root of a function of the symbol, such as sqrt(acos(x)^2). Replacing x by
+    a rational outside the function's domain makes SymPy test the sign of a complex logarithm while it builds the
+    root, which takes tens of seconds. Such an expression is evaluated numerically instead (to 30 digits): its
+    follow-through value is then an approximation, which is as exact as an answer of that kind can be asked to be.
+    """
+    mapping = dict(zip(names, values))
+    risky = any(
+        isinstance(power, sympy.Pow) and not power.exp.is_Integer and power.base.has(*_BRANCH_FUNCTIONS)
+        for power in sympy.preorder_traversal(expr)
+    )
+    return expr.evalf(30, subs=mapping) if risky else expr.subs(mapping)
+
+
 _FUNCTIONS = {
     "erf": sympy.erf,
     "erfc": sympy.erfc,
-    "Subs": lambda expr, names, values: expr.subs(dict(zip(names, values))),
+    "Subs": _subs,
     "perm_order": _perm_order,
     "perm_image": _perm_image,
 }

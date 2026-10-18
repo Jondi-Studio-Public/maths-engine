@@ -1,21 +1,38 @@
 id: name-basic-shapes
-name: Name basic shapes
+name: Name and recognise familiar shapes
 domain: early-foundations
-placement_order: 80
-placement_questions: 3
-placement_pass: 2
+year_level: [F]
+naplan_domain: [space]
 learner_band: early
-description: Recognise circles, triangles, squares and rectangles.
+description: Name a familiar shape drawn large or small, plain, shaded or dotted; count one kind of shape in a mixed picture, including shapes that are turned; and find the shape in an everyday object such as a house, a clock or a can.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
 prerequisites: [count-to-5]
 answer: mcq
 sources:
-- topic: shape_names
-  params: {}
+- topic: ey_shape_recognise
   difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_shape_recognise
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_shape_recognise
+  difficulty: hard
+  stages: [5, 6, maintenance]
 - topic: ey6a_shape_names
   key: glyphs-and-clues
   params: {}
   difficulty: easy
-misconceptions: []
-tags: [age-5, shapes, visual]
+misconceptions:
+- id: names-the-wrong-shape
+  description: Mixes up the names of the basic shapes, for example calling a rectangle a square.
+- id: turned-shape-is-different
+  description: Does not count a shape that is turned or tilted, thinking a tilted square is a new shape.
+- id: counts-a-near-neighbour
+  description: Counts a shape that only looks alike (a rectangle among the squares, an oval among the circles).
+- id: flat-for-solid
+  description: Names the flat shape for a solid one, for example a circle for a ball or a rectangle for a box.
+tags: [age-5, shapes, visual, acara-f10-v9, early, ac9mfsp01]

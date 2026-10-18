@@ -1,0 +1,55 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-position-time-tangent-velocity
+name: Read velocity from a tangent to a position-time curve, and find when a body is at rest or moves backwards
+domain: senior-mathematics
+year_level: ['11']
+description: 'A smooth position-time curve shows a cart on a straight track. Easy and medium read the velocity at
+  a marked point as the slope of the tangent line drawn there (forwards, then backwards: a negative slope), hard
+  asks at what time the cart is at rest (the curve turns) or for how many seconds it moves backwards (the position
+  decreases), and the exam chain reads the velocity at the tangent, the two times at rest, the time moving backwards
+  and the average velocity over that time. Every position read sits on a grid crossing.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [senior-interpret-distance-versus-time-graphs, rate-of-change]
+answer: number
+sources:
+- topic: ey_position_tangent
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_position_tangent
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_position_tangent
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: ey_position_tangent_exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: velocity-sign-reversed, description: 'Gives a velocity with its sign reversed, so a cart moving backwards
+    looks as if it moves forwards.'}
+- {id: position-as-velocity, description: Gives the position of the cart at the marked point instead of the slope
+    of the tangent.}
+- {id: average-from-origin, description: Gives position divided by time (the average velocity from the start) instead
+    of the slope of the tangent.}
+- {id: secant-for-tangent, description: Gives the change in position over the next second instead of the slope of
+    the tangent at the point.}
+- {id: rest-first-for-second, description: 'Gives the first time at rest when the second was asked, or the other
+    way round.'}
+- {id: position-at-rest-as-time, description: Gives the position of the cart at the turning point instead of the
+    time it is there.}
+- {id: moving-forwards-time-for-backwards, description: Gives the time spent moving forwards when the time spent
+    moving backwards was asked.}
+- {id: average-velocity-without-time, description: Gives the change in position over the backward stretch without
+    dividing by how long it took.}
+difficulty_progression:
+  easy: {steps: 2, demand: "Read two lattice points on the tangent and find its positive slope as the velocity."}
+  medium: {steps: 3, demand: 'Read the tangent''s slope where the curve is falling and keep the negative sign: the
+      cart moves backwards.'}
+  hard: {steps: 3, demand: "'Find where the curve turns (zero slope), then the time the position is decreasing.'"}
+  exam: {steps: 5, demand: 'Chain the tangent velocity, the two times at rest, the backward time and the average
+      velocity over it.'}
+tags: [acara-senior-v8-4, senior-mathematics, position-time-graph, tangent, velocity, acmmm094, figure]

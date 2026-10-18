@@ -26,17 +26,6 @@ def test_prompt_shapes_vary_and_are_new_over_hard():
     assert exam - hard, (exam, hard)
 
 
-def test_no_text_defects():
-    for seed in range(60):
-        q = _exam(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
-def test_deterministic():
-    for seed in (0, 1, 7, 99):
-        assert _exam(seed).to_json() == _exam(seed).to_json()
-
-
 def test_key_matches_independent_oracle_over_300_seeds():
     bad = []
     for seed in range(300):

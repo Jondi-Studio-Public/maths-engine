@@ -54,7 +54,7 @@ def test_outcomes_sample_correct_answer_grades_correct(difficulty):
         question = make("outcomes_sample_classify", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         answer_index = options.index(question.answer_text)
-        result = grade_mcq(question, str(answer_index))
+        result = grade_mcq(question, answer_index)
         assert result.correct, f"seed {seed}: canonical answer did not grade correct"
 
 
@@ -66,7 +66,7 @@ def test_outcomes_sample_every_distractor_grades_incorrect(difficulty):
         options = mcq_options(question)
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            result = grade_mcq(question, str(distractor_index))
+            result = grade_mcq(question, distractor_index)
             assert not result.correct, f"seed {seed}: distractor '{distractor}' should grade incorrect"
 
 
@@ -79,7 +79,7 @@ def test_outcomes_sample_wrong_index_grades_incorrect(difficulty):
         answer_index = options.index(question.answer_text)
         # Pick a wrong index
         wrong_index = (answer_index + 1) % len(options)
-        result = grade_mcq(question, str(wrong_index))
+        result = grade_mcq(question, wrong_index)
         assert not result.correct, f"seed {seed}: wrong index {wrong_index} should grade incorrect"
 
 
@@ -148,7 +148,7 @@ def test_probability_likelihood_correct_answer_grades_correct(difficulty):
         question = make("probability_likelihood_compare", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         answer_index = options.index(question.answer_text)
-        result = grade_mcq(question, str(answer_index))
+        result = grade_mcq(question, answer_index)
         assert result.correct, f"seed {seed}: canonical answer did not grade correct"
 
 
@@ -160,7 +160,7 @@ def test_probability_likelihood_every_distractor_grades_incorrect(difficulty):
         options = mcq_options(question)
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            result = grade_mcq(question, str(distractor_index))
+            result = grade_mcq(question, distractor_index)
             assert not result.correct, f"seed {seed}: distractor '{distractor}' should grade incorrect"
 
 
@@ -173,7 +173,7 @@ def test_probability_likelihood_wrong_index_grades_incorrect(difficulty):
         answer_index = options.index(question.answer_text)
         # Pick a wrong index
         wrong_index = (answer_index + 1) % len(options)
-        result = grade_mcq(question, str(wrong_index))
+        result = grade_mcq(question, wrong_index)
         assert not result.correct, f"seed {seed}: wrong index {wrong_index} should grade incorrect"
 
 

@@ -157,7 +157,7 @@ def test_every_mcq_skill_can_be_answered_by_label_and_by_text(library):
                     expected = labels.index(text) if text in labels else i
                     assert _choose_option(options, text) == expected, (text, *where)
                     for given, index in ((label, i), (text, expected)):
-                        assert engine.grade(skill, q, str(index)).correct == (index == key), (given, *where)
+                        assert engine.grade(skill, q, index).correct == (index == key), (given, *where)
                     checked += 1
     assert checked > 20000
 

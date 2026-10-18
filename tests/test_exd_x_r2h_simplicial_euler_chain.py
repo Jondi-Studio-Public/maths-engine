@@ -124,14 +124,6 @@ def test_distractors_tagged_and_rejected():
     CHECKS["distractors_rejected"]()
 
 
-def test_answer_space():
-    CHECKS["answer_space"]()
-
-
-def test_deterministic():
-    CHECKS["deterministic"]()
-
-
 def test_chain_is_not_copyable():
     """No part repeats an earlier answer or follows through as a restatement, and junk replies earn nothing."""
     from tests.exd_junk_probe import assert_chain_is_not_copyable

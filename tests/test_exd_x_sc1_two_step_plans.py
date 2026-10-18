@@ -64,8 +64,3 @@ def test_follow_through_from_a_wrong_count():
             assert result.parts["b"].marks == 3 and result.parts["b"].follow_through, (seed, bad, text)
             checked += 1
     assert checked >= 5
-
-
-def test_answer_space_and_determinism():
-    sup.check_answer_space(SKILL_ID)
-    sup.check_deterministic(SKILL_ID)

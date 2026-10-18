@@ -68,10 +68,10 @@ def test_reasonableness_verdict_grader_accepts_answer_rejects_distractors(diffic
         question = make("reasonableness_verdict", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct
+        assert grade_mcq(question, correct_index).correct
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            assert not grade_mcq(question, str(distractor_index)).correct
+            assert not grade_mcq(question, distractor_index).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -151,10 +151,10 @@ def test_locate_calculation_error_grader_accepts_answer_rejects_distractors(diff
         question = make("locate_calculation_error", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_index)).correct
+        assert grade_mcq(question, correct_index).correct
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            assert not grade_mcq(question, str(distractor_index)).correct
+            assert not grade_mcq(question, distractor_index).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)

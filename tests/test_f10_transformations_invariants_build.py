@@ -23,7 +23,7 @@ def _questions(tier):
 
 
 def _index(question, option):
-    return str(mcq_options(question).index(option))
+    return mcq_options(question).index(option)
 
 
 def _skill():

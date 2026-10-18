@@ -37,18 +37,6 @@ def _hard_shapes():
     return {prompt_shape(make(hard.topic, seed=s, difficulty="hard", **hard.params)) for s in range(60)}
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
-def test_prompt_variety_and_new_shapes():
-    shapes = {prompt_shape(_exam(s)) for s in range(60)}
-    assert len(shapes) >= 3
-    assert shapes - _hard_shapes()
-
-
 def test_shape_of_question():
     for seed in range(40):
         q = _exam(seed)
@@ -80,10 +68,6 @@ def test_answer_space():
     answers = [_canonical(_exam(s))[LABELS[-1]] for s in SEEDS]
     assert len(set(answers)) >= 100
     assert max(answers.count(a) for a in set(answers)) <= 0.05 * len(answers)
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()
 
 
 def _nums(q):

@@ -63,7 +63,7 @@ def test_real_grader_accepts_key_and_rejects_every_other_option(difficulty):
         options = mcq_options(q)
         assert len(options) == 4 and len(set(options)) == 4
         for index, option in enumerate(options):
-            assert grade_mcq(q, str(index)).correct == (option == q.answer_text)
+            assert grade_mcq(q, index).correct == (option == q.answer_text)
         assert not grade_mcq(q, "not a number").correct
         assert not grade_mcq(q, "9").correct
 

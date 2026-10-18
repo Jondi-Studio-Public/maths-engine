@@ -1,21 +1,48 @@
 id: continue-patterns
-name: Continue repeating patterns
+name: Recognise and continue repeating patterns
 domain: early-foundations
-placement_order: 90
-placement_questions: 3
-placement_pass: 2
+year_level: [F]
+naplan_domain: [algebra]
 learner_band: early
-description: Spot a repeating unit and choose what comes next.
+description: Look at a strip of shapes, numbers, letters or actions and say what comes next or what fills the empty box in a repeating pattern, then find the row that makes the same pattern from different things.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
 prerequisites: [name-basic-shapes]
 answer: mcq
 sources:
-- topic: repeating_pattern
-  params: {}
+- topic: ey_pattern_continue
   difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_pattern_continue
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_pattern_match
+  difficulty: hard
+  stages: [5, 6, maintenance]
 - topic: ey6a_repeating_pattern
   key: varied-units
   params: {}
   difficulty: easy
-misconceptions: []
-tags: [age-5, patterns, visual]
+misconceptions:
+- id: repeats-the-last-one
+  description: Says the item just before the gap again, instead of working out which item the pattern puts there.
+- id: watches-one-thing
+  description: Follows the shape but not how it is drawn (solid, open or striped), so picks a look-alike with the right shape and the wrong fill.
+- id: skips-or-swaps-a-place
+  description: Gives another item from the repeating part, one place too early or too late, in a pattern with three items to a repeat.
+- id: matches-the-pictures-not-the-pattern
+  description: Chooses the row made of the same kind of pictures as the model, instead of the row that repeats in the same way with different things.
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Read an AB strip that ends in a question mark and name the item that comes next.
+  medium:
+    steps: 2
+    demand: Find the repeating part of an AAB, ABB or ABC strip, then name the item that fills a gap anywhere in it, including the middle.
+  hard:
+    steps: 3
+    demand: Hear a pattern said with one kind of thing, find how it repeats, then pick the row that repeats in the same way when it is drawn with other things, ignoring a row of the same pictures that repeats differently.
+tags: [acara-f10-v9, early, patterns, visual, age-5, ac9mfa01]

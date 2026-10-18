@@ -127,7 +127,7 @@ def test_value_real_grader_accepts_correct_index_and_rejects_every_other(difficu
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
         for i in range(len(options)):
-            result = GRADERS["mcq"](q, str(i))
+            result = GRADERS["mcq"](q, i)
             expected = i == correct_idx
             assert result.correct == expected, (seed, difficulty, i, options)
 
@@ -308,7 +308,7 @@ def test_value_oracle_matches_generator_over_300_seeds_per_tier(difficulty):
         # string) is confirmed via the real grader.
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert GRADERS["mcq"](q, str(correct_idx)).correct
+        assert GRADERS["mcq"](q, correct_idx).correct
 
 
 # ===========================================================================

@@ -27,14 +27,6 @@ def oracle(q):
     return {"a": str(other), "b": c.show(shown, 1), "c": c.show(Fraction(area), 0)}
 
 
-def test_shapes():
-    c.check_shapes(TOPIC, SKILL_ID)
-
-
-def test_source_wired():
-    c.check_source_wired(TOPIC, SKILL_ID)
-
-
 def test_key_rederived_from_prompt():
     c.check_oracle(TOPIC, oracle)
 

@@ -114,7 +114,7 @@ def _thrown_ball(rng: random.Random) -> dict:
         inputs=(t1, t2),
         rule=rule,
         slips=slips,
-        asks=[f"Find the height of the ball after {t} seconds, in metres." for t in (t1, t2)],
+        asks=[f"Find the height of the ball after {t} second{'' if t == 1 else 's'}, in metres." for t in (t1, t2)],
         change_ask=f"Find the change in height of the ball between t = {t1} and t = {t2}, in metres "
         "(a negative answer means it has dropped).",
         change_slips=lambda a, b: [

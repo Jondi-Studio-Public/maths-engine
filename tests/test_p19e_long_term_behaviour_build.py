@@ -69,11 +69,11 @@ def test_geo_real_grader_accepts_canonical_and_rejects_every_distractor(difficul
         q = _make(GEO_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct
+            assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -171,11 +171,11 @@ def test_rec_real_grader_accepts_canonical_and_rejects_every_distractor(difficul
         q = _make(REC_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct
+            assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)

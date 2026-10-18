@@ -261,6 +261,21 @@ def questions() -> dict[str, tuple[str, Question]]:
             _hand_built(answer={"pieces": [{"vertices": [[0, 0], [1, 1], [2, 0]]}]}, answer_text="x"),
         ),
         "line": ("line", _hand_built(answer=[[0, 0], [1, 1]], answer_text="x")),
+        "grid_cells": (
+            "grid_cells",
+            _hand_built(answer={"cells": [[0, 0], [1, 0]], "grid": [20, 20], "match": "congruent"}, answer_text="x"),
+        ),
+        "grid_cells, cube_net": (
+            "grid_cells",
+            _hand_built(
+                answer={
+                    "cells": [[1, 0], [0, 1], [1, 1], [2, 1], [1, 2], [1, 3]],
+                    "grid": [20, 20],
+                    "match": "cube_net",
+                },
+                answer_text="x",
+            ),
+        ),  # fmt: skip
     }
     for form in ("simplified_surd", "factored", "expanded", "single_fraction", "rationalised"):
         out[f"expression, {form}"] = ("expression", dataclasses.replace(expression, answer_form=form))
@@ -286,7 +301,7 @@ CASES = [
     "pair", "pair, equation", "list", "ordered_list", "mcq",
     "expression", "expression, simplified_surd", "expression, factored", "expression, expanded",
     "expression, single_fraction", "expression, rationalised", "expression, line_standard_form",
-    "table", "set", "points", "polyline", "line",
+    "table", "set", "points", "polyline", "line", "grid_cells", "grid_cells, cube_net",
 ]  # fmt: skip
 
 
@@ -299,6 +314,19 @@ def test_hostile_reply_is_graded_wrong_and_quickly(questions, case, name):
     elapsed = time.perf_counter() - started
     assert elapsed < BUDGET_SECONDS, f"{kind} ({case}) took {elapsed:.2f} s on {name!r}"
     if kind != "mcq":  # an mcq reply is an option number, so "(x+1)^(10^6)" is "1" by design
+        assert result.correct is False
+
+
+@pytest.mark.parametrize("name", sorted(HOSTILE))
+def test_bracketed_grid_reply_stays_strict_next_to_hostile_text(questions, name):
+    # "[(0, 0), (1, 0)]" is a good reply; the same pairs with hostile text beside them are not.
+    question = dataclasses.replace(questions["grid_cells"][1], answer_text="(0, 0) (1, 0)")
+    assert grade("grid_cells", question, "[(0, 0), (1, 0)]").correct is True
+    hostile = HOSTILE[name]
+    for reply in (f"[(0, 0), (1, 0), {hostile}]", f"[(0, 0), (1, 0)] {hostile}", f"{hostile} [(0, 0), (1, 0)]"):
+        started = time.perf_counter()
+        result = grade("grid_cells", question, reply)
+        assert time.perf_counter() - started < BUDGET_SECONDS, f"grid_cells took too long on {name!r}"
         assert result.correct is False
 
 

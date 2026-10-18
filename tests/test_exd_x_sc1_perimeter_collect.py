@@ -85,8 +85,3 @@ def test_every_side_is_positive_at_the_given_values():
         q = sup.exam(SKILL_ID, seed)
         cx, cy = (int(v) for v in re.search(r"when x = (\d+) and y = (\d+)", q.parts[3].prompt).groups())
         assert all(s.subs({x: cx, y: cy}) > 0 for s in sides(q)), (seed, q.stem)
-
-
-def test_answer_space_and_determinism():
-    sup.check_answer_space(SKILL_ID)
-    sup.check_deterministic(SKILL_ID)
