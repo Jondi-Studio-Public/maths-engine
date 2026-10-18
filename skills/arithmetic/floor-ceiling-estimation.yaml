@@ -1,0 +1,127 @@
+id: floor-ceiling-estimation
+name: Round down and round up to estimate a needed quantity
+domain: arithmetic
+year_level:
+- '11'
+description: 'Decide whether to round down or round up in a practical estimate: how many boxes, packs or trips are needed,
+  how many whole items fit, and a safe lower and upper estimate of a product checked for reasonableness.'
+status: active
+placement_eligible: false
+prerequisites:
+- senior-apply-approximation-strategies-for-calculations
+answer: number
+sources:
+- topic: w7b_floor_ceiling_estimation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w7b_floor_ceiling_estimation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w7b_floor_ceiling_estimation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w7b_floor_ceiling_estimation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fce-rounds-down
+  description: Rounds the quotient down when a partly filled pack still has to be bought or a partly full trip still has to
+    be made.
+- id: fce-adds-one-when-exact
+  description: Adds one to a quotient that is already a whole number.
+- id: fce-adds-a-spare
+  description: Rounds up and then adds a spare one that the question did not ask for.
+- id: fce-rounds-up-whole-items
+  description: Rounds up the number of whole items that fit, counting an offcut that is too short to use.
+- id: fce-gives-leftover
+  description: Gives the amount left over where the number of whole groups was asked.
+- id: fce-gives-quotient
+  description: Gives the number of full groups where the amount left over was asked.
+- id: fce-gives-shortfall
+  description: Gives how many more are needed to fill another group where the amount left over was asked.
+- id: fce-gives-count-for-leftover
+  description: Gives the number of groups needed where the amount left over was asked.
+- id: fce-gives-leftover-for-shortfall
+  description: Gives the amount in the last box where the amount needed to fill it was asked.
+- id: fce-forgets-extra
+  description: Leaves out the extra people or items that were added to the groups.
+- id: fce-rounds-each-part
+  description: Rounds up each part separately and adds, instead of adding first and rounding once.
+- id: fce-mixes-directions
+  description: Rounds one factor up and the other down, so the estimate is neither a safe upper estimate nor a safe lower
+    one.
+- id: fce-uses-exact-values
+  description: Gives the exact value where a rounded estimate was asked.
+- id: fce-rounds-to-nearest-estimate
+  description: Rounds each factor to the nearest place value instead of in the direction asked.
+- id: fce-wrong-bound
+  description: Rounds down for the upper estimate, or up for the lower estimate.
+- id: fce-compares-to-lower-bound
+  description: Measures the excess above the lower estimate where the upper estimate was the one to check against.
+- id: fce-gives-estimate-not-gap
+  description: Gives the estimate itself where the difference between the estimate and another value was asked.
+- id: fce-gives-exact-not-gap
+  description: Gives the exact value where the difference between the estimate and the exact value was asked.
+- id: fce-ignores-weight-limit
+  description: Uses only the count limit for each trip and ignores the weight limit.
+- id: fce-ignores-whole-items
+  description: Divides the total weight by the weight limit without allowing for whole items, so a part-filled load is counted.
+- id: fce-rounds-load-to-nearest
+  description: Rounds the number of items one trip can carry to the nearest whole number instead of down.
+- id: fce-forgets-end-post
+  description: Forgets that a straight fence needs one more post than it has gaps.
+- id: fce-adds-post-on-loop
+  description: Adds an extra post for a closed loop, although the last gap ends at the first post.
+- id: fce-rounds-gaps-down
+  description: Rounds the number of gaps down and leaves the last stretch of fence without a post.
+- id: fce-all-large-vehicles
+  description: Uses only the large vehicle for everyone.
+- id: fce-all-small-vehicles
+  description: Uses only the small vehicle for everyone.
+- id: fce-forgets-the-rest
+  description: Counts only the full large vehicles and forgets the people left over.
+- id: fce-uses-lower-bound
+  description: Uses the smallest possible count when the number needed must cover the largest possible one.
+- id: fce-uses-upper-bound
+  description: Uses the largest possible count when the number of boxes certain to be filled was asked.
+- id: fce-uses-midpoint
+  description: Uses the middle of the range instead of the end that settles the question.
+- id: fce-rounds-up-guaranteed-full
+  description: Rounds up the number of boxes that can be filled for certain, counting a box that may not be full.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Divide a total by a capacity and round up for the packs or trips needed, or round down for the whole items that
+      fit.
+  medium:
+    steps: 3
+    demand: Find a total from several quantities, then round the quotient in the direction the situation needs, or build a
+      safe lower or upper estimate of a product by rounding every factor the same way.
+  hard:
+    steps: 5
+    demand: Handle a situation with two limits or an end effect, such as the larger of two ceilings, the posts needed for
+      a fence, or items used up part-way through a pack.
+  exam:
+    steps: 6
+    demand: Chain the packs needed, the full packs and the items left over, the lower and upper estimates of a cost and the
+      check that the exact cost lies between them.
+tags:
+- senior
+- estimation
+- rounding
+- floor
+- ceiling
+- vce-foundation

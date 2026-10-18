@@ -36252,6 +36252,161 @@ _ENTRIES = (
         "Counts the primes tried up to the square root, where the primes only up to the smallest factor were needed.",
         area="number-bases-primes",
     ),
+    CatalogueEntry(
+        "fce-rounds-down",
+        "Rounds the quotient down when a partly filled pack still has to be bought or a partly full trip still has to be made.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-one-when-exact",
+        "Adds one to a quotient that is already a whole number.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-a-spare",
+        "Rounds up and then adds a spare one that the question did not ask for.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-up-whole-items",
+        "Rounds up the number of whole items that fit, counting an offcut that is too short to use.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-leftover",
+        "Gives the amount left over where the number of whole groups was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-quotient",
+        "Gives the number of full groups where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-shortfall",
+        "Gives how many more are needed to fill another group where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-count-for-leftover",
+        "Gives the number of groups needed where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-leftover-for-shortfall",
+        "Gives the amount in the last box where the amount needed to fill it was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-extra",
+        "Leaves out the extra people or items that were added to the groups.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-each-part",
+        "Rounds up each part separately and adds, instead of adding first and rounding once.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-mixes-directions",
+        "Rounds one factor up and the other down, so the estimate is neither a safe upper estimate nor a safe lower one.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-exact-values",
+        "Gives the exact value where a rounded estimate was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-to-nearest-estimate",
+        "Rounds each factor to the nearest place value instead of in the direction asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-wrong-bound",
+        "Rounds down for the upper estimate, or up for the lower estimate.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-compares-to-lower-bound",
+        "Measures the excess above the lower estimate where the upper estimate was the one to check against.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-estimate-not-gap",
+        "Gives the estimate itself where the difference between the estimate and another value was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-exact-not-gap",
+        "Gives the exact value where the difference between the estimate and the exact value was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-ignores-weight-limit",
+        "Uses only the count limit for each trip and ignores the weight limit.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-ignores-whole-items",
+        "Divides the total weight by the weight limit without allowing for whole items, so a part-filled load is counted.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-load-to-nearest",
+        "Rounds the number of items one trip can carry to the nearest whole number instead of down.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-end-post",
+        "Forgets that a straight fence needs one more post than it has gaps.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-post-on-loop",
+        "Adds an extra post for a closed loop, although the last gap ends at the first post.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-gaps-down",
+        "Rounds the number of gaps down and leaves the last stretch of fence without a post.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-all-large-vehicles",
+        "Uses only the large vehicle for everyone.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-all-small-vehicles",
+        "Uses only the small vehicle for everyone.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-the-rest",
+        "Counts only the full large vehicles and forgets the people left over.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-lower-bound",
+        "Uses the smallest possible count when the number needed must cover the largest possible one.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-upper-bound",
+        "Uses the largest possible count when the number of boxes certain to be filled was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-midpoint",
+        "Uses the middle of the range instead of the end that settles the question.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-up-guaranteed-full",
+        "Rounds up the number of boxes that can be filled for certain, counting a box that may not be full.",
+        area="floor-ceiling-estimation",
+    ),
 )
 
 #: Every entry, by id.
