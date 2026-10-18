@@ -430,10 +430,15 @@ _EXAM_POLYGONS = [(n, r) for n, top in ((3, 80), (4, 60), (6, 25)) for r in rang
 
 
 def _exam(rng):
-    for _ in attempts(500, "a polygon whose 2-decimal side is unambiguous"):
+    for _ in attempts(500, "a polygon whose 2-decimal side and perimeter agree"):
         n, r = rng.choice(_EXAM_POLYGONS)
         side = 2 * r * math.sin(math.pi / n)
-        if rounds_unambiguously(side, 2):
+        # the perimeter must come out the same from the exact side as from the 2-decimal side the learner follows through
+        if (
+            rounds_unambiguously(side, 2)
+            and rounds_unambiguously(n * side, 2)
+            and (round(n * side + 1e-12, 2) == round(n * round(side + 1e-12, 2) + 1e-12, 2))
+        ):
             break
     w = r**n
     side2 = round(side + 1e-12, 2)
