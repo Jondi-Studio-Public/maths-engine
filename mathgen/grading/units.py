@@ -358,11 +358,29 @@ def _asked_compound_parts(question) -> frozenset[str] | None:
     return frozenset(_SPELLING_TO_UNIT[spelling.lower()] for spelling in asked[-1].groups() if spelling)
 
 
+# A unit written as an SI prefix and a base symbol that the table does not list ("mN", "MN", "dm", "nm", "mA").
+# Capital and small letters are different prefixes here (M is mega, m is milli), so it is read as written.
+_PREFIXED_UNIT_RE = re.compile(r"(?:da|[YZEPTGMkhdcmµμunpf])(?:Pa|Hz|mol|[NJWVACFHTgmsLl])")
+
+
+def _prefixed_unit_conflicts(question, given: str) -> bool:
+    """Whether the reply ends in a prefixed unit the table does not list ("25 mN") while the question asks for
+    another unit: the canonical's own unit, or one the question names. The canonical's own spelling, listed or
+    not, never conflicts, and a question that asks for no unit judges none, as for any unit it does not know."""
+    found = _after_last_number(given)
+    if found is None or _PREFIXED_UNIT_RE.fullmatch(found[1]) is None:
+        return False
+    shown = _after_last_number(getattr(question, "answer_text", "") or "")
+    if shown is not None and shown[1] == found[1]:
+        return False
+    return _asked_unit(question) is not None
+
+
 def unit_is_acceptable(question, given: str) -> bool:
     """Whether the unit a typed number reply gives (if any) is one the question allows. See the module docstring."""
     unit = _unit_of(given or "")
     if unit is None:
-        return True
+        return not _prefixed_unit_conflicts(question, given or "")
     asked = _asked_unit(question)
     if asked is not None:
         return unit == asked

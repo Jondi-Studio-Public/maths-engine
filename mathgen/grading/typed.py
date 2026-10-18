@@ -2851,7 +2851,7 @@ def _table_cell_correct(expected, given: str) -> bool:
         except Exception:  # noqa: BLE001 - normalisation is best-effort
             logger.warning("extract_values failed for table cell %.200r", given, exc_info=True)
             return False
-        if len(values) != 1:
+        if len(values) != 1 or _reply_has_stray_marks(_cell_text(expected), given):
             return False
         value = _as_fraction(expected.replace(" ", "")) if isinstance(expected, str) else expected
         return _component_target(_cell_text(expected), value).matches(values[0])
@@ -3428,6 +3428,94 @@ def _reply_hedges(question, given: str) -> bool:
     return not words <= shared
 
 
+# -- stray letters and a dropped leading minus ----------------------------------------------------------------
+#
+# The value readers find the numbers in a reply and ignore the rest, so "7x", "7/x" and "x7" all stated 7, and
+# "-(-6, 4)", "-A$352.50" and "-F = 10.0 N" stated what is left once the minus is dropped. A letter that is not
+# a unit, a label or part of the answer is not a way to write a number, and a minus that belongs to nothing is not
+# decoration to be thrown away.
+#
+#   * A single letter beside a value is refused unless it is a unit symbol ("7 m", "20 J", "5 N", "3 s"), a label
+#     ("x = 7", "A(1, 2)", "(a) 7"), a dotted abbreviation ("3 p.m.", "2 s.f.") or a letter the canonical value
+#     itself shows ("2π", "A$138.00"). A letter after a slash must follow a unit too ("m/s", "km/h"), never a
+#     number: "7/x" is not the fraction 7.
+#   * Words are left alone ("7 dogs", "0.064 cm", "9 apples"): a unit the grader does not know is no reason to
+#     refuse a value, and `units.py` refuses the units it does know when the question names another.
+#   * A reply that opens with a minus must go on to a number ("-7", "-$7", "-.5", "-1/2"). "-(-6, 4)", "-A$352.50",
+#     "-x = 1" and "-F = 10.0 N" are not the numbers inside them, so they are wrong, and so is a minus inside a
+#     list or pair that stands before a bracket or an unexplained letter ("(3, -(4))", "{1, -y}").
+_STRAY_CHECKED_KINDS = frozenset({"number", "fraction", "pair", "list", "set"})
+# Letters only: the "\\w minus digits" class also holds the superscript digits ("m²") and the vulgar fractions ("½").
+_LTR = "A-Za-z\u00b5\u00c0-\u00d6\u00d8-\u00f6\u00f8-\u024f\u0370-\u03ff\u2126"
+_LETTER_RUN_RE = re.compile(rf"[{_LTR}]+")
+# "p.m.", "s.f.", "e.g.": single letters that a dot joins to the next one are an abbreviation, not variables.
+_DOTTED_ABBREVIATION_RE = re.compile(rf"(?<![{_LTR}])[{_LTR}](?:\.[{_LTR}])+\.?")
+# "1.2 x 10^3", "3 x 4": an x between two values is a times sign.
+_TIMES_SIGN_RE = re.compile(r"(?<=\d)[ \t]*[xX][ \t]*(?=\d)")
+# "x =", "f(3) =", "A(1, 2) =", "(x, y) =", "k ∈", "(a)", "b)": a name that labels what follows.
+_REPLY_LABEL_RE = re.compile(
+    rf"(?<![\w)])[{_LTR}]\w*(?:[ \t]*\([^()]*\))?[ \t]*(?:=(?!=)|∈|:)"
+    rf"|\([{_LTR}](?:[ \t]*,[ \t]*[{_LTR}])+\)[ \t]*=(?!=)"
+    rf"|(?:(?<=^)|(?<=[ \t,;]))\(?[{_LTR}]\)(?=[ \t]|$)"
+)
+#: Single letters that are a unit symbol or a unit abbreviation, or a constant, wherever the reply puts them.
+_LONE_LETTERS = frozenset("mglshwntdACFHJKLNSTVWΩµμπijkØø")
+# A letter before an opening bracket names a point or a function ("A(1, 2)", "M (2, 3)"); one next to an apostrophe is
+# part of a word ("o'clock", "it's"); "a" before a word is the article.
+_NAMES_A_BRACKET_RE = re.compile(r"[ \t]*\(")
+_APOSTROPHE_RE = re.compile(rf"['\u2019][{_LTR}]")
+_WORD_FOLLOWS_RE = re.compile(rf"[ \t]+[{_LTR}]{{2,}}")
+_AFTER_MINUS_RE = re.compile(
+    r"-[ \t]*(?:(?:[$£€¥][ \t]*)?(?:\.?\d|[½¼¾⅓⅔⅛⅜⅝⅞])|∞|inf\b|oo\b|π|pi\b|√|\\|\.\.\.)", re.IGNORECASE
+)
+# A minus in sign position inside a reply: not right after a word character, digit, ".", or a closing bracket.
+_INNER_SIGN_RE = re.compile(r"(?<![\w.)\]}])(?<![\w.)\]}][ \t])-[ \t]*(?=[(\[{A-Za-z])")
+
+
+def _canonical_letters(answer_text: str, single_value: bool) -> frozenset[str]:
+    """The letters the canonical shows. A single number's labels do not count ("x = 1" is not answered "1x"); in a
+    pair, list or set they do, because an equation or a named point is written with its letters ("y - 3 = 0")."""
+    return frozenset(_LETTER_RUN_RE.findall(_REPLY_LABEL_RE.sub(" ", answer_text) if single_value else answer_text))
+
+
+def _reply_has_stray_marks(answer_text: str, given: str, *, single_value: bool = False) -> bool:
+    """Whether a typed reply carries a letter or a minus that is part of no number (see the block comment above).
+    `answer_text` is the canonical it is judged against; `single_value` reads only the side after the last "=",
+    as the number grader does."""
+    text = given or ""
+    answer_text = answer_text or ""
+    leading = text.lstrip()
+    if leading.startswith("-") and not _AFTER_MINUS_RE.match(leading):
+        # An answer such as "y = -x + 7" is written "-x + 7" by a learner who leaves the label off.
+        return re.match(r"-[ \t]*[^\d.$£€¥\s]", _value_side(answer_text).lstrip()) is None
+    canonical = _canonical_letters(answer_text, single_value)
+    if single_value:
+        text = _value_side(text)  # "area = 3 x 3 = 9" states 9
+    text = _REPLY_LABEL_RE.sub(" ", _TIMES_SIGN_RE.sub(" ", _DOTTED_ABBREVIATION_RE.sub(" ", text)))
+    for sign in _INNER_SIGN_RE.finditer(text):
+        word = _LETTER_RUN_RE.match(text, sign.end())
+        if word is None or word.group(0) not in canonical:
+            return True
+    for run in _LETTER_RUN_RE.finditer(text):
+        word = run.group(0)
+        if len(word) != 1 or word in canonical or _NAMES_A_BRACKET_RE.match(text, run.end()):
+            continue
+        if (
+            _APOSTROPHE_RE.match(text, run.end())
+            or text[max(run.start() - 1, 0) : run.start()] in ("'", "\u2019")
+            or (word in "aA" and _WORD_FOLLOWS_RE.match(text, run.end()))
+        ):
+            continue  # "o'clock", "it's", "a quarter"
+        before = text[: run.start()].rstrip()
+        if before.endswith("/"):
+            if not before[:-1].rstrip()[-1:].isalpha() and "/" + word not in answer_text:
+                return True
+            continue
+        if word not in _LONE_LETTERS:
+            return True
+    return False
+
+
 def _squeezed(text: str) -> str:
     return re.sub(r"\s+", "", (text or "").translate(_MINUS_SIGNS)).lower()
 
@@ -3507,6 +3595,14 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
     if isinstance(given, str):
         given = normalise_reply(kind, given)
     if isinstance(given, str) and kind in _DOUBLE_SIGN_KINDS and _DOUBLE_SIGN_RE.search(given):
+        return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
+    if (
+        isinstance(given, str)
+        and kind in _STRAY_CHECKED_KINDS
+        and _reply_has_stray_marks(
+            getattr(question, "answer_text", ""), given, single_value=kind in ("number", "fraction")
+        )
+    ):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if isinstance(given, str) and kind in _COPY_CHECKED_KINDS and _copies_the_question(question, given):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
