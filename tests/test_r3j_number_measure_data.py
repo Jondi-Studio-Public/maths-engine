@@ -543,7 +543,12 @@ def test_imperial_exam_from_the_text():
     for seed in range(100):
         q = _q("convert-imperial-length", "exam", seed)
         nm, mi = (
-            int(v) for v in re.search(r"leg is (\d+) nautical miles and the second leg is (\d+) miles", q.text).groups()
+            int(v)
+            for v in re.search(
+                r"(?:leg is|logs two legs of a voyage:) (\d+) nautical miles(?: from a marina to an island, then|"
+                r" and the second leg is) (\d+) miles",
+                q.text,
+            ).groups()
         )
         a, b = nm * Fraction("1.852"), mi * Fraction("1.609")
         keys = [Fraction(p.answer_text) for p in q.parts]
