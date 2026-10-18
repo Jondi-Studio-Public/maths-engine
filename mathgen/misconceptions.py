@@ -36407,6 +36407,592 @@ _ENTRIES = (
         "Rounds up the number of boxes that can be filled for certain, counting a box that may not be full.",
         area="floor-ceiling-estimation",
     ),
+    # -- build-c batch --
+    CatalogueEntry(
+        "cod-bound-centre-forgotten",
+        "Leaving the centre word out of a ball, so a ball of radius t is counted as having one word fewer than it does.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-from-k",
+        "Choosing the number of check bits r from 2^r ≥ k + 1, as if only the message positions had to be located, instead of all n positions.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-from-k-without-zero",
+        "Choosing the number of check bits r from 2^r ≥ k, forgetting both the case of no error and that a check bit can be wrong too.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-only",
+        "Giving the number of check bits n − k instead of the length n.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-doubled",
+        "Doubling the number of message bits, as for a repetition code, instead of finding the shortest length that fits.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-halved",
+        "Giving 2^(n−1), taking half of all words to be codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-ignores-t",
+        "Using the ball of radius 1 (n + 1 words) when the code must correct two errors.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-one-check-bit",
+        "Taking a single parity bit (n = k + 1) to be enough to correct an error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-radius-confused",
+        "Dividing 2^n by 2t + 1, the length of a repetition code that corrects t errors, instead of by the number of words in a ball of radius t.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-rounded-up",
+        "Rounding the quotient 2^n divided by the ball size up instead of down.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-all-words",
+        "Giving q^n, the number of all words of length n, as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-base-exponent-swapped",
+        "Writing k^q instead of q^k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-check-symbols",
+        "Giving q^(n−k), the number of check-symbol patterns, as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-k-itself",
+        "Giving the dimension k as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-product",
+        "Multiplying k by q instead of raising q to the power k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-correct-only",
+        "Giving 2t + 1, the distance needed to correct t errors, and ignoring the extra errors that must be detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-detect-only",
+        "Giving s + 1, the distance needed to detect s errors, and ignoring the errors that must be corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-doubled-detect",
+        "Giving 2s + 1, treating the errors to be detected as if they all had to be corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-sum-without-one",
+        "Giving t + s without the + 1.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-twice-sum",
+        "Giving 2(t + s) + 1, doubling both the errors to be corrected and the errors to be detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-floor-d-over-2",
+        "Taking ⌊d/2⌋ as the number of errors corrected instead of ⌊(d − 1)/2⌋.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-half-d-plus-one",
+        "Taking ⌊(d + 1)/2⌋ as the number of errors corrected, adding 1 where the rule subtracts it.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-uses-d",
+        "Giving the minimum distance d as the number of errors corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-uses-detect",
+        "Giving d − 1, the number of errors detected, as the number corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-bit-order-reversed",
+        "Reading the message bits in reverse order when converting them to a number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-first-four-bits",
+        "Taking the first four bits of the corrected word as the message, although the Hamming code carries its message in positions 3, 5, 6 and 7.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-last-bits",
+        "Taking the last k bits of the corrected word as the message instead of the first k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-no-correction",
+        "Reading the message from the received word without correcting the error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-syndrome-as-position",
+        "Reading the syndrome as a binary number and flipping that position, which works only when the columns of H are 1 to n in binary and in order.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-halved-distance",
+        "Giving ⌊d/2⌋ as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-one-more",
+        "Giving d + 1 as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-uses-correct",
+        "Giving ⌊(d − 1)/2⌋, the number of errors corrected, as the number detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-uses-d",
+        "Giving the minimum distance d, not d − 1, as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-adjacent-listed-only",
+        "Comparing only words that are next to each other in the list, and so missing a closer pair.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-assumes-three",
+        "Assuming a code whose parity-check columns are distinct and non-zero has minimum distance 3, without looking for a larger set of dependent columns.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-column-weight",
+        "Giving the smallest number of 1s in a column of H as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-columns-all",
+        "Giving the length n, the number of columns of H, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-counts-agreements",
+        "Counting the positions where the words agree instead of the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-decimal-difference",
+        "Subtracting the two words as numbers instead of counting the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-dimension",
+        "Giving the dimension of the code, n minus the rank of H, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-difference",
+        "Giving the position of the first difference instead of counting all the positions that differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-word-only",
+        "Comparing the first word with the others only, and so missing a closer pair among the rest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-pair-only",
+        "Giving the distance between the first two words in the list as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-max-instead-of-min",
+        "Giving the largest distance between two codewords instead of the smallest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-max-weight",
+        "Giving the largest weight of a codeword instead of the smallest non-zero weight.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-min-row-weight",
+        "Giving the smallest weight of a row of G as the minimum distance, although a sum of rows can be lighter.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-min-weight-nonlinear",
+        "Giving the weight of the lightest word as the minimum distance, which is right only for a linear code.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-miscounted-by-one",
+        "Miscounting the number of positions that differ by one.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-number-of-rows",
+        "Giving the number of rows of G, the dimension, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-parity-part-weight",
+        "Giving the weight of the check part of the lightest row of G, leaving out the 1 from the identity part.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-rows-of-h",
+        "Giving the number of rows of H as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-singleton",
+        "Giving n − k + 1, an upper bound on the minimum distance, as its value.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-sum-of-digit-differences",
+        "Adding the sizes of the differences between symbols instead of counting the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-weight-of-first-row",
+        "Giving the weight of the first row of G as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-weight-of-first-word",
+        "Giving the number of 1s in the first word as the distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-position-counted-from-zero",
+        "Numbering the positions from 0 instead of from 1, so the position of the error is one too small.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-average-rounded",
+        "Giving the average of the distances between pairs of words, rounded, instead of the smallest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-read-as-decimal",
+        "Reading the syndrome bits as a decimal number (101 for the syndrome 1, 0, 1) instead of as a binary number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-position-as-message-index",
+        "Treating the position found from the syndrome as a number among the message bits and flipping that message bit, instead of flipping that position of the whole word.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-position-from-right",
+        "Counting the position of the error from the right instead of from the left.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-codeword-fraction",
+        "Giving the fraction of all words that are codewords, 2^k / 2^n, as the rate.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-codewords-over-length",
+        "Dividing the number of codewords by the length instead of the dimension by the length.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-inverted",
+        "Writing the rate upside down as n/k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-over-check-bits",
+        "Dividing the message bits by the check bits instead of by the length.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-redundancy",
+        "Giving the fraction of check bits, (n − k)/n, as the rate.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-reversed",
+        "Reading the syndrome from bottom to top, so its binary value is wrong.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-row-index",
+        "Giving the number of the first row of the syndrome that is 1 instead of reading the whole syndrome as a binary number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-weight",
+        "Giving the number of 1s in the syndrome as the position of the error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "quad-ellipsoid-mixed-up",
+        "Naming an ellipsoid (three positive squares and a positive constant) as a hyperboloid, a cone, a paraboloid or a cylinder, because the signs and the right side were not both checked.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-sheets-swapped",
+        "Swapping the hyperboloid of one sheet and the hyperboloid of two sheets, by not counting how many squared terms have the sign opposite to the right side.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-zero-rhs-ignored",
+        "Not checking whether the right side is 0: calling a cone a hyperboloid, or a hyperboloid a cone.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-elliptical-sections-means-ellipsoid",
+        "Calling a surface an ellipsoid because some of its cross-sections are ellipses, although other cross-sections are open curves.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-hyperbolic-sections-means-saddle",
+        "Calling a hyperboloid a hyperbolic paraboloid because some of its cross-sections are hyperbolas.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-squared-axis-confused",
+        "Confusing a squared variable with a variable to the first power, so a cone or hyperboloid is taken for a paraboloid, or a paraboloid for a cone or hyperboloid.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-paraboloid-sign-mixed",
+        "Swapping the elliptic and the hyperbolic paraboloid by misreading whether the two squared terms have the same sign or opposite signs.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-minus-sign-means-hyperboloid",
+        "Taking any minus sign between squared terms to mean a hyperboloid, without checking whether one variable appears only to the first power.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-missing-variable-ignored",
+        "Not noticing that one variable is missing from the squares (or is only to the first power), so naming a surface that involves all three variables.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-cylinder-kind-mixed",
+        "Mixing up the elliptic, hyperbolic and parabolic cylinders by misreading which terms are squared or what sign they have.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-cross-term-ignored",
+        "Naming the surface from the signs of the x², y² and z² terms alone, ignoring a cross term that changes the signs of the quadratic form.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-forgot-completing-constant",
+        "Forgetting the constants added when completing the square, so the right side used to name the surface is the original one.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-sign-flipped",
+        "Reading the sign of c the wrong way round when describing the level set f = c.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-sign-ignored",
+        "Ignoring the sign of c, treating a negative level like the positive level of the same size.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-zero-empty",
+        "Taking the level set f = 0 of a sum of squares to be empty, rather than the single point at the origin.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-negative-point",
+        "Taking a negative level of a sum of squares to be a single point instead of no points.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-closed-vs-open",
+        "Mixing up the closed traces (circle, ellipse) with the open ones (hyperbola, parabola) by not checking whether the squared terms have the same sign.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-hyperbola-vs-parabola",
+        "Swapping hyperbola and parabola by not checking whether both variables are squared.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-circle-vs-ellipse",
+        "Calling an ellipse a circle although the two squared terms have different coefficients.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-degenerate-missed",
+        "Confusing a genuine conic with a degenerate one (a single point or a pair of lines) by not checking where the plane lies compared with the vertex or centre.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-point-vs-empty",
+        "Swapping a single point and no points: a plane that just touches the surface against one that misses it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-sign-error",
+        "Giving the centre coordinate with the wrong sign after completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-coefficient-not-divided",
+        "Halving the linear coefficient but not dividing by the coefficient of the squared term.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-not-halved",
+        "Dividing the linear coefficient by the coefficient of the squared term but forgetting to halve it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-linear-coefficient-read",
+        "Reading the coefficient of the linear term as the coordinate of the centre.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-halved-twice",
+        "Halving the coordinate of the centre a second time when completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-ignores-cut",
+        "Giving the semi-axis read from the equation as if the plane passed through the centre, ignoring how the cross-section changes with the height k.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-denominator-as-semi-axis",
+        "Reading the denominator (the square of the semi-axis) as the semi-axis.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-not-rooted",
+        "Forgetting the final square root and giving the square of the semi-axis of the cross-section.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-factor-unrooted",
+        "Scaling the semi-axis by 1 ± k²/c² instead of by its square root.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-k-not-squared",
+        "Scaling the semi-axis by 1 ± k/c instead of by √(1 ± k²/c²), leaving k unsquared and the root untaken.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-wrong-direction",
+        "Giving the semi-axis in the other direction.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-sign-flipped",
+        "Using the wrong sign on the k² term when putting the plane into the equation, so 1 + k²/c² is used where 1 − k²/c² is needed, or the reverse.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-not-rooted",
+        "Giving r², the right side after completing the square, as the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-from-constant",
+        "Reading the constant term of the plane as the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-slope-not-halved",
+        "Adding the squares of the plane's x and y coefficients without halving them when completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-completing-sign",
+        "Subtracting instead of adding the completed-square terms when finding the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-centre-as-radius",
+        "Giving a coordinate of the circle's centre (half a coefficient of the plane) as its radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-constant-only",
+        "Ignoring the completed-square terms and taking the square root of the constant alone.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coordinate-of-point",
+        "Giving the coordinate of the given point along that axis as the intercept, as if the point were on the axis.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-level-value",
+        "Giving the value c of the level surface instead of the intercept.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coefficient-forgotten",
+        "Solving for the intercept as √c, forgetting to divide by the coefficient of the squared term first.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-root-forgotten",
+        "Dividing c by the coefficient of the squared term but not taking the square root.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coefficient-inverted",
+        "Multiplying c by the coefficient of the squared term instead of dividing by it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-sum",
+        "Adding the two semi-axes instead of multiplying them in the area formula πpq.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-halved",
+        "Halving the product of the semi-axes, as for the area of a triangle.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-squares",
+        "Adding the squares of the semi-axes instead of multiplying them.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-perimeter-style",
+        "Using 2(p + q), a perimeter-style quantity, in place of pq.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-denominators",
+        "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
+        area="quadric-surfaces",
+    ),
 )
 
 #: Every entry, by id.

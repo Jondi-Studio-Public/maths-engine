@@ -1,0 +1,192 @@
+id: uc2-error-correcting-codes
+name: 'Error-correcting codes: distance, syndromes and bounds'
+domain: logic-computability-and-information
+year_level:
+- university
+description: 'Work with binary and small linear codes: Hamming distance, the number of codewords q^k and the rate k/n, the
+  minimum distance of a code from its words, its generator matrix or its parity-check matrix, the errors it detects (d − 1)
+  and corrects (⌊(d − 1)/2⌋), syndrome decoding of the [7, 4] Hamming code and of a systematic code, and the sphere-packing
+  bound.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-finite-field-arithmetic-gfp
+answer: number
+sources:
+- topic: w7c_coding
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w7c_coding
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w7c_coding
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w7c_coding
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: cod-distance-counts-agreements
+  description: Counting the positions where the words agree instead of the positions where they differ.
+- id: cod-distance-decimal-difference
+  description: Subtracting the two words as numbers instead of counting the positions where they differ.
+- id: cod-distance-first-difference
+  description: Giving the position of the first difference instead of counting all the positions that differ.
+- id: cod-distance-weight-of-first-word
+  description: Giving the number of 1s in the first word as the distance.
+- id: cod-distance-miscounted-by-one
+  description: Miscounting the number of positions that differ by one.
+- id: cod-distance-sum-of-digit-differences
+  description: Adding the sizes of the differences between symbols instead of counting the positions where they differ.
+- id: cod-codewords-product
+  description: Multiplying k by q instead of raising q to the power k.
+- id: cod-codewords-base-exponent-swapped
+  description: Writing k^q instead of q^k.
+- id: cod-codewords-all-words
+  description: Giving q^n, the number of all words of length n, as the number of codewords.
+- id: cod-codewords-check-symbols
+  description: Giving q^(n−k), the number of check-symbol patterns, as the number of codewords.
+- id: cod-codewords-k-itself
+  description: Giving the dimension k as the number of codewords.
+- id: cod-rate-inverted
+  description: Writing the rate upside down as n/k.
+- id: cod-rate-over-check-bits
+  description: Dividing the message bits by the check bits instead of by the length.
+- id: cod-rate-redundancy
+  description: Giving the fraction of check bits, (n − k)/n, as the rate.
+- id: cod-rate-codeword-fraction
+  description: Giving the fraction of all words that are codewords, 2^k / 2^n, as the rate.
+- id: cod-rate-codewords-over-length
+  description: Dividing the number of codewords by the length instead of the dimension by the length.
+- id: cod-distance-max-instead-of-min
+  description: Giving the largest distance between two codewords instead of the smallest.
+- id: cod-distance-first-pair-only
+  description: Giving the distance between the first two words in the list as the minimum distance.
+- id: cod-distance-adjacent-listed-only
+  description: Comparing only words that are next to each other in the list, and so missing a closer pair.
+- id: cod-distance-min-weight-nonlinear
+  description: Giving the weight of the lightest word as the minimum distance, which is right only for a linear code.
+- id: cod-detect-uses-d
+  description: Giving the minimum distance d, not d − 1, as the number of errors detected.
+- id: cod-detect-uses-correct
+  description: Giving ⌊(d − 1)/2⌋, the number of errors corrected, as the number detected.
+- id: cod-detect-halved-distance
+  description: Giving ⌊d/2⌋ as the number of errors detected.
+- id: cod-correct-uses-detect
+  description: Giving d − 1, the number of errors detected, as the number corrected.
+- id: cod-correct-uses-d
+  description: Giving the minimum distance d as the number of errors corrected.
+- id: cod-correct-floor-d-over-2
+  description: Taking ⌊d/2⌋ as the number of errors corrected instead of ⌊(d − 1)/2⌋.
+- id: cod-correct-half-d-plus-one
+  description: Taking ⌊(d + 1)/2⌋ as the number of errors corrected, adding 1 where the rule subtracts it.
+- id: cod-detect-one-more
+  description: Giving d + 1 as the number of errors detected.
+- id: cod-syndrome-reversed
+  description: Reading the syndrome from bottom to top, so its binary value is wrong.
+- id: cod-position-from-right
+  description: Counting the position of the error from the right instead of from the left.
+- id: cod-syndrome-weight
+  description: Giving the number of 1s in the syndrome as the position of the error.
+- id: cod-syndrome-row-index
+  description: Giving the number of the first row of the syndrome that is 1 instead of reading the whole syndrome as a binary
+    number.
+- id: cod-decode-no-correction
+  description: Reading the message from the received word without correcting the error.
+- id: cod-decode-first-four-bits
+  description: Taking the first four bits of the corrected word as the message, although the Hamming code carries its message
+    in positions 3, 5, 6 and 7.
+- id: cod-decode-bit-order-reversed
+  description: Reading the message bits in reverse order when converting them to a number.
+- id: cod-distance-min-row-weight
+  description: Giving the smallest weight of a row of G as the minimum distance, although a sum of rows can be lighter.
+- id: cod-distance-max-weight
+  description: Giving the largest weight of a codeword instead of the smallest non-zero weight.
+- id: cod-distance-singleton
+  description: Giving n − k + 1, an upper bound on the minimum distance, as its value.
+- id: cod-distance-weight-of-first-row
+  description: Giving the weight of the first row of G as the minimum distance.
+- id: cod-distance-number-of-rows
+  description: Giving the number of rows of G, the dimension, as the minimum distance.
+- id: cod-distance-rows-of-h
+  description: Giving the number of rows of H as the minimum distance.
+- id: cod-distance-column-weight
+  description: Giving the smallest number of 1s in a column of H as the minimum distance.
+- id: cod-distance-assumes-three
+  description: Assuming a code whose parity-check columns are distinct and non-zero has minimum distance 3, without looking
+    for a larger set of dependent columns.
+- id: cod-distance-dimension
+  description: Giving the dimension of the code, n minus the rank of H, as the minimum distance.
+- id: cod-distance-columns-all
+  description: Giving the length n, the number of columns of H, as the minimum distance.
+- id: cod-bound-rounded-up
+  description: Rounding the quotient 2^n divided by the ball size up instead of down.
+- id: cod-bound-centre-forgotten
+  description: Leaving the centre word out of a ball, so a ball of radius t is counted as having one word fewer than it does.
+- id: cod-bound-ignores-t
+  description: Using the ball of radius 1 (n + 1 words) when the code must correct two errors.
+- id: cod-bound-radius-confused
+  description: Dividing 2^n by 2t + 1, the length of a repetition code that corrects t errors, instead of by the number of
+    words in a ball of radius t.
+- id: cod-bound-halved
+  description: Giving 2^(n−1), taking half of all words to be codewords.
+- id: cod-bound-one-check-bit
+  description: Taking a single parity bit (n = k + 1) to be enough to correct an error.
+- id: cod-bound-checks-from-k
+  description: Choosing the number of check bits r from 2^r ≥ k + 1, as if only the message positions had to be located, instead
+    of all n positions.
+- id: cod-bound-checks-from-k-without-zero
+  description: Choosing the number of check bits r from 2^r ≥ k, forgetting both the case of no error and that a check bit
+    can be wrong too.
+- id: cod-bound-doubled
+  description: Doubling the number of message bits, as for a repetition code, instead of finding the shortest length that
+    fits.
+- id: cod-bound-checks-only
+  description: Giving the number of check bits n − k instead of the length n.
+- id: cod-combined-correct-only
+  description: Giving 2t + 1, the distance needed to correct t errors, and ignoring the extra errors that must be detected.
+- id: cod-combined-detect-only
+  description: Giving s + 1, the distance needed to detect s errors, and ignoring the errors that must be corrected.
+- id: cod-combined-doubled-detect
+  description: Giving 2s + 1, treating the errors to be detected as if they all had to be corrected.
+- id: cod-combined-sum-without-one
+  description: Giving t + s without the + 1.
+- id: cod-combined-twice-sum
+  description: Giving 2(t + s) + 1, doubling both the errors to be corrected and the errors to be detected.
+- id: cod-decode-syndrome-as-position
+  description: Reading the syndrome as a binary number and flipping that position, which works only when the columns of H
+    are 1 to n in binary and in order.
+- id: cod-decode-last-bits
+  description: Taking the last k bits of the corrected word as the message instead of the first k.
+difficulty_progression: 'Easy counts the positions where two words differ (over a binary alphabet and over three or four symbols,
+  where adding the symbol differences is the trap), counts the q^k codewords of a linear code and finds the rate k/n, including
+  from the number of codewords. Medium finds the minimum distance of a short list of words, which is not the weight of the
+  lightest word because the code is not linear, finds the errors a listed code detects or corrects from that distance, and
+  reads the position of a single error from the syndrome of a [7, 4] Hamming word. Hard decodes a received word to its message,
+  finds the minimum distance from a generator matrix (where a sum of rows is lighter than every row) or from a parity-check
+  matrix (the smallest set of dependent columns), applies the sphere-packing bound to the size or the length of a code, finds
+  the distance needed to correct t errors and detect s, and decodes a systematic code whose parity-check columns are not in
+  binary order. The exam chain takes a systematic generator matrix: the number of codewords, the rate, the minimum distance,
+  the errors corrected (following through from the distance) and the message sent for a word received with one error.'
+tags:
+- university-year-2
+- coding-theory
+- error-correcting-codes
+- hamming-distance
+- linear-codes
+- syndrome-decoding
+framework_areas:
+- logic-computability-and-information
