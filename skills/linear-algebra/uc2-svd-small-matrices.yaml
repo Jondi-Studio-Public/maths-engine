@@ -34,7 +34,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_w6c_svd
-  params: {}
+  params: {tier: exam}
   difficulty: exam
   stages:
   - exam

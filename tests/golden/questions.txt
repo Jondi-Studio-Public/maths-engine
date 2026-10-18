@@ -9889,7 +9889,7 @@
 {"answer": "25", "id": "uc2-dynamic-programming-tables/medium/0/9efa6ec63261", "text": "A bag holds at most 11 kg. There are 4 items, each available once: item P weigh…"}
 {"answer": "23", "id": "uc2-dynamic-programming-tables/medium/1/6857ca49f747", "text": "A hiker can carry at most 9 kg and may take each of 5 items at most once: item …"}
 {"answer": "19", "id": "uc2-dynamic-programming-tables/medium/2/74188299cd31", "text": "A staircase has 10 steps and a toll is paid on each step you stand on (step 1: …"}
-{"answer": "3", "id": "uc2-error-correcting-codes/easy/0/0b2e9683fbb8", "text": "The words are over the alphabet {0, 1, 2}. Find the Hamming distance between 20…"}
+{"answer": "3", "id": "uc2-error-correcting-codes/easy/0/3d6d38174339", "text": "The words use symbols from the alphabet 0, 1 and 2. Find the Hamming distance b…"}
 {"answer": "128", "id": "uc2-error-correcting-codes/easy/1/e9902a0346e1", "text": "A [10, 7] linear code over the field with 2 elements has how many codewords?"}
 {"answer": "3", "id": "uc2-error-correcting-codes/easy/2/7ca46b3cf4cc", "text": "How many positions differ between the words 0100110000 and 0100001000?"}
 {"answer": "(a) 16; (b) 4/9; (c) 3; (d) 1; (e) 14", "id": "uc2-error-correcting-codes/exam/0/833985b29f9f", "text": "A binary linear code has generator matrix G = [[1, 0, 0, 0, 0, 1, 1, 1, 0], [0,…"}

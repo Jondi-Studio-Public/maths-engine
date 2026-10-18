@@ -189,8 +189,8 @@ def _easy_distance(rng):
 
 
 _SYMBOL_STEMS = (
-    "The words are over the alphabet {alphabet}. Find the Hamming distance between {a} and {b}.",
-    "Two words over {alphabet} are {a} and {b}. How many positions differ?",
+    "The words use symbols from the alphabet {alphabet}. Find the Hamming distance between {a} and {b}.",
+    "Two words using the alphabet {alphabet} are {a} and {b}. How many positions differ?",
 )
 
 
@@ -209,7 +209,7 @@ def _easy_distance_symbols(rng):
     total = sum(abs(x - y) for x, y in zip(a, b))
     check(total != d, "the digit differences sum to the distance")
     check(sum(1 for x, y in zip(a, b) if x != y) == d, "counts disagree")
-    alphabet = "{" + ", ".join(map(str, range(q))) + "}"
+    alphabet = ", ".join(map(str, range(q - 1))) + " and " + str(q - 1)
     wrong = [
         ("cod-distance-sum-of-digit-differences", total),
         ("cod-distance-counts-agreements", n - d),

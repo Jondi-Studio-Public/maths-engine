@@ -38,7 +38,7 @@ def check_wiring(skill, topic, exam, prerequisites=()):
         (topic, "hard"),
         (exam, "exam"),
     ]
-    assert skill.sources[-1].stages == ["exam"] and skill.sources[-1].params == {}
+    assert skill.sources[-1].stages == ["exam"] and skill.sources[-1].params == {"tier": "exam"}
     assert skill.status == "active"
     for needed in prerequisites:
         assert needed in skill.prerequisites
