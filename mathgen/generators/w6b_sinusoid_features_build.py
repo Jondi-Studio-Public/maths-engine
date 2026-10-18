@@ -518,7 +518,8 @@ def w6b_sinusoid_features(rng, tier="easy"):
         return retry(rng, _easy)
     if tier == "medium":
         return retry(rng, _medium)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry(rng, _hard)
 
 
@@ -618,5 +619,6 @@ def _exam(rng):
 @generator("exd_x_w6b_sinusoid_features", level=16, presets={"exam": dict(tier="exam")})
 def exd_x_w6b_sinusoid_features(rng, tier="exam"):
     """Exam chain: amplitude, period, horizontal translation and (following through) the maximum of a sinusoid."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry(rng, _exam)

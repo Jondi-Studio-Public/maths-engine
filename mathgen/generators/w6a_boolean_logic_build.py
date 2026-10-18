@@ -628,7 +628,8 @@ _HARD = (_hard_kmap4, _hard_dontcare, _hard_circuit)
 def w6a_boolean_logic(rng, tier="easy"):
     """Truth tables, gate circuits and Karnaugh-map simplification; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
@@ -653,7 +654,8 @@ def exd_x_w6a_boolean_logic(rng, tier="exam"):
     """Exam chain on a three-gate circuit: rows with output 1, their numbers, the minimal literals, the saving."""
     from ._w6a_kit import set_dist, set_fields
 
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a circuit with a real simplification"):
         circuit = _circuit(rng, 3, 3, ("AND", "OR", "NOT", "NAND", "NOR", "XOR"), want_special=True)
         ones = _ones(circuit.function(), 3)

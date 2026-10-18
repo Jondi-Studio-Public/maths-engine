@@ -24,7 +24,7 @@ from __future__ import annotations
 from fractions import Fraction
 from math import isqrt
 
-from ..core import attempts, check, generator, join_terms, phrase
+from ..core import attempts, check, generator, join_terms, paren_negative, phrase
 from ._w6a_kit import enough, num_dist, num_fields, part, retry_draw
 
 TOPIC = "w7b_relative_velocity"
@@ -167,6 +167,11 @@ _VEHICLES = (("Ship", "km/h", "km"), ("Aircraft", "km/h", "km"), ("Boat", "km/h"
 
 
 # -- helpers ------------------------------------------------------------------------------------------------------------
+
+
+def _hours(t) -> str:
+    """``1 hour`` or ``<t> hours``."""
+    return "1 hour" if t == 1 else f"{t} hours"
 
 
 def _vec(x: int, y: int) -> str:
@@ -415,7 +420,7 @@ def _medium_perpendicular(rng):
         )
         working = [
             f"Bearings {ba:03d} and {bb:03d} are at right angles, so the relative velocity has components {u} and {v}.",
-            f"Speed = sqrt({u}^2 + {v}^2) = {w} km/h.",
+            f"Speed = sqrt({paren_negative(u)}^2 + {paren_negative(v)}^2) = {w} km/h.",
         ]
     elif kind == "river":
         stem = phrase(
@@ -431,7 +436,7 @@ def _medium_perpendicular(rng):
         )
         working = [
             "Velocity relative to the bank = velocity relative to the water + velocity of the water.",
-            f"The two are at right angles, so the speed is sqrt({u}^2 + {v}^2) = {w} m/s.",
+            f"The two are at right angles, so the speed is sqrt({paren_negative(u)}^2 + {paren_negative(v)}^2) = {w} m/s.",
         ]
     else:
         stem = phrase(
@@ -447,7 +452,7 @@ def _medium_perpendicular(rng):
         )
         working = [
             "Ground velocity = velocity through the air + velocity of the air.",
-            f"These are at right angles, so the ground speed is sqrt({u}^2 + {v}^2) = {w} km/h.",
+            f"These are at right angles, so the ground speed is sqrt({paren_negative(u)}^2 + {paren_negative(v)}^2) = {w} km/h.",
         ]
     return dict(text=stem, working=working, distractors=dist, **_answer(w), answer_kind="number")
 
@@ -488,7 +493,7 @@ def _medium_components(rng):
     )
     working = [
         f"The velocity of A relative to B is ({_vec(*va)}) - ({_vec(*vb)}) = {_vec(dx, dy)}.",
-        f"Its magnitude is sqrt({dx}^2 + {dy}^2) = {w} {unit}.",
+        f"Its magnitude is sqrt({paren_negative(dx)}^2 + {paren_negative(dy)}^2) = {w} {unit}.",
     ]
     return dict(text=stem, working=working, distractors=dist, **_answer(w), answer_kind="number")
 
@@ -521,11 +526,11 @@ def _medium_position(rng):
     stem = (
         f"At time 0 {noun} A is at {_pt(*ra)} {length} and {noun} B is at {_pt(*rb)} {length}, with x measured east and y north. "
         f"A moves with constant velocity {_vec(*va)} {unit} and B with constant velocity {_vec(*vb)} {unit} (i east, j north). "
-        f"After {t} {'hours' if unit == 'km/h' else 'seconds'}, what is the {axis}-coordinate of the position of A relative to B, in {length}?"
+        f"After {_hours(t) if unit == 'km/h' else str(t) + ' seconds'}, what is the {axis}-coordinate of the position of A relative to B, in {length}?"
     )
     working = [
         f"The position of A relative to B starts at {r0} in the {axis}-direction and changes at {va[comp]} - ({vb[comp]}) = {dv} per unit time.",
-        f"After {t}: {r0} + {dv} x {t} = {value}.",
+        f"After {t}: {r0} + {paren_negative(dv)} x {t} = {value}.",
     ]
     return dict(text=stem, working=working, distractors=dist, **_answer(value), answer_kind="number")
 
@@ -601,7 +606,7 @@ def _hard_approach_time(rng):
     working = [
         f"The position of A relative to B is {_pt(*r0)} at noon and changes at {_vec(*v)} km/h.",
         "The distance is least when the relative position is perpendicular to the relative velocity.",
-        f"That happens at t = {t} hours.",
+        f"That happens at t = {_hours(t)}.",
     ]
     return dict(text=stem, working=working, distractors=dist, **_answer(t), answer_kind="number")
 
@@ -686,7 +691,7 @@ def _hard_intercept_time(rng):
     stem = f"{_intercept_text(s)} After how many hours does the coastguard boat reach the smuggler?"
     working = [
         "Let the interception happen after t hours: the separation vector plus the target's displacement has length speed x t.",
-        f"Solving the resulting quadratic gives one positive root, t = {t} hours.",
+        f"Solving the resulting quadratic gives one positive root, t = {_hours(t)}.",
     ]
     return dict(text=stem, working=working, distractors=dist, **_answer(t), answer_kind="number")
 
@@ -709,7 +714,7 @@ def _hard_intercept_component(rng):
     axis = "i" if comp == 0 else "j"
     stem = f"{_intercept_text(s)} What is the {axis}-component of the coastguard boat's velocity, in km/h?"
     working = [
-        f"The boat meets the smuggler after {t} hours, at {_pt(*(s['rb'][0] + s['vb'][0] * t, s['rb'][1] + s['vb'][1] * t))}.",
+        f"The boat meets the smuggler after {_hours(t)}, at {_pt(*(s['rb'][0] + s['vb'][0] * t, s['rb'][1] + s['vb'][1] * t))}.",
         f"Its {axis}-component is the displacement in that direction divided by {t}, which is {value} km/h.",
     ]
     return dict(text=stem, working=working, distractors=dist, **_answer(value), answer_kind="number")
@@ -728,7 +733,8 @@ _HARD = (_hard_approach_time, _hard_approach_distance, _hard_intercept_time, _ha
 def w7b_relative_velocity(rng, tier="easy"):
     """Relative velocity, closest approach and interception; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
@@ -741,7 +747,8 @@ _EXAM_RANGES = ((3, 4, 5), (4, 3, 5), (6, 8, 10), (8, 6, 10), (5, 12, 13), (12, 
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 def exd_x_w7b_relative_velocity(rng, tier="exam"):
     """Exam chain: relative speed, time of closest approach, least distance, and when the ships first come within range."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a closest-approach chain"):
         j, kh, m = rng.choice(_EXAM_RANGES)
         k = rng.choice([x for x in (1, 2, 3) if kh % x == 0])
@@ -816,7 +823,7 @@ def exd_x_w7b_relative_velocity(rng, tier="exam"):
                 num_fields(speed),
                 1,
                 [
-                    f"The relative velocity is {_vec(*v)} km/h, so the speed is sqrt({v[0]}^2 + {v[1]}^2) = {speed} km/h."
+                    f"The relative velocity is {_vec(*v)} km/h, so the speed is sqrt({paren_negative(v[0])}^2 + {paren_negative(v[1])}^2) = {speed} km/h."
                 ],
                 a_dist,
                 sensible_range=(0, None),
@@ -848,7 +855,7 @@ def exd_x_w7b_relative_velocity(rng, tier="exam"):
                 num_fields(first_time),
                 2,
                 [
-                    f"The half-duration within range is sqrt({D}^2 - {dmin}^2) / {speed} = {half} hours, so the time is {t} - {half} = {first_time}."
+                    f"The half-duration within range is sqrt({D}^2 - {dmin}^2) / {speed} = {_hours(half)}, so the time is {t} - {half} = {first_time}."
                 ],
                 d_dist,
                 follow_through=f"part_b - sqrt({D}**2 - part_c**2)/part_a",

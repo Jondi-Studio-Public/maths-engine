@@ -49,12 +49,12 @@ class Redraw(Exception):
 
 def redrawn(build):
     """Decorator for a generator function: a draw that raises ``Redraw`` or ``VerificationError`` is redrawn from the
-    same random stream (at most eight times), so a seed still gives one deterministic question."""
+    same random stream (at most forty times), so a seed still gives one deterministic question."""
 
     @functools.wraps(build)
     def inner(rng, *args, **kwargs):
         failure = None
-        for _ in range(8):
+        for _ in range(40):
             try:
                 return build(rng, *args, **kwargs)
             except (Redraw, VerificationError) as exc:

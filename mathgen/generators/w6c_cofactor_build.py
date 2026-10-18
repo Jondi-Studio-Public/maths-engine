@@ -462,18 +462,24 @@ def w6c_cofactor(rng, tier="easy"):
         return _easy(rng)
     if tier == "medium":
         return rng.choice([_medium_det, _medium_cofactor])(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return rng.choice([_hard_properties, _hard_row_operations, _hard_parameter, _hard_properties])(rng)
 
 
 # -- exam -------------------------------------------------------------------------------------------------------
 
 
+# Three openings, picked from the matrix itself so the draw order (and so every question's content) is unchanged.
+_STEMS = ("Let A = {m}.", "The matrix A is {m}.", "Consider the matrix A = {m}.")
+
+
 @generator("exd_x_w6c_cofactor", level=19, presets={"exam": dict(tier="exam")})
 @redrawn
 def exd_x_w6c_cofactor(rng, tier="exam"):
     """Exam chain on a dense 4×4 matrix: det A, a cofactor, an entry of the inverse, det(3A⁻¹)."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a 4×4 matrix with a fractional inverse entry"):
         a, d = _lu_matrix(rng, bound=7)
         i, j = rng.randrange(N), rng.randrange(N)
@@ -488,7 +494,7 @@ def exd_x_w6c_cofactor(rng, tier="exam"):
     scaled = Fraction(81, d)
     other = _cofactor(a, j, i)
     return dict(
-        text=f"Let A = {mat_str(fm(a))}.",
+        text=_STEMS[sum(abs(x) for row in a for x in row) % len(_STEMS)].format(m=mat_str(fm(a))),
         parts=[
             value_part(
                 "Find det A.",

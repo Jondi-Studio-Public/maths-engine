@@ -724,7 +724,8 @@ _HARD = (_hard_components, _hard_force_connected, _hard_max_bipartite, _hard_add
 def w7a_graph_types(rng, tier="easy"):
     """Complete, connected and bipartite graphs from a description or an edge list; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
@@ -734,14 +735,15 @@ def w7a_graph_types(rng, tier="easy"):
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 def exd_x_w7a_graph_types(rng, tier="exam"):
     """Exam chain on a connected bipartite network: degree sum, larger part, the complete bipartite graph, edges still addable."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
 
     def build(rng):
         for _ in attempts(200, "unequal parts"):
-            a, b = rng.randint(3, 6), rng.randint(2, 4)
-            if a - b >= 2 and a + b >= 7:
+            a, b = rng.randint(3, 10), rng.randint(2, 7)
+            if a - b >= 2 and 7 <= a + b <= len(LETTERS) and a * b - 3 >= a + b + 1:
                 break
-        m = rng.randint(a + b - 1, min(a * b - 3, a + b + 2))
+        m = rng.randint(a + b - 1, min(a * b - 3, a + b + 12))
         n, edges, xs, ys = _random_connected_bipartite(rng, a, b, m)
         big, small = _parts_of_connected_bipartite(n, edges)
         check(sum(degrees(n, edges)) == 2 * m, "handshake")

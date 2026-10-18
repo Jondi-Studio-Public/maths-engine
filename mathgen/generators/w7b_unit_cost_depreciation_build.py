@@ -608,7 +608,8 @@ _HARD = (_hard_two_stage_value, _hard_two_stage_units, _hard_yearly, _hard_readi
 def w7b_unit_cost_depreciation(rng, tier="easy"):
     """Unit-cost depreciation; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
@@ -618,7 +619,8 @@ def w7b_unit_cost_depreciation(rng, tier="easy"):
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 def exd_x_w7b_unit_cost_depreciation(rng, tier="exam"):
     """Exam chain: rate per unit, value after use, units to reach a value, and the difference from a flat-rate valuation."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a unit-cost depreciation chain"):
         a = _asset(rng)
         use = _use(rng, a, 0.15, 0.4, 100)

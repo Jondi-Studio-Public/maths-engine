@@ -56,7 +56,8 @@ def retry(rng, build, tries=40):
 
 
 def tier_of(tier, table):
-    check(tier in table, f"unknown tier {tier!r}")
+    if tier not in table:
+        raise ValueError(f"unknown tier {tier!r}")
     return table[tier]
 
 

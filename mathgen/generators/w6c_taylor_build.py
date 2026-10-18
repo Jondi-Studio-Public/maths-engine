@@ -510,7 +510,8 @@ def w6c_taylor(rng, tier="easy"):
         return _easy(rng)
     if tier == "medium":
         return _medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return _hard(rng)
 
 
@@ -550,7 +551,8 @@ def _stationary_cubic(rng):
 @redrawn
 def exd_x_w6c_taylor(rng, tier="exam"):
     """Exam chain on a cubic with a stationary point P: fₓₓ(P), D, the classification, the degree-2 estimate."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     f, a, b, alpha, beta, gamma, f0 = _stationary_cubic(rng)
     terms = {(i, j): int(c) for (i, j), c in sympy.Poly(f, X, Y).as_dict().items()}
     jet = Jet(Func("poly", terms=terms), a, b)

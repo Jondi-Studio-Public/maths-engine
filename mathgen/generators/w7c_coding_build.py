@@ -38,6 +38,11 @@ from ._w6c_kit import Redraw, mat_text, redrawn, value_fields, value_part
 # -- binary words as integers ------------------------------------------------------------------------------------
 
 
+def _errors(n) -> str:
+    """``1 error`` or ``<n> errors``."""
+    return "1 error" if n == 1 else f"{n} errors"
+
+
 def word(x: int, n: int) -> str:
     return format(x, f"0{n}b")
 
@@ -385,7 +390,7 @@ def _medium_detect_correct(rng):
         ]
         working = [
             f"The minimum distance is {d}.",
-            f"A code with minimum distance d detects up to d − 1 errors: {detect}.",
+            f"The most errors that a code with minimum distance d is certain to detect is d − 1, which is {detect}.",
         ]
     else:
         wrong = [
@@ -397,7 +402,7 @@ def _medium_detect_correct(rng):
         ]
         working = [
             f"The minimum distance is {d}.",
-            f"A code with minimum distance d corrects up to ⌊(d − 1)/2⌋ errors: {correct}.",
+            f"The most errors that a code with minimum distance d is certain to correct is ⌊(d − 1)/2⌋, which is {correct}.",
         ]
     text = phrase(rng, _DETECT_CORRECT_STEMS[task], words=", ".join(word(w, n) for w in words))
     return dict(text=text, working=working, **value_fields(key, wrong))
@@ -435,7 +440,7 @@ def _medium_given_distance(rng):
         ]
         key = detect
         working = [
-            f"With minimum distance d = {d}, up to d − 1 = {detect} errors cannot turn a codeword into another codeword."
+            f"With minimum distance d = {d}, up to d − 1 = {_errors(detect)} cannot turn a codeword into another codeword."
         ]
     else:
         wrong = [
@@ -705,7 +710,7 @@ def _hard_combined(rng):
         ("cod-combined-twice-sum", 2 * (t + s) + 1),
     ]
     working = [
-        f"Correcting {t} errors needs spheres of radius {t} to be disjoint; detecting {s} errors needs no codeword within {s} of another, and the sphere of radius {t} must also not reach a word that is {s} from another codeword.",
+        f"Correcting {_errors(t)} needs spheres of radius {t} to be disjoint; detecting {_errors(s)} needs no codeword within {s} of another, and the sphere of radius {t} must also not reach a word that is {s} from another codeword.",
         f"Together d ≥ t + s + 1 = {t} + {s} + 1 = {d}.",
     ]
     return dict(
@@ -794,7 +799,8 @@ def w7c_coding(rng, tier="easy"):
                 _medium_syndrome,
             ]
         )(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return rng.choice(
         [
             _hard_hamming_decode,
@@ -819,7 +825,8 @@ def w7c_coding(rng, tier="easy"):
 def exd_x_w7c_coding(rng, tier="exam"):
     """Exam chain on a binary linear code with generator matrix [I | A]: number of codewords, rate, minimum distance, the
     errors always corrected (following through from the distance), and decoding a word with one error."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     k = rng.choice([3, 4, 5])
     # r = k would make the rate 1/2 (the same as its complement); the check part needs k distinct rows of weight at least 2
     r_checks = rng.choice([r for r in (3, 4, 5, 6) if r != k and 2**r - 1 - r >= k])

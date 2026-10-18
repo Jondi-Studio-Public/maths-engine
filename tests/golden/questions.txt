@@ -562,9 +562,9 @@
 {"answer": "1 - (√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/easy/0/9ef3c7480b2e", "text": "A regular hexagon is drawn on an Argand diagram with its centre at the origin. …"}
 {"answer": "1 - (√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/easy/1/ba2c65af6acf", "text": "A regular hexagon is drawn on an Argand diagram with its centre at the origin. …"}
 {"answer": "√3 + i", "id": "complex-polygon-vertices-and-roots-of-unity/easy/2/2da972eb97a5", "text": "A regular 12-gon is drawn on an Argand diagram with its centre at the origin. O…"}
-{"answer": "(a) 5; (b) 7.07; (c) 28.28; (d) 5i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/0/688b7515e42d", "text": "On an Argand diagram, the solutions of z^4 = 625 form the vertices of a regular…"}
-{"answer": "(a) 2; (b) 2.83; (c) 11.32; (d) 2i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/1/07e14d5e44ac", "text": "The 4 roots of z^4 = 16 are the vertices of a regular polygon on an Argand diag…"}
-{"answer": "(a) 2; (b) 3.46; (c) 10.38; (d) -1 + (√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/2/f6a7cc6f7f4b", "text": "Let P be the polygon whose vertices are the 3 roots of the equation z^3 = 8 on …"}
+{"answer": "(a) 71; (b) 122.98; (c) 368.94; (d) -71/2 + (71√3/2)i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/0/dc216cd1fd92", "text": "On an Argand diagram, the solutions of z^3 = 357911 form the vertices of a regu…"}
+{"answer": "(a) 33; (b) 46.67; (c) 186.68; (d) 33i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/1/0c74f8f26ad5", "text": "The 4 roots of z^4 = 1185921 are the vertices of a regular polygon on an Argand…"}
+{"answer": "(a) 38; (b) 65.82; (c) 197.46; (d) -19 + (19√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/2/ae4d8ebd8b22", "text": "The 3 roots of z^3 = 54872 are the vertices of a regular polygon on an Argand d…"}
 {"answer": "432", "id": "complex-polygon-vertices-and-roots-of-unity/hard/0/8e2953563333", "text": "The 6 roots of z^6 = 46656 lie at the vertices of a regular polygon. For one ro…"}
 {"answer": "131072", "id": "complex-polygon-vertices-and-roots-of-unity/hard/1/39fce66b12b8", "text": "The 8 roots of z^8 = 65536 are the vertices of a regular polygon. Let V be one …"}
 {"answer": "1 + (√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/hard/2/5dab990d3b4c", "text": "The 3 roots of z^3 = 8 sum to zero. One of them is -1 - (√3)i. Find the sum of …"}
@@ -3454,9 +3454,9 @@
 {"answer": "20", "id": "floor-ceiling-estimation/easy/0/710a48ad00d0", "text": "A garden path is 248 cm wide. Each paver is 12 cm wide. How many whole pavers f…"}
 {"answer": "58", "id": "floor-ceiling-estimation/easy/1/e7e99b00ce94", "text": "A garden path is 3,519 cm wide. Each paver is 60 cm wide. How many whole pavers…"}
 {"answer": "59", "id": "floor-ceiling-estimation/easy/2/615a1522ea0f", "text": "A plank is 1,077 cm long. Each shelf needs a piece 18 cm long. How many shelves…"}
-{"answer": "(a) 41; (b) 4; (c) 2500; (d) 778", "id": "floor-ceiling-estimation/exam/0/b19e37591de8", "text": "A school must pack 652 workbooks into boxes. Each box holds 16 workbooks, and e…"}
+{"answer": "(a) 41; (b) 4; (c) 2500; (d) 778", "id": "floor-ceiling-estimation/exam/0/a38297070de1", "text": "Boxes are needed for 652 workbooks at a school. Every box holds 16 workbooks, a…"}
 {"answer": "(a) 13; (b) 23; (c) 800; (d) 384", "id": "floor-ceiling-estimation/exam/1/17d2081f258c", "text": "A school must pack 445 workbooks into boxes. Each box holds 36 workbooks, and e…"}
-{"answer": "(a) 61; (b) 3; (c) 2800; (d) 848", "id": "floor-ceiling-estimation/exam/2/6680497f507e", "text": "A school must pack 729 workbooks into boxes. Each box holds 12 workbooks, and e…"}
+{"answer": "(a) 61; (b) 3; (c) 2800; (d) 848", "id": "floor-ceiling-estimation/exam/2/9b23a7a3a59a", "text": "Boxes are needed for 729 workbooks at a school. Every box holds 12 workbooks, a…"}
 {"answer": "20", "id": "floor-ceiling-estimation/hard/0/7503a12ac0f8", "text": "A van can carry at most 800 kg and at most 14 crates on any trip. 178 crates, e…"}
 {"answer": "59", "id": "floor-ceiling-estimation/hard/1/c3b8ada17d85", "text": "A packer has between 1,949 and 2,118 pencils to pack (the exact number is not y…"}
 {"answer": "20", "id": "floor-ceiling-estimation/hard/2/8e67c57adda7", "text": "A straight fence is 46 m long. A post is placed at each end and the others are …"}
@@ -3583,9 +3583,9 @@
 {"answer": "6", "id": "graph-complete-bipartite-connected/easy/0/c298141f94a4", "text": "A network joins 11 towns, A to K. Each pair of letters names the two towns one …"}
 {"answer": "9", "id": "graph-complete-bipartite-connected/easy/1/3bacb8d4299a", "text": "A simple graph has 9 vertices, A to I, one for each of 9 computers. Its 27 edge…"}
 {"answer": "66", "id": "graph-complete-bipartite-connected/easy/2/88211dcfdf3f", "text": "A complete graph has 12 vertices, one for each of 12 teams: every pair of teams…"}
-{"answer": "(a) 18; (b) 6; (c) 18; (d) 9", "id": "graph-complete-bipartite-connected/exam/0/0a696ba7b657", "text": "A connected simple graph has the 9 vertices A to I and the 9 edges AC, AD, BC, …"}
-{"answer": "(a) 14; (b) 5; (c) 10; (d) 3", "id": "graph-complete-bipartite-connected/exam/1/9af1b3987969", "text": "A connected simple graph has the 7 vertices A to G and the 7 edges AE, BD, BE, …"}
-{"answer": "(a) 12; (b) 5; (c) 10; (d) 4", "id": "graph-complete-bipartite-connected/exam/2/3f669040de1a", "text": "A connected simple graph has the 7 vertices A to G and the 6 edges AG, BC, BD, …"}
+{"answer": "(a) 26; (b) 7; (c) 35; (d) 22", "id": "graph-complete-bipartite-connected/exam/0/76aaa2b3154f", "text": "A connected simple graph has the 12 vertices A to L and the 13 edges AG, BE, CG…"}
+{"answer": "(a) 32; (b) 7; (c) 21; (d) 5", "id": "graph-complete-bipartite-connected/exam/1/a0015063c510", "text": "A connected simple graph has the 10 vertices A to J and the 16 edges AB, AF, AJ…"}
+{"answer": "(a) 26; (b) 8; (c) 16; (d) 3", "id": "graph-complete-bipartite-connected/exam/2/26001ca09f4f", "text": "A connected simple graph has the 10 vertices A to J and the 13 edges AD, BD, BE…"}
 {"answer": "20", "id": "graph-complete-bipartite-connected/hard/0/95dd3c38748b", "text": "A simple graph with 9 vertices is bipartite. What is the largest number of edge…"}
 {"answer": "28", "id": "graph-complete-bipartite-connected/hard/1/50d505759668", "text": "A simple graph has 10 vertices and exactly 3 connected components. What is the …"}
 {"answer": "56", "id": "graph-complete-bipartite-connected/hard/2/4bd62e82e81f", "text": "15 people are split into two groups, and each pair of people, one from each gro…"}
@@ -5044,15 +5044,15 @@
 {"answer": "44", "id": "relative-velocity-vectors/easy/0/18c883945cf6", "text": "Two cars travel along a straight road in the same direction. Car A travels at 1…"}
 {"answer": "4", "id": "relative-velocity-vectors/easy/1/bec651913d6b", "text": "Relative to the ground, Ship A moves with velocity -2i + 3j km/h and Ship B wit…"}
 {"answer": "6", "id": "relative-velocity-vectors/easy/2/7defbab17f05", "text": "Aircraft A has velocity -7i + 7j km/h and Aircraft B has velocity i + j km/h, w…"}
-{"answer": "(a) 5; (b) 20; (c) 40; (d) 5", "id": "relative-velocity-vectors/exam/0/d452d21bbcf4", "text": "At noon Ship A is at (-60, 76) km and Ship B is at (-4, -16) km, with x measure…"}
-{"answer": "(a) 5; (b) 19; (c) 25; (d) 7", "id": "relative-velocity-vectors/exam/1/642621d4dba2", "text": "At noon Ship A is at (111, -23) km and Ship B is at (20, 14) km, with x measure…"}
+{"answer": "(a) 5; (b) 20; (c) 40; (d) 5", "id": "relative-velocity-vectors/exam/0/fc38318193a0", "text": "At noon Ship A is at (-60, 76) km and Ship B is at (-4, -16) km, with x measure…"}
+{"answer": "(a) 5; (b) 19; (c) 25; (d) 7", "id": "relative-velocity-vectors/exam/1/b2e5795d3dd2", "text": "At noon Ship A is at (111, -23) km and Ship B is at (20, 14) km, with x measure…"}
 {"answer": "(a) 5; (b) 13; (c) 60; (d) 8", "id": "relative-velocity-vectors/exam/2/acd88e55ae35", "text": "At noon Ship A is at (24, -72) km and Ship B is at (15, 16) km, with x measured…"}
 {"answer": "10", "id": "relative-velocity-vectors/hard/0/430edb1d2124", "text": "At noon Ship A is at (-30, 41) km and Ship B is at (-20, 11) km, with x measure…"}
-{"answer": "1", "id": "relative-velocity-vectors/hard/1/fd32386ce7ee", "text": "At noon Ship A is at (17, -19) km and Ship B is at (12, -4) km, with x measured…"}
+{"answer": "1", "id": "relative-velocity-vectors/hard/1/30772bfa11b1", "text": "At noon Ship A is at (17, -19) km and Ship B is at (12, -4) km, with x measured…"}
 {"answer": "5", "id": "relative-velocity-vectors/hard/2/f73972158755", "text": "A coastguard boat at (5, 0) km can travel at a constant speed of 15 km/h in any…"}
-{"answer": "-2", "id": "relative-velocity-vectors/medium/0/f293459ebd49", "text": "At time 0 Boat A is at (16, -27) km and Boat B is at (10, -13) km, with x measu…"}
-{"answer": "25", "id": "relative-velocity-vectors/medium/1/7bbac9ccaf4e", "text": "At time 0 Aircraft A is at (-20, 11) km and Aircraft B is at (-2, -18) km, with…"}
-{"answer": "13", "id": "relative-velocity-vectors/medium/2/bb5f1b3eb18c", "text": "Drone A has velocity -4i - 16j m/s and Drone B has velocity -9i - 4j m/s, with …"}
+{"answer": "-2", "id": "relative-velocity-vectors/medium/0/0223dbecf81a", "text": "At time 0 Boat A is at (16, -27) km and Boat B is at (10, -13) km, with x measu…"}
+{"answer": "25", "id": "relative-velocity-vectors/medium/1/676febd4a750", "text": "At time 0 Aircraft A is at (-20, 11) km and Aircraft B is at (-2, -18) km, with…"}
+{"answer": "13", "id": "relative-velocity-vectors/medium/2/6db907d7f589", "text": "Drone A has velocity -4i - 16j m/s and Drone B has velocity -9i - 4j m/s, with …"}
 {"answer": "Appropriate: the residuals are scattered at random about ze…", "id": "residual-plot-linear-model-check/easy/0/5d23b115025c", "text": "The residuals from a least-squares line fitted to test score and hours of study…"}
 {"answer": "Appropriate: the residuals are scattered at random about ze…", "id": "residual-plot-linear-model-check/easy/1/f8006c14e863", "text": "A least-squares line is fitted to data on dam inflow against rainfall in a mont…"}
 {"answer": "Not appropriate: the residuals form a curved pattern", "id": "residual-plot-linear-model-check/easy/2/bd3ee9acdae9", "text": "The residuals from a least-squares line fitted to dam inflow and rainfall in a …"}
@@ -9820,8 +9820,8 @@
 {"answer": "-162", "id": "uc2-cofactor-expansion-4x4/easy/0/d45578658bc5", "text": "Evaluate the determinant of A = [[4, -2, -1, 5], [-4, 4, 3, -2], [-3, 0, 0, 0],…"}
 {"answer": "32", "id": "uc2-cofactor-expansion-4x4/easy/1/c9f7c20cfd41", "text": "Find det A for the matrix A = [[2, -3, 3, -3], [0, 0, -4, 0], [-2, 3, 4, -1], […"}
 {"answer": "116", "id": "uc2-cofactor-expansion-4x4/easy/2/d3ec660ceb7d", "text": "Find det A for the matrix A = [[1, -1, -1, -1], [-3, -4, -1, 0], [3, -4, 0, 0],…"}
-{"answer": "(a) -12; (b) 8; (c) -2/3; (d) -27/4", "id": "uc2-cofactor-expansion-4x4/exam/0/bfc04c7071c6", "text": "Let A = [[-2, -3, 3, 0], [-2, -2, 2, 1], [4, 4, -2, -4], [4, 2, -4, 1]]. (a) Fi…"}
-{"answer": "(a) -6; (b) -3; (c) 1/2; (d) -27/2", "id": "uc2-cofactor-expansion-4x4/exam/1/54ec22bd8647", "text": "Let A = [[-2, 3, 4, -4], [1, 0, -2, 1], [-1, -3, 3, -1], [0, 3, -1, 2]]. (a) Fi…"}
+{"answer": "(a) -12; (b) 8; (c) -2/3; (d) -27/4", "id": "uc2-cofactor-expansion-4x4/exam/0/2bf2105cacbf", "text": "The matrix A is [[-2, -3, 3, 0], [-2, -2, 2, 1], [4, 4, -2, -4], [4, 2, -4, 1]]…"}
+{"answer": "(a) -6; (b) -3; (c) 1/2; (d) -27/2", "id": "uc2-cofactor-expansion-4x4/exam/1/71899ced4b86", "text": "The matrix A is [[-2, 3, 4, -4], [1, 0, -2, 1], [-1, -3, 3, -1], [0, 3, -1, 2]]…"}
 {"answer": "(a) -4; (b) 22; (c) -11/2; (d) -81/4", "id": "uc2-cofactor-expansion-4x4/exam/2/211ee3b285b3", "text": "Let A = [[4, 3, 4, -5], [2, 3, 1, -2], [2, 2, 0, -6], [-2, -2, -2, 2]]. (a) Fin…"}
 {"answer": "-6", "id": "uc2-cofactor-expansion-4x4/hard/0/19d2827d55dc", "text": "Starting from a 4×4 matrix A with det A = -3, the row operations multiplying ro…"}
 {"answer": "64", "id": "uc2-cofactor-expansion-4x4/hard/1/6bb0dafe6a6d", "text": "A and B are 4×4 matrices with det A = 4 and det B = 2. Find det(2Aᵀ)."}
@@ -9880,8 +9880,8 @@
 {"answer": "9", "id": "uc2-dynamic-programming-tables/easy/0/7ffd818b74b2", "text": "A delivery goes from depot S to a customer T in 3 legs, passing through exactly…"}
 {"answer": "10", "id": "uc2-dynamic-programming-tables/easy/1/3e81d79c779b", "text": "A delivery goes from depot S to a customer T in 3 legs, passing through exactly…"}
 {"answer": "14", "id": "uc2-dynamic-programming-tables/easy/2/50691cfc9e1b", "text": "A delivery goes from depot S to a customer T in 3 legs, passing through exactly…"}
-{"answer": "(a) 14; (b) 21; (c) 7; (d) 5", "id": "uc2-dynamic-programming-tables/exam/0/fa6856fa580f", "text": "A bag holds at most 8 kg. There are four items, each available once: item P wei…"}
-{"answer": "(a) 28; (b) 30; (c) 8; (d) 13", "id": "uc2-dynamic-programming-tables/exam/1/4b02c2d5ed4f", "text": "A bag holds at most 11 kg. There are four items, each available once: item P we…"}
+{"answer": "(a) 14; (b) 21; (c) 7; (d) 5", "id": "uc2-dynamic-programming-tables/exam/0/071e12c52568", "text": "A bag can carry at most 8 kg in total. Four items are on offer, and each can be…"}
+{"answer": "(a) 28; (b) 30; (c) 8; (d) 13", "id": "uc2-dynamic-programming-tables/exam/1/c597b38aa3a3", "text": "You are packing a bag that must weigh at most 11 kg. Each of four items may be …"}
 {"answer": "(a) 22; (b) 26; (c) 9; (d) 2", "id": "uc2-dynamic-programming-tables/exam/2/ef743a28cdf8", "text": "A bag holds at most 11 kg. There are four items, each available once: item P we…"}
 {"answer": "3", "id": "uc2-dynamic-programming-tables/hard/0/817fde9bed9e", "text": "Two DNA strings are GGGTAAGGC and GATCTCTCC. A common subsequence uses letters …"}
 {"answer": "5", "id": "uc2-dynamic-programming-tables/hard/1/935e10f4838c", "text": "What is the length of the longest common subsequence of GTCCACTAT and GCAGGCGCA…"}
@@ -10024,15 +10024,15 @@
 {"answer": "-1", "id": "uc2-hermitian-unitary-matrices/easy/0/9f442a358339", "text": "Let A = [[1, 2i], [-2 - 3i, -3 - 3i]] and let A* be its conjugate transpose. Fi…"}
 {"answer": "28", "id": "uc2-hermitian-unitary-matrices/easy/1/73319b13373b", "text": "For A = [[-3 + 3i, 2 + 3i], [3 - i, 2 + i]], find the real part of the (1, 1) e…"}
 {"answer": "25", "id": "uc2-hermitian-unitary-matrices/easy/2/5b30ef55267c", "text": "Find tr(A*A) for A = [[-2i, 1 + 3i], [-1, -1 + 3i]], where A* is the conjugate …"}
-{"answer": "(a) -8; (b) -7; (c) 5; (d) 74", "id": "uc2-hermitian-unitary-matrices/exam/0/0570310b02bd", "text": "The matrix H = [[1, 4 + 4i], [4 - 4i, -3]] is Hermitian. (a) Find the imaginary…"}
-{"answer": "(a) 10; (b) 2; (c) 8; (d) 68", "id": "uc2-hermitian-unitary-matrices/exam/1/3f90e64ed27c", "text": "The matrix H = [[3, -2 + i], [-2 - i, 7]] is Hermitian. (a) Find the imaginary …"}
-{"answer": "(a) -24; (b) -9; (c) 5; (d) 106", "id": "uc2-hermitian-unitary-matrices/exam/2/f4cc4acff543", "text": "The matrix H = [[0, 3 + 6i], [3 - 6i, -4]] is Hermitian. (a) Find the imaginary…"}
+{"answer": "(a) -12; (b) -10; (c) 12; (d) 244", "id": "uc2-hermitian-unitary-matrices/exam/0/e6f101cf2781", "text": "The matrix H = [[-6, -6 - 6i], [-6 + 6i, 8]] is Hermitian. (a) Find the imagina…"}
+{"answer": "(a) -24; (b) -9; (c) 5; (d) 106", "id": "uc2-hermitian-unitary-matrices/exam/1/276c53c11b5d", "text": "The matrix H = [[1, 2 + 6i], [2 - 6i, -5]] is Hermitian. (a) Find the imaginary…"}
+{"answer": "(a) -24; (b) -13; (c) 1; (d) 170", "id": "uc2-hermitian-unitary-matrices/exam/2/5b96a9a38eed", "text": "The matrix H = [[-3, 6 + 2i], [6 - 2i, -9]] is Hermitian. (a) Find the imaginar…"}
 {"answer": "6", "id": "uc2-hermitian-unitary-matrices/hard/0/3fd389cf22bb", "text": "The matrix H = [[3, 3 + ki], [3 - ki, -1]] is Hermitian for a real number k > 0…"}
 {"answer": "3", "id": "uc2-hermitian-unitary-matrices/hard/1/8fea510f8d52", "text": "The matrix H = [[-3, -3 + ki], [-3 - ki, 4]] is Hermitian for a real number k >…"}
 {"answer": "2", "id": "uc2-hermitian-unitary-matrices/hard/2/afa5ddd5475a", "text": "H = [[-2, -1 + ki], [-1 - ki, 2]], where k is a positive real number. Given tha…"}
-{"answer": "4", "id": "uc2-hermitian-unitary-matrices/medium/0/1f1f86beab16", "text": "Find the larger eigenvalue of the Hermitian matrix H = [[0, 2 + 2i], [2 - 2i, 2…"}
-{"answer": "14", "id": "uc2-hermitian-unitary-matrices/medium/1/a506b6788562", "text": "Find the difference between the larger and smaller eigenvalues of the Hermitian…"}
-{"answer": "12", "id": "uc2-hermitian-unitary-matrices/medium/2/f8857baf06da", "text": "Find the difference between the larger and smaller eigenvalues of the Hermitian…"}
+{"answer": "4", "id": "uc2-hermitian-unitary-matrices/medium/0/fae1cec76175", "text": "Find the larger eigenvalue of the Hermitian matrix H = [[0, 2 + 2i], [2 - 2i, 2…"}
+{"answer": "14", "id": "uc2-hermitian-unitary-matrices/medium/1/1d40eb20c21c", "text": "Find the difference between the larger and smaller eigenvalues of the Hermitian…"}
+{"answer": "12", "id": "uc2-hermitian-unitary-matrices/medium/2/b73eb93c560a", "text": "Find the difference between the larger and smaller eigenvalues of the Hermitian…"}
 {"answer": "9", "id": "uc2-homomorphism-kernel-image/easy/0/6a496ad7ce0b", "text": "Multiplication by 10 defines a group homomorphism φ: Z_27 → Z_15 under addition…"}
 {"answer": "3", "id": "uc2-homomorphism-kernel-image/easy/1/801be2db7336", "text": "Let φ: Z_27 → Z_18 be the homomorphism of additive groups given by φ(x) = 10x m…"}
 {"answer": "4", "id": "uc2-homomorphism-kernel-image/easy/2/95ecbf27581f", "text": "Multiplication by 38 defines a group homomorphism φ: Z_80 → Z_40 under addition…"}
@@ -10331,7 +10331,7 @@
 {"answer": "ellipse", "id": "uc2-quadric-surfaces-level-sets/hard/1/1ac244b4b0d1", "text": "What curve is the intersection of −x² + y² + z² = 1 with the plane 4x = −2y + 4?"}
 {"answer": "6", "id": "uc2-quadric-surfaces-level-sets/hard/2/87871cb029a1", "text": "Let f(x, y, z) = x² + 4y² + 4z². The level surface f = c passes through P = (4,…"}
 {"answer": "cone", "id": "uc2-quadric-surfaces-level-sets/medium/0/d6dce7202f2d", "text": "Which quadric surface is 4x² + 3y² − 2z² + 16x − 18y + 16z = −11?"}
-{"answer": "-1", "id": "uc2-quadric-surfaces-level-sets/medium/1/4dbd9590d4f1", "text": "The centre of the surface 4x² − 3y² − 4z² + 24x − 6y = −46 is (h, k, l). Find t…"}
+{"answer": "-1", "id": "uc2-quadric-surfaces-level-sets/medium/1/9f99635f7aa4", "text": "The centre of the surface 4x² − 3y² − 4z² + 24x − 6y = −46 is (h, k, l). Find t…"}
 {"answer": "hyperboloid of two sheets", "id": "uc2-quadric-surfaces-level-sets/medium/2/03b29ea6820e", "text": "Rewrite x² + 4y² − 2z² − 16y − 8z = −13 by completing the square. What surface …"}
 {"answer": "9", "id": "uc2-quotient-group-order-and-structure/easy/0/c534fa93d715", "text": "Let Q = Z_108 / ⟨45⟩. What is the order of the coset 38 + ⟨45⟩ in Q?"}
 {"answer": "3", "id": "uc2-quotient-group-order-and-structure/easy/1/6c3fbbd6e025", "text": "In the quotient group Z_84 / ⟨60⟩, find the order of the element 28 + ⟨60⟩."}
@@ -10420,9 +10420,9 @@
 {"answer": "11", "id": "uc2-svd-small-matrices/easy/0/9ebc5ad88bb2", "text": "The matrix A = [[5, 6], [-6, -5]] has singular values σ₁ > σ₂ > 0. Find σ₁."}
 {"answer": "12", "id": "uc2-svd-small-matrices/easy/1/825b3ec5aa81", "text": "Find the largest singular value of A = [[-5, -7], [7, 5]]."}
 {"answer": "10", "id": "uc2-svd-small-matrices/easy/2/fbfb91fa6ef1", "text": "Find the largest singular value of A = [[-1, 6], [-6, 6]]."}
-{"answer": "(a) 8; (b) 3; (c) 64/73; (d) (2, 1, 0)", "id": "uc2-svd-small-matrices/exam/0/327207b2bf9f", "text": "Let A = [[-4, 0, 2], [6, 4, 1]]. (a) Find the largest singular value σ₁ of A. (…"}
+{"answer": "(a) 8; (b) 3; (c) 64/73; (d) (2, 1, 0)", "id": "uc2-svd-small-matrices/exam/0/0c540a961d0c", "text": "Consider the matrix A = [[-4, 0, 2], [6, 4, 1]]. (a) Find the largest singular …"}
 {"answer": "(a) 6; (b) 3; (c) 4/5; (d) (1, -2, 2)", "id": "uc2-svd-small-matrices/exam/1/62d288164610", "text": "Let A = [[2, -1, -2], [2, -4, 4]]. (a) Find the largest singular value σ₁ of A.…"}
-{"answer": "(a) 9; (b) 7; (c) 81/130; (d) (4, 1, 1)", "id": "uc2-svd-small-matrices/exam/2/0808495fa11a", "text": "Let A = [[6, 5, -2], [6, -2, 5]]. (a) Find the largest singular value σ₁ of A. …"}
+{"answer": "(a) 9; (b) 7; (c) 81/130; (d) (4, 1, 1)", "id": "uc2-svd-small-matrices/exam/2/56789fee3a55", "text": "Consider the matrix A = [[6, 5, -2], [6, -2, 5]]. (a) Find the largest singular…"}
 {"answer": "5/2", "id": "uc2-svd-small-matrices/hard/0/23a7486f5c18", "text": "The matrix A = [[-3, 7], [-7, 3]] is invertible. Find ‖A‖₂ · ‖A⁻¹‖₂ as a fracti…"}
 {"answer": "4", "id": "uc2-svd-small-matrices/hard/1/7a895a48360c", "text": "Let A₁ be the rank-1 matrix closest to A = [[-4, -4, 6], [4, -2, -3]] in the Fr…"}
 {"answer": "5", "id": "uc2-svd-small-matrices/hard/2/a8d35fe1ea85", "text": "Let A₁ be the rank-1 matrix closest to A = [[1, -4, -6], [4, -1, 6]] in the Fro…"}

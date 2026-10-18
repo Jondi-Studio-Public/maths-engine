@@ -629,11 +629,20 @@ _HARD = (_hard_two_limits, _hard_fence, _hard_two_vehicles, _hard_range)
 def w7b_floor_ceiling_estimation(rng, tier="easy"):
     """Rounding down and rounding up in practical estimates; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
 # -- exam -------------------------------------------------------------------------------------------------------------
+
+
+# Picked from the draw rather than with `rng`, so the draw order (and every question's content) is unchanged.
+_EXAM_OPENINGS = (
+    "A school must pack {t} workbooks into boxes. Each box holds {c} workbooks, and each box costs ${p} to post.",
+    "A school has {t} workbooks to send out in boxes. A box takes {c} workbooks, and posting one box costs ${p}.",
+    "Boxes are needed for {t} workbooks at a school. Every box holds {c} workbooks, and it costs ${p} to post each box.",
+)
 
 
 def _exam_chain(rng):
@@ -696,7 +705,7 @@ def _exam_chain(rng):
     for d in (a_dist, b_dist, c_dist, d_dist):
         enough(d)
     return dict(
-        text=f"A school must pack {t:,} workbooks into boxes. Each box holds {c} workbooks, and each box costs ${p} to post.",
+        text=_EXAM_OPENINGS[(t + c + p) % len(_EXAM_OPENINGS)].format(t=f"{t:,}", c=c, p=p),
         parts=[
             part(
                 "What is the least number of boxes needed?",
@@ -744,5 +753,6 @@ def _exam_chain(rng):
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 def exd_x_w7b_floor_ceiling_estimation(rng, tier="exam"):
     """Exam chain: boxes needed, empty spaces in the last box, a safe upper estimate of the cost and its excess."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, _exam_chain)

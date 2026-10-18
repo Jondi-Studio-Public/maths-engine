@@ -380,7 +380,8 @@ def w6b_complex_rotation(rng, tier="easy"):
         return retry(rng, _easy)
     if tier == "medium":
         return retry(rng, _medium)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry(rng, _hard)
 
 
@@ -403,7 +404,8 @@ _PYTHAGOREAN = ((3, 4), (4, 3), (5, 12), (12, 5), (6, 8), (8, 6), (8, 15), (15, 
 @generator("exd_x_w6b_complex_rotation", level=17, presets={"exam": dict(tier="exam")})
 def exd_x_w6b_complex_rotation(rng, tier="exam"):
     """Exam chain: the side, its length, the area (following through) and a missing vertex of a square ABCD."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry(rng, _exam)
 
 

@@ -512,7 +512,8 @@ _HARD = (_hard_maxflow, _hard_widen)
 def w7a_network_cut(rng, tier="easy"):
     """Cut capacity, minimum cuts and maximum flow in a described network; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
@@ -522,7 +523,8 @@ def w7a_network_cut(rng, tier="easy"):
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 def exd_x_w7a_network_cut(rng, tier="exam"):
     """Exam chain: capacity of two stated cuts (one with a return link), the maximum flow, the source capacity left unused."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     ctx = rng.choice(_CONTEXTS)
 
     def build(rng):

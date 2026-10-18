@@ -32,7 +32,7 @@ import sympy
 from sympy import Rational as Q
 
 from ..answers import Distractor
-from ..core import check, generator, phrase
+from ..core import check, generator, paren_negative, phrase
 from ._ucv1_linalg import rref
 from ._w6c_kit import Redraw, choice_part, math_of, redrawn, value_fields, value_part
 
@@ -541,6 +541,16 @@ def _conic_reason(label):
 _CENTRED_TYPES = (ELL, H1, H2, CONE)
 
 
+def _minus(left, right) -> str:
+    """``left − right``, written ``left + |right|`` when right is negative."""
+    return f"{left} − {right}" if right >= 0 else f"{left} + {-right}"
+
+
+def _plus(left, right) -> str:
+    """``left + right``, written ``left − |right|`` when right is negative."""
+    return f"{left} + {right}" if right >= 0 else f"{left} − {-right}"
+
+
 def _shifted(rng, name):
     """A central quadric of type ``name`` with integer coefficients, shifted to an integer centre, as (alphas, centre, R, f,
     text). Σ α_i (x_i − h_i)² = R."""
@@ -611,7 +621,7 @@ def _medium_paraboloid(rng):
     check(key == name, "the classifier disagrees")
     text = equation(w, rhs)
     working = [
-        f"Completing the square in {u} and {v} gives {w} − {l} = {a1}({u} − {h})² + ({a2})({v} − {k})².",
+        f"Completing the square in {u} and {v} gives {_minus(w, l)} = {a1}({_minus(u, h)})² + ({a2})({_minus(v, k)})².",
         "One variable is to the first power and two are squared, "
         + (
             "with the same sign: an elliptic paraboloid."
@@ -651,7 +661,7 @@ def _medium_centre(rng):
         ("quad-centre-halved-twice", Fraction(b, -4 * a)),
     ]
     working = [
-        f"Completing the square in {var}: the {var} terms become {a}({var} − {h})² plus a constant.",
+        f"Completing the square in {var}: the {var} terms become {a}({_minus(var, h)})² plus a constant.",
         f"The centre has {var}-coordinate {h}.",
     ]
     return dict(text=phrase(rng, _CENTRE_STEMS, eq=text, var=var), working=working, **value_fields(h, wrong))
@@ -854,7 +864,7 @@ def _hard_radius(rng):
     plane = f"{w} = {show(plane_rhs)}"
     working = [
         f"Substitute: {u}² + {v}² = {show(plane_rhs)}.",
-        f"Complete the square: ({u} − {a // 2})² + ({v} − {b // 2})² = {c} + {(a * a + b * b) // 4} = {r * r}.",
+        f"Complete the square: ({_minus(u, a // 2)})² + ({_minus(v, b // 2)})² = {_plus(c, (a * a + b * b) // 4)} = {r * r}.",
         f"The radius is √{r * r} = {r}.",
     ]
     return dict(
@@ -955,7 +965,7 @@ def _hard_cross(rng):
         raise Redraw("the cross term does not change the answer")
     text = equation(f + rhs, sympy.Integer(rhs))
     working = [
-        f"The {u}{v} term matters: the block of {u}² and {v}² has determinant {a}·{c2} − {b}² = {det}, which is negative, so it has one positive and one negative direction.",
+        f"The {u}{v} term matters: the block of {u}² and {v}² has determinant {paren_negative(a)}·{paren_negative(c2)} − {paren_negative(b)}² = {det}, which is negative, so it has one positive and one negative direction.",
         f"Together with the {w}² term and the right side {rhs}, that gives a {key}.",
     ]
     return _choice(
@@ -1016,7 +1026,8 @@ def w7c_quadric(rng, tier="easy"):
         return rng.choice([_easy_name, _easy_name, _easy_level, _easy_trace])(rng)
     if tier == "medium":
         return rng.choice([_medium_name, _medium_centre, _medium_axis, _medium_degenerate])(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return rng.choice([_hard_oblique, _hard_radius, _hard_intercept, _hard_cross])(rng)
 
 
@@ -1042,7 +1053,8 @@ def _medium_degenerate(rng):
 def exd_x_w7c_quadric(rng, tier="exam"):
     """Exam chain on x²/a² + y²/b² ± z²/c² = 1 (or the two-sheet form) and a plane z = k: the surface, the two semi-axes of
     the cross-section, and its area as a multiple of π."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     kind = rng.choice([ELL, H1, H2])
     P, k, m, A, B = _semi_axes(rng, kind)
     s = _kind_surface(rng, kind, P, A, B)

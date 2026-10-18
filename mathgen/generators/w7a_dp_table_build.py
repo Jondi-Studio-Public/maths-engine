@@ -686,17 +686,26 @@ _HARD = (_hard_ways, _hard_lcs, _hard_reuse)
 def w7a_dp_table(rng, tier="easy"):
     """Dynamic-programming tables worked by hand; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
 # -- exam -------------------------------------------------------------------------------------------------------------------
 
 
+_EXAM_OPENINGS = (
+    "A bag holds at most {cap} kg. There are four items, each available once: {items}.",
+    "A bag can carry at most {cap} kg in total. Four items are on offer, and each can be taken once: {items}.",
+    "You are packing a bag that must weigh at most {cap} kg. Each of four items may be packed once: {items}.",
+)
+
+
 @generator(EXAM_TOPIC, level=20, presets={"exam": dict(tier="exam")})
 def exd_x_w7a_dp_table(rng, tier="exam"):
     """Exam chain on one 0/1 knapsack: the entry for two items, the best value, the weight chosen, the value of one more kg."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
 
     def build(rng):
         items, cap = draw_until(
@@ -760,8 +769,12 @@ def exd_x_w7a_dp_table(rng, tier="exam"):
         return items, cap, two, best, weight, nxt, gain, a_dist, b_dist, c_dist, d_dist
 
     items, cap, two, best, weight, nxt, gain, a_dist, b_dist, c_dist, d_dist = retry_draw(rng, build)
+    # The opening is picked from the items, not drawn, so the draw order (and every question's content) is unchanged.
+    opening = _EXAM_OPENINGS[sum(w + v for w, v in items) % len(_EXAM_OPENINGS)].format(
+        cap=cap, items=_item_text(items)
+    )
     stem = (
-        f"A bag holds at most {cap} kg. There are four items, each available once: {_item_text(items)}. "
+        f"{opening} "
         "Let f(i, w) be the greatest total value using only the first i items (P first) with a weight limit of w kg."
     )
     return dict(

@@ -409,7 +409,8 @@ def w6b_complex_polygon_roots(rng, tier="easy"):
         return retry(rng, _easy)
     if tier == "medium":
         return retry(rng, _medium)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry(rng, _hard)
 
 
@@ -419,14 +420,18 @@ def w6b_complex_polygon_roots(rng, tier="easy"):
 @generator("exd_x_w6b_complex_polygon_roots", level=18, presets={"exam": dict(tier="exam")})
 def exd_x_w6b_complex_polygon_roots(rng, tier="exam"):
     """Exam chain: the roots of z^n = r^n as a regular polygon: radius, side, perimeter and a root."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry(rng, _exam)
+
+
+# (n, r) pairs, each with r^n at most 3 x 10^8 so the constant stays a number a learner can read.
+_EXAM_POLYGONS = [(n, r) for n, top in ((3, 80), (4, 60), (6, 25)) for r in range(2, top + 1)]
 
 
 def _exam(rng):
     for _ in attempts(500, "a polygon whose 2-decimal side is unambiguous"):
-        n = rng.choice([3, 4, 6])
-        r = rng.choice([2, 3, 4, 5])
+        n, r = rng.choice(_EXAM_POLYGONS)
         side = 2 * r * math.sin(math.pi / n)
         if rounds_unambiguously(side, 2):
             break

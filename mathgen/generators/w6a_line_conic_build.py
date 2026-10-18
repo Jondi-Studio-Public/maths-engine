@@ -608,7 +608,8 @@ _TIERS = {
 def w6a_line_conic(rng, tier="easy"):
     """A line against a parabola or circle: intersections, tangent conditions and counts; see the module docstring."""
     pool = _TIERS.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
@@ -807,5 +808,6 @@ def _exam_circle(rng):
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 def exd_x_w6a_line_conic(rng, tier="exam"):
     """Exam chain: a line against a parabola or a circle, then the parallel tangent and its point of contact."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice((_exam_parabola, _exam_circle)))

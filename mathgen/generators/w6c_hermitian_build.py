@@ -28,7 +28,7 @@ from math import isqrt
 
 import sympy
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, join_terms, paren_negative, phrase
 from ._w6c_kit import Redraw, redrawn, value_fields, value_part
 
 # -- Gaussian integers as (re, im) pairs ---------------------------------------------------------------------------
@@ -59,6 +59,12 @@ def g_text(x) -> str:
     if re_ == 0:
         return mag if im > 0 else f"-{mag}"
     return f"{re_} {'+' if im > 0 else '-'} {mag}"
+
+
+def g_paren(x) -> str:
+    """`g_text`, bracketed when it has two terms or a leading minus so it can sit beside another factor."""
+    text = g_text(x)
+    return f"({text})" if " " in text or text.startswith("-") else text
 
 
 def m_text(rows) -> str:
@@ -165,15 +171,16 @@ def _easy(rng):
 
 
 @functools.cache
-def _hermitian_pool():
+def _hermitian_pool(wide=False):
     """``(a, d, b, c, D)``: [[a, b + ci], [b - ci, d]] with c != 0, a + d even and integer eigenvalues (a + d)/2 ± D."""
     pool = []
-    for a in range(-5, 8):
-        for d in range(-5, 8):
+    lo, hi, bound, cmax = (-9, 12, 8, 9) if wide else (-5, 8, 5, 6)
+    for a in range(lo, hi):
+        for d in range(lo, hi):
             if (a + d) % 2 or a == d:
                 continue
-            for b in range(-5, 6):
-                for c in range(1, 7):
+            for b in range(-bound, bound + 1):
+                for c in range(1, cmax + 1):
                     inside = ((a - d) // 2) ** 2 + b * b + c * c
                     root = isqrt(inside)
                     if root * root == inside:
@@ -181,8 +188,8 @@ def _hermitian_pool():
     return pool
 
 
-def _hermitian(rng):
-    a, d, b, c, root = rng.choice(_hermitian_pool())
+def _hermitian(rng, wide=False):
+    a, d, b, c, root = rng.choice(_hermitian_pool(wide))
     if rng.random() < 0.5:
         c = -c
     h = [[(a, 0), (b, c)], [(b, -c), (d, 0)]]
@@ -234,7 +241,7 @@ def _medium(rng):
     return dict(
         text=phrase(rng, stems, m=m_text(h)),
         working=[
-            f"The characteristic polynomial is λ² - {a + d}λ + ({a * d} - {b * b} - {c * c}) = λ² - {a + d}λ + {a * d - b * b - c * c}, since (b + ci)(b - ci) = b² + c².",
+            f"The characteristic polynomial is {join_terms([(1, 'λ²'), (-(a + d), 'λ')])} + ({a * d} - {b * b} - {c * c}) = {join_terms([(1, 'λ²'), (-(a + d), 'λ'), (a * d - b * b - c * c, '')])}, since (b + ci)(b - ci) = b² + c².",
             f"Its roots are {lo} and {hi}.",
         ],
         **value_fields(value, wrong),
@@ -326,7 +333,7 @@ def _hard_missing_entry(rng):
     return dict(
         text=phrase(rng, _UNITARY_X_STEMS, m=matrix, n=n),
         working=[
-            f"The columns must be orthogonal. (column 1)*(column 2) = {g_text(g_conj(p))}·{g_text(shown[0][1])} + {g_text(g_conj(q))}·x = 0 gives x = {x}.",
+            f"The columns must be orthogonal. (conjugate transpose of column 1) × (column 2) = {g_paren(g_conj(p))}·{g_paren(shown[0][1])} + {g_paren(g_conj(q))}·x = 0 gives x = {x}.",
             f"The length condition alone only gives x² = {x * x}, so x = ±{x}; orthogonality picks x = {x}.",
         ],
         **value_fields(x, wrong),
@@ -352,7 +359,7 @@ def _hard_parameter(rng):
     return dict(
         text=phrase(rng, _EIGENVALUE_STEMS, m=matrix, lam=lam),
         working=[
-            f"det(H - {lam}I) = ({a} - {lam})({d} - {lam}) - (b + ki)(b - ki) = {(a - lam) * (d - lam)} - {b * b} - k² = 0.",
+            f"det(H - {paren_negative(lam)}I) = ({a} - {paren_negative(lam)})({d} - {paren_negative(lam)}) - (b + ki)(b - ki) = {(a - lam) * (d - lam)} - {b * b} - k² = 0.",
             f"So k² = {c * c} and, with k > 0, k = {c}.",
         ],
         **value_fields(c, wrong),
@@ -385,7 +392,8 @@ def w6c_hermitian(rng, tier="easy"):
         return _easy(rng)
     if tier == "medium":
         return _medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return rng.choice([_hard_normaliser, _hard_missing_entry, _hard_parameter])(rng)
 
 
@@ -396,8 +404,9 @@ def w6c_hermitian(rng, tier="easy"):
 @redrawn
 def exd_x_w6c_hermitian(rng, tier="exam"):
     """Exam chain on a 2×2 Hermitian matrix: det H, the smaller eigenvalue, the larger one, tr(H*H)."""
-    check(tier == "exam", f"unknown tier {tier!r}")
-    h, a, d, b, c, root, lo, hi = _hermitian(rng)
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
+    h, a, d, b, c, root, lo, hi = _hermitian(rng, wide=True)
     check(lo != 0 and hi != 0 and lo != hi, "an eigenvalue is zero")
     det = a * d - b * b - c * c
     check(sympy.expand(sym(h).det()) == det == lo * hi, "SymPy's determinant differs")
@@ -430,7 +439,7 @@ def exd_x_w6c_hermitian(rng, tier="exam"):
                 "Find the smaller eigenvalue of H.",
                 lo,
                 3,
-                [f"λ² - {trace}λ + {det} = 0 has roots {lo} and {hi}."],
+                [f"{join_terms([(1, 'λ²'), (-trace, 'λ'), (det, '')])} = 0 has roots {lo} and {hi}."],
                 [
                     ("herm-diagonal-entry-as-eigenvalue", min(a, d)),
                     ("herm-wrong-ordering", hi),

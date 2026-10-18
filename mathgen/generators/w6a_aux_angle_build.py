@@ -408,7 +408,8 @@ _TIERS = {"easy": (_easy,), "medium": (_medium,), "hard": (_hard_solve, _hard_th
 def w6a_aux_angle(rng, tier="easy"):
     """Extreme values, where they occur, and equations a cos x + b sin x = c; see the module docstring."""
     pool = _TIERS.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
@@ -418,7 +419,8 @@ def w6a_aux_angle(rng, tier="easy"):
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 def exd_x_w6a_aux_angle(rng, tier="exam"):
     """Exam chain: R, α, the larger solution of f(x) = c, and the greatest value of f(x) plus a constant."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, _exam)
 
 

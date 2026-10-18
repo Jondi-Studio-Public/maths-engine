@@ -718,7 +718,8 @@ _HARD = (_hard_divisors, _hard_divisors, _hard_gcd_lcm, _hard_gcd_lcm, _hard_tri
 def w7b_number_systems_primes(rng, tier="easy"):
     """Number bases, binary arithmetic, primality and divisors; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
-    check(pool is not None, f"unknown tier {tier!r}")
+    if not (pool is not None):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
 
 
@@ -728,7 +729,8 @@ def w7b_number_systems_primes(rng, tier="easy"):
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 def exd_x_w7b_number_systems_primes(rng, tier="exam"):
     """Exam chain on a hexadecimal numeral: decimal value, primes to try, number of divisors, gcd with a second number."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, _exam_chain)
 
 

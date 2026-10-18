@@ -283,11 +283,16 @@ def w6c_svd(rng, tier="easy"):
         return _easy(rng)
     if tier == "medium":
         return _medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return rng.choice([_hard_error, _hard_condition, _hard_share])(rng)
 
 
 # -- exam -------------------------------------------------------------------------------------------------------
+
+
+# Three openings, picked from the matrix itself so the draw order (and so every question's content) is unchanged.
+_STEMS = ("Let A = {m}.", "The matrix A is {m}.", "Consider the matrix A = {m}.")
 
 
 @generator("exd_x_w6c_svd", level=19, presets={"exam": dict(tier="exam")})
@@ -295,7 +300,8 @@ def w6c_svd(rng, tier="easy"):
 def exd_x_w6c_svd(rng, tier="exam"):
     """Exam chain on a 2×3 matrix: σ₁, σ₂, the share of ‖A‖_F² kept by the rank-1 approximation, a right singular
     vector for σ₁."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     a, s1, s2 = _draw(rng, "2x3")
     _verify(a, s1, s2)
     v1 = _right_vector(a, s1)
@@ -309,7 +315,7 @@ def exd_x_w6c_svd(rng, tier="exam"):
     padded = primitive(left[0]) + [0] if len(left) == 1 else None
     rows = [primitive(r) for r in a]
     return dict(
-        text=f"Let A = {mat_str(fm(a))}.",
+        text=_STEMS[sum(abs(x) for row in a for x in row) % len(_STEMS)].format(m=mat_str(fm(a))),
         parts=[
             value_part(
                 "Find the largest singular value σ₁ of A.",
