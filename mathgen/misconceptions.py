@@ -35776,6 +35776,167 @@ _ENTRIES = (
         area="dynamic-programming",
     ),
     # -- end build-a batch --
+    # -- build-b batch --
+    CatalogueEntry(
+        "relvel-wrong-order",
+        "Subtracts the velocities in the wrong order, giving the velocity of B relative to A where A relative to B was asked, or the reverse.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-velocities",
+        "Adds the two velocities instead of subtracting to find a relative velocity.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-ignores-reference",
+        "Gives the velocity of the moving object itself, forgetting to subtract the velocity of the object it is measured against.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-swaps-components",
+        "Gives the other component of the relative velocity: the j-component where the i-component was asked, or the reverse.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-1d-direction",
+        "Adds the speeds of two vehicles moving the same way, or subtracts them when they move in opposite directions.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-rearranges-wrongly",
+        "Rearranges the relative velocity equation with a sign slip, so the unknown velocity has the wrong sign or the relative velocity is added where it should be subtracted.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-catch-up-gives-speed",
+        "Gives the closing speed where the time to catch up was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-catch-up-gives-gap",
+        "Gives the starting gap where the time to catch up was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-components",
+        "Adds the sizes of the two components instead of using Pythagoras to find a speed.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-forgets-root",
+        "Stops at the sum of the squares of the components and does not take the square root.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-takes-larger-component",
+        "Takes the larger component as the speed and ignores the other.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-perpendicular-speeds",
+        "Adds the two speeds for motion at right angles instead of combining them with Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-subtracts-perpendicular-speeds",
+        "Subtracts the two speeds for motion at right angles instead of combining them with Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-position-ignores-start",
+        "Finds only how far the relative position has changed and forgets the starting relative position.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-position-uses-one-velocity",
+        "Moves the relative position using one object's velocity instead of the relative velocity.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-time-added",
+        "Adds the time to the coordinate instead of multiplying the velocity component by it.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-sign-error",
+        "Drops the minus sign in the time of closest approach and gives a negative time.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-divides-by-speed",
+        "Divides the dot product of the relative position and velocity by the relative speed instead of by its square.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-equal-coordinate",
+        "Takes the time when one coordinate of the two positions agrees as the time of closest approach.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-gives-square",
+        "Gives the square of the least distance between the objects.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-distance-travelled",
+        "Gives how far the relative position moves before the moment of closest approach instead of the least distance.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-adds-components",
+        "Adds the sizes of the components of the closest separation instead of using Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-first-within-uses-closest",
+        "Gives the time of closest approach where the time they first come within the stated range was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-last-within",
+        "Adds the half-duration to the time of closest approach and gives the time they leave the range.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-half-width",
+        "Gives the half-duration spent within range instead of the time they first come within it.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-ignores-motion",
+        "Divides the starting separation by the chaser's speed as if the target were standing still.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-gives-distance",
+        "Gives the starting separation of the two boats where the time to intercept was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-gives-chaser-distance",
+        "Gives how far the chaser travels where the time to intercept was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-negative-root",
+        "Reports the negative root of the interception quadratic, a time before the chase began.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-copies-target-velocity",
+        "Gives the target's velocity component as the chaser's.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-sign-flipped",
+        "Gives the chaser's velocity component with the wrong sign.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-relative-component",
+        "Gives the component of the chaser's velocity relative to the target instead of its own velocity.",
+        area="relative-velocity",
+    ),
 )
 
 #: Every entry, by id.

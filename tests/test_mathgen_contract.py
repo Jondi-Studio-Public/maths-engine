@@ -573,6 +573,8 @@ OPTION_NOTES_TOPICS = frozenset(
         "y910_graph_inequality_region",
         "y910_graph_system_solution",
         "y910_line_plane_angle",
+        # build-b batch
+        "w7b_relative_velocity",
     }
 )
 
