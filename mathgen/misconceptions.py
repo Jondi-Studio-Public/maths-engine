@@ -35474,6 +35474,163 @@ _ENTRIES = (
         area="trigonometry",
     ),
     # -- end build-d batch --
+    # -- build-a batch --
+    CatalogueEntry(
+        "graph-complete-double-count",
+        "Counts n(n - 1) for the edges of a complete graph, once from each end of every edge.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-degree-as-edges",
+        "Gives the degree n - 1 of one vertex of a complete graph as its number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-includes-loops",
+        "Counts a vertex joined to itself as well, giving n(n + 1)/2 edges for a complete graph.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-one-vertex-short",
+        "Counts the edges of the complete graph on one vertex fewer than the network has.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-ignores-existing",
+        "Gives all the edges of the complete graph where the ones already present had to be taken off.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-gap-from-degree-sum",
+        "Takes the degree sum off the edges of the complete graph instead of the number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-count-off-by-one",
+        "Uses the right method for the count but is out by one or two.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-assumes-connected",
+        "Takes every vertex to be reachable, as if the network were connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-reachable-excludes-start",
+        "Leaves out the starting vertex when counting the vertices that can be reached.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-reachable-other-component",
+        "Gives the size of a different piece of the network from the one that holds the start.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-uses-complete-graph",
+        "Gives the edges missing from a complete graph where a complete bipartite graph was meant.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-sum-of-parts",
+        "Adds the sizes of the two parts where their product is the number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-assumes-equal-parts",
+        "Takes the two parts of a bipartite network to be equal, or as equal as the vertex count allows.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-smaller-part",
+        "Gives the size of the smaller part where the larger was asked for.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-whole-vertex-set",
+        "Gives the number of vertices of the whole network as the size of one of its two parts.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-same-edges",
+        "Gives the number of edges of the network itself as the number of edges of its complement.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-degree-sum-as-edges",
+        "Adds the degrees in the complement and gives that sum as its number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-ignores-handshake",
+        "Takes the degree sum as the number of edges before finding the complement's edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-bipartite-as-complete",
+        "Uses the edges (a + b)(a + b - 1)/2 of a complete graph for a complete bipartite graph.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-degree-sum-as-edges",
+        "Gives the number of edges where the sum of the degrees (twice as many) was asked for.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-ignored",
+        "Gives the edges of the complete graph on all the vertices, ignoring that the network has several pieces.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-minus-edges",
+        "Takes one edge off the complete graph for each extra component.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-split-evenly",
+        "Spreads the vertices over the components as evenly as possible, which gives fewer edges than one large piece.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-one-vertex-short",
+        "Leaves the c - 1 single vertices out of the count and so gives the edges of the complete graph on n - c vertices.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-needs-tree",
+        "Gives n - 1, the edges of a tree, as enough to force a network to be connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-needs-all",
+        "Gives all the edges of the complete graph as the number needed to force a network to be connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-largest-disconnected",
+        "Gives the most edges a disconnected network can have, one fewer than forces connection.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-all-pairs",
+        "Gives the edges of the complete graph as the most a bipartite network can have.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-floored-parts",
+        "Takes the two parts of an odd number of vertices to be equal, floor(n/2) each.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-unbalanced",
+        "Takes parts that differ by two, which is not the most unequal product.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-rounded-up",
+        "Takes both parts of an odd number of vertices to be the larger size.",
+        area="graph-types",
+    ),
+    # -- end build-a batch --
 )
 
 #: Every entry, by id.

@@ -1,0 +1,92 @@
+id: graph-complete-bipartite-connected
+name: Complete, connected and bipartite graphs from a description or an edge list
+domain: financial-discrete
+year_level:
+- '12'
+description: Count with the kinds of simple graph. Find the edges of a complete graph, the edges still missing from one, the
+  vertices reachable when a network is not connected, the parts of a bipartite network given only as an edge list, and the
+  extreme edge counts for a graph with several components or a bipartite graph. Every answer is a whole number.
+status: active
+placement_eligible: false
+prerequisites:
+- graph-vertex-degrees-handshaking
+answer: number
+sources:
+- topic: w7a_graph_types
+  params: {}
+  difficulty: easy
+  stages:
+  - 6
+- topic: w7a_graph_types
+  params: {}
+  difficulty: medium
+  stages:
+  - 6
+- topic: w7a_graph_types
+  params: {}
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: exd_x_w7a_graph_types
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: graph-complete-double-count
+  description: Counts n(n - 1) for the edges of a complete graph, once from each end of every edge.
+- id: graph-complete-degree-as-edges
+  description: Gives the degree n - 1 of one vertex of a complete graph as its number of edges.
+- id: graph-complete-includes-loops
+  description: Counts a vertex joined to itself as well, giving n(n + 1)/2 edges for a complete graph.
+- id: graph-complete-one-vertex-short
+  description: Counts the edges of the complete graph on one vertex fewer than the network has.
+- id: graph-complete-ignores-existing
+  description: Gives all the edges of the complete graph where the ones already present had to be taken off.
+- id: graph-complete-gap-from-degree-sum
+  description: Takes the degree sum off the edges of the complete graph instead of the number of edges.
+- id: graph-assumes-connected
+  description: Takes every vertex to be reachable, as if the network were connected.
+- id: graph-reachable-excludes-start
+  description: Leaves out the starting vertex when counting the vertices that can be reached.
+- id: graph-reachable-other-component
+  description: Gives the size of a different piece of the network from the one that holds the start.
+- id: graph-bipartite-uses-complete-graph
+  description: Gives the edges missing from a complete graph where a complete bipartite graph was meant.
+- id: graph-bipartite-assumes-equal-parts
+  description: Takes the two parts of a bipartite network to be equal, or as equal as the vertex count allows.
+- id: graph-bipartite-smaller-part
+  description: Gives the size of the smaller part where the larger was asked for.
+- id: graph-components-split-evenly
+  description: Spreads the vertices over the components as evenly as possible, which gives fewer edges than one large piece.
+- id: graph-connected-largest-disconnected
+  description: Gives the most edges a disconnected network can have, one fewer than forces connection.
+- id: graph-bipartite-max-floored-parts
+  description: Takes the two parts of an odd number of vertices to be equal, floor(n/2) each.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Count the edges of a complete graph from its vertex count, the edges missing from a stated network, or the vertices
+      reachable from one vertex in a network that has several pieces.
+  medium:
+    steps: 3
+    demand: Work with a bipartite network, finding the edges missing from a complete bipartite graph, deducing the larger part
+      from an edge list alone, or using the handshaking lemma to reach the edges of a complement.
+  hard:
+    steps: 4
+    demand: Reason about extremes with no graph drawn, the most edges with c components, the fewest that force connection, the
+      most in a bipartite graph, or find the parts of a stated network first and then count the edges that can still be added.
+  exam:
+    steps: 6
+    demand: On one connected bipartite network, find the degree sum, deduce the larger part, build the complete bipartite graph
+      on the two parts and count the edges that can still be added, each part using the one before.
+tags:
+- senior
+- financial-discrete
+- graph-theory
+- networks
+- complete-graph
+- bipartite
+- connected
+- qld-general-mathematics
