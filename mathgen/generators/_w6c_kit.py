@@ -120,7 +120,11 @@ def value_part(prompt, value, marks, working, wrong, *, follow_through=None, sen
 
 def mat_text(rows) -> str:
     """A matrix of ints, `Fraction`s or strings as the stem spells it: ``[[1, 2], [3, 4]]``."""
-    return "[" + ", ".join("[" + ", ".join(value_text(v) if not isinstance(v, str) else v for v in row) + "]" for row in rows) + "]"
+    return (
+        "["
+        + ", ".join("[" + ", ".join(value_text(v) if not isinstance(v, str) else v for v in row) + "]" for row in rows)
+        + "]"
+    )
 
 
 def vector_fields(vec, wrong, *, scalar_multiple: bool = True, n: int = 4, minimum: int = 3) -> dict:

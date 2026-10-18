@@ -416,7 +416,9 @@ def exd_x_w6c_hermitian(rng, tier="exam"):
                 "Find the imaginary part of the (1, 2) entry of H*H, where H* is the conjugate transpose of H.",
                 entry12[1],
                 2,
-                [f"Since H* = H, the (1, 2) entry of H*H is {a}({g_text(h[0][1])}) + ({g_text(h[0][1])})({d}) = {g_text(entry12)}."],
+                [
+                    f"Since H* = H, the (1, 2) entry of H*H is {a}({g_text(h[0][1])}) + ({g_text(h[0][1])})({d}) = {g_text(entry12)}."
+                ],
                 [
                     ("herm-real-part-instead-of-imaginary", entry12[0]),
                     ("herm-entry-transposed", -entry12[1]),

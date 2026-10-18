@@ -28,7 +28,9 @@ EXAM = "exd_x_w6c_taylor"
 SKILL = support.skill_named("uc2-multivariable-taylor-hessian")
 X, Y, K = sympy.symbols("x y k")
 _TRANSFORMS = standard_transformations + (split_symbols, implicit_multiplication_application, convert_xor)
-_FUNCTION = re.compile(r"f\(x, y\) = (.+?)(?: about| using| to second|\.? (?:The point|At the)| has|, which|, with|\. )")
+_FUNCTION = re.compile(
+    r"f\(x, y\) = (.+?)(?: about| using| to second|\.? (?:The point|At the)| has|, which|, with|\. )"
+)
 _ABOUT = re.compile(r"about (?:the point )?\((-?\d+), (-?\d+)\)")
 _SUPERSCRIPTS = str.maketrans("⁰¹²³⁴⁵⁶⁷⁸⁹", "0123456789")
 

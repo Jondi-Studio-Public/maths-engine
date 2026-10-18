@@ -303,7 +303,9 @@ def exd_x_w6c_svd(rng, tier="exam"):
     share = Fraction(s1 * s1, s1 * s1 + s2 * s2)
     check(share.denominator != 1, "the share is 1")
     # A left singular vector padded to R³ is a plausible wrong vector, as is a row of A.
-    left = nullspace([[x - (s1 * s1 if i == j else 0) for j, x in enumerate(row)] for i, row in enumerate(_gram(a, "left"))])
+    left = nullspace(
+        [[x - (s1 * s1 if i == j else 0) for j, x in enumerate(row)] for i, row in enumerate(_gram(a, "left"))]
+    )
     padded = primitive(left[0]) + [0] if len(left) == 1 else None
     rows = [primitive(r) for r in a]
     return dict(
@@ -340,7 +342,9 @@ def exd_x_w6c_svd(rng, tier="exam"):
                 "What fraction of ‖A‖_F² is ‖A₁‖_F²? Give it in lowest terms.",
                 share,
                 3,
-                [f"‖A₁‖_F²/‖A‖_F² = σ₁²/(σ₁² + σ₂²) = {s1 * s1}/{s1 * s1 + s2 * s2} = {share.numerator}/{share.denominator}."],
+                [
+                    f"‖A₁‖_F²/‖A‖_F² = σ₁²/(σ₁² + σ₂²) = {s1 * s1}/{s1 * s1 + s2 * s2} = {share.numerator}/{share.denominator}."
+                ],
                 [
                     ("svd-forgot-squares-in-share", Fraction(s1, s1 + s2)),
                     ("svd-discarded-share", Fraction(s2 * s2, s1 * s1 + s2 * s2)),

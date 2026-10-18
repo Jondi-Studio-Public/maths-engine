@@ -79,7 +79,11 @@ def equation_text(fn, a, b, c, d, *, expanded=False) -> str:
     elif b.denominator == 1:
         inner = f"{b.numerator}(x{_signed_pi(c)})"
     else:
-        inner = f"{b.numerator}(x{_signed_pi(c)})/{b.denominator}" if b.numerator != 1 else f"(x{_signed_pi(c)})/{b.denominator}"
+        inner = (
+            f"{b.numerator}(x{_signed_pi(c)})/{b.denominator}"
+            if b.numerator != 1
+            else f"(x{_signed_pi(c)})/{b.denominator}"
+        )
     tail = "" if d == 0 else f" + {d}" if d > 0 else f" - {-d}"
     return f"y = {_coef(a)}{fn}({inner}){tail}"
 
@@ -166,7 +170,11 @@ def _draw(rng, *, kind, expanded=False, negative_ok=False):
     if expanded:
         b = Fraction(rng.choice([2, 3, 4]))
     else:
-        b = Fraction(rng.choice([2, 3, 4, 2, 3])) if rng.random() < 0.8 else Fraction(rng.choice([1, 2]), rng.choice([2, 3]))
+        b = (
+            Fraction(rng.choice([2, 3, 4, 2, 3]))
+            if rng.random() < 0.8
+            else Fraction(rng.choice([1, 2]), rng.choice([2, 3]))
+        )
         if b.denominator != 1 and b.numerator != 1:
             b = Fraction(1, 2)
     c = rng.choice(_SHIFTS) * rng.choice([-1, 1])
@@ -223,7 +231,11 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
             _expr(b, "sinusoid-amplitude-is-the-multiple-of-x", pi=False),
             _expr(Fraction(amp) + d, "sinusoid-amplitude-includes-the-vertical-shift", pi=False),
         ]
-        out = dict(**_value_fields(amp, pi=False), distractors=need(num_text(amp), cand, 4), working=[f"The amplitude is |{a}| = {amp}."])
+        out = dict(
+            **_value_fields(amp, pi=False),
+            distractors=need(num_text(amp), cand, 4),
+            working=[f"The amplitude is |{a}| = {amp}."],
+        )
         return phrase(rng, _AMPLITUDE, eq=eq), out
     if feature == "period":
         cand = [
@@ -232,7 +244,11 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
             _expr(b, "sinusoid-period-is-the-multiple-of-x"),
             _expr(Fraction(2), "sinusoid-period-ignores-the-multiple"),
         ]
-        out = dict(**_value_fields(period, pi=True), distractors=need(pi_text(period), cand, 4), working=[f"The period is 2π ÷ {_b_text(b)} = {pi_text(period)}."])
+        out = dict(
+            **_value_fields(period, pi=True),
+            distractors=need(pi_text(period), cand, 4),
+            working=[f"The period is 2π ÷ {_b_text(b)} = {pi_text(period)}."],
+        )
         return phrase(rng, _PERIOD, eq=eq), out
     if feature == "shift":
         shift = c
@@ -249,7 +265,20 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
                 _expr(k / b, "sinusoid-shift-sign-reversed"),
                 _expr(k * b, "sinusoid-shift-multiplied-by-the-multiple"),
             ]
-        text = phrase(rng, _SHIFT, eq=eq, fn=fn, a_fn=fn, bx=("x" if b == 1 else f"{_b_text(b)}x"), coef=_coef(a), dtext=num_text(d)) if False else None
+        text = (
+            phrase(
+                rng,
+                _SHIFT,
+                eq=eq,
+                fn=fn,
+                a_fn=fn,
+                bx=("x" if b == 1 else f"{_b_text(b)}x"),
+                coef=_coef(a),
+                dtext=num_text(d),
+            )
+            if False
+            else None
+        )
         stems = (
             "The graph of {eq} is a translation of the graph of y = {coef}{fn}({bx}){dtail}. State the horizontal translation, "
             "taking a shift to the right as positive and a shift to the left as negative.",
@@ -260,7 +289,13 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
         )
         dtail = "" if d == 0 else f" + {num_text(d)}" if d > 0 else f" - {num_text(-d)}"
         text = phrase(rng, stems, eq=eq, fn=fn, bx=("x" if b == 1 else f"{_b_text(b)}x"), coef=_coef(a), dtail=dtail)
-        out = dict(**_value_fields(shift, pi=True), distractors=need(pi_text(shift), cand, 4), working=[f"Write the bracket as {_b_text(b)}(x - ({pi_text(shift)})): the graph moves {pi_text(shift)} horizontally."])
+        out = dict(
+            **_value_fields(shift, pi=True),
+            distractors=need(pi_text(shift), cand, 4),
+            working=[
+                f"Write the bracket as {_b_text(b)}(x - ({pi_text(shift)})): the graph moves {pi_text(shift)} horizontally."
+            ],
+        )
         return text, out
     if feature == "vertical":
         cand = [
@@ -269,7 +304,11 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
             _expr(Fraction(amp), "sinusoid-vertical-shift-is-the-amplitude", pi=False),
             _expr(d - amp, "sinusoid-vertical-shift-is-the-minimum", pi=False),
         ]
-        out = dict(**_value_fields(d, pi=False), distractors=need(num_text(d), cand, 4), working=[f"The midline is y = {num_text(d)}."])
+        out = dict(
+            **_value_fields(d, pi=False),
+            distractors=need(num_text(d), cand, 4),
+            working=[f"The midline is y = {num_text(d)}."],
+        )
         return phrase(rng, _VERTICAL, eq=eq), out
     if feature == "max":
         top = amp + d
@@ -279,7 +318,11 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
             _expr(d - amp, "sinusoid-extreme-takes-the-other-end", pi=False),
             _expr(2 * amp + d, "sinusoid-extreme-uses-the-full-height", pi=False),
         ]
-        out = dict(**_value_fields(top, pi=False), distractors=need(num_text(top), cand, 4), working=[f"Maximum = |a| + d = {amp} + ({num_text(d)}) = {num_text(top)}."])
+        out = dict(
+            **_value_fields(top, pi=False),
+            distractors=need(num_text(top), cand, 4),
+            working=[f"Maximum = |a| + d = {amp} + ({num_text(d)}) = {num_text(top)}."],
+        )
         return phrase(rng, _MAX, eq=eq), out
     check(feature == "min", feature)
     bottom = d - amp
@@ -289,7 +332,11 @@ def _feature_pack(rng, fn, a, b, c, d, feature, *, expanded):
         _expr(d + amp, "sinusoid-extreme-takes-the-other-end", pi=False),
         _expr(d - 2 * amp, "sinusoid-extreme-uses-the-full-height", pi=False),
     ]
-    out = dict(**_value_fields(bottom, pi=False), distractors=need(num_text(bottom), cand, 4), working=[f"Minimum = d - |a| = {num_text(d)} - {amp} = {num_text(bottom)}."])
+    out = dict(
+        **_value_fields(bottom, pi=False),
+        distractors=need(num_text(bottom), cand, 4),
+        working=[f"Minimum = d - |a| = {num_text(d)} - {amp} = {num_text(bottom)}."],
+    )
     return phrase(rng, _MIN, eq=eq), out
 
 
@@ -306,7 +353,12 @@ def _build(rng, features, *, expanded, negative_ok):
 
 
 def _easy(rng):
-    return _build(rng, ["amplitude", "period", "shift", "vertical", "max", "min", "shift", "period"], expanded=False, negative_ok=False)
+    return _build(
+        rng,
+        ["amplitude", "period", "shift", "vertical", "max", "min", "shift", "period"],
+        expanded=False,
+        negative_ok=False,
+    )
 
 
 def _medium(rng):
@@ -342,7 +394,10 @@ def _hard_extreme(rng):
     cand = [
         _expr(x_other, "sinusoid-first-extreme-is-the-opposite-one"),
         _expr(c, "sinusoid-first-extreme-is-the-shift"),
-        _expr(x + Fraction(1) / b if x - Fraction(1) / b <= 0 else x - Fraction(1) / b, "sinusoid-first-extreme-off-by-a-half-period"),
+        _expr(
+            x + Fraction(1) / b if x - Fraction(1) / b <= 0 else x - Fraction(1) / b,
+            "sinusoid-first-extreme-off-by-a-half-period",
+        ),
         _expr(x + 2 / b if x - 2 / b <= 0 else x - 2 / b, "sinusoid-first-extreme-is-not-the-first"),
         _expr((x - c) * b + c, "sinusoid-first-extreme-multiplies-instead-of-dividing"),
     ]
@@ -369,7 +424,7 @@ def _hard_intercept(rng):
     want(exact is not None, "an angle with no simple exact value")
     value = a * exact + d
     check(abs(float(value) - _f(fn, a, b, c, d, 0.0)) < 1e-9, "y-intercept differs from the numeric value")
-    want(Fraction(value).denominator in (1, 2) , "an awkward fraction")
+    want(Fraction(value).denominator in (1, 2), "an awkward fraction")
     wrong_sign = _exact_trig(fn, -angle)
     cand = []
     if wrong_sign is not None:
@@ -377,7 +432,13 @@ def _hard_intercept(rng):
     cand.append(_expr(Fraction(d) + a, "sinusoid-intercept-takes-the-maximum", pi=False))
     cand.append(_expr(Fraction(d), "sinusoid-intercept-is-the-vertical-shift", pi=False))
     cand.append(_expr(a * exact, "sinusoid-intercept-forgets-the-vertical-shift", pi=False))
-    cand.append(_expr(Fraction(a) * _exact_trig(fn, angle / b) + d if _exact_trig(fn, angle / b) is not None else Fraction(a) + d, "sinusoid-intercept-divides-the-angle-by-the-multiple", pi=False))
+    cand.append(
+        _expr(
+            Fraction(a) * _exact_trig(fn, angle / b) + d if _exact_trig(fn, angle / b) is not None else Fraction(a) + d,
+            "sinusoid-intercept-divides-the-angle-by-the-multiple",
+            pi=False,
+        )
+    )
     eq = equation_text(fn, a, b, c, d)
     return dict(
         text=phrase(rng, _INTERCEPT_STEMS, eq=eq),
@@ -391,8 +452,16 @@ def _hard_intercept(rng):
 def _exact_trig(fn, angle):
     """sin or cos of ``angle`` π (a Fraction) as a Fraction when it is 0, ±1/2 or ±1, else None."""
     angle = Fraction(angle) % 2
-    table_sin = {Fraction(0): 0, Fraction(1, 6): Fraction(1, 2), Fraction(1, 2): 1, Fraction(5, 6): Fraction(1, 2), Fraction(1): 0,
-                 Fraction(7, 6): Fraction(-1, 2), Fraction(3, 2): -1, Fraction(11, 6): Fraction(-1, 2)}
+    table_sin = {
+        Fraction(0): 0,
+        Fraction(1, 6): Fraction(1, 2),
+        Fraction(1, 2): 1,
+        Fraction(5, 6): Fraction(1, 2),
+        Fraction(1): 0,
+        Fraction(7, 6): Fraction(-1, 2),
+        Fraction(3, 2): -1,
+        Fraction(11, 6): Fraction(-1, 2),
+    }
     if fn == "sin":
         v = table_sin.get(angle)
     else:
@@ -415,7 +484,10 @@ def _hard_asymptote(rng):
     check(abs(math.cos(inner)) < 1e-9, "not an asymptote")
     cand = [
         _expr(c, "sinusoid-asymptote-is-the-shift"),
-        _expr(best + Fraction(1, 2) / b if best - Fraction(1, 2) / b <= 0 else best - Fraction(1, 2) / b, "sinusoid-asymptote-off-by-a-half-period"),
+        _expr(
+            best + Fraction(1, 2) / b if best - Fraction(1, 2) / b <= 0 else best - Fraction(1, 2) / b,
+            "sinusoid-asymptote-off-by-a-half-period",
+        ),
         _expr(c + Fraction(1) / b, "sinusoid-asymptote-uses-the-period-not-half"),
         _expr((best - c) * b + c, "sinusoid-asymptote-multiplies-instead-of-dividing"),
     ]
@@ -425,7 +497,10 @@ def _hard_asymptote(rng):
         answer_kind="expression",
         **_value_fields(best, pi=True),
         distractors=need(pi_text(best), cand, 4),
-        working=[f"tan is undefined when the bracket is π/2 + nπ, so {_b_text(b)}(x - ({pi_text(c)})) = π/2 + nπ.", f"The smallest positive x is {pi_text(best)}."],
+        working=[
+            f"tan is undefined when the bracket is π/2 + nπ, so {_b_text(b)}(x - ({pi_text(c)})) = π/2 + nπ.",
+            f"The smallest positive x is {pi_text(best)}.",
+        ],
     )
 
 

@@ -83,7 +83,7 @@ def test_easy_keys_by_solving_the_text():
     for seed in range(120):
         q = sup.single(TOPIC, "easy", seed)
         parabola, _circle, lines = _curves(q.text)
-        (_q, line), = lines
+        ((_q, line),) = lines
         xs = _xs_parabola(parabola, line)
         assert len(xs) == 2 and all(v.is_integer for v in xs), (seed, q.text)
         if "larger" in q.text or "right-hand" in q.text:
@@ -105,17 +105,17 @@ def test_medium_keys_by_solving_the_text():
         q = sup.single(TOPIC, "medium", seed)
         parabola, r2, lines = _curves(q.text)
         if "midpoint" in q.text:
-            (_q, line), = lines
+            ((_q, line),) = lines
             xs = _xs_parabola(parabola, line)
             assert len(xs) == 2 and not any(v.is_rational for v in xs)
             assert _answer(q) == sympy.simplify(sum(xs) / 2), (seed, q.text)
             seen.add("midpoint")
         elif r2 is not None:
-            (qq, rhs), = lines
+            ((qq, rhs),) = lines
             assert _answer(q) == _xs_circle(r2, qq, rhs)[1], (seed, q.text)
             seen.add("circle")
         else:
-            (_q, line), = lines
+            ((_q, line),) = lines
             assert line.has(K)
             sols = sympy.solve(sympy.discriminant(sympy.expand(parabola - line), X), K)
             assert len(sols) == 1 and _answer(q) == sols[0], (seed, q.text)
@@ -139,8 +139,13 @@ def test_hard_keys_by_solving_the_text():
             assert _answer(q) == max(sympy.solve(disc, m)), (seed, q.text)
             seen.add("tangents")
         elif "whole" in q.text or "integers" in q.text:
-            lo, hi = (int(v) for v in re.findall(r"-?\d+", re.search(r"(?:from|with) (-?\d+)(?: <= k <=|) (?:to )?(-?\d+)", q.text).group(0)))
-            (_q, line), = lines
+            lo, hi = (
+                int(v)
+                for v in re.findall(
+                    r"-?\d+", re.search(r"(?:from|with) (-?\d+)(?: <= k <=|) (?:to )?(-?\d+)", q.text).group(0)
+                )
+            )
+            ((_q, line),) = lines
             m = line.coeff(X)
             n = 0
             for kv in range(lo, hi + 1):
@@ -152,7 +157,7 @@ def test_hard_keys_by_solving_the_text():
             assert _answer(q) == n, (seed, q.text)
             seen.add("count")
         else:
-            (qq, rhs), = lines
+            ((qq, rhs),) = lines
             poly = sympy.expand(X**2 + (rhs / qq) ** 2 - r2)
             sols = [s for s in sympy.solve(sympy.discriminant(poly, X), C) if s > 0]
             assert len(sols) == 1 and _answer(q) == sols[0], (seed, q.text)
@@ -166,7 +171,10 @@ def test_exam_chain_shape():
         q = sup.exam(EXAM, seed)
         assert [p.label for p in q.parts] == ["a", "b", "c", "d"]
         kinds.add(tuple(p.answer_kind for p in q.parts))
-        assert [p.follow_through is not None for p in q.parts] in ([False, False, False, True], [False, False, True, True])
+        assert [p.follow_through is not None for p in q.parts] in (
+            [False, False, False, True],
+            [False, False, True, True],
+        )
         full = sup.grade(SKILL, q, q.answer_text)
         assert full.correct and full.marks == full.max_marks
         canon = {p.label: p.answer_text for p in q.parts}
@@ -184,7 +192,7 @@ def test_exam_keys_by_solving_the_text():
         parabola, r2, lines = _curves(q.stem)
         a, b, c, d = q.parts
         if r2 is None:
-            (_q, line), = lines
+            ((_q, line),) = lines
             xs = _xs_parabola(parabola, line)
             assert _answer(a) == xs[1]
             m = line.coeff(X)
@@ -195,7 +203,7 @@ def test_exam_keys_by_solving_the_text():
             assert _answer(d) == abs(line.subs(X, 0) - sols[0])
             seen.add("parabola")
         else:
-            (qq, rhs), = lines
+            ((qq, rhs),) = lines
             assert _answer(a) == _xs_circle(r2, qq, rhs)[1]
             p = rhs.coeff(X)
             poly = sympy.expand(X**2 + ((p * X + C) / qq) ** 2 - r2)
@@ -216,7 +224,7 @@ def test_exam_follow_through_from_a_wrong_tangent_intercept():
         canon = {p.label: p.answer_text for p in q.parts}
         _par, r2, lines = _curves(q.stem)
         if r2 is None:
-            (_q, line), = lines
+            ((_q, line),) = lines
             c0 = line.subs(X, 0)
             k_wrong = _frac(canon["b"]) + 3
             if k_wrong == 0:
@@ -225,9 +233,12 @@ def test_exam_follow_through_from_a_wrong_tangent_intercept():
             if reply["d"] in q.parts[3].distractors or reply["d"] == reply["b"]:
                 continue  # a reply that repeats an earlier reply is not given follow-through
             res = sup.grade(SKILL, q, {**canon, **reply})
-            assert res.parts["d"].marks == q.parts[3].marks and res.parts["d"].follow_through is True, (seed, res.parts["d"])
+            assert res.parts["d"].marks == q.parts[3].marks and res.parts["d"].follow_through is True, (
+                seed,
+                res.parts["d"],
+            )
         else:
-            (qq, rhs), = lines
+            ((qq, rhs),) = lines
             p = rhs.coeff(X)
             den = p * p + qq * qq
             c_wrong = _frac(canon["b"]) + 5
@@ -235,7 +246,10 @@ def test_exam_follow_through_from_a_wrong_tangent_intercept():
             if str(x_wrong) in q.parts[2].distractors:
                 continue
             res = sup.grade(SKILL, q, {**canon, "b": str(c_wrong), "c": str(x_wrong)})
-            assert res.parts["c"].marks == q.parts[2].marks and res.parts["c"].follow_through is True, (seed, res.parts["c"])
+            assert res.parts["c"].marks == q.parts[2].marks and res.parts["c"].follow_through is True, (
+                seed,
+                res.parts["c"],
+            )
         checked += 1
     assert checked >= 50
 

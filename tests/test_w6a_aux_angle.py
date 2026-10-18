@@ -47,7 +47,9 @@ def _alpha(A, B):
 
 
 def _function_in(text: str, marker: str):
-    m = re.search(marker + r" ((?:[-+]?\s*[\d√()\s]*(?:cos x|sin x))[^.?]*?)(?= for all| takes| reaches|\.|\?|,|$)", text)
+    m = re.search(
+        marker + r" ((?:[-+]?\s*[\d√()\s]*(?:cos x|sin x))[^.?]*?)(?= for all| takes| reaches|\.|\?|,|$)", text
+    )
     return m
 
 
@@ -85,7 +87,9 @@ def test_easy_keys_are_the_exact_extremes():
 def test_medium_keys_are_the_positions_of_the_extremes():
     for seed in range(120):
         q = sup.single(TOPIC, "medium", seed)
-        m = re.search(r"f\(x\) = (.+?)(?: takes| reaches)", q.text) or re.search(r"is (.+?) (?:largest|smallest)\?", q.text)
+        m = re.search(r"f\(x\) = (.+?)(?: takes| reaches)", q.text) or re.search(
+            r"is (.+?) (?:largest|smallest)\?", q.text
+        )
         A, B, d = _coeffs(_parse(m.group(1)))
         alpha = _alpha(A, B)
         top = bool(re.search(r"greatest|largest", q.text))
@@ -172,12 +176,18 @@ def test_exam_follow_through():
         if float(reply) >= 2 * math.pi or str(reply) == canon["c"]:
             continue
         res = sup.grade(SKILL, q, {**canon, "b": str(bad_alpha).replace("pi", "π"), "c": str(reply).replace("pi", "π")})
-        assert res.parts["c"].marks == q.parts[2].marks and res.parts["c"].follow_through is True, (seed, res.parts["c"])
+        assert res.parts["c"].marks == q.parts[2].marks and res.parts["c"].follow_through is True, (
+            seed,
+            res.parts["c"],
+        )
         checked += 1
         shift = int(re.search(r"g\(x\) = (\d+) \+ f", q.parts[3].prompt).group(1))
         wrong_r = sympy.simplify(_ans(q.parts[0]) + 1)
         res = sup.grade(SKILL, q, {**canon, "a": str(wrong_r), "d": str(sympy.simplify(shift + wrong_r))})
-        assert res.parts["d"].marks == q.parts[3].marks and res.parts["d"].follow_through is True, (seed, res.parts["d"])
+        assert res.parts["d"].marks == q.parts[3].marks and res.parts["d"].follow_through is True, (
+            seed,
+            res.parts["d"],
+        )
     assert checked >= 30
 
 

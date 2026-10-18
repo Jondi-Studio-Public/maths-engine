@@ -58,7 +58,11 @@ MISCONCEPTIONS = [
         "Compares how many ones each function has instead of comparing them row by row.",
         AREA,
     ),
-    ("bool-counts-agreeing-rows", "Counts the rows on which two functions agree where the rows on which they differ were asked for.", AREA),
+    (
+        "bool-counts-agreeing-rows",
+        "Counts the rows on which two functions agree where the rows on which they differ were asked for.",
+        AREA,
+    ),
     ("kmap-no-grouping", "Writes one full product term for every cell with a 1, without grouping any cells.", AREA),
     ("kmap-terms-not-literals", "Gives the number of groups where the total number of literals was asked for.", AREA),
     ("kmap-groups-too-small", "Stops at groups of two cells and misses a larger group of four or eight.", AREA),
@@ -69,7 +73,11 @@ MISCONCEPTIONS = [
     ),
     ("kmap-dont-care-as-zero", "Treats a don't-care cell as a 0, so the groups cannot use it.", AREA),
     ("kmap-miscount-literals", "Miscounts the literals in the simplified expression by one.", AREA),
-    ("bool-saving-uses-terms", "Subtracts the product terms instead of the literals when finding how many literals are saved.", AREA),
+    (
+        "bool-saving-uses-terms",
+        "Subtracts the product terms instead of the literals when finding how many literals are saved.",
+        AREA,
+    ),
 ]
 
 _VARS = "ABCD"
@@ -326,7 +334,7 @@ def _kmap_grid(n: int, ones, dcs) -> str:
         return "d" if r in dcs else "1" if r in ones else "0"
 
     if n == 3:
-        rows = [" ".join(cell(a * 4 + _GRAY[c] ) for c in range(4)) for a in range(2)]
+        rows = [" ".join(cell(a * 4 + _GRAY[c]) for c in range(4)) for a in range(2)]
         labels = ["A = 0", "A = 1"]
         cols = "BC = 00, 01, 11, 10"
     else:
@@ -388,7 +396,9 @@ def _easy_expression(rng):
         f"Evaluate F = {text} on each of the 8 rows of A, B, C (000 to 111).",
         f"F = 1 on rows {', '.join(map(str, _ones(f, 3)))}, which is {ones} rows.",
     ]
-    return dict(text=_count_stem(rng, text, None), working=working, distractors=dist, **_answer(ones), answer_kind="number")
+    return dict(
+        text=_count_stem(rng, text, None), working=working, distractors=dist, **_answer(ones), answer_kind="number"
+    )
 
 
 _TWO_VAR = (
@@ -448,7 +458,13 @@ def _circuit_distractors(circuit, n_inputs, ones):
     cands = [(total - ones, "bool-reads-zero-rows")]
     if circuit.uses(swap):
         cands.append((len(_ones(circuit.function(swap), n_inputs)), "bool-gate-type-confused"))
-    cands.extend([(ones + 1, "kmap-miscount-literals"), (ones - 1, "kmap-miscount-literals"), (total // 2, "kmap-miscount-literals")])
+    cands.extend(
+        [
+            (ones + 1, "kmap-miscount-literals"),
+            (ones - 1, "kmap-miscount-literals"),
+            (total // 2, "kmap-miscount-literals"),
+        ]
+    )
     return num_dist(ones, cands)
 
 
@@ -470,7 +486,9 @@ def _circuit_count(rng, circuit, n_inputs, tier):
         f"Evaluate each gate in turn on all {total} rows.",
         f"F = 1 on rows {', '.join(map(str, _ones(circuit.function(), n_inputs)))}: {ones} rows.",
     ]
-    return dict(text=f"{circuit.words()} {ask}", working=working, distractors=dist, **_answer(ones), answer_kind="number")
+    return dict(
+        text=f"{circuit.words()} {ask}", working=working, distractors=dist, **_answer(ones), answer_kind="number"
+    )
 
 
 def _medium_kmap(rng):
@@ -478,7 +496,12 @@ def _medium_kmap(rng):
     ask_terms = rng.random() < 0.3
     value = terms if ask_terms else literals
     cands = (
-        [(literals, "kmap-terms-not-literals"), (len(ones), "kmap-no-grouping"), (terms + 1, "kmap-miscount-literals"), (terms * 3, "kmap-literals-as-variables")]
+        [
+            (literals, "kmap-terms-not-literals"),
+            (len(ones), "kmap-no-grouping"),
+            (terms + 1, "kmap-miscount-literals"),
+            (terms * 3, "kmap-literals-as-variables"),
+        ]
         if ask_terms
         else None
     )
@@ -703,7 +726,9 @@ def exd_x_w6a_boolean_logic(rng, tier="exam"):
                 "number",
                 num_fields(saved),
                 1,
-                [f"The full form needs 3 × {n} = {3 * n} literals; the minimal form needs {literals}, so {saved} fewer."],
+                [
+                    f"The full form needs 3 × {n} = {3 * n} literals; the minimal form needs {literals}, so {saved} fewer."
+                ],
                 d_dist,
                 follow_through="3*part_a - part_c",
                 sensible_range=(0, None),

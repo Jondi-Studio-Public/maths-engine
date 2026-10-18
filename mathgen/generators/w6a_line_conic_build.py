@@ -36,28 +36,84 @@ EXAM_TOPIC = "exd_x_w6a_line_conic"
 
 AREA = "line-and-conic"
 MISCONCEPTIONS = [
-    ("lcv-other-root", "Gives the x-coordinate of the other intersection point, the smaller where the larger was asked.", AREA),
+    (
+        "lcv-other-root",
+        "Gives the x-coordinate of the other intersection point, the smaller where the larger was asked.",
+        AREA,
+    ),
     ("lcv-x-for-y", "Gives an x-coordinate where a y-coordinate was asked, or the reverse.", AREA),
-    ("lcv-root-sign", "Reads a root of the substituted quadratic with the wrong sign, as x = -2 from the factor (x - 2).", AREA),
+    (
+        "lcv-root-sign",
+        "Reads a root of the substituted quadratic with the wrong sign, as x = -2 from the factor (x - 2).",
+        AREA,
+    ),
     ("lcv-product-for-sum", "Gives the product of the x-coordinates where their sum was asked.", AREA),
     ("lcv-difference-for-sum", "Gives the distance between the two x-coordinates where their sum was asked.", AREA),
-    ("lcv-disc-sign", "Gets the sign of the discriminant condition wrong, so the intercept moves the wrong way from the vertex.", AREA),
-    ("lcv-disc-drops-a", "Leaves the leading coefficient out of the discriminant, using b² - 4c in place of b² - 4ac.", AREA),
-    ("lcv-slope-sign", "Subtracts the gradient from the x coefficient with the wrong sign when forming the substituted quadratic.", AREA),
+    (
+        "lcv-disc-sign",
+        "Gets the sign of the discriminant condition wrong, so the intercept moves the wrong way from the vertex.",
+        AREA,
+    ),
+    (
+        "lcv-disc-drops-a",
+        "Leaves the leading coefficient out of the discriminant, using b² - 4c in place of b² - 4ac.",
+        AREA,
+    ),
+    (
+        "lcv-slope-sign",
+        "Subtracts the gradient from the x coefficient with the wrong sign when forming the substituted quadratic.",
+        AREA,
+    ),
     ("lcv-disc-factor", "Uses 2a in place of 4a in the zero-discriminant condition.", AREA),
     ("lcv-midpoint-is-vertex", "Gives the x-coordinate of the parabola's vertex as the midpoint of the chord.", AREA),
     ("lcv-sum-not-halved", "Gives the sum of the two x-coordinates where their mean (the midpoint) was asked.", AREA),
-    ("lcv-tangent-radius-only", "Takes the intercept of a tangent to a circle to be the radius, ignoring the gradient.", AREA),
-    ("lcv-tangent-gradient-unsquared", "Uses r(1 + m) in place of r times the square root of (1 + m²) for the tangent intercept.", AREA),
-    ("lcv-tangent-unscaled", "Forgets to divide by the sum of the squares of the coefficients when finding the point of contact.", AREA),
-    ("lcv-tangent-counted-as-two", "Counts the intercept that gives a tangent as a line with two intersection points.", AREA),
-    ("lcv-no-intersection-counted", "Counts the intercepts that give no intersection instead of those that give two points.", AREA),
-    ("lcv-count-misses-end", "Leaves out one end of the range, or counts both ends, when counting whole-number values.", AREA),
+    (
+        "lcv-tangent-radius-only",
+        "Takes the intercept of a tangent to a circle to be the radius, ignoring the gradient.",
+        AREA,
+    ),
+    (
+        "lcv-tangent-gradient-unsquared",
+        "Uses r(1 + m) in place of r times the square root of (1 + m²) for the tangent intercept.",
+        AREA,
+    ),
+    (
+        "lcv-tangent-unscaled",
+        "Forgets to divide by the sum of the squares of the coefficients when finding the point of contact.",
+        AREA,
+    ),
+    (
+        "lcv-tangent-counted-as-two",
+        "Counts the intercept that gives a tangent as a line with two intersection points.",
+        AREA,
+    ),
+    (
+        "lcv-no-intersection-counted",
+        "Counts the intercepts that give no intersection instead of those that give two points.",
+        AREA,
+    ),
+    (
+        "lcv-count-misses-end",
+        "Leaves out one end of the range, or counts both ends, when counting whole-number values.",
+        AREA,
+    ),
     ("lcv-gradient-inverted", "Gives the reciprocal of the tangent gradient, run over rise.", AREA),
     ("lcv-gradient-sign", "Gives the negative gradient, taking the smaller of the two tangent gradients.", AREA),
-    ("lcv-gap-sign", "Adds the two intercepts instead of subtracting them to find the gap between parallel lines.", AREA),
-    ("lcv-gap-from-intercept", "Measures the gap from the parabola's own y-intercept rather than from the tangent line.", AREA),
-    ("lcv-line-value-in-parabola", "Substitutes the x-coordinate into the line's gradient instead of its equation, so the y-value is wrong.", AREA),
+    (
+        "lcv-gap-sign",
+        "Adds the two intercepts instead of subtracting them to find the gap between parallel lines.",
+        AREA,
+    ),
+    (
+        "lcv-gap-from-intercept",
+        "Measures the gap from the parabola's own y-intercept rather than from the tangent line.",
+        AREA,
+    ),
+    (
+        "lcv-line-value-in-parabola",
+        "Substitutes the x-coordinate into the line's gradient instead of its equation, so the y-value is wrong.",
+        AREA,
+    ),
 ]
 
 
@@ -185,7 +241,12 @@ def _easy(rng):
     pair = f"the parabola {_poly_text(a, b, d)} and the line {_line_text(m, c)}"
     if kind == "larger":
         value = r2
-        cands = [(r1, "lcv-other-root"), (m * r2 + c, "lcv-x-for-y"), (-r2, "lcv-root-sign"), (r1 + r2, "lcv-product-for-sum")]
+        cands = [
+            (r1, "lcv-other-root"),
+            (m * r2 + c, "lcv-x-for-y"),
+            (-r2, "lcv-root-sign"),
+            (r1 + r2, "lcv-product-for-sum"),
+        ]
         stem = phrase(
             rng,
             (
@@ -194,10 +255,18 @@ def _easy(rng):
                 f"The graphs of {pair} intersect twice. What is the x-coordinate of the right-hand point of intersection?",
             ),
         )
-        working = [f"Equate: {_poly_rhs(a, b, d)} = {_lin_rhs(m, c)}, a quadratic with roots x = {r1} and x = {r2}.", f"The larger is x = {r2}."]
+        working = [
+            f"Equate: {_poly_rhs(a, b, d)} = {_lin_rhs(m, c)}, a quadratic with roots x = {r1} and x = {r2}.",
+            f"The larger is x = {r2}.",
+        ]
     elif kind == "y_of_smaller":
         value = y1
-        cands = [(r1, "lcv-x-for-y"), (m * r2 + c, "lcv-other-root"), (-y1, "lcv-root-sign"), (m * r1, "lcv-line-value-in-parabola")]
+        cands = [
+            (r1, "lcv-x-for-y"),
+            (m * r2 + c, "lcv-other-root"),
+            (-y1, "lcv-root-sign"),
+            (m * r1, "lcv-line-value-in-parabola"),
+        ]
         stem = phrase(
             rng,
             (
@@ -206,10 +275,18 @@ def _easy(rng):
                 f"Find the y-coordinate of the left-hand point where {pair} meet.",
             ),
         )
-        working = [f"The x-coordinates are {r1} and {r2}; the left-hand point has x = {r1}.", f"y = {m}({r1}) {'+' if c >= 0 else '-'} {abs(c)} = {y1}."]
+        working = [
+            f"The x-coordinates are {r1} and {r2}; the left-hand point has x = {r1}.",
+            f"y = {m}({r1}) {'+' if c >= 0 else '-'} {abs(c)} = {y1}.",
+        ]
     else:
         value = r1 + r2
-        cands = [(r1 * r2, "lcv-product-for-sum"), (r2 - r1, "lcv-difference-for-sum"), (-(r1 + r2), "lcv-root-sign"), (r2, "lcv-other-root")]
+        cands = [
+            (r1 * r2, "lcv-product-for-sum"),
+            (r2 - r1, "lcv-difference-for-sum"),
+            (-(r1 + r2), "lcv-root-sign"),
+            (r2, "lcv-other-root"),
+        ]
         stem = phrase(
             rng,
             (
@@ -315,7 +392,12 @@ def _medium_midpoint(rng):
     roots = sympy.solve(a * x**2 + (b - m) * x + (d - c), x)
     check(len(roots) == 2 and abs(float(sum(roots) / 2) - float(mid)) < 1e-9, "SymPy's mean of the roots differs")
     vertex = Fraction(-b, 2 * a)
-    cands = [(vertex, "lcv-midpoint-is-vertex"), (2 * mid, "lcv-sum-not-halved"), (-mid, "lcv-root-sign"), (Fraction(m, 2 * a), "lcv-slope-sign")]
+    cands = [
+        (vertex, "lcv-midpoint-is-vertex"),
+        (2 * mid, "lcv-sum-not-halved"),
+        (-mid, "lcv-root-sign"),
+        (Fraction(m, 2 * a), "lcv-slope-sign"),
+    ]
     dist = num_dist(mid, cands)
     enough(dist)
     stem = phrase(
@@ -437,7 +519,12 @@ def _hard_count(rng):
 @functools.cache
 def _tangent_triples():
     """(c, r, s) with c² - r² = s² and 0 < r < c: the lines through (0, c) tangent to x² + y² = r² have gradient ±s/r."""
-    return tuple((c, r, isqrt(c * c - r * r)) for c in range(4, 26) for r in range(2, c) if isqrt(c * c - r * r) ** 2 == c * c - r * r)
+    return tuple(
+        (c, r, isqrt(c * c - r * r))
+        for c in range(4, 26)
+        for r in range(2, c)
+        if isqrt(c * c - r * r) ** 2 == c * c - r * r
+    )
 
 
 def _hard_two_tangents(rng):
@@ -447,7 +534,9 @@ def _hard_two_tangents(rng):
         x = sympy.Symbol("x")
         m = sympy.Symbol("m")
         sols = sympy.solve(sympy.discriminant(sympy.expand(x**2 + (m * x + c) ** 2 - r * r), x), m)
-        check(sorted(float(v) for v in sols) == sorted([-float(value), float(value)]), "SymPy's tangent gradients differ")
+        check(
+            sorted(float(v) for v in sols) == sorted([-float(value), float(value)]), "SymPy's tangent gradients differ"
+        )
         cands = [
             (Fraction(r, s), "lcv-gradient-inverted"),
             (-value, "lcv-gradient-sign"),
@@ -482,7 +571,12 @@ def _hard_two_tangents(rng):
     x = sympy.Symbol("x")
     sols = sympy.solve(sympy.discriminant(a * x**2 + b * x + d - (m * x + c), x), m)
     check(sorted(float(v) for v in sols) == sorted([b - 2 * t, b + 2 * t]), "SymPy's tangent gradients differ")
-    cands = [(b - 2 * t, "lcv-gradient-sign"), (b + t, "lcv-disc-factor"), (2 * t - b, "lcv-slope-sign"), (-(b + 2 * t), "lcv-root-sign")]
+    cands = [
+        (b - 2 * t, "lcv-gradient-sign"),
+        (b + t, "lcv-disc-factor"),
+        (2 * t - b, "lcv-slope-sign"),
+        (-(b + 2 * t), "lcv-root-sign"),
+    ]
     dist = num_dist(value, cands)
     enough(dist)
     stem = phrase(
@@ -499,7 +593,11 @@ def _hard_two_tangents(rng):
     return dict(text=stem, working=working, distractors=dist, answer_kind="number", **num_fields(value))
 
 
-_TIERS = {"easy": (_easy,), "medium": (_medium_tangent, _medium_circle, _medium_midpoint), "hard": (_hard_circle_tangent, _hard_count, _hard_two_tangents)}
+_TIERS = {
+    "easy": (_easy,),
+    "medium": (_medium_tangent, _medium_circle, _medium_midpoint),
+    "hard": (_hard_circle_tangent, _hard_count, _hard_two_tangents),
+}
 
 
 @generator(
@@ -526,10 +624,16 @@ def _exam_parabola(rng):
     # Second route for the contact point: the tangent line meets the parabola only at x = xt.
     x = sympy.Symbol("x")
     kk = sympy.Rational(k.numerator, k.denominator)
-    check(sympy.solve(a * x**2 + b * x + d - (m * x + kk), x) == [sympy.Rational(xt.numerator, xt.denominator)], "contact point differs")
+    check(
+        sympy.solve(a * x**2 + b * x + d - (m * x + kk), x) == [sympy.Rational(xt.numerator, xt.denominator)],
+        "contact point differs",
+    )
     gap = abs(_fx(c) - k)
     stem = f"The line L: {_line_text(m, c)} and the parabola P: {_poly_text(a, b, d)} intersect at two points."
-    a_dist = num_dist(r2, [(r1, "lcv-other-root"), (m * r2 + c, "lcv-x-for-y"), (-r2, "lcv-root-sign"), (r1 + r2, "lcv-product-for-sum")])
+    a_dist = num_dist(
+        r2,
+        [(r1, "lcv-other-root"), (m * r2 + c, "lcv-x-for-y"), (-r2, "lcv-root-sign"), (r1 + r2, "lcv-product-for-sum")],
+    )
     b_dist = num_dist(
         k,
         [
@@ -540,16 +644,54 @@ def _exam_parabola(rng):
         ],
         3,
     )
-    c_dist = num_dist(xt, [(Fraction(-b, 2 * a), "lcv-midpoint-is-vertex"), (Fraction(b - m, 2 * a), "lcv-root-sign"), (Fraction(m - b, a), "lcv-sum-not-halved"), (Fraction(m, 2 * a), "lcv-slope-sign")], 3)
-    d_dist = num_dist(gap, [(abs(_fx(c) + k), "lcv-gap-sign"), (abs(_fx(c) - d), "lcv-gap-from-intercept"), (abs(_fx(d) - k), "lcv-gap-from-intercept")], 3)
+    c_dist = num_dist(
+        xt,
+        [
+            (Fraction(-b, 2 * a), "lcv-midpoint-is-vertex"),
+            (Fraction(b - m, 2 * a), "lcv-root-sign"),
+            (Fraction(m - b, a), "lcv-sum-not-halved"),
+            (Fraction(m, 2 * a), "lcv-slope-sign"),
+        ],
+        3,
+    )
+    d_dist = num_dist(
+        gap,
+        [
+            (abs(_fx(c) + k), "lcv-gap-sign"),
+            (abs(_fx(c) - d), "lcv-gap-from-intercept"),
+            (abs(_fx(d) - k), "lcv-gap-from-intercept"),
+        ],
+        3,
+    )
     for dist in (a_dist, b_dist, c_dist, d_dist):
         enough(dist)
     return dict(
         text=stem,
         parts=[
-            part("Find the larger x-coordinate of the two points where L meets P.", "number", num_fields(r2), 1, [f"The intersections are at x = {r1} and x = {r2}."], a_dist),
-            part(f"The line {_k_line(m)} is a tangent to P. Find k.", "number", num_fields(k), 2, [f"A zero discriminant gives k = {k}."], b_dist),
-            part("Find the x-coordinate of the point where that tangent touches P.", "number", num_fields(xt), 2, [f"The repeated root is x = {xt}."], c_dist),
+            part(
+                "Find the larger x-coordinate of the two points where L meets P.",
+                "number",
+                num_fields(r2),
+                1,
+                [f"The intersections are at x = {r1} and x = {r2}."],
+                a_dist,
+            ),
+            part(
+                f"The line {_k_line(m)} is a tangent to P. Find k.",
+                "number",
+                num_fields(k),
+                2,
+                [f"A zero discriminant gives k = {k}."],
+                b_dist,
+            ),
+            part(
+                "Find the x-coordinate of the point where that tangent touches P.",
+                "number",
+                num_fields(xt),
+                2,
+                [f"The repeated root is x = {xt}."],
+                c_dist,
+            ),
             part(
                 "Find the vertical distance between L and that tangent.",
                 "fraction",
@@ -591,18 +733,55 @@ def _exam_circle(rng):
     )
     b_dist = num_dist(
         tangent_c,
-        [(r, "lcv-tangent-radius-only"), (r * (abs(p) + q), "lcv-tangent-gradient-unsquared"), (r * den, "lcv-tangent-gradient-unsquared"), (r * q, "lcv-tangent-radius-only")],
+        [
+            (r, "lcv-tangent-radius-only"),
+            (r * (abs(p) + q), "lcv-tangent-gradient-unsquared"),
+            (r * den, "lcv-tangent-gradient-unsquared"),
+            (r * q, "lcv-tangent-radius-only"),
+        ],
         3,
     )
-    c_dist = num_dist(xt, [(Fraction(-p * tangent_c, 1), "lcv-tangent-unscaled"), (Fraction(p * tangent_c, den), "lcv-root-sign"), (Fraction(-tangent_c, den), "lcv-slope-sign"), (Fraction(-q * tangent_c, den), "lcv-x-for-y")], 3)
-    d_dist = num_dist(yt, [(xt, "lcv-x-for-y"), (-yt, "lcv-root-sign"), ((p * xt) / q, "lcv-line-value-in-parabola"), (Fraction(tangent_c, q), "lcv-line-value-in-parabola")], 3)
+    c_dist = num_dist(
+        xt,
+        [
+            (Fraction(-p * tangent_c, 1), "lcv-tangent-unscaled"),
+            (Fraction(p * tangent_c, den), "lcv-root-sign"),
+            (Fraction(-tangent_c, den), "lcv-slope-sign"),
+            (Fraction(-q * tangent_c, den), "lcv-x-for-y"),
+        ],
+        3,
+    )
+    d_dist = num_dist(
+        yt,
+        [
+            (xt, "lcv-x-for-y"),
+            (-yt, "lcv-root-sign"),
+            ((p * xt) / q, "lcv-line-value-in-parabola"),
+            (Fraction(tangent_c, q), "lcv-line-value-in-parabola"),
+        ],
+        3,
+    )
     for dist in (a_dist, b_dist, c_dist, d_dist):
         enough(dist)
     return dict(
         text=stem,
         parts=[
-            part("Find the larger x-coordinate of the two points where L meets S.", "number", num_fields(xs[1]), 2, [f"The intersections have x = {xs[0]} and x = {xs[1]}."], a_dist),
-            part(f"The line {tline} is a tangent to S, with C > 0. Find C.", "number", num_fields(tangent_c), 2, [f"C² = {r * r}({p * p} + {q * q}), so C = {tangent_c}."], b_dist),
+            part(
+                "Find the larger x-coordinate of the two points where L meets S.",
+                "number",
+                num_fields(xs[1]),
+                2,
+                [f"The intersections have x = {xs[0]} and x = {xs[1]}."],
+                a_dist,
+            ),
+            part(
+                f"The line {tline} is a tangent to S, with C > 0. Find C.",
+                "number",
+                num_fields(tangent_c),
+                2,
+                [f"C² = {r * r}({p * p} + {q * q}), so C = {tangent_c}."],
+                b_dist,
+            ),
             part(
                 "Find the x-coordinate of the point where that tangent touches S.",
                 "fraction",

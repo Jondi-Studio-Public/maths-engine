@@ -494,7 +494,9 @@ def exd_x_w6c_cofactor(rng, tier="exam"):
                 "Find det A.",
                 d,
                 3,
-                ["Row operations reduce A to triangular form; the product of the pivots, with the sign of any swaps, is det A."],
+                [
+                    "Row operations reduce A to triangular form; the product of the pivots, with the sign of any swaps, is det A."
+                ],
                 [
                     ("det-row-swap-sign-ignored", -d),
                     ("cof-alternating-signs-ignored", _alternating_wrong(a, 0)),
@@ -505,7 +507,9 @@ def exd_x_w6c_cofactor(rng, tier="exam"):
                 f"Find the cofactor C{i + 1}{j + 1} of A.",
                 cof,
                 2,
-                [f"C{i + 1}{j + 1} = (-1)^({i + 1}+{j + 1}) × det of the minor with row {i + 1} and column {j + 1} deleted = {cof}."],
+                [
+                    f"C{i + 1}{j + 1} = (-1)^({i + 1}+{j + 1}) × det of the minor with row {i + 1} and column {j + 1} deleted = {cof}."
+                ],
                 [
                     ("cof-minor-without-sign", abs(cof) if (i + j) % 2 else -abs(cof)),
                     ("cof-index-transposed", other),
@@ -517,7 +521,9 @@ def exd_x_w6c_cofactor(rng, tier="exam"):
                 f"Find the entry in row {j + 1}, column {i + 1} of A⁻¹.",
                 inverse_entry,
                 2,
-                [f"A⁻¹ = adj(A)/det A, and the (row {j + 1}, column {i + 1}) entry of adj(A) is C{i + 1}{j + 1}, so it is {inverse_entry.numerator}/{inverse_entry.denominator}."],
+                [
+                    f"A⁻¹ = adj(A)/det A, and the (row {j + 1}, column {i + 1}) entry of adj(A) is C{i + 1}{j + 1}, so it is {inverse_entry.numerator}/{inverse_entry.denominator}."
+                ],
                 [
                     ("cof-adjugate-not-transposed", Fraction(other, d)),
                     ("cof-forgot-divide-by-det", Fraction(cof)),

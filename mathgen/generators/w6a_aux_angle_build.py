@@ -38,16 +38,48 @@ MISCONCEPTIONS = [
     ("aux-larger-coefficient", "Takes the larger of the two coefficients as the amplitude R.", AREA),
     ("aux-forgets-root", "Gives R² = a² + b² as the amplitude, forgetting the square root.", AREA),
     ("aux-shift-ignored", "Leaves out the vertical shift, giving the extreme value of the wave alone.", AREA),
-    ("aux-multiplier-ignored", "Leaves out the multiplier in front of the bracket when finding the extreme value.", AREA),
-    ("aux-wrong-end", "Applies the vertical shift to the wrong end, giving the maximum where the minimum was asked or the reverse.", AREA),
-    ("aux-alpha-swapped", "Finds α from arctan(a/b) instead of arctan(b/a), swapping the roles of the two coefficients.", AREA),
-    ("aux-no-quadrant", "Reads α straight from the arctangent without placing it in the quadrant given by the signs of a and b.", AREA),
-    ("aux-min-for-max", "Gives the position of the minimum where the maximum was asked, or the reverse (an error of π).", AREA),
+    (
+        "aux-multiplier-ignored",
+        "Leaves out the multiplier in front of the bracket when finding the extreme value.",
+        AREA,
+    ),
+    (
+        "aux-wrong-end",
+        "Applies the vertical shift to the wrong end, giving the maximum where the minimum was asked or the reverse.",
+        AREA,
+    ),
+    (
+        "aux-alpha-swapped",
+        "Finds α from arctan(a/b) instead of arctan(b/a), swapping the roles of the two coefficients.",
+        AREA,
+    ),
+    (
+        "aux-no-quadrant",
+        "Reads α straight from the arctangent without placing it in the quadrant given by the signs of a and b.",
+        AREA,
+    ),
+    (
+        "aux-min-for-max",
+        "Gives the position of the minimum where the maximum was asked, or the reverse (an error of π).",
+        AREA,
+    ),
     ("aux-angle-left-negative", "Leaves α negative instead of adding 2π to bring it into [0, 2π).", AREA),
-    ("aux-other-solution", "Gives the other solution of cos(x - α) = c/R, the smaller where the larger was asked or the reverse.", AREA),
-    ("aux-offset-not-added", "Gives the offset δ from cos δ = c/R without adding α, solving the equation for x - α only.", AREA),
+    (
+        "aux-other-solution",
+        "Gives the other solution of cos(x - α) = c/R, the smaller where the larger was asked or the reverse.",
+        AREA,
+    ),
+    (
+        "aux-offset-not-added",
+        "Gives the offset δ from cos δ = c/R without adding α, solving the equation for x - α only.",
+        AREA,
+    ),
     ("aux-c-not-scaled", "Solves cos(x - α) = c instead of cos(x - α) = c/R.", AREA),
-    ("aux-threshold-rounded-down", "Gives the whole part of R as the least c with no solution, instead of the next whole number.", AREA),
+    (
+        "aux-threshold-rounded-down",
+        "Gives the whole part of R as the least c with no solution, instead of the next whole number.",
+        AREA,
+    ),
     ("aux-threshold-rounded", "Rounds R to the nearest whole number to find the least c with no solution.", AREA),
 ]
 
@@ -96,7 +128,10 @@ def _check_location(a, b, maximum: bool, expected):
     xs = [2 * math.pi * i / 12000 for i in range(12000)]
     vals = [fa * math.cos(t) + fb * math.sin(t) for t in xs]
     best = max(range(12000), key=lambda i: vals[i] if maximum else -vals[i])
-    check(abs(xs[best] - float(expected)) < 1e-3 or abs(abs(xs[best] - float(expected)) - 2 * math.pi) < 1e-3, "numeric location differs")
+    check(
+        abs(xs[best] - float(expected)) < 1e-3 or abs(abs(xs[best] - float(expected)) - 2 * math.pi) < 1e-3,
+        "numeric location differs",
+    )
 
 
 def _wave_text(s, a, b, d) -> str:
@@ -112,7 +147,23 @@ def _wave_text(s, a, b, d) -> str:
 # -- easy ---------------------------------------------------------------------------------------------------------------
 
 _PYTH = ((3, 4), (4, 3), (5, 12), (12, 5), (8, 15), (15, 8), (6, 8), (8, 6), (7, 24), (9, 12), (20, 21))
-_SURDY = ((1, 1), (1, 2), (2, 1), (2, 3), (3, 2), (1, 3), (3, 1), (2, 2), (1, 4), (4, 1), (3, 3), (5, 1), (1, 5), (4, 3), (2, 5))
+_SURDY = (
+    (1, 1),
+    (1, 2),
+    (2, 1),
+    (2, 3),
+    (3, 2),
+    (1, 3),
+    (3, 1),
+    (2, 2),
+    (1, 4),
+    (4, 1),
+    (3, 3),
+    (5, 1),
+    (1, 5),
+    (4, 3),
+    (2, 5),
+)
 
 
 def _signed_pair(rng, pair):
@@ -201,7 +252,15 @@ def _medium(rng):
     dist = expr_dist(where, [(sympy.simplify(c), t) for c, t in cands if c is not None and sympy.simplify(c).is_real])
     # a minimum whose answer is the same as another tagged value is dropped by expr_dist; top up with a standard slip
     if len(dist) < 2:
-        dist = expr_dist(where, [(sympy.simplify(alpha + pi / 2), "aux-alpha-swapped"), (sympy.simplify(-alpha + 2 * pi), "aux-no-quadrant"), (sympy.simplify(raw), "aux-no-quadrant"), (sympy.simplify(swapped), "aux-alpha-swapped")])
+        dist = expr_dist(
+            where,
+            [
+                (sympy.simplify(alpha + pi / 2), "aux-alpha-swapped"),
+                (sympy.simplify(-alpha + 2 * pi), "aux-no-quadrant"),
+                (sympy.simplify(raw), "aux-no-quadrant"),
+                (sympy.simplify(swapped), "aux-alpha-swapped"),
+            ],
+        )
     enough(dist)
     fn = _function_text(a, b)
     word = "greatest" if maximum else "least"
@@ -245,7 +304,10 @@ def _solutions(alpha, delta):
 def _check_solutions(a, b, c, sols):
     fa, fb, fc = float(a), float(b), float(c)
     for x in sols:
-        check(abs(fa * math.cos(float(x)) + fb * math.sin(float(x)) - fc) < 1e-9, "a solution does not satisfy the equation")
+        check(
+            abs(fa * math.cos(float(x)) + fb * math.sin(float(x)) - fc) < 1e-9,
+            "a solution does not satisfy the equation",
+        )
     # no other solution: count sign changes of the function minus c over a fine grid
     grid = [2 * math.pi * (i + 0.37) / 20000 for i in range(20000)]
     vals = [fa * math.cos(t) + fb * math.sin(t) - fc for t in grid]
@@ -382,7 +444,11 @@ def _exam(rng):
     swapped = swapped + 2 * pi if swapped < 0 else swapped
     a_dist = expr_dist(
         R,
-        [(abs(a) + abs(b), "aux-sums-coefficients"), (a * a + b * b, "aux-forgets-root"), (max(abs(a), abs(b)), "aux-larger-coefficient")],
+        [
+            (abs(a) + abs(b), "aux-sums-coefficients"),
+            (a * a + b * b, "aux-forgets-root"),
+            (max(abs(a), abs(b)), "aux-larger-coefficient"),
+        ],
         3,
     )
     b_dist = expr_dist(
@@ -443,7 +509,9 @@ def _exam(rng):
                 "expression",
                 expr_fields(larger),
                 2,
-                [f"cos(x - α) = {vt(sympy.simplify(c / R))}, so x - α = ±{vt(delta)}, and the larger solution is x = α + {vt(delta)} = {vt(larger)}."],
+                [
+                    f"cos(x - α) = {vt(sympy.simplify(c / R))}, so x - α = ±{vt(delta)}, and the larger solution is x = α + {vt(delta)} = {vt(larger)}."
+                ],
                 c_dist,
                 follow_through=f"part_b + {delta_text}",
             ),

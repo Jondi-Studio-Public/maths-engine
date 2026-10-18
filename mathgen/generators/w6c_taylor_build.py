@@ -119,7 +119,11 @@ class Func:
         if k == "poly":
             return sympy.expand(_expr_of(self.terms))
         if k == "exp":
-            return sympy.expand(_expr_of(self.g)) * sympy.exp(_expr_of(self.w)) if self.g != {(0, 0): 1} else sympy.exp(_expr_of(self.w))
+            return (
+                sympy.expand(_expr_of(self.g)) * sympy.exp(_expr_of(self.w))
+                if self.g != {(0, 0): 1}
+                else sympy.exp(_expr_of(self.w))
+            )
         if k == "log":
             return sympy.log(sympy.expand(1 + _expr_of(self.w)))
         if k == "sin":
@@ -281,8 +285,6 @@ def _draw_jet(rng):
     raise Redraw("no usable function")  # pragma: no cover
 
 
-
-
 # -- easy -----------------------------------------------------------------------------------------------------------
 
 _COEFFICIENT_STEMS = (
@@ -367,8 +369,14 @@ def _medium(rng):
     check(value.denominator <= 128, "an awkward denominator")
     wrong = [
         ("taylor-second-order-omitted", jet.estimate(h, k, order=1)),
-        ("taylor-second-order-no-half", jet.c00 + jet.fx * h + jet.fy * k + jet.fxx * h * h + 2 * jet.fxy * h * k + jet.fyy * k * k),
-        ("taylor-mixed-term-halved", jet.c00 + jet.fx * h + jet.fy * k + H * (jet.fxx * h * h + jet.fxy * h * k + jet.fyy * k * k)),
+        (
+            "taylor-second-order-no-half",
+            jet.c00 + jet.fx * h + jet.fy * k + jet.fxx * h * h + 2 * jet.fxy * h * k + jet.fyy * k * k,
+        ),
+        (
+            "taylor-mixed-term-halved",
+            jet.c00 + jet.fx * h + jet.fy * k + H * (jet.fxx * h * h + jet.fxy * h * k + jet.fyy * k * k),
+        ),
         ("taylor-mixed-term-omitted", jet.c00 + jet.fx * h + jet.fy * k + H * (jet.fxx * h * h + jet.fyy * k * k)),
         ("taylor-offsets-swapped", jet.estimate(k, h)),
         ("taylor-constant-omitted", value - jet.c00),
@@ -491,7 +499,6 @@ def _hard(rng):
     return dict(text=text, latex=latex, working=working, **value_fields(value, wrong))
 
 
-
 @generator(
     "w6c_taylor",
     level=19,
@@ -523,7 +530,16 @@ def _stationary_cubic(rng):
         cubic = [rng.choice([-2, -1, 0, 1, 2]) for _ in range(4)]
         f0 = rng.randint(-3, 5)
         u, v = X - a, Y - b
-        f = sympy.expand(f0 + alpha * u**2 + beta * u * v + gamma * v**2 + cubic[0] * u**3 + cubic[1] * u**2 * v + cubic[2] * u * v**2 + cubic[3] * v**3)
+        f = sympy.expand(
+            f0
+            + alpha * u**2
+            + beta * u * v
+            + gamma * v**2
+            + cubic[0] * u**3
+            + cubic[1] * u**2 * v
+            + cubic[2] * u * v**2
+            + cubic[3] * v**3
+        )
         if sum(1 for c in cubic if c) < 2:
             continue
         return f, a, b, alpha, beta, gamma, f0
@@ -539,7 +555,10 @@ def exd_x_w6c_taylor(rng, tier="exam"):
     terms = {(i, j): int(c) for (i, j), c in sympy.Poly(f, X, Y).as_dict().items()}
     jet = Jet(Func("poly", terms=terms), a, b)
     check((jet.fx, jet.fy) == (0, 0), "P is not stationary")
-    check((jet.fxx, jet.fxy, jet.fyy, jet.c00) == (2 * alpha, beta, 2 * gamma, f0), "the derivatives differ from the construction")
+    check(
+        (jet.fxx, jet.fxy, jet.fyy, jet.c00) == (2 * alpha, beta, 2 * gamma, f0),
+        "the derivatives differ from the construction",
+    )
     d = jet.fxx * jet.fyy - jet.fxy * jet.fxy
     if d < 0:
         correct = _CLASSES[2]
@@ -558,7 +577,9 @@ def exd_x_w6c_taylor(rng, tier="exam"):
             return "hessian-fxx-sign-ignored"
         return "hessian-determinant-sign-misread"
 
-    cubic_text, cubic_latex = compose("Let f(x, y) = ", math_of(f), f". The point P = ({a}, {b}) is a stationary point of f.")
+    cubic_text, cubic_latex = compose(
+        "Let f(x, y) = ", math_of(f), f". The point P = ({a}, {b}) is a stationary point of f."
+    )
     fyy2, fxy2 = jet.fyy, jet.fxy * jet.fxy
     return dict(
         text=cubic_text,
@@ -593,7 +614,9 @@ def exd_x_w6c_taylor(rng, tier="exam"):
                 "What does the second-derivative test say about P?",
                 correct,
                 2,
-                ["D < 0 gives a saddle point; D > 0 gives a minimum when fₓₓ > 0 and a maximum when fₓₓ < 0; D = 0 is inconclusive."],
+                [
+                    "D < 0 gives a saddle point; D > 0 gives a minimum when fₓₓ > 0 and a maximum when fₓₓ < 0; D = 0 is inconclusive."
+                ],
                 [(tag(c), c) for c in _CLASSES if c != correct],
             ),
             value_part(
@@ -601,7 +624,9 @@ def exd_x_w6c_taylor(rng, tier="exam"):
                 "Give the estimate as a fraction in lowest terms.",
                 estimate,
                 3,
-                [f"f(P) = {_f(jet.c00)} and the first derivatives are 0, so T₂ = {_f(jet.c00)} + ½[({_f(jet.fxx)})({_f(h)})² + 2({_f(jet.fxy)})({_f(h)})({_f(k)}) + ({_f(jet.fyy)})({_f(k)})²] = {_f(estimate)}."],
+                [
+                    f"f(P) = {_f(jet.c00)} and the first derivatives are 0, so T₂ = {_f(jet.c00)} + ½[({_f(jet.fxx)})({_f(h)})² + 2({_f(jet.fxy)})({_f(h)})({_f(k)}) + ({_f(jet.fyy)})({_f(k)})²] = {_f(estimate)}."
+                ],
                 [
                     ("taylor-constant-omitted", estimate - jet.c00),
                     ("taylor-second-order-no-half", jet.c00 + jet.fxx * h * h + 2 * jet.fxy * h * k + jet.fyy * k * k),

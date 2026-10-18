@@ -55,7 +55,9 @@ def _ones_of_expression(expr: str) -> list[int]:
 
 def _kmap_from_text(text: str):
     """(n, ones, dcs) from either the row listing or the printed map."""
-    m = re.search(r"is 1 on the rows? numbered ([\d, ]+?)(?:, and its output is a don't care on rows? ([\d, ]+?))? \(", text)
+    m = re.search(
+        r"is 1 on the rows? numbered ([\d, ]+?)(?:, and its output is a don't care on rows? ([\d, ]+?))? \(", text
+    )
     n = 4 if "four inputs" in text else 3
     if m:
         ones = [int(x) for x in m.group(1).split(",")]
@@ -126,7 +128,10 @@ def test_medium_keys():
         q = sup.single(TOPIC, "medium", seed)
         if "G = " in q.text:
             g, h = re.search(r"G = (.+?) and H = (.+?)(?:, both| for the same)", q.text).groups()
-            diff = sum(_eval_expression(g, r >> 2 & 1, r >> 1 & 1, r & 1) != _eval_expression(h, r >> 2 & 1, r >> 1 & 1, r & 1) for r in range(8))
+            diff = sum(
+                _eval_expression(g, r >> 2 & 1, r >> 1 & 1, r & 1) != _eval_expression(h, r >> 2 & 1, r >> 1 & 1, r & 1)
+                for r in range(8)
+            )
             assert diff == int(q.answer), (seed, q.text)
             seen.add("differ")
         elif "Gate P" in q.text:

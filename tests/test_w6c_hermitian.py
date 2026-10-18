@@ -108,7 +108,11 @@ def test_hard_keys():
             assert (bad.H * bad).expand() != sympy.eye(2)
             kinds.add("x")
         else:
-            lam = int(re.search(r"(-?\d+) (?:is one of its eigenvalues|is an eigenvalue)", q.text).group(1)) if "is one of" in q.text else int(re.search(r"Given that (-?\d+) is an eigenvalue", q.text).group(1))
+            lam = (
+                int(re.search(r"(-?\d+) (?:is one of its eigenvalues|is an eigenvalue)", q.text).group(1))
+                if "is one of" in q.text
+                else int(re.search(r"Given that (-?\d+) is an eigenvalue", q.text).group(1))
+            )
             h = _matrix(q.text)
             assert sympy.solve(sympy.expand((h - lam * sympy.eye(2)).det()), K) == [key]
             kinds.add("k")

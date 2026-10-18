@@ -57,8 +57,11 @@ def rat(value) -> Fraction:
 
 def num_fields(value) -> dict:
     value = rat(value)
-    return dict(answer=exact_value(value), answer_text=rational_text(sympy.Rational(value.numerator, value.denominator)),
-                answer_latex=tex_rational(value))
+    return dict(
+        answer=exact_value(value),
+        answer_text=rational_text(sympy.Rational(value.numerator, value.denominator)),
+        answer_latex=tex_rational(value),
+    )
 
 
 def num_dist(correct, candidates, n: int = 4) -> list[Distractor]:
@@ -73,7 +76,9 @@ def num_dist(correct, candidates, n: int = 4) -> list[Distractor]:
         if value in seen:
             continue
         seen.add(value)
-        out.append(Distractor(rational_text(sympy.Rational(value.numerator, value.denominator)), tag, exact_value(value)))
+        out.append(
+            Distractor(rational_text(sympy.Rational(value.numerator, value.denominator)), tag, exact_value(value))
+        )
         if len(out) == n:
             break
     _same_shape_as_answer(correct, out)
@@ -88,7 +93,9 @@ def _same_shape_as_answer(correct, out) -> None:
     """The answer must not be the only whole number (or the only fraction) among the options."""
     if len(out) < 2:
         return
-    shapes = [_is_whole(d.value if not isinstance(d.value, dict) else Fraction(d.value["p"], d.value["q"])) for d in out]
+    shapes = [
+        _is_whole(d.value if not isinstance(d.value, dict) else Fraction(d.value["p"], d.value["q"])) for d in out
+    ]
     if shapes.count(_is_whole(correct)) == 0:
         raise TooFewDistractors("every distractor has a different shape from the answer")
 
@@ -186,7 +193,9 @@ def set_dist(correct, candidates, n: int = 3) -> list[Distractor]:
 
 
 def part(prompt: str, kind: str, fields: dict, marks: int, working, distractors, **extra) -> dict:
-    return dict(prompt=prompt, answer_kind=kind, marks=marks, working=list(working), distractors=distractors, **fields, **extra)
+    return dict(
+        prompt=prompt, answer_kind=kind, marks=marks, working=list(working), distractors=distractors, **fields, **extra
+    )
 
 
 class TooFewDistractors(VerificationError):
