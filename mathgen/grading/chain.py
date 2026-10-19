@@ -20,6 +20,7 @@ points, never by evaluating anything the learner wrote beyond sympy's restricted
 
 from __future__ import annotations
 
+import functools
 import re
 
 import sympy
@@ -62,6 +63,7 @@ def _spell_roots(line: str) -> str:
     return re.sub(r"([A-Za-z0-9)])\s*sqrt\(", r"\1*sqrt(", text)
 
 
+@functools.lru_cache(maxsize=2048)
 def _parse(line: str, *, evaluate: bool):
     if not line or len(line) > MAX_LINE_LENGTH:
         return None
@@ -84,6 +86,9 @@ def _tree(expr):
     """`expr` as a nested tuple that ignores order and bracketing of sums and products, nothing else."""
     if expr.is_Atom:
         return sympy.srepr(expr)
+    if isinstance(expr, sympy.Abs):  # |x - y| and |y - x| are the same bars; sympy flips the argument's sign itself
+        inner = sympy.expand(expr.args[0])
+        return ("Abs", min(sympy.srepr(inner), sympy.srepr(sympy.expand(-inner))))
     kids = [_tree(a) for a in expr.args]
     if isinstance(expr, (sympy.Add, sympy.Mul)):
         flat = []
@@ -114,7 +119,7 @@ def _probe_points(names: list[str], kinds: dict[str, str]):
 
 def _value(expr, env):
     try:
-        value = complex(sympy.N(expr.xreplace(env), 18))
+        value = complex(sympy.N(expr.xreplace(env), 15))
     except (TypeError, ValueError, ZeroDivisionError, OverflowError):
         return None
     return value if value == value and abs(value) != float("inf") else None
@@ -123,7 +128,13 @@ def _value(expr, env):
 def lines_equal(left, right, kinds: dict[str, str], given: dict | None = None) -> bool:
     """Whether two parsed expressions are the same value at every probe point of the symbols' domains (at least
     `MIN_POINTS` points where both are defined; a point where only one is defined is a difference)."""
-    sub = {sympy.Symbol(k): v for k, v in (given or {}).items()}
+    return _equal(left, right, tuple(sorted(kinds.items())), tuple(sorted((given or {}).items())))
+
+
+@functools.lru_cache(maxsize=4096)
+def _equal(left, right, kinds_items: tuple, given_items: tuple) -> bool:
+    kinds = dict(kinds_items)
+    sub = {sympy.Symbol(k): v for k, v in given_items}
     left, right = left.xreplace(sub), right.xreplace(sub)
     allowed = set(kinds)
     names = sorted({str(s) for s in left.free_symbols | right.free_symbols})
