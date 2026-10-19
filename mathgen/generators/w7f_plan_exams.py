@@ -28,7 +28,7 @@ from mathgen.core import check, generator
 from mathgen.figure_kinds import grid
 
 from . import _space_kit as kit
-from ._w7f_kit import finish_parts, mcq_part, number_part, retry, split_parts
+from ._w7f_kit import finish_parts, mcq_part, number_part, pick, retry, split_parts
 from .grid_map_symbols_build import (
     _BUILT,
     _PLANNED,
@@ -102,7 +102,7 @@ def _symbols_chain(rng):
         return None
     visits = toilets | {hws_home, "KIT"}
     windows = len(by) - len(dark)
-    price = rng.choice((85, 90, 110, 120, 135, 140, 160, 175))
+    price = rng.choice((75, 80, 85, 90, 95, 105, 110, 115, 120, 125, 135, 140, 150, 160, 175, 185))
 
     key_a = room_full(windowless_toilet)
     other_toilet = next(t for t in toilets if t != windowless_toilet)
@@ -179,7 +179,16 @@ def _symbols_chain(rng):
         ],
         follow=f"{price}*part_d",
     )
-    stem = "The floor plan of a house is drawn on a square grid. The rooms are named by the abbreviations a plan uses."
+    stem = pick(
+        rng,
+        (
+            "The floor plan of a house is drawn on a square grid. The rooms are named by the abbreviations a plan uses.",
+            "An architect has drawn the plan of a house on a square grid, and has labelled each room with the usual "
+            "plan abbreviation.",
+            "A house plan is drawn to a square grid. Rooms are written as short plan abbreviations, and the symbols "
+            "on it are the standard ones.",
+        ),
+    )
     return finish_parts(fig, stem, [part_a, part_b, part_c, part_d, part_e], lower=True)
 
 

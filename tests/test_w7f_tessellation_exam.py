@@ -30,7 +30,8 @@ def _key(text: str) -> str:
     ia, ib = 180 - Fraction(360, a), 180 - Fraction(360, b)
     left = 360 - ia - ib
     c = Fraction(360) / (180 - left)
-    return f"(a) {ia}; (b) {ib}; (c) {left}; (d) {c}"
+    side = int(re.search(r"has sides (\d+) cm long", text).group(1))
+    return f"(a) {ia}; (b) {ib}; (c) {left}; (d) {c}; (e) {c * side}"
 
 
 def test_chain():
@@ -38,7 +39,7 @@ def test_chain():
     sup.check_wiring(skill, "fr2a_tessellation_vertex", TOPIC, "number")
     steps = [skill.difficulty_progression[t].steps for t in ("easy", "medium", "hard", "exam")]
     assert steps == sorted(steps) and steps[-1] > steps[0]
-    sup.check_exam_chain(skill, TOPIC, [1, 1, 2, 2], ["number"] * 4)
+    sup.check_exam_chain(skill, TOPIC, [1, 1, 2, 2, 1], ["number"] * 5)
     answers = set()
     for seed in range(60):
         q = sup.exam(TOPIC, seed)

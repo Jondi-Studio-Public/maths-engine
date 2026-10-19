@@ -16,9 +16,14 @@ from . import _space_kit as kit
 from ._exd_x_w12a_kit import mcq_part as _mcq_part
 from ._exd_x_w12a_kit import number_part
 
-__all__ = ["mcq_part", "number_part", "split_parts", "finish_parts", "retry"]
+__all__ = ["mcq_part", "number_part", "split_parts", "finish_parts", "retry", "pick"]
 
 _LABEL = re.compile(r"\(([a-z])\) ")
+
+
+def pick(rng, options):
+    """One of ``options``, chosen with ``rng`` (a stem has several honest wordings)."""
+    return options[rng.randrange(len(options))]
 
 
 def split_parts(text: str) -> dict[str, str]:

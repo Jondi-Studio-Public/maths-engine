@@ -33,7 +33,7 @@ from mathgen.core import check, generator
 from mathgen.figure_kinds.grid import grid_drawing
 
 from . import grid_shading_build as gsb
-from ._w7f_kit import finish_parts, mcq_part, number_part, retry, split_parts
+from ._w7f_kit import finish_parts, mcq_part, number_part, pick, retry, split_parts
 from .grid_shapes_y36_build import _asymmetric_tile, _box_net, _model_figure, _model_heights, _turn
 
 Cell = tuple[int, int]
@@ -75,9 +75,16 @@ def _model_chain(rng):
     if add < 2:
         return None
     fig = _model_figure(h, w, d, unknown)
-    stem = (
-        f"A model is built from {total} cubes. The plan shows the number of cubes in each stack, except for one "
-        f"stack marked with a question mark. A bare square has no cubes."
+    stem = pick(
+        rng,
+        (
+            f"A model is built from {total} cubes. The plan shows the number of cubes in each stack, except for one "
+            "stack marked with a question mark. A bare square has no cubes.",
+            f"The plan of a model built from {total} cubes shows how many cubes are stacked on each square. One stack "
+            "is marked with a question mark, and a bare square has no cubes on it.",
+            f"This plan is for a model built from {total} cubes. Each number tells how many cubes are in that stack, "
+            "a bare square holds none, and the stack marked with a question mark is not shown.",
+        ),
     )
     part_a = number_part(
         _MODEL_A,
@@ -192,9 +199,16 @@ def _plan_views_chain(rng):
         cells=[{"cells": footprint, "style": "shaded"}],
         labels=[{"at": [x + 0.5, y + 0.5], "text": str(v)} for (x, y), v in sorted(h.items()) if v],
     )
-    stem = (
-        "The plan of a stack of unit cubes is shown, seen from above. The number in a square is how many cubes are "
-        "stacked there, a blank square has none, and the bottom of the plan is the front of the stack."
+    stem = pick(
+        rng,
+        (
+            "The plan of a stack of unit cubes is shown, seen from above. The number in a square is how many cubes "
+            "are stacked there, a blank square has none, and the bottom of the plan is the front of the stack.",
+            "Looking down on a stack of unit cubes gives this plan. Each number counts the cubes in that column, a "
+            "blank square is empty, and the front of the stack is at the bottom of the plan.",
+            "A plan view of a cube stack is drawn on a square grid. A number says how many cubes are piled on that "
+            "square, an empty square has none, and the bottom edge of the plan is the front.",
+        ),
     )
     part_a = number_part(
         _PLAN_CUBES,
@@ -285,9 +299,14 @@ _COMPOSITIONS = {  # (first, second) -> the single turn it makes
     ("cw", "cw"): "half",
     ("ccw", "ccw"): "half",
 }
-_TURN_STEM = (
-    "Each of the four pictures A to D shows the same shaded shape, the same point P and a hatched shape that is a "
-    "possible image of the shaded shape."
+_PICTURE_LETTERS = "ABCDEFGHJK"  # no P: the point is called P
+_TURN_STEMS = (
+    "Each of the four pictures {names} shows the same shaded shape, the same point P and a hatched shape that is a "
+    "possible image of the shaded shape.",
+    "The four pictures {names} all start from the same shaded shape and the same point P. In each, the hatched shape "
+    "might be the image of the shaded shape.",
+    "Four pictures, {names}, are drawn on grids. Each one has the shaded shape, the point P and a hatched shape that "
+    "may be the shaded shape after a transformation.",
 )
 _ASK_TURN = "Which picture shows the hatched shape as the image of the shaded shape after {turn} about P?"
 _ASK_THEN = (
@@ -328,7 +347,8 @@ def _turn_chain(rng):
     if pw > 14 or ph > 14:
         return None
     order = rng.sample(sorted(cells_of), 4)
-    letters = dict(zip("ABCD", order))
+    letter_set = sorted(rng.sample(_PICTURE_LETTERS, 4))
+    letters = dict(zip(letter_set, order))
     shaded, hatched, labels = [], [], []
     for i, (letter, key) in enumerate(letters.items()):
         ox, oy = (i % 2) * pw, (1 - i // 2) * ph
@@ -348,7 +368,7 @@ def _turn_chain(rng):
     x_key, y_key, z_key = rng.sample(["cw", "ccw", "half"], 3)
     compositions = [pair for pair, out in _COMPOSITIONS.items() if out == z_key]
     first, second = rng.choice(compositions)
-    stem = _TURN_STEM
+    stem = pick(rng, _TURN_STEMS).format(names=", ".join(letter_set[:-1]) + " and " + letter_set[-1])
     wrong_for = {
         "cw": [
             ("ccw", "turn-direction-reversed"),
@@ -420,7 +440,7 @@ def _read_turn_chain(question) -> str:
     hatched = {tuple(c) for c in fig["cells"][1]["cells"]}
     seen = {}
     for lb in fig["labels"]:
-        if lb["text"] in "ABCD" and len(lb["text"]) == 1:
+        if len(lb["text"]) == 1 and lb["text"] in _PICTURE_LETTERS:
             ox, oy = int(lb["at"][0] - 0.5), int(lb["at"][1] - ph + 0.5)
             inside = lambda c: ox <= c[0] < ox + pw and oy <= c[1] < oy + ph  # noqa: E731
             (p,) = [(int(q["at"][0]), int(q["at"][1])) for q in fig["labels"] if q["text"] == "P" and inside(q["at"])]
@@ -451,8 +471,8 @@ _NET_VOLUME = (
 
 
 def _box_net_chain(rng):
-    a, b = rng.sample(range(1, 6), 2)
-    h = rng.randint(1, 4)
+    a, b = rng.sample(range(1, 9), 2)
+    h = rng.randint(1, 6)
     top_on, bottom_on = rng.randrange(4), rng.randrange(4)
     strip, top, bottom, _starts = _box_net(a, b, h, top_on, bottom_on)
     net = strip | top | bottom
@@ -461,7 +481,7 @@ def _box_net_chain(rng):
     placed = {(x, y + shift) for x, y in net}
     width = max(x for x, _ in placed) + 1 + rng.randint(0, 1)
     height = max(y for _, y in placed) + 1 + rng.randint(0, 1)
-    if width > 20 or height > 20:
+    if width > 24 or height > 24:
         return None
     area = len(net)
     top_squares = a * b
@@ -472,7 +492,15 @@ def _box_net_chain(rng):
         grid={"type": "square", "width": width, "height": height},
         cells=[{"cells": [list(c) for c in sorted(placed)], "style": "shaded"}],
     )
-    stem = "The shaded squares on the grid are the net of a closed box. It folds up with no gaps or overlaps."
+    stem = pick(
+        rng,
+        (
+            "The shaded squares on the grid are the net of a closed box. It folds up with no gaps or overlaps.",
+            "A closed box is made by folding the shaded squares of this grid. The net has no gaps or overlaps when it "
+            "is folded.",
+            "On the grid, the shaded squares form a net. Folded up, it makes a closed box with no gaps or overlaps.",
+        ),
+    )
     side_strip = 2 * (a + b) * h
     part_a = number_part(
         _NET_AREA,

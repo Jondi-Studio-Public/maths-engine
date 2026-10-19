@@ -40,14 +40,20 @@ def _article(w):
 
 
 def _easy(rng):
-    k = rng.randint(1, 3)
+    k = rng.randint(1, 4)
     if rng.random() < 0.5:
         i = rng.randrange(4)
         a, b = _CLOCK[i], _CLOCK[(i + k) % 4]
-        text = (
-            f"The minute hand of a clock points at the {a}. It moves clockwise until it points at the {b}. "
-            "How many right angles has it turned through?"
-        )
+        if k == 4:
+            text = (
+                f"The minute hand of a clock points at the {a}. It moves clockwise all the way round until it "
+                f"points at the {a} again. How many right angles has it turned through?"
+            )
+        else:
+            text = (
+                f"The minute hand of a clock points at the {a}. It moves clockwise until it points at the {b}. "
+                "How many right angles has it turned through?"
+            )
         wrong_way = 4 - k
         reads_numbers = abs(b - a) if abs(b - a) != k else None
         cand = [(wrong_way, "turn-goes-the-wrong-way"), (k + 1, "turn-counts-the-start-position")]

@@ -328,6 +328,8 @@ OPTION_NOTES_TOPICS = frozenset(
         "w6b_complex_polygon_roots",
         "w6b_complex_rotation",
         "w6b_sinusoid_features",
+        "w7f_turn_contexts",
+        "w7f_trial_variants",
         "w7a_graph_types",
         "w7a_network_cut",
         "w7a_dp_table",

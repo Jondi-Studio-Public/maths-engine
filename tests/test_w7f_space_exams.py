@@ -106,8 +106,8 @@ def test_turn_pictures_chain():
         pw, ph = fig["grid"]["width"] // 2, fig["grid"]["height"] // 2
         shaded = {tuple(c) for c in fig["cells"][0]["cells"]}
         hatched = {tuple(c) for c in fig["cells"][1]["cells"]}
-        letters = {lb["text"]: lb["at"] for lb in fig["labels"] if lb["text"] in ("A", "B", "C", "D")}
-        assert set(letters) == {"A", "B", "C", "D"}
+        letters = {lb["text"]: lb["at"] for lb in fig["labels"] if lb["text"] in tuple("ABCDEFGHJK")}
+        assert len(letters) == 4
         kind_of = {}
         tiles = []
         for letter, (lx, ly) in letters.items():
