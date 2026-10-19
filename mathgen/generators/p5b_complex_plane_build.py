@@ -677,8 +677,8 @@ def _polar_exam_surd(rng):
         answer_latex=rf"r = {r_rounded:.2f}, \theta = {theta_rounded:.1f}°",
         working=[
             f"r = √(x² + y²) = √({x_display}² + {y_display}²) = √{s} = {surd_display} ≈ {r_rounded:.2f}",
-            f"θ = atan2(y, x) = atan2({y_display}, {x_display}) ≈ {theta_exact:.4f}° "
-            f"≈ {theta_rounded:.1f}° (quadrant-aware)",
+            f"θ = the angle of ({x}, {y}) from the positive x-axis ≈ {theta_exact:.4f}° "
+            f"≈ {theta_rounded:.1f}° (measured from 0° to 360°)",
         ],
         distractors=pick_distractors(answer_text, candidates),
     )

@@ -28,7 +28,7 @@ mathgen.core.make("t1_simplify_surds", seed=seed, difficulty="easy", **params)
 generator function  ->  dict  ->  Question(text, answer, answer_text, distractors, figure, parts, ...)
         |
         v  mathgen.engine.grade(skill, question, reply)
-mathgen.grading.grade(kind, reply, answer)  ->  GradeResult(correct, ...)
+mathgen.grading.grade(kind, question, given, *, skill=None)  ->  GradeResult(correct, ...)
 ```
 
 The same skill, source and seed always give the same question. `engine.question_id` names a

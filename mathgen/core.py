@@ -1658,6 +1658,21 @@ def _paper_right_class(text: str) -> tuple[str, int]:
     return "OTHER", i
 
 
+def _paper_left_operand_follows_slash(text: str) -> bool:
+    """True when the operand ending ``text`` is the denominator of a ``/`` (``1/2``, ``x/y``, ``a/(b + 1)``)."""
+    if not text:
+        return False
+    if text[-1] == ")":
+        start = _paper_matching_open(text, len(text) - 1)
+    elif text[-1].isdigit() or text[-1] == ".":
+        start = len(text)
+        while start > 0 and (text[start - 1].isdigit() or text[start - 1] == "."):
+            start -= 1
+    else:
+        start = len(text) - 1
+    return start > 0 and text[start - 1] == "/"
+
+
 def _paper_star_separator(left: str, right: str) -> str:
     """What replaces ``*`` between a ``left`` and a ``right`` operand: nothing (``2x``), a space (``x sin(x)``)
     or the multiplication sign (``6 × 8``), whichever reads unambiguously on paper."""
@@ -1717,6 +1732,8 @@ def paper_notation(text):
             continue  # a star with no operand on one side is left as written
         negative = s[m.end() : m.end() + 1] in ("-", "−")
         separator = _paper_star_separator(left, right)
+        if separator != _PAPER_TIMES and _paper_left_operand_follows_slash(s[: m.start()]):
+            separator = _PAPER_TIMES  # ``1/2*x`` is (1/2) × x; ``1/2x`` would read as 1/(2x)
         out.append(s[pos : m.start()])
         out.append(separator)
         operand_end = m.end() + end

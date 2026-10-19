@@ -11,8 +11,10 @@ LOOPBACK = ("127.0.0.1", "::1", "localhost")
 def main(argv=None):
     parser = argparse.ArgumentParser(prog="python -m mathgen.server", description=__doc__)
     # Loopback by default: opening the API to a network is a choice, made with --host 0.0.0.0 (as the image does).
-    parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=8080)
+    parser.add_argument(
+        "--host", default="127.0.0.1", help="address to listen on (default 127.0.0.1, this machine only)"
+    )
+    parser.add_argument("--port", type=int, default=8080, help="port to listen on (default 8080)")
     args = parser.parse_args(argv)
 
     try:

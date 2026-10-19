@@ -15,12 +15,22 @@ ROLES = ("author", "learner")
 
 def _float(name: str, default: float) -> float:
     value = os.environ.get(name)
-    return default if value in (None, "") else float(value)
+    if value in (None, ""):
+        return default
+    try:
+        return float(value)
+    except ValueError:
+        raise ValueError(f"{name} must be a number, got {value!r}") from None
 
 
 def _int(name: str, default: int) -> int:
     value = os.environ.get(name)
-    return default if value in (None, "") else int(value)
+    if value in (None, ""):
+        return default
+    try:
+        return int(value)
+    except ValueError:
+        raise ValueError(f"{name} must be a whole number, got {value!r}") from None
 
 
 def _flag(name: str) -> bool:
@@ -115,6 +125,10 @@ class Config:
         timeout = _float("MATHS_API_TIMEOUT", 5.0)
         batch = os.environ.get("MATHS_API_BATCH_TIMEOUT")
         in_flight = os.environ.get("MATHS_API_MAX_IN_FLIGHT")
+        if batch:
+            _float("MATHS_API_BATCH_TIMEOUT", 0.0)
+        if in_flight:
+            _int("MATHS_API_MAX_IN_FLIGHT", 0)
         return cls(
             keys=parse_keys(os.environ.get("MATHS_API_KEYS", "")),
             open=_flag("MATHS_API_OPEN"),

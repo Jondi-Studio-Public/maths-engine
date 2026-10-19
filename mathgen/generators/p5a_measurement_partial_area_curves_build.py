@@ -21,7 +21,16 @@ from __future__ import annotations
 import math
 from fractions import Fraction
 
-from ..core import check, exact_decimal_string, generator, numeric_answer, pick_distractors, stated_precision_string
+from ..core import (
+    check,
+    exact_decimal_string,
+    generator,
+    join_terms,
+    numeric_answer,
+    pick_distractors,
+    rational_text,
+    stated_precision_string,
+)
 
 
 # === unmarked_partial_measurement ============================================
@@ -273,13 +282,17 @@ def area_between_curves_simple_cases(rng, mode="line_and_line"):
                 f"and y = {_format_linear(m2, c2)}, for x between {a} and {b}."
             )
 
+        d_m, d_c = m1 - m2, c1 - c2
+        antiderivative = [f"{d_m // 2 if d_m > 2 else ''}x²" if d_m % 2 == 0 else f"{'' if d_m == 1 else d_m}x²/2"]
+        if d_c:
+            antiderivative.append(f"{'' if d_c == 1 else d_c}x")
         working = [
             f"The curves are f(x) = {_format_linear(m1, c1)} and g(x) = {_format_linear(m2, c2)}.",
-            f"Since {m1} > {m2} and {c1} >= {c2}, f(x) >= g(x) for all x >= 0.",
+            f"f(x) - g(x) = {join_terms([(d_m, 'x'), (d_c, '')])}, which is at least 0 for x >= 0, so f is the upper curve.",
             f"Area = ∫[{a},{b}] [{_format_linear(m1, c1)} - ({_format_linear(m2, c2)})] dx",
-            f"     = ∫[{a},{b}] [({m1 - m2})x + ({c1 - c2})] dx",
-            f"     = [({m1 - m2}/2)x² + ({c1 - c2})x] evaluated from {a} to {b}",
-            f"     = ({area})",
+            f"     = ∫[{a},{b}] [{join_terms([(d_m, 'x'), (d_c, '')])}] dx",
+            f"     = [{' + '.join(antiderivative)}] from {a} to {b}",
+            f"     = {rational_text(area) + ' = ' if area.denominator != 1 else ''}{_format_area_answer(area)}",
         ]
 
         _verify_area_easy(m1, m2, c1, c2, a, b, area)

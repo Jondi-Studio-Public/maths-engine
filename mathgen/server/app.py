@@ -359,7 +359,7 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
         questions = run(
             "make_questions",
             config.timeout * max(1, body.count / 10),
-            key=f"{body.skill}/{body.source}",
+            key=body.skill if body.source is None else f"{body.skill}/{body.source}",
             skill_id=body.skill,
             source=body.source,
             count=body.count,

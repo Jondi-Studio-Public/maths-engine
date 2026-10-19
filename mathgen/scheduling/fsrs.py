@@ -130,7 +130,7 @@ def step(memory: Memory | None, rating: int, elapsed_days: float, w=DEFAULT_WEIG
     `elapsed_days` is counted in whole days, rounded down, as the reference
     implementation counts it: a review 4.75 days after the last one is a
     4-day gap, and anything under a day is a same-day review."""
-    if rating not in (AGAIN, HARD, GOOD, EASY):
+    if isinstance(rating, bool) or rating not in (AGAIN, HARD, GOOD, EASY):
         raise ValueError(f"rating must be 1..4, got {rating!r}")
     if memory is None:
         return Memory(initial_stability(rating, w), initial_difficulty(rating, w)), None

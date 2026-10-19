@@ -49,6 +49,7 @@ from ..core import (
     check_equivalent,
     check_pairwise_distinct,
     generator,
+    fmt_signed,
     join_terms,
     latex_answer,
     pick_distractors,
@@ -676,7 +677,7 @@ def _cartesian_hard(rng):
         latex=latex,
         working=[
             f"z {sign_word} {abs(k)}(conjugate of z) = {join_terms([(1 + k, 'x'), (1 - k, 'yi')])}.",
-            f"Real parts: {1 + k}x = {r}, so x = {x0}. Imaginary parts: {1 - k}y = {s}, so y = {y0}.",
+            f"Real parts: {fmt_signed(1 + k, 'x')} = {r}, so x = {x0}. Imaginary parts: {fmt_signed(1 - k, 'y')} = {s}, so y = {y0}.",
         ],
     )
     return result

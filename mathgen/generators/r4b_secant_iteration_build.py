@@ -217,7 +217,7 @@ def _single(rng, tier):
             slips,
             1,
             working=[
-                f"Take f(x) = x³ − {ca}x − {cb}, so f({x0}) = {f(a)} and f({x1}) = {f(b)}.",
+                f"Take f(x) = x³ − {'' if ca == 1 else ca}x − {cb}, so f({x0}) = {f(a)} and f({x1}) = {f(b)}.",
                 f"x{sub(2)} = {x1} − f({x1})({x1} − {x0})/(f({x1}) − f({x0})) = {x2}.",
             ],
         )
@@ -265,7 +265,7 @@ def _single(rng, tier):
         cands,
         1,
         working=[
-            f"f(x) = x³ − {ca}x − {cb}; the first step gives x{sub(2)} = {x2}.",
+            f"f(x) = x³ − {'' if ca == 1 else ca}x − {cb}; the first step gives x{sub(2)} = {x2}.",
             f"x{sub(3)} = x{sub(2)} − f(x{sub(2)})(x{sub(2)} − x{sub(1)})/(f(x{sub(2)}) − f(x{sub(1)})) ≈ {dec(x3, 4)}.",
         ],
     )

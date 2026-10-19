@@ -1,6 +1,6 @@
 ---
 name: maths-skill-finder
-description: Finds the right maths skill in the maths-engine library of about 800 question generators, by topic words, school year, Australian Curriculum (ACARA) code, domain or answer kind, and follows prerequisites to easier or harder skills. Use when someone names a topic, year level or curriculum code and you need a skill id before making questions, or when a learner is stuck and you need a skill to step back to.
+description: Finds the right maths skill in the maths-engine library of over 1,000 skills and 2,000 question generators, by topic words, school year, Australian Curriculum (ACARA) code, domain or answer kind, and follows prerequisites to easier or harder skills. Use when someone names a topic, year level or curriculum code and you need a skill id before making questions, or when a learner is stuck and you need a skill to step back to.
 license: MIT
 ---
 
@@ -20,10 +20,10 @@ Read `count`. If it is larger than the number of skills returned, narrow the sea
 | Field | Meaning |
 |---|---|
 | `id`, `name`, `domain` | Identifier, readable name and topic area (`quadratics`, `trigonometry`, `statistics-probability`, `primary-number` ...). |
-| `answer_kind` | `number`, `mcq`, `expression`, `pair`, `fraction`, `ordered_list`, `list`, `table`, `inequality`, `matrix`, `set`, or `rubric`. |
-| `gradeable` | `false` for rubric skills (proofs, explanations): the engine cannot mark them. |
+| `answer_kind` | `number`, `mcq`, `expression`, `pair`, `fraction`, `ordered_list`, `list`, `table`, `inequality`, `matrix`, `set` or `grid_cells`. A skill whose answer needs a person to mark it would show `rubric`; the library today has none. |
+| `gradeable` | `false` for a skill the engine cannot mark (a rubric skill, which this library does not currently contain); `true` for every skill here. |
 | `sources` | The difficulty keys that `make_questions(source=...)` accepts, commonly `easy`, `medium`, `hard`, `exam`. |
-| `years` | School years the skill belongs to: `F`, `1` to `10`, `10A`. Often empty, see below. |
+| `years` | School years the skill belongs to: `F`, `1` to `12` or `university`. Often empty, see below. |
 | `curriculum_codes` | ACARA content description codes the skill is tagged with. |
 | `frameworks` | `acara-f10-v9`, `acara-senior-v8-4` or `university-core-v1`. |
 | `learner_band` | `early`, `primary` or `general`. |
@@ -31,8 +31,8 @@ Read `count`. If it is larger than the number of skills returned, narrow the sea
 
 ## Searching
 
-1. Text: `find_skills(text="surd")` matches the id, name and description, ignoring case. Use Australian spelling ("factorise", "metre") and try a synonym if the first word finds nothing.
-2. Year: `find_skills(year="8")`. Values are `F`, `1` to `10`, `10A`.
+1. Text: `find_skills(text="surd")` matches the id, name and description, ignoring case. Results come in library order, not ranked by relevance, so read the whole list (or add a filter) rather than taking the first. Use Australian spelling ("factorise", "metre") and try a synonym if the first word finds nothing.
+2. Year: `find_skills(year="8")`. Values are `F`, `1` to `12` and `university`.
 3. Curriculum code: `find_skills(code="AC9M8N")` matches by prefix.
 4. Domain, answer kind, framework: use these to narrow a broad result, for example `domain="trigonometry", year="10"`.
 5. Check the best candidates with `get_skill` and read the description. Names can be close and descriptions say exactly what is covered and what is excluded.

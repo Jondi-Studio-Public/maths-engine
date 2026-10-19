@@ -69,7 +69,7 @@ default; set `MATHS_API_DOCS=1` to serve them. They need no key, so leave them o
 Give learners' devices a `learner` key. **An author key never goes in a browser, a student's device or any
 client-side page**: whoever can read the page can read every answer. Keep it on your own server, and have that
 server call the API. If a browser page calls the API directly, give it only a `learner` key and list the exact
-origin in `MATHS_API_CORS_ORIGINS`, never `*`.
+origin in `MATHS_API_CORS_ORIGINS`, never `*`. The server does not check this for you: `*` is accepted if you set it. Give each key one role; if one key is listed twice, the first role listed wins, with no warning.
 
 With no keys set, `python -m mathgen.server` on a loopback host (`127.0.0.1`, the default) starts open with a
 warning, since nothing else can reach it; on any other host, and through `create_app` directly, it refuses to start.
@@ -108,12 +108,12 @@ and `Cache-Control: no-store` on every response, so an answer key is not kept by
 | Method and path | What it does |
 |---|---|
 | `GET /v1/health` | Status, engine version, library hash, worker count. No key needed. |
-| `GET /v1/skills` | Find skills. Filters: `text`, `domain`, `year` (`F`, `1` ... `10A`), `code` (an ACARA code or prefix, `AC9M8`), `framework`, `answer_kind`, `difficulty`, `tag`, `gradeable`. |
+| `GET /v1/skills` | Find skills. Filters: `text`, `domain`, `year` (`F`, `1` ... `12`, `university`), `code` (an ACARA code or prefix, `AC9M8`), `framework`, `answer_kind`, `difficulty`, `tag`, `gradeable`. |
 | `GET /v1/skills/{id}` | One skill, with its description, prerequisites and misconceptions. |
 | `POST /v1/questions` | `{"skill", "source"?, "count"? (1-100), "seed"?, "answers"?}` |
 | `GET /v1/question?id=` | Rebuild one question by id (`answers=true` for an author). |
 | `GET /v1/figure.svg?id=` | A question's figure as SVG. |
-| `POST /v1/grade` | `{"id", "reply", "reveal"?}`. `reply` is text; an option index for multiple choice; `{"a": ..., "b": ...}` for a multi-part question. |
+| `POST /v1/grade` | `{"id", "reply", "reveal"?}`. `reply` is text; an option index for multiple choice; `{"a": ..., "b": ...}` for a multi-part question (an unknown part label is a 422). A reply may be at most 2000 characters in all (`413` beyond that) and a multi-part reply at most 20 parts. |
 | `POST /v1/grade/batch` | `{"items": [{"id", "reply"}, ...]}`, up to 100, as when marking a whole test. |
 | `POST /v1/papers` | A worksheet or test: `{"title"?, "seed"?, "versions"? (1-10), "shuffle"?, "sections": [{"title"?, "items": [{"skill", "source"?, "count"?}]}], "format"?, "version"? (A to J), "answers"? (JSON only; needs an author key)}`. `format`: `json` (default), `html` (print), `html-key` (answer key), `moodle` (Moodle XML), `qti` (QTI 2.1 zip, for Canvas and others). A learner key gets `403` for `html-key`, `moodle` and `qti`. |
 
@@ -141,7 +141,7 @@ equivalent form is marked wrong there. For those, grade through `/v1/grade`, or 
 | `MATHS_API_PAPER_TIMEOUT` | `60` | seconds for a paper |
 | `MATHS_API_QUEUE_TIMEOUT` | `30` | seconds a call may wait for a free worker before `503` |
 | `MATHS_API_MAX_BODY` | `262144` | bytes in a request body |
-| `MATHS_API_CORS_ORIGINS` | none | comma-separated exact origins a browser page may call from; never `*` |
+| `MATHS_API_CORS_ORIGINS` | none | comma-separated exact origins a browser page may call from; never `*` (not enforced) |
 | `MATHS_SKILLS_DIR`, `MATHS_EXTRA_SKILLS_DIRS` | | your own skills alongside the library (see `mathgen/skills.py`) |
 
 ## Licensing in what it returns
