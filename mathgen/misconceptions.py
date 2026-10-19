@@ -230,6 +230,448 @@ _ENTRIES = (
         "Giving how many pictures the whole row should have, not how many more it needs.",
         area="early-years",
     ),
+    # -- w6b batch (generated block) --
+    CatalogueEntry(
+        "rotation-wrong-direction",
+        "Rotating the opposite way, clockwise where anticlockwise was asked or the reverse.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-swaps-real-and-imaginary",
+        "Swapping the real and imaginary parts to turn a point through a quarter turn, which reflects it in the line y = x instead.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-quarter-turn-as-half-turn",
+        "Negating the number (a half turn) where a quarter turn was asked.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-adds-instead-of-multiplies",
+        "Adding the unit number to the point instead of multiplying by it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-reflects",
+        "Taking a half turn to be the conjugate, which reflects the point in the real axis.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-negates-one-part",
+        "Negating only the real part (or only the imaginary part) for a half turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-as-quarter-turn",
+        "Multiplying by i for a half turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-ignored",
+        "Rotating about the origin when the centre of rotation is another point.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-not-added-back",
+        "Rotating the vector from the centre to the point but not adding the centre back.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-added-to-rotated-point",
+        "Rotating the point itself and then adding the centre, instead of rotating the vector from the centre.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-multiplies-by-cos-plus-sin",
+        "Multiplying by cos θ + sin θ, a real number, instead of cos θ + i sin θ.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-sine-and-cosine-swapped",
+        "Multiplying by sin θ + i cos θ, which turns through 90° − θ instead of θ.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-wrong-orientation",
+        "Turning the wrong way for the labelling of the square, so the vertex is on the other side of AB.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-vertices-swapped",
+        "Giving the other missing vertex of the square, C for D or D for C.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-rotates-position-not-side",
+        "Rotating the position of a vertex about the origin instead of rotating the side vector.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-extends-the-side",
+        "Continuing along the line AB instead of turning through a right angle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-opposite-vertex",
+        "Giving the vertex opposite A (the reflection of A in the centre) where the neighbouring vertex was asked for.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "triangle-wrong-orientation",
+        "Giving the third vertex on the wrong side of AB for the labelling of the triangle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "triangle-height-equals-side",
+        "Placing the apex a whole side length above the midpoint, forgetting that the height of an equilateral triangle is √3/2 of its side.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-difference-reversed",
+        "Subtracting the vertices in the wrong order, so the vector points from B to A.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-sum-for-difference",
+        "Adding the two vertices instead of subtracting them.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-parts-swapped",
+        "Swapping the real and imaginary parts of the side vector.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-adds-the-parts",
+        "Adding the real and imaginary parts to get a length, instead of using Pythagoras.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-forgets-square-root",
+        "Leaving the length as the sum of the squares, without taking the square root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-takes-the-larger-part",
+        "Giving the larger of the real and imaginary parts as the length of the side.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-as-perimeter",
+        "Giving the perimeter of the square where the area was asked.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-doubles-side",
+        "Doubling the side length instead of squaring it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-halved",
+        "Halving the square of the side, as for the area of a triangle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-from-the-parts",
+        "Multiplying the real and imaginary parts of the side vector to get the area.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-wrong-direction",
+        "Going round the polygon clockwise when the question says anticlockwise, or the reverse.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-uses-interior-angle",
+        "Turning through the interior angle of the polygon at each step instead of the angle 360°/n at the centre.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-off-by-one",
+        "Counting the starting vertex as a step, so the vertex reached is one too far or one too few.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-forgets-modulus",
+        "Giving the point on the unit circle with the right argument, forgetting the radius of the polygon.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-diameter",
+        "Taking the side of the polygon to be the diameter of the circle through its vertices.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-radius",
+        "Taking the side of the polygon to be the radius, which is true only for a hexagon.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-half-angle-missing",
+        "Using sin(π/2n) in the side formula 2r sin(π/n), halving the angle twice.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-full-angle",
+        "Using sin(2π/n), the angle at the centre, instead of half of it in 2r sin(π/n).",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-doubled",
+        "Doubling the chord formula, so the side is twice what it should be.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-counts-n-minus-one",
+        "Multiplying the side by one less than the number of sides.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-doubled",
+        "Doubling the perimeter, perhaps by counting each side twice.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-halved",
+        "Halving the perimeter.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-is-one-side",
+        "Giving one side where the perimeter was asked for.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-divides-by-n",
+        "Dividing the constant in zⁿ = w by n to find the modulus, instead of taking an n-th root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-is-the-constant",
+        "Taking the modulus of the roots of zⁿ = w to be w itself.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-multiplies-by-n",
+        "Multiplying the n-th root by n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-off-by-one",
+        "Taking the n-th root of w and then adding one.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-forgets-n",
+        "Forgetting the factor n in the product of the distances from a vertex to the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-adds-instead",
+        "Adding instead of multiplying the distances, or multiplying n by r.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-uses-n-factors",
+        "Taking the product to be n·rⁿ, one power of r too many.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-counts-n-minus-one",
+        "Using n - 1 in place of n in the product (1 - ω)(1 - ω²)…(1 - ω^(n-1)).",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-forgets-factor-two",
+        "Giving n r², leaving out the factor 2 in the sum of the squares of the distances.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-uses-one-diameter",
+        "Squaring a single diameter, 4r², as if the sum had one term.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-counts-n-minus-one",
+        "Summing over the n - 1 other vertices only, using the factor n - 1 where n is needed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-forgets-to-square",
+        "Leaving the distances unsquared in the sum.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-is-one",
+        "Taking 1 + ω + … + ω^(n-1) to equal 1 instead of 0.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-counts-terms",
+        "Giving the number of terms, as if each power of ω were 1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-drops-the-one",
+        "Taking the sum of all the powers to be -1, forgetting that the first term, 1, is part of it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-forgets-the-one",
+        "Treating ω + … + ω^(n-1) as 0, forgetting that the missing 1 must be taken away.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-sign",
+        "Getting the sign wrong: ω + … + ω^(n-1) = -1, not +1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-factor-kept",
+        "Leaving the common factor in the answer once the bracket has been shown to be 0.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-power-sum-swapped",
+        "Swapping the two possible values: giving n when ω^m is not 1 and 0 when it is.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-power-sum-counts-terms-less-one",
+        "Giving n - 1 for a sum of n terms, each equal to 1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-gives-the-root",
+        "Giving the root itself, without the minus sign, as the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-gives-the-conjugate",
+        "Giving the conjugate of the root as the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-forgets-to-remove-the-root",
+        "Giving the sum of all the roots (0) instead of the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-conjugates-and-negates",
+        "Negating and conjugating the root to find the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "trig-eq-solutions-stop-at-first-period",
+        "Giving only the solutions from the first turn of the angle inside the brackets, so the later solutions of a multiple-angle equation are missing.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-solutions-miss-second-family",
+        "Giving only one of the two solution families, for example α + 2πn without π - α + 2πn for sine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-sine-second-solution-uses-pi-plus",
+        "Using π + α instead of π - α as the second solution of a sine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-cosine-second-solution-uses-pi-minus",
+        "Using π - α instead of -α (that is, 2π - α) as the second solution of a cosine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-period-is-two-pi",
+        "Adding 2π instead of π to find the other solutions of a tangent equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-multiple-angle-not-divided",
+        "Solving for the angle inside the brackets but not dividing by the multiple, so the answers are not values of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-shift-ignored",
+        "Leaving out the horizontal shift, solving f(ax) = c in place of f(a(x - b)) = c.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-shift-wrong-way",
+        "Subtracting the horizontal shift where it should be added, moving the solutions the wrong way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-calculator-in-degree-mode",
+        "Using a calculator in degree mode, so the solutions are in degrees and not in radians.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-second-solution-uses-the-wrong-quadrant",
+        "Taking the second solution from the wrong quadrant, such as π + α for sine or π - α for cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-ignores-the-multiple",
+        "Giving the period of the basic function, 2π, when x is multiplied by a number greater than 1.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-multiplies-by-the-multiple",
+        "Multiplying the period 2π by the multiple instead of dividing.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-uses-pi-not-two-pi",
+        "Using π/a, the period of a tangent, for a sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-doubled-with-the-multiple",
+        "Doubling the period and multiplying by the multiple.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-one-solution-per-period",
+        "Counting one solution per period of a sine or cosine equation, where there are two.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-ignores-the-multiple",
+        "Counting the two solutions of one period only, ignoring that the interval holds several periods.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-doubles-twice",
+        "Counting two solutions per period and then doubling the number of periods again.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-off-by-one",
+        "Counting one solution too many by including a solution at the end of the interval that is not there.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-smallest-solution-is-the-second",
+        "Giving the second smallest solution in place of the smallest.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-smallest-solution-is-the-principal-angle",
+        "Giving the principal angle α of the basic equation as the smallest solution, without dividing by the multiple and adding the shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-solved-like-sine",
+        "Solving a tangent equation as if it were a sine equation, with the second solution π - α and a period of 2π.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-sign-of-angle-lost",
+        "Losing the sign of the angle when the value of the tangent is negative, so the solutions are reflected.",
+        area="trigonometry",
+    ),
+    # -- end w6b batch --
     # -- quadratics -----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "sign-flip-both-roots",
@@ -1773,6 +2215,536 @@ _ENTRIES = (
         "series-geometric-factor-dropped",
         "Summing a geometric series without the factor of its first term (a/(1 - r) taken as 1/(1 - r)).",
         area="series",
+    ),
+    CatalogueEntry(
+        "svd-forgot-square-root",
+        "Giving an eigenvalue of AᵀA as the singular value, without taking its square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-wrong-ordering",
+        "Giving the smaller singular value where the larger was asked for, or the larger where the smaller was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-determinant-as-value",
+        "Giving the product of the singular values (the absolute value of the determinant, or the square root of det AAᵀ) as if it were one singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-frobenius-squared",
+        "Giving the sum of the squares of the entries, which is σ₁² + σ₂², as if it were a single singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-sum-of-values",
+        "Adding the singular values instead of reading off the largest one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-null-eigenvalue-used",
+        "Taking the smallest singular value of a 2×3 matrix to be 0 because AᵀA, which is 3×3, has the eigenvalue 0.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-error-uses-largest",
+        "Giving σ₁, the part the rank-1 approximation keeps, as the size of the error; the error is the part it discards.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-condition-inverted",
+        "Writing the condition number upside down as σ₂/σ₁.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-condition-squared",
+        "Dividing the eigenvalues of AᵀA instead of the singular values, which squares the condition number.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-of-sum",
+        "Dividing σ₁ by σ₁ + σ₂ instead of by σ₂.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-of-eigenvalue-gap",
+        "Dividing the gap σ₁ − σ₂ by σ₂ instead of dividing σ₁ by σ₂.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-forgot-squares-in-share",
+        "Using σ₁/(σ₁ + σ₂) as the share of the squared Frobenius norm, without squaring the singular values.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-discarded-share",
+        "Giving the share that the rank-1 approximation discards, σ₂²/(σ₁² + σ₂²), instead of the share it keeps.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-instead-of-share",
+        "Dividing σ₁² by σ₂² (a ratio of the two parts) instead of by the whole, σ₁² + σ₂².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-vector-for-other-value",
+        "Giving the singular vector that belongs to the other singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-null-direction-chosen",
+        "Giving the null vector of A, which belongs to the zero eigenvalue of AᵀA, instead of the vector for σ₁.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-left-vector-used",
+        "Giving a left singular vector (an eigenvector of AAᵀ) padded with a zero in place of a right singular vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-row-as-singular-vector",
+        "Giving a row of A as the right singular vector, as if the rows were eigenvectors of AᵀA.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-squares-dropped-in-denominator",
+        "Squaring the largest singular value in the numerator of the share but not the smaller one in the denominator.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-entry-omitted",
+        "Giving the cofactor of the single non-zero entry as the determinant, without multiplying by that entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-sign-pattern-ignored",
+        "Leaving out the sign (-1)^(i+j) of a cofactor, or applying it twice, so the term has the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-minor-wrong-position",
+        "Deleting the wrong row or column when forming the minor, so the cofactor belongs to a different entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-diagonal-product",
+        "Giving the product of the diagonal entries as the determinant of a matrix that is not triangular.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-swap-sign-ignored",
+        "Forgetting that each row swap changes the sign of the determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-alternating-signs-ignored",
+        "Adding the terms of a cofactor expansion along a row without the alternating + - + - signs.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-first-row-only-first-minor",
+        "Stopping a cofactor expansion after its first term.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-minor-without-sign",
+        "Giving the minor (the 3×3 determinant) as the cofactor, without its sign (-1)^(i+j).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-index-transposed",
+        "Giving the cofactor of the entry in row j, column i instead of row i, column j.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-entry-included",
+        "Multiplying the cofactor by the entry it belongs to, which gives one term of the expansion, not the cofactor.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-not-raised-to-size",
+        "Taking det(kM) = k det M, when each of the four rows contributes a factor k, so det(kM) = k⁴ det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-times-size",
+        "Multiplying the determinant by 4k instead of raising k to the fourth power.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-transpose-changes-sign",
+        "Thinking that transposing a matrix changes the sign of its determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-inverse-ignored",
+        "Treating det(M⁻¹) as det M instead of 1/det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-inverse-on-wrong-factor",
+        "Inverting the determinant of the wrong matrix in a product with an inverse.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-power-as-multiple",
+        "Reading det(M²) as 2 det M instead of (det M)².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-adjugate-exponent",
+        "Using the wrong power in det(adj M) = (det M)ⁿ⁻¹ for an n×n matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-adjugate-is-inverse",
+        "Treating the adjugate as the inverse, so det(adj M) = 1/det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-negative-sign-kept",
+        "Keeping the sign of a factor -1 on a 4×4 matrix, when (-1)⁴ = 1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-transposed-factor-dropped",
+        "Forgetting the factor det(Mᵀ) = det M when a transposed matrix is multiplied in.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-product-as-sum",
+        "Adding determinants where the determinant of a product multiplies them.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-addition-scales",
+        "Thinking that adding a multiple of one row to another multiplies the determinant by that multiple.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-scaled-as-whole-matrix",
+        "Raising the factor c to the fourth power when only one row is multiplied by c.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-operations-unchanged",
+        "Thinking that row operations leave the determinant unchanged.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-forgot-cofactor-divisor",
+        "Solving det M = 0 for k without dividing by the cofactor, the coefficient of k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-adjugate-not-transposed",
+        "Reading the entry of the inverse from the cofactor in the same position, instead of the transposed position.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-forgot-divide-by-det",
+        "Giving an entry of the adjugate as an entry of the inverse, without dividing by det A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-inverse-entry-inverted",
+        "Dividing det A by the cofactor instead of the cofactor by det A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-scaling-ignored",
+        "Forgetting that multiplying a row by c multiplies the determinant by c.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-power-off-by-one",
+        "Raising the scalar to the power 3 instead of 4 in det(kM), one less than the size of the matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-power-ignored",
+        "Reading det(M²) as det M, ignoring the power.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-ignored",
+        "Ignoring the scalar factor k in det(kM) altogether.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-expansion-term-dropped",
+        "Leaving one term out of the cofactor expansion along a row before solving for k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-both-columns-summed",
+        "Adding the squared lengths of both columns, 2N², and giving that as the normalising constant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-conjugate-forgotten",
+        "Transposing without conjugating (using AᵀA or Hᵀ) where the conjugate transpose A* is needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-diagonal-entry-as-eigenvalue",
+        "Reading a diagonal entry as an eigenvalue. That works for a triangular matrix, not for a Hermitian matrix with a non-zero off-diagonal entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-eigenvalue-sum-of-powers",
+        "Giving λ₁ + λ₂ (the trace) where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-entry-squared",
+        "Giving x² from the length condition instead of x.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-entry-transposed",
+        "Giving the (j, i) entry of A*A instead of the (i, j) entry, which has the opposite imaginary part.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-parts-ignored",
+        "Finding the length of a complex column from the real parts of its entries only.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-parts-only",
+        "Summing the squares of only the imaginary parts of the entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-sign",
+        "Giving the conjugate of the entry, with the sign of the imaginary part reversed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-mean-as-eigenvalue",
+        "Giving the mean of the diagonal entries, (a + d)/2, as an eigenvalue.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-as-square",
+        "Squaring each entry (z²) instead of taking its squared modulus |z|² = z z̄ when summing.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-not-squared",
+        "Using |b| + |c| in place of b² + c², the squared modulus of b + ci.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-squared-as-entry",
+        "Giving the squared modulus |q|² as the missing entry of a unitary matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-squared-unrooted",
+        "Giving k² from the characteristic equation as k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-norm-squared-not-root",
+        "Giving N², the squared length of a column, as the normalising constant N.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-normaliser-as-entry",
+        "Giving the normalising constant N as the missing entry of the matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-ignored",
+        "Ignoring the off-diagonal entries when finding the determinant of a Hermitian matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-real-part-added",
+        "Adding |b| to k when the real part b of the off-diagonal entry belongs under the root as b².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-sign",
+        "Adding (b + ci)(b - ci) to ad instead of subtracting it in the determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-squared-not-modulus",
+        "Squaring the off-diagonal entry, (b + ci)², instead of multiplying it by its conjugate, so b² - c² replaces b² + c².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-product-of-eigenvalues",
+        "Giving λ₁λ₂ (the determinant) where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-product-order-reversed",
+        "Computing AA* where A*A was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-radicand-with-offdiagonal",
+        "Giving (a - λ)(d - λ) as k, forgetting to subtract b² and take the square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-radius-as-eigenvalue",
+        "Giving the half-gap √(((a - d)/2)² + b² + c²), the distance of each eigenvalue from the mean, as an eigenvalue.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-real-parts-only",
+        "Summing the squares of only the real parts of the entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-sign-from-norm-only",
+        "Taking the wrong root of the length condition x² = p², when orthogonality fixes the sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-square-instead-of-modulus-squared",
+        "Using Re(z²) = a² - b² for |z|² = a² + b² when finding the length of a column.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-square-of-sum",
+        "Giving (λ₁ + λ₂)², the square of the trace, where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-sum-instead-of-gap",
+        "Adding the two eigenvalues (giving the trace) where their difference or the other eigenvalue was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-wrong-ordering",
+        "Giving the larger eigenvalue where the smaller was asked for, or the reverse.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-moduli-mixed",
+        "Adding |b| to c² when finding k, a mixture that no step of the working produces.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-real-part-instead-of-imaginary",
+        "Giving the real part of the entry where the imaginary part was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "taylor-second-order-no-half",
+        "Leaving out the factor ½ on the second-order terms of the Taylor polynomial, so each second derivative appears at twice its size.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-wrong-second-partial",
+        "Using the wrong second partial derivative for the term asked about, such as f_yy for the coefficient of (x - a)².",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-first-derivative-used",
+        "Giving a first partial derivative at the point where the coefficient of a second-order term was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-halved",
+        "Writing the mixed term as ½fₓ_y(x - a)(y - b) instead of fₓ_y(x - a)(y - b): the ½ and the 2 from the two orders of differentiation both applied.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-doubled",
+        "Giving 2fₓ_y as the coefficient of (x - a)(y - b), keeping the 2 from ½·2fₓ_y without the ½.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-second-order-omitted",
+        "Stopping at the linear terms and leaving the second-order terms out of the estimate.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-omitted",
+        "Leaving out the mixed term fₓ_y(x - a)(y - b) from the second-order part of the Taylor polynomial.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-offsets-swapped",
+        "Substituting the offsets the wrong way round, the y-step for x - a and the x-step for y - b.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-constant-omitted",
+        "Leaving out the constant term f(a, b) from the Taylor polynomial.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-one-sided-range",
+        "Counting only the positive integers k, or only one side of zero, when D > 0 allows k and -k alike.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-boundary-included",
+        "Including the integers on the boundary k² = 4AC, where D = 0 and the test is inconclusive.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-count-ceiling",
+        "Rounding the bound on k up instead of down, so the count includes integers with k² > 4AC.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-count-forgot-zero",
+        "Leaving k = 0 out of the count of integers in the range.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-boundary-off-by-one",
+        "Taking the largest integer that fails the strict inequality, or one beyond the smallest that satisfies it.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-unrooted",
+        "Giving k² (or 4AC) as the bound on k, without taking the square root.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-second-derivative-halved",
+        "Using A and C, the coefficients of x² and y², for fₓₓ and f_yy instead of 2A and 2C, which changes D.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-fxx-sign-ignored",
+        "Choosing a minimum when fₓₓ < 0, or a maximum when fₓₓ > 0, once D > 0.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-determinant-sign-misread",
+        "Reading D > 0 as a saddle point or D < 0 as an extremum.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-test-misapplied",
+        "Calling the test inconclusive when D is not zero.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-mixed-term-not-squared",
+        "Subtracting fₓ_y instead of fₓ_y² in D = fₓₓf_yy - fₓ_y².",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-trace-used",
+        "Adding fₓₓ and f_yy (the trace) instead of finding the determinant of the Hessian.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-diagonal-only",
+        "Forgetting the mixed term and taking D = fₓₓf_yy.",
+        area="multivariable",
     ),
     # -- inequalities and matrix inverses -------------------------------------------------------------------------
     CatalogueEntry(
@@ -34064,6 +35036,1962 @@ _ENTRIES = (
         "duration-says-same",
         "Saying two events take the same time when one fills more boxes than the other.",
         area="early-years",
+    ),
+    CatalogueEntry(
+        "bool-reads-zero-rows",
+        "Counts or lists the rows where the output is 0 instead of the rows where it is 1.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-precedence-or-before-and",
+        "Applies the operations left to right, or the lower-priority operation first, instead of doing NOT, then AND, then OR or XOR.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-ignores-negation",
+        "Evaluates a negated input as if the NOT were not there.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-gate-type-confused",
+        "Evaluates a NAND, NOR or XOR gate as the AND or OR gate it is built from, forgetting the inversion or the exclusion.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-bit-order-reversed",
+        "Reads the input bits with the last variable as the most significant, so every row number is the wrong one.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-row-numbering-from-one",
+        "Numbers the truth table rows from 1 instead of 0, so every row number is one too large.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-compares-totals-not-rows",
+        "Compares how many ones each function has instead of comparing them row by row.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-counts-agreeing-rows",
+        "Counts the rows on which two functions agree where the rows on which they differ were asked for.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-no-grouping",
+        "Writes one full product term for every cell with a 1, without grouping any cells.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-terms-not-literals",
+        "Gives the number of groups where the total number of literals was asked for.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-groups-too-small",
+        "Stops at groups of two cells and misses a larger group of four or eight.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-literals-as-variables",
+        "Counts every variable in every group, forgetting that a variable which changes across a group drops out.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-dont-care-as-zero",
+        "Treats a don't-care cell as a 0, so the groups cannot use it.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-miscount-literals",
+        "Miscounts the literals in the simplified expression by one.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-saving-uses-terms",
+        "Subtracts the product terms instead of the literals when finding how many literals are saved.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "lcv-other-root",
+        "Gives the x-coordinate of the other intersection point, the smaller where the larger was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-x-for-y",
+        "Gives an x-coordinate where a y-coordinate was asked, or the reverse.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-root-sign",
+        "Reads a root of the substituted quadratic with the wrong sign, as x = -2 from the factor (x - 2).",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-product-for-sum",
+        "Gives the product of the x-coordinates where their sum was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-difference-for-sum",
+        "Gives the distance between the two x-coordinates where their sum was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-sign",
+        "Gets the sign of the discriminant condition wrong, so the intercept moves the wrong way from the vertex.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-drops-a",
+        "Leaves the leading coefficient out of the discriminant, using b² - 4c in place of b² - 4ac.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-slope-sign",
+        "Subtracts the gradient from the x coefficient with the wrong sign when forming the substituted quadratic.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-factor",
+        "Uses 2a in place of 4a in the zero-discriminant condition.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-midpoint-is-vertex",
+        "Gives the x-coordinate of the parabola's vertex as the midpoint of the chord.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-sum-not-halved",
+        "Gives the sum of the two x-coordinates where their mean (the midpoint) was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-radius-only",
+        "Takes the intercept of a tangent to a circle to be the radius, ignoring the gradient.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-gradient-unsquared",
+        "Uses r(1 + m) in place of r times the square root of (1 + m²) for the tangent intercept.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-unscaled",
+        "Forgets to divide by the sum of the squares of the coefficients when finding the point of contact.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-counted-as-two",
+        "Counts the intercept that gives a tangent as a line with two intersection points.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-no-intersection-counted",
+        "Counts the intercepts that give no intersection instead of those that give two points.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-count-misses-end",
+        "Leaves out one end of the range, or counts both ends, when counting whole-number values.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gradient-inverted",
+        "Gives the reciprocal of the tangent gradient, run over rise.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gradient-sign",
+        "Gives the negative gradient, taking the smaller of the two tangent gradients.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-line-value-in-parabola",
+        "Substitutes the x-coordinate into the line's gradient instead of its equation, so the y-value is wrong.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gap-sign",
+        "Adds the two intercepts instead of subtracting them to find the gap between parallel lines.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gap-from-intercept",
+        "Measures the gap from the parabola's own y-intercept rather than from the tangent line.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "aux-sums-coefficients",
+        "Takes R to be a + b instead of the square root of a² + b².",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-forgets-root",
+        "Gives R² = a² + b² as the amplitude, forgetting the square root.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-shift-ignored",
+        "Leaves out the vertical shift, giving the extreme value of the wave alone.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-multiplier-ignored",
+        "Leaves out the multiplier in front of the bracket when finding the extreme value.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-wrong-end",
+        "Applies the vertical shift to the wrong end, giving the maximum where the minimum was asked or the reverse.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-alpha-swapped",
+        "Finds α from arctan(a/b) instead of arctan(b/a), swapping the roles of the two coefficients.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-no-quadrant",
+        "Reads α straight from the arctangent without placing it in the quadrant given by the signs of a and b.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-min-for-max",
+        "Gives the position of the minimum where the maximum was asked, or the reverse (an error of π).",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-angle-left-negative",
+        "Leaves α negative instead of adding 2π to bring it into [0, 2π).",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-other-solution",
+        "Gives the other solution of cos(x - α) = c/R, the smaller where the larger was asked or the reverse.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-offset-not-added",
+        "Gives the offset δ from cos δ = c/R without adding α, solving the equation for x - α only.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-c-not-scaled",
+        "Solves cos(x - α) = c instead of cos(x - α) = c/R.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-threshold-rounded-down",
+        "Gives the whole part of R as the least c with no solution, instead of the next whole number.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-threshold-rounded",
+        "Rounds R to the nearest whole number to find the least c with no solution.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-larger-coefficient",
+        "Takes the larger of the two coefficients as the amplitude R.",
+        area="auxiliary-angle",
+    ),
+    # -- build-d batch --
+    CatalogueEntry(
+        "sinusoid-amplitude-includes-the-vertical-shift",
+        "Adding the vertical translation to the amplitude, so the amplitude of y = 2 sin x + 3 is given as 5.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-is-the-full-height",
+        "Giving the full height from the minimum to the maximum, twice the amplitude.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-is-the-multiple-of-x",
+        "Taking the number multiplying x as the amplitude, so the amplitude of y = 2 sin(3x) is given as 3.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-keeps-the-sign",
+        "Giving a negative amplitude, the signed coefficient, when the coefficient of the sine or cosine is negative.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-is-the-shift",
+        "Giving the horizontal translation itself as the position of the vertical asymptote of a tangent graph.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-multiplies-instead-of-dividing",
+        "Multiplying by the coefficient of x, not dividing by it, when solving for the x-value of the asymptote.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-off-by-a-half-period",
+        "Giving a value half a period from the smallest positive asymptote, where the graph crosses its midline.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-uses-the-period-not-half",
+        "Stepping a whole period from the shift to find the first asymptote of a tangent graph, where it is half a period from the shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-forgets-the-vertical-shift",
+        "Giving the amplitude as the maximum or its negative as the minimum, leaving out the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-takes-the-other-end",
+        "Giving the minimum value when the maximum was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-uses-the-full-height",
+        "Adding twice the amplitude to the vertical translation to get the maximum, or subtracting it to get the minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-uses-the-signed-amplitude",
+        "Using the signed coefficient as the amplitude, so a negative coefficient swaps the maximum and the minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-not-the-first",
+        "Giving a later maximum or minimum, a whole period away, instead of the smallest positive one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-the-opposite-one",
+        "Giving the x-value of the minimum when the maximum was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-the-shift",
+        "Giving the horizontal translation as the x-value of the first maximum or minimum, as if the curve began at its peak.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-multiplies-instead-of-dividing",
+        "Multiplying by the coefficient of x, not dividing by it, when solving for the x-value of the first maximum or minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-off-by-a-half-period",
+        "Giving the x-value half a period from the right one, so it is where the graph is at its other extreme.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-divides-the-angle-by-the-multiple",
+        "Dividing the angle at x = 0 by the coefficient of x before taking the sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-forgets-the-vertical-shift",
+        "Leaving out the vertical translation when finding the y-intercept.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-is-the-vertical-shift",
+        "Giving the vertical translation as the y-intercept, as if the sine or cosine were zero at x = 0.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-sign-of-angle-reversed",
+        "Losing the sign of the angle when x = 0 is put into the bracket, so the shift is taken the wrong way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-takes-the-maximum",
+        "Giving the maximum value as the y-intercept, as if the curve peaked at x = 0.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-ignores-the-multiple",
+        "Giving the period of the basic sine or cosine, 2π, ignoring the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-is-the-multiple-of-x",
+        "Taking the coefficient of x as the period.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-multiplies-by-the-multiple",
+        "Multiplying 2π by the coefficient of x instead of dividing by it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-uses-pi-not-two-pi",
+        "Dividing π, not 2π, by the coefficient of x to find the period of a sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-divided-by-the-multiple",
+        "Dividing the horizontal translation by the coefficient of x when it is already the shift of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-is-the-constant-in-the-bracket",
+        "Reading the constant in the expanded bracket as the horizontal translation without dividing by the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-is-the-negated-constant-in-the-bracket",
+        "Reading the negative of the constant in the expanded bracket as the horizontal translation without dividing by the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-multiplied-by-the-multiple",
+        "Multiplying the horizontal translation by the coefficient of x instead of reading it from the factored bracket.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-sign-reversed",
+        "Reading a bracket (x + c) as a shift to the right, or (x - c) as a shift to the left.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-amplitude",
+        "Giving the amplitude as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-maximum",
+        "Giving the maximum value as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-minimum",
+        "Giving the minimum value as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-sign-reversed",
+        "Giving the vertical translation with the wrong sign, so a graph moved up is read as moved down.",
+        area="trigonometry",
+    ),
+    # -- end build-d batch --
+    # -- build-a batch --
+    CatalogueEntry(
+        "graph-complete-double-count",
+        "Counts n(n - 1) for the edges of a complete graph, once from each end of every edge.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-degree-as-edges",
+        "Gives the degree n - 1 of one vertex of a complete graph as its number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-includes-loops",
+        "Counts a vertex joined to itself as well, giving n(n + 1)/2 edges for a complete graph.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-one-vertex-short",
+        "Counts the edges of the complete graph on one vertex fewer than the network has.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-ignores-existing",
+        "Gives all the edges of the complete graph where the ones already present had to be taken off.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-gap-from-degree-sum",
+        "Takes the degree sum off the edges of the complete graph instead of the number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-count-off-by-one",
+        "Uses the right method for the count but is out by one or two.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-assumes-connected",
+        "Takes every vertex to be reachable, as if the network were connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-reachable-excludes-start",
+        "Leaves out the starting vertex when counting the vertices that can be reached.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-reachable-other-component",
+        "Gives the size of a different piece of the network from the one that holds the start.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-uses-complete-graph",
+        "Gives the edges missing from a complete graph where a complete bipartite graph was meant.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-sum-of-parts",
+        "Adds the sizes of the two parts where their product is the number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-assumes-equal-parts",
+        "Takes the two parts of a bipartite network to be equal, or as equal as the vertex count allows.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-smaller-part",
+        "Gives the size of the smaller part where the larger was asked for.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-whole-vertex-set",
+        "Gives the number of vertices of the whole network as the size of one of its two parts.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-same-edges",
+        "Gives the number of edges of the network itself as the number of edges of its complement.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-degree-sum-as-edges",
+        "Adds the degrees in the complement and gives that sum as its number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-ignores-handshake",
+        "Takes the degree sum as the number of edges before finding the complement's edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-bipartite-as-complete",
+        "Uses the edges (a + b)(a + b - 1)/2 of a complete graph for a complete bipartite graph.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-degree-sum-as-edges",
+        "Gives the number of edges where the sum of the degrees (twice as many) was asked for.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-ignored",
+        "Gives the edges of the complete graph on all the vertices, ignoring that the network has several pieces.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-minus-edges",
+        "Takes one edge off the complete graph for each extra component.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-split-evenly",
+        "Spreads the vertices over the components as evenly as possible, which gives fewer edges than one large piece.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-one-vertex-short",
+        "Leaves the c - 1 single vertices out of the count and so gives the edges of the complete graph on n - c vertices.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-needs-tree",
+        "Gives n - 1, the edges of a tree, as enough to force a network to be connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-needs-all",
+        "Gives all the edges of the complete graph as the number needed to force a network to be connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-largest-disconnected",
+        "Gives the most edges a disconnected network can have, one fewer than forces connection.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-all-pairs",
+        "Gives the edges of the complete graph as the most a bipartite network can have.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-floored-parts",
+        "Takes the two parts of an odd number of vertices to be equal, floor(n/2) each.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-unbalanced",
+        "Takes parts that differ by two, which is not the most unequal product.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-rounded-up",
+        "Takes both parts of an odd number of vertices to be the larger size.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "flow-single-path-only",
+        "Gives the capacity of the best single route from the source to the sink as the maximum flow, ignoring that flow can use several routes at once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-increase-passes-fully",
+        "Adds the whole widening of a link to the maximum flow, forgetting that another cut then limits the flow.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-widening-ignored",
+        "Gives the old maximum flow, as if widening one link could not help.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-spare-reports-flow",
+        "Gives the maximum flow where the capacity out of the source that cannot be used was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-spare-from-sink-side",
+        "Subtracts the maximum flow from the capacity into the sink where the capacity out of the source was meant.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "cut-smallest-of-listed-ignored",
+        "Gives the middle or the largest of several stated cut capacities as the maximum flow, rather than the smallest.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "cut-counts-both-ends",
+        "Adds the capacity of every link that touches the source side of the cut, those inside it as well as those crossing it.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "dp-stairs-no-skipping",
+        "Climbs one step at a time throughout, so pays every toll and never uses a two-step move.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-greedy-next-step",
+        "Always moves to the cheaper of the next two steps, without looking further ahead.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-stops-one-short",
+        "Gives the least cost of reaching the step before the top.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-coin-greedy",
+        "Takes the largest coin that fits each time, which is not always the fewest coins.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-coin-ignores-remainder",
+        "Divides the amount by the largest coin and rounds up, ignoring how the remainder is made.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-greedy-cheapest-arc",
+        "Takes the cheapest arc out of each node in turn instead of finding the cheapest whole route.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-cheapest-arc-per-stage",
+        "Adds the cheapest arc of each stage, although those arcs do not join up into one route.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-greedy-ratio",
+        "Takes items in order of value per kilogram until nothing more fits, which is not always the best.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-greedy-value",
+        "Takes the most valuable items first until nothing more fits.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-reuse-items",
+        "Allows an item to be taken more than once.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-ignores-capacity",
+        "Adds the values of all the items, ignoring the weight limit.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-counts-orderings",
+        "Counts different orders of the same coins as different ways.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-fewest-coins",
+        "Gives the fewest coins where the number of ways was asked for.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-misses-a-coin",
+        "Leaves one coin value out when counting the ways.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-contiguous",
+        "Finds the longest common run of consecutive letters instead of the longest common subsequence.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-shorter-length",
+        "Gives the length of the shorter string as the longest common subsequence.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-aligned-matches",
+        "Counts the positions where the two strings have the same letter, without letting letters shift.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-difference-gives-one-value",
+        "Gives one of the two values instead of the difference between them.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-table-wrong-row",
+        "Reads the entry for all the items where the entry for the first few items was asked for.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-weight-assumed-full",
+        "Takes the optimal selection to fill the knapsack exactly.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-weight-of-all-items",
+        "Gives the total weight of all the items rather than of the ones chosen.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-arithmetic-slip",
+        "Uses the right table but is out by one or two in the arithmetic.",
+        area="dynamic-programming",
+    ),
+    # -- end build-a batch --
+    # -- build-b batch --
+    CatalogueEntry(
+        "relvel-wrong-order",
+        "Subtracts the velocities in the wrong order, giving the velocity of B relative to A where A relative to B was asked, or the reverse.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-velocities",
+        "Adds the two velocities instead of subtracting to find a relative velocity.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-ignores-reference",
+        "Gives the velocity of the moving object itself, forgetting to subtract the velocity of the object it is measured against.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-swaps-components",
+        "Gives the other component of the relative velocity: the j-component where the i-component was asked, or the reverse.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-1d-direction",
+        "Adds the speeds of two vehicles moving the same way, or subtracts them when they move in opposite directions.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-rearranges-wrongly",
+        "Rearranges the relative velocity equation with a sign slip, so the unknown velocity has the wrong sign or the relative velocity is added where it should be subtracted.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-catch-up-gives-speed",
+        "Gives the closing speed where the time to catch up was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-catch-up-gives-gap",
+        "Gives the starting gap where the time to catch up was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-components",
+        "Adds the sizes of the two components instead of using Pythagoras to find a speed.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-forgets-root",
+        "Stops at the sum of the squares of the components and does not take the square root.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-takes-larger-component",
+        "Takes the larger component as the speed and ignores the other.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-perpendicular-speeds",
+        "Adds the two speeds for motion at right angles instead of combining them with Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-subtracts-perpendicular-speeds",
+        "Subtracts the two speeds for motion at right angles instead of combining them with Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-position-ignores-start",
+        "Finds only how far the relative position has changed and forgets the starting relative position.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-position-uses-one-velocity",
+        "Moves the relative position using one object's velocity instead of the relative velocity.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-time-added",
+        "Adds the time to the coordinate instead of multiplying the velocity component by it.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-sign-error",
+        "Drops the minus sign in the time of closest approach and gives a negative time.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-divides-by-speed",
+        "Divides the dot product of the relative position and velocity by the relative speed instead of by its square.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-equal-coordinate",
+        "Takes the time when one coordinate of the two positions agrees as the time of closest approach.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-gives-square",
+        "Gives the square of the least distance between the objects.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-distance-travelled",
+        "Gives how far the relative position moves before the moment of closest approach instead of the least distance.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-adds-components",
+        "Adds the sizes of the components of the closest separation instead of using Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-first-within-uses-closest",
+        "Gives the time of closest approach where the time they first come within the stated range was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-last-within",
+        "Adds the half-duration to the time of closest approach and gives the time they leave the range.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-half-width",
+        "Gives the half-duration spent within range instead of the time they first come within it.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-ignores-motion",
+        "Divides the starting separation by the chaser's speed as if the target were standing still.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-gives-distance",
+        "Gives the starting separation of the two boats where the time to intercept was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-gives-chaser-distance",
+        "Gives how far the chaser travels where the time to intercept was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-negative-root",
+        "Reports the negative root of the interception quadratic, a time before the chase began.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-copies-target-velocity",
+        "Gives the target's velocity component as the chaser's.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-sign-flipped",
+        "Gives the chaser's velocity component with the wrong sign.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-relative-component",
+        "Gives the component of the chaser's velocity relative to the target instead of its own velocity.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "ucd-cents-not-converted",
+        "Uses a rate given in cents as if it were dollars, so the amount is 100 times too large.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-decimal-slip",
+        "Misplaces the decimal point in the product of the rate and the units, so the amount is ten times too large or too small.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-rate-inverted",
+        "Divides the units by the amount depreciated instead of the amount by the units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-rate-to-units",
+        "Adds the rate to the number of units instead of multiplying them.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-amount-not-value",
+        "Gives the amount depreciated where the value after use was asked.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-to-price",
+        "Adds the depreciation to the purchase price instead of subtracting it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-one-unit-only",
+        "Subtracts the depreciation for a single unit instead of for all the units used.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-ignores-salvage",
+        "Divides the purchase price by the expected life in units, forgetting to subtract the salvage value first.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-salvage",
+        "Adds the salvage value to the purchase price before dividing, instead of subtracting it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-salvage-only",
+        "Divides the salvage value, not the amount to be depreciated, by the expected life in units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-units-from-value",
+        "Divides the target value by the rate instead of the depreciation needed to reach it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-units-from-price",
+        "Divides the purchase price by the rate, ignoring the value the asset is to reach.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-multiplies-for-units",
+        "Multiplies the depreciation needed by the rate instead of dividing by it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-single-rate",
+        "Uses the first rate for every unit of use, ignoring that the rate changes after a stated number of units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-second-rate-everywhere",
+        "Uses the later rate for every unit of use, ignoring that the first units depreciated at the earlier rate.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-forgets-first-stage",
+        "Depreciates only the units in the second stage and forgets the depreciation already taken in the first.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-second-stage-only",
+        "Gives the units used in the second stage only, where the total units used were asked.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-first-year-usage",
+        "Uses the first year's use for every year instead of each year's own use.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-last-year-only",
+        "Depreciates only the last year's use instead of all the years' use so far.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-divides-by-total-units",
+        "Divides the fall in value by the larger number of units, not by the difference in units between the two readings.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-reading-as-price",
+        "Takes the earlier reading of the value as the purchase price when finding a later value.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-years-miscounted",
+        "Uses one year too many or one year too few when working out the flat-rate depreciation.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-compares-depreciation-only",
+        "Gives the depreciation under one method where the difference between the two values was asked.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "nsp-reads-bits-reversed",
+        "Reads the digits of the numeral in the wrong order, so the place values run backwards.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-ones",
+        "Counts the 1s in the binary numeral instead of adding the place values they stand for.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-reads-as-decimal",
+        "Reads the digits of a binary, octal or hexadecimal numeral as an ordinary decimal number.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-powers-start-at-one",
+        "Starts the place values at 2 (or 8, or 16) instead of 1, so every value is a base too large.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-hex-letter-off-by-one",
+        "Gives a hexadecimal letter a value one too large (A as 11 up to F as 16).",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-remainders-read-top-down",
+        "Writes the remainders of repeated division in the order they were found instead of from the last to the first.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-stops-division-early",
+        "Stops the repeated division one step early and leaves off the last digit.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-appends-a-digit",
+        "Divides once too often or multiplies in an extra place, giving a numeral one digit too long.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-no-conversion",
+        "Writes the decimal digits of the number as if they were already the numeral in the new base.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-groups-from-the-left",
+        "Groups the binary digits in threes from the left instead of from the right, so the groups do not line up with the place values.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-nibbles-swapped",
+        "Writes the four-digit groups for the hexadecimal digits in the wrong order.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-digit-values-not-nibbles",
+        "Writes each hexadecimal digit's value in binary without padding it to four digits.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-binary-no-carry",
+        "Adds binary digits without carrying, treating 1 + 1 as 0 in every column.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-adds-as-decimal",
+        "Adds the two binary numerals as if they were decimal numbers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-drops-final-carry",
+        "Loses the carry out of the leftmost column, so the sum has too few digits.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-cofactor",
+        "Gives the larger factor found when the smallest factor was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-square-root",
+        "Gives the whole-number part of the square root of the number instead of its smallest prime factor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-overshoots-first-factor",
+        "Gives the next prime after the smallest prime factor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-tests-every-integer",
+        "Counts every whole number up to the square root instead of only the primes.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-one-as-prime",
+        "Counts 1 as a prime when listing the primes up to the square root.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-omits-two",
+        "Leaves 2 out of the primes to be tried.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-uses-root-itself",
+        "Gives the whole-number part of the square root itself, although it is not prime.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-tests-up-to-half",
+        "Tests every prime up to half the number instead of stopping at its square root.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-rounds-root-up",
+        "Rounds the square root up to the next whole number before listing the primes, so one prime too many is tested.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-adds-exponents",
+        "Adds the exponents in the prime factorisation instead of adding one to each and multiplying.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-multiplies-exponents",
+        "Multiplies the exponents without adding one to each first.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-prime-factors",
+        "Gives the number of prime factors, counted with repeats, instead of the number of divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-distinct-primes-only",
+        "Counts only the distinct prime factors as divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-sum-one-and-n-only",
+        "Adds only 1 and the number itself when summing the divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-count-for-sum",
+        "Gives the number of divisors where their sum was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-sum-adds-one-to-powers",
+        "Multiplies (1 + p^a) for each prime instead of summing the whole geometric series of powers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-count-for-square",
+        "Gives the number of all divisors where the number of square divisors was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-rounds-halves-up",
+        "Rounds each half-exponent up instead of down when counting the even exponents a square divisor may use.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-lcm-swapped",
+        "Gives the lowest common multiple where the greatest common divisor was asked, or the reverse.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-is-difference",
+        "Gives the difference of the two numbers as their greatest common divisor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-lcm-is-product",
+        "Gives the product of the two numbers as their lowest common multiple.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-ignores-exponents",
+        "Multiplies the common primes each to the first power, ignoring the smaller exponent in the numbers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-lcm-drops-unshared",
+        "Multiplies only the primes the two numbers share when finding the lowest common multiple.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-up-to-factor-only",
+        "Counts the primes up to the smallest factor but forgets to count the factor itself.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-up-to-root",
+        "Counts the primes tried up to the square root, where the primes only up to the smallest factor were needed.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "fce-rounds-down",
+        "Rounds the quotient down when a partly filled pack still has to be bought or a partly full trip still has to be made.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-one-when-exact",
+        "Adds one to a quotient that is already a whole number.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-a-spare",
+        "Rounds up and then adds a spare one that the question did not ask for.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-up-whole-items",
+        "Rounds up the number of whole items that fit, counting an offcut that is too short to use.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-leftover",
+        "Gives the amount left over where the number of whole groups was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-quotient",
+        "Gives the number of full groups where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-shortfall",
+        "Gives how many more are needed to fill another group where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-count-for-leftover",
+        "Gives the number of groups needed where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-leftover-for-shortfall",
+        "Gives the amount in the last box where the amount needed to fill it was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-extra",
+        "Leaves out the extra people or items that were added to the groups.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-each-part",
+        "Rounds up each part separately and adds, instead of adding first and rounding once.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-mixes-directions",
+        "Rounds one factor up and the other down, so the estimate is neither a safe upper estimate nor a safe lower one.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-exact-values",
+        "Gives the exact value where a rounded estimate was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-to-nearest-estimate",
+        "Rounds each factor to the nearest place value instead of in the direction asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-wrong-bound",
+        "Rounds down for the upper estimate, or up for the lower estimate.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-compares-to-lower-bound",
+        "Measures the excess above the lower estimate where the upper estimate was the one to check against.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-estimate-not-gap",
+        "Gives the estimate itself where the difference between the estimate and another value was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-exact-not-gap",
+        "Gives the exact value where the difference between the estimate and the exact value was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-ignores-weight-limit",
+        "Uses only the count limit for each trip and ignores the weight limit.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-ignores-whole-items",
+        "Divides the total weight by the weight limit without allowing for whole items, so a part-filled load is counted.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-load-to-nearest",
+        "Rounds the number of items one trip can carry to the nearest whole number instead of down.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-end-post",
+        "Forgets that a straight fence needs one more post than it has gaps.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-post-on-loop",
+        "Adds an extra post for a closed loop, although the last gap ends at the first post.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-gaps-down",
+        "Rounds the number of gaps down and leaves the last stretch of fence without a post.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-all-large-vehicles",
+        "Uses only the large vehicle for everyone.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-all-small-vehicles",
+        "Uses only the small vehicle for everyone.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-the-rest",
+        "Counts only the full large vehicles and forgets the people left over.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-lower-bound",
+        "Uses the smallest possible count when the number needed must cover the largest possible one.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-upper-bound",
+        "Uses the largest possible count when the number of boxes certain to be filled was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-midpoint",
+        "Uses the middle of the range instead of the end that settles the question.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-up-guaranteed-full",
+        "Rounds up the number of boxes that can be filled for certain, counting a box that may not be full.",
+        area="floor-ceiling-estimation",
+    ),
+    # -- build-c batch --
+    CatalogueEntry(
+        "cod-bound-centre-forgotten",
+        "Leaving the centre word out of a ball, so a ball of radius t is counted as having one word fewer than it does.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-from-k",
+        "Choosing the number of check bits r from 2^r ≥ k + 1, as if only the message positions had to be located, instead of all n positions.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-from-k-without-zero",
+        "Choosing the number of check bits r from 2^r ≥ k, forgetting both the case of no error and that a check bit can be wrong too.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-only",
+        "Giving the number of check bits n − k instead of the length n.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-doubled",
+        "Doubling the number of message bits, as for a repetition code, instead of finding the shortest length that fits.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-halved",
+        "Giving 2^(n−1), taking half of all words to be codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-ignores-t",
+        "Using the ball of radius 1 (n + 1 words) when the code must correct two errors.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-one-check-bit",
+        "Taking a single parity bit (n = k + 1) to be enough to correct an error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-radius-confused",
+        "Dividing 2^n by 2t + 1, the length of a repetition code that corrects t errors, instead of by the number of words in a ball of radius t.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-rounded-up",
+        "Rounding the quotient 2^n divided by the ball size up instead of down.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-all-words",
+        "Giving q^n, the number of all words of length n, as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-base-exponent-swapped",
+        "Writing k^q instead of q^k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-check-symbols",
+        "Giving q^(n−k), the number of check-symbol patterns, as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-k-itself",
+        "Giving the dimension k as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-product",
+        "Multiplying k by q instead of raising q to the power k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-correct-only",
+        "Giving 2t + 1, the distance needed to correct t errors, and ignoring the extra errors that must be detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-detect-only",
+        "Giving s + 1, the distance needed to detect s errors, and ignoring the errors that must be corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-doubled-detect",
+        "Giving 2s + 1, treating the errors to be detected as if they all had to be corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-sum-without-one",
+        "Giving t + s without the + 1.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-twice-sum",
+        "Giving 2(t + s) + 1, doubling both the errors to be corrected and the errors to be detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-floor-d-over-2",
+        "Taking ⌊d/2⌋ as the number of errors corrected instead of ⌊(d − 1)/2⌋.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-half-d-plus-one",
+        "Taking ⌊(d + 1)/2⌋ as the number of errors corrected, adding 1 where the rule subtracts it.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-uses-d",
+        "Giving the minimum distance d as the number of errors corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-uses-detect",
+        "Giving d − 1, the number of errors detected, as the number corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-bit-order-reversed",
+        "Reading the message bits in reverse order when converting them to a number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-first-four-bits",
+        "Taking the first four bits of the corrected word as the message, although the Hamming code carries its message in positions 3, 5, 6 and 7.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-last-bits",
+        "Taking the last k bits of the corrected word as the message instead of the first k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-no-correction",
+        "Reading the message from the received word without correcting the error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-syndrome-as-position",
+        "Reading the syndrome as a binary number and flipping that position, which works only when the columns of H are 1 to n in binary and in order.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-halved-distance",
+        "Giving ⌊d/2⌋ as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-one-more",
+        "Giving d + 1 as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-uses-correct",
+        "Giving ⌊(d − 1)/2⌋, the number of errors corrected, as the number detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-uses-d",
+        "Giving the minimum distance d, not d − 1, as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-adjacent-listed-only",
+        "Comparing only words that are next to each other in the list, and so missing a closer pair.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-assumes-three",
+        "Assuming a code whose parity-check columns are distinct and non-zero has minimum distance 3, without looking for a larger set of dependent columns.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-column-weight",
+        "Giving the smallest number of 1s in a column of H as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-columns-all",
+        "Giving the length n, the number of columns of H, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-counts-agreements",
+        "Counting the positions where the words agree instead of the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-decimal-difference",
+        "Subtracting the two words as numbers instead of counting the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-dimension",
+        "Giving the dimension of the code, n minus the rank of H, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-difference",
+        "Giving the position of the first difference instead of counting all the positions that differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-word-only",
+        "Comparing the first word with the others only, and so missing a closer pair among the rest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-pair-only",
+        "Giving the distance between the first two words in the list as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-max-instead-of-min",
+        "Giving the largest distance between two codewords instead of the smallest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-max-weight",
+        "Giving the largest weight of a codeword instead of the smallest non-zero weight.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-min-row-weight",
+        "Giving the smallest weight of a row of G as the minimum distance, although a sum of rows can be lighter.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-min-weight-nonlinear",
+        "Giving the weight of the lightest word as the minimum distance, which is right only for a linear code.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-miscounted-by-one",
+        "Miscounting the number of positions that differ by one.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-number-of-rows",
+        "Giving the number of rows of G, the dimension, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-parity-part-weight",
+        "Giving the weight of the check part of the lightest row of G, leaving out the 1 from the identity part.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-rows-of-h",
+        "Giving the number of rows of H as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-singleton",
+        "Giving n − k + 1, an upper bound on the minimum distance, as its value.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-sum-of-digit-differences",
+        "Adding the sizes of the differences between symbols instead of counting the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-weight-of-first-row",
+        "Giving the weight of the first row of G as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-weight-of-first-word",
+        "Giving the number of 1s in the first word as the distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-position-counted-from-zero",
+        "Numbering the positions from 0 instead of from 1, so the position of the error is one too small.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-average-rounded",
+        "Giving the average of the distances between pairs of words, rounded, instead of the smallest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-read-as-decimal",
+        "Reading the syndrome bits as a decimal number (101 for the syndrome 1, 0, 1) instead of as a binary number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-position-as-message-index",
+        "Treating the position found from the syndrome as a number among the message bits and flipping that message bit, instead of flipping that position of the whole word.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-position-from-right",
+        "Counting the position of the error from the right instead of from the left.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-codeword-fraction",
+        "Giving the fraction of all words that are codewords, 2^k / 2^n, as the rate.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-codewords-over-length",
+        "Dividing the number of codewords by the length instead of the dimension by the length.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-inverted",
+        "Writing the rate upside down as n/k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-over-check-bits",
+        "Dividing the message bits by the check bits instead of by the length.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-redundancy",
+        "Giving the fraction of check bits, (n − k)/n, as the rate.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-reversed",
+        "Reading the syndrome from bottom to top, so its binary value is wrong.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-row-index",
+        "Giving the number of the first row of the syndrome that is 1 instead of reading the whole syndrome as a binary number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-weight",
+        "Giving the number of 1s in the syndrome as the position of the error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "quad-ellipsoid-mixed-up",
+        "Naming an ellipsoid (three positive squares and a positive constant) as a hyperboloid, a cone, a paraboloid or a cylinder, because the signs and the right side were not both checked.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-sheets-swapped",
+        "Swapping the hyperboloid of one sheet and the hyperboloid of two sheets, by not counting how many squared terms have the sign opposite to the right side.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-zero-rhs-ignored",
+        "Not checking whether the right side is 0: calling a cone a hyperboloid, or a hyperboloid a cone.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-elliptical-sections-means-ellipsoid",
+        "Calling a surface an ellipsoid because some of its cross-sections are ellipses, although other cross-sections are open curves.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-hyperbolic-sections-means-saddle",
+        "Calling a hyperboloid a hyperbolic paraboloid because some of its cross-sections are hyperbolas.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-squared-axis-confused",
+        "Confusing a squared variable with a variable to the first power, so a cone or hyperboloid is taken for a paraboloid, or a paraboloid for a cone or hyperboloid.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-paraboloid-sign-mixed",
+        "Swapping the elliptic and the hyperbolic paraboloid by misreading whether the two squared terms have the same sign or opposite signs.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-minus-sign-means-hyperboloid",
+        "Taking any minus sign between squared terms to mean a hyperboloid, without checking whether one variable appears only to the first power.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-missing-variable-ignored",
+        "Not noticing that one variable is missing from the squares (or is only to the first power), so naming a surface that involves all three variables.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-cylinder-kind-mixed",
+        "Mixing up the elliptic, hyperbolic and parabolic cylinders by misreading which terms are squared or what sign they have.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-cross-term-ignored",
+        "Naming the surface from the signs of the x², y² and z² terms alone, ignoring a cross term that changes the signs of the quadratic form.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-forgot-completing-constant",
+        "Forgetting the constants added when completing the square, so the right side used to name the surface is the original one.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-sign-flipped",
+        "Reading the sign of c the wrong way round when describing the level set f = c.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-sign-ignored",
+        "Ignoring the sign of c, treating a negative level like the positive level of the same size.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-zero-empty",
+        "Taking the level set f = 0 of a sum of squares to be empty, rather than the single point at the origin.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-negative-point",
+        "Taking a negative level of a sum of squares to be a single point instead of no points.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-closed-vs-open",
+        "Mixing up the closed traces (circle, ellipse) with the open ones (hyperbola, parabola) by not checking whether the squared terms have the same sign.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-hyperbola-vs-parabola",
+        "Swapping hyperbola and parabola by not checking whether both variables are squared.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-circle-vs-ellipse",
+        "Calling an ellipse a circle although the two squared terms have different coefficients.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-degenerate-missed",
+        "Confusing a genuine conic with a degenerate one (a single point or a pair of lines) by not checking where the plane lies compared with the vertex or centre.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-point-vs-empty",
+        "Swapping a single point and no points: a plane that just touches the surface against one that misses it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-sign-error",
+        "Giving the centre coordinate with the wrong sign after completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-coefficient-not-divided",
+        "Halving the linear coefficient but not dividing by the coefficient of the squared term.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-not-halved",
+        "Dividing the linear coefficient by the coefficient of the squared term but forgetting to halve it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-linear-coefficient-read",
+        "Reading the coefficient of the linear term as the coordinate of the centre.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-halved-twice",
+        "Halving the coordinate of the centre a second time when completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-ignores-cut",
+        "Giving the semi-axis read from the equation as if the plane passed through the centre, ignoring how the cross-section changes with the height k.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-denominator-as-semi-axis",
+        "Reading the denominator (the square of the semi-axis) as the semi-axis.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-not-rooted",
+        "Forgetting the final square root and giving the square of the semi-axis of the cross-section.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-factor-unrooted",
+        "Scaling the semi-axis by 1 ± k²/c² instead of by its square root.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-k-not-squared",
+        "Scaling the semi-axis by 1 ± k/c instead of by √(1 ± k²/c²), leaving k unsquared and the root untaken.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-wrong-direction",
+        "Giving the semi-axis in the other direction.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-sign-flipped",
+        "Using the wrong sign on the k² term when putting the plane into the equation, so 1 + k²/c² is used where 1 − k²/c² is needed, or the reverse.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-not-rooted",
+        "Giving r², the right side after completing the square, as the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-from-constant",
+        "Reading the constant term of the plane as the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-slope-not-halved",
+        "Adding the squares of the plane's x and y coefficients without halving them when completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-completing-sign",
+        "Subtracting instead of adding the completed-square terms when finding the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-centre-as-radius",
+        "Giving a coordinate of the circle's centre (half a coefficient of the plane) as its radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-constant-only",
+        "Ignoring the completed-square terms and taking the square root of the constant alone.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coordinate-of-point",
+        "Giving the coordinate of the given point along that axis as the intercept, as if the point were on the axis.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-level-value",
+        "Giving the value c of the level surface instead of the intercept.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coefficient-forgotten",
+        "Solving for the intercept as √c, forgetting to divide by the coefficient of the squared term first.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-root-forgotten",
+        "Dividing c by the coefficient of the squared term but not taking the square root.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coefficient-inverted",
+        "Multiplying c by the coefficient of the squared term instead of dividing by it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-sum",
+        "Adding the two semi-axes instead of multiplying them in the area formula πpq.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-halved",
+        "Halving the product of the semi-axes, as for the area of a triangle.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-squares",
+        "Adding the squares of the semi-axes instead of multiplying them.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-perimeter-style",
+        "Using 2(p + q), a perimeter-style quantity, in place of pq.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-denominators",
+        "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
+        area="quadric-surfaces",
     ),
 )
 

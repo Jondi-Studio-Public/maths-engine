@@ -1,0 +1,122 @@
+id: uc2-hermitian-unitary-matrices
+name: Hermitian and unitary matrices
+domain: linear-algebra
+year_level:
+- university
+description: 'Work with the conjugate transpose of a complex matrix: the entries of A*A and tr(A*A), the real eigenvalues
+  of a 2×2 Hermitian matrix, the normalising constant and missing entry of a unitary matrix, and a parameter fixed by an eigenvalue
+  of a Hermitian matrix.'
+status: active
+placement_eligible: false
+prerequisites:
+- two-by-two-eigenvalues
+- matrix-determinant-2x2
+answer: number
+sources:
+- topic: w6c_hermitian
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6c_hermitian
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6c_hermitian
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6c_hermitian
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: herm-both-columns-summed
+  description: Adding the squared lengths of both columns, 2N², and giving that as the normalising constant.
+- id: herm-conjugate-forgotten
+  description: Transposing without conjugating (using AᵀA or Hᵀ) where the conjugate transpose A* is needed.
+- id: herm-diagonal-entry-as-eigenvalue
+  description: Reading a diagonal entry as an eigenvalue. That works for a triangular matrix, not for a Hermitian matrix with
+    a non-zero off-diagonal entry.
+- id: herm-eigenvalue-sum-of-powers
+  description: Giving λ₁ + λ₂ (the trace) where λ₁² + λ₂² was needed.
+- id: herm-entry-squared
+  description: Giving x² from the length condition instead of x.
+- id: herm-entry-transposed
+  description: Giving the (j, i) entry of A*A instead of the (i, j) entry, which has the opposite imaginary part.
+- id: herm-imaginary-parts-ignored
+  description: Finding the length of a complex column from the real parts of its entries only.
+- id: herm-imaginary-parts-only
+  description: Summing the squares of only the imaginary parts of the entries.
+- id: herm-imaginary-sign
+  description: Giving the conjugate of the entry, with the sign of the imaginary part reversed.
+- id: herm-mean-as-eigenvalue
+  description: Giving the mean of the diagonal entries, (a + d)/2, as an eigenvalue.
+- id: herm-modulus-as-square
+  description: Squaring each entry (z²) instead of taking its squared modulus |z|² = z z̄ when summing.
+- id: herm-modulus-not-squared
+  description: Using |b| + |c| in place of b² + c², the squared modulus of b + ci.
+- id: herm-modulus-squared-as-entry
+  description: Giving the squared modulus |q|² as the missing entry of a unitary matrix.
+- id: herm-modulus-squared-unrooted
+  description: Giving k² from the characteristic equation as k.
+- id: herm-norm-squared-not-root
+  description: Giving N², the squared length of a column, as the normalising constant N.
+- id: herm-normaliser-as-entry
+  description: Giving the normalising constant N as the missing entry of the matrix.
+- id: herm-offdiagonal-ignored
+  description: Ignoring the off-diagonal entries when finding the determinant of a Hermitian matrix.
+- id: herm-offdiagonal-real-part-added
+  description: Adding |b| to k when the real part b of the off-diagonal entry belongs under the root as b².
+- id: herm-offdiagonal-sign
+  description: Adding (b + ci)(b - ci) to ad instead of subtracting it in the determinant.
+- id: herm-offdiagonal-squared-not-modulus
+  description: Squaring the off-diagonal entry, (b + ci)², instead of multiplying it by its conjugate, so b² - c² replaces
+    b² + c².
+- id: herm-product-of-eigenvalues
+  description: Giving λ₁λ₂ (the determinant) where λ₁² + λ₂² was needed.
+- id: herm-product-order-reversed
+  description: Computing AA* where A*A was asked for.
+- id: herm-radicand-with-offdiagonal
+  description: Giving (a - λ)(d - λ) as k, forgetting to subtract b² and take the square root.
+- id: herm-radius-as-eigenvalue
+  description: Giving the half-gap √(((a - d)/2)² + b² + c²), the distance of each eigenvalue from the mean, as an eigenvalue.
+- id: herm-real-parts-only
+  description: Summing the squares of only the real parts of the entries.
+- id: herm-sign-from-norm-only
+  description: Taking the wrong root of the length condition x² = p², when orthogonality fixes the sign.
+- id: herm-square-instead-of-modulus-squared
+  description: Using Re(z²) = a² - b² for |z|² = a² + b² when finding the length of a column.
+- id: herm-square-of-sum
+  description: Giving (λ₁ + λ₂)², the square of the trace, where λ₁² + λ₂² was needed.
+- id: herm-sum-instead-of-gap
+  description: Adding the two eigenvalues (giving the trace) where their difference or the other eigenvalue was asked for.
+- id: herm-wrong-ordering
+  description: Giving the larger eigenvalue where the smaller was asked for, or the reverse.
+- id: herm-offdiagonal-moduli-mixed
+  description: Adding |b| to c² when finding k, a mixture that no step of the working produces.
+- id: herm-real-part-instead-of-imaginary
+  description: Giving the real part of the entry where the imaginary part was asked for.
+difficulty_progression: 'Easy is conjugate-transpose arithmetic on a 2×2 complex matrix: one real or imaginary part of an
+  entry of A*A, or tr(A*A). Medium finds an eigenvalue (or the gap between the eigenvalues) of a 2×2 Hermitian matrix, where
+  the off-diagonal pair b ± ci multiplies to b² + c² in the characteristic polynomial. Hard turns the properties around: the
+  constant N that makes a scaled matrix unitary, the real entry that completes a unitary matrix (the length condition leaves
+  a sign that orthogonality settles), or the parameter k in a Hermitian matrix with a given eigenvalue. The exam chain finds
+  det H, both eigenvalues (the second following through from the first through the trace) and tr(H*H) (following through from
+  the two eigenvalues).'
+tags:
+- university-year-2
+- linear-algebra
+- complex-matrices
+- hermitian-matrices
+- unitary-matrices
+framework_areas:
+- linear-algebra

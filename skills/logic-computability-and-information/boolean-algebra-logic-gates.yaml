@@ -1,0 +1,95 @@
+id: boolean-algebra-logic-gates
+name: Boolean expressions, logic gates and Karnaugh maps
+domain: logic-computability-and-information
+year_level:
+- '12'
+description: Evaluate Boolean expressions and gate circuits described in words, read truth tables, and simplify a function
+  to a minimal sum-of-products with a Karnaugh map, counting rows, row numbers and literals.
+status: active
+placement_eligible: false
+prerequisites:
+- propositional-truth-evaluation
+answer: number
+sources:
+- topic: w6a_boolean_logic
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6a_boolean_logic
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6a_boolean_logic
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6a_boolean_logic
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: bool-reads-zero-rows
+  description: Counts or lists the rows where the output is 0 instead of the rows where it is 1.
+- id: bool-precedence-or-before-and
+  description: Applies the operations left to right, or the lower-priority operation first, instead of doing NOT, then AND,
+    then OR or XOR.
+- id: bool-ignores-negation
+  description: Evaluates a negated input as if the NOT were not there.
+- id: bool-gate-type-confused
+  description: Evaluates a NAND, NOR or XOR gate as the AND or OR gate it is built from, forgetting the inversion or the exclusion.
+- id: bool-bit-order-reversed
+  description: Reads the input bits with the last variable as the most significant, so every row number is the wrong one.
+- id: bool-row-numbering-from-one
+  description: Numbers the truth table rows from 1 instead of 0, so every row number is one too large.
+- id: bool-compares-totals-not-rows
+  description: Compares how many ones each function has instead of comparing them row by row.
+- id: bool-counts-agreeing-rows
+  description: Counts the rows on which two functions agree where the rows on which they differ were asked for.
+- id: kmap-no-grouping
+  description: Writes one full product term for every cell with a 1, without grouping any cells.
+- id: kmap-terms-not-literals
+  description: Gives the number of groups where the total number of literals was asked for.
+- id: kmap-groups-too-small
+  description: Stops at groups of two cells and misses a larger group of four or eight.
+- id: kmap-literals-as-variables
+  description: Counts every variable in every group, forgetting that a variable which changes across a group drops out.
+- id: kmap-dont-care-as-zero
+  description: Treats a don't-care cell as a 0, so the groups cannot use it.
+- id: kmap-miscount-literals
+  description: Miscounts the literals in the simplified expression by one.
+- id: bool-saving-uses-terms
+  description: Subtracts the product terms instead of the literals when finding how many literals are saved.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Evaluate a three-variable expression, or a two-gate circuit, on all eight rows and count the ones, or read a two-variable
+      output column as a binary number.
+  medium:
+    steps: 4
+    demand: Group the ones of a three-variable Karnaugh map and count the literals of the minimal sum-of-products, compare
+      two functions row by row, or trace a three-gate circuit using NAND, NOR and XOR.
+  hard:
+    steps: 5
+    demand: Group a four-variable map with wrap-around groups, use don't-care cells to enlarge groups, or trace a four-input,
+      four-gate circuit over sixteen rows.
+  exam:
+    steps: 6
+    demand: Trace a three-gate circuit, list the rows with output 1 by row number, simplify it with a Karnaugh map and measure
+      the saving against the full minterm form.
+tags:
+- senior
+- digital-logic
+- boolean-algebra
+- logic-gates
+- truth-table
+- karnaugh-map
+- vce-specialist
