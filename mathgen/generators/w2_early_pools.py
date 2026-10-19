@@ -69,15 +69,14 @@ def _forward(rng, steps, starts):
     for _ in range(steps):
         answer *= Fraction(1, 2)
     check(answer == Fraction(1, start.denominator * 2**steps), "halving key wrong")  # second route
-    cut = "in half" if steps == 1 else "in half, then cuts each piece in half again"
+    cut = "in half" if steps == 1 else "in half, then in half again"
     smallest = "new piece" if steps == 1 else "smallest piece"
     fig = None
     if start == 1:
-        text = f"{name} cuts a whole {item} {cut}. What fraction of the whole {item} is each {smallest}?"
+        text = f"{name} cuts a whole {item} {cut}. What fraction of the whole is each {smallest}?"
     else:
-        word = _PART_WORD[start.denominator]
         text = (
-            f"{name} takes the shaded {word} of a {item} and cuts it {cut}. "
+            f"{name} cuts the shaded {_PART_WORD[start.denominator]} {cut}. "
             f"What fraction of the whole {item} is each {smallest}?"
         )
         fig = _picture(item, shape, start.denominator)
@@ -107,17 +106,12 @@ def _inverse(rng):
     for _ in range(steps):
         simulated *= Fraction(1, 2)
     check(simulated == target, "inverse halving key wrong")  # second route
-    cut = "a piece of the" if original != 1 else "the whole"
-    if steps == 1:
-        text = (
-            f"{name} cuts {cut} {item} in half. Each new piece is {_frac_text(target)} of the whole {item}. "
-            f"What fraction of the whole {item} did {name} start with?"
-        )
-    else:
-        text = (
-            f"{name} cuts {cut} {item} in half, then cuts each half in half again. Each smallest piece is "
-            f"{_frac_text(target)} of the whole {item}. What fraction of the whole {item} did {name} start with?"
-        )
+    cut = "in half" if steps == 1 else "in half, then in half again"
+    what = "a whole" if original == 1 else "a piece of the"
+    text = (
+        f"{name} cuts {what} {item} {cut}. Each smallest piece is {_frac_text(target)} of the whole {item}. "
+        f"What fraction was the first piece?"
+    )
     answer_text = _frac_text(original)
     return dict(
         text=text,

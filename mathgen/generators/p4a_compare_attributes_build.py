@@ -28,9 +28,9 @@ ATTRIBUTES = ("length", "mass", "capacity", "duration")
 
 # G = the greater-attribute label, L = the lesser-attribute label
 ATTRIBUTE_ACTION = {
-    "length": "{G} reaches further than {L} when their ends are lined up.",
+    "length": "{G} reaches further than {L} when lined up.",
     "mass": "{G} tips the balance down against {L}.",
-    "capacity": "Pouring the liquid from {G} into {L} makes {L} overflow.",
+    "capacity": "Pouring {G} into {L} makes {L} overflow.",
     "duration": "{G} takes longer to finish than {L}.",
 }
 
@@ -279,13 +279,10 @@ def compare_order_measure_attributes(rng, N=3, hard_shuffle=False):
     statements_no_period = [s.rstrip(".") for s in shuffled_statements]
     clues_text = "; ".join(statements_no_period) + "."
 
-    # Natural phrasing for the ordering prompt
-    if attr == "duration":
-        prompt_start = f"Arrange {', '.join(labels)} from {LEAST_WORD[attr]} to {GREATEST_WORD[attr]}"
-    else:
-        prompt_start = f"Arrange {', '.join(labels)} from {LEAST_WORD[attr]} to {GREATEST_WORD[attr]}"
+    # The labels are already in the clues, so the prompt names the kind of thing rather than listing them.
+    prompt_start = f"Order the {NOUN[attr].lower()}s from {LEAST_WORD[attr]} to {GREATEST_WORD[attr]}"
 
-    text = f"These are the clues, in no particular order: {clues_text} {prompt_start}."
+    text = f"Clues: {clues_text} {prompt_start}."
 
     # Verify using Kahn's topological sort (genuinely different algorithm)
     reconstructed_order = _expected_order_skill2(shuffled_edges, labels)

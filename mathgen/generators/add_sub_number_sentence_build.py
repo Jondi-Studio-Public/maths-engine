@@ -57,12 +57,9 @@ _TIERS = ("easy", "medium", "hard")
 BLANK = "□"
 
 _INSTRUCTION = (
-    "Which number sentence matches the story? Every sentence is written as part + part = whole or "
-    "whole - part = part, and {blank} stands for the number to find.",
-    "Choose the number sentence that matches the story. Each one is written as part + part = whole or "
-    "whole - part = part, and {blank} is the number to find.",
-    "Which of these number sentences fits the story? They are all written as part + part = whole or "
-    "whole - part = part, with {blank} for the unknown number.",
+    "Which number sentence matches the story? {blank} is the number to find.",
+    "Choose the number sentence that matches the story. {blank} is the number to find.",
+    "Which of these number sentences fits the story? {blank} is the unknown number.",
 )
 
 # -- stories --------------------------------------------------------------------------------------------------

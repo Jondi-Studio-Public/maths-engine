@@ -30,7 +30,7 @@ from types import SimpleNamespace
 
 _TIERS = ("easy", "medium", "hard")
 
-_RULE = "Use whole numbers, and 0 is allowed."
+_RULE = "Use whole numbers; 0 is allowed."
 
 
 def _tens_ones_splits(n: int) -> list[tuple[int, int]]:
@@ -107,10 +107,8 @@ def _easy(rng):
         text = phrase(
             rng,
             [
-                "Split {n} into two parts in every way. Write each way as (larger part, smaller part). "
-                "The two parts add to {n}. {rule}",
-                "Split {n} into two parts in every way. Write each way as (larger part, smaller part). "
-                "Together the two parts make {n}. {rule}",
+                "Split {n} into two parts in every way. Write each way as (larger part, smaller part). {rule}",
+                "Split {n} into two parts in every way. Write each way as (larger part, smaller part). {rule}",
             ],
             n=n,
             rule=_RULE,
@@ -132,10 +130,8 @@ def _easy(rng):
     text = phrase(
         rng,
         [
-            "Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). "
-            "The tens and ones must make {n}. {rule}",
-            "Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). "
-            "Together the tens and the ones make {n}. {rule}",
+            "Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). {rule}",
+            "Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). {rule}",
         ],
         n=n,
         rule=_RULE,
@@ -180,7 +176,7 @@ def _medium(rng):
     check(2 <= len(answer) < len(all_splits), "the limit must keep more than one and rule at least one out")
     text = (
         f"Show {n} as tens and ones in every way where {condition}. "
-        f"Write each way as (number of tens, number of ones). The tens and ones must make {n}. {_RULE}"
+        f"Write each way as (number of tens, number of ones). {_RULE}"
     )
     traded = [(n // 10 - j, n % 10 + j) for j in range(n // 10 + 1)]
     candidates = [
@@ -210,8 +206,7 @@ def _hard(rng):
         check(len(answer) >= 2, "a hard question needs more than one other partition")
         text = (
             f"A number is shown as {_tens(t0)} and {o0} ones. List every other way to show the same number as "
-            f"tens and ones. Write each way as (number of tens, number of ones). The shown way is not part of "
-            f"your answer. {_RULE}"
+            f"tens and ones. Write each way as (number of tens, number of ones). {_RULE}"
         )
         standard = (n // 10, n % 10)
         candidates = [
@@ -237,7 +232,7 @@ def _hard(rng):
         check(len(answer) >= 2, "a hard question needs more than one partition")
         text = (
             f"A number is {phrase} {_tens(t0)} and {_ones(o0)}. Show the number as tens and ones in every way. "
-            f"Write each way as (number of tens, number of ones). The tens and ones must make the number. {_RULE}"
+            f"Write each way as (number of tens, number of ones). {_RULE}"
         )
         base = 10 * t0 + o0
         candidates = [
