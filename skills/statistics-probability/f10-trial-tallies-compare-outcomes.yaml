@@ -8,7 +8,7 @@ description: >-
   the gap between two tallies, or the count for the most common outcome. Medium compares an outcome's tally with
   the count equal likelihood would give for a spinner with equal sections. Hard works with a tally after the first
   trials and again after more, to find the extra trials on their own, the gap between two outcomes in them, or the
-  most common outcome against equal likelihood.
+  most common outcome against equal likelihood. Coin, die, card and tile experiments add the trials that were not one outcome, the pooled count of two groups, and the gap or the rest across both groups.
 status: active
 placement_eligible: false
 prerequisites:
@@ -24,6 +24,18 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: fr2d_trial_tallies
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: w7f_trial_variants
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w7f_trial_variants
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w7f_trial_variants
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

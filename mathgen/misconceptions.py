@@ -54404,6 +54404,896 @@ _ENTRIES = (
         "w6-limit-root-degree-not-halved",
         "Compares the numerator's degree with the full degree under the square root instead of half of it.",
         area="limits",
+    # -- w7 figures (scale drawing, views, space strand) --
+    CatalogueEntry(
+        "plan-ignores-the-window-condition",
+        "Names the other room with a toilets symbol, which has a window, ignoring the condition that there is no window symbol.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-window-condition-without-toilets",
+        "Names a room with no window symbol that does not have the toilets symbol, ignoring the toilets condition.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-neighbouring-room",
+        "Names a room next to the correct one on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-other-wet-room",
+        "Names a different wet room (bathroom, ensuite, toilet or laundry) from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-other-fixture-room",
+        "Names the room that holds a different fixture or symbol from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-rooms-without-window",
+        "Counts the rooms with no window symbol where the rooms with a window symbol were asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-all-rooms",
+        "Counts every room on the plan instead of only those that meet the condition.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-omits-the-dishwasher",
+        "Leaves the room with the dishwasher out of the rooms a plumber must visit.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-toilets-only",
+        "Counts only the rooms with the toilets symbol and misses the other fixtures that need a plumber.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-a-shared-room-twice",
+        "Counts a room twice when it has more than one plumbing fixture.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-robe-room",
+        "Counts the room with the built-in robe, which needs no plumber.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-charges-per-window-room",
+        "Multiplies the price by the number of rooms with a window symbol instead of the rooms visited.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-names-an-existing-building",
+        "Names a feature drawn with a solid outline (existing) where the dashed (proposed) one was asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-reverses-the-direction",
+        "Gives the opposite compass direction, reading from the second feature to the first.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-swaps-east-and-west",
+        "Swaps east and west when reading a direction off the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-swaps-north-and-south",
+        "Swaps north and south when reading a direction off the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-turns-the-direction",
+        "Gives a compass direction a quarter turn from the correct one.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-perimeter-for-area",
+        "Gives the perimeter of the feature where its area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-reads-the-existing-building",
+        "Gives the area of an existing building where the proposed feature was asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-area-from-squares-on-the-plan",
+        "Counts squares on the plan as square metres without applying the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-adds-the-sides",
+        "Adds the length and width of the feature instead of multiplying them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-leaves-out-the-proposed-feature",
+        "Gives the area of the existing buildings only, leaving out the proposed feature.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-leaves-out-a-building",
+        "Leaves one building out of the total area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-proposed-feature-twice",
+        "Counts the proposed feature twice in the total area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-neighbouring-square",
+        "Reads the square next to the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-swaps-column-and-row",
+        "Swaps the column letter and the row number, reading the wrong square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-other-landmark",
+        "Names a different landmark from the one in the square asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-counts-rows-from-the-top",
+        "Counts the rows from the top of the map instead of from the bottom.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-confuses-east-and-west",
+        "Moves west where the journey goes east, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-confuses-north-and-south",
+        "Moves south where the journey goes north, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-swaps-the-two-distances",
+        "Swaps the two distances, going the first number of squares in the second direction.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-counts-the-start-square",
+        "Counts the starting square as the first step of each move.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-reverses-both-directions",
+        "Reverses both directions of the journey.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-lands-in-a-wrong-square",
+        "Names the landmark at a square the journey does not end in.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-names-the-start",
+        "Names the landmark where the journey started.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-adds-instead-of-subtracts",
+        "Adds the two quantities where their difference was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-adds-scale",
+        "Adds the scale (metres to the centimetre) to the length measured on the plan instead of multiplying by it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-for-perimeter",
+        "Gives the area where the perimeter was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-from-perimeter",
+        "Multiplies the actual perimeter by the scale to get an area, instead of scaling the area on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-linear-factor",
+        "Multiplies an area on the plan by the scale once instead of by its square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-unscaled",
+        "Gives the area measured on the plan without applying the scale at all.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-cost-adds-price",
+        "Adds the price to the quantity instead of multiplying them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-cost-of-fractional-rolls",
+        "Prices the exact fraction of a roll needed instead of the whole rolls that must be bought.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-difference-unscaled",
+        "Subtracts the shorter route from the longer on the plan but does not apply the scale to the difference.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-doubles-drawn-length",
+        "Doubles the length it divided by instead of dividing the real length by the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-rolls",
+        "Gives the number of rolls where the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-track-not-difference",
+        "Gives the length of the shorter route where the difference between the two routes was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-turf-bought-not-left",
+        "Gives the area covered by all the rolls bought where the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-hours-for-minutes",
+        "Leaves the time in hours, or reads decimal hours as minutes, instead of converting to minutes.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-kilometre-metre-slip",
+        "Slips by a power of ten between kilometres and metres when scaling a map distance.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leaves-out-a-leg",
+        "Leaves one leg of a road that doubles back out of the total length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leftover-complement",
+        "Takes the leftover as the part of a roll that is used instead of the part that is not.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leftover-extra-roll",
+        "Adds a whole extra roll to the leftover.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-length-unscaled",
+        "Gives the length measured on the plan without applying the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-metre-centimetre-slip",
+        "Slips by a power of ten when converting between metres and centimetres.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-multiplies-for-time",
+        "Multiplies the distance by the speed instead of dividing the distance by the speed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-multiplies-instead-of-divides",
+        "Multiplies where the scale should be divided into the real length, or divides where it should multiply.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-off-by-one",
+        "Is one centimetre out when converting a real length to a drawn length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-one-roll-too-many",
+        "Rounds up and then adds a further roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-perimeter-bounding-rectangle",
+        "Uses the perimeter of the rectangle round the whole shape instead of the shape's own boundary.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-perimeter-omits-side",
+        "Leaves one wall out when adding the sides of the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-on-drawn-area",
+        "Applies the price per square metre to the area measured on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-on-perimeter",
+        "Applies the price per square metre to the perimeter instead of the area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-per-square-metre-for-roll",
+        "Charges the price of one roll for each square metre instead of for each roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-ratio-not-converted",
+        "Writes the metres to the centimetre as the second term of the ratio without converting to centimetres.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-reads-label-as-scale",
+        "Gives the labelled actual length, or the count of squares, as the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-remainder-for-leftover",
+        "Gives the remainder when the area is divided by the roll size, not the area left on the last roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-rounds-down",
+        "Rounds down to whole packs or rolls, so the area is not covered.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-rounds-to-nearest",
+        "Rounds to the nearest whole pack or roll instead of always rounding up.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-scale-squared-for-length",
+        "Multiplies a length by the square of the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-straight-across-route",
+        "Measures the straight-across-then-up route instead of following the road that doubles back.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-time-off-by-an-hour",
+        "Is a whole hour out when converting a time in hours to minutes.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-wrong-wall",
+        "Reads a different wall from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-count-off-by-one",
+        "Counts one cube, square or unit too many or too few.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-the-columns",
+        "Counts the columns of the stack, which are the squares of the view from above, instead of the cubes or squares asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-only-the-squares-in-view",
+        "Counts only the faces drawn in the picture and leaves out the faces that are hidden.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-fills-the-bounding-box",
+        "Counts every position in the box that encloses the stack, as if it were full.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-gives-the-cubes-in-the-stack",
+        "Gives the number of cubes already in the stack where the cubes still needed to fill the box were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-gives-the-capacity-of-the-box",
+        "Gives the number of cubes the whole box holds where the cubes still needed were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-takes-the-stack-off-twice",
+        "Subtracts the cubes in the stack twice when finding how many more cubes fill the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-ignores-faces-that-touch",
+        "Counts six faces for every cube, without removing the faces that are joined to another cube.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-the-bottom-once",
+        "Adds the columns to the squares in view, counting the bottom once instead of doubling the squares in view.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-leaves-the-area-unscaled",
+        "Gives the area in unit squares where the area in square centimetres was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-scales-an-area-by-the-side-once",
+        "Multiplies an area by the side of a unit square once instead of by its square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-cubes-the-side",
+        "Multiplies an area by the cube of the side instead of the square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-uses-the-cubes-for-the-squares",
+        "Scales the number of cubes where the number of unit squares on the surface was needed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-lengths-not-edges",
+        "Counts the lengths of the cuboid that match, not the four edges for each length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-every-edge",
+        "Counts all twelve edges of the cuboid.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-one-set-of-edges",
+        "Counts one set of four parallel edges where the matching edges were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-three-edges-for-a-length",
+        "Counts three edges for each matching length instead of four.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-faces-for-edges",
+        "Gives the number of faces of the cuboid where edges were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-adds-the-lengths",
+        "Adds the three lengths of the cuboid instead of multiplying them to find the volume.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-adds-the-face-areas",
+        "Adds the areas of the three different faces instead of finding the volume or the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-the-surface-for-the-volume",
+        "Gives the surface area of the cuboid where its volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-multiplies-two-lengths-only",
+        "Multiplies only two of the three lengths of the cuboid, or adds the third.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-one-of-each-pair-of-faces",
+        "Counts the three different faces once each, forgetting that every face has an equal opposite face.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-the-volume-for-the-surface",
+        "Gives the volume of the cuboid where its surface area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-edge-length-for-surface",
+        "Gives the total length of the edges where the surface area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-leaves-out-a-pair-of-faces",
+        "Leaves one pair of opposite faces out of the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-prices-the-volume",
+        "Applies the price for each unit square to the number of cubes instead of the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-shortest-edge",
+        "Gives the shortest edge of the box where the longest was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-another-edge",
+        "Gives a different edge of the box from the longest.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-width-of-the-sheet",
+        "Gives the width of the sheet round the net as an edge of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-height-of-the-sheet",
+        "Gives the height of the sheet round the net as an edge of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-edges",
+        "Adds the three edges of the box where one length or the volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-volume-for-an-edge",
+        "Gives the volume of the box where an edge was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-leaves-out-the-top-and-bottom",
+        "Finds the area of the four side faces only and leaves out the top and the bottom.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-counts-one-of-each-pair-of-faces",
+        "Counts each of the three different faces once, forgetting that every face has an equal opposite face.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-volume-for-the-surface",
+        "Gives the volume of the box where its surface area (or the leftover sheet) was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-sheet-for-the-surface",
+        "Gives the area of the whole sheet where the area of the net or the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-leaves-out-a-pair-of-faces",
+        "Leaves one pair of opposite faces out of the net's area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-surface-for-the-volume",
+        "Gives the surface area of the box where its volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-face-areas",
+        "Adds the areas of the three different faces instead of finding the volume.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-a-face-to-the-volume",
+        "Adds the area of a face to the volume of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-net-not-the-leftover",
+        "Gives the area of the net where the area of the sheet left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-sheet-sides",
+        "Adds the width and the height of the sheet instead of finding the area left over.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-back-view",
+        "Reads the view from the back where another view was asked, which reverses the column heights.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-side-view",
+        "Gives the view from the side where the front view was asked, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-front-view",
+        "Gives the view from the front where the side view or the squares from above were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-opposite-side-view",
+        "Gives the view from the opposite side, which reverses the column heights.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-counts-every-cube-for-a-view",
+        "Counts every cube of the stack for the squares in a view, including cubes hidden behind others.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-plan-for-the-elevation",
+        "Gives the squares of the view from above where the squares of the front view were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-multiplies-by-the-height",
+        "Multiplies the squares from above by the tallest column instead of counting each column once.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-bounding-rectangle",
+        "Gives the area of the rectangle round the shape (or its cost) as if the shape filled it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-the-bare-squares",
+        "Gives the squares of the rectangle that the shape leaves bare where the area of the shape was asked, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-perimeter-for-the-area",
+        "Gives the distance round the edge where the number of squares inside was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-area-for-the-perimeter",
+        "Gives the number of squares inside where the distance round the edge was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-bounding-perimeter",
+        "Gives the perimeter of the rectangle round the shape, ignoring the notches in its edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-leaves-out-a-side",
+        "Leaves one side out when adding the lengths round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-a-side-twice",
+        "Counts one side twice when adding the lengths round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-half-the-perimeter",
+        "Gives half the distance round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-the-covered-squares",
+        "Gives the squares the shape covers where the bare squares were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-adds-the-sides",
+        "Adds the width and the height of the rectangle where its bare squares were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-cubes-already-counted",
+        "Gives the cubes in the stacks that show a number where the stack marked with a question mark was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-total",
+        "Gives the total number of cubes in the model where another count was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-treats-every-stack-as-one-cube",
+        "Takes the total less one cube for every other stack, as if each stack with a number held a single cube.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-total-after-adding",
+        "Gives the number of cubes in the finished model where the cubes added were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-builds-on-the-bare-squares",
+        "Adds cubes to the bare squares too, instead of leaving them bare.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-forgets-the-marked-stack",
+        "Leaves the stack marked with a question mark out of the cubes already in the model.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-cubes-added",
+        "Gives the cubes added where the cubes in the finished model were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-takes-away-the-cubes-added",
+        "Takes the cubes added away from the total instead of adding them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-squares-not-the-cubes",
+        "Counts the squares of the plan that have a stack instead of adding the cubes in the stacks.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-makes-every-stack-the-tallest",
+        "Gives every stack the height of the tallest stack, instead of using the number written on each square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "view-adds-the-cubes-in-a-line",
+        "Adds the cubes in a line of stacks instead of taking the tallest, so the column is too tall.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "view-reads-only-the-nearest-row",
+        "Reads only the row of stacks nearest the viewer instead of the tallest stack in each line.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-direction-reversed",
+        "Turns the shape the right amount but the wrong way, clockwise for anticlockwise or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-wrong-amount",
+        "Turns the shape through the wrong amount, such as a half turn for a quarter turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-reflection-for-a-turn",
+        "Takes a reflection (a flip) of the shape to be a turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-uses-only-the-first-turn",
+        "Applies only the first of two turns.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-uses-only-the-second-turn",
+        "Applies only the second of two turns.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-a-side-face-for-the-top",
+        "Gives the squares in a side face where the top face was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-perimeter-of-the-top",
+        "Gives the distance round the top face where its squares were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-row-for-the-volume",
+        "Gives the squares in the row of four side faces where the volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-width-of-the-row",
+        "Gives the width of the row of four side faces where the height of the box was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-forgets-the-missing-corner",
+        "Finds the cells of the whole rectangle and forgets the corner that is missing.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-missing-corner",
+        "Gives the cells of the missing corner where the cells the plan covers were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-takes-away-the-sides-of-the-corner",
+        "Takes away the width and height of the missing corner instead of its area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-adds-the-notch-to-the-perimeter",
+        "Adds the sides of the missing corner to the distance round the plan, when the notch does not change it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-takes-the-notch-off-the-perimeter",
+        "Takes the sides of the missing corner off the distance round the plan, when the notch does not change it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-gives-half-the-perimeter",
+        "Gives the sum of the width and the height, half the distance round the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-area-for-perimeter",
+        "Gives the cells the plan covers where the distance round it was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "trial-gives-the-outcome-asked-not-the-rest",
+        "Gives the tally of the outcome named, where the trials that were not that outcome were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "trial-uses-one-group-only",
+        "Uses the tally of one group only, where the two groups' results were to be put together.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-goes-the-wrong-way",
+        "Counts the right angles the other way round the dial, from the end back to the start, instead of clockwise.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-start-position",
+        "Counts the starting position as well as the turns, so the count is one too many.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-reads-the-clock-numbers",
+        "Gives a number written on the clock face instead of counting the right angles between the two numbers.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-doubles-the-count",
+        "Counts two right angles for every quarter turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-adds-the-turn-counts",
+        "Adds the number of whole turns to the number of part turns, forgetting that a whole turn is four right angles.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-full-turns-as-one",
+        "Counts each full turn as one right angle, or all the full turns as a single turn of four.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-drops-the-part-turn",
+        "Counts the full turns in right angles but leaves out the part turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-rounds-up-to-a-full-turn",
+        "Rounds the part turn up to a whole turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-a-full-turn-as-two",
+        "Counts a full turn as two right angles, the value of a half turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-adds-the-way-back",
+        "Adds the turn back to the turn forward instead of subtracting it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-ignores-the-way-back",
+        "Gives the turn forward and takes no notice of the turn back.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-the-way-back",
+        "Gives the right angles of the turn back instead of the net turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-the-turn-already-made",
+        "Gives the right angles already past the last whole turn instead of the right angles still needed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-full-turns",
+        "Gives the number of whole turns made instead of the right angles still needed to finish the next one.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-a-whole-turn",
+        "Says four right angles, a whole extra turn, where only the rest of the current turn was needed.",
+        area="figure-views",
     ),
 )
 

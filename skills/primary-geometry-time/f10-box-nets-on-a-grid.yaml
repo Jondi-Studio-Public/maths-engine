@@ -26,6 +26,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_box_net_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: net-face-wrong-size-for-its-edge
   description: Draws a top or bottom that is not as wide as the side face it is joined to, so the edges would not meet when the net is folded.
@@ -42,3 +46,16 @@ misconceptions:
 - id: net-bottom-shifted-along-edge
   description: Slides the bottom along the edge it is joined to, so it does not sit square with the face above it.
 tags: [acara-f10-v9, primary-geometry-time, grid_prism_nets, ac9m6sp01, nets, prism, drawn-answer, figure]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Shade the net of a box whose layout is pinned in words."
+  medium:
+    steps: 2
+    demand: "Shade the net of a box with the top and bottom joined to named faces of the row."
+  hard:
+    steps: 3
+    demand: "Shade the missing bottom of a box net, whose size comes from the face it is joined to."
+  exam:
+    steps: 5
+    demand: "Read a box net drawn on a grid: its surface area, the squares in its top face, the height of the box and its volume. The shade form is not set in the exam tier."

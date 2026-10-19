@@ -84,6 +84,10 @@ def _draw(rng, tier):
     ctx = _pick(rng, _CONTEXTS)
     subj, verb = ctx["subj"], ctx["verb"]
     parts_pool = {"easy": (4, 5, 8, 10), "medium": (5, 6, 8, 10, 12), "hard": (5, 6, 8, 10, 12)}[tier]
+    # easy: a count of people per slice instead of a total; medium: a percentage (whole only for 4, 5, 10 slices)
+    variant = {"easy": _pick(rng, ("total", "perslice")), "medium": _pick(rng, ("count", "percent"))}.get(tier, "")
+    if variant == "percent":
+        parts_pool = (4, 5, 10)
     for _ in attempts(500, "a pie chart"):
         parts = _pick(rng, parts_pool)
         n_sectors = rng.randint(3, min(5, parts - 1))
@@ -102,6 +106,22 @@ def _draw(rng, tier):
     pairs = [(a, b) for a in range(n_sectors) for b in range(n_sectors) if a != b and sizes[a] != sizes[b]]
     i, j = _pick(rng, pairs)
     ki, kj = sizes[i], sizes[j]
+    if tier == "easy" and variant == "perslice":
+        key = ki * unit
+        ask = phrase(
+            rng,
+            (
+                "Each slice of the pie chart stands for {unit} {subj}. How many {verb} {c}?",
+                "On this pie chart one slice is {unit} {subj}. How many {verb} {c}?",
+            ),
+            unit=unit,
+            subj=subj,
+            verb=verb,
+            c=cats[i],
+        )
+        cand = [ki, unit, ki + unit, parts * unit, key + unit, key - unit, (parts - ki) * unit]
+        working = [f"{cats[i]} has {ki} {noun(ki, 'slice')} and each slice is {unit}.", f"{ki} x {unit} = {key}."]
+        return fig, f"{lead} {ask}", key, cand, working
     if tier == "easy":
         key = ki * unit
         ask = phrase(
@@ -120,6 +140,25 @@ def _draw(rng, tier):
         working = [
             f"The circle has {parts} equal slices and {cats[i]} has {ki}.",
             f"Each slice is {total} / {parts} = {unit}, so {ki} x {unit} = {key}.",
+        ]
+        return fig, f"{lead} {ask}", key, cand, working
+    if tier == "medium" and variant == "percent":
+        key = ki * 100 // parts
+        ask = phrase(
+            rng,
+            (
+                "{total} {subj} answered. What percentage of them {verb} {c}?",
+                "{total} {subj} were surveyed. Use the pie chart to find the percentage who {verb} {c}.",
+            ),
+            total=total,
+            subj=subj,
+            verb=verb,
+            c=cats[i],
+        )
+        cand = [ki, 100 // parts, ki * unit, total, 100 - key, key + 100 // parts, key - 100 // parts]
+        working = [
+            f"The circle has {parts} equal slices, so each slice is {100 // parts}%.",
+            f"{cats[i]} has {ki}: {ki} x {100 // parts} = {key}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
     if tier == "medium":
@@ -165,7 +204,30 @@ def _draw(rng, tier):
                 f"({ki} + {kj}) x {unit} = {key}.",
             ]
         return fig, f"{lead} {ask}", key, cand, working
-    variant = _pick(rng, ("total", "other", "outside"))
+    variant = _pick(rng, ("total", "other", "outside", "rest"))
+    if variant == "rest" and 2 * ki == parts:
+        variant = "outside"
+    if variant == "rest":
+        key = abs(2 * ki - parts) * unit
+        word = "more" if 2 * ki > parts else "fewer"
+        ask = phrase(
+            rng,
+            (
+                "{total} {subj} answered. How many {word} {verb} {c} than all the other choices together?",
+                "The pie chart shows the answers of {total} {subj}. How many {word} {verb} {c} than all the other choices together?",
+            ),
+            total=total,
+            subj=subj,
+            word=word,
+            verb=verb,
+            c=cats[i],
+        )
+        cand = [ki * unit, (parts - ki) * unit, abs(ki - (parts - ki)), (2 * ki + parts) * unit, key + unit, key - unit]
+        working = [
+            f"{cats[i]} has {ki} {noun(ki, 'slice')} and the others together have {parts - ki}.",
+            f"The difference is {abs(2 * ki - parts)} {noun(abs(2 * ki - parts), 'slice')}, so {abs(2 * ki - parts)} x {unit} = {key}.",
+        ]
+        return fig, f"{lead} {ask}", key, cand, working
     if variant == "total":
         n = ki * unit
         key = total
@@ -257,8 +319,15 @@ def _read(question) -> str:
     named = mentioned_in_order(list(size), text)
     nums = [int(n) for n in re.findall(r"\b(\d+)\b", text)]
     low = text.lower()
+    if "percentage" in low:
+        check(len(nums) == 1, "the prompt states exactly one count")
+        return _fmt(size[named[0]] * 100 // parts)
     check(len(nums) == 1, "the prompt states exactly one count")
     n = nums[0]
+    if "stands for" in low or "one slice is" in low:
+        return _fmt(size[named[0]] * n)
+    if "other choices together" in low:
+        return _fmt(abs(2 * size[named[0]] - parts) * (n // parts))
     if "altogether" in low:
         return _fmt(n * parts // size[named[0]])
     if "using the pie chart, how many" in low:

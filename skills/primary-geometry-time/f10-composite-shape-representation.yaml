@@ -25,6 +25,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_composite_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: gives-the-bounding-rectangle
   description: "Gives the area of the rectangle that surrounds the shape, or its perimeter, instead of the area inside it."
@@ -39,3 +43,16 @@ misconceptions:
 - id: part-squares-not-halved
   description: "Counts each partly covered square as a whole square instead of half a square."
 tags: [acara-f10-v9, primary, geometry, composite-shapes, area, ac9m4sp01]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Count the squares inside an L-, T-, U- or step-shaped outline."
+  medium:
+    steps: 2
+    demand: "Split a rectangle-and-triangle outline into familiar parts and find its area."
+  hard:
+    steps: 3
+    demand: "Estimate the area of an irregular shape from squares drawn whole, more than half and less than half."
+  exam:
+    steps: 5
+    demand: "Chain the area, the perimeter, the squares of the rectangle round it that are left bare and the cost of tiling."
