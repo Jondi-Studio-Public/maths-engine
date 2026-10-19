@@ -19,6 +19,7 @@ from fractions import Fraction
 
 from ..answers import Distractor
 from ..core import attempts, check, generator, latex_answer, pick_distractors
+from ._network_fig import with_network_figure
 
 _NODES = "ABCDEF"
 _PAIRS = [(a, b) for i, a in enumerate(_NODES) for b in _NODES[i + 1 :]]
@@ -94,6 +95,7 @@ def _edge_text(edges: dict) -> str:
 
 
 @generator("exd_x_sc2_network_closure", level=9, presets={"exam": dict(tier="exam")})
+@with_network_figure
 def exd_x_sc2_network_closure(rng: random.Random, tier: str = "exam") -> dict:
     """Exam tier: shortest route, shortest route after a closure, and the extra distance."""
     check(tier == "exam", f"unknown tier {tier!r}")
