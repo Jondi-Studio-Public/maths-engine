@@ -298,7 +298,12 @@ def test_flat_loan_keys():
             q = sup.single("w3_flatloan_tiers", tier, seed)
             t = q.text
             d = dollars(t)
-            if "How much interest is charged in total" in t:
+            if "How much interest is charged in total" in t and "equal monthly payments" in t:
+                p, monthly = d
+                months = first_int(r"with (\d+) equal", t)
+                assert ans(q) == monthly * months - p, (seed, t)
+                seen.add("from-monthly")
+            elif "How much interest is charged in total" in t:
                 n = first_int(r"for (\d+) years", t)
                 assert ans(q) == d[0] * percents(t)[0] / 100 * n, (seed, t)
                 seen.add("interest")
@@ -323,7 +328,7 @@ def test_flat_loan_keys():
                 p, i = d
                 assert ans(q) * p * percents(t)[0] / 100 == i, (seed, t)
                 seen.add("term")
-    assert seen == {"interest", "total", "deposit", "rate", "term"}
+    assert seen == {"interest", "total", "deposit", "rate", "term", "from-monthly"}
 
 
 def round_tenth(x):

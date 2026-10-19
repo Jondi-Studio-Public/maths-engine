@@ -51,6 +51,8 @@ misconceptions:
   description: Stops at 2k = n and gives 2k as the value of k.
 - id: w3as-arithmetic-slip
   description: Makes an arithmetic slip when solving the equation, so the answer is one out.
+- id: w3as-skips-a-term
+  description: Adds the common difference twice to get the next term.
 tags: []
 difficulty_progression:
   easy:

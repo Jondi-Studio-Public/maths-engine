@@ -53515,6 +53515,11 @@ _ENTRIES = (
         area="flat-loan-repayment",
     ),
     CatalogueEntry(
+        "w3fl-one-year-of-payments",
+        "Counts one year of repayments only.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
         "w3fl-off-by-one",
         "Counts one year too many or too few.",
         area="flat-loan-repayment",
@@ -53821,7 +53826,12 @@ _ENTRIES = (
     ),
     CatalogueEntry(
         "w3as-sign",
-        "Gives the common difference with the wrong sign.",
+        "Gives the common difference, or the next term, with the wrong sign.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-skips-a-term",
+        "Adds the common difference twice to get the next term.",
         area="arithmetic-sequences",
     ),
     CatalogueEntry(
@@ -53836,7 +53846,7 @@ _ENTRIES = (
     ),
     CatalogueEntry(
         "w3as-arithmetic-slip",
-        "Makes an arithmetic slip when solving the equation, so the answer is one out.",
+        "Makes an arithmetic slip, so the answer is out by a small amount.",
         area="arithmetic-sequences",
     ),
     CatalogueEntry(

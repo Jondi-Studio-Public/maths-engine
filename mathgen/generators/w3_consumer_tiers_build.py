@@ -142,6 +142,7 @@ MISCONCEPTIONS = [
     ("w3up-percent-points", "Gives the difference in cents as the percentage.", _UP),
     # flat loan
     ("w3fl-compounded", "Compounds the interest instead of charging flat interest.", _FL),
+    ("w3fl-one-year-of-payments", "Counts one year of repayments only.", _FL),
     ("w3fl-off-by-one", "Counts one year too many or too few.", _FL),
     ("w3fl-ignores-interest", "Divides the amount borrowed alone by the number of months.", _FL),
     ("w3fl-interest-as-total", "Gives the interest where the total repaid was asked.", _FL),
@@ -1175,10 +1176,39 @@ def _fl_term(rng):
     return dict(text=text, working=working, distractors=d, **WHOLE.fields(n), answer_kind="number")
 
 
+def _fl_from_monthly(rng):
+    p = rng.randint(5, 50) * 1000
+    r = rng.choice((4, 5, 6, 8))
+    n = rng.randint(2, 6)
+    total = p * (1 + frac(r) / 100 * n)
+    monthly = total / (12 * n)
+    check((monthly * 100).denominator == 1, "repayment not whole cents")
+    interest = total - p
+    d = MONEY.dist(
+        interest,
+        [
+            (total, "w3fl-interest-as-total"),
+            (monthly * 12 - p, "w3fl-one-year-of-payments"),
+            (interest / n, "w3fl-one-year-interest"),
+            (monthly * 12 * (n + 1) - p, "w3fl-off-by-one"),
+        ],
+    )
+    enough(d, 3)
+    text = (
+        f"A {dollars(p)} loan is repaid with {12 * n} equal monthly payments of {dollars(monthly)}. "
+        f"How much interest is charged in total?"
+    )
+    working = [
+        f"Total repaid = {12 * n} × {dollars(monthly)} = {dollars(total)}.",
+        f"Interest = {dollars(total)} − {dollars(p)} = {dollars(interest)}.",
+    ]
+    return dict(text=text, working=working, distractors=d, **MONEY.fields(interest), answer_kind="number")
+
+
 @generator("w3_flatloan_tiers", level=11, presets={"medium": dict(tier="medium"), "hard": dict(tier="hard")})
 def w3_flatloan_tiers(rng, tier="medium"):
     """Flat-rate loans, medium and hard."""
-    pool = {"medium": (_fl_interest, _fl_total), "hard": (_fl_deposit, _fl_rate, _fl_term)}.get(tier)
+    pool = {"medium": (_fl_interest, _fl_total, _fl_from_monthly), "hard": (_fl_deposit, _fl_rate, _fl_term)}.get(tier)
     if pool is None:
         raise ValueError(f"unknown tier {tier!r}")
     return _draw(rng, pool)

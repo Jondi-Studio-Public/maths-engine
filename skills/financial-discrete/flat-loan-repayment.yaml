@@ -66,6 +66,8 @@ misconceptions:
   description: Gives the number of months where the number of years was asked.
 - id: w3fl-term-from-total
   description: Uses the total repaid, not the interest, to find the term.
+- id: w3fl-one-year-of-payments
+  description: Counts one year of repayments only.
 tags:
 - expansion-batch-5
 - loans

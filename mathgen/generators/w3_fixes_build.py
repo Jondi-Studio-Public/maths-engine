@@ -65,10 +65,11 @@ MISCONCEPTIONS = [
     ("w3as-first-term", "Gives the first term as the common difference.", _AS),
     ("w3as-growing-gaps", "Takes terms that grow by a growing amount for an arithmetic sequence.", _AS),
     ("w3as-repeating-gaps", "Takes gaps that repeat in a pattern for a constant difference.", _AS),
-    ("w3as-sign", "Gives the common difference with the wrong sign.", _AS),
+    ("w3as-sign", "Gives the common difference, or the next term, with the wrong sign.", _AS),
+    ("w3as-skips-a-term", "Adds the common difference twice to get the next term.", _AS),
     ("w3as-wrong-break", "Names the wrong place where the difference changes.", _AS),
     ("w3as-halving-forgotten", "Stops at 2k = n and gives 2k as the value of k.", _AS),
-    ("w3as-arithmetic-slip", "Makes an arithmetic slip when solving the equation, so the answer is one out.", _AS),
+    ("w3as-arithmetic-slip", "Makes an arithmetic slip, so the answer is out by a small amount.", _AS),
     # critical path
     ("w3el-smallest-float", "Chooses the activity with the smallest float that is not zero.", _EL),
     ("w3el-largest-est", "Chooses the activity with the latest earliest start time.", _EL),
@@ -391,6 +392,28 @@ def _one_pair(rng, n=5):
     return out
 
 
+def _next_term(rng):
+    terms, d = _arith(rng, 5)
+    shown, nxt = terms[:4], terms[4]
+    last = shown[-1]
+    slips = [
+        (last - d, "w3as-sign"),
+        (last + 2 * d, "w3as-skips-a-term"),
+        (last + d + (1 if d > 0 else -1) * rng.choice((1, 2)), "w3as-arithmetic-slip"),
+        (last * 2 - shown[-2], "w3as-arithmetic-slip"),
+    ]
+    options, seen = [], {nxt}
+    for value, tag in slips:
+        if value not in seen:
+            seen.add(value)
+            options.append((str(value), tag))
+    lead = rng.choice(("What is the next term?", "Find the term that comes next."))
+    text = f"The sequence {_seq_text(shown)}, ... is arithmetic. {lead}"
+    return choice_question(
+        text, str(nxt), [f"The common difference is {d}, so the next term is {last} + ({d}) = {nxt}."], options[:3]
+    )
+
+
 def _which_arithmetic(rng):
     key, d = _arith(rng, 5)
     decoys = [
@@ -400,7 +423,12 @@ def _which_arithmetic(rng):
     ]
     check(not any(_is_arithmetic(t) for t, _ in decoys), "a decoy is arithmetic")
     check(len({tuple(t) for t, _ in decoys} | {tuple(key)}) == 4, "duplicate sequences")
-    text = "Which of these sequences is an arithmetic sequence?"
+    text = rng.choice(
+        (
+            "Which of these sequences is an arithmetic sequence?",
+            "Only one of these sequences goes up or down by the same amount each time. Which one is it?",
+        )
+    )
     slips = [(_seq_text(t), tag) for t, tag in decoys]
     working = [f"{_seq_text(key)} goes up by {d} each time, so the difference is constant."]
     return choice_question(text, _seq_text(key), working, slips)
@@ -430,7 +458,14 @@ def _statement(rng):
             (f"It is not arithmetic: the difference changes after term {other}.", "w3as-wrong-break"),
         ]
         working = [f"The differences are {', '.join(str(x) for x in diffs)}, so they are not all equal."]
-    text = f"Look at the sequence {_seq_text(terms)}. Which statement is correct?"
+    shown = _seq_text(terms)
+    text = rng.choice(
+        (
+            f"Look at the sequence {shown}. Which statement is correct?",
+            f"A student examines the sequence {shown}. Which statement about it is correct?",
+            f"Which of these statements is true of the sequence {shown}?",
+        )
+    )
     return choice_question(text, key, working, slips)
 
 
@@ -445,7 +480,13 @@ def _solve_k(rng):
         (str(k0 + 1), "w3as-arithmetic-slip"),
         (str(max(1, k0 - 1)), "w3as-arithmetic-slip"),
     ]
-    text = f"The expressions {t1}, {t2} and {t3} are three consecutive terms of an arithmetic sequence. What is the value of k?"
+    text = rng.choice(
+        (
+            f"The expressions {t1}, {t2} and {t3} are three consecutive terms of an arithmetic sequence. What is the value of k?",
+            f"If {t1}, {t2} and {t3} form an arithmetic sequence in that order, find k.",
+            f"Three numbers in arithmetic sequence are {t1}, {t2} and {t3}. Which value of k makes this true?",
+        )
+    )
     working = [
         f"For an arithmetic sequence the middle term is the mean of its neighbours: 2({t2}) = ({t1}) + ({t3}).",
         f"4k + {2 * b} = 2k + {a + c}, so 2k = {a + c - 2 * b} and k = {k0}.",
@@ -460,7 +501,7 @@ def _solve_k(rng):
 )
 def w3_arith_recognise(rng, tier="easy"):
     """Recognise an arithmetic sequence: pick one, judge one, or solve for a missing value."""
-    pool = {"easy": (_which_arithmetic,), "medium": (_statement,), "hard": (_solve_k,)}.get(tier)
+    pool = {"easy": (_next_term, _next_term, _which_arithmetic), "medium": (_statement,), "hard": (_solve_k,)}.get(tier)
     if pool is None:
         raise ValueError(f"unknown tier {tier!r}")
     return _draw(rng, pool)
@@ -536,7 +577,20 @@ def _el_easy(rng):
             seen.add(name)
             options.append((name, "w3el-first-listed"))
     table = "; ".join(f"Activity {n}: EST {e}, LST {l}" for n, e, l in rows)
-    text = f"A project has four activities. {table}. Which activity is on the critical path?"
+    intro, ask = rng.choice(
+        (
+            ("A project has four activities.", "Which activity is on the critical path?"),
+            (
+                "The table gives the earliest and latest start times of four activities in a project.",
+                "Which activity has no float and so cannot be delayed?",
+            ),
+            (
+                "Four activities make up a small project.",
+                "Which one of them must start exactly on time if the project is not to be delayed?",
+            ),
+        )
+    )
+    text = f"{intro} {table}. {ask}"
     key = letters[key_idx]
     return choice_question(
         text,
@@ -679,8 +733,9 @@ def _br_component(rng):
     ]
     dd = DP1.dist(_fr(key), slips)
     enough(dd, 3)
+    who, verb = rng.choice((("hiker", "walks"), ("cyclist", "rides"), ("pilot", "flies"), ("sailor", "sails")))
     text = (
-        f"A hiker walks {d} km on a bearing of {_bearing(theta)}. How far {word} of the starting point is the hiker now? "
+        f"A {who} {verb} {d} km on a bearing of {_bearing(theta)}. How far {word} of the starting point is the {who} now? "
         f"Give your answer to 1 decimal place."
     )
     working = [

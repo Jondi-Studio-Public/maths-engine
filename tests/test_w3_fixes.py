@@ -164,18 +164,27 @@ def diffs(terms):
     return [terms[i + 1] - terms[i] for i in range(len(terms) - 1)]
 
 
-def test_arithmetic_easy_has_exactly_one_arithmetic_option():
+def test_arithmetic_easy_keys():
+    seen = set()
     for seed in range(200):
         q = sup.single("w3_arith_recognise", "easy", seed)
-        options = [seq(o) for o in (q.answer_text, *q.distractors)]
-        flags = [len(set(diffs(o))) == 1 for o in options]
-        assert flags == [True, False, False, False], (seed, options)
+        if "is arithmetic" in q.text:
+            shown = seq(re.search(r"The sequence ([-\d, ]+), \.\.\. is arithmetic", q.text).group(1))
+            assert len(set(diffs(shown))) == 1 and len(shown) == 4
+            assert int(q.answer_text) == shown[-1] + (shown[-1] - shown[-2]), (seed, q.text)
+            seen.add("next")
+        else:
+            options = [seq(o) for o in (q.answer_text, *q.distractors)]
+            flags = [len(set(diffs(o))) == 1 for o in options]
+            assert flags == [True, False, False, False], (seed, options)
+            seen.add("which")
+    assert seen == {"next", "which"}
 
 
 def test_arithmetic_medium_statements():
     for seed in range(200):
         q = sup.single("w3_arith_recognise", "medium", seed)
-        terms = seq(re.search(r"sequence ([-\d, ]+)\. Which", q.text).group(1))
+        terms = seq(re.search(r"sequence ([-\d, ]+?)(?:\. Which|\?)", q.text).group(1))
         d = diffs(terms)
         if len(set(d)) == 1:
             assert q.answer_text == f"It is arithmetic, with a common difference of {d[0]}.", (seed, q.text)
@@ -259,7 +268,9 @@ def comp(d, theta):
 def test_bearings_medium_components():
     for seed in range(200):
         q = sup.single("w3_bearings_general", "medium", seed)
-        d, theta = (int(x) for x in re.search(r"walks (\d+) km on a bearing of (\d+)°", q.text).groups())
+        d, theta = (
+            int(x) for x in re.search(r"(?:walks|rides|flies|sails) (\d+) km on a bearing of (\d+)°", q.text).groups()
+        )
         n, e = comp(d, theta)
         want = n if "north" in q.text else e
         assert abs(float(q.answer_text) - want) <= 0.0501, (seed, q.text, want)

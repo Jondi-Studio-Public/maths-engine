@@ -478,6 +478,13 @@ def _hl_meetings(rng):
     return dict(text=text, working=working, distractors=d, **WHOLE.fields(n), answer_kind="number")
 
 
+_CONTEXTS = (
+    ("runner", "Runner", "circular track", "run"),
+    ("cyclist", "Cyclist", "circular velodrome", "ridden"),
+    ("go-kart driver", "Driver", "racing circuit", "driven"),
+)
+
+
 def noon_plus(hours: int) -> str:
     return f"{hours}:00 pm" if hours < 12 else "midnight"
 
@@ -533,6 +540,7 @@ def exd_x_w3_hcf_lcm_words(rng, tier="exam"):
         raise ValueError(f"unknown tier {tier!r}")
 
     def build(rng):
+        noun, who, venue, done = rng.choice(_CONTEXTS)
         for _ in attempts(300, "a runners draw"):
             g, u, v, a, b = _pair(rng, 2, 6, 9)
             if u == v or lcm(a, b) > 600:
@@ -579,7 +587,7 @@ def exd_x_w3_hcf_lcm_words(rng, tier="exam"):
         for x in (a_d, b_d, c_d, d_d):
             enough(x, 3)
         stem = (
-            f"Two runners start together at the start line of a circular track. Runner A takes {a} seconds for each lap and Runner B takes {b} seconds, "
+            f"Two {noun}s start together at the start line of a {venue}. {who} A takes {a} seconds for each lap and {who} B takes {b} seconds, "
             f"and each keeps a steady pace."
         )
         return dict(
@@ -595,7 +603,7 @@ def exd_x_w3_hcf_lcm_words(rng, tier="exam"):
                     sensible_range=(0, None),
                 ),
                 part(
-                    "How many laps has Runner A run by then?",
+                    f"How many laps has {who} A {done} by then?",
                     "number",
                     WHOLE.fields(laps_a),
                     1,
@@ -605,7 +613,7 @@ def exd_x_w3_hcf_lcm_words(rng, tier="exam"):
                     sensible_range=(0, None),
                 ),
                 part(
-                    "How many laps has Runner B run by then?",
+                    f"How many laps has {who} B {done} by then?",
                     "number",
                     WHOLE.fields(laps_b),
                     1,
@@ -615,7 +623,7 @@ def exd_x_w3_hcf_lcm_words(rng, tier="exam"):
                     sensible_range=(0, None),
                 ),
                 part(
-                    f"If they keep running for {minutes} minutes, how many times are they together at the start line, counting the start?",
+                    f"If they keep going for {minutes} minutes, how many times are they together at the start line, counting the start?",
                     "number",
                     WHOLE.fields(n),
                     2,
