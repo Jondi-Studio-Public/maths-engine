@@ -14,7 +14,7 @@ needs_figure: true
 placement_eligible: false
 prerequisites:
 - graph-y-mx-plus-b
-answer: line
+answer: line_graph
 sources:
 - topic: w9_line_draw
   params: {}

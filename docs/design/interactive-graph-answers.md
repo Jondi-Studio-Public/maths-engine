@@ -27,7 +27,7 @@ Coordinates are `[x, y]` in graph units. `answer_text` is always a valid typed r
 | Interaction | Kind | Status |
 |---|---|---|
 | Plot one or several points; move a point | `points` | existing |
-| Line through two points; by gradient and intercept | `line` | existing |
+| Line through two points; by gradient and intercept | `line_graph` (typed `line` stays for text questions) | new |
 | Polyline / piecewise path | `polyline` | existing |
 | Colour grid cells | `grid_cells` | existing |
 | Shade a half-plane or system | `half_planes` | new |
@@ -42,9 +42,19 @@ Coordinates are `[x, y]` in graph units. `answer_text` is always a valid typed r
 
 - **`points`** reply: typed points `(1, 2) (3, -4)`; answer `{"points": [...], "ordered": bool}` or a list. Move a point
   is plot the final position. Tool `plot_points`.
-- **`line`** reply: any two distinct points on the line, `(0, 1) (2, 5)`. Verification: both satisfy the key's line, so
-  gradient-and-intercept is sent as two points (`(0, c)` and `(1, m + c)`). Tool `line_two_points`.
-- **`polyline`, `grid_cells`**: unchanged; `polyline` takes the tool `polyline`.
+- **`polyline`, `grid_cells`**: unchanged; `polyline` takes the tool `polyline`. The older `line` kind (two typed points,
+  no canvas bound, no equations) is unchanged; interactive line questions use `line_graph` below.
+
+### `line_graph` (tool `line_two_points`)
+
+Reply: `{"through": [[0, 3], [1, 4]]}` (or `{"points": [...]}`, or a bare list of two points): two distinct points the
+learner placed. Both must be inside the canvas `x_range`/`y_range` and on the `snap` lattice, so a point such as
+`(100, 103)` is wrong even when it is on the line. Gradient and intercept are sent as two points (`(0, c)` and
+`(1, m + c)`). Rule: the line `ax + by + c = 0`, scaled so its first non-zero of `a`, `b` is 1, must equal the key's; any
+two points of the line and any equation of it match.
+Typed: two points `(0, 3) (1, 4)`, separated by spaces, `,` `;` `and` or `then`; or an equation in x and y, whichever form
+the learner likes: `y = x + 3`, `x - y = -3`, `2y = 2x + 6`, `y = x/3`, `x = 4`. An equation is not a placed point, so
+it is not bound by the canvas. Figure: plane, tool `line_two_points`, `max_points` 2.
 
 ### `half_planes` (tool `half_plane`)
 
@@ -93,7 +103,7 @@ on `diagram` figures is not registered yet.
 
 ## Skills built on it
 
-`plot-a-point-from-coordinates` (`points`), `line-draw-from-gradient-and-point` (`line`), `inequality-on-number-line`
+`plot-a-point-from-coordinates` (`points`), `line-draw-from-gradient-and-point` (`line_graph`), `inequality-on-number-line`
 (`number_line_set`), `shade-linear-inequality-region` (`half_planes`), `transform-a-shape-on-grid` (`polygon`),
 `parabola-from-vertex-and-point` (`curve`). Each has easy, medium, hard and exam tiers; every distractor is checked
 against the real grader at generation time.

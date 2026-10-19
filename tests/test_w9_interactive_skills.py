@@ -30,7 +30,13 @@ SKILLS = [
         ["points", "points", "points", "number"],
         [2, 1, 2, 2],
     ),
-    ("line-draw-from-gradient-and-point", "w9_line_draw", "line", ["line", "number", "line", "number"], [2, 2, 2, 2]),
+    (
+        "line-draw-from-gradient-and-point",
+        "w9_line_draw",
+        "line_graph",
+        ["line_graph", "number", "line_graph", "number"],
+        [2, 2, 2, 2],
+    ),
     (
         "inequality-on-number-line",
         "w9_numberline_inequality",
@@ -146,7 +152,7 @@ def test_exam_figures_do_not_leak(case):
 def test_wrong_kind_replies_are_rejected(case):
     """A reply written for another answer kind never earns the mark."""
     skill, topic, kind, *_ = case
-    other = {"points": "{}", "line": "[]", "x": "", "garbage": '{"pieces": 7}'}
+    other = {"points": "{}", "line": "[]", "eq": "y = 7", "x": "", "garbage": '{"pieces": 7}'}
     for seed in range(10):
         q = sup.single(topic, "medium", seed)
         for reply in other.values():

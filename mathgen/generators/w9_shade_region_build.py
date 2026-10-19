@@ -25,10 +25,22 @@ from __future__ import annotations
 from fractions import Fraction
 from math import gcd
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, fmt_signed, generator, join_terms, phrase
 from ..grading import interactive as ia
 from ._w6a_kit import num_dist, num_fields
-from ._w9_graph_kit import HALF, dist, enough, frac_text, ineq_text, part, plane, point_text, retry_draw
+from ._w9_graph_kit import (
+    HALF,
+    dist,
+    enough,
+    eval_text,
+    frac_text,
+    ineq_text,
+    line_text,
+    part,
+    plane,
+    point_text,
+    retry_draw,
+)
 
 TOPIC = "w9_shade_region"
 EXAM_TOPIC = "exd_x_w9_shade_region"
@@ -292,7 +304,7 @@ def _medium(rng):
         ]
         working = [
             f"Boundary: put x = 0 to get y = {frac_text(Fraction(c, b))}, and y = 0 to get x = {frac_text(Fraction(c, a))}. The line passes through {pq_text}.",
-            f"The line is {'solid' if op in '≤≥' else 'dashed'}. Test (0, 0): {a}(0) + {b}(0) = 0, and 0 {op} {c} is {'true' if _holds(a, b, c, op, 0, 0) else 'false'}, so "
+            f"The line is {'solid' if op in '≤≥' else 'dashed'}. Test (0, 0): the left side is 0, and 0 {op} {c} is {'true' if _holds(a, b, c, op, 0, 0) else 'false'}, so "
             + (
                 "shade the side that contains the origin."
                 if _holds(a, b, c, op, 0, 0)
@@ -605,7 +617,7 @@ def _exam(rng):
                 num_fields(gradient),
                 1,
                 [
-                    f"{b}y = {c} - {a}x, so y = ({frac_text(Fraction(-a, b))})x + {frac_text(Fraction(c, b))}. The gradient is {frac_text(gradient)}."
+                    f"{fmt_signed(b, 'y')} = {join_terms([(c, ''), (-a, 'x')])}, so {line_text(Fraction(-a, b), Fraction(c, b))}. The gradient is {frac_text(gradient)}."
                 ],
                 d_a,
             ),
@@ -616,7 +628,7 @@ def _exam(rng):
                 num_fields(inside),
                 1,
                 [
-                    f"{n}: {a}({x}) + {b}({y}) = {a * x + b * y}, and {a * x + b * y} {op} {c} is {'true' if _holds(a, b, c, op, x, y) else 'false'}."
+                    f"{n}: {eval_text(a, b, x, y)} = {a * x + b * y}, and {a * x + b * y} {op} {c} is {'true' if _holds(a, b, c, op, x, y) else 'false'}."
                     for n, (x, y) in zip(names, pts)
                 ],
                 d_c,

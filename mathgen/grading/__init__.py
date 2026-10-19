@@ -14,6 +14,7 @@ from .interactive import (
     grade_curve,
     grade_edges,
     grade_half_planes,
+    grade_line_graph,
     grade_number_line_set,
     grade_polygon,
 )
@@ -26,6 +27,7 @@ GRADERS["grid_cells"] = grade_grid_cells
 GRADERS["inequality"] = grade_inequality
 GRADERS["matrix"] = grade_matrix
 GRADERS["half_planes"] = grade_half_planes
+GRADERS["line_graph"] = grade_line_graph
 GRADERS["number_line_set"] = grade_number_line_set
 GRADERS["polygon"] = grade_polygon
 GRADERS["curve"] = grade_curve

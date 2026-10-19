@@ -12,7 +12,7 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ### Added
 
-- Interactive graph answers. Six answer kinds (`half_planes`, `number_line_set`, `polygon`, `curve`, `bars`,
+- Interactive graph answers. Seven answer kinds (`half_planes`, `line_graph`, `number_line_set`, `polygon`, `curve`, `bars`,
   `edges`) read what a learner draws on a graph, as JSON a front end sends or as a typed form. Points are compared as
   exact fractions on the figure's snap grid, with no tolerance, and unreadable or oversized replies are marked wrong.
   A `cartesian` or `number_line` figure may carry a `canvas` key naming the reply kind, the tools and the snap step.

@@ -41,6 +41,7 @@ ANSWER_KINDS = frozenset(
         "matrix",
         "grid_cells",
         "half_planes",
+        "line_graph",
         "number_line_set",
         "polygon",
         "curve",

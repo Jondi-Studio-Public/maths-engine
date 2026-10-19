@@ -29,7 +29,7 @@ from mathgen.answers import ANSWER_KINDS
 #: tool -> the reply kind it produces.
 TOOLS: dict[str, str] = {
     "plot_points": "points",
-    "line_two_points": "line",
+    "line_two_points": "line_graph",
     "polyline": "polyline",
     "half_plane": "half_planes",
     "polygon_points": "polygon",

@@ -13,7 +13,7 @@ from types import SimpleNamespace
 
 from .. import figures
 from ..answers import Distractor
-from ..core import VerificationError, fmt_signed
+from ..core import VerificationError, fmt_signed, join_terms
 from ..figure_kinds.canvas import canvas as _canvas
 from ..grading import GRADERS
 
@@ -22,6 +22,10 @@ __all__ = [
     "TooFewDistractors",
     "plane",
     "x_term",
+    "sum_text",
+    "eval_text",
+    "slope_form",
+    "coef_text",
     "line_text",
     "ineq_text",
     "frac_text",
@@ -72,6 +76,38 @@ def point_text(p) -> str:
 
 def points_text(points) -> str:
     return " ".join(point_text(p) for p in points)
+
+
+def sum_text(*values) -> str:
+    """``5 - 1`` for (5, -1), ``8`` for (8, 0): signed values joined the way a student writes a sum."""
+    return join_terms([(Fraction(v) if not isinstance(v, int) else v, "") for v in values])
+
+
+def eval_text(a, b, x, y) -> str:
+    """``3(2) - 4(1)`` for ax + by at (x, y): each term written with its value in brackets, zero terms dropped."""
+    out = ""
+    for coef, val in ((a, x), (b, y)):
+        if coef == 0 or val == 0:
+            continue
+        mag = abs(coef)
+        body = f"{mag}({val})" if mag != 1 else (f"({val})" if val < 0 else str(val))
+        out += (f" {'-' if coef < 0 else '+'} " if out else ("-" if coef < 0 else "")) + body
+    return out or "0"
+
+
+def coef_text(a) -> str:
+    """A multiplier written before a bracket: ``""`` for 1, ``-`` for -1, ``(1/2)`` for a fraction, else the number."""
+    a = Fraction(a)
+    if a == 1:
+        return ""
+    if a == -1:
+        return "-"
+    return frac_text(a) if a.denominator == 1 else f"({frac_text(a)})"
+
+
+def slope_form(m) -> str:
+    """``y = 2x + c`` / ``y = -x + c`` / ``y = (1/2)x + c`` for a gradient m != 0."""
+    return f"y = {x_term(m)} + c"
 
 
 def x_term(m) -> str:

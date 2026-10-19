@@ -23,9 +23,10 @@ from __future__ import annotations
 from fractions import Fraction
 from math import gcd
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, fmt_signed, generator, phrase
+from ..grading import interactive as ia
 from ._w6a_kit import num_dist, num_fields
-from ._w9_graph_kit import HALF, dist, enough, frac_text, line_text, part, plane, point_text, retry_draw
+from ._w9_graph_kit import HALF, dist, enough, frac_text, line_text, part, plane, point_text, retry_draw, slope_form
 
 TOPIC = "w9_line_draw"
 EXAM_TOPIC = "exd_x_w9_line_draw"
@@ -126,12 +127,17 @@ def _dir_of(m: Fraction):
     return (m.denominator, m.numerator)
 
 
+def _key(points) -> dict:
+    """The ``line_graph`` answer key for a line through two lattice points of the default canvas."""
+    return ia.line_graph_answer(points[0], points[1], x_range=(-HALF, HALF), y_range=(-HALF, HALF), snap=1)
+
+
 def _ans(points) -> dict:
     return dict(
-        answer=[[int(x), int(y)] for x, y in points],
+        answer=_key(points),
         answer_text=" ".join(point_text(p) for p in points),
         answer_latex="plain:" + " ".join(point_text(p) for p in points),
-        answer_kind="line",
+        answer_kind="line_graph",
     )
 
 
@@ -141,13 +147,13 @@ def _line_dist(fields: dict, candidates) -> list:
     for pts, tag in candidates:
         if pts is None or not all(_in(p) for p in pts) or pts[0] == pts[1]:
             continue
-        cands.append((" ".join(point_text(p) for p in pts), [[int(x), int(y)] for x, y in pts], tag))
-    return dist("line", fields["answer"], fields["answer_text"], cands)
+        cands.append((" ".join(point_text(p) for p in pts), _key(pts), tag))
+    return dist("line_graph", fields["answer"], fields["answer_text"], cands)
 
 
 def _figure(alt, given=()):
     pts = [{"at": list(p), "label": name} for name, p in given]
-    return plane(reply="line", tools=["line_two_points"], alt=alt, snap=1, points=pts, max_points=2)
+    return plane(reply="line_graph", tools=["line_two_points"], alt=alt, snap=1, points=pts, max_points=2)
 
 
 def _swap(points):
@@ -382,8 +388,8 @@ def _hard_standard(rng):
     d = _line_dist(fields, cands)
     enough(d, 3)
     working = [
-        f"Put x = 0: {b}y = {c}, so y = {frac_text(Fraction(c, b))}. The line crosses the y-axis at (0, {q}).",
-        f"Put y = 0: {a}x = {c}, so x = {frac_text(Fraction(c, a))}. The line crosses the x-axis at ({p}, 0).",
+        f"Put x = 0: {fmt_signed(b, 'y')} = {c}, so y = {frac_text(Fraction(c, b))}. The line crosses the y-axis at (0, {q}).",
+        f"Put y = 0: {fmt_signed(a, 'x')} = {c}, so x = {frac_text(Fraction(c, a))}. The line crosses the x-axis at ({p}, 0).",
         "Draw the line through the two intercepts.",
     ]
     return dict(
@@ -554,7 +560,7 @@ def _exam(rng):
         parts=[
             part(
                 "Draw the line l on the grid.",
-                "line",
+                "line_graph",
                 {k: f1[k] for k in ("answer", "answer_text", "answer_latex")},
                 2,
                 [f"l passes through {point_text(pts1[0])} and {point_text(pts1[1])}."],
@@ -565,12 +571,12 @@ def _exam(rng):
                 "number",
                 num_fields(x0),
                 2,
-                [f"Put y = 0: 0 = {frac_text(m)}x + ({frac_text(c)}), so x = {x0}."],
+                [f"Put y = 0: {line_text(m, c, lhs='0')}, so x = {x0}."],
                 d2,
             ),
             part(
                 "Draw the line parallel to l that passes through P.",
-                "line",
+                "line_graph",
                 {k: f2[k] for k in ("answer", "answer_text", "answer_latex")},
                 2,
                 [f"A parallel line has gradient {frac_text(m)}. From P go to {point_text(pts2[1])}."],
@@ -582,7 +588,7 @@ def _exam(rng):
                 num_fields(c2),
                 2,
                 [
-                    f"y = {frac_text(m)}x + c through {point_text(pt)}: c = {pt[1]} - ({frac_text(m)})({pt[0]}) = {frac_text(c2)}."
+                    f"{slope_form(m)} through {point_text(pt)}: c = {pt[1]} - ({frac_text(m)})({pt[0]}) = {frac_text(c2)}."
                 ],
                 d4,
             ),

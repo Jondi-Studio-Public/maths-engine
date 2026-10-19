@@ -796,6 +796,12 @@ OPTION_NOTES_TOPICS = frozenset(
         "w8_data_acquisition",
         "w8_ogive_read",
         "w8_polygon_read",
+        "w9_plot_points",
+        "w9_line_draw",
+        "w9_numberline_inequality",
+        "w9_shade_region",
+        "w9_transform_shape",
+        "w9_parabola_draw",
     }
 )
 
