@@ -43,6 +43,7 @@ from mathgen.grading.safe_parse import (
     too_costly,
 )
 from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, spoken_to_expr
+from mathgen.grading import stem_checks
 from mathgen.grading.units import split_unit, strip_asked_unit, unit_is_acceptable
 from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
 from mathgen.misconceptions import describe as describe_misconception
@@ -2703,7 +2704,9 @@ def grade_expression(question, given: str) -> GradeResult:
         # whose rationalised denominator is a single sqrt term.
         if _rationalised_denominator_flagged_raw(stripped) or _rationalised_denominator_flagged_parsed(given_expr):
             return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
-    elif answer_form == "single_fraction":
+    elif answer_form == "single_fraction" and re.search(
+        r"\b(?:single|one)\s+(?:algebraic\s+)?fraction", str(getattr(question, "text", "") or ""), re.I
+    ):
         # A RAW-TEXT-ONLY check -- see `_single_fraction_flagged_
         # raw`'s docstring for why no parsed-expression companion check is
         # possible here (sympy collapses an unmerged sum and its single-
@@ -3639,6 +3642,9 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
     if isinstance(given, str):
         given = normalise_reply(kind, given)
         given = _cents_written_with_c(kind, question, given)
+        given = stem_checks.rewrite_reply(kind, question, given)
+    if isinstance(given, str) and stem_checks.refuses(kind, question, given):
+        return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if isinstance(given, str) and kind in _DOUBLE_SIGN_KINDS and _DOUBLE_SIGN_RE.search(given):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if (

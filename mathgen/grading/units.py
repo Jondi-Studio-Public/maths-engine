@@ -150,7 +150,7 @@ _NUMBER_RE = re.compile(r"(?<![A-Za-z])(?<![A-Za-z]\^)(?:\d[\d,]*(?:\.\d+)?|\.\d
 # (a label, not a unit), not "to the nearest cent" (a precision: the answer is still in dollars), and not "in n = 5"
 # or "in g(x)" (a variable or a function).
 _ASKED_RE = re.compile(
-    rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})(?![\w²³'’^])(?!\s*[\d=(])(?!\s*(?:per\b|[/·⋅×*]))",
+    rf"\b(?:to|into|in|how\s+many(?:\s+(?:more|fewer|less|extra|further|additional))?)\s+({_SPELLING_PATTERN})(?![\w²³'’^])(?!\s*[\d=]|\()(?!\s*(?:per\b|[/·⋅×*]))",
     re.IGNORECASE,
 )
 # "in N/m", "in kL per hour", "in m/s²", "how many cents per 100 g": the question asks for a compound unit that the
@@ -308,13 +308,21 @@ def _describes_earlier_value(before: str) -> bool:
     return found is not None and _ASKING_VERB_BEFORE_RE.search(before[: found.start()]) is None
 
 
+# A sentence that asks for the answer without opening with the verb: "Using pi = 3.14159, find its volume, in cm³",
+# "Add the areas of the faces to find the total, in cm²", and one that fixes the unit of every length at once.
+_ASKING_WITHIN_RE = re.compile(
+    r"\b(?:find|calculate|determine|work\s+out|convert|estimate)\b|^\s*all\s+(?:\w+\s+){1,2}(?:are|is)\s+in\b",
+    re.IGNORECASE,
+)
+
+
 def _asking_matches(question, pattern: re.Pattern) -> list[re.Match]:
     """Every match of `pattern` in a sentence of the question that asks for the answer, in order, leaving out
     an "in <unit>" that describes a value the learner already has."""
     return [
         match
         for sentence in _SENTENCE_RE.findall(getattr(question, "text", "") or "")
-        if sentence.rstrip().endswith("?") or _ASKING_RE.match(sentence)
+        if sentence.rstrip().endswith("?") or _ASKING_RE.match(sentence) or _ASKING_WITHIN_RE.search(sentence)
         for match in pattern.finditer(sentence)
         if not _describes_earlier_value(sentence[: match.start()])
     ]
