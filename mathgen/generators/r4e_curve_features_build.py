@@ -40,6 +40,15 @@ from .r4e_common import (
 )
 
 
+def _sign_of(k) -> str:
+    """What f' has the sign of, for f' = k times a product of factors."""
+    if k == 1:
+        return "the product of the factors"
+    if k == -1:
+        return "minus the product of the factors"
+    return f"{k} times the product of the factors"
+
+
 def polymul(a, b) -> list:
     out = [Fraction(0)] * (len(a) + len(b) - 1)
     for i, x in enumerate(a):
@@ -179,7 +188,7 @@ def _easy(rng):
     ]
     stem = phrase(rng, _EASY_STEMS, d=product_text(k, [(p, 1), (q, 1)]))
     working = [
-        f"f'(x) = 0 at x = {p} and x = {q}, and f' has the sign of {k} times the product of the factors.",
+        f"f'(x) = 0 at x = {p} and x = {q}, and f' has the sign of {_sign_of(k)}.",
         f"f is {what} where f' is {'positive' if what == 'increasing' else 'negative'}.",
     ]
     return single(stem, inequality_part(_ask(what), ivs, 2, working, wrong))

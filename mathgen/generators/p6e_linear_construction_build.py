@@ -395,23 +395,23 @@ def develop_a_linear_formula_from_a_word_description(rng, variant="increasing"):
         if template_choice == 0:
             # Gym template
             var_in, var_out = "w", "C"
-            text = f"A gym charges a ${intercept} joining fee, then ${rate} per week of membership. Write a formula for the total cost $C$ (in dollars) after $w$ weeks."
+            text = f"A gym charges a ${intercept} joining fee, then ${rate} per week of membership. Write a formula for the total cost C (in dollars) after w weeks."
         elif template_choice == 1:
             # Tank template with singular/plural handling
             var_in, var_out = "t", "V"
             intercept_unit = "litre" if intercept == 1 else "litres"
             rate_unit = "litre" if rate == 1 else "litres"
-            text = f"A tank starts with {intercept} {intercept_unit} and is filled at {rate} {rate_unit} per minute. Write a formula for the volume $V$ (in litres) after $t$ minutes."
+            text = f"A tank starts with {intercept} {intercept_unit} and is filled at {rate} {rate_unit} per minute. Write a formula for the volume V (in litres) after t minutes."
         elif template_choice == 2:
             # Storage unit template: "charges a $N ... then $N per" with a different business
             var_in, var_out = "m", "C"
-            text = f"A storage unit charges a ${intercept} setup fee, then ${rate} per month. Write a formula for the total cost $C$ (in dollars) after $m$ months."
+            text = f"A storage unit charges a ${intercept} setup fee, then ${rate} per month. Write a formula for the total cost C (in dollars) after m months."
         else:
             # Reservoir template: "starts with N ... is filled at N per" with a different container
             var_in, var_out = "h", "V"
             intercept_unit = "litre" if intercept == 1 else "litres"
             rate_unit = "litre" if rate == 1 else "litres"
-            text = f"A reservoir starts with {intercept} {intercept_unit} and is filled at {rate} {rate_unit} per hour. Write a formula for the volume $V$ (in litres) after $h$ hours."
+            text = f"A reservoir starts with {intercept} {intercept_unit} and is filled at {rate} {rate_unit} per hour. Write a formula for the volume V (in litres) after h hours."
 
         var_in_sym = symbols(var_in)
         formula = expand(rate * var_in_sym + intercept)
@@ -461,23 +461,23 @@ def develop_a_linear_formula_from_a_word_description(rng, variant="increasing"):
         if template_choice == 0:
             # Car template
             var_in, var_out = "y", "V"
-            text = f"A car loses value at ${rate} per year. Initially, it is worth ${intercept}. Write a formula for the value $V$ (in dollars) after $y$ years."
+            text = f"A car loses value at ${rate} per year. Initially, it is worth ${intercept}. Write a formula for the value V (in dollars) after y years."
         elif template_choice == 1:
             # Tank template with singular/plural handling
             var_in, var_out = "h", "D"
             intercept_unit = "litre" if intercept == 1 else "litres"
             rate_unit = "litre" if rate == 1 else "litres"
-            text = f"A tank drains at {rate} {rate_unit} per hour and starts with {intercept} {intercept_unit}. Write a formula for the volume $D$ (in litres) after $h$ hours."
+            text = f"A tank drains at {rate} {rate_unit} per hour and starts with {intercept} {intercept_unit}. Write a formula for the volume D (in litres) after h hours."
         elif template_choice == 2:
             # Header tank template: same "drains at/starts with" style, different vessel noun
             var_in, var_out = "h", "D"
             intercept_unit = "litre" if intercept == 1 else "litres"
             rate_unit = "litre" if rate == 1 else "litres"
-            text = f"A header tank drains at {rate} {rate_unit} per hour and starts with {intercept} {intercept_unit}. Write a formula for the volume $D$ (in litres) after $h$ hours."
+            text = f"A header tank drains at {rate} {rate_unit} per hour and starts with {intercept} {intercept_unit}. Write a formula for the volume D (in litres) after h hours."
         else:
             # Company car template: same "loses value at/initially worth" style, different vehicle noun
             var_in, var_out = "y", "V"
-            text = f"A company car loses value at ${rate} per year. Initially, it is worth ${intercept}. Write a formula for the value $V$ (in dollars) after $y$ years."
+            text = f"A company car loses value at ${rate} per year. Initially, it is worth ${intercept}. Write a formula for the value V (in dollars) after y years."
 
         var_in_sym = symbols(var_in)
         # Decreasing: formula = intercept - rate*var
@@ -533,26 +533,26 @@ def develop_a_linear_formula_from_a_word_description(rng, variant="increasing"):
             # Car template
             var_in, var_out = "t", "V"
             year_unit = "year" if t0 == 1 else "years"
-            text = f"After {t0} {year_unit}, a car that depreciates at ${rate} per year is worth ${value}. Write a formula for the value $V$ (in dollars) after $t$ years, measured from when the car started depreciating."
+            text = f"After {t0} {year_unit}, a car that depreciates at ${rate} per year is worth ${value}. Write a formula for the value V (in dollars) after t years, measured from when the car started depreciating."
         elif template_choice == 1:
             # Tank template with singular/plural handling
             var_in, var_out = "t", "V"
             rate_unit = "litre" if rate == 1 else "litres"
             value_unit = "litre" if value == 1 else "litres"
             hour_unit = "hour" if t0 == 1 else "hours"
-            text = f"After {t0} {hour_unit}, a tank that drains at {rate} {rate_unit} per hour contains {value} {value_unit}. Write a formula for the volume $V$ (in litres) after $t$ hours, measured from when the tank started draining."
+            text = f"After {t0} {hour_unit}, a tank that drains at {rate} {rate_unit} per hour contains {value} {value_unit}. Write a formula for the volume V (in litres) after t hours, measured from when the tank started draining."
         elif template_choice == 2:
             # Rental car template: same structure, different vehicle noun
             var_in, var_out = "t", "V"
             year_unit = "year" if t0 == 1 else "years"
-            text = f"After {t0} {year_unit}, a rental car that depreciates at ${rate} per year is worth ${value}. Write a formula for the value $V$ (in dollars) after $t$ years, measured from when the car started depreciating."
+            text = f"After {t0} {year_unit}, a rental car that depreciates at ${rate} per year is worth ${value}. Write a formula for the value V (in dollars) after t years, measured from when the car started depreciating."
         else:
             # Cooling tank template: same structure, different vessel noun
             var_in, var_out = "t", "V"
             rate_unit = "litre" if rate == 1 else "litres"
             value_unit = "litre" if value == 1 else "litres"
             hour_unit = "hour" if t0 == 1 else "hours"
-            text = f"After {t0} {hour_unit}, a cooling tank that drains at {rate} {rate_unit} per hour contains {value} {value_unit}. Write a formula for the volume $V$ (in litres) after $t$ hours, measured from when the tank started draining."
+            text = f"After {t0} {hour_unit}, a cooling tank that drains at {rate} {rate_unit} per hour contains {value} {value_unit}. Write a formula for the volume V (in litres) after t hours, measured from when the tank started draining."
 
         var_in_sym = symbols(var_in)
         # Formula: V = intercept - rate*t

@@ -230,6 +230,7 @@ def _describe(rng, tier):
             "RY": "reflected in the y-axis",
             "H": "rotated 180° about the origin",
         }[other[0]]
+        move_noun = "rotation" if other[0] == "H" else "reflection"
         if first_is_turn:
             seq = f"{move_name}, and then the image is translated"
         else:
@@ -242,10 +243,10 @@ def _describe(rng, tier):
         working = [
             f"A is at {kit.coord_text(*a)} and A'' is at {kit.coord_text(*a1)}.",
             (
-                f"The {move_name.split(' ')[0]} comes first, so A' is {kit.coord_text(*before)}. The translation takes A' to A'': "
+                f"The {move_noun} comes first, so A' is {kit.coord_text(*before)}. The translation takes A' to A'': "
                 f"right {right}, up {up}."
                 if first_is_turn
-                else f"The translation comes first, then the {move_name.split(' ')[0]}. Undo the {move_name.split(' ')[0]} on A'' "
+                else f"The translation comes first, then the {move_noun}. Undo the {move_noun} on A'' "
                 f"to get {kit.coord_text(*kit.apply_step(other, a1))}, the point the translation reached from A: right {right}, up {up}."
             ),
         ]

@@ -344,6 +344,8 @@ def _dil_figure(kind, m, s, c, k, point=None):
 def _dil_eq(form: str, v: F) -> str:
     """g(x) = c f(x) ('v') or f(kx) ('h') written the way the options show it."""
     if form == "v":
+        if v == 1:
+            return "g(x) = f(x)"
         if v == -1:
             return "g(x) = -f(x)"
         if v.denominator == 1:
@@ -351,6 +353,10 @@ def _dil_eq(form: str, v: F) -> str:
         if v == F(1, v.denominator):
             return f"g(x) = f(x)/{v.denominator}"
         return f"g(x) = {frac_text(v)}f(x)"
+    if v == 1:
+        return "g(x) = f(x)"
+    if v == -1:
+        return "g(x) = f(-x)"
     if v.denominator == 1:
         return f"g(x) = f({v}x)"
     return f"g(x) = f(x/{v.denominator})"
@@ -408,7 +414,7 @@ def ey_graph_dilation(rng, tier="easy"):
         root = F(m) / k
         wrong = [1 / k, k * k, root, m - root, F(m) * k]
         working = [
-            f"The x-intercepts of f are +-{m} and the x-intercepts of g are +-{frac_text(root)}.",
+            f"The x-intercepts of f are ±{m} and the x-intercepts of g are ±{frac_text(root)}.",
             f"f(kx) = 0 when kx = {m}, so x = {m}/k: k = {m} / {frac_text(root)} = {frac_text(k)}.",
         ]
     else:
@@ -434,7 +440,7 @@ def ey_graph_dilation(rng, tier="easy"):
         else:
             working = [
                 "The y-intercepts of f and g are the same, so the dilation is horizontal.",
-                f"The x-intercepts go from +-{m} to +-{frac_text(F(m) / k)}, divided by {frac_text(k)}: {key}.",
+                f"The x-intercepts go from ±{m} to ±{frac_text(F(m) / k)}, divided by {frac_text(k)}: {key}.",
             ]
     fig = _dil_figure(kind, m, s, c, k)
     distractors = mcq(key, [str(w) if isinstance(w, str) else frac_text(w) for w in wrong])

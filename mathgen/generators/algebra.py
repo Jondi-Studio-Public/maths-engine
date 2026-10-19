@@ -188,11 +188,8 @@ def _linear_equation_both_sides(rng, coef_hi, sol_hi, allow_negative):
         a2 = rng.randint(1, coef_hi)
     b1 = rng.randint(-20, 20)
     b2 = (a1 - a2) * x0 + b1
-    sign1 = "+" if b1 >= 0 else "-"
-    sign2 = "+" if b2 >= 0 else "-"
-    a1x, a2x = fmt_signed(a1, "x"), fmt_signed(a2, "x")
-    lhs = f"{a1x} {sign1} {abs(b1)}"
-    rhs = f"{a2x} {sign2} {abs(b2)}"
+    lhs = join_terms([(a1, "x"), (b1, "")])
+    rhs = join_terms([(a2, "x"), (b2, "")])
     check(solve(Eq(a1 * x + b1, a2 * x + b2), x) == [x0])
     # Misconceptions: added the x-terms instead of subtracting; moved only the
     # constant and left both x-terms in; subtracted in the wrong direction.
@@ -207,7 +204,10 @@ def _linear_equation_both_sides(rng, coef_hi, sol_hi, allow_negative):
         answer=x0,
         answer_text=f"x = {x0}",
         answer_latex=f"x = {x0}",
-        working=[f"({a1} - {a2})x = {b2} - ({b1}) = {b2 - b1}", f"x = {b2 - b1}/{a1 - a2} = {x0}"],
+        working=[
+            f"({a1} - {a2})x = {b2} - {paren_negative(b1)} = {b2 - b1}" if b1 else f"({a1} - {a2})x = {b2}",
+            f"x = {b2 - b1}/{paren_negative(a1 - a2)} = {x0}",
+        ],
         distractors=pick_distractors(f"x = {x0}", cands),
     )
 
@@ -468,7 +468,11 @@ def linear_equation(
         answer_text=f"x = {x0}",
         answer_latex=f"x = {x0}",
         answer_kind="number",
-        working=[f"{coef_str}x = {c} {'-' if b >= 0 else '+'} {abs(b)} = {c - b}", f"x = {c - b}/{a} = {x0}"],
+        working=(
+            [f"x = {c}/{a} = {x0}"]
+            if b == 0
+            else [f"{coef_str}x = {c} {'-' if b >= 0 else '+'} {abs(b)} = {c - b}", f"x = {c - b}/{a} = {x0}"]
+        ),
         distractors=pick_distractors(f"x = {x0}", cands),
     )
 
@@ -599,8 +603,8 @@ def _quadratic_formula_rearrange(rng, root_hi):
     check(all(abs(ex - ap) < 0.01 for ex, ap in zip(exact_roots, ans)))
     ans_text = f"x = {ans[0]:.2f} or x = {ans[1]:.2f}"
     answer_latex = rf"x = {ans[0]:.2f} \text{{ or }} x = {ans[1]:.2f}"
-    b_sign = "+" if b_ >= 0 else "-"
-    lhs = f"x({fmt_signed(a_, 'x')} {b_sign} {abs(b_)})"
+    lhs = f"x({join_terms([(a_, 'x'), (b_, '')])})"
+    quad_terms = join_terms([(a_, "x^2"), (b_, "x")])
     rhs = -c_
     sign_b = sorted([(b_ - sqrtD) / (2 * a_), (b_ + sqrtD) / (2 * a_)])
     no_double_a = sorted([(-b_ - sqrtD) / a_, (-b_ + sqrtD) / a_])
@@ -612,11 +616,11 @@ def _quadratic_formula_rearrange(rng, root_hi):
         cands.append(f"x = {wrong_disc[0]:.2f} or x = {wrong_disc[1]:.2f}")
     return dict(
         text=f"Solve {lhs} = {rhs} using the quadratic formula (2 d.p.)",
-        latex=rf"\text{{Solve }} {a_}x^2 {b_sign} {abs(b_)}x = {rhs} \ \text{{using the quadratic formula (2 d.p.)}}",
+        latex=rf"\text{{Solve }} {quad_terms} = {rhs} \ \text{{using the quadratic formula (2 d.p.)}}",
         answer=ans,
         answer_text=ans_text,
         answer_latex=answer_latex,
-        working=[f"Expand: {a_}x^2 {b_sign} {abs(b_)}x = {rhs} → {expr} = 0", f"x = (-({b_}) ± √({D})) / (2×{a_})"],
+        working=[f"Expand: {quad_terms} = {rhs} → {expr} = 0", f"x = (-({b_}) ± √({D})) / (2×{a_})"],
         distractors=pick_distractors(ans_text, cands, tolerance=GRADER_TOLERANCE),
     )
 

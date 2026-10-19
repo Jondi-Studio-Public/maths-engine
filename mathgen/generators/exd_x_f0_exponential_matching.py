@@ -24,6 +24,7 @@ from ..core import (
     check,
     check_equivalent,
     check_pairwise_distinct,
+    fmt_signed,
     generator,
     join_terms,
     pick_distractors,
@@ -32,6 +33,11 @@ from ..core import (
 
 _PRIMES = (2, 3)
 _MAX_POWER = {2: 4, 3: 3}
+
+
+def _scaled(k, inner: str) -> str:
+    """k(inner) as an exponent: the bracket and the 1 are dropped when k is 1, and -(inner) is written for k = -1."""
+    return inner if k == 1 else fmt_signed(k, f"({inner})")
 
 
 def _base_text(c: int, k: int) -> str:
@@ -84,7 +90,7 @@ def _two_sides(rng: random.Random) -> dict:
     check_equivalent(lhs, rhs, "substituting the solution does not balance the two sides")
     text = f"Solve {_base_text(c, m)}^({_exp_text(p1, q1)}) = {_base_text(c, n)}^({_exp_text(p2, q2)}) for x."
     working = [
-        f"Write both bases as powers of {c}: {c}^({m}({_exp_text(p1, q1)})) = {c}^({n}({_exp_text(p2, q2)})).",
+        f"Write both bases as powers of {c}: {c}^({_scaled(m, _exp_text(p1, q1))}) = {c}^({_scaled(n, _exp_text(p2, q2))}).",
         f"Equate the exponents and solve: x = {rational_text(x)}.",
     ]
     return _pack(text, x, working, [w for w in wrong.values() if w is not None])

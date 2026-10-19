@@ -256,7 +256,7 @@ def travel_east_west_zone_difference(rng, mode="easy"):
     answer_hour_word = "hour" if answer_text in ("1", "-1") else "hours"
     working = [
         f"{duration_text} after {dep_clock} (with no zone change) would be {_clock(local_equiv_clock)}"
-        + (f", {local_equiv_days} day(s) later" if local_equiv_days else "")
+        + (f", {local_equiv_days} day{'s' if local_equiv_days != 1 else ''} later" if local_equiv_days else "")
         + f" in {A}'s time zone.",
         f"{B} is stated to receive the flight at {arr_clock} local time, {day_phrase} {A}.",
         f"Reconstructing the difference: {abs(round(row['offset'] * 60))} minutes "

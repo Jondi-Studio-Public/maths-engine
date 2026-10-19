@@ -28,6 +28,7 @@ from ..answers import Distractor
 from ..core import (
     GRADER_TOLERANCE,
     attempts,
+    bracket_compound,
     check,
     latex_answer,
     numeric_answer,
@@ -421,7 +422,7 @@ def tangent_tail(f0, m, x0, *, variant: str, m_at_neg_x0=None):
         ]
         ft_c = f"-1/part_b*(x - {paren(x0)}) + {paren(f0)}"
         work_c = [
-            f"The normal is perpendicular to the tangent, so its gradient is -1/{rational_text(m)} = {rational_text(nslope)}.",
+            f"The normal is perpendicular to the tangent, so its gradient is -1/{bracket_compound(rational_text(m))} = {rational_text(nslope)}.",
             f"y - {paren(f0)} = {rational_text(nslope)}(x - {paren(x0)}), so y = {pretty(normal_line)}.",
         ]
     else:

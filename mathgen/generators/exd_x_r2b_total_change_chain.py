@@ -97,7 +97,7 @@ def _build(rng):
         2,
         [
             f"Total = integral of ({join_terms([(k, f't^{p}' if p > 1 else 't'), (c, '')])}) from 0 to {a} "
-            f"= {Fraction(k, big_p)} × {a}^{big_p} + {c * a} = {total}.",
+            f"= {'' if Fraction(k, big_p) == 1 else f'{Fraction(k, big_p)} × '}{a}^{big_p} + {c * a} = {total}.",
             f"So k = {k}.",
         ],
         a_wrong,
@@ -116,7 +116,7 @@ def _build(rng):
         amount,
         2,
         2,
-        [f"Total = [{Fraction(k, big_p)}t^{big_p} + {c}t] from {a} to {b} = {amount_r}."],
+        [f"Total = [{join_terms([(Fraction(k, big_p), f't^{big_p}'), (c, 't')])}] from {a} to {b} = {amount_r}."],
         b_wrong,
         follow_through=f"part_a*({b}**{big_p} - {a}**{big_p})/{big_p} + {c}*({b} - {a})",
         sensible_range=(0, None),

@@ -46,6 +46,7 @@ from mathgen.core import (
     generator,
     latex_answer,
     round_half_up,
+    stated_precision_string,
     rounds_unambiguously,
 )
 

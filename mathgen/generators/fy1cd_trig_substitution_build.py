@@ -22,7 +22,7 @@ import math
 from fractions import Fraction
 
 from ..answers import exact_value
-from ..core import attempts, check, generator, pick_distractors, rational_text
+from ..core import attempts, bracket_compound, check, format_pi_multiple, generator, pick_distractors, rational_text
 from ._fy1cd_kit import F, decimal_text, fraction_dist, int_dist, pick_decimal, say, surd
 
 _S2, _S3 = math.sqrt(2), math.sqrt(3)
@@ -37,6 +37,11 @@ _SINES = [
 
 class _Retry(Exception):
     """A draw whose values leave too few distinct wrong answers."""
+
+
+def _pi(coefficient) -> str:
+    """A rational multiple of pi as it is written on paper: π/4, 5π/6, 2π."""
+    return format_pi_multiple(coefficient).replace("pi", "π")
 
 
 def _need(ds) -> None:
@@ -136,8 +141,8 @@ def _easy_arcsin(rng):
         ds,
         [
             f"Put x = {_k(a)}sin θ. Then dx = {_k(a)}cos θ dθ and √({_sq(a)} - x²) = {_k(a)}cos θ, so the integrand becomes 1 dθ.",
-            f"The limits x = 0 and x = {uplain} become θ = 0 and θ = {rational_text(p)}π.",
-            f"The value is {rational_text(p)}π = {decimal_text(value, 3)[1]}.",
+            f"The limits x = 0 and x = {uplain} become θ = 0 and θ = {_pi(p)}.",
+            f"The value is {_pi(p)} = {decimal_text(value, 3)[1]}.",
         ],
     )
 
@@ -200,7 +205,7 @@ def _medium_sqrt(rng):
         ds,
         [
             f"Put x = {_k(a)}sin θ. The integrand becomes {_sq(a)} cos² θ dθ = {Fraction(a * a, 2)}(1 + cos 2θ) dθ.",
-            f"Integrating gives {Fraction(a * a, 2)}(θ + sin θ cos θ) from 0 to {rational_text(p)}π.",
+            f"Integrating gives {Fraction(a * a, 2)}(θ + sin θ cos θ) from 0 to {_pi(p)}.",
             f"The value is {decimal_text(value, 3)[1]}.",
         ],
     )
@@ -310,7 +315,7 @@ def _hard_x_squared(rng):
         ds,
         [
             f"Put x = {a} sin θ. The integrand becomes {_sq(a)} sin² θ dθ = {h}(1 - cos 2θ) dθ.",
-            f"Integrating gives {h}(θ - sin θ cos θ) from 0 to {rational_text(p)}π.",
+            f"Integrating gives {h}(θ - sin θ cos θ) from 0 to {_pi(p)}.",
             f"The value is {decimal_text(value, 3)[1]}.",
         ],
     )
@@ -445,7 +450,7 @@ def _exam(rng):
                 answer_text=rational_text(pf),
                 answer_latex=rational_text(pf),
                 marks=2,
-                working=[f"sin θ₁ = {uplain}/{a}, so θ₁ = {rational_text(pf)}π."],
+                working=[f"sin θ₁ = {bracket_compound(uplain)}/{a}, so θ₁ = {_pi(pf)}."],
                 distractors=a_dist,
             ),
             dict(

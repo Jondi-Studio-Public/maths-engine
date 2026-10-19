@@ -496,6 +496,14 @@ def fmt_signed(coef, var: str = "") -> str:
     return f"{coef}{var}"
 
 
+def bracket_compound(text) -> str:
+    """Bracket `text` when it cannot stand after a "/" as written: a fraction ("4/25"), a sum ("x + 1") or a
+    negative ("-4") -- so ``f"-1/{bracket_compound('4/25')}"`` reads "-1/(4/25)", never the chain "-1/4/25".
+    A plain number, letter or surd ("7", "n", "7√2") is returned unchanged."""
+    text = str(text)
+    return f"({text})" if ("/" in text or " " in text or text.startswith(("-", "−"))) else text
+
+
 def paren_negative(value) -> str:
     """Bracket a negative value so it can follow an operator: -14 -> "(-14)".
 
@@ -1777,7 +1785,6 @@ def paper_notation(text):
     return "".join(out)
 
 
-_DASH_RE = re.compile(r" -- ")
 _REPEATED_STEP_RE = re.compile(
     r"(?P<pre>(?:^|[=:] |\) |\bso ))(?P<t>-?[\d,]*\d(?:\.\d+)?%?(?:[/:]\d+)?) = (?P=t)(?![\w/:%]|\.\d|,\d)"
 )
@@ -1786,7 +1793,6 @@ _REPEATED_STEP_RE = re.compile(
 _UNIT_POWER_RE = re.compile(
     r"(?<![A-Za-z])(mm|cm|km)\^([23])\b|(?<=\d )(mm|cm|km|m)([23])\b|(?<=\d)(mm|cm|km)([23])\b|(?<=\d )(m)\^([23])\b|(?<=\()(m)([23])(?=\))"
 )
-_NUMBER_TIMES_RE = re.compile(r"(?<=[\d)]) x (?=\d)")
 
 
 def _unit_power(m):
@@ -1797,22 +1803,83 @@ def _unit_power(m):
 _AN_NUMBER_RE = re.compile(r"\b([Aa]) (?=(?:8\d*|11|18)(?:\.\d+)?[ -]?[A-Za-z%\u00b0$])")
 
 
+# "9/-1" and "-5/-3" read as a stray sign after the slash; the divisor takes brackets, "9/(-1)". Only a plain number
+# or one letter is rewritten, and only when nothing attaches to it ("1/-3x" is left alone).
+_NEGATIVE_DIVISOR_RE = re.compile(r"(?<=[\w)])/-(\d+(?:\.\d+)?|[A-Za-z])(?![\w(^.])")
+
+
+# "20 x 12" is a product between two plain numbers: the letter x there is the multiplication sign.
+_LETTER_X_TIMES_RE = re.compile(r"(?<=[\d)|]) x (?=\d)")
+# A coefficient of 1 written out ("1x", "-1n", "3 - 1i", "1 cos(4x)", "1f(x)"): only a letter that is a variable.
+_COEFFICIENT_ONE_RE = re.compile(
+    r"(?<![\w.^/])1(?=[xyztnui](?![A-Za-z0-9_])|[ab](?=\s[+=\u2212-])|[fgh]\(|e\^|\s(?:sin|cos|tan|ln)\()\s?"
+)
+# "+ 0x" and "- 0t" add nothing; "y = 0x" is "y = 0".
+_ZERO_TERM_RE = re.compile(r"\s[+\u2212-]\s0[xyztnu](?![A-Za-z0-9_(])")
+_ZERO_LEADING_RE = re.compile(r"(?<![\w.^/])0[xyztnu](?=\s[+\u2212-]\s)\s[+\u2212-]\s")
+_ZERO_ONLY_RE = re.compile(r"(?<==\s)0[xyztnu]$")
+# "1 days", "1 parts": a count of one takes the singular noun (not after an operator, where "n - 1 edges" is right).
+_PLURALS = {
+    "days": "day",
+    "hours": "hour",
+    "minutes": "minute",
+    "parts": "part",
+    "additions": "addition",
+    "steps": "step",
+    "points": "point",
+    "palings": "paling",
+    "multiples": "multiple",
+    "tenths": "tenth",
+    "hundredths": "hundredth",
+    "weeks": "week",
+    "years": "year",
+    "months": "month",
+    "terms": "term",
+    "items": "item",
+}
+_ONE_PLURAL_RE = re.compile(r"(?<![\w.^/])(?<!- )(?<!\+ )(?<!\u2212 )(?<!\u00d7 )1 (" + "|".join(_PLURALS) + r")\b")
+# A signed number straight after an operator: "x - -23" is "x - (-23)", "2 × -5" is "2 × (-5)".
+_SIGNED_OPERAND_RE = re.compile(r"(?<=[\w)\]]) ([+\u00d7\u00f7\u2212-]) ([-\u2212]\d+(?:\.\d+)?)(?![\d.])")
+
+
 def _learner_text(text, *, working=False):
-    """`paper_notation(text)` with " -- " written as an en dash and, in working, "x = x" collapsed to "x"."""
+    """`paper_notation(text)` made fit for a learner: a negative divisor bracketed ("9/(-1)"), a letter x between
+    two numbers written ×, a spaced double hyphen written as an en dash, "+-" as ±, a coefficient of 1 or a zero term
+    not written out ("1x" -> "x", "+ 0x" dropped), "1 days" -> "1 day", a signed number after an operator
+    bracketed ("x - -23" -> "x - (-23)"), unit powers as ², ³, "a 8" as "an 8", and, in working, "x = x" collapsed
+    to "x". Idempotent; the one display pass for every learner-visible string."""
     text = paper_notation(text)
     if not isinstance(text, str):
         return text
+    if "/-" in text:
+        text = _NEGATIVE_DIVISOR_RE.sub(r"/(-\1)", text)
+    if " x " in text:
+        text = _LETTER_X_TIMES_RE.sub(" \u00d7 ", text)
     if " -- " in text:
-        text = _DASH_RE.sub(" \u2013 ", text)
+        text = text.replace(" -- ", " \u2013 ")
+    if "+/-" in text:
+        text = text.replace("+/-", "\u00b1")
+    if "+-" in text:
+        text = re.sub(r"(?<![\w)])\+-(?=\d)", "\u00b1", text)
     if "m" in text:
         text = _UNIT_POWER_RE.sub(_unit_power, text)
     if "a 8" in text.lower() or "a 11" in text.lower() or "a 18" in text.lower():
         text = _AN_NUMBER_RE.sub(r"\1n ", text)
-    if " x " in text:
-        text = _NUMBER_TIMES_RE.sub(" \u00d7 ", text)
+    if "1" in text:
+        text = _COEFFICIENT_ONE_RE.sub("", text)
+        text = _ONE_PLURAL_RE.sub(lambda m: "1 " + _PLURALS[m.group(1)], text)
+    if "0" in text:
+        text = _ZERO_LEADING_RE.sub("", text)
+        text = _ZERO_TERM_RE.sub("", text)
+        text = _ZERO_ONLY_RE.sub("0", text)
+    if " -" in text or " \u2212" in text:
+        text = _SIGNED_OPERAND_RE.sub(lambda m: f" {m.group(1)} ({m.group(2)})", text)
     if working and " = " in text:
         text = _REPEATED_STEP_RE.sub(r"\g<pre>\g<t>", text)
     return text
+
+
+_display_text = _learner_text
 
 
 def display_question(question) -> dict:

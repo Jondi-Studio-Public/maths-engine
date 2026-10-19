@@ -26,7 +26,7 @@ from fractions import Fraction
 import mpmath as mp
 
 from ..answers import Distractor, exact_value
-from ..core import attempts, check, generator, rational_text
+from ..core import attempts, check, generator, join_terms, paren_negative, rational_text
 from ._u2_kit import frac_d, keep, int_d, redraws
 
 TOPIC = "u2_sequence_limits"
@@ -198,7 +198,8 @@ def _medium_root(rng):
         ]
         text = f"Find the limit as n tends to infinity of √(n² {'+' if a > 0 else '-'} {_n(abs(a))} + {b}) - n."
         working = [
-            "Multiply and divide by the conjugate √(n² + ...) + n: the numerator becomes " + f"{a}n + {b}.",
+            "Multiply and divide by the conjugate √(n² + ...) + n: the numerator becomes "
+            + f"{join_terms([(a, 'n'), (b, '')])}.",
             f"Dividing top and bottom by n gives ({a}{_term(b, '/n')}) / (√(1{_term(a, '/n')}{_term(b, '/n²')}) + 1) → {a}/2 = {rational_text(value)}.",
         ]
     else:
@@ -251,8 +252,8 @@ def _medium_squeeze(rng):
         f"({_n(e)} {'+' if f > 0 else '-'} {abs(f)})."
     )
     working = [
-        f"Since -1 ≤ {osc} ≤ 1, the numerator lies between {d}n - {c} and {d}n + {c}.",
-        f"Dividing by n: both bounds give a ratio tending to {d}/{e}, so by the squeeze theorem the limit is {rational_text(value)}.",
+        f"Since -1 ≤ {osc} ≤ 1, the numerator lies between {_n(d)} - {c} and {_n(d)} + {c}.",
+        f"Dividing by n: both bounds give a ratio tending to {d}/{paren_negative(e)}, so by the squeeze theorem the limit is {rational_text(value)}.",
     ]
     return dict(text=text, working=working, distractors=keep(rational_text(value), cands, 4), **_fraction_answer(value))
 

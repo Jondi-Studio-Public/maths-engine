@@ -825,7 +825,7 @@ def sequence(rng, kind="common_diff", hi=9, n_terms=4):
             answer_text=ans_str,
             answer_latex=latex(rule),
             working=[
-                f"Difference: ({t2} - {paren_negative(t1)}) / {gap} = {d}. First term: {t1} - {paren_negative(d)}({p1} - 1) = {a1}. a_x = {a1} + ({d})(x - 1) = {rule}."
+                f"Difference: ({t2} - {paren_negative(t1)}) / {gap} = {d}. First term: {t1} - {'' if d == 1 else paren_negative(d)}({p1} - 1) = {a1}. a_x = {a1} + {'' if d == 1 else f'({d})'}(x - 1) = {rule}."
             ],
             distractors=pick_distractors(ans_str, cands),
         )
