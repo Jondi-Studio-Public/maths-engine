@@ -86,7 +86,7 @@ _HARD = (
 )
 
 
-def _finalise(text: str, key: int, candidates: list[int], rng) -> dict:
+def _finalise(text: str, key: int, candidates: list[int], rng, working: str) -> dict:
     check(0 <= key <= 20, f"{TOPIC}: the key {key} is outside 0 to 20")
     chosen = pick_ranked_distractors(rng, key, candidates, lo=0, hi=20)
     check_distinct(key, *chosen, msg=f"{TOPIC}: a distractor equals the key")
@@ -97,7 +97,7 @@ def _finalise(text: str, key: int, candidates: list[int], rng) -> dict:
         answer_text=str(key),
         answer_latex=str(key),
         distractors=[str(c) for c in chosen],
-        working=[f"answer: {key}"],
+        working=[working],
     )
 
 
@@ -124,7 +124,8 @@ def _make_ten(rng) -> dict:
     text = phrase(rng, _MAKE_TEN, x=x, y=y)
     # 10 (forgets the leftover), 10 + b (adds all of b after making ten), a + rest (adds the leftover to a),
     # and an off-by-one slip each way.
-    return _finalise(text, key, [10, 10 + b, a + rest, key - 1, key + 1], rng)
+    working = f"Make ten first: {a} + {need} = 10, which leaves {b} - {need} = {rest}. Then 10 + {rest} = {key}."
+    return _finalise(text, key, [10, 10 + b, a + rest, key - 1, key + 1], rng, working)
 
 
 def _double(rng) -> dict:
@@ -132,7 +133,7 @@ def _double(rng) -> dict:
     key = 2 * a
     check_equivalent(key, a + a, f"{TOPIC} double: {a} doubled disagrees with {a} + {a}")
     text = phrase(rng, _DOUBLE, a=a)
-    return _finalise(text, key, [key - 1, key + 1, key - 2, key + 2, a + 10], rng)
+    return _finalise(text, key, [key - 1, key + 1, key - 2, key + 2, a + 10], rng, f"{a} + {a} = {key}.")
 
 
 # -- medium --------------------------------------------------------------------------------------------------
@@ -146,7 +147,8 @@ def _near_double(rng) -> dict:
     first, second = _shuffled_pair(rng, x, y)
     text = phrase(rng, _NEAR_DOUBLE, x=first, y=second)
     # the lower double, the higher double, a double shifted by two, and adding ten to one number
-    return _finalise(text, key, [2 * x, 2 * y, key - 2, key + 2, x + 10, y + 10], rng)
+    working = f"{x} + {x} = {2 * x}, and {y} is one more than {x}, so {x} + {y} = {2 * x} + 1 = {key}."
+    return _finalise(text, key, [2 * x, 2 * y, key - 2, key + 2, x + 10, y + 10], rng, working)
 
 
 def _add_near_ten(rng) -> dict:
@@ -158,7 +160,8 @@ def _add_near_ten(rng) -> dict:
     x, y = (a, k) if rng.random() < 0.5 else (k, a)
     text = phrase(rng, _ADD_NEAR_TEN, k=k, j=j, x=x, y=y)
     # stops after adding ten, adjusts the wrong way, and the off-by-one slips
-    return _finalise(text, key, [a + 10, a + 10 + j, key - 1, key + 1, a + k + j], rng)
+    working = f"{a} + 10 = {a + 10}, then take {j} off: {a + 10} - {j} = {key}."
+    return _finalise(text, key, [a + 10, a + 10 + j, key - 1, key + 1, a + k + j], rng, working)
 
 
 def _back_through_ten(rng) -> dict:
@@ -175,7 +178,8 @@ def _back_through_ten(rng) -> dict:
     check_equivalent(key, 10 - leftover, f"{TOPIC} back_through_ten: the through-ten route disagrees with {a} - {b}")
     text = phrase(rng, _BACK_THROUGH_TEN, a=a, b=b)
     # stops at ten, reports the leftover, adds instead of subtracting, and the off-by-one slips
-    return _finalise(text, key, [10, leftover, a + b, key - 1, key + 1], rng)
+    working = f"{a} - {to_ten} = 10, then take away the other {leftover}: 10 - {leftover} = {key}."
+    return _finalise(text, key, [10, leftover, a + b, key - 1, key + 1], rng, working)
 
 
 def _think_addition(rng) -> dict:
@@ -190,7 +194,8 @@ def _think_addition(rng) -> dict:
     check_equivalent(b + key, a, f"{TOPIC} think_addition: {b} + {key} should make {a}")
     text = phrase(rng, _THINK_ADDITION, a=a, b=b)
     # repeats the number taken away, adds instead of subtracting, and the off-by-one slips
-    return _finalise(text, key, [b, a + b, key - 1, key + 1, key + 2], rng)
+    working = f"{b} + {key} = {a}, so {a} - {b} = {key}."
+    return _finalise(text, key, [b, a + b, key - 1, key + 1, key + 2], rng, working)
 
 
 # -- hard ----------------------------------------------------------------------------------------------------
@@ -218,7 +223,8 @@ def _hard_finalise(rng, terms, signs, key, candidates) -> dict:
     check(all(0 <= r <= 20 for r in running), f"{TOPIC} hard: a stage of {terms} {signs} leaves 0 to 20")
     check_equivalent(running[-1], key, f"{TOPIC} hard: the strategy route disagrees with left-to-right arithmetic")
     text = phrase(rng, _HARD, expr=_expr_text(terms, signs))
-    return _finalise(text, key, candidates, rng)
+    steps = [f"{running[i]} {sign} {t} = {running[i + 1]}" for i, (sign, t) in enumerate(zip(signs, terms[1:]))]
+    return _finalise(text, key, candidates, rng, "Work from left to right: " + ", then ".join(steps) + ".")
 
 
 def _ten_pair(rng) -> dict:

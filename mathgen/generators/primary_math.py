@@ -1,5 +1,6 @@
 """Primary fractions, decimals, percentages and metric measurement."""
 
+import math
 from fractions import Fraction
 
 from ..answers import Distractor
@@ -65,7 +66,11 @@ def fraction_of_quantity(rng, max_den=8, quantity_hi=80, find_whole=False):
             [answer, numerator * quantity, max(0, quantity - groups), quantity + groups],
             latex=rf"\frac{{{numerator}}}{{{denominator}}}\text{{ of a number is }}{answer}",
             working=[
-                f"{numerator} parts are worth {answer}, so 1 part is worth {answer} ÷ {numerator} = {groups}.",
+                (
+                    f"{numerator} parts are worth {answer}, so 1 part is worth {answer} ÷ {numerator} = {groups}."
+                    if numerator > 1
+                    else f"1 part is worth {answer}."
+                ),
                 f"The whole is {denominator} parts: {denominator} × {groups} = {quantity}.",
             ],
         )
@@ -76,7 +81,7 @@ def fraction_of_quantity(rng, max_den=8, quantity_hi=80, find_whole=False):
         latex=rf"\frac{{{numerator}}}{{{denominator}}}\text{{ of }}{quantity}",
         working=[
             f"Divide {quantity} into {denominator} equal parts: {quantity} ÷ {denominator} = {groups}.",
-            f"Take {numerator} parts: {numerator} × {groups} = {answer}.",
+            f"Take {numerator} {'part' if numerator == 1 else 'parts'}: {numerator} × {groups} = {answer}.",
         ],
     )
 
@@ -102,7 +107,7 @@ def compare_common_fractions(rng, max_den=12, include_equal=True, benchmark=Fals
             answer_text=answer_text,
             answer_latex=answer_text,
             working=[
-                f"{rational_text(left)} is {dist_left} away from one half; {rational_text(right)} is {dist_right} away. The closer one is {answer_text}."
+                f"{n1}/{d1} is {dist_left} away from one half; {n2}/{d2} is {dist_right} away. The closer one is {answer_text}."
             ],
             distractors=[f"{n2}/{d2}" if answer_text == f"{n1}/{d1}" else f"{n1}/{d1}", "They are equally close"],
         )
@@ -116,9 +121,14 @@ def compare_common_fractions(rng, max_den=12, include_equal=True, benchmark=Fals
         n2 = rng.randint(1, d2 - 1)
     left, right = Fraction(n1, d1), Fraction(n2, d2)
     answer = "=" if left == right else ("<" if left < right else ">")
-    working = [
-        f"Use a common denominator or compare the values: {rational_text(left)} {answer} {rational_text(right)}."
-    ]
+    common = d1 * d2 // math.gcd(d1, d2)
+    if d1 == d2:
+        working = [f"The denominators are the same, so compare the numerators: {n1} and {n2}, so {n1}/{d1} {answer} {n2}/{d2}."]
+    else:
+        conv1 = f"{n1}/{d1} = {n1 * common // d1}/{common}" if d1 != common else None
+        conv2 = f"{n2}/{d2} = {n2 * common // d2}/{common}" if d2 != common else None
+        converted = " and ".join(c for c in (conv1, conv2) if c)
+        working = [f"Use a common denominator of {common}: {converted}, so {n1}/{d1} {answer} {n2}/{d2}."]
     return dict(
         text=f"Choose the correct symbol: {n1}/{d1} __ {n2}/{d2}",
         latex=rf"\frac{{{n1}}}{{{d1}}}\;\square\;\frac{{{n2}}}{{{d2}}}",

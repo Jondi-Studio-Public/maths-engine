@@ -283,10 +283,12 @@ def shape_features_classification(rng, mode="forward_sides"):
                 f"distractor {distractor} not a real side count in the pool",
             )
 
-    working = [
-        f"Shape: {shape if mode != 'inverse_sides' else f'count={count}'}",
-        f"Answer: {answer}",
-    ]
+    if mode == "curved_straight":
+        working = [f"{_article(shape).capitalize()} {shape} has {'a curved edge' if answer == 'curved' else 'straight sides'}, so it is {answer}."]
+    elif mode == "inverse_sides":
+        working = [f"The shape with {count} sides is {_article(answer)} {answer}."]
+    else:
+        working = [f"{_article(shape).capitalize()} {shape} has {answer} sides."]
 
     return dict(
         text=text,

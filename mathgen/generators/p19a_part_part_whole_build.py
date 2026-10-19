@@ -125,7 +125,7 @@ def _finalise(text: str, whole: int, part: int, key: int) -> dict:
         answer_text=str(key),
         answer_latex=str(key),
         distractors=distractors,
-        working=[f"answer: {key}"],
+        working=[f"The whole is {whole} and one part is {part}, so the other part is {whole} - {part} = {key}."],
     )
 
 

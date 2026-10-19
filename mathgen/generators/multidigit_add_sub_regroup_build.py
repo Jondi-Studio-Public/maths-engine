@@ -261,6 +261,7 @@ def _build(rng, tier: str = "easy") -> dict:
         check_equivalent(key, _sum_by_place_value(a, b), f"{TOPIC} {tier}: place-value sum disagrees for {a} + {b}")
         check(_carries(a, b) == _EXPECTED_CARRIES[tier], f"{TOPIC} {tier}: {a} + {b} has the wrong carry pattern")
         candidates = _candidates_add(a, b, key)
+        working = [f"Add column by column, regrouping when a column makes 10 or more: {a} + {b} = {key}."]
         shown_a, shown_b = (a, b) if rng.random() < 0.5 else (b, a)
         text = phrase(rng, _ADD[tier], a=shown_a, b=shown_b)
     else:
@@ -269,6 +270,7 @@ def _build(rng, tier: str = "easy") -> dict:
         check_equivalent(b + key, a, f"{TOPIC} {tier}: {b} + {key} should make {a}")
         check(_borrows(a, b) == _EXPECTED_BORROWS[tier], f"{TOPIC} {tier}: {a} - {b} has the wrong borrow pattern")
         candidates = _candidates_sub(a, b, key)
+        working = [f"Subtract column by column, regrouping when a digit is too small: {a} - {b} = {key}.", f"Check: {b} + {key} = {a}."]
         templates = _SUB[tier] + (_SUB_DIFFERENCE if tier == "easy" else ())
         pattern = rng.choice(templates)
         if pattern in _SUB_DIFFERENCE:
@@ -287,7 +289,7 @@ def _build(rng, tier: str = "easy") -> dict:
         answer_text=str(key),
         answer_latex=str(key),
         distractors=[str(c) for c in chosen],
-        working=[f"answer: {key}"],
+        working=working,
     )
 
 
