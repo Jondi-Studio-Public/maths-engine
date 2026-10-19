@@ -224,12 +224,17 @@ def square_roots_perfect_squares(rng, root_range=(1, 12), force_non_perfect=None
     nearby_roots = _get_nearby_perfect_square_roots(n)
     nearby_root_strs = [str(r) for r in nearby_roots]
 
+    # Beyond the two neighbouring roots: halving the number, and a root two out or one too small. They come last, so a
+    # draw that already had three distractors keeps them; they top up the draws that had only two.
+    root_n = math.isqrt(n)
+    halved = [str(n // 2)] if n % 2 == 0 and n > 2 else []
+    further = halved + [str(root_n + 2), str(2 * root_n), str(max(1, root_n - 1))]
     if predicted == "not a perfect square":
         # Distractors are the nearby roots
-        distractor_candidates = nearby_root_strs
+        distractor_candidates = nearby_root_strs + further
     else:
         # Distractors are the nearby roots plus "not a perfect square"
-        distractor_candidates = nearby_root_strs + ["not a perfect square"]
+        distractor_candidates = nearby_root_strs + ["not a perfect square"] + further
 
     return dict(
         text=question_text,
