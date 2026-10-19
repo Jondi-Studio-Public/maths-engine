@@ -34,7 +34,7 @@ from mathgen import figures
 from mathgen.core import check, generator
 from mathgen.figure_kinds import grid
 
-from ._w7f_kit import finish_parts, mcq_part, number_part, retry, split_parts
+from ._w7f_kit import finish_parts, mcq_part, number_part, pick, retry, split_parts
 from .grid_solids_build import (
     _column_heights,
     _composite_easy,
@@ -72,9 +72,16 @@ def _stack_chain(rng):
     full = bw * bd * bh
     check(full > n, "the box must hold the stack")
     side = rng.choice((2, 3))
-    stem = (
-        "A stack of unit cubes is drawn on isometric dot paper. There are no gaps in the stack: every cube rests on "
-        "the ground or on another cube."
+    stem = pick(
+        rng,
+        (
+            "A stack of unit cubes is drawn on isometric dot paper. There are no gaps in the stack: every cube rests "
+            "on the ground or on another cube.",
+            "The picture is an isometric drawing of a stack made of unit cubes. Nothing is hidden underneath: each "
+            "cube sits on the ground or on another cube.",
+            "Unit cubes have been glued into a solid stack and drawn on isometric dot paper. Every cube is held up "
+            "by the ground or by a cube below it.",
+        ),
     )
     part_a = number_part(
         "How many cubes make up the stack?",
@@ -189,7 +196,14 @@ def _properties_chain(rng):
     area = 2 * sum(faces)
     price = rng.choice((3, 4, 5, 6, 8, 12))
     unit = "cube" if k == 1 else "cubes"
-    stem = "The cuboid is built from unit cubes and drawn on isometric dot paper. There are no gaps inside it."
+    stem = pick(
+        rng,
+        (
+            "The cuboid is built from unit cubes and drawn on isometric dot paper. There are no gaps inside it.",
+            "An isometric drawing shows a solid cuboid. It is made of unit cubes packed together with no spaces left.",
+            "Unit cubes are packed into a cuboid with no gaps, and the cuboid is drawn on isometric dot paper.",
+        ),
+    )
     part_a = number_part(
         f"How many of its edges are exactly {k} {unit} long?",
         edges,
@@ -273,7 +287,7 @@ figures.register_reader("exd_x_w7f_solid_properties_chain", _read_properties_cha
 
 
 def _net_chain(rng):
-    w, d, h = (rng.randint(1, 4) for _ in range(3))
+    w, d, h = (rng.randint(1, 5) for _ in range(3))
     if w == d == h:
         return None
     polys, size = _cuboid_net(w, d, h, rng)
@@ -285,9 +299,16 @@ def _net_chain(rng):
     edges = sorted({w, d, h}, reverse=True)
     longest = edges[0]
     check(left > 0 and sheet == (2 * w + 2 * d) * (h + 2 * d), "the sheet is not the net's bounding rectangle")
-    stem = (
-        "The net of a closed box is drawn on a square grid with each square 1 unit by 1 unit. It folds up with no "
-        "gaps or overlaps. The grid is the rectangular sheet that just fits round the net."
+    stem = pick(
+        rng,
+        (
+            "The net of a closed box is drawn on a square grid with each square 1 unit by 1 unit. It folds up with no "
+            "gaps or overlaps. The grid is the rectangular sheet that just fits round the net.",
+            "A box is to be made by folding a net cut from a rectangular sheet. The sheet is a square grid with each "
+            "square 1 unit by 1 unit, and the net folds with no gaps or overlaps.",
+            "On a sheet of square grid paper, each square 1 unit by 1 unit, the net of a closed box is drawn. The "
+            "sheet is exactly as big as the smallest rectangle round the net, and the net folds with no overlaps.",
+        ),
     )
     part_a = number_part(
         "What is the length of the longest edge of the box, in units?",
@@ -392,9 +413,16 @@ def _elevation_chain(rng):
         return None
     fig = _stack_figure(width, depth, 3, cubes)
     n, plan = len(cubes), len(grid.plan_view(cubes))
-    stem = (
-        "A stack of unit cubes with no gaps is drawn on isometric dot paper. The views of it are drawn on a square "
-        "grid, one square for each face of a cube that you can see."
+    stem = pick(
+        rng,
+        (
+            "A stack of unit cubes with no gaps is drawn on isometric dot paper. The views of it are drawn on a square "
+            "grid, one square for each face of a cube that you can see.",
+            "Look at the isometric drawing of a solid stack of unit cubes. Its front, right and top views are drawn "
+            "on a square grid with one square for every cube face you can see.",
+            "A solid stack of unit cubes is shown on isometric dot paper, and each view of it is drawn on a square "
+            "grid: one square stands for one visible face of a cube.",
+        ),
     )
     part_a = mcq_part(
         _FRONT_ASK,
@@ -484,7 +512,14 @@ def _outline_chain(rng):
     bare = box - area
     check(bare > 0 and _twice_area(verts) == 2 * area, "area disagrees")
     price = rng.choice((2, 3, 4, 5, 6))
-    stem = "The shape is drawn on a square grid. Each square is 1 unit long and 1 unit wide."
+    stem = pick(
+        rng,
+        (
+            "The shape is drawn on a square grid. Each square is 1 unit long and 1 unit wide.",
+            "A shape has been outlined on grid paper. Every grid square measures 1 unit by 1 unit.",
+            "Here is the outline of a shape on a square grid, where one square is 1 unit across and 1 unit up.",
+        ),
+    )
     part_a = number_part(
         "Count the squares inside the shape to find its area in square units.",
         area,

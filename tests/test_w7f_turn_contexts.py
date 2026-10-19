@@ -39,7 +39,7 @@ def test_wiring_and_tiers():
     skill = sup.skill_of("f10-angle-turn-right-reference")
     topics = [s.topic for s in skill.sources]
     assert topics.count(TOPIC) == 3
-    for tier, floor in (("easy", 3), ("medium", 12), ("hard", 12)):
+    for tier, floor in (("easy", 4), ("medium", 12), ("hard", 12)):
         answers = set()
         for seed in range(60):
             q = make(TOPIC, seed=seed, difficulty=tier)

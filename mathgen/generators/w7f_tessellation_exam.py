@@ -92,7 +92,23 @@ def _chain(rng):
         ],
         follow="360/(180-part_c)",
     )
-    parts = [part_a, part_b, part_c, part_d]
+    side = rng.randint(3, 12)
+    part_e = number_part(
+        f"A tile of the third polygon has sides {side} cm long. What is the distance round the edge of one tile, in cm?",
+        c * side,
+        1,
+        [f"The tile has {c} sides of {side} cm.", f"{c} x {side} = {c * side}."],
+        [
+            (c + side, "tess-adds-the-sides-and-the-length"),
+            (left, "tess-gives-the-angle-for-the-distance"),
+            (side * side, "tess-squares-the-side"),
+            ((c - 1) * side, "tess-misses-a-side"),
+            ((c + 1) * side, "tess-misses-a-side"),
+            (side, "tess-gives-the-length-of-one-side"),
+        ],
+        follow=f"{side}*part_d",
+    )
+    parts = [part_a, part_b, part_c, part_d, part_e]
     if any(p is None for p in parts):
         return None
     return dict(text=stem, parts=parts)

@@ -65,4 +65,4 @@ difficulty_progression:
     demand: "Find the sides of identical polygons sharing the angle left at a point, or the gap left when polygons do not tile."
   exam:
     steps: 5
-    demand: "Chain two interior angles, the angle left at the point for the third polygon, and its number of sides, each part using the one before."
+    demand: "Chain two interior angles, the angle left at the point for the third polygon, its number of sides and the distance round one such tile, each part using the one before."

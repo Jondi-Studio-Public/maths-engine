@@ -192,7 +192,7 @@ def _data(rng, ctx, tier):
     used = ticks[start : start + span]
     n_lo, n_hi = {"easy": (12, 20), "medium": (14, 22), "hard": (13, 25)}[tier]
     for _ in attempts(2000, "dot plot data"):
-        counts = {v: rng.randint(0, 7) for v in used}
+        counts = {v: rng.randint(0, 9 if tier == "easy" else 7) for v in used}
         counts[used[0]] = max(counts[used[0]], 1)
         counts[used[-1]] = max(counts[used[-1]], 1)
         n = sum(counts.values())

@@ -29,10 +29,6 @@ equal-groups:
   equal_groups/easy: 19
 evaluate-powers:
   powers/easy: 8
-f10-angle-turn-right-reference:
-  angle_turn_right_reference/easy: 4
-  angle_turn_right_reference/hard: 16
-  angle_turn_right_reference/medium: 16
 f10-circle-measures:
   circle_measures/easy: 13
   circle_measures/medium: 13
