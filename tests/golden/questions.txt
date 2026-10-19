@@ -2041,7 +2041,7 @@
 {"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/0/a786adb80d34", "text": "The table shows the number y of bacteria in a dish x hours after it is prepared…"}
 {"answer": "(a) Exponential: each y-value is 3 times the one before; (b…", "id": "f10-choose-model-from-data/exam/1/667ec92b1c76", "text": "The table shows the number y of followers of a community page x weeks after it …"}
 {"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/2/e7cfa3d3752d", "text": "The table shows the number y of followers of a community page x weeks after it …"}
-{"answer": "138", "id": "f10-choose-model-from-data/hard/0/c5198180da74", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
+{"answer": "70", "id": "f10-choose-model-from-data/hard/0/ee6721aaf561", "text": "The table shows the data y megabytes used on a phone plan x days after it start…"}
 {"answer": "378", "id": "f10-choose-model-from-data/hard/1/fc934d16fa30", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
 {"answer": "269", "id": "f10-choose-model-from-data/hard/2/6f00dc35b763", "text": "The table shows the number y of tiles in stage x of a square tile pattern. x: 0…"}
 {"answer": "y = 3x^2 + x + 1", "id": "f10-choose-model-from-data/medium/0/de19702ccb78", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}

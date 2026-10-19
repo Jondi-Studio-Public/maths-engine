@@ -508,6 +508,11 @@ def _hard(rng):
         wrong.append((Fraction(ys[0]) * ratio**N, E_RATIO_PER_ROW))
     else:
         wrong.append((Fraction(ys[0]) + d1[0] * N, E_STEP_IGNORED))
+    wrong += [
+        (model.at(N - 2), E_X_OFF),
+        (model.at(N + 2), E_X_OFF),
+        (y_last + last_slope * (N - x_last + 1), E_LINEAR_EXTRAP),
+    ]
     stem = _stem(model) + f" The pattern in the table continues, and x goes up by {step} from one row to the next."
     key_text = str(int(target))
     wrong_text = []
