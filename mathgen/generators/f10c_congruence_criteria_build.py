@@ -461,6 +461,14 @@ def _distractors(rng, answer, valid, case):
     rest = [p for p in pool if p not in chosen]
     rng.shuffle(rest)
     chosen = (chosen + rest)[:3]
+    # The long labels ("Similar by SSS (proportional sides)", "Neither can be concluded ...") would make the key
+    # the one longest option whenever the other three are "Congruent by ...". When a label as long as the key is
+    # on offer, swap it in for a free (not required) slot, so that the key's length does not give it away.
+    if all(len(c) < len(answer) for c in chosen):
+        free = [c for c in chosen if c not in _MUST.get(case, [])]
+        longer = [p for p in rest if p not in chosen and len(p) >= len(answer)]
+        if free and longer:
+            chosen[chosen.index(free[-1])] = longer[0]
     return chosen
 
 
