@@ -316,7 +316,7 @@ def _classify_solid(rng):
     cands = [n_other, k + 1, k - 1, total, k + 2]
     distractors = _numeric_distractors(rng, k, cands, fig)
     word = "solid" if want_solid else "flat"
-    return _result(text, str(k), distractors, [f"{k} of the {total} shapes are {word}."], fig)
+    return _result(text, str(k), distractors, [f"{k} of the {total} shapes {'is' if k == 1 else 'are'} {word}."], fig)
 
 
 def _sort_pool(mode: str):

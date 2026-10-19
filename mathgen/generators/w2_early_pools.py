@@ -108,10 +108,11 @@ def _inverse(rng):
     check(simulated == target, "inverse halving key wrong")  # second route
     cut = "in half" if steps == 1 else "in half, then in half again"
     what = "a whole" if original == 1 else "a piece of the"
-    text = (
-        f"{name} cuts {what} {item} {cut}. Each smallest piece is {_frac_text(target)} of the whole {item}. "
-        f"What fraction was the first piece?"
-    )
+    if original == 1:
+        ask = f"What fraction of the whole {item} did {name} start with?"
+    else:
+        ask = "What fraction was the first piece?"
+    text = f"{name} cuts {what} {item} {cut}. Each smallest piece is {_frac_text(target)} of the whole {item}. {ask}"
     answer_text = _frac_text(original)
     return dict(
         text=text,

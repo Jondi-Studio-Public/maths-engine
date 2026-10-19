@@ -82,7 +82,7 @@ def _build_easy(rng, name):
     ]
     text = rng.choice(_EASY).format(pl=a, n=name)
     distractors = tagged_numbers(answer, cands, low=0, high=30)[:3]  # always three wrong counts
-    working = [f"Count the {a} row: each gate is 5. There are {answer}."]
+    working = [f"Count the {a} row: each gate is 5. There {'is' if answer == 1 else 'are'} {answer}."]
     return fig, text, str(answer), distractors, working
 
 

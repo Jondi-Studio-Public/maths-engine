@@ -1555,8 +1555,8 @@
 {"answer": "3", "id": "equal-groups-sharing-halves-pictures/easy/0/dcc1fb36377f", "text": "There are 15 counters in all, in equal rings. How many are in each ring?"}
 {"answer": "12", "id": "equal-groups-sharing-halves-pictures/easy/1/0b3b39627492", "text": "Chloe counts all the squares in the rings. How many?"}
 {"answer": "2", "id": "equal-groups-sharing-halves-pictures/easy/2/d85122caee3f", "text": "There are 6 stars in all, in equal rings. How many are in each ring?"}
-{"answer": "4", "id": "equal-groups-sharing-halves-pictures/hard/0/191ded719a51", "text": "Share the stars equally among 4 children. How many does each child get?"}
-{"answer": "3", "id": "equal-groups-sharing-halves-pictures/hard/1/f2d52e154a98", "text": "Share the stars equally among 4 children. How many does each child get?"}
+{"answer": "4", "id": "equal-groups-sharing-halves-pictures/hard/0/9edce655efab", "text": "Share the stars equally among 4 children. How many does each child get?"}
+{"answer": "3", "id": "equal-groups-sharing-halves-pictures/hard/1/73d7a291187c", "text": "Share the stars equally among 4 children. How many does each child get?"}
 {"answer": "1", "id": "equal-groups-sharing-halves-pictures/hard/2/a841cc1d91eb", "text": "Priya deals the counters equally among 2 children. How many are left over?"}
 {"answer": "3", "id": "equal-groups-sharing-halves-pictures/medium/0/54905c12a5c1", "text": "Ingrid shares the diamonds equally among 3 children. How many does each get?"}
 {"answer": "5", "id": "equal-groups-sharing-halves-pictures/medium/1/0160df6bf31e", "text": "Share the counters equally among 3 children. How many does each child get?"}
@@ -1810,7 +1810,7 @@
 {"answer": "The toy car", "id": "ey-order-by-two-balances/medium/0/0001a42e03a1", "text": "Which one is the lightest?"}
 {"answer": "The shoe", "id": "ey-order-by-two-balances/medium/1/e69c8f591459", "text": "Look at both balances. Which is lightest?"}
 {"answer": "The jar", "id": "ey-order-by-two-balances/medium/2/221ada6a7391", "text": "Look at both balances. Which is lightest?"}
-{"answer": "tent", "id": "ey-position-words-scene/easy/0/b5adb8ab44aa", "text": "Which picture is directly above the tree?"}
+{"answer": "tree", "id": "ey-position-words-scene/easy/0/3b23809a67a1", "text": "Which picture is directly below the tent?"}
 {"answer": "hospital", "id": "ey-position-words-scene/easy/1/415008ff6360", "text": "What is between the aeroplane and the school?"}
 {"answer": "tree", "id": "ey-position-words-scene/easy/2/82b10996ec13", "text": "Which picture is directly left of the aeroplane?"}
 {"answer": "lighthouse", "id": "ey-position-words-scene/hard/0/e6fecba819da", "text": "What is just above the house and just left of the hospital?"}
@@ -1879,14 +1879,14 @@
 {"answer": "10", "id": "f10-addition-facts-related-subtraction/medium/0/9979b12438cd", "text": "13 = 10 + 3. Find 13 - 3."}
 {"answer": "13", "id": "f10-addition-facts-related-subtraction/medium/1/29150602cbd6", "text": "13 + 7 = 20. What is 20 - 7?"}
 {"answer": "7", "id": "f10-addition-facts-related-subtraction/medium/2/1f1bbeee07fd", "text": "We know 7 + 9 = 16. Find 16 - 9."}
-{"answer": "5", "id": "f10-additive-multiplicative-money-model/easy/0/eae9c58768a3", "text": "Ethan shares $25 equally among 5 people. How much does each person get?"}
+{"answer": "5", "id": "f10-additive-multiplicative-money-model/easy/0/72b09550af40", "text": "Ethan shares $25 equally among 5 people. How much does each person get?"}
 {"answer": "54", "id": "f10-additive-multiplicative-money-model/easy/1/a8e92c9e9ba6", "text": "Chloe has $29. Chloe earns another $25 from doing chores. How much money does C…"}
 {"answer": "14", "id": "f10-additive-multiplicative-money-model/easy/2/e906a4f5ec88", "text": "Freya buys 7 of the same cap at $2 each. What is the total cost?"}
 {"answer": "25", "id": "f10-additive-multiplicative-money-model/hard/0/b6b6c410cece", "text": "Hassan is saving twice as fast as before and now has $18 saved towards a $43 sk…"}
-{"answer": "10", "id": "f10-additive-multiplicative-money-model/hard/1/643c00eeb088", "text": "$30 is shared equally into envelopes of $3 each. How many envelopes are there?"}
+{"answer": "10", "id": "f10-additive-multiplicative-money-model/hard/1/ce02e61bd386", "text": "$30 is shared equally into envelopes of $3 each. How many envelopes are there?"}
 {"answer": "37", "id": "f10-additive-multiplicative-money-model/hard/2/e596cde6efc8", "text": "Priya and Lucas shared equally in washing cars for the fundraiser, and each ear…"}
-{"answer": "23", "id": "f10-additive-multiplicative-money-model/medium/0/19408c8a3228", "text": "Amir buys 6 toy cars at $2 each, and also buys a board game for $11. What is th…"}
-{"answer": "3", "id": "f10-additive-multiplicative-money-model/medium/1/0a94ce3847d8", "text": "60 dollars of prize money is shared equally among 4 winners. Each winner then s…"}
+{"answer": "23", "id": "f10-additive-multiplicative-money-model/medium/0/1e391748ecda", "text": "Amir buys 6 toy cars at $2 each, and also buys a board game for $11. What is th…"}
+{"answer": "3", "id": "f10-additive-multiplicative-money-model/medium/1/7413b9e0f818", "text": "60 dollars of prize money is shared equally among 4 winners. Each winner then s…"}
 {"answer": "13", "id": "f10-additive-multiplicative-money-model/medium/2/136fe5db6877", "text": "Ingrid has $11. Ingrid earns $21 from chores, then spends $19 on a yo-yo. How m…"}
 {"answer": "19", "id": "f10-additive-multiplicative-patterns/easy/0/5d701686047a", "text": "What is the next number? 10, 13, 16, __"}
 {"answer": "42", "id": "f10-additive-multiplicative-patterns/easy/1/bb0a8ee33220", "text": "What is the next number? 18, 26, 34, __"}
@@ -2020,7 +2020,7 @@
 {"answer": "26", "id": "f10-capacity-mass-informal-units/hard/0/9c18262c84ef", "text": "One big weight balances 4 small weights. To balance the shoe, Sam uses 6 full b…"}
 {"answer": "24", "id": "f10-capacity-mass-informal-units/hard/1/9ca508bb0b03", "text": "One mug holds 3 spoons. To fill the bucket, Aiko uses 7 full mugs and then 3 sp…"}
 {"answer": "3", "id": "f10-capacity-mass-informal-units/hard/2/78489e6ad200", "text": "One mug holds 4 spoons. The tub holds 5 mugs of water. The bowl holds 23 spoons…"}
-{"answer": "17", "id": "f10-capacity-mass-informal-units/medium/0/acc593bde134", "text": "The watering can holds 28 scoops of water. Leila pours in 8 scoops and then 3 m…"}
+{"answer": "8", "id": "f10-capacity-mass-informal-units/medium/0/a50813b54863", "text": "The watering can holds 23 scoops of water. Leila pours in 8 scoops and then 7 m…"}
 {"answer": "5", "id": "f10-capacity-mass-informal-units/medium/1/bec73141c456", "text": "The apple balances 20 cubes. The melon balances 7 cubes and the pencil case bal…"}
 {"answer": "15", "id": "f10-capacity-mass-informal-units/medium/2/05efcb2ca8de", "text": "The teapot balances 5 cubes. The shoe balances 5 cubes more than the teapot. Ho…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/6172bec54640", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
@@ -2596,8 +2596,8 @@
 {"answer": "(a) 1/32; (b) 48; (c) 1488", "id": "f10-fractions-half-quarter-eighth/exam/0/1dfb89919a9a", "text": "A farmer near Wagga Wagga has a paddock of 1536 hectares. Half is used for whea…"}
 {"answer": "(a) 1/8; (b) 33; (c) 231", "id": "f10-fractions-half-quarter-eighth/exam/1/052d80ee2cff", "text": "A primary school playground in Launceston has an area of 264 square metres. Hal…"}
 {"answer": "(a) 1/32; (b) 76; (c) 2356", "id": "f10-fractions-half-quarter-eighth/exam/2/627d9f2b7e6e", "text": "A community garden in Fitzroy covers 2432 square metres. Half is used for veget…"}
-{"answer": "1", "id": "f10-fractions-half-quarter-eighth/hard/0/d9253e0ee932", "text": "Sophia cuts a whole paper strip in half, then in half again. Each smallest piec…"}
-{"answer": "1", "id": "f10-fractions-half-quarter-eighth/hard/1/23a45689489b", "text": "Yuki cuts a whole rope in half, then in half again. Each smallest piece is 1/4 …"}
+{"answer": "1", "id": "f10-fractions-half-quarter-eighth/hard/0/ac177e0bf747", "text": "Sophia cuts a whole paper strip in half, then in half again. Each smallest piec…"}
+{"answer": "1", "id": "f10-fractions-half-quarter-eighth/hard/1/8a2a93ac6368", "text": "Yuki cuts a whole rope in half, then in half again. Each smallest piece is 1/4 …"}
 {"answer": "1/2", "id": "f10-fractions-half-quarter-eighth/hard/2/ff26f4e0fbc1", "text": "Tariq cuts a piece of the garden bed in half. Each smallest piece is 1/4 of the…"}
 {"answer": "1/4", "id": "f10-fractions-half-quarter-eighth/medium/0/054f287b629d", "text": "Mia cuts a whole garden bed in half, then in half again. What fraction of the w…"}
 {"answer": "1/4", "id": "f10-fractions-half-quarter-eighth/medium/1/a16314520478", "text": "Kai cuts a whole ribbon in half, then in half again. What fraction of the whole…"}
@@ -3745,18 +3745,18 @@
 {"answer": "12", "id": "f10-time-units-and-nearest-minute/medium/0/dff4b56d1820", "text": "Convert 17280 minutes to days."}
 {"answer": "27", "id": "f10-time-units-and-nearest-minute/medium/1/28f74e77c618", "text": "Convert 38880 minutes to days."}
 {"answer": "68400", "id": "f10-time-units-and-nearest-minute/medium/2/a38ea3ab90aa", "text": "Convert 19 hours to seconds."}
-{"answer": "8", "id": "f10-times-two-facts-inverse/easy/0/102fcc0f66bf", "text": "8 × 2 = 16. So 16 ÷ 2 = ?"}
-{"answer": "5", "id": "f10-times-two-facts-inverse/easy/1/11b86a98f3a5", "text": "2 × 5 = 10. What is 10 ÷ 2?"}
-{"answer": "7", "id": "f10-times-two-facts-inverse/easy/2/1b9dcbb83a94", "text": "7 × 2 = 14. So 14 ÷ 2 = ?"}
+{"answer": "8", "id": "f10-times-two-facts-inverse/easy/0/83b615ba3dc3", "text": "8 × 2 = 16. So 16 ÷ 2 = ?"}
+{"answer": "5", "id": "f10-times-two-facts-inverse/easy/1/1b7aa1cc58d9", "text": "2 × 5 = 10. What is 10 ÷ 2?"}
+{"answer": "7", "id": "f10-times-two-facts-inverse/easy/2/2a83de78a14d", "text": "7 × 2 = 14. So 14 ÷ 2 = ?"}
 {"answer": "(a) 14; (b) 7; (c) 35", "id": "f10-times-two-facts-inverse/exam/0/77dff61148ef", "text": "A sports shop in Perth has a box of 28 gloves. The gloves are sold in pairs, an…"}
 {"answer": "(a) 8; (b) 4; (c) 14", "id": "f10-times-two-facts-inverse/exam/1/10569f172fe6", "text": "A sports shop in Mandurah has a box of 16 shoes. The shoes are sold in pairs, a…"}
 {"answer": "(a) 16; (b) 8; (c) 47", "id": "f10-times-two-facts-inverse/exam/2/aa2e535aec92", "text": "A charity in Cairns collects 32 gloves. They are matched into pairs, and 2 pair…"}
-{"answer": "7", "id": "f10-times-two-facts-inverse/hard/0/61efd22a601b", "text": "Double 7 is 14. Share 14 equally between 2 people. How many does each person ge…"}
-{"answer": "2", "id": "f10-times-two-facts-inverse/hard/1/8757b2acff51", "text": "You know 2 × 7 = 14 and 2 × 2 = 4. Use the right fact to find 4 ÷ 2."}
-{"answer": "6", "id": "f10-times-two-facts-inverse/hard/2/2cda99ba2b27", "text": "The double of 6 is 12. Split 12 equally between 2 groups. How many in each grou…"}
-{"answer": "6", "id": "f10-times-two-facts-inverse/medium/0/21e6f491c715", "text": "6 doubled gives 12. Halve 12 to find the answer."}
-{"answer": "10", "id": "f10-times-two-facts-inverse/medium/1/14eaed08cf0d", "text": "Double 10 is 20. What is half of 20?"}
-{"answer": "3", "id": "f10-times-two-facts-inverse/medium/2/64008239071a", "text": "Double 3 is 6. What is half of 6?"}
+{"answer": "7", "id": "f10-times-two-facts-inverse/hard/0/79481000b521", "text": "Double 7 is 14. Share 14 equally between 2 people. How many does each person ge…"}
+{"answer": "2", "id": "f10-times-two-facts-inverse/hard/1/84ad0908e2d8", "text": "You know 2 × 7 = 14 and 2 × 2 = 4. Use the right fact to find 4 ÷ 2."}
+{"answer": "6", "id": "f10-times-two-facts-inverse/hard/2/a8def871dff6", "text": "The double of 6 is 12. Split 12 equally between 2 groups. How many in each grou…"}
+{"answer": "6", "id": "f10-times-two-facts-inverse/medium/0/82239ce29289", "text": "6 doubled gives 12. Halve 12 to find the answer."}
+{"answer": "10", "id": "f10-times-two-facts-inverse/medium/1/d2b66c3f2239", "text": "Double 10 is 20. What is half of 20?"}
+{"answer": "3", "id": "f10-times-two-facts-inverse/medium/2/543fe33960bc", "text": "Double 3 is 6. What is half of 6?"}
 {"answer": "6", "id": "f10-timetable-itinerary-duration/easy/0/ea6a7d2ccb0b", "text": "Train D departs 7:05am and arrives 7:11am. Ferry F departs 6:35am and arrives 6…"}
 {"answer": "7", "id": "f10-timetable-itinerary-duration/easy/1/bfd67920c769", "text": "Ferry F departs 3:25am and arrives 3:45am. Bus B departs 11:40am and arrives 11…"}
 {"answer": "8", "id": "f10-timetable-itinerary-duration/easy/2/eae7bfef7274", "text": "Bus B departs 11:45am and arrives 11:58am. Ferry F departs 2:20am and arrives 2…"}
@@ -3925,12 +3925,12 @@
 {"answer": "12", "id": "f2-read-a-picture-graph/easy/0/23e1b0c19097", "text": "A school voted for sports. Use the graph: how many students chose Swimming?"}
 {"answer": "2", "id": "f2-read-a-picture-graph/easy/1/b770e26f6b16", "text": "A class voted for fruits. Use the graph: how many students chose Banana?"}
 {"answer": "3", "id": "f2-read-a-picture-graph/easy/2/91754fb0c54b", "text": "A class voted for pets. Use the graph: how many students chose Cat?"}
-{"answer": "70", "id": "f2-read-a-picture-graph/hard/0/06cad769ec4d", "text": "Students picked their favourite sport. Find the total number of students on the…"}
-{"answer": "60", "id": "f2-read-a-picture-graph/hard/1/52bb53cd67c4", "text": "Students picked their favourite pet. Find the difference between the biggest gr…"}
-{"answer": "64", "id": "f2-read-a-picture-graph/hard/2/08d82ba3b09d", "text": "A school voted for sports. How many students are there in total?"}
+{"answer": "70", "id": "f2-read-a-picture-graph/hard/0/903662ae6131", "text": "Students picked their favourite sport. Find the total number of students on the…"}
+{"answer": "60", "id": "f2-read-a-picture-graph/hard/1/a226cdf67ae2", "text": "Students picked their favourite pet. Find the difference between the biggest gr…"}
+{"answer": "64", "id": "f2-read-a-picture-graph/hard/2/e97b42866a49", "text": "A school voted for sports. How many students are there in total?"}
 {"answer": "25", "id": "f2-read-a-picture-graph/medium/0/3dd7e977ea67", "text": "Students picked their favourite sport. Find how many more students chose Netbal…"}
-{"answer": "1", "id": "f2-read-a-picture-graph/medium/1/7099150226cc", "text": "Students picked their favourite sport. How many more students chose Rugby than …"}
-{"answer": "8", "id": "f2-read-a-picture-graph/medium/2/15035c50361f", "text": "A class recorded the weather. How many more days were Hot than were Windy?"}
+{"answer": "1", "id": "f2-read-a-picture-graph/medium/1/5c6047cd9d35", "text": "Students picked their favourite sport. How many more students chose Rugby than …"}
+{"answer": "8", "id": "f2-read-a-picture-graph/medium/2/5acd07b6ba8e", "text": "A class recorded the weather. How many more days were Hot than were Windy?"}
 {"answer": "10", "id": "f3-read-a-column-graph/easy/0/2d05ff6d67d1", "text": "Use the graph. How many blue cars were in the car park?"}
 {"answer": "5", "id": "f3-read-a-column-graph/easy/1/786ff56da6fe", "text": "How many millimetres of rain fell in January?"}
 {"answer": "5", "id": "f3-read-a-column-graph/easy/2/19d4d567a191", "text": "How many goals did the Lions score?"}
