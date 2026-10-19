@@ -23,10 +23,10 @@ def question(skill_id: str, tier: str, seed: int):
     return make_for_skill(skill(skill_id), seed, source=tier)
 
 
-def check_tiers(skill_id: str, tiers=("easy", "medium", "hard"), exam=False) -> None:
+def check_tiers(skill_id: str, tiers=("easy", "medium", "hard"), exam=False, extra=()) -> None:
     """The tiers are wired as the skill says, and each asks a different shape of question."""
     sk = skill(skill_id)
-    assert [s.difficulty for s in sk.sources] == list(tiers) + (["exam"] if exam else [])
+    assert [s.difficulty for s in sk.sources] == list(tiers) + (["exam"] if exam else []) + list(extra)
     shapes = {t: {prompt_shape(question(skill_id, t, s)) for s in range(1, 41)} for t in tiers}
     for a in tiers:
         for b in tiers:

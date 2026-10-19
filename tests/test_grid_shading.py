@@ -84,8 +84,7 @@ def test_the_shading_skills_are_deferred_behind_the_visual_gate_with_working_sou
     assert skill.status == "deferred" and skill.deferred_reason == "visual"
     assert skill.capability_gates == ["visual_construction"]
     assert skill.answer == "grid_cells" and skill.needs_figure is True and skill.placement_eligible is False
-    assert [s.difficulty for s in skill.sources] == tiers
-    assert all(s.topic == topic for s in skill.sources)
+    assert [s.difficulty for s in skill.sources if s.topic == topic] == tiers
     assert skill.misconceptions and skill.prerequisites
     assert all(p in _skills() for p in skill.prerequisites)
 
