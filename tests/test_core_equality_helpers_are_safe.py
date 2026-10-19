@@ -283,6 +283,9 @@ _REVIEWED = {
     # restricted parser (a text argument to any of them would run as Python)
     ("core.py", "symbolically_equal", "simplify"): "the difference of two values read by `_sympify`",
     ("grading/spoken.py", "_check_one", "simplify"): "a spoken reading less a `sympify_safely` value",
+    # the step-chain grader canonicalises SymPy objects that `parse_expression_safely` returned; neither call is given text
+    ("grading/chain.py", "_tree", "expand"): "the argument of an Abs node of a tree from `parse_expression_safely`",
+    ("grading/chain.py", "_value", "N"): "a SymPy tree with its symbols replaced by numbers, never text",
     ("grading/typed.py", "_expected_expression", "simplify"): "two expressions from `_parse_expression`",
     ("grading/values.py", "same_number", "simplify"): "two numbers from `read_value` or a generator's answer",
     ("grading/typed.py", "_line_standard_form_coeffs", "expand"): "the two sides of an equation, parsed",

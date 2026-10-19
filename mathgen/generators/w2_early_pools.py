@@ -151,11 +151,18 @@ def w2_median_even(rng, count=6, hi=30):
         rng.shuffle(shown)
         if shown != values:
             break
-    answer_text = str(answer.numerator // answer.denominator) if answer.denominator == 1 else f"{float(answer):.1f}"
+    whole = answer.denominator == 1
+    answer_text = str(int(answer)) if whole else f"{float(answer):.1f}"
     mean = Fraction(sum(values), n)
-    candidates = [low, high, mean, answer + Fraction(1, 2), sum(values)]
-    clear = [c for c in candidates if abs(float(c) - float(answer)) > 0.06]
-    texts = [str(c) if Fraction(c).denominator == 1 else f"{float(c):.1f}" for c in clear]
+    candidates = [low, high, mean, answer + Fraction(1, 2), sum(values), answer - 1, answer + 1, answer + 2]
+    # A distractor shows the same number of decimal places as the key: whole numbers beside a whole key,
+    # one decimal place beside a half.
+    clear = [
+        c
+        for c in candidates
+        if abs(float(c) - float(answer)) > 0.06 and (Fraction(c).denominator == 1) == whole and c > 0
+    ]
+    texts = [str(int(c)) if whole else f"{float(c):.1f}" for c in clear]
     return dict(
         text=f"Find the median of: {', '.join(map(str, shown))}.",
         answer=float(answer) if answer.denominator != 1 else int(answer),

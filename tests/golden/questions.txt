@@ -469,9 +469,9 @@
 {"answer": "30.5", "id": "calculate-median/exam/0/a6983ddd2377", "text": "A data set contains the values 50, 14, 44, 25, 50, 36, 20, 7. Work out the medi…"}
 {"answer": "46", "id": "calculate-median/exam/1/0ae5d36fcc2d", "text": "A data set contains the values 60, 44, 17, 21, 59, 58, 48, 28, 59, 11, 48, 19. …"}
 {"answer": "49", "id": "calculate-median/exam/2/f10e71785cce", "text": "Find the median of this data set: 51, 38, 59, 38, 22, 47, 60, 57."}
-{"answer": "17.5", "id": "calculate-median/medium/0/2201e36a468d", "text": "Find the median of: 21, 6, 30, 5, 28, 14."}
-{"answer": "20", "id": "calculate-median/medium/1/b153f9b30820", "text": "Find the median of: 26, 14, 8, 29, 29, 3."}
-{"answer": "16", "id": "calculate-median/medium/2/990c1381fb66", "text": "Find the median of: 27, 12, 20, 8, 27, 2."}
+{"answer": "17.5", "id": "calculate-median/medium/0/439525a35b5d", "text": "Find the median of: 21, 6, 30, 5, 28, 14."}
+{"answer": "20", "id": "calculate-median/medium/1/ae6fa48db217", "text": "Find the median of: 26, 14, 8, 29, 29, 3."}
+{"answer": "16", "id": "calculate-median/medium/2/232ef4fdbb0b", "text": "Find the median of: 27, 12, 20, 8, 27, 2."}
 {"answer": "22", "id": "calculate-mode/easy/0/c200b7d64bf1", "text": "Find the mode of: 23, 22, 21, 20, 22, 22, 24."}
 {"answer": "12", "id": "calculate-mode/easy/1/af77e3617d61", "text": "Find the mode of: 10, 11, 13, 14, 12, 12, 12."}
 {"answer": "27", "id": "calculate-mode/easy/2/e1ef1d58f7b6", "text": "Find the mode of: 29, 28, 26, 27, 25, 27, 27."}
@@ -2494,15 +2494,15 @@
 {"answer": "7", "id": "f10-factor-multiple-divisibility-algorithm/medium/0/58031ebb6004", "text": "Follow this rule: for each whole number from 1 to 24 inclusive, test whether it…"}
 {"answer": "9", "id": "f10-factor-multiple-divisibility-algorithm/medium/1/69371323ae41", "text": "Follow this rule: for each whole number from 1 to 22 inclusive, test whether it…"}
 {"answer": "13", "id": "f10-factor-multiple-divisibility-algorithm/medium/2/48803f6225c3", "text": "Follow this rule: for each whole number from 1 to 32 inclusive, test whether it…"}
-{"answer": "18", "id": "f10-factors-multiples-divisibility/easy/0/7c0a6b9b6ae4", "text": "Which of these numbers does 9 divide exactly (with no remainder)?"}
-{"answer": "16", "id": "f10-factors-multiples-divisibility/easy/1/3d1d3d72b84e", "text": "Which of these numbers does 2 divide exactly (with no remainder)?"}
-{"answer": "30", "id": "f10-factors-multiples-divisibility/easy/2/7a0d94c70093", "text": "Which of these numbers does 10 divide exactly (with no remainder)?"}
+{"answer": "18", "id": "f10-factors-multiples-divisibility/easy/0/0222209746f0", "text": "Beatrice shares a number out in groups of 9 with none left over. Which of these…"}
+{"answer": "16", "id": "f10-factors-multiples-divisibility/easy/1/a59cbe189eeb", "text": "Chloe shares a number out in groups of 2 with none left over. Which of these co…"}
+{"answer": "30", "id": "f10-factors-multiples-divisibility/easy/2/2a04f66c2840", "text": "Kai shares a number out in groups of 10 with none left over. Which of these cou…"}
 {"answer": "10", "id": "f10-factors-multiples-divisibility/hard/0/82f19af886a0", "text": "Which of these divides 2 × 5³ × 7 exactly (with no remainder)?"}
 {"answer": "6", "id": "f10-factors-multiples-divisibility/hard/1/e86212c97e91", "text": "Which of these divides 2 × 3 × 5 exactly (with no remainder)?"}
 {"answer": "21", "id": "f10-factors-multiples-divisibility/hard/2/3da7898a4135", "text": "Which of these divides 2² × 3² × 7³ exactly (with no remainder)?"}
 {"answer": "260", "id": "f10-factors-multiples-divisibility/medium/0/671999e8322d", "text": "Which of these numbers does 20 divide exactly (with no remainder)?"}
 {"answer": "200", "id": "f10-factors-multiples-divisibility/medium/1/6eb23a22d445", "text": "Which of these numbers does 20 divide exactly (with no remainder)?"}
-{"answer": "224", "id": "f10-factors-multiples-divisibility/medium/2/c0870b7b250e", "text": "Which of these numbers does 7 divide exactly (with no remainder)?"}
+{"answer": "224", "id": "f10-factors-multiples-divisibility/medium/2/5f92a77efe03", "text": "Sione shares a number out in groups of 7 with none left over. Which of these co…"}
 {"answer": "124.80", "id": "f10-financial-multistep-percent/easy/0/a89128c51e5e", "text": "A pair of headphones is marked $156. This week every price in the shop is reduc…"}
 {"answer": "83.20", "id": "f10-financial-multistep-percent/easy/1/4349908ab53c", "text": "A cricket bat is marked $104. This week every price in the shop is reduced by 2…"}
 {"answer": "44.80", "id": "f10-financial-multistep-percent/easy/2/eb3c1df41587", "text": "A jacket is marked $56. This week every price in the shop is reduced by 20%, an…"}
@@ -3145,8 +3145,8 @@
 {"answer": "20", "id": "f10-partition-collections-equal-groups/medium/0/c464ff84e068", "text": "Leo has 4 bundles of ten pencils and 0 loose pencils, shared equally into 2 gro…"}
 {"answer": "39", "id": "f10-partition-collections-equal-groups/medium/1/a50c4be7ac8e", "text": "9 bundles of ten and 27 loose stickers are shared equally into 3 groups. How ma…"}
 {"answer": "41", "id": "f10-partition-collections-equal-groups/medium/2/4f619c5f2654", "text": "8 bundles of ten and 2 loose counters are shared equally into 2 groups. How man…"}
-{"answer": "{(3, 3), (2, 13), (1, 23), (0, 33)}", "id": "f10-partition-one-two-digit-numbers/easy/0/51a5d9138400", "text": "Show 33 as tens and ones in every way. Write each way as (number of tens, numbe…"}
-{"answer": "{(9, 0), (8, 1), (7, 2), (6, 3), (5, 4)}", "id": "f10-partition-one-two-digit-numbers/easy/1/d16216999023", "text": "Split 9 into two parts in every way. Write each way as (larger part, smaller pa…"}
+{"answer": "{(3, 3), (2, 13), (1, 23), (0, 33)}", "id": "f10-partition-one-two-digit-numbers/easy/0/d93181a649d1", "text": "Show 33 as tens and ones in every way. Each way must make 33 in all. Write each…"}
+{"answer": "{(9, 0), (8, 1), (7, 2), (6, 3), (5, 4)}", "id": "f10-partition-one-two-digit-numbers/easy/1/7b3a7c5c26db", "text": "Split 9 into two parts in every way you can. Write each way as (larger part, sm…"}
 {"answer": "{(3, 3), (2, 13), (1, 23), (0, 33)}", "id": "f10-partition-one-two-digit-numbers/easy/2/f0bf26e4930c", "text": "Show 33 as tens and ones in every way. Write each way as (number of tens, numbe…"}
 {"answer": "{(8, 7), (7, 17), (6, 27), (4, 47), (3, 57), (2, 67), (1, 7…", "id": "f10-partition-one-two-digit-numbers/hard/0/7422433c2cde", "text": "A number is shown as 5 tens and 37 ones. List every other way to show the same …"}
 {"answer": "{(3, 8), (1, 28), (0, 38)}", "id": "f10-partition-one-two-digit-numbers/hard/1/96de51d1f63c", "text": "A number is shown as 2 tens and 18 ones. List every other way to show the same …"}
@@ -3568,9 +3568,9 @@
 {"answer": "Thursday, Friday, Saturday, Sunday", "id": "f10-sequence-days-times/medium/0/003f34d88888", "text": "Put these days of the week in order, earliest first: Sunday (packing the school…"}
 {"answer": "Wednesday, Thursday, Friday, Saturday", "id": "f10-sequence-days-times/medium/1/3004244194f4", "text": "Put these days of the week in order, earliest first: Wednesday (swimming lesson…"}
 {"answer": "Wednesday, Thursday, Friday, Saturday", "id": "f10-sequence-days-times/medium/2/6b9003e26356", "text": "Put these days of the week in order, earliest first: Wednesday (swimming lesson…"}
-{"answer": "octagon", "id": "f10-shape-features-classification/easy/0/d2c931118ba8", "text": "Which of these shapes has only straight sides?"}
-{"answer": "octagon", "id": "f10-shape-features-classification/easy/1/eb1e5a2d77d5", "text": "Which of these shapes has only straight sides?"}
-{"answer": "square", "id": "f10-shape-features-classification/easy/2/26b00ad19bf5", "text": "Which of these shapes has only straight sides?"}
+{"answer": "octagon", "id": "f10-shape-features-classification/easy/0/f15a91225959", "text": "Which of these shapes is made only of straight lines?"}
+{"answer": "octagon", "id": "f10-shape-features-classification/easy/1/90b9938cb40a", "text": "Which one of these shapes has no curved edge?"}
+{"answer": "square", "id": "f10-shape-features-classification/easy/2/9ac66450057d", "text": "Which one of these shapes has no curved edge?"}
 {"answer": "pentagon", "id": "f10-shape-features-classification/hard/0/1eb754178b62", "text": "Which of these shapes has 5 sides?"}
 {"answer": "triangle", "id": "f10-shape-features-classification/hard/1/c6ae047fbfe2", "text": "Which of these shapes has 3 sides?"}
 {"answer": "octagon", "id": "f10-shape-features-classification/hard/2/a5058c061b11", "text": "Which of these shapes has 8 sides?"}
@@ -6326,8 +6326,8 @@
 {"answer": "(-b + y)/a", "id": "rearrange-simple-formulas/medium/1/b05b642fd4a3", "text": "Make x the subject of the formula y = ax + b"}
 {"answer": "(T - f)/n", "id": "rearrange-simple-formulas/medium/2/35682af902f9", "text": "Make p the subject of the formula T = pn + f"}
 {"answer": "sqrt(A)/(2sqrt(pi))", "id": "rearrange-simple-formulas/powers-roots-more/0/9ad011b1af57", "text": "Make r the subject of the formula A = 4πr² (r is a radius, so r > 0)"}
-{"answer": "sqrt(-a^2 + c^2)", "id": "rearrange-simple-formulas/powers-roots-more/1/ed1fad8f0bee", "text": "Make b the subject of the formula c = √(a² + b²) (b is a length, so b > 0)"}
-{"answer": "sqrt(-a^2 + c^2)", "id": "rearrange-simple-formulas/powers-roots-more/2/b99072149b23", "text": "Make b the subject of the formula c² = a² + b² (b is a length, so b > 0)"}
+{"answer": "V^(1/3)", "id": "rearrange-simple-formulas/powers-roots-more/1/b8eef866c5a1", "text": "Make s the subject of the formula V = s³"}
+{"answer": "sqrt(5)*sqrt(A)/5", "id": "rearrange-simple-formulas/powers-roots-more/2/e1216024af83", "text": "Make s the subject of the formula A = 5s² (s is a length, so s > 0)"}
 {"answer": "6^(1/3)*V^(1/3)/(2pi^(1/3))", "id": "rearrange-simple-formulas/powers-roots/0/c55b4b9ed2be", "text": "Make r the subject of the formula V = (4/3)πr³"}
 {"answer": "6^(1/3)*V^(1/3)/(2pi^(1/3))", "id": "rearrange-simple-formulas/powers-roots/1/c8ff1a45c975", "text": "Make r the subject of the formula V = (4/3)πr³"}
 {"answer": "-a*t/2 + s/t", "id": "rearrange-simple-formulas/powers-roots/2/0cc130ad6206", "text": "Make u the subject of the formula s = ut + ½at²"}

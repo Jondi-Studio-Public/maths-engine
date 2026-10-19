@@ -272,10 +272,18 @@ def shape_features_classification(rng, mode="forward_sides"):
             (answer in polygon_sides) != want_curved and all((w in polygon_sides) == want_curved for w in wrong),
             "curved/straight key or distractor wrong",
         )
-        text = (
-            "Which of these shapes has a curved side?"
+        text = rng.choice(
+            (
+                "Which of these shapes has a curved side?",
+                "Which one of these shapes has a curved edge?",
+                "Which of these shapes is not made only of straight lines?",
+            )
             if want_curved
-            else "Which of these shapes has only straight sides?"
+            else (
+                "Which of these shapes has only straight sides?",
+                "Which one of these shapes has no curved edge?",
+                "Which of these shapes is made only of straight lines?",
+            )
         )
         return dict(
             text=text,

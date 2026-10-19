@@ -108,7 +108,7 @@ def _easy(rng):
             rng,
             [
                 "Split {n} into two parts in every way. Write each way as (larger part, smaller part). {rule}",
-                "Split {n} into two parts in every way. Write each way as (larger part, smaller part). {rule}",
+                "Split {n} into two parts in every way you can. Write each way as (larger part, smaller part). {rule}",
             ],
             n=n,
             rule=_RULE,
@@ -131,7 +131,8 @@ def _easy(rng):
         rng,
         [
             "Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). {rule}",
-            "Show {n} as tens and ones in every way. Write each way as (number of tens, number of ones). {rule}",
+            "Show {n} as tens and ones in every way. Each way must make {n} in all. "
+            "Write each way as (number of tens, number of ones). {rule}",
         ],
         n=n,
         rule=_RULE,

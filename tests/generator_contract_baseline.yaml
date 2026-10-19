@@ -1064,6 +1064,7 @@ unwired:
   exd_x_complex_nth_root: no skill source uses it at any tier
   exd_x_complex_point: no skill source uses it at any tier
   exd_x_complex_real_part: no skill source uses it at any tier
+  exd_x_f5_trigquad: superseded by exd_x_w5_trig_all_solutions when the skill became a list-answer skill
   exd_x_g1_unit_vectors: no skill source uses it at any tier
   exd_x_g1_vector_dot_product: no skill source uses it at any tier
   exd_x_g2_parallel_perp_condition: no skill source uses it at any tier

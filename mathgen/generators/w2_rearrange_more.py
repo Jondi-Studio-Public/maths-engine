@@ -55,7 +55,37 @@ _CASES = [
         r"d = \sqrt{x^2 + y^2}",
         "x is a length, so x > 0",
     ),
+    ("two_area_s", "s", _s, _A, 2 * _s**2, "A = 2s²", r"A = 2s^2", "s is a length, so s > 0"),
+    ("five_area_s", "s", _s, _A, 5 * _s**2, "A = 5s²", r"A = 5s^2", "s is a length, so s > 0"),
+    ("seven_area_s", "s", _s, _A, 7 * _s**2, "A = 7s²", r"A = 7s^2", "s is a length, so s > 0"),
+    ("eight_area_s", "s", _s, _A, 8 * _s**2, "A = 8s²", r"A = 8s^2", "s is a length, so s > 0"),
+    ("height_t", "t", _t, _h, 4 * _t**2, "h = 4t²", r"h = 4t^2", "t is a time, so t > 0"),
+    ("three_pi_r", "r", _r, _A, 3 * pi * _r**2, "A = 3πr²", r"A = 3\pi r^2", "r is a radius, so r > 0"),
+    ("leg_q", "q", _q, _h**2, _p**2 + _q**2, "h² = p² + q²", r"h^2 = p^2 + q^2", "q is a length, so q > 0"),
+    (
+        "distance_y",
+        "y",
+        _y,
+        _d,
+        sqrt(_x**2 + _y**2),
+        "d = √(x² + y²)",
+        r"d = \sqrt{x^2 + y^2}",
+        "y is a length, so y > 0",
+    ),
+    (
+        "pythagoras_a",
+        "a",
+        _a,
+        _c,
+        sqrt(_a**2 + _b**2),
+        "c = √(a² + b²)",
+        r"c = \sqrt{a^2 + b^2}",
+        "a is a length, so a > 0",
+    ),
 ]
+
+
+_K_AREA = {"two_area_s": 2, "five_area_s": 5, "seven_area_s": 7, "eight_area_s": 8}
 
 
 def _wrong(key, answer):
@@ -90,6 +120,19 @@ def _wrong(key, answer):
         return [sqrt(_h**2 + _q**2), _h - _q]  # kept the addition; root spread over the difference
     if key == "distance_x":
         return [sqrt(_d**2 + _y**2), _d - _y]  # kept the addition; root spread over the difference
+    if key in _K_AREA:
+        k = _K_AREA[key]
+        return [_A / k, sqrt(_A) / k]  # never took the root; rooted A but still divided by k
+    if key == "height_t":
+        return [_h / 4, sqrt(_h) / 4]
+    if key == "three_pi_r":
+        return [_A / (3 * pi), sqrt(_A / pi) / 3]  # never took the root; took the 3 out of the root
+    if key == "leg_q":
+        return [sqrt(_h**2 + _p**2), _h - _p]
+    if key == "distance_y":
+        return [sqrt(_d**2 + _x**2), _d - _x]
+    if key == "pythagoras_a":
+        return [sqrt(_c**2 + _b**2), _c - _b]
     raise AssertionError(key)
 
 

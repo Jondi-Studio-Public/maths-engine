@@ -76,6 +76,13 @@ def _non_multiples(rng, a, lo, hi):
     return out
 
 
+_DIVIDES_STEMS = (
+    "Which of these numbers does {a} divide exactly (with no remainder)?",
+    "{n} shares a number out in groups of {a} with none left over. Which of these could it be?",
+    "Which of these numbers is a multiple of {a}, {n}?",
+)
+
+
 def _divides_number(rng, a_range, b_range):
     a = rng.randint(*a_range)
     lo, hi = b_range
@@ -83,7 +90,7 @@ def _divides_number(rng, a_range, b_range):
     key = a * k
     wrong = _non_multiples(rng, a, lo, hi)
     check(all(w % a for w in wrong) and key % a == 0, "divisibility key or distractor wrong")
-    text = f"Which of these numbers does {a} divide exactly (with no remainder)?"
+    text = rng.choice(_DIVIDES_STEMS).format(a=a, n=rng.choice(NAMES))
     return _result(text, key, wrong, [f"{key} ÷ {a} = {key // a} with no remainder; the others leave a remainder."])
 
 

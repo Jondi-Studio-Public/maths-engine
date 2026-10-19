@@ -30,12 +30,10 @@ equal-groups:
 evaluate-powers:
   powers/easy: 8
 f10-circle-measures:
-  circle_measures/easy: 13
   circle_measures/medium: 13
 f10-decimal-notation-tenths-hundredths:
   decimal_tenths_hundredths_compose/easy: 17
 f10-fractions-half-quarter-eighth:
-  fraction_halving/easy: 2
   fraction_halving/hard: 4
   fraction_halving/medium: 2
 f10-logarithmic-scales:
@@ -44,7 +42,6 @@ f10-odd-even-properties:
   odd_even_properties/easy: 4
   odd_even_properties/medium: 8
 f10-percentage-equivalence-comparison:
-  percentage_to_fraction/easy: 5
   percentage_to_fraction/hard: 12
   percentage_to_fraction/medium: 12
 f10-prism-cross-sections:
@@ -170,7 +167,6 @@ senior-y-tan-x-c-and-the-relationships-sin:
 simple-harmonic-angular-frequency:
   simple_harmonic_angular_frequency/easy: 9
 subtract-within-5:
-  early_subtraction/easy: 18
 variable-concept:
   variable_concept/easy: 3
 wave-frequency-from-speed-wavelength:

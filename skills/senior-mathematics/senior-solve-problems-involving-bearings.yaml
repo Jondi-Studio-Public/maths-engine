@@ -24,13 +24,6 @@ sources:
   difficulty: medium
   stages:
   - 6
-- topic: bearings_problem
-  params:
-    variant: leg_bearing
-  difficulty: hard
-  stages:
-  - 6
-  - maintenance
 - topic: w3_bearings_general
   params: {}
   difficulty: medium
@@ -38,6 +31,13 @@ sources:
   - 3
   - 4
   key: general-legs
+- topic: bearings_problem
+  params:
+    variant: leg_bearing
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
 - topic: w3_bearings_general
   params: {}
   difficulty: hard

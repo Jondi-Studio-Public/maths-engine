@@ -12,24 +12,24 @@ sources:
   params: {varied: true}
   difficulty: easy
   stages: [0, 1, 2]
-- topic: angle_turn_right_reference
-  params: {varied: true}
-  difficulty: medium
-  stages: [3, 4]
-- topic: angle_turn_right_reference
-  params: {varied: true}
-  difficulty: hard
-  stages: [5, 6, maintenance]
 - topic: w7f_turn_contexts
   params: {tier: easy}
   difficulty: easy
   key: w7f-turn-contexts-easy
   stages: [0, 1, 2]
+- topic: angle_turn_right_reference
+  params: {varied: true}
+  difficulty: medium
+  stages: [3, 4]
 - topic: w7f_turn_contexts
   params: {tier: medium}
   difficulty: medium
   key: w7f-turn-contexts-medium
   stages: [3, 4]
+- topic: angle_turn_right_reference
+  params: {varied: true}
+  difficulty: hard
+  stages: [5, 6, maintenance]
 - topic: w7f_turn_contexts
   params: {tier: hard}
   difficulty: hard
