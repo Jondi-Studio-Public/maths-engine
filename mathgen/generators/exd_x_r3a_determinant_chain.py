@@ -29,7 +29,7 @@ _X = Symbol("x")
 
 
 def _mat_text(rows) -> str:
-    return "[" + ", ".join("[" + ", ".join(str(v) for v in row) + "]" for row in rows) + "]"
+    return "[" + "; ".join(" ".join(str(v) for v in row) for row in rows) + "]"
 
 
 def _ints(values, tag_pairs):

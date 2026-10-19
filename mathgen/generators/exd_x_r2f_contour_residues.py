@@ -17,17 +17,19 @@ from __future__ import annotations
 
 import random
 
+import re
+
 import sympy
 from sympy import I, Rational, pi
 
 from ..core import attempts, check, generator, join_terms, paren_negative, rational_text
 from ._exd_distinct_parts import distinct_part_answers
-from .exd_x_r2f_common import expr_part, frac_part, typed
+from .exd_x_r2f_common import expr_part, frac_part
 
 
 def _pi_i(value) -> str:
     """An integral such as 12 i pi as it is written on paper: ``12πi`` (the key itself stays typeable)."""
-    return typed(value).replace("*i*pi", "πi").replace("i*pi", "πi")
+    return re.sub(r"(\d*)\*?I\*pi", lambda m: f"{m.group(1)}πi", sympy.sstr(value))
 
 
 def _circle(c0: int, r: Rational) -> str:
@@ -119,7 +121,7 @@ def exd_x_r2f_contour_residues(rng: random.Random, tier: str = "exam") -> dict:
             ("integral-sign-error", -integral_c),
             ("uses-pi-i-not-2-pi-i", sympy.expand(pi * I * res_p)),
         ],
-        follow_through="2*pi*i*part_b",
+        follow_through="2*pi*I*part_b",
     )
     d_part = expr_part(
         f"Hence evaluate the contour integral of f around the larger circle {big_text}, traversed once anticlockwise.",
@@ -135,6 +137,6 @@ def exd_x_r2f_contour_residues(rng: random.Random, tier: str = "exam") -> dict:
             ("assumes-zero-outside", sympy.Integer(0)),
             ("residue-at-wrong-pole", sympy.expand(2 * pi * I * res_q)),
         ],
-        follow_through=f"part_c + 2*pi*i*({a}*({q}) + {b})/(({q}) - part_a)",
+        follow_through=f"part_c + 2*pi*I*({a}*({q}) + {b})/(({q}) - part_a)",
     )
     return dict(text=stem, parts=[a_part, b_part, c_part, d_part])

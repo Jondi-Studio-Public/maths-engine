@@ -457,9 +457,9 @@ def _poly_text(trace: int, determinant: int) -> str:
     if trace == 0:
         linear = ""
     elif trace > 0:
-        linear = f" - {trace}λ"
+        linear = " - λ" if trace == 1 else f" - {trace}λ"
     else:
-        linear = f" + {-trace}λ"
+        linear = " + λ" if trace == -1 else f" + {-trace}λ"
     if determinant == 0:
         constant = ""
     elif determinant > 0:

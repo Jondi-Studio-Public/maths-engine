@@ -47,7 +47,7 @@ def _det_with(rows, k_value):
 
 
 def _matrix_text(rows) -> str:
-    return "[" + ", ".join("[" + ", ".join("k" if v is None else str(v) for v in row) + "]" for row in rows) + "]"
+    return "[" + "; ".join(" ".join("k" if v is None else str(v) for v in row) for row in rows) + "]"
 
 
 def _build(rng: random.Random) -> dict:

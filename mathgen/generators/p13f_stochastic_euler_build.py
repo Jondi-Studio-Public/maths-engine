@@ -7,7 +7,7 @@ that skill takes one (or two) exact, purely DETERMINISTIC explicit-Euler
 step(s) for ``y' = lambda*y + forcing``: ``y1 = y0 + h*(lambda*y0 +
 forcing)``. This skill supplies the SAME deterministic quantities plus a
 diffusion term built from a supplied, stated noise value ``dW`` (never
-sampled/simulated -- the "Brownian-path generation" exclusion) and asks for
+sampled/simulated — the "Brownian-path generation" exclusion) and asks for
 one Euler-Maruyama update of ``dY = (lambda*Y + forcing) dt + sigma dW``:
 
     Y1 = Y0 + h*(lambda*Y0 + forcing) + sigma*dW
@@ -47,30 +47,30 @@ from ..core import (
 _MAX_DRAW_ATTEMPTS = 500
 
 _ADDITIVE_TEMPLATES = (
-    "Use one Euler-Maruyama step of size h = {h} for dY = {drift} "
-    "+ σ dW, starting from Y(0) = {y0}, where the diffusion "
+    "Use one Euler-Maruyama step of size h = {h} for dY = ({lam})Y dt + "
+    "({forcing}) dt + σ dW, starting from Y(0) = {y0}, where the diffusion "
     "coefficient σ = {sigma} is constant. The stated noise value for this "
     "step is ΔW = {dW}. Find the approximation Y(h).",
-    "A stochastic process satisfies dY = {drift} + σ dW "
+    "A stochastic process satisfies dY = ({lam})Y dt + ({forcing}) dt + σ dW "
     "with constant σ = {sigma}. Starting from Y(0) = {y0}, take one "
     "Euler-Maruyama step of size h = {h} using the stated noise value ΔW = "
     "{dW}. Find Y(h).",
-    "For dY = {drift} + σ dW (constant σ = {sigma}), "
+    "For dY = ({lam})Y dt + ({forcing}) dt + σ dW (constant σ = {sigma}), "
     "starting at Y(0) = {y0}, compute one Euler-Maruyama update with step "
     "size h = {h} and stated noise value ΔW = {dW}. Give Y(h).",
 )
 
 _MULTIPLICATIVE_TEMPLATES = (
-    "Use one Euler-Maruyama step of size h = {h} for dY = {drift} "
-    "+ σ(Y) dW, starting from Y(0) = {y0}, where the "
-    "diffusion coefficient scales with the current value, σ(Y) = {kY} "
+    "Use one Euler-Maruyama step of size h = {h} for dY = ({lam})Y dt + "
+    "({forcing}) dt + σ(Y) dW, starting from Y(0) = {y0}, where the "
+    "diffusion coefficient scales with the current value, σ(Y) = ({k})Y "
     "(multiplicative noise). The stated noise value for this step is ΔW = "
     "{dW}. Find the approximation Y(h).",
-    "A stochastic process satisfies dY = {drift} + "
-    "σ(Y) dW with σ(Y) = {kY} (multiplicative noise). Starting from Y(0) "
+    "A stochastic process satisfies dY = ({lam})Y dt + ({forcing}) dt + "
+    "σ(Y) dW with σ(Y) = ({k})Y (multiplicative noise). Starting from Y(0) "
     "= {y0}, take one Euler-Maruyama step of size h = {h} using the stated "
     "noise value ΔW = {dW}. Find Y(h).",
-    "For dY = {drift} + σ(Y) dW with σ(Y) = {kY} "
+    "For dY = ({lam})Y dt + ({forcing}) dt + σ(Y) dW with σ(Y) = ({k})Y "
     "(so the diffusion coefficient scales with the current value), "
     "starting at Y(0) = {y0}, compute one Euler-Maruyama update with step "
     "size h = {h} and stated noise value ΔW = {dW}. Give Y(h).",
@@ -78,42 +78,23 @@ _MULTIPLICATIVE_TEMPLATES = (
 
 _EXAM_TEMPLATES = (
     "Take two chained Euler-Maruyama steps of size h = {h} for dY = "
-    "{drift} + σ(Y) dW with σ(Y) = {kY} "
+    "({lam})Y dt + ({forcing}) dt + σ(Y) dW with σ(Y) = ({k})Y "
     "(multiplicative noise), starting from Y(0) = {y0}. Both the drift and "
     "the diffusion coefficient are re-evaluated at Y1 for the second step. "
     "The stated noise values are ΔW1 = {dW1} for the first step and ΔW2 = "
     "{dW2} for the second step. Find the approximation Y(2h).",
-    "A stochastic process satisfies dY = {drift} + "
-    "σ(Y) dW with σ(Y) = {kY} (multiplicative noise). Starting from Y(0) "
+    "A stochastic process satisfies dY = ({lam})Y dt + ({forcing}) dt + "
+    "σ(Y) dW with σ(Y) = ({k})Y (multiplicative noise). Starting from Y(0) "
     "= {y0}, take two Euler-Maruyama steps of size h = {h}, re-evaluating "
     "both the drift and the diffusion coefficient at Y1 for the second "
     "step, using stated noise values ΔW1 = {dW1} then ΔW2 = {dW2}. Find "
     "Y(2h).",
-    "For dY = {drift} + σ(Y) dW with σ(Y) = {kY} "
+    "For dY = ({lam})Y dt + ({forcing}) dt + σ(Y) dW with σ(Y) = ({k})Y "
     "(diffusion scales with the current value), starting at Y(0) = {y0}, "
     "chain two Euler-Maruyama steps of size h = {h} — re-evaluating drift "
     "and diffusion at Y1 for the second step — with stated noise values "
     "ΔW1 = {dW1} and ΔW2 = {dW2}. Give Y(2h).",
 )
-
-
-def _drift(lam: int, forcing: int) -> str:
-    """The drift of ``dY = lam Y dt + forcing dt`` as it is written on paper: ``3Y dt + dt``, ``-Y dt - 2 dt``."""
-    parts = []
-    for coef, var in ((lam, "Y dt"), (forcing, " dt")):
-        if coef == 0:
-            continue
-        mag = abs(coef)
-        body = var.strip() if mag == 1 else f"{mag}{var}"
-        if not parts:
-            parts.append(("-" if coef < 0 else "") + body)
-        else:
-            parts.append(f"{'-' if coef < 0 else '+'} {body}")
-    return " ".join(parts) if parts else "0"
-
-
-def _sigma_y(k: int) -> str:
-    return join_terms([(k, "Y")])
 
 
 def _fraction_payload(value: Fraction) -> tuple[dict, str]:
@@ -243,7 +224,8 @@ def _build_easy(rng) -> dict:
     text = phrase(
         rng,
         _ADDITIVE_TEMPLATES,
-        drift=_drift(lam, forcing),
+        lam=lam,
+        forcing=forcing,
         y0=y0,
         h=rational_text(h),
         sigma=rational_text(sigma),
@@ -258,7 +240,7 @@ def _build_easy(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Deterministic part: Y0 + h(drift at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
+            f"Deterministic part: Y0 + h × (drift evaluated at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
             f"Diffusion part: σ·ΔW = ({rational_text(sigma)})·({rational_text(dw)}) = {rational_text(sigma * dw)}.",
             f"Y1 = {join_terms([(det, ''), (sigma * dw, '')])} = {answer_text}.",
         ],
@@ -280,7 +262,8 @@ def _build_medium(rng) -> dict:
     text = phrase(
         rng,
         _ADDITIVE_TEMPLATES,
-        drift=_drift(lam, forcing),
+        lam=lam,
+        forcing=forcing,
         y0=y0,
         h=rational_text(h),
         sigma=rational_text(sigma),
@@ -295,7 +278,7 @@ def _build_medium(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Deterministic part: Y0 + h(drift at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
+            f"Deterministic part: Y0 + h × (drift evaluated at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
             f"Diffusion part: σ·ΔW = ({rational_text(sigma)})·({rational_text(dw)}) = {rational_text(sigma * dw)}.",
             f"Y1 = {join_terms([(det, ''), (sigma * dw, '')])} = {answer_text}.",
         ],
@@ -315,14 +298,7 @@ def _build_hard(rng) -> dict:
     )
     payload, answer_text = _fraction_payload(answer)
     text = phrase(
-        rng,
-        _MULTIPLICATIVE_TEMPLATES,
-        drift=_drift(lam, forcing),
-        forcing=forcing,
-        y0=y0,
-        h=rational_text(h),
-        kY=_sigma_y(k),
-        dW=rational_text(dw),
+        rng, _MULTIPLICATIVE_TEMPLATES, lam=lam, forcing=forcing, y0=y0, h=rational_text(h), k=k, dW=rational_text(dw)
     )
     det = Fraction(y0) + h * (lam * y0 + forcing)
     sigma_val = Fraction(k) * y0
@@ -334,7 +310,7 @@ def _build_hard(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Deterministic part: Y0 + h(drift at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
+            f"Deterministic part: Y0 + h × (drift evaluated at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
             f"σ(Y0) = ({k})·{y0} = {rational_text(sigma_val)}; diffusion part = ({rational_text(sigma_val)})·({rational_text(dw)}) = {rational_text(sigma_val * dw)}.",
             f"Y1 = {join_terms([(det, ''), (sigma_val * dw, '')])} = {answer_text}.",
         ],
@@ -399,10 +375,11 @@ def _build_exam(rng) -> dict:
         text = phrase(
             rng,
             _EXAM_TEMPLATES,
-            drift=_drift(lam, forcing),
+            lam=lam,
+            forcing=forcing,
             y0=y0,
             h=rational_text(h),
-            kY=_sigma_y(k),
+            k=k,
             dW1=rational_text(dw1),
             dW2=rational_text(dw2),
         )

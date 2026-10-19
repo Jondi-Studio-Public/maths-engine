@@ -37,6 +37,11 @@ from ._exd_distinct_parts import answers_distinct, junk_safe
 _EXACT = "Give an exact answer: a fraction in simplest form, or an integer."
 
 
+def _lam(c: int) -> str:
+    """``c`` times λ as written on paper: ``λ``, ``-λ``, ``3λ``."""
+    return {1: "λ", -1: "-λ"}.get(c, f"{c}λ")
+
+
 def _fraction_part(prompt, value, marks, working, candidates, follow_through=None):
     """A `fraction` part whose answer is `value`; `candidates` are (misconception id or None, value) pairs."""
     text = rational_text(value)
@@ -101,8 +106,8 @@ def _draw(rng: random.Random) -> dict | None:
         lam,
         2,
         [
-            f"∇f = (2x, {2 * k}y) and ∇g = ({a}, {b}), so 2x = {a}λ and {2 * k}y = {b}λ.",
-            f"Substituting x = {a}λ/2 and y = {b}λ/{2 * k} into {g_text} = {c} gives λ = {rational_text(lam)}.",
+            f"∇f = (2x, {2 * k}y) and ∇g = ({a}, {b}), so 2x = {_lam(a)} and {2 * k}y = {_lam(b)}.",
+            f"Substituting x = {_lam(a)}/2 and y = {_lam(b)}/{2 * k} into {g_text} = {c} gives λ = {rational_text(lam)}.",
         ],
         [
             ("dropped-weight-in-gradient", lam_flat),
@@ -115,7 +120,7 @@ def _draw(rng: random.Random) -> dict | None:
         "Hence find the x-coordinate of the minimum.",
         x,
         1,
-        [f"x = {a}λ/2 = {rational_text(x)}."],
+        [f"x = {_lam(a)}/2 = {rational_text(x)}."],
         [
             ("dropped-factor-two-in-derivative", lam * a),
             ("dropped-weight-in-gradient", lam_flat * a / 2),
@@ -128,7 +133,7 @@ def _draw(rng: random.Random) -> dict | None:
         "Hence find the y-coordinate of the minimum.",
         y,
         1,
-        [f"y = {b}λ/{2 * k} = {rational_text(y)}."],
+        [f"y = {_lam(b)}/{2 * k} = {rational_text(y)}."],
         [
             ("dropped-weight-in-gradient", lam * b / 2),
             ("dropped-weight-in-gradient", lam_flat * b / 2),

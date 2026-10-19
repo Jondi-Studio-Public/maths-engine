@@ -281,17 +281,12 @@ def _bracket(text: str) -> str:
     return text if text in ("x", "y") else f"({text})"
 
 
-def _bracketed_product(g: str, h: str) -> str:
-    """``(x - 2)(y - 3)``; a bare variable is not bracketed, so ``x`` times ``y`` is ``xy``."""
-    return _bracket(g) + _bracket(h)
-
-
 _DOUBLE_INTEGRAL_TEMPLATES = (
-    "f(x, y) = {gh} over the rectangle {a1} ≤ x ≤ {x_hi}, {a2} ≤ y ≤ {y_hi}. Evaluate "
+    "f(x, y) = ({g})({h}) over the rectangle {a1} ≤ x ≤ {x_hi}, {a2} ≤ y ≤ {y_hi}. Evaluate "
     "the double integral of f over this rectangle using iterated integration.",
-    "f(x, y) = {gh} over the rectangle {a1} ≤ x ≤ {x_hi}, {a2} ≤ y ≤ {y_hi}. Compute the "
+    "f(x, y) = ({g})({h}) over the rectangle {a1} ≤ x ≤ {x_hi}, {a2} ≤ y ≤ {y_hi}. Compute the "
     "double integral of f over this rectangle by iterated integration.",
-    "f(x, y) = {gh} over the rectangle {a1} ≤ x ≤ {x_hi}, {a2} ≤ y ≤ {y_hi}. Find the "
+    "f(x, y) = ({g})({h}) over the rectangle {a1} ≤ x ≤ {x_hi}, {a2} ≤ y ≤ {y_hi}. Find the "
     "value of the double integral of f over this rectangle using iterated integration.",
 )
 
@@ -405,7 +400,8 @@ def double_integral_rectangle(rng, tier="easy"):
     question_text = phrase(
         rng,
         _DOUBLE_INTEGRAL_TEMPLATES,
-        gh=_bracketed_product(g_text, h_text),
+        g=g_text,
+        h=h_text,
         a1=a1,
         x_hi=a1 + w1,
         a2=a2,

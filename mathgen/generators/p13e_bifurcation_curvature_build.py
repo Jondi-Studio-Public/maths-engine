@@ -306,7 +306,7 @@ def _p13e_bifurcation_hard(rng):
 
         lead = fmt_signed(a, "x^2")
         sign_str = "+" if c >= 0 else "-"
-        expr = f"{lead} + rx {sign_str} {abs(c)}"
+        expr = f"{lead} + r*x {sign_str} {abs(c)}"
         text = phrase(rng, _HARD_PATTERNS, expr=expr)
         working = [
             f"Discriminant = r^2 - 4({a})({c}) = r^2 - 4({s * s}); setting it to 0 gives "

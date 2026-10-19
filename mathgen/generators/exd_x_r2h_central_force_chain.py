@@ -26,11 +26,11 @@ _MASSES = (1, 2, 3, 4)
 _COEFFS = (1, 2, 3, 4, 5, 6)
 _STEM = (
     "A particle of mass {m} kg moves in the xy-plane with Lagrangian L = (m/2)(x'^2 + y'^2) - V(x, y), where "
-    "V(x, y) = {cc}(x^2 + y^2) joules, with x and y in metres. At t = 0 it is at ({x0}, {y0}) with velocity "
+    "V(x, y) = {c}(x^2 + y^2) joules, with x and y in metres. At t = 0 it is at ({x0}, {y0}) with velocity "
     "({vx}, {vy}) m/s. V depends on x and y only through x^2 + y^2 and L has no explicit time dependence, so "
     "Noether's theorem gives two conserved quantities: the angular momentum L_z about the origin and the energy E.",
     "A particle of mass {m} kg obeys L = (m/2)(x'^2 + y'^2) - V(x, y) in the xy-plane, with V(x, y) = "
-    "{cc}(x^2 + y^2) joules (x and y in metres). It starts at ({x0}, {y0}) moving with velocity ({vx}, {vy}) m/s. "
+    "{c}(x^2 + y^2) joules (x and y in metres). It starts at ({x0}, {y0}) moving with velocity ({vx}, {vy}) m/s. "
     "Rotations about the origin leave V unchanged and L has no explicit time dependence, so by Noether's theorem "
     "the angular momentum L_z and the energy E are both conserved.",
 )
@@ -118,7 +118,7 @@ def _build(rng: random.Random) -> dict:
     check(abs(v_perp * r1 * m) == abs(lz), "perpendicular speed does not rebuild L_z")
 
     cc = "" if c == 1 else c  # a coefficient of 1 is not written
-    stem = phrase(rng, _STEM, m=m, cc=cc, x0=x0, y0=y0, vx=vx, vy=vy)
+    stem = phrase(rng, _STEM, m=m, c=c, x0=x0, y0=y0, vx=vx, vy=vy)
     parts = [
         build_part(
             phrase(rng, _PROMPT_A),

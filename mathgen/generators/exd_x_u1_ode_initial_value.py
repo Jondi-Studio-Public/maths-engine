@@ -27,9 +27,9 @@ from ..core import check, check_equivalent, generator, pick_distractors, rationa
 
 x = symbols("x")
 _STEMS = [
-    "A curve has gradient dy/dx = {prod} at every point and passes through the point ({x0}, {y0}).",
-    "The gradient of a curve is given by dy/dx = {prod}, and the curve passes through ({x0}, {y0}).",
-    "Along a curve, dy/dx = {prod}. The curve passes through the point ({x0}, {y0}).",
+    "A curve has gradient dy/dx = ({fp})({fq}) at every point and passes through the point ({x0}, {y0}).",
+    "The gradient of a curve is given by dy/dx = ({fp})({fq}), and the curve passes through ({x0}, {y0}).",
+    "Along a curve, dy/dx = ({fp})({fq}). The curve passes through the point ({x0}, {y0}).",
 ]
 _B_PROMPTS = ["Find the value of y when x = {x1}.", "Find the y-coordinate of the point on the curve where x = {x1}."]
 _C_PROMPTS = [
@@ -136,7 +136,7 @@ def exd_x_u1_ode_initial_value(rng: random.Random, tier: str = "exam") -> dict:
         return exact_value(Fraction(int(value.p), int(value.q)))
 
     return dict(
-        text=rng.choice(_STEMS).format(prod=_product(p, q), x0=x0, y0=y0),
+        text=rng.choice(_STEMS).format(fp=_factor(p), fq=_factor(q), x0=x0, y0=y0),
         parts=[
             dict(
                 prompt="Find the equation of the curve, giving y in terms of x.",
