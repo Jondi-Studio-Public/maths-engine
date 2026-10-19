@@ -24,12 +24,11 @@ from __future__ import annotations
 import re
 
 from mathgen import figures
-from mathgen.core import attempts, check, generator
+from mathgen.core import check, generator
 from mathgen.figure_kinds import grid
 
 from . import _space_kit as kit
-from ._exd_x_w12a_kit import mcq_part as _mcq_part
-from ._exd_x_w12a_kit import number_part
+from ._w7f_kit import finish_parts, mcq_part, number_part, retry, split_parts
 from .grid_map_symbols_build import (
     _BUILT,
     _PLANNED,
@@ -63,37 +62,6 @@ from .grid_map_symbols_build import (
     _symbol_named,
     room_full,
 )
-
-
-def mcq_part(prompt, key, marks, working, wrong, **kw):
-    """``mcq_part`` that skips options a draw could not make (given as ``(None, "")``)."""
-    return _mcq_part(prompt, key, marks, working, [(t, tag) for t, tag in wrong if t is not None], **kw)
-
-
-_LABEL = re.compile(r"\(([a-z])\) ")
-
-
-def split_parts(text: str) -> dict[str, str]:
-    """The prompt of each part of a composed multi-part text, by label (the shared helper stops at part d)."""
-    pieces = _LABEL.split(text)
-    return {pieces[i]: pieces[i + 1].strip() for i in range(1, len(pieces) - 1, 2)}
-
-
-def _finish(fig, stem, parts):
-    """The chain dict, or None when a part found too few distractors or the figure shows an answer."""
-    if any(p is None for p in parts):
-        return None
-    if any(kit.leaks(fig, p["answer_text"]) or kit.leaks(fig, p["answer_text"].lower()) for p in parts):
-        return None
-    return dict(text=stem, parts=parts, figure=fig)
-
-
-def _retry(rng, build, what):
-    for _ in attempts(400, what):
-        out = build(rng)
-        if out is not None:
-            return out
-    raise AssertionError("unreachable")
 
 
 # ------------------------------------------------------------------------------------------- 1. floor-plan symbols
@@ -212,7 +180,7 @@ def _symbols_chain(rng):
         follow=f"{price}*part_d",
     )
     stem = "The floor plan of a house is drawn on a square grid. The rooms are named by the abbreviations a plan uses."
-    return _finish(fig, stem, [part_a, part_b, part_c, part_d, part_e])
+    return finish_parts(fig, stem, [part_a, part_b, part_c, part_d, part_e], lower=True)
 
 
 @generator("exd_x_w7f_plan_symbols_chain", level=11, presets={"exam": {"tier": "exam"}})
@@ -220,7 +188,7 @@ def exd_x_w7f_plan_symbols_chain(rng, tier: str = "exam"):
     """Toilets and windows, the hot water system, a count of windows and a plumber's rooms and charge."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return _retry(rng, _symbols_chain, "a floor plan with enough distractors for every part")
+    return retry(rng, _symbols_chain, "a floor plan with enough distractors for every part")
 
 
 def _label_room(fig, rooms, code):
@@ -380,7 +348,7 @@ def _conventions_chain(rng):
         "A site plan is drawn on a square grid with the north arrow shown. Solid outlines are existing and dashed "
         "outlines are proposed. Features are named by abbreviations."
     )
-    return _finish(fig, stem, [part_a, part_b, part_c, part_d])
+    return finish_parts(fig, stem, [part_a, part_b, part_c, part_d], lower=True)
 
 
 @generator("exd_x_w7f_plan_conventions_chain", level=11, presets={"exam": {"tier": "exam"}})
@@ -388,7 +356,7 @@ def exd_x_w7f_plan_conventions_chain(rng, tier: str = "exam"):
     """The proposed feature, its direction from a building, its area and the total area covered."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return _retry(rng, _conventions_chain, "a site plan with enough distractors for every part")
+    return retry(rng, _conventions_chain, "a site plan with enough distractors for every part")
 
 
 def _read_conventions_chain(question) -> str:
@@ -526,7 +494,7 @@ def _landmarks_chain(rng):
         "The map is drawn on a square grid. Columns are lettered from the left and rows are numbered from the bottom."
     )
     # The picture shows icons, not names, so an answer that is a name can only leak through a legend; none is drawn.
-    out = _finish(fig, stem, [part_a, part_b, part_c, part_d])
+    out = finish_parts(fig, stem, [part_a, part_b, part_c, part_d], lower=True)
     return out
 
 
@@ -535,7 +503,7 @@ def exd_x_w7f_map_landmarks_chain(rng, tier: str = "exam"):
     """A landmark in a square, a grid reference, a two-move journey and the landmark where it ends."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return _retry(rng, _landmarks_chain, "a map with enough distractors for every part")
+    return retry(rng, _landmarks_chain, "a map with enough distractors for every part")
 
 
 _MOVE_RE = re.compile(r"Start at the (.+?)\. Go (\d+) squares? (\w+), then (\d+) squares? (\w+)\. ")

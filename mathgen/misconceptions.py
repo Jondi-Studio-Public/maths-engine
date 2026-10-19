@@ -52126,7 +52126,7 @@ _ENTRIES = (
     ),
     CatalogueEntry(
         "scd-adds-instead-of-subtracts",
-        "Adds the two distances where the difference between them was asked.",
+        "Adds the two quantities where their difference was asked.",
         area="figure-views",
     ),
     CatalogueEntry(
@@ -52312,6 +52312,306 @@ _ENTRIES = (
     CatalogueEntry(
         "scd-wrong-wall",
         "Reads a different wall from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-count-off-by-one",
+        "Counts one cube, square or unit too many or too few.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-the-columns",
+        "Counts the columns of the stack, which are the squares of the view from above, instead of the cubes or squares asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-only-the-squares-in-view",
+        "Counts only the faces drawn in the picture and leaves out the faces that are hidden.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-fills-the-bounding-box",
+        "Counts every position in the box that encloses the stack, as if it were full.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-gives-the-cubes-in-the-stack",
+        "Gives the number of cubes already in the stack where the cubes still needed to fill the box were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-gives-the-capacity-of-the-box",
+        "Gives the number of cubes the whole box holds where the cubes still needed were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-takes-the-stack-off-twice",
+        "Subtracts the cubes in the stack twice when finding how many more cubes fill the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-ignores-faces-that-touch",
+        "Counts six faces for every cube, without removing the faces that are joined to another cube.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-the-bottom-once",
+        "Adds the columns to the squares in view, counting the bottom once instead of doubling the squares in view.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-leaves-the-area-unscaled",
+        "Gives the area in unit squares where the area in square centimetres was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-scales-an-area-by-the-side-once",
+        "Multiplies an area by the side of a unit square once instead of by its square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-cubes-the-side",
+        "Multiplies an area by the cube of the side instead of the square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-uses-the-cubes-for-the-squares",
+        "Scales the number of cubes where the number of unit squares on the surface was needed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-lengths-not-edges",
+        "Counts the lengths of the cuboid that match, not the four edges for each length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-every-edge",
+        "Counts all twelve edges of the cuboid.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-one-set-of-edges",
+        "Counts one set of four parallel edges where the matching edges were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-three-edges-for-a-length",
+        "Counts three edges for each matching length instead of four.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-faces-for-edges",
+        "Gives the number of faces of the cuboid where edges were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-adds-the-lengths",
+        "Adds the three lengths of the cuboid instead of multiplying them to find the volume.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-adds-the-face-areas",
+        "Adds the areas of the three different faces instead of finding the volume or the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-the-surface-for-the-volume",
+        "Gives the surface area of the cuboid where its volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-multiplies-two-lengths-only",
+        "Multiplies only two of the three lengths of the cuboid, or adds the third.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-one-of-each-pair-of-faces",
+        "Counts the three different faces once each, forgetting that every face has an equal opposite face.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-the-volume-for-the-surface",
+        "Gives the volume of the cuboid where its surface area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-edge-length-for-surface",
+        "Gives the total length of the edges where the surface area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-leaves-out-a-pair-of-faces",
+        "Leaves one pair of opposite faces out of the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-prices-the-volume",
+        "Applies the price for each unit square to the number of cubes instead of the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-shortest-edge",
+        "Gives the shortest edge of the box where the longest was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-another-edge",
+        "Gives a different edge of the box from the longest.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-width-of-the-sheet",
+        "Gives the width of the sheet round the net as an edge of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-height-of-the-sheet",
+        "Gives the height of the sheet round the net as an edge of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-edges",
+        "Adds the three edges of the box where one length or the volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-volume-for-an-edge",
+        "Gives the volume of the box where an edge was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-leaves-out-the-top-and-bottom",
+        "Finds the area of the four side faces only and leaves out the top and the bottom.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-counts-one-of-each-pair-of-faces",
+        "Counts each of the three different faces once, forgetting that every face has an equal opposite face.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-volume-for-the-surface",
+        "Gives the volume of the box where its surface area (or the leftover sheet) was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-sheet-for-the-surface",
+        "Gives the area of the whole sheet where the area of the net or the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-leaves-out-a-pair-of-faces",
+        "Leaves one pair of opposite faces out of the net's area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-surface-for-the-volume",
+        "Gives the surface area of the box where its volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-face-areas",
+        "Adds the areas of the three different faces instead of finding the volume.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-a-face-to-the-volume",
+        "Adds the area of a face to the volume of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-net-not-the-leftover",
+        "Gives the area of the net where the area of the sheet left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-sheet-sides",
+        "Adds the width and the height of the sheet instead of finding the area left over.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-back-view",
+        "Reads the view from the back where another view was asked, which reverses the column heights.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-side-view",
+        "Gives the view from the side where the front view was asked, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-front-view",
+        "Gives the view from the front where the side view or the squares from above were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-opposite-side-view",
+        "Gives the view from the opposite side, which reverses the column heights.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-counts-every-cube-for-a-view",
+        "Counts every cube of the stack for the squares in a view, including cubes hidden behind others.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-plan-for-the-elevation",
+        "Gives the squares of the view from above where the squares of the front view were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-multiplies-by-the-height",
+        "Multiplies the squares from above by the tallest column instead of counting each column once.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-bounding-rectangle",
+        "Gives the area of the rectangle round the shape (or its cost) as if the shape filled it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-the-bare-squares",
+        "Gives the squares of the rectangle that the shape leaves bare where the area of the shape was asked, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-perimeter-for-the-area",
+        "Gives the distance round the edge where the number of squares inside was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-area-for-the-perimeter",
+        "Gives the number of squares inside where the distance round the edge was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-bounding-perimeter",
+        "Gives the perimeter of the rectangle round the shape, ignoring the notches in its edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-leaves-out-a-side",
+        "Leaves one side out when adding the lengths round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-a-side-twice",
+        "Counts one side twice when adding the lengths round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-half-the-perimeter",
+        "Gives half the distance round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-the-covered-squares",
+        "Gives the squares the shape covers where the bare squares were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-adds-the-sides",
+        "Adds the width and the height of the rectangle where its bare squares were asked.",
         area="figure-views",
     ),
 )

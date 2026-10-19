@@ -27,11 +27,11 @@ import re
 from fractions import Fraction
 
 from mathgen import figures
-from mathgen.core import attempts, check, generator, phrase
+from mathgen.core import check, generator, phrase
 
 from ..figure_kinds import grid
 from . import _space_kit as kit
-from ._exd_x_w12a_kit import number_part, split_parts
+from ._w7f_kit import finish_parts, number_part, retry, split_parts
 from .grid_scale_drawing_build import (
     _LAWNS,
     _MAP_SCALES,
@@ -60,24 +60,6 @@ from .grid_scale_drawing_build import (
 def _edge_len(edge) -> int:
     (x1, y1), (x2, y2) = edge
     return abs(x2 - x1) + abs(y2 - y1)
-
-
-def _finish_parts(fig, stem, parts):
-    """The chain dict, or None when any part could not find three distractors (the caller draws again)."""
-    if any(p is None for p in parts):
-        return None
-    for p in parts:
-        if kit.leaks(fig, p["answer_text"]):
-            return None
-    return dict(text=stem, parts=parts, figure=fig)
-
-
-def _retry(rng, build, what):
-    for _ in attempts(300, what):
-        out = build(rng)
-        if out is not None:
-            return out
-    raise AssertionError("unreachable")
 
 
 # ------------------------------------------------------------------------------------------- 1. actual lengths
@@ -175,7 +157,7 @@ def _actual_chain(rng):
         follow=f"{price}*part_c",
     )
     check(math.isclose(_perimeter(poly) * k, b_key) and _area(poly) * k * k == c_key, "scaled values disagree")
-    return _finish_parts(fig, stem, [part_a, part_b, part_c, part_d])
+    return finish_parts(fig, stem, [part_a, part_b, part_c, part_d])
 
 
 @generator("exd_x_w7f_scale_actual_chain", level=11, presets={"exam": {"tier": "exam"}})
@@ -183,7 +165,7 @@ def exd_x_w7f_scale_actual_chain(rng, tier: str = "exam"):
     """Longest wall, perimeter, area and floor cost of an L- or U-shaped room from its scale plan."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return _retry(rng, _actual_chain, "a scale plan with three distractors per part")
+    return retry(rng, _actual_chain, "a scale plan with three distractors per part")
 
 
 _PRICE = re.compile(r"\$(\d+) (?:per|for each) square metre")
@@ -290,7 +272,7 @@ def _map_chain(rng):
         ],
         follow=f"part_a-{direct}",
     )
-    return _finish_parts(fig, stem, [part_a, part_b, part_c])
+    return finish_parts(fig, stem, [part_a, part_b, part_c])
 
 
 @generator("exd_x_w7f_scale_map_chain", level=11, presets={"exam": {"tier": "exam"}})
@@ -298,7 +280,7 @@ def exd_x_w7f_scale_map_chain(rng, tier: str = "exam"):
     """Road length, walking time and the saving of a direct track from a scale map."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return _retry(rng, _map_chain, "a map with a doubling-back road and three distractors per part")
+    return retry(rng, _map_chain, "a map with a doubling-back road and three distractors per part")
 
 
 _JOIN = re.compile(r"A road joins the (.+?) and the (.+?)\.")
@@ -417,7 +399,7 @@ def _materials_chain(rng):
         follow=f"{cover}*part_b-part_a",
     )
     check(rolls * cover - area == left and 0 < left < cover, "leftover disagrees")
-    return _finish_parts(fig, stem, [part_a, part_b, part_c, part_d])
+    return finish_parts(fig, stem, [part_a, part_b, part_c, part_d])
 
 
 @generator("exd_x_w7f_scale_materials_chain", level=11, presets={"exam": {"tier": "exam"}})
@@ -425,7 +407,7 @@ def exd_x_w7f_scale_materials_chain(rng, tier: str = "exam"):
     """Area, whole rolls, cost and turf left over for a lawn drawn to scale."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return _retry(rng, _materials_chain, "a lawn plan with three distractors per part")
+    return retry(rng, _materials_chain, "a lawn plan with three distractors per part")
 
 
 _ROLL = re.compile(r"cover (\d+) square metres and cost \$(\d+) a roll")
@@ -511,7 +493,7 @@ def _conventions_chain(rng):
         ],
         follow=f"{perim}*part_a",
     )
-    return _finish_parts(fig, stem, [part_a, part_b, part_c, part_d])
+    return finish_parts(fig, stem, [part_a, part_b, part_c, part_d])
 
 
 @generator("exd_x_w7f_scale_conventions_chain", level=11, presets={"exam": {"tier": "exam"}})
@@ -519,7 +501,7 @@ def exd_x_w7f_scale_conventions_chain(rng, tier: str = "exam"):
     """Scale from a labelled wall, as a ratio, a drawn length and the actual perimeter."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return _retry(rng, _conventions_chain, "a labelled plan with three distractors per part")
+    return retry(rng, _conventions_chain, "a labelled plan with three distractors per part")
 
 
 _FENCE = re.compile(r"A fence (\d+) m long")
