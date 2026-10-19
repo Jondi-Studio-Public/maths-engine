@@ -764,6 +764,12 @@ OPTION_NOTES_TOPICS = frozenset(
         "w7b_unit_cost_depreciation",
         "w7b_number_systems_primes",
         "w7b_floor_ceiling_estimation",
+        "w9_plot_points",
+        "w9_line_draw",
+        "w9_numberline_inequality",
+        "w9_shade_region",
+        "w9_transform_shape",
+        "w9_parabola_draw",
     }
 )
 

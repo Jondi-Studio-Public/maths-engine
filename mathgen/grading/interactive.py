@@ -7,12 +7,13 @@ no reply is ever evaluated. Every coordinate is an exact Fraction (an integer, a
 string such as ``"1/3"``), compared with no tolerance. Anything unreadable, off the canvas, off the snap grid or
 too large makes the reply wrong, never an error.
 
-Six kinds, each documented with its schema in `docs/design/interactive-graph-answers.md`:
+Seven kinds, each documented with its schema in `docs/design/interactive-graph-answers.md`:
 
 * ``half_planes``: shade the region of a linear inequality (or of a system of them).
 * ``number_line_set``: open and closed circles, rays and segments marked on a number line.
 * ``polygon``: the vertices of a shape drawn or moved on a grid.
 * ``curve``: a parabola or an exponential curve, given by points on it.
+* ``line_graph``: a straight line, by two points placed on the canvas or by its typed equation.
 * ``bars``: the height of each bar of a bar chart or histogram.
 * ``edges``: the edges drawn between the labelled vertices of a network.
 
@@ -299,7 +300,7 @@ def _json_half_planes(value, canvas: _Canvas) -> set[HalfPlane] | None:
 
 _OPERATOR_RE = re.compile(r"<=|>=|=<|=>|<|>")
 _LINEAR_TERM_RE = re.compile(
-    r"\s*([+-]?)\s*(\d+(?:\.\d+)?(?:/\d+)?|\(\s*\d+(?:\.\d+)?\s*/\s*\d+\s*\))?\s*\*?\s*([xy])?"
+    r"\s*([+-]?)\s*(\d+(?:\.\d+)?(?:/\d+)?|\(\s*\d+(?:\.\d+)?\s*/\s*\d+\s*\))?\s*\*?\s*([xy])?(?:\s*/\s*(\d+)(?!\d))?"
 )
 _CLAUSE_SPLIT_RE = re.compile(r"\s*(?:[;,\n]|\band\b|∧)\s*", re.IGNORECASE)
 
@@ -314,7 +315,9 @@ def _linear_side(text: str) -> tuple[Fraction, Fraction, Fraction] | None:
         m = _LINEAR_TERM_RE.match(text, pos)
         if m is None or m.end() == pos:
             return None
-        sign, coef_text, var = m.groups()
+        sign, coef_text, var, divisor = m.groups()
+        if divisor and not var:
+            return None
         if coef_text is None and var is None:
             return None
         if not first and not sign:
@@ -324,6 +327,10 @@ def _linear_side(text: str) -> tuple[Fraction, Fraction, Fraction] | None:
             coef = Fraction(re.sub(r"[()\s]", "", coef_text)) if coef_text else Fraction(1)
         except (ValueError, ZeroDivisionError):
             return None
+        if divisor:
+            if int(divisor) == 0:
+                return None
+            coef /= int(divisor)
         if sign == "-":
             coef = -coef
         if var == "x":
@@ -1062,6 +1069,119 @@ def grade_edges(question, given: str) -> GradeResult:
     return _result(question, got == want, edges_text(got, directed))
 
 
+# ---------------------------------------------------------------------------------------------- line_graph
+#
+# A straight line drawn on a canvas. The reply is two distinct points on the line (placed on the canvas, on the snap
+# lattice), or, typed, the line's equation. A line is the key (a, b, c) of ``a x + b y + c = 0`` scaled so the first
+# non-zero of a, b is 1: every equation and every pair of points of one line share one key.
+
+Line = tuple[Fraction, Fraction, Fraction]
+
+
+def _line_key(a: Fraction, b: Fraction, c: Fraction) -> Line | None:
+    lead = a if a else b
+    if not lead:
+        return None
+    return (a / lead, b / lead, c / lead)
+
+
+def _line_through(p: Point, q: Point) -> Line | None:
+    if p == q:
+        return None
+    a, b = q[1] - p[1], p[0] - q[0]
+    return _line_key(a, b, -(a * p[0] + b * p[1]))
+
+
+def _on_line(line: Line, p: Point) -> bool:
+    return line[0] * p[0] + line[1] * p[1] + line[2] == 0
+
+
+def _expected_line(answer) -> Line | None:
+    through = answer.get("through") if isinstance(answer, dict) else None
+    if not (isinstance(through, list) and len(through) == 2):
+        return None
+    p, q = _exact_pt(through[0]), _exact_pt(through[1])
+    return None if p is None or q is None else _line_through(p, q)
+
+
+def _line_from_points(points, canvas: _Canvas) -> Line | None:
+    """The line through exactly two distinct placed points, or None."""
+    if not isinstance(points, list) or len(points) != 2:
+        return None
+    p, q = points
+    if p is None or q is None or not (canvas.accepts(p) and canvas.accepts(q)):
+        return None
+    return _line_through(p, q)
+
+
+def _json_line(value, canvas: _Canvas) -> Line | None:
+    if isinstance(value, dict):
+        if len(value) != 1 or next(iter(value)) not in ("through", "points"):
+            return None
+        value = next(iter(value.values()))
+    if not isinstance(value, list) or len(value) != 2:
+        return None
+    return _line_from_points([_pt(v) for v in value], canvas)
+
+
+def _typed_line(text: str, canvas: _Canvas) -> Line | None:
+    text = text.strip()
+    if not text or len(text) > MAX_TYPED_LENGTH:
+        return None
+    if "=" in text:
+        sides = text.split("=")
+        if len(sides) != 2:
+            return None
+        left, right = _linear_side(sides[0]), _linear_side(sides[1])
+        if left is None or right is None:
+            return None
+        return _line_key(*(l - r for l, r in zip(left, right)))
+    return _line_from_points(_typed_pts(_unbracketed(text), 3), canvas)
+
+
+def line_graph_answer(p, q, *, x_range, y_range, snap=1) -> dict:
+    """`Question.answer` for a ``line_graph`` question: any two distinct points of the line, and the canvas."""
+    answer = {
+        "through": [point_json(p), point_json(q)],
+        "x_range": [fraction_json(v) for v in x_range],
+        "y_range": [fraction_json(v) for v in y_range],
+        "snap": fraction_json(snap),
+    }
+    if _expected_line(answer) is None:
+        raise ValueError("not a valid line answer")
+    return answer
+
+
+def line_text(line: Line) -> str:
+    """A line key as text: ``x - y + 3 = 0`` with whole-number coefficients."""
+    a, b, c = line
+    scale = math.lcm(a.denominator, b.denominator, c.denominator)
+    parts = []
+    for coef, name in ((a * scale, "x"), (b * scale, "y"), (c * scale, "")):
+        if coef == 0:
+            continue
+        n = int(coef)
+        mag = "" if (abs(n) == 1 and name) else str(abs(n))
+        piece = f"{mag}{name}"
+        parts.append(("- " if n < 0 else "+ ") + piece if parts else ("-" if n < 0 else "") + piece)
+    return f"{' '.join(parts)} = 0"
+
+
+@_multi_part_aware
+def grade_line_graph(question, given: str) -> GradeResult:
+    answer = _answer_dict(question)
+    expected = _expected_line(answer)
+    if expected is None:
+        return _result(question, False)
+    if not isinstance(given, str) or not given.strip() or len(given) > MAX_REPLY_LENGTH:
+        return _result(question, False)
+    canvas = _Canvas(answer)
+    got = _json_line(_load(given), canvas) if _is_jsonish(given) and "(" not in given else _typed_line(given, canvas)
+    if got is None:
+        return _result(question, False)
+    return _result(question, got == expected, line_text(got))
+
+
 __all__ = [
     "grade_half_planes",
     "grade_number_line_set",
@@ -1069,6 +1189,8 @@ __all__ = [
     "grade_curve",
     "grade_bars",
     "grade_edges",
+    "grade_line_graph",
+    "line_graph_answer",
     "half_planes_answer",
     "half_plane_text",
     "number_line_answer",

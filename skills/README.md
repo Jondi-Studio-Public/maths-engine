@@ -79,7 +79,7 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
 - **`answer`:** one of the kinds in `GRADERS` (`mathgen/grading/typed.py`): `number`,
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
   `polyline`, `line`, `inequality`, `matrix`, `grid_cells`, and the interactive-graph kinds `half_planes`,
-  `number_line_set`, `polygon`, `curve`, `bars`, `edges` (`mathgen/grading/interactive.py`; reply schemas in
+  `line_graph`, `number_line_set`, `polygon`, `curve`, `bars`, `edges` (`mathgen/grading/interactive.py`; reply schemas in
   `docs/design/interactive-graph-answers.md`). `grid_cells` is the cells a learner shades on a
   `grid_drawing` figure's canvas, matched exactly, up to a move, up to a turn or flip, or as any cube net
   (`mathgen/grading/grid.py`). `list` ignores order and `ordered_list` is positional, so a vector answer

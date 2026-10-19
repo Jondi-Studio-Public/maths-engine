@@ -555,10 +555,10 @@ def exd_x_w9_numberline_inequality(rng, tier="exam"):
 
 def _exam(rng):
     for _ in attempts(500, "a solution, a second bound and a count that fit"):
-        a = rng.randint(-2, 6)  # x < a after solving
+        a = rng.randint(-3, 7)  # x < a after solving
         k = rng.randint(2, 4)
         d = rng.randint(-6, 6)
-        lower = a - rng.randint(3, 8)
+        lower = a - rng.randint(3, 9)
         lower_closed = rng.random() < 0.5
         if lower >= -9 and d != 0:
             break
@@ -618,7 +618,15 @@ def _exam(rng):
     )
     for dl in (da, db, dc, dd):
         enough(dl)
-    stem = f"Solve the inequality {ineq}."
+    stem = phrase(
+        rng,
+        (
+            "Solve the inequality {ineq}.",
+            "A number x satisfies {ineq}. Use this to answer the questions below.",
+            "Here is an inequality in x: {ineq}. Work out which values of x make it true.",
+        ),
+        ineq=ineq,
+    )
     return dict(
         text=stem,
         figure=_figure(),
@@ -628,7 +636,9 @@ def _exam(rng):
                 "inequality",
                 fa,
                 2,
-                [f"Subtract {d} from both sides: -{k}x > {rhs - d}. Divide by -{k} and reverse the sign: x < {a}."],
+                [
+                    f"{'Subtract' if d > 0 else 'Add'} {abs(d)} from both sides: -{k}x > {rhs - d}. Divide by -{k} and reverse the sign: x < {a}."
+                ],
                 da,
             ),
             part(

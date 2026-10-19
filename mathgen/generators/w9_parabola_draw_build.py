@@ -26,10 +26,10 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, fmt_signed, generator, phrase
 from ..grading import interactive as ia
 from ._w6a_kit import num_dist, num_fields
-from ._w9_graph_kit import HALF, dist, enough, frac_text, part, plane, point_text, retry_draw
+from ._w9_graph_kit import HALF, dist, enough, coef_text, frac_text, part, plane, point_text, retry_draw, sum_text
 
 TOPIC = "w9_parabola_draw"
 EXAM_TOPIC = "exd_x_w9_parabola_draw"
@@ -163,9 +163,12 @@ def expanded_text(a: int, b: int, c: int) -> str:
     return f"y = {out}"
 
 
+def _fac(r):
+    return "x" if r == 0 else (f"(x - {r})" if r > 0 else f"(x + {-r})")
+
+
 def factorised_text(a: int, p: int, q: int) -> str:
-    def fac(r):
-        return "x" if r == 0 else (f"(x - {r})" if r > 0 else f"(x + {-r})")
+    fac = _fac
 
     lead = "" if a == 1 else ("-" if a == -1 else str(a))
     return f"y = {lead}{fac(p)}{fac(q)}"
@@ -265,7 +268,7 @@ def _vertex_form(rng, stretches):
     pt = _second_point(a, h, k)
     working = [
         f"In y = a(x - h)² + k the vertex is (h, k). Here the vertex is {point_text((h, k))}.",
-        f"The curve opens {'upwards' if a > 0 else 'downwards'}. Put x = {pt[0]}: y = {frac_text(a)}({pt[0] - h})² + ({k}) = {pt[1]}, so {point_text(pt)} is on the curve.",
+        f"The curve opens {'upwards' if a > 0 else 'downwards'}. Put x = {pt[0]}: y = {coef_text(a)}({pt[0] - h})²{'' if k == 0 else f' + {k}' if k > 0 else f' - {-k}'} = {pt[1]}, so {point_text(pt)} is on the curve.",
     ]
     return dict(text=text, figure=_figure(), working=working, distractors=d, **fields)
 
@@ -354,8 +357,8 @@ def _hard_factorised(rng):
     enough(d, 3)
     pt = _second_point(Q(a), h, k)
     working = [
-        f"The x-intercepts are x = {p} and x = {q}. The axis of symmetry is halfway between them: x = ({p} + {q}) / 2 = {h}.",
-        f"Put x = {h}: y = {frac_text(Q(a))}({h - p})({h - q}) = {k}. The vertex is {point_text((h, k))}.",
+        f"The x-intercepts are x = {p} and x = {q}. The axis of symmetry is halfway between them: x = ({sum_text(p, q)}) / 2 = {h}.",
+        f"Put x = {h}: y = {coef_text(Q(a))}({h - p})({h - q}) = {k}. The vertex is {point_text((h, k))}.",
         f"Put x = {pt[0]}: y = {pt[1]}, so {point_text(pt)} is on the curve.",
     ]
     return dict(text=text, figure=_figure(), working=working, distractors=d, **fields)
@@ -401,9 +404,9 @@ def _hard_roots_intercept(rng):
     enough(d, 3)
     pt = _second_point(a, h, k)
     working = [
-        f"The axis of symmetry is halfway between the roots: x = ({p} + {q}) / 2 = {h}.",
-        f"y = a(x - {p})(x - {q}). Put x = 0: {c} = a({-p})({-q}) = {p * q}a, so a = {frac_text(a)}.",
-        f"Put x = {h}: y = {frac_text(a)}({h - p})({h - q}) = {k}. The vertex is {point_text((h, k))}; {point_text(pt)} is on the curve.",
+        f"The axis of symmetry is halfway between the roots: x = ({sum_text(p, q)}) / 2 = {h}.",
+        f"y = a{_fac(p)}{_fac(q)}. Put x = 0: {c} = a({-p})({-q}) = {fmt_signed(p * q, 'a')}, so a = {frac_text(a)}.",
+        f"Put x = {h}: y = {coef_text(a)}({h - p})({h - q}) = {k}. The vertex is {point_text((h, k))}; {point_text(pt)} is on the curve.",
     ]
     return dict(text=text, figure=_figure(), working=working, distractors=d, **fields)
 

@@ -23,7 +23,7 @@ from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
 from ..answers import Distractor
-from ._w9_graph_kit import HALF, dist, enough, frac_text, part, plane, retry_draw
+from ._w9_graph_kit import HALF, dist, enough, frac_text, coef_text, line_text, part, plane, retry_draw, sum_text
 from ._w6a_kit import num_dist, num_fields
 
 TOPIC = "w9_plot_points"
@@ -365,7 +365,7 @@ def _hard_midpoint(rng):
         ([(m[1], m[0])], "w9-swapped-coordinates"),
     ]
     working = [
-        f"Add the x-values and halve: ({a[0]} + {b[0]}) / 2 = {m[0]}. Do the same for the y-values: ({a[1]} + {b[1]}) / 2 = {m[1]}.",
+        f"Add the x-values and halve: ({sum_text(a[0], b[0])}) / 2 = {m[0]}. Do the same for the y-values: ({sum_text(a[1], b[1])}) / 2 = {m[1]}.",
         f"The midpoint is {point_text(m)}.",
     ]
     fig = _figure(
@@ -384,7 +384,7 @@ def _hard_on_line(rng):
         y = m * x + c
         if x not in (0, 1) and _in(y) and x != y:
             break
-    eq = f"y = {m}x" + (f" + {c}" if c > 0 else f" - {-c}" if c < 0 else "")
+    eq = line_text(m, c)
     text = f"A point on the line {eq} has x-coordinate {x}. Plot the point."
     cands = [
         ([(x, m * x - c)], "w9-line-point-sign"),
@@ -394,7 +394,7 @@ def _hard_on_line(rng):
         ([(x, -y)], "w9-y-sign-ignored"),
     ]
     working = [
-        f"Substitute x = {x}: y = {m} x ({x}) {'+' if c >= 0 else '-'} {abs(c)} = {y}.",
+        f"Substitute x = {x}: y = {coef_text(m)}({x}){'' if c == 0 else f' + {c}' if c > 0 else f' - {-c}'} = {y}.",
         f"The point is ({x}, {y}).",
     ]
     fig = _figure("A blank coordinate grid with x and y axes, for plotting a point.", [(x, y)])
@@ -547,9 +547,15 @@ def _exam(rng):
     )
     for dl in (da, db, dc, dd):
         enough(dl)
-    stem = (
-        f"A({a[0]}, {a[1]}), B({b[0]}, {b[1]}) and C({c[0]}, {c[1]}) are three vertices of the parallelogram ABCD, "
-        "taken in that order."
+    pts = f"A({a[0]}, {a[1]}), B({b[0]}, {b[1]}) and C({c[0]}, {c[1]})"
+    stem = phrase(
+        rng,
+        (
+            "{pts} are three vertices of the parallelogram ABCD, taken in that order.",
+            "Three corners of the parallelogram ABCD, listed in order, are {pts}. D is the fourth corner.",
+            "ABCD is a parallelogram drawn on a grid. Its corners A, B and C are at {pts}; D is not given.",
+        ),
+        pts=pts,
     )
     fig = _figure("A blank coordinate grid with x and y axes, for plotting points.", [a, b, c, d])
     return dict(
@@ -569,7 +575,7 @@ def _exam(rng):
                 "points",
                 {k: fb[k] for k in ("answer", "answer_text", "answer_latex")},
                 1,
-                [f"M = (({a[0]} + {c[0]}) / 2, ({a[1]} + {c[1]}) / 2) = {point_text(m)}."],
+                [f"M = (({sum_text(a[0], c[0])}) / 2, ({sum_text(a[1], c[1])}) / 2) = {point_text(m)}."],
                 db,
             ),
             part(
