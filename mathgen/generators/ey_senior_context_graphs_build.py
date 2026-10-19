@@ -685,7 +685,9 @@ def ey_position_tangent_exam(rng, tier="exam"):
             avg,
             [-avg, s2 - s1, F(s2, t2)],
             follow=f"({s2}-({s1}))/part_d",
-            working=[f"s goes from {s1} to {s2} in {_secs(t2 - t1)}: ({s2} - {paren_negative(s1)}) / {t2 - t1} = {frac_text(avg)}."],
+            working=[
+                f"s goes from {s1} to {s2} in {_secs(t2 - t1)}: ({s2} - {paren_negative(s1)}) / {t2 - t1} = {frac_text(avg)}."
+            ],
         ),
     ]
     figures.assert_no_leak(fig, [str(v0), str(t1), str(t2)])

@@ -91,6 +91,16 @@ def complex_number_as_point(rng, variant="sum"):
         raise ValueError(f"Unknown variant: {variant}")
 
 
+def _cplx_text(a: int, b: int) -> str:
+    """a + bi as it is written on paper: 3 + i, 4 - 5i, -2i, 7 (no 1i, no 0i, no dropped sign)."""
+    imag = "i" if abs(b) == 1 else f"{abs(b)}i"
+    if b == 0:
+        return str(a)
+    if a == 0:
+        return f"-{imag}" if b < 0 else imag
+    return f"{a} {'+' if b > 0 else '-'} {imag}"
+
+
 def _complex_direct(rng):
     """Directly given complex number in a+bi form."""
     a = rng.randint(-9, 9)
@@ -107,10 +117,7 @@ def _complex_direct(rng):
     check(z.real == a and z.imag == b, "complex type gives wrong components")
 
     # Format the complex number in question text
-    if b > 0:
-        complex_text = f"{a} + {b}i" if a != 0 else f"{b}i"
-    else:
-        complex_text = f"{a} - {-b}i" if a != 0 else f"{-b}i"
+    complex_text = _cplx_text(a, b)
 
     # Misconception distractors
     candidates = []
@@ -159,10 +166,7 @@ def _complex_degenerate(rng):
         while b == 0:
             b = rng.randint(-9, 9)
         # Displayed as "bi" or "-bi", e.g., "6i" or "-2i"
-        if b > 0:
-            complex_text = f"{b}i"
-        else:
-            complex_text = f"{b}i"
+        complex_text = _cplx_text(0, b)
 
     answer_pair = ComplexPair("x", float(a), "y", float(b))
 
@@ -200,7 +204,7 @@ def _complex_degenerate(rng):
         working=[
             f"A complex number a + bi corresponds to the point (a, b) in the plane.",
             f"The complex number {complex_text} is purely {'real' if b == 0 else 'imaginary'}.",
-            f"We interpret this as {complex_text} = {a} {'+' if b >= 0 else '-'} {abs(b)}i.",
+            f"In the form a + bi this has a = {a} and b = {b}.",
             f"Therefore, the point is ({a}, {b}).",
         ],
         distractors=pick_distractors(answer_pair.answer_text(), candidates),
@@ -257,14 +261,8 @@ def _complex_sum(rng):
     check(total.real == result_a and total.imag == result_b, "complex arithmetic gives wrong result")
 
     # Format the complex numbers
-    def format_complex(a, b):
-        if b > 0:
-            return f"{a} + {b}i" if a != 0 else f"{b}i"
-        else:
-            return f"{a} - {-b}i" if a != 0 else f"{-b}i"
-
-    z1_text = format_complex(a1, b1)
-    z2_text = format_complex(a2, b2)
+    z1_text = _cplx_text(a1, b1)
+    z2_text = _cplx_text(a2, b2)
 
     # Misconception distractors
     candidates = []
@@ -293,9 +291,6 @@ def _complex_sum(rng):
     a2_display = f"({a2})" if a2 < 0 else str(a2)
     b2_display = f"({b2})" if b2 < 0 else str(b2)
 
-    # Format result_b for display, wrapping negatives in parentheses to avoid "+-" substring
-    result_b_display = f"({result_b})" if result_b < 0 else str(result_b)
-
     return dict(
         text=f"Given the complex numbers z₁ = {z1_text} and z₂ = {z2_text}, "
         f"state the Cartesian coordinates of z₁ {operation_text} z₂ as an ordered pair (x, y).",
@@ -305,7 +300,7 @@ def _complex_sum(rng):
         answer_latex=rf"({result_a}, {result_b})",
         working=[
             f"z₁ {operation_text} z₂ = ({a1} {operation_symbol} {a2_display}) + ({b1} {operation_symbol} {b2_display})i",
-            f"z₁ {operation_text} z₂ = {result_a} + {result_b_display}i",
+            f"z₁ {operation_text} z₂ = {_cplx_text(result_a, result_b)}",
             f"As a coordinate pair: ({result_a}, {result_b}).",
         ],
         distractors=pick_distractors(answer_pair.answer_text(), candidates),

@@ -72,6 +72,7 @@ CONSTRUCTION, at both 2 d.p. and 4 d.p.
 from __future__ import annotations
 
 import math
+import re
 from fractions import Fraction
 
 import sympy as sp
@@ -182,6 +183,7 @@ _EXAM_TEMPLATES = (
 
 
 def _finish(text: str, answer_rounded: Fraction, dp: int, distractor_candidates: list) -> dict:
+    text = re.sub(r"(?<![\d.])1e\^\(-1t\)", "e^(-t)", text)  # lambda = 1 reads e^(-t), not 1e^(-1t)
     answer_text = stated_precision_string(answer_rounded, dp)
     survivors = [d for d in distractor_candidates if d is not None]
     distractors = pick_distractors(answer_text, survivors)

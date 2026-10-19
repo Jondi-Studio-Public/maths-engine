@@ -706,10 +706,20 @@ def combinatorics(rng, kind="multiplication"):
     return _number(text, answer, [n * r, factorial(r), answer + r, max(1, answer - r)], working=working)
 
 
+def _cx(re: int, im: int) -> str:
+    """re + im i as a student writes it: 3 + i, 4 − 5i, −5i, 7 (no 1i, no 0i, no "0 + ")."""
+    imag = "i" if abs(im) == 1 else f"{abs(im)}i"
+    if im == 0:
+        return str(re).replace("-", "−")
+    if re == 0:
+        return ("−" if im < 0 else "") + imag
+    return f"{re} {'+' if im > 0 else '−'} {imag}".replace("-", "−")
+
+
 @generator("complex_number", level=12)
 def complex_number(rng, kind="real_part"):
     a, b, c, d = (rng.randint(-8, 8) for _ in range(4))
-    z = f"{a} {'+' if b >= 0 else '−'} {abs(b)}i"
+    z = _cx(a, b)
     if kind == "real_part":
         return _number(
             f"Find the real part of z = {z}.",
@@ -727,35 +737,35 @@ def complex_number(rng, kind="real_part"):
             working=[f"The coefficient of i is {b}."],
         )
     if kind == "conjugate":
-        answer = f"{a} {'−' if b >= 0 else '+'} {abs(b)}i"
+        answer = _cx(a, -b)
         return _mcq(
             f"Find the conjugate of {z}.",
             answer,
-            [z, f"{-a} {'+' if b >= 0 else '−'} {abs(b)}i", f"{-a} {'−' if b >= 0 else '+'} {abs(b)}i"],
+            [z, _cx(-a, b), _cx(-a, -b)],
             working=["Keep the real part and reverse the sign of the imaginary part."],
         )
     if kind == "add":
-        answer = f"{a + c} {'+' if b + d >= 0 else '−'} {abs(b + d)}i"
-        other = f"{c} {'+' if d >= 0 else '−'} {abs(d)}i"
+        answer = _cx(a + c, b + d)
+        other = _cx(c, d)
         return _mcq(
             f"Calculate ({z}) + ({other}).",
             answer,
-            [f"{a + c} + {abs(b - d)}i", f"{a * c} + {abs(b * d)}i", f"{a - c} + {abs(b - d)}i"],
+            [_cx(a + c, abs(b - d)), _cx(a * c, abs(b * d)), _cx(a - c, abs(b - d))],
             working=["Add real parts together and imaginary coefficients together."],
         )
     if kind == "multiply":
         real, imag = a * c - b * d, a * d + b * c
-        answer = f"{real} {'+' if imag >= 0 else '−'} {abs(imag)}i"
-        other = f"{c} {'+' if d >= 0 else '−'} {abs(d)}i"
+        answer = _cx(real, imag)
+        other = _cx(c, d)
         return _mcq(
             f"Calculate ({z})({other}).",
             answer,
             [
-                f"{a * c} + {abs(b * d)}i",
-                f"{a * c + b * d} + {abs(imag)}i",
-                f"{real} + {abs(a * d - b * c)}i",
-                f"{real + 1} {'+' if imag >= 0 else '−'} {abs(imag)}i",
-                f"{real} {'+' if imag >= 0 else '−'} {abs(imag) + 1}i",
+                _cx(a * c, abs(b * d)),
+                _cx(a * c + b * d, abs(imag)),
+                _cx(real, abs(a * d - b * c)),
+                _cx(real + 1, imag),
+                _cx(real, imag + (1 if imag >= 0 else -1)),
             ],
             working=["Expand and use i² = −1, then collect real and imaginary parts."],
         )

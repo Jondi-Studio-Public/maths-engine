@@ -198,7 +198,8 @@ def _medium_root(rng):
         ]
         text = f"Find the limit as n tends to infinity of √(n² {'+' if a > 0 else '-'} {_n(abs(a))} + {b}) - n."
         working = [
-            "Multiply and divide by the conjugate √(n² + ...) + n: the numerator becomes " + f"{join_terms([(a, 'n'), (b, '')])}.",
+            "Multiply and divide by the conjugate √(n² + ...) + n: the numerator becomes "
+            + f"{join_terms([(a, 'n'), (b, '')])}.",
             f"Dividing top and bottom by n gives ({a}{_term(b, '/n')}) / (√(1{_term(a, '/n')}{_term(b, '/n²')}) + 1) → {a}/2 = {rational_text(value)}.",
         ]
     else:

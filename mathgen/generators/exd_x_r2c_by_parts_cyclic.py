@@ -62,7 +62,7 @@ def _typed(expr) -> str:
 
 
 def _with_term(edge, k, name) -> str:
-    """"edge + (k)name", or just "(k)name" when the boundary value is zero."""
+    """ "edge + (k)name", or just "(k)name" when the boundary value is zero."""
     tail = f"({rational_text(k)}){name}"
     return tail if edge == 0 else f"{_typed(edge)} + {tail}"
 

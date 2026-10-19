@@ -383,7 +383,7 @@ def define_and_use_multiplication_by_a_scalar_of(rng, variant="forward_positive"
         # Verification: repeated addition
         _verify_scalar_forward(k, component, answer)
 
-        question_text = f"v = {a}i + {b}j. Find the coefficient of {asked_axis} in {k}v."
+        question_text = f"v = {join_terms([(a, 'i'), (b, 'j')])}. Find the coefficient of {asked_axis} in {k}v."
 
         candidates = [added, original, wrong_axis]
 

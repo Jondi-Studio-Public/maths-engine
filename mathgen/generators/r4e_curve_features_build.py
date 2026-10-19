@@ -40,7 +40,6 @@ from .r4e_common import (
 )
 
 
-
 def _sign_of(k) -> str:
     """What f' has the sign of, for f' = k times a product of factors."""
     if k == 1:
@@ -48,6 +47,7 @@ def _sign_of(k) -> str:
     if k == -1:
         return "minus the product of the factors"
     return f"{k} times the product of the factors"
+
 
 def polymul(a, b) -> list:
     out = [Fraction(0)] * (len(a) + len(b) - 1)

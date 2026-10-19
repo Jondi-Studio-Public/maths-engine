@@ -171,7 +171,7 @@ def p10a_vector_motion_line_accel(rng, tier="easy"):
     recomputed = (x0 if asked_axis == "i" else y0) + S_expr.subs(_t, T) * (dx if asked_axis == "i" else dy)
     check_equivalent(recomputed, answer, f"independent final-number check failed: tier={tier}")
 
-    d_text = f"{dx}i + {dy}j"
+    d_text = join_terms([(dx, "i"), (dy, "j")])
     g_prose = _prose(g_expr)
     if tier == "easy":
         offset_clause = "it starts at the origin"

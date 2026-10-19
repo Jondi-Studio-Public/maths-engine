@@ -152,7 +152,8 @@ def exd_x_r2c_collision(rng, tier: str = "exam"):
         "number",
         2,
         [
-            f"Equate the x-components: {e}t² + ({f})t + ({g}) = {u}t + ({p}), so {e}(t - {t_star})(t - ({t_other})) = 0.",
+            f"Equate the x-components: {join_terms([(e, 't²'), (f, 't'), (g, '')])} = {join_terms([(u, 't'), (p, '')])}, "
+            f"so {'' if e == 1 else e}(t {'-' if t_star >= 0 else '+'} {abs(t_star)})(t {'-' if t_other >= 0 else '+'} {abs(t_other)}) = 0.",
             f"Only t = {t_star} gives t > 0, and the y-components also agree there.",
         ],
         [

@@ -81,10 +81,10 @@ _SETTINGS = [
 _D_LO, _D_HI = 2, 12
 
 
-
 def _days(n) -> str:
-    """"day" for one, "days" otherwise."""
+    """ "day" for one, "days" otherwise."""
     return "day" if n == 1 else "days"
+
 
 def _successors(preds):
     succ = {a: [] for a in preds}
@@ -438,7 +438,9 @@ def network_missing(rng: random.Random, tier: str = "exam") -> dict:
                 answer_latex=latex_answer(str(lst_z)),
                 marks=2,
                 follow_through=ft_lst,
-                working=[f"Latest start of {z} = {total} - (longest route from {z} to the end) = {lst_z} {_days(lst_z)}."],
+                working=[
+                    f"Latest start of {z} = {total} - (longest route from {z} to the end) = {lst_z} {_days(lst_z)}."
+                ],
                 distractors=picks[2],
             ),
             dict(

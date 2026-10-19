@@ -105,7 +105,7 @@ def exd_x_r3h_system_parameters(rng, tier="exam"):
                     0,
                     3,
                     [
-                        f"The determinant of the coefficient matrix is {d2}(k - ({k_star})).",
+                        f"The determinant of the coefficient matrix is {'' if d2 == 1 else d2}(k {'-' if k_star >= 0 else '+'} {abs(k_star)}).",
                         f"It is zero when k = {k_star}.",
                     ],
                     slips_k,

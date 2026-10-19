@@ -46,6 +46,7 @@ from mathgen.core import (
     generator,
     latex_answer,
     round_half_up,
+    stated_precision_string,
     rounds_unambiguously,
 )
 
@@ -115,8 +116,8 @@ def _draw_two_pack(rng, cfg: dict, target: str):
 
 def _option_texts(kind: str) -> dict:
     if kind == "two_pack":
-        return {"A": "Pack A", "B": "Pack B", "tie": "Tie -- the same price per unit"}
-    return {"A": "Pack A", "B": "Pack B", "C": "Pack C", "tie": "Tie -- two packs share the cheapest price"}
+        return {"A": "Pack A", "B": "Pack B", "tie": "Tie, the same price per unit"}
+    return {"A": "Pack A", "B": "Pack B", "C": "Pack C", "tie": "Tie, two packs share the cheapest price"}
 
 
 def _mcq_dict(answer_key: str, kind: str, text: str, working: list):
@@ -153,8 +154,8 @@ def _easy(rng):
         f"Which is the cheaper buy {cfg['per']}, or are the two the same price {cfg['per']}?"
     )
     working = [
-        f"Unit price A = {currency_from_cents(priceA)} / {qtyA} = {round_half_up(uA * 100, 3)} cents {cfg['per']}.",
-        f"Unit price B = {currency_from_cents(priceB)} / {qtyB} = {round_half_up(uB * 100, 3)} cents {cfg['per']}.",
+        f"Unit price A = {currency_from_cents(priceA)} / {qtyA} = {stated_precision_string(round_half_up(uA, 4), 4)} cents {cfg['per']}.",
+        f"Unit price B = {currency_from_cents(priceB)} / {qtyB} = {stated_precision_string(round_half_up(uB, 4), 4)} cents {cfg['per']}.",
     ]
     return _mcq_dict(decision, "two_pack", text, working)
 
@@ -296,8 +297,8 @@ def _build_mismatch_question(
         # itself.
         text += f" Compare the EXACT price per {small_label} -- do not round until after you have decided."
     working = [
-        f"Pack A price per {small_label} = {round_half_up(rateA_recomputed * 100, 3)} cents.",
-        f"Pack B price per {small_label} = {round_half_up(rateB_recomputed * 100, 3)} cents.",
+        f"Pack A price per {small_label} = {stated_precision_string(round_half_up(rateA_recomputed, 2), 2)} cents.",
+        f"Pack B price per {small_label} = {stated_precision_string(round_half_up(rateB_recomputed, 2), 2)} cents.",
     ]
     if working_extra:
         working.extend(working_extra)
@@ -439,7 +440,7 @@ def _hard(rng):
     )
     working = [
         f"Unit price {lab} = {currency_from_cents(prices[lab])} / {qtys[lab]} "
-        f"= {round_half_up(unit_prices_recomputed[lab] * 100, 3)} cents {cfg['per']}."
+        f"= {stated_precision_string(round_half_up(unit_prices_recomputed[lab], 4), 4)} cents {cfg['per']}."
         for lab in _HARD_LABELS
     ]
     return _mcq_dict(decision_final, "three_pack", text, working)

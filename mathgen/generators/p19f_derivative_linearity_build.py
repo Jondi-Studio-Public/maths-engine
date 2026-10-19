@@ -244,7 +244,7 @@ def _easy(rng):
     def prompt(f_disp, g_disp, a, b):
         return (
             f"f'(x) = {_term_text(f_disp)} and g'(x) = {_term_text(g_disp)}. "
-            f"h(x) = {fmt_signed(a, 'f(x)')} + {b}g(x). Find h'(x)."
+            f"h(x) = {join_terms([(a, 'f(x)'), (b, 'g(x)')])}. Find h'(x)."
         )
 
     return _build_question(

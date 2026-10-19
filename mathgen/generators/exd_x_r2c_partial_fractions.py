@@ -183,7 +183,9 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of A.",
             a_c,
             2,
-            [f"Matching the x terms of the numerator: {n1} = -2·{paren_negative(k)}·{paren_negative(p)} + A, so A = {a_c}."],
+            [
+                f"Matching the x terms of the numerator: {n1} = -2·{paren_negative(k)}·{paren_negative(p)} + A, so A = {a_c}."
+            ],
             [
                 (b_c, "swapped-partial-fraction-coefficients"),
                 (n1, "read-coefficient-without-expanding"),
@@ -196,7 +198,9 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of B.",
             b_c,
             2,
-            [f"Matching the constant terms: B = {n0} - {paren_negative(k)}·{paren_negative(p)}² + A·{paren_negative(p)} = {b_c}."],
+            [
+                f"Matching the constant terms: B = {n0} - {paren_negative(k)}·{paren_negative(p)}² + A·{paren_negative(p)} = {b_c}."
+            ],
             [
                 (a_c, "swapped-partial-fraction-coefficients"),
                 (n0, "read-coefficient-without-expanding"),

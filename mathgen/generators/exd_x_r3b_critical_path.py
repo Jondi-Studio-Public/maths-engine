@@ -29,10 +29,10 @@ _STEMS = (
 )
 
 
-
 def _days(n) -> str:
-    """"day" for one, "days" otherwise."""
+    """ "day" for one, "days" otherwise."""
     return "day" if n == 1 else "days"
+
 
 def _completion(preds, dur):
     return max(_forward(preds, dur)[1].values())

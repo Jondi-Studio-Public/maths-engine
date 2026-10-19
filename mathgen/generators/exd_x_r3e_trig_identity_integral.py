@@ -34,7 +34,6 @@ from ._exd_distinct_parts import distinct_part_answers
 _AT = {"sin": (0, 1, 0), "cos": (1, 0, -1)}
 
 
-
 def _form_with(form: str, a, a_text: str) -> str:
     """The form "a - a cos(4x)" or "a sin(4x)" with the constant filled in; a coefficient of 1 is left off."""
     coef = "" if a == 1 else (bracket_compound(a_text) + " ")
@@ -45,6 +44,7 @@ def _form_with(form: str, a, a_text: str) -> str:
     return f"{a_text} {op} {coef}{trig}"
 
     return form
+
 
 def _coef_text(coef: Fraction, atom: str) -> str:
     """ "3*atom/2", "-atom", "atom/4" ... for a non-zero coefficient."""

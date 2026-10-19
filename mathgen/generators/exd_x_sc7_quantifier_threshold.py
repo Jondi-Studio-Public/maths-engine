@@ -111,7 +111,9 @@ def exd_x_sc7_quantifier_threshold(rng: random.Random, tier: str = "exam") -> di
             x0,
             1,
             _three(a_cands, x0),
-            [f"g(x) = {'' if a == 1 else a}({'x' if x0 == 0 else f'x − {x0}' if x0 > 0 else f'x + {-x0}'})^2 − {a * x0 * x0}, so the least value occurs at x = {x0}."],
+            [
+                f"g(x) = {'' if a == 1 else a}({'x' if x0 == 0 else f'x − {x0}' if x0 > 0 else f'x + {-x0}'})^2 − {a * x0 * x0}, so the least value occurs at x = {x0}."
+            ],
         ),
         _part(
             "Hence find the least value of g(x).",
