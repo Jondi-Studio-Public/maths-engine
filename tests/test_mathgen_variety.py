@@ -454,10 +454,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
         "medium",
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
-        "complex_number_as_point",
-        "medium",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
         "conditional_probability_notation",
         "easy",
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
@@ -547,15 +543,7 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
         "define_and_use_multiplication_by_a_scalar_of",
-        "easy",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "define_and_use_multiplication_by_a_scalar_of",
         "hard",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "define_and_use_multiplication_by_a_scalar_of",
-        None,
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
         "define_and_use_unit_vectors_and_the_perpendicular",
@@ -801,10 +789,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
         "find_the_area_of_irregular_figures",
         "easy",
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "find_the_area_of_irregular_figures",
-        "hard",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
         "find_the_area_of_irregular_figures",
         "medium",

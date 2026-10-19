@@ -690,10 +690,10 @@ _UNIFORM_TEMPLATES = (
 
 _EXAM_UNIFORM_TEMPLATES = (
     "A component's lifetime (in hours), X, is uniformly distributed: it is guaranteed to "
-    "last at least {a} hours and never exceeds {b} hours. Find E(X), Var(X) and SD(X), each "
+    "last at least {a} hours and at most {b} hours. Find E(X), Var(X) and SD(X), each "
     "correct to {dp} decimal places, as the ordered triple (E(X), Var(X), SD(X)).",
     "A machine's output (in kilograms), X, is uniformly distributed between a guaranteed "
-    "minimum of {a} kilograms and a maximum that never exceeds {b} kilograms. Compute E(X), "
+    "minimum of {a} kilograms and a maximum of {b} kilograms. Compute E(X), "
     "Var(X) and SD(X), each correct to {dp} decimal places, as (E(X), Var(X), SD(X)).",
     "A delivery time (in minutes), X, is uniformly distributed: it is never less than {a} "
     "minutes and never more than {b} minutes. Determine E(X), Var(X) and SD(X), each correct "
