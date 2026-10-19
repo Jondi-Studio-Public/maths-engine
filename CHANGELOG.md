@@ -10,6 +10,17 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ## [Unreleased]
 
+### Changed
+
+- Marking is stricter about what surrounds a number. A stray letter or operator next to the value is wrong
+  (`7x`, `7/x`, `x7` for 7), and so is a minus that belongs to nothing: `-(-6, 4)`, `-A$352.50`, `-F = 10.0 N`
+  and `-x = 7` no longer lose their minus and pass. Labels (`x = 7`, `P(2, 3)`), unit symbols (`7 m`, `20 J`),
+  dotted abbreviations (`3 p.m.`) and unit words (`7 dogs`, `0.064 cm`) are still read as before. An SI prefix on
+  the unit a question asks for is a different unit (`10 mN`, `10 MN` for 10 N). Every canonical answer in the
+  library is still accepted.
+- `ucv1-definition-quantifier-check` no longer prints `None` in two of its answer options, and the text-quality
+  check flags a Python `None` or `NaN` printed into learner text.
+
 ## [0.2.0] - 2026-10-14
 
 ### Upgrading from 0.1.0

@@ -42,8 +42,8 @@ def same_expression(a, b) -> bool:
 
 
 def typed(expr) -> str:
-    """An expression as a learner would type it: SymPy's text with `^` for powers."""
-    return str(expr).replace("**", "^")
+    """An expression as a learner would type it: SymPy's text with `^` for powers and `ln` for its natural log."""
+    return str(expr).replace("**", "^").replace("log(", "ln(")
 
 
 def _rational(value):

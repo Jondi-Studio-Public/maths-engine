@@ -298,6 +298,21 @@ def test_backward_compatible_outputs_pinned(topic):
 # shrinks: a topic that stops tagging must be removed (see the test below it).
 OPTION_NOTES_TOPICS = frozenset(
     {
+        "w6a_aux_angle",
+        "w6a_line_conic",
+        "w6a_boolean_logic",
+        "w6b_complex_polygon_roots",
+        "w6b_complex_rotation",
+        "w6b_sinusoid_features",
+        "w7a_graph_types",
+        "w7a_network_cut",
+        "w7a_dp_table",
+        "w6c_cofactor",
+        "w6c_taylor",
+        "w6c_hermitian",
+        "w6c_svd",
+        "w7c_quadric",
+        "w7c_coding",
         "fy1la_column_space",
         "fy1la_consistency",
         "fy1la_eigenvalues",
@@ -720,6 +735,11 @@ OPTION_NOTES_TOPICS = frozenset(
         "r3l_transportation_assignment",
         "w5b_e_limit_table",
         "w5b_precedence_table",
+        # build-b batch
+        "w7b_relative_velocity",
+        "w7b_unit_cost_depreciation",
+        "w7b_number_systems_primes",
+        "w7b_floor_ceiling_estimation",
     }
 )
 

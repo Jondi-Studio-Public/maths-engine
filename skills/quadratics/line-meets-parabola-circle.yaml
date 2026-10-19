@@ -1,0 +1,106 @@
+id: line-meets-parabola-circle
+name: Where a line meets a parabola or a circle
+domain: quadratics
+year_level:
+- '10'
+- '11'
+description: Substitute a line into a parabola or a circle to find the intersection points, count them with the discriminant,
+  and use a zero discriminant to find the intercept, gradient or point of contact of a tangent.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-quadratics-formula
+answer: number
+sources:
+- topic: w6a_line_conic
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6a_line_conic
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6a_line_conic
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6a_line_conic
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: lcv-other-root
+  description: Gives the x-coordinate of the other intersection point, the smaller where the larger was asked.
+- id: lcv-x-for-y
+  description: Gives an x-coordinate where a y-coordinate was asked, or the reverse.
+- id: lcv-root-sign
+  description: Reads a root of the substituted quadratic with the wrong sign, as x = -2 from the factor (x - 2).
+- id: lcv-product-for-sum
+  description: Gives the product of the x-coordinates where their sum was asked.
+- id: lcv-difference-for-sum
+  description: Gives the distance between the two x-coordinates where their sum was asked.
+- id: lcv-disc-sign
+  description: Gets the sign of the discriminant condition wrong, so the intercept moves the wrong way from the vertex.
+- id: lcv-disc-drops-a
+  description: Leaves the leading coefficient out of the discriminant, using b² - 4c in place of b² - 4ac.
+- id: lcv-slope-sign
+  description: Subtracts the gradient from the x coefficient with the wrong sign when forming the substituted quadratic.
+- id: lcv-disc-factor
+  description: Uses 2a in place of 4a in the zero-discriminant condition.
+- id: lcv-midpoint-is-vertex
+  description: Gives the x-coordinate of the parabola's vertex as the midpoint of the chord.
+- id: lcv-sum-not-halved
+  description: Gives the sum of the two x-coordinates where their mean (the midpoint) was asked.
+- id: lcv-tangent-radius-only
+  description: Takes the intercept of a tangent to a circle to be the radius, ignoring the gradient.
+- id: lcv-tangent-gradient-unsquared
+  description: Uses r(1 + m) in place of r times the square root of (1 + m²) for the tangent intercept.
+- id: lcv-tangent-unscaled
+  description: Forgets to divide by the sum of the squares of the coefficients when finding the point of contact.
+- id: lcv-tangent-counted-as-two
+  description: Counts the intercept that gives a tangent as a line with two intersection points.
+- id: lcv-no-intersection-counted
+  description: Counts the intercepts that give no intersection instead of those that give two points.
+- id: lcv-count-misses-end
+  description: Leaves out one end of the range, or counts both ends, when counting whole-number values.
+- id: lcv-gradient-inverted
+  description: Gives the reciprocal of the tangent gradient, run over rise.
+- id: lcv-gradient-sign
+  description: Gives the negative gradient, taking the smaller of the two tangent gradients.
+- id: lcv-line-value-in-parabola
+  description: Substitutes the x-coordinate into the line's gradient instead of its equation, so the y-value is wrong.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Equate a line and a parabola, solve the quadratic with whole-number roots and report a root, a y-value or the
+      sum of the roots.
+  medium:
+    steps: 3
+    demand: Write the discriminant of the substituted quadratic and set it to zero to find a tangent intercept, solve a line
+      against a circle, or use the sum of roots to find a chord midpoint when the roots are irrational.
+  hard:
+    steps: 4
+    demand: Apply the tangent condition to a circle, count the intercepts that give two intersections from the sign of the
+      discriminant, or solve for the gradients of two tangents from a point.
+  exam:
+    steps: 5
+    demand: Chain the intersections of a line, the parallel tangent, its point of contact and a quantity that follows from
+      the tangent intercept.
+tags:
+- senior
+- coordinate-geometry
+- quadratics
+- discriminant
+- tangent
+- line-and-conic
+- nsw-advanced
+- nsw-stage-5

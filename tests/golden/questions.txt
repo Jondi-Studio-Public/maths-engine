@@ -265,6 +265,18 @@
 {"answer": "Stable (attracting)", "id": "autonomous-equilibrium-stability/medium/0/93a56934b222", "text": "For the autonomous equation x' = -4(x − (4)), classify the equilibrium x* = 4 u…"}
 {"answer": "Unstable (repelling)", "id": "autonomous-equilibrium-stability/medium/1/a050dd378c59", "text": "For the autonomous equation x' = 4(x − (-5)), classify the equilibrium x* = -5 …"}
 {"answer": "Stable (attracting)", "id": "autonomous-equilibrium-stability/medium/2/8c5a7adb2e22", "text": "For the autonomous equation x' = -4(x − (-3)), classify the equilibrium x* = -3…"}
+{"answer": "11", "id": "auxiliary-angle-max-min-solve/easy/0/6a5faf533bdc", "text": "Without using calculus, find the maximum value of y = 1 + 6 cos x + 8 sin x."}
+{"answer": "-53", "id": "auxiliary-angle-max-min-solve/easy/1/2fdb5812c617", "text": "Without using calculus, find the minimum value of y = 3(-15 cos x + 8 sin x) - …"}
+{"answer": "33", "id": "auxiliary-angle-max-min-solve/easy/2/7b45e9fa1fc9", "text": "The function f is defined by f(x) = 4 + 20 cos x - 21 sin x for all real x. Wha…"}
+{"answer": "(a) 2; (b) 5π/3; (c) 11π/6; (d) 6", "id": "auxiliary-angle-max-min-solve/exam/0/7b36af6a7afe", "text": "Let f(x) = cos x - √3 sin x, for 0 <= x < 2π. (a) Write f(x) in the form R cos(…"}
+{"answer": "(a) 3√2; (b) 5π/4; (c) 17π/12; (d) 3√2 + 5", "id": "auxiliary-angle-max-min-solve/exam/1/c8944e5f95a5", "text": "Let f(x) = -3 cos x - 3 sin x, for 0 <= x < 2π. (a) Write f(x) in the form R co…"}
+{"answer": "(a) 4; (b) π/3; (c) 7π/12; (d) 5", "id": "auxiliary-angle-max-min-solve/exam/2/1291f2ab7dd9", "text": "Let f(x) = 2 cos x + 2√3 sin x, for 0 <= x < 2π. (a) Write f(x) in the form R c…"}
+{"answer": "23π/12", "id": "auxiliary-angle-max-min-solve/hard/0/cc7493866573", "text": "Solve 3 cos x - 3√3 sin x = 3√2 for 0 <= x < 2π. Give the larger of the two sol…"}
+{"answer": "9", "id": "auxiliary-angle-max-min-solve/hard/1/69e474c02b64", "text": "Find the smallest positive integer c such that -4 cos x - 7 sin x = c cannot be…"}
+{"answer": "7", "id": "auxiliary-angle-max-min-solve/hard/2/c632a4651a88", "text": "The equation -2 cos x - 6 sin x = c has real solutions for some whole numbers c…"}
+{"answer": "π/3", "id": "auxiliary-angle-max-min-solve/medium/0/7ab65bd3ead3", "text": "For 0 <= x < 2π, the function f(x) = cos x + √3 sin x takes its greatest value …"}
+{"answer": "2π/3", "id": "auxiliary-angle-max-min-solve/medium/1/07b07e1ec075", "text": "For 0 <= x < 2π, the function f(x) = -cos x + √3 sin x takes its greatest value…"}
+{"answer": "π/3", "id": "auxiliary-angle-max-min-solve/medium/2/12faf0f550ea", "text": "Find the x in the interval [0, 2π) at which f(x) = -3 cos x - 3√3 sin x reaches…"}
 {"answer": "39", "id": "back-to-back-stem-plot-compare/easy/0/5a4a535d1f81", "text": "The back-to-back stem-and-leaf plot compares the waiting times in minutes at tw…"}
 {"answer": "77", "id": "back-to-back-stem-plot-compare/easy/1/9b0f08436b1e", "text": "The back-to-back stem-and-leaf plot compares the points two basketball teams sc…"}
 {"answer": "64", "id": "back-to-back-stem-plot-compare/easy/2/f8aea6e318b4", "text": "The back-to-back stem-and-leaf plot compares the ages in years of the members o…"}
@@ -391,6 +403,18 @@
 {"answer": "175.00", "id": "bnpl-fees-and-instalments/medium/0/11442cd23028", "text": "Liam buys a coffee machine for $140 on a buy-now-pay-later plan with 4 instalme…"}
 {"answer": "183.00", "id": "bnpl-fees-and-instalments/medium/1/d328d3c169ee", "text": "Hamid buys a pair of running shoes for $140 on a buy-now-pay-later plan with 4 …"}
 {"answer": "200.00", "id": "bnpl-fees-and-instalments/medium/2/af3d7e252b3d", "text": "Tom buys a robot vacuum cleaner for $160 on a buy-now-pay-later plan with 4 ins…"}
+{"answer": "9", "id": "boolean-algebra-logic-gates/easy/0/54c82f3cb265", "text": "Find the truth table of F = A·B + ¬A·¬B with rows AB = 00, 01, 10, 11 from the …"}
+{"answer": "6", "id": "boolean-algebra-logic-gates/easy/1/1f6eb8f92bb8", "text": "A logic circuit has inputs A, B and C. Gate P is an XOR gate whose inputs are A…"}
+{"answer": "11", "id": "boolean-algebra-logic-gates/easy/2/d7f891324f52", "text": "For F = A + ¬B, write the output for each of AB = 00, 01, 10, 11, top to bottom…"}
+{"answer": "(a) 4; (b) {0, 5, 6, 7}; (c) 7; (d) 5", "id": "boolean-algebra-logic-gates/exam/0/c39882c7182e", "text": "A logic circuit has inputs A, B and C. Gate P is an OR gate whose inputs are B …"}
+{"answer": "(a) 4; (b) {2, 3, 5, 6}; (c) 7; (d) 5", "id": "boolean-algebra-logic-gates/exam/1/b5c6c0de3b61", "text": "A logic circuit has inputs A, B and C. Gate P is a NAND gate whose inputs are C…"}
+{"answer": "(a) 5; (b) {1, 3, 4, 5, 7}; (c) 3; (d) 12", "id": "boolean-algebra-logic-gates/exam/2/04d09dbc86c3", "text": "A logic circuit has inputs A, B and C. Gate P is a NOR gate whose inputs are B …"}
+{"answer": "7", "id": "boolean-algebra-logic-gates/hard/0/5b6902ec29d7", "text": "For four inputs A, B, C and D, the Karnaugh map of F has columns CD = 00, 01, 1…"}
+{"answer": "2", "id": "boolean-algebra-logic-gates/hard/1/2cc595edd780", "text": "A logic circuit has inputs A, B, C and D. Gate P is a NOR gate whose inputs are…"}
+{"answer": "9", "id": "boolean-algebra-logic-gates/hard/2/db5a47d66f49", "text": "For four inputs A, B, C, D, F(A, B, C, D) is 1 on the rows numbered 2, 3, 4, 8,…"}
+{"answer": "9", "id": "boolean-algebra-logic-gates/medium/0/2bad1f8d5e96", "text": "For three inputs A, B and C, the Karnaugh map of F has columns BC = 00, 01, 11,…"}
+{"answer": "5", "id": "boolean-algebra-logic-gates/medium/1/fa92084f63b1", "text": "For three inputs A, B and C, the Karnaugh map of F has columns BC = 00, 01, 11,…"}
+{"answer": "5", "id": "boolean-algebra-logic-gates/medium/2/72625526cd3f", "text": "Let G = A ⊕ B·¬C and H = (¬A + ¬C)·¬B, both with inputs A, B and C. Apply ¬ fir…"}
 {"answer": "{(H, 1), (H, 2), (H, 3), (T, 1), (T, 2), (T, 3)}", "id": "build-sample-space/easy/0/4fe12e6d1223", "text": "Ben tosses a coin and spins a spinner with three equal sectors numbered 1, 2 an…"}
 {"answer": "{(A, 1), (A, 2), (B, 1), (B, 2), (C, 1), (C, 2)}", "id": "build-sample-space/easy/1/860252fce412", "text": "Ben picks a card marked A, B or C from a bag, then tosses a coin that is marked…"}
 {"answer": "{(A, 1), (A, 2), (B, 1), (B, 2), (C, 1), (C, 2)}", "id": "build-sample-space/easy/2/efe468cd0a27", "text": "Nina picks a card marked A, B or C from a bag, then tosses a coin that is marke…"}
@@ -685,12 +709,36 @@
 {"answer": "(a) 100; (b) 105; (c) 145", "id": "complex-modulus/exam/0/0a649c04f036", "text": "Let z = -9 - 8i and w = -12 - i. (a) Calculate Re(zw). (b) Calculate Im(zw). (c…"}
 {"answer": "(a) 30; (b) 40; (c) 50", "id": "complex-modulus/exam/1/270282116924", "text": "Two complex numbers are z = 5 - 5i and w = -1 + 7i. (a) Find the real part of z…"}
 {"answer": "(a) -40; (b) -30; (c) 50", "id": "complex-modulus/exam/2/b694290203a4", "text": "Two complex numbers are z = 1 + 7i and w = -5 + 5i. (a) Calculate Re(zw). (b) C…"}
+{"answer": "1 - (√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/easy/0/9ef3c7480b2e", "text": "A regular hexagon is drawn on an Argand diagram with its centre at the origin. …"}
+{"answer": "1 - (√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/easy/1/ba2c65af6acf", "text": "A regular hexagon is drawn on an Argand diagram with its centre at the origin. …"}
+{"answer": "√3 + i", "id": "complex-polygon-vertices-and-roots-of-unity/easy/2/2da972eb97a5", "text": "A regular 12-gon is drawn on an Argand diagram with its centre at the origin. O…"}
+{"answer": "(a) 326; (b) 564.65; (c) 1693.95; (d) -163 + (163√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/0/d3468f7a128c", "text": "Let P be the polygon whose vertices are the 3 roots of the equation z^3 = 34645…"}
+{"answer": "(a) 443; (b) 767.30; (c) 2301.90; (d) -443/2 + (443√3/2)i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/1/13221ef1571b", "text": "The 3 roots of z^3 = 86938307 are the vertices of a regular polygon on an Argan…"}
+{"answer": "(a) 147; (b) 254.61; (c) 763.83; (d) -147/2 + (147√3/2)i", "id": "complex-polygon-vertices-and-roots-of-unity/exam/2/d6a1313875fe", "text": "The 3 roots of z^3 = 3176523 are the vertices of a regular polygon on an Argand…"}
+{"answer": "432", "id": "complex-polygon-vertices-and-roots-of-unity/hard/0/8e2953563333", "text": "The 6 roots of z^6 = 46656 lie at the vertices of a regular polygon. For one ro…"}
+{"answer": "131072", "id": "complex-polygon-vertices-and-roots-of-unity/hard/1/39fce66b12b8", "text": "The 8 roots of z^8 = 65536 are the vertices of a regular polygon. Let V be one …"}
+{"answer": "1 + (√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/hard/2/5dab990d3b4c", "text": "The 3 roots of z^3 = 8 sum to zero. One of them is -1 - (√3)i. Find the sum of …"}
+{"answer": "2√3 + (-1 - 3√3)i", "id": "complex-polygon-vertices-and-roots-of-unity/medium/0/e09160fe3499", "text": "The point 9 + 5i is a vertex of an equilateral triangle whose centre is 3 + i. …"}
+{"answer": "-3 + 3√3 + (2 - √3)i", "id": "complex-polygon-vertices-and-roots-of-unity/medium/1/83cfda8502e2", "text": "A regular hexagon is centred at -4 - i on an Argand diagram and has a vertex at…"}
+{"answer": "-1", "id": "complex-polygon-vertices-and-roots-of-unity/medium/2/0750a164730e", "text": "ω is the 6th root of unity with the smallest positive argument. Evaluate ω + ω²…"}
 {"answer": "-5", "id": "complex-real-part/easy/0/656d4e2d289e", "text": "Find the real part of z = -5 − 4i."}
 {"answer": "4", "id": "complex-real-part/easy/1/320c7dd46449", "text": "Find the real part of z = 4 − 5i."}
 {"answer": "4", "id": "complex-real-part/easy/2/69434abd90e7", "text": "Find the real part of z = 4 + 6i."}
 {"answer": "(a) -1; (b) 3; (c) -8", "id": "complex-real-part/exam/0/54dcf8bc2c04", "text": "Let z = (-6 + 8i)/(3 + i). (a) Find Re(z), the real part of z. (b) Find Im(z), …"}
 {"answer": "(a) 6; (b) -7; (c) -13", "id": "complex-real-part/exam/1/7e9c03c6be9f", "text": "Let z = (-13 + i)/(-1 - i). (a) Find Re(z), the real part of z. (b) Find Im(z),…"}
 {"answer": "(a) -5; (b) 1; (c) 24", "id": "complex-real-part/exam/2/1f988fd55a50", "text": "The complex number z is given by z = (7 + 9i)/(-1 - 2i). (a) Find Re(z), the re…"}
+{"answer": "2 + i", "id": "complex-rotation-and-vertex-completion/easy/0/2c8e09056a4a", "text": "The complex number -1 + 2i is shown as a point on the complex plane. The point …"}
+{"answer": "6 + 8i", "id": "complex-rotation-and-vertex-completion/easy/1/a2be947b585a", "text": "On an Argand diagram, the point P represents z = 8 - 6i. P is rotated a quarter…"}
+{"answer": "2 - i", "id": "complex-rotation-and-vertex-completion/easy/2/b910978c6d16", "text": "The complex number 1 + 2i is shown as a point on the complex plane. The point i…"}
+{"answer": "(a) 4 - 3i; (b) 5; (c) 25; (d) -2 - 2i", "id": "complex-rotation-and-vertex-completion/exam/0/04137229a876", "text": "A and B are adjacent vertices of a square ABCD, and A, B, C, D run anticlockwis…"}
+{"answer": "(a) -5 - 12i; (b) 13; (c) 169; (d) -19 - 11i", "id": "complex-rotation-and-vertex-completion/exam/1/75a79e04a0c3", "text": "ABCD is a square whose vertices are labelled clockwise on an Argand diagram. A …"}
+{"answer": "(a) 15 + 8i; (b) 17; (c) 289; (d) 1 + 27i", "id": "complex-rotation-and-vertex-completion/exam/2/0c89f31a6140", "text": "A and B are adjacent vertices of a square ABCD, and A, B, C, D run anticlockwis…"}
+{"answer": "-7 + 4i", "id": "complex-rotation-and-vertex-completion/hard/0/dc8a7662e1d7", "text": "On an Argand diagram a square is centred at -3 + 5i and has a vertex at -2 + i.…"}
+{"answer": "6 + 7i", "id": "complex-rotation-and-vertex-completion/hard/1/3c5b3a0f56b5", "text": "ABCD is a square whose vertices are labelled in clockwise order on an Argand di…"}
+{"answer": "3 - √3 + (2 + 2√3)i", "id": "complex-rotation-and-vertex-completion/hard/2/ce4341c763e0", "text": "A and B are the points 1 + i and 5 + 3i of the complex plane. Find vertex C of …"}
+{"answer": "4 + √3 + (1 - 4√3)i", "id": "complex-rotation-and-vertex-completion/medium/0/e6c38e8e817a", "text": "Find, in exact form, the complex number represented by the image of -8 - 2i aft…"}
+{"answer": "1 + 3√3 + (-3 + √3)i", "id": "complex-rotation-and-vertex-completion/medium/1/cc70e3a00024", "text": "Find, in exact form, the complex number represented by the image of 2 - 6i afte…"}
+{"answer": "6 - 10i", "id": "complex-rotation-and-vertex-completion/medium/2/693c7edddd57", "text": "On an Argand diagram, A is the point -2 - 4i and C is the point 5 - 3i. A is tu…"}
 {"answer": "x > -1", "id": "composite-function-domain/easy/0/339c45f953ad", "text": "Let f(x) = 2x + 2 and g(x) = ln(x). Find the largest domain of the composite fu…"}
 {"answer": "x ≠ -2", "id": "composite-function-domain/easy/1/0689ae4fd33f", "text": "For f(x) = -3x - 6 and g(x) = 1/x, find the largest set of real x for which g(f…"}
 {"answer": "x ≠ -7/3", "id": "composite-function-domain/easy/2/c1257b5567df", "text": "Let f(x) = -3x - 7 and g(x) = 1/x. Find the largest domain of the composite fun…"}
@@ -1038,7 +1086,7 @@
 {"answer": "14.99", "id": "decimal-arithmetic/hard/2/dfc2d4bded96", "text": "10.24 + 4.75"}
 {"answer": "27", "id": "decimal-arithmetic/medium/0/eb147e5bd4bd", "text": "9 × 3"}
 {"answer": "10.7", "id": "decimal-arithmetic/medium/1/f42481bced3b", "text": "12.6 - 1.9"}
-{"answer": "0.52459", "id": "decimal-arithmetic/medium/2/12850756c954", "text": "6.4 ÷ 12.2"}
+{"answer": "0.52459", "id": "decimal-arithmetic/medium/2/34a41ec7ecf1", "text": "6.4 ÷ 12.2, correct to 6 significant figures"}
 {"answer": "0.4", "id": "decimal-place-value/easy/0/577597f298ea", "text": "What is the value of the digit 4 in 14.4?"}
 {"answer": "0.4", "id": "decimal-place-value/easy/1/b803056cc964", "text": "What is the value of the digit 4 in 9.4?"}
 {"answer": "0.9", "id": "decimal-place-value/easy/2/58589fc30197", "text": "What is the value of the digit 9 in 16.9?"}
@@ -1193,7 +1241,7 @@
 {"answer": "-2*sin(x) + 4*cos(4*x)", "id": "differentiate-trig/medium/1/a1b11cef60c6", "text": "Differentiate sin(4*x) + 2*cos(x) with respect to x"}
 {"answer": "-10*sin(2*x) + 6*cos(2*x)", "id": "differentiate-trig/medium/2/1fb6e641b2ef", "text": "Differentiate 3*sin(2*x) + 5*cos(2*x) with respect to x"}
 {"answer": "4.4", "id": "directional-derivative/easy/0/97003790b2b6", "text": "For f(x,y) = 3x^2 - 3xy + 3x - 2y^2, find the directional derivative at (-2, -1…"}
-{"answer": "5.07692", "id": "directional-derivative/easy/1/80b5068524b5", "text": "For f(x,y) = 2x^2 - xy - y^2, find the directional derivative at (1, -2) in the…"}
+{"answer": "5.07692", "id": "directional-derivative/easy/1/0154b3195b59", "text": "For f(x,y) = 2x^2 - xy - y^2, find the directional derivative at (1, -2) in the…"}
 {"answer": "5", "id": "directional-derivative/easy/2/cc9607fc6417", "text": "For f(x,y) = x^2 - 3xy - 2y^2, find the directional derivative at (0, -1) in th…"}
 {"answer": "(a) 1; (b) 8; (c) -2.88; (d) 8.06", "id": "directional-derivative/exam/0/472107db7f42", "text": "The height of a sand dune, in metres, at a point (x, y) hundreds of metres east…"}
 {"answer": "(a) 42; (b) 36; (c) 55.20; (d) 55.32", "id": "directional-derivative/exam/1/585d2bb19003", "text": "The height of a hillside, in metres, at a point (x, y) kilometres east and nort…"}
@@ -1203,7 +1251,7 @@
 {"answer": "48.4", "id": "directional-derivative/hard/2/65c4d5d70b1c", "text": "For f(x,y) = 3x^2 - xy - 8x + 5y^2, find the directional derivative at (-6, 2) …"}
 {"answer": "-9.2", "id": "directional-derivative/medium/0/19022b1ebbc2", "text": "For f(x,y) = x^2 - 2xy - 4x - 4y^2, find the directional derivative at (-2, 1) …"}
 {"answer": "-16", "id": "directional-derivative/medium/1/b1a56a948224", "text": "For f(x,y) = 4x^2 - 5y^2, find the directional derivative at (-2, -4) in the un…"}
-{"answer": "-21.5385", "id": "directional-derivative/medium/2/d2c660bec5dd", "text": "For f(x,y) = 2x^2 + 5xy + 5x + 5y^2, find the directional derivative at (-2, -1…"}
+{"answer": "-21.5385", "id": "directional-derivative/medium/2/a0b2396b52f5", "text": "For f(x,y) = 2x^2 + 5xy + 5x + 5y^2, find the directional derivative at (-2, -1…"}
 {"answer": "3", "id": "discrete-expected-value/easy/0/1038822ee773", "text": "A discrete random variable X has P(X=2)=1/5, P(X=3)=3/5, P(X=4)=1/5. Find E[X]."}
 {"answer": "-4", "id": "discrete-expected-value/easy/1/c185ab2baeaf", "text": "A discrete random variable X has P(X=-5)=2/5, P(X=-4)=1/5, P(X=-3)=2/5. Find E[…"}
 {"answer": "-2", "id": "discrete-expected-value/easy/2/4e4738130b0b", "text": "A discrete random variable X has P(X=-4)=3/5, P(X=-1)=1/5, P(X=3)=1/5. Find E[X…"}
@@ -3802,6 +3850,18 @@
 {"answer": "(a) 1400.00; (b) 4000.00; (c) 5; (d) 7000.00", "id": "flat-loan-repayment/exam/0/4f0bbd94eb1d", "text": "Hassan takes out a flat-interest loan of $20,000 for a ute, charged at 7% per y…"}
 {"answer": "(a) 1040.00; (b) 13000.00; (c) 2; (d) 2080.00", "id": "flat-loan-repayment/exam/1/3296be25c4bf", "text": "Lucas takes out a flat-interest loan of $26,000 for a rooftop solar system, cha…"}
 {"answer": "(a) 1440.00; (b) 7200.00; (c) 5; (d) 7200.00", "id": "flat-loan-repayment/exam/2/334536ff7e68", "text": "Mateo borrows $36,000 to pay for a motorbike. The loan charges flat interest of…"}
+{"answer": "20", "id": "floor-ceiling-estimation/easy/0/710a48ad00d0", "text": "A garden path is 248 cm wide. Each paver is 12 cm wide. How many whole pavers f…"}
+{"answer": "58", "id": "floor-ceiling-estimation/easy/1/e7e99b00ce94", "text": "A garden path is 3,519 cm wide. Each paver is 60 cm wide. How many whole pavers…"}
+{"answer": "59", "id": "floor-ceiling-estimation/easy/2/615a1522ea0f", "text": "A plank is 1,077 cm long. Each shelf needs a piece 18 cm long. How many shelves…"}
+{"answer": "(a) 41; (b) 4; (c) 2500; (d) 778", "id": "floor-ceiling-estimation/exam/0/a38297070de1", "text": "Boxes are needed for 652 workbooks at a school. Every box holds 16 workbooks, a…"}
+{"answer": "(a) 13; (b) 23; (c) 800; (d) 384", "id": "floor-ceiling-estimation/exam/1/17d2081f258c", "text": "A school must pack 445 workbooks into boxes. Each box holds 36 workbooks, and e…"}
+{"answer": "(a) 61; (b) 3; (c) 2800; (d) 848", "id": "floor-ceiling-estimation/exam/2/9b23a7a3a59a", "text": "Boxes are needed for 729 workbooks at a school. Every box holds 12 workbooks, a…"}
+{"answer": "20", "id": "floor-ceiling-estimation/hard/0/7503a12ac0f8", "text": "A van can carry at most 800 kg and at most 14 crates on any trip. 178 crates, e…"}
+{"answer": "59", "id": "floor-ceiling-estimation/hard/1/c3b8ada17d85", "text": "A packer has between 1,949 and 2,118 pencils to pack (the exact number is not y…"}
+{"answer": "20", "id": "floor-ceiling-estimation/hard/2/8e67c57adda7", "text": "A straight fence is 46 m long. A post is placed at each end and the others are …"}
+{"answer": "3", "id": "floor-ceiling-estimation/medium/0/7e300dc43b32", "text": "4 classes of 31 students are going to a concert, with 8 teachers going too. Eac…"}
+{"answer": "26420", "id": "floor-ceiling-estimation/medium/1/f643d98ff08b", "text": "A student works out 95 x 32 and gets 30,420. To check, round both numbers up to…"}
+{"answer": "34010", "id": "floor-ceiling-estimation/medium/2/bd67137d23aa", "text": "A student works out 57 x 67 and gets 38,210. To check, round both numbers up to…"}
 {"answer": "1", "id": "fourier-coefficient-simple/easy/0/eb0e6515329d", "text": "On [0, π], let f(x) = x^2. Compute its exact cosine Fourier coefficient for mod…"}
 {"answer": "-4/pi", "id": "fourier-coefficient-simple/easy/1/055133199256", "text": "On [0, π], let f(x) = x^1. Compute its exact cosine Fourier coefficient for mod…"}
 {"answer": "-1", "id": "fourier-coefficient-simple/easy/2/43f86c8cfa87", "text": "On [0, π], let f(x) = x^1. Compute its exact sine Fourier coefficient for mode …"}
@@ -3931,6 +3991,18 @@
 {"answer": "2", "id": "graph-adjacency-matrices/medium/0/c5010463b5ed", "text": "A network has the adjacency matrix [[0, 0, 0, 0, 0, 1], [0, 0, 0, 1, 1, 1], [0,…"}
 {"answer": "2", "id": "graph-adjacency-matrices/medium/1/f1dec3819f2c", "text": "A network has the adjacency matrix [[0, 1, 1, 1, 1], [1, 0, 1, 1, 0], [1, 1, 0,…"}
 {"answer": "4", "id": "graph-adjacency-matrices/medium/2/36bfa586bbed", "text": "A network has the adjacency matrix [[0, 1, 1, 0, 1, 1], [1, 0, 0, 1, 1, 1], [1,…"}
+{"answer": "6", "id": "graph-complete-bipartite-connected/easy/0/c298141f94a4", "text": "A network joins 11 towns, A to K. Each pair of letters names the two towns one …"}
+{"answer": "9", "id": "graph-complete-bipartite-connected/easy/1/3bacb8d4299a", "text": "A simple graph has 9 vertices, A to I, one for each of 9 computers. Its 27 edge…"}
+{"answer": "66", "id": "graph-complete-bipartite-connected/easy/2/88211dcfdf3f", "text": "A complete graph has 12 vertices, one for each of 12 teams: every pair of teams…"}
+{"answer": "(a) 26; (b) 7; (c) 35; (d) 22", "id": "graph-complete-bipartite-connected/exam/0/76aaa2b3154f", "text": "A connected simple graph has the 12 vertices A to L and the 13 edges AG, BE, CG…"}
+{"answer": "(a) 32; (b) 7; (c) 21; (d) 5", "id": "graph-complete-bipartite-connected/exam/1/a0015063c510", "text": "A connected simple graph has the 10 vertices A to J and the 16 edges AB, AF, AJ…"}
+{"answer": "(a) 26; (b) 8; (c) 16; (d) 3", "id": "graph-complete-bipartite-connected/exam/2/26001ca09f4f", "text": "A connected simple graph has the 10 vertices A to J and the 13 edges AD, BD, BE…"}
+{"answer": "20", "id": "graph-complete-bipartite-connected/hard/0/95dd3c38748b", "text": "A simple graph with 9 vertices is bipartite. What is the largest number of edge…"}
+{"answer": "28", "id": "graph-complete-bipartite-connected/hard/1/50d505759668", "text": "A simple graph has 10 vertices and exactly 3 connected components. What is the …"}
+{"answer": "56", "id": "graph-complete-bipartite-connected/hard/2/4bd62e82e81f", "text": "15 people are split into two groups, and each pair of people, one from each gro…"}
+{"answer": "15", "id": "graph-complete-bipartite-connected/medium/0/14f511bc3c70", "text": "A bipartite graph has the vertices A, B, E, F, G, I in set X and C, D, H, J in …"}
+{"answer": "54", "id": "graph-complete-bipartite-connected/medium/1/9e2108dc9fd3", "text": "In a complete bipartite graph one set has 9 vertices and the other has 3, and e…"}
+{"answer": "16", "id": "graph-complete-bipartite-connected/medium/2/0d28288173ed", "text": "A bipartite graph has the vertices A, E, H, I, J in set X and B, C, D, F, G in …"}
 {"answer": "It has an Eulerian circuit.", "id": "graph-eulerian-trails-circuits/easy/0/37aed505cecd", "text": "Towns A to F in a country region are linked by direct roads. Each pair of lette…"}
 {"answer": "It has an Eulerian trail but no Eulerian circuit.", "id": "graph-eulerian-trails-circuits/easy/1/d0321053dd7f", "text": "A rail network connects 5 stations, A to E. Each pair of letters names the two …"}
 {"answer": "It has an Eulerian circuit.", "id": "graph-eulerian-trails-circuits/easy/2/ff3b8c94b66d", "text": "Towns A to E in a country region are linked by direct roads. Each pair of lette…"}
@@ -4477,6 +4549,18 @@
 {"answer": "(a) 18; (b) the daily maximum temperature", "id": "limits-of-a-bivariate-claim/medium/0/9c2082ceaae7", "text": "Sam recorded the ice creams sold at a beach kiosk each day (tens) and the peopl…"}
 {"answer": "(a) 97; (b) Unreliable: the value of x is outside the range…", "id": "limits-of-a-bivariate-claim/medium/1/7c3a4f1be7c4", "text": "Noah collected data on students, where x is the hours of study each week and y …"}
 {"answer": "(a) 142; (b) Unreliable: the value of x is outside the rang…", "id": "limits-of-a-bivariate-claim/medium/2/eab05a93c528", "text": "Tom collected data on sunflowers, where x is the age of a sunflower in weeks an…"}
+{"answer": "-6", "id": "line-meets-parabola-circle/easy/0/8bca9354adc2", "text": "The line y = -9x + 12 and the parabola y = -x² - x meet at two points. Find the…"}
+{"answer": "6", "id": "line-meets-parabola-circle/easy/1/f92c58a4686c", "text": "Find the larger x-coordinate where the parabola y = x² - 4x - 5 and the line y …"}
+{"answer": "-3", "id": "line-meets-parabola-circle/easy/2/9b6752402536", "text": "Find the sum of the x-coordinates of the two points where the parabola y = -x² …"}
+{"answer": "(a) 600/169; (b) 65; (c) -60/13; (d) 25/13", "id": "line-meets-parabola-circle/exam/0/7aa47d80ad11", "text": "The line L: 5y = 12x - 25 and the circle S: x² + y² = 25 intersect at two point…"}
+{"answer": "(a) 476/169; (b) 52; (c) 20/13; (d) 48/13", "id": "line-meets-parabola-circle/exam/1/3738518b169b", "text": "The line L: 12y = -5x - 20 and the circle S: x² + y² = 16 intersect at two poin…"}
+{"answer": "(a) 360/169; (b) 39; (c) 36/13; (d) 15/13", "id": "line-meets-parabola-circle/exam/2/25aa70da53b3", "text": "The line L: 5y = -12x + 15 and the circle S: x² + y² = 9 intersect at two point…"}
+{"answer": "17", "id": "line-meets-parabola-circle/hard/0/fe77b22411f4", "text": "The line y = -x + k and the circle x² + y² = 36 are drawn together. For how man…"}
+{"answer": "65", "id": "line-meets-parabola-circle/hard/1/a207be5f07be", "text": "Find the positive value of C for which the line 12y = -5x + C touches the circl…"}
+{"answer": "15", "id": "line-meets-parabola-circle/hard/2/c0e14c4ab9dd", "text": "Consider the line y = -x + k and the circle x² + y² = 25. Count the whole numbe…"}
+{"answer": "9/2", "id": "line-meets-parabola-circle/medium/0/d6496e5d58d4", "text": "The line y = -5x + 7 and the parabola y = -x² + 4x + 3 intersect at the points …"}
+{"answer": "5/3", "id": "line-meets-parabola-circle/medium/1/ef89411289c2", "text": "The line y = 5x + k is a tangent to the parabola y = 3x² + 3x + 2. Find k."}
+{"answer": "5/4", "id": "line-meets-parabola-circle/medium/2/68dfe8834e71", "text": "The line y = -6x - 7 and the parabola y = -2x² - x + 2 intersect at the points …"}
 {"answer": "4", "id": "line-sphere-and-plane-intersection/easy/0/51a3eae563a5", "text": "Find the distance from the point (0, 3, 0) to the plane -2x + y - 2z = -9."}
 {"answer": "17/3", "id": "line-sphere-and-plane-intersection/easy/1/7b180d37cfdd", "text": "Find the distance from the point (5, -1, -5) to the plane -2x - y + 2z = -2."}
 {"answer": "10/7", "id": "line-sphere-and-plane-intersection/easy/2/dfe0d63f9eed", "text": "Find the distance from the point (-1, 2, -1) to the plane -3x - 2y - 6z = -5."}
@@ -4912,6 +4996,18 @@
 {"answer": "2", "id": "name-basic-shapes/medium/0/1a8684c7c2ee", "text": "Count the triangles."}
 {"answer": "4", "id": "name-basic-shapes/medium/1/4d9442e5a347", "text": "How many squares can you see?"}
 {"answer": "2", "id": "name-basic-shapes/medium/2/f23b9723358c", "text": "Count the squares."}
+{"answer": "27", "id": "network-cut-capacity-max-flow/easy/0/62c2115f557d", "text": "Data flows from a server S to a client T through a network of one-way cables. T…"}
+{"answer": "14", "id": "network-cut-capacity-max-flow/easy/1/b1890ccfa03d", "text": "Water flows from a reservoir S to a town T through a network of one-way pipes. …"}
+{"answer": "18", "id": "network-cut-capacity-max-flow/easy/2/e017653eb1bf", "text": "Water flows from a reservoir S to a town T through a network of one-way pipes. …"}
+{"answer": "(a) 39; (b) 38; (c) 13; (d) 6", "id": "network-cut-capacity-max-flow/exam/0/4bcb58dff9db", "text": "Traffic flows from a depot S to a stadium T along one-way roads. There are 3 ju…"}
+{"answer": "(a) 22; (b) 26; (c) 7; (d) 10", "id": "network-cut-capacity-max-flow/exam/1/30d71a22f92b", "text": "Water flows from a reservoir S to a town T through a network of one-way pipes. …"}
+{"answer": "(a) 24; (b) 26; (c) 10; (d) 14", "id": "network-cut-capacity-max-flow/exam/2/fb6ea658f7da", "text": "Data flows from a server S to a client T through a network of one-way cables. T…"}
+{"answer": "16", "id": "network-cut-capacity-max-flow/hard/0/1a864a1937b1", "text": "Data flows from a server S to a client T through a network of one-way cables. T…"}
+{"answer": "16", "id": "network-cut-capacity-max-flow/hard/1/83d0e71081cc", "text": "Traffic flows from a depot S to a stadium T along one-way roads. There are 4 ju…"}
+{"answer": "19", "id": "network-cut-capacity-max-flow/hard/2/317cce1f3d6d", "text": "Data flows from a server S to a client T through a network of one-way cables. T…"}
+{"answer": "20", "id": "network-cut-capacity-max-flow/medium/0/7a118fa903a3", "text": "Water flows from a reservoir S to a town T through a network of one-way pipes. …"}
+{"answer": "31", "id": "network-cut-capacity-max-flow/medium/1/965625b88bf2", "text": "Traffic flows from a depot S to a stadium T along one-way roads. There are 3 ju…"}
+{"answer": "10", "id": "network-cut-capacity-max-flow/medium/2/29bbc839c632", "text": "Traffic flows from a depot S to a stadium T along one-way roads. There are 3 ju…"}
 {"answer": "9", "id": "network-model-from-situation/easy/0/0344528e1d52", "text": "Each of 7 classmates wrote down the classmates they study with. Studying togeth…"}
 {"answer": "5", "id": "network-model-from-situation/easy/1/4b26a27faf4b", "text": "Each of 7 classmates wrote down the classmates they study with. Studying togeth…"}
 {"answer": "4", "id": "network-model-from-situation/easy/2/2c7a2956cb8b", "text": "7 friends keep a list of the people they message regularly. Messaging goes both…"}
@@ -4984,6 +5080,18 @@
 {"answer": "7*x - 3", "id": "nth-term-rule/medium/0/c2e1ffea4305", "text": "Find the nth-term rule for the sequence: 4, 11, 18, 25, ... (use x for the term…"}
 {"answer": "4 - 5*x", "id": "nth-term-rule/medium/1/3237b4994487", "text": "Find the nth-term rule for the sequence: -1, -6, -11, -16, ... (use x for the t…"}
 {"answer": "4*x + 1", "id": "nth-term-rule/medium/2/b196760cc646", "text": "Find the nth-term rule for the sequence: 5, 9, 13, 17, ... (use x for the term …"}
+{"answer": "10001011", "id": "number-bases-primes-and-divisors/easy/0/499da8a28257", "text": "What is 139 in base 2? Write the numeral with the digits 0 and 1 only."}
+{"answer": "100110", "id": "number-bases-primes-and-divisors/easy/1/8c9f5ea018f8", "text": "Convert 38 to binary, giving your answer as a string of 0s and 1s."}
+{"answer": "11100000", "id": "number-bases-primes-and-divisors/easy/2/3fc8411a77ad", "text": "Convert 224 to binary, giving your answer as a string of 0s and 1s."}
+{"answer": "(a) 676; (b) 9; (c) 9; (d) 52", "id": "number-bases-primes-and-divisors/exam/0/a73ec0ece7d3", "text": "The hexadecimal number 2A4 is converted to decimal; call the decimal number N. …"}
+{"answer": "(a) 1000; (b) 11; (c) 16; (d) 25", "id": "number-bases-primes-and-divisors/exam/1/cbea0633f4db", "text": "The hexadecimal number 3E8 is converted to decimal; call the decimal number N. …"}
+{"answer": "(a) 676; (b) 9; (c) 9; (d) 52", "id": "number-bases-primes-and-divisors/exam/2/ab75fda501f7", "text": "The hexadecimal number 2A4 is converted to decimal; call the decimal number N. …"}
+{"answer": "22", "id": "number-bases-primes-and-divisors/hard/0/be2a924de7e9", "text": "7031 is the product of two primes. A student tests 7031 for factors by dividing…"}
+{"answer": "14", "id": "number-bases-primes-and-divisors/hard/1/fe2e625e9fc7", "text": "3827 is the product of two primes. A student tests 3827 for factors by dividing…"}
+{"answer": "6084", "id": "number-bases-primes-and-divisors/hard/2/da3908699ef8", "text": "Let N = 2 × 3² × 5³. What is the sum of all its positive divisors?"}
+{"answer": "11", "id": "number-bases-primes-and-divisors/medium/0/5ad42bf5d8fa", "text": "913 is not prime and it has no factor of 2, 3 or 5. Using trial division by pri…"}
+{"answer": "11", "id": "number-bases-primes-and-divisors/medium/1/17d3bd402a45", "text": "583 is not prime and it has no factor of 2, 3 or 5. Using trial division by pri…"}
+{"answer": "110110001100", "id": "number-bases-primes-and-divisors/medium/2/1becd072b597", "text": "Convert the hexadecimal number D8C to binary. Give the answer as a string of 0s…"}
 {"answer": "8", "id": "number-bonds-to-10/easy/0/c1aeec043b99", "text": "2 and what make 10?"}
 {"answer": "1", "id": "number-bonds-to-10/easy/1/098172a71e1d", "text": "9 and what make 10?"}
 {"answer": "10", "id": "number-bonds-to-10/easy/2/814a82c6cd17", "text": "0 and what make 10?"}
@@ -5707,6 +5815,18 @@
 {"answer": "[[0, 1], [-1, 0]]", "id": "reflections-compose-to-rotation/medium/0/40ef0b2a3663", "text": "A point is reflected in the line through the origin at an angle of 120° to the …"}
 {"answer": "[[0, 1], [-1, 0]]", "id": "reflections-compose-to-rotation/medium/1/9a46ef912c7b", "text": "A point is reflected in the line through the origin at an angle of 15° to the p…"}
 {"answer": "[[1/2, √(3)/2], [-√(3)/2, 1/2]]", "id": "reflections-compose-to-rotation/medium/2/23a34f7669e5", "text": "The reflection in the line through the origin at an angle of 150° to the positi…"}
+{"answer": "44", "id": "relative-velocity-vectors/easy/0/18c883945cf6", "text": "Two cars travel along a straight road in the same direction. Car A travels at 1…"}
+{"answer": "4", "id": "relative-velocity-vectors/easy/1/bec651913d6b", "text": "Relative to the ground, Ship A moves with velocity -2i + 3j km/h and Ship B wit…"}
+{"answer": "6", "id": "relative-velocity-vectors/easy/2/7defbab17f05", "text": "Aircraft A has velocity -7i + 7j km/h and Aircraft B has velocity i + j km/h, w…"}
+{"answer": "(a) 5; (b) 20; (c) 40; (d) 5", "id": "relative-velocity-vectors/exam/0/fc38318193a0", "text": "At noon Ship A is at (-60, 76) km and Ship B is at (-4, -16) km, with x measure…"}
+{"answer": "(a) 5; (b) 19; (c) 25; (d) 7", "id": "relative-velocity-vectors/exam/1/b2e5795d3dd2", "text": "At noon Ship A is at (111, -23) km and Ship B is at (20, 14) km, with x measure…"}
+{"answer": "(a) 5; (b) 13; (c) 60; (d) 8", "id": "relative-velocity-vectors/exam/2/acd88e55ae35", "text": "At noon Ship A is at (24, -72) km and Ship B is at (15, 16) km, with x measured…"}
+{"answer": "10", "id": "relative-velocity-vectors/hard/0/430edb1d2124", "text": "At noon Ship A is at (-30, 41) km and Ship B is at (-20, 11) km, with x measure…"}
+{"answer": "1", "id": "relative-velocity-vectors/hard/1/30772bfa11b1", "text": "At noon Ship A is at (17, -19) km and Ship B is at (12, -4) km, with x measured…"}
+{"answer": "5", "id": "relative-velocity-vectors/hard/2/f73972158755", "text": "A coastguard boat at (5, 0) km can travel at a constant speed of 15 km/h in any…"}
+{"answer": "-2", "id": "relative-velocity-vectors/medium/0/0223dbecf81a", "text": "At time 0 Boat A is at (16, -27) km and Boat B is at (10, -13) km, with x measu…"}
+{"answer": "25", "id": "relative-velocity-vectors/medium/1/676febd4a750", "text": "At time 0 Aircraft A is at (-20, 11) km and Aircraft B is at (-2, -18) km, with…"}
+{"answer": "13", "id": "relative-velocity-vectors/medium/2/6db907d7f589", "text": "Drone A has velocity -4i - 16j m/s and Drone B has velocity -9i - 4j m/s, with …"}
 {"answer": "Appropriate: the residuals are scattered at random about ze…", "id": "residual-plot-linear-model-check/easy/0/5d23b115025c", "text": "The residuals from a least-squares line fitted to test score and hours of study…"}
 {"answer": "Appropriate: the residuals are scattered at random about ze…", "id": "residual-plot-linear-model-check/easy/1/f8006c14e863", "text": "A least-squares line is fitted to data on dam inflow against rainfall in a mont…"}
 {"answer": "Not appropriate: the residuals form a curved pattern", "id": "residual-plot-linear-model-check/easy/2/bd3ee9acdae9", "text": "The residuals from a least-squares line fitted to dam inflow and rainfall in a …"}
@@ -7726,9 +7846,9 @@
 {"answer": "(a) -2/5; (b) 29/25; (c) 2/29 - 5*exp(15*pi/4)/29; (d) -2*e…", "id": "senior-integrate-by-parts/exam/0/b57e9cf774c0", "text": "Let I = ∫ from x = 0 to x = 3π/4 of e^(5x)·sin(2x) dx and J = ∫ from x = 0 to x…"}
 {"answer": "(a) -5/2; (b) 29/4; (c) 5/29 - 5*exp(4*pi/5)/29; (d) -2/29 …", "id": "senior-integrate-by-parts/exam/1/51312212239a", "text": "Consider the integrals I = ∫ from x = 0 to x = 2π/5 of e^(2x)·sin(5x) dx and J …"}
 {"answer": "(a) -1/2; (b) 5/4; (c) 1/10 + exp(2*pi)/10; (d) -exp(2*pi)/…", "id": "senior-integrate-by-parts/exam/2/46f8601ca6dc", "text": "Two integrals are defined by I = ∫ from x = 0 to x = π/2 of e^(4x)·sin(2x) dx a…"}
-{"answer": "-15 + 32*log(4)", "id": "senior-integrate-by-parts/hard/0/38d1f5f82482", "text": "Find ∫ from x = 1 to x = 4 of 4·x·log(x) dx. Give your answer as an exact value."}
-{"answer": "-27*log(3)/2 - 12 + 75*log(5)/2", "id": "senior-integrate-by-parts/hard/1/5eb024bfaede", "text": "Find ∫ from x = 3 to x = 5 of 3·x·log(x) dx. Give your answer as an exact value."}
-{"answer": "-3 - 2*log(2) + 8*log(4)", "id": "senior-integrate-by-parts/hard/2/693f69671436", "text": "Find ∫ from x = 2 to x = 4 of x·log(x) dx. Give your answer as an exact value."}
+{"answer": "-15 + 32*ln(4)", "id": "senior-integrate-by-parts/hard/0/44542ca03558", "text": "Find ∫ from x = 1 to x = 4 of 4·x·ln(x) dx. Give your answer as an exact value."}
+{"answer": "-27*ln(3)/2 - 12 + 75*ln(5)/2", "id": "senior-integrate-by-parts/hard/1/2255b8d4df02", "text": "Find ∫ from x = 3 to x = 5 of 3·x·ln(x) dx. Give your answer as an exact value."}
+{"answer": "-3 - 2*ln(2) + 8*ln(4)", "id": "senior-integrate-by-parts/hard/2/891f098ac6dc", "text": "Find ∫ from x = 2 to x = 4 of x·ln(x) dx. Give your answer as an exact value."}
 {"answer": "-3/25 + 3*pi/25", "id": "senior-integrate-by-parts/medium/0/a52fc81d352b", "text": "Find ∫ from x = π/10 to x = π/5 of 3·x·sin(5·x) dx. Give your answer as an exac…"}
 {"answer": "-5/36 + 5*pi/36", "id": "senior-integrate-by-parts/medium/1/a16a2656599f", "text": "Find ∫ from x = π/12 to x = π/6 of 5·x·sin(6·x) dx. Give your answer as an exac…"}
 {"answer": "-2/9 + 2*pi/9", "id": "senior-integrate-by-parts/medium/2/7f7a3beeb339", "text": "Find ∫ from x = π/6 to x = π/3 of 2·x·sin(3·x) dx. Give your answer as an exact…"}
@@ -9550,21 +9670,21 @@
 {"answer": "8", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/medium/0/ed29c4f28960", "text": "Point A is (-3, -1). Point B is (5, 5). The vector from A to B can be written i…"}
 {"answer": "-8", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/medium/1/89d57f298c5c", "text": "Point A is (-9, 1). Point B is (-6, -7). The vector from A to B can be written …"}
 {"answer": "2", "id": "senior-use-ordered-pair-notation-and-column-vector-notation/medium/2/af63b80f1731", "text": "Point A is (3, -9). Point B is (5, 1). The vector from A to B can be written in…"}
-{"answer": "-log(9)/5 + log(4)/5 + log(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/0/fbd39ed3219b", "text": "Find ∫ from x = 7 to x = 10 of 1/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
-{"answer": "-log(9)/4 - log(4)/4 + log(5)/4 + log(8)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/1/82cecd16a698", "text": "Find ∫ from x = 12 to x = 13 of 1/((x - 4)·(x - 8)) dx. Give your answer as an …"}
-{"answer": "-log(12)/5 - log(4)/5 + log(7)/5 + log(9)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/2/f3383ccdd139", "text": "Find ∫ from x = 11 to x = 14 of 1/((x - 2)·(x - 7)) dx. Give your answer as an …"}
+{"answer": "-ln(9)/5 + ln(4)/5 + ln(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/0/decce3de0e9a", "text": "Find ∫ from x = 7 to x = 10 of 1/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
+{"answer": "-ln(9)/4 - ln(4)/4 + ln(5)/4 + ln(8)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/1/319462098f08", "text": "Find ∫ from x = 12 to x = 13 of 1/((x - 4)·(x - 8)) dx. Give your answer as an …"}
+{"answer": "-ln(12)/5 - ln(4)/5 + ln(7)/5 + ln(9)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/easy/2/be1da9c4a875", "text": "Find ∫ from x = 11 to x = 14 of 1/((x - 2)·(x - 7)) dx. Give your answer as an …"}
 {"answer": "-14/3 + log(9)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam-single/0/e2f177e52d71", "text": "Find ∫ from x = -1 to x = 1 of (2x - 3)/(x + 2)^2 dx. Give your answer as an ex…"}
 {"answer": "log(5) + 4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam-single/1/ad875d06dadd", "text": "Find ∫ from x = 3 to x = 7 of (x + 3)/(x - 2)^2 dx. Give your answer as an exac…"}
 {"answer": "8/5 - log(125)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam-single/2/5c1087c4cbeb", "text": "Find ∫ from x = -1 to x = 3 of (-3x - 4)/(x + 2)^2 dx. Give your answer as an e…"}
-{"answer": "(a) 3; (b) 3; (c) 4; (d) 4*log(7/4) + 3*log(4) + 9", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/0/a991477d9b00", "text": "Let f(x) = (3x^2 + 4x - 11)/((x - 2)(x + 1)). The function can be written as k …"}
-{"answer": "(a) 1; (b) 3; (c) 1; (d) 3*log(5/2) + 33/10", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/1/479252aca73b", "text": "Let f(x) = (x^2 + 5x + 5)/((x + 1)^2). The function can be written as k + A/(x …"}
-{"answer": "(a) 3; (b) -2; (c) -5; (d) 13/6 - 2*log(3/2)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/2/fa6577df4b5b", "text": "The rational function f(x) = (3x^2 - 14x + 11)/((x - 2)^2) is to be integrated.…"}
-{"answer": "-log(6)/8 - log(7)/12 + log(2)/24 + log(8)/12 + log(5)/8", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/0/dc8e08c48eaf", "text": "Find ∫ from x = 9 to x = 10 of 1/((x - 2)·(x - 4)·(x - 8)) dx. Give your answer…"}
-{"answer": "-log(4)/8 - log(7)/24 + log(2)/12 + log(8)/24 + log(3)/8", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/1/231f67892ac0", "text": "Find ∫ from x = 10 to x = 11 of 1/((x - 3)·(x - 7)·(x - 9)) dx. Give your answe…"}
-{"answer": "-7*log(6)/30 + log(4)/10 + log(9)/15 + log(3)/6", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/2/d6f7627e2b36", "text": "Find ∫ from x = 10 to x = 13 of 1/((x - 4)·(x - 7)·(x - 9)) dx. Give your answe…"}
-{"answer": "-6*log(2)/5 - log(11)/5 + log(7)/5 + 6*log(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/0/a2f87f2aa64a", "text": "Find ∫ from x = 8 to x = 12 of x/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
-{"answer": "-log(7) - 2*log(2) + log(6) + 2*log(3)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/1/db1f88fbd310", "text": "Find ∫ from x = 10 to x = 11 of x/((x - 4)·(x - 8)) dx. Give your answer as an …"}
-{"answer": "-5*log(3)/4 - log(8)/4 + log(7)/4 + 5*log(4)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/2/7e57cbeb2a80", "text": "Find ∫ from x = 8 to x = 9 of x/((x - 1)·(x - 5)) dx. Give your answer as an ex…"}
+{"answer": "(a) 3; (b) 3; (c) 4; (d) 4*ln(7/4) + 3*ln(4) + 9", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/0/9a98adfd589b", "text": "Let f(x) = (3x^2 + 4x - 11)/((x - 2)(x + 1)). The function can be written as k …"}
+{"answer": "(a) 1; (b) 3; (c) 1; (d) 3*ln(5/2) + 33/10", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/1/22c036ce2427", "text": "Let f(x) = (x^2 + 5x + 5)/((x + 1)^2). The function can be written as k + A/(x …"}
+{"answer": "(a) 3; (b) -2; (c) -5; (d) 13/6 - 2*ln(3/2)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/exam/2/dfd0f922a0be", "text": "The rational function f(x) = (3x^2 - 14x + 11)/((x - 2)^2) is to be integrated.…"}
+{"answer": "-ln(6)/8 - ln(7)/12 + ln(2)/24 + ln(8)/12 + ln(5)/8", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/0/2ab92fdaa41b", "text": "Find ∫ from x = 9 to x = 10 of 1/((x - 2)·(x - 4)·(x - 8)) dx. Give your answer…"}
+{"answer": "-ln(4)/8 - ln(7)/24 + ln(2)/12 + ln(8)/24 + ln(3)/8", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/1/67e81a0704c2", "text": "Find ∫ from x = 10 to x = 11 of 1/((x - 3)·(x - 7)·(x - 9)) dx. Give your answe…"}
+{"answer": "-7*ln(6)/30 + ln(4)/10 + ln(9)/15 + ln(3)/6", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/hard/2/b51193ecde6b", "text": "Find ∫ from x = 10 to x = 13 of 1/((x - 4)·(x - 7)·(x - 9)) dx. Give your answe…"}
+{"answer": "-6*ln(2)/5 - ln(11)/5 + ln(7)/5 + 6*ln(6)/5", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/0/7f5457d9d944", "text": "Find ∫ from x = 8 to x = 12 of x/((x - 1)·(x - 6)) dx. Give your answer as an e…"}
+{"answer": "-ln(7) - 2*ln(2) + ln(6) + 2*ln(3)", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/1/b56905a9b217", "text": "Find ∫ from x = 10 to x = 11 of x/((x - 4)·(x - 8)) dx. Give your answer as an …"}
+{"answer": "-5*ln(3)/4 - ln(8)/4 + ln(7)/4 + 5*ln(4)/4", "id": "senior-use-partial-fractions-where-necessary-for-integration-in/medium/2/7e7d2b3938ac", "text": "Find ∫ from x = 8 to x = 9 of x/((x - 1)·(x - 5)) dx. Give your answer as an ex…"}
 {"answer": "35", "id": "senior-use-pascal-s-triangle-and-its-properties/easy/0/515ca986a2ff", "text": "In Pascal's triangle, what is the value at position 4 in row 7?"}
 {"answer": "21", "id": "senior-use-pascal-s-triangle-and-its-properties/easy/1/c73e881ef507", "text": "In Pascal's triangle, what is the value at position 2 in row 7?"}
 {"answer": "6", "id": "senior-use-pascal-s-triangle-and-its-properties/easy/2/3d568feacdee", "text": "In Pascal's triangle, what is the value at position 2 in row 4?"}
@@ -10276,6 +10396,18 @@
 {"answer": "c = 37.8", "id": "sine-rule/solve/0/36f7020dd74f", "text": "In triangle ABC, angle A = 46°, angle B = 30° and side a = 28 (a is opposite A)…"}
 {"answer": "c = 28.7", "id": "sine-rule/solve/1/29d45fe66b50", "text": "In triangle ABC, angle A = 51°, angle B = 81° and side a = 30 (a is opposite A)…"}
 {"answer": "c = 15.8", "id": "sine-rule/solve/2/846856546eaa", "text": "In triangle ABC, angle A = 44°, angle B = 41° and side a = 11 (a is opposite A)…"}
+{"answer": "π", "id": "sinusoid-features-from-equation/easy/0/d769d7948df8", "text": "Find the period of y = 3sin(2(x - 2π/3)) + 3."}
+{"answer": "4", "id": "sinusoid-features-from-equation/easy/1/5a41f1070715", "text": "What is the amplitude of y = 4sin(2(x + π/6)) - 2?"}
+{"answer": "1", "id": "sinusoid-features-from-equation/easy/2/0136367ebef7", "text": "Find the value that is halfway between the maximum and the minimum of y = 2cos(…"}
+{"answer": "(a) 4; (b) π; (c) π/4; (d) 7", "id": "sinusoid-features-from-equation/exam/0/ba0c4c7395c7", "text": "A sinusoidal model is given by y = -4sin(2x - π/2) + 3, where x is in radians. …"}
+{"answer": "(a) 4; (b) π; (c) -π/4; (d) 2", "id": "sinusoid-features-from-equation/exam/1/3b4d571de82b", "text": "A sinusoidal model is given by y = 4sin(2x + π/2) - 2, where x is in radians. (…"}
+{"answer": "(a) 3; (b) π; (c) -π/4; (d) 4", "id": "sinusoid-features-from-equation/exam/2/512147445872", "text": "A sinusoidal model is given by y = 3sin(2x + π/2) + 1, where x is in radians. (…"}
+{"answer": "π/12", "id": "sinusoid-features-from-equation/hard/0/2f2486b8c705", "text": "On the graph of y = -4sin(2x + π/3) - 3, find the smallest positive value of x …"}
+{"answer": "11π/12", "id": "sinusoid-features-from-equation/hard/1/a62a968b98aa", "text": "For y = -2cos(x + π/12) + 3, what is the least x > 0 at which y is at its great…"}
+{"answer": "2π/3", "id": "sinusoid-features-from-equation/hard/2/590344927720", "text": "On the graph of y = -2cos(2(x - 2π/3)) - 1, find the smallest positive value of…"}
+{"answer": "-π/4", "id": "sinusoid-features-from-equation/medium/0/3c2cb82b65dc", "text": "Find the horizontal translation (right is positive) that takes the graph of y =…"}
+{"answer": "3", "id": "sinusoid-features-from-equation/medium/1/c164f0640dfb", "text": "Find the amplitude of the graph of y = 3cos(3x + 9π/4), which oscillates about …"}
+{"answer": "2π/3", "id": "sinusoid-features-from-equation/medium/2/5ca1b8e9a295", "text": "Find the period of y = -3sin(3x - 2π)."}
 {"answer": "95", "id": "skip-count-2-5-10/easy/0/23637003a55d", "text": "What comes next? 80, 85, 90, __"}
 {"answer": "95", "id": "skip-count-2-5-10/easy/1/2a794f4a902e", "text": "What comes next? 80, 85, 90, __"}
 {"answer": "70", "id": "skip-count-2-5-10/easy/2/715789bdecac", "text": "What comes next? 55, 60, 65, __"}
@@ -10780,6 +10912,18 @@
 {"answer": "0.0202", "id": "uc2-clt-approximation-sums/medium/0/08994428c0d5", "text": "The number of customers entering a Geelong cafe each hour has a Poisson distrib…"}
 {"answer": "0.0251", "id": "uc2-clt-approximation-sums/medium/1/6a24b6020c40", "text": "The number of calls to a Darwin helpline each day has a Poisson distribution wi…"}
 {"answer": "0.0256", "id": "uc2-clt-approximation-sums/medium/2/17d801c5530b", "text": "The number of customers entering a Geelong cafe each hour has a Poisson distrib…"}
+{"answer": "-162", "id": "uc2-cofactor-expansion-4x4/easy/0/d45578658bc5", "text": "Evaluate the determinant of A = [[4, -2, -1, 5], [-4, 4, 3, -2], [-3, 0, 0, 0],…"}
+{"answer": "32", "id": "uc2-cofactor-expansion-4x4/easy/1/c9f7c20cfd41", "text": "Find det A for the matrix A = [[2, -3, 3, -3], [0, 0, -4, 0], [-2, 3, 4, -1], […"}
+{"answer": "116", "id": "uc2-cofactor-expansion-4x4/easy/2/d3ec660ceb7d", "text": "Find det A for the matrix A = [[1, -1, -1, -1], [-3, -4, -1, 0], [3, -4, 0, 0],…"}
+{"answer": "(a) -12; (b) 8; (c) -2/3; (d) -27/4", "id": "uc2-cofactor-expansion-4x4/exam/0/2bf2105cacbf", "text": "The matrix A is [[-2, -3, 3, 0], [-2, -2, 2, 1], [4, 4, -2, -4], [4, 2, -4, 1]]…"}
+{"answer": "(a) -6; (b) -3; (c) 1/2; (d) -27/2", "id": "uc2-cofactor-expansion-4x4/exam/1/71899ced4b86", "text": "The matrix A is [[-2, 3, 4, -4], [1, 0, -2, 1], [-1, -3, 3, -1], [0, 3, -1, 2]]…"}
+{"answer": "(a) -4; (b) 22; (c) -11/2; (d) -81/4", "id": "uc2-cofactor-expansion-4x4/exam/2/211ee3b285b3", "text": "Let A = [[4, 3, 4, -5], [2, 3, 1, -2], [2, 2, 0, -6], [-2, -2, -2, 2]]. (a) Fin…"}
+{"answer": "-6", "id": "uc2-cofactor-expansion-4x4/hard/0/19d2827d55dc", "text": "Starting from a 4×4 matrix A with det A = -3, the row operations multiplying ro…"}
+{"answer": "64", "id": "uc2-cofactor-expansion-4x4/hard/1/6bb0dafe6a6d", "text": "A and B are 4×4 matrices with det A = 4 and det B = 2. Find det(2Aᵀ)."}
+{"answer": "-1", "id": "uc2-cofactor-expansion-4x4/hard/2/79c01b52e750", "text": "The matrix M = [[2, 3, -1, 3], [-1, 9, -4, 8], [1, -2, 1, -1], [-3, k, 0, 0]] i…"}
+{"answer": "-9", "id": "uc2-cofactor-expansion-4x4/medium/0/effa21b1c957", "text": "Determine |A| for A = [[-6, 1, -4, -3], [-3, -1, -5, 1], [-3, 2, -2, -2], [0, 3…"}
+{"answer": "4", "id": "uc2-cofactor-expansion-4x4/medium/1/2449ded000fc", "text": "Evaluate det A, where A = [[2, 2, -1, 1], [2, 4, -1, -2], [4, 4, 1, 0], [2, 2, …"}
+{"answer": "-24", "id": "uc2-cofactor-expansion-4x4/medium/2/c6cd36afd72d", "text": "Find the determinant of the matrix A = [[0, -2, -5, -1], [-2, 2, 1, -1], [-4, 2…"}
 {"answer": "1", "id": "uc2-complex-eigenvalues-2x2/easy/0/b07116874287", "text": "Find the imaginary part b of the eigenvalue a + bi of A = [[2, 2], [-1, 4]] tha…"}
 {"answer": "4", "id": "uc2-complex-eigenvalues-2x2/easy/1/7b2572df5581", "text": "The real matrix A = [[15, 20], [-8, -9]] has no real eigenvalues. Its eigenvalu…"}
 {"answer": "7", "id": "uc2-complex-eigenvalues-2x2/easy/2/cb67f3fbd9e7", "text": "A = [[-5, 14], [-7, 9]] has a complex conjugate pair of eigenvalues a ± bi with…"}
@@ -10984,6 +11128,30 @@
 {"answer": "-603/40", "id": "uc2-double-integral-general-region/medium/0/4b81307adbd2", "text": "Evaluate ∬ xy² dA, where R is the region bounded by the parabola y = x² and the…"}
 {"answer": "864/7", "id": "uc2-double-integral-general-region/medium/1/1009dd60b73a", "text": "A thin plate occupies the region R bounded by the parabola y = 3x² and the line…"}
 {"answer": "864/7", "id": "uc2-double-integral-general-region/medium/2/170b5b53bce9", "text": "Evaluate ∬ x² dA, where R is the region bounded by the parabola x = 3y² and the…"}
+{"answer": "9", "id": "uc2-dynamic-programming-tables/easy/0/7ffd818b74b2", "text": "A delivery goes from depot S to a customer T in 3 legs, passing through exactly…"}
+{"answer": "10", "id": "uc2-dynamic-programming-tables/easy/1/3e81d79c779b", "text": "A delivery goes from depot S to a customer T in 3 legs, passing through exactly…"}
+{"answer": "14", "id": "uc2-dynamic-programming-tables/easy/2/50691cfc9e1b", "text": "A delivery goes from depot S to a customer T in 3 legs, passing through exactly…"}
+{"answer": "(a) 14; (b) 21; (c) 7; (d) 5", "id": "uc2-dynamic-programming-tables/exam/0/071e12c52568", "text": "A bag can carry at most 8 kg in total. Four items are on offer, and each can be…"}
+{"answer": "(a) 28; (b) 30; (c) 8; (d) 13", "id": "uc2-dynamic-programming-tables/exam/1/c597b38aa3a3", "text": "You are packing a bag that must weigh at most 11 kg. Each of four items may be …"}
+{"answer": "(a) 22; (b) 26; (c) 9; (d) 2", "id": "uc2-dynamic-programming-tables/exam/2/ef743a28cdf8", "text": "A bag holds at most 11 kg. There are four items, each available once: item P we…"}
+{"answer": "3", "id": "uc2-dynamic-programming-tables/hard/0/817fde9bed9e", "text": "Two DNA strings are GGGTAAGGC and GATCTCTCC. A common subsequence uses letters …"}
+{"answer": "5", "id": "uc2-dynamic-programming-tables/hard/1/935e10f4838c", "text": "What is the length of the longest common subsequence of GTCCACTAT and GCAGGCGCA…"}
+{"answer": "6", "id": "uc2-dynamic-programming-tables/hard/2/93dac9e05ffa", "text": "How many different collections of coins, taken from 2c, 4c and 5c coins with as…"}
+{"answer": "25", "id": "uc2-dynamic-programming-tables/medium/0/9efa6ec63261", "text": "A bag holds at most 11 kg. There are 4 items, each available once: item P weigh…"}
+{"answer": "23", "id": "uc2-dynamic-programming-tables/medium/1/6857ca49f747", "text": "A hiker can carry at most 9 kg and may take each of 5 items at most once: item …"}
+{"answer": "19", "id": "uc2-dynamic-programming-tables/medium/2/74188299cd31", "text": "A staircase has 10 steps and a toll is paid on each step you stand on (step 1: …"}
+{"answer": "3", "id": "uc2-error-correcting-codes/easy/0/3d6d38174339", "text": "The words use symbols from the alphabet 0, 1 and 2. Find the Hamming distance b…"}
+{"answer": "128", "id": "uc2-error-correcting-codes/easy/1/e9902a0346e1", "text": "A [10, 7] linear code over the field with 2 elements has how many codewords?"}
+{"answer": "3", "id": "uc2-error-correcting-codes/easy/2/7ca46b3cf4cc", "text": "How many positions differ between the words 0100110000 and 0100001000?"}
+{"answer": "(a) 16; (b) 4/9; (c) 3; (d) 1; (e) 14", "id": "uc2-error-correcting-codes/exam/0/833985b29f9f", "text": "A binary linear code has generator matrix G = [[1, 0, 0, 0, 0, 1, 1, 1, 0], [0,…"}
+{"answer": "(a) 32; (b) 5/9; (c) 3; (d) 1; (e) 9", "id": "uc2-error-correcting-codes/exam/1/2084f5089763", "text": "A binary linear code has generator matrix G = [[1, 0, 0, 0, 0, 1, 1, 1, 0], [0,…"}
+{"answer": "(a) 16; (b) 2/5; (c) 3; (d) 1; (e) 4", "id": "uc2-error-correcting-codes/exam/2/c8593903e7da", "text": "A binary linear code has generator matrix G = [[1, 0, 0, 0, 1, 0, 1, 0, 0, 0], …"}
+{"answer": "10", "id": "uc2-error-correcting-codes/hard/0/a03524958ed1", "text": "What minimum distance does a code need to correct 4 errors and also detect up t…"}
+{"answer": "9", "id": "uc2-error-correcting-codes/hard/1/81a6ffa7c430", "text": "A binary linear code has parity-check matrix H = [[0, 1, 0, 0, 1, 0, 0, 0], [0,…"}
+{"answer": "2", "id": "uc2-error-correcting-codes/hard/2/6eb853b43150", "text": "A binary linear code has generator matrix G = [[1, 0, 0, 0, 0, 1, 0, 1, 0], [0,…"}
+{"answer": "4", "id": "uc2-error-correcting-codes/medium/0/1a406ad443de", "text": "A [7, 4] Hamming code has parity-check matrix H = [[0, 0, 0, 1, 1, 1, 1], [0, 1…"}
+{"answer": "5", "id": "uc2-error-correcting-codes/medium/1/ace50a6f2ca7", "text": "The [7, 4] Hamming code has parity-check matrix H = [[0, 0, 0, 1, 1, 1, 1], [0,…"}
+{"answer": "17", "id": "uc2-error-correcting-codes/medium/2/52df87f5c6d7", "text": "A code has minimum distance 18. What is the largest number of errors it can alw…"}
 {"answer": "19/6", "id": "uc2-estimator-bias-and-mse/easy/0/e584aac19e1b", "text": "Three independent measurements X1, X2, X3 each have mean 10. The estimator T = …"}
 {"answer": "-5/2", "id": "uc2-estimator-bias-and-mse/easy/1/42dcea61068a", "text": "A random sample X1, ..., X10 is drawn from a population with mean 15. To estima…"}
 {"answer": "-3", "id": "uc2-estimator-bias-and-mse/easy/2/9c231373f492", "text": "Readings X1, ..., X10 from a calibrated sensor are independent with variance 30…"}
@@ -11260,6 +11428,18 @@
 {"answer": "22.869", "id": "uc2-heat-equation-initial-fit/medium/0/26a9be26f39e", "text": "The temperature u(x, t), in °C, at distance x cm from one end of a steel rod 12…"}
 {"answer": "97.189", "id": "uc2-heat-equation-initial-fit/medium/1/d30d1513f653", "text": "The temperature u(x, t), in °C, at distance x cm from one end of a brass rod 18…"}
 {"answer": "10.639", "id": "uc2-heat-equation-initial-fit/medium/2/44d231e93580", "text": "The temperature u(x, t), in °C, at distance x cm from one end of an aluminium r…"}
+{"answer": "-1", "id": "uc2-hermitian-unitary-matrices/easy/0/9f442a358339", "text": "Let A = [[1, 2i], [-2 - 3i, -3 - 3i]] and let A* be its conjugate transpose. Fi…"}
+{"answer": "28", "id": "uc2-hermitian-unitary-matrices/easy/1/73319b13373b", "text": "For A = [[-3 + 3i, 2 + 3i], [3 - i, 2 + i]], find the real part of the (1, 1) e…"}
+{"answer": "25", "id": "uc2-hermitian-unitary-matrices/easy/2/5b30ef55267c", "text": "Find tr(A*A) for A = [[-2i, 1 + 3i], [-1, -1 + 3i]], where A* is the conjugate …"}
+{"answer": "(a) -12; (b) -10; (c) 12; (d) 244", "id": "uc2-hermitian-unitary-matrices/exam/0/e6f101cf2781", "text": "The matrix H = [[-6, -6 - 6i], [-6 + 6i, 8]] is Hermitian. (a) Find the imagina…"}
+{"answer": "(a) -24; (b) -9; (c) 5; (d) 106", "id": "uc2-hermitian-unitary-matrices/exam/1/276c53c11b5d", "text": "The matrix H = [[1, 2 + 6i], [2 - 6i, -5]] is Hermitian. (a) Find the imaginary…"}
+{"answer": "(a) -24; (b) -13; (c) 1; (d) 170", "id": "uc2-hermitian-unitary-matrices/exam/2/5b96a9a38eed", "text": "The matrix H = [[-3, 6 + 2i], [6 - 2i, -9]] is Hermitian. (a) Find the imaginar…"}
+{"answer": "6", "id": "uc2-hermitian-unitary-matrices/hard/0/3fd389cf22bb", "text": "The matrix H = [[3, 3 + ki], [3 - ki, -1]] is Hermitian for a real number k > 0…"}
+{"answer": "3", "id": "uc2-hermitian-unitary-matrices/hard/1/8fea510f8d52", "text": "The matrix H = [[-3, -3 + ki], [-3 - ki, 4]] is Hermitian for a real number k >…"}
+{"answer": "2", "id": "uc2-hermitian-unitary-matrices/hard/2/afa5ddd5475a", "text": "H = [[-2, -1 + ki], [-1 - ki, 2]], where k is a positive real number. Given tha…"}
+{"answer": "4", "id": "uc2-hermitian-unitary-matrices/medium/0/fae1cec76175", "text": "Find the larger eigenvalue of the Hermitian matrix H = [[0, 2 + 2i], [2 - 2i, 2…"}
+{"answer": "14", "id": "uc2-hermitian-unitary-matrices/medium/1/1d40eb20c21c", "text": "Find the difference between the larger and smaller eigenvalues of the Hermitian…"}
+{"answer": "12", "id": "uc2-hermitian-unitary-matrices/medium/2/b73eb93c560a", "text": "Find the difference between the larger and smaller eigenvalues of the Hermitian…"}
 {"answer": "-x/(3ln(x) + 1)", "id": "uc2-homogeneous-substitution/easy/0/3c70e043d83a", "text": "Solve the initial value problem dy/dx = y/x + 3y^2/x^2, y(1) = -1 for x > 0."}
 {"answer": "x/(ln(x) + 1)", "id": "uc2-homogeneous-substitution/easy/1/57352cf11a4e", "text": "Solve the initial value problem dy/dx = y/x - y^2/x^2, y(1) = 1 for x > 0."}
 {"answer": "3x/(1 - 9ln(x))", "id": "uc2-homogeneous-substitution/easy/2/1f1a3f0f70e7", "text": "Solve the initial value problem dy/dx = y/x + 3y^2/x^2, y(1) = 3 for x > 0."}
@@ -11656,6 +11836,18 @@
 {"answer": "2 + i", "id": "uc2-mobius-transformations/medium/0/e61e75c43241", "text": "The transformation T(z) = (-z - 5)/(z - 5) has two fixed points. Find the fixed…"}
 {"answer": "-1 + 3i", "id": "uc2-mobius-transformations/medium/1/f7f01f3a2838", "text": "Let T(z) = (2z - 10)/(z + 4). Solve T(z) = z, and give the solution with positi…"}
 {"answer": "-2 + 2i", "id": "uc2-mobius-transformations/medium/2/0e70114db344", "text": "Let T(z) = (-z - 8)/(z + 3). Solve T(z) = z, and give the solution with positiv…"}
+{"answer": "-1/64", "id": "uc2-multivariable-taylor-hessian/easy/0/2fa515eaa2c9", "text": "Find the coefficient of (x − 4)² in the Taylor polynomial of degree 2 of f(x, y…"}
+{"answer": "1/8", "id": "uc2-multivariable-taylor-hessian/easy/1/bc79386d136f", "text": "Find the coefficient of (x − 4)(y − 1) in the Taylor polynomial of degree 2 of …"}
+{"answer": "1/16", "id": "uc2-multivariable-taylor-hessian/easy/2/6fdbf636f586", "text": "Find the coefficient of (x − 4)(y − 4) in the Taylor polynomial of degree 2 of …"}
+{"answer": "(a) -2; (b) -13; (c) a saddle point; (d) 1/4", "id": "uc2-multivariable-taylor-hessian/exam/0/cd635abe8a9a", "text": "Let f(x, y) = -2x²y + y³ + x² − 7xy − 2y² + 5x − 4y + 5. The point P = (-1, 1) …"}
+{"answer": "(a) -4; (b) -17; (c) a saddle point; (d) 7/4", "id": "uc2-multivariable-taylor-hessian/exam/1/634f6ec5e001", "text": "Let f(x, y) = x³ + x²y + xy² − y³ − 14x² − 11xy + 8y² + 63x − 15y − 43. The poi…"}
+{"answer": "(a) -4; (b) 12; (c) a local maximum; (d) -3/8", "id": "uc2-multivariable-taylor-hessian/exam/2/5d3fa72bc82a", "text": "Let f(x, y) = -2x³ + 2x²y + xy² + y³ + 14x² − 16xy − 8y² − 27x + 37y + 6. The p…"}
+{"answer": "9", "id": "uc2-multivariable-taylor-hessian/hard/0/03ddf5d7ded7", "text": "Let f(x, y) = x⁴ − 2x³y + kxy + x² + 6y², which has a stationary point at (0, 0…"}
+{"answer": "16", "id": "uc2-multivariable-taylor-hessian/hard/1/e867faa7a587", "text": "The function f(x, y) = -x⁴ + 3x³y + kxy + 8x² + 8y² has a stationary point at t…"}
+{"answer": "17", "id": "uc2-multivariable-taylor-hessian/hard/2/265bf2691fe7", "text": "The function f(x, y) = 2x⁴ − y⁴ + kxy + 6x² + 3y² has a stationary point at the…"}
+{"answer": "847/16", "id": "uc2-multivariable-taylor-hessian/medium/0/4a6b936057f6", "text": "Let T₂ be the degree-2 Taylor polynomial of f(x, y) = -2x³ − 3xy² + 2y³ + 1 abo…"}
+{"answer": "163/8", "id": "uc2-multivariable-taylor-hessian/medium/1/faedf25e639d", "text": "Let T₂ be the degree-2 Taylor polynomial of f(x, y) = -xy² + y³ − 2x² about (-2…"}
+{"answer": "-15/4", "id": "uc2-multivariable-taylor-hessian/medium/2/c84a92402359", "text": "Approximate f(-1.5, 2.5) for f(x, y) = xy e^(2x² + 2xy − 2x) using its second-o…"}
 {"answer": "19/12", "id": "uc2-newton-divided-differences/easy/0/59a59b347832", "text": "A function f has f(0) = 4, f(1) = −1 and f(4) = 3. Find the second divided diff…"}
 {"answer": "1/8", "id": "uc2-newton-divided-differences/easy/1/60bba15686bf", "text": "A function f has f(−1) = 9, f(1) = 7 and f(7) = 7. Find the second divided diff…"}
 {"answer": "61/30", "id": "uc2-newton-divided-differences/easy/2/f5e2d57b6e2e", "text": "A function f has f(0) = 6, f(1) = −5 and f(6) = 1. Find the second divided diff…"}
@@ -11884,6 +12076,18 @@
 {"answer": "[[0, 0, 0], [0, 3, 0], [0, 0, 6]]", "id": "uc2-quadratic-form-definiteness/medium/0/7ec4175fcd05", "text": "The quadratic form q(x, y, z) = 4x² - 4xy + 3y² + 4yz + 2z² has a symmetric mat…"}
 {"answer": "[[-6, 0, 0], [0, -4, 0], [0, 0, -1]]", "id": "uc2-quadratic-form-definiteness/medium/1/63c4b442b763", "text": "The quadratic form q(x, y, z) = -4x² + 2xy + 4xz - 3y² + 2yz - 4z² has a symmet…"}
 {"answer": "[[-12, 0], [0, 1]]", "id": "uc2-quadratic-form-definiteness/medium/2/e188dfcbc4d7", "text": "The quadratic form q(x, y) = -8x² + 12xy - 3y² has a symmetric matrix A. Find t…"}
+{"answer": "cone", "id": "uc2-quadric-surfaces-level-sets/easy/0/85a4a96f1983", "text": "What is the level set f(x, y, z) = 0 of f(x, y, z) = 2x² + 2y² − 3z²?"}
+{"answer": "elliptic cylinder", "id": "uc2-quadric-surfaces-level-sets/easy/1/bcf0003de2c8", "text": "Name the quadric surface −y²/16 − z²/36 = −1."}
+{"answer": "elliptic paraboloid", "id": "uc2-quadric-surfaces-level-sets/easy/2/b045244c9aa6", "text": "Name the quadric surface y = x²/16 + z²/9."}
+{"answer": "(a) hyperboloid of one sheet; (b) 34; (c) 17; (d) 578", "id": "uc2-quadric-surfaces-level-sets/exam/0/307d4a6a3ecf", "text": "A surface S has equation x²/256 − y²/64 + z²/64 = 1. S is cut by the plane y = …"}
+{"answer": "(a) hyperboloid of two sheets; (b) 12; (c) 6; (d) 72", "id": "uc2-quadric-surfaces-level-sets/exam/1/91cc301f4264", "text": "A surface S has equation x²/144 − y²/256 − z²/64 = 1. S is cut by the plane x =…"}
+{"answer": "(a) hyperboloid of one sheet; (b) 34; (c) 17; (d) 578", "id": "uc2-quadric-surfaces-level-sets/exam/2/990170a9e251", "text": "A surface S has equation x²/256 − y²/64 + z²/64 = 1. S is cut by the plane y = …"}
+{"answer": "hyperbola", "id": "uc2-quadric-surfaces-level-sets/hard/0/90e6ff24a4d0", "text": "Describe the curve of intersection of the surface x² − y² + z² = 0 and the plan…"}
+{"answer": "ellipse", "id": "uc2-quadric-surfaces-level-sets/hard/1/1ac244b4b0d1", "text": "What curve is the intersection of −x² + y² + z² = 1 with the plane 4x = −2y + 4?"}
+{"answer": "6", "id": "uc2-quadric-surfaces-level-sets/hard/2/87871cb029a1", "text": "Let f(x, y, z) = x² + 4y² + 4z². The level surface f = c passes through P = (4,…"}
+{"answer": "cone", "id": "uc2-quadric-surfaces-level-sets/medium/0/d6dce7202f2d", "text": "Which quadric surface is 4x² + 3y² − 2z² + 16x − 18y + 16z = −11?"}
+{"answer": "-1", "id": "uc2-quadric-surfaces-level-sets/medium/1/9f99635f7aa4", "text": "The centre of the surface 4x² − 3y² − 4z² + 24x − 6y = −46 is (h, k, l). Find t…"}
+{"answer": "hyperboloid of two sheets", "id": "uc2-quadric-surfaces-level-sets/medium/2/03b29ea6820e", "text": "Rewrite x² + 4y² − 2z² − 16y − 8z = −13 by completing the square. What surface …"}
 {"answer": "9", "id": "uc2-quotient-group-order-and-structure/easy/0/c534fa93d715", "text": "Let Q = Z_108 / ⟨45⟩. What is the order of the coset 38 + ⟨45⟩ in Q?"}
 {"answer": "3", "id": "uc2-quotient-group-order-and-structure/easy/1/6c3fbbd6e025", "text": "In the quotient group Z_84 / ⟨60⟩, find the order of the element 28 + ⟨60⟩."}
 {"answer": "5", "id": "uc2-quotient-group-order-and-structure/easy/2/60063804e989", "text": "Let Q = Z_90 / ⟨10⟩. What is the order of the coset 2 + ⟨10⟩ in Q?"}
@@ -12136,6 +12340,18 @@
 {"answer": "(u, -6*u^2*cos(v), -6*u^2*sin(v))", "id": "uc2-surface-normal-parametrised/medium/0/c8aae86833dd", "text": "Let S be the surface r(u, v) = ⟨3u², u cos(v), u sin(v)⟩, where 0 ≤ u ≤ 3 and 0…"}
 {"answer": "(-12*u*sin(v), 16*u, -12*u*cos(v))", "id": "uc2-surface-normal-parametrised/medium/1/557433334459", "text": "The surface S is given by r(u, v) = ⟨4u sin(v), 3u, 4u cos(v)⟩, where 0 ≤ u ≤ 2…"}
 {"answer": "(-u*sin(v), u, -u*cos(v))", "id": "uc2-surface-normal-parametrised/medium/2/ca1842051009", "text": "Let S be the surface r(u, v) = ⟨u sin(v), u, u cos(v)⟩, where 0 ≤ u ≤ 1 and 0 ≤…"}
+{"answer": "11", "id": "uc2-svd-small-matrices/easy/0/9ebc5ad88bb2", "text": "The matrix A = [[5, 6], [-6, -5]] has singular values σ₁ > σ₂ > 0. Find σ₁."}
+{"answer": "12", "id": "uc2-svd-small-matrices/easy/1/825b3ec5aa81", "text": "Find the largest singular value of A = [[-5, -7], [7, 5]]."}
+{"answer": "10", "id": "uc2-svd-small-matrices/easy/2/fbfb91fa6ef1", "text": "Find the largest singular value of A = [[-1, 6], [-6, 6]]."}
+{"answer": "(a) 8; (b) 3; (c) 64/73; (d) (2, 1, 0)", "id": "uc2-svd-small-matrices/exam/0/0c540a961d0c", "text": "Consider the matrix A = [[-4, 0, 2], [6, 4, 1]]. (a) Find the largest singular …"}
+{"answer": "(a) 6; (b) 3; (c) 4/5; (d) (1, -2, 2)", "id": "uc2-svd-small-matrices/exam/1/62d288164610", "text": "Let A = [[2, -1, -2], [2, -4, 4]]. (a) Find the largest singular value σ₁ of A.…"}
+{"answer": "(a) 9; (b) 7; (c) 81/130; (d) (4, 1, 1)", "id": "uc2-svd-small-matrices/exam/2/56789fee3a55", "text": "Consider the matrix A = [[6, 5, -2], [6, -2, 5]]. (a) Find the largest singular…"}
+{"answer": "5/2", "id": "uc2-svd-small-matrices/hard/0/23a7486f5c18", "text": "The matrix A = [[-3, 7], [-7, 3]] is invertible. Find ‖A‖₂ · ‖A⁻¹‖₂ as a fracti…"}
+{"answer": "4", "id": "uc2-svd-small-matrices/hard/1/7a895a48360c", "text": "Let A₁ be the rank-1 matrix closest to A = [[-4, -4, 6], [4, -2, -3]] in the Fr…"}
+{"answer": "5", "id": "uc2-svd-small-matrices/hard/2/a8d35fe1ea85", "text": "Let A₁ be the rank-1 matrix closest to A = [[1, -4, -6], [4, -1, 6]] in the Fro…"}
+{"answer": "1", "id": "uc2-svd-small-matrices/medium/0/0e188d6c7670", "text": "In a singular value decomposition A = UΣVᵀ of A = [[0, 2, -2], [-2, -4, 3]], fi…"}
+{"answer": "3", "id": "uc2-svd-small-matrices/medium/1/9b1ce487b644", "text": "Find the smaller non-zero singular value of the 2×3 matrix A = [[-2, -4, -5], […"}
+{"answer": "3", "id": "uc2-svd-small-matrices/medium/2/cc43b755882b", "text": "The 2×3 matrix A = [[-2, -3, -2], [2, -2, -3]] has rank 2. Find its smallest no…"}
 {"answer": "1680", "id": "uc2-symmetric-group-conjugacy/easy/0/e51ea9459ead", "text": "In the symmetric group S_8, let σ = (8 6 7)(4 1)(5 3) (points not listed are fi…"}
 {"answer": "15", "id": "uc2-symmetric-group-conjugacy/easy/1/b3e2359e445d", "text": "Let σ = (1 6)(2 5)(3 4) be a permutation in S_6; points not written are fixed. …"}
 {"answer": "15", "id": "uc2-symmetric-group-conjugacy/easy/2/36705a38c195", "text": "In the symmetric group S_6, let σ = (6 3)(2 1)(4 5) (points not listed are fixe…"}
@@ -12838,9 +13054,9 @@
 {"answer": "exp(-4*t)*sin(2*x)", "id": "ucv1-heat-equation-mode/easy/0/1e7431b7d9c5", "text": "The temperature u(x,t) on [0, pi] satisfies u_t = alpha u_xx with u(0,t) = u(pi…"}
 {"answer": "exp(-125*t)*sin(5*x)", "id": "ucv1-heat-equation-mode/easy/1/1f4e822063c3", "text": "The temperature u(x,t) on [0, pi] satisfies u_t = alpha u_xx with u(0,t) = u(pi…"}
 {"answer": "exp(-100*t)*sin(5*x)", "id": "ucv1-heat-equation-mode/easy/2/ec18873900f9", "text": "The temperature u(x,t) on [0, pi] satisfies u_t = alpha u_xx with u(0,t) = u(pi…"}
-{"answer": "(a) 7*pi^2/576; (b) 576*log(2)/(7*pi^2); (c) 5*pi/48", "id": "ucv1-heat-equation-mode/exam/0/60e722610465", "text": "The temperature u(x, t) in a rod of length 24 satisfies u_t = 7u_xx for 0 < x <…"}
-{"answer": "(a) 16*pi^2/9; (b) 9*log(2)/(16*pi^2); (c) -3*pi", "id": "ucv1-heat-equation-mode/exam/1/3749feb8f010", "text": "The temperature u(x, t) in a rod of length 6 satisfies u_t = 4u_xx for 0 < x < …"}
-{"answer": "(a) pi^2/4; (b) 4*log(2)/pi^2; (c) 3", "id": "ucv1-heat-equation-mode/exam/2/c7f426629282", "text": "The temperature u(x, t) in a rod of length 18 satisfies u_t = 9u_xx for 0 < x <…"}
+{"answer": "(a) 7*pi^2/576; (b) 576*ln(2)/(7*pi^2); (c) 5*pi/48", "id": "ucv1-heat-equation-mode/exam/0/1b172bd10dd3", "text": "The temperature u(x, t) in a rod of length 24 satisfies u_t = 7u_xx for 0 < x <…"}
+{"answer": "(a) 16*pi^2/9; (b) 9*ln(2)/(16*pi^2); (c) -3*pi", "id": "ucv1-heat-equation-mode/exam/1/3d3353cd6cc6", "text": "The temperature u(x, t) in a rod of length 6 satisfies u_t = 4u_xx for 0 < x < …"}
+{"answer": "(a) pi^2/4; (b) 4*ln(2)/pi^2; (c) 3", "id": "ucv1-heat-equation-mode/exam/2/2c2cfc430799", "text": "The temperature u(x, t) in a rod of length 18 satisfies u_t = 9u_xx for 0 < x <…"}
 {"answer": "4*exp(-5*pi^2*t/64)*cos(pi*x/8)", "id": "ucv1-heat-equation-mode/hard/0/9dc58a24789e", "text": "A rod [0, 8] has insulated ends u_x(0,t) = u_x(8,t) = 0 and obeys u_t = alpha u…"}
 {"answer": "2*exp(-pi^2*t/25)*cos(pi*x/5)", "id": "ucv1-heat-equation-mode/hard/1/e624592a8550", "text": "The temperature u(x,t) on [0, 5] satisfies u_t = alpha u_xx. The ends are insul…"}
 {"answer": "2*exp(-pi^2*t/4)*cos(pi*x/2)", "id": "ucv1-heat-equation-mode/hard/2/a6e4e86405b9", "text": "The temperature u(x,t) on [0, 4] satisfies u_t = alpha u_xx. The ends are insul…"}
@@ -13843,6 +14059,18 @@
 {"answer": "0.0026", "id": "ucv1-z-test-mean/medium/0/099bd777d5d9", "text": "A random sample of 20 batteries has a mean life of 21.43 hours. A manufacturer …"}
 {"answer": "0.0233", "id": "ucv1-z-test-mean/medium/1/9d9a46a28be8", "text": "A random sample of 60 trips has a mean journey time of 38.2 minutes. The timeta…"}
 {"answer": "0.0823", "id": "ucv1-z-test-mean/medium/2/b569ebdeb346", "text": "A manufacturer states that its phone battery lasts a mean of 18.00 hours of vid…"}
+{"answer": "54609.00", "id": "unit-cost-depreciation/easy/0/90d32cd1ffa0", "text": "A delivery van was bought for $62,390 and depreciates at $0.31 per kilometre. W…"}
+{"answer": "9.65", "id": "unit-cost-depreciation/easy/1/ba1f0e80e6c1", "text": "An earthmoving machine has depreciated by $20,265 after 2,100 hours of use. Wha…"}
+{"answer": "0.13", "id": "unit-cost-depreciation/easy/2/ecf64fafef4a", "text": "After 77,700 kilometres of use a taxi has lost $10,101 of its value through uni…"}
+{"answer": "(a) 6.00; (b) 74500.00; (c) 5500; (d) 400.00", "id": "unit-cost-depreciation/exam/0/6dbef5a19f2f", "text": "A commercial oven is bought for $89,500. Its salvage value is expected to be $1…"}
+{"answer": "(a) 0.14; (b) 24478.00; (c) 44300; (d) 498.00", "id": "unit-cost-depreciation/exam/1/5fac6ad040e3", "text": "A taxi is bought for $29,980. Its salvage value is expected to be $4,500 after …"}
+{"answer": "(a) 0.16; (b) 36592.00; (c) 72800; (d) 272.00", "id": "unit-cost-depreciation/exam/2/04d1997a16a5", "text": "A taxi is bought for $47,920. Its salvage value is expected to be $10,000 after…"}
+{"answer": "53000", "id": "unit-cost-depreciation/hard/0/a1a65a7cb269", "text": "A taxi is bought for $34,950. It depreciates by $0.15 per kilometre for the fir…"}
+{"answer": "43030.00", "id": "unit-cost-depreciation/hard/1/cf4adf4f1309", "text": "A delivery van is depreciated by the unit-cost method. After 15,000 kilometres …"}
+{"answer": "97000", "id": "unit-cost-depreciation/hard/2/da298cdab709", "text": "A taxi is bought for $66,500. It depreciates by $0.25 per kilometre for the fir…"}
+{"answer": "60168.00", "id": "unit-cost-depreciation/medium/0/6d2002ace84c", "text": "A hire truck costs $85,020 and is expected to be worth $17,000 after 179,000 ki…"}
+{"answer": "51958.00", "id": "unit-cost-depreciation/medium/1/6b7b8a3f326f", "text": "A hire truck costs $59,420 and is expected to be worth $13,500 after 112,000 ki…"}
+{"answer": "54028.00", "id": "unit-cost-depreciation/medium/2/e8b9b47eae56", "text": "A taxi costs $60,220 and is expected to be worth $19,000 after 229,000 kilometr…"}
 {"answer": "4.50", "id": "unit-pricing/easy/0/55d494f681e5", "text": "A pack of 4 items costs $18.00. What is the price per item?"}
 {"answer": "5.50", "id": "unit-pricing/easy/1/8aed413c5572", "text": "A pack of 10 items costs $55.00. What is the price per item?"}
 {"answer": "8.50", "id": "unit-pricing/easy/2/55f19a347adc", "text": "A pack of 5 items costs $42.50. What is the price per item?"}

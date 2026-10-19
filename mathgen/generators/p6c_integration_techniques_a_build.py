@@ -30,13 +30,13 @@ from ..core import (
 
 # Display helpers: convert ** to ^ for typed, ** to ^ and * to · for prose
 def _typed(expr) -> str:
-    """Convert expression to learner-facing typed form: ** -> ^."""
-    return str(expr).replace("**", "^")
+    """Convert expression to learner-facing typed form: ** -> ^, and sympy's log -> the ln a learner writes."""
+    return str(expr).replace("**", "^").replace("log(", "ln(")
 
 
 def _prose(expr) -> str:
-    """Convert expression to prose form: ** -> ^, * to ·."""
-    typed_str = str(expr).replace("**", "^")
+    """Convert expression to prose form: ** -> ^, log -> ln, * to ·."""
+    typed_str = str(expr).replace("**", "^").replace("log(", "ln(")
     return typed_str.replace("*", "·")
 
 
@@ -280,7 +280,7 @@ def integrate_by_parts(rng, difficulty="easy"):
 
         prompt = f"Find ∫ from x = {n} to x = {m} of {_prose(f)} dx. Give your answer as an exact value."
         working = [
-            f"u = log(x), dv = {_prose(x)} dx  ⇒  du = 1/x dx, v = {_prose(x**2 / 2)}",
+            f"u = ln(x), dv = {_prose(x)} dx  ⇒  du = 1/x dx, v = {_prose(x**2 / 2)}",
             f"F(x) = {_prose(F)}",
             f"F({m}) - F({n}) = {_prose(ans)}",
         ]
