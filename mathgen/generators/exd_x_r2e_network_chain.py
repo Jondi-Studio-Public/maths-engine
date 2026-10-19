@@ -81,6 +81,11 @@ _SETTINGS = [
 _D_LO, _D_HI = 2, 12
 
 
+
+def _days(n) -> str:
+    """"day" for one, "days" otherwise."""
+    return "day" if n == 1 else "days"
+
 def _successors(preds):
     succ = {a: [] for a in preds}
     for a, ps in preds.items():
@@ -131,7 +136,7 @@ def _length(route, dur):
 def _network_text(preds, dur, hidden=None):
     lines = []
     for a in preds:
-        d = "not known" if a == hidden else f"{dur[a]} days"
+        d = "not known" if a == hidden else f"{dur[a]} {_days(dur[a])}"
         after = f"predecessors: {', '.join(preds[a])}" if preds[a] else "no predecessors"
         lines.append(f"Activity {a}: duration {d}, {after}.")
     return " ".join(lines)
@@ -237,7 +242,7 @@ def network_crash(rng: random.Random, tier: str = "exam") -> dict:
 
     stem = (
         f"{rng.choice(_SETTINGS)} The project starts at time 0. {_network_text(preds, dur)} "
-        f"Extra workers are hired so that activity {y} takes {r} days less than planned. "
+        f"Extra workers are hired so that activity {y} takes {r} {_days(r)} less than planned. "
         f"Every other activity takes exactly its stated duration."
     )
     return dict(
@@ -251,7 +256,7 @@ def network_crash(rng: random.Random, tier: str = "exam") -> dict:
                 answer_text=_path_text(path),
                 answer_latex=latex_answer(_path_text(path), plain=True),
                 marks=2,
-                working=[f"The longest route is {' - '.join(path)}, {total} days."],
+                working=[f"The longest route is {' - '.join(path)}, {total} {_days(total)}."],
                 distractors=picks[0],
             ),
             dict(
@@ -262,7 +267,7 @@ def network_crash(rng: random.Random, tier: str = "exam") -> dict:
                 answer_latex=latex_answer(str(total)),
                 marks=1,
                 sensible_range=(0, None),
-                working=[f"Sum of the durations on the critical path = {total} days."],
+                working=[f"Sum of the durations on the critical path = {total} {_days(total)}."],
                 distractors=picks[1],
             ),
             dict(
@@ -274,7 +279,7 @@ def network_crash(rng: random.Random, tier: str = "exam") -> dict:
                 answer_latex=latex_answer(str(rival)),
                 marks=2,
                 sensible_range=(0, None),
-                working=[f"Of the routes that avoid {y}, the longest is {rival} days."],
+                working=[f"Of the routes that avoid {y}, the longest is {rival} {_days(rival)}."],
                 distractors=picks[2],
             ),
             dict(
@@ -287,9 +292,9 @@ def network_crash(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 follow_through=f"Max(part_c, part_b - {r})",
                 working=[
-                    f"Shortening {y} by {r} days would give {total} - {r} = {total - r} days, "
-                    f"but no route can finish before the longest route avoiding {y}, which is {rival} days.",
-                    f"New minimum time = max({rival}, {total - r}) = {new_total} days.",
+                    f"Shortening {y} by {r} {_days(r)} would give {total} - {r} = {total - r} {_days(total - r)}, "
+                    f"but no route can finish before the longest route avoiding {y}, which is {rival} {_days(rival)}.",
+                    f"New minimum time = max({rival}, {total - r}) = {new_total} {_days(new_total)}.",
                 ],
                 distractors=picks[3],
             ),
@@ -394,7 +399,7 @@ def network_missing(rng: random.Random, tier: str = "exam") -> dict:
     ft_float = f"part_b - {_max_expr([_sum_expr(rt, dur, u) for rt in w_routes])}"
     stem = (
         f"{rng.choice(_SETTINGS)} The project starts at time 0. {_network_text(preds, dur, hidden=u)} "
-        f"The earliest start time of activity {v} is {start_v} days."
+        f"The earliest start time of activity {v} is {start_v} {_days(start_v)}."
     )
     return dict(
         text=stem,
@@ -409,7 +414,7 @@ def network_missing(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 working=[
                     f"Activity {v} cannot start until all its predecessors finish, and {u} finishes last.",
-                    f"Duration of {u} = {start_v} - {est[u]} = {d_u} days.",
+                    f"Duration of {u} = {start_v} - {est[u]} = {d_u} {_days(d_u)}.",
                 ],
                 distractors=picks[0],
             ),
@@ -422,7 +427,7 @@ def network_missing(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=ft_total,
-                working=[f"The longest route through the network takes {total} days."],
+                working=[f"The longest route through the network takes {total} {_days(total)}."],
                 distractors=picks[1],
             ),
             dict(
@@ -433,7 +438,7 @@ def network_missing(rng: random.Random, tier: str = "exam") -> dict:
                 answer_latex=latex_answer(str(lst_z)),
                 marks=2,
                 follow_through=ft_lst,
-                working=[f"Latest start of {z} = {total} - (longest route from {z} to the end) = {lst_z} days."],
+                working=[f"Latest start of {z} = {total} - (longest route from {z} to the end) = {lst_z} {_days(lst_z)}."],
                 distractors=picks[2],
             ),
             dict(
@@ -445,7 +450,7 @@ def network_missing(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=ft_float,
-                working=[f"Float of {w} = {total} - (longest route through {w}) = {float_w} days."],
+                working=[f"Float of {w} = {total} - (longest route through {w}) = {float_w} {_days(float_w)}."],
                 distractors=picks[3],
             ),
         ],

@@ -908,7 +908,7 @@ def _gmt_single_leg(rng, half_hour: bool, force_day_back: bool):
         f"A flight departs {place_from} ({_fmt_offset(off_from)}) at "
         f"{hour:02d}:{minute:02d} on {_DAYS[day_idx]}, and flies for {duration_h} hours to "
         f"{place_to} ({_fmt_offset(off_to)}), crossing the International Date "
-        f"Line. Using GMT as the reference, find {place_to}'s local day and time of arrival. "
+        f"Line. Using GMT as the reference, find the local day and time of arrival in {place_to}. "
         f"{_GMT_INSTRUCTION}"
     )
     same_zone_wrong = _fmt_time(depart_minutes + duration_h * 60)  # ignored both zones/date line entirely
@@ -922,7 +922,7 @@ def _gmt_single_leg(rng, half_hour: bool, force_day_back: bool):
         candidates,
         working=[
             f"Departure in GMT: {_fmt_time(depart_minutes - _offset_minutes(off_from))}. "
-            f"Add the {duration_h}h flight, then apply {place_to}'s GMT offset: {answer_text}."
+            f"Add the {duration_h}h flight, then apply the GMT offset of {place_to}: {answer_text}."
         ],
     )
 
@@ -963,10 +963,10 @@ def _gmt_two_leg(rng):
     text = (
         f"A traveller departs {place_a} ({_fmt_offset(off_a)}) at {hour:02d}:00 on "
         f"{_DAYS[day_idx]} and flies {dur1} hours to {place_b} ({_fmt_offset(off_b)}), "
-        f"crossing the International Date Line. After a {layover}-hour layover in {place_b}'s local "
-        f"time, a connecting flight takes {dur2} hours to {place_c} ({_fmt_offset(off_c)}). "
-        f"Using GMT as the reference throughout, find {place_c}'s local day and time of "
-        f"arrival. {_GMT_INSTRUCTION}"
+        f"crossing the International Date Line. After a {layover}-hour layover in {place_b} (local time), "
+        f"a connecting flight takes {dur2} hours to {place_c} ({_fmt_offset(off_c)}). "
+        f"Using GMT as the reference throughout, find the local day and time of "
+        f"arrival in {place_c}. {_GMT_INSTRUCTION}"
     )
     ignore_layover = _fmt_time(_gmt_leg(depart_minutes, off_a, (dur1 + dur2) * 60, off_c))
     swap_leg2_zone = _fmt_time(_gmt_leg(arrive_b, off_a, layover * 60 + dur2 * 60, off_c))

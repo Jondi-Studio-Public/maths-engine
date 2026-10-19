@@ -29,6 +29,11 @@ _STEMS = (
 )
 
 
+
+def _days(n) -> str:
+    """"day" for one, "days" otherwise."""
+    return "day" if n == 1 else "days"
+
 def _completion(preds, dur):
     return max(_forward(preds, dur)[1].values())
 
@@ -80,7 +85,7 @@ def _build(rng: random.Random) -> dict:
         finish,
         0,
         2,
-        [f"The longest route is {'-'.join(longest[0])}, of length {finish} days."],
+        [f"The longest route is {'-'.join(longest[0])}, of length {finish} {_days(finish)}."],
         [
             ("sums-all-durations", sum(dur.values())),
             ("takes-shorter-path", second),
@@ -94,8 +99,8 @@ def _build(rng: random.Random) -> dict:
         0,
         2,
         [
-            f"The longest route through {x} has length {through_x} days.",
-            f"Float = {finish} - {through_x} = {flt[x]} days.",
+            f"The longest route through {x} has length {through_x} {_days(through_x)}.",
+            f"Float = {finish} - {through_x} = {flt[x]} {_days(flt[x])}.",
         ],
         [
             ("float-ignores-following-activities", finish - eft[x]),
@@ -106,14 +111,14 @@ def _build(rng: random.Random) -> dict:
         follow_through=f"part_a - {through_x}",
     )
     part_c = number_part(
-        f"Activity {y} is shortened by {reduction} days, to {dur[y] - reduction} days, and every other duration is "
+        f"Activity {y} is shortened by {reduction} {_days(reduction)}, to {dur[y] - reduction} {_days(dur[y] - reduction)}, and every other duration is "
         "unchanged. Find the new minimum completion time of the project, in days.",
         new_finish,
         0,
         2,
         [
             f"Another route is only {gap} day{'s' if gap != 1 else ''} shorter than the critical route.",
-            f"The project is shortened by {saving} days, to {new_finish} days.",
+            f"The project is shortened by {saving} {_days(saving)}, to {new_finish} {_days(new_finish)}.",
         ],
         [
             ("crash-saving-taken-in-full", finish - reduction),

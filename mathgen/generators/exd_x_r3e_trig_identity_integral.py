@@ -27,12 +27,24 @@ import math
 from fractions import Fraction
 
 from ..answers import Distractor
-from ..core import check, generator, latex_answer, pick_distractors, rational_text
+from ..core import bracket_compound, check, generator, latex_answer, pick_distractors, rational_text
 from ._exd_distinct_parts import distinct_part_answers
 
 # (value of the function at 0, at pi/2, at pi)
 _AT = {"sin": (0, 1, 0), "cos": (1, 0, -1)}
 
+
+
+def _form_with(form: str, a, a_text: str) -> str:
+    """The form "a - a cos(4x)" or "a sin(4x)" with the constant filled in; a coefficient of 1 is left off."""
+    coef = "" if a == 1 else (bracket_compound(a_text) + " ")
+    first, _, tail = form.partition(" ")  # "a", "- a cos(4x)" or "sin(4x)"
+    if tail.startswith(("sin", "cos")):
+        return f"{coef}{tail}"
+    op, _, trig = tail.partition(" a ")
+    return f"{a_text} {op} {coef}{trig}"
+
+    return form
 
 def _coef_text(coef: Fraction, atom: str) -> str:
     """ "3*atom/2", "-atom", "atom/4" ... for a non-zero coefficient."""
@@ -194,7 +206,7 @@ def exd_x_r3e_trig_identity_integral(rng, tier: str = "exam") -> dict:
                 answer_text=a_text,
                 answer_latex=latex_answer(a_text),
                 marks=1,
-                working=[f"Using the identity, f(x) = {form.replace('a', a_text)}, so a = {a_text}."],
+                working=[f"Using the identity, f(x) = {_form_with(form, a, a_text)}, so a = {a_text}."],
                 distractors=a_dist,
             ),
             dict(

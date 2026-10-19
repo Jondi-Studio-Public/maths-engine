@@ -194,7 +194,7 @@ def exd_x_r2f_trig_altitude(rng: random.Random, tier: str = "exam") -> dict:
                 2,
                 [
                     "Area = ½ × AB × BC = ½ × AC × BD, so BD = AB × BC ÷ AC.",
-                    f"BD = {_text(a)} × {_text(b)} ÷ {h} = {_text(c)} {unit}.",
+                    f"BD = {_text(a)} × {_text(b)} ÷ {h} ≈ {_text(c)} {unit} (using the unrounded AB and BC).",
                 ],
                 c_dist,
                 follow_through=f"part_a*part_b/{h}",

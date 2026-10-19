@@ -311,14 +311,14 @@ def p11c_factorial_notation(rng, tier="easy"):
             terms = [_n + i for i in range(den_shift + 1, num_shift + 1)]
             product_expr = terms[0] if len(terms) == 1 else terms[0] * terms[1]
             answer_expr = product_expr
-            factor_words = " × ".join(str(t) for t in terms)
-            working = [f"{num_text}/{den_text} = {factor_words} = {_prose(str(answer_expr))}."]
+            factor_words = " × ".join(f"({t})" for t in terms) if len(terms) > 1 else str(terms[0])
+            working = [f"{num_text}/{den_text} = {factor_words}."]
         else:
             terms = [_n + i for i in range(num_shift + 1, den_shift + 1)]
             product_expr = terms[0] if len(terms) == 1 else terms[0] * terms[1]
             answer_expr = 1 / product_expr
-            factor_words = " × ".join(str(t) for t in terms)
-            working = [f"{num_text}/{den_text} = 1/({factor_words}) = {_prose(str(answer_expr))}."]
+            factor_words = " × ".join(f"({t})" for t in terms) if len(terms) > 1 else str(terms[0])
+            working = [f"{num_text}/{den_text} = 1/({factor_words})."]
 
         answer_text = str(answer_expr)
         check_equivalent(

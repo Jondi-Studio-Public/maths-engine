@@ -63,7 +63,7 @@ def convex_quadratic_minimum(rng, coefficient_hi=8, linear_hi=12, constant_hi=12
     alternatives = [
         f"x = {wrong_x}, y = {value}",
         f"x = {x_star}, y = {wrong_value}",
-        f"x = {b}/{2 * a}, y = {value}",
+        f"x = {Fraction(b, 2 * a)}, y = {value}",
         f"x = {x_star}, y = {c}",
         f"x = {x_star + 1}, y = {value}",
         f"x = {x_star}, y = {value + 1}",
@@ -79,7 +79,7 @@ def convex_quadratic_minimum(rng, coefficient_hi=8, linear_hi=12, constant_hi=12
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"f'(x) = {2 * a}x {b:+d}, so x* = {x_star}.",
+            f"f'(x) = {join_terms([(2 * a, 'x'), (b, '')])}, so x* = {x_star}.",
             f"f(x*) = {value}; the positive leading coefficient makes this a minimum.",
         ],
         # GRADER_TOLERANCE: this is a `pair` answer, and grade_pair accepts a

@@ -33,6 +33,12 @@ def _expr_text(coef: int, const: int) -> str:
     return join_terms([(coef, "x"), (const, "")])
 
 
+def _bx(coef: int, const: int) -> str:
+    """`_expr_text` in brackets, except a single term ("3x"), which needs none."""
+    text = _expr_text(coef, const)
+    return f"({text})" if const else text
+
+
 def _deg_word(n: int) -> str:
     """``degree`` for a magnitude of exactly 1, ``degrees`` otherwise."""
     return "degree" if abs(n) == 1 else "degrees"
@@ -125,8 +131,8 @@ def the_opposite_angles_of_a_cyclic_quadrilateral_are(rng, variant="direct"):
 
         question_text = (
             f"ABCD is a cyclic quadrilateral. Angle A and angle C are opposite "
-            f"angles of the quadrilateral. Angle A = ({_expr_text(a1, a2)}) degrees "
-            f"and angle C = ({_expr_text(c1, c2)}) degrees. "
+            f"angles of the quadrilateral. Angle A = {_bx(a1, a2)} degrees "
+            f"and angle C = {_bx(c1, c2)} degrees. "
             f"Find angle {ask_target}, in degrees."
         )
         answer_text = str(answer_val)
@@ -158,7 +164,7 @@ def the_opposite_angles_of_a_cyclic_quadrilateral_are(rng, variant="direct"):
 
         working = [
             "Opposite angles of a cyclic quadrilateral are supplementary: angle A + angle C = 180 degrees.",
-            f"({_expr_text(a1, a2)}) + ({_expr_text(c1, c2)}) = 180",
+            f"{_bx(a1, a2)} + {_bx(c1, c2)} = 180",
             f"x = {x}",
             f"angle {ask_target} = {answer_val} {_deg_word(answer_val)}.",
         ]
@@ -237,8 +243,8 @@ def the_opposite_angles_of_a_cyclic_quadrilateral_are(rng, variant="direct"):
         question_text = (
             f"ABCD is a cyclic quadrilateral. Angle A and angle C are opposite "
             f"angles; angle B and angle D are opposite angles. "
-            f"Angle A = ({_expr_text(a1, a2)}) degrees and angle B = "
-            f"({_expr_text(b1, b2)}) degrees. Angle C exceeds angle D by {k} {k_word}. "
+            f"Angle A = {_bx(a1, a2)} degrees and angle B = "
+            f"{_bx(b1, b2)} degrees. Angle C exceeds angle D by {k} {k_word}. "
             f"Find angle {asked}, in degrees."
         )
         answer_text = str(answer_val)
@@ -269,7 +275,7 @@ def the_opposite_angles_of_a_cyclic_quadrilateral_are(rng, variant="direct"):
         working = [
             "Opposite angles of a cyclic quadrilateral are supplementary: "
             "angle A + angle C = 180 and angle B + angle D = 180.",
-            f"angle C = 180 - ({_expr_text(a1, a2)}), angle D = 180 - ({_expr_text(b1, b2)}).",
+            f"angle C = 180 - {_bx(a1, a2)}, angle D = 180 - {_bx(b1, b2)}.",
             f"Angle C exceeds angle D by {k}: (180 - angle A) - (180 - angle B) = {k}, so angle B - angle A = {k}.",
             f"x = {x}",
             f"angle {asked} = {answer_val} {_deg_word(answer_val)}.",
@@ -445,8 +451,8 @@ def the_diagonals_of_a_parallelogram_meet_at_right(rng, variant="diagonals_given
         check(a1 * x + a2 == b1 * x + b2, "the_diagonals.../converse_rhombus: AB != BC at the solved x")
 
         question_text = (
-            f"A parallelogram ABCD has adjacent sides AB = ({_expr_text(a1, a2)}) cm "
-            f"and BC = ({_expr_text(b1, b2)}) cm. Its diagonals are given to meet at "
+            f"A parallelogram ABCD has adjacent sides AB = {_bx(a1, a2)} cm "
+            f"and BC = {_bx(b1, b2)} cm. Its diagonals are given to meet at "
             f"right angles. By the theorem that a parallelogram's diagonals meet at "
             f"right angles if and only if it is a rhombus, all four sides are equal. "
             f"Find the length of side AB, in cm."
@@ -470,7 +476,7 @@ def the_diagonals_of_a_parallelogram_meet_at_right(rng, variant="diagonals_given
 
         working = [
             "Perpendicular diagonals imply the parallelogram is a rhombus, so all four sides are equal: AB = BC.",
-            f"({_expr_text(a1, a2)}) = ({_expr_text(b1, b2)})",
+            f"{_bx(a1, a2)} = {_bx(b1, b2)}",
             f"x = {x}",
             f"AB = {side} cm.",
         ]
