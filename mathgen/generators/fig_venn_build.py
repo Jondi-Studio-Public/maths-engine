@@ -168,7 +168,7 @@ def _hard(rng):
         shown = _shown(counts, blank)
         keep = rng.sample(range(len(shown)), 3)
         cands = [sum(shown)] + [u + shown[i] for i in keep]  # adds them; or leaves one region out
-        working = [f"The seven regions add to the total: {' + '.join(str(v) for v in shown)} + ? = {total}."]
+        working = [f"The eight regions add to the total: {' + '.join(str(v) for v in shown)} + ? = {total}."]
     else:
         circle_total = sum(v for k, v in counts.items() if letter in k)
         text = phrase(

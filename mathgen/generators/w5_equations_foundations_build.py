@@ -805,7 +805,7 @@ def _inv_equation_steps(rng):
     check((c + (-b if plus else b)) / a == x, "the equation does not give x")
     work = [
         f"{a}x {'+' if plus else '-'} {b} = {c}: x is multiplied by {a}, then {b} is {'added' if plus else 'subtracted'}.",
-        f"Undo in the reverse order: {undo_b.lower()} {b} from both sides, then divide by {a}, giving x = {x}.",
+        f"Undo in the reverse order: {undo_b.lower()} {b} {'to' if undo_b == 'Add' else 'from'} both sides, then divide by {a}, giving x = {x}.",
     ]
     stems = (
         "To solve {e}, which inverse operations, in order, should be applied to both sides?",

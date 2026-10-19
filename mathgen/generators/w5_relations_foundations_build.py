@@ -1537,7 +1537,7 @@ def _seq_next(rng):
         rng,
         (
             "The first three terms of an arithmetic sequence are {s}. Which is the next term?",
-            "An arithmetic sequence begins {s}. What is the fourth term?",
+            "An arithmetic sequence begins {s}. What is the next term?",
             "Three consecutive terms of an arithmetic sequence are {s}. What comes straight after them?",
         ),
         key,

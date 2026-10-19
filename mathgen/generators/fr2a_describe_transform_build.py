@@ -168,7 +168,8 @@ def _describe(rng, tier):
         var = "x" if kind == "RV" else "y"
         text = (
             f"Triangle ABC is reflected in a {which} line to give A'B'C', as shown on the grid. The mirror line is "
-            f"{var} = k, and corner A is a distance dist from it, in grid units. Find k and dist, and give them as k = _, dist = _."
+            f"{var} = k. Find k and the distance from corner A to the mirror line, in grid units, and give them as "
+            f"k = _, dist = _ (dist is that distance)."
         )
         verify = [(kind, k)]
         working = [
@@ -443,7 +444,7 @@ def _fr2a_describe_chain(rng):
     part_b = dict(
         prompt=(
             "Give the details of the move. For a translation write right = _, up = _ (negative for left or down). "
-            "For a reflection write the mirror line as k = _ (its x or y value) and the distance dist from A to it as "
+            "For a reflection write the mirror line as k = _ (its x or y value) and the distance from A to it as "
             "dist = _. For a half turn write the centre as x = _, y = _."
         ),
         answer_kind="pair",

@@ -1016,6 +1016,16 @@ _TEST_PROMPT_VARIANTS = {
 }
 
 
+#: Short student-facing name of each test, for the worked trace.
+_TEST_SHORT = {
+    "sides3": "exactly 3 sides",
+    "equal_sides": "all sides equal",
+    "right_angle": "a right angle",
+    "has_parallel_pair": "a pair of parallel sides",
+    "has_second_parallel_pair": "a second pair of parallel sides",
+}
+
+
 def _describe_tree(tree, prompts):
     order = []
 
@@ -1187,6 +1197,9 @@ def p15d_shape_sorting(rng, tier="easy"):
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
-        working=[f"Trace: " + " -> ".join(f"{t}={'yes' if v else 'no'}" for t, v in path), f"Result: {answer_text}."],
+        working=[
+            "Trace: " + "; ".join(f"{_TEST_SHORT[t]}? {'yes' if v else 'no'}" for t, v in path),
+            f"Result: {answer_text}.",
+        ],
         distractors=pick_distractors(answer_text, alternatives, n=3),
     )

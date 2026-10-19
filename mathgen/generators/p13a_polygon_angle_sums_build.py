@@ -393,7 +393,7 @@ def _build_name_grouped(rng):
 
     text = (
         f"{_article(name)} {name} has {g} angles measuring {v} degrees each and the rest measuring "
-        f"{_format_list(rest)}. {_CLOSER}"
+        f"{_format_list(rest)}. One more angle is unknown. {_CLOSER}"
     )
     answer_text = str(missing)
     _check_exam(text, answer_text)
