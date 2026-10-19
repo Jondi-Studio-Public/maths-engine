@@ -635,6 +635,7 @@ OPTION_NOTES_TOPICS = frozenset(
         "senior_reducing_balance_schedule",
         "snet_adjacency",
         "snet_degrees",
+        "w4_graph_bridges",
         "snet_eulerian",
         "snet_hamiltonian",
         "snet_route_types",

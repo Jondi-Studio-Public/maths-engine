@@ -126,10 +126,10 @@ def _intro(ctx, n):
 # -- easy ---------------------------------------------------------------------------------------------------------
 
 
-def _costs_avoiding(rng, edges, answer_of):
-    """Distinct edge costs (2 to 30) such that the answer computed from them is not itself a printed cost."""
+def _costs_avoiding(rng, edges, answer_of, lo=2, hi=31):
+    """Distinct edge costs (``lo`` up to ``hi - 1``) such that the answer computed from them is not itself a printed cost."""
     for _ in attempts(200, "costs that do not print the answer"):
-        weight = dict(zip(edges, rng.sample(range(2, 31), len(edges))))
+        weight = dict(zip(edges, rng.sample(range(lo, hi), len(edges))))
         answer = answer_of(weight)
         if answer not in weight.values():
             return weight, answer
@@ -358,7 +358,8 @@ def w4_graph_bridges(rng, tier="easy"):
         return _easy(rng)
     if tier == "medium":
         return _medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if tier != "hard":
+        raise ValueError(f"unknown tier {tier!r}")
     return _hard(rng)
 
 
@@ -378,7 +379,8 @@ def fewest_new_edges_for_no_bridge(n, edges, limit=3):
 @generator("w4_graph_bridges_chain", level=12, presets={"exam": dict(tier="exam")})
 def w4_graph_bridges_chain(rng, tier="exam"):
     """Exam chain: bridges, pieces left without them, bridges after a new edge, new edges to remove every bridge."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(600, "a bridge exam network"):
         ctx = pick_context(rng)
         n, edges, built = block_graph(rng, 6, 8, *([rng.randint(3, 6)] * 2))
@@ -481,9 +483,27 @@ def w4_graph_bridges_chain(rng, tier="exam"):
             ],
             lo=1,
         )
-        if None in (part_a, part_b, part_c, part_d):
+        cyclic = [e for e in edges if e not in found]
+        weight, total = _costs_avoiding(rng, edges, lambda w: sum(w[e] for e in found), 8, 46)
+        part_e = number_part(
+            f"The number on each {ctx['e']} in the diagram is its cost, in dollars. What is the total cost, in "
+            "dollars, of the bridges?",
+            total,
+            2,
+            [f"The bridges cost {', '.join(str(weight[e]) for e in found)}, which add to {total}."],
+            [
+                (sum(weight[e] for e in cyclic), "w4-bridge-cost-of-cycle-edges"),
+                (sum(weight.values()), "w4-bridge-cost-of-all-edges"),
+                (max(weight[e] for e in found), "w4-bridge-cost-dearest-only"),
+                (total - min(weight[e] for e in found), "w4-bridge-cost-dearest-only"),
+            ],
+            lo=1,
+        )
+        if None in (part_a, part_b, part_c, part_d, part_e):
             continue
-        return dict(text=stem, figure=_picture(n, edges, ctx), parts=[part_a, part_b, part_c, part_d])
+        return dict(
+            text=stem, figure=_picture(n, edges, ctx, weights=weight), parts=[part_a, part_b, part_c, part_d, part_e]
+        )
     raise AssertionError  # pragma: no cover
 
 

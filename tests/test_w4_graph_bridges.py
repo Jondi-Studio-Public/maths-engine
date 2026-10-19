@@ -135,9 +135,10 @@ def test_exam_parts_match_an_independent_derivation():
     seen_a, seen_all = set(), set()
     for seed in range(1, 61):
         q = make("w4_graph_bridges_chain", seed=seed, difficulty="exam")
-        names, edges, _ = network_of(q)
+        names, edges, w = network_of(q)
         cut = bridges(names, edges)
-        a, b, c, d = (p.answer_text for p in q.parts)
+        a, b, c, d, e = (p.answer_text for p in q.parts)
+        assert e == str(sum(w[x] for x in cut))
         assert a == str(len(cut)) and b == str(pieces(names, [e for e in edges if e not in cut]))
         new = frozenset(re.search(r"A \w[\w ]* ([A-H]{2}) is to be built", q.text).group(1))
         assert new not in edges
@@ -162,4 +163,4 @@ def test_exam_parts_are_graded_and_part_b_follows_through_from_a_wrong_part_a():
         result = grade(SK, q, {**canon, "a": str(wrong_a), "b": str(wrong_a + 1)})
         assert result.parts["a"].marks == 0
         assert result.parts["b"].marks == 2 and result.parts["b"].follow_through is True, (seed, result)
-        assert result.parts["c"].marks == 2 and result.parts["d"].marks == 3
+        assert result.parts["c"].marks == 2 and result.parts["d"].marks == 3 and result.parts["e"].marks == 2
