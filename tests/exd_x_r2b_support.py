@@ -38,7 +38,8 @@ def hard_question(skill_id: str, seed: int):
 
 def assert_registered(skill_id: str, topic: str) -> None:
     sources = skill_yaml(skill_id)["sources"]
-    exam = [s for s in sources if s["difficulty"] == "exam"]
+    # A second exam source keyed exam-single is the maintainer's re-added single-part question (bf2fca7).
+    exam = [s for s in sources if s["difficulty"] == "exam" and s.get("key") != "exam-single"]
     assert len(exam) == 1
     assert exam[0]["topic"] == topic
     assert exam[0]["stages"] == ["exam"]

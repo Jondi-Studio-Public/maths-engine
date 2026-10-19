@@ -1,0 +1,90 @@
+id: acceleration-function-of-velocity
+name: "Solve motion where acceleration is a function of velocity"
+domain: differential-equations
+description: "Solve a = −kv and a = −kv² for the velocity against time and against distance, and find speeds, times and distances, including the distance in a stated time and the limiting distance."
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-exponential
+- acceleration-function-of-position
+answer: number
+sources:
+- topic: r3d_accel_velocity
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3d_accel_velocity
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3d_accel_velocity
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3d_accel_velocity_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3d-acceleration-for-speed
+  description: "Reporting an acceleration (or the acceleration constant) where a speed was asked for."
+- id: r3d-amplitude-divided
+  description: "Dividing the initial speed by the decay rate, which is the distance to rest, where the coefficient of the exponential is the initial speed."
+- id: r3d-constant-deceleration-assumed
+  description: "Treating a resistance that depends on speed as a constant deceleration equal to its initial value."
+- id: r3d-constant-dropped
+  description: "Dropping the constant of integration (the -1 or +1) from the result of an integral."
+- id: r3d-constant-sign
+  description: "Changing the sign of the term in the denominator of v = v0/(1 + kv0 t) when the speed is falling."
+- id: r3d-denominator-squared
+  description: "Squaring the whole denominator in v = v0/(1 + kv0 t)."
+- id: r3d-distance-so-far-for-limit
+  description: "Reporting the distance travelled so far where the greatest possible distance was asked for."
+- id: r3d-distance-used-as-time
+  description: "Putting the distance into a formula that takes the time, for a speed after a distance."
+- id: r3d-doubled
+  description: "Doubling the correct value."
+- id: r3d-exponent-sign
+  description: "Getting the sign of the exponent wrong: growth e^(kt) where decay e^(-kt) belongs, or the reverse."
+- id: r3d-final-speed-for-change
+  description: "Using the final speed in place of the change in speed when finding the distance."
+- id: r3d-final-speed-only
+  description: "Using only the final speed in the time formula, leaving the initial speed out."
+- id: r3d-half-time-for-half-speed
+  description: "Assuming the time to halve the speed is half of some other time."
+- id: r3d-initial-speed-dropped
+  description: "Leaving the initial speed out of the result, as if v0 = 1."
+- id: r3d-kinetic-energy-style
+  description: "Using v0²/(2k) (a kinetic-energy style result) as the distance, which ignores that the resistance depends on the speed."
+- id: r3d-linear-law-used
+  description: "Using the exponential result for a = -kv where a = -kv² applies (or the reverse)."
+- id: r3d-log-for-exponential
+  description: "Using a logarithm where the result of the integral is an exponential."
+- id: r3d-log-ratio-inverted
+  description: "Inverting the ratio inside the logarithm, so the time comes out negative."
+- id: r3d-mean-speed-used
+  description: "Using the average of the initial and final speeds times the time as if the speed changed uniformly."
+- id: r3d-no-deceleration
+  description: "Ignoring the resistance and using distance = speed × time."
+- id: r3d-quadratic-law-used
+  description: "Using the result for a = -kv² where a = -kv applies (or the reverse)."
+- id: r3d-rate-dropped
+  description: "Dropping the rate constant k from the exponent or the logarithm."
+- id: r3d-rate-multiplied
+  description: "Multiplying by the rate constant k where a division by it is needed."
+- id: r3d-speed-change-for-distance
+  description: "Reporting the change in speed where the distance travelled was asked for."
+- id: r3d-speed-dropped
+  description: "Leaving the speed out of the formula."
+- id: r3d-speed-times-time
+  description: "Multiplying the final speed by the time to get the distance."
+- id: r3d-stopping-distance-for-partial
+  description: "Giving the distance to stop where the distance to a stated lower speed was asked for."
+- id: r3d-time-dropped
+  description: "Leaving the time out of the exponent, so the speed is the same at every time."
+tags:
+- mechanics
+- resisted-motion
+- differential-equations
+- specialist-unit-4
+- extension-2

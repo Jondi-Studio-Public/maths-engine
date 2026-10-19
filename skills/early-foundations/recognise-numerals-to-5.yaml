@@ -10,7 +10,7 @@ status: active
 prerequisites: [count-to-5]
 answer: mcq
 sources:
-- topic: recognise_numeral
+- topic: ey6a_recognise_numeral
   params: {lo: 0, hi: 5}
   difficulty: easy
 misconceptions: []

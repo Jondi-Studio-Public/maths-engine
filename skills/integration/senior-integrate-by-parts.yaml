@@ -27,6 +27,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c4_by_parts_cyclic
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: sign-error
   description: Flipping the sign of the ∫v·du term in the by-parts formula.

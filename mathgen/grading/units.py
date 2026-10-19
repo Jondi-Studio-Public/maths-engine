@@ -119,6 +119,26 @@ _SPELLING_TO_UNIT = {spelling: unit for unit, spellings in _UNITS.items() for sp
 # Longest first, so "km/h" is found before "km" and "square metres" before "metres".
 _SPELLINGS = sorted(_SPELLING_TO_UNIT, key=len, reverse=True)
 _SPELLING_PATTERN = "|".join(re.escape(spelling) for spelling in _SPELLINGS)
+# Case-folding turns two different SI prefixes into one: a capital M is mega and a small m is milli, so "ML" is a
+# megalitre and "mL" a millilitre. A reply whose case says the other prefix than the table's is a different
+# unit, not the table's one, so it gets an id no unit shares (see `_resolve`).
+# "MM" is left alone: a megametre is all but never written, and a shouted "30 MM" has always meant millimetres.
+_MEGA_WRITTEN_AS_MILLI_RE = re.compile(r"(?<![A-Za-z])M(?:[LlGgSs]|m)(?![A-Za-z])")
+_MILLI_WRITTEN_AS_MEGA_RE = re.compile(r"(?<![A-Za-z])m(?:[jJ]|[hH][zZ]|[pP][aA])(?![A-Za-z])")
+
+
+def _prefix_case_clash(spelling: str) -> bool:
+    """Whether `spelling` is written with the case of one M prefix but is the table's spelling of the other:
+    a capital M on a milli unit ("ML", "Mg", "Mm") or a small m on a mega unit ("mHz", "mPa", "mJ")."""
+    return bool(_MEGA_WRITTEN_AS_MILLI_RE.search(spelling) or _MILLI_WRITTEN_AS_MEGA_RE.search(spelling))
+
+
+def _resolve(spelling: str) -> str:
+    """The unit id of a spelling found in a reply, compared case-insensitively except for the M prefix clash."""
+    unit = _SPELLING_TO_UNIT[spelling.lower()]
+    return "~" + unit if _prefix_case_clash(spelling) else unit
+
+
 # A spelling standing on its own: not inside a word ("m" in "mass"), and not followed by a letter or digit that
 # would make it a longer word or an exponent ("m" in "m2" is found as "m2").
 _MENTION_RE = re.compile(rf"(?<![^\W\d_])(?:{_SPELLING_PATTERN})(?![\w²³'’])", re.IGNORECASE)
@@ -189,12 +209,14 @@ def _compose(text: str) -> str | None:
     """A compound unit written out of parts ("km/s", "kilometres per hour", "g/cm^3", "metres squared",
     "m s"), as one id such as "km/s", "km/h" or "g/cm3"; None when the text is not made wholly of recognised
     units. The id is the table's own id for a unit the table lists ("km/h", "m/s2"), so the two compare equal."""
-    text = text.strip().rstrip(".!").strip().lower()
+    text = text.strip().rstrip(".!").strip()
     if not text or len(text) > _MAX_UNIT_TEXT:
         return None
+    clash = _prefix_case_clash(text)
+    text = text.lower()
     whole = _segment_unit(text)
     if whole is not None:
-        return whole
+        return "~" + whole if clash else whole
     segments = text.replace(" per ", "/").split("/")
     if len(segments) == 1:
         segments = text.split()  # "m s": two units written side by side
@@ -207,7 +229,8 @@ def _compose(text: str) -> str | None:
     if None in ids:
         return None
     composed = joiner.join(ids)  # type: ignore[arg-type]
-    return _COMPOSED_ALIASES.get(composed, composed)
+    composed = _COMPOSED_ALIASES.get(composed, composed)
+    return "~" + composed if clash else composed
 
 
 def _after_last_number(text: str) -> tuple[int, str] | None:
@@ -243,7 +266,7 @@ def split_unit(text: str) -> tuple[str, str | None]:
         rest = text[numbers[-1].end() :].strip().rstrip(".!")
         match = _MENTION_RE.match(rest)
         if match is not None and match.end() == len(rest.rstrip()):
-            return text[: numbers[-1].end()], _SPELLING_TO_UNIT[match.group(0).lower()]
+            return text[: numbers[-1].end()], _resolve(match.group(0))
         capital = _capital_unit(text)
         if capital is not None:
             return text[: numbers[-1].end()], capital
@@ -335,11 +358,29 @@ def _asked_compound_parts(question) -> frozenset[str] | None:
     return frozenset(_SPELLING_TO_UNIT[spelling.lower()] for spelling in asked[-1].groups() if spelling)
 
 
+# A unit written as an SI prefix and a base symbol that the table does not list ("mN", "MN", "dm", "nm", "mA").
+# Capital and small letters are different prefixes here (M is mega, m is milli), so it is read as written.
+_PREFIXED_UNIT_RE = re.compile(r"(?:da|[YZEPTGMkhdcmµμunpf])(?:Pa|Hz|mol|[NJWVACFHTgmsLl])")
+
+
+def _prefixed_unit_conflicts(question, given: str) -> bool:
+    """Whether the reply ends in a prefixed unit the table does not list ("25 mN") while the question asks for
+    another unit: the canonical's own unit, or one the question names. The canonical's own spelling, listed or
+    not, never conflicts, and a question that asks for no unit judges none, as for any unit it does not know."""
+    found = _after_last_number(given)
+    if found is None or _PREFIXED_UNIT_RE.fullmatch(found[1]) is None:
+        return False
+    shown = _after_last_number(getattr(question, "answer_text", "") or "")
+    if shown is not None and shown[1] == found[1]:
+        return False
+    return _asked_unit(question) is not None
+
+
 def unit_is_acceptable(question, given: str) -> bool:
     """Whether the unit a typed number reply gives (if any) is one the question allows. See the module docstring."""
     unit = _unit_of(given or "")
     if unit is None:
-        return True
+        return not _prefixed_unit_conflicts(question, given or "")
     asked = _asked_unit(question)
     if asked is not None:
         return unit == asked

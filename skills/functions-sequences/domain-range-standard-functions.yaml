@@ -1,0 +1,194 @@
+id: domain-range-standard-functions
+name: Find the domain and range of standard functions
+domain: functions-sequences
+year_level: ['11']
+description: >-
+  Write the largest domain and the range of a function built from a square root, a reciprocal, a
+  logarithm or a quadratic as an inequality, including a quadratic on a restricted interval.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-find-the-composition-of-two-functions
+- senior-find-turning-points-and-zeros-of-quadratics-and
+answer: inequality
+sources:
+- topic: r3i_domain_range
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3i_domain_range
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3i_domain_range
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3i_exam_domain_range
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3i-domain-bound-sign
+  description: >-
+    Giving the end of the domain with the wrong sign, as if x + b ≥ 0 gave x ≥ b.
+- id: r3i-domain-hole-at-zero
+  description: >-
+    Excluding x = 0 from the domain of a reciprocal whose denominator is not x.
+- id: r3i-domain-hole-from-numerator
+  description: >-
+    Excluding the value that makes the numerator 0 instead of the denominator.
+- id: r3i-domain-hole-sign
+  description: >-
+    Excluding the value of x with the wrong sign when the denominator is zero.
+- id: r3i-domain-inequality-direction
+  description: >-
+    Reversing the direction of the inequality when solving for the domain.
+- id: r3i-domain-no-division-by-coefficient
+  description: >-
+    Stopping at the constant term without dividing by the coefficient of x when solving for the end of
+    the domain.
+- id: r3i-domain-nonstrict-for-log
+  description: >-
+    Allowing the argument of a logarithm to equal 0, so using ≥ where > is needed.
+- id: r3i-domain-one-sided
+  description: >-
+    Giving only one end of an interval as the domain.
+- id: r3i-domain-only-endpoint-removed
+  description: >-
+    Removing only the end of the domain of 1/g, and missing that the zero of g must also be removed.
+- id: r3i-domain-only-zero-removed
+  description: >-
+    Removing only the single value where the root is 0, instead of requiring the root's argument to be
+    positive.
+- id: r3i-domain-quadratic-one-root-only
+  description: >-
+    Using only one root of the quadratic to set the domain.
+- id: r3i-domain-quadratic-sign-chart-reversed
+  description: >-
+    Choosing the middle interval where the outer rays are needed (or the reverse) when solving a
+    quadratic inequality for a domain.
+- id: r3i-domain-radius-squared-used
+  description: >-
+    Using r² instead of r as the end of the domain of √(r² - x²).
+- id: r3i-domain-range-confused
+  description: >-
+    Giving the value the function can never take as a value of x that is excluded from the domain, or
+    the other way round.
+- id: r3i-domain-root-condition-missed
+  description: >-
+    Excluding the zero of g from the domain of 1/g but forgetting that the square root needs x to be at
+    least the end of its own domain.
+- id: r3i-domain-strict-for-denominator
+  description: >-
+    Allowing the argument of a square root in a denominator to equal 0, so using ≥ where > is needed.
+- id: r3i-domain-strict-for-root
+  description: >-
+    Excluding the end of the domain of a square root, using > where ≥ is allowed.
+- id: r3i-domain-strictness-slip
+  description: >-
+    Swapping strict and non-strict inequalities at the ends of a domain.
+- id: r3i-domain-zero-of-denominator-missed
+  description: >-
+    Giving the domain of g as the domain of 1/g, without removing the value where g is 0.
+- id: r3i-intercept-measured-from-origin
+  description: >-
+    Giving the distance from the end of the domain to the x-intercept instead of its x-coordinate.
+- id: r3i-intercept-root-not-squared
+  description: >-
+    Setting the root equal to the constant but forgetting to square before solving for x.
+- id: r3i-intercept-sign-slip
+  description: >-
+    Adding b instead of subtracting it when solving for the x-intercept.
+- id: r3i-range-all-reals
+  description: >-
+    Giving all real numbers as the range of a reciprocal, missing the value it never takes.
+- id: r3i-range-direction
+  description: >-
+    Giving a range that runs in the wrong direction from its end value.
+- id: r3i-range-domain-confused
+  description: >-
+    Giving the domain, or a value excluded from it, when the range was asked for (or the reverse).
+- id: r3i-range-end-attained
+  description: >-
+    Treating the end of the range of 1/√(...) as attained, using ≥ where the value is never reached.
+- id: r3i-range-end-not-attained
+  description: >-
+    Treating the least value of a square root function as not attained, using > where ≥ is right.
+- id: r3i-range-endpoints-only
+  description: >-
+    Taking the range from the function values at the two ends of the interval only, ignoring the vertex.
+- id: r3i-range-hole-at-zero
+  description: >-
+    Giving y ≠ 0 as the range of a shifted reciprocal.
+- id: r3i-range-hole-not-ray
+  description: >-
+    Giving a single excluded value as the range of a function whose range is a ray.
+- id: r3i-range-ignores-vertical-shift
+  description: >-
+    Giving the range of the bare square root (0 and above, or 0 and below) without applying the vertical
+    shift.
+- id: r3i-range-open-end-treated-as-closed
+  description: >-
+    Counting the larger end value as attained when the end of the interval that gives it is not
+    included.
+- id: r3i-range-radius-squared-used
+  description: >-
+    Using r² instead of r for the greatest value of √(r² - x²).
+- id: r3i-range-ratio-inverted
+  description: >-
+    Giving the ratio of the x-coefficients upside down as the value the rational function never takes.
+- id: r3i-range-ratio-without-denominator-coefficient
+  description: >-
+    Giving the numerator's x-coefficient alone as the value never taken, without dividing by the
+    denominator's.
+- id: r3i-range-scale-factor-ignored
+  description: >-
+    Leaving out the multiplier in front of the square root when finding the greatest value.
+- id: r3i-range-shift-sign
+  description: >-
+    Applying the vertical shift with the wrong sign when finding the end of the range.
+- id: r3i-range-symmetric-about-shift
+  description: >-
+    Taking the range of a semicircle to run equally above and below the shift, as if the root could be
+    negative.
+- id: r3i-range-values-in-domain-order
+  description: >-
+    Writing the range from f at the left end to f at the right end, even when the left value is the
+    larger.
+- id: r3i-range-vertex-always-used
+  description: >-
+    Using the vertex value as an end of the range even when the vertex lies outside the interval.
+- id: r3i-range-vertex-treated-as-open
+  description: >-
+    Treating the vertex value as not attained, although the vertex lies inside the interval.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: >-
+      Read the domain or the range of a shifted square root or reciprocal from the condition that makes it
+      defined, with the end value from solving a linear condition.
+  medium:
+    steps: 3
+    demand: >-
+      Handle a logarithm, a reciprocal square root (strict inequality), a rational function with a value it
+      never takes, or the range of a quadratic on an interval where the vertex may lie outside.
+  hard:
+    steps: 4
+    demand: >-
+      Solve a quadratic inequality for the domain of a root or logarithm, find the domain or range of a
+      scaled semicircle, or the range of a quadratic on a half-open interval where one end value is not
+      attained.
+  exam:
+    steps: 6
+    demand: >-
+      Chain the end of a root function's domain, its least value, its x-intercept and the domain of its
+      reciprocal with the zero removed.
+tags:
+- acara-senior-v8-4
+- functions
+- domain
+- range
+- interval-notation
+- ACMMM023
+- nsw-mathematics-advanced

@@ -1,0 +1,56 @@
+id: uc2-bernoulli-equation
+name: Bernoulli equations
+domain: ordinary-differential-equations
+year_level: [university]
+description: >-
+  Solve y' + P(x)y = Q(x)y^n with the substitution v = y^(1 - n), then apply an initial condition to the
+  solution for y.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-separable-poly
+- solve-ode-exponential
+answer: expression
+sources:
+- topic: s2c1_bernoulli_equation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2c1_bernoulli_equation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2c1_bernoulli_equation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2c1_bernoulli_equation
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: bernoulli-forgot-final-power
+  description: >-
+    Stopping at the solution v of the linear equation without converting back to y = v^(1/(1-n)).
+- id: bernoulli-inverted-power
+  description: >-
+    Converting back with the wrong power, y = v^(-1/(1-n)) instead of v^(1/(1-n)).
+- id: bernoulli-ic-applied-to-v
+  description: >-
+    Using the initial value of y as the initial value of v, instead of y(x0) raised to the power 1 - n.
+- id: bernoulli-forgot-one-minus-n
+  description: >-
+    Leaving the factor 1 - n out of the linear equation for v, so v' + P v = Q.
+- id: bernoulli-q-not-scaled
+  description: >-
+    Multiplying P by 1 - n in the linear equation for v but forgetting to multiply Q by it.
+- id: bernoulli-wrong-exponent
+  description: >-
+    Using the wrong power in the substitution, such as v = y^n or v = y^(n-1) instead of v = y^(1-n).
+- id: bernoulli-integrating-factor-sign
+  description: >-
+    Giving the integrating factor the wrong sign in the exponent.
+- id: bernoulli-integrating-factor-not-exponentiated
+  description: >-
+    Giving the integral of the coefficient instead of its exponential as the integrating factor.
+tags: [university-year-2, ordinary-differential-equations, bernoulli-equation]

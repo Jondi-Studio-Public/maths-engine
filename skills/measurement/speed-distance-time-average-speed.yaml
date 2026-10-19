@@ -1,0 +1,111 @@
+id: speed-distance-time-average-speed
+name: Work with speed, distance and time and find an average speed
+domain: measurement
+description: Find a speed, a time or a distance when the time is in hours and minutes, and find the average speed over a journey
+  in several legs, with or without a rest stop.
+status: active
+placement_eligible: false
+prerequisites:
+- ratio-rate-proportion
+- convert-time-systems
+answer: number
+sources:
+- topic: r3j_speed
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3j_speed
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3j_speed
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3j_speed_journey
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3j-speed-distance-weighted-mean
+  description: Averaging the speeds weighted by the distances, which counts a slow leg for less than the time spent on it.
+- id: r3j-speed-divided-for-multiplied
+  description: Dividing by the time where the speed and time must be multiplied.
+- id: r3j-speed-divided-the-wrong-way
+  description: Dividing the speed by the distance (or the reverse) where distance is divided by speed to give time.
+- id: r3j-speed-first-leg-time-used
+  description: Dividing the last leg by the time taken on the first leg instead of the time that is left.
+- id: r3j-speed-hours-and-minutes-added
+  description: Adding the hours and the minutes as if they were the same unit.
+- id: r3j-speed-hours-given-as-minutes
+  description: Giving the time in hours where the time in minutes was asked for.
+- id: r3j-speed-hours-times-hundred
+  description: Changing a time in hours to minutes by multiplying by 100 instead of 60.
+- id: r3j-speed-last-leg-left-out
+  description: Leaving the last leg of the journey out of the time.
+- id: r3j-speed-last-leg-over-whole-time
+  description: Dividing the last leg by the whole time allowed instead of the time left after the first leg.
+- id: r3j-speed-linear-adjustment
+  description: Adjusting the speed by the gap between the target and the first speed, as if speeds averaged in a straight
+    line.
+- id: r3j-speed-mean-of-speeds
+  description: Taking the mean of the speeds as the average speed instead of the total distance over the total time.
+- id: r3j-speed-mean-of-speeds-reversed
+  description: Finding the speed that would make the plain mean of the speeds equal the target.
+- id: r3j-speed-minutes-as-hundredths
+  description: Writing minutes as hundredths of an hour, so 2 hours 15 minutes becomes 2.15 hours.
+- id: r3j-speed-minutes-given-as-hours
+  description: Giving a time in minutes where the time in hours was asked for.
+- id: r3j-speed-minutes-ignored
+  description: Ignoring the minutes and using only the whole hours of the time.
+- id: r3j-speed-minutes-not-converted
+  description: Using minutes as if they were hours when multiplying a speed in kilometres per hour by a time.
+- id: r3j-speed-multiplied-for-divided
+  description: Multiplying where a division by speed or time is needed.
+- id: r3j-speed-other-leg-speed-used
+  description: Using the speed of the other leg of the journey to find a leg's time.
+- id: r3j-speed-per-minute-given
+  description: Dividing the distance by the minutes and giving kilometres per minute as kilometres per hour.
+- id: r3j-speed-stop-left-out
+  description: Leaving the rest stop out of the total time.
+- id: r3j-speed-stop-minutes-as-hours
+  description: Adding the minutes of a rest stop to a time in hours as if they were hours.
+- id: r3j-speed-target-given
+  description: Giving the target average speed where the speed for the last leg was asked for.
+- id: r3j-speed-total-distance-given
+  description: Giving the total distance where the average speed was asked for.
+- id: r3j-speed-total-distance-over-first-time
+  description: Dividing the total distance by the time of the first leg only.
+- id: r3j-speed-total-time-given
+  description: Giving the total time where the average speed was asked for.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find a speed, a time in minutes or a distance, converting minutes to hours.
+  medium:
+    steps: 4
+    demand: Find the average speed over two legs, which is the total distance over the total time and not the mean of the
+      speeds.
+  hard:
+    steps: 5
+    demand: Find the speed needed on the last leg to reach a stated average, or the average speed over three legs and a rest
+      stop.
+  exam:
+    steps: 6
+    demand: The time of each leg, the total time with a rest stop, and the average speed for the whole journey, following
+      through.
+tags:
+- general-maths
+- essential-maths
+- speed
+- rates
+- measurement

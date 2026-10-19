@@ -1,0 +1,90 @@
+id: completing-square-and-discriminant
+name: Complete the square, use the discriminant and solve quadratic and rational inequalities
+domain: quadratics
+description: Find the range of a quadratic and solve quadratic inequalities with surd bounds by completing the square, find the
+  values of a parameter for which a quadratic has no or two real roots, and solve rational inequalities as intervals.
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+- solve-quadratics-formula
+- two-step-inequalities
+answer: inequality
+sources:
+- topic: r3g_quadratic_forms
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3g_quadratic_forms
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3g_quadratic_forms
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3g_exam_quadratic_forms
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3g-quadratic-region-reversed
+  description: "Giving the region between the boundary values where the region outside them was needed, or the reverse."
+- id: r3g-quadratic-constant-term-given
+  description: "Giving the constant term of the quadratic as its turning value, without completing the square."
+- id: r3g-quadratic-square-not-subtracted
+  description: "Completing the square and forgetting to subtract the square that was added, so the constant is wrong."
+- id: r3g-quadratic-equality-included
+  description: "Including the boundary values in the solution when the inequality is strict, or leaving them out when it is not."
+- id: r3g-quadratic-min-max-sign
+  description: "Giving the turning value with the wrong sign, mixing up a minimum and a maximum."
+- id: r3g-quadratic-sign-of-shift
+  description: "Reading (x - h)\u00b2 as having its turning point at x = -h, or writing the shift with the wrong sign."
+- id: r3g-quadratic-root-not-taken
+  description: "Giving the number under the square root without taking the root."
+- id: r3g-quadratic-shift-dropped
+  description: "Giving only the surd and leaving out the shift from the completed square."
+- id: r3g-quadratic-one-sign-only
+  description: "Giving one of the two boundary values, or one side of the region, and missing the other."
+- id: r3g-quadratic-square-root-not-taken
+  description: "Forgetting to take the square root when solving k squared equals a number."
+- id: r3g-quadratic-factor-two-dropped
+  description: "Dropping the factor of 2 in the boundary k = \u00b12\u221a(ac) from the discriminant."
+- id: r3g-quadratic-four-a-dropped
+  description: "Leaving out the factor 4a in the discriminant b\u00b2 - 4ac, or in the relation between it and the turning value."
+- id: r3g-quadratic-leading-coefficient-zero-allowed
+  description: "Allowing k = 0 when k is the leading coefficient, which stops the equation being quadratic."
+- id: r3g-quadratic-roots-negated
+  description: "Writing the boundary values with the wrong signs, such as using -2 and 3 for the zeros 2 and -3."
+- id: r3g-quadratic-rational-cross-multiplied
+  description: "Multiplying both sides of a rational inequality by the denominator without allowing for its sign."
+- id: r3g-quadratic-pole-included
+  description: "Including the value that makes the denominator zero in the solution of a rational inequality."
+- id: r3g-quadratic-leading-coefficient-ignored
+  description: "Ignoring the leading coefficient when completing the square, so the turning point is that of x\u00b2 + bx + c."
+- id: r3g-quadratic-half-not-taken
+  description: "Using the whole middle coefficient where half of it belongs in the completed square."
+- id: r3g-quadratic-constant-dropped
+  description: "Leaving the constant term out when evaluating the turning value."
+- id: r3g-quadratic-wrong-formula
+  description: "Using the wrong formula for the discriminant."
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Complete the square on a monic quadratic with an even middle coefficient and read off the range from the turning value.
+  medium:
+    steps: 4
+    demand: Solve a quadratic inequality whose quadratic does not factorise, by completing the square, and give exact surd bounds.
+  hard:
+    steps: 5
+    demand: Use the discriminant to find the range of a parameter, or solve a rational inequality as intervals with the right end points.
+  exam:
+    steps: 6
+    demand: Find the turning point, the turning value, the discriminant (from the turning value) and the solution set of an inequality.
+tags:
+- acara-senior-v8-4
+- quadratics
+- completing-the-square
+- discriminant
+- inequalities
+- nsw-advanced

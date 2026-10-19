@@ -1,0 +1,102 @@
+id: families-of-curves-and-linearity
+name: Families of curves and linearity of the derivative and integral
+domain: differentiation
+description: A derivative fixes a function only up to a constant, so f'(x) gives the family F(x) + C and one point picks the
+  member; and because differentiation and integration are linear, a combination r f + s g can be handled from what is known
+  about f and g separately. Easy takes the derivative of a combination at a point, medium the integral of a combination over
+  an interval from given partial integrals, hard builds the combination of two members of families from their derivatives
+  and one value each; the exam tier finds the antiderivative, the constant, a value, and an integral by linearity.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-recognise-and-use-linearity-properties-of-the-derivative
+- definite-integral
+answer: expression
+sources:
+- topic: r3h_families
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3h_families
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3h_families
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3h_families
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3h-families-constant-has-derivative
+  description: Keeping a constant term in the derivative of a combination, as if the derivative of a constant were the constant.
+- id: r3h-families-square-term-forgotten
+  description: Differentiating the combination of f and g but leaving out the derivative of the extra x^2 term.
+- id: r3h-families-scalar-not-applied
+  description: Applying a scalar multiple to one function but not the other, or to neither, when taking the derivative or
+    integral of a combination.
+- id: r3h-families-derivatives-multiplied
+  description: Multiplying the two given derivatives instead of adding the scaled derivatives.
+- id: r3h-families-power-rule-not-lowered
+  description: Differentiating x^2 as 2x but evaluating at the point with the power left on, giving u x0^2 instead of 2u x0.
+- id: r3h-families-sign-of-second-term
+  description: Losing the minus sign of the second function when combining, so r f - s g is treated as r f + s g (or the reverse).
+- id: r3h-families-integral-of-term-not-integrated
+  description: 'Integrating an extra term over an interval without integrating it: using the term''s coefficient as its integral.'
+- id: r3h-families-lower-limit-ignored
+  description: Substituting only the upper limit when evaluating the integral of an extra term, forgetting to subtract the
+    value at the lower limit.
+- id: r3h-families-integral-of-product
+  description: Multiplying the two given values instead of adding the scaled values.
+- id: r3h-families-extra-term-dropped
+  description: Using the scaled given integrals but leaving out the integral of the extra term altogether.
+- id: r3h-families-constant-dropped
+  description: Finding the antiderivative of each derivative but leaving out the constants of integration, so no member of
+    the family is chosen.
+- id: r3h-families-constant-not-scaled
+  description: Adding the constants of the two members without applying the scalar multiples to them.
+- id: r3h-families-derivative-combined
+  description: Combining the given derivatives instead of the functions, giving the derivative of the combination as the combination.
+- id: r3h-families-values-not-combined
+  description: Adding the combination of the given values as one constant, which is the value of the combination at the point
+    rather than its constant of integration.
+- id: r3h-antiderivative-differentiated
+  description: Differentiating g(x) instead of integrating it.
+- id: r3h-antiderivative-sign
+  description: Giving the antiderivative of g(x) the wrong overall sign.
+- id: r3h-antiderivative-times-x
+  description: Integrating a product by multiplying by x, writing x g(x) as the antiderivative of g(x).
+- id: r3h-families-integrated-without-dividing
+  description: Integrating by raising the power (or keeping the exponential) without dividing by the new power or by the coefficient
+    of x in the exponent.
+- id: r3h-families-constant-sign
+  description: Finding the constant of integration with the wrong sign.
+- id: r3h-families-constant-is-value
+  description: Taking the given value of the function as the constant of integration, as if the antiderivative were zero at
+    the point.
+- id: r3h-families-constant-adds-antiderivative
+  description: Adding the antiderivative's value at the point to the given value instead of subtracting it when finding the
+    constant.
+- id: r3h-families-value-is-derivative
+  description: Evaluating the derivative at the point instead of the function.
+- id: r3h-families-derivative-evaluated
+  description: Using the change in the derivative over the interval where the integral of the derivative (the change in the
+    function) is needed.
+tags:
+- senior-secondary
+- mathematical-methods
+- differentiation
+- antiderivatives
+- linearity

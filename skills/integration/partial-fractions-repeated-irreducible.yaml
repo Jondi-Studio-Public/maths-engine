@@ -1,0 +1,105 @@
+id: partial-fractions-repeated-irreducible
+name: Find partial fractions with repeated or irreducible quadratic factors
+domain: integration
+year_level: ['12']
+description: Find the constants in a partial-fraction decomposition when the denominator has a repeated linear factor or an
+  irreducible quadratic factor, and use them to integrate and evaluate.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-partial-fractions-where-necessary-for-integration-in
+- integrate-reciprocal-linear
+answer: pair
+sources:
+- topic: r3b_partial_fractions
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3b_partial_fractions
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3b_partial_fractions
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: r3b_exam_partial_fractions
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3b-pf-repeated-constant-unshifted
+  description: Writing the numerator constant as B in the repeated-factor form without adjusting for the shift, so B is the
+    constant term of the numerator rather than the value at the root.
+- id: r3b-pf-constants-swapped
+  description: Swapping the constants of the two partial fractions, so the numerator of the single power is given as that
+    of the squared power.
+- id: r3b-pf-repeated-shift-sign
+  description: Using the wrong sign for the shift when matching the constant term in a repeated-factor decomposition.
+- id: r3b-pf-numerator-sign
+  description: Giving a constant with the right size but the wrong sign after matching coefficients.
+- id: r3b-pf-evaluated-at-wrong-sign
+  description: Substituting x = -a instead of the root x = a of the linear factor when finding the constant.
+- id: r3b-pf-b-not-reduced
+  description: Taking the coefficient of x squared in the numerator as B, forgetting that part of it comes from A.
+- id: r3b-pf-b-c-swapped
+  description: Swapping the constants B and C of the quadratic-factor numerator Bx + C.
+- id: r3b-pf-c-sign
+  description: Getting the sign of C wrong when matching the x terms, because of the sign of the root.
+- id: r3b-pf-a-b-swapped
+  description: Swapping the constants of the single and repeated linear factors.
+- id: r3b-pf-c-d-swapped
+  description: Swapping the constants of the quadratic-factor numerator Cx + D.
+- id: r3b-pf-substitution-not-divided
+  description: Giving the value of the numerator at the root as A, without dividing by the value of the other factor there.
+- id: r3b-pf-log-not-halved
+  description: Integrating (Bx)/(x^2 + b) as B ln(x^2 + b), forgetting the factor 1/2 from the derivative of x^2 + b.
+- id: r3b-pf-arctan-not-divided
+  description: Integrating C/(x^2 + s^2) as C arctan(x/s), forgetting the factor 1/s.
+- id: r3b-pf-arctan-multiplied
+  description: Integrating C/(x^2 + s^2) as Cs arctan(x/s), multiplying by s instead of dividing.
+- id: r3b-pf-quadratic-term-direct
+  description: Using the constants B and C of the decomposition directly as the coefficients of the integral's quadratic-factor
+    terms.
+- id: r3b-pf-quadratic-factor-forgotten
+  description: Dividing by the square of the root only, leaving the constant b of x^2 + b out of the value of the other factor.
+- id: r3b-pf-b-sign
+  description: Combining A and the x squared coefficient with the wrong sign when finding B.
+- id: r3b-pf-c-shift-dropped
+  description: Taking the coefficient of x as C, forgetting the contribution -aB from the linear factor.
+- id: r3b-pf-c-from-wrong-constant
+  description: Using A instead of B in the x coefficient equation when finding C.
+- id: r3b-pf-arctan-term-dropped
+  description: Leaving out the arctan term when evaluating the exact integral.
+- id: r3b-pf-lower-limit-ignored
+  description: Evaluating the logarithm of the linear factor only at the upper limit, ignoring its value at 0.
+- id: r3b-pf-arctan-limit-slip
+  description: Evaluating arctan(x/s) at x = s as pi/2 instead of pi/4.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Match a numerator over a squared linear factor to A/(x - a) + B/(x - a)^2.
+  medium:
+    steps: 3
+    demand: Match coefficients for a linear factor times an irreducible quadratic, finding three constants.
+  hard:
+    steps: 4
+    demand: Find four constants for a repeated factor and a quadratic, or turn a decomposition into the coefficients of the
+      integral.
+  exam:
+    steps: 5
+    demand: Find A by substitution, B and C from coefficients, then the exact integral with a logarithm, ln 2 and a multiple
+      of pi.
+tags:
+- acara-senior-v8-4
+- integration
+- ACMSM118

@@ -1,0 +1,116 @@
+id: integrate-exponential-linear-argument
+name: Integrate exponential functions with a linear argument
+domain: integration
+year_level: ['12']
+description: Find antiderivatives of exponential functions such as a e^(kx), e^(px + q) and b^x, including the constant of
+  integration, then use a point on the curve to fix that constant.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-polynomial
+answer: expression
+sources:
+- topic: r3b_integrate_exponential
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3b_integrate_exponential
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3b_integrate_exponential
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: r3b_exam_integrate_exponential
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3b-exp-integral-not-divided
+  description: Integrating a e^(kx) as a e^(kx), without dividing by the coefficient k of x in the exponent.
+- id: r3b-exp-integral-multiplied-by-k
+  description: Multiplying by k, the chain-rule factor, instead of dividing by it when integrating e^(kx).
+- id: r3b-exp-integral-power-rule
+  description: 'Applying the power rule to e^(kx): raising the exponent by one and dividing by it, giving e^(kx+1)/(kx+1).'
+- id: r3b-exp-integral-sign-of-k-lost
+  description: Dividing by the size of a negative k, so the antiderivative of e^(-kx) has the wrong sign.
+- id: r3b-exp-shift-dropped
+  description: Dropping the constant in the exponent when integrating e^(px+q), so e^q is lost.
+- id: r3b-power-term-not-integrated
+  description: Integrating the exponential term but differentiating, or leaving unchanged, a power term in the same integrand.
+- id: r3b-exp-negative-exponent-sign
+  description: Dividing by the size of a negative coefficient in the exponent, so the sign of the term is wrong.
+- id: r3b-exp-bracket-power-rule
+  description: Treating (e^(px) + q)^2 as a power of a bracket, giving (e^(px) + q)^3 divided by 3p, instead of expanding
+    first.
+- id: r3b-square-cross-term-dropped
+  description: Squaring (e^(px) + q) as e^(2px) + q^2, leaving out the middle term 2q e^(px).
+- id: r3b-exp-doubled-exponent-divisor
+  description: Integrating e^(2px) by dividing by p instead of 2p.
+- id: r3b-constant-term-not-integrated
+  description: Integrating a constant term as the constant itself, without multiplying by x.
+- id: r3b-exp-integrate-factors-separately
+  description: Integrating the two factors of a product e^(px) e^(qx) separately and multiplying the results, instead of adding
+    the exponents first.
+- id: r3b-exp-product-exponents-multiplied
+  description: Multiplying the exponents, not adding them, when simplifying e^(px) e^(qx).
+- id: r3b-exp-exponent-sign-lost
+  description: Writing a / e^(kx) as a e^(kx), losing the minus sign in the exponent.
+- id: r3b-exp-base-multiplied-by-ln
+  description: Integrating b^x as b^x ln(b), the derivative, instead of b^x / ln(b).
+- id: r3b-exp-base-ln-omitted
+  description: Integrating b^(kx) by dividing by k only, with no factor of ln(b).
+- id: r3b-chain-constant-term-ignored
+  description: Leaving out the constant term of the gradient function when using a stated gradient or condition to find an
+    unknown.
+- id: r3b-chain-constant-term-sign
+  description: Adding the constant term of the gradient function where it should be subtracted, when finding an unknown coefficient.
+- id: r3b-chain-sign-slip
+  description: Giving a coefficient with the wrong sign after rearranging the equation that defines it.
+- id: r3b-chain-gradient-divided-by-k
+  description: Dividing the stated gradient by the exponent coefficient k to get the coefficient of the exponential.
+- id: r3b-chain-point-not-used
+  description: Giving an antiderivative with no constant term, so the curve is not forced through the stated point.
+- id: r3b-chain-constant-sign
+  description: Finding the constant of integration with the wrong sign.
+- id: r3b-chain-exponent-k-ignored
+  description: Evaluating a e^(kx) at x = 1 as a e, ignoring the k in the exponent.
+- id: r3b-chain-evaluated-at-zero
+  description: Giving the value of the function at the stated point (x = 0) instead of at the x asked for.
+- id: r3b-chain-gradient-for-value
+  description: Giving the gradient at x = 1 instead of the value of the function there.
+- id: r3b-chain-constant-dropped
+  description: Leaving out the constant of integration when evaluating the curve, so the height is only the logarithm term.
+- id: r3b-chain-log-not-divided-by-k
+  description: Solving e^(kx) = 2 as x = ln 2, forgetting to divide by k.
+- id: r3b-chain-log-multiplied-by-k
+  description: Solving e^(kx) = 2 by multiplying ln 2 by k instead of dividing.
+- id: r3b-chain-coefficient-not-divided
+  description: Taking the logarithm of the gradient difference without first dividing by the coefficient of the exponential.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Divide the coefficient by the coefficient of x in the exponent of a single exponential term.
+  medium:
+    steps: 3
+    demand: Integrate a shifted exponent, or a sum of an exponential and a power or constant, term by term.
+  hard:
+    steps: 4
+    demand: Rewrite the integrand first (expand a square, combine a product, take a reciprocal or change base) and then integrate.
+  exam:
+    steps: 5
+    demand: Find an unknown coefficient from a gradient, fix the constant from a point, state the curve and evaluate it exactly.
+tags:
+- acara-senior-v8-4
+- integration
+- ACMMM117

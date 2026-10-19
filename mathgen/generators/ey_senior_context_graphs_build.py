@@ -18,6 +18,7 @@ line's two points, or the curve's samples) rather than from the stored answer.
 
 from __future__ import annotations
 
+import functools
 import re
 from fractions import Fraction as F
 
@@ -145,6 +146,10 @@ def _draw_line(rng, tier: str):
         ctx = rng.choice(_DECAY if decay else _GROW)
         if ctx["id"] == "battery":
             s, c, mi = 10, 100, rng.choice((1, 2))
+            if tier == "exam":
+                # the exam battery drains at any of 5, 10, 15 or 20 percent an hour (the grid steps with it)
+                s = rng.choice((5, 10))
+                mi = rng.randint(1, 2 if s == 10 else 4)
             m = -s * mi
             X, Y = 10, 100
         elif decay:
@@ -425,7 +430,44 @@ def _draw_curve(rng, a_choices=(3, -3)):
     raise AssertionError("unreachable")
 
 
-def _curve_figure(a, t1, t2, d, T, lo, hi, tangent_at=None):
+_EXAM_GRIDS = (1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25)
+_EXAM_RESTS = tuple((u, v) for u in range(1, 8) for v in range(u + 1, 9) if v - u <= 6)
+
+
+@functools.cache
+def _exam_curve_options():
+    """Every (t1, t2, g, k, T) whose scaled curve fits a 34-square window and has a whole average velocity."""
+    out = []
+    for t1, t2 in _EXAM_RESTS:
+        for g in _EXAM_GRIDS:
+            for k in (1, 2, 3, 4):
+                if (t1 + t2) % 2 and k % 2:
+                    continue
+                s = _pos(3 * g * k, t1, t2, 0)
+                if (round(s(t2)) - round(s(t1))) % (t2 - t1):
+                    continue
+                for T in (t2 + 1, t2 + 2):
+                    vals = [round(s(t)) for t in range(T + 1)]
+                    if (-(-max(vals) // g) - min(vals) // g) + 2 <= 34:
+                        out.append((t1, t2, g, k, T))
+    return tuple(out)
+
+
+def _draw_curve_exam(rng):
+    """(a, t1, t2, d, T, lo, hi, g): the exam curve is the tier-1 shape scaled by a whole factor, drawn on a grid of g.
+
+    a = 3 g k keeps every position a multiple of g at whole times when t1 + t2 is even, and so does an even k for any
+    pair of rests (a = 6 g j gives 2 j g (t^3 - ...) integers); the window is a whole number of grid squares (at most
+    34) and may run one or two seconds past the second rest. Drawn uniformly from every shape that fits."""
+    t1, t2, g, k, T = rng.choice(_exam_curve_options())
+    a, d = 3 * g * k, g * rng.randint(-3, 3)
+    s = _pos(a, t1, t2, d)
+    vals = [round(s(t)) for t in range(T + 1)]
+    lo, hi = (min(vals) // g - 1) * g, (-(-max(vals) // g) + 1) * g
+    return a, t1, t2, d, T, lo, hi, g
+
+
+def _curve_figure(a, t1, t2, d, T, lo, hi, tangent_at=None, g=1):
     s = _pos(a, t1, t2, d)
     pts, lines = [], []
     if tangent_at is not None:
@@ -439,7 +481,7 @@ def _curve_figure(a, t1, t2, d, T, lo, hi, tangent_at=None):
         y_range=(lo, hi),
         alt="a position-time curve of a cart on a straight track",
         x_grid=1,
-        y_grid=1,
+        y_grid=g,
         equal_scale=False,
         x_label="Time t (s)",
         y_label="Position s (m)",
@@ -483,7 +525,12 @@ def _read_tangent_velocity(fig) -> int:
     # the drawn line must be the tangent: the central difference of the curve at the point has the same slope
     est = (cm[F(t0) + h] - cm[F(t0) - h]) / float(2 * h) if F(t0) - h in cm and F(t0) + h in cm else None
     if est is not None:
-        check(abs(est - float(v)) < 0.1, "the drawn line is not the tangent to the curve at the marked point")
+        # (the central difference of a cubic with leading coefficient a/3 is out by a h^2 / 3: a steep scaled curve
+        # needs a relative allowance, and |v| >= a at any whole time that is not a rest)
+        check(
+            abs(est - float(v)) < 0.1 + abs(float(v)) / 100,
+            "the drawn line is not the tangent to the curve at the marked point",
+        )
     return int(v)
 
 
@@ -591,7 +638,7 @@ def ey_position_tangent_exam(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a curve with a tangent and whole average velocity"):
-        a, t1, t2, d, T, lo, hi = _draw_curve(rng, a_choices=(3,))
+        a, t1, t2, d, T, lo, hi, g = _draw_curve_exam(rng)
         s = _pos(a, t1, t2, d)
         t0s = [
             t
@@ -604,7 +651,7 @@ def ey_position_tangent_exam(rng, tier="exam"):
     t0 = rng.choice(t0s)
     v0 = _vel(a, t1, t2, t0)
     s0 = round(s(t0))
-    fig = _curve_figure(a, t1, t2, d, T, lo, hi, tangent_at=t0)
+    fig = _curve_figure(a, t1, t2, d, T, lo, hi, tangent_at=t0, g=g)
     avg = F(s2 - s1, t2 - t1)
     text = f"{_CART} The line touches the curve at T. The cart is at rest twice between t = 0 and t = {T}."
     parts = [
@@ -631,18 +678,22 @@ def ey_position_tangent_exam(rng, tier="exam"):
             t2 - t1,
             [t2 + t1, T - (t2 - t1), t2],
             follow="part_c-part_b",
-            working=[f"The cart moves backwards between the two rests: {t2} - {t1} = {t2 - t1} seconds."],
+            working=[f"The cart moves backwards between the two rests: {t2} - {t1} = {_secs(t2 - t1)}."],
         ),
         num_part(
             "Hence find the average velocity of the cart over that time, in metres per second.",
             avg,
             [-avg, s2 - s1, F(s2, t2)],
             follow=f"({s2}-({s1}))/part_d",
-            working=[f"s goes from {s1} to {s2} in {t2 - t1} seconds: ({s2} - ({s1})) / {t2 - t1} = {frac_text(avg)}."],
+            working=[f"s goes from {s1} to {s2} in {_secs(t2 - t1)}: ({s2} - ({s1})) / {t2 - t1} = {frac_text(avg)}."],
         ),
     ]
     figures.assert_no_leak(fig, [str(v0), str(t1), str(t2)])
     return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
+
+
+def _secs(n: int) -> str:
+    return f"{n} second" if n == 1 else f"{n} seconds"
 
 
 def _read_tangent_exam(question) -> str:

@@ -1,0 +1,104 @@
+id: uc2-multivariable-taylor-hessian
+name: Multivariable Taylor polynomial and the Hessian
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Build and use the degree-2 Taylor polynomial of a function of two variables about a point, ½[fₓₓ(x−a)² + 2fₓᵧ(x−a)(y−b)
+  + fᵧᵧ(y−b)²] added to the linear part, and use the Hessian at a stationary point to classify it, including for which values
+  of a parameter the second-derivative test gives each verdict.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-hessian-2x2
+- jacobian-two-variable
+- ucv1-taylor-polynomial
+answer: number
+sources:
+- topic: w6c_taylor
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6c_taylor
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6c_taylor
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6c_taylor
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: taylor-second-order-no-half
+  description: Leaving out the factor ½ on the second-order terms of the Taylor polynomial, so each second derivative appears
+    at twice its size.
+- id: taylor-wrong-second-partial
+  description: Using the wrong second partial derivative for the term asked about, such as f_yy for the coefficient of (x
+    - a)².
+- id: taylor-first-derivative-used
+  description: Giving a first partial derivative at the point where the coefficient of a second-order term was asked for.
+- id: taylor-mixed-term-halved
+  description: 'Writing the mixed term as ½fₓ_y(x - a)(y - b) instead of fₓ_y(x - a)(y - b): the ½ and the 2 from the two
+    orders of differentiation both applied.'
+- id: taylor-mixed-term-doubled
+  description: Giving 2fₓ_y as the coefficient of (x - a)(y - b), keeping the 2 from ½·2fₓ_y without the ½.
+- id: taylor-second-order-omitted
+  description: Stopping at the linear terms and leaving the second-order terms out of the estimate.
+- id: taylor-mixed-term-omitted
+  description: Leaving out the mixed term fₓ_y(x - a)(y - b) from the second-order part of the Taylor polynomial.
+- id: taylor-offsets-swapped
+  description: Substituting the offsets the wrong way round, the y-step for x - a and the x-step for y - b.
+- id: taylor-constant-omitted
+  description: Leaving out the constant term f(a, b) from the Taylor polynomial.
+- id: hessian-one-sided-range
+  description: Counting only the positive integers k, or only one side of zero, when D > 0 allows k and -k alike.
+- id: hessian-boundary-included
+  description: Including the integers on the boundary k² = 4AC, where D = 0 and the test is inconclusive.
+- id: hessian-count-ceiling
+  description: Rounding the bound on k up instead of down, so the count includes integers with k² > 4AC.
+- id: hessian-count-forgot-zero
+  description: Leaving k = 0 out of the count of integers in the range.
+- id: hessian-boundary-off-by-one
+  description: Taking the largest integer that fails the strict inequality, or one beyond the smallest that satisfies it.
+- id: hessian-unrooted
+  description: Giving k² (or 4AC) as the bound on k, without taking the square root.
+- id: hessian-second-derivative-halved
+  description: Using A and C, the coefficients of x² and y², for fₓₓ and f_yy instead of 2A and 2C, which changes D.
+- id: hessian-fxx-sign-ignored
+  description: Choosing a minimum when fₓₓ < 0, or a maximum when fₓₓ > 0, once D > 0.
+- id: hessian-determinant-sign-misread
+  description: Reading D > 0 as a saddle point or D < 0 as an extremum.
+- id: hessian-test-misapplied
+  description: Calling the test inconclusive when D is not zero.
+- id: hessian-mixed-term-not-squared
+  description: Subtracting fₓ_y instead of fₓ_y² in D = fₓₓf_yy - fₓ_y².
+- id: hessian-trace-used
+  description: Adding fₓₓ and f_yy (the trace) instead of finding the determinant of the Hessian.
+- id: hessian-diagonal-only
+  description: Forgetting the mixed term and taking D = fₓₓf_yy.
+difficulty_progression: 'Easy reads one coefficient of the degree-2 polynomial: the coefficient of (x−a)², (y−b)² or (x−a)(y−b)
+  of a polynomial, exponential, logarithmic, sine or root function, where the factor ½ and the 2 on the mixed term are the
+  traps. Medium evaluates the whole polynomial at a nearby point as an exact fraction, so every coefficient and the mixed
+  term are needed. Hard fixes the Hessian at the origin of a function with a parameter k and counts the integers that give
+  an extremum, finds the least integer that gives a saddle, or finds the value where the test is inconclusive, while cubic
+  and quartic terms are there to be ignored. The exam chain finds fₓₓ at a stationary point, D (following through from fₓₓ),
+  classifies the point and estimates f nearby (following through from fₓₓ).'
+tags:
+- university-year-2
+- multivariable-calculus
+- taylor-polynomial
+- hessian
+- second-derivative-test
+framework_areas:
+- multivariable-and-vector-calculus

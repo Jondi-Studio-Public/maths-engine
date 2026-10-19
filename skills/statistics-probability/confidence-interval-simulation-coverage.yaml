@@ -1,0 +1,99 @@
+id: confidence-interval-simulation-coverage
+name: "Interpret confidence intervals through simulated coverage"
+domain: statistics-probability
+year_level: ['12']
+description: "Start from the margin of error for a proportion computed from raw counts, then read a table of simulated confidence intervals for a known true mean: count the intervals that miss it, contain it or miss it from above; predict the expected number of misses and the probability that all or at least one of N independent intervals captures the true value; and compare the wrong interval (mean plus or minus 1.96s) with the correct one (mean plus or minus 1.96s over the square root of n). The exam chain finds a margin of error, counts the misses in 20 intervals, converts them to a proportion and chooses the correct reading of 95% confidence."
+status: active
+placement_eligible: false
+prerequisites: [senior-use-the-approximate-confidence-interval-left-widehat-p, senior-examine-the-approximate-confidence-interval-left-overline-mathrm]
+answer: number
+sources:
+- topic: r3f_ci_coverage
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3f_ci_coverage
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3f_ci_coverage
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3f_ci_coverage
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "From x successes in n, form p-hat and then the margin of error (or an end of the interval) with a stated critical z value."}
+  medium: {steps: 3, demand: "Compare every listed interval, each with its own width, against the true mean and count the misses, the captures or the misses from one side."}
+  hard: {steps: 4, demand: "Use the coverage rate: expected misses among N intervals, the chance that all N capture the true value or that at least one misses, or the width cost of dropping the square root of n."}
+  exam: {steps: 4, demand: "A connected chain: a margin of error, a count of misses in a table of 20 intervals, that count as a proportion, and the correct reading of 95% confidence."}
+misconceptions:
+- id: r3f-ci-adds-the-miss-probabilities
+  description: "Adding the miss probabilities of the individual intervals, which treats the events as exclusive instead of independent."
+- id: r3f-ci-confused-with-data-spread
+  description: "Reading a confidence interval as containing the stated percentage of the individual values in the population, instead of capturing the population mean."
+- id: r3f-ci-confused-with-sample-mean
+  description: "Reading a confidence interval as a statement about where the sample mean falls, instead of about whether it captures the population mean."
+- id: r3f-ci-counts-both-sides
+  description: "Counting all the intervals that miss the mean where only those entirely above it were asked for."
+- id: r3f-ci-counts-only-one-side
+  description: "Counting only the intervals entirely on one side of the mean as the misses, and leaving out those on the other side."
+- id: r3f-ci-counts-the-intervals-that-contain
+  description: "Counting the intervals that contain the mean where the number that miss it was asked for."
+- id: r3f-ci-counts-the-intervals-that-miss
+  description: "Counting the intervals that miss the mean where the number that contain it was asked for."
+- id: r3f-ci-counts-the-wrong-side
+  description: "Counting the intervals entirely below the mean where those entirely above it were asked for."
+- id: r3f-ci-coverage-treated-as-exact
+  description: "Treating 95% coverage as an exact count, so that exactly one interval in every twenty must miss."
+- id: r3f-ci-divides-by-n-not-root-n
+  description: "Dividing the standard deviation by n instead of by the square root of n when finding a margin of error."
+- id: r3f-ci-expected-count-divides-by-the-miss-rate
+  description: "Dividing the number of intervals by the miss percentage instead of multiplying by the miss rate."
+- id: r3f-ci-expected-count-ignores-the-number-of-intervals
+  description: "Giving the miss percentage as the expected count, whatever the number of intervals."
+- id: r3f-ci-expected-count-uses-percent-as-count
+  description: "Multiplying the coverage rate by the miss percentage, giving a number that is neither a count nor a rate."
+- id: r3f-ci-gives-the-complement
+  description: "Giving the probability that at least one interval misses where the probability that all contain the mean was asked for."
+- id: r3f-ci-ignores-the-number-of-intervals
+  description: "Giving the probability for a single interval where the probability for the whole set of intervals was asked for."
+- id: r3f-ci-margin-omits-the-critical-value
+  description: "Giving the standard error as the margin of error, without multiplying by the critical z value."
+- id: r3f-ci-margin-omits-the-failure-proportion
+  description: "Leaving out the factor 1 - p-hat under the square root in the margin of error for a proportion."
+- id: r3f-ci-margin-omits-the-square-root-of-n
+  description: "Multiplying the critical value by sigma without dividing by the square root of n."
+- id: r3f-ci-margin-reports-the-whole-width
+  description: "Giving the whole width of the interval, twice the margin of error, where the margin of error was asked for."
+- id: r3f-ci-miss-count-off-by-one
+  description: "Miscounting the intervals by one, such as counting an interval that touches the true mean or skipping one in the list."
+- id: r3f-ci-misses-and-contains-swapped
+  description: "Swapping the probabilities that an interval contains the mean and that it misses it."
+- id: r3f-ci-proportion-divides-by-100
+  description: "Dividing the count by 100 instead of by the number of intervals to find the proportion."
+- id: r3f-ci-reports-the-count-that-contain
+  description: "Giving the expected number of intervals that contain the mean where the number that miss it was asked for."
+- id: r3f-ci-reports-the-expected-count-not-the-observed
+  description: "Giving the number of misses expected from the confidence level where the number actually observed in the table was asked for."
+- id: r3f-ci-reports-the-probability-that-all-contain
+  description: "Giving the probability that all intervals contain the mean where the probability that at least one misses was asked for."
+- id: r3f-ci-reports-the-proportion-that-contain
+  description: "Giving the proportion of intervals that contain the mean where the proportion that missed was asked for."
+- id: r3f-ci-upper-end-reports-the-estimate
+  description: "Giving the sample percentage itself as the upper end of the interval."
+- id: r3f-ci-upper-end-reports-the-lower-end
+  description: "Giving the lower end of the interval where the upper end was asked for."
+- id: r3f-ci-upper-end-reports-the-margin
+  description: "Giving the margin of error where the upper end of the interval was asked for."
+- id: r3f-ci-uses-two-intervals
+  description: "Using the miss probability for two intervals where the probability that at least one of many misses was asked for."
+- id: r3f-ci-width-difference-is-the-correct-width
+  description: "Giving the width of the correct interval where the difference between the two widths was asked for."
+- id: r3f-ci-width-difference-is-the-whole-student-width
+  description: "Giving the whole width of the student's interval where the difference between the two widths was asked for."
+- id: r3f-ci-width-difference-uses-half-widths
+  description: "Giving the difference in half-widths where the difference in the widths of the intervals was asked for."
+tags: [round-3, statistics-probability, confidence-interval, simulation, acmmm180, acmsm142, acmsm143]

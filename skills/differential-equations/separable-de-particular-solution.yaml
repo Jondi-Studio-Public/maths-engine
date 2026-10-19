@@ -1,0 +1,83 @@
+id: separable-de-particular-solution
+name: Solve a separable differential equation through a given point
+domain: differential-equations
+description: 'Solve dy/dx = g(x)h(y) by separating the variables, integrating both sides and using a point on the curve to
+  fix the constant, then write y explicitly in terms of x. The right-hand side has y in it (dy/dx = xy, cos(x)/y, sin(x)y^2),
+  so the work is in integrating 1/h(y) correctly and inverting the result. Hard questions need integration by parts for g(x)
+  or an inverse tangent; the exam tier is a four-part chain: the x-antiderivative, the constant, the solution and a value.'
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-separable-poly
+- solve-ode-exponential
+answer: expression
+sources:
+- topic: r3h_separable_de
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3h_separable_de
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3h_separable_de
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3h_separable_de
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3h-separable-constant-after-inverse
+  description: Inverting the integrated relation term by term, writing y = e^G + C or y = ln G + C, so the constant is added
+    after the inverse function instead of before it.
+- id: r3h-separable-wrong-integral
+  description: Integrating h(y) instead of 1/h(y) when separating the variables, so the left-hand side is the wrong function
+    of y.
+- id: r3h-separable-constant-dropped
+  description: Leaving the constant of integration out and never using the given point, so the curve does not pass through
+    it.
+- id: r3h-separable-integration-factor-lost
+  description: Integrating y dy as y^2 instead of y^2/2 (the half lost), so the solution has y^2 = G(x) + C instead of y^2
+    = 2G(x) + C.
+- id: r3h-separable-root-sign
+  description: Taking the negative square root although the given point has y positive.
+- id: r3h-separable-sign-lost
+  description: Losing the minus sign in the integral of 1/y^2, so -1/y is written as 1/y.
+- id: r3h-separable-inverse-backwards
+  description: Applying the original function where its inverse is needed, writing y = arctan(G + C) instead of y = tan(G
+    + C).
+- id: r3h-separable-forgot-to-invert
+  description: Stopping at H(y) = G(x) + C and giving the right-hand side as y without inverting H.
+- id: r3h-antiderivative-differentiated
+  description: Differentiating g(x) instead of integrating it.
+- id: r3h-antiderivative-sign
+  description: Giving the antiderivative of g(x) the wrong overall sign.
+- id: r3h-antiderivative-times-x
+  description: Integrating a product by multiplying by x, writing x g(x) as the antiderivative of g(x).
+- id: r3h-separable-constant-sign
+  description: Fixing the constant with the wrong sign, C = G(x0) - H(y0) instead of H(y0) - G(x0).
+- id: r3h-separable-constant-ignores-antiderivative
+  description: Taking C to be H(y0) alone, as if G(x0) were zero.
+- id: r3h-separable-constant-adds-antiderivative
+  description: Adding G(x0) to H(y0) instead of subtracting it when fixing the constant.
+- id: r3h-separable-constant-uses-integrand
+  description: Fixing the constant with the integrand g(x0) where the antiderivative G(x0) is needed.
+- id: r3h-separable-constant-is-antiderivative-value
+  description: Taking the constant to be G(x0) alone, forgetting the value of the left-hand side at the given point.
+tags:
+- senior-secondary
+- specialist-mathematics
+- differential-equations
+- separable-variables

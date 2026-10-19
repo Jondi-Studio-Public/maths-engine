@@ -1,0 +1,46 @@
+# Name and description adapted from the Australian Curriculum: Mathematics (Version 9.0),
+# (c) ACARA, https://v9.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: f10-turn-shapes-on-a-grid
+name: Turn a shape about a point on a grid
+domain: primary-geometry-time
+year_level: ['5']
+naplan_domain: [space]
+description: "Perform a turn of a shape on a square grid by shading its image. Easy is a half turn about a marked point. Medium is a quarter turn clockwise or anticlockwise about the point. Hard shows a shape and its image after one slide or one quarter turn, and asks for the image after the same move again, so the move has to be read from the picture."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+learner_band: primary
+prerequisites: [f10-transformations-invariants]
+answer: grid_cells
+sources:
+- topic: grid_shape_turns
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_shape_turns
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_shape_turns
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: turn-about-the-shapes-middle
+  description: Turns the shape about its own middle or one of its own corners, so it stays near where it started, instead of about the marked point.
+- id: turn-direction-reversed
+  description: Turns the shape the wrong way round, clockwise for anticlockwise or the reverse.
+- id: turn-as-flip
+  description: Flips the shape over a line through the point, so it is a mirror image, instead of turning it, so it is the same way round.
+- id: turn-size-wrong
+  description: Gives a quarter turn when a half turn was asked, or a half turn for a quarter turn.
+- id: turn-as-slide
+  description: Moves the whole shape across the grid without turning it, keeping it the same way up.
+- id: repeat-turns-back
+  description: Undoes the move instead of repeating it, so the shape lands back where it started.
+- id: repeat-slide-wrong-amount
+  description: Repeats a slide but leaves out the up or down part, swaps across and up, or slides twice as far.
+- id: turn-centre-off-by-one
+  description: Turns about a point one line away from the marked point, so every square lands one place out.
+tags: [acara-f10-v9, primary-geometry-time, grid_shape_turns, ac9m5sp02, transformations, rotation, drawn-answer, figure]

@@ -1,0 +1,108 @@
+id: integrate-f-prime-over-f
+name: Integrate expressions of the form f'(x)/f(x) and f'(x)e^f(x) by inspection
+domain: integration
+year_level: ['12']
+description: Recognise an integrand that is f'/f or f' e^f, or a constant multiple of it, and write the logarithmic or exponential
+  antiderivative without a formal substitution.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-exponential-linear-argument
+- integrate-reciprocal-linear
+- integration-by-substitution
+answer: expression
+sources:
+- topic: r3b_integrate_f_prime_over_f
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3b_integrate_f_prime_over_f
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3b_integrate_f_prime_over_f
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: r3b_exam_integrate_f_prime_over_f
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3b-fprime-log-of-numerator
+  description: Taking the logarithm of the numerator, which is the derivative, instead of the logarithm of the denominator.
+- id: r3b-fprime-treated-as-constant
+  description: Integrating the fraction by treating the denominator (or the x) as a constant and just multiplying by x.
+- id: r3b-fprime-quotient-inverted
+  description: Giving the denominator divided by the numerator, as though the fraction had been turned over.
+- id: r3b-fprime-differentiated
+  description: Differentiating the fraction (quotient rule) or the reciprocal instead of integrating it.
+- id: r3b-fprime-exp-divided-by-derivative
+  description: Integrating g' e^g as e^g divided by g', applying the 'divide by the inner derivative' rule when the derivative
+    is already present as a factor.
+- id: r3b-exp-integral-power-rule
+  description: 'Applying the power rule to e^(kx): raising the exponent by one and dividing by it, giving e^(kx+1)/(kx+1).'
+- id: r3b-fprime-not-integrated
+  description: Leaving the integrand unchanged as the answer, as though the integration had already been done.
+- id: r3b-fprime-multiple-not-adjusted
+  description: Using the coefficient in the numerator as the multiple of the logarithm or exponential, without comparing the
+    numerator with the derivative of the inner function.
+- id: r3b-fprime-multiple-inverted
+  description: Using the reciprocal of the multiple between the numerator and the derivative of the inner function.
+- id: r3b-fprime-sign-lost
+  description: Losing the minus sign when the numerator is the negative of the derivative of the inner function (as with sin
+    x over c + cos x).
+- id: r3b-recip-abs-dropped
+  description: Writing the logarithm of a linear expression without the absolute value bars, so the answer is undefined where
+    the expression is negative.
+- id: r3b-fprime-trig-ratio-confused
+  description: Integrating tan as a logarithm of sine, or cot as a logarithm of cosine, instead of the other way round.
+- id: r3b-fprime-log-of-product
+  description: Writing the integral of 1/(x ln x) as a product of two logarithms.
+- id: r3b-fprime-inner-function-ignored
+  description: Integrating 1/(x ln x) as ln|x|, ignoring the ln x in the denominator.
+- id: r3b-chain-factor-not-divided-out
+  description: Multiplying the stated gradient by the denominator's value but not dividing by the factor (x + h) in the numerator.
+- id: r3b-chain-substitution-slip
+  description: Evaluating the linear expression inside the logarithm incorrectly, so the logarithm of a nearby number is given.
+- id: r3b-chain-denominator-ignored
+  description: Taking the stated gradient as the unknown constant itself, without allowing for the denominator.
+- id: r3b-chain-point-not-used
+  description: Giving an antiderivative with no constant term, so the curve is not forced through the stated point.
+- id: r3b-chain-constant-sign
+  description: Finding the constant of integration with the wrong sign.
+- id: r3b-chain-constant-dropped
+  description: Leaving out the constant of integration when evaluating the curve, so the height is only the logarithm term.
+- id: r3b-chain-denominator-constant-dropped
+  description: Dropping the constant 1 from the denominator (x + h)^2 + 1 when evaluating the gradient.
+- id: r3b-chain-numerator-shift-dropped
+  description: Dropping the shift h from the numerator factor (x + h) when evaluating the gradient.
+- id: r3b-chain-sign-slip
+  description: Giving a coefficient with the wrong sign after rearranging the equation that defines it.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: The numerator is exactly the derivative of the denominator (or of the exponent).
+  medium:
+    steps: 3
+    demand: The numerator is a constant multiple of the derivative, so the answer carries a fraction or a minus sign.
+  hard:
+    steps: 4
+    demand: The function inside can be negative, so the answer needs the absolute value, or the derivative is hidden in the
+      numerator.
+  exam:
+    steps: 5
+    demand: Find an unknown multiple from a gradient, fix the constant from a point, evaluate exactly and find a gradient.
+tags:
+- acara-senior-v8-4
+- integration
+- ACMSM118

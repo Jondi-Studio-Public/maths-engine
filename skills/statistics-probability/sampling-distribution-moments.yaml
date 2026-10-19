@@ -1,0 +1,55 @@
+id: sampling-distribution-moments
+name: "Find the mean and spread of a sample mean or proportion"
+domain: statistics-probability
+year_level: ['12']
+description: "Find the standard deviation or variance of a sample mean from the population standard deviation and the sample size, the standard deviation of a sample proportion, how a standard error changes when the sample size is rescaled, the least sample size for a target standard error, and the standard deviation of a difference of two sample means. No tail probability is asked."
+status: active
+placement_eligible: false
+prerequisites: [standard-deviation-from-data, senior-understand-the-concept-of-the-sample-proportion-widehat]
+answer: number
+sources:
+- topic: r3a_sampling_moments
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3a_sampling_moments
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3a_sampling_moments
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3a_sampling_moments
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 1, demand: "Apply sigma / sqrt(n) (or sigma^2 / n) to a stated sigma and n."}
+  medium: {steps: 2, demand: "Find the standard deviation of a sample proportion, or how a standard error responds to a new sample size."}
+  hard: {steps: 3, demand: "Work backwards from a target standard error to a sample size, or combine two independent sample means."}
+  exam: {steps: 4, demand: A connected chain of four parts in which each later part uses an earlier answer.}
+misconceptions:
+- id: r3a-se-divides-by-n
+  description: "Dividing the population standard deviation by n instead of the square root of n."
+- id: r3a-se-multiplies-by-root-n
+  description: "Multiplying the population standard deviation by the square root of n instead of dividing."
+- id: r3a-se-uses-the-variance-over-root-n
+  description: "Dividing the population variance, rather than the standard deviation, by the square root of n."
+- id: r3a-se-is-the-population-sd
+  description: "Reporting the population standard deviation as the standard deviation of the sample mean."
+- id: r3a-variance-of-mean-divides-by-root-n
+  description: "Dividing sigma^2 by the square root of n for the variance of the sample mean instead of dividing by n."
+- id: r3a-proportion-sd-omits-the-failure-probability
+  description: "Using sqrt(p/n) for the standard deviation of a sample proportion, leaving out the factor 1 - p."
+- id: r3a-se-scales-with-n-not-root-n
+  description: "Scaling the standard error by the full factor the sample size changes by, instead of its square root."
+- id: r3a-least-n-omits-the-square
+  description: "Dividing sigma by the target and forgetting to square the result when solving for the sample size."
+- id: r3a-least-n-rounds-down
+  description: "Rounding the solution of an inequality down to a whole number, so the condition is not quite met."
+- id: r3a-difference-adds-the-standard-errors
+  description: "Adding the two standard errors to get the standard deviation of the difference of two sample means, instead of adding the variances."
+- id: r3a-difference-subtracts-the-variances
+  description: "Subtracting the variances for a difference of independent sample means; variances add whether the quantities are added or subtracted."
+tags: [round-3, statistics-probability, sampling-distribution, acmmm179, acmmm173, standard-error]

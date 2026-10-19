@@ -1,0 +1,104 @@
+id: uc2-nonlinear-equilibria-linearisation
+name: Linearise a nonlinear system at an equilibrium
+domain: ordinary-differential-equations
+year_level:
+- university
+description: Find an equilibrium of a nonlinear two-dimensional system (competing species, predator and prey, or
+  a damped pendulum), form the Jacobian matrix there, and use it to find the eigenvalues, an eigenvector, and the
+  type of the equilibrium.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-phase-plane-linear-classification
+- ucv1-eigenvectors
+answer: matrix
+sources:
+- topic: s2c2_nonlinear_equilibria_linearisation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c2_nonlinear_equilibria_linearisation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c2_nonlinear_equilibria_linearisation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c2_nonlinear_equilibria_linearisation
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ode2-jacobian-transposed
+  description: Writing the Jacobian matrix transposed, with the partial derivatives of each variable down a row
+    instead of along it.
+- id: ode2-jacobian-rows-swapped
+  description: Putting the partial derivatives of the second equation in the first row of the Jacobian matrix and
+    the reverse.
+- id: ode2-jacobian-at-wrong-equilibrium
+  description: Evaluating the Jacobian matrix at a different equilibrium from the one asked for.
+- id: ode2-jacobian-at-origin
+  description: Evaluating the Jacobian matrix at the origin instead of at the equilibrium asked for.
+- id: ode2-product-rule-missed
+  description: Differentiating a product such as x(a - bx - cy) by treating the factor x as a constant, so the bracket
+    itself is lost.
+- id: ode2-damping-term-sign
+  description: Taking the damping term to enter the Jacobian with the wrong sign, writing +c where the derivative
+    gives -c.
+- id: ode2-equilibrium-from-single-equations
+  description: Solving each bracket of the system for its own axis, instead of solving the two equations together
+    for the coexistence equilibrium.
+- id: eigvec-other-eigenvalue
+  description: Finding the eigenvector for a different eigenvalue from the one asked for.
+- id: eigvec-components-swapped
+  description: Swapping two components of the eigenvector when reading it off the reduced system.
+- id: eigvec-component-sign-slip
+  description: 'Dropping a minus sign while solving for the eigenvector, so one component has the wrong sign: (q,
+    p) for (-q, p).'
+- id: ode2-classification-stability-flip
+  description: Reading the type of the equilibrium correctly but the stability wrongly, calling a stable point unstable
+    or the reverse.
+- id: ode2-classification-node-spiral-swapped
+  description: Calling a node a spiral, or a spiral a node, by misjudging the sign of trace² - 4 × determinant.
+- id: ode2-classification-saddle-misjudged
+  description: Misjudging the sign of the determinant, so a saddle is called a node or spiral or the reverse.
+- id: ode2-cramer-sign-slip
+  description: Getting a sign wrong when solving the two linear nullcline equations for the coexistence equilibrium.
+- id: ode2-coordinates-swapped
+  description: Giving the y-coordinate of the equilibrium where the x-coordinate was asked, or the reverse.
+- id: ode2-solution-not-divided-by-determinant
+  description: Stopping before dividing by the determinant (or the coefficient) when solving the nullcline equations.
+- id: ode2-ratio-inverted
+  description: Inverting a ratio when solving a nullcline equation, giving e/d where d/e is needed.
+- id: ode2-trace-for-determinant
+  description: Giving the trace of the Jacobian matrix where its determinant was asked.
+- id: ode2-determinant-sign-slip
+  description: Getting the sign of the determinant of the Jacobian matrix wrong.
+- id: ode2-determinant-factor-left-out
+  description: Leaving a constant factor out of the determinant of the Jacobian matrix, such as bf - ce.
+difficulty_progression: 'Easy states the equilibrium (on the x-axis, or a multiple of pi for the pendulum) and asks
+  for the Jacobian there, where the product rule decides the second row. Medium asks for the Jacobian at the coexistence
+  equilibrium (or the pendulum equilibrium in 0 < x < 2 pi), so the learner must first solve the two nullcline equations
+  together. Hard asks for the unstable direction at a saddle: find the equilibrium, form the Jacobian, find its
+  positive eigenvalue and an eigenvector scaled so its last entry is 1. The exam chain takes a competing-species
+  or predator-prey system through both coordinates of the coexistence equilibrium, the determinant of the Jacobian
+  there, and its classification as a node, spiral or saddle.'
+tags:
+- university-year-2
+- ordinary-differential-equations
+- nonlinear-systems
+- linearisation
+- jacobian
+- equilibria
+framework_areas:
+- ordinary-differential-equations

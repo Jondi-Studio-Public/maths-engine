@@ -29,7 +29,8 @@ def hard_question(skill_id: str, seed: int):
 
 
 def assert_registered_as_exam_source(skill_id: str, topic: str) -> None:
-    last = skill(skill_id)["sources"][-1]
+    # The last source may be the maintainer's re-added single-part exam question (key exam-single, bf2fca7).
+    last = [s for s in skill(skill_id)["sources"] if s.get("key") != "exam-single"][-1]
     assert last["topic"] == topic
     assert last["difficulty"] == "exam" and last["stages"] == ["exam"]
     assert last["params"] == {"tier": "exam"}

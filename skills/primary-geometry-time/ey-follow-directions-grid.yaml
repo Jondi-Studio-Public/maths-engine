@@ -1,0 +1,45 @@
+id: ey-follow-directions-grid
+name: Follow directions on a grid
+domain: primary-geometry-time
+year_level: ['1', '2']
+naplan_domain: [space]
+learner_band: early
+description: "Start at the square marked Start, follow moves such as up 2, right 1, then down 1, and say which picture you reach."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [ey-position-words-scene]
+answer: mcq
+sources:
+- topic: ey_follow_directions
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_follow_directions
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_follow_directions
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Follow one move of one or two steps in a straight line."}
+  medium: {steps: 2, demand: "Follow two moves at right angles, such as right 2 then up 1."}
+  hard: {steps: 3, demand: "Follow three moves, where the last one goes back the way the first one went."}
+misconceptions:
+- id: eyp-counts-the-start
+  description: "Counts the Start square as step one, so ends a square short."
+- id: eyp-one-step-too-far
+  description: "Goes one square too far."
+- id: eyp-stops-early
+  description: "Leaves out the last move."
+- id: eyp-back-moves-forward
+  description: "Goes on in the same direction when a move says to go back."
+- id: eyp-left-right-swapped
+  description: "Goes left when told right, or right when told left, because the page and the mover are mixed up."
+- id: eyp-opposite-direction
+  description: "Goes down when told up, or up when told down."
+tags: [acara-f10-v9, early, space, directions, movement, ac9m1sp02, ac9m2sp02]

@@ -1,0 +1,91 @@
+id: uc2-flux-through-graph-surface
+name: Flux through a graph surface
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Find the flux of a vector field through a surface z = f(x, y) over a region of the plane, with the direction
+  of the normal stated, by reducing it to a double integral over the base region.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-double-integral-rectangle
+- ucv1-line-integral
+answer: expression
+sources:
+- topic: s2a3_flux_graph
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2a3_flux_graph
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2a3_flux_graph
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2a3_flux_graph
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: flux-graph-normal-signs
+  description: Using the normal (f_x, f_y, 1) for the graph z = f(x, y) instead of (-f_x, -f_y, 1), so the slope terms have
+    the wrong sign.
+- id: flux-graph-z-not-replaced
+  description: Leaving z in the field as 0 (or a constant) instead of replacing it by the height f(x, y) of the surface.
+- id: flux-graph-dropped-r
+  description: Leaving the k component R out of the dot product F . (-f_x, -f_y, 1).
+- id: flux-graph-components-swapped
+  description: Pairing P with f_y and Q with f_x in the dot product with the normal.
+- id: flux-graph-wrong-direction
+  description: Taking the flux in the opposite direction to the one the question states, so the sign is wrong.
+- id: flux-graph-polar-no-r
+  description: Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).
+- id: flux-graph-div-at-top
+  description: Evaluating div F on the top surface and integrating over the base, instead of integrating div F up through
+    the solid.
+- id: flux-graph-div-constant-height
+  description: Treating div F as constant in z, multiplying its value on the base by the height of the solid.
+- id: flux-graph-bottom-ignored
+  description: Taking the flux through the walls to be the total minus the top alone, leaving the base out; or the total
+    flux to be the flux through the top.
+- id: flux-graph-base-sign
+  description: Subtracting the base flux with the wrong sign when finding the flux through the walls from the divergence
+    theorem.
+- id: flux-graph-walls-reversed
+  description: Subtracting the total from the other fluxes instead of the other fluxes from the total.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Write the upward normal of a plane graph, take its dot product with the field after replacing z by the plane's
+      height, and integrate over a rectangle.
+  medium:
+    steps: 4
+    demand: Do the same for a curved graph over a rectangle or a right triangle, with the limits of a triangle to set and
+      a normal that may point downward.
+  hard:
+    steps: 6
+    demand: Work over a disc, half-disc or quarter-disc, so the integrand is converted to polar coordinates with the factor
+      r, and take the stated direction of the normal.
+  exam:
+    steps: 7
+    demand: "Chain four parts on one graph surface: write the flux integrand over the base, evaluate the flux, find the total flux out of the solid beneath it by the divergence theorem, then find the flux through the vertical walls by subtraction."
+tags:
+- university-year-2
+- university-core-v1
+- multivariable-calculus
+- surface-integrals
+- flux
+framework_areas:
+- multivariable-and-vector-calculus

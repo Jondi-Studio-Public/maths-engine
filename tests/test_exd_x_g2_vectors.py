@@ -80,14 +80,22 @@ def test_exam_source_is_last_and_in_exam_stage_only(skill_id):
     _, skills = load_skills()
     skill = next(s for s in skills if s.id == skill_id)
     assert skill.answer == kind
-    assert len(skill.sources) == 4
-    last = skill.sources[-1]
     # Three exam sources moved to multi-part chains (tests/test_exd_x_r2d_velocity_chain.py, tests/test_exd_x_r2c_*.py).
-    topic = {
+    # Those three skills regained this single-part topic as a second exam source, key exam-single (bf2fca7), so the
+    # chain is second to last and the single-part source is last.
+    chains = {
         "exd_x_g2_velocity_composition": "exd_x_r2d_velocity_chain",
         "exd_x_g2_projectile_landing": "exd_x_r2c_projectile",
         "exd_x_g2_position_collision": "exd_x_r2c_collision",
-    }.get(topic, topic)
+    }
+    if topic in chains:
+        assert len(skill.sources) == 5
+        chain = skill.sources[-2]
+        assert (chain.topic, chain.difficulty, list(chain.stages)) == (chains[topic], "exam", ["exam"])
+        assert skill.sources[-1].key == "exam-single"
+    else:
+        assert len(skill.sources) == 4
+    last = skill.sources[-1]
     assert (last.topic, last.difficulty, list(last.stages)) == (topic, "exam", ["exam"])
 
 

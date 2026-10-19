@@ -1,0 +1,43 @@
+id: ey-count-steps-on-grid
+name: Count steps along a path or between places
+domain: primary-geometry-time
+year_level: ['1', '2']
+naplan_domain: [space]
+learner_band: early
+description: "Count the steps along a drawn path on a grid, a straight one and then one with corners, and work out how many steps along the squares it is between two places on a map."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [ey-follow-directions-grid]
+answer: number
+sources:
+- topic: ey_count_steps
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_count_steps
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_count_steps
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Count the steps along a straight path from the ring to a picture."}
+  medium: {steps: 2, demand: "Count the steps along a path that turns corners."}
+  hard: {steps: 3, demand: "Work out the steps along the squares between two places with no path drawn: across, then up or down."}
+misconceptions:
+- id: eyp-counts-the-start
+  description: "Counts the square the path starts on as a step, so the count is one too many."
+- id: eyp-misses-a-step
+  description: "Misses a step, so the count is one too few."
+- id: eyp-cuts-corner
+  description: "Counts a corner as a single step, so gives the larger of the steps across and the steps up."
+- id: eyp-ignores-the-path
+  description: "Counts the straight way between the two ends, not the steps along the path."
+- id: eyp-one-direction-only
+  description: "Counts only the steps across, or only the steps up, and not both."
+tags: [acara-f10-v9, early, space, directions, movement, counting, ac9m1sp02, ac9m2sp02]

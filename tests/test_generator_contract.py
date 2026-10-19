@@ -38,7 +38,8 @@ raise (a latent generator defect found by this test; fix the generator and delet
 
 And library-wide, without generating a question:
 
-- every exam source is the only exam source of its skill, comes last, has stages ["exam"], and (for the
+- a skill has one primary exam source plus at most one extra exam source keyed `exam-single` (or one of the three in `OTHER_EXTRA_EXAM_SOURCES`); the exam
+  sources come last (the `exam-single` one the very last), each has stages ["exam"], and (for the
   `exd_*`/`exam_*` generators) carries `{"tier": "exam"}` unless it is listed in the baseline's `exam_params_deviations`;
 - every `exd_*`/`exam_*` generator is wired into a skill as an exam source, unless it is in `UNWIRED_BASELINE`;
 - a generator with a `tier` parameter raises ValueError for an unknown tier, unless it is in `TIER_BASELINE`; a
@@ -76,6 +77,17 @@ from tests.generator_contract_cases import (
 # ---------------------------------------------------------------------------
 # The library: skills and their exam sources.
 
+# The key of the optional second, single-part exam source beside a skill's primary (multi-part) exam source.
+EXAM_SINGLE_KEY = "exam-single"
+
+
+# Three skills whose extra exam source predates the `exam-single` key; renaming a key would change question identity.
+OTHER_EXTRA_EXAM_SOURCES = {
+    ("divide-quantity-in-ratio", "three-shares"),
+    ("binomial-point-probability", "wide-exam"),
+    ("senior-understand-the-concepts-of-a-probability-density-function", "wider-exam"),
+}
+
 
 @lru_cache(maxsize=1)
 def skills():
@@ -100,18 +112,30 @@ def test_every_exam_source_is_wired_alike():
         exam = [src for src in skill.sources if src.difficulty == EXAM]
         if not exam:
             continue
-        if len(exam) != 1:
-            problems.append(f"{skill.id}: {len(exam)} exam sources, expected 1")
+        # One primary exam source, plus at most one extra source (EXAM_SINGLE_KEY or a pinned key), appended last.
+
+        def is_extra(src):
+            return src.key == EXAM_SINGLE_KEY or (skill.id, src.key) in OTHER_EXTRA_EXAM_SOURCES
+
+        extra = [src for src in exam if is_extra(src)]
+        primary = [src for src in exam if not is_extra(src)]
+        if len(primary) != 1 or len(extra) > 1:
+            problems.append(
+                f"{skill.id}: {len(exam)} exam sources ({len(primary)} primary, {len(extra)} "
+                f"extra), expected 1 primary and at most 1 extra"
+            )
             continue
-        src = exam[0]
-        if skill.sources[-1] is not src:
-            problems.append(f"{skill.id}: the exam source is not the last source")
-        if src.stages != ["exam"]:
-            problems.append(f"{skill.id}: exam source stages are {src.stages!r}, expected ['exam']")
-        if src.topic not in REGISTRY:
-            problems.append(f"{skill.id}: exam source topic {src.topic!r} is not registered")
-        elif "tier" in (src.params or {}) and src.params["tier"] != EXAM:
-            problems.append(f"{skill.id}: exam source has tier={src.params['tier']!r}")
+        if skill.sources[-len(exam) :] != exam:
+            problems.append(f"{skill.id}: the exam sources are not the last sources")
+        elif extra and skill.sources[-1] is not extra[0]:
+            problems.append(f"{skill.id}: the extra exam source {extra[0].key!r} is not the last source")
+        for src in exam:
+            if src.stages != ["exam"]:
+                problems.append(f"{skill.id}: exam source stages are {src.stages!r}, expected ['exam']")
+            if src.topic not in REGISTRY:
+                problems.append(f"{skill.id}: exam source topic {src.topic!r} is not registered")
+            elif "tier" in (src.params or {}) and src.params["tier"] != EXAM:
+                problems.append(f"{skill.id}: exam source has tier={src.params['tier']!r}")
     assert not problems, "\n".join(problems)
 
 

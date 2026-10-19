@@ -1,0 +1,97 @@
+id: vertical-motion-with-resistance
+name: "Analyse vertical motion with resistance proportional to speed"
+domain: differential-equations
+description: "Model a body falling or thrown upwards against resistance cv: the terminal speed, the speed and time by dv/dt, and the greatest height and distance fallen by v dv/dx, with g stated."
+status: active
+placement_eligible: false
+prerequisites:
+- acceleration-function-of-velocity
+answer: number
+sources:
+- topic: r3d_vertical_resistance
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3d_vertical_resistance
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3d_vertical_resistance
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3d_vertical_resistance_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3d-acceleration-for-resistance
+  description: "Dividing by the acceleration where the resistance per unit mass belongs, so the terminal speed comes out too large."
+- id: r3d-constant-deceleration-assumed
+  description: "Treating a resistance that depends on speed as a constant deceleration equal to its initial value."
+- id: r3d-decay-for-growth
+  description: "Using V e^(-kt) (a decay from the terminal speed) where the speed grows towards it as V(1 - e^(-kt))."
+- id: r3d-exponent-sign
+  description: "Getting the sign of the exponent wrong: growth e^(kt) where decay e^(-kt) belongs, or the reverse."
+- id: r3d-factor-g-over-k-dropped
+  description: "Leaving the factor g/k out of the logarithmic term in the greatest height."
+- id: r3d-force-for-acceleration
+  description: "Reporting a force (mass times acceleration) where an acceleration was asked for."
+- id: r3d-fraction-not-complement
+  description: "Using the fraction of the terminal speed itself in the logarithm instead of 1 minus that fraction."
+- id: r3d-gravity-dropped
+  description: "Leaving g out of the logarithm, so ln(1 + ku) replaces ln(1 + ku/g)."
+- id: r3d-height-for-difference
+  description: "Reporting the greatest height where the difference from the no-resistance height was asked for."
+- id: r3d-linear-term-dropped
+  description: "Leaving the -v (linear) term out of the integral of v/(V - v)."
+- id: r3d-linear-term-sign
+  description: "Adding the linear term where it should be subtracted in x = (1/k)[-V ln(1 - v/V) - v]."
+- id: r3d-log-sign
+  description: "Getting the sign of the logarithm wrong when solving e^(-kt) = 1 - f."
+- id: r3d-log-term-dropped
+  description: "Dropping the logarithm from the height, so the height is u/k."
+- id: r3d-log-term-sign
+  description: "Adding the logarithmic term where it should be subtracted in the greatest height."
+- id: r3d-mass-dropped
+  description: "Dropping the mass from a formula that needs it."
+- id: r3d-mass-ignored
+  description: "Using the resistance coefficient in newtons per metre per second as if it were already per unit mass."
+- id: r3d-mean-speed-used
+  description: "Using the average of the initial and final speeds times the time as if the speed changed uniformly."
+- id: r3d-multiplied-for-divided
+  description: "Multiplying where a division is needed."
+- id: r3d-rate-dropped
+  description: "Dropping the rate constant k from the exponent or the logarithm."
+- id: r3d-ratio-inverted
+  description: "Inverting the ratio, giving c/(mg) where mg/c belongs."
+- id: r3d-ratio-misplaced
+  description: "Putting the numerator and denominator of the terminal-speed ratio in the wrong places."
+- id: r3d-resistance-added
+  description: "Adding the resistance where it should be subtracted from the weight (or the reverse)."
+- id: r3d-resistance-ignored
+  description: "Ignoring the air resistance and using the free-fall result."
+- id: r3d-resistance-only
+  description: "Reporting only the resistance term kv, leaving out the weight term g."
+- id: r3d-resistance-per-mass-for-speed
+  description: "Reporting the resistance per unit mass c/m where the terminal speed was asked for."
+- id: r3d-resistance-subtracted
+  description: "Subtracting the resistance from g for an object moving upwards, where both act downward and add."
+- id: r3d-speed-dropped
+  description: "Leaving the speed out of the formula."
+- id: r3d-speed-plus-acceleration
+  description: "Adding the speed and the acceleration (different units) to get the terminal speed."
+- id: r3d-sum-for-difference
+  description: "Adding two squares where a difference of squares belongs."
+- id: r3d-terminal-speed-for-speed
+  description: "Giving the terminal speed as the speed at a finite time."
+- id: r3d-weight-for-speed
+  description: "Reporting the weight mg where the terminal speed was asked for."
+- id: r3d-whole-height-for-difference
+  description: "Reporting the height with no resistance where the difference from it was asked for."
+tags:
+- mechanics
+- resisted-motion
+- terminal-velocity
+- specialist-unit-4
+- extension-2

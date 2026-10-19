@@ -22,7 +22,7 @@ def exam_questions(topic: str, n: int):
 
 
 def check_source_wired(skill_id: str, topic: str) -> None:
-    exam = [s for s in skill(skill_id).sources if s.difficulty == "exam"]
+    exam = [s for s in skill(skill_id).sources if s.difficulty == "exam" and s.key != "exam-single"]
     assert len(exam) == 1 and exam[0].topic == topic and list(exam[0].stages) == ["exam"]
     assert exam[0].params == {"tier": "exam"}
 

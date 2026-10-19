@@ -1,6 +1,6 @@
 """Comparing attributes by picture: lengths, a pan balance and containers.
 
-One kind, ``compare_picture``, with three layouts. Every length, mass relation and fill level a
+One kind, ``compare_picture``, with four layouts. Every length, mass relation and fill level a
 question depends on is carried by the spec; the renderer only lays them out, and each layout has a
 pure ``read_*`` function that re-derives the relation from the spec alone, which a generator's
 plausibility reader calls.
@@ -11,6 +11,8 @@ plausibility reader calls.
   refuses a tilt that disagrees with the stated masses.
 - ``containers``: up to 4 containers with a capacity and a fill level, optionally with a row of
   small cups showing how many cups the contents were poured into.
+- ``durations``: 2 or 3 events, each a labelled card beside a row of equal boxes (one box is one equal
+  stretch of time), lined up at one start line or deliberately starting at different places.
 
 Object names are the choices a question offers, so ``labels`` does not report them as shown text.
 Nothing in a figure writes a number (a length, a mass, a capacity or a count is drawn, never
@@ -23,7 +25,8 @@ from typing import Any
 
 from mathgen.figures import _clean, _is_num, check, register_kind
 
-LAYOUTS = ("lengths", "balance", "containers")
+LAYOUTS = ("lengths", "balance", "containers", "durations")
+DURATION_UNITS = ("sand", "tick", "dot")
 OBJECT_STYLES = ("bar", "pencil", "ribbon", "snake", "rope", "train")
 UNIT_STYLES = ("paper_clip", "block")
 SHAPES = ("jug", "cup", "bowl", "bottle")
@@ -40,6 +43,8 @@ MAX_MASS = 20
 MAX_CONTAINERS = 4
 MAX_CAPACITY = 12
 MAX_CUPS = 8
+MAX_EVENTS = 3
+MAX_DURATION_EXTENT = 12  # boxes across the whole drawing
 
 #: Container height divided by width for each form. They are chosen so that ``capacity * ratio`` is
 #: equal for (normal, c), (tall_thin, c / 2) and (short_wide, 2c): such containers stand equally
@@ -306,9 +311,84 @@ def read_amounts(spec: dict) -> dict[str, int]:
     return {c["label"]: c["fill"] for c in spec["containers"]}
 
 
+# ---------------------------------------------------------------- durations
+
+
+def compare_durations(*, events: list[dict], unit: str, same_start: bool, alt: str) -> dict:
+    """Events drawn as rows of equal boxes, to compare how long each one takes.
+
+    - ``events``: 2-3 of ``{"label", "size", "start", "blocks"}``, drawn top to bottom. ``blocks`` is how many
+      equal boxes the event fills, so its duration (every box is the same stretch of time); ``start`` is how many
+      boxes in it begins (0 for a shared start line); ``size`` (1-3) is how big its picture card is drawn and has
+      nothing to do with how long it takes. The whole drawing fits within ``MAX_DURATION_EXTENT`` boxes.
+    - ``unit``: how a box is drawn, one of ``DURATION_UNITS`` (a sand timer, a clock face or a plain dot).
+    - ``same_start``: ``True`` when every event starts at the same line; ``False`` when at least two starts differ,
+      so where an event finishes does not say how long it took.
+    """
+    return check(
+        {
+            "kind": "compare_picture",
+            "layout": "durations",
+            "alt": alt,
+            "unit": unit,
+            "same_start": bool(same_start),
+            "events": [dict(e) for e in events],
+        }
+    )
+
+
+def _validate_durations(spec: dict) -> list[str]:
+    problems = []
+    events = spec.get("events")
+    if not isinstance(events, list) or not 2 <= len(events) <= MAX_EVENTS:
+        return [f"events must be a list of 2 to {MAX_EVENTS}"]
+    if spec.get("unit") not in DURATION_UNITS:
+        problems.append(f"unit must be one of {DURATION_UNITS}")
+    if not isinstance(spec.get("same_start"), bool):
+        problems.append("same_start must be a bool")
+    labels, starts = [], []
+    for i, e in enumerate(events):
+        where = f"events[{i}]"
+        if not isinstance(e, dict):
+            problems.append(f"{where} must be a dict")
+            continue
+        if not _label_ok(e.get("label")):
+            problems.append(f"{where} needs a label of 1 to {MAX_LABEL} characters")
+        labels.append(e.get("label"))
+        if e.get("size") not in (1, 2, 3):
+            problems.append(f"{where}.size must be 1, 2 or 3")
+        start, blocks = e.get("start"), e.get("blocks")
+        if not (_is_int(start) and start >= 0):
+            problems.append(f"{where}.start must be a non-negative whole number")
+        elif not (_is_int(blocks) and blocks >= 1):
+            problems.append(f"{where}.blocks must be a positive whole number")
+        elif start + blocks > MAX_DURATION_EXTENT:
+            problems.append(f"{where} reaches past {MAX_DURATION_EXTENT} boxes")
+        else:
+            starts.append(start)
+    if len(set(labels)) != len(labels):
+        problems.append("event labels must be distinct")
+    if isinstance(spec.get("same_start"), bool) and len(starts) == len(events):
+        if spec["same_start"] and len(set(starts)) != 1:
+            problems.append("same_start is true but the events start in different places")
+        if not spec["same_start"] and len(set(starts)) < 2:
+            problems.append("same_start is false but every event starts in the same place")
+    return problems
+
+
+def read_durations(spec: dict) -> dict[str, int]:
+    """label -> how many equal boxes the event fills (its duration), from the spec alone."""
+    return {e["label"]: e["blocks"] for e in spec["events"]}
+
+
 # ---------------------------------------------------------------- the kind
 
-_LAYOUT_VALIDATORS = {"lengths": _validate_lengths, "balance": _validate_balance, "containers": _validate_containers}
+_LAYOUT_VALIDATORS = {
+    "lengths": _validate_lengths,
+    "balance": _validate_balance,
+    "containers": _validate_containers,
+    "durations": _validate_durations,
+}
 
 
 def _validate(spec: dict) -> list[str]:
@@ -321,7 +401,7 @@ def _validate(spec: dict) -> list[str]:
 def _texts(spec: dict) -> list[str]:
     # The names of the objects are the choices a question offers, so they are not reported as shown text.
     unit = spec.get("unit")
-    return [unit["name"]] if unit else []
+    return [unit["name"]] if isinstance(unit, dict) else []
 
 
 register_kind("compare_picture", _validate, texts=_texts)

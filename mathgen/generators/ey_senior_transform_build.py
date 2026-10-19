@@ -21,6 +21,7 @@ and never looks at the stored answer.
 
 from __future__ import annotations
 
+import functools
 import re
 from fractions import Fraction as F
 
@@ -747,25 +748,35 @@ def _read_recip(question) -> str:
 figures.register_reader(RECIP, _read_recip)
 
 
+@functools.cache
+def _recip_exam_options():
+    """Every parabola a (x - r1)(x - r2): integer zeros of even sum in the window, a turning point of whole height
+    at most 7 and a stretch factor a from 1 to 6, 1/2, 1/3, 1/4 (either sign)."""
+    out = []
+    for r1 in range(-6, 5):
+        for r2 in range(r1 + 2, 7, 2):
+            half = F(r2 - r1, 2)
+            for mag in (F(1), F(2), F(3), F(4), F(5), F(6), F(1, 2), F(1, 3), F(1, 4)):
+                if (mag * half * half).denominator == 1 and mag * half * half <= 7:
+                    out += [(r1, r2, mag), (r1, r2, -mag)]
+    return tuple(out)
+
+
 @generator(RECIP_EXAM, level=13, presets={"exam": dict(tier="exam")})
 @retry_short
 def ey_graph_reciprocal_abs_exam(rng, tier="exam"):
     """Exam chain: the asymptotes of 1/f from the zeros of f, their distance apart and the midpoint between them."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    for _ in attempts(300, "a parabola with integer zeros of even sum"):
-        s = rng.choice((1, -1))
-        r1 = rng.randint(-6, 1)
-        r2 = r1 + rng.choice((2, 4, 6))
-        if (r1 + r2) % 2 == 0 and r2 <= 6 and abs(s * ((r1 + r2) // 2 - r1) * ((r1 + r2) // 2 - r2)) <= 7:
-            break
-    fn = lambda x: s * (x - r1) * (x - r2)  # noqa: E731
+    r1, r2, a = rng.choice(_recip_exam_options())
+    fn = lambda x: float(a) * (x - r1) * (x - r2)  # noqa: E731
     fig = _plane([sample(fn, label="f")], alt="the graph of f on a coordinate grid, one unit per grid square")
     text = (
         "The graph of f is drawn, a parabola that crosses the x-axis twice. "
         "The graph of y = 1/f(x) has two vertical asymptotes. Each grid square is 1 unit on both axes."
     )
     mid = (r1 + r2) // 2
+    top = int(a * (mid - r1) * (mid - r2))
     parts = [
         num_part(
             "Find the x-value of the vertical asymptote on the left.",
@@ -793,8 +804,14 @@ def ey_graph_reciprocal_abs_exam(rng, tier="exam"):
             follow="(part_a+part_b)/2",
             working=[f"({r1} + {pn(r2)}) / 2 = {mid}, the axis of symmetry of f."],
         ),
+        num_part(
+            "Hence find the y-value of the turning point of the graph of f.",
+            top,
+            [-top, mid, 2 * top],
+            working=[f"The turning point of f is at x = {mid}; the graph shows y = {top} there."],
+        ),
     ]
-    figures.assert_no_leak(fig, [str(r1), str(r2)])
+    figures.assert_no_leak(fig, [str(r1), str(r2), str(top)])
     return dict(text=f"{text} {rng.choice(_TAILS)}", figure=fig, parts=parts)
 
 
@@ -803,7 +820,8 @@ def _read_recip_exam(question) -> str:
     zeros = sorted(x for x, y in f.items() if near(y, 0))
     check(len(zeros) == 2, "the parabola does not cross the axis twice at integers")
     r1, r2 = zeros
-    return f"(a) {r1}; (b) {r2}; (c) {r2 - r1}; (d) {(r1 + r2) // 2}"
+    mid = (r1 + r2) // 2
+    return f"(a) {r1}; (b) {r2}; (c) {r2 - r1}; (d) {mid}; (e) {round(f[mid])}"
 
 
 # (the exam chain of an mcq skill has no registered reader: the sweep cannot hand a labelled reply to the mcq path)

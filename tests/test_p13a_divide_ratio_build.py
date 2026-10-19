@@ -176,12 +176,16 @@ def test_skill_loads_with_expected_shape():
     assert skill.placement_eligible is False
     assert skill.status == "active"
     assert sorted(skill.prerequisites) == ["fraction-of-quantity", "ratio-rate-proportion"]
-    assert {source.topic for source in skill.sources} == {TOPIC}
-    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
+    # Round 3 added a second exam source, the three-shares chain (key three-shares).
+    assert {source.topic for source in skill.sources} == {TOPIC, "exd_x_r3j_ratio_shares"}
+    assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam", "exam"]
     assert [source.stages for source in skill.sources] == [
         [0, 1, 2],
         [3, 4],
         [5, 6, "maintenance"],
         ["exam"],
+        ["exam"],
     ]
-    assert len(skill.misconceptions) == 3
+    # Round 3 added the three-shares misconceptions; the original three stay.
+    assert {"ignores-the-ratio", "swapped-ratio-terms"} <= {m.id for m in skill.misconceptions}
+    assert len(skill.misconceptions) >= 3

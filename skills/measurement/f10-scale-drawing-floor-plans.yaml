@@ -1,6 +1,8 @@
 id: f10-scale-drawing-floor-plans
 name: Find real lengths and areas from a scale floor plan
 domain: measurement
+naplan_domain: [measurement]
+year_level: ['8']
 description: Given a floor plan drawn to scale with some lengths marked in centimetres and its scale as a ratio, find a real wall length, the real floor area of a room (each length is scaled, so the area grows by the square of the ratio), and, for an L-shaped plan with two sides unmarked, the real floor area or perimeter. The exam chain goes from a marked plan to two real wall lengths, the floor area and a tile count.
 status: active
 capability_gates: [figure_stimulus]
@@ -63,4 +65,4 @@ misconceptions:
   description: Multiplies the floor area by the size of a tile instead of dividing by it.
 - id: scale-area-given-as-tiles
   description: Gives the floor area in square metres as the number of tiles.
-tags: [acara-f10-v9, measurement, scale-drawing, plans, area, essential-mathematics, figure]
+tags: [acara-f10-v9, ac9m8m07, measurement, scale-drawing, plans, area, essential-mathematics, figure]

@@ -1,6 +1,8 @@
 id: f10-map-grid-routes-bearings
 name: Use a grid map to find distances, routes and bearings
 domain: geometry
+naplan_domain: [measurement]
+year_level: ['8']
 description: Given a map drawn on a numbered grid with north at the top and a stated length for each grid square, find the distance between two places in line (one of them possibly given by grid reference), the length of a two-leg route along the grid, and, for a walk through three places, the bearing of the start from the finish. The exam chain finds each leg, the whole walk and the bearing back.
 status: active
 capability_gates: [figure_stimulus]
@@ -48,4 +50,4 @@ misconceptions:
   description: Measures a bearing from east, as an angle on a graph, instead of clockwise from north.
 - id: map-bearing-reversed-wrong
   description: Tries to reverse a bearing by adding the wrong angle, for example 90 degrees instead of 180.
-tags: [acara-f10-v9, geometry, maps, grid-reference, bearings, scale, essential-mathematics, figure]
+tags: [acara-f10-v9, ac9m8m07, geometry, maps, grid-reference, bearings, scale, essential-mathematics, figure]

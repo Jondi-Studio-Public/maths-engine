@@ -1,0 +1,34 @@
+id: ey-compare-duration
+name: Compare how long events take
+domain: measurement
+year_level: ['1']
+naplan_domain: [measurement]
+learner_band: early
+description: Look at events drawn as rows of equal boxes and say which takes longer or less time, which takes the longest or the shortest time, and put three events in order from the shortest time to the longest, including when the events start at different places.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [f10-compare-measurement-attributes]
+answer: mcq
+sources:
+- topic: compare_duration_picture
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: compare_duration_picture
+  difficulty: medium
+  stages: [3, 4]
+- topic: compare_duration_picture
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: duration-picks-top-event
+  description: Picks the event drawn first, at the top, instead of comparing how many boxes each one fills.
+- id: duration-picks-bigger-picture
+  description: Picks the event with the biggest picture card, when the size of the card says nothing about how long it takes.
+- id: duration-reads-finish-line
+  description: Picks the event that finishes last, when events that start at different places can finish in a different order from how long they take.
+- id: duration-says-same
+  description: Says two events take the same time when one of them fills more boxes than the other.
+tags: [acara-f10-v9, early, measurement, duration, time, direct-comparison, ac9m1m01, age-6, visual]

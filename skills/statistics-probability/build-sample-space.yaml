@@ -1,0 +1,113 @@
+id: build-sample-space
+name: Build the sample space of a two-stage experiment
+domain: statistics-probability
+description: List the ordered-pair outcomes of a two-stage experiment, the outcomes that satisfy a stated property, and the
+  outcomes of compound events, then find the probability of an event and of its complement.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: set
+sources:
+- topic: r3j_sample_space
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3j_sample_space
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3j_sample_space
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3j_sample_space_events
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3j-sample-added-not-multiplied
+  description: Adding the numbers of choices at each stage instead of multiplying them.
+- id: r3j-sample-and-for-or
+  description: Counting only the outcomes that meet both conditions where either condition was asked for.
+- id: r3j-sample-at-least-one-for-exactly-one
+  description: Listing the outcomes where at least one die shows the number when exactly one was asked for.
+- id: r3j-sample-at-most-for-at-least
+  description: Counting the outcomes with at most the stated number where at least that number was asked for.
+- id: r3j-sample-at-most-for-exactly
+  description: Including every outcome up to the stated value where only the outcomes equal to it were asked for.
+- id: r3j-sample-complement-given
+  description: Giving the probability that the event does not happen where the probability that it does was asked for.
+- id: r3j-sample-complement-listed
+  description: Listing the outcomes that do not satisfy the condition instead of those that do.
+- id: r3j-sample-count-one-over
+  description: Counting one outcome too many in the event.
+- id: r3j-sample-count-one-short
+  description: Counting one outcome too few in the sample space.
+- id: r3j-sample-denominator-added
+  description: Using the sum of the numbers of outcomes at each stage as the size of the sample space.
+- id: r3j-sample-difference-for-sum
+  description: Listing the pairs whose difference, not sum, is the stated number.
+- id: r3j-sample-difference-one-way-only
+  description: Counting a difference of the stated size in one direction only (first minus second).
+- id: r3j-sample-event-given-for-complement
+  description: Giving the probability of the event where the probability that it does not happen was asked for.
+- id: r3j-sample-exactly-for-at-least
+  description: Counting only the outcomes with exactly the stated number where at least that number was asked for.
+- id: r3j-sample-first-number-only
+  description: Testing the stated property on the first number only instead of on the pair.
+- id: r3j-sample-impossible-outcome-added
+  description: Listing an outcome that cannot happen.
+- id: r3j-sample-one-condition-only
+  description: Applying only one of two conditions when counting the outcomes.
+- id: r3j-sample-one-over-count
+  description: Writing one over the number of outcomes in the event instead of that number over the size of the sample space.
+- id: r3j-sample-ordered-pairs-collapsed
+  description: Listing each unordered pair once, leaving out the reverse order, as if (a, b) and (b, a) were one outcome.
+- id: r3j-sample-outcome-omitted
+  description: Leaving an outcome out of the sample space.
+- id: r3j-sample-pair-order-swapped
+  description: Writing some pairs with the stages in the wrong order.
+- id: r3j-sample-product-for-sum
+  description: Listing the pairs whose product, not sum, is the stated number.
+- id: r3j-sample-smaller-for-larger
+  description: Testing the smaller number of the pair where the larger number was stated.
+- id: r3j-sample-stages-listed-separately
+  description: Listing the outcomes of each stage separately instead of pairing them.
+- id: r3j-sample-sum-for-difference
+  description: Listing the pairs whose sum, not difference, is the stated number.
+- id: r3j-sample-sum-for-product
+  description: Listing the pairs whose sum, not product, is the stated number.
+- id: r3j-sample-target-off-by-one
+  description: Listing the pairs for a target one more than the one stated.
+- id: r3j-sample-wrong-positions-compared
+  description: Comparing the wrong tosses when deciding which outcomes meet a condition.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: List every outcome of a coin and a spinner as ordered pairs.
+  medium:
+    steps: 4
+    demand: List the ordered pairs of two dice or spinners that satisfy a sum, product, difference or larger-number property.
+  hard:
+    steps: 5
+    demand: 'List the outcomes of a compound event: an "or" of two conditions, a condition on three coin tosses, or exactly
+      one or neither of two numbers.'
+  exam:
+    steps: 6
+    demand: Size of the sample space, the outcomes in an event, the probability of the event and of its complement, following
+      through.
+tags:
+- general-maths
+- essential-maths
+- probability
+- sample-space

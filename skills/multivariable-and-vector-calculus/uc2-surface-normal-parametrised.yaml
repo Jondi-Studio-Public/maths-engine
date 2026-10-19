@@ -1,0 +1,76 @@
+id: uc2-surface-normal-parametrised
+name: Normal vector to a parametrised surface
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: 'Find the normal vector r_u x r_v to a surface given by a position vector in two parameters, from polynomial surfaces to cones, paraboloids, helicoids, spheres and surfaces of revolution, find the unit normal and the tangent plane constant at a point, and chain the normal''s z-component through its value and the z-intercept of the tangent plane.'
+status: active
+placement_eligible: false
+prerequisites:
+- vector-cross-product
+- ucv1-vector-valued-derivative
+answer: expression
+sources:
+- topic: s2a2_surface_normal
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a2_surface_normal
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a2_surface_normal
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a2_surface_normal
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: vc2-surf-cross-componentwise
+  description: 'Multiplies the tangent vectors component by component instead of taking their cross product.'
+- id: vc2-surf-cross-j-sign
+  description: 'Expands the cross product determinant without the minus sign on the j component, so the middle component has the wrong sign.'
+- id: vc2-surf-cross-order-reversed
+  description: 'Takes the cross product in the wrong order, r_v x r_u instead of r_u x r_v, so every component has the wrong sign.'
+- id: vc2-surf-cross-terms-added
+  description: 'Adds the two products in a component of the cross product instead of subtracting.'
+- id: vc2-surf-divided-by-length-squared
+  description: 'Divides the normal vector by the square of its length instead of its length when making it a unit vector.'
+- id: vc2-surf-divided-by-sum
+  description: 'Divides the normal vector by the sum of its components instead of its length when making it a unit vector.'
+- id: vc2-surf-graph-normal-sign
+  description: 'Uses (f_u, f_v, 1) as the normal to the graph z = f(u, v) instead of (-f_u, -f_v, 1).'
+- id: vc2-surf-intercept-inverted
+  description: 'Finds where the tangent plane meets the z-axis but divides the z-component of the normal by the plane constant instead of the other way round.'
+- id: vc2-surf-intercept-not-divided
+  description: 'Gives the plane constant as the z-intercept without dividing by the z-component of the normal.'
+- id: vc2-surf-intercept-point-height
+  description: 'Gives the height of the point of tangency as the z-intercept of the tangent plane.'
+- id: vc2-surf-normal-not-normalised
+  description: 'Gives the normal vector itself when the unit normal is asked for.'
+- id: vc2-surf-off-by-one
+  description: 'Makes an arithmetic slip of one when evaluating the component of the normal at the point.'
+- id: vc2-surf-parameters-as-coordinates
+  description: 'Substitutes the parameter values u and v for the coordinates x and y of the point.'
+- id: vc2-surf-parameters-swapped
+  description: 'Substitutes the values of u and v into the wrong parameters, so the point is the mirror of the one asked for.'
+- id: vc2-surf-plane-constant-component-dropped
+  description: 'Leaves out the z term when forming the constant of the tangent plane.'
+- id: vc2-surf-plane-constant-normal-sum
+  description: 'Gives the sum of the components of the normal as the constant of the tangent plane.'
+- id: vc2-surf-position-not-differentiated
+  description: 'Crosses the position vector r with a tangent vector instead of crossing the two tangent vectors.'
+- id: vc2-surf-tangents-added
+  description: 'Adds the two tangent vectors r_u and r_v instead of taking their cross product.'
+tags: [university-core-v1, university-year-2, multivariable-calculus, surfaces, parametrised-surface, surface-normal]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

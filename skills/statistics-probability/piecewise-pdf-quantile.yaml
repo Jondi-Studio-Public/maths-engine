@@ -1,0 +1,91 @@
+id: piecewise-pdf-quantile
+name: "Find constants, probabilities and quantiles for piecewise, trigonometric and exponential densities"
+domain: statistics-probability
+year_level: ['12']
+description: "For a continuous random variable with a piecewise-linear (triangular), sine or truncated exponential density, find the constant k from the total area, a probability as an area, the mean, and the median or another percentile, which needs the piece of the density where the cumulative probability crosses. Answers are decimals to a stated number of places. The exam chain finds k for a triangular density, a probability on the rising piece, the median and a probability across the mode."
+status: active
+placement_eligible: false
+prerequisites: [senior-understand-the-concepts-of-a-probability-density-function, definite-integral]
+answer: number
+sources:
+- topic: r3f_piecewise_pdf
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3f_piecewise_pdf
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3f_piecewise_pdf
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3f_piecewise_pdf
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Use the area of a triangle: k from the total area, P(X at most t) on the rising piece, or the mean from the three vertices."}
+  medium: {steps: 3, demand: "Decide which piece of the density a median lies on, add areas across the mode, or integrate a sine density through k = pi/(2L) and a cosine."}
+  hard: {steps: 4, demand: "Integrate or invert a density that needs calculus: a truncated exponential's probability, median and mean, or a percentile of the sine or triangular density found on the right piece."}
+  exam: {steps: 4, demand: "A connected chain on a triangular density: k, a probability that uses k, the median that uses k, and a probability across the mode that uses k."}
+misconceptions:
+- id: r3f-by-parts-sign-error
+  description: "Making a sign error in integration by parts, adding the boundary term to the mean instead of subtracting it."
+- id: r3f-cdf-assumes-uniform
+  description: "Treating the density as uniform, taking the probability as the length of the interval over the length of the support."
+- id: r3f-cdf-gives-complement
+  description: "Giving the probability of the complementary event, one minus the answer, where the probability asked for was needed."
+- id: r3f-exp-integral-omits-the-rate
+  description: "Integrating e to the power of minus lambda x as if the antiderivative did not divide by lambda."
+- id: r3f-mean-taken-as-midpoint
+  description: "Taking the midpoint of the interval as the mean, true only for a symmetric density."
+- id: r3f-median-taken-as-mean
+  description: "Reporting the mean E(X) where the median was asked for."
+- id: r3f-median-taken-as-midpoint
+  description: "Taking the midpoint of the interval as the median, which is true only for a symmetric density."
+- id: r3f-median-taken-as-mode
+  description: "Reporting the mode, the peak of the density, where the median was asked for."
+- id: r3f-quantile-halved
+  description: "Halving the correct quantile, as though the probability had been halved rather than the condition F(q) = p solved."
+- id: r3f-quantile-swaps-p-and-one-minus-p
+  description: "Solving F(q) = 1 - p where F(q) = p was stated, or the reverse, so the quantile is taken from the wrong tail."
+- id: r3f-quantile-uses-the-wrong-piece
+  description: "Solving for the quantile with the formula for the other piece of the density, ignoring where the cumulative probability crosses the mode."
+- id: r3f-triangle-adds-the-cumulative-values
+  description: "Adding the two cumulative probabilities F(t1) and F(t2) instead of subtracting them."
+- id: r3f-triangle-area-doubled
+  description: "Doubling the area of the triangle, using base times height as the area."
+- id: r3f-triangle-area-without-the-half
+  description: "Using base times height as the area of a triangle, leaving out the factor one half."
+- id: r3f-triangle-ignores-the-upper-tail
+  description: "Subtracting only the lower tail P(X at most t1) from 1 and leaving out the upper tail beyond t2."
+- id: r3f-triangle-k-from-the-falling-piece
+  description: "Finding the peak height from the width of the falling piece alone."
+- id: r3f-triangle-k-from-the-mode
+  description: "Finding the peak height as the reciprocal of the mode, using only the rising piece."
+- id: r3f-triangle-mean-averages-mode-and-end
+  description: "Averaging the mode and the right-hand end, (c + d)/2, instead of dividing the sum of the three vertices by 3."
+- id: r3f-triangle-mean-ignores-the-mode
+  description: "Dividing only the right-hand end by 3 for the mean of a triangular density, leaving the mode out of the sum."
+- id: r3f-triangle-mean-taken-as-mode
+  description: "Reporting the mode of a triangular density where its mean was asked for."
+- id: r3f-triangle-uses-the-height-as-the-area
+  description: "Using the height of the graph at the bound, or half of it, as the probability instead of the area under the graph."
+- id: r3f-trig-calculator-in-degrees
+  description: "Evaluating a cosine of a radian angle with the calculator in degree mode."
+- id: r3f-trig-forgets-k
+  description: "Leaving out the constant k from a probability or percentile of a sine density."
+- id: r3f-trig-integral-of-sine-taken-as-one-hump
+  description: "Taking the integral of one hump of the sine as 1 instead of 2 when finding k, so k is twice its value."
+- id: r3f-trig-k-halved
+  description: "Halving the constant k of a sine density."
+- id: r3f-trig-k-inverted
+  description: "Giving the area under the sine hump where its reciprocal, the constant k, was asked for."
+- id: r3f-trig-k-omits-pi
+  description: "Finding the area under the sine hump without its factor of pi, so that k lacks pi."
+- id: r3f-truncated-uses-untruncated-cdf
+  description: "Using the cumulative distribution or median of the full exponential distribution and ignoring that the density is cut off at the upper bound."
+- id: r3f-truncated-uses-untruncated-mean
+  description: "Using the mean 1/lambda of the full exponential distribution and ignoring that the density is cut off at the upper bound."
+tags: [round-3, statistics-probability, continuous-random-variable, piecewise-density, acmmm165, acmmm167]

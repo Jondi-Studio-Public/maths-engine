@@ -29,6 +29,11 @@ sources:
     params: {tier: exam}
     difficulty: exam
     stages: [exam]
+  - topic: exd_x_g1_vector_plane
+    params: {tier: exam}
+    difficulty: exam
+    key: exam-single
+    stages: [exam]
 misconceptions:
   - id: forgot-last-term
     description: (Easy/medium tier) Omits the last term of the dot product, computing only ax + by.

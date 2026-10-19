@@ -1,0 +1,89 @@
+id: total-distance-direction-change
+name: Total distance when a particle changes direction
+domain: differentiation
+description: 'Find the distance travelled by a particle moving on a line when it turns round in the interval: find when the
+  velocity is zero, split the interval there and add the sizes of the changes in position, or integrate the speed when the
+  velocity is given. Contrasts total distance with displacement and average speed with average velocity.'
+status: active
+placement_eligible: false
+prerequisites:
+- senior-recognise-acceleration-as-the-second-derivative-of-position
+- stationary-points
+answer: number
+sources:
+- topic: r3h_total_distance
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3h_total_distance
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3h_total_distance
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3h_total_distance
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3h-motion-displacement-for-distance
+  description: Giving the change in position (the displacement) as the total distance, so the distance travelled while moving
+    backwards is subtracted.
+- id: r3h-motion-stops-at-first-rest
+  description: Stopping the distance at the first time the velocity is zero and ignoring the rest of the interval.
+- id: r3h-motion-omits-last-segment
+  description: Adding the distances before the last turn but leaving out the final segment of the interval.
+- id: r3h-motion-position-for-distance
+  description: Giving the position at the end of the interval as the distance travelled.
+- id: r3h-motion-omits-middle-segment
+  description: Adding the first and last segments of the motion but missing the one between the two turns.
+- id: r3h-motion-acceleration-zero-for-rest
+  description: Splitting the interval where the acceleration is zero instead of where the velocity is zero.
+- id: r3h-motion-signs-kept
+  description: Counting one of the backward segments with its sign instead of its size.
+- id: r3h-motion-velocity-not-integrated
+  description: Giving the speed at the end of the interval as the distance, or not integrating the velocity.
+- id: r3h-motion-average-for-distance
+  description: Giving the average speed (total distance divided by time) where the total distance was asked for.
+- id: r3h-motion-one-rest-only
+  description: Finding only one of the times at which the velocity is zero.
+- id: r3h-motion-position-zero-for-rest
+  description: Solving s = 0 (the times the particle passes the origin) instead of v = 0.
+- id: r3h-motion-rest-sum-product
+  description: Giving the sum and product of the rest times instead of the times themselves.
+- id: r3h-motion-sign-of-rest-times
+  description: Giving the rest times with the wrong signs after factorising the velocity.
+- id: r3h-motion-total-distance-for-displacement
+  description: Giving the total distance where the displacement was asked for.
+- id: r3h-motion-position-for-displacement
+  description: Giving the final position where the change in position was asked for.
+- id: r3h-motion-displacement-reversed
+  description: Subtracting in the wrong order, s(0) - s(T), so the displacement has the wrong sign.
+- id: r3h-motion-final-segment-only
+  description: Giving the change in position over the last segment only as the displacement.
+- id: r3h-motion-average-velocity-for-speed
+  description: Dividing the displacement, not the total distance, by the time to get the average speed.
+- id: r3h-motion-time-multiplied
+  description: Multiplying the total distance by the time instead of dividing.
+- id: r3h-motion-total-per-segment
+  description: Dividing the total distance by the number of segments instead of by the time.
+- id: r3h-motion-displacement-per-time-abs
+  description: Taking the size of the average velocity as the average speed.
+tags:
+- senior-secondary
+- mathematical-methods
+- differentiation
+- kinematics
+- applications-of-calculus

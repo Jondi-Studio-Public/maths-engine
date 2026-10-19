@@ -38,6 +38,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c1_quotient
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: wrong-order-subtraction
   description: Subtracting the terms in the wrong order in the numerator.

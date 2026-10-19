@@ -43,6 +43,117 @@ _ENTRIES = (
         "Leaving out the constant term and dividing the other side by the coefficient straight away.",
         area="equations",
     ),
+    # -- early years: position, direction, turns and maps ---------------------------------------------------------
+    CatalogueEntry(
+        "eyp-opposite-direction",
+        "Choosing the opposite way: above for below, up for down, or the far end for the near end.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-names-the-reference",
+        "Choosing a picture the question already named, not the one it asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-not-next-to",
+        "Choosing a picture that is close, in the same line or a corner away, but not right next to the one named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-wrong-reference",
+        "Using the right word about the wrong picture, such as the picture above the second one named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-next-to-not-between",
+        "Choosing a picture beside the middle one but not in line between the two named.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-wrong-axis",
+        "Mixing up across and up-and-down: left or right for above or below.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-counts-the-start",
+        "Counting the square you start on as step one, so a move ends a square short or a count is one too many.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-one-step-too-far",
+        "Moving one square too far.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-stops-early",
+        "Leaving out the last move or the last turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-back-moves-forward",
+        "Going on in the same direction for a move that says to go back.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-left-right-swapped",
+        "Turning or moving to the left when told right, or the other way round. Left and right are the mover's own sides, not the page's.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-quarter-as-half",
+        "Turning a half turn when told a quarter turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-half-as-quarter",
+        "Turning only a quarter turn when told a half turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-no-turn",
+        "Staying facing the same way after a turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-full-turn",
+        "Calling a turn that ends facing the other way a full turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-nearly-extreme",
+        "Choosing the picture second from the top, bottom, left or right instead of the very first one.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-farthest-for-closest",
+        "Choosing the farthest place when asked for the closest, or the closest when asked for the farthest.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-looks-one-way",
+        "Judging how near a place is by one direction only, such as the same row, and ignoring the other.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-cuts-corner",
+        "Counting a corner as one step, so the count is the larger of the steps across and the steps up.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-one-direction-only",
+        "Counting only the steps across, or only the steps up, and not both.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-misses-a-step",
+        "Counting one step too few.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyp-ignores-the-path",
+        "Counting the straight way between two places instead of the steps along the path.",
+        area="early-years",
+    ),
     # -- early years: sorting, tally tables and picture displays ----------------------------------------------------
     CatalogueEntry(
         "eyt-counts-all-kinds",
@@ -119,6 +230,448 @@ _ENTRIES = (
         "Giving how many pictures the whole row should have, not how many more it needs.",
         area="early-years",
     ),
+    # -- w6b batch (generated block) --
+    CatalogueEntry(
+        "rotation-wrong-direction",
+        "Rotating the opposite way, clockwise where anticlockwise was asked or the reverse.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-swaps-real-and-imaginary",
+        "Swapping the real and imaginary parts to turn a point through a quarter turn, which reflects it in the line y = x instead.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-quarter-turn-as-half-turn",
+        "Negating the number (a half turn) where a quarter turn was asked.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-adds-instead-of-multiplies",
+        "Adding the unit number to the point instead of multiplying by it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-reflects",
+        "Taking a half turn to be the conjugate, which reflects the point in the real axis.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-negates-one-part",
+        "Negating only the real part (or only the imaginary part) for a half turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-half-turn-as-quarter-turn",
+        "Multiplying by i for a half turn.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-ignored",
+        "Rotating about the origin when the centre of rotation is another point.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-not-added-back",
+        "Rotating the vector from the centre to the point but not adding the centre back.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-centre-added-to-rotated-point",
+        "Rotating the point itself and then adding the centre, instead of rotating the vector from the centre.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-multiplies-by-cos-plus-sin",
+        "Multiplying by cos θ + sin θ, a real number, instead of cos θ + i sin θ.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "rotation-sine-and-cosine-swapped",
+        "Multiplying by sin θ + i cos θ, which turns through 90° − θ instead of θ.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-wrong-orientation",
+        "Turning the wrong way for the labelling of the square, so the vertex is on the other side of AB.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-vertices-swapped",
+        "Giving the other missing vertex of the square, C for D or D for C.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-rotates-position-not-side",
+        "Rotating the position of a vertex about the origin instead of rotating the side vector.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-extends-the-side",
+        "Continuing along the line AB instead of turning through a right angle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-opposite-vertex",
+        "Giving the vertex opposite A (the reflection of A in the centre) where the neighbouring vertex was asked for.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "triangle-wrong-orientation",
+        "Giving the third vertex on the wrong side of AB for the labelling of the triangle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "triangle-height-equals-side",
+        "Placing the apex a whole side length above the midpoint, forgetting that the height of an equilateral triangle is √3/2 of its side.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-difference-reversed",
+        "Subtracting the vertices in the wrong order, so the vector points from B to A.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-sum-for-difference",
+        "Adding the two vertices instead of subtracting them.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-vector-parts-swapped",
+        "Swapping the real and imaginary parts of the side vector.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-adds-the-parts",
+        "Adding the real and imaginary parts to get a length, instead of using Pythagoras.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-forgets-square-root",
+        "Leaving the length as the sum of the squares, without taking the square root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "side-length-takes-the-larger-part",
+        "Giving the larger of the real and imaginary parts as the length of the side.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-as-perimeter",
+        "Giving the perimeter of the square where the area was asked.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-doubles-side",
+        "Doubling the side length instead of squaring it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-halved",
+        "Halving the square of the side, as for the area of a triangle.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "square-area-from-the-parts",
+        "Multiplying the real and imaginary parts of the side vector to get the area.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-wrong-direction",
+        "Going round the polygon clockwise when the question says anticlockwise, or the reverse.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-uses-interior-angle",
+        "Turning through the interior angle of the polygon at each step instead of the angle 360°/n at the centre.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-off-by-one",
+        "Counting the starting vertex as a step, so the vertex reached is one too far or one too few.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-vertex-forgets-modulus",
+        "Giving the point on the unit circle with the right argument, forgetting the radius of the polygon.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-diameter",
+        "Taking the side of the polygon to be the diameter of the circle through its vertices.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-radius",
+        "Taking the side of the polygon to be the radius, which is true only for a hexagon.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-half-angle-missing",
+        "Using sin(π/2n) in the side formula 2r sin(π/n), halving the angle twice.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-uses-full-angle",
+        "Using sin(2π/n), the angle at the centre, instead of half of it in 2r sin(π/n).",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-side-doubled",
+        "Doubling the chord formula, so the side is twice what it should be.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-counts-n-minus-one",
+        "Multiplying the side by one less than the number of sides.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-doubled",
+        "Doubling the perimeter, perhaps by counting each side twice.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-halved",
+        "Halving the perimeter.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-perimeter-is-one-side",
+        "Giving one side where the perimeter was asked for.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-divides-by-n",
+        "Dividing the constant in zⁿ = w by n to find the modulus, instead of taking an n-th root.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-is-the-constant",
+        "Taking the modulus of the roots of zⁿ = w to be w itself.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-multiplies-by-n",
+        "Multiplying the n-th root by n.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-radius-off-by-one",
+        "Taking the n-th root of w and then adding one.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-forgets-n",
+        "Forgetting the factor n in the product of the distances from a vertex to the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-adds-instead",
+        "Adding instead of multiplying the distances, or multiplying n by r.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-uses-n-factors",
+        "Taking the product to be n·rⁿ, one power of r too many.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-product-counts-n-minus-one",
+        "Using n - 1 in place of n in the product (1 - ω)(1 - ω²)…(1 - ω^(n-1)).",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-forgets-factor-two",
+        "Giving n r², leaving out the factor 2 in the sum of the squares of the distances.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-uses-one-diameter",
+        "Squaring a single diameter, 4r², as if the sum had one term.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-counts-n-minus-one",
+        "Summing over the n - 1 other vertices only, using the factor n - 1 where n is needed.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "polygon-squares-forgets-to-square",
+        "Leaving the distances unsquared in the sum.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-is-one",
+        "Taking 1 + ω + … + ω^(n-1) to equal 1 instead of 0.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-counts-terms",
+        "Giving the number of terms, as if each power of ω were 1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-drops-the-one",
+        "Taking the sum of all the powers to be -1, forgetting that the first term, 1, is part of it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-forgets-the-one",
+        "Treating ω + … + ω^(n-1) as 0, forgetting that the missing 1 must be taken away.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-sign",
+        "Getting the sign wrong: ω + … + ω^(n-1) = -1, not +1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-sum-factor-kept",
+        "Leaving the common factor in the answer once the bracket has been shown to be 0.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-power-sum-swapped",
+        "Swapping the two possible values: giving n when ω^m is not 1 and 0 when it is.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-of-unity-power-sum-counts-terms-less-one",
+        "Giving n - 1 for a sum of n terms, each equal to 1.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-gives-the-root",
+        "Giving the root itself, without the minus sign, as the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-gives-the-conjugate",
+        "Giving the conjugate of the root as the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-forgets-to-remove-the-root",
+        "Giving the sum of all the roots (0) instead of the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "roots-sum-others-conjugates-and-negates",
+        "Negating and conjugating the root to find the sum of the others.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "trig-eq-solutions-stop-at-first-period",
+        "Giving only the solutions from the first turn of the angle inside the brackets, so the later solutions of a multiple-angle equation are missing.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-solutions-miss-second-family",
+        "Giving only one of the two solution families, for example α + 2πn without π - α + 2πn for sine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-sine-second-solution-uses-pi-plus",
+        "Using π + α instead of π - α as the second solution of a sine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-cosine-second-solution-uses-pi-minus",
+        "Using π - α instead of -α (that is, 2π - α) as the second solution of a cosine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-period-is-two-pi",
+        "Adding 2π instead of π to find the other solutions of a tangent equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-multiple-angle-not-divided",
+        "Solving for the angle inside the brackets but not dividing by the multiple, so the answers are not values of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-shift-ignored",
+        "Leaving out the horizontal shift, solving f(ax) = c in place of f(a(x - b)) = c.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-shift-wrong-way",
+        "Subtracting the horizontal shift where it should be added, moving the solutions the wrong way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-calculator-in-degree-mode",
+        "Using a calculator in degree mode, so the solutions are in degrees and not in radians.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-second-solution-uses-the-wrong-quadrant",
+        "Taking the second solution from the wrong quadrant, such as π + α for sine or π - α for cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-ignores-the-multiple",
+        "Giving the period of the basic function, 2π, when x is multiplied by a number greater than 1.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-multiplies-by-the-multiple",
+        "Multiplying the period 2π by the multiple instead of dividing.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-uses-pi-not-two-pi",
+        "Using π/a, the period of a tangent, for a sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-period-doubled-with-the-multiple",
+        "Doubling the period and multiplying by the multiple.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-one-solution-per-period",
+        "Counting one solution per period of a sine or cosine equation, where there are two.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-ignores-the-multiple",
+        "Counting the two solutions of one period only, ignoring that the interval holds several periods.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-doubles-twice",
+        "Counting two solutions per period and then doubling the number of periods again.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-count-off-by-one",
+        "Counting one solution too many by including a solution at the end of the interval that is not there.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-smallest-solution-is-the-second",
+        "Giving the second smallest solution in place of the smallest.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-smallest-solution-is-the-principal-angle",
+        "Giving the principal angle α of the basic equation as the smallest solution, without dividing by the multiple and adding the shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-solved-like-sine",
+        "Solving a tangent equation as if it were a sine equation, with the second solution π - α and a period of 2π.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-tangent-sign-of-angle-lost",
+        "Losing the sign of the angle when the value of the tangent is negative, so the solutions are reflected.",
+        area="trigonometry",
+    ),
+    # -- end w6b batch --
     # -- quadratics -----------------------------------------------------------------------------------------------
     CatalogueEntry(
         "sign-flip-both-roots",
@@ -1662,6 +2215,536 @@ _ENTRIES = (
         "series-geometric-factor-dropped",
         "Summing a geometric series without the factor of its first term (a/(1 - r) taken as 1/(1 - r)).",
         area="series",
+    ),
+    CatalogueEntry(
+        "svd-forgot-square-root",
+        "Giving an eigenvalue of AᵀA as the singular value, without taking its square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-wrong-ordering",
+        "Giving the smaller singular value where the larger was asked for, or the larger where the smaller was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-determinant-as-value",
+        "Giving the product of the singular values (the absolute value of the determinant, or the square root of det AAᵀ) as if it were one singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-frobenius-squared",
+        "Giving the sum of the squares of the entries, which is σ₁² + σ₂², as if it were a single singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-sum-of-values",
+        "Adding the singular values instead of reading off the largest one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-null-eigenvalue-used",
+        "Taking the smallest singular value of a 2×3 matrix to be 0 because AᵀA, which is 3×3, has the eigenvalue 0.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-error-uses-largest",
+        "Giving σ₁, the part the rank-1 approximation keeps, as the size of the error; the error is the part it discards.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-condition-inverted",
+        "Writing the condition number upside down as σ₂/σ₁.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-condition-squared",
+        "Dividing the eigenvalues of AᵀA instead of the singular values, which squares the condition number.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-of-sum",
+        "Dividing σ₁ by σ₁ + σ₂ instead of by σ₂.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-of-eigenvalue-gap",
+        "Dividing the gap σ₁ − σ₂ by σ₂ instead of dividing σ₁ by σ₂.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-forgot-squares-in-share",
+        "Using σ₁/(σ₁ + σ₂) as the share of the squared Frobenius norm, without squaring the singular values.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-discarded-share",
+        "Giving the share that the rank-1 approximation discards, σ₂²/(σ₁² + σ₂²), instead of the share it keeps.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-ratio-instead-of-share",
+        "Dividing σ₁² by σ₂² (a ratio of the two parts) instead of by the whole, σ₁² + σ₂².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-vector-for-other-value",
+        "Giving the singular vector that belongs to the other singular value.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-null-direction-chosen",
+        "Giving the null vector of A, which belongs to the zero eigenvalue of AᵀA, instead of the vector for σ₁.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-left-vector-used",
+        "Giving a left singular vector (an eigenvector of AAᵀ) padded with a zero in place of a right singular vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-row-as-singular-vector",
+        "Giving a row of A as the right singular vector, as if the rows were eigenvectors of AᵀA.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "svd-squares-dropped-in-denominator",
+        "Squaring the largest singular value in the numerator of the share but not the smaller one in the denominator.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-entry-omitted",
+        "Giving the cofactor of the single non-zero entry as the determinant, without multiplying by that entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-sign-pattern-ignored",
+        "Leaving out the sign (-1)^(i+j) of a cofactor, or applying it twice, so the term has the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-minor-wrong-position",
+        "Deleting the wrong row or column when forming the minor, so the cofactor belongs to a different entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-diagonal-product",
+        "Giving the product of the diagonal entries as the determinant of a matrix that is not triangular.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-swap-sign-ignored",
+        "Forgetting that each row swap changes the sign of the determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-alternating-signs-ignored",
+        "Adding the terms of a cofactor expansion along a row without the alternating + - + - signs.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-first-row-only-first-minor",
+        "Stopping a cofactor expansion after its first term.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-minor-without-sign",
+        "Giving the minor (the 3×3 determinant) as the cofactor, without its sign (-1)^(i+j).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-index-transposed",
+        "Giving the cofactor of the entry in row j, column i instead of row i, column j.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-entry-included",
+        "Multiplying the cofactor by the entry it belongs to, which gives one term of the expansion, not the cofactor.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-not-raised-to-size",
+        "Taking det(kM) = k det M, when each of the four rows contributes a factor k, so det(kM) = k⁴ det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-times-size",
+        "Multiplying the determinant by 4k instead of raising k to the fourth power.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-transpose-changes-sign",
+        "Thinking that transposing a matrix changes the sign of its determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-inverse-ignored",
+        "Treating det(M⁻¹) as det M instead of 1/det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-inverse-on-wrong-factor",
+        "Inverting the determinant of the wrong matrix in a product with an inverse.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-power-as-multiple",
+        "Reading det(M²) as 2 det M instead of (det M)².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-adjugate-exponent",
+        "Using the wrong power in det(adj M) = (det M)ⁿ⁻¹ for an n×n matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-adjugate-is-inverse",
+        "Treating the adjugate as the inverse, so det(adj M) = 1/det M.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-negative-sign-kept",
+        "Keeping the sign of a factor -1 on a 4×4 matrix, when (-1)⁴ = 1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-transposed-factor-dropped",
+        "Forgetting the factor det(Mᵀ) = det M when a transposed matrix is multiplied in.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-product-as-sum",
+        "Adding determinants where the determinant of a product multiplies them.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-addition-scales",
+        "Thinking that adding a multiple of one row to another multiplies the determinant by that multiple.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-scaled-as-whole-matrix",
+        "Raising the factor c to the fourth power when only one row is multiplied by c.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-operations-unchanged",
+        "Thinking that row operations leave the determinant unchanged.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-forgot-cofactor-divisor",
+        "Solving det M = 0 for k without dividing by the cofactor, the coefficient of k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-adjugate-not-transposed",
+        "Reading the entry of the inverse from the cofactor in the same position, instead of the transposed position.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-forgot-divide-by-det",
+        "Giving an entry of the adjugate as an entry of the inverse, without dividing by det A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-inverse-entry-inverted",
+        "Dividing det A by the cofactor instead of the cofactor by det A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-row-scaling-ignored",
+        "Forgetting that multiplying a row by c multiplies the determinant by c.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-power-off-by-one",
+        "Raising the scalar to the power 3 instead of 4 in det(kM), one less than the size of the matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-power-ignored",
+        "Reading det(M²) as det M, ignoring the power.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "det-scalar-ignored",
+        "Ignoring the scalar factor k in det(kM) altogether.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "cof-expansion-term-dropped",
+        "Leaving one term out of the cofactor expansion along a row before solving for k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-both-columns-summed",
+        "Adding the squared lengths of both columns, 2N², and giving that as the normalising constant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-conjugate-forgotten",
+        "Transposing without conjugating (using AᵀA or Hᵀ) where the conjugate transpose A* is needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-diagonal-entry-as-eigenvalue",
+        "Reading a diagonal entry as an eigenvalue. That works for a triangular matrix, not for a Hermitian matrix with a non-zero off-diagonal entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-eigenvalue-sum-of-powers",
+        "Giving λ₁ + λ₂ (the trace) where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-entry-squared",
+        "Giving x² from the length condition instead of x.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-entry-transposed",
+        "Giving the (j, i) entry of A*A instead of the (i, j) entry, which has the opposite imaginary part.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-parts-ignored",
+        "Finding the length of a complex column from the real parts of its entries only.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-parts-only",
+        "Summing the squares of only the imaginary parts of the entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-imaginary-sign",
+        "Giving the conjugate of the entry, with the sign of the imaginary part reversed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-mean-as-eigenvalue",
+        "Giving the mean of the diagonal entries, (a + d)/2, as an eigenvalue.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-as-square",
+        "Squaring each entry (z²) instead of taking its squared modulus |z|² = z z̄ when summing.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-not-squared",
+        "Using |b| + |c| in place of b² + c², the squared modulus of b + ci.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-squared-as-entry",
+        "Giving the squared modulus |q|² as the missing entry of a unitary matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-modulus-squared-unrooted",
+        "Giving k² from the characteristic equation as k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-norm-squared-not-root",
+        "Giving N², the squared length of a column, as the normalising constant N.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-normaliser-as-entry",
+        "Giving the normalising constant N as the missing entry of the matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-ignored",
+        "Ignoring the off-diagonal entries when finding the determinant of a Hermitian matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-real-part-added",
+        "Adding |b| to k when the real part b of the off-diagonal entry belongs under the root as b².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-sign",
+        "Adding (b + ci)(b - ci) to ad instead of subtracting it in the determinant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-squared-not-modulus",
+        "Squaring the off-diagonal entry, (b + ci)², instead of multiplying it by its conjugate, so b² - c² replaces b² + c².",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-product-of-eigenvalues",
+        "Giving λ₁λ₂ (the determinant) where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-product-order-reversed",
+        "Computing AA* where A*A was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-radicand-with-offdiagonal",
+        "Giving (a - λ)(d - λ) as k, forgetting to subtract b² and take the square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-radius-as-eigenvalue",
+        "Giving the half-gap √(((a - d)/2)² + b² + c²), the distance of each eigenvalue from the mean, as an eigenvalue.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-real-parts-only",
+        "Summing the squares of only the real parts of the entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-sign-from-norm-only",
+        "Taking the wrong root of the length condition x² = p², when orthogonality fixes the sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-square-instead-of-modulus-squared",
+        "Using Re(z²) = a² - b² for |z|² = a² + b² when finding the length of a column.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-square-of-sum",
+        "Giving (λ₁ + λ₂)², the square of the trace, where λ₁² + λ₂² was needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-sum-instead-of-gap",
+        "Adding the two eigenvalues (giving the trace) where their difference or the other eigenvalue was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-wrong-ordering",
+        "Giving the larger eigenvalue where the smaller was asked for, or the reverse.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-offdiagonal-moduli-mixed",
+        "Adding |b| to c² when finding k, a mixture that no step of the working produces.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "herm-real-part-instead-of-imaginary",
+        "Giving the real part of the entry where the imaginary part was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "taylor-second-order-no-half",
+        "Leaving out the factor ½ on the second-order terms of the Taylor polynomial, so each second derivative appears at twice its size.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-wrong-second-partial",
+        "Using the wrong second partial derivative for the term asked about, such as f_yy for the coefficient of (x - a)².",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-first-derivative-used",
+        "Giving a first partial derivative at the point where the coefficient of a second-order term was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-halved",
+        "Writing the mixed term as ½fₓ_y(x - a)(y - b) instead of fₓ_y(x - a)(y - b): the ½ and the 2 from the two orders of differentiation both applied.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-doubled",
+        "Giving 2fₓ_y as the coefficient of (x - a)(y - b), keeping the 2 from ½·2fₓ_y without the ½.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-second-order-omitted",
+        "Stopping at the linear terms and leaving the second-order terms out of the estimate.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-mixed-term-omitted",
+        "Leaving out the mixed term fₓ_y(x - a)(y - b) from the second-order part of the Taylor polynomial.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-offsets-swapped",
+        "Substituting the offsets the wrong way round, the y-step for x - a and the x-step for y - b.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "taylor-constant-omitted",
+        "Leaving out the constant term f(a, b) from the Taylor polynomial.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-one-sided-range",
+        "Counting only the positive integers k, or only one side of zero, when D > 0 allows k and -k alike.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-boundary-included",
+        "Including the integers on the boundary k² = 4AC, where D = 0 and the test is inconclusive.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-count-ceiling",
+        "Rounding the bound on k up instead of down, so the count includes integers with k² > 4AC.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-count-forgot-zero",
+        "Leaving k = 0 out of the count of integers in the range.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-boundary-off-by-one",
+        "Taking the largest integer that fails the strict inequality, or one beyond the smallest that satisfies it.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-unrooted",
+        "Giving k² (or 4AC) as the bound on k, without taking the square root.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-second-derivative-halved",
+        "Using A and C, the coefficients of x² and y², for fₓₓ and f_yy instead of 2A and 2C, which changes D.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-fxx-sign-ignored",
+        "Choosing a minimum when fₓₓ < 0, or a maximum when fₓₓ > 0, once D > 0.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-determinant-sign-misread",
+        "Reading D > 0 as a saddle point or D < 0 as an extremum.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-test-misapplied",
+        "Calling the test inconclusive when D is not zero.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-mixed-term-not-squared",
+        "Subtracting fₓ_y instead of fₓ_y² in D = fₓₓf_yy - fₓ_y².",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-trace-used",
+        "Adding fₓₓ and f_yy (the trace) instead of finding the determinant of the Hessian.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "hessian-diagonal-only",
+        "Forgetting the mixed term and taking D = fₓₓf_yy.",
+        area="multivariable",
     ),
     # -- inequalities and matrix inverses -------------------------------------------------------------------------
     CatalogueEntry(
@@ -33932,6 +35015,16938 @@ _ENTRIES = (
         "clt-n-wrong-z",
         "Using the z-value for a different confidence level or the wrong number of tails when finding the sample size.",
         area="clt",
+    ),
+    CatalogueEntry(
+        "duration-picks-top-event",
+        "Choosing the event drawn first (at the top) instead of comparing how many boxes each one fills.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-picks-bigger-picture",
+        "Choosing the event with the biggest picture card, when the size of the card says nothing about how long it takes.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-reads-finish-line",
+        "Choosing the event that finishes last, when events that start at different times can finish in a different "
+        "order from how long they take.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "duration-says-same",
+        "Saying two events take the same time when one fills more boxes than the other.",
+        area="early-years",
+    ),
+    # -- train 2: round 3, second-year university, complex analysis, early-years variety ---------------------------
+    CatalogueEntry(
+        "r3a-adds-standard-deviations",
+        "Adding the standard deviations of two independent counts to get the standard deviation of their "
+        "total, instead of adding the variances and taking the square root.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-at-least-one-complements-all-successes",
+        "Finding P(at least one success) as 1 minus the probability that every trial succeeds, instead of "
+        "1 minus the probability that none does.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-at-least-one-gives-exactly-one",
+        'Reading "at least one" as "exactly one" and reporting only P(X = 1).',
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-at-least-one-gives-none",
+        'Reporting P(X = 0) for "at least one", stopping before the complement is taken.',
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-at-most-one-omits-exactly-one",
+        "Finding P(X <= 1) as P(X = 0) alone, leaving out P(X = 1).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-at-most-one-omits-none",
+        "Finding P(X <= 1) as P(X = 1) alone, leaving out P(X = 0).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-at-most-reduced-to-one-point",
+        'Answering an "at most" question with the single probability of its largest value.',
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-at-most-two-stops-at-one",
+        "Finding P(X <= 2) but adding only P(X = 0) and P(X = 1).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-complement-boundary-off-by-one",
+        "Taking the complement of a tail from the wrong value: 1 - P(X <= k) for P(X >= k), or 1 - P(X <= "
+        "k - 1) for P(X > k).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-conditional-divides-by-the-complement",
+        "Dividing a conditional numerator by the probability of the opposite of the condition rather than "
+        "by the condition itself.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-conditional-divides-by-the-wrong-tail",
+        "Dividing the numerator by a tail that is not the condition (for example P(X <= k) rather than P(X >= j)).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-conditional-ignores-the-condition",
+        "Reporting the unconditional probability of the event and not dividing by the probability of the condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-conditional-takes-the-wrong-event",
+        "Putting the wrong event in the numerator of a conditional probability, such as the complement of "
+        "the event asked about.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-difference-adds-the-standard-errors",
+        "Adding the two standard errors to get the standard deviation of the difference of two sample "
+        "means, instead of adding the variances.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-difference-subtracts-the-standard-errors",
+        "Subtracting the two standard errors for a difference of sample means; the variances of "
+        "independent quantities add.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-difference-subtracts-the-variances",
+        "Subtracting the variances for a difference of independent sample means; variances add whether "
+        "the quantities are added or subtracted.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-exactly-one-omits-the-coefficient",
+        "Finding P(X = 1) as p q^(n-1) and leaving out the factor n for the positions of the single success.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-exactly-one-takes-at-least-one",
+        "Reporting P(X >= 1) when asked for the probability of exactly one success.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-exactly-one-uses-zero-successes",
+        "Reporting P(X = 0) when asked for the probability of exactly one success.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-exactly-one-wrong-exponent",
+        "Using q^n instead of q^(n-1) for the failures when exactly one trial succeeds.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-expectation-averages-the-outcomes",
+        "Taking the plain average of the outcomes instead of weighting each by its probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-expectation-omits-the-unknown-term",
+        "Adding up x P(X = x) for the stated probabilities only, and leaving out the term for the unknown probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-expectation-pairs-probabilities-with-the-wrong-outcomes",
+        "Multiplying each probability by the wrong outcome when summing x P(X = x).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-expectation-squares-the-outcomes",
+        "Summing x^2 P(X = x), which is E(X^2), when the mean is asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-expectation-uses-positions-not-values",
+        "Weighting by the position of the outcome in the list (1, 2, 3, ...) instead of by its value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-failures-mean-uses-success-probability",
+        "Using the success probability p for the mean of the number of failures, which have probability 1 - p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-n-adds-mean-and-variance",
+        "Adding the mean and the variance to find the number of trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-n-adds-to-the-mean",
+        "Adding a number to the mean instead of dividing the mean by p to find the number of trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-n-divides-mean-by-variance",
+        "Dividing the mean by the variance to find n; that ratio is 1/q, not n.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-n-multiplies-mean-by-p",
+        "Multiplying the mean by p instead of dividing by p to find the number of trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-n-subtracts-p",
+        "Subtracting p from the mean to find the number of trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-n-uses-failure-probability",
+        "Dividing the mean by 1 - p instead of p when finding the number of trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-p-divides-by-one-more-than-n",
+        "Dividing the mean by n + 1 to find the success probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-p-divides-by-the-failures",
+        "Dividing the mean by n minus the mean, which gives the odds of success rather than the probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-p-divides-probability-by-n",
+        "Dividing a stated probability by n to recover p, treating the power as a product.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-p-divides-variance-by-n",
+        "Dividing the variance by n and calling the result p; that gives pq, not p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-p-gives-failure-probability",
+        "Finding q = 1 - p and reporting it as p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-p-reports-failure-probability",
+        "Reporting the ratio of variance to mean, which is the failure probability q, as the success probability p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-p-subtracts-variance-from-mean",
+        "Subtracting the variance from the mean and reading the result as p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-find-p-uses-complement-of-zero-successes",
+        "Taking one minus the probability of no successes as p, which is the probability of at least one "
+        "success over all the trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-interval-one-sd-for-two",
+        "Using one standard deviation either side of the mean when two were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-interval-uses-variance-for-sd",
+        "Adding twice the variance, not twice the standard deviation, to the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-interval-wrong-end",
+        "Giving the other end of the interval from the one asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-least-n-divides-level-by-p",
+        "Dividing the required probability by p to find the number of trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-least-n-logs-the-level",
+        "Taking the logarithm of the required probability itself instead of its complement when solving "
+        "for the number of trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-least-n-omits-the-failure-probability",
+        "Leaving out the factor 1 - p when finding the sample size for a proportion's standard deviation.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-least-n-omits-the-square",
+        "Dividing sigma by the target and forgetting to square the result when solving for the sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-least-n-rounds-down",
+        "Rounding the solution of an inequality down to a whole number, so the condition is not quite met.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-least-n-squares-sigma-only",
+        "Dividing sigma squared by the target instead of by the target squared.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-least-n-uses-p-as-base",
+        "Taking the logarithm with the success probability p as the base instead of the failure probability q.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-least-n-uses-the-standard-error-for-sigma",
+        "Using the standard error from an earlier part in place of the population standard deviation when "
+        "solving for the sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-linear-mean-multiplies-the-shift",
+        "Applying the multiplier to the added constant as well: a(E(X) + b) for E(aX + b).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-mean-omits-the-multiplier",
+        "Finding E(aX + b) as E(X) + b, leaving out the multiplier a.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-mean-omits-the-shift",
+        "Finding E(aX + b) as a E(X), leaving out the added constant b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-sd-applies-the-shift",
+        "Adding the constant b to the standard deviation of aX + b; a shift does not change the spread.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-sd-omits-the-square-in-the-variance",
+        "Finding Var(aX) as a Var(X) and then taking the root, so the multiplier is not squared.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-sd-omits-the-square-root",
+        "Reporting Var(aX + b) = a^2 Var(X) when the standard deviation was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-sd-reports-the-variance",
+        "Reporting the variance of the new measure when its standard deviation was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-sd-squares-the-multiplier",
+        "Multiplying the standard deviation by a^2 instead of |a|.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-sd-unchanged-by-scaling",
+        "Leaving the standard deviation unchanged after the measure is multiplied by a constant; only a "
+        "shift leaves it alone.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-variance-adds-the-shift",
+        "Adding the constant b to the variance of aX + b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-variance-omits-the-square",
+        "Finding Var(aX + b) as a Var(X): the multiplier is not squared.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-linear-variance-scales-the-sd-only",
+        "Multiplying the standard deviation by |a| and reporting that as the new variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-lower-tail-includes-the-boundary",
+        "Including the boundary value in a strict lower tail: P(X <= k) for P(X <= k - 1).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-lower-tail-stops-one-short",
+        "Leaving out the largest value of a lower tail.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mean-adds-n-and-p",
+        "Adding n and p instead of multiplying them to find the mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mean-reported-as-variance",
+        "Giving npq, the variance, where the mean np was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mean-squares-probability",
+        "Squaring the probability when finding the mean of a binomial count.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mean-uses-failure-probability",
+        "Using n(1 - p) as the mean of the number of successes.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mode-ceils-the-mean",
+        "Taking the whole number above the mean as the most likely value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mode-floors-the-mean",
+        "Taking the whole number below the mean as the most likely value; the mode is the integer part of (n + 1)p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mode-one-too-high",
+        "Giving the whole number just above the most likely value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mode-one-too-low",
+        "Giving the whole number just below the most likely value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-mode-rounds-the-mean",
+        "Rounding the mean to the nearest whole number and calling it the most likely value; the mode is "
+        "the integer part of (n + 1)p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-point-omits-the-coefficient",
+        "Finding a point probability as p^k q^(n-k) with no binomial coefficient.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-point-taken-at-the-rounded-mean",
+        "Evaluating the point probability at the mean rounded to a whole number rather than at the most likely value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-point-taken-one-above-the-mode",
+        "Evaluating the point probability one value above the most likely value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-point-taken-one-below-the-mode",
+        "Evaluating the point probability one value below the most likely value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-pools-unequal-probabilities",
+        "Treating two groups with different success probabilities as one binomial with the average probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-proportion-sd-omits-n",
+        "Reporting sqrt(p(1 - p)) for a sample proportion, without dividing by n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-proportion-sd-omits-the-failure-probability",
+        "Using sqrt(p/n) for the standard deviation of a sample proportion, leaving out the factor 1 - p.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-proportion-sd-omits-the-square-root",
+        "Reporting p(1 - p)/n, the variance of a sample proportion, when its standard deviation was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-proportion-sd-roots-n-only",
+        "Dividing p(1 - p) by the square root of n, taking the root of only part of the expression.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-range-drops-the-end-values",
+        "Summing the probabilities strictly between the two ends of a range that includes them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-range-ignores-the-lower-bound",
+        "Summing from zero up to the upper end and ignoring the lower end of the range.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-range-sums-only-the-ends",
+        "Adding the probabilities at the two ends of a range and leaving out the values between them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-repeated-event-adds-the-probabilities",
+        "Multiplying the probability of one day by the number of days to find the chance on at least one day.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-repeated-event-every-day",
+        "Reporting the chance of the event happening on every day when at least one day was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-repeated-event-never",
+        "Reporting the chance of the event never happening when at least one day was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-reports-the-complement-tail",
+        "Reporting the opposite tail of the distribution, stopping before the subtraction from 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-reports-the-probability-of-the-condition",
+        "Reporting the probability of the condition itself rather than the conditional probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-reports-the-sum-of-the-known-probabilities",
+        "Reporting the total of the stated probabilities instead of the missing one that completes the sum to 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-roots-the-variance-first",
+        "Taking the square root of the variance before dividing by the mean, so the ratio is no longer q.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-sd-halves-the-variance",
+        "Halving the variance instead of taking its square root.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-sd-of-complement-subtracted-from-n",
+        "Subtracting the standard deviation of the successes from n to get the standard deviation of the failures.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-sd-omits-failure-probability",
+        "Using sqrt(np) as the standard deviation, leaving out the factor 1 - p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-sd-omits-square-root",
+        "Reporting the variance npq when the standard deviation was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-sd-reported-as-mean",
+        "Giving the mean np where the standard deviation was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-se-divides-by-n",
+        "Dividing the population standard deviation by n instead of the square root of n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-is-the-population-sd",
+        "Reporting the population standard deviation as the standard deviation of the sample mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-moves-the-wrong-way",
+        "Making the standard error larger when the sample size grows, or smaller when it shrinks.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-multiplies-by-root-n",
+        "Multiplying the population standard deviation by the square root of n instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-omits-the-square-root",
+        "Reporting the variance of the sample mean when its standard deviation was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-reports-the-target",
+        "Reporting the target standard error instead of the standard error actually reached at the "
+        "whole-number sample size.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-scales-with-n-not-root-n",
+        "Scaling the standard error by the full factor the sample size changes by, instead of its square root.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-scales-with-n-squared",
+        "Scaling the standard error by the square of the factor the sample size changes by.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-uses-one-less-than-n",
+        "Using n - 1 in the square root when finding the standard deviation of a sample mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-uses-one-more-than-n",
+        "Using n + 1 in the square root when finding the standard deviation of a sample mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-se-uses-the-variance-over-root-n",
+        "Dividing the population variance, rather than the standard deviation, by the square root of n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-second-moment-adds-the-mean",
+        "Finding E(X^2) as (E(X))^2 + E(X) instead of Var(X) + (E(X))^2.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-second-moment-is-the-mean",
+        "Replacing E(X^2) by E(X) when finding E(aX^2 + bX + c).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-second-moment-is-the-variance",
+        "Using Var(X) in place of E(X^2).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-second-moment-squares-the-mean",
+        "Replacing E(X^2) by (E(X))^2.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-strict-inequality-read-as-inclusive",
+        'Reading "more than k" as "at least k" and including P(X = k).',
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-subtracts-standard-deviations",
+        "Subtracting the standard deviations of two independent counts for the standard deviation of "
+        "their difference; the variances add.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-subtracts-variances",
+        "Subtracting the variances for the difference of two independent counts; the variances add.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-sum-misses-a-term",
+        "Leaving one term out when adding the coefficients or probabilities that must sum to 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-tail-reduced-to-one-point",
+        "Reporting the single probability at the boundary of a tail instead of the sum of all the values in it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-assumes-equal-probabilities",
+        "Treating the unknown probability as an equal share, 1/n for n outcomes, instead of solving for it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-ignores-the-other-unknown",
+        "Giving the total left for the two unknowns as the value of one of them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-ignores-the-sum-equation",
+        "Using the expectation equation alone to find an unknown, as if the other unknown were zero.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-inverted",
+        "Giving the sum of the coefficients instead of its reciprocal as the value of k.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-split-equally",
+        "Splitting the probability left over equally between the two unknowns.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-uses-the-largest-coefficient",
+        "Dividing 1 by the largest coefficient instead of the sum of all the coefficients.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-value-forgets-to-divide-by-probability",
+        "Finding the unknown outcome as the remaining expectation, without dividing by its probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-value-ignores-the-known-terms",
+        "Dividing E(X) by the unknown outcome's probability without first removing the known terms.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-value-multiplies-by-probability",
+        "Multiplying the remaining expectation by the unknown outcome's probability instead of dividing.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknowns-swapped",
+        "Solving the pair of equations correctly but reporting the other unknown.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-uses-sd-as-variance",
+        "Using the standard deviation where the variance belongs when finding the success probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-variance-of-mean-divides-by-root-n",
+        "Dividing sigma^2 by the square root of n for the variance of the sample mean instead of dividing by n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-variance-of-mean-reported-as-sd",
+        "Giving the standard deviation of the sample mean where its variance was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3a-variance-omits-failure-probability",
+        "Using np as the variance, leaving out the factor 1 - p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-variance-reported-as-sd",
+        "Giving the standard deviation where the variance was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-variance-squares-p",
+        "Using n p^2 for the variance of a binomial count.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-variance-squares-q",
+        "Using n q^2 for the variance of a binomial count.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-variance-subtracts-the-mean-not-its-square",
+        "Finding Var(X) as E(X^2) - E(X), subtracting the mean rather than its square.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-variance-without-subtracting-the-mean-squared",
+        "Reporting E(X^2) as the variance, leaving out the subtraction of (E(X))^2.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-within-sd-drops-end-values",
+        "Excluding the whole numbers nearest the ends of the interval when finding the probability of "
+        "lying within one standard deviation.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-within-sd-ignores-lower-bound",
+        "Finding P(X <= mean + SD) and ignoring the lower end of the interval.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-within-sd-rounds-outwards",
+        "Rounding the ends of the interval outwards, so whole numbers outside the interval are included.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-within-two-sd",
+        "Using two standard deviations either side of the mean when one was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3b-def-lower-limit-ignored",
+        "Evaluating the antiderivative at the upper limit only, as if its value at the lower limit were zero.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-limits-reversed",
+        "Subtracting the upper-limit value from the lower-limit value, so the answer has the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-lower-term-not-scaled",
+        "Multiplying the upper-limit value of the antiderivative by its coefficient but subtracting 1 unscaled for the lower limit.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-ln-one-as-one",
+        "Taking ln 1 to be 1 instead of 0 when evaluating a logarithm at the lower limit.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-limit-reduced-by-one",
+        "Taking the logarithm of the upper limit minus one instead of subtracting the logarithm of the lower limit.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-limits-subtracted-inside",
+        "Subtracting the limits before evaluating, giving the exponential of the interval's width instead of the difference of two exponentials.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-lower-limit-not-scaled",
+        "Evaluating the exponential at the lower limit without the coefficient of x in the exponent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-log-of-limits",
+        "Taking the logarithm of the ratio of the limits, instead of the ratio of the denominator's values at the limits.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-logs-added",
+        "Adding the logarithms at the two limits instead of subtracting.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-log-of-width",
+        "Taking the logarithm of the difference of the limits, instead of subtracting two logarithms.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-constant-not-integrated",
+        "Integrating a constant term as the constant itself, without multiplying by the width of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-constant-sign",
+        "Subtracting the integral of a positive constant term, or adding that of a negative one.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-exponent-k-ignored",
+        "Using the limit itself as the value of e raised to the limit, so e^(k ln q) is read as q and the power k is lost.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-limits-added",
+        "Adding the values at the two limits instead of subtracting.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-logs-not-collapsed",
+        "Replacing e^(k ln q) by k ln q, so the exponential is not removed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-region-boundary-ignored",
+        "Integrating from 0 (or 1) instead of from the stated lower boundary of the second region.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-avg-not-divided-by-width",
+        "Giving the integral itself as the average value, without dividing by the width of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-avg-width-taken-as-upper-limit",
+        "Dividing by the upper limit instead of the width of the interval when finding an average value.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-avg-width-taken-as-sum",
+        "Dividing by the sum of the limits instead of their difference when finding an average value.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-avg-multiplied-by-width",
+        "Multiplying by the width of the interval instead of dividing when finding an average value.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-avg-width-taken-as-exponential-width",
+        "Dividing by the change in the exponential (n minus 1) instead of the width of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-avg-width-taken-as-second-region",
+        "Dividing by the width of the second region only, when the average value is over both regions.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-term-dropped",
+        "Integrating the constant term but leaving out the reciprocal term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-def-ln-limits-confused",
+        "Evaluating the logarithm between the wrong limits, using ln r for the area rather than the power of r that the upper limit is.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-ratio-inverted",
+        "Giving the ratio of the areas the wrong way round.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-difference-for-ratio",
+        "Subtracting the two areas when the ratio was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-share-for-ratio",
+        "Giving the second area as a share of the total instead of as a ratio to the first area.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-product-for-ratio",
+        "Multiplying the two areas when the ratio was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-limits-ratio-for-area-ratio",
+        "Giving the ratio of the limits instead of the ratio of the areas.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-region-left-out",
+        "Leaving one of the two regions out when finding the average value over both.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-integral-not-divided",
+        "Integrating a e^(kx) as a e^(kx), without dividing by the coefficient k of x in the exponent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-integral-multiplied-by-k",
+        "Multiplying by k, the chain-rule factor, instead of dividing by it when integrating e^(kx).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-integral-power-rule",
+        "Applying the power rule to e^(kx): raising the exponent by one and dividing by it, giving e^(kx+1)/(kx+1).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-integral-sign-of-k-lost",
+        "Dividing by the size of a negative k, so the antiderivative of e^(-kx) has the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-shift-dropped",
+        "Dropping the constant in the exponent when integrating e^(px+q), so e^q is lost.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-power-term-not-integrated",
+        "Integrating the exponential term but differentiating, or leaving unchanged, a power term in the same integrand.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-negative-exponent-sign",
+        "Dividing by the size of a negative coefficient in the exponent, so the sign of the term is wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-bracket-power-rule",
+        "Treating (e^(px) + q)^2 as a power of a bracket, giving (e^(px) + q)^3 divided by 3p, instead of expanding first.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-square-cross-term-dropped",
+        "Squaring (e^(px) + q) as e^(2px) + q^2, leaving out the middle term 2q e^(px).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-doubled-exponent-divisor",
+        "Integrating e^(2px) by dividing by p instead of 2p.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-constant-term-not-integrated",
+        "Integrating a constant term as the constant itself, without multiplying by x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-integrate-factors-separately",
+        "Integrating the two factors of a product e^(px) e^(qx) separately and multiplying the results, instead of adding the exponents first.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-product-exponents-multiplied",
+        "Multiplying the exponents, not adding them, when simplifying e^(px) e^(qx).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-exponent-sign-lost",
+        "Writing a / e^(kx) as a e^(kx), losing the minus sign in the exponent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-base-multiplied-by-ln",
+        "Integrating b^x as b^x ln(b), the derivative, instead of b^x / ln(b).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-exp-base-ln-omitted",
+        "Integrating b^(kx) by dividing by k only, with no factor of ln(b).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-constant-term-ignored",
+        "Leaving out the constant term of the gradient function when using a stated gradient or condition to find an unknown.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-constant-term-sign",
+        "Adding the constant term of the gradient function where it should be subtracted, when finding an unknown coefficient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-sign-slip",
+        "Giving a coefficient with the wrong sign after rearranging the equation that defines it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-gradient-divided-by-k",
+        "Dividing the stated gradient by the exponent coefficient k to get the coefficient of the exponential.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-point-not-used",
+        "Giving an antiderivative with no constant term, as if the curve passed through the origin, instead of using the stated point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-constant-sign",
+        "Finding the constant of integration with the wrong sign, adding the value of the exponential term where it should be subtracted.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-exponent-k-ignored",
+        "Evaluating a e^(kx) at x = 1 as a e, ignoring the k in the exponent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-evaluated-at-zero",
+        "Giving the value of the function at the stated point (x = 0) instead of at the x asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-gradient-for-value",
+        "Giving the gradient at x = 1 instead of the value of the function there.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-constant-dropped",
+        "Leaving the constant of integration out when evaluating the curve at a point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-log-not-divided-by-k",
+        "Solving e^(kx) = 2 as x = ln 2, forgetting to divide by k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-log-multiplied-by-k",
+        "Solving e^(kx) = 2 by multiplying ln 2 by k instead of dividing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-coefficient-not-divided",
+        "Taking the logarithm of the gradient difference without first dividing by the coefficient of the exponential.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-log-of-numerator",
+        "Taking the logarithm of the numerator, which is the derivative, instead of the logarithm of the denominator.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-treated-as-constant",
+        "Integrating the fraction by treating the denominator (or the x) as a constant and just multiplying by x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-quotient-inverted",
+        "Giving the denominator divided by the numerator, as though the fraction had been turned over.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-differentiated",
+        "Differentiating the fraction (quotient rule) or the reciprocal instead of integrating it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-exp-divided-by-derivative",
+        "Integrating g' e^g as e^g divided by g', applying the 'divide by the inner derivative' rule when the derivative is already present as a factor.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-not-integrated",
+        "Leaving the integrand unchanged as the answer, as though the integration had already been done.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-multiple-not-adjusted",
+        "Using the coefficient in the numerator as the multiple of the logarithm or exponential, without comparing the numerator with the derivative of the inner function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-multiple-inverted",
+        "Using the reciprocal of the multiple between the numerator and the derivative of the inner function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-sign-lost",
+        "Losing the minus sign when the numerator is the negative of the derivative of the inner function (as with sin x over c + cos x).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-trig-ratio-confused",
+        "Integrating tan as a logarithm of sine, or cot as a logarithm of cosine, instead of the other way round.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-log-of-product",
+        "Writing the integral of 1/(x ln x) as a product of two logarithms.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-fprime-inner-function-ignored",
+        "Integrating 1/(x ln x) as ln|x|, ignoring the ln x in the denominator.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-factor-not-divided-out",
+        "Multiplying the stated gradient by the denominator's value but not dividing by the factor (x + h) in the numerator.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-denominator-constant-dropped",
+        "Dropping the constant 1 from the denominator (x + h)^2 + 1 when evaluating the gradient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-numerator-shift-dropped",
+        "Dropping the shift h from the numerator factor (x + h) when evaluating the gradient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-chain-factor-missing",
+        "Differentiating ln(f(x)) as 1/f(x), leaving out the derivative f'(x) of the inside function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-derivative-of-inside-only",
+        "Giving the derivative of the inside function f'(x) alone, forgetting to divide by f(x).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-quotient-inverted",
+        "Writing f(x)/f'(x), the reciprocal of the correct f'(x)/f(x).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-log-kept",
+        "Leaving a logarithm in the derivative, as f'(x) ln f(x), as if the logarithm were part of the answer.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-power-coefficient-dropped",
+        "Dropping the power from a repeated factor: differentiating ln(u^n) as u'/u instead of n u'/u.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-trig-ratio-inverted",
+        "Turning the ratio of sine and cosine upside down: tan where cot belongs, or the reverse.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-sign-slip",
+        "Losing the minus sign that comes from differentiating cosine, or adding one to a derivative that has none.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-constant-dropped",
+        "Dropping the constant term from the function inside the logarithm when forming f'(x)/f(x).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-exponentials-cancelled",
+        "Cancelling e^(kx) in k e^(kx)/(e^(kx) + c) as if the denominator were e^(kx) alone, leaving just k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-linear-term-derivative-dropped",
+        "Differentiating x^2 + bx + c as 2x, forgetting the derivative b of the linear term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-denominator-differentiated",
+        "Adding the derivative to the denominator instead of dividing the derivative by the function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-sum-as-difference",
+        "Subtracting the logarithmic derivatives of two factors of a product, instead of adding them.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-difference-as-sum",
+        "Adding the logarithmic derivatives of the numerator and denominator of a quotient, instead of subtracting.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-logarithmic-derivatives-multiplied",
+        "Multiplying the two logarithmic derivatives u'/u and v'/v of a product or quotient instead of adding or subtracting them.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-quotient-rule-not-divided-by-quotient",
+        "Differentiating the quotient inside the logarithm by the quotient rule but not dividing by the quotient itself.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-root-halving-dropped",
+        "Differentiating ln of a square root as if the root were not there, losing the factor of 1/2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-root-power-misapplied",
+        "Treating the derivative of the logarithm of a square root as f'(x)/f(x)^(3/2).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-lnd-log-of-difference",
+        "Combining ln a - ln b as ln(a - b) instead of ln(a/b).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-square-term-forgotten",
+        "Solving for the constant inside ln(x^2 + k) by using the stated x as if the squared term were absent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-square-taken-as-linear",
+        "Replacing x^2 by x when substituting the stated x into x^2 + k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-numerator-two-dropped",
+        "Dropping the factor 2 from 2x in the derivative of x^2 + k when solving for k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-denominator-for-constant",
+        "Giving the value of the whole denominator x^2 + k at the stated x as the constant k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-repeated-constant-unshifted",
+        "Writing the numerator constant as B in the repeated-factor form without adjusting for the shift, so B is the constant term of the numerator rather than the value at the root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-constants-swapped",
+        "Swapping the constants of the two partial fractions, so the numerator of the single power is given as that of the squared power.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-repeated-shift-sign",
+        "Using the wrong sign for the shift when matching the constant term in a repeated-factor decomposition.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-numerator-sign",
+        "Giving a constant with the right size but the wrong sign after matching coefficients.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-evaluated-at-wrong-sign",
+        "Substituting x = -a instead of the root x = a of the linear factor when finding the constant.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-b-not-reduced",
+        "Taking the coefficient of x squared in the numerator as B, forgetting that part of it comes from A.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-b-c-swapped",
+        "Swapping the constants B and C of the quadratic-factor numerator Bx + C.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-c-sign",
+        "Getting the sign of C wrong when matching the x terms, because of the sign of the root.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-a-b-swapped",
+        "Swapping the constants of the single and repeated linear factors.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-c-d-swapped",
+        "Swapping the constants of the quadratic-factor numerator Cx + D.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-log-not-halved",
+        "Integrating (Bx)/(x^2 + b) as B ln(x^2 + b), forgetting the factor 1/2 from the derivative of x^2 + b.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-arctan-not-divided",
+        "Integrating C/(x^2 + s^2) as C arctan(x/s), forgetting the factor 1/s.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-arctan-multiplied",
+        "Integrating C/(x^2 + s^2) as Cs arctan(x/s), multiplying by s instead of dividing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-quadratic-term-direct",
+        "Using the constants B and C of the decomposition directly as the coefficients of the integral's quadratic-factor terms.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-substitution-not-divided",
+        "Giving the value of the numerator at the root as A, without dividing by the value of the other factor there.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-quadratic-factor-forgotten",
+        "Dividing by the square of the root only, leaving the constant b of x^2 + b out of the value of the other factor.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-b-sign",
+        "Combining A and the x squared coefficient with the wrong sign when finding B.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-c-shift-dropped",
+        "Taking the coefficient of x as C, forgetting the contribution -aB from the linear factor.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-c-from-wrong-constant",
+        "Using A instead of B in the x coefficient equation when finding C.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-arctan-term-dropped",
+        "Leaving out the arctan term when evaluating the exact integral.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-lower-limit-ignored",
+        "Evaluating the logarithm of the linear factor only at the upper limit, ignoring its value at 0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-pf-arctan-limit-slip",
+        "Evaluating arctan(x/s) at x = s as pi/2 instead of pi/4.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-parts-subtracted",
+        "Subtracting the integrals over two adjacent intervals instead of adding them.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-parts-added",
+        "Adding the integral over the whole interval and the part, instead of subtracting the part to find the rest.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-one-part-only",
+        "Giving the integral over one of the pieces when the integral over the combined interval was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-whole-for-part",
+        "Giving the integral over the whole interval as the integral over one part of it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-limits-reversed-sign",
+        "Giving the right size but the wrong sign when the limits of an integral are reversed or the order of limits is mishandled.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-even-not-doubled",
+        "Using the integral over [0, a] as the integral over [-a, a] of an even function, without doubling.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-even-treated-as-odd",
+        "Treating an even function as odd, so the integral over a symmetric interval is taken as 0 (or the half-interval integral is negated).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-odd-treated-as-even",
+        "Treating an odd function as even, doubling the integral over [0, a] instead of cancelling it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-constant-not-over-width",
+        "Adding a constant term to the integral as the constant itself, without multiplying by the width of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-constant-dropped",
+        "Leaving out the contribution of a constant term in the integrand.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-constant-sign",
+        "Subtracting the integral of a positive constant term, or adding that of a negative one.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-odd-part-kept",
+        "Keeping the integral of an odd term (such as x or g(x)) over a symmetric interval instead of cancelling it to 0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-reflection-reverses-sign",
+        "Treating the integral of f(a + b - x) over [a, b] as the negative of the integral of f(x), because the argument runs backwards.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-reflected-term-dropped",
+        "Leaving out the reflected term f(a + b - x), as if its integral were 0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-reflection-as-constant",
+        "Treating the integral of f(a + b - x) as the width of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-reflection-doubled",
+        "Doubling the result of two equal integrals that have already been added.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-one-period-only",
+        "Giving the integral over a single period when several periods were asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-period-multiplied-twice",
+        "Multiplying by the period as well as by the number of periods.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-periods-miscounted",
+        "Counting one period too many or too few in an interval of several periods.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-shift-added-to-integral",
+        "Adding the shift times the width of the interval to the integral when f(x + c) is integrated over a shifted interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-shift-multiplies-integral",
+        "Multiplying the integral by the shift c when integrating f(x + c).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-even-applied-when-not-asked",
+        "Doubling the integral over [0, q] when the interval [0, q] is not symmetric about 0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-one-part-doubled",
+        "Doubling only one of the two pieces of a symmetric interval, instead of doubling the whole integral over [0, q].",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-wrong-piece",
+        "Using the integral over the outer piece [p, q] where the integral over [0, p] belongs.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-prop-scale-factor-dropped",
+        "Leaving out the multiplier of f(x) when the integral of k f(x) + c is evaluated.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-abs-dropped",
+        "Writing the logarithm of a linear expression without the absolute value bars, so the answer is undefined where the expression is negative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-coefficient-inside-log",
+        "Putting the numerator inside the logarithm, as ln|ax|, instead of multiplying the logarithm by a.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-coefficient-dropped",
+        "Integrating a/x as ln|x|, leaving out the numerator.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-differentiated",
+        "Differentiating the reciprocal (giving a minus sign and a squared denominator) instead of integrating it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-shift-dropped",
+        "Dropping the constant from the linear expression inside the logarithm, so ln|px + q| becomes ln|px| or ln|x|.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-shift-added-outside",
+        "Moving the constant in the denominator outside the logarithm, giving ln|x| + b instead of ln|x + b|.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-not-divided",
+        "Integrating a/(px + q) as a ln|px + q|, without dividing by the coefficient p of x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-multiplied-by-p",
+        "Multiplying by the coefficient p of x instead of dividing by it when integrating a/(px + q).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-sign-of-p-lost",
+        "Dividing by the size of a negative coefficient of x, so the logarithm has the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-term-cancelled-wrongly",
+        "Cancelling x from only part of a fraction such as (px + c)/x, so the 1/x term disappears into a multiple of x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-divided-term-dropped",
+        "Integrating only the 1/x part of (px + c)/x, or only the logarithm of an improper fraction, and losing the other term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-log-multiplied-by-x",
+        "Integrating c/x as c x ln|x|, treating the x in the denominator as a factor.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-power-not-divided",
+        "Integrating x^n as x^n, without dividing by the new power.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-power-not-reduced",
+        "Integrating x^(n-1) (after dividing x^n by x) as x^(n+1)/(n+1), raising the power from the wrong starting point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-remainder-not-found",
+        "Integrating (px + c)/(x + b) as p x + c ln|x + b|, using the numerator's constant instead of the remainder after division.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-numerator-treated-as-constant",
+        "Treating the numerator as a constant multiple of the logarithm: integrating px + c over x + b as (px + c) ln|x + b|.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-remainder-sign",
+        "Subtracting the remainder term when it should be added, after dividing an improper fraction.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-recip-linear-term-not-integrated",
+        "Integrating the reciprocal terms but leaving a linear term as it was, without raising its power.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-divided-instead-of-multiplied",
+        "Dividing the stated gradient by the denominator's value instead of multiplying, when finding the numerator of the gradient function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-substitution-ignores-constant",
+        "Substituting the stated x into only the x term of the denominator, ignoring its constant, when using a stated gradient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-denominator-ignored",
+        "Taking the stated gradient as the unknown constant itself, without allowing for the denominator.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-substituted-into-wrong-part",
+        "Substituting the stated x into the logarithm's argument as x rather than into the whole linear expression.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-substitution-slip",
+        "Evaluating the linear expression inside the logarithm incorrectly, so the logarithm of a nearby number is given.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-coefficient-of-x-ignored",
+        "Solving the linear expression for x without dividing by the coefficient of x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-chain-constant-ignored",
+        "Solving a linear expression for x by dividing the target by the coefficient of x and ignoring the constant term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-wrong-double-angle-sign",
+        "Using the wrong sign in the double-angle identity (taking sin^2 as (1 + cos 2x)/2 or cos^2 as (1 - cos 2x)/2), or the wrong sign on a term of the expansion.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-inner-derivative-ignored",
+        "Integrating a trigonometric function of kx without dividing by k, the coefficient of x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-half-angle-factor-dropped",
+        "Dropping the factor 1/2 from the double-angle identity, or integrating cos 2x as sin 2x / 2 without it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-half-angle-factor-doubled",
+        "Applying the factor 1/2 of the double-angle identity twice, halving the result again.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-power-rule-on-trig",
+        "Applying the power rule to sin^n x or cos^n x, giving the next power divided by n + 1 as if the trigonometric function were the variable.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-integrated-as-differentiated",
+        "Integrating the cos 2x term to a cosine or the sin 2x term to a sine, instead of swapping the function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-substitution-sign",
+        "Getting the sign of the substitution wrong: forgetting that du = -sin x dx when u = cos x.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-substituted-power-not-divided",
+        "Integrating the powers of u after a substitution without dividing each by its new exponent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-identity-sign",
+        "Writing sin^2 x as 1 + cos^2 x, or cos^2 x as 1 + sin^2 x, instead of subtracting.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-square-binomial-expanded-wrong",
+        "Expanding (1 - u^2)^2 as 1 - u^4, leaving out the middle term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-binomial-cross-term-dropped",
+        "Expanding (1 - u^2)^2 with a middle term of -u^2 instead of -2u^2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-exponent-denominator-mismatch",
+        "Dividing each power of u by the wrong exponent, swapping the two denominators.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-substitution-term-dropped",
+        "Leaving out one of the terms of the polynomial in u after substitution, or one of the terms of the antiderivative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-square-of-double-angle-dropped",
+        "Squaring (1 - cos 2x)/2 and forgetting that cos^2 2x needs a second double-angle step, leaving out the cos 4x term and the extra constant.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-sign-slip",
+        "Giving the correct size of a definite integral with the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-squared-taken-as-one",
+        "Treating sin^2 x as 1 over the interval, so the integral is just the length of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3b-trig-coefficients-ignored",
+        "Adding the integrals of the separate terms without multiplying each by its coefficient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3c-ts-column-total",
+        "Takes a group's share that stays as 10 percentage points away from the right value, not as what is left of 100% after the shares that move away.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-count-not-change",
+        "Gives the number in the group at the end where the change from the start was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-double-the-change",
+        "Finds the numbers after several periods by adding the first period's change that many times, as if each period changed the numbers by the same amount.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-entry-slip",
+        "Gets one group's number wrong by a slip in moving members in or out, so one entry of the answer is off and the others are right.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-ignores-inflows",
+        "Counts only the members who stay in a group and leaves out the members who arrive from the other groups.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-ignores-stayers",
+        "Counts only the members who arrive from the other groups and leaves out the members who stay.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-leaving-not-staying",
+        "Uses the share that leaves a group where the share that stays was needed.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-no-change",
+        "Gives the starting numbers back unchanged as the numbers after one period.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-nobody-leaves",
+        "Adds the arrivals to the starting number of a group without taking away the members who leave it.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-one-flow-only",
+        "Subtracts only one of the shares that move away from 100% to find the share that stays, ignoring the other moves.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-one-step-only",
+        "Moves the numbers on by one period when two were asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-order-reversed",
+        "Writes the right numbers for the groups in the reverse of the order the groups were listed in.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-rows-columns-swapped",
+        "Reads the transition table by rows where it is read by columns, so each group's movements go the wrong way: members are sent to a group from where they should have come.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-square-entries",
+        "Squares each share in the table to move on two periods, instead of multiplying the table by itself.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-stay-only",
+        "Keeps only the members who stay in each group and ignores everyone who moves from one group to another.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-step-count",
+        "Moves the numbers on by one period too few or too many.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-uses-start-values",
+        "Works out the second period's arrivals from the starting numbers instead of the numbers after the first period.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ts-wrong-interval",
+        "Finds the change over the wrong stretch of time, such as the second period alone or the first alone, where the change over both was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-complement",
+        "Gives one minus the long-run share where the share itself was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-equal-shares",
+        "Assumes the long-run shares are equal, so each state gets the same fraction of the total.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-not-normalised",
+        "Solves for the shares in proportion to one another but does not scale them so they add to 1 (or to the total).",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-product",
+        "Multiplies two long-run shares where the third is found by subtracting both from 1.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-rows-columns-swapped",
+        "Reads the transition table by rows where it is read by columns, so the long-run shares come from the table turned on its side.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-share-slip",
+        "Finds the unknown share one step of 10 percentage points too high or too low after a slip in balancing the long-run equations.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-stay-share",
+        "Takes each group's long-run share to be its stay share divided by the total of the stay shares, ignoring the members who move in from the other groups.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-sum-not-remainder",
+        "Adds the two known long-run shares where the third is what is left of 1 after taking both away.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-wrong-state",
+        "Gives the long-run share (or number) of a different group from the one asked about.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-birth-share",
+        "Gives the share of next year's young in the whole population where the growth factor of the whole population was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-births-added-to-all",
+        "Adds the new young to last year's whole population, forgetting that the oldest class dies and the others move up an age class.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-births-omits-class",
+        "Works out the number of young born from only some of the age classes, leaving one that breeds out.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-births-one-class",
+        "Counts the young born from only one age class instead of from every class that breeds.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-births-plus-survivors",
+        "Adds the survivors of the youngest class to the births when working out the number of young.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-change-not-percent",
+        "Gives the change in the population as a number of animals where the percentage change was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-constant-growth",
+        "Assumes the population grows by the same factor in the second year as in the first, instead of applying the age-class rates again.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-double-the-change",
+        "Finds the population in two years by adding the first year's change twice, instead of applying the rates to the new age classes.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-fertility-sum",
+        "Adds the birth rates of the age classes and gives that as the growth factor or the number of young, ignoring how many animals are in each class.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-matrix-transposed",
+        "Puts the birth rates down the first column and the survival shares along the first row, so the matrix is the wrong way round and the classes are updated wrongly.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-no-ageing",
+        "Adds the births to each class but leaves the other animals in the age class they were in, instead of moving survivors up a class.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-no-births",
+        "Moves the survivors up an age class but adds no new young.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-oldest-survive",
+        "Lets the animals in the oldest class survive into the next year, when none do.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-one-year-only",
+        "Applies the rates once when two years were asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-percent-as-decimal",
+        "Gives the percentage change as a decimal fraction (0.2 for 20%).",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-percent-not-change",
+        "Gives the new population as a percentage of the old one, so 100% more than the percentage change.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-percent-of-new",
+        "Finds the percentage change as a share of the new population instead of the old one.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-rate-not-factor",
+        "Gives the growth rate (the factor minus 1) where the factor the population is multiplied by each year was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-ratio-inverted",
+        "Divides the old population by the new one, giving the reciprocal of the growth factor.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-survival-average",
+        "Gives the average of the survival shares as the growth factor, ignoring the births.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-leslie-wrong-class-ratio",
+        "Divides next year's young by the oldest class instead of by the youngest class when finding the growth factor.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-count-slip",
+        "Is one out when counting the routes or wins, giving a total one more or one less than the matrix shows.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-counts-all-teams",
+        "Gives the number of other teams, as if the team had beaten all of them, instead of counting the games it won.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-counts-teams-not-routes",
+        "Counts the teams a team reaches in two steps instead of the number of routes, so routes through different teams to the same team are counted once.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-diagonal-ones",
+        "Puts 1s on the diagonal of the dominance matrix, as if each team had beaten itself.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-entry-slip",
+        "Writes one entry of the dominance matrix the wrong way round, so one game's winner and loser are swapped.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-multiplies",
+        "Multiplies the one-step and two-step dominance where they were to be added.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-one-step-only",
+        "Ranks the teams by wins (one-step dominance) alone, so teams with the same wins are not separated by what they beat indirectly.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-order-reversed",
+        "Writes the ranking with the weakest team first instead of the strongest.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-row-order-slip",
+        "Writes the rows of the dominance matrix in a different order from the order the teams were listed in.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-rows-columns-swapped",
+        "Reads a dominance matrix by columns where rows are meant, so a team is credited with its losses (the games it lost) instead of its wins.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-squares-wins",
+        "Squares the number of wins to find the two-step dominance instead of counting routes through beaten teams.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-two-step-only",
+        "Ranks the teams by two-step dominance alone and leaves out the games a team won directly.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-wins-losses-swapped",
+        "Puts a 1 where the team in the row lost to the team in the column, or counts losses where wins were asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-applied-twice",
+        "Applies the permutation matrix twice, multiplying by P and then by P again, where the message was scrambled (or unscrambled) once.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-count-slip",
+        "Is one out in counting the scrambles, giving one more or one fewer than the right number.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-diagonal-slip",
+        "Writes the diagonal of the relation matrix the wrong way round, leaving out the pairs where a number is related to itself or adding pairs that are not.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-entry-slip",
+        "Gets a single entry of the answer matrix wrong while the rest of the matrix is right.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-inverse-is-itself",
+        "Unscrambles a message by multiplying by P again, treating P as its own inverse, when the inverse of a permutation matrix is its transpose.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-inverse-used",
+        "Uses the transpose (the inverse) of the permutation matrix where the matrix itself was needed, so the entries are rearranged the opposite way round.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-ones-zeros-swapped",
+        "Writes a 1 where the numbers are not related and a 0 where they are.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-order-is-size",
+        "Gives the size of the blocks or the sum of the cycle lengths as the number of scrambles that restores a block, instead of the lowest common multiple of the cycle lengths.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-quotient-not-remainder",
+        "Gives the number of complete cycles as the number of extra scrambles, where the remainder after dividing by the cycle length was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-relation-reversed",
+        "Reads the rule with the two numbers the wrong way round, so the matrix is the transpose of the one asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-rows-swapped",
+        "Writes the right 1s in the permutation matrix but puts two of the rows in the wrong places.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-transposed-result",
+        "Writes the scrambled message with the blocks as rows instead of columns.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-unchanged",
+        "Gives the message back unchanged, as if the permutation matrix had not rearranged anything.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-wrong-order",
+        "Multiplies the matrices in the order M times P, which rearranges the columns of the message instead of the entries of each block.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-perm-wrong-positions",
+        "Places the 1s of the permutation matrix in positions that do not move the entries of the block as shown.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-commutes",
+        "Treats matrices like numbers, so that AB and BA are the same, and writes 2AB where AB + BA was needed.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-constant-as-all-entries",
+        "Adds the constant term of a matrix polynomial to every entry of the matrix instead of only to the diagonal (the constant times the identity matrix).",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-determinant-adds",
+        "Adds the diagonal entries and subtracts the others instead of finding the product of the diagonals minus the product of the others.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-determinant-adds-factors",
+        "Adds or subtracts the determinants of the two matrices where the determinant of a product is the product of the determinants.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-determinant-one-diagonal",
+        "Takes the product of the leading diagonal as the determinant and leaves out the other diagonal.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-determinant-reversed",
+        "Subtracts the products of the diagonals in the wrong order, so the determinant has the wrong sign.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-determinant-sign",
+        "Adds the products of the diagonals where the second is to be subtracted.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-determinant-slip",
+        "Makes a slip in multiplying the determinants of the two matrices, so the determinant of the product is off by one of the factors.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-entry-slip",
+        "Makes a single arithmetic slip in one entry of the answer matrix, with all the others right.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-entrywise-product",
+        "Multiplies the entries in matching positions instead of multiplying rows by columns.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-expansion-cancels",
+        "Cancels (A + B) squared against A squared and B squared as if they left nothing, giving the zero matrix.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-identity-dropped",
+        "Leaves the constant term out of a matrix polynomial, forgetting the identity matrix it multiplies.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-no-subtraction",
+        "Stops after squaring A + B without taking away A squared and B squared.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-order-reversed",
+        "Finds BA where AB was asked for, multiplying the matrices in the wrong order.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-product-transposed",
+        "Writes the product with its rows and columns swapped, so the matrix is the transpose of the product.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-scalar-forgotten",
+        "Adds or subtracts the matrices without multiplying them by the stated numbers first.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-scalar-one-matrix",
+        "Multiplies only the first matrix by its number and leaves the second matrix as it was.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-scalars-swapped",
+        "Multiplies each matrix by the other matrix's number, so A is multiplied by the number meant for B and the reverse.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-sign-slip",
+        "Adds where the matrices were to be subtracted, or subtracts where they were to be added.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-squares-entries",
+        "Squares each entry to find the square of a matrix instead of multiplying the matrix by itself.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ma-term-missing",
+        "Leaves one of the products out of the sum for one entry of a matrix product, so that entry is short by one product.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-counts-items",
+        "Adds up the quantities (the number of items) and gives that as the cost in dollars, without using the prices.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-ignores-quantities",
+        "Adds the prices without multiplying each by the number of items ordered, so every cost is the cost of one of each item.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-item-left-out",
+        "Leaves one item (or one product) out of the total, so its cost is missing.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-one-product-price",
+        "Uses the price or cost of one product for every product ordered, instead of each product's own price.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-one-stage-only",
+        "Stops after the first stage and gives the cost of one batch of each product, without multiplying by the number of batches ordered.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-prices-mismatched",
+        "Pairs the prices with the quantities in the wrong order, so each quantity is multiplied by the price of a different item.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-profit-added",
+        "Adds the cost of the order to the sales instead of subtracting it.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-profit-reversed",
+        "Subtracts the sales from the cost, so the profit has the wrong sign.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-revenue-not-profit",
+        "Gives the sales of the order where the profit, sales less cost, was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-row-for-column",
+        "Multiplies the prices by a row of the quantity matrix instead of a column, using the quantities of different branches for one item.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-wrong-product",
+        "Uses the recipe or cost of the other product, so a batch is costed as the wrong product.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-wrong-store",
+        "Gives the cost for a different branch or outlet from the one asked about, or lists the branch costs in the wrong order.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-ss-one-group-only",
+        "Gives the long-run share of only one of the two groups asked about, leaving out the other.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-dom-ranking-slip",
+        "Swaps two neighbouring teams in the ranking, a slip in comparing their totals.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3c-cost-one-branch-only",
+        "Gives the cost of a single branch's order where the total for all the branches together was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3d-acceleration-for-amplitude",
+        "Reporting the greatest acceleration where the amplitude was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-acceleration-for-resistance",
+        "Dividing by the acceleration where the resistance per unit mass belongs, so the terminal speed comes out too large.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-acceleration-for-speed",
+        "Reporting an acceleration (or the acceleration constant) where a speed was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-acceleration-ratio-misused",
+        "Dividing the quoted acceleration by the amplitude instead of by the displacement at which it was measured.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-amplitude-divided",
+        "Dividing the initial speed by the decay rate, which is the distance to rest, where the coefficient of the exponential is the initial speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-amplitude-dropped",
+        "Leaving the amplitude out of the greatest speed, so only the frequency is reported.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-amplitude-for-distance",
+        "Reporting the amplitude of the motion where the greatest distance from O was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-amplitude-from-start",
+        "Adding the amplitude to the starting position instead of to the centre of the motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-amplitude-left-in-constant",
+        "Keeping the amplitude in the constant of x'' = -kx, so k comes out as A n² instead of n².",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-amplitude-squared",
+        "Squaring the amplitude in the greatest acceleration, giving n a² instead of n² a.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-amplitudes-added",
+        "Adding the coefficients of the sine and cosine terms instead of combining them as the root of the sum of their squares.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-chain-factor-missing",
+        "Differentiating cos(nt) or sin(nt) without the factor n from the chain rule.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-chain-factor-repeated",
+        "Multiplying by the chain-rule factor n twice when differentiating once.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-complementary-angle",
+        "Giving the angle measured from the other axis (the complement) instead of the angle asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-complementary-time",
+        "Giving the time for the other part of the quarter cycle instead of the leg that was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-constant-acceleration-assumed",
+        "Treating a varying acceleration as constant at its starting (or launch) value and using the constant-acceleration formulas.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-constant-deceleration-assumed",
+        "Treating a resistance that depends on speed as a constant deceleration equal to its initial value.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-constant-dropped",
+        "Dropping the constant of integration (the -1 or +1) from the result of an integral.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-constant-for-greatest-acceleration",
+        "Reporting n², the constant in the acceleration, where the greatest acceleration n² a was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-constant-sign",
+        "Changing the sign of the term in the denominator of v = v0/(1 + kv0 t) when the speed is falling.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-cos-not-squared",
+        "Using cos(a) instead of cos²(a) in the denominator of the path equation.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-cos-squared-dropped",
+        "Leaving the cos²(a) out of the denominator of the path equation y = x tan a - g x²/(2V² cos² a).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-cos-squared-misused",
+        "Using cos²(45°) = 1/2 in the wrong place in the path equation at 45°, doubling or halving the speed squared.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-cosine-for-sine",
+        "Using cos² in place of sin² in the formula for the greatest height.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-decay-for-growth",
+        "Using V e^(-kt) (a decay from the terminal speed) where the speed grows towards it as V(1 - e^(-kt)).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-denominator-squared",
+        "Squaring the whole denominator in v = v0/(1 + kv0 t).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-denominator-without-two",
+        "Leaving the 2 out of the denominator of the quadratic formula.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-derivative-sign",
+        "Getting the sign of a derivative wrong: the derivative of cos is -sin, and of sin is +cos.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-derivative-slip",
+        "Slipping in the derivative of the path, so the gradient at the landing point is wrong.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-difference-for-squares",
+        "Using (a - x) where (a² - x²) belongs under the root in v² = n²(a² - x²).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-difference-not-squared",
+        "Subtracting the speeds instead of their squares when eliminating the amplitude from two readings.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-distance-from-start-for-amplitude",
+        "Adding the distance from the start to the amplitude when the greatest speed is the amplitude times the root of k.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-distance-so-far-for-limit",
+        "Reporting the distance travelled so far where the greatest possible distance was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-distance-used-as-time",
+        "Putting the distance into a formula that takes the time, for a speed after a distance.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-double-angle-for-square",
+        "Using sin(2a) in place of sin²(a) in the formula for the greatest height.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-double-angle-misused",
+        "Treating sin(2a) = R g/V² as sin(a), or halving the ratio instead of the angle.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-double-angle-not-halved",
+        "Taking 2a from sin(2a) = gR/V² and reporting it without halving it to get a.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-doubled",
+        "Doubling the correct value.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-doubled-centre",
+        "Doubling the position of the centre where the end of the motion was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-doubled-not-squared",
+        "Doubling n where n² is needed in x'' = -n² x.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-equilibrium-for-rest",
+        "Giving the equilibrium position (where the acceleration is zero) as the position where the particle comes to rest.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-evaluated-displacement",
+        "Evaluating the displacement function at the time instead of its derivative.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-exponent-sign",
+        "Getting the sign of the exponent wrong: growth e^(kt) where decay e^(-kt) belongs, or the reverse.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-factor-g-over-k-dropped",
+        "Leaving the factor g/k out of the logarithmic term in the greatest height.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-factor-n-dropped",
+        "Leaving the factor n out of v = n√(a² - x²), or out of a time such as π/(6n).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-factor-root-dropped",
+        "Leaving the square root of k out of the greatest speed R√k.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-factor-two-dropped",
+        "Leaving out the factor 2 (or the matching 1/2) that a = v dv/dx puts into v² = v0² + 2∫a dx, or in a related formula.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-factor-two-misplaced",
+        "Putting the factor 2 on the wrong term of the path equation.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-final-speed-for-change",
+        "Using the final speed in place of the change in speed when finding the distance.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-final-speed-only",
+        "Using only the final speed in the time formula, leaving the initial speed out.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-first-positive-wrong-branch",
+        "Taking the wrong branch of kπ - phase for the first time after t = 0 at which the particle is at rest.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-force-for-acceleration",
+        "Reporting a force (mass times acceleration) where an acceleration was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-fraction-not-complement",
+        "Using the fraction of the terminal speed itself in the logarithm instead of 1 minus that fraction.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-frequency-for-period",
+        "Reporting n/(2π), the frequency, where the period 2π/n was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-given-speed-for-greatest",
+        "Reporting a speed given in the question as the greatest speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-gradient-term-dropped",
+        "Leaving a term out of the gradient of the path when finding the angle of landing.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-gravity-dropped",
+        "Leaving g out of the logarithm, so ln(1 + ku) replaces ln(1 + ku/g).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-gravity-term-dropped",
+        "Leaving the -g x²/(2V² cos² a) term out of the path, giving the straight-line height x tan a.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-half-period",
+        "Giving half of the period (π/n) where the full period 2π/n was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-half-time-for-half-speed",
+        "Assuming the time to halve the speed is half of some other time.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-height-counted-twice",
+        "Adding the launch height twice when finding the greatest height above the ground.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-height-for-difference",
+        "Reporting the greatest height where the difference from the no-resistance height was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-height-ignored",
+        "Ignoring the height of the point the path must pass through.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-height-sign",
+        "Adding the height of the point to x instead of subtracting it in V² = g x²/(x - y).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-height-sign-in-discriminant",
+        "Adding 4Qh in the discriminant of Qx² - x tan a + h = 0 where it should be subtracted.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-initial-speed-added",
+        "Adding the starting speed squared to the term that already holds the whole of v² at the centre.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-initial-speed-dropped",
+        "Leaving the initial speed out of the result, as if v0 = 1.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-integral-sign",
+        "Getting the sign of the integral of an inverse-square (or other) acceleration wrong.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-integrated-not-differentiated",
+        "Integrating the displacement function instead of differentiating it, so the amplitude is divided by n.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-integrated-once-for-speed",
+        "Integrating the acceleration with respect to position once and reporting that as the speed, as if a dx gave v.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-kinetic-energy-style",
+        "Using v0²/(2k) (a kinetic-energy style result) as the distance, which ignores that the resistance depends on the speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-larger-angle-given",
+        "Giving the larger of the two angles that satisfy sin(2a) = gR/V² where the smaller was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-launch-angle-for-landing",
+        "Giving the launch angle as the angle of landing, forgetting that the object lands from a greater height.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-launch-height-dropped",
+        "Leaving the launch height out of the path or the greatest height.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-launch-height-for-maximum",
+        "Giving the launch height as the greatest height.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-level-ground-range",
+        "Giving the range on level ground where the object lands below the launch height.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-line-of-sight-angle",
+        "Giving the angle of the straight line to the target as the angle of projection.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-linear-for-squares",
+        "Dividing the difference in speeds by the difference in positions instead of working with the squares.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-linear-law-used",
+        "Using the exponential result for a = -kv where a = -kv² applies (or the reverse).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-linear-term-dropped",
+        "Leaving the -v (linear) term out of the integral of v/(V - v).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-linear-term-ignored",
+        "Leaving the x term out of the equation of the path when finding where it reaches the ground.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-linear-term-sign",
+        "Adding the linear term where it should be subtracted in x = (1/k)[-V ln(1 - v/V) - v].",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-log-for-exponential",
+        "Using a logarithm where the result of the integral is an exponential.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-log-for-inverse-power",
+        "Integrating -k/x² as a logarithm instead of as k/x.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-log-ratio-inverted",
+        "Inverting the ratio inside the logarithm, so the time comes out negative.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-log-sign",
+        "Getting the sign of the logarithm wrong when solving e^(-kt) = 1 - f.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-log-term-dropped",
+        "Dropping the logarithm from the height, so the height is u/k.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-log-term-sign",
+        "Adding the logarithmic term where it should be subtracted in the greatest height.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-mass-dropped",
+        "Dropping the mass from a formula that needs it.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-mass-ignored",
+        "Using the resistance coefficient in newtons per metre per second as if it were already per unit mass.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-mean-speed-used",
+        "Using the average of the initial and final speeds times the time as if the speed changed uniformly.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-multiplied-for-divided",
+        "Multiplying where a division is needed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-n-squared-for-speed",
+        "Using n² where n multiplies the root in v = n√(a² - x²).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-next-rest-taken",
+        "Giving a later time at which the particle is at rest instead of the first.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-no-deceleration",
+        "Ignoring the resistance and using distance = speed × time.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-omega-cubed",
+        "Differentiating three times (or cubing n) where n² is needed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-omega-for-amplitude",
+        "Reporting n (the ratio of the greatest acceleration to the greatest speed) where the amplitude was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-omega-for-period",
+        "Reporting n, or its reciprocal, where the period was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-omega-multiplied-for-time",
+        "Multiplying by n where the time is the angle divided by n.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-omega-not-squared",
+        "Reporting n where n² is the constant in x'' = -n² x.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-omega-squared-for-omega",
+        "Reporting n² where n was asked for (or using n² in the period 2π/n).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-omega-twice-divided",
+        "Dividing the greatest speed by n twice when finding the amplitude.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-one-term-only",
+        "Using only the larger term of p sin(nt) + q cos(nt) as the amplitude.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-other-angle-given",
+        "Giving the other of the two angles that reach the target.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-other-turning-point",
+        "Giving the turning point on the opposite side of the centre from the direction of motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-period-for-frequency",
+        "Using the period where the angular frequency n belongs, giving 2/n for n.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-period-from-k",
+        "Using 2π/k with the acceleration constant k = n² instead of 2π/n.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-period-from-speed-only",
+        "Finding the period from the greatest speed alone, without the greatest acceleration.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-period-inverted",
+        "Inverting the period formula: 2πn instead of 2π/n.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-period-ratio-for-amplitude",
+        "Reporting V/Q, which is 1/n, where the amplitude V²/Q was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-phase-ignored",
+        "Ignoring the phase constant and using the value for zero phase.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-phase-sign",
+        "Getting the sign of the phase wrong, so the quadrant or the time is reflected.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-position-for-speed",
+        "Reporting the position of the greatest speed where the speed itself was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-power-rule-no-division",
+        "Integrating a power of x without dividing by the new exponent.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-product-for-position",
+        "Multiplying two positions together instead of solving for the turning point.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-quadrant-ignored",
+        "Taking the inverse tangent of the ratio without deciding which quadrant the angle lies in.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-quadratic-formula-slip",
+        "A slip in the quadratic formula: the square root term is used without the linear term.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-quadratic-law-used",
+        "Using the result for a = -kv² where a = -kv applies (or the reverse).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-range-for-return-height",
+        "Giving the full range where the horizontal distance at a stated height was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-range-halved",
+        "Halving the range, forgetting the factor 2 in x = 2V² sin a cos a / g.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-rate-dropped",
+        "Dropping the rate constant k from the exponent or the logarithm.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-rate-multiplied",
+        "Multiplying by the rate constant k where a division by it is needed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-ratio-inverted",
+        "Inverting the ratio, giving c/(mg) where mg/c belongs.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-ratio-misplaced",
+        "Putting the numerator and denominator of the terminal-speed ratio in the wrong places.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-ratio-squared-twice",
+        "Squaring a ratio twice when finding the amplitude or period from two extremes.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-reciprocal-reported",
+        "Reporting 1/x (the value from the integral) where the position x was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-resistance-added",
+        "Adding the resistance where it should be subtracted from the weight (or the reverse).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-resistance-ignored",
+        "Ignoring the air resistance and using the free-fall result.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-resistance-only",
+        "Reporting only the resistance term kv, leaving out the weight term g.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-resistance-per-mass-for-speed",
+        "Reporting the resistance per unit mass c/m where the terminal speed was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-resistance-subtracted",
+        "Subtracting the resistance from g for an object moving upwards, where both act downward and add.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sec-squared-dropped",
+        "Writing 1/cos² a as 1 (or leaving out the 1 + tan² a), so the quadratic in tan a is wrong.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sign-of-gravity-term",
+        "Adding the gravity term to the path where it should be subtracted.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sin-cos-swapped",
+        "Swapping sine and cosine, so the wrong trigonometric value is used.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sin-for-tan",
+        "Using the inverse sine of the tangent value, which is not the angle.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sin-squared-for-double-angle",
+        "Using sin² a where sin 2a belongs in the range formula.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sine-not-squared",
+        "Using sin a where sin² a belongs in the greatest-height formula.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-single-angle-sine",
+        "Using sin a in place of sin 2a in the range formula.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-smaller-root-taken",
+        "Taking the smaller root of the quadratic, which is the height on the way up, instead of the larger.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-change-for-distance",
+        "Reporting the change in speed where the distance travelled was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-dropped",
+        "Leaving the speed out of the formula.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-for-acceleration",
+        "Reporting the greatest speed where the greatest acceleration was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-for-amplitude",
+        "Reporting the greatest speed where the amplitude was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-for-constant",
+        "Reporting the greatest speed where the constant k in x'' = -kx was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-for-n",
+        "Using the greatest speed as if it were n, ignoring the amplitude.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-in-numerator",
+        "Putting V² in the numerator of the coefficient of x² where it belongs in the denominator.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-not-squared",
+        "Using V instead of V² in the path equation.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-over-displacement",
+        "Treating v = n x, so n = v/x at a single reading.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-plus-acceleration",
+        "Adding the speed and the acceleration (different units) to get the terminal speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-squared-reported",
+        "Reporting v² where the speed v was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-term-only",
+        "Reporting v/n alone as the amplitude, leaving out the displacement term in a² = x² + (v/n)².",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-speed-times-time",
+        "Multiplying the final speed by the time to get the distance.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-start-speed-for-greatest",
+        "Giving the starting speed as the greatest speed.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-start-value-for-greatest",
+        "Using the value at the starting point as the greatest value.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-start-velocity-scaled",
+        "Scaling the starting velocity by n and reporting it as the greatest acceleration.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-stopped-after-first-derivative",
+        "Stopping after the first derivative, giving the velocity where the acceleration was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-stopping-distance-for-partial",
+        "Giving the distance to stop where the distance to a stated lower speed was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-subtracted-position",
+        "Subtracting the position from the greatest speed instead of using v = n√(a² - x²).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sum-for-difference",
+        "Adding two squares where a difference of squares belongs.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sum-for-product",
+        "Adding where the quantities should be multiplied.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-sum-for-sum-of-squares",
+        "Adding the displacement and v/n instead of adding their squares and taking the root.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-tan-for-sin",
+        "Using the inverse tangent of sin(2a) = gR/V² in place of the inverse sine.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-terminal-speed-for-speed",
+        "Giving the terminal speed as the speed at a finite time.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-time-dropped",
+        "Leaving the time out of the exponent, so the speed is the same at every time.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-time-fraction-of-period-wrong",
+        "Using the wrong fraction of the period for the leg of the motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-trig-not-switched",
+        "Differentiating cos(nt) as a multiple of cos(nt) again (or sin as sin), without switching to the other function.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-vertex-for-root",
+        "Giving the x-coordinate of the vertex where a root of the quadratic was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-weight-for-speed",
+        "Reporting the weight mg where the terminal speed was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-whole-height-for-difference",
+        "Reporting the height with no resistance where the difference from it was asked for.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3d-whole-quarter-period",
+        "Giving a whole quarter period π/(2n) where the leg is only part of a quarter.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "r3e-after-tax-gain-given",
+        "Giving the pay rise after tax instead of the extra tax the rise causes.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-average-over-taxed-income",
+        "Dividing the tax by the income above the tax-free threshold instead of by the whole taxable income to find the average rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-band-rates-averaged",
+        "Averaging the rates of the bands reached instead of dividing the tax by the taxable income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-base-tax-ignored",
+        "Finding the income above a threshold from the tax bill without first taking off the tax already owed on the lower bands.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-deduction-added-to-income",
+        "Adding the deductions to the income instead of taking them off to find taxable income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-deduction-decimal-slip",
+        "Taking a tenth of the deductions off the income, a decimal-place slip.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-deduction-taken-as-income",
+        "Treating the deductions as the taxable income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-deductions-ignored",
+        "Leaving the deductions out and taxing the full income earned.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-deductions-not-taken-off-first",
+        "Working out tax and levy on the full income earned, not on the income left after deductions.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-first-rate-on-whole-income",
+        "Charging the whole taxable income at the rate of the first taxed band.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gave-tax-not-remainder",
+        "Giving the amount paid in tax and levy where the amount left over was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-levy-left-out",
+        "Leaving the Medicare levy out of what is taken from the income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-levy-on-gross",
+        "Working the Medicare levy out on the income earned before deductions.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-levy-on-tax",
+        "Taking the levy percentage of the income tax instead of the taxable income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-marginal-rate-given-as-average",
+        "Giving the rate on the top slice of income where the average rate of tax was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-middle-band-left-out",
+        "Skipping one of the bands between the tax-free threshold and the band the income reaches.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-new-rate-on-whole-rise",
+        "Charging the whole pay rise at the higher rate, though part of it falls in the lower band.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-nil-band-taxed",
+        "Charging tax on the tax-free slice of income as well.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-old-rate-on-whole-rise",
+        "Charging the whole pay rise at the old rate, though part of it crosses into the higher band.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-percent-decimal-slip",
+        "Moving the decimal point one place too far when turning a percentage into dollars.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-rate-not-applied-to-excess",
+        "Taking the income above the threshold but never applying the rate to it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-rate-on-whole-income",
+        "Applying the rate of the highest band reached to the whole income instead of only to the slice in that band.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-ratio-not-percentage",
+        "Leaving the tax-to-income ratio as a decimal without turning it into a percentage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-tax-left-out",
+        "Leaving the income tax out of what is taken from the income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-tax-on-gross-income",
+        "Working the tax out on the income before deductions instead of on taxable income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-top-slice-only",
+        "Charging only the top slice of income and leaving out the tax owed on the lower bands.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-wrong-band-rate",
+        "Dividing the tax by the rate of the wrong band when working back to the income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-wrong-band-threshold",
+        "Using the threshold of the band below when working back to the income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-allowance-left-out-of-gross",
+        "Leaving the allowance out of the gross pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-allowance-left-out-of-super-base",
+        "Leaving the allowance out of the ordinary-time earnings that super is worked out on.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-current-given-as-previous",
+        "Giving this pay where the pay from earlier periods was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-employer-super-added-to-pay",
+        "Adding the employer's super to the pay deposited in the bank account.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-employer-super-deducted",
+        "Taking the employer's super contribution off the net pay, though the employer pays it on top of the wages.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-fee-added-to-pay",
+        "Adding a deduction to the pay instead of taking it off.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-fee-left-out",
+        "Leaving a fixed fee or deduction out of the working.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gross-given-as-net",
+        "Giving the gross pay where the net pay was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-hours-added-to-gross",
+        "Adding the number of hours worked in as if it were a dollar amount in the gross pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-overtime-left-out-of-gross",
+        "Leaving the overtime out of the gross pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-payg-left-out",
+        "Leaving the PAYG tax out of the deductions.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-payg-on-gross-after-sacrifice",
+        "Working the PAYG on the full gross pay but still subtracting the sacrifice.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-payg-on-ordinary-pay-only",
+        "Working the PAYG out on the ordinary pay only, not on the whole gross pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-payg-taken-as-remainder",
+        "Giving the pay left after tax where the tax withheld was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-percentage-added-to-net",
+        "Adding the PAYG percentage on to the net pay to get the gross pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-percentage-taken-of-net",
+        "Taking the PAYG percentage of the net pay to find the gross pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-sacrifice-deducted-twice",
+        "Taking the salary sacrifice off twice.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-sacrifice-ignored",
+        "Leaving the salary sacrifice out of the pay calculation.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-sacrifice-not-deducted-from-pay",
+        "Not taking the salary sacrifice out of the pay deposited.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-super-on-net-pay",
+        "Working super out on the net pay instead of the ordinary-time earnings.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-super-on-overtime-only",
+        "Working super out on the overtime instead of on the ordinary-time earnings.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-super-on-overtime-too",
+        "Working super out on the gross pay including overtime, when super is paid on ordinary-time earnings only.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-tax-subtracted-from-ytd",
+        "Taking the tax withheld off the year-to-date gross pay, instead of this period's gross pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-ytd-given-as-previous",
+        "Giving the year-to-date total, which includes this pay, as the pay received before it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-ytd-plus-current",
+        "Adding this pay to the year-to-date figure, though the year to date already includes it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-mean-over-wrong-count",
+        "Dividing the earlier pay total by the number of pays including this one instead of by the earlier pays.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-ytd-includes-this-pay",
+        "Dividing the year-to-date total by the number of earlier pays without first taking this pay out of it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-ytd-mean-over-all-periods",
+        "Dividing the year-to-date total, which includes this pay, by the number of pays including this one.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-added-to-super-given-as-benefit",
+        "Giving the amount added to super where the difference from the fall in take-home pay was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-annual-given-for-quarter",
+        "Giving the annual contribution where a quarter's payment was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-cap-applied-after-tax",
+        "Counting the contributions after contributions tax towards a cap that applies before it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-cap-subtracted-wrong-way",
+        "Subtracting the cap from the contributions instead of the contributions from the cap.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-complement-of-rate-taken",
+        "Taking the percentage left over after the rate instead of the rate itself.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-contributions-grown-too",
+        "Letting the end-of-year contributions earn a full year's growth as well.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-contributions-left-out",
+        "Growing the opening balance but leaving the contributions out.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-contributions-not-grown",
+        "Adding the contributions without letting the balance earn growth each year.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-contributions-tax-left-out",
+        "Adding the contributions to the account without taking the contributions tax off.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-employer-left-out-of-cap",
+        "Leaving the employer's contribution out of the contributions that count towards the cap.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-employer-left-out-of-total",
+        "Giving the sacrifice alone where the total with the employer's contribution was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-growth-left-out",
+        "Leaving the year's earnings out of the closing balance.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-monthly-for-annual",
+        "Working out a month's contribution when the year's was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-rate-ignored",
+        "Dividing the salary by the number of payments without applying the contribution rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-rates-added",
+        "Adding the tax-bracket rate and the contributions tax rate instead of finding their difference.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-sacrifice-left-out",
+        "Leaving the salary sacrifice out of the total.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-sacrifice-left-out-of-cap",
+        "Leaving the salary sacrifice out of the contributions that count towards the cap.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-sacrifice-subtracted",
+        "Subtracting the salary sacrifice instead of adding it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-simple-growth-used",
+        "Adding growth as a fixed amount each year instead of compounding it on the growing balance.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-take-home-fall-given-as-benefit",
+        "Giving the fall in take-home pay where the difference from the amount added to super was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-tax-given-for-balance",
+        "Giving the contributions tax where the amount added to the account was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-tax-on-employer-only",
+        "Taking contributions tax off the employer's contribution but not the salary sacrifice.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-tax-on-sacrifice-only",
+        "Taking contributions tax off the salary sacrifice but not the employer's contribution.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-tax-saved-given-as-benefit",
+        "Giving the tax saved on the sacrifice where the net advantage was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-tax-taken-twice",
+        "Taking the contributions tax off twice.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-wrong-number-of-payments",
+        "Dividing the annual contribution by the wrong number of payments.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-wrong-number-of-years",
+        "Running the recurrence for the wrong number of years.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-add-ons-subtracted",
+        "Subtracting the reportable amounts instead of adding them to taxable income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-band-rates-summed",
+        "Adding up the rates of all the bands up to the income's band instead of using the one rate for its band.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-extra-repayment-counted",
+        "Counting one repayment too many.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-fringe-left-out-of-repayment-income",
+        "Leaving the reportable fringe benefits out of the repayment income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-income-taken-off-debt",
+        "Taking the repayment income off the debt instead of the repayment.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-indexation-before-repayment",
+        "Indexing the debt first and taking the repayment off afterwards, when the repayment comes first.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-indexation-ignored",
+        "Ignoring indexation, so the debt appears to clear in fewer repayments.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-indexation-left-out",
+        "Leaving the indexation out of the balance.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-indexation-on-original-debt",
+        "Working the indexation out on the original debt instead of the balance after the repayment.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-indexation-on-repayment",
+        "Working the indexation out on the repayment instead of the balance.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-lower-band-rate-used",
+        "Using the rate of the band below the one the income falls in.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-next-band-rate-used",
+        "Using the rate of the band above the one the income falls in.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-one-repayment-too-few",
+        "Stopping one repayment before the debt is actually cleared.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-rate-on-excess-over-threshold",
+        "Applying a whole-income rate to only the income above the band's threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-repayment-added-to-debt",
+        "Adding the repayment to the debt instead of taking it off.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-repayment-given-as-balance",
+        "Giving the repayment where the remaining balance was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-repayment-left-out",
+        "Indexing the debt but forgetting to take the repayment off.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-super-left-out-of-repayment-income",
+        "Leaving the reportable super out of the repayment income.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-taxable-income-only-used",
+        "Using taxable income alone as the repayment income, without the reportable fringe benefits and super.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-credits-added",
+        "Adding the GST credits to the GST collected instead of subtracting them.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-credits-left-out",
+        "Giving the GST collected without taking off the GST credits on purchases.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-exclusive-price-given-as-gst",
+        "Giving the price before GST where the GST itself was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-added-to-inclusive-price",
+        "Adding more GST on to a price that already includes it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-charged-on-gst-free-items",
+        "Charging GST on items that are GST-free.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-free-items-left-out",
+        "Leaving the GST-free items out of the invoice total.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-free-sales-left-out",
+        "Taking the GST out of the taxable sales but leaving the GST-free sales out of the total.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-free-sales-treated-as-taxable",
+        "Taking GST out of the GST-free sales as well.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-left-out",
+        "Leaving the GST out of the invoice total.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-not-removed-from-sales",
+        "Adding the GST-free sales to the taxable sales without taking the GST out of the taxable sales.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-subtracted-wrong-way",
+        "Subtracting the GST collected from the credits instead of the credits from the GST collected.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-taken-of-inclusive-price",
+        "Taking 10% of a GST-inclusive price as the GST, instead of one eleventh of it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-treated-as-inclusive",
+        "Treating the prices as if they already included GST and taking one eleventh of them.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-labour-gst-left-out",
+        "Counting the GST inside the materials price but forgetting the GST added to the labour.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-labour-treated-as-inclusive",
+        "Treating the labour price as if it included GST and taking one eleventh of it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-materials-gst-left-out",
+        "Counting the GST on the labour but forgetting the GST already inside the materials price.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-days-ignored",
+        "Using the yearly interest, or a year's worth of days, instead of the number of days the balance was left unpaid.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-extra-payment-counted",
+        "Counting one payment too many.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-interest-added-to-whole-balance",
+        "Adding the interest to the original closing balance instead of the unpaid balance.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-interest-ignored",
+        "Ignoring the interest added each month.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-interest-left-out",
+        "Giving the balance without adding the interest.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-interest-on-original-balance",
+        "Working the interest out on the original balance every month instead of the balance that remains.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-interest-on-payment",
+        "Charging interest on the payment instead of the unpaid balance.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-interest-on-whole-balance",
+        "Charging interest on the whole closing balance, though part was paid off.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-interest-subtracted",
+        "Taking the interest off the balance instead of adding it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-last-payment-given-as-interest",
+        "Giving the size of the last payment where the total interest was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-last-payment-left-out",
+        "Leaving the last payment out of the total paid.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-last-payment-taken-as-full",
+        "Treating the last payment as a full payment when finding the total interest.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-lesser-minimum-chosen",
+        "Taking the smaller of the two minimum-payment amounts instead of the greater.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-minimum-rules-added",
+        "Adding the percentage amount and the fixed sum instead of choosing the greater.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-monthly-rate-divided-twice",
+        "Dividing the yearly rate by 12 twice.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-monthly-rate-used-for-days",
+        "Dividing the yearly interest by 12 for a period that is not a month.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-one-day-only",
+        "Working out one day's interest and stopping there.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-one-payment-too-few",
+        "Stopping one payment before the balance is actually cleared.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-payment-added-to-balance",
+        "Adding the payment to the balance instead of taking it off.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-payment-given-as-balance",
+        "Giving the payment where the balance that remains was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-payment-left-out",
+        "Leaving the payment out of the balance.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-payments-not-applied-each-month",
+        "Taking the payments off at the end instead of applying one each month with its interest.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-percentage-divided-not-multiplied",
+        "Dividing the balance by the percentage instead of multiplying by it as a fraction of 100.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-percentage-taken-off-instead",
+        "Taking the percentage off the balance instead of finding the percentage of it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-total-paid-given-as-interest",
+        "Giving the total of all payments where the interest alone was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-year-taken-as-360-days",
+        "Using 360 days for the year when the rate is charged on a 365-day year.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-yearly-interest-each-month",
+        "Adding a whole year's interest each month.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-cap-applied-to-each-fee",
+        "Applying the cap to each late fee separately instead of to their total.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-cap-ignored",
+        "Adding every late fee in full, ignoring the cap on late fees.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-cap-subtracted",
+        "Subtracting the cap from the total instead of using it to limit the late fees.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-difference-wrong-way",
+        "Subtracting the plan cost from the upfront cost instead of the other way round.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-discount-given-as-upfront-price",
+        "Taking the discount off the plan cost instead of off the price to find the upfront price.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-discount-ignored",
+        "Comparing the plan with the full price instead of the discounted upfront price.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-dollars-given-as-percentage",
+        "Giving the extra cost in dollars where a percentage of the price was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-fees-subtracted",
+        "Taking the late fees off the total instead of adding them.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-late-fees-left-out",
+        "Leaving the late fees out of the total cost.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-one-late-fee-only",
+        "Counting a single late fee when several instalments were late.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-percentage-of-total-paid",
+        "Finding the extra cost as a percentage of the total paid instead of the price.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-setup-fee-added-to-each-instalment",
+        "Adding the whole set-up fee to every instalment instead of splitting it across them.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-setup-fee-left-out",
+        "Leaving the set-up fee out of the cost.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-setup-fee-subtracted",
+        "Taking the set-up fee off the price instead of adding it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-wrong-number-of-instalments",
+        "Dividing by the wrong number of instalments.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-cents-given-as-dollars",
+        "Giving an amount in cents where dollars were asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-credit-added",
+        "Adding the solar credit to the bill instead of taking it off.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-credit-left-out",
+        "Leaving the solar credit off the bill.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-credit-on-use-not-export",
+        "Working the credit out on the electricity used instead of the electricity exported.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-credit-taken-off-before-gst",
+        "Taking the credit off before working out GST, though the credit carries no GST.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-extra-day-of-supply",
+        "Adding an extra day of supply charge.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-first-block-left-out",
+        "Charging only the use above the threshold and leaving the first block out.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-gst-on-usage-only",
+        "Adding GST to the usage charge only and not to the supply charge.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-higher-rate-on-all-use",
+        "Charging all the use at the higher rate instead of only the use above the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-highest-rate-on-all-use",
+        "Charging all the water at the highest rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-lower-rate-on-all-use",
+        "Charging all the use at the lower rate and ignoring the higher rate above the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-lowest-rate-on-all-use",
+        "Charging all the water at the lowest rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-middle-rate-on-all-excess",
+        "Charging all use above the first block at the middle rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-quarter-taken-as-91-days",
+        "Using a standard 91 days where the bill states a different number of days.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-rates-swapped",
+        "Swapping the two rates, charging the first block at the higher rate and the rest at the lower rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-service-charge-left-out",
+        "Leaving the fixed service charge out of the bill.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-supply-charge-left-out",
+        "Leaving the supply charge out of the bill.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-top-rate-on-middle-block",
+        "Charging the middle block at the top rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-wrong-rate-for-excess",
+        "Dividing the charge above the first block by the wrong rate when working back to the use.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-base-index-taken-as-100",
+        "Treating the earlier index as 100 and ignoring its actual value.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-change-over-later-value",
+        "Dividing the change by the later value instead of the earlier one.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-fall-in-later-dollars",
+        "Giving the fall in later-year dollars where the fall in earlier-year dollars was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-first-rate-repeated",
+        "Using the first year's rate for all three years.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-index-points-added-to-price",
+        "Adding the rise in index points to the price in dollars.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-index-points-given-as-percentage",
+        "Giving the change in index points as if it were a percentage.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-index-points-subtracted-from-salary",
+        "Subtracting the rise in index points from the salary in dollars.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-index-points-taken-as-percentage",
+        "Treating the rise in index points as a percentage rise.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-index-ratio-given-as-rate",
+        "Giving the later index as a percentage of the earlier one, instead of the change.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-index-ratio-inverted",
+        "Turning the index ratio upside down, so a later price comes out lower or a real value higher.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-nominal-change-given-as-real",
+        "Giving the percentage rise in the dollar salary as the change in real pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-nominal-rise-given-as-real-fall",
+        "Giving the dollar pay rise where the fall in real value was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-price-rise-given-as-real-fall",
+        "Giving the price rise on the salary as the fall in real value.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-year-left-out",
+        "Leaving one year's inflation out of the compounding.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3e-yearly-rates-added",
+        "Adding the yearly inflation rates instead of compounding them.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3f-beta-ignores-the-critical-value",
+        "Finding the probability of a Type II error by standardising the true mean against the null mean, ignoring "
+        "the critical value of the test.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-beta-keeps-only-one-critical-value",
+        "Using only one critical value for a two-sided test when finding the probability of a Type II error, so one "
+        "tail of the acceptance region is lost.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-beta-reports-alpha",
+        "Giving the significance level alpha where the probability of a Type II error was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-beta-reports-the-power",
+        "Giving the power of the test, 1 - beta, where the probability of a Type II error was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-beta-uses-sigma-not-the-standard-error",
+        "Dividing by the population standard deviation sigma instead of the standard deviation of the sample mean "
+        "when standardising.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-beta-uses-the-null-mean",
+        "Standardising with the null mean mu0 instead of the true mean when finding the probability of a Type II "
+        "error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-beta-uses-the-wrong-tail-of-the-true-mean",
+        "Taking the tail of the true-mean distribution on the wrong side of the critical value when finding beta.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-by-parts-sign-error",
+        "Making a sign error in integration by parts, adding the boundary term to the mean instead of subtracting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-adds-the-values",
+        "Adding F(a) and F(b) instead of subtracting to find P(a < X < b).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-assumes-uniform",
+        "Treating the density as uniform, taking the probability as the length of the interval over the length of the "
+        "support.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-conditional-divides-by-the-wrong-event",
+        "Dividing P(a < X < c) by P(X < c) instead of by P(X > a).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-conditional-ignores-the-condition",
+        "Reporting P(X < c) and ignoring the condition X > a.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-conditional-not-rescaled",
+        "Finding P(a < X < c) and not dividing by P(X > a), the probability of the condition.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-differentiates-the-density",
+        "Differentiating the density instead of integrating it to find the cumulative distribution function.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-divides-by-n-not-n-plus-one",
+        "Integrating a power by dividing by the old power n instead of the new power n + 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-forgets-k",
+        "Integrating the shape of the density and leaving out the constant k, which is found from the total area "
+        "being 1.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-gives-complement",
+        "Giving the probability of the complementary event, one minus the answer, where the probability asked for was "
+        "needed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-halves-the-tail",
+        "Halving the upper-tail probability, as though the tail were shared between two sides.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-left-as-the-density",
+        "Giving the density f(x) itself where the cumulative distribution function F(x) was asked for, without "
+        "integrating.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-omits-the-lower-limit",
+        "Integrating the density with no constant of integration, so that F(x) does not start from 0 at the lower end "
+        "of the interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-probability-uses-lower-value-only",
+        "Reporting F(a) alone as P(a < X < b), the probability below the lower bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-probability-uses-upper-value-only",
+        "Reporting F(b) alone as P(a < X < b), leaving out the subtraction of F(a).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-reports-lower-tail",
+        "Reporting P(X < c) where the upper tail P(X > c) was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cdf-wrong-integration-constant",
+        "Integrating the density but dividing the result by 2 or adding a constant, so that F(x) does not run from 0 "
+        "to 1 across the interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-adds-the-miss-probabilities",
+        "Adding the miss probabilities of the individual intervals, which treats the events as exclusive instead of "
+        "independent.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-confused-with-data-spread",
+        "Reading a confidence interval as containing the stated percentage of the individual values in the "
+        "population, instead of capturing the population mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-confused-with-sample-mean",
+        "Reading a confidence interval as a statement about where the sample mean falls, instead of about whether it "
+        "captures the population mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-counts-both-sides",
+        "Counting all the intervals that miss the mean where only those entirely above it were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-counts-only-one-side",
+        "Counting only the intervals entirely on one side of the mean as the misses, and leaving out those on the "
+        "other side.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-counts-the-intervals-that-contain",
+        "Counting the intervals that contain the mean where the number that miss it was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-counts-the-intervals-that-miss",
+        "Counting the intervals that miss the mean where the number that contain it was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-counts-the-wrong-side",
+        "Counting the intervals entirely below the mean where those entirely above it were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-coverage-treated-as-exact",
+        "Treating 95% coverage as an exact count, so that exactly one interval in every twenty must miss.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-divides-by-n-not-root-n",
+        "Dividing the standard deviation by n instead of by the square root of n when finding a margin of error.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-expected-count-divides-by-the-miss-rate",
+        "Dividing the number of intervals by the miss percentage instead of multiplying by the miss rate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-expected-count-ignores-the-number-of-intervals",
+        "Giving the miss percentage as the expected count, whatever the number of intervals.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-expected-count-uses-percent-as-count",
+        "Multiplying the coverage rate by the miss percentage, giving a number that is neither a count nor a rate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-gives-the-complement",
+        "Giving the probability that at least one interval misses where the probability that all contain the mean was "
+        "asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-ignores-the-number-of-intervals",
+        "Giving the probability for a single interval where the probability for the whole set of intervals was asked "
+        "for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-margin-omits-the-critical-value",
+        "Giving the standard error as the margin of error, without multiplying by the critical z value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-margin-omits-the-failure-proportion",
+        "Leaving out the factor 1 - p-hat under the square root in the margin of error for a proportion.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-margin-omits-the-square-root-of-n",
+        "Multiplying the critical value by sigma without dividing by the square root of n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-margin-reports-the-whole-width",
+        "Giving the whole width of the interval, twice the margin of error, where the margin of error was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-miss-count-off-by-one",
+        "Miscounting the intervals by one, such as counting an interval that touches the true mean or skipping one in "
+        "the list.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-misses-and-contains-swapped",
+        "Swapping the probabilities that an interval contains the mean and that it misses it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-proportion-divides-by-100",
+        "Dividing the count by 100 instead of by the number of intervals to find the proportion.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-reports-the-count-that-contain",
+        "Giving the expected number of intervals that contain the mean where the number that miss it was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-reports-the-expected-count-not-the-observed",
+        "Giving the number of misses expected from the confidence level where the number actually observed in the "
+        "table was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-reports-the-probability-that-all-contain",
+        "Giving the probability that all intervals contain the mean where the probability that at least one misses "
+        "was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-reports-the-proportion-that-contain",
+        "Giving the proportion of intervals that contain the mean where the proportion that missed was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-upper-end-reports-the-estimate",
+        "Giving the sample percentage itself as the upper end of the interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-upper-end-reports-the-lower-end",
+        "Giving the lower end of the interval where the upper end was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-upper-end-reports-the-margin",
+        "Giving the margin of error where the upper end of the interval was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-uses-two-intervals",
+        "Using the miss probability for two intervals where the probability that at least one of many misses was "
+        "asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-width-difference-is-the-correct-width",
+        "Giving the width of the correct interval where the difference between the two widths was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-width-difference-is-the-whole-student-width",
+        "Giving the whole width of the student's interval where the difference between the two widths was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-ci-width-difference-uses-half-widths",
+        "Giving the difference in half-widths where the difference in the widths of the intervals was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-compare-difference-taken-as-ratio",
+        "Giving the difference between the two standard deviations where their ratio was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-compare-extra-taken-as-ratio",
+        "Giving how much larger the second standard deviation is, as a fraction of the first, where the ratio of the "
+        "two was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-compare-ratio-inverted",
+        "Giving the ratio of the standard deviations upside down, curve A's over curve B's.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-compare-ratio-of-variances",
+        "Giving the ratio of the variances, the square of the ratio of the standard deviations.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-copies-sd-unchanged",
+        "Reporting the standard deviation of one item as the standard deviation of a total or a multiple of items.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-copies-treated-as-a-multiple",
+        "Treating n separate independent items as n times one item, so the standard deviation is n sigma instead of "
+        "sigma times the square root of n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-critical-value-on-the-wrong-side",
+        "Placing the critical value on the wrong side of the null mean, subtracting where the alternative hypothesis "
+        "points upwards or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-critical-value-uses-sigma-not-the-standard-error",
+        "Using the population standard deviation sigma instead of sigma over the square root of n when finding the "
+        "critical value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-critical-value-uses-z-alone",
+        "Adding or subtracting the critical z value itself to the null mean, without multiplying by the standard "
+        "deviation of the sample mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-critical-value-wrong-multiple",
+        "Multiplying the standard deviation of the sample mean by one more than the critical z value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cutoff-one-sd-above-mean",
+        "Giving the value one standard deviation above the mean, which 16% exceed, for the value that only 2.5% "
+        "exceed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cutoff-three-sd-above-mean",
+        "Giving the value three standard deviations above the mean, which only 0.15% exceed, for the value that 2.5% "
+        "exceed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-cutoff-uses-the-gap-as-sd",
+        "Adding twice the full gap between the points of inflection to the mean, using the gap as if it were the "
+        "standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-difference-probability-assumed-half",
+        "Assuming that one of two independent variables is equally likely to be greater than the other, though their "
+        "means differ.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-empirical-band-too-many",
+        "Including one more band of the rule (the 13.5%, 2.35% or 0.15% beyond the stated end) than the region "
+        "actually covers.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-empirical-count-of-the-complement",
+        "Counting the values outside the stated region, the complement, where the values inside it were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-empirical-gives-complement",
+        "Giving the percentage outside the stated region, the complement, where the percentage inside it was asked "
+        "for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-empirical-halves-the-middle",
+        "Halving the percentage of a region that spans both sides of the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-empirical-percentage-reported-as-count",
+        "Reporting the percentage of the sample as if it were the expected number of values.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-empirical-tail-as-half-of-the-middle",
+        "Taking half of the central percentage as the share of a tail, which is the share between the mean and the "
+        "end instead.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-empirical-tail-not-halved",
+        "Taking 100 minus the central percentage as one tail, forgetting that this is the two tails together and must "
+        "be halved.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-empirical-treats-interval-as-symmetric",
+        "Using the central percentage for the larger distance from the mean on both sides, when the region is not "
+        "symmetric about the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-exp-integral-omits-the-rate",
+        "Integrating e to the power of minus lambda x as if the antiderivative did not divide by lambda.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-inflection-gap-quartered",
+        "Dividing the gap between the points of inflection by four to get the standard deviation instead of by two.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-inflection-gap-taken-as-mean",
+        "Reporting the gap between the points of inflection where the mean (their midpoint) was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-inflection-gap-taken-as-sd",
+        "Reporting the whole gap between the points of inflection as the standard deviation, instead of half of it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-inflection-lower-point-taken-as-mean",
+        "Reporting the lower point of inflection as the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-inflection-lower-point-taken-as-sd",
+        "Reporting the lower point of inflection as the standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-inflection-midpoint-taken-as-sd",
+        "Reporting the midpoint of the points of inflection, the mean, where the standard deviation was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-inflection-sd-reported-as-mean",
+        "Reporting the standard deviation, half the gap between the points of inflection, where the mean was asked "
+        "for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-inflection-upper-point-taken-as-mean",
+        "Reporting the upper point of inflection as the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-interval95-half-width-taken-as-sd",
+        "Taking half the width of the 95% interval as the standard deviation, when 95% spans two standard deviations "
+        "either side.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-interval95-treated-as-99-7",
+        "Treating the 95% interval as if it were the 99.7% interval, three standard deviations either side, and "
+        "dividing its width by six.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-interval95-width-divided-by-eight",
+        "Dividing the width of the 95% interval by eight, treating it as four standard deviations either side.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-interval95-width-taken-as-sd",
+        "Reporting the whole width of the 95% interval as the standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-iqr-adds-the-quartiles",
+        "Adding the two quartiles instead of subtracting them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-iqr-assumes-uniform",
+        "Taking half the length of the support as the interquartile range, as for a uniform density.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-iqr-reports-the-upper-quartile",
+        "Reporting the upper quartile Q3 alone where the interquartile range Q3 - Q1 was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-iqr-uses-the-median-as-an-end",
+        "Subtracting the lower quartile from the median instead of from the upper quartile.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-k-inverted",
+        "Giving the total area of the shape where its reciprocal, the constant k, was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-k-power-not-raised",
+        "Forgetting to raise the power when integrating the shape of the density, so that k is found from the wrong "
+        "area.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-adds-standard-deviations",
+        "Adding the standard deviations of two independent variables to get the standard deviation of their sum or "
+        "difference, instead of adding the variances and taking the square root.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-averages-the-means",
+        "Averaging the two means for the mean of a sum or difference, instead of adding (or subtracting) them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-ignores-the-coefficients",
+        "Combining the standard deviations of X and Y without the coefficients a and b that multiply them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-mean-adds-a-variance",
+        "Adding a variance into the mean of a linear combination.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-mean-adds-the-sds",
+        "Adding the standard deviations into the mean of a sum.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-mean-flips-the-second-sign",
+        "Changing the sign of the second term when finding the mean of a linear combination, so a sum becomes a "
+        "difference or the reverse.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-mean-ignores-the-sign",
+        "Taking the magnitudes of the coefficients when finding the mean, so a negative coefficient is treated as "
+        "positive.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-mean-reversed-sign",
+        "Finding the mean of the difference the wrong way round, first minus second where second minus first was "
+        "asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-mean-uses-the-sum-of-coefficients",
+        "Multiplying the sum of the coefficients by the sum of the means for the mean of aX + bY.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-sd-reported-as-variance",
+        "Reporting the variance of the combination where its standard deviation was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-subtracts-standard-deviations",
+        "Subtracting the standard deviations for a difference of independent variables; the variances add, never "
+        "subtract.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-uses-the-larger-sd",
+        "Taking the larger of the two standard deviations as the standard deviation of the sum.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-variance-coefficient-not-squared",
+        "Multiplying each variance by the coefficient instead of by its square.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-variance-uses-the-means",
+        "Using the means in place of the variances when combining.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-variance-uses-the-signed-coefficient",
+        "Using a negative coefficient without squaring it, so the variance of a difference is reduced.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-lincomb-variances-subtracted",
+        "Subtracting the variances of two independent variables for their difference, instead of adding them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-mean-taken-as-midpoint",
+        "Taking the midpoint of the interval as the mean, true only for a symmetric density.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-median-halves-the-plateau",
+        "Taking half the length of the flat piece of the density as the median, ignoring the area already accumulated.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-median-reports-a-probability",
+        "Reporting a cumulative probability, such as P(X at most a), where a value of X, the median, was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-median-taken-as-mean",
+        "Reporting the mean E(X) where the median was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-median-taken-as-midpoint",
+        "Taking the midpoint of the interval as the median, which is true only for a symmetric density.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-median-taken-as-mode",
+        "Reporting the mode, the peak of the density, where the median was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-median-uses-a-quarter",
+        "Solving F(m) = 1/4, the lower quartile, where the median satisfies F(m) = 1/2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-median-uses-the-plateau-height-only",
+        "Taking the median as 1/(2k), as if the density were flat at height k over the whole interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-median-uses-three-quarters",
+        "Solving F(m) = 3/4, the upper quartile, where the median satisfies F(m) = 1/2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-multiple-treated-as-copies",
+        "Treating n times one variable as the sum of n independent copies, so the standard deviation is sigma times "
+        "the square root of n instead of n sigma.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-multiple-variance-reported-as-sd",
+        "Reporting the variance n squared sigma squared where the standard deviation n sigma was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-derivative-doubled",
+        "Differentiating the cumulative distribution function correctly but then multiplying the result by 2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-differentiates-twice",
+        "Differentiating the cumulative distribution function twice to find the density.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-integrates-the-cdf",
+        "Integrating the cumulative distribution function where its derivative, the density, was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-left-as-the-cdf",
+        "Giving the cumulative distribution function itself where the density was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-two-piece-area-as-a-rectangle",
+        "Finding k from the area of a rectangle of the full width and the height of the flat piece, ignoring the "
+        "sloping piece.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-two-piece-area-ignores-the-fall",
+        "Finding k from the area of the flat piece alone and leaving out the area of the falling piece.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-two-piece-area-ignores-the-plateau",
+        "Finding k from the area of the sloping piece alone and leaving out the flat piece.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-two-piece-area-ignores-the-ramp",
+        "Finding k from the area of the flat piece alone and leaving out the rising piece.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-two-piece-halves-the-area",
+        "Halving the area of the first piece, applying the one-half of a triangle's area where the first piece is not "
+        "a triangle.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-two-piece-median-forgets-the-ramp-area",
+        "Solving for the median on the flat piece but forgetting the area already collected under the rising piece.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-pdf-two-piece-reads-the-height-as-the-area",
+        "Giving the height of the density at the join, k times a, where the area up to the join was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-percentile-assumes-uniform",
+        "Placing the percentile as if the density were uniform on its interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-percentile-uses-the-lower-tail",
+        "Solving F(c) = p for the stated upper-tail probability p, instead of F(c) = 1 - p.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-percentile-uses-the-median",
+        "Giving the median where a different percentile was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-power-assumed-half",
+        "Assuming the power of a test is one half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-power-doubles-instead-of-quadruples",
+        "Using the standard deviation for a sample of twice the size when the sample was multiplied by four.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-power-ignores-the-critical-value",
+        "Finding the power by standardising the true mean against the null mean, ignoring the critical value of the "
+        "test.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-power-ignores-the-larger-sample",
+        "Giving the original power after the sample size was increased, as though the sample size did not change the "
+        "spread of the sample mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-power-reports-alpha",
+        "Giving the significance level alpha where the power of the test was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-power-reports-beta",
+        "Giving the probability of a Type II error beta where the power, 1 - beta, was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-quantile-halved",
+        "Halving the correct quantile, as though the probability had been halved rather than the condition F(q) = p "
+        "solved.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-quantile-swaps-p-and-one-minus-p",
+        "Solving F(q) = 1 - p where F(q) = p was stated, or the reverse, so the quantile is taken from the wrong tail.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-quantile-uses-the-wrong-piece",
+        "Solving for the quantile with the formula for the other piece of the density, ignoring where the cumulative "
+        "probability crosses the mode.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-sample-size-forgets-to-square",
+        "Giving (z-alpha + z-beta) times sigma over delta as the sample size, without squaring.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-sample-size-ignores-the-power-requirement",
+        "Finding the sample size from the significance level alone, leaving out the z value for the required power.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-sample-size-rounds-down",
+        "Rounding the required sample size down, so the test does not quite reach the stated power.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-sample-size-uses-two-tails",
+        "Doubling the sample size, as for a two-tailed test, though the test is one-tailed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-second-population-reports-95",
+        "Reporting 95% for the second population, which has the same interval as the first population but a different "
+        "mean or spread.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-total-mean-carton-counted-per-packet",
+        "Adding the mass of the empty carton once for each packet, not once in total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-total-mean-forgets-the-carton",
+        "Leaving the mass of the empty carton out of the mean of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-total-mean-one-packet-only",
+        "Adding the carton to the mean of one packet instead of to the total of all the packets.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-total-probability-uses-one-items-mean-and-sd",
+        "Using the mean and standard deviation of one item in a probability about the total of several.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-total-probability-uses-one-items-sd",
+        "Using the standard deviation of one item with the mean of the total in a probability about the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-total-sd-adds-the-carton",
+        "Adding the mass of the empty carton into the standard deviation of the total, though a constant does not "
+        "change the spread.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-adds-the-cumulative-values",
+        "Adding the two cumulative probabilities F(t1) and F(t2) instead of subtracting them.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-area-doubled",
+        "Doubling the area of the triangle, using base times height as the area.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-area-without-the-half",
+        "Using base times height as the area of a triangle, leaving out the factor one half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-ignores-the-upper-tail",
+        "Subtracting only the lower tail P(X at most t1) from 1 and leaving out the upper tail beyond t2.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-k-from-the-falling-piece",
+        "Finding the peak height from the width of the falling piece alone.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-k-from-the-mode",
+        "Finding the peak height as the reciprocal of the mode, using only the rising piece.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-mean-averages-mode-and-end",
+        "Averaging the mode and the right-hand end, (c + d)/2, instead of dividing the sum of the three vertices by 3.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-mean-ignores-the-mode",
+        "Dividing only the right-hand end by 3 for the mean of a triangular density, leaving the mode out of the sum.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-mean-taken-as-mode",
+        "Reporting the mode of a triangular density where its mean was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-triangle-uses-the-height-as-the-area",
+        "Using the height of the graph at the bound, or half of it, as the probability instead of the area under the "
+        "graph.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-trig-calculator-in-degrees",
+        "Evaluating a cosine of a radian angle with the calculator in degree mode.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-trig-forgets-k",
+        "Leaving out the constant k from a probability or percentile of a sine density.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-trig-integral-of-sine-taken-as-one-hump",
+        "Taking the integral of one hump of the sine as 1 instead of 2 when finding k, so k is twice its value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-trig-k-halved",
+        "Halving the constant k of a sine density.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-trig-k-inverted",
+        "Giving the area under the sine hump where its reciprocal, the constant k, was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-trig-k-omits-pi",
+        "Finding the area under the sine hump without its factor of pi, so that k lacks pi.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-truncated-uses-untruncated-cdf",
+        "Using the cumulative distribution or median of the full exponential distribution and ignoring that the "
+        "density is cut off at the upper bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-truncated-uses-untruncated-mean",
+        "Using the mean 1/lambda of the full exponential distribution and ignoring that the density is cut off at the "
+        "upper bound.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-two-tails-gap-halved",
+        "Dividing the gap between the two stated values by two to get the standard deviation, as if they were one "
+        "standard deviation either side of the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-two-tails-gap-quartered",
+        "Dividing the gap between the two stated values by four to get the standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-two-tails-gap-taken-as-sd",
+        "Reporting the whole gap between the two stated values as the standard deviation.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-two-tails-midpoint-taken-as-mean",
+        "Taking the midpoint of the two stated values as the mean, though they are different numbers of standard "
+        "deviations from it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-two-tails-miscounts-sds",
+        "Dividing the gap between the two stated values by one more than the number of standard deviations it spans.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-two-tails-one-sd-assumed",
+        "Taking the mean to be exactly one standard deviation from one of the stated values, whatever its tail "
+        "percentage.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-two-tails-wrong-multiple",
+        "Subtracting the whole span in standard deviations from the upper value, where only the upper value's own "
+        "multiple should be removed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-type-one-error-assumes-five-per-cent",
+        "Giving 0.05 as the probability of a Type I error without using the stated critical value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-type-one-error-doubled-for-a-one-tailed-test",
+        "Doubling the tail probability for a test that is one-tailed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-type-one-error-gives-the-complement",
+        "Giving the probability of not making a Type I error, one minus the tail probability.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-type-one-error-uses-sigma-not-the-standard-error",
+        "Dividing by the population standard deviation sigma instead of the standard deviation of the sample mean "
+        "when standardising.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3f-within-probability-one-sided",
+        "Finding the probability that the difference is less than d, rather than the probability that it lies between "
+        "minus d and d.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3g-trig-second-solution-wrong-quadrant",
+        "Finding the second solution of a trigonometric equation from the wrong quadrant rule, such as adding pi to the reference angle for a cosine or taking pi minus it for a tangent.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-principal-value-only",
+        "Giving only the calculator or first-quadrant solution and missing the second solution in the interval.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-sign-of-value-ignored",
+        "Solving with the size of the value and ignoring its sign, so the solutions come from the wrong pair of quadrants.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-calculator-value-outside-interval",
+        "Keeping the negative calculator value as a solution instead of moving it into the interval 0 to 2 pi.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-multiple-angle-not-divided",
+        "Solving for the multiple angle and reporting those values as x without dividing by the multiplier.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-multiple-angle-first-period-only",
+        "Taking only the solutions from the first period of the multiple angle, so a repeated solution is missing.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-shift-wrong-direction",
+        "Moving the shift in the wrong direction: using x + b where the equation has x - b.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-shift-ignored-in-answer",
+        "Solving for the shifted angle and forgetting to add the shift back to get x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-quadratic-root-dropped",
+        "Using only one root of the quadratic in the trigonometric function and missing the solutions of the other.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-quadratic-root-sign-slip",
+        "Reading a root of the quadratic with the wrong sign when factorising, such as taking (2s + 1) as s = 1/2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-quadratic-root-inverted",
+        "Giving the reciprocal of a root of the quadratic: s = 2 for (2s - 1) = 0.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-square-root-negative-dropped",
+        "Taking only the positive square root when solving tan squared x = k, so half the solutions are missing.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-solution-not-smallest",
+        "Naming a solution that is not the smallest in the interval.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-solution-not-largest",
+        "Naming a solution that is not the largest in the interval.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-sum-for-difference",
+        "Adding the largest and smallest solutions where their difference was asked for.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-interval-complement",
+        "Giving 2 pi minus the difference between the solutions, the gap round the other way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-trig-difference-halved",
+        "Halving the difference of the largest and smallest solutions.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-sign-slip",
+        "Using the wrong sign in a compound angle formula: adding where the cosine formula subtracts, or the reverse for the difference.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-values-added",
+        "Treating a function of a sum as a sum of functions, such as sin(A + B) = sin A + sin B.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-single-product",
+        "Keeping only one product of the compound angle formula, such as sin A cos B for sin(A + B).",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-sin-cos-swapped",
+        "Swapping sine and cosine of an angle, so the wrong ratio enters the formula.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-wrong-quadrant-sign",
+        "Getting the size of the exact value right and the sign wrong for the quadrant of the angle.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-formula-of-other-function",
+        "Using the compound formula for the other function: the cosine formula for a sine, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-quadrant-sign-ignored",
+        "Taking the missing sine or cosine as positive without checking the quadrant of the angle.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-tan-denominator-dropped",
+        "Using tan A + tan B for tan(A + B) and dropping the denominator 1 - tan A tan B.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-double-the-ratio",
+        "Doubling the given ratio instead of applying a double angle formula.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-double-angle-formula-slip",
+        "Misquoting a double angle formula: leaving out the factor 2, the denominator, or the constant term.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-pythagorean-slip",
+        "Using sin A = 1 - cos A, or the reverse, instead of the Pythagorean identity.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-root-not-taken",
+        "Giving the square of the missing ratio and forgetting to take the square root.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-compound-multiplier-dropped",
+        "Finding the exact value and forgetting to multiply by the number in front of it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-sign-slip",
+        "Using the wrong sign in a product-to-sum or sum-to-product identity, such as adding the cosines where 2 sin A sin B is their difference.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-factor-handled-wrongly",
+        "Mishandling the factor of two: leaving it out of a product that has a leading 2, or keeping it when the product has none.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-wrong-function",
+        "Turning a product into a sum of the wrong function: sines where cosines were needed, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-angles-not-added",
+        "Multiplying the sum and difference values instead of adding them, or using A and B themselves in the sum form.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-wrong-half-angles",
+        "Swapping the half-sum and half-difference of the two angles in a sum-to-product identity.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-wrong-multiple",
+        "Using the wrong multiple of x after combining the terms, so the solutions are spaced wrongly.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-zero-solution-dropped",
+        "Dropping x = 0 (or the other end of a family of solutions) from the list.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-solution-dropped",
+        "Listing too few solutions of the equation in the interval.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-cosine-zero-as-sine-zero",
+        "Solving cos mx = 0 as if it were sin mx = 0, giving multiples of pi over m instead of odd multiples of pi over 2m.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-one-factor-only",
+        "Solving only one factor of the factorised equation and missing the solutions of the other.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-interval-not-doubled",
+        "Counting the solutions in an interval of length pi and not doubling for an interval of length 2 pi.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-endpoint-counted",
+        "Counting the right end point of the interval as a solution, which the interval excludes.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-product-sum-sum-limits-wrong",
+        "Using the wrong first or last term when adding the equally spaced solutions.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-i-squared-sign",
+        "Forgetting that i squared is minus one when expanding (cos θ + i sin θ) to a power, so a sign is wrong.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-binomial-coefficient",
+        "Using the wrong binomial coefficient when expanding the power of cos θ + i sin θ, or when pairing terms.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-multiplied-ratio",
+        "Multiplying the ratio by the multiple, such as cos 3θ = 3 cos θ, instead of expanding the power.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-parts-swapped",
+        "Taking the imaginary part of the expansion for a cosine, or the real part for a sine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-paired-terms-halved",
+        "Giving half of the coefficient of a multiple angle, forgetting that z^k and z^-k together give 2 cos kθ.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-paired-terms-doubled",
+        "Doubling the coefficient of a multiple angle, adding z^k and z^-k twice.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-binomial-without-power-of-two",
+        "Giving the binomial coefficient and forgetting the factor 1/2^n from the powers of one half.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-wrong-term",
+        "Giving the coefficient of a different term of the expansion.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-sign-of-root",
+        "Taking the negative square root for an acute angle.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-pythagorean-slip",
+        "Using sin θ = 1 - cos θ in place of sin²θ = 1 - cos²θ.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-root-not-taken",
+        "Giving sin²θ where sin θ was asked, without taking the square root.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-multiple-angle-ratio-inverted",
+        "Finding tan 3θ as cos 3θ over sin 3θ.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-tan-formula-used",
+        "Using the tangent formula 2t/(1 - t²) where the sine formula 2t/(1 + t²) was needed.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-sin-formula-used",
+        "Using the sine formula 2t/(1 + t²) where the tangent formula 2t/(1 - t²) was needed.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-functions-swapped",
+        "Swapping the t-formulas for sine and cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-denominator-not-squared",
+        "Writing the denominator of a t-formula as 1 + t or 1 - t instead of 1 + t² or 1 - t².",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-numerator-wrong",
+        "Writing the numerator of the sine formula as t instead of 2t.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-reciprocal",
+        "Giving the reciprocal of the value.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-doubling-only",
+        "Doubling t and stopping, without the denominator of the tangent formula.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-half-angle-sign",
+        "Giving the wrong sign for tan(x/2), ignoring the quadrant that x/2 is in.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-root-not-taken",
+        "Giving t squared where t was asked, without taking the square root.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-sine-half-angle-used",
+        "Giving the value of sin(x/2) instead of tan(x/2).",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-wrong-root",
+        "Giving the other root of the quadratic in t.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-halved-tangent",
+        "Halving tan x to find tan(x/2).",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-half-angle-not-doubled",
+        "Giving arctan t as the solution, forgetting that t = tan(x/2) so x = 2 arctan t.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-negative-solution-not-shifted",
+        "Leaving a negative angle from arctan as a solution instead of adding 2 pi to bring it into the interval.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-roots-given-as-solutions",
+        "Giving the roots of the quadratic in t as the solutions for x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-one-root-only",
+        "Using only one root of the quadratic in t and missing the second solution.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-root-sign-slip",
+        "Reading a root of the quadratic in t with the wrong sign.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-roots-added",
+        "Giving the sum or product of the roots where one root was asked.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-t-formula-degrees-for-radians",
+        "Giving the solution in degrees where radians were asked.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-second-triangle-missed",
+        "Finding only the acute-angle triangle, so the second triangle is missed.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-acute-case-missed",
+        "Giving only the obtuse case, or the values for the obtuse case alone.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-complement-for-supplement",
+        "Taking 90° minus the angle as the second angle with the same sine instead of 180° minus it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-wrong-supplement",
+        "Finding the second angle with the same sine as 360° minus the angle, or as 90° plus it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-sine-rule-inverted",
+        "Setting up the sine rule upside down, so sin B = a sin A ÷ b.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-sine-value-given-as-angle",
+        "Giving the sine of the angle where the angle itself was asked.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-angle-sum-slip",
+        "Finding the third angle as 180° minus B, forgetting to subtract angle A as well.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-wrong-side-in-sine-rule",
+        "Using side b where side a belongs in the sine rule for the third side.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-included-angle-wrong",
+        "Using the wrong angle in the area formula: the angle must lie between the two sides used.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-calculator-in-radians",
+        "Evaluating the sine of the angle in radian mode.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-wrong-ratio",
+        "Using cosine, tangent or a division in place of b sin A for the length that gives a right angle.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-upper-limit-given",
+        "Giving the other limit of the interval for a, the side b, instead of b sin A.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-boundary-value-given",
+        "Giving the whole number just below b sin A, which is too short to reach, rather than the next whole number.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-rounded-the-wrong-way",
+        "Taking the whole number two above the critical length instead of the first whole number above it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-ambiguous-critical-value-not-rounded-up",
+        "Giving the critical length itself, which is not a whole number and does not give two triangles.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-constant-term-given",
+        "Giving the constant term of the quadratic as its turning value, without completing the square.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-square-not-subtracted",
+        "Completing the square and forgetting to subtract the square that was added, so the constant is wrong.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-min-max-sign",
+        "Giving the turning value with the wrong sign, mixing up a minimum and a maximum.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-half-not-taken",
+        "Using the whole middle coefficient where half of it belongs in the completed square.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-sign-of-shift",
+        "Reading (x - h)² as having its turning point at x = -h, or writing the shift with the wrong sign.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-value-for-position",
+        "Giving the turning value where the x-coordinate of the turning point was asked.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-leading-coefficient-ignored",
+        "Ignoring the leading coefficient when completing the square, so the turning point is that of x² + bx + c.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-other-root-given",
+        "Giving the smaller root where the larger was asked.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-root-not-taken",
+        "Giving the number under the square root without taking the root.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-shift-dropped",
+        "Giving only the surd and leaving out the shift from the completed square.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-one-sign-only",
+        "Giving one of the two boundary values, or one side of the region, and missing the other.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-square-root-not-taken",
+        "Forgetting to take the square root when solving k squared equals a number.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-factor-two-dropped",
+        "Dropping the factor of 2 in the boundary k = ±2√(ac) from the discriminant.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-region-reversed",
+        "Giving the region between the boundary values where the region outside them was needed, or the reverse.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-equality-included",
+        "Including the boundary values in the solution when the inequality is strict, or leaving them out when it is not.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-four-a-dropped",
+        "Leaving out the factor 4a in the discriminant b² - 4ac, or in the relation between it and the turning value.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-leading-coefficient-zero-allowed",
+        "Allowing k = 0 when k is the leading coefficient, which stops the equation being quadratic.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-roots-negated",
+        "Writing the boundary values with the wrong signs, such as using -2 and 3 for the zeros 2 and -3.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-rational-cross-multiplied",
+        "Multiplying both sides of a rational inequality by the denominator without allowing for its sign.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-pole-included",
+        "Including the value that makes the denominator zero in the solution of a rational inequality.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-constant-dropped",
+        "Leaving the constant term out when evaluating the turning value.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-quadratic-wrong-formula",
+        "Using the wrong formula for the discriminant.",
+        area="quadratics",
+    ),
+    CatalogueEntry(
+        "r3g-abs-second-case-missed",
+        "Solving only one of the two cases of a modulus equation and missing the other solution.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-sign-of-constant",
+        "Moving the constant across the equals sign without changing its sign when removing the modulus.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-coefficient-not-divided",
+        "Forgetting to divide by the coefficient of x after removing the modulus.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-constant-moved-before-dividing",
+        "Dividing only the right-hand side by the coefficient of x and then subtracting the constant, instead of dividing the whole expression.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-region-reversed",
+        "Giving the interval between the boundary values where the region outside them was needed, or the reverse.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-one-bound-only",
+        "Giving a single ray or bound where a modulus inequality has two bounds.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-equality-included",
+        "Including the boundary values for a strict inequality, or leaving them out for an inequality that allows equality.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-negative-case-sign",
+        "Not negating the whole expression in the second case of the modulus equation, only its first term.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-extraneous-root-kept",
+        "Keeping a root that makes the right-hand side negative, where the modulus cannot equal it.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-valid-root-rejected",
+        "Rejecting the valid root and keeping the one that fails the check.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-wrong-root",
+        "Giving the other intersection where the left-hand or right-hand one was asked.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-line-not-subtracted",
+        "Forgetting to subtract the line from the parabola, so the quadratic has the wrong middle and constant terms.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-roots-added",
+        "Giving the sum or product of the two x-coordinates where one was asked.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-distance-gradient-ignored",
+        "Giving the difference in x as the distance, which ignores the slope of the line joining the points.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3g-abs-distance-not-pythagoras",
+        "Adding the horizontal and vertical differences instead of using Pythagoras' theorem.",
+        area="inequalities",
+    ),
+    CatalogueEntry(
+        "r3h-separable-integration-factor-lost",
+        "Integrating y dy as y^2 instead of y^2/2 (the half lost), so the solution has y^2 = G(x) + C instead of y^2 = 2G(x) + C.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-wrong-integral",
+        "Integrating h(y) instead of 1/h(y) when separating the variables, so the left-hand side is the wrong function of y.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-constant-dropped",
+        "Leaving the constant of integration out and never using the given point, so the curve does not pass through it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-constant-after-inverse",
+        "Inverting the integrated relation term by term, writing y = e^G + C or y = ln G + C, so the constant is added after the inverse function instead of before it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-root-sign",
+        "Taking the negative square root although the given point has y positive.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-sign-lost",
+        "Losing the minus sign in the integral of 1/y^2, so -1/y is written as 1/y.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-inverse-backwards",
+        "Applying the original function where its inverse is needed, writing y = arctan(G + C) instead of y = tan(G + C).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-forgot-to-invert",
+        "Stopping at H(y) = G(x) + C and giving the right-hand side as y without inverting H.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-constant-sign",
+        "Fixing the constant with the wrong sign, C = G(x0) - H(y0) instead of H(y0) - G(x0).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-constant-ignores-antiderivative",
+        "Taking C to be H(y0) alone, as if G(x0) were zero.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-constant-adds-antiderivative",
+        "Adding G(x0) to H(y0) instead of subtracting it when fixing the constant.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-constant-uses-integrand",
+        "Fixing the constant with the integrand g(x0) where the antiderivative G(x0) is needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-separable-constant-is-antiderivative-value",
+        "Taking the constant to be G(x0) alone, forgetting the value of the left-hand side at the given point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-antiderivative-differentiated",
+        "Differentiating g(x) instead of integrating it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-antiderivative-sign",
+        "Giving the antiderivative of g(x) the wrong overall sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-antiderivative-times-x",
+        "Integrating a product by multiplying by x, writing x g(x) as the antiderivative of g(x).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-forgot-minus-one",
+        "Writing the constant as M/P(0) instead of (M - P(0))/P(0) in P = M/(1 + A e^(-kt)).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-constant-inverted",
+        "Inverting the constant, A = P(0)/(M - P(0)) instead of (M - P(0))/P(0).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-k-dropped",
+        "Leaving k out of the exponent, writing e^(-t) where e^(-kt) is needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-exponent-sign",
+        "Giving the exponent the wrong sign, e^(kt) in the denominator, so the population shrinks instead of approaching M.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-exponential-model",
+        "Using unrestricted exponential growth P(0)e^(kt) and ignoring the carrying capacity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-k-sign",
+        "Taking k from ln(A/(M/P - 1)) with the wrong sign, so the growth constant comes out negative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-k-not-divided-by-time",
+        "Finding the exponent -kt but not dividing by t, so k is the logarithm itself.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-log-base-ten",
+        "Using a base-10 logarithm to undo the natural exponential.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-fraction-not-converted",
+        "Mishandling the stated fraction of capacity, using 0.9 or 90 where the ratio f/(1 - f) is needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-forgot-constant",
+        "Solving f = 1/(1 + A e^(-kt)) with the constant A left out of the logarithm.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-time-times-k",
+        "Multiplying the logarithm by k instead of dividing by k when solving for the time.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-half-capacity",
+        "Answering with the time at which the population reaches half of M, the point of greatest growth, instead of the time asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-max-rate-at-start",
+        "Taking the greatest growth rate to occur at the start, or giving the rate at t = 0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-capacity-added",
+        "Adding M and P(0) instead of subtracting when finding the constant A.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-max-rate-missing-quarter",
+        "Giving the greatest growth rate as kM, missing the factors P = M/2 and (1 - P/M) = 1/2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-max-rate-half",
+        "Giving the greatest growth rate as kM/2, using P = M/2 but forgetting the factor (1 - P/M).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-logistic-max-rate-at-capacity",
+        "Evaluating the growth rate at the wrong population, giving kM/8.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-k-sign",
+        "Giving k the wrong sign when solving for it from the later reading, so the cooling constant comes out negative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-ambient-ignored",
+        "Ignoring the surrounding temperature, using T(0) or T(t) in place of the excess over the surroundings in the ratio or the model.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-k-not-divided-by-time",
+        "Finding the exponent -kt from the reading but not dividing by t, so k is the logarithm itself; or multiplying where a division is needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-log-base-ten",
+        "Using a base-10 logarithm to undo the natural exponential.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-no-shift",
+        "Writing T = T(0)e^(-kt), as if the object cooled towards 0 instead of towards the surrounding temperature.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-ambient-added-to-initial",
+        "Writing T = A + T(0)e^(-kt), using the initial temperature instead of the initial excess T(0) - A.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-excess-sign",
+        "Subtracting the decaying term, T = A - (T(0) - A)e^(-kt), so the temperature moves away from the surroundings.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-exponent-sign",
+        "Writing e^(kt) instead of e^(-kt), so the temperature moves away from the surroundings without bound.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-time-times-k",
+        "Multiplying the logarithm by k instead of dividing by k when solving for the time.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-ratio-inverted",
+        "Inverting the ratio of excesses inside the logarithm, so the time comes out negative.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-cooling-target-not-shifted",
+        "Using the target temperature itself, not its excess over the surroundings, in the ratio.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-slope-at-next-point",
+        "Evaluating the slope at the next x-value (with the old y) instead of at the current point (x(n), y(n)).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-step-size-not-applied",
+        "Adding the slope itself to y instead of the slope times the step size, y(n+1) = y(n) + f(x(n), y(n)).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-restarts-from-initial-value",
+        "Adding each new increment to the starting value y(x0) instead of to the previous estimate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-slope-not-updated",
+        "Reusing the first slope for every step instead of recomputing f at each new estimate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-increment-reported-as-estimate",
+        "Reporting the increment h f(x, y) as the new estimate instead of adding it to the old one.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-slope-uses-old-point",
+        "Finding the slope with the old x or the old y instead of the new estimate.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-slope-uses-x-only",
+        "Reporting x, or a function of x alone, as the slope when the equation depends on y as well.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-error-reversed",
+        "Subtracting in the wrong order, giving the estimate minus the exact value, so the error has the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-error-relative",
+        "Reporting the error as a percentage of the exact value instead of the difference asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-error-uses-previous-step",
+        "Comparing the exact value with the estimate from the step before the last.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-euler-error-estimate-only",
+        "Giving the Euler estimate itself where the error was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-elim-values-swapped",
+        "Finding the right values but giving them in the wrong order, such as y, x, z instead of x, y, z.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-elim-sign-of-last-variable",
+        "A sign error in the final step, so one unknown has the right size and the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-elim-constant-sign-slip",
+        "Copying a constant with the wrong sign when forming or combining equations, so the whole solution shifts.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-elim-coefficient-sign-slip",
+        "Giving a coefficient the wrong sign when scaling or subtracting equations during elimination.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-elim-subtracted-instead-of-added",
+        "Subtracting two equations where the signs of the unknown to be removed are opposite, so it is doubled instead of removed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-elim-constants-not-combined",
+        "Combining the coefficients of two equations but carrying only one of the constants.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-elim-coefficients-swapped",
+        "Writing the coefficients of x and y of the combined equation in the wrong order.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-elim-back-substitution-sign",
+        "A sign slip when substituting a found value back into an equation to find the next unknown.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-dropped-factor-in-surface",
+        "Leaving a factor out when writing the surface area, such as 2V/r replaced by V/r, so the function being minimised is wrong.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-one-end-only",
+        "Counting only one circular end of the tin (or one face) in the surface area.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-height-substitution-slip",
+        "Substituting the height from the volume incorrectly, such as h = V/(pi r) or V/x instead of V/x^2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-extra-face",
+        "Counting a face the object does not have, such as a lid on an open box.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-wrong-height",
+        "Using the wrong height for the rectangle under the curve, such as k - x instead of k - x^2.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-half-width-area",
+        "Taking the width of the rectangle as x instead of 2x, so the area is half the true area.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-curve-not-substituted",
+        "Substituting into the curve incorrectly when writing the height, such as k - x^3.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-cut-one-end",
+        "Subtracting x once from each side of the sheet instead of 2x, forgetting a square is cut at both ends.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-forgot-height",
+        "Leaving out the height x of the box, so the function is the area of the base.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-fold-allowance-slip",
+        "Subtracting 2x from one side of the sheet and only x from the other.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-revenue-not-profit",
+        "Maximising the revenue instead of the profit, ignoring the cost of production.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-derivative-power-slip",
+        "Writing the cost term with the wrong power or dropping the factor 3 when differentiating the cubic term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-cost-not-subtracted",
+        "Adding the cost to the revenue instead of subtracting it when forming the profit.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-wrong-coordinate",
+        "Using the point (x, x) instead of (x, x^2) when forming the distance.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-difference-not-squared",
+        "Not squaring the vertical difference when forming the squared distance.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-distance-formula-slip",
+        "Adding c instead of subtracting it in the vertical difference when forming the distance.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-root-outside-domain",
+        "Choosing the stationary point that lies outside the allowed values of the variable, or evaluating the function there.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-set-function-zero",
+        "Setting the function itself equal to zero, instead of its derivative, to find the optimum.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-halfway-guess",
+        "Taking the optimum to be halfway through the allowed values without differentiating.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-reports-variable",
+        "Giving the value of the variable at the optimum when the optimum value of the quantity was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-evaluated-at-wrong-point",
+        "Evaluating the function at a wrong stationary point, or at a stationary point of a mis-set function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-endpoint-value",
+        "Giving the value of the function at the end of the allowed values instead of at the stationary point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-nature-sign-reversed",
+        "Giving the second derivative the wrong sign, which would reverse the conclusion about a greatest or least value.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-second-derivative-at-other-root",
+        "Evaluating the second derivative at the other stationary point, the one outside the allowed values.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-second-derivative-at-end",
+        "Evaluating the second derivative at the end of the allowed values instead of at the stationary point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-opt-distance-not-rooted",
+        "Giving the least squared distance, the value of D, when the least distance was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-displacement-for-distance",
+        "Giving the change in position (the displacement) as the total distance, so the distance travelled while moving backwards is subtracted.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-stops-at-first-rest",
+        "Stopping the distance at the first time the velocity is zero and ignoring the rest of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-omits-last-segment",
+        "Adding the distances before the last turn but leaving out the final segment of the interval.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-omits-middle-segment",
+        "Adding the first and last segments of the motion but missing the one between the two turns.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-position-for-distance",
+        "Giving the position at the end of the interval as the distance travelled.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-acceleration-zero-for-rest",
+        "Splitting the interval where the acceleration is zero instead of where the velocity is zero.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-signs-kept",
+        "Counting one of the backward segments with its sign instead of its size.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-velocity-not-integrated",
+        "Giving the speed at the end of the interval as the distance, or not integrating the velocity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-average-for-distance",
+        "Giving the average speed (total distance divided by time) where the total distance was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-one-rest-only",
+        "Finding only one of the times at which the velocity is zero.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-position-zero-for-rest",
+        "Solving s = 0 (the times the particle passes the origin) instead of v = 0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-rest-sum-product",
+        "Giving the sum and product of the rest times instead of the times themselves.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-sign-of-rest-times",
+        "Giving the rest times with the wrong signs after factorising the velocity.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-total-distance-for-displacement",
+        "Giving the total distance where the displacement was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-position-for-displacement",
+        "Giving the final position where the change in position was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-displacement-reversed",
+        "Subtracting in the wrong order, s(0) - s(T), so the displacement has the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-final-segment-only",
+        "Giving the change in position over the last segment only as the displacement.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-average-velocity-for-speed",
+        "Dividing the displacement, not the total distance, by the time to get the average speed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-time-multiplied",
+        "Multiplying the total distance by the time instead of dividing.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-total-per-segment",
+        "Dividing the total distance by the number of segments instead of by the time.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-motion-displacement-per-time-abs",
+        "Taking the size of the average velocity as the average speed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-constant-has-derivative",
+        "Keeping a constant term in the derivative of a combination, as if the derivative of a constant were the constant.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-square-term-forgotten",
+        "Differentiating the combination of f and g but leaving out the derivative of the extra x^2 term.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-scalar-not-applied",
+        "Applying a scalar multiple to one function but not the other, or to neither, when taking the derivative or integral of a combination.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-derivatives-multiplied",
+        "Multiplying the two given derivatives instead of adding the scaled derivatives.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-power-rule-not-lowered",
+        "Differentiating x^2 as 2x but evaluating at the point with the power left on, giving u x0^2 instead of 2u x0.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-sign-of-second-term",
+        "Losing the minus sign of the second function when combining, so r f - s g is treated as r f + s g (or the reverse).",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-integral-of-term-not-integrated",
+        "Integrating an extra term over an interval without integrating it: using the term's coefficient as its integral.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-lower-limit-ignored",
+        "Substituting only the upper limit when evaluating the integral of an extra term, forgetting to subtract the value at the lower limit.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-integral-of-product",
+        "Multiplying the two given values instead of adding the scaled values.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-extra-term-dropped",
+        "Using the scaled given integrals but leaving out the integral of the extra term altogether.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-constant-dropped",
+        "Finding the antiderivative of each derivative but leaving out the constants of integration, so no member of the family is chosen.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-constant-not-scaled",
+        "Adding the constants of the two members without applying the scalar multiples to them.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-derivative-combined",
+        "Combining the given derivatives instead of the functions, giving the derivative of the combination as the combination.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-values-not-combined",
+        "Adding the combination of the given values as one constant, which is the value of the combination at the point rather than its constant of integration.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-integrated-without-dividing",
+        "Integrating by raising the power (or keeping the exponential) without dividing by the new power or by the coefficient of x in the exponent.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-constant-sign",
+        "Finding the constant of integration with the wrong sign.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-constant-is-value",
+        "Taking the given value of the function as the constant of integration, as if the antiderivative were zero at the point.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-constant-adds-antiderivative",
+        "Adding the antiderivative's value at the point to the given value instead of subtracting it when finding the constant.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-value-is-derivative",
+        "Evaluating the derivative at the point instead of the function.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3h-families-derivative-evaluated",
+        "Using the change in the derivative over the interval where the integral of the derivative (the change in the function) is needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "r3i-ap-difference-mean-minus-first",
+        "Giving the mean of the terms minus the first term as the common difference, without allowing for the terms' average sitting (n - 1)/2 steps above the first.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-ap-difference-not-divided-by-steps",
+        "Stopping at the total of the steps (9d) without dividing by the number of steps to find the common difference.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-ap-sum-first-term-not-doubled",
+        "Using a + (n - 1)d in place of 2a + (n - 1)d inside the arithmetic sum formula.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-ap-sum-forgot-halving",
+        "Leaving out the 1/2 in the sum formula, so the sum is double what it should be.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-ap-sum-n-instead-of-n-minus-1",
+        "Using n instead of n - 1 as the number of steps in the arithmetic sum formula 2a + (n - 1)d.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-domain-bound-sign",
+        "Giving the end of the domain with the wrong sign, as if x + b \u2265 0 gave x \u2265 b.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-hole-at-zero",
+        "Excluding x = 0 from the domain of a reciprocal whose denominator is not x.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-hole-from-numerator",
+        "Excluding the value that makes the numerator 0 instead of the denominator.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-hole-sign",
+        "Excluding the value of x with the wrong sign when the denominator is zero.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-inequality-direction",
+        "Reversing the direction of the inequality when solving for the domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-no-division-by-coefficient",
+        "Stopping at the constant term without dividing by the coefficient of x when solving for the end of the domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-nonstrict-for-log",
+        "Allowing the argument of a logarithm to equal 0, so using \u2265 where > is needed.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-one-sided",
+        "Giving only one end of an interval as the domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-only-endpoint-removed",
+        "Removing only the end of the domain of 1/g, and missing that the zero of g must also be removed.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-only-zero-removed",
+        "Removing only the single value where the root is 0, instead of requiring the root's argument to be positive.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-quadratic-one-root-only",
+        "Using only one root of the quadratic to set the domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-quadratic-sign-chart-reversed",
+        "Choosing the middle interval where the outer rays are needed (or the reverse) when solving a quadratic inequality for a domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-radius-squared-used",
+        "Using r\u00b2 instead of r as the end of the domain of \u221a(r\u00b2 - x\u00b2).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-range-confused",
+        "Giving the value the function can never take as a value of x that is excluded from the domain, or the other way round.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-root-condition-missed",
+        "Excluding the zero of g from the domain of 1/g but forgetting that the square root needs x to be at least the end of its own domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-strict-for-denominator",
+        "Allowing the argument of a square root in a denominator to equal 0, so using \u2265 where > is needed.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-strict-for-root",
+        "Excluding the end of the domain of a square root, using > where \u2265 is allowed.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-strictness-slip",
+        "Swapping strict and non-strict inequalities at the ends of a domain.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-domain-zero-of-denominator-missed",
+        "Giving the domain of g as the domain of 1/g, without removing the value where g is 0.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-factor-conjugate-missed",
+        "Writing the same complex factor twice instead of pairing it with its conjugate.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-constant-multiplied",
+        "Multiplying the constant term of the quartic by the constant of the known factor instead of dividing by it.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-constant-sign",
+        "Giving the constant of the other quadratic factor with the wrong sign.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-constant-subtracted",
+        "Subtracting the constant of the known factor from the constant term of the quartic instead of dividing.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-constant-sum-not-product",
+        "Adding the real and imaginary parts of the zero to get the constant of the quadratic factor, instead of finding p\u00b2 + q\u00b2.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-imaginary-part-lost",
+        "Dropping the imaginary part of the zero, so only the real part is used in the quadratic factor.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-imaginary-part-not-squared",
+        "Adding q instead of q\u00b2 to (x - p)\u00b2 when forming the real quadratic factor.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-imaginary-part-squared",
+        "Using q\u00b2 as the imaginary part of the zero, as if the zeros were p \u00b1 q\u00b2i.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-leading-coefficient-dropped",
+        "Leaving out the leading coefficient when writing the factorised form.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-linear-coefficient-given",
+        "Giving the coefficient of x in the second quadratic factor instead of its larger zero.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-quadratic-sign-of-q-squared",
+        "Subtracting q\u00b2 instead of adding it, as if the quadratic (x - p)\u00b2 + q\u00b2 were (x - p)\u00b2 - q\u00b2.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-real-part-dropped",
+        "Ignoring the real part of the zeros, so p \u00b1 qi becomes \u00b1qi.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-root-sign-read-from-coefficient",
+        "Reading a zero off the factor with the wrong sign, so x + 2 is taken to mean the zero is +2 (or the reverse).",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-smaller-zero-given",
+        "Giving the smaller zero when the larger was asked for.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-sum-of-squares-as-difference",
+        "Treating x\u00b2 + k\u00b2 as if it were a difference of squares and factorising it over the reals as (x - k)(x + k).",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-factor-zero-dropped",
+        "Leaving one of the real linear factors out of the complete factorisation.",
+        area="complex-numbers",
+    ),
+    CatalogueEntry(
+        "r3i-gave-common-difference-not-term",
+        "Giving the common difference when a term was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gave-first-term-not-term",
+        "Giving the first term when a later term was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gave-sum-not-first-term",
+        "Giving the sum to infinity when the first term was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gave-sum-not-tail",
+        "Giving the sum of the first three terms when the sum of the terms after them was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-first-term-from-second-term-sign",
+        "Dropping the minus sign of a negative ratio when working back from the second term to the first.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-nonconvergent-root-kept",
+        "Keeping the root of the quadratic that gives a ratio of size 1 or more, for which the series does not converge.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-ratio-gave-one-minus-r",
+        "Giving 1 - r (the first term over the sum) as the common ratio.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-ratio-inverted",
+        "Giving the sum over the first term as the common ratio.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-ratio-sum-formula-sign",
+        "Using a/(S + a) for the ratio, putting the first term on the wrong side of the sum formula.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-sum-forgot-divide-by-r-minus-1",
+        "Stopping at a(r^n - 1) in the geometric sum formula, without dividing by r - 1.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-sum-power-off-by-one",
+        "Using r to the power n - 1 (or n + 1) instead of r to the power n in the geometric sum formula.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-sum-sign-slip",
+        "Using (r^n + 1)/(r + 1) in place of (r^n - 1)/(r - 1) in the geometric sum formula.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-gp-sum-to-infinity-formula-sign",
+        "Using a/(1 + r) as the sum to infinity of a series with a negative ratio, as if r were positive.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-intercept-measured-from-origin",
+        "Giving the distance from the end of the domain to the x-intercept instead of its x-coordinate.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-intercept-root-not-squared",
+        "Setting the root equal to the constant but forgetting to square before solving for x.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-intercept-sign-slip",
+        "Adding b instead of subtracting it when solving for the x-intercept.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-absolute-value-forgotten",
+        "Leaving the distance from a point to a plane negative, instead of taking the absolute value of the signed distance.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-centre-forgotten",
+        "Using the dot product of the direction with the line's point instead of with the vector from the sphere's centre to that point.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-components-added-for-length",
+        "Adding the components of a vector to get its length instead of taking the square root of the sum of their squares.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-direction-added-not-subtracted",
+        "Finding the direction of the line through two points by adding the position vectors instead of subtracting them.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-direction-dot-forgotten",
+        "Leaving out the direction vector's part of the substitution, so \u03bb or the coordinate is found without the dot product or the factor of the direction.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-direction-length-forgotten",
+        "Giving the difference in the parameter \u03bb as a distance, forgetting to multiply by the length of the direction vector.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-direction-reversed",
+        "Subtracting along the line in the wrong direction when finding a point from \u03bb.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-divided-by-point-term",
+        "Dividing by the dot product of the plane's normal with the line's point, instead of with the line's direction.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-division-by-a-forgotten",
+        "Giving the numerator of the quadratic formula, -B minus the square root, without dividing by A.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-half-chord-given",
+        "Giving half the distance between the two intersection points.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-half-gap-given",
+        "Giving the distance from the midpoint to an intersection point in \u03bb units instead of the larger value of \u03bb.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-intersection-given-for-nearest",
+        "Giving a value of \u03bb at a point where the line meets the sphere instead of the point closest to the centre.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-length-added",
+        "Adding the length of the direction vector to a result instead of multiplying by it.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-length-not-squared",
+        "Dividing by the length of the direction vector instead of by its length squared.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-length-squared-forgotten",
+        "Leaving out the division by the squared length of the direction vector.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-length-squared-used",
+        "Multiplying or dividing by the squared length of the vector where its length is needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-midpoint-added-to-length",
+        "Adding the midpoint's \u03bb to a distance, mixing parameter values with lengths.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-midpoint-given",
+        "Giving the value of \u03bb at the midpoint of the chord instead of at an end of it.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-moved-term-sign",
+        "Making a sign slip when moving a term across the equals sign while solving for \u03bb.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-nearby-value-given",
+        "Giving a value of \u03bb that is one away from the value at the point nearest the centre.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-normal-length-forgotten",
+        "Omitting the division by the length of the normal vector in the point-to-plane distance.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-parameter-given-for-coordinate",
+        "Giving the value of \u03bb when a coordinate of the point was asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-parameter-given-for-length",
+        "Giving a value of \u03bb when a distance between the points was asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-plane-constant-sign",
+        "Using the wrong sign for the constant of the plane (or for the value subtracted from it).",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-point-ignored",
+        "Using only the constant of the plane in the distance formula, ignoring the point.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-point-term-forgotten",
+        "Dropping the point's own contribution when substituting the line into the plane, or the starting coordinate when finding the intersection.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-quotient-inverted",
+        "Dividing the other way round, writing n\u00b7v \u00f7 (d - n\u00b7p) instead of (d - n\u00b7p) \u00f7 n\u00b7v.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-smaller-solution-given",
+        "Giving the other solution of the quadratic in \u03bb than the one asked for.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-squares-miscounted",
+        "Making an arithmetic slip when adding the squares of the components of the direction.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-two-included-in-b",
+        "Including the factor of 2 from the middle term in B, so B is doubled.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-linesphere-wrong-point-used",
+        "Starting from point B instead of point A when stepping along the line by \u03bb.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-matrix-added-not-multiplied",
+        "Adding the two matrices instead of multiplying them to combine the transformations.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-matrix-entrywise-product",
+        "Multiplying the matrices entry by entry instead of using the matrix product.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-matrix-product-order-reversed",
+        "Multiplying the matrices in the order the transformations are applied, so the first transformation's matrix is written on the left instead of the right.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-matrix-product-sign-slip",
+        "Giving the negative of the correct matrix.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-mean-taken-as-first-term",
+        "Taking the mean of the first terms as the first term of the series.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-coefficient-not-squared",
+        "Squaring the trigonometric identity but leaving the scale factor of y unsquared, so y\u00b2 is given as b(...) instead of b\u00b2(...).",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-coefficient-of-y-ignored",
+        "Moving r sin(\u03b8) to y but ignoring its coefficient, so a multiple of y is treated as y.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-conic-sign-confused",
+        "Using the wrong sign between the x\u00b2 and y\u00b2 terms, treating an ellipse as a hyperbola or the reverse.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-constant-dropped",
+        "Dropping the constant term when substituting for the parameter.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-cos-squared-used-for-sin",
+        "Using cos\u00b2(\u03c0/3) = 1/4 where sin\u00b2(\u03c0/3) = 3/4 is needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-cross-term-halved",
+        "Taking (t + 1/t)\u00b2 - (t - 1/t)\u00b2 to be 2 instead of 4.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-denominator-not-squared",
+        "Writing x/a squared as x\u00b2/a instead of x\u00b2/a\u00b2.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-divided-only-one-term",
+        "Dividing only the constant by the coefficient of y, leaving the x term undivided.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-double-angle-factor-lost",
+        "Using cos(2t) = 1 - sin\u00b2(t), losing the factor of 2.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-double-angle-sign",
+        "Using cos(2t) = 1 + 2sin\u00b2(t), with the wrong sign on the squared term.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-factor-two-squared-wrongly",
+        "Squaring the coefficient 2b of t/(1 + t\u00b2) and carrying the factor 4 into the equation of the curve, although b was the scale of y.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-instruction-not-followed",
+        "Evaluating at the wrong value of x, not the one the question names.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-multiplied-not-divided",
+        "Multiplying by the coefficient of y instead of dividing by it.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-parameter-not-eliminated",
+        "Replacing t by x without first solving x = pt + q for t.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-scale-dropped",
+        "Dropping the scale factor of y from the equation, so y\u00b2 is given as 1 - x\u00b2/a\u00b2 for an ellipse that is scaled in y.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-scale-lost-in-squaring",
+        "Squaring only the numerator x - q when substituting t = (x - q)/p, and not the divisor p.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-sec-for-cos",
+        "Using sec(\u03c0/3) = 2 where cos(\u03c0/3) = 1/2 is needed.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-sec-tan-identity-sign",
+        "Using tan\u00b2(t) = sec\u00b2(t) + 1 instead of tan\u00b2(t) = sec\u00b2(t) - 1.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-shift-dropped",
+        "Ignoring the translation of the centre, so (x - h)\u00b2 appears as x\u00b2.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-shift-sign-wrong",
+        "Writing x + h in place of x - h for a curve whose centre is at x = h.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-sign-lost-moving-term",
+        "Making a sign slip when moving the x term across the equals sign.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-sign-lost-squaring-difference",
+        "Adding where the squared terms are subtracted, so (t + 1/t)\u00b2 - (t - 1/t)\u00b2 = 4 becomes a sum.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-solved-for-t-multiplied",
+        "Solving x = pt + q for t by multiplying by p instead of dividing.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-solved-for-t-wrong-sign",
+        "Solving x = pt + q for t with the wrong sign on q, writing t = (x + q)/p.",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-square-forgotten",
+        "Dropping the square on x when substituting sin(t) = x/a into 1 - 2sin\u00b2(t).",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-parametric-trig-value-misread",
+        "Using a wrong exact trigonometric value at t = \u03c0/3 (taking the cosine or the sine to be 1 or 3/2).",
+        area="vectors",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-added-not-multiplied",
+        "Adding the number of categories and the target count instead of multiplying (categories \u00d7 (count - 1)).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-box-count-given",
+        "Giving the number of boxes instead of the least number in the fullest box.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-categories-and-count-swapped",
+        "Swapping the number of categories and the target count, so the worst case is m(k - 1) instead of k(m - 1).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-difference-not-pascal",
+        "Giving a value that is a single binomial or sum of binomials, not the difference worked out with Pascal's identity.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-difference-taken-as-gap",
+        "Replacing the difference of two binomial coefficients with a quantity based only on the gap between the top numbers.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-difference-taken-as-lower-index",
+        "Reading C(n + 1, 3) - C(n, 3) as n, dropping the binomial that Pascal's identity leaves.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-difference-taken-as-one",
+        "Treating the difference of consecutive binomial coefficients as 1.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-difference-taken-as-sum",
+        "Adding the two binomial coefficients instead of subtracting them.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-extra-factor-kept",
+        "Keeping a factor that cancels when a ratio of factorials is simplified.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-extra-one-added",
+        "Adding one more than the pigeonhole principle requires.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-factor-dropped",
+        "Cancelling one factor too many when simplifying a ratio of factorials.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-factorials-cancelled-as-numbers",
+        "Cancelling the factorial signs and leaving the ratio of the two numbers, (n + s)/(n - t).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-halving-forgotten",
+        "Leaving out the division by 2 in the expansion of a binomial coefficient C(n, 2).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-objects-minus-boxes",
+        "Subtracting the number of boxes from the number of objects.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-one-fewer",
+        "Giving one fewer than the number of categories.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-one-more-forgotten",
+        "Giving the largest number that can be chosen without the property, forgetting the one more that forces it.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-one-term-only",
+        "Using only one of the two binomial coefficients being added.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-pair-count-doubled",
+        "Doubling the number of categories, as if a repeated pair needed two of each.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-pairs-not-formed",
+        "Not pairing the numbers: giving the size of the whole set or one fewer.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-pascal-index-off-by-one",
+        "Using Pascal's identity with a wrong index, such as C(n + 1, k) for C(n + 1, k + 1).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-quotient-not-rounded",
+        "Giving the exact quotient of objects by boxes, when a whole number of objects must be in a box.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-rounded-down",
+        "Rounding the quotient down, giving the number that is certainly in every box instead of the number that must be in some box.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-short-colour-ignored",
+        "Ignoring that a colour has fewer counters than the worst case would use, so using k(m - 1) + 1 directly.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-sum-taken-as-product",
+        "Multiplying the two binomial coefficients instead of adding them.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-times-m-not-m-minus-one",
+        "Using k \u00d7 m in the worst case, instead of k \u00d7 (m - 1).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-total-less-one",
+        "Giving one fewer than the whole bag, ignoring that fewer draws can already force the colour.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-pigeonhole-whole-bag-taken",
+        "Giving the number of counters in the whole bag.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3i-range-all-reals",
+        "Giving all real numbers as the range of a reciprocal, missing the value it never takes.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-direction",
+        "Giving a range that runs in the wrong direction from its end value.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-domain-confused",
+        "Giving the domain, or a value excluded from it, when the range was asked for (or the reverse).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-end-attained",
+        "Treating the end of the range of 1/\u221a(...) as attained, using \u2265 where the value is never reached.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-end-not-attained",
+        "Treating the least value of a square root function as not attained, using > where \u2265 is right.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-endpoints-only",
+        "Taking the range from the function values at the two ends of the interval only, ignoring the vertex.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-hole-at-zero",
+        "Giving y \u2260 0 as the range of a shifted reciprocal.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-hole-not-ray",
+        "Giving a single excluded value as the range of a function whose range is a ray.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-ignores-vertical-shift",
+        "Giving the range of the bare square root (0 and above, or 0 and below) without applying the vertical shift.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-open-end-treated-as-closed",
+        "Counting the larger end value as attained when the end of the interval that gives it is not included.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-radius-squared-used",
+        "Using r\u00b2 instead of r for the greatest value of \u221a(r\u00b2 - x\u00b2).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-ratio-inverted",
+        "Giving the ratio of the x-coefficients upside down as the value the rational function never takes.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-ratio-without-denominator-coefficient",
+        "Giving the numerator's x-coefficient alone as the value never taken, without dividing by the denominator's.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-scale-factor-ignored",
+        "Leaving out the multiplier in front of the square root when finding the greatest value.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-shift-sign",
+        "Applying the vertical shift with the wrong sign when finding the end of the range.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-symmetric-about-shift",
+        "Taking the range of a semicircle to run equally above and below the shift, as if the root could be negative.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-values-in-domain-order",
+        "Writing the range from f at the left end to f at the right end, even when the left value is the larger.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-vertex-always-used",
+        "Using the vertex value as an end of the range even when the vertex lies outside the interval.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-range-vertex-treated-as-open",
+        "Treating the vertex value as not attained, although the vertex lies inside the interval.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-angle-doubled-twice",
+        "Doubling the angle again after the reflection matrix already contains the doubled angle.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-angle-not-doubled",
+        "Using the angle between the mirror lines, not twice that angle, as the angle of the rotation.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-angle-not-halved",
+        "Taking the angle of the rotation as the angle between the mirror lines, instead of half of it.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-angle-not-reduced",
+        "Leaving a negative rotation angle as it is when an angle between 0\u00b0 and 360\u00b0 was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-angles-added",
+        "Adding the angles of the two mirror lines, instead of subtracting, to find the rotation.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-first-mirror-forgotten",
+        "Taking the second mirror to be at half the rotation angle from the x-axis, forgetting that it is measured from the first mirror.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-gave-the-rotation",
+        "Giving the matrix of the rotation when the matrix of the second reflection was asked for.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-order-doubled",
+        "Giving twice the number of applications that bring every point back.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-order-off-by-one",
+        "Giving a number of applications one more or one fewer than the number that return every point to its start.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-order-reversed",
+        "Taking the second mirror line first, which reverses the direction of the rotation.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-order-taken-as-angle",
+        "Giving the angle of the rotation as the number of applications needed.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-product-taken-as-reflection",
+        "Treating the combination of two reflections as a single reflection.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-rotation-direction-reversed",
+        "Using the matrix of the clockwise rotation (the inverse) in place of the anticlockwise one.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-second-mirror-on-wrong-side",
+        "Placing the second mirror on the wrong side of the first, so the rotation is clockwise instead of anticlockwise.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-second-mirror-only",
+        "Reflecting the point in the second line only, forgetting the first reflection.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-three-angles-signs-wrong",
+        "Combining the three mirror angles with the wrong signs: the net mirror is at a - b + c, where b is the middle line.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-reflections-three-taken-as-rotation",
+        "Treating the result of three reflections as a rotation, when an odd number of reflections gives a reflection.",
+        area="matrices",
+    ),
+    CatalogueEntry(
+        "r3i-roots-common-difference-doubled",
+        "Giving the gap between the smallest and largest roots, which is twice the common difference.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-cross-term-not-doubled",
+        "Subtracting the sum of the pairwise products once instead of twice in (sum of roots)\u00b2 - 2 \u00d7 (sum of pairwise products).",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-cross-term-sign",
+        "Adding the cross term instead of subtracting it when writing a sum of squares of the roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-cube-of-sum-only",
+        "Giving the cube of the sum of the roots as the sum of their cubes.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-cube-sum-cross-sign",
+        "Adding 3e\u2081e\u2082 instead of subtracting it in the formula for the sum of cubes of the roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-cube-sum-product-missed",
+        "Leaving the 3\u03b1\u03b2\u03b3 term out of the formula for the sum of cubes of the roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-cube-sum-product-sign",
+        "Subtracting 3\u03b1\u03b2\u03b3 instead of adding it in the formula for the sum of cubes of the roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-difference-squared-given",
+        "Giving the square of the common difference when the common difference was asked for.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-divided-by-four",
+        "Dividing by 4 instead of 2 when solving 2k = e\u2081\u00b2 minus the stated sum of squares for k.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-expansion-sign",
+        "Adding \u03b1\u03b2\u03b3 instead of subtracting it when expanding the product of the pair sums of the roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-expansion-term-miscounted",
+        "Subtracting 2\u03b1\u03b2\u03b3 instead of \u03b1\u03b2\u03b3 when expanding the product of the pair sums of the roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-expansion-term-missed",
+        "Leaving out the -\u03b1\u03b2\u03b3 term when expanding the product of the pair sums of the roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-factorised-incorrectly",
+        "Writing \u03b1\u00b2\u03b2 + \u03b1\u03b2\u00b2 as \u03b1\u00b2\u03b2\u00b2, or as the product of the sum with itself, instead of \u03b1\u03b2(\u03b1 + \u03b2).",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-forgot-to-divide-by-leading-coefficient",
+        "Using the coefficients b and c directly as the sum and product of the roots when the leading coefficient is not 1.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-forgot-to-square-sum",
+        "Subtracting twice the product from the sum of the roots, without squaring the sum, when finding (\u03b1 - \u03b2)\u00b2.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-largest-root-given",
+        "Giving the largest root when the common ratio was asked for.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-middle-root-given",
+        "Giving the middle root when the common difference or ratio was asked for.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-new-polynomial-sign-of-sum",
+        "Writing the new polynomial as x\u00b2 + (sum)x + (product), with the sign of the linear coefficient wrong.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-new-polynomial-sum-product-swapped",
+        "Putting the new product where the new sum belongs, and the sum where the product belongs.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-new-product-not-recomputed",
+        "Finding the new sum of roots but keeping the original product of roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-product-taken-as-sum",
+        "Adding the sum and the product of the roots instead of multiplying them.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-ratio-inverted",
+        "Giving the reciprocal of the common ratio.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-ratio-squared-given",
+        "Giving the square of the common ratio when the common ratio was asked for.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-reciprocal-sum-inverted",
+        "Writing the sum of the reciprocals of the roots upside down: (product)/(sum) instead of (sum)/(product).",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-reciprocals-taken-termwise",
+        "Adding the reciprocals of the sum and the product of the roots instead of finding (\u03b1 + \u03b2)/(\u03b1\u03b2).",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-sign-of-sum",
+        "Using b/a instead of -b/a for the sum of the roots, or -d/a for the product with the wrong sign.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-smallest-root-given",
+        "Giving the smallest root when the common difference was asked for.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-square-of-sum-only",
+        "Giving the square of the sum of the roots as the sum of their squares.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-transformation-applied-to-coefficients",
+        "Substituting the transformation into the polynomial instead of finding the sum and product of the transformed roots.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-roots-wrong-symmetric-function-used",
+        "Using the wrong combination of the roots' sum, pairwise products and product in the formula.",
+        area="polynomials",
+    ),
+    CatalogueEntry(
+        "r3i-sum-gave-last-term",
+        "Giving the last term when the sum of the terms was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-sum-one-term-short",
+        "Adding one term fewer than asked.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-sum-wrong-series-formula",
+        "Using the sum formula for the wrong kind of series: the geometric formula for an arithmetic sequence, or the reverse.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-tail-subtracted-one-term",
+        "Subtracting only the fourth term from the sum to infinity when the first three terms should come off.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-tail-wrong-number-removed",
+        "Subtracting the sum of the wrong number of terms from the sum to infinity.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-term-common-difference-halved",
+        "Using half the common difference when counting from the first term to a later term.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-term-difference-confused-with-first",
+        "Using the first term as the common difference when counting on to a later term.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-term-gave-partial-sum",
+        "Giving the sum of the first k terms when the k-th term was asked for.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-term-index-off-by-one",
+        "Counting k steps (or k - 2) from the first term instead of k - 1 steps to reach the k-th term.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-term-multiplied-not-powered",
+        "Multiplying the first term by 3r instead of raising the ratio to the third power.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-term-wrong-previous-sum",
+        "Subtracting the wrong earlier sum from S(k) when finding the k-th term, instead of S(k - 1).",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-terms-off-by-one",
+        "Counting the number of terms one too many or one too few after solving for n.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-terms-power-taken-as-count",
+        "Giving the power of the ratio as the number of terms instead of the exponent plus one.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-terms-sum-over-first-term",
+        "Dividing the stated sum by the first term to get the number of terms.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-terms-sum-over-last-term",
+        "Dividing the stated sum by the last term to get the number of terms.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3i-terms-treated-sum-as-last-term",
+        "Treating the stated sum as the last term, so counting steps from the first term up to the sum.",
+        area="series",
+    ),
+    CatalogueEntry(
+        "r3j-heron-perimeter-used-as-semi",
+        "Using the whole perimeter where the semi-perimeter belongs in Heron's formula.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-root-left-out",
+        "Leaving out the square root, giving the product s(s - a)(s - b)(s - c) as the area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-one-factor-dropped",
+        "Using only two of the three differences (s - a), (s - b), (s - c) under the root.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-semi-perimeter-given",
+        "Stopping at the semi-perimeter and giving it as the area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-half-product-of-two-sides",
+        "Treating the triangle as right-angled and taking half the product of two of its sides as the area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-halving-forgotten",
+        "Doubling the area, or forgetting the factor of one half that links a base and a height to the area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-height-halving-forgotten",
+        "Dividing the area by the base without first doubling it, so the height comes out half its size.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-height-on-shortest-side",
+        "Finding the height on the shortest side instead of the longest side.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-height-on-middle-side",
+        "Finding the height on the middle-length side instead of the longest side.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-area-given-as-height",
+        "Giving the area where the height was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-assumed-isosceles",
+        "Treating the triangle as isosceles and using Pythagoras on half the longest side.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-perimeter-priced",
+        "Pricing the perimeter of the region instead of its area.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-semi-of-two-sides",
+        "Halving the sum of only two sides to find the semi-perimeter.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-divided-by-three",
+        "Dividing the perimeter by three instead of two to find the semi-perimeter.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-cm2-given",
+        "Giving the area in square centimetres where square metres were asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-area-converted-with-linear-factor",
+        "Converting square centimetres to square metres by dividing by 100 instead of 10 000.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-heron-area-converted-with-cube-factor",
+        "Converting square centimetres to square metres by dividing by 1000 instead of 10 000.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-salary-allowance-annualised-in-fortnight",
+        "Adding the allowance for a whole year to a single fortnight of pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-allowance-counted-once",
+        "Adding one week of allowance to a fortnight of pay instead of two.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-allowance-left-out",
+        "Leaving the allowance out of the total pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-days-not-weeks",
+        "Converting a yearly salary to a shorter period through 365 days instead of the stated number of weeks.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-difference-wrong-way",
+        "Subtracting the larger pay from the smaller, so the gap has the wrong sign.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-divided-by-near-count",
+        "Dividing a yearly salary by a number close to, but not equal to, the number of pay periods in a year.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-fifty-two-weeks-assumed",
+        "Using 52 weeks of work where the question states fewer weeks.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-first-rate-on-all",
+        "Paying every piece at the first rate and ignoring the higher rate after the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-fortnight-used-as-week",
+        "Dividing a yearly salary by 26 and then by the weekly hours, treating a fortnight as a week.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-hours-left-out",
+        "Leaving the weekly hours out when finding a yearly pay from an hourly rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-hours-not-divided",
+        "Stopping at the weekly pay without dividing by the weekly hours to get the hourly rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-leave-weeks-removed",
+        "Dividing a yearly salary by fewer than 52 weeks to find the hourly rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-minimum-added",
+        "Adding the guaranteed minimum to the piecework pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-minimum-taken-as-cap",
+        "Treating the guaranteed minimum as a limit on pay and taking the smaller amount.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-month-used-as-week",
+        "Dividing a yearly salary by 12 and then by the weekly hours, treating a month as a week.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-multiplied-by-near-count",
+        "Multiplying a pay by a number close to, but not equal to, the number of pay periods in a year.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-multiplier-on-all",
+        "Applying the overtime multiplier to every hour, ordinary hours included.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-one-job-only",
+        "Giving the pay of one job where the difference between two jobs was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-overtime-at-double",
+        "Paying overtime at double time when time-and-a-half was stated.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-overtime-at-ordinary-rate",
+        "Paying the overtime hours at the ordinary rate.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-overtime-left-out",
+        "Leaving the overtime out of the weekly pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-percent-added-as-dollars",
+        "Adding the percentage rise to the pay as a number of dollars.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-rise-left-out",
+        "Ignoring the pay rise.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-rise-only",
+        "Giving the amount of the rise alone instead of the new pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-rise-subtracted",
+        "Taking the percentage off the salary instead of adding it.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-top-rate-on-all",
+        "Paying every piece at the higher rate instead of only the pieces beyond the threshold.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-weekly-allowance-added-to-year",
+        "Adding a weekly allowance to a yearly salary before dividing into pay periods.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-weekly-divisor-for-fortnight",
+        "Dividing a yearly salary by 52 to find a fortnightly pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-weekly-gap-given",
+        "Giving the gap in weekly pay where the gap in yearly pay was asked for.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-wrong-hours",
+        "Using a different number of weekly hours from the one stated.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-wrong-period-divisor",
+        "Dividing a yearly salary by the wrong number of pay periods.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-wrong-period-multiplier",
+        "Multiplying a pay by the wrong number of pay periods in a year.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-year-over-weekly-hours",
+        "Dividing the yearly salary by the weekly hours without first finding the weekly pay.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-classify-order-assumed",
+        "Treating labels that have no natural order as ordered categories.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-numerals-as-numbers",
+        "Treating numerals that are only used as labels or identifiers (postcodes, phone numbers, jersey numbers) as numerical data.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-order-ignored",
+        "Treating categories that have a natural order as unordered labels.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-ranks-as-counts",
+        "Treating ranks or rating numbers as counts or measurements rather than as ordered categories.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-count-as-continuous",
+        "Treating a counted variable, whose values are separate whole-number steps, as continuous.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-number-as-category",
+        "Treating a numerical variable as categorical because its values are numbers written down.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-measure-as-discrete",
+        "Treating a measured variable as discrete because its values were recorded to a whole unit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-display-for-categories",
+        "Choosing a display that shows shares of categories to show the distribution of a measured variable.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-display-needs-two-variables",
+        "Choosing a display that needs two variables to show the distribution of one variable.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-histogram-for-categories",
+        "Choosing a histogram, which needs numerical data, to show a categorical variable.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-box-plot-for-categories",
+        "Choosing a box plot, which needs numerical data, to show a categorical variable.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-count-as-category",
+        "Counting the discrete numerical variables as categorical ones in a tally of variable types.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-numerical-count-given",
+        "Giving the number of numerical variables where the number of one type of variable was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-measured-as-category",
+        "Counting the measured variables as categorical ones in a tally of variable types.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-numeral-labels-as-measured",
+        "Counting categorical variables written with numerals as measured variables.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-classify-miscounted-one-out",
+        "Miscounting the variables of one type by one when working through the list.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-added-amount-left-out",
+        "Leaving out the amount added or removed at each step and only applying the percentage change.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-added-amount-not-compounded",
+        "Adding the total of the amounts to the answer at the end instead of letting each one grow or shrink with the later steps.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-amount-before-change",
+        "Adding or removing the amount before applying the percentage change, instead of after it.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-constant-change-assumed",
+        "Assuming the value changes by the same amount every step instead of following the recurrence.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-divided-by-multiplier",
+        "Dividing by the multiplier where the recurrence multiplies by it.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-double-change",
+        "Doubling the change in one step when finding the amount that holds the value constant.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-doubled-count",
+        "Doubling the number of steps found instead of checking the value at each step.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-growth-and-decay-swapped",
+        "Using the growth multiplier for a loss, or the loss multiplier for growth.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-interest-on-start-only",
+        "Finding the interest on the opening amount only, as if the later amounts earned nothing.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-new-value-given",
+        "Giving the value after one step where the amount to add or remove was asked for.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-one-amount-short",
+        "Counting one fewer deposit or payment than were made.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-one-step-short",
+        "Stopping one step too early.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-one-step-too-many",
+        "Running the recurrence one step too far.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-percent-added-as-dollars",
+        "Adding the percentage rate to the balance as if it were an amount.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-percent-as-tenth",
+        "Writing a percentage as a decimal one place out, so a rate of 4% becomes 0.4.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-percent-not-divided",
+        "Using the percentage as a number of whole units instead of a fraction of the value.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-rate-not-multiplier",
+        "Multiplying by the rate alone (0.04) instead of by 1 plus the rate (1.04).",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-sign-of-amount-reversed",
+        "Taking an amount out where it is put in, or the reverse, at every step.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-simple-instead-of-compound",
+        "Adding the same change at every step as if the rate applied only to the starting value.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-start-value-left-in",
+        "Leaving the starting balance in when asked for the interest earned.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-recurrence-total-change-given",
+        "Giving the whole change in balance where only the part due to interest was asked for.",
+        area="sequences",
+    ),
+    CatalogueEntry(
+        "r3j-sample-added-not-multiplied",
+        "Adding the numbers of choices at each stage instead of multiplying them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-miscounted-one-out",
+        "Miscounting the outcomes by one when listing them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-and-for-or",
+        "Counting only the outcomes that meet both conditions where either condition was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-at-most-for-at-least",
+        "Counting the outcomes with at most the stated number where at least that number was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-at-most-for-exactly",
+        "Including every outcome up to the stated value where only the outcomes equal to it were asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-banned-outfits-given",
+        "Giving the number of combinations that are ruled out instead of the number that remain.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-complement-given",
+        "Giving the probability that the event does not happen where the probability that it does was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-count-one-over",
+        "Counting one outcome too many in the event.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-count-one-short",
+        "Counting one outcome too few in the sample space.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-denominator-added",
+        "Using the sum of the numbers of outcomes at each stage as the size of the sample space.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-difference-for-sum",
+        "Listing the pairs whose difference, not sum, is the stated number.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-difference-one-way-only",
+        "Counting a difference of the stated size in one direction only (first minus second).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-event-given-for-complement",
+        "Giving the probability of the event where the probability that it does not happen was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-exactly-for-at-least",
+        "Counting only the outcomes with exactly the stated number where at least that number was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-first-number-only",
+        "Testing the stated property on the first number only instead of on the pair.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-impossible-outcome-added",
+        "Listing an outcome that cannot happen.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-multiplied-not-listed",
+        "Multiplying the number of tosses by the stated count instead of counting the outcomes.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-one-condition-only",
+        "Applying only one of two conditions when counting the outcomes.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-one-outfit-removed",
+        "Removing one combination where a restriction rules out several.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-one-over-count",
+        "Writing one over the number of outcomes in the event instead of that number over the size of the sample space.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-ordered-pairs-collapsed",
+        "Listing each unordered pair once, leaving out the reverse order, as if (a, b) and (b, a) were one outcome.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-outcome-omitted",
+        "Leaving an outcome out of the sample space.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-overlap-counted-twice",
+        "Adding the outcomes meeting each condition without removing those counted twice.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-pair-order-swapped",
+        "Writing some pairs with the stages in the wrong order.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-product-for-sum",
+        "Listing the pairs whose product, not sum, is the stated number.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-restriction-ignored",
+        "Ignoring the restriction and counting every combination.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-restriction-removed-twice",
+        "Taking away the ruled-out combinations twice.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-smaller-for-larger",
+        "Testing the smaller number of the pair where the larger number was stated.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-stages-listed-separately",
+        "Listing the outcomes of each stage separately instead of pairing them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-sum-for-difference",
+        "Listing the pairs whose sum, not difference, is the stated number.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-sum-for-product",
+        "Listing the pairs whose sum, not product, is the stated number.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-target-off-by-one",
+        "Listing the pairs for a target one more than the one stated.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-whole-space-given",
+        "Giving the size of the whole sample space where the size of the event was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-added-factor",
+        "Adding the conversion factor to the length instead of multiplying by it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-subtracted-factor",
+        "Subtracting the conversion factor from the length instead of dividing by it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-centimetres-given",
+        "Stopping at centimetres when the length was asked for in metres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-decimal-slip",
+        "Moving the decimal point the wrong number of places when changing between centimetres and metres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-divided-for-multiplied",
+        "Dividing by the conversion factor where the larger unit must be multiplied by it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-multiplied-for-divided",
+        "Multiplying by the conversion factor where the smaller unit must be divided by it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-factor-off-by-one",
+        "Using a conversion factor that is one more than the one stated.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-factors-inverted",
+        "Using the two conversion factors the wrong way round.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-feet-treated-as-inches",
+        "Skipping the change from feet to inches and treating the feet as inches.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-inches-given",
+        "Stopping at inches when the length was asked for in feet.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-kilometres-given",
+        "Stopping at kilometres when the length was asked for in miles.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-metres-treated-as-centimetres",
+        "Treating a length in metres as if it were in centimetres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-mile-as-kilometre",
+        "Treating a distance in miles as if it were in kilometres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-nautical-mile-as-kilometre",
+        "Treating a distance in nautical miles as if it were in kilometres.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-nautical-mile-as-mile",
+        "Treating a nautical mile as the same length as a mile.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-one-factor-for-both",
+        "Using the same conversion factor for both legs of a journey measured in different units.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-step-left-out",
+        "Leaving out one step of a chain of unit conversions.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-units-added-without-converting",
+        "Adding distances measured in different units without converting them first.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-wrong-factor",
+        "Using the factor for a different pair of units.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-wrong-unit-factor",
+        "Using the factor for the other unit of distance.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-yards-as-hundredths",
+        "Adding the yards to the kilometres as hundredths instead of converting them to miles first.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-yards-left-out",
+        "Leaving the yards out of a distance written in miles and yards.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-imperial-yards-treated-as-miles",
+        "Converting the yards to kilometres with the factor for miles.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-salary-salary-prorated-to-weeks",
+        "Cutting the salary down to the number of weeks the hourly job is worked, although the salary is paid for the whole year.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-salary-weeks-off-by-two",
+        "Using two more weeks of work than the question states.",
+        area="money",
+    ),
+    CatalogueEntry(
+        "r3j-slope-average-cost-as-rate",
+        "Dividing the total cost at one point by the count to get a rate, which ignores the fixed cost in the total.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-cost-at-crossing-given",
+        "Giving the cost at the point where the lines cross where the count at the crossing was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-count-added",
+        "Adding the count to the fixed cost instead of multiplying it by the rate.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-difference-doubled",
+        "Doubling the difference between two rates.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-difference-wrong-way",
+        "Subtracting the rates in the wrong order, so the difference has the wrong sign.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-divided-for-multiplied",
+        "Dividing the count by the rate where it must be multiplied by it.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-first-unit-total",
+        "Giving the total cost of the first unit, fixed cost included, as the cost of each extra unit.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-fixed-cost-added",
+        "Adding the fixed cost to an amount that depends only on the rate.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-fixed-cost-as-rate",
+        "Reading the fixed cost, where the line meets the vertical axis, as the cost of each extra unit.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-fixed-cost-counted-twice",
+        "Adding the fixed cost twice when finding a total cost.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-fixed-cost-difference-given",
+        "Giving the difference between the two fixed costs where a rate or a count was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-fixed-cost-for-extra",
+        "Using the fixed cost as the cost of each extra unit.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-fixed-cost-left-out",
+        "Leaving the fixed cost out of a total cost.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-grid-column-as-units",
+        "Giving the number of grid columns as the number of units when each column stands for several units.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-grid-step-as-unit",
+        "Taking the rise for one grid step as the rate per unit when a grid step is several units wide.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-multiplied-for-divided",
+        "Multiplying the amount by the rate where it must be divided by it.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-neighbouring-gridline",
+        "Reading the count one grid line away from where the lines cross.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-other-line-read",
+        "Reading the rate of the other plan's line.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-rates-added",
+        "Adding the two rates where their difference was asked for.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-rise-as-rate",
+        "Giving the rise between two points as the rate, without dividing by the run.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-run-over-rise",
+        "Dividing the run by the rise, giving units per dollar instead of dollars per unit.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-slope-total-as-rate",
+        "Reading the total cost at a point of the line as the cost of each extra unit.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "r3j-speed-distance-weighted-mean",
+        "Averaging the speeds weighted by the distances, which counts a slow leg for less than the time spent on it.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-divided-for-multiplied",
+        "Dividing by the time where the speed and time must be multiplied.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-divided-the-wrong-way",
+        "Dividing the speed by the distance (or the reverse) where distance is divided by speed to give time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-first-leg-time-used",
+        "Dividing the last leg by the time taken on the first leg instead of the time that is left.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-hours-and-minutes-added",
+        "Adding the hours and the minutes as if they were the same unit.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-hours-given-as-minutes",
+        "Giving the time in hours where the time in minutes was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-hours-times-hundred",
+        "Changing a time in hours to minutes by multiplying by 100 instead of 60.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-last-leg-left-out",
+        "Leaving the last leg of the journey out of the time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-last-leg-over-whole-time",
+        "Dividing the last leg by the whole time allowed instead of the time left after the first leg.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-linear-adjustment",
+        "Adjusting the speed by the gap between the target and the first speed, as if speeds averaged in a straight line.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-mean-of-speeds",
+        "Taking the mean of the speeds as the average speed instead of the total distance over the total time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-mean-of-speeds-reversed",
+        "Finding the speed that would make the plain mean of the speeds equal the target.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-minutes-as-hundredths",
+        "Writing minutes as hundredths of an hour, so 2 hours 15 minutes becomes 2.15 hours.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-minutes-ignored",
+        "Ignoring the minutes and using only the whole hours of the time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-minutes-not-converted",
+        "Using minutes as if they were hours when multiplying a speed in kilometres per hour by a time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-multiplied-for-divided",
+        "Multiplying where a division by speed or time is needed.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-other-leg-speed-used",
+        "Using the speed of the other leg of the journey to find a leg's time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-per-minute-given",
+        "Dividing the distance by the minutes and giving kilometres per minute as kilometres per hour.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-stop-left-out",
+        "Leaving the rest stop out of the total time.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-stop-minutes-as-hours",
+        "Adding the minutes of a rest stop to a time in hours as if they were hours.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-target-given",
+        "Giving the target average speed where the speed for the last leg was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-total-distance-given",
+        "Giving the total distance where the average speed was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-total-distance-over-first-time",
+        "Dividing the total distance by the time of the first leg only.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-total-time-given",
+        "Giving the total time where the average speed was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-speed-minutes-given-as-hours",
+        "Giving a time in minutes where the time in hours was asked for.",
+        area="measurement",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-difference-divided-by-sum",
+        "Dividing the difference between two shares by the sum of their ratio terms instead of by their difference.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-difference-divided-by-largest-term",
+        "Dividing the difference between two shares by the larger ratio term alone.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-difference-divided-by-total-parts",
+        "Dividing the difference between two shares by the total number of parts.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-difference-divided-by-terms-counted",
+        "Dividing the difference between two shares by a count of the parts one more than their difference.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-difference-given-as-total",
+        "Giving the difference between two shares where the total was asked for.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-parts-counted-as-people",
+        "Multiplying the value of a part by the number of people instead of the number of parts.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-two-shares-only",
+        "Totalling only two of the three shares.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-largest-share-tripled",
+        "Treating every share as equal to the largest share when finding the total.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-total-divided-by-term",
+        "Dividing the total by one ratio term instead of multiplying the value of a part by it.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-equal-shares",
+        "Sharing equally among the people instead of using the ratio.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-difference-of-terms-used",
+        "Using the difference of two ratio terms as the number of parts in a share.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-other-two-shares-added",
+        "Adding the other two shares instead of finding the share asked for.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-percentage-of-largest",
+        "Finding one share as a percentage of the largest share instead of the total.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-percentage-of-middle",
+        "Finding one share as a percentage of the middle share instead of the total.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-ratio-fraction-not-percentage",
+        "Giving a share of the total as a decimal fraction where a percentage was asked for.",
+        area="ratio",
+    ),
+    CatalogueEntry(
+        "r3j-sample-at-least-one-for-exactly-one",
+        "Listing the outcomes where at least one die shows the number when exactly one was asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-complement-listed",
+        "Listing the outcomes that do not satisfy the condition instead of those that do.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3j-sample-wrong-positions-compared",
+        "Comparing the wrong tosses when deciding which outcomes meet a condition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-exponent-off-by-one",
+        "Using one failure too many or too few in a geometric probability: q^k p for P(X = k), or q^(k-1) for"
+        " P(X > k).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-binomial-for-first-success",
+        "Treating the first-success trial number as a binomial count and multiplying by k, so that the "
+        "success may fall on any of the k trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-forgot-the-success",
+        "Giving q^(k-1), the chance of k-1 failures, without the factor p for the success on trial k.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-swapped-p-and-q",
+        "Swapping the success and failure probabilities in a geometric or race probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-tail-complement-slip",
+        "Giving P(X <= k) = 1 - q^k where the tail P(X > k) = q^k was asked, or the reverse.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-tail-as-point-mass",
+        "Giving the single mass q^(k-1) p where the whole tail P(X > k) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-binomial-for-rth-success",
+        "Giving the binomial probability of exactly r successes in n trials, C(n, r) p^r q^(n-r), where the "
+        "r-th success must come on the last trial.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-forgot-the-arrangements",
+        "Omitting the binomial coefficient C(n-1, r-1) that counts where the first r-1 successes fall.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-wrong-choose-argument",
+        "Using C(n, r-1) in place of C(n-1, r-1), forgetting that the last trial is fixed as a success.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-geometric-for-rth-success",
+        "Using the geometric probability q^(n-1) p for the r-th success instead of the negative binomial.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-even-for-odd",
+        "Summing the odd-numbered masses (1/(1+q)) where the even ones (q/(1+q)) were asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-even-wrong-start",
+        "Starting the series for P(X even) at q^2 instead of qp, so that the first term and the factor p are wrong.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-even-forgot-p",
+        "Summing q + q^3 + q^5 + ... without the factor p in every term.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-even-first-term-only",
+        "Giving only the first even mass's failure factor q instead of summing the whole series.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-race-wrong-winner",
+        "Giving the probability that the second player wins instead of the first.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-race-ratio-of-probabilities",
+        "Giving p_A/(p_A + p_B), which ignores that the players take turns and the race can go on for more rounds.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-race-ignores-the-opponent",
+        "Dividing by 1 - q_A alone, as if the opponent never played.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-race-two-rounds-only",
+        "Adding only the first two terms of the series for the first player winning.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-variance-forgot-square",
+        "Dividing by p instead of p^2 in the variance r q / p^2 of the trial of the r-th success.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-variance-forgot-q",
+        "Giving r / p^2 for the variance, leaving out the factor q.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-variance-single-geometric",
+        "Giving the variance of a single geometric waiting time for the r-th success.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-variance-swapped-p-and-q",
+        "Swapping p and q in the variance formula.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-negbin-variance-scaled-like-a-multiple",
+        "Scaling the variance by r^2, as for r times one waiting time, instead of by r for a sum of r "
+        "independent ones.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-ignores-the-memoryless-property",
+        "Conditioning on no success in the first m trials but still using m + k trials, ignoring that the "
+        "process restarts.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-geometric-point-mass-for-cumulative",
+        "Giving the single mass p q^(k-1) where the probability of succeeding at some point within k trials was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-forgot-reciprocal",
+        "Giving the value of the double integral of g as the constant c (or as E(Y)), instead of c = 1/(that "
+        "integral) or c times the integral.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-wrong-region-limits",
+        "Integrating over the wrong region, such as the whole square or a different rectangle, instead of the"
+        " stated one.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-swapped-triangle",
+        "Integrating over the complementary triangle, with the limits y < x and x < y the wrong way round.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-integral-plus-one",
+        "Adding 1 to the integral before taking the reciprocal.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-midpoint-for-integral",
+        "Estimating the double integral by area times the value of g at the centre of the rectangle, which is"
+        " only exact for a linear g.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-complement-region",
+        "Giving the probability of the complementary event, 1 minus the correct value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-assumed-symmetry",
+        "Assuming P(Y > X) = 1/2 by symmetry when the density is not symmetric in x and y.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-event-as-box",
+        "Treating a sloping event such as X + Y < L or Y > X as a corner box such as X < L/2 and Y < L/2.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-halved-the-region",
+        "Halving the probability because the event covers half of the square, ignoring that the density is "
+        "not uniform.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-marginal-wrong-limits",
+        "Integrating the other variable over the whole range instead of the part of the triangle that lies "
+        "above or below x (or y).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-marginal-other-variable",
+        "Giving the marginal density of the other variable, integrating out x instead of y (or the reverse).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-marginal-forgot-c",
+        "Leaving the constant c out of the marginal density.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-marginal-lower-limit-dropped",
+        "Substituting only the upper limit into the antiderivative and forgetting to subtract its value at "
+        "the variable lower limit.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-ex-for-ey",
+        "Computing E(X) where E(Y) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-jointden-mean-from-the-midpoint",
+        "Giving the midpoint of the range of Y as its mean, ignoring that the density is not uniform.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-gave-the-joint-density",
+        "Giving the joint density f(x, y) where the conditional density was asked, without dividing by the marginal.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-divided-by-the-other-marginal",
+        "Dividing the joint density by the marginal of the other variable, instead of by the marginal of the "
+        "variable that is given.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-marginal-over-full-range",
+        "Finding the marginal of the given variable by integrating over the whole range of the other variable"
+        " instead of the part of the triangle above or below it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-assumed-uniform",
+        "Treating the conditional distribution as uniform on its range, giving 1 over the length of the range.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-multiplied-by-c-twice",
+        "Multiplying by the constant c a second time, or dividing by the marginal without cancelling c.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-forgot-the-constant",
+        "Giving g(x, y) without the normalising constant c, so the result does not integrate to 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-mean-forgot-to-divide",
+        "Integrating y f(x, y) over y without dividing by the marginal f_X(x), which gives the unnormalised "
+        "conditional mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-mean-unconditional",
+        "Giving the unconditional mean E(Y), a number, where the conditional mean as a function of x was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-mean-assumed-uniform",
+        "Giving the midpoint of the range of Y as E(Y | X = x), ignoring that the conditional density is not uniform.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-mean-wrong-limits",
+        "Using the wrong limits of integration for the conditional mean, such as 0 to the rectangle width or "
+        "0 to the upper bound of the triangle instead of the range of Y at that x.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-variance-second-moment-only",
+        "Giving E(Y² | X = x) as the conditional variance, without subtracting the square of the conditional mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-variance-mean-squared",
+        "Giving the square of the conditional mean as the conditional variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-variance-wrong-sign",
+        "Adding the square of the conditional mean to E(Y² | X = x) instead of subtracting it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-variance-assumed-uniform",
+        "Using the uniform variance (range)^2/12 for the conditional distribution, ignoring that the density "
+        "is not uniform.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-marginal-of-the-other-variable",
+        "Giving the marginal density of Y (integrating out x) where the marginal of X was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-marginal-forgot-c",
+        "Leaving the constant c out of the marginal density.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-forgot-jacobian",
+        "Substituting x = h(y) into the density of X but leaving out the factor |dx/dy|.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-jacobian-inverted",
+        "Multiplying by the slope dy/dx (or by |a|) instead of dividing, so the Jacobian factor is inverted.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-negative-slope-sign",
+        "Dividing by a negative slope instead of its absolute value, giving a negative density.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-forgot-the-shift",
+        "Replacing x by y/a instead of (y - b)/a, forgetting the shift in Y = aX + b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-substituted-forward",
+        "Substituting y into the map (writing f_X(g(y))) instead of into its inverse.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-forgot-to-invert",
+        "Writing f_X(y) |h'(y)|, using the density of X at y rather than at the inverse h(y).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-one-branch-only",
+        "Using only the positive inverse branch of Y = X^2 (or |X|) where both branches lie in the support of X.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-doubled-one-branch",
+        "Doubling the contribution of the positive branch instead of adding the two different branch values.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-subtracted-the-branches",
+        "Subtracting the contribution of the negative branch from that of the positive one instead of adding them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-convolution-wrong-piece",
+        "Using the formula for a different piece of the density of a sum of two uniforms (rising, flat or falling).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-convolution-product-of-densities",
+        "Multiplying the two uniform densities, 1/(ab), and treating the product as the density of the sum.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-convolution-uniform-on-the-sum",
+        "Treating the sum of the two uniforms as uniform on (0, a + b), with density 1/(a + b).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-cdf-of-x-not-y",
+        "Giving the distribution function of X at y instead of the distribution function of Y = g(X).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-cdf-upper-tail",
+        "Giving P(Y > y) = 1 - F_Y(y) where the distribution function P(Y <= y) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-cdf-inverse-direction",
+        "Evaluating F_X at g(y) instead of at the inverse h(y) when finding F_Y(y).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-density-is-the-cdf",
+        "Giving the distribution function F_Y(y) where the density f_Y(y) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-value-at-the-wrong-point",
+        "Evaluating the distribution function at the other stated point.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-forgot-to-subtract",
+        "Giving F_Y(y1) alone for P(y0 < Y < y1), without subtracting F_Y(y0).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-added-instead-of-subtracted",
+        "Adding F_Y(y0) to F_Y(y1) instead of subtracting it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-upper-tail-only",
+        "Giving P(Y > y0) for P(y0 < Y < y1), ignoring the upper end of the interval.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-transf-averaged-the-branches",
+        "Averaging the contributions of the two inverse branches instead of adding them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-evaluated-the-function",
+        "Evaluating M(0) = 1 instead of differentiating the moment generating function.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-second-moment-for-mean",
+        "Giving M''(0) = E(X^2) where the mean E(X) = M'(0) was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-variance-for-mean",
+        "Giving the variance where the mean was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-outer-derivative-only",
+        "Differentiating only the outer power (chain rule without the inner derivative), so a factor such as "
+        "p, b or 1/lambda is missing.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-swapped-p-and-q",
+        "Swapping the success and failure probabilities when reading the parameters from the MGF.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-squared-the-rate",
+        "Squaring the Poisson rate lambda where lambda itself was needed.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-failures-for-trials",
+        "Giving the mean number of failures q/p where the MGF counts trials, with mean 1/p.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-scale-for-mean",
+        "Giving the scale b of a gamma-type MGF (1 - bt)^(-a) as the mean, instead of a times b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-rate-for-mean",
+        "Giving the rate lambda of an exponential MGF as the mean, instead of 1/lambda.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-variance-is-second-moment",
+        "Giving E(X^2) = M''(0) as the variance, without subtracting the square of the mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-variance-wrong-sign",
+        "Adding the square of the mean to M''(0) instead of subtracting it.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-variance-is-mean-squared",
+        "Giving the square of the mean M'(0)^2 as the variance.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-variance-is-the-mean",
+        "Giving the mean where the variance was asked, as if every distribution had variance equal to its mean.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-variance-forgot-q",
+        "Giving 1/p^2 for the geometric variance, leaving out the factor q.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-sum-uses-one-variable",
+        "Using the distribution of X alone for the sum X + Y, ignoring Y.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-sum-forgot-the-coefficient",
+        "Leaving out the binomial coefficient in the probability mass function.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-sum-product-of-probabilities",
+        "Multiplying P(X = j) by P(Y = k - j) for a single split of k instead of identifying the distribution"
+        " of the sum.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-poisson-product-of-rates",
+        "Multiplying the Poisson rates for the sum instead of adding them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-poisson-forgot-factorial",
+        "Leaving out the factorial in the Poisson probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-poisson-wrong-exponent",
+        "Using e^(-1) in a Poisson probability instead of e^(-lambda).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-pmf-wrong-index",
+        "Using the probability mass function at k - 1 (or with k and lambda exchanged) instead of at k.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-linear-forgot-the-scale",
+        "Writing the MGF of aX + b as e^(bt) M_X(t) (or the variance unchanged), forgetting that t is replaced by at.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-linear-forgot-the-shift",
+        "Writing the MGF of aX + b as M_X(at), forgetting the factor e^(bt).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-linear-shift-inside",
+        "Writing M_X(at + b) for the MGF of aX + b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-linear-power-for-scale",
+        "Raising M_X to the power a for the MGF of aX, which is the MGF of a sum of a copies of X.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-linear-swapped-a-and-b",
+        "Swapping the roles of a and b in the MGF of aX + b.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-third-moment-forgot-factors",
+        "Taking E(X^3) = a b^3 for a gamma-type MGF, leaving out the factors (a + 1)(a + 2).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-third-moment-two-factors",
+        "Taking E(X^3) = a(a + 1) b^3, stopping after two factors.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-third-moment-cube-of-the-mean",
+        "Giving the cube of the mean as the third moment.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-third-moment-wrong-power",
+        "Using b^2 instead of b^3 in the third moment of a gamma-type MGF.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-linear-forgot-to-square",
+        "Multiplying the variance by a instead of a^2 for Var(aX + b).",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-linear-shift-added-to-variance",
+        "Adding the shift b (or b^2) to the variance of aX + b, which a constant shift does not change.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-pmf-forgot-failures",
+        "Leaving out the factor (1 - p)^(n - k) for the failures in the binomial probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mgf-pmf-forgot-successes",
+        "Leaving out the factor p^k for the successes in the binomial probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mle-mean-for-rate",
+        "Giving the sample mean (total over n) where the rate or probability n over total was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-n-minus-one",
+        "Dividing by n - 1 instead of n in a maximum likelihood estimate, as for the unbiased sample variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-forgot-n",
+        "Leaving out the factor n and giving 1 over the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-n-squared",
+        "Giving n squared over the total, differentiating the log-likelihood n ln r as 2n/r.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-mode-for-mean",
+        "Giving the most frequent count as the maximum likelihood estimate of a Poisson mean instead of the "
+        "sample mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-ignored-frequencies",
+        "Averaging the distinct counts (or dividing the total by the number of distinct counts) instead of "
+        "weighting by their frequencies.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-forgot-the-final-success",
+        "Using n over (T - n), counting only the failures, for a geometric success probability.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-complement",
+        "Giving the failure probability 1 - p̂ instead of the success probability.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-sign-error",
+        "Losing the minus sign when differentiating the log-likelihood, so the estimate is negative (or has "
+        "the wrong sign).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-inverted",
+        "Inverting the estimator: giving the reciprocal of the maximum likelihood estimate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-multiplied",
+        "Multiplying n by the statistic instead of dividing.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-pareto-exponent-slip",
+        "Treating x^(-(a+1)) as x^(-a) in the log-likelihood, so a stray n appears in the denominator.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-forgot-the-shape",
+        "Forgetting the shape parameter 2 of the density, so the factor 1/2 is missing from T over 2n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-doubled-not-halved",
+        "Multiplying by 2 where the factor 2 should divide.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-ignored-the-shift",
+        "Ignoring the shift in the density, using n over T instead of n over (T - n).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-shift-sign",
+        "Adding the shift instead of subtracting it, n over (T + n).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-sd-for-variance",
+        "Giving the standard deviation estimate where the variance parameter was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-spurious-factor",
+        "Inserting a factor 1/2 from the normal density where the parameter is not the normal variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-mom-wrong-mean-formula",
+        "Using E(X) = a/(a + 1), the mean of the density a x^(a-1), instead of the mean (a + 1)/(a + 2) of "
+        "the stated density.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-mom-estimate-is-the-mean",
+        "Giving the sample mean itself as the estimate of the parameter.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-mom-forgot-to-solve",
+        "Stopping at 2 x-bar - 1 without solving the moment equation for a.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-mom-doubled-twice",
+        "Doubling the sample mean twice, 4 x-bar, for a uniform on (0, a).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-uniform-moment-estimate",
+        "Giving the method of moments estimate 2 x-bar where the maximum likelihood estimate (the sample "
+        "maximum) was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-uniform-sample-maximum",
+        "Giving the sample maximum where the method of moments estimate 2 x-bar was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-uniform-unbiased-adjustment",
+        "Giving the bias-corrected (n + 1)/n times the maximum, which is neither the maximum likelihood nor "
+        "the moment estimate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-uniform-midrange",
+        "Giving the sum of the sample minimum and maximum as the estimate for a uniform on (0, a).",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-variance-ignored-the-mean",
+        "Using the mean of the squares as the variance, without subtracting the square of the mean.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-unbiased-for-mle",
+        "Giving the unbiased estimate with divisor n - 1 where the maximum likelihood estimate (divisor n) was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-variance-wrong-sign",
+        "Adding the square of the mean to the mean of the squares instead of subtracting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-invariance-forgot-the-time",
+        "Estimating P(X > t) as e^(-r̂), forgetting to multiply the rate by t.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-invariance-complement",
+        "Giving P(X <= t) = 1 - e^(-t r̂) where the tail probability P(X > t) was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-invariance-forgot-the-exponential",
+        "Giving t r̂ without taking e to the power of its negative, so the estimate is not a probability.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-loglik-sign-error",
+        "Writing the log-likelihood as n ln r + rT, with the wrong sign on the exponent term.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-loglik-dropped-the-log",
+        "Writing the log-likelihood with n r instead of n ln r.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-loglik-forgot-n",
+        "Writing ln r - rT, summing the exponent terms but forgetting that ln r is repeated n times.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-loglik-forgot-the-total",
+        "Writing n ln r - r, forgetting that the exponent term sums the observations.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-markov-squared-the-entry",
+        "Squaring each entry of P (an entrywise product) instead of multiplying the matrix by itself, row by column.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-one-step-only",
+        "Giving the one-step probability where a multi-step probability was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-transposed",
+        "Reading the entry with the row and column swapped, giving the probability of the reverse transition.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-added-not-multiplied",
+        "Adding the probabilities along the two steps of a path instead of multiplying them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-row-times-row",
+        "Pairing row i with row j (P times its transpose) instead of row i with column j.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-doubled-not-squared",
+        "Doubling the one-step matrix, 2P, where the two-step matrix P² was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-one-step-short",
+        "Using one fewer transition than the question states.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-one-step-too-many",
+        "Using one more transition than the question states.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-powered-the-probability",
+        "Raising the one-step probability of ending in the state to the power n instead of using the matrix power.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-ignored-the-initial-distribution",
+        "Averaging over the starting states equally instead of weighting by the stated initial distribution.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-absorption-wrong-denominator",
+        "Dividing by 1 minus the probability of moving to state 1 instead of by the probability of leaving state 2.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-wrong-absorbing-state",
+        "Giving the probability of absorption in state 3 instead of state 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-ratio-for-probability",
+        "Giving the ratio of the two exit probabilities p21/p23 as a probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-two-steps-only",
+        "Adding only the first two terms of the series of ways to be absorbed in state 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-ignored-the-other-transient-state",
+        "Treating the expected time as 1/(1 - p_ii), as if the chain could not move to the other transient "
+        "state and come back.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-direct-exit-only",
+        "Giving 1/p_i3, the expected time if the only way to absorption were a direct jump from this state.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-wrong-start-state",
+        "Giving the expected time from the other starting state.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-summed-both-starts",
+        "Adding the expected times from the two starting states.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-forgot-the-step-count",
+        "Leaving out the 1 for the step just taken in the first-step equation, or the first-step term in the "
+        "follow-through.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-stationary-unnormalised",
+        "Giving the solution scaled so that one component is 1, without dividing by the total so the "
+        "components sum to 1.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-stationary-columns-for-rows",
+        "Solving P π = π (using the columns of P) instead of πP = π.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-stationary-assumed-uniform",
+        "Giving 1/3 for every state without solving πP = π.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-stationary-column-average",
+        "Averaging the column of P for the state instead of solving for the stationary distribution.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-missed-a-path",
+        "Leaving out one of the paths through the middle state when summing the two-step probability.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-averaged-the-paths",
+        "Averaging the path probabilities through the middle states instead of summing them.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-counted-states-not-steps",
+        "Adding 1 to the expected number of steps, counting the states visited rather than the steps taken.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-stationary-first-row-of-p",
+        "Giving the entry of the first row of P as the long-run proportion, as if the chain started in its "
+        "stationary distribution after one step.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-stationary-self-transition",
+        "Giving the self-transition probability p_jj as the long-run proportion of time in state j.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-markov-stationary-wrong-component",
+        "Giving a different state's component of the stationary distribution from the one asked for.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-cond-mean-second-moment",
+        "Integrating y squared instead of y against the conditional density, giving E(Y² | X = x) where the "
+        "conditional mean was asked.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3k-mle-n-plus-one",
+        "Dividing by n + 1 instead of n when forming the estimate.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-total-times-n",
+        "Multiplying the total by n instead of dividing it by n.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-invariance-wrong-time",
+        "Using the wrong time in the exponent of the tail probability e^(-t r), one unit too long.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-invariance-sign",
+        "Dropping the minus sign in the exponent, giving e^(t r) for the probability of lasting longer than t.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3k-mle-total-not-mean",
+        "Giving the total of the counts without dividing by the number of intervals.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "r3l-lp-nonoptimal-corner",
+        "Reading the objective at a corner point of the feasible region that is feasible but not the best one, instead of comparing every corner.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-lp-infeasible-vertex",
+        "Evaluating the objective at an intersection of two constraint lines that breaks another constraint, so it is not a corner point of the feasible region.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-lp-profits-swapped",
+        "Attaching the first product's unit profit to the second product's quantity and the reverse when evaluating the objective.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-lp-maximised-not-minimised",
+        "Taking the greatest objective value at a corner point when the problem asks for the least.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-lp-isoprofit-normal-swapped",
+        "Making the profit line parallel to the constraint by matching the ratios the wrong way round, so the profit coefficients are scaled by a/b instead of b/a.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-lp-intercept-for-profit",
+        "Taking the intercept of the constraint line as the unit profit that makes the whole edge optimal.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-lp-axis-corners-forgotten",
+        "Listing only the corner points where two resource constraints meet, forgetting the corners on the axes.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-lp-corner-omitted",
+        "Leaving a corner point of the feasible region out of the list.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-lp-coordinates-swapped",
+        "Reporting the y-value of the optimal corner point where the x-value was asked for, or the reverse.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-objective-row-sign",
+        "Writing the profits with their own sign in the objective row of the tableau instead of their negatives.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-slack-misplaced",
+        "Putting the slack columns in the wrong order, so the identity block of the tableau is not in constraint order.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-columns-swapped",
+        "Swapping the coefficient columns of two decision variables when copying the constraints into the tableau.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-leaving-row-wrong",
+        "Choosing a pivot row by a rule other than the smallest ratio (for example the largest ratio), so the next solution is infeasible.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-entering-column-wrong",
+        "Choosing an entering column that is not the most negative entry of the objective row.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-pivot-row-unscaled",
+        "Clearing the pivot column without first dividing the pivot row by the pivot, so the pivot entry is not 1.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-objective-row-not-updated",
+        "Pivoting the constraint rows but leaving the objective row as it was.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-ratio-for-entering-value",
+        "Reporting an entering coefficient, a ratio or their sum where the product of the two (the rise in z) was asked for.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-objective-sign",
+        "Reading the new objective value with the wrong sign from the objective-row entry of the entering column.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-wrong-row-rhs",
+        "Reading a variable's value from the right-hand side of the wrong row of the tableau.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-objective-for-variable",
+        "Reporting the optimal value of z (or another objective-row entry) where the value of a single variable or a shadow price was asked for.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-objective-entry-as-value",
+        "Reading the value of a non-basic variable from its objective-row entry, when a non-basic variable is 0.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-shadow-price-wrong-column",
+        "Taking the shadow price of a resource from the objective-row entry of the wrong column (a decision variable or another slack).",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-shadow-price-slack-value",
+        "Reporting the unused amount of a resource (the slack variable's value) as its shadow price.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-shadow-price-sign",
+        "Applying the shadow price with the wrong sign, so extra resource appears to lower the maximum.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-range-sign-reversed",
+        "Using the rows with positive entries in the slack column (which limit a decrease) to find how far a resource can be increased.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-range-wrong-column",
+        "Finding the allowable change of a resource from a decision-variable column of the tableau instead of the slack column.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-price-ignored",
+        "Adding the increase in a resource straight to the maximum value of z, without multiplying by its shadow price.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-increase-not-added",
+        "Reporting the rise in z (shadow price times increase) instead of the new maximum value.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-tableau-range-not-minimum",
+        "Taking the ratio from one row with a negative slack-column entry as the allowable increase without comparing all such rows for the smallest.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-not-transposed",
+        "Writing the rows of the primal constraint matrix as the dual constraints, instead of its columns.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-objective-row-negated",
+        "Writing the dual objective row with the opposite sign to the primal right-hand sides.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-inequality-flip-sign",
+        "Putting the wrong sign on the right-hand sides of the dual constraints.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-uses-primal-objective",
+        "Using the primal objective coefficients as the dual objective, and the primal right-hand sides as the dual constraints' right-hand sides.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-ge-row-not-negated",
+        "Dualising a maximisation with a greater-or-equal constraint without first multiplying that constraint by -1.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-ge-rhs-not-negated",
+        "Negating the coefficients of a greater-or-equal constraint but not its right-hand side when converting it to less-or-equal.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-ge-coefficients-not-negated",
+        "Negating the right-hand side of a greater-or-equal constraint but not its coefficients when converting it to less-or-equal.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-wrong-binding-set",
+        "Choosing the wrong pair of constraints as binding when applying complementary slackness, so a multiplier is put on the constraint that has slack.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-system-not-transposed",
+        "Solving A y = c for the binding constraints instead of the transposed system A-transpose y = c.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-primal-solution-reused",
+        "Giving the primal optimal solution, or a primal value, where the dual optimal solution was asked for.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-slack-as-multiplier",
+        "Reporting the slack of a primal constraint as its dual variable, instead of zero.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-constraint-rhs-as-slack",
+        "Reporting the right-hand side of each constraint as its slack, forgetting to subtract the value of the left-hand side at the solution.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-lhs-as-slack",
+        "Reporting the value of the left-hand side at the solution as the slack, instead of the right-hand side minus that value.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-slack-wrong-row",
+        "Matching a slack value to the wrong constraint when listing the slacks in order.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-slack-sign",
+        "Writing the slack of a constraint as left-hand side minus right-hand side, so it is negative.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-price-ignored",
+        "Adding the increase in a constraint's right-hand side straight to the optimal value, without multiplying by its dual value.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-increase-not-added",
+        "Reporting the rise in the optimal value (dual value times increase) instead of the new optimal value.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-dual-price-sign",
+        "Applying the dual value with the wrong sign, so extra resource appears to lower the optimum.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-transport-wrong-start-rule",
+        "Building the starting solution by a different rule (cheapest route first) when the north-west corner rule was asked for.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-transport-cost-without-quantity",
+        "Adding up the unit costs of the allocated routes without multiplying each by the number of tonnes moved along it.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-transport-wrong-start-corner",
+        "Starting the north-west corner rule from the wrong corner of the table.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-transport-cheapest-everywhere",
+        "Costing the whole supply at the cheapest unit cost in the table, as if every tonne could use the cheapest route.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-transport-allocation-transposed",
+        "Writing the allocation table with depots and ports interchanged.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-assign-greedy-row-minimum",
+        "Giving each worker their cheapest remaining job in turn instead of finding the cheapest assignment overall.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-assign-reduction-total",
+        "Reporting the total taken off in the row and column reductions as the cost of the assignment, when the zeros still have to be matched.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-assign-row-minima-only",
+        "Reporting the sum of the row minima as the least total cost, ignoring that two workers can have the same cheapest job.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-assign-diagonal",
+        "Assigning the first worker to the first job, the second to the second, and so on, without looking for a cheaper assignment.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-assign-maximised",
+        "Finding the most expensive assignment where the cheapest was asked for.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-modi-index-sign",
+        "Taking the improvement index with the opposite sign (u + v − c instead of c − u − v).",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-modi-index-potentials-only",
+        "Reporting u_i + v_j for the empty route without subtracting it from the route's unit cost.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-modi-cost-as-index",
+        "Reporting the unit cost of the empty route as its improvement index.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-modi-potential-sign",
+        "Building the potentials with a sign error, so they do not satisfy u + v = c on the allocated routes.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-modi-index-times-quantity",
+        "Reporting the saving for the whole exchange (index times quantity) where the index per tonne, or the new total cost, was asked for.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-modi-quantity-ignored",
+        "Applying the improvement index to the total cost for one tonne only, or not at all, instead of for every tonne that moves round the loop.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-transport-cell-omitted",
+        "Leaving one allocated route out of the total cost of a transportation solution.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-transport-quantity-misplaced",
+        "Putting a quantity in the wrong allocated cell of a row when filling the table, so the supplies are met but the cost is wrong.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-coefficients-swapped",
+        "Attaching the two initial-condition coefficients to the wrong characteristic roots in the closed form of a recurrence.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-root-sign",
+        "Taking the characteristic roots with the wrong sign, for example from r squared plus pr plus q instead of r squared minus pr minus q.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-initial-conditions-misapplied",
+        "Using the first two terms as the coefficients of the two root powers instead of solving for the coefficients from the initial conditions.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-initial-conditions-ignored",
+        "Leaving every coefficient as 1 in the closed form, ignoring the initial terms.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-repeated-root-single-term",
+        "Writing only one term (a constant times the root to the n) for a recurrence whose characteristic equation has a repeated root.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-repeated-root-coefficient",
+        "Getting the coefficient of n wrong when fitting (A + Bn) to the initial terms of a repeated-root recurrence.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-repeated-root-no-n",
+        "Combining the two terms of a repeated root into one constant multiple of the root to the n, losing the factor n.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-constant-ignored",
+        "Solving only the homogeneous recurrence and ignoring the constant term in a non-homogeneous one.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-particular-sign",
+        "Finding the particular solution of a non-homogeneous recurrence with the wrong sign.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-particular-is-k",
+        "Taking the constant term of the recurrence itself as the particular solution, without solving for it.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-particular-not-fitted",
+        "Adding the particular solution to the homogeneous solution after fitting the initial terms, instead of fitting them to the sum.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-resonance-missed",
+        "Trying a constant particular solution when 1 is a characteristic root, instead of a constant multiple of n.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-coefficients-as-roots",
+        "Reading the coefficients of the recurrence as the roots of its characteristic equation.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-recurrence-index-off-by-one",
+        "Returning the term next to the one asked for from a recurrence or its closed form.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-tree-formula",
+        "Counting the colourings of a graph with cycles as if it were a tree, k(k-1) to the power of the number of other vertices.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-no-constraint",
+        "Counting all k to the n assignments of colours to vertices, ignoring that adjacent vertices must differ.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-pendant-choices",
+        "Allowing a vertex joined to one earlier vertex only k - 2 colours, as if it touched two.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-complete-graph-formula",
+        "Using the chromatic polynomial of a complete graph, k(k-1)(k-2)..., for a graph that is not complete.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-degree-for-earlier-neighbours",
+        "Giving each vertex k minus its full degree choices, instead of k minus the number of earlier neighbours.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-contraction-omitted",
+        "Using the chromatic polynomial of the graph with an edge deleted and forgetting to subtract the one with the edge contracted.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-contraction-sign",
+        "Adding the chromatic polynomial of the contracted graph to that of the deleted graph, instead of subtracting it.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-contraction-only",
+        "Using the chromatic polynomial of the contracted graph alone as the polynomial of the original graph.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-coefficient-sign",
+        "Giving a coefficient of a chromatic polynomial with the wrong sign (the signs alternate).",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-wrong-coefficient",
+        "Reading the coefficient of a neighbouring power of k from the chromatic polynomial.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-number-off-by-one",
+        "Giving a chromatic number one too high or one too low.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-max-degree-plus-one",
+        "Taking the maximum degree plus one as the chromatic number, when fewer colours are enough.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-chromatic-number-is-vertex-count",
+        "Taking the number of vertices as the number of colours needed.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-hall-assumes-perfect-matching",
+        "Assuming every worker can be given a different job without checking Hall's condition.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-hall-violating-set-size",
+        "Reporting the size of the set that violates Hall's condition where its deficiency or the matching size was asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-hall-neighbourhood-size",
+        "Reporting the number of jobs the violating set can do where the deficiency or the matching size was asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-hall-deficiency-for-matching",
+        "Reporting the deficiency where the size of the largest matching was asked for.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-hall-matching-off-by-one",
+        "Giving a matching one smaller than the largest possible.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-hall-deficiency-off-by-one",
+        "Giving a deficiency one too large, for example by counting the neighbourhood as well.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-hall-set-satisfies-condition",
+        "Naming a set of workers that can do at least as many jobs as it has members, which does not break Hall's condition.",
+        area="discrete-mathematics",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-row-operation-sign",
+        "Adding multiples of the pivot row to clear the pivot column instead of subtracting them, so the column does not become a unit vector.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-ratio-numerator-only",
+        "Reporting the right-hand side of the pivot row as the minimum ratio, without dividing by the entry in the entering column.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-ratio-denominator-only",
+        "Reporting the entry in the entering column as the minimum ratio, instead of the right-hand side divided by it.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-simplex-ratio-inverted",
+        "Dividing the entry in the entering column by the right-hand side instead of the right-hand side by the entry.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-modi-potential-omitted",
+        "Leaving one of the two potentials out of the improvement index, using the route's unit cost minus only the row potential or only the column potential.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-assign-greedy-column-minimum",
+        "Giving each job to the cheapest remaining worker in turn instead of finding the cheapest assignment overall.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-transport-quantity-not-reduced",
+        "Allocating the smaller of a depot's original supply and a port's original demand to every cell, without reducing them as tonnes are assigned.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3l-assign-near-optimal",
+        "Stopping at an assignment that is cheap but not the cheapest, one swap away from the optimum.",
+        area="optimisation",
+    ),
+    CatalogueEntry(
+        "r3a-expectation-adds-the-outcomes",
+        "Adding the outcomes together with no weighting by probability, so the expected value becomes a plain total.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "r3a-unknown-value-copied-from-neighbouring-outcome",
+        "Giving the value of a neighbouring outcome in the table instead of solving E(X) for the unknown value.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "cylindrical-jacobian-omitted",
+        "Leaving out the factor r in the volume element of cylindrical coordinates, dV = r dz dr dθ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-radius-not-squared",
+        "Replacing x² + y² by r instead of r² when converting an integrand to cylindrical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-radius-limit-squared",
+        "Using the squared radius of the cylinder, not the radius, as the upper limit for r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-angle-range-halved",
+        "Using the wrong range of angle: half a turn for a full cylinder, or a full turn for half of one.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-radius-from-height",
+        "Using the height of the plane as the upper limit for r instead of finding where the surface meets it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-bounding-cylinder",
+        "Giving the volume or integral over the enclosing cylinder instead of the solid inside it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-surfaces-swapped",
+        "Taking the lower surface as the upper one, so the height of the solid comes out negative.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-intersection-misread",
+        "Misreading where two surfaces meet, and using the wrong upper limit for r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-x-as-r",
+        "Replacing x by r instead of r cos θ when the integrand or a bounding surface depends on x.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-slope-term-dropped",
+        "Dropping the sloping term of the top surface because its cosine seems to integrate away.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-sphere-height-constant",
+        "Using the sphere's radius as a constant height instead of the √(R² - r²) it has at distance r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-ball-only",
+        "Integrating over the whole ball and ignoring the cylinder that cuts it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-upper-half-only",
+        "Integrating z from 0 instead of from the lower half of the sphere, giving half the solid.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-offset-angle-range",
+        "Taking θ over a full turn for a cylinder through the origin, whose angle runs over only half a turn.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-offset-radius",
+        "Taking a constant upper limit for r on a cylinder through the origin, whose radius depends on θ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cylindrical-lower-surface-dropped",
+        "Starting z at the plane z = 0 instead of the lower surface of the solid.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-jacobian-omitted",
+        "Leaving out the whole volume factor ρ² sin φ of spherical coordinates and integrating dρ dφ dθ alone.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-sin-phi-omitted",
+        "Writing the volume element of spherical coordinates as ρ² dρ dφ dθ, without the factor sin φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-rho-squared-omitted",
+        "Writing the volume element of spherical coordinates as sin φ dρ dφ dθ, without the factor ρ².",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-colatitude-confused",
+        "Taking φ as the angle up from the xy-plane, so z = ρ sin φ, instead of the angle down from the positive z-axis.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-radius-limit-squared",
+        "Using the squared radius of the sphere, not the radius, as the limit for ρ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-angle-range-halved",
+        "Using the wrong range of the angle: half a turn in φ for a whole ball, or the whole range for half of one.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-cone-angle-complement",
+        "Measuring the half-angle of a cone from the xy-plane instead of from the z-axis, so φ stops at π/2 minus the right angle.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-polar-angle-range",
+        "Letting φ run from 0 to π when the solid lies in a cone or above a plane.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-hemisphere-as-cone",
+        "Stopping φ at π/2, the whole upper half, when the solid lies in a narrower cone.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-octant-ignored",
+        "Integrating over the whole shell, with θ over 0 to 2π and φ over 0 to π, when the solid is only the first octant.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-octant-angle-halved",
+        "Giving φ the range 0 to π although z is non-negative, so the solid is taken in both halves.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-offset-radius",
+        "Taking a constant limit for ρ on a sphere through the origin, whose radius depends on φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-offset-angle-range",
+        "Letting φ run from 0 to π on a sphere through the origin that lies above the xy-plane.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-cap-lower-limit-zero",
+        "Starting ρ at 0 for the cap above a plane, so the cone of rays is integrated down to the origin.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-plane-limit-cos",
+        "Writing the plane z = h as ρ = h cos φ instead of ρ = h sec φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-inner-sphere-ignored",
+        "Starting ρ at 0 for a shell, so the hole in the middle is filled in.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-lower-limit-added",
+        "Adding the value of the antiderivative at the lower limit of φ to the value at the upper limit instead of subtracting it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "integral-constant-multiplier-dropped",
+        "Integrating the function without the constant multiplier in front of it, so the answer is a fraction of the true value.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-plane-ignored",
+        "Ignoring the plane that cuts off the cap and integrating over the whole upper half of the ball.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-cap-cone-instead",
+        "Integrating ρ from 0 to the plane instead of from the plane to the sphere, which gives the cone below the plane instead of the cap above it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "spherical-cap-complement",
+        "Giving the part of the ball on the other side of the plane, the whole ball less the cap, instead of the cap.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-arctan-inverted",
+        "Using arctan(z/r) instead of arctan(r/z), which gives the angle from the xy-plane.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-complement",
+        "Measuring φ up from the xy-plane instead of down from the positive z-axis.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-reflected",
+        "Giving π minus the right angle, as if z had the opposite sign.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-sine-for-cosine",
+        "Using arcsin(z/ρ) where cos φ = z/ρ is needed.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-r-includes-z",
+        "Including z when finding the distance from the z-axis, which gives the distance from the origin.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-r-root-missing",
+        "Giving x² + y² without taking the square root.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-r-sum-not-root",
+        "Adding |x| and |y| instead of taking the root of the sum of squares.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-reference-angle-sign",
+        "Using the absolute value of the cosine or sine, so the coordinate loses its sign.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-height-only",
+        "Taking ρ to be the height |z|.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-planar",
+        "Giving the distance r from the z-axis for the distance ρ from the origin.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-root-missing",
+        "Giving ρ² without taking the square root.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-sum-not-root",
+        "Adding the sizes of the coordinates instead of taking the root of the sum of squares.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-sign-flipped",
+        "Giving the coordinate with the wrong sign.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-sin-cos-swapped",
+        "Using sine where cosine belongs, or the reverse, in a conversion formula.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-cos-squared",
+        "Squaring cos φ in z = ρ cos φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-phi-complement",
+        "Swapping sin φ and cos φ in the conversion formulas from spherical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-rho-dropped",
+        "Leaving out the factor ρ when finding a coordinate from spherical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-sin-for-cos",
+        "Using ρ sin φ cos θ, the x-coordinate, for z.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-sin-phi-dropped",
+        "Leaving out the factor sin φ when finding x, y or r from spherical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-sin-phi-squared",
+        "Squaring sin φ in r = ρ sin φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-theta-dropped",
+        "Leaving out the factor cos θ or sin θ when finding x or y from spherical coordinates.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-spherical-theta-factor",
+        "Multiplying r by cos θ, which gives x instead of r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-angle-as-slope",
+        "Giving the angle itself as the slope of the cone.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-coefficient-dropped",
+        "Dropping the coefficient when converting an equation, such as 2a to a.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-constant-radius",
+        "Giving a constant for the radius of a surface whose radius depends on the angle.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-cosine-for-cotangent",
+        "Giving cos φ for the slope cot φ of the cone.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-diameter-for-radius",
+        "Reading the diameter off the equation and giving it as the radius.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-halved-again",
+        "Halving the coefficient a second time when reading a radius or centre off an equation.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-opening-angle",
+        "Giving the full opening angle of a cone, twice the angle from its axis.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-power-slip",
+        "Using the wrong power of the radial variable when solving the converted equation.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-r-not-squared",
+        "Writing x² + y² as r instead of r² in the converted equation.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-radius-squared",
+        "Giving the square of the radius.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-reciprocal-slip",
+        "Multiplying by a trigonometric function where the equation divides by it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-root-missing",
+        "Leaving the equation as r² = ... and giving that as the value of r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-sign-slip",
+        "Taking the wrong sign inside a root or a sum when solving the converted equation.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-sine-for-cosine",
+        "Using sine where cosine belongs in a converted equation, or the reverse.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-slope-as-angle",
+        "Giving the slope of a cone as if it were its angle.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-surface-slope-inverted",
+        "Giving tan φ for the slope of the cone instead of cot φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-arctan-inverted",
+        "Using arctan(x/y) instead of arctan(y/x) for the angle θ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-half-turn",
+        "Giving the angle of the opposite point, half a turn from the right one.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-mirrored",
+        "Giving the angle measured the other way round the axis, 2π minus the right one.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-quadrant-ignored",
+        "Reading θ straight from arctan(y/x), which ignores the quadrant of the point.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-theta-reference-angle",
+        "Giving the acute reference angle instead of the angle in the right quadrant.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-trig-factor-dropped",
+        "Dropping the cosine or sine factor, so that x or y comes out as r.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-r-difference-of-squares",
+        "Finding r as the root of x² - y² instead of x² + y².",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-rho-difference-of-squares",
+        "Finding ρ as the root of r² - z² instead of r² + z².",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-quadrant-ignored",
+        "Reading φ straight from arctan(r/z), which gives a negative angle when z is negative.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "coord-phi-cosine-for-angle",
+        "Giving the value of cos φ = z/ρ as if it were the angle φ.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-limits-swapped",
+        "Writing the limits of the inner integral the wrong way round, so the answer comes out with the wrong sign.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-limits-swapped-outer",
+        "Reversing the limits on one slice of a split region, so that slice is subtracted instead of added.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-bounding-rectangle",
+        "Integrating over the rectangle that encloses the region instead of between its boundary curves.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-lower-curve-dropped",
+        "Taking the lower boundary of the region as zero instead of the lower curve.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-limit-variable-confused",
+        "Writing the limits in the wrong variable, so a limit in x is used where one in y is needed.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-second-slice-dropped",
+        "Integrating over only the first slice of a region whose boundary changes, and leaving out the rest.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-slice-change-ignored",
+        "Using one pair of boundary curves across the whole region although the lower or upper curve changes part-way.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "region-average-not-divided",
+        "Giving the integral of the quantity over the region as its average value, without dividing by the area.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-limits-swapped",
+        "Reversing the sign of the answer by taking the limits of the reversed integral the wrong way round.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-substitution-factor",
+        "Losing or adding the constant factor from the substitution, for example forgetting the 1/2 in the integral of u times e to the u squared.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-lower-limit-forgotten",
+        "Evaluating the antiderivative at the upper limit only and not subtracting its value at the lower limit.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-lower-limit-added",
+        "Adding the value of the antiderivative at the lower limit instead of subtracting it.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-coefficient-dropped",
+        "Leaving the constant multiplier of the integrand out of the final answer.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-coefficient-squared",
+        "Applying the constant multiplier of the integrand twice.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-swapped-extent",
+        "Using the outer variable's largest value as the upper limit of the reversed integral instead of the inner variable's.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-slope-misread",
+        "Solving the boundary line for the wrong variable, so its slope is inverted in the reversed limits.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-slope-dropped",
+        "Dropping the slope of the boundary line when it becomes the upper limit of the reversed inner integral.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-product-rule-slip",
+        "Getting the sign wrong when integrating u sin u by parts.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-bounding-rectangle",
+        "Giving the area of the rectangle that encloses the region.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-curve-area-as-triangle",
+        "Treating the region under a parabola or cubic as a triangle.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-complement-area",
+        "Giving the area of the part of the bounding rectangle outside the region.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-constant-inner-limit",
+        "Using the largest value of the bound as a constant limit for the inner integral instead of its value at the point.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-derivative-of-limit",
+        "Multiplying by the derivative of the bound instead of its value.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-mean-inverted",
+        "Dividing the area by the integral instead of the integral by the area to find the mean value.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "reverse-order-mean-wrong-area",
+        "Dividing by the area of the bounding rectangle, not of the region, to find the mean value.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-omitted",
+        "Leaving out the Jacobian factor, so that dA is replaced by du dv.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-inverted",
+        "Using the Jacobian where its reciprocal is needed, or the reciprocal where the Jacobian is needed, when changing variables.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-sign-ignored",
+        "Using a negative Jacobian without taking its absolute value, so the area element and the answer come out negative.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-sign-dropped",
+        "Giving the absolute value of the Jacobian when its signed value was asked for.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-cross-term-dropped",
+        "Taking the Jacobian as the product of the two diagonal partial derivatives and leaving out the cross term of the determinant.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-factor-slip",
+        "Getting a constant in the Jacobian wrong, such as 1/v in place of 1/(2v) for x = √(u/v), y = √(uv).",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "jacobian-variable-swapped",
+        "Writing the Jacobian in terms of the wrong new variable.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-integrand-not-substituted",
+        "Changing the limits and the area element but leaving the integrand in x and y, or treating x and y as u and v.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-limits-from-region",
+        "Using the extent of the original region in x and y as the limits for the new variables u and v.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-integrand-dropped",
+        "Integrating 1 over the new region instead of the integrand, so the answer is the area.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-inversion-slip",
+        "Making a sign error when solving the substitution for x and y in terms of u and v.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "cov-triangle-as-rectangle",
+        "Integrating over the square 0 ≤ u, v ≤ k instead of the triangle u + v ≤ k.",
+        area="multivariable-integration",
+    ),
+    CatalogueEntry(
+        "vc2-div-wrong-variable",
+        "Differentiates each component with respect to the next variable (P by y, Q by z, R by x) instead of its own variable.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-component-dropped",
+        "Adds only two of the three partial derivatives that make up the divergence.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-confused-with-curl",
+        "Adds the components of the curl instead of the three partial derivatives that make up the divergence.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-left-as-vector",
+        "Leaves the three partial derivatives as a vector instead of adding them, so the divergence is not a single expression.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-chain-factor-dropped",
+        "Differentiates a function of a function, such as sin(xz) or e^(xy), and leaves out the derivative of the inner function.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-product-rule-term-dropped",
+        "Differentiates only one factor of a product, losing the other product-rule term.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-solve-sign",
+        "Sets up the condition on the unknown constant correctly but solves it with the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-param-factor-dropped",
+        "Forgets the factor that comes from differentiating a power (y^2 gives 2y) when collecting the terms in the unknown constant.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-parameters-swapped",
+        "Gives the two constants in the wrong order.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-param-off-by-one",
+        "Slips by one in the arithmetic of the final value.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-power-factor-not-differentiated",
+        "Treats (x^2 + y^2 + z^2)^n as a constant when differentiating the radial field, keeping only the 3 from the three variables.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-chain-factor-dropped",
+        "Differentiates (x^2 + y^2 + z^2)^n with the power rule and leaves out the factor 2x from the inner function.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-power-rule-slip",
+        "Keeps the power n instead of lowering it to n - 1 after differentiating (x^2 + y^2 + z^2)^n.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-own-variable-undercounted",
+        "Counts the derivatives of x, y and z with respect to themselves as 1 in all instead of 3.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-exp-zero-as-zero",
+        "Evaluates e^0 as 0 instead of 1.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-field-value-not-divergence",
+        "Adds the values of the components at the point instead of finding the divergence.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-added-term-not-differentiated",
+        "Does not differentiate the added term kz, so it solves k times z instead of the derivative k.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-product-rule-sign",
+        "Subtracts the second term of the product rule for the divergence of a scalar times a vector field.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-div-density-factor-dropped",
+        "Leaves out the scalar factor g when multiplying it by the divergence in the product rule.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-j-sign",
+        "Expands the curl determinant without the minus sign on the j component, so the j component has the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-reversed-order",
+        "Subtracts the two partial derivatives in each component of the curl in the wrong order, so every sign is reversed.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-components-shifted",
+        "Writes the components of the curl in the wrong places, putting the k expression where the i expression belongs.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-partial-dropped",
+        "Uses only one partial derivative in a component of the curl instead of the difference of two.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-partials-added",
+        "Adds the two partial derivatives in a component of the curl instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-wrong-variables",
+        "Differentiates with respect to the wrong variables in a component of the curl, such as R_z - Q_y for R_y - Q_z.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-gave-divergence",
+        "Finds the divergence, a single number, instead of the curl, a vector.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-solve-sign",
+        "Sets up the equations for the unknown constants correctly but gives a constant with the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-parameters-swapped",
+        "Gives the two constants in the wrong order.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-factor-two-dropped",
+        "Takes the curl of the rotation field ω × r to be ω instead of 2ω.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-magnitude-not-rooted",
+        "Gives the sum of the squares of the components as the magnitude, without taking the square root.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-magnitude-sum",
+        "Adds the components, or their absolute values, instead of taking the root of the sum of squares.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-curl-magnitude-component-dropped",
+        "Uses only two of the three components when finding the magnitude.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-coefficient-not-scaled",
+        "Takes the unknown to be the coefficient in the potential, forgetting the factor that differentiating a power brings in.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-solve-sign",
+        "Sets up the zero-curl condition correctly but gives the constant with the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-power-factor-extra",
+        "Multiplies by the wrong power when matching the mixed partial derivatives of the field.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-off-by-one",
+        "Slips by one in the arithmetic of the final value.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-half",
+        "Halves the answer, differentiating a squared factor with the wrong coefficient.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-potential-one-variable-only",
+        "Integrates P with respect to x and stops, so the terms in y and z alone are missing.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-potential-third-component-ignored",
+        "Matches the potential to P and Q but never checks R, so the terms in z alone are missing.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-potential-double-counted",
+        "Adds the integrals of P, Q and R separately, counting every mixed term more than once.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-potential-sign",
+        "Writes the potential with the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-direction-sign",
+        "Takes the potential difference the wrong way round, so the sign of the work is wrong.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-endpoints-added",
+        "Adds the potential at the two endpoints instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-forgot-initial-potential",
+        "Gives the potential at the end point as the work, without subtracting the potential at the start.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-cons-endpoint-field",
+        "Takes the work to be the field at the end point dotted with the displacement.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-term-sign",
+        "Gets the sign of the cross-product term wrong in the product rule for the curl, or writes the cross product in the wrong order.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-product-term-dropped",
+        "Applies only one term of a product rule, leaving out the other.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-scalar-multiplied-twice",
+        "Multiplies the whole sum by the scalar function instead of only the first term of the product rule.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-product-term-sign",
+        "Subtracts the second term of a product rule that adds it.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-scalar-factor-dropped",
+        "Leaves the scalar function out of the first term of a product rule.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-triple-product-sign",
+        "Takes the two terms of the divergence of a cross product, G . curl F and F . curl G, the wrong way round.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-triple-product-plus",
+        "Adds the two terms of the divergence of a cross product instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-divergences-multiplied",
+        "Takes the divergence of a cross product to be the product of the divergences.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-term-dropped",
+        "Leaves out the 2 grad f . grad g term in the Laplacian of a product.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-term-factor-two-dropped",
+        "Includes grad f . grad g in the Laplacian of a product with a factor 1 instead of 2.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-laplacians-multiplied",
+        "Takes the Laplacian of a product to be the product of the Laplacians.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-second-term-dropped",
+        "Drops the term -grad f . curl G from the divergence of grad f cross G, reasoning that only the curl of a gradient is zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-dot-for-curl",
+        "Uses grad f . G in place of grad f . curl G.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-radial-one-dimensional",
+        "Uses the one-dimensional second derivative n(n - 1) r^(n - 2) for the Laplacian of r^n, forgetting the 2/r term from the other two directions.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-radial-power-not-lowered",
+        "Keeps the power r^n instead of lowering it to r^(n - 2) in the Laplacian of r^n.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-radial-wrong-factor",
+        "Uses the wrong coefficient (n(n + 2) or n squared) for the Laplacian of r^n.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-difference-as-sum",
+        "Adds f times the Laplacian of g and g times the Laplacian of f instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-term-kept",
+        "Keeps a grad f . grad g term that cancels between the two products.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-double-curl-sign",
+        "Reverses the sign of the identity for the double curl, giving the Laplacian minus the gradient of the divergence.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-laplacian-term-dropped",
+        "Leaves out the Laplacian term in the identity for the double curl.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-gradient-term-dropped",
+        "Leaves out the gradient of the divergence in the identity for the double curl.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-double-curl-plus",
+        "Adds the Laplacian instead of subtracting it in the identity for the double curl.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-gradient-replaced-by-ones",
+        "Dots the field with (1, 1, 1) instead of with the gradient.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-dot-product-missing-field",
+        "Adds the components of the gradient without dotting them with the field.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-for-dot",
+        "Uses the cross product of the field and the gradient where the dot product is needed.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-scalar-added",
+        "Adds the value of the scalar function to the dot product.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-div-curl-not-zero",
+        "Believes the divergence of a curl is not zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-gradient-times-divergence",
+        "Believes the divergence of f v is the product of the gradient of f and the divergence of v.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-dot-for-cross",
+        "Uses the dot product grad f . v where the cross product grad f x v belongs in the curl product rule.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-cross-of-divergences",
+        "Believes the divergence of a cross product is the cross product of the divergences, which are scalars.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-laplacian-zero",
+        "Believes the divergence of a gradient (the Laplacian) is always zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-double-curl-zero",
+        "Believes the curl of a curl is always zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-id-grad-div-zero",
+        "Believes the gradient of a divergence is always zero.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-cross-componentwise",
+        "Multiplies the tangent vectors component by component instead of taking their cross product.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-cross-j-sign",
+        "Expands the cross product determinant without the minus sign on the j component, so the middle component has the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-cross-order-reversed",
+        "Takes the cross product in the wrong order, r_v x r_u instead of r_u x r_v, so every component has the wrong sign.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-cross-terms-added",
+        "Adds the two products in a component of the cross product instead of subtracting.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-divided-by-length-squared",
+        "Divides the normal vector by the square of its length instead of its length when making it a unit vector.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-divided-by-sum",
+        "Divides the normal vector by the sum of its components instead of its length when making it a unit vector.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-graph-normal-sign",
+        "Uses (f_u, f_v, 1) as the normal to the graph z = f(u, v) instead of (-f_u, -f_v, 1).",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-intercept-inverted",
+        "Finds where the tangent plane meets the z-axis but divides the z-component of the normal by the plane constant instead of the other way round.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-intercept-not-divided",
+        "Gives the plane constant as the z-intercept without dividing by the z-component of the normal.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-intercept-point-height",
+        "Gives the height of the point of tangency as the z-intercept of the tangent plane.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-normal-not-normalised",
+        "Gives the normal vector itself when the unit normal is asked for.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-off-by-one",
+        "Makes an arithmetic slip of one when evaluating the component of the normal at the point.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-parameters-as-coordinates",
+        "Substitutes the parameter values u and v for the coordinates x and y of the point.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-parameters-swapped",
+        "Substitutes the values of u and v into the wrong parameters, so the point is the mirror of the one asked for.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-plane-constant-component-dropped",
+        "Leaves out the z term when forming the constant of the tangent plane.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-plane-constant-normal-sum",
+        "Gives the sum of the components of the normal as the constant of the tangent plane.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-position-not-differentiated",
+        "Crosses the position vector r with a tangent vector instead of crossing the two tangent vectors.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-tangents-added",
+        "Adds the two tangent vectors r_u and r_v instead of taking their cross product.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-angle-dropped",
+        "Leaves out the range of the angle parameter v, integrating over u only.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-antiderivative-factor",
+        "Gets the constant in the antiderivative wrong when integrating the square-root expression, so the area is a multiple of the true area.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-antiderivative-sign",
+        "Takes the antiderivative of sin u to be cos u, giving 1 + cos of the upper limit where 1 - cos is needed.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-cost-added",
+        "Adds the price per square metre to the area instead of multiplying.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-cost-divided",
+        "Divides the area by the price per square metre instead of multiplying.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-halved",
+        "Halves the area of a cylinder, as if it were a cone.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-integral-slip",
+        "Integrates the length of the normal incorrectly, for example integrating u to u squared and not u squared over 2, or sin u to cos u.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-integrand-not-integrated",
+        "Evaluates the integrand at the upper limit instead of integrating it.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-jacobian-factor-dropped",
+        "Leaves the factor u out of the area element of a cone, so the integral is over a constant.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-lower-limit-dropped",
+        "Evaluates the antiderivative at the upper limit only and does not subtract its value at the lower limit.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-magnitude-not-rooted",
+        "Uses the sum of the squares of the components of r_u x r_v as the area element, without taking the square root.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-radii-swapped",
+        "Swaps the two radii of a torus in the area formula.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-radius-squared",
+        "Squares the radius of a cylinder in the area element.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-range-added",
+        "Adds the lengths of the parameter ranges instead of multiplying them to get the area of the parameter region.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-range-dropped",
+        "Gives the length of r_u x r_v, or an integral over only one parameter, without integrating over the whole parameter range.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-scale-dropped",
+        "Leaves a constant factor out of the length of r_u x r_v, such as the radius of a cylinder or the factor a of a cone.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-sine-dropped",
+        "Leaves the factor sin u out of the area element of a sphere and integrates the constant a squared.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-speed-dropped",
+        "Gives the area of the parameter region itself, leaving out the length of r_u x r_v.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-sum-of-components",
+        "Adds the absolute values of the components of r_u x r_v instead of finding its length.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-term-kept",
+        "Keeps the cos u term of a torus area element as if it integrated to a non-zero amount.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-triangle-as-square",
+        "Uses the area k squared of a square for the area of the triangular parameter region.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-surf-area-wrong-component",
+        "Takes the product of the two scale factors as the constant in the area element instead of finding the length of r_u x r_v.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-angle-halved",
+        "Halves the area of a sphere zone by integrating v over half the circle, or by using pi where 2 pi belongs.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-antiderivative-sign",
+        "Takes the antiderivative of sin u to be cos u, or substitutes w = cos u and loses the sign, so 1 - cos of the upper limit becomes 1 + cos or cos - 1.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-area-element-dropped",
+        "Integrates g(r(u, v)) du dv, leaving out the length of r_u x r_v, so the surface area element is replaced by the parameter area element.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-average-height-wrong",
+        "Takes the average density to be the density constant times the radius, as if the height z were the radius everywhere.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-average-inverted",
+        "Divides the area by the mass instead of the mass by the area when finding the average density.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-average-not-divided",
+        "Gives the total mass as the average density without dividing by the area.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-derivative-slip",
+        "Gives the area-element constant of a sphere as twice the radius, differentiating a squared radius.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-height-taken-constant",
+        "Takes z to be the radius a everywhere on the dome instead of a cos u, so the density is constant.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-integrand-at-corner",
+        "Evaluates g at the corner of the parameter region u = 0, v = 0 instead of integrating it over the region.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-integrand-dropped",
+        "Integrates 1 instead of g, finding the area of the surface instead of the integral of g.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-jacobian-factor-dropped",
+        "Leaves the factor u out of the length of r_u x r_v for a cone, so the integrand has one power of u too few.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-magnitude-not-rooted",
+        "Uses the sum of the squares of the components of r_u x r_v as the area element, without taking the square root.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-power-rule-division-dropped",
+        "Raises the power of u or v by one when integrating but does not divide by the new power.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-radius-cubed",
+        "Gives the area-element constant of a sphere as the cube of the radius instead of the square.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-radius-not-substituted",
+        "Writes x and y in terms of cos v and sin v but leaves out the radius a, so the radius factors are missing.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-scale-added",
+        "Adds the radius and its square when finding the area-element constant of a sphere.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-scale-dropped",
+        "Leaves a constant factor out of the length of r_u x r_v, such as the radius of a cylinder, the factor a of a cone, or a power of the radius of a sphere.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-sine-dropped",
+        "Leaves the factor sin u out of the area element of a sphere and integrates the constant a squared.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-substitution-limits-slip",
+        "Makes the substitution w = cos u but uses the limits in the wrong order or leaves out the value at u = 0.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-triangle-as-square",
+        "Integrates over the square 0 to k by 0 to k instead of the triangle, so the inner limit does not depend on u.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-triangle-halved",
+        "Integrates over the square and halves the result, as if the triangle were half of the square for any g.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-trig-average-slip",
+        "Takes the integral of cos squared v or sin squared v over the range to be the length of the range, or doubles an integral of sin u cos u, instead of using the half-angle form.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "vc2-ssi-trig-power-slip",
+        "Integrates sin u cos u as sin u, losing one power of sine.",
+        area="vector-calculus",
+    ),
+    CatalogueEntry(
+        "flux-graph-normal-signs",
+        "Using the normal (f_x, f_y, 1) for the graph z = f(x, y) instead of (-f_x, -f_y, 1), so the slope terms have the wrong sign.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-z-not-replaced",
+        "Leaving z in the field as 0 (or a constant) instead of replacing it by the height f(x, y) of the surface.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-dropped-r",
+        "Leaving the k component R out of the dot product F . (-f_x, -f_y, 1).",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-components-swapped",
+        "Pairing P with f_y and Q with f_x in the dot product with the normal.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-wrong-direction",
+        "Taking the flux in the opposite direction to the one the question states, so the sign is wrong.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-polar-no-r",
+        "Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-div-at-top",
+        "Evaluating div F on the top surface and integrating over the base, instead of integrating div F up through the solid.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-div-constant-height",
+        "Treating div F as constant in z, multiplying its value on the base by the height of the solid.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-bottom-ignored",
+        "Taking the flux through the walls to be the total minus the top alone, leaving the base out; or the total flux to be the flux through the top.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-base-sign",
+        "Subtracting the base flux with the wrong sign when finding the flux through the walls from the divergence theorem.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-graph-walls-reversed",
+        "Subtracting the total from the other fluxes instead of the other fluxes from the total.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-inward-normal",
+        "Using the normal that points into the solid, so the flux through a piece of the surface has the wrong sign.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-opposite-face",
+        "Evaluating the field on the opposite face of the box (the plane at the other end of the axis) instead of on the face asked for.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-wrong-component",
+        "Integrating a component of the field that does not cross the piece (P on a face where the normal is k, say) instead of the component along the normal.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-forgot-radius-factor",
+        "Writing the area element of a cylinder of radius a as dtheta dz and leaving out the factor a.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-unnormalised-normal",
+        "Dotting with (x, y, 0), which has length a, as if it were the unit normal, and also multiplying by a, so the flux is a times too large.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-forgot-polar-r",
+        "Integrating over a disc in polar coordinates without the factor r in dA = r dr dtheta.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-cap-at-wrong-height",
+        "Evaluating the field on the wrong end of the cylinder (z = 0 on the top, or z = h on the base).",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-sphere-no-sin",
+        "Leaving the factor sin(phi) out of the area element a^2 sin(phi) dphi dtheta of a sphere.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-sphere-radius-power",
+        "Using the wrong power of the radius a in the area element of a sphere.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-total-missing-end",
+        "Adding up the fluxes through only two of the three pieces of the closed cylinder.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-total-missing-side",
+        "Counting only the two flat ends of the closed cylinder and leaving out the curved side.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "flux-piece-base-sign",
+        "Using the normal +k on the base of a solid, where the outward normal is -k, so the base flux has the wrong sign.",
+        area="flux-integrals",
+    ),
+    CatalogueEntry(
+        "green-wrong-direction",
+        "Getting the sign wrong by using the wrong direction of travel: Green's theorem gives the counterclockwise circulation, and clockwise is its negative.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-divergence-for-curl",
+        "Integrating P_x + Q_y (or Q_y - P_x) in place of the curl Q_x - P_y.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-dropped-py",
+        "Integrating only Q_x and leaving out the term -P_y of the curl.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-dropped-qx",
+        "Integrating only -P_y and leaving out the term Q_x of the curl.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-not-differentiated",
+        "Integrating Q - P over the region without taking the partial derivatives.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-polar-no-r",
+        "Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-open-boundary",
+        "Taking the line integral along the curved part of the boundary alone and forgetting that Green's theorem needs the whole closed curve (the straight piece too).",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-mean-no-area",
+        "Giving the integral of the curl as its mean value, without dividing by the area of the region.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-mean-times-area",
+        "Multiplying the integral of the curl by the area instead of dividing by it.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-orientation-ignored",
+        "Scaling the work for a doubled force but not changing its sign for the clockwise loop.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-scale-ignored",
+        "Changing the sign for the clockwise loop but not doubling the work for the doubled force.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "green-scale-squared",
+        "Squaring the factor of 2 for the doubled force, so the work is four times too big.",
+        area="green-theorem",
+    ),
+    CatalogueEntry(
+        "area-forgot-half",
+        "Using the line integral of x dy - y dx as the area, without the factor 1/2.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-terms-added",
+        "Adding the two terms, x dy + y dx, in place of subtracting them; the integral round a closed curve is then 0.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-signed-clockwise",
+        "Giving the area with the wrong sign: the line integral is positive only for a counterclockwise traversal, and an area is never negative.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-partial-curve",
+        "Integrating round only part of the boundary: half the parameter range, a single arc, or all the edges but the closing one.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-scale-linear",
+        "Multiplying the area by the enlargement factor instead of its square.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-scale-cubed",
+        "Multiplying the area by the cube of the enlargement factor.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-scale-unchanged",
+        "Leaving the area unchanged after an enlargement.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-between-reversed",
+        "Subtracting the outer area from the inner one, so the area between the curves comes out negative.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-between-outer-only",
+        "Giving the area inside the outer curve as the area between the curves.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-fraction-inverted",
+        "Dividing the outer area by the inner one instead of the inner by the outer.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-fraction-complement",
+        "Giving the fraction of the outer area that lies outside the curve instead of inside it.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-fraction-of-complement",
+        "Dividing the enclosed area by the area between the curves instead of by the area inside the outer curve.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-mulch-on-enlarged",
+        "Using the area of the enlarged bed, not the original bed, to work out an amount that depends on the original bed.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "area-mulch-on-between",
+        "Using the area between the bed and the outer curve in place of the area of the bed itself.",
+        area="area-from-line-integrals",
+    ),
+    CatalogueEntry(
+        "div-sum-of-components",
+        "Integrating P + Q + R over the solid instead of the divergence P_x + Q_y + R_z.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-mixed-partials",
+        "Taking the divergence as P_y + Q_z + R_x, differentiating each component with respect to the wrong variable.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-dropped-term",
+        "Leaving one of the three partial derivatives out of the divergence.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-spherical-no-rho-squared",
+        "Leaving the factor rho^2 out of the volume element rho^2 sin(phi) drho dphi dtheta in spherical coordinates.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-spherical-no-sin",
+        "Leaving the factor sin(phi) out of the volume element rho^2 sin(phi) drho dphi dtheta in spherical coordinates.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-cylindrical-no-r",
+        "Leaving the factor r out of the volume element r dr dtheta dz in cylindrical coordinates.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-inward",
+        "Giving the inward flux, with the wrong sign, instead of the outward flux.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-open-surface",
+        "Giving the total flux through the closed surface as the flux through the curved part alone, without subtracting the flux through the flat piece that closes it.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-base-added",
+        "Adding the flux through the flat piece to the total instead of subtracting it.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-flat-wrong-height",
+        "Evaluating the field at the wrong height on the flat piece (z = 0 on the lid, or the top height on the base).",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-base-sign",
+        "Taking the flux through the flat piece with the wrong sign, using the upward normal on a base whose outward normal points down.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-total-for-flat",
+        "Giving the total flux through the closed surface as the flux through the flat piece.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "div-total-reversed",
+        "Subtracting the total from the flat flux instead of the flat flux from the total.",
+        area="divergence-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-wrong-direction",
+        "Getting the sign of the circulation wrong by using the wrong orientation: counterclockwise as seen from above goes with the upward normal, clockwise with the downward one.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-flat-surface",
+        "Treating the tilted surface as if it were flat, integrating only the k component of curl F over the base and ignoring the slope of the surface.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-normal-signs",
+        "Using the normal (f_x, f_y, 1) for the graph z = f(x, y) instead of (-f_x, -f_y, 1).",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-z-not-replaced",
+        "Leaving z in curl F as 0 instead of replacing it by the height f(x, y) of the surface.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-curl-sign-slip",
+        "Getting the sign of one component of curl F wrong when writing out the determinant.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-flux-of-field",
+        "Integrating F . n over the surface instead of curl F . n, the flux of the field itself.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-polar-no-r",
+        "Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-orientation-ignored",
+        "Tripling the work for the stronger force but not changing its sign for the clockwise loop.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-scale-ignored",
+        "Changing the sign for the clockwise loop but not tripling the work for the stronger force.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-scale-squared",
+        "Squaring the factor of 3 for the tripled force, so the work is nine times too big.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-gradient-not-ignored",
+        "Adding a non-zero contribution for the gradient field, forgetting that the circulation of a gradient round a closed curve is 0.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-conservative-all-zero",
+        "Deciding the whole circulation is 0 because a conservative field was added, when only the added gradient contributes 0.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "stokes-gradient-doubled",
+        "Counting the original field twice when a conservative field is added.",
+        area="stokes-theorem",
+    ),
+    CatalogueEntry(
+        "verify-piece-missing",
+        "Adding up the direct integrals over all but one piece of the boundary and calling that the total, so the two sides do not agree.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-piece-reversed",
+        "Running one piece of the boundary the wrong way (or taking its normal the wrong way), so its contribution has the wrong sign.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-sides-added",
+        "Adding the two sides of the theorem together instead of recognising that they are equal.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-wrong-direction",
+        "Taking the whole answer with the opposite orientation to the one the theorem uses.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-piece-is-whole",
+        "Giving the value for the whole boundary as the value for a single piece of it.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-piece-share",
+        "Splitting the total equally among the pieces of the boundary, as if each contributed the same.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-piece-swapped",
+        "Reporting the value for a different piece of the boundary from the one asked about.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-one-piece-subtracted",
+        "Taking only one of the two known pieces away from the total when finding the remaining piece.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-pieces-for-remaining",
+        "Giving the sum of the pieces already found as the value of the remaining piece, instead of the total minus that sum.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-remaining-sign",
+        "Subtracting the wrong way round when finding the remaining piece, so the sign is reversed.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "verify-total-added",
+        "Adding the known pieces to the total instead of subtracting them when finding the remaining piece.",
+        area="integral-theorem-checks",
+    ),
+    CatalogueEntry(
+        "coords-order-swapped",
+        "Writing the coordinates relative to a basis in the reverse order, so each is paired with the wrong basis vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coords-standard-used",
+        "Giving the entries of the vector itself as its coordinates, as if the basis were the standard one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coords-basis-as-rows",
+        "Writing the basis vectors as the rows of the coefficient matrix instead of its columns, so the system solved is for the transpose.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "coords-sign-slip",
+        "Losing a minus sign on one coordinate when solving for the coordinates relative to a basis.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "taylor-centre-sign-error",
+        "Expanding about -a instead of a when the basis is the powers of (x - a).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "change-basis-direction-reversed",
+        "Using the transition matrix the wrong way round: giving the matrix from C to B where the matrix from B to C was asked for, or multiplying by P where P-inverse is needed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "change-basis-transposed",
+        "Writing the coordinates of each old basis vector as a row of the transition matrix instead of a column, so the matrix is transposed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "change-basis-product-order",
+        "Multiplying the factors of a transition matrix in the wrong order (B times C-inverse instead of C-inverse times B, or the first transition on the left).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "change-basis-forgot-target-inverse",
+        "Stopping at the matrix whose columns are the old basis vectors, forgetting to convert them into coordinates relative to the new basis.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-standard-used",
+        "Giving the matrix of the map in the standard basis where its matrix relative to another basis was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-forgot-output-basis",
+        "Writing the images of the basis vectors as columns of standard coordinates, without converting them to coordinates relative to the output basis.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-forgot-input-basis",
+        "Converting the output to the new basis but applying the map to the standard basis vectors instead of the basis vectors, so the factor P is missing.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-transposed",
+        "Writing the coordinates of each image as a row of the matrix of the map instead of a column.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-derivative-factor-dropped",
+        "Dropping the power-rule factor when differentiating a basis polynomial or a multiple of x^k, so the entry is too small by that factor.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-basis-order-ignored",
+        "Reading the coordinates in the standard order of the functions instead of the order in which the basis is listed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-term-dropped",
+        "Leaving one term of the formula for the map out when finding its matrix, such as the identity part of D plus a multiple of the identity.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-trace-includes-offdiagonal",
+        "Adding off-diagonal entries into the trace, which is the sum of the diagonal entries only.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "map-matrix-det-for-trace",
+        "Giving the trace of the matrix where its determinant was asked for, or adding the eigenvalues where they should be multiplied.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-assumed-trivial",
+        "Assuming the kernel of a linear map is just the zero vector without checking for a non-zero solution of T(v) = 0.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "image-assumed-whole-codomain",
+        "Taking the dimension of the image to be the dimension of the codomain, without checking that the map is onto.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-assumed-by-eigenvalue-count",
+        "Counting the eigenvalues of A and B instead of the eigenvalues they share when finding the kernel of X -> AX - XB.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-not-normalised",
+        "Reading a coordinate off the kernel vector as it came out of the row reduction, without rescaling so that the stated coefficient is 1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-wrong-coefficient",
+        "Giving a different coefficient of the kernel polynomial from the one asked for (the x term for the constant term).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "kernel-coefficient-inverted",
+        "Dividing the wrong way when rescaling a kernel vector, so the coefficient is the reciprocal of the right one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-vectors-as-columns",
+        "Writing the basis vectors as the columns of the answer matrix when the rows were asked for, so the matrix is transposed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-order-ignored",
+        "Listing the basis vectors in the wrong order, not following the order of the free variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-free-variables-misidentified",
+        "Choosing the wrong variables as free (for example the first ones rather than the ones without a pivot), so each vector is built on the wrong coordinates.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "basis-not-normalised",
+        "Giving a correct but unreduced basis vector, a multiple of the one in reduced row echelon form, when the normal form was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-counts-equations",
+        "Taking the dimension of the solution space to be n minus the number of equations, even though some equations depend on the others.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "dimension-ignores-parameter",
+        "Giving the dimension at the special value of the parameter for every value of the parameter.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-used-one-subspace",
+        "Giving a basis of one of the two subspaces instead of their intersection.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-sum-for-intersection",
+        "Adding generators of the two subspaces instead of finding the vectors that lie in both.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "intersection-substitution-sign-slip",
+        "Substituting a vector of the spanning set into the equation of the other subspace and getting the sign of the resulting relation wrong.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-zero-vector-only",
+        "Treating a set as a subspace because it contains the zero vector, without checking closure under addition and scalar multiplication.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-addition-only",
+        "Checking closure under addition but not under scalar multiplication.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-scalar-only",
+        "Checking closure under scalar multiplication but not under addition.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-count-complement",
+        "Reporting the number of sets that are not subspaces instead of the number that are.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-miscounted",
+        "Miscounting the sets that are subspaces by accepting a set that fails a closure condition.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-other-root",
+        "Choosing the other root of the condition on the parameter when the question asks for the larger or smaller one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-parameter-sum-for-root",
+        "Giving the sum of the roots of the parameter condition instead of the requested root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-parameter-product-for-root",
+        "Giving the product of the roots of the parameter condition instead of the requested root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-parameter-zero",
+        "Assuming the parameter must be zero for the set to contain the zero vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-zero-vector-overlooked",
+        "Overlooking that a set failing to contain the zero vector is not a subspace, and testing closure first.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-equation-means-subspace",
+        "Assuming any set defined by an equation is a subspace, even when the equation is not homogeneous linear.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-dimension-ambient",
+        "Giving the dimension of the ambient space instead of the dimension of the subspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "subspace-dimension-affine-for-linear",
+        "Treating a translated solution set as if it had the dimension of the subspace it is parallel to, and calling it a subspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "multiplicity-roles-swapped",
+        "Giving the geometric multiplicity where the algebraic one was asked for and the reverse, so the pair is written the wrong way round.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "geo-equals-alg",
+        "Assuming the geometric multiplicity of an eigenvalue equals its algebraic multiplicity, without finding the dimension of its eigenspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "multiplicity-counted-once",
+        "Counting an eigenvalue once in both multiplicities, as if it were a simple root with a single eigenvector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "alg-multiplicity-off-by-one",
+        "Reading the power of (λ - λ₀) in the characteristic polynomial one too high or one too low.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "diag-condition-gap-dropped",
+        "Leaving the difference between the two eigenvalues out of the condition that makes the rows of A - λI proportional.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "diag-condition-wrong-ratio",
+        "Writing the condition for proportional rows of A - λI with the entries paired the wrong way round.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "parameter-zero-assumed",
+        "Taking the parameter to be 0 because the matrix looks simpler there, without checking the rank condition.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "diag-parameter-other-collision",
+        "Giving the other value of the parameter at which two eigenvalues coincide, where the eigenspace is still large enough.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigval-trace-single-count",
+        "Subtracting a repeated eigenvalue from the trace only once when finding the third eigenvalue.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "geo-always-one",
+        "Taking the geometric multiplicity to be 1 for every eigenvalue, as if each had a single eigenvector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigvec-not-normalised",
+        "Giving eigenvectors with whole-number entries without dividing each by its length, so the columns of Q are not unit vectors.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigvec-normalised-by-sum",
+        "Scaling an eigenvector by the sum of its entries instead of its length when making it a unit vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "projection-not-normalised",
+        "Writing the projection as v vᵀ without dividing by vᵀv.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "projection-complement-confused",
+        "Giving the projection onto the complementary subspace: the line instead of the plane, or the plane instead of the line.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "projection-scaled-by-eigenvalue",
+        "Multiplying the projection onto an eigenspace by its eigenvalue, which gives that term of the spectral decomposition rather than the projection.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-cross-term-not-halved",
+        "Writing the coefficient of a cross term such as xy as the off-diagonal entry of the matrix, instead of half of it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-matrix-not-symmetric",
+        "Putting each cross-term coefficient in one off-diagonal entry only and leaving the mirror entry zero, so the matrix is not symmetric.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-diagonal-halved",
+        "Halving every entry of the matrix of a quadratic form, the diagonal ones as well as the off-diagonal ones.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-cross-terms-misplaced",
+        "Putting the coefficient of one cross term, such as xz, in the entry that belongs to a different pair of variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-diagonal-read-as-eigenvalues",
+        "Reading the coefficients of x², y², z² as the eigenvalues of a quadratic form that also has cross terms.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "eigval-order-reversed",
+        "Listing the eigenvalues from largest to smallest when the question asked for increasing order.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-schur-complement-det-dropped",
+        "Leaving out the determinant of the leading block when solving for the value of the parameter that makes the determinant of the whole matrix positive.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-positive-diagonal-assumed",
+        "Concluding that a form is positive definite as soon as its diagonal coefficients are positive, so the parameter threshold is 0.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-zero-eigenvalue-counted-positive",
+        "Counting a zero eigenvalue among the positive ones when finding the signature.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-zero-eigenvalue-counted-negative",
+        "Counting a zero eigenvalue among the negative ones when finding the signature.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-sign-reversed",
+        "Reversing the sign pattern of the eigenvalues, so a positive definite form is called negative definite or the numbers of positive and negative eigenvalues are swapped.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-definiteness-from-diagonal",
+        "Judging the signs of the eigenvalues from the signs of the diagonal coefficients, ignoring the cross terms.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-cross-term-kept-after-rotation",
+        "Keeping the cross term when writing a quadratic form in its principal axes, where it should have disappeared.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "principal-axes-eigenvalues-swapped",
+        "Attaching the eigenvalues to the principal-axis coordinates in the wrong order.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-semidefinite-vs-definite",
+        "Confusing a definite form with a semi-definite one: calling a form with a zero eigenvalue definite, or a form with no zero eigenvalue semi-definite.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-indefinite-assumed",
+        "Calling a form indefinite because it has a cross term or a negative entry in its matrix, without looking at its eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-diagonal-assumed",
+        "Writing the diagonal matrix of eigenvalues as the Jordan form of a matrix that does not have enough independent eigenvectors to be diagonalised.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-one-below-diagonal",
+        "Putting the 1s of a Jordan block below the diagonal when the normal form has them directly above it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-blocks-misordered",
+        "Placing the Jordan blocks in an order other than the one stated: by increasing eigenvalue, the larger block first for equal eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-size-from-multiplicity",
+        "Taking the size of the Jordan block for an eigenvalue to be its algebraic multiplicity, without finding the dimension of the eigenspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-size-off-by-one",
+        "Splitting a Jordan block into one block that is too small and an extra block of size 1, from an eigenspace of the wrong dimension.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-squared-not-renormalised",
+        "Squaring a Jordan matrix and leaving the result, with 2λ above the diagonal, instead of writing the Jordan form of the square.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-size-kept-for-zero",
+        "Keeping a Jordan block of size 2 for the square of a matrix whose block has eigenvalue 0, although a block J(0; 2) squares to zero.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-size-rank-confused",
+        "Giving the rank of A - λI as the size of the largest Jordan block instead of the rank plus one.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "jordan-block-count-as-size",
+        "Giving the number of Jordan blocks as the size of the largest block.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-entrywise",
+        "Taking the exponential of each entry of A separately, so the entry of e^(At) is e^(a t) with a the entry of A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-eigenvalues-swapped",
+        "Attaching the exponentials e^(λt) to the wrong coefficients in P e^(Dt) P⁻¹, so each eigenvalue is paired with the other's coefficient.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-t-dropped",
+        "Writing e^(λ) for e^(λt), so the entry of the matrix exponential has no t in the exponent.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-sign-in-exponent",
+        "Using e^(-λt) in place of e^(λt) in the exponentials of the diagonal matrix.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-nilpotent-term-dropped",
+        "Stopping at e^(λt) I and leaving out the tN (and t²N²/2) terms that a Jordan block adds.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-identity-added-offdiagonal",
+        "Adding the identity to the off-diagonal entries too, so the term 1 appears in an entry that should be only e^(λt) t N.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-eigenvalue-factor-dropped",
+        "Writing the entry of e^(At) = e^(λt)(I + tN) without the factor e^(λt).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-factorial-dropped",
+        "Writing t² where t²/2 belongs in e^(λt)(I + tN + t²N²/2) for a Jordan block of size 3.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-columns-not-weighted",
+        "Adding the entries of a row of e^(At) without weighting them by the components of the initial vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "matrix-exp-nilpotent-t-factor-dropped",
+        "Writing e^(λt)(I + N) for e^(At) when A = λI + N with N² = 0, leaving the factor t off N.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-eigenvalues-swapped",
+        "Attaching each coefficient of a closed form to the eigenvalue belonging to the other term.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-index-shift",
+        "Writing the closed form of a sequence with the index shifted by one, so each term carries λ^(n+1) in place of λ^n.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-coefficients-from-initial-values",
+        "Taking the coefficients of the eigenvalue terms to be the initial values themselves, without expressing x₀ in the eigenvectors.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-coefficient-base-confused",
+        "Swapping the roles of coefficient and base in a term c·λⁿ, writing λ·cⁿ.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "rec-eigenvector-weight-dropped",
+        "Leaving out the entry of the eigenvector when forming each coefficient of the component, so only the coordinates of x₀ in the eigenbasis appear.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-long-run-initial",
+        "Giving the initial vector as the long-run state, as if the chain did not move.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-equal-split",
+        "Assuming the long-run state is an equal split between the states.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-state-swapped",
+        "Giving the long-run numbers in the wrong order, so each state gets the other state's share.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-forgot-total",
+        "Giving the steady-state proportions without multiplying by the total number in the system.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-ratio-not-normalised",
+        "Scaling the steady state by the total divided by 10 instead of dividing by the sum of its entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-eigenvector-not-scaled",
+        "Giving the whole-number eigenvector for the eigenvalue 1 instead of scaling it to the total of the initial vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-ratio-inverted",
+        "Giving the proportion for the other state, from taking the switching rate out of a state as the share that ends up in it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-rate-as-share",
+        "Reading one of the switching rates in the matrix as the long-run share of a state.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-second-eigenvalue-one-entry",
+        "Taking the second eigenvalue of a 2×2 stochastic matrix to be 1 minus one of the switching rates, instead of 1 minus their sum.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "markov-second-eigenvalue-sum",
+        "Taking the second eigenvalue of a 2×2 stochastic matrix to be the sum of the two switching rates instead of 1 minus the sum.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-real-imag-swapped",
+        "Giving the real part where the imaginary part was asked for and the reverse: a + bi written as b + ai.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-conjugate-chosen",
+        "Giving the conjugate eigenvalue a - bi, or the negative of the argument, instead of the one with positive imaginary part.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-quadratic-formula-halving",
+        "Leaving out the division by 2 in the quadratic formula, so the imaginary part is the whole square root of the negative discriminant.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-real-part-is-trace",
+        "Giving the trace of the matrix as the real part of the eigenvalues instead of half the trace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-imaginary-part-is-determinant",
+        "Giving the determinant of the matrix as the imaginary part of the eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-imaginary-part-squared",
+        "Giving b² where b was asked for, after solving a² + b² = det A and stopping early.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-squared-forgot-root",
+        "Giving a² + b², which equals det A, as the modulus without taking the square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-sum-not-root",
+        "Adding the sizes of the real and imaginary parts to get the modulus, |a| + |b|, instead of √(a² + b²).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-difference-of-squares",
+        "Subtracting the squares of the real and imaginary parts under the root instead of adding them.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-is-trace",
+        "Giving the size of the trace as the modulus of the eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-from-discriminant",
+        "Taking the modulus to be the square root of the size of the discriminant tr² - 4 det.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-rotation-sign",
+        "Writing the rotation-scaling matrix with the signs of b the wrong way round, [[a, b], [-b, a]] for [[a, -b], [b, a]].",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-rotation-not-antisymmetric",
+        "Writing the rotation-scaling matrix with the same sign on both b entries, so it is not [[a, -b], [b, a]].",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-imaginary-part-dropped",
+        "Giving a·I as the rotation-scaling matrix, leaving out the rotation that b contributes.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-argument-quadrant-ignored",
+        "Taking arctan(b/a) as the argument without adjusting for the quadrant when the real part is negative.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-argument-ratio-inverted",
+        "Using arctan(a/b) in place of arctan(b/a) for the argument.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-argument-complement",
+        "Giving π/2 minus the argument, from measuring the angle from the imaginary axis instead of the real axis.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-power-angle-rounded",
+        "Giving a lower power of the matrix by rounding the exponent down to an even number.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "geo-reported-as-matrix-size",
+        "Giving the size of the matrix as the dimension of an eigenspace, as if every vector were an eigenvector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-congruence-order-reversed",
+        "Transforming a quadratic form under x = Py as P A Pᵀ instead of Pᵀ A P, so the transpose is on the wrong side.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-congruence-as-similarity",
+        "Transforming a quadratic form under x = Py as P⁻¹ A P, the rule for a change of basis of a linear map, instead of Pᵀ A P.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-substitution-one-sided",
+        "Substituting x = Py into only one side of xᵀAx, giving A P or Pᵀ A instead of Pᵀ A P.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-substitution-matrix-reported",
+        "Reporting the substitution matrix P, or PᵀP, as the matrix of the form in the new variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-squares-cross-terms-dropped",
+        "Writing the matrix of a sum of squares of linear forms from the squares of the coefficients alone, dropping the cross products of different variables.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qf-squares-cross-terms-not-halved",
+        "Putting the full cross-product coefficient of a variable pair into each of the two symmetric entries, instead of half of it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-power-ignored",
+        "Finding the modulus of the eigenvalues of A and reporting it as the modulus for a power or inverse of A, as if raising A to a power did not change its eigenvalues.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-power-as-multiple",
+        "Multiplying the modulus by the exponent instead of raising it to that power: |λ|ᵏ read as k|λ|.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-squared-power",
+        "Raising the squared modulus a² + b² to the exponent k, instead of the modulus itself.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "complex-modulus-inverse-not-reciprocated",
+        "Taking the modulus of the eigenvalues of the inverse to be the modulus for A itself, or its negative, instead of its reciprocal.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-returns-projection",
+        "Reporting the projection of v2 onto u1 as the second vector, instead of subtracting it from v2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-adds-projection",
+        "Adding the projection to the vector instead of subtracting it, so the result is not orthogonal to the earlier vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-forgot-divide-by-norm-squared",
+        "Subtracting (v2 . u1) u1 without dividing by u1 . u1, so the multiple of u1 taken off is too large.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-divides-by-wrong-vector",
+        "Dividing the dot product by the squared length of the vector being orthogonalised instead of the squared length of the vector projected onto.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-projects-onto-original-vector",
+        "Subtracting projections onto the original vectors v1, v2 instead of the orthogonal vectors u1, u2, so the result is not orthogonal to u2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-drops-first-projection",
+        "Subtracting only the projection onto the latest orthogonal vector and leaving out the projection onto u1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-drops-second-projection",
+        "Subtracting only the projection onto u1 and leaving out the projection onto u2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-integral-replaced-by-coefficient-dot",
+        "Using the dot product of the coefficient vectors in place of the integral inner product of the polynomials.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-inverted-coefficient",
+        "Turning the projection coefficient upside down: dividing u1 . u1 by v2 . u1 instead of v2 . u1 by u1 . u1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-coefficient-not-squared",
+        "Using c where c squared belongs when finding the squared length of u2 = v2 - c u1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-drops-projection-from-length",
+        "Giving the squared length of v2 as the squared length of u2, forgetting that the projection has been removed.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-length-of-projection",
+        "Giving the squared length of the projection c u1 instead of the squared length of the remainder u2.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "gs-ignores-the-weights",
+        "Using the ordinary dot product in the Gram-Schmidt process when the inner product has weights.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-gives-w-itself",
+        "Giving a basis of W itself, in reduced form, instead of a basis of its orthogonal complement.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-sign-error-in-null-vectors",
+        "Forgetting the minus sign when writing the solutions of the equations, so each basis vector has the wrong sign on its pivot entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-not-in-reduced-form",
+        "Giving a correct basis of the complement that is not in reduced row echelon form (cleared denominators, or unreduced rows), so it is not the normal form asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-only-first-vector",
+        "Finding the vectors orthogonal to the first spanning vector only, and ignoring the others.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-too-few-vectors",
+        "Giving fewer basis vectors than the complement has, stopping after the first free variable.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-keeps-the-dependent-equation",
+        "Keeping every row of the system as a basis vector of the complement, including the equation that is a combination of the others.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-forgot-coefficient-of-k",
+        "Solving a. z = 0 for k without dividing by the coefficient of k.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-onto-the-wrong-vector",
+        "Projecting the line's direction onto the given vector instead of the given vector onto the line's direction.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-forgot-divide-by-norm-squared",
+        "Multiplying a by v . a without dividing by a . a.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-gives-the-perpendicular-part",
+        "Giving the component of v perpendicular to the subspace, v - p, instead of the projection p.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-scales-v-not-a",
+        "Finding the right coefficient (v . a)/(a . a) but multiplying v by it instead of a.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-adds-line-projections",
+        "Projecting onto each spanning vector separately and adding, which only works when the spanning vectors are orthogonal.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-onto-one-spanning-vector",
+        "Projecting onto only one of the two spanning vectors of the plane.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-matrix-onto-the-complement",
+        "Giving the projection matrix onto the orthogonal complement (the matrix of the normal direction) instead of onto the subspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-matrix-forgot-the-inverse",
+        "Using A A^T as the projection matrix, leaving out the factor (A^T A)^-1.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-matrix-forgot-divide-by-norm-squared",
+        "Using n n^T, or I - n n^T, without dividing by n . n.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-distance-is-the-projection-length",
+        "Giving the length of the projection as the distance to the subspace.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-forgot-to-subtract-the-projection",
+        "Giving the length of v itself as the distance, without removing the projection.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-pythagoras-with-the-wrong-sign",
+        "Adding the squared lengths of v and its projection to get the squared distance instead of subtracting.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-forgot-the-square-root",
+        "Giving the squared distance where the distance itself was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-cosine-for-sine",
+        "Giving the cosine of the angle between v and the plane (projection length over length of v) where the sine was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-wrong-ratio",
+        "Dividing the distance by the length of the projection instead of by the length of v.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "proj-forgot-to-divide-by-the-length",
+        "Giving the distance as the sine of the angle, without dividing by the length of v.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-solves-only-the-first-equations",
+        "Solving exactly the first few equations and ignoring the rest, instead of minimising the error over all of them.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-reports-the-right-hand-side-of-the-normal-equations",
+        "Stopping at the right-hand side A^T b of the normal equations without solving for x.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-coefficients-in-the-wrong-order",
+        "Giving the least-squares coefficients in the reverse of the order the model lists them (slope before intercept, or highest power first).",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-line-through-the-mean-only",
+        "Fitting the horizontal line through the mean of the y values and ignoring the trend.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-gives-the-fitted-values",
+        "Giving the fitted values Ax instead of the residual b - Ax.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-residual-sign-reversed",
+        "Giving Ax - b instead of b - Ax for the residual.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-determinant-sign-slip",
+        "Adding the two terms of the determinant of A^T A instead of subtracting.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-determinant-forgot-n",
+        "Leaving out the factor n (the number of data points) in the first term of the determinant of A^T A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-determinant-dropped-second-term",
+        "Stopping at n times the sum of x squared, forgetting to subtract the square of the sum of x.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-determinant-dropped-first-term",
+        "Giving only the square of the sum of x as the determinant of A^T A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-slope-without-centring",
+        "Dividing the sum of xy by the sum of x squared, as for a line through the origin, instead of using the normal equations.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-slope-wrong-denominator",
+        "Dividing the slope numerator by n times the sum of x squared instead of by the determinant of A^T A.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-slope-numerator-reversed",
+        "Reversing the order of the two terms in the numerator of the slope, which gives the slope the wrong sign.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-slope-forgot-n",
+        "Leaving out the factor n in the first term of the slope numerator.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-intercept-is-the-mean-of-y",
+        "Giving the mean of the y values as the intercept, forgetting that the slope shifts it.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-intercept-forgot-divide-by-n",
+        "Finding the sum of y minus m times the sum of x and not dividing by n.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-intercept-from-one-point",
+        "Finding the intercept so that the line passes through the first data point only.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-forgot-the-square-root",
+        "Giving the squared length of the residual where its length was asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-sum-of-residuals-not-length",
+        "Adding the sizes of the residuals instead of finding the length of the residual vector.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-residual-from-the-mean-line",
+        "Measuring the residual from the horizontal line at the mean of y instead of from the least-squares line.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "ls-length-of-b-not-the-residual",
+        "Giving the length of the data vector b instead of the length of the residual b - Ax.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-diagonal-is-squared-length",
+        "Putting the squared length of the orthogonalised column on the diagonal of R instead of the length.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-off-diagonal-not-divided-by-length",
+        "Using the dot product with the unnormalised column for an entry above the diagonal of R, instead of the dot product with the unit vector q.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-r-not-upper-triangular",
+        "Giving R as a lower triangular matrix, the transpose of the right answer.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-diagonal-from-original-column",
+        "Taking the diagonal entries of R as the lengths of the original columns of A, without removing the projections first.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-q-columns-not-normalised",
+        "Giving the orthogonal columns of Gram-Schmidt as Q without dividing each by its length.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-q-skips-orthogonalising",
+        "Normalising the second column of A directly instead of the column left after subtracting its projection on the first.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-q-transposed",
+        "Giving the transpose of Q, with the orthonormal vectors as rows.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-q-column-sign-flipped",
+        "Reversing the sign of a column of Q, which would make the diagonal of R negative.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-norm-is-sum-of-entries",
+        "Taking the length of a column to be the sum of the sizes of its entries.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-confuses-r11-and-r22",
+        "Giving another entry of R in place of the one asked for.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-norm-off-by-one",
+        "Misjudging the length of a vector by one unit through a slip in the square root.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-divides-by-squared-length",
+        "Dividing the dot product of the columns by the squared length of the first column instead of its length.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-divides-by-the-wrong-length",
+        "Dividing the dot product of the columns by the length of the second column instead of the first.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-forgot-back-substitution",
+        "Giving Qᵀb as the solution without solving the triangular system Rx = Qᵀb.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "qr-back-substitution-order-reversed",
+        "Solving the upper triangular system from the top, as if it were lower triangular, instead of from the bottom.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "oc-dropped-a-term",
+        "Leaving one term out of the dot product z . v = 0 when solving for the unknown entry.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
+        "vop-sign-on-first-term",
+        "Putting the wrong sign on the first term in variation of parameters: using +y2 g/W where -y2 g/W is needed, so y_p changes sign in one term.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-swapped-solutions",
+        "Pairing u1 with y2 and u2 with y1 (or swapping u1' and u2') when forming y_p = u1 y1 + u2 y2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-forgot-to-integrate",
+        "Using u1' and u2' directly in y_p without integrating them.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-reversed",
+        "Taking the Wronskian as y1' y2 - y1 y2', the negative of the right one, so every u and y_p has the wrong sign.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-one-term-only",
+        "Keeping only one of the two terms u1 y1 and u2 y2 in the particular solution.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-sum",
+        "Adding y1 y2' and y1' y2 in the Wronskian instead of subtracting.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-wrong-arrangement",
+        "Building the Wronskian as y1 y2 - y1' y2' instead of y1 y2' - y1' y2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-no-derivative",
+        "Forgetting to differentiate y1 in the Wronskian, which gives y1 y2' - y1 y2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-forgotten",
+        "Leaving out the division by the Wronskian in u1' = -y2 g/W or u2' = y1 g/W.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-wronskian-multiplied",
+        "Multiplying by the Wronskian instead of dividing by it in u1' or u2'.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "vop-sign-on-second-term",
+        "Putting the wrong sign on the second term in variation of parameters, so y_p = u1 y1 - u2 y2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-dropped-function-of-y",
+        "Integrating M with respect to x to get F but leaving out the function of y that must be added, so F_y no longer equals N.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-both-integrals-added",
+        "Adding the integral of M with respect to x and the integral of N with respect to y, which counts the cross terms twice.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-integrated-wrong-variable",
+        "Integrating M with respect to y instead of x when looking for the potential.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-sign-on-g",
+        "Subtracting the missing function of y (or of x) instead of adding it to the integral.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-dropped-function-of-x",
+        "Integrating N with respect to y but leaving out the function of x that must be added.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-test-wrong-partials",
+        "Testing exactness with M_x = N_y instead of M_y = N_x.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-derivative-power-dropped",
+        "Forgetting the power in differentiating when comparing M_y with N_x, so k comes out as a bare coefficient.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-sign-of-k",
+        "Getting the sign of k wrong when equating M_y and N_x.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-k-inverted",
+        "Dividing the coefficients the wrong way round when solving for k.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-ic-sign-on-constant",
+        "Writing the constant C with the wrong sign after substituting the initial condition into F.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-ic-swapped-point",
+        "Substituting the initial condition as (y0, x0) instead of (x0, y0).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-sign-reversed",
+        "Reversing the numerator of the quotient, so the integrating factor is the reciprocal of the right one.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-not-exponentiated",
+        "Integrating the quotient but not exponentiating, so the exponent is given as the integrating factor.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-ratio-only",
+        "Giving the quotient itself as the integrating factor, without integrating.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-wrong-variable",
+        "Writing the integrating factor in the other variable.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-wrong-denominator",
+        "Dividing the difference of partial derivatives by M instead of N, or by N instead of M.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-quotient-numerator-only",
+        "Leaving out the division by M or N in the quotient.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-quotient-wrong-partials",
+        "Using M_x - N_y in the quotient instead of M_y - N_x.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "exact-factor-not-applied",
+        "Finding the potential of the original equation instead of the equation multiplied by the integrating factor.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-forgot-final-power",
+        "Stopping at the solution v of the linear equation without converting back to y = v^(1/(1-n)).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-inverted-power",
+        "Converting back with the wrong power, y = v^(-1/(1-n)) instead of v^(1/(1-n)).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-ic-applied-to-v",
+        "Using the initial value of y as the initial value of v, instead of y(x0) raised to the power 1 - n.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-forgot-one-minus-n",
+        "Leaving the factor 1 - n out of the linear equation for v, so v' + P v = Q.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-q-not-scaled",
+        "Multiplying P by 1 - n in the linear equation for v but forgetting to multiply Q by it.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-wrong-exponent",
+        "Using the wrong power in the substitution, such as v = y^n or v = y^(n-1) instead of v = y^(1-n).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-integrating-factor-uses-p",
+        "Forming the integrating factor from P instead of (1 - n) P.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-integrating-factor-sign",
+        "Giving the integrating factor the wrong sign in the exponent.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "bernoulli-integrating-factor-not-exponentiated",
+        "Giving the integral of the coefficient instead of its exponential as the integrating factor.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-forgot-back-substitution",
+        "Stopping at v(x) without multiplying by x to return to y = vx.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-constant-error",
+        "Fixing the constant of integration wrongly from the initial condition, such as inverting it or using the wrong value of y/x.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-sign-in-separation",
+        "Making a sign slip while separating variables and integrating after the substitution y = vx.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-dropped-product-rule",
+        "Taking dy/dx = x dv/dx and leaving out the v term of the product rule in y = vx.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-reciprocal-slip",
+        "Inverting the result of the integration, so v is replaced by 1/v.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-coefficient-dropped",
+        "Dropping the coefficient of the squared term, or the factor 2 from the half-angle, in the solution.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-divided-by-x",
+        "Writing dv/dx without the factor x, so the transformed equation is divided by x once too often.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-wrong-term",
+        "Swapping the roles of the v and v^2 terms in the equation for v.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "homogeneous-sign-in-partial-fractions",
+        "Getting a sign wrong in the partial fractions for the separated integral.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-indicial-slip",
+        "Forming the exponent equation wrongly from y = x^r, such as r^2 + a r + b = 0, forgetting that y'' gives r(r - 1).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-sign-of-exponent",
+        "Reversing the sign of the exponents, so x^r is written as x^(-r).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-constants-swapped",
+        "Attaching the constants to the wrong powers of x after solving the initial conditions.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-missing-log",
+        "For a repeated root or complex roots, leaving out the ln x, writing the second solution as x^(r+1) or using cos(bx) instead of cos(b ln x).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-derivative-slip",
+        "Forgetting the term from the first solution when matching y'(1) for a repeated or complex root.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-indicial-sign",
+        "Giving the exponent equation the wrong sign on its middle coefficient.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "euler-cauchy-root-slip",
+        "Slipping when reading the required value off the exponent equation, such as reversing its sign or using the other root.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-particular-coefficient-slip",
+        "Slipping in the coefficient of the particular solution when substituting the trial form, such as forgetting to divide by p^2 + bp + c or dropping the b term.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-particular-derivative-dropped",
+        "Dropping the term from the first derivative of the trial solution, so a linear particular solution has the wrong constant term.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-resonance-coefficient-slip",
+        "Getting the coefficient of the resonant particular solution wrong, such as forgetting to divide by 2p + b or by 2.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-resonance-factor-x-dropped",
+        "Using a trial solution with the same form as a term of the complementary function instead of multiplying by x (or x^2).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-ic-applied-to-homogeneous-only",
+        "Fitting the constants of the complementary function to the initial conditions without allowing for the particular solution.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-ic-derivative-particular-forgotten",
+        "Subtracting the particular solution from y(0) but not its slope from y'(0) when fitting the constants.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-homogeneous-root-sign",
+        "Reading the characteristic roots with the wrong sign, so the complementary function has e^(-rx) in place of e^(rx).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-particular-sign-error",
+        "Taking the particular solution with the wrong overall sign.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode-complex-real-part-dropped",
+        "For complex roots, dropping the exponential factor e^(ax) from the complementary function.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-force-not-divided-by-mass",
+        "Leaving out the division by the mass when writing the equation of motion, so the forcing term is F0 instead of F0/m.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-sign-of-detuning",
+        "Reversing the sign of the difference between the natural and driving frequencies squared, so the amplitude has the wrong sign.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-frequencies-added",
+        "Adding the squares of the natural and driving frequencies instead of subtracting them.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-sin-for-cos",
+        "Writing the forced response as a sine when the driving force is a cosine.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-stiffness-as-frequency",
+        "Using the spring stiffness k where the squared natural frequency k/m belongs.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-resonance-factor-two",
+        "Missing the factor 2 in the resonant solution F0 t sin(w0 t)/(2 m w0), or putting it in the wrong place.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-resonance-no-growth",
+        "Using the non-resonant form for a system driven at its natural frequency, so the amplitude does not grow.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-resonance-wrong-trig",
+        "Writing the resonant solution with cos instead of sin for a force that is a cosine.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-resonance-frequency-slip",
+        "Dividing by w0 squared instead of w0 in the resonant amplitude growth rate.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-initial-conditions-ignored",
+        "Giving only the forced response and ignoring the starting conditions.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-homogeneous-sine",
+        "Adding a sine term at the natural frequency, although the mass starts with zero velocity.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-natural-frequency-used",
+        "Giving the undamped natural frequency as the frequency of greatest steady amplitude in a damped system.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-damped-frequency-used",
+        "Giving the damped natural frequency as the frequency of greatest steady amplitude.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-peak-damping-slip",
+        "Making a slip in the damping term of the formula for the frequency of greatest amplitude, k/m - c^2/(2m^2).",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-beat-period-slip",
+        "Using the wrong frequency combination for the beat period, such as the sum of the frequencies or the period of the fast oscillation.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-beat-amplitude-slip",
+        "Taking the greatest displacement during beats to be the amplitude of one cosine rather than twice it.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "forced-oscillator-frequency-slip",
+        "Slipping when finding the natural angular frequency or a quantity built from it, such as using k/m or k instead of its square root.",
+        area="ordinary-differential-equations",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-wrong-root-chosen",
+        "Giving the other root of the indicial equation from the one the question asked for, or building the series on the wrong exponent.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-sign-error",
+        "Giving a root of the indicial equation with the wrong sign.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-leading-coefficient-ignored",
+        "Forming the indicial equation without dividing by, or including, the coefficient of x² y'', so the roots come out wrong.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-r-minus-one-dropped",
+        "Writing r² in place of r(r - 1) for the y'' term of the indicial equation.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-indicial-root-sum-given",
+        "Giving the sum of the two indicial roots, 1 - B0/A, instead of one root.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frobenius-sign-slip",
+        "Moving the terms of the Frobenius recurrence across the equals sign without changing their signs.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frobenius-coefficient-index-shifted",
+        "Using r + n in place of r + n - k for the exponent in the y' term of the recurrence.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frobenius-n-for-r-plus-n",
+        "Evaluating the indicial polynomial at n instead of at r + n when dividing in the recurrence.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frobenius-term-left-out",
+        "Leaving one of the earlier coefficients out of the recurrence, so a_2 is built from a_1 alone.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-second-derivative-factor-dropped",
+        "Writing the contribution of y'' to the coefficient recurrence with the factor (n+2) but not (n+1), or the like, so a term of the second derivative is under-counted.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-derivative-factor-dropped",
+        "Writing the contribution of a term such as x y' to the recurrence as a_n, leaving out the factor n that differentiation brings down.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-sign-slip",
+        "Moving the other terms of the recurrence across the equals sign without changing their signs, so every later coefficient has the wrong sign.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-initial-values-swapped",
+        "Taking a_0 to be y'(x0) and a_1 to be y(x0), the wrong way round.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-wrong-coefficient-index",
+        "Giving the coefficient of a neighbouring power, a_(n-1), where a_n was asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-expansion-point-ignored",
+        "Expanding about x = x0 but using the coefficients of the equation in powers of x, without re-expanding them in powers of (x - x0).",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-series-term-left-out-of-sum",
+        "Stopping the partial sum one term early, leaving out the last term of the truncated series.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-damping-term-sign",
+        "Taking the damping term to enter the Jacobian with the wrong sign, writing +c where the derivative gives -c.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-jacobian-transposed",
+        "Writing the Jacobian matrix transposed, with the partial derivatives of each variable down a row instead of along it.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-jacobian-rows-swapped",
+        "Putting the partial derivatives of the second equation in the first row of the Jacobian matrix and the reverse.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-jacobian-at-wrong-equilibrium",
+        "Evaluating the Jacobian matrix at a different equilibrium from the one asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-jacobian-at-origin",
+        "Evaluating the Jacobian matrix at the origin instead of at the equilibrium asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-product-rule-missed",
+        "Differentiating a product such as x(a - bx - cy) by treating the factor x as a constant, so the bracket itself is lost.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-equilibrium-from-single-equations",
+        "Solving each bracket of the system for its own axis, instead of solving the two equations together for the coexistence equilibrium.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-classification-stability-flip",
+        "Reading the type of the equilibrium correctly but the stability wrongly, calling a stable point unstable or the reverse.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-classification-node-spiral-swapped",
+        "Calling a node a spiral, or a spiral a node, by misjudging the sign of trace² - 4 × determinant.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-classification-saddle-misjudged",
+        "Misjudging the sign of the determinant, so a saddle is called a node or spiral or the reverse.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-cramer-sign-slip",
+        "Getting a sign wrong when solving the two linear nullcline equations for the coexistence equilibrium.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-coordinates-swapped",
+        "Giving the y-coordinate of the equilibrium where the x-coordinate was asked, or the reverse.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-solution-not-divided-by-determinant",
+        "Stopping before dividing by the determinant (or the coefficient) when solving the nullcline equations.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-ratio-inverted",
+        "Inverting a ratio when solving a nullcline equation, giving e/d where d/e is needed.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-trace-for-determinant",
+        "Giving the trace of the Jacobian matrix where its determinant was asked.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-determinant-sign-slip",
+        "Getting the sign of the determinant of the Jacobian matrix wrong.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-determinant-factor-left-out",
+        "Leaving a constant factor out of the determinant of the Jacobian matrix, such as bf - ce.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-repeated-eigenvalue-no-t-term",
+        "Treating a repeated eigenvalue with one eigenvector like a pair of ordinary exponentials, and leaving out the t e^(λt) term of the solution.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-matrix-used-instead-of-nilpotent-part",
+        "Using A where A - λI is needed, so the coefficient of the t e^(λt) term is built from the wrong vector.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-t-term-sign",
+        "Getting the sign of the t e^(λt) term wrong when the generalised eigenvector is found from (A - λI)w = v.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-nilpotent-part-sign",
+        "Forming A + λI instead of A - λI.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-off-diagonal-term-dropped",
+        "Leaving the off-diagonal term out when multiplying A - λI by the initial vector.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-cos-sin-coefficients-swapped",
+        "Swapping the cosine and sine coefficients, so the initial value multiplies the sine and the other coefficient multiplies the cosine.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-frequency-from-discriminant",
+        "Taking the square root of the discriminant as the frequency, without halving it, so the oscillation runs twice as fast.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-sine-coefficient-not-divided-by-frequency",
+        "Leaving out the division by the frequency in the coefficient of the sine term.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-growth-factor-dropped",
+        "Dropping the factor e^(αt) from the real solution when the real part α of the eigenvalues is not zero.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-sine-term-sign",
+        "Taking the eigenvalue with negative imaginary part, so the sine term of the real solution has the wrong sign.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-real-part-not-halved",
+        "Giving the trace as the real part of the complex eigenvalues instead of half the trace.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-real-and-imaginary-parts-swapped",
+        "Swapping the real and imaginary parts of the complex eigenvalues.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-imaginary-part-not-rooted",
+        "Giving β² instead of β as the imaginary part of the eigenvalues.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-imaginary-part-not-halved",
+        "Giving the square root of the discriminant, 2β, as the imaginary part instead of half of it.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-modulus-as-imaginary-part",
+        "Giving the modulus of the eigenvalue, the square root of the determinant, as its imaginary part.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-exponent-sign-flipped",
+        "Writing the exponential for an eigenvalue as e^(-λt) instead of e^(λt) in the solution of x' = Ax.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvalue-eigenvector-mismatch",
+        "Pairing an eigenvector with the exponential of a different eigenvalue.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-initial-values-as-coefficients",
+        "Taking the constants in the general solution to be the initial values themselves, instead of solving the initial conditions for them.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-entry-dropped",
+        "Leaving the eigenvector's entry out of a term, so the term is c e^(λt) instead of c v e^(λt).",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-other-component-given",
+        "Giving a different component of the solution from the one asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-characteristic-sign-error",
+        "Solving λ² + Tλ + D = 0 instead of λ² - Tλ + D = 0, so every eigenvalue has the wrong sign.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-wrong-eigenvalue-chosen",
+        "Giving the other eigenvalue from the one the question asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-diagonal-entries-as-eigenvalues",
+        "Reading the diagonal entries of the matrix as its eigenvalues.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-trace-as-eigenvalue",
+        "Giving the trace of the matrix as an eigenvalue.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-determinant-as-eigenvalue",
+        "Giving the determinant of the matrix as an eigenvalue.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-wrong-diagonal-entry",
+        "Using the wrong diagonal entry of the matrix when solving (A - λI)v = 0 for the eigenvector.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-of-other-eigenvalue",
+        "Finding the eigenvector for the other eigenvalue from the one asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-sign-slip",
+        "Getting the sign of an eigenvector entry wrong when solving (A - λI)v = 0.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "ode2-eigenvector-not-normalised",
+        "Stopping before scaling the eigenvector to the stated form, so its entry is not the one asked for.",
+        area="ode2",
+    ),
+    CatalogueEntry(
+        "fourier-normalisation-halved",
+        "Dividing a Fourier coefficient by 2L instead of L, so the answer is half the true value.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-normalisation-doubled",
+        "Doubling a Fourier coefficient by using the half-range factor 2/L on a full period [-L, L].",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-a0-half-confused",
+        "Reporting a0/2, the constant term of the series, where the coefficient a0 was asked for.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-one-piece-only",
+        "Integrating over [0, L] only, or over one piece of the function, instead of the whole period [-L, L].",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-period-scaling-dropped",
+        "Integrating against cos(nx) or sin(nx) instead of cos(n pi x/L) or sin(n pi x/L), so the half-period L drops out of the frequency.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-sine-cosine-swap",
+        "Reporting b_n where a_n was asked for, or the reverse.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-coefficient-sign-flip",
+        "Losing a sign in the integration by parts or in evaluating cos(n pi), so the coefficient has the wrong sign.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-amplitude-added-linearly",
+        "Adding |a_n| and |b_n| for the amplitude of a harmonic instead of combining them in quadrature.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-amplitude-no-root",
+        "Giving a_n squared plus b_n squared as the amplitude, without taking the square root.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-amplitude-larger-only",
+        "Taking the larger of |a_n| and |b_n| as the amplitude of the harmonic.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-jump-one-sided-value",
+        "Reading the value of the series at a jump as one of the one-sided limits of f, instead of their average.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-jump-value-zero",
+        "Saying the series is 0 at a jump or at the end of the period, because the sine terms vanish there.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-periodicity-ignored",
+        "Evaluating the formula for the nearest piece at a point outside [-L, L) instead of using the period 2L to bring the point back.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-mean-value-only",
+        "Giving the mean value a0/2 of f over a period as the value of the series at the point.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-jump-average-wrong-pair",
+        "Averaging the wrong pair of values at the end of the period, such as f(-L) and f(L) taken from the same piece.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-half-range-factor-dropped",
+        "Using the factor 1/L instead of 2/L in a half-range coefficient, so the answer is half the true value.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-wrong-extension",
+        "Using the even extension for the sine series, or the odd extension for the cosine series, when finding the value outside (0, L).",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "fourier-sine-end-not-zero",
+        "Taking the value of a half-range sine series at x = 0 or x = L to be f there, when every sine term is zero at both ends.",
+        area="fourier",
+    ),
+    CatalogueEntry(
+        "heat-decay-linear-in-n",
+        "Using the decay rate k(pi/L)^2 n for mode n instead of k(n pi/L)^2, so the squared n is lost.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-decay-pi-dropped",
+        "Using the decay rate k n^2/L^2 for mode n, leaving pi out of k(n pi/L)^2.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-decay-wavenumber-unsquared",
+        "Using the decay rate k n pi/L for mode n, with the wavenumber n pi/L not squared.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-decay-length-unsquared",
+        "Using the decay rate k(n pi)^2/L for mode n, with the rod length L not squared.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-wrong-mode-family",
+        "Using cosine modes where the ends are held at fixed temperatures, or sine modes where they are insulated.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-no-decay",
+        "Giving the initial temperature at the point, as if no time had passed.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-series-truncated-to-first-term",
+        "Keeping only the first mode of the series, although the later modes still contribute at that time.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-mean-term-dropped",
+        "Leaving out the constant term a0/2 of an insulated rod, which does not decay.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-steady-state-omitted",
+        "Giving only the decaying transient and leaving out the steady-state temperature distribution.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-steady-state-not-subtracted",
+        "Fitting the series to the initial temperature itself, instead of to what is left after the steady state is subtracted.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-decay-applied-to-coefficient",
+        "Multiplying the Fourier coefficient by a decay factor, although the coefficient is the value at time zero.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-wrong-mode-number",
+        "Giving the coefficient of the first mode where the coefficient of the third was asked for.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-fade-target-wrong",
+        "Solving for the time at which the amplitude reaches the wrong level, not 1 degree.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "heat-time-constant-not-fade-time",
+        "Giving the time constant 1/lambda instead of the time for the amplitude to fall to 1 degree.",
+        area="heat",
+    ),
+    CatalogueEntry(
+        "dalembert-half-dropped",
+        "Adding f(x - ct) and f(x + ct) in d'Alembert's formula without the factor one half.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-one-pulse-only",
+        "Using only one travelling pulse, f(x - ct) or f(x + ct), instead of the average of both.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-velocity-term-undivided",
+        "Adding the integral of the initial velocity from x - ct to x + ct without dividing by 2c.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-velocity-term-half",
+        "Dividing the integral of the initial velocity by 2 instead of by 2c.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-velocity-term-dropped",
+        "Leaving the initial-velocity term out of d'Alembert's formula.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "dalembert-velocity-sign",
+        "Subtracting the initial-velocity term in d'Alembert's formula instead of adding it.",
+        area="dalembert",
+    ),
+    CatalogueEntry(
+        "wave-speed-not-square-rooted",
+        "Using the coefficient c squared (or T/rho) as the wave speed, when the speed is its square root.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-speed-inverted",
+        "Taking the wave speed to be the square root of rho/T instead of T/rho.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-speed-root-of-tension-only",
+        "Taking the wave speed to be the square root of the tension divided by the density, with the root on the tension only.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-speed-product",
+        "Taking the wave speed to be the square root of the product of tension and density instead of their quotient.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-speed-doubled",
+        "Doubling the wave speed by using 2T instead of T in the formula c = sqrt(T/rho).",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-no-time-evolution",
+        "Giving the initial displacement at the point, as if no time had passed.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-velocity-coefficient-not-divided",
+        "Using the initial-velocity coefficient B_n directly in B_n sin(w_n t), without dividing by the angular frequency w_n.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-pi-dropped",
+        "Using w_n = n c/L for the angular frequency, leaving pi out of n pi c/L.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-c-dropped",
+        "Using w_n = n pi/L for the angular frequency, leaving the wave speed out of n pi c/L.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-mode-frequency-not-scaled",
+        "Giving every mode the angular frequency of the first mode, instead of n times it.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-cos-sin-swap",
+        "Putting the displacement coefficient with sin(w t) and the velocity coefficient with cos(w t), the wrong way round.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-time-unit-ms-as-s",
+        "Using the time in milliseconds as if it were in seconds.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-fundamental-half-wavelength-missed",
+        "Taking the fundamental frequency to be c/L, forgetting that the fundamental wavelength is 2L.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-fundamental-quarter-wavelength",
+        "Taking the fundamental frequency to be c/(4L), as for a string free at one end.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-hertz-vs-radians",
+        "Giving the angular frequency in rad/s where the frequency in hertz was asked.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-inverted",
+        "Giving the period-like quantity L/(2c), or c times 2L, instead of the frequency c/(2L).",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-mode-frequency-squared",
+        "Taking the angular frequency of mode n to be n squared times that of the first mode.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "wave-frequency-of-first-mode",
+        "Giving the angular frequency of the first mode where the second mode was asked for.",
+        area="wave",
+    ),
+    CatalogueEntry(
+        "laplace-hyperbolic-factor-dropped",
+        "Leaving the factor sinh(n pi r / l)/sinh(n pi d / l) out of each term, so the temperature is just the edge series at that position.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-lengths-swapped",
+        "Swapping the two sides of the plate, so the edge length and the width across it trade places in the sine and sinh arguments.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-hyperbolic-not-normalised",
+        "Using sinh(n pi r / l) without dividing by sinh(n pi d / l), so the series does not reduce to the edge profile on the hot edge.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-distance-from-hot-edge",
+        "Measuring the distance r from the hot edge, instead of from the opposite cold edge.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-cosh-for-sinh",
+        "Using cosh(n pi r / l)/cosh(n pi d / l) in place of the sinh ratio.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-first-mode-only",
+        "Keeping only the first term of the series, although the next terms still contribute at that point.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-coefficient-includes-hyperbolic-factor",
+        "Multiplying the Fourier coefficient by the hyperbolic factor, which belongs to the position and not to the edge profile.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-one-edge-only",
+        "Giving the contribution of only one of the two hot edges, instead of adding both solutions.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-sign-between-edges",
+        "Subtracting the bottom-edge solution from the top-edge solution instead of adding them.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-constant-edge-coefficient-halved",
+        "Using 2c/pi for the first coefficient of a constant edge, instead of 4c/pi.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-pi-dropped",
+        "Leaving pi out of the integral of sin(n pi x / a), so the coefficient is out by a factor of pi.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-odd-mode-squared",
+        "Dividing by n squared instead of n when going from B_1 to B_3 for a constant edge.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-even-mode-reasoning",
+        "Treating the third coefficient as half the first, by reasoning about the even modes.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-odd-mode-inverted",
+        "Multiplying by n instead of dividing, so B_3 comes out as 3 times B_1.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "laplace-all-modes-equal",
+        "Taking every coefficient of a constant edge to be the same as the first.",
+        area="laplace",
+    ),
+    CatalogueEntry(
+        "sl-dirichlet-formula-used",
+        "Using the eigenvalues (n pi / l)^2 of the problem with both ends fixed, when one end is free (or the frequencies are those of a mixed problem).",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-index-off-by-one",
+        "Counting the eigenvalues from the wrong index, so the answer is the neighbouring eigenvalue.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-half-factor-dropped",
+        "Using (2n - 1) pi / l instead of (2n - 1) pi / (2 l) for a mixed problem, missing the factor 2 in the quarter wavelength.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-eigenvalue-not-squared",
+        "Giving the wavenumber k instead of the eigenvalue lambda = k squared.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-interval-endpoint-for-length",
+        "Using the right end point b in place of the interval length b - a on a shifted interval.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-zero-eigenvalue-forgotten",
+        "Leaving out the eigenvalue lambda = 0 when counting, so every later eigenvalue is numbered one place too early.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-half-factor-wrongly-used",
+        "Using (n pi / 2l)^2 for a problem with both ends insulated, as if the ends were mixed.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-multiplicity-ignored",
+        "Counting each repeated eigenvalue of the periodic problem once, instead of once for each independent eigenfunction.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-normalisation-forgotten",
+        "Giving the value of the un-normalised eigenfunction sin(kx) or cos(kx), without the normalising factor.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-normalisation-wrong-constant",
+        "Normalising with 1/sqrt(l) instead of sqrt(2/l), as if the integral of sin squared over the interval were l.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-normalisation-root-dropped",
+        "Normalising with 2/l instead of sqrt(2/l).",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-interval-shift-ignored",
+        "Evaluating sin(kx) or cos(kx) at x instead of at x - a on an interval that starts at a.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-mixed-formula-used",
+        "Using the wavenumbers of the mixed problem for a problem with both ends fixed.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-robin-condition-ignored",
+        "Using the eigenvalues of the problem with a Neumann end, ignoring the h y term in the end condition.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-dirichlet-limit-used",
+        "Using the eigenvalues (n pi / L)^2 of the problem with both ends fixed in place of the Robin condition.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-robin-sign-error",
+        "Solving tan(mu L) = mu/h instead of tan(mu L) = -mu/h for the Robin condition.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-norm-not-divided",
+        "Giving the integral of f times the eigenfunction without dividing by the norm of the eigenfunction.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-norm-wrong",
+        "Dividing by L instead of L/2, the squared norm of the eigenfunction, so the coefficient is half the true value.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-coefficient-sign-flip",
+        "Losing a sign when evaluating the integral at the end points.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-index-squared-from-first",
+        "Multiplying the first eigenvalue by n squared, as for a problem with both ends fixed, when the mixed eigenvalues grow like (2n - 1) squared.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "sl-sine-cosine-swap",
+        "Using sin(kx) where the eigenfunction is cos(kx), or the reverse, so the integral is taken against the wrong function.",
+        area="sl",
+    ),
+    CatalogueEntry(
+        "lt2-body-not-shifted",
+        "Applies the second shift theorem to a body written in t without first rewriting it in terms of t - a, so the e^(-as) factor multiplies the transform of the unshifted body.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-body-shifted-wrong-way",
+        "Rewrites the body in terms of t - a with the wrong sign (using t - a in place of t + a), so the constants after the shift are wrong.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-switch-factor-dropped",
+        "Leaves out the e^(-as) factor and transforms the body as if it acted from t = 0.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-shift-factor-sign",
+        "Writes e^(+as) instead of e^(-as) for a signal that switches on at t = a.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-no-shift-in-time",
+        "Inverts the transform but leaves out the delay, writing the terms in t instead of t - a.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-shift-sign-in-time",
+        "Delays the inverse transform the wrong way, writing t + a in place of t - a.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-sin-cos-swapped-in-inverse",
+        "Swaps the sine and cosine terms when inverting, or in a convolution.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-sine-not-divided-by-b",
+        "Inverts Q/(s^2 + b^2) as Q sin(bt) instead of (Q/b) sin(bt).",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-frequency-is-b-squared",
+        "Reads the denominator s^2 + b^2 as a frequency of b^2 instead of b.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-convolution-term-dropped",
+        "Loses one of the terms when inverting a product of transforms or evaluating a convolution.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-convolution-sign-slip",
+        "Gets the sign of one term wrong when inverting a product of transforms or evaluating a convolution.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-convolution-denominator-forgotten",
+        "Leaves the common denominator (such as p^2 + b^2) out of a convolution.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-step-treated-as-impulse",
+        "Transforms the unit step u(t - T) as e^(-Ts) instead of e^(-Ts)/s, losing the factor 1/s.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-damping-term-sign",
+        "Takes the transform of py' as -p s Y, so the middle term of the denominator has the wrong sign.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-damping-term-dropped",
+        "Drops the damping term from the denominator of Y(s).",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-no-divide",
+        "Takes the long-time value to be the forcing amplitude A, forgetting to divide by q.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-inverted",
+        "Takes the long-time value to be q/A instead of A/q.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-wrong-coefficient",
+        "Divides the forcing amplitude by the damping coefficient, or by p + q, instead of q.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-sign",
+        "Gets the sign of the long-time value wrong.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-final-value-used-for-y",
+        "Gives the long-time value A/q instead of the value of y at the stated time.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "lt2-steady-term-dropped",
+        "Leaves the constant term A/q out of the step response.",
+        area="lt2",
+    ),
+    CatalogueEntry(
+        "cx2-residue-numerator-only",
+        "Giving the numerator's value at the pole as the residue, without dividing by the other factors of the denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-times-2-pi-i",
+        "Giving 2*pi*i times the residue (the value of the contour integral) where the residue itself was asked for.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-denominator-derivative-slip",
+        "Differentiating the denominator wrongly in N(a)/D'(a), for example dropping its linear term or leaving a power of the pole unreduced.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-factor-omitted",
+        "Leaving one of the other linear factors out of the denominator when evaluating the residue at a simple pole.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-simple-formula",
+        "Using the simple-pole shortcut (the rest of the function evaluated at the pole) at a pole of order two or more, so no derivative is taken.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-derivative-order",
+        "Differentiating the wrong number of times at a pole of order m: m or m - 2 times instead of m - 1.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-numerator-derivative-only",
+        "Differentiating only the numerator at a double pole and leaving the other factors of the denominator undifferentiated.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-factorial-dropped",
+        "Taking the (m - 1)th derivative of the rest of the function at an m-th order pole but not dividing by (m - 1)!.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-exponential-factor-dropped",
+        "Leaving the exponential factor e^(ca) out of a residue found from e^(cz) over a polynomial.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-exp-chain-factor-dropped",
+        "Differentiating e^(cz) as e^(cz), leaving the factor c out of each derivative.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-leading-term-only",
+        "Taking only the first term of the series of 1/sin(cz), so the correction that produces the z^(-1) term is missed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-coefficient-slip",
+        "Slipping on a coefficient of a Maclaurin series by one factor of c or of a small integer.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-wrong-term",
+        "Reading the residue off the wrong term of the Maclaurin series.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-alternating-sign-dropped",
+        "Forgetting the alternating sign of the cosine or sine series.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-series-factorial-dropped",
+        "Leaving the factorial out of the Maclaurin coefficient.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-alternating-sign-dropped",
+        "Forgetting that the derivative of sin(pi z) at an integer n is pi times (-1)^n, so the sign alternates.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-pi-dropped",
+        "Forgetting the factor pi from the derivative of sin(pi z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-pi-inverted",
+        "Multiplying by pi where the derivative of sin(pi z) should divide by pi.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-residue-sum-sign",
+        "Taking the residue at the double pole to be the sum of the other residues instead of minus that sum.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-orientation-ignored",
+        "Giving the anticlockwise value when the contour is traversed clockwise, or the reverse: the sign of the integral is wrong.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-forgot-2-pi-i",
+        "Giving the sum of the enclosed residues as the value of the integral, without the factor 2*pi*i.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-sum-of-residues-assumed-zero",
+        "Assuming the residues of a rational function always sum to zero when every pole is enclosed, so the integral is 0; that needs the numerator to be two degrees below the denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-wrong-coefficient-for-infinity",
+        "Reading the wrong coefficient of the numerator as the one that governs the integral round a circle enclosing every pole.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-conjugate-treated-as-analytic",
+        "Treating the conjugate of z - c as an analytic factor, instead of rewriting it as r^2/(z - c) on the circle.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-not-squared",
+        "Replacing conj(z - c) by r/(z - c) on the circle of radius r, instead of r^2/(z - c).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-conjugate-residues-doubled",
+        "Counting the residue at the centre twice when the pole lies outside the circle.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-pole-count-slip",
+        "Miscounting how many poles lie inside a circle by comparing the wrong distances with the radius.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-index-off-by-one",
+        "Reading the coefficient of the neighbouring power: the series term one place away from the one asked for.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-argument-scale-dropped",
+        "Leaving the scale factor c out of the series: using the coefficient for g(z) where g(cz) was given.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-power-shift-ignored",
+        "Ignoring the division by z^m (or multiplication by z^p), so the coefficient of the wrong power of the series is read.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-centre-factor-dropped",
+        "Leaving out the constant factor that comes from re-centring an exponential, e^(c z0) in e^(cz) = e^(c z0) e^(c(z - z0)).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-geometric-ratio-inverted",
+        "Expanding 1/(z - a) in powers of a/z where z/a is the ratio that converges, or the reverse.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-geometric-series-slip",
+        "Slipping on the geometric series for 1/(z - a): the wrong sign or a missing factor.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-coefficients-swapped",
+        "Attaching the coefficients of the negative powers to the wrong powers, so a_(-1) and a_(-2) trade places.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-principal-part-term-dropped",
+        "Giving only some of the negative-power terms of the Laurent series as the principal part.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-pole-sign",
+        "Writing the terms of the principal part with (a - z) in place of (z - a), which changes the sign of the odd powers.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-principal-part-includes-regular",
+        "Giving the whole function, or its regular part as well, as the principal part.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-wrong-annulus",
+        "Using the series for a different region than the one stated: the Taylor series inside the inner pole, or the one outside the outer pole.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-partial-fraction-factor-dropped",
+        "Leaving the factor c/(alpha - beta) out of the partial fractions, so the coefficient is the bare power.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-laurent-derivative-for-coefficient",
+        "Giving the derivative of the analytic part where the Taylor coefficient (the derivative divided by the factorial) was needed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-distance-squared",
+        "Giving the squared distance to the nearest other singularity as the radius of convergence.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-guessed-one",
+        "Taking the radius of convergence to be 1 without measuring the distance to the other singularity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-from-origin",
+        "Measuring the radius of convergence from the origin, or from the other pole, instead of from the centre of the expansion.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-radius-distance-slip",
+        "Measuring the distance between two points by adding or comparing the real and imaginary differences instead of using the modulus of the difference.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-real-integral-residue-slip",
+        "Slipping in the residue at an upper-half-plane pole of a real integral, for example dropping one of the factors of the denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-real-integral-doubled",
+        "Doubling a real integral: counting a symmetric contribution twice, or including a factor 2 that is already in 2*pi*i.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-real-integral-half-range",
+        "Giving the integral over half the range (from 0 to infinity) where the whole line was asked for, or the reverse.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-both-half-planes-included",
+        "Adding the residues at the poles in both half-planes, which cancel to 0 for an integrand that decays like 1/x^2.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-lower-half-plane-orientation",
+        "Closing the contour in the lower half-plane but not reversing the orientation, so the answer has the wrong sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-denominator-sign",
+        "Writing sqrt(a^2 + b^2) in place of sqrt(a^2 - b^2) after the substitution z = e^(i theta).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-b-ignored",
+        "Replacing a + b cos(theta) by a in the result, so the answer is 2*pi/a.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-jacobian-dropped",
+        "Losing a factor of 2 or of 1/i from dtheta = dz/(iz) or from cos(theta) = (z + 1/z)/2, so the answer is out by a constant.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-root-slip",
+        "Slipping on the root of the quadratic in z: choosing the root outside the unit circle, or a sign error in (-a + s)/b.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-numerator-ignored",
+        "Evaluating the integral as if the cosine in the numerator were not there, or using a different multiple angle.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-trig-double-pole-slip",
+        "Slipping in the residue at the double pole inside the unit circle that comes from a squared denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-quartic-surd-dropped",
+        "Losing the factor sqrt(2) that comes from the eighth roots of unity at the poles of 1/(x^4 + a^4).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-quartic-scaling-slip",
+        "Scaling the answer with the wrong power of a for the numerator and denominator of the integrand.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-inverse-quotient",
+        "Giving the reciprocal of the image, from putting the denominator over the numerator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-conjugate-quotient",
+        "Making a slip in dividing by a complex number, so the result is the complex conjugate of the quotient or has the wrong imaginary sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-denominator-sign-slip",
+        "Changing the sign of the constant term in the denominator, so the point is mapped by (az + b)/(cz - d).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-numerator-sign-slip",
+        "Changing the sign of the constant term in the numerator, so the point is mapped by (az - b)/(cz + d).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-denominator-dropped",
+        "Dividing the numerator by the constant d alone, leaving the cz term out of the denominator.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-image-of-zero",
+        "Giving b/d, the image of 0, as the image of infinity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-image-inverted",
+        "Giving c/a, or another inverse of a/c, as the image of infinity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-pole-for-image-of-infinity",
+        "Giving -d/c, the point mapped to infinity, as the image of infinity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-inverse-applied-as-forward",
+        "Applying T to the given value instead of the inverse of T.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-inverse-sign-slip",
+        "Making a sign error in the inverse transformation (dw - b)/(a - cw).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-wrong-fixed-point",
+        "Giving the other fixed point (the conjugate, or the smaller root) instead of the one asked for.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-fixed-point-sign-slip",
+        "Making a sign error in solving the fixed-point equation, so the fixed point has the wrong sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-fixed-point-equation-slip",
+        "Setting up the fixed-point equation wrongly, for example c z^2 + (a - d) z - b = 0, or solving with the wrong coefficient.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-point-roles-swapped",
+        "Sending the three given points to the values 0, 1 and infinity in the wrong order, so the roles of the points are swapped.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-cross-ratio-not-solved-for-w",
+        "Stopping at the cross-ratio of the z-values without solving the cross-ratio equation for the image w.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-points-averaged",
+        "Taking the average of the given images as the image of the fourth point.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-entrywise-square",
+        "Squaring each coefficient of a Möbius transformation to find T(T(z)), instead of squaring its matrix.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-mobius-composition-slip",
+        "Slipping in composing two Möbius transformations, so a matrix entry of the composite is wrong.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-arctan-quadrant",
+        "Taking the argument as arctan(y/x) without checking the quadrant, so a number with negative real part gets an argument that is wrong by pi.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-argument-sign",
+        "Using the argument with the wrong sign (the conjugate's argument), so the imaginary part of the logarithm has the wrong sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-argument-not-principal",
+        "Giving an argument outside (-pi, pi], such as the argument measured in [0, 2*pi), instead of the principal value.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-modulus-not-logged",
+        "Using the modulus itself as the real part of the logarithm instead of its natural logarithm.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-modulus-squared",
+        "Using ln of the squared modulus (or twice ln|z|) as the real part of Log z.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-product-additive",
+        "Assuming Log(z1 z2) = Log z1 + Log z2 always holds for the principal logarithm, so the difference is 0.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-product-sign",
+        "Giving the correct multiple of 2*pi*i but with the opposite sign when comparing Log of a product with the sum of the logarithms.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-product-wrong-multiple",
+        "Giving the wrong multiple of 2*pi*i for the failure of a logarithm identity, for example from reducing the argument by the wrong number of turns.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-log-power-rule-assumed",
+        "Assuming Log(z^n) = n Log z for the principal logarithm, so the difference is 0 even when n times the argument leaves (-pi, pi].",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-exponent-sign",
+        "Getting the sign of the real exponent wrong in z^(bi) = exp(-b Arg z), for example writing e^(+b Arg z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-nonprincipal-branch",
+        "Using a branch of the logarithm other than the principal one (an argument shifted by 2*pi) when forming exp(w Log z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-modulus-only",
+        "Concluding that z^w has modulus 1, hence equals 1, because |z| = 1, ignoring the effect of the imaginary exponent.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-argument-doubled",
+        "Scaling the argument by the wrong factor (doubling or halving it) when forming w times Log z.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-argument-dropped",
+        "Forming w times ln|z| only, leaving out the contribution of the argument to w Log z.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-real-part-ignored",
+        "Dropping the factor i^a (the effect of the real part of the exponent) and keeping only the real factor exp(-b Arg z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-imaginary-part-ignored",
+        "Dropping the real factor exp(-b Arg z) (the effect of the imaginary part of the exponent) and keeping only i^a.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-power-exponent-conjugated",
+        "Using the conjugate of the exponent w in exp(w Log z).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-root-other-branch",
+        "Giving another n-th root of z instead of the principal one: the root differs by a factor that is a power of the n-th root of unity.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-root-argument-not-reduced",
+        "Taking the n-th root of the number the question was built from, without first reducing the argument of z into (-pi, pi]; the result is a different root.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-root-modulus-only",
+        "Giving only the modulus of the root, leaving out its argument.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cut-wrong-side",
+        "Taking the argument as +pi where -pi is needed, or the reverse, for the one-sided limit at a point of the cut: the sign of the imaginary part is wrong.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cut-argument-dropped",
+        "Giving only ln of the modulus as the limit at a point of the cut, leaving out the imaginary part +-pi*i.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cut-endpoint",
+        "Excluding the branch point itself from the set where the logarithm is discontinuous or undefined.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cut-wrong-direction",
+        "Describing the cut by the wrong ray: reversing the direction of the inequality or reflecting the branch point.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-factor-two-dropped",
+        "Finding the value just above the cut but forgetting that the jump is twice it (the values above and below are conjugates).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-sign-reversed",
+        "Subtracting the values above and below the cut in the wrong order, so the sign of the jump is reversed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-sum-not-difference",
+        "Adding the values just above and just below the cut instead of subtracting them, which gives a cosine term instead of a sine term.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-i-dropped",
+        "Dropping the factor i from the jump of z^(p/q) across the cut, leaving a real number.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-jump-modulus-power-slip",
+        "Raising the modulus to the wrong power, using |z| instead of |z|^(p/q) in the jump.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-values-added",
+        "Adding the two values where the question asks for their difference.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-conjugate-sign",
+        "Getting the sign of the harmonic conjugate wrong, for example using u_y = v_x instead of u_y = -v_x, or reversing the sign of one term.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-conjugate-swapped-roles",
+        "Swapping the roles of x and y, or of u and v, when building the harmonic conjugate or reading the Cauchy-Riemann equations.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-integration-function-missing",
+        "Integrating u_x with respect to y and stopping, without adding the function h(x) that the second Cauchy-Riemann equation determines.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-constant-not-fixed",
+        "Leaving an arbitrary constant in the harmonic conjugate instead of applying the stated normalisation.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-constant-ignored",
+        "Leaving the imaginary constant out of f(z), so f(0) does not take the stated value.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-chain-factor-dropped",
+        "Leaving out the factor from the chain rule (the constant inside the exponential, trigonometric or rational function) when differentiating or integrating.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-derivative-slip",
+        "Slipping in differentiating u to find u_x, u_y or the second derivatives.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-harmonic-sign",
+        "Setting u_xx - u_yy = 0 or reversing the sign of the parameter when imposing u_xx + u_yy = 0.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-parameter-factor-slip",
+        "Slipping by a small numerical factor when solving u_xx + u_yy = 0 for the parameter.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-f-real-part-only",
+        "Writing f(z) as the real part u with x replaced by z, ignoring the imaginary part of the coefficients.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-f-conjugate",
+        "Writing f(z) in terms of the conjugate of z, or with the imaginary part of every coefficient reversed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-point-equation-slip",
+        "Making an arithmetic slip in solving the two linear Cauchy-Riemann equations for the point.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-point-conjugated",
+        "Giving the conjugate x - iy of the point where the Cauchy-Riemann equations hold.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-derivative-formula",
+        "Using the wrong formula for f' in terms of partial derivatives, for example u_x - i v_x or u_x + i u_y instead of u_x + i v_x.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-cr-derivative-at-wrong-point",
+        "Evaluating the partial derivatives at the wrong point (the origin, or with x and y exchanged) instead of at the point of differentiability.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-arithmetic-slip",
+        "Making an arithmetic slip in the final evaluation, so the value is out by a small factor, a unit or a sign.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "picks-base-from-the-coarsest-row",
+        "Choosing the base whose value in the largest-h row is nearest 1, instead of following each column down to the "
+        "value it settles on as h shrinks.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "picks-the-neighbouring-base-above",
+        "Choosing the next base up from the one whose quotient settles at 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "picks-the-neighbouring-base-below",
+        "Choosing the next base down from the one whose quotient settles at 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "picks-the-largest-base",
+        "Choosing the largest base in the table without comparing its quotient with 1.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "gives-the-limit-instead-of-the-base",
+        "Giving the value the quotient tends to (1) where the base that produces it was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "midpoint-of-the-two-bases-used",
+        "Taking the halfway point between the two bases instead of interpolating on the quotient.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "interpolation-ratio-inverted",
+        "Interpolating with the ratio the wrong way round, so the answer sits as far from the nearer base as it should "
+        "from the farther one.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "nearer-base-taken-without-interpolating",
+        "Giving whichever tabulated base has the quotient nearer 1 instead of interpolating between the two.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "interpolation-fraction-not-scaled-to-the-bases",
+        "Giving the fraction of the way from one quotient to the other and forgetting to scale it by the gap between the "
+        "bases and add it to the lower base.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "limit-not-scaled-by-the-exponent",
+        "Giving the limit for the original base for a base that is a power of it, ignoring that (a^k)^h = a^(kh) "
+        "multiplies the limit by k.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "exponent-added-to-the-limit",
+        "Adding the exponent to the limit instead of multiplying the limit by it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "limit-raised-to-the-exponent",
+        "Raising the limit to the exponent instead of multiplying the limit by it.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "limit-divided-by-the-exponent",
+        "Dividing the limit by the exponent where multiplying was needed.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "sign-of-exponent-dropped",
+        "Dropping the minus sign of a negative exponent, so the limit for a base below 1 comes out positive.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "reads-coarsest-row-as-the-limit",
+        "Reading the limit off the largest-h row of the table instead of the value the rows are settling to.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-sign-dropped",
+        "Giving the distance from the origin to where the tangent meets the x-axis with the wrong sign: the tangent at "
+        "(0, 1) rises to the right, so it meets the axis on the left.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-is-the-gradient",
+        "Giving the gradient of the tangent as its x-intercept.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "tangent-intercept-uses-the-other-base",
+        "Finding the intercept with the gradient of the other base in the table.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "gives-the-base-instead-of-the-limit",
+        "Giving the base of the exponential where the value its quotient tends to was asked for.",
+        area="calculus",
+    ),
+    CatalogueEntry(
+        "counts-every-merge-as-a-dummy",
+        "Counting every activity with two or more predecessors as needing a dummy, instead of only those whose "
+        "predecessors overlap another activity's without matching them.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "counts-every-fork-as-a-dummy",
+        "Counting every activity that is a predecessor of two or more others as needing a dummy.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "counts-start-activities-beyond-the-first-as-dummies",
+        "Counting each extra activity that has no predecessor as a dummy; activities may all start at the one start "
+        "event.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "dummy-count-one-too-many",
+        "Counting one more dummy activity than the diagram needs.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "dummy-count-one-too-few",
+        "Counting one fewer dummy activity than the diagram needs, often by missing two activities that would "
+        "otherwise start and finish at the same events.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "dummy-count-two-too-many",
+        "Counting two more dummy activities than the diagram needs.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "counts-only-the-activities",
+        "Counting the arrows for the real activities and leaving the dummies out.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "counts-only-the-dummies",
+        "Giving the number of dummies where the number of all the arrows was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "arrow-count-one-too-many",
+        "Adding one arrow too many to the total of activities and dummies.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "arrow-count-one-too-few",
+        "Leaving one arrow out of the total of activities and dummies.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "sample-size-not-squared",
+        "Finding the smallest sample size from z*·σ/difference as though it were n, forgetting that this equals √n and must be squared.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "sample-size-ratio-inverted",
+        "Inverting the ratio when solving for the sample size, using (z*·difference/σ)² in place of (z*·σ/difference)².",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "sample-size-off-by-one",
+        "Rounding the sample size up and then adding one more, so the answer is one larger than the least whole number that works.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "gave-power-for-type-two-error",
+        "Giving the probability of rejecting a false null hypothesis (the power) where the probability of a type II error was asked for.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "shift-applied-wrong-way",
+        "Moving the true mean's shift the wrong way relative to the critical value, adding it to z* instead of subtracting it.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "type-two-ignores-critical-value",
+        "Finding the probability of a type II error from the shift between the means alone, leaving the critical value out.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "two-sided-p-not-halved",
+        "Reading a two-sided p-value back through the table as a single tail, without halving it first.",
+        area="inference",
+    ),
+    CatalogueEntry(
+        "gradient-chain-inner-derivative-dropped",
+        "Differentiating the outer function of a composite (a logarithm, root or exponential) and leaving out the derivative of the inner expression, so a factor such as 2x or 1/r is missing from a component of the gradient.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-divided-by-squared-length",
+        "Dividing the gradient by its squared length instead of its length, so the vector is too short to be a unit vector.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-length-no-root",
+        "Giving the sum of the squares of the components of the gradient as its length, without taking the square root.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-normalised-by-component-sum",
+        "Dividing the gradient by the sum of the sizes of its components instead of by its length, so the result is not a unit vector.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-partial-repeated",
+        "Writing the same partial derivative as both components of the gradient.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-quotient-rule-reversed",
+        "Subtracting the two products of the quotient rule in the wrong order, so both components of the gradient have the wrong sign.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "gradient-vector-components-swapped",
+        "Writing the gradient as (f_y, f_x), with the partial derivatives in the wrong order.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "partial-other-variable-also-differentiated",
+        "Applying the product rule to both variables when taking a partial derivative of a term such as x^2 y, so the term is differentiated with respect to y as well as x.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "point-coordinates-swapped",
+        "Swapping the x and y coordinates of the point found from the equations.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "point-sign-slip",
+        "Solving the gradient equations correctly but giving one coordinate of the point with the wrong sign.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "solve-gradient-ignores-cross-term",
+        "Solving for the point by setting each partial derivative equal to its stated value separately, ignoring the cross term that links x and y.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "solve-gradient-set-to-zero",
+        "Setting the gradient equal to the zero vector (finding the critical point) instead of to the stated vector.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "steepest-ascent-for-descent",
+        "Giving the direction of steepest ascent where the direction of steepest descent was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "steepest-descent-for-ascent",
+        "Giving the direction of steepest descent, the negative of the gradient direction, where steepest ascent was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-component-sign-lost",
+        "Giving a vector with the right length but the wrong sign on one component, so it is not perpendicular to the gradient.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-opposite-orientation",
+        "Giving the tangent to the level curve pointing the opposite way from the orientation asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-parallel-to-gradient",
+        "Giving the unit vector along the gradient where the unit tangent to the level curve, which is perpendicular to it, was asked for.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "tangent-perpendicular-not-sign-changed",
+        "Swapping the two components of the gradient to get a perpendicular vector but forgetting to change the sign of one of them.",
+        area="multivariable",
+    ),
+    CatalogueEntry(
+        "bool-reads-zero-rows",
+        "Counts or lists the rows where the output is 0 instead of the rows where it is 1.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-precedence-or-before-and",
+        "Applies the operations left to right, or the lower-priority operation first, instead of doing NOT, then AND, then OR or XOR.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-ignores-negation",
+        "Evaluates a negated input as if the NOT were not there.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-gate-type-confused",
+        "Evaluates a NAND, NOR or XOR gate as the AND or OR gate it is built from, forgetting the inversion or the exclusion.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-bit-order-reversed",
+        "Reads the input bits with the last variable as the most significant, so every row number is the wrong one.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-row-numbering-from-one",
+        "Numbers the truth table rows from 1 instead of 0, so every row number is one too large.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-compares-totals-not-rows",
+        "Compares how many ones each function has instead of comparing them row by row.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-counts-agreeing-rows",
+        "Counts the rows on which two functions agree where the rows on which they differ were asked for.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-no-grouping",
+        "Writes one full product term for every cell with a 1, without grouping any cells.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-terms-not-literals",
+        "Gives the number of groups where the total number of literals was asked for.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-groups-too-small",
+        "Stops at groups of two cells and misses a larger group of four or eight.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-literals-as-variables",
+        "Counts every variable in every group, forgetting that a variable which changes across a group drops out.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-dont-care-as-zero",
+        "Treats a don't-care cell as a 0, so the groups cannot use it.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "kmap-miscount-literals",
+        "Miscounts the literals in the simplified expression by one.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "bool-saving-uses-terms",
+        "Subtracts the product terms instead of the literals when finding how many literals are saved.",
+        area="boolean-logic",
+    ),
+    CatalogueEntry(
+        "lcv-other-root",
+        "Gives the x-coordinate of the other intersection point, the smaller where the larger was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-x-for-y",
+        "Gives an x-coordinate where a y-coordinate was asked, or the reverse.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-root-sign",
+        "Reads a root of the substituted quadratic with the wrong sign, as x = -2 from the factor (x - 2).",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-product-for-sum",
+        "Gives the product of the x-coordinates where their sum was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-difference-for-sum",
+        "Gives the distance between the two x-coordinates where their sum was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-sign",
+        "Gets the sign of the discriminant condition wrong, so the intercept moves the wrong way from the vertex.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-drops-a",
+        "Leaves the leading coefficient out of the discriminant, using b² - 4c in place of b² - 4ac.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-slope-sign",
+        "Subtracts the gradient from the x coefficient with the wrong sign when forming the substituted quadratic.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-disc-factor",
+        "Uses 2a in place of 4a in the zero-discriminant condition.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-midpoint-is-vertex",
+        "Gives the x-coordinate of the parabola's vertex as the midpoint of the chord.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-sum-not-halved",
+        "Gives the sum of the two x-coordinates where their mean (the midpoint) was asked.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-radius-only",
+        "Takes the intercept of a tangent to a circle to be the radius, ignoring the gradient.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-gradient-unsquared",
+        "Uses r(1 + m) in place of r times the square root of (1 + m²) for the tangent intercept.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-unscaled",
+        "Forgets to divide by the sum of the squares of the coefficients when finding the point of contact.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-tangent-counted-as-two",
+        "Counts the intercept that gives a tangent as a line with two intersection points.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-no-intersection-counted",
+        "Counts the intercepts that give no intersection instead of those that give two points.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-count-misses-end",
+        "Leaves out one end of the range, or counts both ends, when counting whole-number values.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gradient-inverted",
+        "Gives the reciprocal of the tangent gradient, run over rise.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gradient-sign",
+        "Gives the negative gradient, taking the smaller of the two tangent gradients.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-line-value-in-parabola",
+        "Substitutes the x-coordinate into the line's gradient instead of its equation, so the y-value is wrong.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gap-sign",
+        "Adds the two intercepts instead of subtracting them to find the gap between parallel lines.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "lcv-gap-from-intercept",
+        "Measures the gap from the parabola's own y-intercept rather than from the tangent line.",
+        area="line-and-conic",
+    ),
+    CatalogueEntry(
+        "aux-sums-coefficients",
+        "Takes R to be a + b instead of the square root of a² + b².",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-forgets-root",
+        "Gives R² = a² + b² as the amplitude, forgetting the square root.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-shift-ignored",
+        "Leaves out the vertical shift, giving the extreme value of the wave alone.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-multiplier-ignored",
+        "Leaves out the multiplier in front of the bracket when finding the extreme value.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-wrong-end",
+        "Applies the vertical shift to the wrong end, giving the maximum where the minimum was asked or the reverse.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-alpha-swapped",
+        "Finds α from arctan(a/b) instead of arctan(b/a), swapping the roles of the two coefficients.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-no-quadrant",
+        "Reads α straight from the arctangent without placing it in the quadrant given by the signs of a and b.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-min-for-max",
+        "Gives the position of the minimum where the maximum was asked, or the reverse (an error of π).",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-angle-left-negative",
+        "Leaves α negative instead of adding 2π to bring it into [0, 2π).",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-other-solution",
+        "Gives the other solution of cos(x - α) = c/R, the smaller where the larger was asked or the reverse.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-offset-not-added",
+        "Gives the offset δ from cos δ = c/R without adding α, solving the equation for x - α only.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-c-not-scaled",
+        "Solves cos(x - α) = c instead of cos(x - α) = c/R.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-threshold-rounded-down",
+        "Gives the whole part of R as the least c with no solution, instead of the next whole number.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-threshold-rounded",
+        "Rounds R to the nearest whole number to find the least c with no solution.",
+        area="auxiliary-angle",
+    ),
+    CatalogueEntry(
+        "aux-larger-coefficient",
+        "Takes the larger of the two coefficients as the amplitude R.",
+        area="auxiliary-angle",
+    ),
+    # -- build-d batch --
+    CatalogueEntry(
+        "sinusoid-amplitude-includes-the-vertical-shift",
+        "Adding the vertical translation to the amplitude, so the amplitude of y = 2 sin x + 3 is given as 5.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-is-the-full-height",
+        "Giving the full height from the minimum to the maximum, twice the amplitude.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-is-the-multiple-of-x",
+        "Taking the number multiplying x as the amplitude, so the amplitude of y = 2 sin(3x) is given as 3.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-amplitude-keeps-the-sign",
+        "Giving a negative amplitude, the signed coefficient, when the coefficient of the sine or cosine is negative.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-is-the-shift",
+        "Giving the horizontal translation itself as the position of the vertical asymptote of a tangent graph.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-multiplies-instead-of-dividing",
+        "Multiplying by the coefficient of x, not dividing by it, when solving for the x-value of the asymptote.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-off-by-a-half-period",
+        "Giving a value half a period from the smallest positive asymptote, where the graph crosses its midline.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-asymptote-uses-the-period-not-half",
+        "Stepping a whole period from the shift to find the first asymptote of a tangent graph, where it is half a period from the shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-forgets-the-vertical-shift",
+        "Giving the amplitude as the maximum or its negative as the minimum, leaving out the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-takes-the-other-end",
+        "Giving the minimum value when the maximum was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-uses-the-full-height",
+        "Adding twice the amplitude to the vertical translation to get the maximum, or subtracting it to get the minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-extreme-uses-the-signed-amplitude",
+        "Using the signed coefficient as the amplitude, so a negative coefficient swaps the maximum and the minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-not-the-first",
+        "Giving a later maximum or minimum, a whole period away, instead of the smallest positive one.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-the-opposite-one",
+        "Giving the x-value of the minimum when the maximum was asked for, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-is-the-shift",
+        "Giving the horizontal translation as the x-value of the first maximum or minimum, as if the curve began at its peak.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-multiplies-instead-of-dividing",
+        "Multiplying by the coefficient of x, not dividing by it, when solving for the x-value of the first maximum or minimum.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-first-extreme-off-by-a-half-period",
+        "Giving the x-value half a period from the right one, so it is where the graph is at its other extreme.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-divides-the-angle-by-the-multiple",
+        "Dividing the angle at x = 0 by the coefficient of x before taking the sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-forgets-the-vertical-shift",
+        "Leaving out the vertical translation when finding the y-intercept.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-is-the-vertical-shift",
+        "Giving the vertical translation as the y-intercept, as if the sine or cosine were zero at x = 0.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-sign-of-angle-reversed",
+        "Losing the sign of the angle when x = 0 is put into the bracket, so the shift is taken the wrong way.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-intercept-takes-the-maximum",
+        "Giving the maximum value as the y-intercept, as if the curve peaked at x = 0.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-ignores-the-multiple",
+        "Giving the period of the basic sine or cosine, 2π, ignoring the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-is-the-multiple-of-x",
+        "Taking the coefficient of x as the period.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-multiplies-by-the-multiple",
+        "Multiplying 2π by the coefficient of x instead of dividing by it.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-period-uses-pi-not-two-pi",
+        "Dividing π, not 2π, by the coefficient of x to find the period of a sine or cosine.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-divided-by-the-multiple",
+        "Dividing the horizontal translation by the coefficient of x when it is already the shift of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-is-the-constant-in-the-bracket",
+        "Reading the constant in the expanded bracket as the horizontal translation without dividing by the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-is-the-negated-constant-in-the-bracket",
+        "Reading the negative of the constant in the expanded bracket as the horizontal translation without dividing by the coefficient of x.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-multiplied-by-the-multiple",
+        "Multiplying the horizontal translation by the coefficient of x instead of reading it from the factored bracket.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-shift-sign-reversed",
+        "Reading a bracket (x + c) as a shift to the right, or (x - c) as a shift to the left.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-amplitude",
+        "Giving the amplitude as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-maximum",
+        "Giving the maximum value as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-is-the-minimum",
+        "Giving the minimum value as the vertical translation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "sinusoid-vertical-shift-sign-reversed",
+        "Giving the vertical translation with the wrong sign, so a graph moved up is read as moved down.",
+        area="trigonometry",
+    ),
+    # -- end build-d batch --
+    # -- build-a batch --
+    CatalogueEntry(
+        "graph-complete-double-count",
+        "Counts n(n - 1) for the edges of a complete graph, once from each end of every edge.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-degree-as-edges",
+        "Gives the degree n - 1 of one vertex of a complete graph as its number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-includes-loops",
+        "Counts a vertex joined to itself as well, giving n(n + 1)/2 edges for a complete graph.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-one-vertex-short",
+        "Counts the edges of the complete graph on one vertex fewer than the network has.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-ignores-existing",
+        "Gives all the edges of the complete graph where the ones already present had to be taken off.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-gap-from-degree-sum",
+        "Takes the degree sum off the edges of the complete graph instead of the number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-count-off-by-one",
+        "Uses the right method for the count but is out by one or two.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-assumes-connected",
+        "Takes every vertex to be reachable, as if the network were connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-reachable-excludes-start",
+        "Leaves out the starting vertex when counting the vertices that can be reached.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-reachable-other-component",
+        "Gives the size of a different piece of the network from the one that holds the start.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-uses-complete-graph",
+        "Gives the edges missing from a complete graph where a complete bipartite graph was meant.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-sum-of-parts",
+        "Adds the sizes of the two parts where their product is the number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-assumes-equal-parts",
+        "Takes the two parts of a bipartite network to be equal, or as equal as the vertex count allows.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-smaller-part",
+        "Gives the size of the smaller part where the larger was asked for.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-whole-vertex-set",
+        "Gives the number of vertices of the whole network as the size of one of its two parts.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-same-edges",
+        "Gives the number of edges of the network itself as the number of edges of its complement.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-degree-sum-as-edges",
+        "Adds the degrees in the complement and gives that sum as its number of edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complement-ignores-handshake",
+        "Takes the degree sum as the number of edges before finding the complement's edges.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-complete-bipartite-as-complete",
+        "Uses the edges (a + b)(a + b - 1)/2 of a complete graph for a complete bipartite graph.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-degree-sum-as-edges",
+        "Gives the number of edges where the sum of the degrees (twice as many) was asked for.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-ignored",
+        "Gives the edges of the complete graph on all the vertices, ignoring that the network has several pieces.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-minus-edges",
+        "Takes one edge off the complete graph for each extra component.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-split-evenly",
+        "Spreads the vertices over the components as evenly as possible, which gives fewer edges than one large piece.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-components-one-vertex-short",
+        "Leaves the c - 1 single vertices out of the count and so gives the edges of the complete graph on n - c vertices.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-needs-tree",
+        "Gives n - 1, the edges of a tree, as enough to force a network to be connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-needs-all",
+        "Gives all the edges of the complete graph as the number needed to force a network to be connected.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-connected-largest-disconnected",
+        "Gives the most edges a disconnected network can have, one fewer than forces connection.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-all-pairs",
+        "Gives the edges of the complete graph as the most a bipartite network can have.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-floored-parts",
+        "Takes the two parts of an odd number of vertices to be equal, floor(n/2) each.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-unbalanced",
+        "Takes parts that differ by two, which is not the most unequal product.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "graph-bipartite-max-rounded-up",
+        "Takes both parts of an odd number of vertices to be the larger size.",
+        area="graph-types",
+    ),
+    CatalogueEntry(
+        "flow-single-path-only",
+        "Gives the capacity of the best single route from the source to the sink as the maximum flow, ignoring that flow can use several routes at once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-increase-passes-fully",
+        "Adds the whole widening of a link to the maximum flow, forgetting that another cut then limits the flow.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-widening-ignored",
+        "Gives the old maximum flow, as if widening one link could not help.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-spare-reports-flow",
+        "Gives the maximum flow where the capacity out of the source that cannot be used was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "flow-spare-from-sink-side",
+        "Subtracts the maximum flow from the capacity into the sink where the capacity out of the source was meant.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "cut-smallest-of-listed-ignored",
+        "Gives the middle or the largest of several stated cut capacities as the maximum flow, rather than the smallest.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "cut-counts-both-ends",
+        "Adds the capacity of every link that touches the source side of the cut, those inside it as well as those crossing it.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "dp-stairs-no-skipping",
+        "Climbs one step at a time throughout, so pays every toll and never uses a two-step move.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-greedy-next-step",
+        "Always moves to the cheaper of the next two steps, without looking further ahead.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-stops-one-short",
+        "Gives the least cost of reaching the step before the top.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-coin-greedy",
+        "Takes the largest coin that fits each time, which is not always the fewest coins.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-coin-ignores-remainder",
+        "Divides the amount by the largest coin and rounds up, ignoring how the remainder is made.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-greedy-cheapest-arc",
+        "Takes the cheapest arc out of each node in turn instead of finding the cheapest whole route.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-cheapest-arc-per-stage",
+        "Adds the cheapest arc of each stage, although those arcs do not join up into one route.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-greedy-ratio",
+        "Takes items in order of value per kilogram until nothing more fits, which is not always the best.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-greedy-value",
+        "Takes the most valuable items first until nothing more fits.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-reuse-items",
+        "Allows an item to be taken more than once.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-knapsack-ignores-capacity",
+        "Adds the values of all the items, ignoring the weight limit.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-counts-orderings",
+        "Counts different orders of the same coins as different ways.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-fewest-coins",
+        "Gives the fewest coins where the number of ways was asked for.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-ways-misses-a-coin",
+        "Leaves one coin value out when counting the ways.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-contiguous",
+        "Finds the longest common run of consecutive letters instead of the longest common subsequence.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-shorter-length",
+        "Gives the length of the shorter string as the longest common subsequence.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-lcs-aligned-matches",
+        "Counts the positions where the two strings have the same letter, without letting letters shift.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-difference-gives-one-value",
+        "Gives one of the two values instead of the difference between them.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-table-wrong-row",
+        "Reads the entry for all the items where the entry for the first few items was asked for.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-weight-assumed-full",
+        "Takes the optimal selection to fill the knapsack exactly.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-weight-of-all-items",
+        "Gives the total weight of all the items rather than of the ones chosen.",
+        area="dynamic-programming",
+    ),
+    CatalogueEntry(
+        "dp-arithmetic-slip",
+        "Uses the right table but is out by one or two in the arithmetic.",
+        area="dynamic-programming",
+    ),
+    # -- end build-a batch --
+    # -- build-b batch --
+    CatalogueEntry(
+        "relvel-wrong-order",
+        "Subtracts the velocities in the wrong order, giving the velocity of B relative to A where A relative to B was asked, or the reverse.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-velocities",
+        "Adds the two velocities instead of subtracting to find a relative velocity.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-ignores-reference",
+        "Gives the velocity of the moving object itself, forgetting to subtract the velocity of the object it is measured against.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-swaps-components",
+        "Gives the other component of the relative velocity: the j-component where the i-component was asked, or the reverse.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-1d-direction",
+        "Adds the speeds of two vehicles moving the same way, or subtracts them when they move in opposite directions.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-rearranges-wrongly",
+        "Rearranges the relative velocity equation with a sign slip, so the unknown velocity has the wrong sign or the relative velocity is added where it should be subtracted.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-catch-up-gives-speed",
+        "Gives the closing speed where the time to catch up was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-catch-up-gives-gap",
+        "Gives the starting gap where the time to catch up was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-components",
+        "Adds the sizes of the two components instead of using Pythagoras to find a speed.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-forgets-root",
+        "Stops at the sum of the squares of the components and does not take the square root.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-takes-larger-component",
+        "Takes the larger component as the speed and ignores the other.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-adds-perpendicular-speeds",
+        "Adds the two speeds for motion at right angles instead of combining them with Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-subtracts-perpendicular-speeds",
+        "Subtracts the two speeds for motion at right angles instead of combining them with Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-position-ignores-start",
+        "Finds only how far the relative position has changed and forgets the starting relative position.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-position-uses-one-velocity",
+        "Moves the relative position using one object's velocity instead of the relative velocity.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "relvel-time-added",
+        "Adds the time to the coordinate instead of multiplying the velocity component by it.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-sign-error",
+        "Drops the minus sign in the time of closest approach and gives a negative time.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-divides-by-speed",
+        "Divides the dot product of the relative position and velocity by the relative speed instead of by its square.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-equal-coordinate",
+        "Takes the time when one coordinate of the two positions agrees as the time of closest approach.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-gives-square",
+        "Gives the square of the least distance between the objects.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-distance-travelled",
+        "Gives how far the relative position moves before the moment of closest approach instead of the least distance.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-adds-components",
+        "Adds the sizes of the components of the closest separation instead of using Pythagoras.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-first-within-uses-closest",
+        "Gives the time of closest approach where the time they first come within the stated range was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-last-within",
+        "Adds the half-duration to the time of closest approach and gives the time they leave the range.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "approach-half-width",
+        "Gives the half-duration spent within range instead of the time they first come within it.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-ignores-motion",
+        "Divides the starting separation by the chaser's speed as if the target were standing still.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-gives-distance",
+        "Gives the starting separation of the two boats where the time to intercept was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-gives-chaser-distance",
+        "Gives how far the chaser travels where the time to intercept was asked.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-negative-root",
+        "Reports the negative root of the interception quadratic, a time before the chase began.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-copies-target-velocity",
+        "Gives the target's velocity component as the chaser's.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-sign-flipped",
+        "Gives the chaser's velocity component with the wrong sign.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "intercept-relative-component",
+        "Gives the component of the chaser's velocity relative to the target instead of its own velocity.",
+        area="relative-velocity",
+    ),
+    CatalogueEntry(
+        "ucd-cents-not-converted",
+        "Uses a rate given in cents as if it were dollars, so the amount is 100 times too large.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-decimal-slip",
+        "Misplaces the decimal point in the product of the rate and the units, so the amount is ten times too large or too small.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-rate-inverted",
+        "Divides the units by the amount depreciated instead of the amount by the units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-rate-to-units",
+        "Adds the rate to the number of units instead of multiplying them.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-amount-not-value",
+        "Gives the amount depreciated where the value after use was asked.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-to-price",
+        "Adds the depreciation to the purchase price instead of subtracting it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-one-unit-only",
+        "Subtracts the depreciation for a single unit instead of for all the units used.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-ignores-salvage",
+        "Divides the purchase price by the expected life in units, forgetting to subtract the salvage value first.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-adds-salvage",
+        "Adds the salvage value to the purchase price before dividing, instead of subtracting it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-salvage-only",
+        "Divides the salvage value, not the amount to be depreciated, by the expected life in units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-units-from-value",
+        "Divides the target value by the rate instead of the depreciation needed to reach it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-units-from-price",
+        "Divides the purchase price by the rate, ignoring the value the asset is to reach.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-multiplies-for-units",
+        "Multiplies the depreciation needed by the rate instead of dividing by it.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-single-rate",
+        "Uses the first rate for every unit of use, ignoring that the rate changes after a stated number of units.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-second-rate-everywhere",
+        "Uses the later rate for every unit of use, ignoring that the first units depreciated at the earlier rate.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-forgets-first-stage",
+        "Depreciates only the units in the second stage and forgets the depreciation already taken in the first.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-second-stage-only",
+        "Gives the units used in the second stage only, where the total units used were asked.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-first-year-usage",
+        "Uses the first year's use for every year instead of each year's own use.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-last-year-only",
+        "Depreciates only the last year's use instead of all the years' use so far.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-divides-by-total-units",
+        "Divides the fall in value by the larger number of units, not by the difference in units between the two readings.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-reading-as-price",
+        "Takes the earlier reading of the value as the purchase price when finding a later value.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-years-miscounted",
+        "Uses one year too many or one year too few when working out the flat-rate depreciation.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "ucd-compares-depreciation-only",
+        "Gives the depreciation under one method where the difference between the two values was asked.",
+        area="unit-cost-depreciation",
+    ),
+    CatalogueEntry(
+        "nsp-reads-bits-reversed",
+        "Reads the digits of the numeral in the wrong order, so the place values run backwards.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-ones",
+        "Counts the 1s in the binary numeral instead of adding the place values they stand for.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-reads-as-decimal",
+        "Reads the digits of a binary, octal or hexadecimal numeral as an ordinary decimal number.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-powers-start-at-one",
+        "Starts the place values at 2 (or 8, or 16) instead of 1, so every value is a base too large.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-hex-letter-off-by-one",
+        "Gives a hexadecimal letter a value one too large (A as 11 up to F as 16).",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-remainders-read-top-down",
+        "Writes the remainders of repeated division in the order they were found instead of from the last to the first.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-stops-division-early",
+        "Stops the repeated division one step early and leaves off the last digit.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-appends-a-digit",
+        "Divides once too often or multiplies in an extra place, giving a numeral one digit too long.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-no-conversion",
+        "Writes the decimal digits of the number as if they were already the numeral in the new base.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-groups-from-the-left",
+        "Groups the binary digits in threes from the left instead of from the right, so the groups do not line up with the place values.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-nibbles-swapped",
+        "Writes the four-digit groups for the hexadecimal digits in the wrong order.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-digit-values-not-nibbles",
+        "Writes each hexadecimal digit's value in binary without padding it to four digits.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-binary-no-carry",
+        "Adds binary digits without carrying, treating 1 + 1 as 0 in every column.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-adds-as-decimal",
+        "Adds the two binary numerals as if they were decimal numbers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-drops-final-carry",
+        "Loses the carry out of the leftmost column, so the sum has too few digits.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-cofactor",
+        "Gives the larger factor found when the smallest factor was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-square-root",
+        "Gives the whole-number part of the square root of the number instead of its smallest prime factor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-overshoots-first-factor",
+        "Gives the next prime after the smallest prime factor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-tests-every-integer",
+        "Counts every whole number up to the square root instead of only the primes.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-one-as-prime",
+        "Counts 1 as a prime when listing the primes up to the square root.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-omits-two",
+        "Leaves 2 out of the primes to be tried.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-uses-root-itself",
+        "Gives the whole-number part of the square root itself, although it is not prime.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-tests-up-to-half",
+        "Tests every prime up to half the number instead of stopping at its square root.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-rounds-root-up",
+        "Rounds the square root up to the next whole number before listing the primes, so one prime too many is tested.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-adds-exponents",
+        "Adds the exponents in the prime factorisation instead of adding one to each and multiplying.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-multiplies-exponents",
+        "Multiplies the exponents without adding one to each first.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-prime-factors",
+        "Gives the number of prime factors, counted with repeats, instead of the number of divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-distinct-primes-only",
+        "Counts only the distinct prime factors as divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-sum-one-and-n-only",
+        "Adds only 1 and the number itself when summing the divisors.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-count-for-sum",
+        "Gives the number of divisors where their sum was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-sum-adds-one-to-powers",
+        "Multiplies (1 + p^a) for each prime instead of summing the whole geometric series of powers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gives-count-for-square",
+        "Gives the number of all divisors where the number of square divisors was asked.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-rounds-halves-up",
+        "Rounds each half-exponent up instead of down when counting the even exponents a square divisor may use.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-lcm-swapped",
+        "Gives the lowest common multiple where the greatest common divisor was asked, or the reverse.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-is-difference",
+        "Gives the difference of the two numbers as their greatest common divisor.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-lcm-is-product",
+        "Gives the product of the two numbers as their lowest common multiple.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-gcd-ignores-exponents",
+        "Multiplies the common primes each to the first power, ignoring the smaller exponent in the numbers.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-lcm-drops-unshared",
+        "Multiplies only the primes the two numbers share when finding the lowest common multiple.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-up-to-factor-only",
+        "Counts the primes up to the smallest factor but forgets to count the factor itself.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "nsp-counts-up-to-root",
+        "Counts the primes tried up to the square root, where the primes only up to the smallest factor were needed.",
+        area="number-bases-primes",
+    ),
+    CatalogueEntry(
+        "fce-rounds-down",
+        "Rounds the quotient down when a partly filled pack still has to be bought or a partly full trip still has to be made.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-one-when-exact",
+        "Adds one to a quotient that is already a whole number.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-a-spare",
+        "Rounds up and then adds a spare one that the question did not ask for.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-up-whole-items",
+        "Rounds up the number of whole items that fit, counting an offcut that is too short to use.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-leftover",
+        "Gives the amount left over where the number of whole groups was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-quotient",
+        "Gives the number of full groups where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-shortfall",
+        "Gives how many more are needed to fill another group where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-count-for-leftover",
+        "Gives the number of groups needed where the amount left over was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-leftover-for-shortfall",
+        "Gives the amount in the last box where the amount needed to fill it was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-extra",
+        "Leaves out the extra people or items that were added to the groups.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-each-part",
+        "Rounds up each part separately and adds, instead of adding first and rounding once.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-mixes-directions",
+        "Rounds one factor up and the other down, so the estimate is neither a safe upper estimate nor a safe lower one.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-exact-values",
+        "Gives the exact value where a rounded estimate was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-to-nearest-estimate",
+        "Rounds each factor to the nearest place value instead of in the direction asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-wrong-bound",
+        "Rounds down for the upper estimate, or up for the lower estimate.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-compares-to-lower-bound",
+        "Measures the excess above the lower estimate where the upper estimate was the one to check against.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-estimate-not-gap",
+        "Gives the estimate itself where the difference between the estimate and another value was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-gives-exact-not-gap",
+        "Gives the exact value where the difference between the estimate and the exact value was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-ignores-weight-limit",
+        "Uses only the count limit for each trip and ignores the weight limit.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-ignores-whole-items",
+        "Divides the total weight by the weight limit without allowing for whole items, so a part-filled load is counted.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-load-to-nearest",
+        "Rounds the number of items one trip can carry to the nearest whole number instead of down.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-end-post",
+        "Forgets that a straight fence needs one more post than it has gaps.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-adds-post-on-loop",
+        "Adds an extra post for a closed loop, although the last gap ends at the first post.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-gaps-down",
+        "Rounds the number of gaps down and leaves the last stretch of fence without a post.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-all-large-vehicles",
+        "Uses only the large vehicle for everyone.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-all-small-vehicles",
+        "Uses only the small vehicle for everyone.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-forgets-the-rest",
+        "Counts only the full large vehicles and forgets the people left over.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-lower-bound",
+        "Uses the smallest possible count when the number needed must cover the largest possible one.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-upper-bound",
+        "Uses the largest possible count when the number of boxes certain to be filled was asked.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-uses-midpoint",
+        "Uses the middle of the range instead of the end that settles the question.",
+        area="floor-ceiling-estimation",
+    ),
+    CatalogueEntry(
+        "fce-rounds-up-guaranteed-full",
+        "Rounds up the number of boxes that can be filled for certain, counting a box that may not be full.",
+        area="floor-ceiling-estimation",
+    ),
+    # -- build-c batch --
+    CatalogueEntry(
+        "cod-bound-centre-forgotten",
+        "Leaving the centre word out of a ball, so a ball of radius t is counted as having one word fewer than it does.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-from-k",
+        "Choosing the number of check bits r from 2^r ≥ k + 1, as if only the message positions had to be located, instead of all n positions.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-from-k-without-zero",
+        "Choosing the number of check bits r from 2^r ≥ k, forgetting both the case of no error and that a check bit can be wrong too.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-checks-only",
+        "Giving the number of check bits n − k instead of the length n.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-doubled",
+        "Doubling the number of message bits, as for a repetition code, instead of finding the shortest length that fits.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-halved",
+        "Giving 2^(n−1), taking half of all words to be codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-ignores-t",
+        "Using the ball of radius 1 (n + 1 words) when the code must correct two errors.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-one-check-bit",
+        "Taking a single parity bit (n = k + 1) to be enough to correct an error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-radius-confused",
+        "Dividing 2^n by 2t + 1, the length of a repetition code that corrects t errors, instead of by the number of words in a ball of radius t.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-bound-rounded-up",
+        "Rounding the quotient 2^n divided by the ball size up instead of down.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-all-words",
+        "Giving q^n, the number of all words of length n, as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-base-exponent-swapped",
+        "Writing k^q instead of q^k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-check-symbols",
+        "Giving q^(n−k), the number of check-symbol patterns, as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-k-itself",
+        "Giving the dimension k as the number of codewords.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-codewords-product",
+        "Multiplying k by q instead of raising q to the power k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-correct-only",
+        "Giving 2t + 1, the distance needed to correct t errors, and ignoring the extra errors that must be detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-detect-only",
+        "Giving s + 1, the distance needed to detect s errors, and ignoring the errors that must be corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-doubled-detect",
+        "Giving 2s + 1, treating the errors to be detected as if they all had to be corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-sum-without-one",
+        "Giving t + s without the + 1.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-combined-twice-sum",
+        "Giving 2(t + s) + 1, doubling both the errors to be corrected and the errors to be detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-floor-d-over-2",
+        "Taking ⌊d/2⌋ as the number of errors corrected instead of ⌊(d − 1)/2⌋.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-half-d-plus-one",
+        "Taking ⌊(d + 1)/2⌋ as the number of errors corrected, adding 1 where the rule subtracts it.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-uses-d",
+        "Giving the minimum distance d as the number of errors corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-correct-uses-detect",
+        "Giving d − 1, the number of errors detected, as the number corrected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-bit-order-reversed",
+        "Reading the message bits in reverse order when converting them to a number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-first-four-bits",
+        "Taking the first four bits of the corrected word as the message, although the Hamming code carries its message in positions 3, 5, 6 and 7.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-last-bits",
+        "Taking the last k bits of the corrected word as the message instead of the first k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-no-correction",
+        "Reading the message from the received word without correcting the error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-syndrome-as-position",
+        "Reading the syndrome as a binary number and flipping that position, which works only when the columns of H are 1 to n in binary and in order.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-halved-distance",
+        "Giving ⌊d/2⌋ as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-one-more",
+        "Giving d + 1 as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-uses-correct",
+        "Giving ⌊(d − 1)/2⌋, the number of errors corrected, as the number detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-detect-uses-d",
+        "Giving the minimum distance d, not d − 1, as the number of errors detected.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-adjacent-listed-only",
+        "Comparing only words that are next to each other in the list, and so missing a closer pair.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-assumes-three",
+        "Assuming a code whose parity-check columns are distinct and non-zero has minimum distance 3, without looking for a larger set of dependent columns.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-column-weight",
+        "Giving the smallest number of 1s in a column of H as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-columns-all",
+        "Giving the length n, the number of columns of H, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-counts-agreements",
+        "Counting the positions where the words agree instead of the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-decimal-difference",
+        "Subtracting the two words as numbers instead of counting the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-dimension",
+        "Giving the dimension of the code, n minus the rank of H, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-difference",
+        "Giving the position of the first difference instead of counting all the positions that differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-word-only",
+        "Comparing the first word with the others only, and so missing a closer pair among the rest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-first-pair-only",
+        "Giving the distance between the first two words in the list as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-max-instead-of-min",
+        "Giving the largest distance between two codewords instead of the smallest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-max-weight",
+        "Giving the largest weight of a codeword instead of the smallest non-zero weight.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-min-row-weight",
+        "Giving the smallest weight of a row of G as the minimum distance, although a sum of rows can be lighter.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-min-weight-nonlinear",
+        "Giving the weight of the lightest word as the minimum distance, which is right only for a linear code.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-miscounted-by-one",
+        "Miscounting the number of positions that differ by one.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-number-of-rows",
+        "Giving the number of rows of G, the dimension, as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-parity-part-weight",
+        "Giving the weight of the check part of the lightest row of G, leaving out the 1 from the identity part.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-rows-of-h",
+        "Giving the number of rows of H as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-singleton",
+        "Giving n − k + 1, an upper bound on the minimum distance, as its value.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-sum-of-digit-differences",
+        "Adding the sizes of the differences between symbols instead of counting the positions where they differ.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-weight-of-first-row",
+        "Giving the weight of the first row of G as the minimum distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-weight-of-first-word",
+        "Giving the number of 1s in the first word as the distance.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-position-counted-from-zero",
+        "Numbering the positions from 0 instead of from 1, so the position of the error is one too small.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-distance-average-rounded",
+        "Giving the average of the distances between pairs of words, rounded, instead of the smallest.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-read-as-decimal",
+        "Reading the syndrome bits as a decimal number (101 for the syndrome 1, 0, 1) instead of as a binary number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-decode-position-as-message-index",
+        "Treating the position found from the syndrome as a number among the message bits and flipping that message bit, instead of flipping that position of the whole word.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-position-from-right",
+        "Counting the position of the error from the right instead of from the left.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-codeword-fraction",
+        "Giving the fraction of all words that are codewords, 2^k / 2^n, as the rate.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-codewords-over-length",
+        "Dividing the number of codewords by the length instead of the dimension by the length.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-inverted",
+        "Writing the rate upside down as n/k.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-over-check-bits",
+        "Dividing the message bits by the check bits instead of by the length.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-rate-redundancy",
+        "Giving the fraction of check bits, (n − k)/n, as the rate.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-reversed",
+        "Reading the syndrome from bottom to top, so its binary value is wrong.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-row-index",
+        "Giving the number of the first row of the syndrome that is 1 instead of reading the whole syndrome as a binary number.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "cod-syndrome-weight",
+        "Giving the number of 1s in the syndrome as the position of the error.",
+        area="coding-theory",
+    ),
+    CatalogueEntry(
+        "quad-ellipsoid-mixed-up",
+        "Naming an ellipsoid (three positive squares and a positive constant) as a hyperboloid, a cone, a paraboloid or a cylinder, because the signs and the right side were not both checked.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-sheets-swapped",
+        "Swapping the hyperboloid of one sheet and the hyperboloid of two sheets, by not counting how many squared terms have the sign opposite to the right side.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-zero-rhs-ignored",
+        "Not checking whether the right side is 0: calling a cone a hyperboloid, or a hyperboloid a cone.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-elliptical-sections-means-ellipsoid",
+        "Calling a surface an ellipsoid because some of its cross-sections are ellipses, although other cross-sections are open curves.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-hyperbolic-sections-means-saddle",
+        "Calling a hyperboloid a hyperbolic paraboloid because some of its cross-sections are hyperbolas.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-squared-axis-confused",
+        "Confusing a squared variable with a variable to the first power, so a cone or hyperboloid is taken for a paraboloid, or a paraboloid for a cone or hyperboloid.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-paraboloid-sign-mixed",
+        "Swapping the elliptic and the hyperbolic paraboloid by misreading whether the two squared terms have the same sign or opposite signs.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-minus-sign-means-hyperboloid",
+        "Taking any minus sign between squared terms to mean a hyperboloid, without checking whether one variable appears only to the first power.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-missing-variable-ignored",
+        "Not noticing that one variable is missing from the squares (or is only to the first power), so naming a surface that involves all three variables.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-cylinder-kind-mixed",
+        "Mixing up the elliptic, hyperbolic and parabolic cylinders by misreading which terms are squared or what sign they have.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-cross-term-ignored",
+        "Naming the surface from the signs of the x², y² and z² terms alone, ignoring a cross term that changes the signs of the quadratic form.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-forgot-completing-constant",
+        "Forgetting the constants added when completing the square, so the right side used to name the surface is the original one.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-sign-flipped",
+        "Reading the sign of c the wrong way round when describing the level set f = c.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-sign-ignored",
+        "Ignoring the sign of c, treating a negative level like the positive level of the same size.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-zero-empty",
+        "Taking the level set f = 0 of a sum of squares to be empty, rather than the single point at the origin.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-level-negative-point",
+        "Taking a negative level of a sum of squares to be a single point instead of no points.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-closed-vs-open",
+        "Mixing up the closed traces (circle, ellipse) with the open ones (hyperbola, parabola) by not checking whether the squared terms have the same sign.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-hyperbola-vs-parabola",
+        "Swapping hyperbola and parabola by not checking whether both variables are squared.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-circle-vs-ellipse",
+        "Calling an ellipse a circle although the two squared terms have different coefficients.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-degenerate-missed",
+        "Confusing a genuine conic with a degenerate one (a single point or a pair of lines) by not checking where the plane lies compared with the vertex or centre.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-point-vs-empty",
+        "Swapping a single point and no points: a plane that just touches the surface against one that misses it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-sign-error",
+        "Giving the centre coordinate with the wrong sign after completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-coefficient-not-divided",
+        "Halving the linear coefficient but not dividing by the coefficient of the squared term.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-not-halved",
+        "Dividing the linear coefficient by the coefficient of the squared term but forgetting to halve it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-linear-coefficient-read",
+        "Reading the coefficient of the linear term as the coordinate of the centre.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-centre-halved-twice",
+        "Halving the coordinate of the centre a second time when completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-ignores-cut",
+        "Giving the semi-axis read from the equation as if the plane passed through the centre, ignoring how the cross-section changes with the height k.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-denominator-as-semi-axis",
+        "Reading the denominator (the square of the semi-axis) as the semi-axis.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-not-rooted",
+        "Forgetting the final square root and giving the square of the semi-axis of the cross-section.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-factor-unrooted",
+        "Scaling the semi-axis by 1 ± k²/c² instead of by its square root.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-k-not-squared",
+        "Scaling the semi-axis by 1 ± k/c instead of by √(1 ± k²/c²), leaving k unsquared and the root untaken.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-wrong-direction",
+        "Giving the semi-axis in the other direction.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-trace-axis-sign-flipped",
+        "Using the wrong sign on the k² term when putting the plane into the equation, so 1 + k²/c² is used where 1 − k²/c² is needed, or the reverse.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-not-rooted",
+        "Giving r², the right side after completing the square, as the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-from-constant",
+        "Reading the constant term of the plane as the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-slope-not-halved",
+        "Adding the squares of the plane's x and y coefficients without halving them when completing the square.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-completing-sign",
+        "Subtracting instead of adding the completed-square terms when finding the radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-centre-as-radius",
+        "Giving a coordinate of the circle's centre (half a coefficient of the plane) as its radius.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-radius-constant-only",
+        "Ignoring the completed-square terms and taking the square root of the constant alone.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coordinate-of-point",
+        "Giving the coordinate of the given point along that axis as the intercept, as if the point were on the axis.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-level-value",
+        "Giving the value c of the level surface instead of the intercept.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coefficient-forgotten",
+        "Solving for the intercept as √c, forgetting to divide by the coefficient of the squared term first.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-root-forgotten",
+        "Dividing c by the coefficient of the squared term but not taking the square root.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-intercept-coefficient-inverted",
+        "Multiplying c by the coefficient of the squared term instead of dividing by it.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-sum",
+        "Adding the two semi-axes instead of multiplying them in the area formula πpq.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-halved",
+        "Halving the product of the semi-axes, as for the area of a triangle.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-squares",
+        "Adding the squares of the semi-axes instead of multiplying them.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-perimeter-style",
+        "Using 2(p + q), a perimeter-style quantity, in place of pq.",
+        area="quadric-surfaces",
+    ),
+    CatalogueEntry(
+        "quad-area-uses-denominators",
+        "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
+        area="quadric-surfaces",
     ),
 )
 

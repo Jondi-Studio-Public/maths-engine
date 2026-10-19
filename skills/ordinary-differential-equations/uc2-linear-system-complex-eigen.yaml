@@ -1,0 +1,83 @@
+id: uc2-linear-system-complex-eigen
+name: Solve a linear system with complex eigenvalues
+domain: ordinary-differential-equations
+year_level:
+- university
+description: Solve the initial value problem x' = Ax for a 2x2 constant matrix whose eigenvalues are complex, and
+  give a component of the real-valued solution as a function of t or as a value at a stated time.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-eigenvectors
+- senior-determine-complex-conjugate-solutions-of-real-quadratic-equations
+answer: expression
+sources:
+- topic: s2c2_linear_system_complex_eigen
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c2_linear_system_complex_eigen
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c2_linear_system_complex_eigen
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c2_linear_system_complex_eigen
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ode2-cos-sin-coefficients-swapped
+  description: Swapping the cosine and sine coefficients, so the initial value multiplies the sine and the other
+    coefficient multiplies the cosine.
+- id: ode2-frequency-from-discriminant
+  description: Taking the square root of the discriminant as the frequency, without halving it, so the oscillation
+    runs twice as fast.
+- id: ode2-sine-coefficient-not-divided-by-frequency
+  description: Leaving out the division by the frequency in the coefficient of the sine term.
+- id: ode2-sine-term-sign
+  description: Taking the eigenvalue with negative imaginary part, so the sine term of the real solution has the
+    wrong sign.
+- id: ode2-growth-factor-dropped
+  description: Dropping the factor e^(αt) from the real solution when the real part α of the eigenvalues is not
+    zero.
+- id: ode2-exponent-sign-flipped
+  description: Writing the exponential for an eigenvalue as e^(-λt) instead of e^(λt) in the solution of x' = Ax.
+- id: ode2-other-component-given
+  description: Giving a different component of the solution from the one asked for.
+- id: ode2-real-part-not-halved
+  description: Giving the trace as the real part of the complex eigenvalues instead of half the trace.
+- id: ode2-real-and-imaginary-parts-swapped
+  description: Swapping the real and imaginary parts of the complex eigenvalues.
+- id: ode2-determinant-as-eigenvalue
+  description: Giving the determinant of the matrix as an eigenvalue.
+- id: ode2-imaginary-part-not-rooted
+  description: Giving β² instead of β as the imaginary part of the eigenvalues.
+- id: ode2-imaginary-part-not-halved
+  description: Giving the square root of the discriminant, 2β, as the imaginary part instead of half of it.
+- id: ode2-modulus-as-imaginary-part
+  description: Giving the modulus of the eigenvalue, the square root of the determinant, as its imaginary part.
+difficulty_progression: 'Easy is a pure oscillation, with eigenvalues plus and minus beta i, asked for x(t): the
+  learner finds beta from the characteristic equation and fits the initial values to a cosine and a sine. Medium
+  adds a real part, so the solution spirals, and asks for y(t), which needs the other row of the matrix. Hard gives
+  x(0) and x''(0) instead of y(0), so the learner first recovers y(0) from the first equation, then solves for y(t).
+  The exam chain finds the real part, the imaginary part (using the real part), the real solution x(t), and its
+  value at a stated time.'
+tags:
+- university-year-2
+- ordinary-differential-equations
+- linear-systems
+- complex-eigenvalues
+framework_areas:
+- ordinary-differential-equations

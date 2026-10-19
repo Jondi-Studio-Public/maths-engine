@@ -1,0 +1,90 @@
+id: transition-matrix-states
+name: Move a population between states with a transition matrix
+domain: matrices
+description: 'A population is shared among three or four states (phone plans, shops, ways to travel, clubs) and each period
+  some members move between them, described in words. Easy: the numbers in each state after one period, written as a column.
+  Medium: after two periods, where one state''s movements are given with the rest left over. Hard: four states, the start
+  given as shares of a total, and the numbers in every state after three periods. The exam chain finds a missing stay share
+  from a column total, then the numbers in one state after one and two periods (carried forward) and the change. Distinct
+  from the two-state Markov skills, which have one transition probability and a single state.'
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-multiplication
+- senior-understand-the-matrix-definition-and-notation
+answer: matrix
+sources:
+- topic: r3c_transition_states
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 6
+- topic: r3c_transition_states
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 6
+- topic: r3c_transition_states
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: r3c_transition_states_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3c-ts-column-total
+  description: Takes a group's share that stays as 10 percentage points away from the right value, not as what is left of
+    100% after the shares that move away.
+- id: r3c-ts-count-not-change
+  description: Gives the number in the group at the end where the change from the start was asked for.
+- id: r3c-ts-double-the-change
+  description: Finds the numbers after several periods by adding the first period's change that many times, as if each period
+    changed the numbers by the same amount.
+- id: r3c-ts-entry-slip
+  description: Gets one group's number wrong by a slip in moving members in or out, so one entry of the answer is off and
+    the others are right.
+- id: r3c-ts-ignores-inflows
+  description: Counts only the members who stay in a group and leaves out the members who arrive from the other groups.
+- id: r3c-ts-ignores-stayers
+  description: Counts only the members who arrive from the other groups and leaves out the members who stay.
+- id: r3c-ts-leaving-not-staying
+  description: Uses the share that leaves a group where the share that stays was needed.
+- id: r3c-ts-no-change
+  description: Gives the starting numbers back unchanged as the numbers after one period.
+- id: r3c-ts-nobody-leaves
+  description: Adds the arrivals to the starting number of a group without taking away the members who leave it.
+- id: r3c-ts-one-flow-only
+  description: Subtracts only one of the shares that move away from 100% to find the share that stays, ignoring the other
+    moves.
+- id: r3c-ts-one-step-only
+  description: Moves the numbers on by one period when two were asked for.
+- id: r3c-ts-order-reversed
+  description: Writes the right numbers for the groups in the reverse of the order the groups were listed in.
+- id: r3c-ts-rows-columns-swapped
+  description: 'Reads the transition table by rows where it is read by columns, so each group''s movements go the wrong way:
+    members are sent to a group from where they should have come.'
+- id: r3c-ts-square-entries
+  description: Squares each share in the table to move on two periods, instead of multiplying the table by itself.
+- id: r3c-ts-stay-only
+  description: Keeps only the members who stay in each group and ignores everyone who moves from one group to another.
+- id: r3c-ts-step-count
+  description: Moves the numbers on by one period too few or too many.
+- id: r3c-ts-uses-start-values
+  description: Works out the second period's arrivals from the starting numbers instead of the numbers after the first period.
+- id: r3c-ts-wrong-interval
+  description: Finds the change over the wrong stretch of time, such as the second period alone or the first alone, where
+    the change over both was asked for.
+tags:
+- matrices
+- transition-matrix
+- markov
+- state-vector
+- r3c_transition_states

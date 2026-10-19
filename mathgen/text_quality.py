@@ -116,6 +116,14 @@ BAD_TEXT_PATTERNS: tuple[TextPattern, ...] = (
         "adds another -- fix the join, or drop the item punctuation",
     ),
     TextPattern(
+        "python_null_in_text",
+        "learner",
+        _regex(r"\bNone\s+(?!of\b)[a-z]|\bNaN\b"),
+        'a Python None or NaN printed into the text, as "NOT a function: None has no image in R" -- a value the '
+        "generator never set reached an f-string. Give it a value, or leave the clause out. A category "
+        'called None ("House None = 3") is not this: only None followed by a lower-case word counts',
+    ),
+    TextPattern(
         "newline_in_text",
         "learner",
         _regex(r"[\r\n]"),

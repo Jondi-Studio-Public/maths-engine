@@ -1,7 +1,7 @@
 id: f10-compound-event-frequencies
 name: Estimate compound event probabilities from trial data
 domain: statistics-probability
-year_level: ['8']
+year_level: ['8', '9']
 naplan_domain: [probability]
 description: Estimate the probability of a compound event, such as both events, at least one of them, neither or
   exactly one, from the counts recorded in a two-way table of trial results. Easy finds the probability that both
@@ -102,3 +102,4 @@ tags:
 - fpm_compound_frequencies
 - ac9m8p02
 - ac9m8p03
+- ac9m9p02

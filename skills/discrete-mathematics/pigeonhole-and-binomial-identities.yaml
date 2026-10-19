@@ -1,0 +1,148 @@
+id: pigeonhole-and-binomial-identities
+name: The pigeonhole principle and binomial identities
+domain: discrete-mathematics
+year_level: ['11']
+description: >-
+  Use the pigeonhole principle to find the least number in a box or the number of items that forces a
+  repeat, and simplify binomial and factorial expressions using Pascal's identity.
+status: active
+placement_eligible: false
+prerequisites:
+- combinations
+- senior-use-factorial-notation
+answer: expression
+sources:
+- topic: r3i_pigeonhole
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3i_pigeonhole
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3i_pigeonhole
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3i_exam_pigeonhole
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3i-pigeonhole-added-not-multiplied
+  description: >-
+    Adding the number of categories and the target count instead of multiplying (categories × (count -
+    1)).
+- id: r3i-pigeonhole-box-count-given
+  description: >-
+    Giving the number of boxes instead of the least number in the fullest box.
+- id: r3i-pigeonhole-categories-and-count-swapped
+  description: >-
+    Swapping the number of categories and the target count, so the worst case is m(k - 1) instead of k(m
+    - 1).
+- id: r3i-pigeonhole-difference-not-pascal
+  description: >-
+    Giving a value that is a single binomial or sum of binomials, not the difference worked out with
+    Pascal's identity.
+- id: r3i-pigeonhole-difference-taken-as-gap
+  description: >-
+    Replacing the difference of two binomial coefficients with a quantity based only on the gap between
+    the top numbers.
+- id: r3i-pigeonhole-difference-taken-as-lower-index
+  description: >-
+    Reading C(n + 1, 3) - C(n, 3) as n, dropping the binomial that Pascal's identity leaves.
+- id: r3i-pigeonhole-difference-taken-as-one
+  description: >-
+    Treating the difference of consecutive binomial coefficients as 1.
+- id: r3i-pigeonhole-difference-taken-as-sum
+  description: >-
+    Adding the two binomial coefficients instead of subtracting them.
+- id: r3i-pigeonhole-extra-factor-kept
+  description: >-
+    Keeping a factor that cancels when a ratio of factorials is simplified.
+- id: r3i-pigeonhole-extra-one-added
+  description: >-
+    Adding one more than the pigeonhole principle requires.
+- id: r3i-pigeonhole-factor-dropped
+  description: >-
+    Cancelling one factor too many when simplifying a ratio of factorials.
+- id: r3i-pigeonhole-factorials-cancelled-as-numbers
+  description: >-
+    Cancelling the factorial signs and leaving the ratio of the two numbers, (n + s)/(n - t).
+- id: r3i-pigeonhole-halving-forgotten
+  description: >-
+    Leaving out the division by 2 in the expansion of a binomial coefficient C(n, 2).
+- id: r3i-pigeonhole-objects-minus-boxes
+  description: >-
+    Subtracting the number of boxes from the number of objects.
+- id: r3i-pigeonhole-one-fewer
+  description: >-
+    Giving one fewer than the number of categories.
+- id: r3i-pigeonhole-one-more-forgotten
+  description: >-
+    Giving the largest number that can be chosen without the property, forgetting the one more that
+    forces it.
+- id: r3i-pigeonhole-one-term-only
+  description: >-
+    Using only one of the two binomial coefficients being added.
+- id: r3i-pigeonhole-pair-count-doubled
+  description: >-
+    Doubling the number of categories, as if a repeated pair needed two of each.
+- id: r3i-pigeonhole-pairs-not-formed
+  description: >-
+    Not pairing the numbers: giving the size of the whole set or one fewer.
+- id: r3i-pigeonhole-pascal-index-off-by-one
+  description: >-
+    Using Pascal's identity with a wrong index, such as C(n + 1, k) for C(n + 1, k + 1).
+- id: r3i-pigeonhole-quotient-not-rounded
+  description: >-
+    Giving the exact quotient of objects by boxes, when a whole number of objects must be in a box.
+- id: r3i-pigeonhole-rounded-down
+  description: >-
+    Rounding the quotient down, giving the number that is certainly in every box instead of the number
+    that must be in some box.
+- id: r3i-pigeonhole-short-colour-ignored
+  description: >-
+    Ignoring that a colour has fewer counters than the worst case would use, so using k(m - 1) + 1
+    directly.
+- id: r3i-pigeonhole-sum-taken-as-product
+  description: >-
+    Multiplying the two binomial coefficients instead of adding them.
+- id: r3i-pigeonhole-times-m-not-m-minus-one
+  description: >-
+    Using k × m in the worst case, instead of k × (m - 1).
+- id: r3i-pigeonhole-total-less-one
+  description: >-
+    Giving one fewer than the whole bag, ignoring that fewer draws can already force the colour.
+- id: r3i-pigeonhole-whole-bag-taken
+  description: >-
+    Giving the number of counters in the whole bag.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: >-
+      Divide the objects by the boxes and round up, or add one to the number of categories to force a repeat.
+  medium:
+    steps: 3
+    demand: >-
+      Build the worst case of m - 1 of each kind (capped where a kind is short) and add one, or simplify a
+      ratio of factorials or the difference of consecutive binomial coefficients.
+  hard:
+    steps: 4
+    demand: >-
+      Pair up the integers in a set to force a consecutive pair or a pair with a given sum, or combine
+      binomial coefficients by Pascal's identity into a single simplified expression.
+  exam:
+    steps: 6
+    demand: >-
+      Chain the least number on a day, the group size that forces one more, the difference of consecutive
+      binomial coefficients and the new pairs formed.
+tags:
+- acara-senior-v8-4
+- discrete-mathematics
+- pigeonhole-principle
+- binomial-coefficients
+- pascals-identity
+- ACMSM006
+- ACMSM009
+- vce-specialist-mathematics

@@ -1,0 +1,55 @@
+id: binomial-mean-variance-sd
+name: "Find the mean, variance and standard deviation of a binomial count"
+domain: statistics-probability
+year_level: ['12']
+description: "From the number of trials and the success probability (n 10 to 30), find the mean, variance or standard deviation of a binomial random variable, build on them (an interval around the mean, the count of failures, E(X^2)), and combine independent binomial counts, where variances add. The exam chain ends with the probability of lying within one standard deviation of the mean."
+status: active
+placement_eligible: false
+prerequisites: [binomial-point-probability, discrete-expected-value]
+answer: number
+sources:
+- topic: r3a_binomial_moments
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3a_binomial_moments
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3a_binomial_moments
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3a_binomial_moments
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 1, demand: "Apply np, npq or sqrt(npq) once to the stated n and p."}
+  medium: {steps: 2, demand: "Use the moments inside a second idea: an interval of two standard deviations, the failures count, or E(X^2) = Var(X) + (E X)^2."}
+  hard: {steps: 3, demand: "Combine two independent binomial counts, adding variances (never standard deviations) for a total or a difference."}
+  exam: {steps: 4, demand: A connected chain of four parts in which each later part uses an earlier answer.}
+misconceptions:
+- id: r3a-mean-uses-failure-probability
+  description: "Using n(1 - p) as the mean of the number of successes."
+- id: r3a-mean-reported-as-variance
+  description: "Giving npq, the variance, where the mean np was asked for."
+- id: r3a-variance-omits-failure-probability
+  description: "Using np as the variance, leaving out the factor 1 - p."
+- id: r3a-variance-reported-as-sd
+  description: "Giving the standard deviation where the variance was asked for."
+- id: r3a-sd-omits-square-root
+  description: "Reporting the variance npq when the standard deviation was asked for."
+- id: r3a-sd-omits-failure-probability
+  description: "Using sqrt(np) as the standard deviation, leaving out the factor 1 - p."
+- id: r3a-interval-wrong-end
+  description: "Giving the other end of the interval from the one asked for."
+- id: r3a-second-moment-squares-the-mean
+  description: "Replacing E(X^2) by (E(X))^2."
+- id: r3a-adds-standard-deviations
+  description: "Adding the standard deviations of two independent counts to get the standard deviation of their total, instead of adding the variances and taking the square root."
+- id: r3a-subtracts-variances
+  description: "Subtracting the variances for the difference of two independent counts; the variances add."
+- id: r3a-within-sd-rounds-outwards
+  description: "Rounding the ends of the interval outwards, so whole numbers outside the interval are included."
+tags: [round-3, statistics-probability, binomial-distribution, acmmm149, mean-variance]

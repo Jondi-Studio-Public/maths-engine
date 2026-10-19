@@ -10,7 +10,7 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ## [Unreleased]
 
-## [0.2.0] - 2026-10-14
+## [0.2.0] - 2026-10-19
 
 ### Upgrading from 0.1.0
 
@@ -29,10 +29,19 @@ Each question's id (below) tells you when the question behind it has changed.
   that option (text wins). The command line does this for you. "Point five" reads as 0.5, and "three and four" is
   two values, not 7. About 140 canonical answers that were wrongly refused (numeric-option multiple choice, 34
   skills such as `count-to-10`) are now right. Every other canonical answer is still accepted.
+- Unit prefixes are read case-sensitively where it matters (#111): `2000 ML` (megalitres) no longer passes for
+  `2000 mL`, and `mPa` or `mHz` (milli spelled with a small m on a mega unit) no longer pass for `MPa` or `MHz`.
+  `2000 ml`, `5 KM` and all-capital `MM` are still read as before.
+- Marking is stricter about what surrounds a number (#117). A stray letter or operator next to the value is wrong
+  (`7x`, `7/x`, `x7` for 7), and so is a minus that belongs to nothing: `-(-6, 4)`, `-A$352.50`, `-F = 10.0 N` and
+  `-x = 7` no longer lose their minus and pass. Labels (`x = 7`, `P(2, 3)`), unit symbols (`7 m`, `20 J`), dotted
+  abbreviations (`3 p.m.`) and unit words (`7 dogs`, `0.064 cm`) are still read as before. An SI prefix on the
+  unit a question asks for is a different unit (`10 mN`, `10 MN` for 10 N). Every canonical answer in the library
+  is still accepted.
 - Some questions changed text for the same seed, so their ids change: 11 worked solutions that printed `-3² - 4(6)`
   where `(-3)²` was meant (#104), and the early-years skills rebuilt in #103 (below). `compare-lengths` is now
   picture-based, `f10-compare-measurement-attributes` is renamed "Compare mass and capacity directly" and no longer
-  asks about length or duration, and no skill now covers comparing durations directly.
+  asks about length or duration; `ey-compare-duration` (#108) now covers comparing durations.
 
 ### Added
 
@@ -68,6 +77,17 @@ Each question's id (below) tells you when the question behind it has changed.
     (#77), and linear algebra, Taylor polynomials, series tests and ODEs (#79).
   - Second-year university: abstract algebra, numerical methods, probability and statistics, and discrete
     mathematics (#93).
+- **174 more skills** (#115, #118), so the library now has about 1,250 active skills.
+  - A second build train (155 skills, #115): round 3 (87 skills across probability, calculus, matrices, mechanics,
+    finance, trigonometry, differential equations and discrete mathematics), second-year university (58), complex
+    analysis (7), and z-tests, gradient vectors, e as a limit, critical path and more early-years variety. 47
+    single-part exam generators gain a second exam source.
+  - 19 skills for rows that had none (#118), each with easy, medium, hard and exam tiers: Boolean algebra and logic
+    gates, a line meeting a parabola or circle, the auxiliary angle, complex polygon vertices and roots of unity,
+    complex rotation, sinusoid features, 4x4 cofactor expansion, Hermitian and unitary matrices, SVD of small
+    matrices, multivariable Taylor with the Hessian, complete bipartite and connected graphs, minimum cut and
+    maximum flow, dynamic-programming tables, relative velocity, unit-cost depreciation, number bases, primes and
+    divisors, floor and ceiling estimation, quadric surfaces and error-correcting codes.
 - **Grid figures and shaded-cell answers.** A `grid_drawing` figure kind draws scale drawings, maps with grid
   references, stacks of cubes, nets and plan or elevation views. A `grid_cells` answer kind lets a learner answer by
   shading cells, with four match modes (exact, translate, congruent and cube net). 17 skills use them: 13 are
@@ -76,7 +96,9 @@ Each question's id (below) tells you when the question behind it has changed.
   `calendar`/`day_strip` and `compare_picture`) have SVG renderers, and a `read_aloud` skill flag marks skills whose
   prompts are at most 15 words. 22 new and 6 rewritten Foundation to Year 2 skills use them for shapes, patterns,
   data, calendars and measurement comparison, and seven new senior graph-reading skills reuse the cartesian,
-  dot-plot and histogram figures. (#103)
+  dot-plot and histogram figures. (#103) Ten more skills follow (#108): position words, directions, steps and
+  quarter or half turns on a grid, simple maps, Years 3 to 6 plans, turns and nets on a grid, latitude and longitude,
+  and `ey-compare-duration`, which uses a new `durations` layout of `compare_picture`.
 - **Exam chains.** 13 graph-reading, box-plot and time skills (#83) and the tree-diagram, Venn and stem-and-leaf
   skills (#75) gain multi-part exam questions with follow-through, marks and tagged distractors.
 - **Year levels for senior skills.** `year_level` is now filled for 269 senior skills from ACARA's unit pages
@@ -105,6 +127,15 @@ Each question's id (below) tells you when the question behind it has changed.
   topic. (#86)
 - `import mathgen` is about twice as fast: the Euler's-formula generator builds its pool of graphs on its first
   hard or exam question instead of at import. (#86)
+- Stricter marking of stray letters, a dropped minus and SI prefixes: see "Upgrading from 0.1.0". (#117)
+- `ucv1-definition-quantifier-check` no longer prints `None` in two of its answer options, and the text-quality
+  check flags a Python `None` or `NaN` printed into learner text. (#117)
+- Displayed notation (#116): `x*` and `z*` (conjugates and starred variables) now stay as written instead of
+  turning into `x ×`, and the natural log shows as `ln` instead of sympy's `log` in integration by parts, partial
+  fractions and the heat-rod answers. Division of decimals and the directional derivative now say "correct to 6
+  significant figures" where the key is rounded.
+- `README.md` and `SECURITY.md` described the engine as having no server; they now describe the optional HTTP API
+  and MCP server, and `SECURITY.md` says what is in scope for them. (#116)
 
 ### Fixed
 
@@ -115,6 +146,14 @@ Each question's id (below) tells you when the question behind it has changed.
   `make_questions` now refuses such a seed with a clear `BadRequest`. `skills.validate` reported a crash instead of a
   problem for a `stages` value that is not a list or for nested or string `prerequisites`, and a `domains.yaml` entry
   without an `id` raised a bare `KeyError`; it now raises a `ValueError` naming the file and entry. (#107)
+- Four marking misreads from the engine core bug hunt (#111). A mixed number typed as `1 1/2` was read as 1/2, so
+  a key of 3/2 was rejected and a key of 1/2 accepted; it now reads as 3/2, and `-1 1/2` as -3/2. `e^2`, `log10(x)`
+  and `log2(x)` could not be read. A zero vector never matched a zero key in a matrix scalar multiple, and
+  `(a)5(b)6(c)7` with no spaces was not split into parts. A plain "2 3" is still 2 times 3.
+- `compare-groups-evidence` raised an error on about 1 draw in 300 to 1,000 (every tier, including the exam chain)
+  when its wrong answers for a difference in medians, or in an interquartile range, collapsed onto the right one,
+  leaving fewer than two distractors; building the question banks stopped on it. Those draws now get spare wrong
+  values, and every other draw is unchanged. (#114)
 - A reply of about fifteen characters, such as `sqrt(acos(x)^2)`, held the grader for 40 seconds or more on about a
   hundred expression skills, and `1/0`, `tan(pi/2)`, `log(0)` and `nan` took 3 to 6 seconds on
   `ucv1-heat-equation-mode`; all now grade in under 0.1 seconds. (#104)

@@ -1,0 +1,77 @@
+id: ambiguous-case-triangle
+name: Solve triangles in the ambiguous case of the sine rule
+domain: trigonometry
+description: Given two sides and a non-included angle, find both triangles that fit, the two possible angles, third sides
+  and areas, and decide when a second triangle exists.
+status: active
+placement_eligible: false
+prerequisites:
+- sine-rule
+- triangle-area-sine
+answer: set
+sources:
+- topic: r3g_ambiguous_case
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3g_ambiguous_case
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3g_ambiguous_case
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3g_exam_ambiguous_case
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3g-ambiguous-second-triangle-missed
+  description: "Finding only the acute-angle triangle, so the second triangle is missed."
+- id: r3g-ambiguous-complement-for-supplement
+  description: "Taking 90\u00b0 minus the angle as the second angle with the same sine instead of 180\u00b0 minus it."
+- id: r3g-ambiguous-sine-rule-inverted
+  description: "Setting up the sine rule upside down, so sin B = a sin A \u00f7 b."
+- id: r3g-ambiguous-acute-case-missed
+  description: "Giving only the obtuse case, or the values for the obtuse case alone."
+- id: r3g-ambiguous-angle-sum-slip
+  description: "Finding the third angle as 180\u00b0 minus B, forgetting to subtract angle A as well."
+- id: r3g-ambiguous-wrong-side-in-sine-rule
+  description: "Using side b where side a belongs in the sine rule for the third side."
+- id: r3g-ambiguous-included-angle-wrong
+  description: "Using the wrong angle in the area formula: the angle must lie between the two sides used."
+- id: r3g-ambiguous-calculator-in-radians
+  description: "Evaluating the sine of the angle in radian mode."
+- id: r3g-ambiguous-wrong-ratio
+  description: "Using cosine, tangent or a division in place of b sin A for the length that gives a right angle."
+- id: r3g-ambiguous-upper-limit-given
+  description: "Giving the other limit of the interval for a, the side b, instead of b sin A."
+- id: r3g-ambiguous-boundary-value-given
+  description: "Giving the whole number just below b sin A, which is too short to reach, rather than the next whole number."
+- id: r3g-ambiguous-rounded-the-wrong-way
+  description: "Taking the whole number two above the critical length instead of the first whole number above it."
+- id: r3g-ambiguous-critical-value-not-rounded-up
+  description: "Giving the critical length itself, which is not a whole number and does not give two triangles."
+- id: r3g-ambiguous-sine-value-given-as-angle
+  description: "Giving the sine of the angle where the angle itself was asked."
+- id: r3g-ambiguous-wrong-supplement
+  description: "Finding the second angle with the same sine as 360\u00b0 minus the angle, or as 90\u00b0 plus it."
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Use the sine rule for sin B, then take both the acute angle and its supplement.
+  medium:
+    steps: 4
+    demand: Find the third angle and the third side in both triangles.
+  hard:
+    steps: 5
+    demand: Find the two areas, or reason about the limits on side a that give two triangles, one triangle or none.
+  exam:
+    steps: 6
+    demand: Find the acute and obtuse angle B, then the third side in each triangle, following through from the angles.
+tags:
+- acara-senior-v8-4
+- trigonometry
+- sine-rule
+- ambiguous-case
