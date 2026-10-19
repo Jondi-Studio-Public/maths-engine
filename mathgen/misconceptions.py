@@ -52188,6 +52188,96 @@ _ENTRIES = (
         "Uses the lower boundary of each class in place of its midpoint when estimating the mean.",
         area="frequency-polygon-read",
     ),
+    CatalogueEntry(
+        "dq-different-variable",
+        "Chooses something that can be measured about the same people, but that cannot answer the question asked.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-count-for-category",
+        "Records how many of something each person has where the question is about which kind they have.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-category-for-count",
+        "Records which kind each person has where the question asks how many.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-yes-no-too-little",
+        "Records only a yes or no, which loses the count or the category the question needs.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-vague-question",
+        "Chooses a question that is too open to give data that can be sorted or counted.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-two-questions-in-one",
+        "Chooses a question that asks two things at once, so one answer cannot be sorted into one group.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-flags-largest-valid",
+        "Flags the largest entry just because it is the largest, although it is a possible value.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-flags-smallest-valid",
+        "Flags the smallest entry just because it is the smallest, although it is a possible value.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-flags-repeated-entry",
+        "Flags an entry that appears more than once, although a repeated value is not an error.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-flags-other-valid",
+        "Flags an entry that is a possible value and fits the others.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-count-type-confused",
+        "Calls a count of whole things continuous or categorical.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-total-keeps-error",
+        "Adds up the entries without correcting the one that was wrong.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-total-drops-entry",
+        "Leaves the wrong entry out of the total instead of replacing it with the corrected value.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-total-adds-error-twice",
+        "Adds the corrected value to a total that still contains the wrong entry.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-mean-uses-wrong-count",
+        "Divides the total by the number of different values, or by one fewer than the number of people.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-mean-uses-error-total",
+        "Divides the uncorrected total by the number of people.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-total-ignores-sign",
+        "Adds the negative entry as if it were positive when finding the corrected total.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-arithmetic-slip",
+        "Makes a small slip of one or two when adding or dividing.",
+        area="acquire-and-check-data",
+    ),
 )
 
 #: Every entry, by id.
