@@ -2,7 +2,6 @@ id: cumulative-frequency-ogive
 name: Read a cumulative frequency graph
 domain: statistics-probability
 year_level: ['10', '11', '12']
-naplan_domain: [statistics]
 description: 'Read counts, the median, quartiles and percentages from a drawn cumulative frequency graph (ogive), where every plotted point sits on a gridline.'
 status: active
 capability_gates: [figure_stimulus]

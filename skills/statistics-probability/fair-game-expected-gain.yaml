@@ -1,9 +1,8 @@
 id: fair-game-expected-gain
 name: Fair games and expected gain
 domain: statistics-probability
-year_level: ['12']
-- '10'
-- '11'
+year_level:
+- '12'
 description: Find the expected prize and expected gain of a game of chance, the entry fee that makes it fair, and the organiser's
   expected profit.
 status: active

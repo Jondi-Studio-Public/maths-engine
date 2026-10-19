@@ -182,16 +182,15 @@ def _run_skills(ap, args):
         return _fail(f"cannot make a question for deferred skill {found.id!r}: {exc}")
 
     options = None
-    shown = display_question(q)
-    answer_text = shown["answer_text"]
-    print(f"[{found.id} #{q.seed}]\n  Q: {shown['text']}")
+    answer_text = q.answer_text
+    print(f"[{found.id} #{q.seed}]\n  Q: {q.text}")
     if found.answer == "mcq" and not q.parts:
         options = mcq_options(q)
         labels = _labels(options)
-        for label, option in zip(labels, shown["options"]):
+        for label, option in zip(labels, options):
             print(f"     {label}) {option}")
         if q.answer_text in options:
-            answer_text = f"{labels[options.index(q.answer_text)]}) {shown['answer_text']}"
+            answer_text = f"{labels[options.index(q.answer_text)]}) {q.answer_text}"
     print(f"  A: {answer_text}")
 
     if args.answer is None:
@@ -203,8 +202,6 @@ def _run_skills(ap, args):
     if options is not None:
         # The mcq grader wants the 0-based index of the chosen option; the CLI takes a letter or the text.
         index = _choose_option(options, args.answer)
-        if index is None:  # the option as printed (paper notation) names it too
-            index = _choose_option(shown["options"], args.answer)
         given = "" if index is None else index
         if index is None:
             labels = _labels(options)

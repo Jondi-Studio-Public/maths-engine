@@ -166,6 +166,6 @@ def test_skill_loads_with_correct_properties():
     _, skills = load_skills()
     skill = next((s for s in skills if s.id == "senior-find-all-solutions-of-mathrm-f-left-mathrm"), None)
     assert skill is not None, "Trig solver skill not found"
-    assert skill.answer == "mcq", f"Expected answer='mcq', got {skill.answer}"
+    assert skill.answer == "list", f"Expected answer='list', got {skill.answer}"  # w5: typed list of solutions
     assert skill.placement_eligible == False, "Skill should not be placement_eligible"
     assert "right-triangle-angle" in skill.prerequisites, "Missing right-triangle-angle prerequisite"
