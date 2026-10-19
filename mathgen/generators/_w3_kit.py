@@ -119,7 +119,7 @@ class Fmt:
     ) -> list[Distractor]:
         """Tagged distractors from ``[(value, misconception id), ...]`` in priority order. A value that rounds within
         two units of the last place of the answer, or of an earlier option, is skipped (so is None, and a negative
-        value unless allowed). At most `extremes` options may be more than eight times larger or smaller than the answer,
+        value unless allowed). At most `extremes` options may be more than thirty times larger or smaller than the answer,
         so the key is not the only value of a believable size."""
         unit = Fraction(1, 10**self.places)
         gap = unit * (1 if self.places == 0 else 2)
@@ -134,7 +134,7 @@ class Fmt:
             v = self.value(value)
             if (v < 0 and not allow_negative) or any(abs(v - s) < gap for s in seen):
                 continue
-            if size and (abs(v) > 8 * size or abs(v) * 8 < size):
+            if size and (abs(v) > 30 * size or abs(v) * 30 < size):
                 if odd >= extremes:
                     continue
                 odd += 1

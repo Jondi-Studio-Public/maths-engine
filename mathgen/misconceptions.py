@@ -52219,6 +52219,216 @@ _ENTRIES = (
         "Divides the dollars lost by the number of years but not by the price, so the rate is in dollars.",
         area="compare-flat-and-reducing-depreciation",
     ),
+    CatalogueEntry(
+        "iol-rate-not-converted",
+        "Multiplies the loan by the percentage without dividing by 100.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-divides-by-rate",
+        "Divides the loan by the rate instead of finding that percentage of it.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-decimal-slip",
+        "Misplaces the decimal point when finding the interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-annual-for-monthly",
+        "Gives the interest for a whole year where the monthly payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-multiplies-by-twelve",
+        "Multiplies the yearly interest by 12 instead of dividing it by 12.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-principal-share",
+        "Divides the loan by 12 and calls that the monthly interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-one-year-only",
+        "Gives one year's interest where the interest over several years was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-extra-year",
+        "Counts one year too many when adding up the interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-months-as-years",
+        "Multiplies the monthly payment by the number of years instead of the number of months.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-total-repaid-for-interest",
+        "Gives the total repaid (loan plus interest) where the interest was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-forgets-principal",
+        "Gives only the interest paid where the total repaid, including the loan, was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-compound",
+        "Compounds the interest each year, although the amount owing never changes on an interest-only loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-forgets-twelve",
+        "Divides the payment by the rate without first converting the monthly payment to a yearly amount.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-multiplies-by-rate",
+        "Multiplies the yearly interest by the rate instead of dividing by it.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-annual-as-loan",
+        "Takes the yearly interest as the amount borrowed.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rate-from-annual-payment",
+        "Treats the monthly payment as the yearly interest when finding the rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rate-inverted",
+        "Divides the loan by the yearly interest instead of the other way round.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-first-rate-throughout",
+        "Uses the first interest rate for the whole term of the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-second-rate-throughout",
+        "Uses the later interest rate for the whole term of the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-average-rate",
+        "Averages the two rates, although they apply for different lengths of time.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-swapped-years",
+        "Swaps the number of years at each rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rise-as-payment",
+        "Gives the rise in the payment where the original payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-loan-for-payment",
+        "Gives the amount borrowed where the original monthly payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rise-times-rate",
+        "Multiplies the rise in the payment by the rate instead of dividing by the change in rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-ignored",
+        "Ignores the lump sum paid off the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-off-interest",
+        "Takes the lump sum off the interest instead of off the amount owing.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-whole-term",
+        "Applies the lump sum to the whole term, as if it had been paid on the first day.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-after-only",
+        "Counts only the interest after the lump sum was paid.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "ann-wrong-period-row",
+        "Reads the factor for one period more or fewer than the contributions made.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-wrong-rate-row",
+        "Reads the factor for the next rate up or down in the table.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-no-interest",
+        "Multiplies the contribution by the number of periods, ignoring the interest.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-factor-only",
+        "Gives the table factor itself, forgetting to multiply by the contribution.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-lump-sum-growth",
+        "Grows a single deposit instead of using the annuity factor.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-divides-by-factor",
+        "Divides the contribution by the factor instead of multiplying.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-multiplies-for-payment",
+        "Multiplies the target by the factor instead of dividing by it.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-divides-by-periods",
+        "Divides the target by the number of periods, ignoring the interest.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-future-value-for-interest",
+        "Gives the future value where the interest earned was asked.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-contributions-for-interest",
+        "Gives the total contributed where the interest earned was asked.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-years-as-periods",
+        "Uses the number of years as the number of periods.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-rate-not-divided",
+        "Divides the annual rate by the wrong number of periods per year, so reads the wrong row of the table.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-difference-sign",
+        "Adds the two future values instead of finding their difference.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-contributions-total-only",
+        "Gives the total contributed for one option only.",
+        area="future-value-annuity-table",
+    ),
     # w3 consumer block end
 )
 
