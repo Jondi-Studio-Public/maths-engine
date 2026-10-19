@@ -1118,7 +1118,17 @@ def _frame_surveyed_option(ctx, n) -> str:
     shorter and sometimes longer than ``ctx['full']`` itself -- this is what supplies the exam/easy/medium
     length-tell fix, since a fixed-full-echoing distractor shape would always be longer than the bare "all
     {full}" key by a constant margin."""
-    return _wrap("the people who were actually surveyed")
+    if n is not None:
+        return _wrap(f"the {n} people who were actually surveyed")
+    # The stem gives no sample size, so none may be invented; the wording varies by context instead, so this
+    # distractor is not one fixed string shown in nearly every draw.
+    wordings = (
+        "the people who were actually surveyed",
+        "only the people who answered the survey",
+        "whoever the researcher happened to ask",
+        "the people in the researcher's sample",
+    )
+    return _wrap(wordings[len(ctx["full"]) % len(wordings)])
 
 
 def _consent_subgroup_option(ctx, clause) -> str:
@@ -1154,7 +1164,7 @@ def _tp_easy(rng):
         correct,
         _subgroup_option(ctx),
         _superset_option(ctx),
-        _frame_surveyed_option(ctx, ctx["sample_n"]),
+        _frame_surveyed_option(ctx, None),
     ]
     check(len(set(options)) == 4, "p19d_target_population/easy: options not distinct")
     rng.shuffle(options)
@@ -1207,7 +1217,7 @@ def _tp_hard(rng):
             correct,
             _wrap(f"{ctx['full']} {clause}"),
             _superset_option(ctx),
-            _frame_surveyed_option(ctx, ctx["sample_n"]),
+            _frame_surveyed_option(ctx, None),
         ]
     check(len(set(options)) == 4, "p19d_target_population/hard: options not distinct")
     rng.shuffle(options)

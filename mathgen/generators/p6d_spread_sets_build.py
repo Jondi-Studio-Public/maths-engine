@@ -288,6 +288,17 @@ TWO_SET_CONTEXTS = [
     ("sports players", "music lovers"),
     ("swimmers", "runners"),
     ("book readers", "video gamers"),
+    ("cyclists", "walkers"),
+    ("pizza fans", "pasta fans"),
+    ("movie watchers", "podcast listeners"),
+    ("gardeners", "bakers"),
+    ("guitar players", "piano players"),
+    ("early risers", "late sleepers"),
+    ("chess players", "card players"),
+    ("campers", "hikers"),
+    ("painters", "potters"),
+    ("tennis fans", "cricket fans"),
+    ("train riders", "bus riders"),
 ]
 
 # Context tuples for 3-set questions (A, B, C group names)
@@ -295,6 +306,15 @@ THREE_SET_CONTEXTS = [
     ("tea lovers", "coffee lovers", "juice lovers"),
     ("morning people", "night owls", "afternoon people"),
     ("dog owners", "cat owners", "bird owners"),
+    ("swimmers", "runners", "cyclists"),
+    ("pizza fans", "pasta fans", "salad fans"),
+    ("guitar players", "piano players", "drum players"),
+    ("chess players", "card players", "puzzle fans"),
+    ("campers", "hikers", "climbers"),
+    ("painters", "potters", "sculptors"),
+    ("tennis fans", "cricket fans", "netball fans"),
+    ("book readers", "video gamers", "movie watchers"),
+    ("gardeners", "bakers", "cooks"),
 ]
 
 

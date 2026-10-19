@@ -21,6 +21,10 @@ PYTHAGOREAN_TRIPLES = [
     (8, 15, 17),
     (7, 24, 25),
     (20, 21, 29),
+    (9, 40, 41),
+    (12, 35, 37),
+    (28, 45, 53),
+    (11, 60, 61),
 ]
 
 # Theta values excluding the 40..50 band (45-degree collision guard)
