@@ -1,7 +1,7 @@
 id: calculate-median
 name: Calculate the median
 domain: statistics-probability
-description: Order a small odd-sized data set and identify its middle value.
+description: Order a small data set and find its median, which is the middle value of an odd-sized set or the mean of the middle two values of an even-sized one.
 status: active
 prerequisites: [order-numbers-to-10]
 answer: number
@@ -9,6 +9,9 @@ sources:
 - topic: summary_statistic
   params: {kind: median, count: 5, hi: 30}
   difficulty: easy
+- topic: w2_median_even
+  params: {count: 6, hi: 30}
+  difficulty: medium
 - topic: exam_median_summary_statistic
   params: {}
   difficulty: exam

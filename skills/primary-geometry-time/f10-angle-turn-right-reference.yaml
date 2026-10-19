@@ -9,15 +9,15 @@ prerequisites: [angle-types]
 answer: number
 sources:
 - topic: angle_turn_right_reference
-  params: {}
+  params: {varied: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: angle_turn_right_reference
-  params: {}
+  params: {varied: true}
   difficulty: medium
   stages: [3, 4]
 - topic: angle_turn_right_reference
-  params: {}
+  params: {varied: true}
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

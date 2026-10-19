@@ -3,22 +3,22 @@ name: Use odd and even number properties
 domain: primary-number
 year_level: ['4']
 naplan_domain: [number]
-description: Predict whether the result of a stated addition, subtraction or multiplication of numbers with given parities is odd or even.
+description: Choose which of four additions, subtractions or multiplications of odd and even numbers gives an odd (or an even) result.
 status: active
 placement_eligible: false
 prerequisites: [multiplication-facts]
 answer: mcq
 sources:
 - topic: odd_even_properties
-  params: {ops: ['+'], chained: false}
+  params: {ops: ['+', '-'], chained: false, choose: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: odd_even_properties
-  params: {ops: ['-', '*'], chained: false}
+  params: {ops: ['-', '*'], chained: false, choose: true}
   difficulty: medium
   stages: [3, 4]
 - topic: odd_even_properties
-  params: {ops: ['+', '-', '*'], chained: true}
+  params: {ops: ['+', '-', '*'], chained: true, choose: true}
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

@@ -10,15 +10,15 @@ prerequisites: [fraction-arithmetic]
 answer: fraction
 sources:
 - topic: fraction_halving
-  params: {variant: forward, n_steps: 1}
+  params: {variant: forward, n_steps: 1, scenes: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fraction_halving
-  params: {variant: forward, n_steps: 2}
+  params: {variant: forward, n_steps: 2, scenes: true}
   difficulty: medium
   stages: [3, 4]
 - topic: fraction_halving
-  params: {variant: inverse}
+  params: {variant: inverse, scenes: true}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr5_halving_paddock

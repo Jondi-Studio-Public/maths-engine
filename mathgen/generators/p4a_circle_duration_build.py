@@ -52,14 +52,14 @@ def _verify_circle_measures(r: int, measure_type: str, answer_frac: Fraction) ->
         "hard": dict(mode="diameter_mixed"),
     },
 )
-def circle_measures(rng, mode="circumference_radius"):
+def circle_measures(rng, mode="circumference_radius", r_hi=15):
     """Calculate the circumference or area of a circle using π ≈ 3.14."""
     if mode not in ("circumference_radius", "area_radius", "diameter_mixed"):
         raise ValueError(f"unknown mode {mode!r}")
 
     if mode == "circumference_radius":
         # Easy: circumference, radius given directly 3..15
-        r = rng.randint(3, 15)
+        r = rng.randint(3, r_hi)
         raw = PI * 2 * r
         check(raw >= 0, "circle duration must not be negative")
         rounded = round_half_up(raw, 1)
@@ -92,7 +92,7 @@ def circle_measures(rng, mode="circumference_radius"):
 
     elif mode == "area_radius":
         # Medium: area, radius given directly 3..15
-        r = rng.randint(3, 15)
+        r = rng.randint(3, r_hi)
         raw = PI * r * r
         check(raw >= 0, "circle duration must not be negative")
         rounded = round_half_up(raw, 1)
@@ -125,8 +125,8 @@ def circle_measures(rng, mode="circumference_radius"):
 
     else:  # mode == "diameter_mixed"
         # Hard: diameter given 6..30 (even), randomly circumference or area
-        d = rng.randint(3, 15) * 2
-        check(d >= 6 and d <= 30 and d % 2 == 0, f"diameter {d} not even or out of range")
+        d = rng.randint(3, r_hi) * 2
+        check(d >= 6 and d <= 2 * r_hi and d % 2 == 0, f"diameter {d} not even or out of range")
         r = d // 2
         check(r >= 3, f"radius {r} < 3")
 

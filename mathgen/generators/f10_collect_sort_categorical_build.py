@@ -211,10 +211,7 @@ def _easy(rng: random.Random) -> dict:
     blank_cells = pick_blanks(rng, [(r, count_col) for r in range(ncat)], 2, ncat)
     answer = build_answer(columns, rows, blank_cells)
     kinds = "tally marks" if tally_mode else "objects"
-    text = (
-        f"{intro} Sort the {kinds} into the table. Fill in each ? with the number that belongs there. "
-        f"{grid_text(answer)}"
-    )
+    text = f"{intro} Sort the {kinds} into the table. Fill in each ?. {grid_text(answer)}"
     blanks = {k: v for k, v in answer["blanks"].items()}
     edits = _swap_two(blanks, rng) + _off_by_one(blanks, rng)
     if tally_mode:
@@ -272,8 +269,8 @@ def _medium(rng: random.Random) -> dict:
     answer = build_answer(columns, rows, blank_cells)
     check(all(rows[r][2] == max(counts) - rows[r][1] for r in range(ncat)), "comparison column inconsistent")
     text = (
-        f"{intro} Complete the table. The last column shows how many fewer votes each {ctx['header'].lower()} "
-        f"got than the most popular one. Fill in each ? with a number. {grid_text(answer)}"
+        f"{intro} Complete the table. The last column is how many fewer votes than the most popular "
+        f"{ctx['header'].lower()}. Fill in each ?. {grid_text(answer)}"
     )
     blanks = dict(answer["blanks"])
     edits: list[tuple[str, dict]] = []
@@ -369,9 +366,9 @@ def _hard(rng: random.Random) -> dict:
     check(any(c in freq_cells for c in freq_cells if c not in blank_cells), "no frequency left as a given cell")
     answer = build_answer(columns, rows, blank_cells)
     text = (
-        f"{phrase(rng, [ctx['intro']], data=', '.join(data))} Complete the frequency table. There is a row for "
-        f"every value from {values[0]} to {values[-1]}, even if nobody gave it. The last row adds up the "
-        f"frequencies of the values it names. Fill in each ? with a number. {grid_text(answer)}"
+        f"{phrase(rng, [ctx['intro']], data=', '.join(data))} Complete the frequency table. Every value from "
+        f"{values[0]} to {values[-1]} has a row. The last row adds up the frequencies it names. "
+        f"Fill in each ?. {grid_text(answer)}"
     )
     blanks = dict(answer["blanks"])
     tk, dk = f"{k},1", f"{k + 1},1"

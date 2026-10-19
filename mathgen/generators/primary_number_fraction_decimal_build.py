@@ -326,10 +326,18 @@ def _inverse_halving(rng):
         "hard": dict(variant="inverse"),
     },
 )
-def fraction_halving(rng, variant="forward", n_steps=1):
+def fraction_halving(rng, variant="forward", n_steps=1, scenes=False):
     """Partition a whole or a fraction into halves, quarters and eighths by
     repeated halving. See the module docstring for the forward/inverse
-    difficulty rationale and the misconception derivations."""
+    difficulty rationale and the misconception derivations.
+
+    ``scenes=True`` (what the skill file sets) tells the same question about a pizza, a ribbon or a
+    chocolate bar, with the starting piece shaded on a picture, so a tier holds dozens of questions
+    instead of two or three; see ``w2_early_pools``."""
+    if scenes:
+        from .w2_early_pools import halving_scene
+
+        return halving_scene(rng, variant, n_steps)
     if variant == "forward":
         return _forward_halving(rng, n_steps)
     if variant == "inverse":

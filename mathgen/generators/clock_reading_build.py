@@ -109,40 +109,40 @@ def _misreads(h: int, m: int, types: tuple[int, ...]) -> list[tuple[int, int]]:
 _HQ_POOLS = {
     "easy": (
         (
-            "The clock on the classroom wall is shown.",
+            "A classroom clock.",
             "Look at the clock.",
-            "Here is a clock face.",
-            "This clock hangs in the kitchen.",
-            "A clock is shown below.",
-            "Tom looks up at the clock in his bedroom.",
+            "Here is a clock.",
+            "A kitchen clock.",
+            "A clock is shown.",
+            "Tom's bedroom clock.",
         ),
         (
             "What time does the clock show?",
-            "Which time is shown on the clock?",
-            "Choose the time that matches the clock.",
+            "Which time is shown?",
+            "Which time matches the clock?",
         ),
     ),
     "medium": (
         (
-            "The clock above the shop door is shown.",
-            "Read the clock on the train platform.",
-            "Nina checks the hall clock.",
-            "This clock face has two hands.",
-            "The library clock is shown below.",
-            "A clock at a bus stop is drawn here.",
+            "The shop clock.",
+            "The train platform clock.",
+            "Nina checks the clock.",
+            "A two-handed clock.",
+            "The library clock.",
+            "A bus stop clock.",
         ),
         (
-            "Look closely at both hands. What time is it?",
-            "Which time do the two hands show?",
+            "Which time do the hands show?",
+            "What time is it?",
             "Say what time it is.",
         ),
     ),
     "hard": (
         (
-            "Four clocks are drawn, A to D.",
-            "Clocks A, B, C and D are shown.",
-            "Here are four different clocks.",
-            "Look at the four clocks A to D.",
+            "Four clocks are drawn.",
+            "Clocks A, B, C and D.",
+            "Here are four clocks.",
+            "Look at clocks A to D.",
         ),
         (
             "Which clock shows {t}?",
@@ -153,11 +153,11 @@ _HQ_POOLS = {
 }
 
 _STYLE_HINT = {
-    "words": ("Choose the answer written in words.", "The answers are written in words.", "Pick the time in words."),
+    "words": ("Choose the answer in words.", "Answers are in words.", "Pick the time in words."),
     "digital": (
         "Choose the digital time.",
-        "The answers are digital times.",
-        "Pick the time as it would show on a digital clock.",
+        "Answers are digital times.",
+        "Pick the digital time.",
     ),
 }
 

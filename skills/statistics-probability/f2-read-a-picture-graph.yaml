@@ -7,6 +7,7 @@ description: Read a picture graph drawn with a key ("each symbol = k", with half
 status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
+read_aloud: true
 placement_eligible: false
 prerequisites: [skip-count-2-5-10]
 answer: number
