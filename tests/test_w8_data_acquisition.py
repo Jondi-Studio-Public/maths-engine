@@ -85,29 +85,25 @@ def test_hard_exactly_one_impossible_entry_and_it_is_the_key():
         entries = _entries(q)
         key = q.answer_text
         assert entries.count(key) == 1, (seed, entries, key)
-        numeric = all(re.fullmatch(r"-?\d+(\.\d+)?", e) for e in entries)
         others = [e for e in entries if e != key]
-        if numeric:
-            vals = [float(e) for e in entries]
-            k = float(key)
-            rest = [float(e) for e in others]
-            if k != int(k) and "centimetres" not in q.text:
-                kinds.add("decimal-count")
-                assert all(v == int(v) and v >= 0 for v in rest)
-            elif "centimetres" in q.text:
+        if all(re.fullmatch(r"-?\d+(\.\d+)?", e) for e in entries):
+            k, rest = float(key), [float(e) for e in others]
+            if "metres" in q.text:
                 kinds.add("unit-slip")
-                assert k < 5 and all(100 <= v <= 200 for v in rest)
+                assert k > 10 and all(1.2 <= v <= 1.6 for v in rest)
+            elif k < 0:
+                kinds.add("negative-count")
+                assert all(v == int(v) and v >= 0 for v in rest)
             else:
                 kinds.add("over-maximum")
                 top = int(re.search(r"out of (\d+)", q.text).group(1))
                 assert k > top and all(0 <= v <= top for v in rest)
-            assert len(vals) == len(entries)
         else:
             kinds.add("wrong-category")
             assert key[0].isupper() and all(e.islower() for e in others)
         for d in q.distractors:
             assert d in others, (seed, d)
-    assert kinds == {"decimal-count", "unit-slip", "over-maximum", "wrong-category"}
+    assert kinds == {"negative-count", "unit-slip", "over-maximum", "wrong-category"}
 
 
 def test_hard_valid_extremes_appear_as_options():

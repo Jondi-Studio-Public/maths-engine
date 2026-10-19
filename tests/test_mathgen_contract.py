@@ -793,6 +793,9 @@ OPTION_NOTES_TOPICS = frozenset(
         "w6_subst_exp_trig",
         "w6_subst_definite",
         "w6_projectile_resistance",
+        "w8_data_acquisition",
+        "w8_ogive_read",
+        "w8_polygon_read",
     }
 )
 

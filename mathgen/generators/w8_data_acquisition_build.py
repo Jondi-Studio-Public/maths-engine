@@ -101,7 +101,7 @@ _PURPOSES = (
             ("The amount each person spends on pet food", "dq-different-variable"),
             ("Whether each person has a pet", "dq-yes-no-too-little"),
         ],
-        "What type of pet do you have? (dog, cat, bird, fish, other)",
+        "What type of pet do you have?",
         "Do you have a dog?",
         "What do you think about pets?",
         "What type of pet do you have and how old is it?",
@@ -129,7 +129,7 @@ _PURPOSES = (
             ("The number of ways each person could travel to school", "dq-count-for-category"),
             ("Whether each person walks to school", "dq-yes-no-too-little"),
         ],
-        "How do you usually travel to school? (walk, bike, bus, car, other)",
+        "How do you usually travel to school?",
         "Do you walk to school?",
         "How is your trip to school?",
         "How do you travel to school and how long does it take?",
@@ -157,7 +157,7 @@ _PURPOSES = (
             ("The time each person lines up at the canteen", "dq-different-variable"),
             ("Whether each person buys lunch at the canteen", "dq-yes-no-too-little"),
         ],
-        "What do you buy most often at the canteen? (sandwich, roll, salad, pie, other)",
+        "What do you buy most often at the canteen?",
         "Do you buy a sandwich at the canteen?",
         "What do you think of the canteen?",
         "What do you buy at the canteen and how much does it cost?",
@@ -213,7 +213,7 @@ _PURPOSES = (
             ("The number of people in each car that passes", "dq-different-variable"),
             ("Whether each car that passes is red", "dq-yes-no-too-little"),
         ],
-        "What colour is this car? (white, black, silver, red, blue, other)",
+        "What colour is this car?",
         "Is this car red?",
         "What does this car look like?",
         "What colour is this car and what make is it?",
@@ -241,7 +241,7 @@ _PURPOSES = (
             ("The year level of each person", "dq-different-variable"),
             ("Whether each person likes apples", "dq-yes-no-too-little"),
         ],
-        "Which fruit do you prefer? (apple, banana, orange, grapes, other)",
+        "Which fruit do you prefer?",
         "Do you like apples?",
         "How do you feel about fruit?",
         "Which fruit do you prefer and how often do you eat it?",
@@ -375,19 +375,19 @@ _CATEGORIES = (
 def _entry_list(rng, kind):
     """``(description, entries, key entry, valid entries, why)`` for one kind of impossible entry."""
     n = rng.randint(7, 10)
-    if kind == "decimal-count":
+    if kind == "negative-count":
         what, unit, cap = rng.choice(_COUNTS)
         hi = rng.randint(4, min(cap, 6))
         valid = [rng.randint(0, hi) for _ in range(n - 1)]
         valid[0], valid[1] = 0, hi
-        bad = rng.randint(1, hi - 1) + 0.5
-        why = f"{_fmt(bad)} {unit} is not possible: you cannot have part of one."
+        bad = -rng.randint(1, hi)
+        why = f"A count of {unit} cannot be negative, so {_fmt(bad)} is not possible."
         return what.format(n=n), valid, bad, why
     if kind == "unit-slip":
-        valid = [rng.randint(125, 160) for _ in range(n - 1)]
-        bad = rng.randint(120, 170) / 100
-        why = f"{_fmt(bad)} is a height in metres among heights in centimetres."
-        return f"the height, in centimetres, of each of {n} students", valid, bad, why
+        valid = [f"{rng.randint(125, 160) / 100:.2f}" for _ in range(n - 1)]
+        bad = f"{rng.randint(125, 160) / 10:.2f}"
+        why = f"{bad} metres is far taller than the rest, which are all about 1.5 metres: the decimal point is in the wrong place."
+        return f"the height, in metres, of each of {n} students", valid, bad, why
     if kind == "over-maximum":
         top = rng.choice((10, 20, 25, 50))
         valid = [rng.randint(top // 2, top) for _ in range(n - 1)]
@@ -403,7 +403,7 @@ def _entry_list(rng, kind):
 
 
 def _hard(rng):
-    kind = rng.choice(("decimal-count", "unit-slip", "over-maximum", "wrong-category"))
+    kind = rng.choice(("negative-count", "unit-slip", "over-maximum", "wrong-category"))
     for _ in attempts(500, "an entry list"):
         what, valid, bad, why = _entry_list(rng, kind)
         distinct = list(dict.fromkeys(valid))
@@ -414,8 +414,12 @@ def _hard(rng):
     shown = ", ".join(_fmt(e) if not isinstance(e, str) else e for e in entries)
     key = _fmt(bad) if not isinstance(bad, str) else bad
     pool = []
-    if all(not isinstance(v, str) for v in valid):
-        pool += [(_fmt(max(valid)), "dq-flags-largest-valid"), (_fmt(min(valid)), "dq-flags-smallest-valid")]
+    if kind != "wrong-category":
+        show = lambda v: v if isinstance(v, str) else _fmt(v)  # noqa: E731
+        pool += [
+            (show(max(valid, key=float)), "dq-flags-largest-valid"),
+            (show(min(valid, key=float)), "dq-flags-smallest-valid"),
+        ]
     repeated = [v for v in dict.fromkeys(valid) if valid.count(v) > 1]
     if repeated:
         r = repeated[0]
@@ -468,7 +472,7 @@ def exd_x_w8_data_acquisition(rng, tier="exam"):
             "Which entry should be checked?",
             _fmt(bad),
             1,
-            [f"A number of {unit} cannot be negative, so {_fmt(bad)} is not possible."],
+            [f"A count of {unit} cannot be negative, so {_fmt(bad)} is not possible."],
             pool,
         )
         part_b = mcq_part(

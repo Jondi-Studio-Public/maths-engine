@@ -270,7 +270,7 @@ def _dist(rng, key, wrong, places: int = 0, want: int = 3) -> list[Distractor]:
         if value is None or value <= 0:
             continue
         text = _txt(value, places)
-        if text is None:
+        if text is None or ("." in text) != ("." in _txt(key, places)):
             continue
         cands.append(Distractor(text, tag, float(text)))
     slip_tag = (
@@ -279,7 +279,7 @@ def _dist(rng, key, wrong, places: int = 0, want: int = 3) -> list[Distractor]:
     for step in (1, 2, 3):  # a slip of a gridline or two: the last resort, so lower and higher options both exist
         for value in (key - step, key + step):
             text = _txt(value, places)
-            if value > 0 and text is not None:
+            if value > 0 and text is not None and ("." in text) == ("." in _txt(key, places)):
                 cands.append(Distractor(text, slip_tag, float(text)))
     valid = pick_distractors(_txt(key, places), cands, len(cands), tolerance=GRADER_TOLERANCE)
     if len(valid) < want:
