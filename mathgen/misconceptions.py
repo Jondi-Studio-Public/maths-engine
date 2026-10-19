@@ -52754,6 +52754,81 @@ _ENTRIES = (
         "Gives the cells the plan covers where the distance round it was asked.",
         area="figure-views",
     ),
+    CatalogueEntry(
+        "turn-goes-the-wrong-way",
+        "Counts the right angles the other way round the dial, from the end back to the start, instead of clockwise.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-start-position",
+        "Counts the starting position as well as the turns, so the count is one too many.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-reads-the-clock-numbers",
+        "Gives a number written on the clock face instead of counting the right angles between the two numbers.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-doubles-the-count",
+        "Counts two right angles for every quarter turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-adds-the-turn-counts",
+        "Adds the number of whole turns to the number of part turns, forgetting that a whole turn is four right angles.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-full-turns-as-one",
+        "Counts each full turn as one right angle, or all the full turns as a single turn of four.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-drops-the-part-turn",
+        "Counts the full turns in right angles but leaves out the part turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-rounds-up-to-a-full-turn",
+        "Rounds the part turn up to a whole turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-a-full-turn-as-two",
+        "Counts a full turn as two right angles, the value of a half turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-adds-the-way-back",
+        "Adds the turn back to the turn forward instead of subtracting it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-ignores-the-way-back",
+        "Gives the turn forward and takes no notice of the turn back.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-the-way-back",
+        "Gives the right angles of the turn back instead of the net turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-the-turn-already-made",
+        "Gives the right angles already past the last whole turn instead of the right angles still needed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-full-turns",
+        "Gives the number of whole turns made instead of the right angles still needed to finish the next one.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-a-whole-turn",
+        "Says four right angles, a whole extra turn, where only the rest of the current turn was needed.",
+        area="figure-views",
+    ),
 )
 
 #: Every entry, by id.
