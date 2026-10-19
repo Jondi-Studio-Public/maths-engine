@@ -53,6 +53,11 @@ _SCALE = ("Each grid square is 1 unit on both axes.", "Both axes have 1 unit per
 _LABELS_TEXT = "The two graphs are labelled f and g."
 
 
+def _bt(text: str) -> str:
+    """Bracket a rendered number that is negative or a fraction, so it can follow an operator."""
+    return f"({text})" if text.startswith("-") or "/" in text else text
+
+
 def _plane(curves, points=(), alt=_ALT):
     return figures.cartesian(
         x_range=(LO, HI), y_range=(LO, HI), alt=alt, grid=1, equal_scale=True, points=list(points), curves=curves
@@ -522,7 +527,7 @@ def ey_graph_dilation_exam(rng, tier="exam"):
             [p * k, p, F(p) / c],
             places=2,
             follow=f"{p}/part_a",
-            working=[f"The x-coordinate is divided by k: {p} / {frac_text(k)} = {frac_text(F(p) / k)}."],
+            working=[f"The x-coordinate is divided by k: {p} ÷ {_bt(frac_text(k))} = {frac_text(F(p) / k)}."],
         ),
         num_part(
             "Hence find the y-coordinate of the point on g that P moves to.",
@@ -530,7 +535,7 @@ def ey_graph_dilation_exam(rng, tier="exam"):
             [q / c, q, q * k],
             places=2,
             follow=f"{q}*part_b",
-            working=[f"The y-coordinate is multiplied by c: {q} x {frac_text(c)} = {frac_text(c * q)}."],
+            working=[f"The y-coordinate is multiplied by c: {pn(q)} × {_bt(frac_text(c))} = {frac_text(c * q)}."],
         ),
     ]
     figures.assert_no_leak(fig, [frac_text(k), frac_text(c)])

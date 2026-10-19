@@ -174,7 +174,7 @@ def _build_medium(rng) -> dict:
     working = [
         "Stated relation: y = kx^2, with x a positive length.",
         f"k = y / x^2 = {y1} / {x1}^2 = {k} (from the given data point).",
-        f"x is positive, so x = sqrt(y2 / k) = sqrt({y2} / {k}) = {x2}.",
+        f"x is positive, so x = sqrt(y2 ÷ k) = sqrt({y2} ÷ {f'({k})' if k.denominator != 1 else k}) = {x2}.",
     ]
     return dict(
         text=text,

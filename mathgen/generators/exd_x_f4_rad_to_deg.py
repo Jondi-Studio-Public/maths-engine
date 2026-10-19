@@ -130,7 +130,7 @@ def exd_x_f4_rad_to_deg(rng, tier: str = "exam"):
             answer=numeric_answer(key),
             answer_text=answer_text,
             answer_latex=answer_text,
-            working=[step, f"Convert: radians x 180 / pi = {answer_text} degrees (rounded once, at the end)."],
+            working=[step, f"Convert: radians × 180 / π = {answer_text} degrees (rounded once, at the end)."],
             distractors=distractors,
         )
     check(False, "exd_x_f4_rad_to_deg: no unambiguous draw in 300 attempts")

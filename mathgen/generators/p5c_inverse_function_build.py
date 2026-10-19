@@ -339,9 +339,11 @@ def inverse_one_to_one_function(rng, tier="medium"):
         else:
             k_sign, k_val = "+", -k
 
+        # k_sign/k_val are the INVERSE step (subtract k); f itself carries the opposite sign.
+        f_k_sign = "+" if k >= 0 else "−"
         working = [
-            f"Let y = 1/(x {h_sign} {h_val}) {k_sign} {k_val}. To find f⁻¹(x), solve for x:",
-            f"y = 1/(x {h_sign} {h_val}) {k_sign} {k_val}",
+            f"Let y = 1/(x {h_sign} {h_val}) {f_k_sign} {k_val}. To find f⁻¹(x), solve for x:",
+            f"y = 1/(x {h_sign} {h_val}) {f_k_sign} {k_val}",
             f"y {f'−' if k >= 0 else '+'} {k if k >= 0 else -k} = 1/(x {h_sign} {h_val})",
             f"x {h_sign} {h_val} = 1/(y {f'−' if k >= 0 else '+'} {k if k >= 0 else -k})",
             f"x = {h} + 1/(y {f'−' if k >= 0 else '+'} {k if k >= 0 else -k})",

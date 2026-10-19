@@ -649,7 +649,9 @@ def _one_point(rng, notes):
         except AssertionError:
             continue
         text = f"{phrase(rng, _PP_ONE_OPEN)} {phrase(rng, _PP_ONE_ASK)}"
-        working = [f"From the origin, P is {abs(x)} across and {abs(y)} up or down: {key}."]
+        working = [
+            f"From the origin, P is {abs(x)} {'right' if x >= 0 else 'left'} and {abs(y)} {'up' if y >= 0 else 'down'}: {key}."
+        ]
         return mcq_result(
             text=text, key_text=key, texts=texts, notes=note_map, working=working, fig=fig, option_notes=notes
         )

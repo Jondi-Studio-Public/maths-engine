@@ -582,7 +582,11 @@ def _cf_easy(rng, notes):
         rng.shuffle(distractors)
         no_leak(fig, key, distractors)
         text = f"{phrase(rng, _CF_OPEN_LINE)} {rule} Which function gives the greater output when the input is {x0}?"
-        working = [f"f({x0}) = {v} from the graph.", f"g({x0}) = {a} x {x0} + ({b}) = {a * x0 + b}.", f"So {key}."]
+        working = [
+            f"f({x0}) = {v} from the graph.",
+            f"g({x0}) = {a} × {paren_negative(x0)}{f' {chr(43) if b > 0 else chr(45)} {abs(b)}' if b else ''} = {a * x0 + b}.",
+            f"So {key}.",
+        ]
         return mcq_result(
             text=text, key_text=key, texts=distractors, notes=note_of, working=working, fig=fig, option_notes=notes
         )

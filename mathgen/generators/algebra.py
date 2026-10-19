@@ -471,7 +471,8 @@ def linear_equation(
         working=(
             [f"x = {c}/{a} = {x0}"]
             if b == 0
-            else [f"{coef_str}x = {c} {'-' if b >= 0 else '+'} {abs(b)} = {c - b}", f"x = {c - b}/{a} = {x0}"]
+            else [f"{coef_str}x = {c} {'-' if b >= 0 else '+'} {abs(b)} = {c - b}"]
+            + ([] if a == 1 else [f"x = {c - b}/{a} = {x0}"])
         ),
         distractors=pick_distractors(f"x = {x0}", cands),
     )
@@ -767,6 +768,17 @@ def _quadratic_factor_nonmonic(rng, root_hi):
     )
 
 
+def _factors_text(r1: int, r2: int) -> str:
+    """(x - r1)(x - r2) as written on paper: a root of 0 is the factor x, not (x - 0)."""
+    if r1 == r2 == 0:
+        return "x^2"
+
+    def one(r):
+        return "x" if r == 0 else f"(x {'-' if r > 0 else '+'} {abs(r)})"
+
+    return one(r1) + one(r2)
+
+
 @generator(
     "quadratic",
     level=9,
@@ -819,7 +831,7 @@ def quadratic(rng, root_hi=9, kind="factor"):
         answer_text=ans_text,
         answer_kind="list",
         answer_latex="x = " + (str(roots[0]) if len(roots) == 1 else rf"{roots[0]},\; x = {roots[1]}"),
-        working=[f"Factorise: (x {'-' if r1 >= 0 else '+'} {abs(r1)})(x {'-' if r2 >= 0 else '+'} {abs(r2)}) = 0"],
+        working=[f"Factorise: {_factors_text(r1, r2)} = 0"],
         distractors=pick_distractors(ans_text, cands),
     )
 

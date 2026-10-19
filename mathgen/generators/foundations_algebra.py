@@ -713,7 +713,11 @@ def _linear_from_table_equation_context(rng, hi):
         answer={"m": m, "b": b},
         answer_text=ans_text,
         answer_latex=ans_text,
-        working=[f"Rate: ${m} per day, so m = {m}", f"Flat fee: ${b}, so b = {b}", f"y = mx + b = {ans_text}"],
+        working=[
+            f"Rate: ${m} per day, so m = {m}",
+            f"Flat fee: ${b}, so b = {b}",
+            f"y = mx + b = {ans_text.removeprefix('y = ')}",
+        ],
         distractors=pick_distractors(ans_text, cands),
     )
 
@@ -914,6 +918,8 @@ def word_problem(rng, kind="linear_eq", coef_hi=9, sol_hi=15):
     x0 = rng.randint(1, sol_hi)
     a = rng.randint(2, coef_hi)
     b = rng.randint(-20, 20)
+    while b == 0:  # "then add 0" is not a step
+        b = rng.randint(-20, 20)
     c = a * x0 + b
     check(solve(Eq(a * x + b, c), x) == [x0])
     b_phrase = f"add {b}" if b >= 0 else f"subtract {abs(b)}"

@@ -308,8 +308,8 @@ def geometric_recursive_definition_state(rng, variant="easy"):
         answer_text=answer_text,
         answer_latex=rf"\text{{first term}} = {a1},\; r = {r}",
         working=[
-            f"r = term2 / term1 = {terms[1]} / {terms[0]} = {r}",
-            f"Check against the last pair: {terms[-1]} / {terms[-2]} = {r}",
+            f"r = term2 ÷ term1 = {terms[1]} ÷ {paren_negative(terms[0])} = {r}",
+            f"Check against the last pair: {terms[-1]} ÷ {paren_negative(terms[-2])} = {r}",
             f"first_term = {a1}",
         ],
         distractors=pick_distractors(answer_text, candidates, n=3),

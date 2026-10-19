@@ -145,7 +145,7 @@ def _medium(rng):
     )
     working = [
         f"For continuity at x = {a} the two rules must give the same value there.",
-        f"{sympy.sstr(left.subs(x, a)).replace('*', ' ')} = {sympy.sstr(right.subs(x, a)).replace('*', ' ')}, so k = {num(key)}.",
+        f"{sympy.sstr(left.subs(x, a)).replace('*', '')} = {sympy.sstr(right.subs(x, a)).replace('*', '')}, so k = {num(key)}.",
     ]
     return single(
         stem,

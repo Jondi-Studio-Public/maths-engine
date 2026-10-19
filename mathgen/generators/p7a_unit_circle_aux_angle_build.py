@@ -292,7 +292,7 @@ def _aux_angle_question(rng, sign_patterns: list[tuple[int, int]], form: str) ->
 
     working = [
         f"R = sqrt({paren_negative(a)}^2 + {paren_negative(b)}^2) = {r_value}",
-        f"alpha = {'atan2(b, a)' if form == 'cos' else 'atan2(a, b)'} = {answer_text.split(', ')[1]}",
+        f"alpha = {'atan2(b, a)' if form == 'cos' else 'atan2(a, b)'} = {answer_text.split(', ')[1].removeprefix('alpha = ')}",
     ]
     return dict(
         text=text,

@@ -759,7 +759,7 @@ def y910_graph_inequality_match(rng, tier="easy"):
     )
     working = [
         f"Read the line: L is {eq_text(m, c)}.",
-        f"At x = {px} the line has y = {m * px + c}, and {py} is {_side(m, c, (px, py))} that, so the region is {side} L, which means y {'>' if side == 'above' else '<'} the line.",
+        f"At x = {px} the line has y = {m * px + c}, and {py} is {_side(m, c, (px, py))} that, so the region is {side} L, which means y {'>' if side == 'above' else '<'} {eq_text(m, c)[4:]}.",
         f"{'Included' if include else 'Excluded'} boundary uses {_OP_SIGN[op]}: {key}.",
     ]
     return dict(
