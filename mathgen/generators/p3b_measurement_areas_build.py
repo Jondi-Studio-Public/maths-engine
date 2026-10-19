@@ -30,6 +30,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import (
+    article_for_number,
     check,
     draw_until,
     exact_decimal_string,
@@ -424,7 +425,7 @@ def _build_hard_subtractive_notch(rng, big_w_hi: int, big_h_hi: int, cut_w_hi: i
     answer_text = exact_decimal_string(answer, 1)
 
     text = (
-        f"An irregular figure is a {int(big_w)} cm by {int(big_h)} cm rectangle "
+        f"An irregular figure is {article_for_number(int(big_w))} {int(big_w)} cm by {int(big_h)} cm rectangle "
         f"with {cut_description} removed from one corner. "
         f"What is the remaining area, in cm²?"
     )

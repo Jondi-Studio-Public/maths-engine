@@ -540,6 +540,14 @@ def rational_text(r) -> str:
     return str(r.p) if r.q == 1 else f"{r.p}/{r.q}"
 
 
+def article_for_number(value) -> str:
+    """"a" or "an" for a number written in digits and read aloud: "an 8", "an 85", "an 800", "an 11.5",
+    "an 18", but "a 40", "a 110", "a 0.8". Only a leading 8, or exactly eleven or eighteen, starts with a vowel
+    sound."""
+    whole = str(value).lstrip("-+$").split(".")[0].replace(",", "")
+    return "an" if whole.startswith("8") or whole in ("11", "18") else "a"
+
+
 def phrase(rng: random.Random, patterns, **slots) -> str:
     """Pick ONE wording from `patterns` and fill it with `slots`.
 

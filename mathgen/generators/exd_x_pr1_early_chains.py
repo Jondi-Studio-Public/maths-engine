@@ -449,7 +449,7 @@ def exd_x_pr1_pattern_chain(rng: random.Random, tier: str = "exam") -> dict:
         reps = rng.randint(3, 9)
         count = reps * u + rem
         total_target = reps * per_unit + extra
-        thing, plural, _single = rng.choice(_OBJECTS)
+        thing, plural, single = rng.choice(_OBJECTS)
         shown = ", ".join(unit * 2) + ", and so on"
         stem = (
             f"A {thing} is made from {plural} that follow a repeating pattern: {shown}. "
@@ -488,7 +488,8 @@ def exd_x_pr1_pattern_chain(rng: random.Random, tier: str = "exam") -> dict:
                     2,
                     [
                         f"Each repeat has {per_unit} {target}, so {reps} repeats have {reps * per_unit}.",
-                        f"The last {rem} {plural} are {', '.join(unit[:rem])}, which has {extra} {target}.",
+                        f"The last {rem} {single if rem == 1 else plural} {'is' if rem == 1 else 'are'} "
+                        f"{', '.join(unit[:rem])}, which has {extra} {target}.",
                         f"{reps * per_unit} + {extra} = {total_target}.",
                     ],
                     [
