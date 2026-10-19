@@ -51948,6 +51948,246 @@ _ENTRIES = (
         "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
         area="quadric-surfaces",
     ),
+    CatalogueEntry(
+        "ogive-boundary-for-count",
+        "Gives the boundary from the horizontal axis where a number of values was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-count-for-value",
+        "Gives a cumulative frequency (a count) where a value on the horizontal axis was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-total-for-count",
+        "Gives the total number of values, the top of the graph, instead of the number below the boundary.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-neighbouring-point",
+        "Reads the plotted point next to the one the question names.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-complement-count",
+        "Gives the number below the boundary where the number at or above it was asked, or the reverse.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-adds-heights",
+        "Adds the heights of the two plotted points instead of subtracting the lower from the upper.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-upper-point-only",
+        "Gives the height of the upper plotted point and forgets to take away the values already below the lower boundary.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-lower-point-only",
+        "Gives the height of the lower plotted point instead of the number between the two boundaries.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-width-for-count",
+        "Gives the difference between the two boundaries (the class width) instead of the number of values between them.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-adds-all-heights",
+        "Adds the heights of every plotted point to get the total instead of reading the top of the graph.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-classes-for-total",
+        "Gives the number of classes where the total number of values was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-middle-of-axis",
+        "Takes the middle of the horizontal axis as the median instead of reading where the graph reaches half the total.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-quartile-sum",
+        "Adds the lower and upper quartiles instead of subtracting.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-range-for-iqr",
+        "Gives the range of the whole graph where the interquartile range was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-half-spread",
+        "Gives the distance from a quartile to the median where the distance between the two quartiles was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-upper-quartile-only",
+        "Gives the upper quartile alone where the interquartile range was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-count-between-quartiles",
+        "Gives the number of values between the quartiles (half of them) where the interquartile range was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-modal-upper-boundary",
+        "Gives the upper boundary of the modal class instead of its lower boundary.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-modal-is-last-class",
+        "Takes the last class, where the cumulative frequency is highest, as the modal class.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-modal-is-flattest",
+        "Takes the flattest part of the graph, the class with the fewest values, as the modal class.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-modal-is-median-class",
+        "Takes the class where the graph reaches half the total as the modal class.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-count-for-percentage",
+        "Gives the number of values where the percentage of the total was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-complement-percentage",
+        "Gives the percentage on the wrong side of the boundary (100 less the answer).",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-percentage-of-upper-point",
+        "Gives the percentage below the upper boundary and forgets to take away the percentage below the lower one.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-compares-cumulative",
+        "Compares the cumulative frequencies at the class boundaries instead of the frequencies of the two classes.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-adds-classes",
+        "Adds the two class frequencies where their difference was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "fpoly-midpoint-for-frequency",
+        "Gives the class midpoint from the horizontal axis where the frequency was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-neighbouring-point",
+        "Reads the plotted point next to the one the question names.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-misreads-gridline",
+        "Reads the gridline above or below the plotted point.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-frequency-for-midpoint",
+        "Gives the highest frequency where the midpoint of the modal class was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-boundary-for-midpoint",
+        "Gives a class boundary where the midpoint of the class was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-midpoint-for-boundary",
+        "Gives the midpoint of the modal class where its lower boundary was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-upper-boundary-for-lower",
+        "Gives the upper boundary of the modal class instead of its lower boundary.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-counts-points",
+        "Gives the number of plotted points, or the tallest point, for the total number of values.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-total-misses-a-class",
+        "Leaves out the lowest or highest class when adding the frequencies for the total.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-total-counts-a-class-twice",
+        "Counts the tallest class twice when adding the frequencies for the total.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-adds-modal-and-class",
+        "Adds the two class frequencies where how many more one holds than the other was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-modal-and-neighbour",
+        "Compares the modal class with the class next to the named one, not with the named class.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-boundary-class-included",
+        "Includes the class just below the stated boundary when counting the values at or above it.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-boundary-class-left-out",
+        "Leaves out the class that starts at the stated boundary when counting the values at or above it.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-complement-count",
+        "Counts the values on the wrong side of the stated boundary.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-count-for-percentage",
+        "Gives the number of values where the percentage of the total was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-complement-percentage",
+        "Gives the percentage on the wrong side of the stated boundary (100 less the answer).",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-is-modal-midpoint",
+        "Gives the midpoint of the modal class as the mean.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-unweighted",
+        "Averages the class midpoints without weighting by the frequencies.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-divides-by-classes",
+        "Divides the sum of midpoint times frequency by the number of classes instead of the number of values.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-of-frequencies",
+        "Averages the frequencies instead of the midpoints weighted by them.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-uses-lower-boundaries",
+        "Uses the lower boundary of each class in place of its midpoint when estimating the mean.",
+        area="frequency-polygon-read",
+    ),
 )
 
 #: Every entry, by id.
