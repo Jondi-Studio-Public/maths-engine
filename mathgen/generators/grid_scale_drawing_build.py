@@ -40,6 +40,10 @@ def _fr(x) -> Fraction:
     return x if isinstance(x, Fraction) else Fraction(x)
 
 
+def _hour_word(hours: Fraction) -> str:
+    return "hour" if hours == 1 else "hours"
+
+
 def _hours_text(hours: Fraction) -> str:
     """A number of hours as a terminating decimal where it is one, otherwise as a fraction."""
     try:
@@ -534,8 +538,8 @@ def _map_hard(rng):
     working = [
         f"Add the legs of the road on the map: {' + '.join(str(v) for v in legs)} = {cells} cm.",
         f"Each 1 cm on the map is {float(k):g} km, so the road is {cells} × {float(k):g} = {_text(dist)} km long.",
-        f"Time = distance ÷ speed = {_text(dist)} ÷ {speed} = {_hours_text(_fr(dist) / speed)} hours.",
-        f"{_hours_text(_fr(dist) / speed)} hours × 60 = {_text(minutes)} minutes.",
+        f"Time = distance ÷ speed = {_text(dist)} ÷ {speed} = {_hours_text(_fr(dist) / speed)} {_hour_word(_fr(dist) / speed)}.",
+        f"{_hours_text(_fr(dist) / speed)} {_hour_word(_fr(dist) / speed)} × 60 = {_text(minutes)} minutes.",
     ]
     return fig, text, minutes, cands, working
 
