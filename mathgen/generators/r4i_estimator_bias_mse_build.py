@@ -329,7 +329,7 @@ def _hard_poisson(rng):
     )
     working = [
         f"E(T) = ({n}×{_ft(lam)} + 1)/{n + 2}, so the bias is {_ft(bias)}.",
-        f"Var(T) = {n}×{_ft(lam)}/{n + 2}² = {_ft(var)}.",
+        f"Var(T) = {n}×{_paren(lam)}/{n + 2}² = {_ft(var)}.",
         f"MSE = {_ft(var)} + {_ft(bias * bias)} = {_ft(ans)}.",
     ]
     return dict(text=text, working=working, distractors=dist, **frac_fields(ans))
@@ -480,7 +480,7 @@ def exd_x_r4i_estimator_bias_mse(rng, tier="exam"):
             follow_through=f"{_ft(mse_other)}/part_c",
             working=[
                 f"MSE(2X̄) = Var(2X̄) = 4θ²/(12n) = {_ft(mse_other)}.",
-                f"The ratio is {_ft(mse_other)}/{_ft(mse)} = {_ft(ratio)}.",
+                f"The ratio is {_paren(mse_other)} ÷ {_paren(mse)} = {_ft(ratio)}.",
             ],
             distractors=d_dist,
             **frac_fields(ratio),
