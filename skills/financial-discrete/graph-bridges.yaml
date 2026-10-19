@@ -4,8 +4,8 @@ domain: financial-discrete
 year_level: ['12']
 description: >-
   Read a drawn network and find its bridges, the edges whose removal leaves the network in two separate pieces. The
-  network is shown only as a diagram. Easy: count the bridges. Medium: a named bridge is removed and the places still reachable
-  from A are counted. Hard: each edge carries a cost and two edges are to be removed to save their costs while every place can still
+  network is shown only as a diagram. Easy: count the bridges, or total the costs of the bridges. Medium: a named bridge is removed and the places still reachable
+  from A are counted, or the costs of the edges still joined to A are totalled. Hard: each edge carries a cost and two edges are to be removed to save their costs while every place can still
   be reached, so bridges cannot go and the two dearest removable edges may be a pair that cuts the network; find the greatest total saving. The exam chain counts the
   bridges, the pieces left when every bridge is removed (carried forward), the bridges left after a stated new edge is built,
   and the fewest new edges that leave no bridge. Distinct from graph-walks-trails-paths-cycles, which classifies routes, and
@@ -70,6 +70,14 @@ misconceptions:
   description: Gives the number of end pieces where the fewest new edges was asked for; each new edge can join two end pieces at once.
 - id: w4-bridge-repair-per-bridge
   description: Builds one new edge for every bridge, when new edges between end pieces cover several bridges each.
+- id: w4-bridge-cost-of-cycle-edges
+  description: Totalling the costs of the edges on cycles, which are the ones that are not bridges.
+- id: w4-bridge-cost-of-all-edges
+  description: Totalling the cost of every edge where only the bridges were asked for.
+- id: w4-bridge-cost-dearest-only
+  description: Giving the cost of one bridge, or the total less one, instead of the total of all the bridges.
+- id: w4-bridge-removed-edge-kept
+  description: Counting the cost of the removed bridge as well as the edges that are left in the piece.
 difficulty_progression: Easy applies the definition to a whole drawing and counts. Medium removes a named bridge and counts the piece that holds
   A, so the learner has to see which edges lie on cycles and where the split falls. Hard adds costs and a constraint on a pair of removals, so the
   two dearest removable edges can be the trap and the answer needs the best pair that keeps the network in one piece. The exam chain counts the

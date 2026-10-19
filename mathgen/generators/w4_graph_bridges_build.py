@@ -74,7 +74,7 @@ def block_graph(rng, n_lo, n_hi, blocks_lo, blocks_hi, need_cycle=True):
 
     The blocks are a single vertex, a triangle, a four-cycle (sometimes with a diagonal) or a five-cycle. The edges that join
     blocks are the bridges, and no edge inside a block is one, so the bridges are known from the construction."""
-    for _ in attempts(500, "a block graph"):
+    for _ in attempts(3000, "a block graph"):
         sizes = [rng.choice(_BLOCKS) for _ in range(rng.randint(blocks_lo, blocks_hi))]
         n = sum(sizes)
         if not n_lo <= n <= n_hi or (need_cycle and max(sizes) < 3):
@@ -126,7 +126,51 @@ def _intro(ctx, n):
 # -- easy ---------------------------------------------------------------------------------------------------------
 
 
+def _costs_avoiding(rng, edges, answer_of):
+    """Distinct edge costs (2 to 30) such that the answer computed from them is not itself a printed cost."""
+    for _ in attempts(200, "costs that do not print the answer"):
+        weight = dict(zip(edges, rng.sample(range(2, 31), len(edges))))
+        answer = answer_of(weight)
+        if answer not in weight.values():
+            return weight, answer
+    raise AssertionError  # pragma: no cover
+
+
+def _easy_cost(rng):
+    """Easy, costed: the total cost of the bridges."""
+    for _ in attempts(300, "a costed bridge total"):
+        ctx = pick_context(rng)
+        n, edges, built = block_graph(rng, 5, 8, 2, 5)
+        found = bridges_of(n, edges)
+        check(found == built, "bridges by removal differ from the construction")
+        if len(found) < 2 or not [e for e in edges if e not in found]:
+            continue
+        weight, total = _costs_avoiding(rng, edges, lambda w: sum(w[e] for e in found))
+        cyclic = [e for e in edges if e not in found]
+        wrong = [
+            (sum(weight[e] for e in cyclic), "w4-bridge-cost-of-cycle-edges"),
+            (sum(weight.values()), "w4-bridge-cost-of-all-edges"),
+            (max(weight[e] for e in found), "w4-bridge-cost-dearest-only"),
+            (total - min(weight[e] for e in found), "w4-bridge-cost-dearest-only"),
+            (total + min(weight[e] for e in cyclic), "w4-bridge-cost-of-cycle-edges"),
+        ]
+        working = [
+            f"The bridges are {', '.join(_name(e) for e in found)}: removing any one of them cuts the network.",
+            "Their costs are " + ", ".join(str(weight[e]) for e in found) + f", which add to {total}.",
+        ]
+        text = (
+            f"{_intro(ctx, n)} {_DEFINITION.format(**ctx)} The number on each {ctx['e']} is its cost, in dollars. "
+            "What is the total cost, in dollars, of all the bridges?"
+        )
+        q = single(text, total, working, wrong, lo=1, figure=_picture(n, edges, ctx, weights=weight))
+        if q:
+            return q
+    raise AssertionError  # pragma: no cover
+
+
 def _easy(rng):
+    if rng.random() < 0.5:
+        return _easy_cost(rng)
     for _ in attempts(300, "an easy bridge count"):
         ctx = pick_context(rng)
         n, edges, built = block_graph(rng, 5, 8, 1, 5)
@@ -172,7 +216,48 @@ def _reach(n, edges, start=0):
     return seen
 
 
+def _medium_cost(rng):
+    """Medium, costed: the total cost of the edges in the piece that holds A once a named bridge is removed."""
+    for _ in attempts(500, "a costed bridge-removal network"):
+        ctx = pick_context(rng)
+        n, edges, built = block_graph(rng, 5, 8, 2, 5)
+        found = bridges_of(n, edges)
+        check(found == built, "bridges by removal differ from the construction")
+        gone = rng.choice(found)
+        rest = [e for e in edges if e != gone]
+        mine = _reach(n, rest)
+        inside = [e for e in rest if e[0] in mine]
+        check(all(e[1] in mine for e in inside), "an edge of the rest crosses the split")
+        weight, total = _costs_avoiding(rng, edges, lambda w: sum(w[e] for e in inside))
+        far = [e for e in rest if e[0] not in mine]
+        wrong = [
+            (sum(w for e, w in weight.items() if e != gone), "w4-bridge-removal-ignored"),
+            (total + weight[gone], "w4-bridge-removed-edge-kept"),
+            (sum(weight[e] for e in far), "w4-bridge-wrong-side"),
+            (sum(weight.values()), "w4-bridge-removal-ignored"),
+            (total - min(weight[e] for e in inside), "w4-bridge-wrong-side") if inside else (None, None),
+        ]
+        wrong = [(v, t) for v, t in wrong if t]
+        name = _name(gone)
+        working = [
+            f"{name} is a bridge, so removing it leaves two pieces; the piece holding {LETTERS[0]} has the edges "
+            f"{', '.join(_name(e) for e in inside)}.",
+            f"Their costs add to {total}.",
+        ]
+        text = (
+            f"{_intro(ctx, n)} The number on each {ctx['e']} is its cost, in dollars. The {ctx['e']} {name} is removed. "
+            f"What is the total cost, in dollars, of the {ctx['es']} that are still joined to {LETTERS[0]} "
+            f"(those in the piece that holds {LETTERS[0]})?"
+        )
+        q = single(text, total, working, wrong, lo=0, figure=_picture(n, edges, ctx, weights=weight))
+        if q:
+            return q
+    raise AssertionError  # pragma: no cover
+
+
 def _medium(rng):
+    if rng.random() < 0.5:
+        return _medium_cost(rng)
     for _ in attempts(500, "a bridge-removal network"):
         ctx = pick_context(rng)
         n, edges, built = block_graph(rng, 5, 8, 2, 5)
@@ -296,11 +381,11 @@ def w4_graph_bridges_chain(rng, tier="exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     for _ in attempts(600, "a bridge exam network"):
         ctx = pick_context(rng)
-        n, edges, built = block_graph(rng, 7, 8, 4, 5)
+        n, edges, built = block_graph(rng, 6, 8, *([rng.randint(3, 6)] * 2))
         found = bridges_of(n, edges)
         check(found == built, "bridges by removal differ from the construction")
         k = len(found)
-        if k not in (3, 4):
+        if k < 2:
             continue
         absent = [p for p in combinations(range(n), 2) if p not in set(edges)]
         choices = []

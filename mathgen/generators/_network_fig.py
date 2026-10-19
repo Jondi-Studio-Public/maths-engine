@@ -182,12 +182,14 @@ def network_from_text(text):
     return names, arcs, directed
 
 
-def figure_from_text(text):
+def figure_from_text(text, unweighted=False):
     """The ``network`` figure for the network ``text`` prints, or ``None`` when it prints no single network."""
     read = network_from_text(text)
     if read is None:
         return None
     names, arcs, directed = read
+    if unweighted:
+        arcs = [(a, b, None) for a, b, _ in arcs]
     if len(names) > net.MAX_VERTICES or len(arcs) > net.MAX_EDGES:
         return None
     index = {v: i for i, v in enumerate(names)}
@@ -222,29 +224,35 @@ def _answers(d):
     return [str(a) for a in out if a]
 
 
-def with_network_figure(fn):
+def with_network_figure(fn=None, *, unweighted=False):
     """Decorator: attach the figure of the network the returned question's text prints (see the module docstring).
 
     A figure is kept only if no label or alt text gives away an answer (``figures.assert_no_leak``), which is the
-    rule every figure question is swept against. An answer that equals a weight printed on the picture would trip it,
-    so such a question goes without a figure; its text is complete. The question itself is never redrawn, so the
-    decorator changes nothing about the distribution of questions a generator makes."""
+    rule every figure question is swept against. When an answer equals a weight printed on the picture, the network
+    is drawn without its weights instead (the text still lists them), so every question that prints a network gets
+    a picture. ``unweighted=True`` always draws it that way. The question itself is never redrawn, so the decorator
+    changes nothing about the distribution of questions a generator makes."""
+    if fn is None:
+        return lambda f: with_network_figure(f, unweighted=unweighted)
 
     @functools.wraps(fn)
     def wrapper(*args, **kwargs):
         d = fn(*args, **kwargs)
         if not (isinstance(d, dict) and d.get("figure") is None and isinstance(d.get("text"), str)):
             return d
-        try:
-            found = figure_from_text(d["text"])
-        except ValueError:  # a layout that cannot be drawn legibly: the text alone is complete, so go without
-            return d
-        if found is not None:
+        for plain in (True,) if unweighted else (False, True):
+            try:
+                found = figure_from_text(d["text"], plain)
+            except ValueError:  # a layout that cannot be drawn legibly: the text alone is complete, so go without
+                return d
+            if found is None:
+                return d
             try:
                 figures.assert_no_leak(found, _answers(d))
             except AssertionError:
-                return d
+                continue
             d["figure"] = found
+            return d
         return d
 
     return wrapper

@@ -151,6 +151,7 @@ _DRAWN = [
     ("snet_route_types_chain", "exam"),
     ("snet_adjacency_chain", "exam"),
     ("shortest_path", None),
+    ("exd_x_r3a_connector_reroute", None),
     ("exd_x_sc2_network_closure", "exam"),
     ("use_minimal_spanning_trees_to_solve_minimal_connector", "medium"),
     ("solve_small_scale_network_flow_problems_including_the", "medium"),
@@ -178,7 +179,7 @@ def test_the_figure_is_the_network_the_text_prints(topic, difficulty):
         assert {v["id"] for v in q.figure["vertices"]} == set(names)
         weights = {(e["from"], e["to"]): e.get("label") for e in q.figure["edges"]}
         for a, b, w in arcs:
-            if w is not None:
+            if w is not None and any(weights.values()):
                 assert (weights.get((a, b)) or weights.get((b, a))) == w, (topic, seed, a, b)
         svg.figure_svg(q.figure)
     assert n_drawn >= 4, (topic, n_drawn)
@@ -221,3 +222,19 @@ def test_bipartite_matching_draws_each_can_do_line(tier):
         assert all(sides[e["from"]] == "left" and sides[e["to"]] == "right" for e in spec["edges"])
         for e in spec["edges"]:
             assert re.search(rf"{e['from']} can [^.]*\b{e['to']}\b", q.text), (seed, e)
+
+
+@pytest.mark.parametrize(
+    "topic,difficulty",
+    [("shortest_path", None), ("exd_x_sc2_network_closure", "exam"), ("exd_x_r3a_connector_reroute", None)],
+)
+def test_these_weighted_questions_are_never_without_their_figure(topic, difficulty):
+    for seed in range(1, 41):
+        q = make(topic, seed=seed, difficulty=difficulty)
+        assert q.figure is not None, (topic, seed)
+        printed = {w for _, _, w in fig.network_from_text(q.text)[1]}
+        labels = {e.get("label") for e in q.figure["edges"]}
+        # Drawn with its weights, or without them when an answer equals one of the printed weights.
+        assert labels == printed or labels == {None}, (topic, seed)
+        if topic == "exd_x_r3a_connector_reroute":
+            assert labels == {None}  # its answers include a printed cable cost, so the drawing carries no costs

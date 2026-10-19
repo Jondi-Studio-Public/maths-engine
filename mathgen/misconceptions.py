@@ -52043,6 +52043,26 @@ _ENTRIES = (
         "Building one new edge for every bridge, when new edges between end pieces cover several bridges each.",
         area="networks",
     ),
+    CatalogueEntry(
+        "w4-bridge-cost-of-cycle-edges",
+        "Totalling the costs of the edges on cycles, which are the ones that are not bridges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-cost-of-all-edges",
+        "Totalling the cost of every edge where only the bridges were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-cost-dearest-only",
+        "Giving the cost of one bridge, or the total less one, instead of the total of all the bridges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-removed-edge-kept",
+        "Counting the cost of the removed bridge as well as the edges that are left in the piece.",
+        area="networks",
+    ),
 )
 
 #: Every entry, by id.

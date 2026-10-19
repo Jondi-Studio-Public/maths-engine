@@ -70,26 +70,38 @@ def test_text_quality_determinism_and_the_figure_is_drawn_not_listed(tier):
         assert len(set(edges)) == len(edges) and reach(names, edges, names[0]) == set(names)  # simple and connected
 
 
-def test_easy_key_is_the_number_of_bridges_in_the_drawing():
-    seen = set()
+def test_easy_key_is_the_number_of_bridges_or_their_total_cost_in_the_drawing():
+    seen, counts, totals = set(), 0, 0
     for seed in range(1, 61):
         q = make("w4_graph_bridges", seed=seed, difficulty="easy")
-        names, edges, _ = network_of(q)
-        assert str(len(bridges(names, edges))) == q.answer_text
+        names, edges, w = network_of(q)
+        cut = bridges(names, edges)
+        if "total cost" in q.text:
+            totals += 1
+            assert str(sum(w[e] for e in cut)) == q.answer_text
+            assert int(q.answer_text) not in w.values()
+        else:
+            counts += 1
+            assert str(len(cut)) == q.answer_text
         seen.add(q.answer_text)
-    assert len(seen) >= 4
+    assert counts and totals and len(seen) >= 12
 
 
 def test_medium_key_counts_the_piece_holding_a_after_the_named_bridge_goes():
     seen = set()
     for seed in range(1, 61):
         q = make("w4_graph_bridges", seed=seed, difficulty="medium")
-        names, edges, _ = network_of(q)
+        names, edges, w = network_of(q)
         gone = frozenset(re.search(r"The \w[\w ]* ([A-H]{2}) is removed", q.text).group(1))
         assert gone in edges and gone in bridges(names, edges)
-        assert str(len(reach(names, [e for e in edges if e != gone], "A"))) == q.answer_text
+        mine = reach(names, [e for e in edges if e != gone], "A")
+        if "total cost" in q.text:
+            assert str(sum(w[e] for e in edges if e != gone and e <= mine)) == q.answer_text
+            assert int(q.answer_text) not in w.values()
+        else:
+            assert str(len(mine)) == q.answer_text
         seen.add(q.answer_text)
-    assert len(seen) >= 5
+    assert len(seen) >= 12
 
 
 def test_hard_key_is_the_best_pair_of_edges_whose_removal_keeps_one_piece():
@@ -120,8 +132,8 @@ def test_figure_alt_does_not_give_the_answer():
 
 
 def test_exam_parts_match_an_independent_derivation():
-    seen_a = set()
-    for seed in range(1, 41):
+    seen_a, seen_all = set(), set()
+    for seed in range(1, 61):
         q = make("w4_graph_bridges_chain", seed=seed, difficulty="exam")
         names, edges, _ = network_of(q)
         cut = bridges(names, edges)
@@ -136,7 +148,9 @@ def test_exam_parts_match_an_independent_derivation():
         )
         assert d == str(fewest)
         seen_a.add(a)
-    assert len(seen_a) >= 2
+        seen_all.add((a, b, c, d))
+    assert len(seen_a) >= 3
+    assert len(seen_all) >= 12
 
 
 def test_exam_parts_are_graded_and_part_b_follows_through_from_a_wrong_part_a():
