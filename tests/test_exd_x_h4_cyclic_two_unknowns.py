@@ -58,7 +58,7 @@ def _expr(raw):
 
 
 def _oracle(text):
-    angles = {n: _expr(e) for n, e in re.findall(r"\b([ABCD]) = \(([^)]*)\)", text)}
+    angles = {n: _expr(e) for n, e in re.findall(r"\b([ABCD]) = \(?([^()]*?)\)? degrees", text)}
     assert set(angles) == set("ABCD")
     sol = sympy.solve([angles["A"] + angles["C"] - 180, angles["B"] + angles["D"] - 180], [_X, _Y], dict=True)
     assert len(sol) == 1 and set(sol[0]) == {_X, _Y}, sol

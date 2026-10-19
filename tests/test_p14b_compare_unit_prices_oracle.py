@@ -31,9 +31,9 @@ SEEDS_1000 = range(1000)
 # -- Public-contract literals (copied, never imported) -----------------------
 _OPT_A = "Pack A"
 _OPT_B = "Pack B"
-_OPT_TIE_2 = "Tie -- the same price per unit"
+_OPT_TIE_2 = "Tie: the same price either way"
 _OPT_C = "Pack C"
-_OPT_TIE_3 = "Tie -- two packs share the cheapest price"
+_OPT_TIE_3 = "Tie: two packs share the cheapest price"
 
 
 @functools.lru_cache(maxsize=None)

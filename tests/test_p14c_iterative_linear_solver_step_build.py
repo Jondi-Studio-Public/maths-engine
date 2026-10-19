@@ -18,11 +18,17 @@ TOPIC = "p14c_iterative_linear_solver_step"
 SKILL = "ucv1-iterative-linear-solver-step"
 
 _PAIR_RE = re.compile(r"^x = -?\d+(/\d+)?, y = -?\d+(/\d+)?$")
-# Tolerant of either the "bare x-coef / parenthesised y-coef" style the
-# lower tiers use (and the un-fixed exam tier inherits) or a uniform
-# "both terms parenthesised" style -- reads either format so the RED run
-# below fails on the ASSERTION, not on a regex miss against the old text.
-_UNIFORM_EQ_RE = re.compile(r"\(?(-?\d+)\)?x \+ \(?(-?\d+)\)?y = (-?\d+)")
+# Equations are written as on paper ("2x - y = 6", "-x + 2y = -6"); a coefficient of 1 is not written.
+_UNIFORM_EQ_RE = re.compile(r"(-?\d*)x ([+-]) (\d*)y = (-?\d+)")
+
+
+def _equations(text):
+    """Each equation in display order as (x-coefficient, y-coefficient, right-hand side)."""
+
+    def coef(t):
+        return {"": 1, "-": -1}.get(t) or int(t)
+
+    return [(coef(a), (-1 if sign == "-" else 1) * coef(c), int(r)) for a, sign, c, r in _UNIFORM_EQ_RE.findall(text)]
 
 
 @pytest.mark.parametrize("tier", TIERS)
@@ -82,9 +88,9 @@ def test_lower_tiers_always_print_x_dominant_equation_first(tier):
     CURRENT code already does at every tier, so it should already pass."""
     for seed in SEEDS:
         q = make(TOPIC, seed=seed, difficulty=tier)
-        eqs = _UNIFORM_EQ_RE.findall(q.text)
+        eqs = _equations(q.text)
         assert len(eqs) == 2, f"{tier} seed={seed}: expected 2 equations in {q.text!r}"
-        (cx1, cy1, _), _ = [(int(a), int(b), int(c)) for a, b, c in eqs]
+        (cx1, cy1, _), _ = eqs
         assert abs(cx1) > abs(cy1), f"{tier} seed={seed}: first equation is not x-dominant: {q.text!r}"
 
 
@@ -98,9 +104,9 @@ def test_exam_tier_randomizes_which_equation_prints_first():
     dominant_second = 0
     for seed in SEEDS:
         q = make(TOPIC, seed=seed, difficulty="exam")
-        eqs = _UNIFORM_EQ_RE.findall(q.text)
+        eqs = _equations(q.text)
         assert len(eqs) == 2, f"exam seed={seed}: expected 2 equations in {q.text!r}"
-        (cx1, cy1, _), (cx2, cy2, _) = [(int(a), int(b), int(c)) for a, b, c in eqs]
+        (cx1, cy1, _), (cx2, cy2, _) = eqs
         if abs(cx1) > abs(cy1):
             dominant_first += 1
         else:

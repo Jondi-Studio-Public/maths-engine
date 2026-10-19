@@ -118,7 +118,7 @@ def _parse_linear(text):
 def _medium_all_angles(text):
     """Both opposite-pair angles (A, C) for the cyclic-quadrilateral medium
     tier, derived from the rendered text alone."""
-    m = re.search(r"Angle A = \(([^)]+)\) degrees and angle C = \(([^)]+)\) degrees", text)
+    m = re.search(r"Angle A = \(?([^()]+?)\)? degrees and angle C = \(?([^()]+?)\)? degrees", text)
     a1, a2 = _parse_linear(m.group(1))
     c1, c2 = _parse_linear(m.group(2))
     remaining = 180 - (a2 + c2)
@@ -130,7 +130,7 @@ def _medium_all_angles(text):
 def _hard_all_angles(text):
     """All four angles (A, B, C, D) for the cyclic-quadrilateral hard tier,
     derived from the rendered text alone."""
-    m = re.search(r"Angle A = \(([^)]+)\) degrees and angle B = \(([^)]+)\) degrees", text)
+    m = re.search(r"Angle A = \(?([^()]+?)\)? degrees and angle B = \(?([^()]+?)\)? degrees", text)
     a1, a2 = _parse_linear(m.group(1))
     b1, b2 = _parse_linear(m.group(2))
     k = int(re.search(r"Angle C exceeds angle D by (\d+) degrees?", text).group(1))

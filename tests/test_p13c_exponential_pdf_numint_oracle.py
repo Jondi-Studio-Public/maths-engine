@@ -27,7 +27,7 @@ TIER_DP = {"easy": 2, "medium": 2, "hard": 4, "exam": 4}
 
 _t = sp.symbols("t")
 
-_LAM_RE = re.compile(r"f\(t\) = (?P<lam>[\d.]+)e\^\(-(?P=lam)t\)")
+_LAM_RE = re.compile(r"f\(t\) = (?P<lam>[\d.]*)e\^\(-(?P=lam)t\)")
 
 _SINGLE_BOUNDS_PATTERNS = (
     re.compile(r"from t = (?P<a>-?\d+(?:\.\d+)?) to t = (?P<b>-?\d+(?:\.\d+)?), correct to (?P<dp>\d+) decimal places"),
@@ -57,7 +57,7 @@ _EXAM_BOUNDS_PATTERNS = (
 def _parse_lambda(text: str) -> sp.Rational:
     m = _LAM_RE.search(text)
     assert m is not None, f"could not parse lambda out of {text!r}"
-    return sp.Rational(m.group("lam"))
+    return sp.Rational(m.group("lam") or "1")
 
 
 def _parse_single_bounds(text: str):

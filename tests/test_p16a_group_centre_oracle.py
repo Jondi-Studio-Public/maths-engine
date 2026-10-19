@@ -98,7 +98,7 @@ def test_group_centre_exam_oracle(seed):
 # p16a_trend_value
 # --------------------------------------------------------------------------
 
-_EQ_RE = re.compile(r"T\(t\) = (-?\d+) \+ \(?(-?\d+(?:/\d+)?)\)?×t")
+_EQ_RE = re.compile(r"T\(t\) = (-?\d+) (?P<sign>[+-]) (?:(?P<mag>\d+(?:\.\d+|/\d+)?)×)?t")
 _TSTAR_DIRECT_RE = re.compile(r"Find the trend value T\((\d+)\)")
 _PERIOD_RE = re.compile(r"for (\w+) (\d+) of Year (\d+)")
 _PER_GROUP_RE = re.compile(r"each Year has (\d+) \w+s")
@@ -121,7 +121,7 @@ def test_trend_value_easy_oracle(seed):
     m = _EQ_RE.search(q.text)
     assert m, q.text
     a = Fraction(int(m.group(1)))
-    b = Fraction(m.group(2))
+    b = Fraction(m.group("sign") + (m.group("mag") or "1"))
     t_star = int(_TSTAR_DIRECT_RE.search(q.text).group(1))
     expected = a + b * t_star
     assert float(expected) == pytest.approx(float(q.answer_text), abs=0.05)
@@ -133,7 +133,7 @@ def test_trend_value_medium_oracle(seed):
     m = _EQ_RE.search(q.text)
     assert m, q.text
     a = Fraction(int(m.group(1)))
-    b = Fraction(m.group(2))
+    b = Fraction(m.group("sign") + (m.group("mag") or "1"))
     per_group = int(_PER_GROUP_RE.search(q.text).group(1))
     pm = _PERIOD_RE.search(q.text)
     sub, year = int(pm.group(2)), int(pm.group(3))
