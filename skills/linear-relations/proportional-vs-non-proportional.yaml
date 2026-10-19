@@ -1,38 +1,99 @@
 id: proportional-vs-non-proportional
 name: Distinguish proportional and non-proportional linear relations
 domain: linear-relations
-description: Use tables, graphs and equations to decide whether a linear relationship is proportional.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '8'
+description: Use tables, equations, situations and lines through two points to decide whether y is a fixed multiple of x,
+  so that the relation passes through the origin.
+status: active
+placement_eligible: false
 prerequisites:
 - graph-y-mx
 - graph-y-mx-plus-b
 - ratio-rate-proportion
 answer: mcq
 sources:
-- topic: function_evaluation
+- topic: w5_proportional_relations
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: function_evaluation
+- topic: w5_proportional_relations
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: function_evaluation
+- topic: w5_proportional_relations
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_proportional_relations
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Assuming every straight line is proportional
-- id: misconception-2
-  description: Ignoring whether the relation passes through the origin
-tags: []
+- id: w5p-line-means-proportional
+  description: Believes any straight-line relationship is proportional, even with an added number.
+- id: w5p-constant-difference-not-ratio
+  description: Treats a constant difference between y and x, or a constant step in y, as proportionality.
+- id: w5p-increasing-means-proportional
+  description: Believes a relationship is proportional whenever y increases as x increases.
+- id: w5p-roughly-constant-ratio
+  description: Accepts a ratio y ÷ x that is nearly constant as constant.
+- id: w5p-ratio-not-checked
+  description: Does not divide y by x for each pair, so cannot tell which table is not proportional.
+- id: w5p-inverse-is-proportional
+  description: Believes y = k/x is a proportional relationship.
+- id: w5p-ignores-fixed-charge
+  description: Ignores a starting amount or fixed charge when deciding whether a relationship is proportional.
+- id: w5p-intercept-miscalculated
+  description: Makes an error finding where the line crosses the y-axis.
+- id: w5p-line-not-proportional
+  description: Believes a straight line can never be proportional.
+- id: w5p-gradient-miscalculated
+  description: Makes an error working out the gradient of the line from two points.
+- id: w5p-gradient-one-only
+  description: Believes a proportional relationship must have a gradient of 1.
+- id: w5p-intercept-ignored
+  description: Finds the gradient of the line but ignores where it crosses the y-axis.
+- id: w5p-sign-slip
+  description: Reverses the sign of the added number in the equation of the line.
+- id: w5p-ratio-miscalculated
+  description: Makes an error working out y ÷ x for a pair.
+- id: w5p-origin-not-in-table
+  description: Believes a relationship is not proportional because the table does not show x = 0.
+- id: w5p-difference-not-ratio
+  description: Subtracts x from y or finds differences of y where the ratio y ÷ x is needed.
+- id: w5p-adds-instead-of-multiplies
+  description: Adds the multiplier and the value of x instead of multiplying them.
+- id: w5p-off-by-a-step
+  description: Gives a value one step of the rule away from the correct value.
+- id: w5p-first-y-as-constant
+  description: Takes the first y value as the number multiplied by x.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the table or the equation in which y is a fixed multiple of x.
+  medium:
+    steps: 3
+    demand: Decide which situation has no starting amount, or which table is the one that is not proportional.
+  hard:
+    steps: 5
+    demand: Find the equation of the line through two points and decide from its y-intercept whether the relationship is
+      proportional.
+  exam:
+    steps: 6
+    demand: Chain the decision on a table, a value from the rule and the multiplier of x.
+tags:
+- proportional
+- linear-relations
+- nsw-stage-4
+- algebra

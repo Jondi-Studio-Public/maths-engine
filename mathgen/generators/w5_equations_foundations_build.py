@@ -24,6 +24,10 @@ from fractions import Fraction as Fr
 
 from ..core import check, generator, join_terms, phrase
 from ._w5_kit import (
+    NAMES,
+    mc_question,
+    sub_fields,
+    tier_pool,
     TooFewDistractors,
     enough,
     mcq_cands,
@@ -36,35 +40,12 @@ from ._w5_kit import (
     spread,
 )
 
-NAMES = ("Aisha", "Ben", "Chen", "Dana", "Eli", "Farah", "Gus", "Hana")
-
-
-def _sub(fields: dict) -> dict:
-    return {key: val for key, val in fields.items() if key != "answer_kind"}
-
-
-def _mc(rng, stems, key, wrongs, work, n=4, **slots) -> dict:
-    fields = mcq_fields(key)
-    cands = mcq_cands(key, wrongs, n)
-    enough(cands, n)
-    spread([key, *[c.text for c in cands]], key)
-    return dict(text=phrase(rng, stems, **slots), working=work, distractors=cands, **fields)
-
-
-def _tiers(topic_pools: dict, rng, tier: str):
-    pool = topic_pools.get(tier)
-    if pool is None:
-        raise ValueError(f"unknown tier {tier!r}")
-    return retry_draw(rng, rng.choice(pool))
+_sub, _mc, _tiers = sub_fields, mc_question, tier_pool
 
 
 # =====================================================================================================================
 # meaning of equality
 # =====================================================================================================================
-
-
-def _sum_sentence(a, b, c, d, op="+") -> str:
-    return f"{a} {op} {b} = {c} + {d}"
 
 
 def _eq_true_false(rng):

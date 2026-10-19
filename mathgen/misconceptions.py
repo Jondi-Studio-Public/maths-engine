@@ -52998,6 +52998,341 @@ _ENTRIES = (
         "Gives a number from the equation as the solution without checking it.",
         area="check-solution-by-substitution",
     ),
+    CatalogueEntry(
+        "w5q-distributes-to-first-term",
+        "Multiplies only the first term in a bracket by the number outside it.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-sign-slip",
+        "Changes the sign of a term when expanding or collecting.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-adds-instead-of-multiplies",
+        "Adds the number outside a bracket to the terms instead of multiplying them.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-drops-a-term",
+        "Leaves out one of the terms when writing an equivalent expression.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-arithmetic-slip",
+        "Makes an arithmetic slip when expanding or evaluating an expression.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-multiplies-like-terms",
+        "Multiplies the coefficients of like terms instead of adding them.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-adds-powers",
+        "Writes the sum of like terms with x squared.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-combines-unlike-terms",
+        "Adds a constant to the coefficient of x as if they were like terms.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-subtracts-like-terms",
+        "Subtracts the coefficients of like terms that should be added.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-appearance-differs",
+        "Believes expressions that look different cannot be equivalent.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-one-example-as-proof",
+        "Treats the expressions as equivalent because they match for one value of x.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5v-swaps-the-roles",
+        "Swaps the independent and dependent variables.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-picks-a-fixed-amount",
+        "Chooses a fixed amount, such as a rate or a starting charge, as a variable.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-irrelevant-quantity",
+        "Chooses a quantity that plays no part in the relationship.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-axis-position-decides",
+        "Decides which variable is independent by the axis it is drawn on.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-forgets-the-fixed-amount",
+        "Leaves out the fixed starting amount when working out the dependent value.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-adds-instead-of-multiplies",
+        "Adds the rate and the independent value instead of multiplying them.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-multiplies-the-fixed-amount",
+        "Multiplies the fixed starting amount by the independent value as well.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-off-by-a-step",
+        "Adds one extra step of the rate to the dependent value.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5p-line-means-proportional",
+        "Believes any straight-line relationship is proportional, even with an added number.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-constant-difference-not-ratio",
+        "Treats a constant difference between y and x, or a constant step in y, as proportionality.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-increasing-means-proportional",
+        "Believes a relationship is proportional whenever y increases as x increases.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-roughly-constant-ratio",
+        "Accepts a ratio y \u00f7 x that is nearly constant as constant.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-inverse-is-proportional",
+        "Believes y = k/x is a proportional relationship.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ratio-not-checked",
+        "Does not divide y by x for each pair, so cannot tell which table is not proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ignores-fixed-charge",
+        "Ignores a starting amount or fixed charge when deciding whether a relationship is proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-intercept-miscalculated",
+        "Makes an error finding where the line crosses the y-axis.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-line-not-proportional",
+        "Believes a straight line can never be proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-gradient-one-only",
+        "Believes a proportional relationship must have a gradient of 1.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-intercept-ignored",
+        "Finds the gradient of the line but ignores where it crosses the y-axis.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-sign-slip",
+        "Reverses the sign of the added number in the equation of the line.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ratio-miscalculated",
+        "Makes an error working out y \u00f7 x for a pair.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-origin-not-in-table",
+        "Believes a relationship is not proportional because the table does not show x = 0.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-difference-not-ratio",
+        "Subtracts x from y or finds differences of y where the ratio y \u00f7 x is needed.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-adds-instead-of-multiplies",
+        "Adds the multiplier and the value of x instead of multiplying them.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-off-by-a-step",
+        "Gives a value one step of the rule away from the correct value.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-first-y-as-constant",
+        "Takes the first y value as the number multiplied by x.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-gradient-miscalculated",
+        "Makes an error working out the gradient of the line from two points.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5g-strict-includes-equal",
+        "Believes a strict inequality such as 5 > 5 is true when the two numbers are equal.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-symbol-direction-reversed",
+        "Reads the inequality symbol the wrong way round.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-negative-larger-magnitude-bigger",
+        "Treats a negative number with a larger digit as the larger number.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-strict-includes-boundary",
+        "Includes the boundary value in a strict inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-strict-for-inclusive",
+        "Uses a strict symbol where the words allow the boundary value.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-inclusive-for-strict",
+        "Uses an inclusive symbol where the words exclude the boundary value.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-equals-for-inequality",
+        "Uses an equals sign where the words describe a range of values.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-reads-only-one-bound",
+        "Checks only one part of a double inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-adding-a-negative-increases",
+        "Believes adding a negative number makes a number larger.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-sign-of-product",
+        "Believes the product of two negative numbers is negative.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-squaring-keeps-order",
+        "Believes squaring negative numbers keeps their order.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-off-by-one",
+        "Is one away from the greatest or least whole number allowed.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-picks-the-lowest",
+        "Gives an unrelated extreme value instead of the one the inequality allows.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-values-not-checked",
+        "Does not test each value against the inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-increasing-decreasing-confused",
+        "Orders the numbers from greatest to least where least to greatest is asked, or the reverse.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-neighbours-swapped",
+        "Swaps two neighbouring numbers when ordering a list.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5a-ratio-for-difference",
+        "Treats a constant ratio between terms as the constant difference of an arithmetic sequence.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-increasing-pattern-is-arithmetic",
+        "Believes a sequence is arithmetic whenever the terms keep increasing in a pattern.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-repeating-differences",
+        "Believes a sequence is arithmetic when its differences repeat in a pattern rather than being the same.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-checks-one-pair",
+        "Compares only the first two terms and does not check the rest of the sequence.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-first-term-as-difference",
+        "Uses the first term as the common difference.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-difference-miscounted",
+        "Makes an error finding the difference between terms.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-direction-reversed",
+        "Gets the direction of the difference wrong, adding where the sequence goes down or the reverse.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-adds-previous-terms",
+        "Adds the previous two terms to find the next one.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-difference-for-middle",
+        "Gives the difference between the end terms as the middle term.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-decreasing-means-arithmetic",
+        "Believes a sequence that decreases by getting smaller is arithmetic.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-miscounts-steps",
+        "Divides the gap between the end terms by the wrong number of steps.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-off-by-one-term",
+        "Counts one term too many or too few when finding a later term.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-forgets-the-first-term",
+        "Multiplies the difference by the term number but leaves out the first term.",
+        area="arithmetic-sequences",
+    ),
 )
 
 #: Every entry, by id.

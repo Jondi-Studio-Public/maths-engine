@@ -13,7 +13,7 @@ from fractions import Fraction
 import sympy
 
 from ..answers import Distractor
-from ..core import rational_text
+from ..core import phrase, rational_text
 from ..grading.inequality import set_text
 from ._r3i_kit import accepted_by_grader
 from ._w6a_kit import TooFewDistractors, enough, num_dist, num_fields, part, rat, retry_draw  # noqa: F401
@@ -296,3 +296,29 @@ def spread(options, correct: str) -> None:
         and longest > 1.6 * (sum(len(o) for o in options) / len(options))
     ):
         raise TooFewDistractors("the answer is a long outlier")
+
+
+NAMES = ("Aisha", "Ben", "Chen", "Dana", "Eli", "Farah", "Gus", "Hana")
+
+
+def sub_fields(fields: dict) -> dict:
+    """An answer dictionary without its `answer_kind`, as the `part()` helper wants it."""
+    return {key: val for key, val in fields.items() if key != "answer_kind"}
+
+
+def mc_question(rng, stems, key: str, wrongs, work, n: int = 4, **slots) -> dict:
+    """A multiple-choice question: the stem is drawn from `stems` and filled with `slots`; `wrongs` are
+    `(option text, misconception id)` pairs of which `n` distinct ones are kept."""
+    fields = mcq_fields(key)
+    cands = mcq_cands(key, wrongs, n)
+    enough(cands, n)
+    spread([key, *[c.text for c in cands]], key)
+    return dict(text=phrase(rng, stems, **slots), working=work, distractors=cands, **fields)
+
+
+def tier_pool(pools: dict, rng, tier: str):
+    """Draw from the builders of `tier` (a ValueError for an unknown tier), redrawing a degenerate draw."""
+    pool = pools.get(tier)
+    if pool is None:
+        raise ValueError(f"unknown tier {tier!r}")
+    return retry_draw(rng, rng.choice(pool))
