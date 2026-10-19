@@ -51948,6 +51948,278 @@ _ENTRIES = (
         "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
         area="quadric-surfaces",
     ),
+    # w3 consumer block begin
+    CatalogueEntry(
+        "fdep-rate-not-converted",
+        "Multiplies the price by the percentage without dividing by 100.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-value-for-depreciation",
+        "Gives the value left after one year where the yearly depreciation was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-decimal-slip",
+        "Misplaces the decimal point when finding a percentage of the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-divides-by-rate",
+        "Divides the price by the percentage instead of finding that percentage of it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-amount-not-value",
+        "Gives the total depreciation where the value after the years was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-one-year-only",
+        "Takes off only one year's depreciation however many years have passed.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-adds-to-price",
+        "Adds the depreciation to the price instead of subtracting it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-uses-reducing",
+        "Takes the percentage off the new value each year when the flat rate is a percentage of the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-year-not-total",
+        "Gives one year's depreciation where the total over several years was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-ignores-years",
+        "Finds the percentage lost in total and does not divide by the number of years.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-dollars-not-percent",
+        "Gives the depreciation per year in dollars where a percentage of the price was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-percent-of-value",
+        "Finds the percentage of the later value instead of the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-from-value",
+        "Divides the target value by the yearly depreciation instead of the amount lost.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-from-price",
+        "Divides the purchase price by the yearly depreciation, ignoring the value to be reached.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-counts-year-zero",
+        "Adds an extra year, counting the day of purchase as a year.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-boundary-year",
+        "Gives the last year the value is still at or above the target, not the first year it is below it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-salvage-ignored",
+        "Divides the purchase price by the life, forgetting to take off the scrap value first.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-salvage-added",
+        "Adds the scrap value to the price before dividing by the life.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-adds-one-year-back",
+        "Adds back only one year of depreciation to a later value to find the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-reading-as-price",
+        "Takes a later value as the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-remaining",
+        "Gives the years still to go, not the total number of years until the value is zero.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-rate-from-price-only",
+        "Divides the percentage lost by the years, then forgets the value left is a share of the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-remaining-for-lost",
+        "Uses the percentage remaining as the percentage lost.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-not-converted",
+        "Multiplies by the percentage without dividing by 100.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-depreciation-for-value",
+        "Gives the amount depreciated where the value was asked.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-uses-flat",
+        "Takes the same amount off each year (flat rate) when the percentage applies to the current value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-one-year-only",
+        "Applies the percentage once however many years have passed.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-multiplies-by-years",
+        "Multiplies the rate by the number of years inside the bracket instead of using a power.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-extra-year",
+        "Applies the percentage one year too many.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-one-year-short",
+        "Applies the percentage one year too few.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-for-multiplier",
+        "Multiplies by the rate (for example 0.15) instead of by one less the rate (0.85).",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-growth-multiplier",
+        "Uses one plus the rate as the yearly multiplier, which grows the value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-total-for-value",
+        "Gives the value left where the total depreciation was asked.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-first-year-amount",
+        "Finds the depreciation for the first year only and calls it the total.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-boundary-year",
+        "Gives the last year the value is still at or above the target, not the first year it is below it.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-flat-years",
+        "Finds the years to reach the target as if the same amount came off each year.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-from-whole-drop",
+        "Takes the whole drop over two years as the yearly rate instead of finding the yearly multiplier.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-halved",
+        "Halves the two-year drop to get the yearly rate.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-multiplier-for-rate",
+        "Gives the yearly multiplier as a percentage instead of the rate of depreciation.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-price-from-flat",
+        "Adds back the same amount each year to find the price instead of dividing by the multiplier.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-price-multiplies",
+        "Multiplies the later value by the multiplier instead of dividing, so the 'price' is smaller than the value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-wrong-year-amount",
+        "Gives the depreciation of the wrong year (the year before or after).",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-year-from-first-value",
+        "Takes the percentage of the purchase price for the year asked, as if every year lost the same amount.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-difference-sign",
+        "Adds the two values instead of finding their difference.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-reports-one-method",
+        "Gives the value under one method where the difference was asked.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-decimal-slip",
+        "Misplaces the decimal point in the difference.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-doubles-difference",
+        "Doubles the difference, adding the gap for each method instead of comparing them once.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-year-flat-zero",
+        "Gives the year the flat-rate value would reach zero instead of the year the methods cross over.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-total-rate",
+        "Uses the percentage for each year of the flat method as if it were applied once.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-crossover-early",
+        "Names the year before the reducing-balance value becomes the higher.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-crossover-late",
+        "Names the year after the reducing-balance value becomes the higher.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-equal-rate",
+        "Assumes the matching flat rate equals the reducing-balance rate.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-rate-ignores-years",
+        "Gives the total percentage lost, without dividing by the number of years.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-rate-of-value",
+        "Divides the dollars lost by the number of years but not by the price, so the rate is in dollars.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    # w3 consumer block end
 )
 
 #: Every entry, by id.
