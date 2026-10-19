@@ -51948,6 +51948,176 @@ _ENTRIES = (
         "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
         area="quadric-surfaces",
     ),
+    CatalogueEntry(
+        "w5qi-region-reversed",
+        "Takes the region on the wrong side of the roots: the part between them where the outside was needed, or the reverse.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-strictness-swapped",
+        "Includes the end values when the inequality is strict, or leaves them out when it is not.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-roots-negated",
+        "Writes the roots with their signs reversed, reading (x + 3) as a root of 3.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-one-factor-only",
+        "Treats the product like a single factor and gives one ray, by setting each factor to the same sign as the whole product.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-ignores-negative-leading",
+        "Overlooks a negative leading coefficient, so the parabola opens the wrong way and the regions swap.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-forgot-to-move-constant",
+        "Solves with the number on the right ignored, using the roots of the left-hand side alone.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-positive-root-only",
+        "Takes only the positive square root of the number, so a pair of regions becomes a single ray.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-ignores-repeated-root",
+        "Forgets that a squared factor is never negative, so the answer misses the single value where it is zero.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-no-solution-confusion",
+        "Mixes up all real numbers and no solution when the quadratic never changes sign.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-no-roots-wrong-sign",
+        "Gives the wrong verdict when a quadratic has no real roots, reading the sign of the leading coefficient the wrong way.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-invents-roots",
+        "Invents roots for a quadratic whose discriminant is negative and splits the number line at them.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-as-boundary",
+        "Uses the turning point as the boundary of the solution set.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-forgets-square-root",
+        "Writes the bounds as the centre plus and minus the number under the root, not its square root.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-rounds-surd-bounds",
+        "Replaces the exact bounds by nearby whole numbers.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-sum-not-half",
+        "Gives the sum of the roots as the turning point, forgetting to halve it.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-half-gap",
+        "Gives half the distance between the roots as the x-coordinate of the turning point.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-sign-flipped",
+        "Gives the turning point with its sign reversed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-root-for-turning-point",
+        "Gives one of the roots as the x-coordinate of the turning point.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-count-sums-roots",
+        "Adds the two roots to count the whole numbers between them, where their difference was needed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-intercept-not-extreme",
+        "Gives the y-intercept as the greatest or least value of the quadratic.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-extreme-sign-flipped",
+        "Gives the greatest or least value with its sign reversed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-gives-position-not-value",
+        "Gives the x-coordinate of the turning point where its y-value was asked.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-extreme-forgets-linear-term",
+        "Substitutes the turning point into the squared term alone and drops the rest of the quadratic.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-region-reversed",
+        "Takes the regions on the wrong side of the critical values, giving where the fraction has the opposite sign.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-zero-strictness",
+        "Mishandles the value that makes the numerator zero: leaving it out when the inequality allows equality, or including it when it does not.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-multiplied-by-denominator",
+        "Multiplies both sides by an expression that can be negative without reversing the inequality for the values where it is, leaving only the numerator to solve.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-included",
+        "Includes the value that makes the denominator zero, although the fraction is undefined there.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-roots-negated",
+        "Writes the critical values with their signs reversed, reading (x + 3) as zero at 3.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-compares-with-zero-not-k",
+        "Solves the fraction against 0 where the inequality compares it with another number.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-square-treated-as-sign-change",
+        "Treats a squared factor like a single factor, so the fraction appears to change sign where it does not.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-zero-for-pole",
+        "Gives the value that makes the numerator zero where the value that makes the denominator zero was asked.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-sign-flipped",
+        "Gives the value that makes the denominator zero with its sign reversed.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-zero-guess",
+        "Guesses that the fraction is undefined at x = 0.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-counts-the-pole",
+        "Counts the whole number where the denominator is zero as a solution, or the complement of the solution count.",
+        area="rational-inequalities",
+    ),
 )
 
 #: Every entry, by id.

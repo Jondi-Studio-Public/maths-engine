@@ -1,0 +1,88 @@
+id: rational-inequalities
+name: Solve rational inequalities
+domain: inequalities
+year_level:
+- '11'
+- '12'
+description: 'Solve an inequality with a variable in the denominator using a sign diagram: include a zero of the numerator
+  only when equality is allowed, never the value that makes the denominator zero, and rearrange a fraction compared with
+  a number into one fraction first.'
+status: active
+placement_eligible: false
+prerequisites:
+- quadratic-inequalities
+answer: inequality
+sources:
+- topic: w5_rational_inequality
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w5_rational_inequality
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w5_rational_inequality
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w5_rational_inequality
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w5ri-region-reversed
+  description: Takes the regions on the wrong side of the critical values, giving where the fraction has the opposite sign.
+- id: w5ri-zero-strictness
+  description: 'Mishandles the value that makes the numerator zero: leaving it out when the inequality allows equality,
+    or including it when it does not.'
+- id: w5ri-multiplied-by-denominator
+  description: Multiplies both sides by an expression that can be negative without reversing the inequality for the values
+    where it is, leaving only the numerator to solve.
+- id: w5ri-pole-included
+  description: Includes the value that makes the denominator zero, although the fraction is undefined there.
+- id: w5ri-roots-negated
+  description: Writes the critical values with their signs reversed, reading (x + 3) as zero at 3.
+- id: w5ri-compares-with-zero-not-k
+  description: Solves the fraction against 0 where the inequality compares it with another number.
+- id: w5ri-square-treated-as-sign-change
+  description: Treats a squared factor like a single factor, so the fraction appears to change sign where it does not.
+- id: w5ri-zero-for-pole
+  description: Gives the value that makes the numerator zero where the value that makes the denominator zero was asked.
+- id: w5ri-pole-sign-flipped
+  description: Gives the value that makes the denominator zero with its sign reversed.
+- id: w5ri-counts-the-pole
+  description: Counts the whole number where the denominator is zero as a solution, or the complement of the solution count.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find the zero and the excluded value of (x - a)/(x - b) and read the sign of the fraction in the three regions.
+  medium:
+    steps: 4
+    demand: Allow coefficients that are not 1 (including a negative one), or rearrange a fraction compared with a non-zero
+      number into a single fraction before using a sign diagram.
+  hard:
+    steps: 5
+    demand: 'Use three critical values: a quadratic over a linear expression, a linear over a quadratic, or a squared numerator
+      that touches zero without changing sign.'
+  exam:
+    steps: 6
+    demand: Chain the excluded value, two solution sets (against 0 and against a number) and the count of whole numbers
+      that satisfy the second.
+tags:
+- rational-expressions
+- inequalities
+- sign-diagram
+- interval-notation
+- nsw-advanced
+- vce-methods
+- qce-methods
