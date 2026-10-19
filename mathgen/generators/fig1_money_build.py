@@ -275,7 +275,7 @@ def money_compare_collections(rng, tier="easy"):
     if tier == "hard":
         cols, k, most = _compare_triple(rng)
         answer_text = f"Collection {'ABC'[k]}"
-        options = ["Collection A", "Collection B", "Collection C"]
+        options = ["Collection A", "Collection B", "Collection C", _SAME]
         text = rng.choice(_COMPARE_TEXT[tier]).format(n=name, w="most" if most else "least")
         alt = "three collections of Australian coins and notes"
     else:
@@ -285,8 +285,9 @@ def money_compare_collections(rng, tier="easy"):
         text = rng.choice(_COMPARE_TEXT[tier]).format(n=name)
         alt = "two collections of Australian coins and notes"
     fig = money(collections=cols, alt=alt)
-    distractors = pick_distractors(answer_text, options, n=2)
-    check(len(distractors) == 2)
+    n_wrong = 3 if tier == "hard" else 2
+    distractors = pick_distractors(answer_text, options, n=n_wrong)
+    check(len(distractors) == n_wrong)
     figures.assert_no_leak(fig, [answer_text, *distractors])
     check(_read_compare(fig, text) == answer_text, "the figure does not show the keyed collection")
     totals = ", ".join(f"{'ABC'[i]} {_dollars(money_cents(fig, i))}" for i in range(len(cols)))

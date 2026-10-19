@@ -219,9 +219,8 @@ def compare_duration_picture(rng, tier="easy"):
         if tier == "hard":
             far = _extreme(ends, more)
             cands = [_the(far)] + [c for c in cands if c != _the(far)]
-        if pair:
-            cands.append(_SAME)
-        distractors = pick_distractors(answer_text, cands, n=2)
+        cands.append(_SAME)  # with three or more events it is a fourth option; the counts differ, so it is wrong
+        distractors = pick_distractors(answer_text, cands, n=2 if pair else min(len(labels), 3))
         working = ["Count the boxes: " + ", ".join(f"{k} {blocks[k]}" for k in labels) + ". Each box is the same time."]
     check(answer_text not in distractors, "a distractor equals the key")
     check(figures.validate(fig) == [], "the figure is invalid")
