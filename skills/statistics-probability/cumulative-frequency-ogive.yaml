@@ -1,0 +1,96 @@
+id: cumulative-frequency-ogive
+name: Read a cumulative frequency graph
+domain: statistics-probability
+year_level: ['10', '11', '12']
+naplan_domain: [statistics]
+description: 'Read counts, the median, quartiles and percentages from a drawn cumulative frequency graph (ogive), where every plotted point sits on a gridline.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f7-read-a-histogram]
+answer: number
+sources:
+- topic: w8_ogive_read
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w8_ogive_read
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w8_ogive_read
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w8_ogive_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ogive-boundary-for-count
+  description: 'Gives the boundary from the horizontal axis where a number of values was asked.'
+- id: ogive-count-for-value
+  description: 'Gives a cumulative frequency (a count) where a value on the horizontal axis was asked.'
+- id: ogive-total-for-count
+  description: 'Gives the total number of values, the top of the graph, instead of the number below the boundary.'
+- id: ogive-neighbouring-point
+  description: 'Reads the plotted point next to the one the question names.'
+- id: ogive-complement-count
+  description: 'Gives the number below the boundary where the number at or above it was asked, or the reverse.'
+- id: ogive-adds-heights
+  description: 'Adds the heights of the two plotted points instead of subtracting the lower from the upper.'
+- id: ogive-upper-point-only
+  description: 'Gives the height of the upper plotted point and forgets to take away the values already below the lower boundary.'
+- id: ogive-lower-point-only
+  description: 'Gives the height of the lower plotted point instead of the number between the two boundaries.'
+- id: ogive-width-for-count
+  description: 'Gives the difference between the two boundaries (the class width) instead of the number of values between them.'
+- id: ogive-adds-all-heights
+  description: 'Adds the heights of every plotted point to get the total instead of reading the top of the graph.'
+- id: ogive-classes-for-total
+  description: 'Gives the number of classes where the total number of values was asked.'
+- id: ogive-middle-of-axis
+  description: 'Takes the middle of the horizontal axis as the median instead of reading where the graph reaches half the total.'
+- id: ogive-quartile-sum
+  description: 'Adds the lower and upper quartiles instead of subtracting.'
+- id: ogive-range-for-iqr
+  description: 'Gives the range of the whole graph where the interquartile range was asked.'
+- id: ogive-half-spread
+  description: 'Gives the distance from a quartile to the median where the distance between the two quartiles was asked.'
+- id: ogive-upper-quartile-only
+  description: 'Gives the upper quartile alone where the interquartile range was asked.'
+- id: ogive-count-between-quartiles
+  description: 'Gives the number of values between the quartiles (half of them) where the interquartile range was asked.'
+- id: ogive-modal-upper-boundary
+  description: 'Gives the upper boundary of the modal class instead of its lower boundary.'
+- id: ogive-modal-is-last-class
+  description: 'Takes the last class, where the cumulative frequency is highest, as the modal class.'
+- id: ogive-modal-is-flattest
+  description: 'Takes the flattest part of the graph, the class with the fewest values, as the modal class.'
+- id: ogive-modal-is-median-class
+  description: 'Takes the class where the graph reaches half the total as the modal class.'
+- id: ogive-count-for-percentage
+  description: 'Gives the number of values where the percentage of the total was asked.'
+- id: ogive-complement-percentage
+  description: 'Gives the percentage on the wrong side of the boundary (100 less the answer).'
+- id: ogive-percentage-of-upper-point
+  description: 'Gives the percentage below the upper boundary and forgets to take away the percentage below the lower one.'
+- id: ogive-compares-cumulative
+  description: 'Compares the cumulative frequencies at the class boundaries instead of the frequencies of the two classes.'
+- id: ogive-adds-classes
+  description: 'Adds the two class frequencies where their difference was asked.'
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: 'Read the height of one plotted point (the number below a boundary) or the top of the graph (the total).'
+  medium:
+    steps: 2
+    demand: 'Find the median from half the total, or take the difference of two heights, or the total less a height, or a percentage of the total.'
+  hard:
+    steps: 3
+    demand: 'Find the interquartile range from two reads, locate the modal class as the steepest segment, or compare two classes by taking differences of differences.'
+  exam:
+    steps: 4
+    demand: 'Chain the total, a count between two boundaries, the median and the interquartile range from one graph.'
+tags: [statistics-probability, cumulative-frequency, ogive, figure, w8_ogive_read]

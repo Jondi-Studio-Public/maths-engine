@@ -1,0 +1,78 @@
+id: acquire-and-check-data
+name: Choose what to collect and check the data
+domain: statistics-probability
+year_level: ['4', '5']
+naplan_domain: [statistics]
+description: 'Decide what to record to answer a question, choose the survey question that collects it, and spot the one recorded entry that cannot be right. Nothing is drawn.'
+status: active
+placement_eligible: false
+prerequisites: [classify-data]
+answer: mcq
+sources:
+- topic: w8_data_acquisition
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w8_data_acquisition
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w8_data_acquisition
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w8_data_acquisition
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dq-different-variable
+  description: 'Chooses something that can be measured about the same people, but that cannot answer the question asked.'
+- id: dq-count-for-category
+  description: 'Records how many of something each person has where the question is about which kind they have.'
+- id: dq-category-for-count
+  description: 'Records which kind each person has where the question asks how many.'
+- id: dq-yes-no-too-little
+  description: 'Records only a yes or no, which loses the count or the category the question needs.'
+- id: dq-vague-question
+  description: 'Chooses a question that is too open to give data that can be sorted or counted.'
+- id: dq-two-questions-in-one
+  description: 'Chooses a question that asks two things at once, so one answer cannot be sorted into one group.'
+- id: dq-flags-largest-valid
+  description: 'Flags the largest entry just because it is the largest, although it is a possible value.'
+- id: dq-flags-smallest-valid
+  description: 'Flags the smallest entry just because it is the smallest, although it is a possible value.'
+- id: dq-flags-repeated-entry
+  description: 'Flags an entry that appears more than once, although a repeated value is not an error.'
+- id: dq-flags-other-valid
+  description: 'Flags an entry that is a possible value and fits the others.'
+- id: dq-count-type-confused
+  description: 'Calls a count of whole things continuous or categorical.'
+- id: dq-total-keeps-error
+  description: 'Adds up the entries without correcting the one that was wrong.'
+- id: dq-total-drops-entry
+  description: 'Leaves the wrong entry out of the total instead of replacing it with the corrected value.'
+- id: dq-total-adds-error-twice
+  description: 'Adds the corrected value to a total that still contains the wrong entry.'
+- id: dq-mean-uses-wrong-count
+  description: 'Divides the total by the number of different values, or by one fewer than the number of people.'
+- id: dq-total-ignores-sign
+  description: 'Adds the negative entry as if it were positive when finding the corrected total.'
+- id: dq-arithmetic-slip
+  description: 'Makes a small slip of one or two when adding or dividing.'
+- id: dq-mean-uses-error-total
+  description: 'Divides the uncorrected total by the number of people.'
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: 'Match a question to the one thing to record for it.'
+  medium:
+    steps: 2
+    demand: 'Choose the survey question that asks for exactly that one thing in a form that can be counted or sorted.'
+  hard:
+    steps: 3
+    demand: 'Read a list of recorded entries and find the one that cannot be right, without flagging a valid extreme.'
+  exam:
+    steps: 4
+    demand: 'Chain the faulty entry, the type of data, the corrected total and the corrected mean.'
+tags: [acara-f10-v9, statistics-probability, data-collection, survey, AC9M4ST01, AC9M5ST01, w8_data_acquisition]

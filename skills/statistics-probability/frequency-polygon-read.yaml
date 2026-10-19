@@ -1,0 +1,88 @@
+id: frequency-polygon-read
+name: Read a frequency polygon
+domain: statistics-probability
+year_level: ['9', '10']
+naplan_domain: [statistics]
+description: 'Read class frequencies, totals, boundaries, percentages and an estimated mean from a drawn frequency polygon whose axis is labelled with class midpoints.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f7-read-a-histogram]
+answer: number
+sources:
+- topic: w8_polygon_read
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w8_polygon_read
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w8_polygon_read
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w8_polygon_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: fpoly-midpoint-for-frequency
+  description: 'Gives the class midpoint from the horizontal axis where the frequency was asked.'
+- id: fpoly-neighbouring-point
+  description: 'Reads the plotted point next to the one the question names.'
+- id: fpoly-misreads-gridline
+  description: 'Reads the gridline above or below the plotted point.'
+- id: fpoly-frequency-for-midpoint
+  description: 'Gives the highest frequency where the midpoint of the modal class was asked.'
+- id: fpoly-boundary-for-midpoint
+  description: 'Gives a class boundary where the midpoint of the class was asked.'
+- id: fpoly-midpoint-for-boundary
+  description: 'Gives the midpoint of the modal class where its lower boundary was asked.'
+- id: fpoly-upper-boundary-for-lower
+  description: 'Gives the upper boundary of the modal class instead of its lower boundary.'
+- id: fpoly-counts-points
+  description: 'Gives the number of plotted points, or the tallest point, for the total number of values.'
+- id: fpoly-total-misses-a-class
+  description: 'Leaves out the lowest or highest class when adding the frequencies for the total.'
+- id: fpoly-total-counts-a-class-twice
+  description: 'Counts the tallest class twice when adding the frequencies for the total.'
+- id: fpoly-adds-modal-and-class
+  description: 'Adds the two class frequencies where how many more one holds than the other was asked.'
+- id: fpoly-modal-and-neighbour
+  description: 'Compares the modal class with the class next to the named one, not with the named class.'
+- id: fpoly-boundary-class-included
+  description: 'Includes the class just below the stated boundary when counting the values at or above it.'
+- id: fpoly-boundary-class-left-out
+  description: 'Leaves out the class that starts at the stated boundary when counting the values at or above it.'
+- id: fpoly-complement-count
+  description: 'Counts the values on the wrong side of the stated boundary.'
+- id: fpoly-count-for-percentage
+  description: 'Gives the number of values where the percentage of the total was asked.'
+- id: fpoly-complement-percentage
+  description: 'Gives the percentage on the wrong side of the stated boundary (100 less the answer).'
+- id: fpoly-mean-is-modal-midpoint
+  description: 'Gives the midpoint of the modal class as the mean.'
+- id: fpoly-mean-unweighted
+  description: 'Averages the class midpoints without weighting by the frequencies.'
+- id: fpoly-mean-divides-by-classes
+  description: 'Divides the sum of midpoint times frequency by the number of classes instead of the number of values.'
+- id: fpoly-mean-of-frequencies
+  description: 'Averages the frequencies instead of the midpoints weighted by them.'
+- id: fpoly-mean-uses-lower-boundaries
+  description: 'Uses the lower boundary of each class in place of its midpoint when estimating the mean.'
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: 'Read the height above a stated midpoint, or the midpoint of the highest point.'
+  medium:
+    steps: 2
+    demand: 'Add the heights for the total, compare the modal class with a named class, or turn the modal midpoint into a class boundary.'
+  hard:
+    steps: 3
+    demand: 'Count or take a percentage of the values on one side of a class boundary, or estimate the mean from the midpoints weighted by the frequencies.'
+  exam:
+    steps: 4
+    demand: 'Chain a class frequency, the total, a count from a boundary up and a percentage below a boundary from one polygon.'
+tags: [statistics-probability, frequency-polygon, figure, w8_polygon_read]
