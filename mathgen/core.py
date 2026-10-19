@@ -1786,8 +1786,7 @@ def paper_notation(text):
 
 
 # "5/9 = 5/9" restated: the second copy is dropped. Conservative: the repeat must end the clause (not feed a longer
-# expression "-10 = -10 x (1) + c", a power "10 = 10^1" or a chain "3 = 3 = 4"), and "so 1/18 = 1/18." keeps its
-# repeat because "so 1/18." would be a fragment.
+# expression "-10 = -10 x (1) + c", a power "10 = 10^1" or a chain "3 = 3 = 4").
 _REPEATED_STEP_RE = re.compile(
     r"(?P<pre>(?:^|[=:] |\) |\bso |\bgives ))(?P<t>-?[\d,]*\d(?:\.\d+)?%?(?:[/:]\d+)?) = (?P=t)"
     r"(?![\w/:%^]|\.\d|,\d|\s*[=+\u00d7\u00f7*\u2212(^-]|\s[xX]\s)"
@@ -1797,8 +1796,6 @@ _RESTATED_LINE_RE = re.compile(r"^(?:\([a-z]\) )?(-?[\d,]*\d(?:\.\d+)?%?(?:[/:]\
 
 
 def _collapse_repeat(m):
-    if m.group("pre") == "so " and m.string[m.end() : m.end() + 1] == ".":
-        return m.group(0)  # "so 1/18." would be a fragment
     return m.group("pre") + m.group("t")
 
 

@@ -35,7 +35,7 @@ WORKING = [
     # D2: the collapse is conservative
     ("(c) 10 = 10^1, which is 1 step", "(c) 10 = 10^1, which is 1 step"),
     ("(b) Using A: -10 = -10 × (1) + c, so c = 0.", "(b) Using A: -10 = -10 × 1 + c, so c = 0."),
-    ("16 - 15 = 1 km, so 1/18 = 1/18.", "16 - 15 = 1 km, so 1/18 = 1/18."),
+    ("16 - 15 = 1 km, so 1/18 = 1/18.", "16 - 15 = 1 km, so 1/18."),
     ("A single recurring digit gives 5/9 = 5/9.", "A single recurring digit gives 5/9."),
     ("n + 3 = 3 = 4", "n + 3 = 3 = 4"),
     ("x = 8/1 = 8", "x = 8"),
