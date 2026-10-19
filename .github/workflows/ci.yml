@@ -171,7 +171,10 @@ jobs:
       matrix:
         # The one place the shard count is defined: SHARDS below is this list's length.
         # tests/test_ci_workflow.py checks that the list is 0..N-1 with no gaps.
-        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        # 32 because the org has 60 concurrent hosted jobs and a run needs 32 of them plus the 6
+        # small jobs, and because ci_shard.py cannot balance finer than its largest single unit
+        # (a sweep part file, about 170 s): past about 50 shards the slowest shard stops getting shorter.
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
     env:
       SHARD: ${{ matrix.shard }}
       SHARDS: ${{ strategy.job-total }}
@@ -188,6 +191,10 @@ jobs:
             .github/requirements-ci.txt
       - run: pip install -e ".[dev]"
       - name: Run this shard's test files
+        env:
+          # A junit report next to the run, read by the next step. Set here and not on the pytest
+          # line so the command the shard runs stays exactly the file list and its flags.
+          PYTEST_ADDOPTS: --junitxml=${{ runner.temp }}/junit.xml
         run: |
           set -euo pipefail
           # Assigning the output (not $(...) inside the pytest command) makes a failing
@@ -201,6 +208,11 @@ jobs:
           files=()
           while IFS= read -r line; do files+=("$line"); done <<< "$listing"
           python -m pytest "${files[@]}" -q -n auto --dist worksteal
+      - name: Log this shard's seconds per test file
+        # Always, so a red shard still reports. These lines are the input for refreshing
+        # scripts/ci_shard_weights.txt (see scripts/ci_durations.py); the step cannot fail.
+        if: always()
+        run: python scripts/ci_durations.py "$RUNNER_TEMP/junit.xml"
 
   generator-speed:
     needs: changes

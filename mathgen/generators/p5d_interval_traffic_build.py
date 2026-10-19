@@ -355,8 +355,14 @@ def traffic_light_probability(rng, variant="both_green"):
         forgets_p2 = p1
         check(forgets_p2 != answer, f"both_green: forgets_p2 distractor equals answer")
 
-        candidates = [str(adds), str(forgets_p2)]
-        distractors = pick_distractors(answer_text, candidates)
+        # adds can exceed 1 (an impossible probability, eliminated at sight), so it is offered only when it
+        # is a real probability. The union (P(A or B)) and the other light alone are in-range stand-ins.
+        either_green = p1 + p2 - p1 * p2
+        candidates = [
+            str(v) for v in (adds, forgets_p2, either_green, p2, (1 - p1) * (1 - p2)) if 0 < v < 1 and v != answer
+        ]
+        distractors = pick_distractors(answer_text, candidates, n=2)
+        check(len(distractors) == 2, "both_green: need two in-range distractors")
 
     elif variant == "exactly_one":
         # Medium: P(exactly one green) = p1*(1-p2) + (1-p1)*p2

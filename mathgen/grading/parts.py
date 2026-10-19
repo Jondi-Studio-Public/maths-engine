@@ -371,8 +371,18 @@ def retarget(part, value):
     approx = value.evalf(15)
     if not approx.is_finite or abs(approx) > _LARGEST:
         return None  # no answer is this big, and writing it out exactly (exp of a huge reply) takes minutes
-    exact = Fraction(str(sympy.N(value, _DIGITS)))
     figures = requested_significant_figures(part.prompt) or _figure_count(part)
+    if figures is not None:
+        # N significant figures are stated whatever the size, so a value too small to write out has no answer, as
+        # one too big has none: erfc of a large reply is near 10**-200000000, and an exact Fraction of that takes
+        # minutes to build.
+        if approx != 0 and abs(approx) < 1 / _LARGEST:
+            return None
+        tiny = False
+    else:
+        # Under a hundredth of the part's last place the value states as zero, so its digits are never written out.
+        tiny = abs(approx) < sympy.Rational(1, 10 ** (places + 2))
+    exact = Fraction(0) if tiny else Fraction(str(sympy.N(value, _DIGITS)))
     if figures is not None and exact != 0:
         # A part that asks for N significant figures is stated to N, not to the places the canonical happens to
         # show: the same learner reply rounds differently from a different carried value.

@@ -15,7 +15,9 @@
 
 from __future__ import annotations
 
-from sympy import symbols, sin, cos, log, diff, integrate, pi, Rational, simplify
+from sympy import symbols, sin, cos, log, diff, pi, Rational, simplify
+
+from ..calc_cache import integrate
 
 from ..core import (
     check,

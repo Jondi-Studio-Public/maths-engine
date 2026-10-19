@@ -155,13 +155,30 @@ def p16a_relative_frequency_estimate(rng, variant="single"):
         raise ValueError(f"unknown variant {variant!r}")
 
     answer_text = rational_text(prob)
-    candidates = [rational_text(wrong_count), rational_text(wrong_denominator)]
     # An extra misconception shared by every tier: treats every category as
     # equally likely (1/number of categories), ignoring the data entirely.
     equal_likely = Fraction(1, len(labels))
-    candidates.append(rational_text(equal_likely))
+    if variant == "project_future":
+        # The graded value is a projected COUNT, not a probability, so the [0, 1] rule below does not apply.
+        candidates = [rational_text(wrong_count), rational_text(wrong_denominator), rational_text(equal_likely)]
+    else:
+        # The answer is a probability, so every option must be one: a count, or a ratio above 1, is
+        # eliminated at sight. In-range stand-ins follow the misconceptions: the complement (answers the
+        # opposite question) and the count nudged by one over the right total.
+        count_fav = prob * n_total
+        values = [
+            wrong_count,
+            wrong_denominator,
+            equal_likely,
+            1 - prob,
+            (count_fav - 1) / n_total,
+            (count_fav + 1) / n_total,
+        ]
+        candidates = [rational_text(v) for v in values if 0 < v < 1 and v != prob]
 
     distractors = pick_distractors(answer_text, candidates, n=3)
+    if variant != "project_future":
+        check(len(distractors) == 3, "need three in-range distractors")
     return dict(
         text=question_text,
         latex=question_text,

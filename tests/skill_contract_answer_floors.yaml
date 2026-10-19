@@ -1,0 +1,615 @@
+# Generated floor data, do not hand-edit: python scripts/build_contract_floors.py
+# skill: {topic/difficulty: distinct answers over the 60-seed sweep}. Tiers below the minimum
+# (12 for a typed exam tier, else 6), the backlog of tiers a learner can pass
+# by guessing; the answers check holds each at exactly its count, so a widened tier is recorded again,
+# and fails once it reaches the minimum (remove it). Counts may only rise and entries only go.
+angle-types:
+  classify_angle/easy: 5
+  classify_angle/medium: 4
+  classify_angle_protractor/hard: 3
+  classify_angle_protractor/medium: 3
+arithmetic-properties:
+  arithmetic_properties/easy: 4
+autonomous-equilibrium-stability:
+  autonomous_equilibrium_stability/easy: 2
+  autonomous_equilibrium_stability/hard: 2
+  autonomous_equilibrium_stability/medium: 2
+bisection-interval-update:
+  bisection_interval_update/easy: 3
+  bisection_interval_update/medium: 5
+build-sample-space:
+  r3j_sample_space/easy: 4
+classify-constant-coefficient-pde:
+  constant_coefficient_pde_classification/easy: 3
+  constant_coefficient_pde_classification/hard: 3
+  constant_coefficient_pde_classification/medium: 3
+classify-data:
+  classify_data/easy: 3
+  r3j_classify_variable/medium: 4
+classify-real-numbers:
+  classify_real_number/easy: 2
+compare-common-fractions:
+  compare_common_fractions/easy: 3
+  compare_common_fractions/medium: 3
+compare-functions-representations:
+  fg1_compare_functions/easy: 3
+  fg1_compare_functions/hard: 3
+  fg1_compare_functions/medium: 3
+compare-lengths:
+  compare_length_picture/hard: 5
+  compare_length_picture/medium: 5
+compare-linear-representations:
+  fg1_compare_linear/easy: 3
+  fg1_compare_linear/hard: 3
+  fg1_compare_linear/medium: 3
+compare-match-quantities-pictures:
+  ey2a_compare_match_quantities/medium: 4
+compare-quantities-to-10:
+  compare_quantities/easy: 3
+compare-tally-and-picture-displays:
+  ey_compare_displays/hard: 3
+compare-unit-prices:
+  p14b_compare_unit_prices/easy: 3
+  p14b_compare_unit_prices/hard: 4
+  p14b_compare_unit_prices/medium: 3
+complex-modulus:
+  complex_number/easy: 3
+connected-particles-pulleys-and-towing:
+  smech_connected_particles/easy: 5
+continue-patterns:
+  ey_pattern_match/hard: 3
+count-to-5:
+  count_objects/easy: 5
+critical-path-from-a-precedence-table:
+  w5b_precedence_table/easy: 4
+de-moivre-multiple-angle:
+  r3g_exam_multiple_angle/exam: 10
+define-variables:
+  define_variable/easy: 3
+ey-calendar-count-days:
+  ey_calendar_span/easy: 4
+  ey_calendar_span/medium: 3
+ey-calendar-days-between:
+  ey_calendar_between/easy: 5
+ey-compare-by-paper-clips:
+  compare_by_paper_clips/medium: 5
+ey-compare-capacity-by-cups:
+  compare_capacity_by_cups/easy: 4
+  compare_capacity_by_cups/medium: 4
+ey-count-steps-on-grid:
+  ey_count_steps/easy: 4
+  ey_count_steps/medium: 4
+ey-day-strip-sequence:
+  ey_day_strip/easy: 4
+  ey_day_strip/medium: 5
+f10-angle-turn-right-reference:
+  angle_turn_right_reference/easy: 4
+  angle_turn_right_reference/hard: 4
+f10-chance-language-and-outcomes:
+  chance_outcome_classify/easy: 2
+f10-clock-half-quarter-hour:
+  clock_half_quarter/hard: 4
+f10-compare-measurement-attributes:
+  compare_mass_capacity_picture/hard: 3
+f10-congruence-similarity-criteria:
+  f10c_congruence_criteria/easy: 5
+f10-data-display-selection:
+  f10a_data_display_selection/hard: 4
+f10-factor-multiple-divisibility-algorithm:
+  p9e_factor_multiple_divisibility_algorithm/hard: 5
+f10-factors-multiples-divisibility:
+  factors_multiples_divisibility/easy: 2
+  factors_multiples_divisibility/hard: 2
+  factors_multiples_divisibility/medium: 2
+f10-fraction-compare-models:
+  fraction_compare_models/easy: 3
+  fraction_compare_models/hard: 4
+  fraction_compare_models/medium: 2
+f10-fraction-equivalence-numberline:
+  p10e_fraction_equivalence_numberline/medium: 5
+f10-fraction-shaded-name:
+  fraction_shaded_name/easy: 5
+f10-fractions-half-quarter-eighth:
+  fraction_halving/easy: 2
+  fraction_halving/hard: 3
+  fraction_halving/medium: 2
+f10-model-plans-cube-counts:
+  grid_model_plans/hard: 5
+f10-money-compare-collections:
+  money_compare_collections/easy: 3
+  money_compare_collections/hard: 3
+  money_compare_collections/medium: 2
+f10-nets-build-solids:
+  fsp_nets/medium: 3
+  grid_nets_build_solids/easy: 4
+  grid_nets_build_solids/medium: 4
+f10-number-set-membership:
+  y910_classify_number_sets/easy: 4
+f10-odd-even-properties:
+  odd_even_properties/easy: 2
+  odd_even_properties/hard: 2
+  odd_even_properties/medium: 2
+f10-pattern-strip-repeating-unit:
+  ey_pattern_match/medium: 3
+  ey_pattern_unit/easy: 2
+f10-percentage-equivalence-comparison:
+  percentage_to_fraction/easy: 5
+f10-pick-the-matching-view:
+  fr2a_matching_view/easy: 4
+  fr2a_matching_view/hard: 4
+  fr2a_matching_view/medium: 4
+f10-plan-views-cube-stacks:
+  fsp_plan_views/hard: 3
+f10-polygon-classification:
+  p14b_polygon_classification/easy: 3
+  p14b_polygon_classification/exam: 4
+  p14b_polygon_classification/hard: 3
+  p14b_polygon_classification/medium: 4
+f10-powers-ten-multiply-divide:
+  powers_ten_multiply_divide/hard: 3
+f10-prime-composite-square-properties:
+  prime_composite_square_properties/easy: 2
+  prime_composite_square_properties/hard: 2
+  prime_composite_square_properties/medium: 2
+f10-prism-cross-sections:
+  prism_cross_sections/easy: 2
+  prism_cross_sections_forced/hard: 3
+  prism_cross_sections_forced/medium: 3
+f10-probability-scale-and-expectation:
+  probability_scale_estimate/easy: 5
+f10-quantify-compare-collections-to-20:
+  quantify_compare_to_20/easy: 2
+  quantify_compare_to_20/hard: 3
+  quantify_compare_to_20/medium: 3
+f10-sequence-days-times:
+  day_time_sequencing/easy: 1
+  day_time_sequencing/hard: 5
+  day_time_sequencing/medium: 4
+f10-shape-features-classification:
+  shape_features_classification/easy: 2
+  shape_features_classification/hard: 4
+  shape_features_classification/medium: 5
+f10-shape-sides-spatial-terms:
+  ey_shape_sides/easy: 4
+  ey_shape_sides/hard: 4
+  ey_shape_sides/medium: 4
+f10-shape-sorting-algorithm:
+  p15d_shape_sorting/easy: 3
+f10-solid-faces-edges-vertices:
+  fsp_solids/easy: 5
+  fsp_solids/hard: 5
+f10-sort-classify-familiar-shapes:
+  ey_shape_classify/easy: 4
+  ey_shape_classify/medium: 4
+f10-subitise-name-to-5:
+  subitise_to_5/easy: 5
+  subitise_to_5/hard: 3
+  subitise_to_5/medium: 5
+fair-sharing:
+  fair_sharing/easy: 5
+finite-sample-space-probability:
+  finite_sample_space_probability/easy: 4
+gradient-from-graph:
+  fg1_gradient_from_graph/easy: 2
+graph-adjacency-matrices:
+  snet_adjacency/medium: 4
+graph-eulerian-trails-circuits:
+  snet_eulerian/easy: 3
+  snet_eulerian/hard: 4
+graph-hamiltonian-paths-cycles:
+  snet_hamiltonian/easy: 3
+  snet_hamiltonian/medium: 5
+graph-planar-faces:
+  sr2a_planar_faces/easy: 4
+  sr2a_planar_faces_chain/exam: 4
+graph-walks-trails-paths-cycles:
+  snet_route_types/easy: 3
+limit-degree-comparison:
+  limits/easy: 3
+  limits/hard: 3
+  limits/medium: 3
+logarithm-laws:
+  logarithm_law/easy: 3
+matrix-rank-small:
+  matrix_rank_small/easy: 2
+  matrix_rank_small/hard: 3
+  matrix_rank_small/medium: 2
+name-basic-shapes:
+  ey_shape_recognise/easy: 4
+  ey_shape_recognise/medium: 4
+network-model-from-situation:
+  sr2a_network_model/hard: 3
+  sr2a_network_model_chain/exam: 10
+percentage-change:
+  percentage_change/easy: 4
+probability-representations:
+  probability_representation/easy: 5
+product-to-sum-evaluate-solve:
+  r3g_exam_product_sum/exam: 6
+proof-by-induction-inequality-or-recurrence:
+  r4f_induction_inequality/medium: 5
+propositional-formula-equivalence:
+  propositional_formula_equivalence/easy: 4
+  propositional_formula_equivalence/hard: 4
+  propositional_formula_equivalence/medium: 3
+propositional-truth-evaluation:
+  propositional_truth_value/easy: 2
+  propositional_truth_value/hard: 2
+  propositional_truth_value/medium: 2
+pythagorean-leg:
+  trigonometry/exam: 11
+residual-plot-linear-model-check:
+  smech_residual_plots/easy: 2
+  smech_residual_plots/medium: 3
+scatterplot-describe-association:
+  sr2a_scatter_assoc/hard: 4
+senior-ascertain-the-reasonableness-of-answers-to-arithmetic-calculations:
+  reasonableness_verdict/easy: 4
+  reasonableness_verdict/hard: 4
+  reasonableness_verdict/medium: 4
+senior-check-results-of-calculations-for-accuracy:
+  locate_calculation_error/easy: 4
+  locate_calculation_error/hard: 4
+  locate_calculation_error/medium: 4
+senior-compare-the-characteristics-of-the-shape-of-histograms:
+  p19b_histogram_shape/easy: 4
+  p19b_histogram_shape/hard: 4
+  p19b_histogram_shape/medium: 4
+senior-convert-between-units-for-rates-for-example-km:
+  convert_units_for_rates/hard: 4
+senior-define-logarithms-as-indices-a-x-b-is:
+  logarithms_as_indices/easy: 3
+  logarithms_as_indices/hard: 3
+senior-define-the-derivative-f-left-x-right-as:
+  define_the_derivative_f_left_x_right_as/easy: 5
+senior-define-the-imaginary-number-i-as-a-root:
+  imaginary_number_i_root/hard: 4
+  imaginary_number_i_root/medium: 4
+senior-define-the-natural-logarithm-ln-x-log-ex:
+  natural_logarithm_define/easy: 4
+senior-define-the-reciprocal-trigonometric-functions:
+  salg_exam_reciprocal_trig_values/exam: 9
+senior-describe-spread-from-a-dot-plot:
+  ey_dot_plot_spread/easy: 2
+  ey_dot_plot_spread/medium: 4
+senior-determine-the-coordinates-of-the-midpoint-of-two:
+  midpoint_coordinate_scalar/easy: 5
+senior-distinguish-between-causality-and-correlation-through-examples:
+  causality_correlation_classify/easy: 1
+  causality_correlation_classify/hard: 2
+  causality_correlation_classify/medium: 1
+senior-distinguish-between-interpolation-and-extrapolation-when-using-the:
+  interpolation_extrapolation_classify/easy: 2
+  interpolation_extrapolation_classify/hard: 2
+  interpolation_extrapolation_classify/medium: 1
+senior-eview-metric-units-of-mass-and-weight-their:
+  review_metric_units_of_mass/easy: 4
+senior-examine-dilations-and-the-graphs-of-y-cf:
+  pv1c_dilation_factor/easy: 5
+senior-examine-examples-of-quadratically-related-variables:
+  p7d_examine_quadratic_variation/hard: 4
+senior-examine-period-changes-and-the-graphs-of-y:
+  pv1c_period/exam: 6
+senior-examine-slope-direction-or-gradient-fields-of-a:
+  p13b_slope_field_examine/hard: 4
+senior-examine-the-approximate-normality-of-the-distribution-of:
+  exd_x_s3_normality/exam: 4
+  p8c_normality_approx_phat/easy: 4
+  p8c_normality_approx_phat/hard: 2
+  p8c_normality_approx_phat/medium: 4
+senior-examine-the-relationship-between-the-angle-of-inclination:
+  angle_of_inclination_gradient/easy: 3
+  angle_of_inclination_gradient/hard: 2
+  exd_x_f5_incl/exam: 8
+senior-examine-the-relationship-between-the-graph-of-y:
+  pv1e_reciprocal_zeros/exam: 11
+senior-examine-the-three-cases-for-solutions-of-systems:
+  pv0b_system_cases/easy: 3
+  pv0b_system_cases/hard: 3
+  pv0b_system_cases/medium: 3
+senior-find-and-use-the-derivative-of-the-inverse:
+  find_and_use_the_derivative_of_the_inverse/easy: 3
+senior-find-and-use-the-inverse-trigonometric-functions-arcsine:
+  find_and_use_the_inverse_trigonometric_functions_arcsine/easy: 5
+senior-find-turning-points-and-zeros-of-quadratics-and:
+  p19e_discriminant_zero_count/exam: 5
+senior-graph-dilation-read-factor:
+  ey_graph_dilation/easy: 3
+  ey_graph_dilation/medium: 3
+senior-graph-reciprocal-abs-compare:
+  ey_graph_reciprocal_abs/easy: 2
+  ey_graph_reciprocal_abs/medium: 3
+senior-identify-common-usage-of-rates-for-example-km:
+  p19h_rate_usage_classification/easy: 5
+  p19h_rate_usage_classification/exam: 5
+  p19h_rate_usage_classification/hard: 5
+  p19h_rate_usage_classification/medium: 5
+senior-identify-contexts-such-as-naturally-occurring-variation-that:
+  p19d_variation_context/easy: 5
+  p19d_variation_context/medium: 5
+senior-identify-contexts-suitable-for-modelling-by-bernoulli-random:
+  p19c_bernoulli_suitability/easy: 4
+  p19c_bernoulli_suitability/hard: 4
+  p19c_bernoulli_suitability/medium: 4
+senior-identify-contexts-suitable-for-modelling-by-binomial-random:
+  p19c_binomial_suitability/easy: 5
+  p19c_binomial_suitability/hard: 5
+  p19c_binomial_suitability/medium: 5
+senior-identify-possible-non-causal-explanations-for-an-association:
+  p19b_noncausal_explanation/easy: 3
+  p19b_noncausal_explanation/exam: 3
+  p19b_noncausal_explanation/hard: 3
+  p19b_noncausal_explanation/medium: 3
+senior-identify-the-appropriate-units-for-different-activities-such:
+  p19h_appropriate_activity_unit/easy: 4
+  p19h_appropriate_activity_unit/exam: 4
+  p19h_appropriate_activity_unit/hard: 4
+  p19h_appropriate_activity_unit/medium: 4
+senior-integrate-expressions-of-the-form-frac-pm1-sqrt:
+  integrate_expressions_of_the_form_frac_pm1_sqrt/hard: 3
+  integrate_expressions_of_the_form_frac_pm1_sqrt/medium: 3
+senior-interpret-commonly-used-probability-statements-including-possible-probable:
+  p19c_probability_language_classify/easy: 4
+  p19c_probability_language_classify/hard: 4
+  p19c_probability_language_classify/medium: 4
+senior-interpret-commonly-used-symbols-and-abbreviations-in-scale:
+  grid_plan_symbols/hard: 4
+senior-interpret-different-forms-of-two-dimensional-representations-of:
+  grid_net_views/medium: 4
+senior-investigate-the-effect-of-the-interest-rate-and:
+  p12b_loan_term_from_repayment/easy: 5
+  p12b_loan_term_from_repayment/hard: 4
+senior-latitude-longitude-grid-places:
+  grid_latlong_places/hard: 4
+  grid_latlong_places/medium: 4
+senior-position-time-tangent-velocity:
+  ey_position_tangent/easy: 3
+  ey_position_tangent/hard: 4
+  ey_position_tangent/medium: 3
+senior-recognise-features-of-the-graph-of-the-general:
+  pv1d_quadratic_root_count/easy: 3
+  pv1d_quadratic_root_count/exam: 3
+  pv1d_quadratic_root_count/hard: 3
+  pv1d_quadratic_root_count/medium: 3
+senior-recognise-features-of-the-graph-of-y-2:
+  pv1d_parabola_axis_y/exam: 10
+senior-recognise-features-of-the-graph-of-y-mx:
+  pv1a_gradient_sign/easy: 3
+  pv1a_gradient_sign/exam: 3
+  pv1a_gradient_sign/hard: 3
+  pv1a_gradient_sign/medium: 3
+senior-recognise-features-of-the-graphs-of-y-x:
+  pv1d_parabola_axis_x/exam: 10
+senior-recognise-features-of-the-graphs-of-y-x-acmmm014:
+  pv1e_power_end_behaviour/easy: 3
+  pv1e_power_end_behaviour/exam: 3
+  pv1e_power_end_behaviour/hard: 3
+  pv1e_power_end_behaviour/medium: 3
+senior-recognise-that-a-sequence-generated-by-a-first:
+  p19e_recurrence_long_term_class/easy: 3
+  p19e_recurrence_long_term_class/hard: 3
+  p19e_recurrence_long_term_class/medium: 3
+senior-recognise-the-distinction-between-functions-and-relations-and:
+  p19e_function_or_relation/easy: 4
+  p19e_function_or_relation/exam: 4
+  p19e_function_or_relation/hard: 4
+  p19e_function_or_relation/medium: 4
+senior-recognise-the-exact-values-of-cos-theta-sin:
+  p19g_exact_trig_value/easy: 5
+senior-recognise-the-graphs-of-y-sin-x-y:
+  pv1f_trig_graph_id/easy: 3
+  pv1f_trig_graph_id/exam: 3
+  pv1f_trig_graph_id/hard: 3
+  pv1f_trig_graph_id/medium: 3
+senior-recognise-the-need-for-milligrams:
+  p19h_need_for_milligrams/easy: 4
+  p19h_need_for_milligrams/hard: 4
+  p19h_need_for_milligrams/medium: 4
+senior-recognise-the-properties-of-common-two-dimensional-geometric:
+  grid_solid_properties/easy: 4
+senior-review-probability-as-a-measure-of-the-likelihood:
+  exd_x_s3_likelihood/exam: 3
+  probability_likelihood_compare/easy: 2
+  probability_likelihood_compare/hard: 2
+  probability_likelihood_compare/medium: 3
+senior-review-the-concepts-and-language-of-outcomes-sample:
+  outcomes_sample_classify/easy: 2
+  outcomes_sample_classify/hard: 3
+  outcomes_sample_classify/medium: 1
+senior-review-the-conditions-for-similarity-of-two-dimensional:
+  similarity_conditions_classify/easy: 2
+  similarity_conditions_classify/hard: 2
+  similarity_conditions_classify/medium: 2
+senior-review-the-probability-scale-0-leq-p-a:
+  probability_scale_classify/easy: 3
+  probability_scale_classify/hard: 3
+  probability_scale_classify/medium: 3
+senior-simulated-samples-variability:
+  ey_sample_variability/easy: 2
+  ey_sample_variability/hard: 4
+  ey_sample_variability/medium: 2
+senior-solve-problems-involving-time-zones-in-australia-and:
+  australia_timezone_conversion/easy: 3
+  australia_timezone_conversion/medium: 5
+senior-solve-problems-relating-to-travelling-east-and-west:
+  travel_east_west_zone_difference/easy: 2
+  travel_east_west_zone_difference/medium: 4
+senior-suitable-converses-of-some-of-the-above-results:
+  circle_theorem_converses_classify/easy: 2
+  circle_theorem_converses_classify/hard: 2
+  circle_theorem_converses_classify/medium: 3
+senior-understand-the-limiting-behaviour-as-n-rightarrow-infty:
+  p19e_geometric_limit_class/easy: 3
+  p19e_geometric_limit_class/exam: 3
+  p19e_geometric_limit_class/hard: 3
+  p19e_geometric_limit_class/medium: 3
+senior-understand-the-unit-circle-definition-of-cos-theta:
+  p19g_unit_circle_coordinates/easy: 5
+senior-use-ests-and-lsts-to-locate-the-critical:
+  p10c_critical_path_locate/easy: 2
+  p10c_critical_path_locate/hard: 2
+  p10c_critical_path_locate/medium: 2
+senior-use-examples-and-counter-examples:
+  counterexample_identify/easy: 2
+  counterexample_identify/medium: 2
+senior-use-forward-and-backward-scanning-to-determine-the:
+  exd_x_g6_missing_duration/exam: 11
+senior-use-implication-converse-equivalence-negation-contrapositive:
+  implication_transform_identify/hard: 2
+  implication_transform_identify/medium: 3
+senior-use-pascal-s-triangle-and-its-properties:
+  pascals_triangle_properties/easy: 5
+senior-use-radicals-and-convert-to-and-from-fractional:
+  radicals_fractional_indices/easy: 5
+senior-use-the-formula-t-n-r-n-1:
+  geometric_nth_term_formula/hard: 4
+  geometric_nth_term_formula/medium: 4
+senior-use-the-quantifiers-for-all-and-there-exists:
+  quantifier_forall_exists_evaluate/easy: 2
+  quantifier_forall_exists_evaluate/hard: 3
+  quantifier_forall_exists_evaluate/medium: 2
+senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow:
+  implication_equivalence_symbol_classify/easy: 2
+  implication_equivalence_symbol_classify/hard: 4
+  implication_equivalence_symbol_classify/medium: 2
+senior-y-tan-x-c-and-the-relationships-sin:
+  tan_shift_complementary_identity/medium: 4
+simple-harmonic-angular-frequency:
+  simple_harmonic_angular_frequency/easy: 3
+uc2-burnside-counting:
+  exd_x_r4a_burnside_counting/exam: 10
+uc2-chromatic-polynomial-bipartite-hall:
+  r3l_chromatic_polynomial_hall/medium: 5
+uc2-cramer-rao-lower-bound:
+  exd_x_r4i_cramer_rao/exam: 7
+uc2-diagonalisability-test:
+  s2b2_diagonalisability_test/easy: 2
+uc2-gamma-beta-moments:
+  exd_x_r4i_gamma_beta/exam: 10
+uc2-irreducibility-test-over-zp:
+  exd_x_r4c_irreducibility_test_over_zp/exam: 11
+  r4c_irreducibility_test_over_zp/easy: 5
+uc2-kernel-and-image:
+  s2b1_kernel_and_image/easy: 5
+  s2b1_kernel_and_image/medium: 4
+uc2-mle-method-of-moments:
+  r3k_mle/medium: 5
+uc2-normal-subgroup-test:
+  r4c_normal_subgroup_test/hard: 4
+  r4c_normal_subgroup_test/medium: 4
+uc2-ode-method-order-and-stability:
+  r4h_ode_method_order_stability/hard: 4
+uc2-permutation-sign-and-order:
+  r4a_permutation_sign_and_order/medium: 4
+uc2-subgroup-lattice-count:
+  r4c_subgroup_lattice_count/easy: 4
+uc2-subspace-test:
+  s2b1_subspace_test/easy: 4
+  s2b1_subspace_test/medium: 5
+uc2-transformation-of-random-variable:
+  exd_x_r3k_transformation/exam: 10
+ucv1-arc-length:
+  fy1ca_arc_length_exam/exam: 8
+ucv1-column-space-basis-dimension:
+  fy1la_column_space/hard: 3
+  fy1la_column_space/medium: 2
+ucv1-compactness-finite-check:
+  p15b_compactness_subcover_check/easy: 4
+  p15b_compactness_subcover_check/hard: 4
+  p15b_compactness_subcover_check/medium: 4
+ucv1-completeness-cauchy-check:
+  p15b_completeness_cauchy_check/easy: 5
+  p15b_completeness_cauchy_check/hard: 5
+  p15b_completeness_cauchy_check/medium: 5
+ucv1-convexity-hessian-sign:
+  p14d_convexity_hessian_sign/easy: 3
+  p14d_convexity_hessian_sign/hard: 3
+  p14d_convexity_hessian_sign/medium: 3
+ucv1-cr-equations-check:
+  p15e_cr_equations_check/easy: 4
+  p15e_cr_equations_check/hard: 4
+  p15e_cr_equations_check/medium: 4
+ucv1-definition-quantifier-check:
+  p15a_definition_quantifier_check/easy: 4
+  p15a_definition_quantifier_check/hard: 4
+  p15a_definition_quantifier_check/medium: 4
+ucv1-dominated-convergence-check:
+  p15d_dominated_convergence/easy: 3
+  p15d_dominated_convergence/hard: 3
+  p15d_dominated_convergence/medium: 3
+ucv1-equivalence-relations-classes:
+  ucv1_equivalence_relations/easy: 4
+  ucv1_equivalence_relations/medium: 5
+ucv1-field-extension-degree:
+  p17a_field_extension_degree/easy: 3
+  p17a_field_extension_degree/hard: 3
+  p17a_field_extension_degree/medium: 3
+ucv1-finite-subgroup-test:
+  p15a_finite_subgroup_test/easy: 3
+  p15a_finite_subgroup_test/hard: 3
+  p15a_finite_subgroup_test/medium: 3
+ucv1-formal-derivation-check:
+  p15d_formal_derivation_check/easy: 4
+  p15d_formal_derivation_check/medium: 5
+ucv1-ideal-membership:
+  p15a_ideal_membership/easy: 4
+  p15a_ideal_membership/hard: 4
+  p15a_ideal_membership/medium: 4
+ucv1-isomorphism-invariant:
+  p15a_isomorphism_invariant/easy: 3
+  p15a_isomorphism_invariant/hard: 3
+  p15a_isomorphism_invariant/medium: 3
+ucv1-ivt-bisection:
+  fy1ca_ivt_bisection/easy: 5
+ucv1-linear-oscillator-classification:
+  p14f_linear_oscillator_classification/easy: 3
+  p14f_linear_oscillator_classification/hard: 3
+  p14f_linear_oscillator_classification/medium: 3
+ucv1-metric-axiom-check:
+  p15b_metric_axiom_check/easy: 4
+  p15b_metric_axiom_check/hard: 4
+  p15b_metric_axiom_check/medium: 4
+ucv1-null-space:
+  ucv1_null_space/easy: 3
+  ucv1_null_space/medium: 3
+ucv1-optimality-sensitivity:
+  p17a_optimality_sensitivity/easy: 4
+  p17a_optimality_sensitivity/hard: 4
+  p17a_optimality_sensitivity/medium: 4
+ucv1-phase-plane-linear-classification:
+  p14f_phase_plane_linear_classification/easy: 3
+  p14f_phase_plane_linear_classification/medium: 3
+ucv1-regression-residual-diagnostic:
+  p14e_residual_diagnostic/easy: 3
+  p14e_residual_diagnostic/hard: 3
+  p14e_residual_diagnostic/medium: 3
+ucv1-sigma-algebra-closure:
+  p15c_sigma_algebra_closure/easy: 4
+  p15c_sigma_algebra_closure/hard: 4
+  p15c_sigma_algebra_closure/medium: 4
+ucv1-simplex-homology:
+  p15b_simplex_homology/easy: 3
+  p15b_simplex_homology/hard: 3
+  p15b_simplex_homology/medium: 3
+ucv1-structure-classification:
+  p15a_structure_classification/easy: 4
+  p15a_structure_classification/hard: 4
+  p15a_structure_classification/medium: 4
+ucv1-symmetry-conservation:
+  p15c_symmetry_conservation/easy: 4
+  p15c_symmetry_conservation/hard: 3
+  p15c_symmetry_conservation/medium: 3
+ucv1-syntactic-semantic-separation:
+  p15b_syntactic_semantic_separation/easy: 4
+  p15b_syntactic_semantic_separation/hard: 4
+  p15b_syntactic_semantic_separation/medium: 4
+ucv1-three-set-inclusion-exclusion-derangements:
+  u2_three_set_ie/easy: 5
+ucv1-topology-basis-membership:
+  p15c_topology_basis_membership/easy: 4
+  p15c_topology_basis_membership/hard: 4
+  p15c_topology_basis_membership/medium: 4
+variable-concept:
+  variable_concept/easy: 3
+wave-frequency-from-speed-wavelength:
+  wave_frequency_from_speed_wavelength/easy: 4

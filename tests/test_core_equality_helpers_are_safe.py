@@ -281,7 +281,9 @@ _REVIEWED = {
     ("core.py", "_sympify", "sympify"): "a value that is not text",
     # the functions that `sympify` what they are given, each called on SymPy objects that came out of the
     # restricted parser (a text argument to any of them would run as Python)
-    ("core.py", "symbolically_equal", "simplify"): "the difference of two values read by `_sympify`",
+    ("core.py", "_compare_sympified", "simplify"): "the difference of two values read by `_sympify`",
+    ("core.py", "_cheap_proof_of_equal", "expand"): "the difference of two values read by `_sympify`",
+    ("core.py", "_cheap_proof_of_equal", "cancel"): "the difference of two values read by `_sympify`",
     ("grading/spoken.py", "_check_one", "simplify"): "a spoken reading less a `sympify_safely` value",
     # the step-chain grader canonicalises SymPy objects that `parse_expression_safely` returned; neither call is given text
     ("grading/chain.py", "_tree", "expand"): "the argument of an Abs node of a tree from `parse_expression_safely`",

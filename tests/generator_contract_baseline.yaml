@@ -1064,7 +1064,6 @@ unwired:
   exd_x_complex_nth_root: no skill source uses it at any tier
   exd_x_complex_point: no skill source uses it at any tier
   exd_x_complex_real_part: no skill source uses it at any tier
-  exd_x_f5_trigquad: superseded by exd_x_w5_trig_all_solutions when the skill became a list-answer skill
   exd_x_g1_unit_vectors: no skill source uses it at any tier
   exd_x_g1_vector_dot_product: no skill source uses it at any tier
   exd_x_g2_parallel_perp_condition: no skill source uses it at any tier
@@ -1164,7 +1163,6 @@ answer_space:
   exd_x_f4_pythag: [43, 48]
   exd_x_f5_incl: [6, 64]
   exd_x_f5_tanasym: [20, 62]
-  exd_x_f5_trigquad: [16, 69]
   exd_x_f5_unitcircle: [22, 22]
   exd_x_fc_probability_tree: [52, 15]
   exd_x_fr2b_expanded_notation: [37, 18]

@@ -9,6 +9,7 @@ table)."""
 import math
 import re
 from fractions import Fraction
+from functools import cache
 
 from sympy import Symbol, symbols, expand, latex, Rational, solve, Eq, Poly, pi, simplify, sympify, together
 
@@ -1310,12 +1311,15 @@ def _rearrange_formula(entry):
     )
 
 
-_REARRANGE_FORMULAS = [_rearrange_formula(e) for e in _REARRANGE_BANK]
-_REARRANGE_HARD = [_rearrange_formula(e) for e in _REARRANGE_HARD_BANK]
-# One (formula, target) pair per row, so a seed draws uniformly over every question the tier can ask.
-_REARRANGE_EASY = [(f, t) for f in _REARRANGE_FORMULAS for t, n in f["steps"].items() if n == 1]
-_REARRANGE_MEDIUM = [(f, t) for f in _REARRANGE_FORMULAS for t, n in f["steps"].items() if n == 2]
-_REARRANGE_HARD_POOL = [(f, t) for f in _REARRANGE_HARD for t in f["steps"]]
+@cache
+def _rearrange_pools():
+    formulas = [_rearrange_formula(e) for e in _REARRANGE_BANK]
+    hard = [_rearrange_formula(e) for e in _REARRANGE_HARD_BANK]
+    # One (formula, target) pair per row, so a seed draws uniformly over every question the tier can ask.
+    easy = [(f, t) for f in formulas for t, n in f["steps"].items() if n == 1]
+    medium = [(f, t) for f in formulas for t, n in f["steps"].items() if n == 2]
+    hard_pool = [(f, t) for f in hard for t in f["steps"]]
+    return easy, medium, hard_pool
 
 
 _REARRANGE_SOLVED: dict = {}
@@ -1356,9 +1360,9 @@ def _rearrange_solved(text, target_name, lhs, rhs, target):
 )
 def rearrange(rng, n_steps=1, hard=False):
     if hard:
-        formula, target_name = rng.choice(_REARRANGE_HARD_POOL)
+        formula, target_name = rng.choice(_rearrange_pools()[2])
     else:
-        formula, target_name = rng.choice(_REARRANGE_EASY if n_steps == 1 else _REARRANGE_MEDIUM)
+        formula, target_name = rng.choice(_rearrange_pools()[0] if n_steps == 1 else _rearrange_pools()[1])
     target = formula["symbols"][target_name]
     lhs, rhs = formula["lhs"], formula["rhs"]
     ans_expr, ans_str, ans_latex, cands = _rearrange_solved(formula["text"], target_name, lhs, rhs, target)
