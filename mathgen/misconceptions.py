@@ -52693,6 +52693,311 @@ _ENTRIES = (
         "Uses the quadrant pattern of a different trigonometric function.",
         area="trig-equations",
     ),
+    CatalogueEntry(
+        "w5e-equals-means-answer-next",
+        "Reads the equals sign as 'the answer comes next', so accepts a sentence whose right side starts with the answer to the left side.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-sides-not-compared",
+        "Does not work out and compare the value of both sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-equals-needs-single-number",
+        "Believes the equals sign must be followed by a single number.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-wrong-side-value",
+        "Makes an error in working out the value of one side of the sentence.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-compares-form",
+        "Judges whether the sides are equal by the numbers or signs written rather than by their values.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-adds-all-numbers",
+        "Adds every number in the sentence to get the missing number.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-copies-a-number",
+        "Copies a number from the sentence instead of balancing the two sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-off-by-one",
+        "Is one out when balancing the two sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-adds-instead-of-multiplies",
+        "Adds the numbers where the sentence multiplies them.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-changes-one-side-only",
+        "Changes only one side of a true sentence and still expects it to balance.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-opposite-changes",
+        "Adds to one side and subtracts from the other, expecting them to stay equal.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-unequal-changes",
+        "Changes the two sides by different amounts and expects them to stay equal.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5i-same-operation",
+        "Uses the same operation again instead of the inverse operation.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-mixes-operation-pairs",
+        "Pairs an operation with one that is not its inverse, such as adding with multiplying.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-wrong-amount",
+        "Chooses the inverse operation but uses the wrong number.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-reverses-the-numbers",
+        "Writes the inverse calculation with the two numbers the wrong way round.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-wrong-order",
+        "Undoes the steps in the order they were done instead of the reverse order.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-stops-after-one-step",
+        "Undoes only one of the steps of a two-step rule.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-rsub-treated-as-sub",
+        "Treats 'subtract it from a number' as 'subtract a number from it' when undoing it.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-undoes-itself",
+        "Believes that adding, subtracting, multiplying or dividing by a number undoes itself.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5s-takes-the-constant",
+        "Gives the number on the right-hand side of the equation as the solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-forgets-to-divide",
+        "Undoes the added or subtracted number but forgets to divide by the coefficient.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sign-slip",
+        "Makes a sign error when undoing a number or reading a bracket, and gets the opposite value.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-off-by-one",
+        "Gives a value one away from the solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-expression-value-not-checked",
+        "Does not work out the value of the left side, so accepts an equation whose sides differ.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-solution-copied-from-equation",
+        "Treats a number that appears in the equation as its solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-adds-the-coefficients",
+        "Adds the coefficients of n from the two sides instead of subtracting them.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-negative",
+        "Gives only the positive solution of an equation that also has a negative solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-positive",
+        "Gives only the negative solution of an equation that also has a positive solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-gives-the-number-not-the-root",
+        "Gives the number on the right-hand side, or its square, instead of the values of x that satisfy the equation.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-zero",
+        "Leaves out zero, which is also a solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-other-root",
+        "Gives one solution of an equation that has two.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-ignores-the-stated-set",
+        "Ignores the set of numbers the question allows and includes solutions outside it.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sum-and-product-as-roots",
+        "Uses the sum and the product of the solutions as if they were the solutions.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-repeats-one-root",
+        "Builds an equation from one solution used twice.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sum-of-constants",
+        "Adds the constants of the two sides instead of evaluating one side.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5n-cancelling-means-no-solution",
+        "Believes that when the x terms cancel or the equation looks true there is no solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-cancelling-means-every-number",
+        "Believes that when the x terms cancel every number is a solution, even if the numbers left over are not equal.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-zero-equals-zero-is-x-zero",
+        "Reads a true statement such as 6 = 6 as meaning x = 0.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-constant-as-solution",
+        "Gives one of the numbers in the equation as the solution when the x terms have cancelled.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-difference-as-solution",
+        "Subtracts the constants and gives the difference as the solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-sign-slip",
+        "Makes a sign error and gives the opposite of the solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-forgets-to-divide",
+        "Moves the terms across but does not divide by the coefficient of x.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-off-by-one",
+        "Gives a value one away from the correct value.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-adds-instead-of-multiplies",
+        "Adds the bracket's number and the multiplier instead of multiplying them.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5k-wrong-verdict",
+        "Works out both sides correctly but draws the wrong conclusion about whether the value is a solution.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-joins-digits",
+        "Writes the coefficient and the substituted value side by side as one number, so 3x with x = 4 becomes 34.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-ignores-coefficient",
+        "Replaces the term in x by the value of x alone and leaves out the coefficient.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-negative-sign-dropped",
+        "Drops the minus sign of a negative value when substituting it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-moves-the-constant-wrongly",
+        "Adds the constant to the right side when checking, instead of comparing the sides as they are.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-adds-instead-of-multiplies",
+        "Adds the coefficient and the value of x instead of multiplying them.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-multiplies-the-constant",
+        "Multiplies by the constant term instead of adding or subtracting it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-substitutes-the-answer",
+        "Substitutes the number on the right-hand side for x instead of the proposed value.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-brackets-the-constant",
+        "Groups the constant term with x as if it were inside a bracket.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-brackets-ignored",
+        "Multiplies only the first term of a bracket by the number outside it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-sign-slip-on-constant",
+        "Changes the sign of the constant term when substituting.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-trusts-the-working",
+        "Accepts a worked value without recalculating it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-off-by-one",
+        "Is one or a few away from the correct value of a side.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-copies-the-left-side",
+        "Gives the value of the left side as the value of the right side.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-checks-one-side",
+        "Works out one side only and does not compare it with the other.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-takes-the-constant",
+        "Gives a number from the equation as the solution without checking it.",
+        area="check-solution-by-substitution",
+    ),
 )
 
 #: Every entry, by id.

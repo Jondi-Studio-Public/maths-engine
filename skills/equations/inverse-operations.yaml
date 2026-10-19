@@ -1,37 +1,78 @@
 id: inverse-operations
 name: Use inverse operations
 domain: equations
-description: Identify and use inverse operation pairs to undo operations while preserving equality.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '7'
+- '8'
+description: Identify the inverse of an operation and use inverse operations, in the reverse order, to undo a one-step or
+  two-step rule and recover the starting number.
+status: active
+placement_eligible: false
 prerequisites:
 - meaning-of-equality
 - arithmetic-properties
 answer: mcq
 sources:
-- topic: linear_equation
+- topic: w5_inverse_operations
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: linear_equation
+- topic: w5_inverse_operations
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: linear_equation
+- topic: w5_inverse_operations
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_inverse_operations
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Using the same operation rather than its inverse
-- id: misconception-2
-  description: Undoing operations in an arbitrary order
-tags: []
+- id: w5i-same-operation
+  description: Uses the same operation again instead of the inverse operation.
+- id: w5i-mixes-operation-pairs
+  description: Pairs an operation with one that is not its inverse, such as adding with multiplying.
+- id: w5i-wrong-amount
+  description: Chooses the inverse operation but uses the wrong number.
+- id: w5i-reverses-the-numbers
+  description: Writes the inverse calculation with the two numbers the wrong way round.
+- id: w5i-wrong-order
+  description: Undoes the steps in the order they were done instead of the reverse order.
+- id: w5i-stops-after-one-step
+  description: Undoes only one of the steps of a two-step rule.
+- id: w5i-rsub-treated-as-sub
+  description: Treats 'subtract it from a number' as 'subtract a number from it' when undoing it.
+- id: w5i-undoes-itself
+  description: Believes that adding, subtracting, multiplying or dividing by a number undoes itself.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Name the operation that undoes adding, subtracting, multiplying or dividing by a number, and use it to find
+      an unknown number.
+  medium:
+    steps: 3
+    demand: Undo a two-step machine by reversing the order of the steps and inverting each one.
+  hard:
+    steps: 5
+    demand: Undo a machine that includes 'subtract the number from a constant', which is its own inverse, and recognise
+      which rules undo themselves.
+  exam:
+    steps: 6
+    demand: Chain the steps that undo a machine, the input for one output and the input for another output.
+tags:
+- inverse-operations
+- equations
+- nsw-stage-4
+- algebra

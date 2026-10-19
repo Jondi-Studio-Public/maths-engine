@@ -1,37 +1,96 @@
 id: solution-and-solution-set
 name: Understand equation solutions
 domain: equations
-description: Determine whether a value makes an equation true and understand a solution set.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '7'
+- '8'
+description: Decide whether a value makes an equation true, choose the equation a value solves, and list the solution set
+  of an equation over a stated set of numbers.
+status: active
+placement_eligible: false
 prerequisites:
 - meaning-of-equality
 - apply-a-rule-to-inputs
 answer: mcq
 sources:
-- topic: linear_equation
+- topic: w5_solution_set
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: linear_equation
+- topic: w5_solution_set
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: linear_equation
+- topic: w5_solution_set
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_solution_set
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Treating any computed value as a solution
-- id: misconception-2
-  description: Confusing an expression value with an equation solution
-tags: []
+- id: w5s-takes-the-constant
+  description: Gives the number on the right-hand side of the equation as the solution.
+- id: w5s-forgets-to-divide
+  description: Undoes the added or subtracted number but forgets to divide by the coefficient.
+- id: w5s-sign-slip
+  description: Makes a sign error when undoing a number or reading a bracket, and gets the opposite value.
+- id: w5s-off-by-one
+  description: Gives a value one away from the solution.
+- id: w5s-expression-value-not-checked
+  description: Does not work out the value of the left side, so accepts an equation whose sides differ.
+- id: w5s-solution-copied-from-equation
+  description: Treats a number that appears in the equation as its solution.
+- id: w5s-adds-the-coefficients
+  description: Adds the coefficients of n from the two sides instead of subtracting them.
+- id: w5s-misses-the-negative
+  description: Gives only the positive solution of an equation that also has a negative solution.
+- id: w5s-misses-the-positive
+  description: Gives only the negative solution of an equation that also has a positive solution.
+- id: w5s-gives-the-number-not-the-root
+  description: Gives the number on the right-hand side, or its square, instead of the values of x that satisfy the equation.
+- id: w5s-misses-zero
+  description: Leaves out zero, which is also a solution.
+- id: w5s-misses-the-other-root
+  description: Gives one solution of an equation that has two.
+- id: w5s-ignores-the-stated-set
+  description: Ignores the set of numbers the question allows and includes solutions outside it.
+- id: w5s-sum-and-product-as-roots
+  description: Uses the sum and the product of the solutions as if they were the solutions.
+- id: w5s-repeats-one-root
+  description: Builds an equation from one solution used twice.
+- id: w5s-sum-of-constants
+  description: Adds the constants of the two sides instead of evaluating one side.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Substitute values into an equation and recognise which one makes both sides equal, or which equation a given
+      value solves.
+  medium:
+    steps: 3
+    demand: Find the solution of an equation with n on both sides, or the solution set of a quadratic equation over the
+      integers.
+  hard:
+    steps: 5
+    demand: 'Reason about solution sets: which equation has exactly two given solutions, and how the stated set of allowed
+      numbers changes the solution set.'
+  exam:
+    steps: 6
+    demand: Chain the solution of an equation, the value of each side at the solution and an equation with the same solution.
+tags:
+- solutions
+- solution-set
+- equations
+- nsw-stage-4
+- algebra
