@@ -106,6 +106,11 @@ def _signed_term(re, im, var: str = "") -> str:
     return f" {sign} {body}{var}"
 
 
+def _bi(b) -> str:
+    """The imaginary part's size followed by i, leaving out a coefficient of 1: ``i``, ``3i``."""
+    return "i" if b == 1 else f"{b}i"
+
+
 def _lit(re, im):
     """A complex number written in a stem, in brackets: (3 + 4i)."""
     return f"({cx_text(re, im)})"
@@ -373,7 +378,7 @@ def exd_x_u2_complex_equations(rng, tier="exam"):
     ft_b = f"(part_a*{c} + {b * d})/{den} + I*({b * c} - part_a*{d})/{den}".replace("+ -", "- ")
     ft_c = f"{u}*part_a/{a_ + b_} + I*({v} + part_a)/{a_ - b_}"
     return dict(
-        text=f"Let k be a real number and let w = (k {'+' if b > 0 else '-'} {abs(b)}i) ÷ {_lit(c, d)}.",
+        text=f"Let k be a real number and let w = (k {'+' if b > 0 else '-'} {_bi(abs(b))}) ÷ {_lit(c, d)}.",
         parts=[
             dict(
                 prompt="Find the value of k for which the real part of w equals its imaginary part.",
@@ -382,7 +387,7 @@ def exd_x_u2_complex_equations(rng, tier="exam"):
                 answer_text=str(k),
                 marks=3,
                 working=[
-                    f"Multiplying by the conjugate: w = ((k {'+' if b > 0 else '-'} {abs(b)}i){_lit(c, -d)})/{den}.",
+                    f"Multiplying by the conjugate: w = ((k {'+' if b > 0 else '-'} {_bi(abs(b))}){_lit(c, -d)})/{den}.",
                     f"Re w = ({lin(c, b * d)})/{den} and Im w = ({lin(-d, b * c)})/{den}; equating them gives k = {k}.",
                 ],
                 distractors=keep(str(k), ka_cands),
@@ -391,7 +396,7 @@ def exd_x_u2_complex_equations(rng, tier="exam"):
                 prompt="Write w in the form x + yi for this value of k.",
                 marks=3,
                 working=[
-                    f"With k = {k}, w = ({k} {'+' if b > 0 else '-'} {abs(b)}i)({cx_text(c, -d)})/{den} = {cx_text(w_re, w_im)}."
+                    f"With k = {k}, w = ({k} {'+' if b > 0 else '-'} {_bi(abs(b))})({cx_text(c, -d)})/{den} = {cx_text(w_re, w_im)}."
                 ],
                 distractors=keep(cx_text(w_re, w_im), kb_cands),
                 follow_through=ft_b,

@@ -44,6 +44,11 @@ def _percent(value: Fraction) -> str:
     return f"{value.numerator}" if value.denominator == 1 else f"{value.numerator / value.denominator:g}"
 
 
+def _br(value) -> str:
+    """A fraction in brackets, so it can be divided or multiplied: ``(1/2)``; a whole number is left alone."""
+    return f"({value})" if "/" in str(value) else str(value)
+
+
 @generator("exd_x_u4_condition_error_bound", level=17, presets={"exam": dict(tier="exam")})
 def exd_x_u4_condition_error_bound(rng: random.Random, tier: str = "exam") -> dict:
     """Exam tier: condition number of a signed 3x3 diagonal matrix, then error bounds in both directions."""
@@ -148,7 +153,7 @@ def exd_x_u4_condition_error_bound(rng: random.Random, tier: str = "exam") -> di
                 sensible_range=(0, None),
                 follow_through=f"{tau}/part_a",
                 working=[
-                    f"κ₂(A) × (relative error in b) ≤ {tau}, so the error in b is at most {tau}/{kappa_text} = {allowed_text} percent."
+                    f"κ₂(A) × (relative error in b) ≤ {tau}, so the error in b is at most {tau} ÷ {_br(kappa_text)} = {allowed_text} percent."
                 ],
                 distractors=fraction_distractors(allowed, c_candidates),
             ),

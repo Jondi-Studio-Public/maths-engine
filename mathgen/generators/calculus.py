@@ -23,6 +23,7 @@ from sympy import (
 )
 
 from ..answers import Distractor
+from ._fy1ms_common import plain_caret
 from ..core import (
     generator,
     check,
@@ -756,6 +757,22 @@ _ODE_EXAM_CONTEXTS = (
 )
 
 
+def _ode_exponential_working(k, x0, y0, m, ic_mode):
+    """The worked solution of dy/dx = ky through (x0, y0), in the notation of the stem."""
+    rate = "" if k == 1 else "-" if k == -1 else str(k)  # k written before x or a bracket
+    lines = [f"A rate of change proportional to y gives y = Ce^({rate}x)."]
+    if ic_mode == "exam":
+        lines.append(f"At x = {x0}, dy/dx = ky gives {m} = {paren_negative(k)}·y({x0}), so y({x0}) = {y0}.")
+    if x0 == 0:
+        lines.append(f"At x = 0: y = C = {y0}.")
+        exponent = f"{rate}x"
+    else:
+        lines.append(f"Using y({x0}) = {y0}: C·e^({k * x0}) = {y0}, so C = {y0}·e^({-k * x0}).")
+        exponent = f"{rate}({join_terms([(1, 'x'), (-x0, '')])})"
+    lines.append(f"Hence y = {y0}·e^({exponent}).")
+    return lines
+
+
 def _ode_exponential(rng, ic_mode):
     """dy/dx = ky, PARTICULAR solution from a stated initial condition --
     a rebuild of the deferred general-solution shape.
@@ -865,6 +882,7 @@ def _ode_exponential(rng, ic_mode):
         answer=str(ans),
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
+        working=_ode_exponential_working(k, x0, y0, m, ic_mode),
         distractors=pick_distractors(answer_text, cand_strs),
     )
     if result_latex is not None:
@@ -908,8 +926,24 @@ def differential_equation(rng, kinds=("exponential", "separable_poly"), ic_mode=
         answer=str(F),
         answer_text=f"y = {F} + C",
         answer_latex=rf"y = {latex(F)} + C",
+        working=[
+            "Integrate each term: add 1 to the power and divide by the new power.",
+            *[f"∫ {plain_caret(t)} dx = {plain_caret(integrate(t, x))}" for t in p.as_ordered_terms()],
+            f"So y = {plain_caret(F)} + C.",
+        ],
         distractors=pick_distractors(f"y = {F} + C", cands),
     )
+
+
+def _partial_working(f, name):
+    """Term-by-term working for a partial derivative, treating the other variable as a constant."""
+    var, other = (x, "y") if name == "x" else (y, "x")
+    terms = f.as_ordered_terms()
+    return [
+        f"Differentiate term by term with respect to {name}, treating {other} as a constant.",
+        *[f"∂/∂{name} of {plain_caret(t)} = {plain_caret(diff(t, var))}" for t in terms],
+        f"So ∂f/∂{name} = {plain_caret(diff(f, var))}.",
+    ]
 
 
 @generator(
@@ -940,6 +974,7 @@ def partial_derivatives(rng, coef_hi=6, pow_hi=3, kinds=("dx", "dy", "grad")):
             answer=str(fx),
             answer_text=str(fx),
             answer_latex=latex(fx),
+            working=_partial_working(f, "x"),
             distractors=pick_distractors(str(fx), cands),
         )
     if kind == "dy":
@@ -950,6 +985,7 @@ def partial_derivatives(rng, coef_hi=6, pow_hi=3, kinds=("dx", "dy", "grad")):
             answer=str(fy_),
             answer_text=str(fy_),
             answer_latex=latex(fy_),
+            working=_partial_working(f, "y"),
             distractors=pick_distractors(str(fy_), cands),
         )
     # Misconceptions: swapped the components; used the same variable for both.

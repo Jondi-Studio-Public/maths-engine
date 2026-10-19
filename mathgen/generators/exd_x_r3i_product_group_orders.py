@@ -69,11 +69,11 @@ def exd_x_r3i_product_group_orders(rng, tier: str = "exam") -> dict:
     stem = phrase(
         rng,
         (
-            "Let G = Z_{m} x Z_{n}, with addition done componentwise (the first coordinate modulo {m}, the second "
+            "Let G = Z_{m} × Z_{n}, with addition done componentwise (the first coordinate modulo {m}, the second "
             "modulo {n}). A student claims that G is isomorphic to the cyclic group Z_{N}.",
-            "The group G = Z_{m} x Z_{n} is formed under componentwise addition modulo {m} and modulo {n}. A student "
+            "The group G = Z_{m} × Z_{n} is formed under componentwise addition modulo {m} and modulo {n}. A student "
             "claims that G is isomorphic to Z_{N}, the cyclic group of order {N}.",
-            "Two students discuss G = Z_{m} x Z_{n}, where elements are added coordinate by coordinate (mod {m} in "
+            "Two students discuss G = Z_{m} × Z_{n}, where elements are added coordinate by coordinate (mod {m} in "
             "the first, mod {n} in the second). One says G has the same structure as the cyclic group Z_{N}.",
         ),
         m=m,

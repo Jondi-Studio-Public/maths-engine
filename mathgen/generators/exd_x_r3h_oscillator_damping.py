@@ -91,7 +91,7 @@ def exd_x_r3h_oscillator_damping(rng, tier="exam"):
                     crit,
                     0,
                     2,
-                    [f"m = {mass} kg. Critical damping: b = 2 sqrt(mk) = 2 sqrt({mass} x {stiffness}) = {crit} kg/s."],
+                    [f"m = {mass} kg. Critical damping: b = 2 sqrt(mk) = 2 sqrt({mass} × {stiffness}) = {crit} kg/s."],
                     [
                         (2 * _root(Fraction(m_g * stiffness)), "skipped-unit-conversion"),
                         (crit / 2, "dropped-factor-of-two"),
@@ -121,8 +121,9 @@ def exd_x_r3h_oscillator_damping(rng, tier="exam"):
             ),
             dict(
                 **number_part(
-                    "The characteristic equation m s^2 + b s + k = 0 has two roots, each with a negative real part. "
-                    "Find the smaller of the two values of |Re s|, in s^-1, correct to 2 decimal places.",
+                    "The characteristic equation m s^2 + b s + k = 0 has two roots s1 and s2 (counted twice if repeated), "
+                    "each with a negative real part. Find the smaller of |Re s1| and |Re s2| (the two are equal when "
+                    "the real parts are equal), in s^-1, correct to 2 decimal places.",
                     decay,
                     2,
                     4,

@@ -34,6 +34,7 @@ from fractions import Fraction
 import sympy
 
 from ..core import (
+    paren_negative,
     check,
     check_distinct,
     check_pairwise_distinct,
@@ -241,7 +242,7 @@ def _build_diag_hard(rng, hi=9):
         candidates,
         text,
         [
-            f"The composed map is diagonal with entries {s1}x{t1}={c1} and {s2}x{t2}={c2} "
+            f"The composed map is diagonal with entries {s1} × {paren_negative(t1)} = {c1} and {s2} × {paren_negative(t2)} = {c2} "
             "(multiply the matching diagonal entries, never the two operator norms).",
             f"Operator norm = max(|{c1}|, |{c2}|) = {answer_text}.",
         ],

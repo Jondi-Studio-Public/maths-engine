@@ -600,7 +600,7 @@ def _p12e_characteristic_roots_hard(rng):
         text = phrase(rng, _HARD_ROOTS_PATTERNS, ode=ode, char=char)
         working = [
             f"Discriminant = {paren_negative(b)}^2 - 4 × {paren_negative(c)} = {b * b - 4 * c} < 0.",
-            f"Roots = (-{paren_negative(b)} ± √({b * b - 4 * c})) / 2 = {a} ± {k}i.",
+            f"Roots = (-{paren_negative(b)} ± √({b * b - 4 * c})) / 2 = {a} ± {'i' if k == 1 else f'{k}i'}.",
         ]
         return dict(
             text=text,

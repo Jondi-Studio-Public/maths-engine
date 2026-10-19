@@ -112,7 +112,7 @@ def exd_x_r3g_unit_group_index(rng: random.Random, tier: str = "exam") -> dict:
             index,
             0,
             2,
-            [f"Lagrange: |G| = [G : H] x |H|, so [G : H] = {size} / {order_g} = {index}."],
+            [f"Lagrange: |G| = [G : H] × |H|, so [G : H] = {size} / {order_g} = {index}."],
             [
                 (size * order_g, "multiplied-instead-of-divided"),
                 (order_g, "index-confused-with-subgroup-order"),

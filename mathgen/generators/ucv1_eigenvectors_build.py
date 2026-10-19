@@ -189,6 +189,17 @@ def _medium_named(rng):
     return _finish(rng, text, a, lam, vec, _candidates_2x2(a, lam, vec, other_vec), working)
 
 
+def _triangular_solution_lines(vec, k):
+    """The back-substitution line for a triangular matrix, true to the working: free variable x(k+1) = 1 gives a
+    vector with that entry 1, which is then scaled to the whole-number eigenvector the question asks for."""
+    pivot = vec[k]
+    base = [Fraction(v) / Fraction(pivot) for v in vec]
+    first = f"Setting the free variable x{k + 1} = 1 and back-substituting gives {vec_str(base)}."
+    if base == [Fraction(v) for v in vec]:
+        return [first]
+    return [first, f"Scaling to clear fractions (any non-zero multiple is an eigenvector) gives v = {vec_str(vec)}."]
+
+
 def _medium_triangular(rng):
     for _ in attempts(500, "an upper-triangular 3×3 with a non-trivial eigenvector"):
         diag = rng.sample(range(-3, 5), 3)
@@ -213,7 +224,7 @@ def _medium_triangular(rng):
     ]
     working = [
         f"A - {lam}I = {mat_str(_shift(a, lam))}." if lam >= 0 else f"A + {-lam}I = {mat_str(_shift(a, lam))}.",
-        f"Setting the free variable x{k + 1} = 1 and back-substituting gives v = {vec_str(vec)}.",
+        *_triangular_solution_lines(vec, k),
         f"Check: Av = {vec_str(apply(a, vec))} = {lam}v.",
     ]
     text = phrase(rng, _TRIANGULAR_STEMS, a=mat_str(a), lam=lam)

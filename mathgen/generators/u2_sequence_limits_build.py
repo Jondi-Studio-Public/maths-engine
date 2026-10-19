@@ -176,8 +176,8 @@ def _term(c, suffix) -> str:
 
 
 def _n(k):
-    """k n, written as 'n' when k is 1."""
-    return "n" if k == 1 else f"{k}n"
+    """k n, written as 'n' when k is 1 and '-n' when k is -1."""
+    return "n" if k == 1 else "-n" if k == -1 else f"{k}n"
 
 
 def _medium_root(rng):

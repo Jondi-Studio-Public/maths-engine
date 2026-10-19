@@ -133,6 +133,11 @@ def _text_fmt(value) -> str:
     return _imaginary_i(str(simplify(value)).replace("**", "^").replace("*", "·"))
 
 
+def _im(k: int) -> str:
+    """``i`` for 1, ``3i`` for 3: an imaginary number written the way a learner writes it, never ``1i``."""
+    return "i" if k == 1 else f"{k}i"
+
+
 def _imaginary_i(text: str) -> str:
     """SymPy writes the imaginary unit as `I`; the stems (and a learner) write `i`."""
     return re.sub(r"\bI\b", "i", text)
@@ -181,14 +186,14 @@ _MEDIUM_PATTERNS = [
 ]
 
 _HARD_PATTERNS = [
-    "f(z) = {c} / (z^2 + {k}^2) has simple poles at z = {k}i and z = -{k}i. "
+    "f(z) = {c} / (z^2 + {kk}) has simple poles at z = {ki} and z = -{ki}. "
     "Find the residue at the pole with positive imaginary part, using "
     "Res(f, a) = lim_(z->a) (z - a) f(z).",
-    "The function f(z) = {c} / (z^2 + {k}^2) has simple poles at z = +/-{k}i. "
+    "The function f(z) = {c} / (z^2 + {kk}) has simple poles at z = ±{ki}. "
     "Using Res(f, a) = lim_(z->a) (z - a) f(z), find the residue at the pole "
     "with positive imaginary part.",
-    "Given f(z) = {c} / (z^2 + {k}^2), with simple poles at z = {k}i and "
-    "z = -{k}i, compute the residue at the pole with positive imaginary part "
+    "Given f(z) = {c} / (z^2 + {kk}), with simple poles at z = {ki} and "
+    "z = -{ki}, compute the residue at the pole with positive imaginary part "
     "via Res(f, a) = lim_(z->a) (z - a) f(z).",
 ]
 
@@ -303,8 +308,10 @@ def _p13e_residue_hard(rng):
         if len(distractors) < 1:
             continue
 
-        text = phrase(rng, _HARD_PATTERNS, c=c, k=k)
-        working = [f"z^2 + {k}^2 = (z - {k}i)(z + {k}i), so Res(f, {k}i) = {c} / (2 × {k}i) = {_text_fmt(answer)}."]
+        text = phrase(rng, _HARD_PATTERNS, c=c, kk=k * k, ki=_im(k))
+        working = [
+            f"z^2 + {k * k} = (z - {_im(k)})(z + {_im(k)}), so Res(f, {_im(k)}) = {c} / ({_im(2 * k)}) = {_text_fmt(answer)}."
+        ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
         )

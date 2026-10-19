@@ -268,7 +268,8 @@ def _root_args(phi: Fraction, n: int) -> list[Fraction]:
 
 def _w_formula(s: int, phi: Fraction, cartesian_ok: bool) -> F:
     if cartesian_ok and phi in (Fraction(1), Fraction(1, 2), Fraction(-1, 2)):
-        plain = {Fraction(1): f"-{s}", Fraction(1, 2): f"{s}i", Fraction(-1, 2): f"-{s}i"}[phi]
+        sc = "" if s == 1 else str(s)  # never "1i"
+        plain = {Fraction(1): f"-{s}", Fraction(1, 2): f"{sc}i", Fraction(-1, 2): f"-{sc}i"}[phi]
         return F(plain, plain.replace("i", r"\,i"))
     return expo(s, phi)
 

@@ -25,7 +25,7 @@ from ..core import check, check_equivalent, fmt_signed, generator, pick_distract
 
 
 def _mat_text(rows) -> str:
-    return "[" + "; ".join(" ".join(str(v) for v in row) for row in rows) + "]"
+    return "[" + ", ".join("[" + ", ".join(str(v) for v in row) + "]" for row in rows) + "]"
 
 
 def _rand_mat(rng: random.Random, hi: int = 3):

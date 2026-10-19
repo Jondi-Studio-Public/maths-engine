@@ -295,7 +295,7 @@ def cyclic_group_element_order(rng, modulus_hi=15, kind=None):
         answer_latex=answer_text,
         working=[
             f"Repeatedly add [{value}] modulo {modulus} until [0] returns.",
-            f"The first return occurs after {expected} additions.",
+            f"The first return occurs after {expected} addition{'s' if expected != 1 else ''}.",
         ],
         distractors=pick_distractors(answer_text, candidates),
     )

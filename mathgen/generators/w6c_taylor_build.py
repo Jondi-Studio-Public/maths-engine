@@ -3,19 +3,19 @@
 ``uc2-multivariable-taylor-hessian`` (``multivariable-and-vector-calculus``): the degree-2 Taylor polynomial of a
 function of two variables about a point,
 
-    T₂ = f + fₓ(x - a) + f_y(y - b) + ½[fₓₓ(x - a)² + 2fₓ_y(x - a)(y - b) + f_yy(y - b)²],
+    T₂ = f + f_x(x - a) + f_y(y - b) + ½[f_xx(x - a)² + 2f_xy(x - a)(y - b) + f_yy(y - b)²],
 
 and the classification of a stationary point with the Hessian. Every function is chosen so that its value and
 derivatives at the point are rational: polynomials, √(x² + y²) at a Pythagorean point, g·e^w,
 sin w and ln(1 + w) with w vanishing at the point.
 
-* easy: one coefficient of T₂ (of (x - a)², (y - b)² or (x - a)(y - b)): ½fₓₓ, ½f_yy or fₓ_y.
+* easy: one coefficient of T₂ (of (x - a)², (y - b)² or (x - a)(y - b)): ½f_xx, ½f_yy or f_xy.
 * medium: T₂ evaluated at a nearby point, as an exact fraction.
 * hard: the Hessian of f = Ax² + kxy + Cy² + (terms of degree 3 and 4, which do not touch the Hessian at the origin):
   the number of integers k for which the origin is a local maximum or minimum, the smallest positive integer k for
   which it is a saddle, or the positive k for which the second-derivative test is inconclusive.
-* exam (``exd_x_w6c_taylor``): a cubic with a stationary point P. (a) fₓₓ(P), (b) D = fₓₓf_yy - fₓ_y² (given f_yy and
-  fₓ_y; follows through from (a)), (c) the classification of P (multiple choice), (d) the degree-2 estimate of f
+* exam (``exd_x_w6c_taylor``): a cubic with a stationary point P. (a) f_xx(P), (b) D = f_xxf_yy - f_xy² (given f_yy and
+  f_xy; follows through from (a)), (c) the classification of P (multiple choice), (d) the degree-2 estimate of f
   near P (follows through from (a)).
 
 The derivatives are SymPy's; each T₂ is checked a second way against the function itself: the error |f - T₂| along
@@ -331,7 +331,7 @@ def _easy(rng):
         ]
     text, latex = compose(*pieces_of(rng.choice(_COEFFICIENT_STEMS), term=term, f=math_of(jet.f), a=a, b=b))
     working = [
-        f"At ({a}, {b}): fₓₓ = {_f(jet.fxx)}, f_yy = {_f(jet.fyy)}, fₓ_y = {_f(jet.fxy)}.",
+        f"At ({a}, {b}): f_xx = {_f(jet.fxx)}, f_yy = {_f(jet.fyy)}, f_xy = {_f(jet.fxy)}.",
         f"The coefficient of {term} is {_f(value)}.",
     ]
     return dict(text=text, latex=latex, working=working, **value_fields(value, wrong))
@@ -395,7 +395,7 @@ def _medium(rng):
         text=text,
         latex=latex,
         working=[
-            f"At ({jet.a}, {jet.b}): f = {_f(jet.c00)}, fₓ = {_f(jet.fx)}, f_y = {_f(jet.fy)}, fₓₓ = {_f(jet.fxx)}, fₓ_y = {_f(jet.fxy)}, f_yy = {_f(jet.fyy)}.",
+            f"At ({jet.a}, {jet.b}): f = {_f(jet.c00)}, f_x = {_f(jet.fx)}, f_y = {_f(jet.fy)}, f_xx = {_f(jet.fxx)}, f_xy = {_f(jet.fxy)}, f_yy = {_f(jet.fyy)}.",
             f"With the step ({_f(h)}, {_f(k)}), T₂ = {_f(value)}.",
         ],
         **value_fields(value, wrong),
@@ -464,7 +464,7 @@ def _hard(rng):
         kind = "minimum" if sign > 0 else "maximum"
         working = [
             f"The Hessian at the origin is [[{2 * sign * a}, k], [k, {2 * sign * c}]], with D = {4 * a * c} - k².",
-            f"A local {kind} needs D > 0 (and the sign of fₓₓ is already {'positive' if sign > 0 else 'negative'}), so k² < {four}: k = -{isqrt(four - 1)}, ..., {isqrt(four - 1)}, which is {value} integers.",
+            f"A local {kind} needs D > 0 (and the sign of f_xx is already {'positive' if sign > 0 else 'negative'}), so k² < {four}: k = -{isqrt(four - 1)}, ..., {isqrt(four - 1)}, which is {value} integers.",
         ]
     elif shape == "saddle":
         value = root + 1
@@ -477,7 +477,7 @@ def _hard(rng):
         stem = rng.choice(_SADDLE_STEMS)
         kind = ""
         working = [
-            f"D = fₓₓf_yy - fₓ_y² = {four} - k² at the origin. A saddle needs D < 0, so k² > {four}.",
+            f"D = f_xxf_yy - f_xy² = {four} - k² at the origin. A saddle needs D < 0, so k² > {four}.",
             f"The smallest positive integer with k² > {four} is {value}.",
         ]
     else:
@@ -550,7 +550,7 @@ def _stationary_cubic(rng):
 @generator("exd_x_w6c_taylor", level=19, presets={"exam": dict(tier="exam")})
 @redrawn
 def exd_x_w6c_taylor(rng, tier="exam"):
-    """Exam chain on a cubic with a stationary point P: fₓₓ(P), D, the classification, the degree-2 estimate."""
+    """Exam chain on a cubic with a stationary point P: f_xx(P), D, the classification, the degree-2 estimate."""
     if not (tier == "exam"):
         raise ValueError(f"unknown tier {tier!r}")
     f, a, b, alpha, beta, gamma, f0 = _stationary_cubic(rng)
@@ -588,10 +588,10 @@ def exd_x_w6c_taylor(rng, tier="exam"):
         latex=cubic_latex,
         parts=[
             value_part(
-                "Find fₓₓ at P.",
+                "Find f_xx at P.",
                 jet.fxx,
                 1,
-                [f"fₓₓ(P) = {_f(jet.fxx)}."],
+                [f"f_xx(P) = {_f(jet.fxx)}."],
                 [
                     ("taylor-second-order-no-half", H * jet.fxx),
                     ("taylor-wrong-second-partial", jet.fyy),
@@ -600,7 +600,7 @@ def exd_x_w6c_taylor(rng, tier="exam"):
                 ],
             ),
             value_part(
-                f"Given that f_yy(P) = {_f(jet.fyy)} and fₓ_y(P) = {_f(jet.fxy)}, find D = fₓₓf_yy - (fₓ_y)² at P.",
+                f"Given that f_yy(P) = {_f(jet.fyy)} and f_xy(P) = {_f(jet.fxy)}, find D = f_xxf_yy - (f_xy)² at P.",
                 d,
                 2,
                 [f"D = ({_f(jet.fxx)})({_f(jet.fyy)}) - ({_f(jet.fxy)})² = {_f(d)}."],
@@ -617,7 +617,7 @@ def exd_x_w6c_taylor(rng, tier="exam"):
                 correct,
                 2,
                 [
-                    "D < 0 gives a saddle point; D > 0 gives a minimum when fₓₓ > 0 and a maximum when fₓₓ < 0; D = 0 is inconclusive."
+                    "D < 0 gives a saddle point; D > 0 gives a minimum when f_xx > 0 and a maximum when f_xx < 0; D = 0 is inconclusive."
                 ],
                 [(tag(c), c) for c in _CLASSES if c != correct],
             ),
