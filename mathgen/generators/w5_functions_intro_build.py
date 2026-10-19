@@ -37,6 +37,7 @@ from ._w5_kit import (
     number_fields,
     part,
     retry_draw,
+    with_set_latex,
     spread,
 )
 
@@ -445,7 +446,7 @@ def w5_function_concept(rng, tier="easy"):
     }.get(tier)
     if pool is None:
         raise ValueError(f"unknown tier {tier!r}")
-    return retry_draw(rng, rng.choice(pool))
+    return with_set_latex(retry_draw(rng, rng.choice(pool)))
 
 
 def _fc_exam(rng):
@@ -568,7 +569,7 @@ def exd_x_w5_function_concept(rng, tier="exam"):
     """Exam chain: different inputs, the input with two outputs, pairs to remove and the outputs used."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return retry_draw(rng, _fc_exam)
+    return with_set_latex(retry_draw(rng, _fc_exam))
 
 
 # -- domain and range --------------------------------------------------------------------------------------------------
@@ -847,7 +848,7 @@ def w5_domain_range_intro(rng, tier="easy"):
     }.get(tier)
     if pool is None:
         raise ValueError(f"unknown tier {tier!r}")
-    return retry_draw(rng, rng.choice(pool))
+    return with_set_latex(retry_draw(rng, rng.choice(pool)))
 
 
 def _dr_exam(rng):
@@ -952,4 +953,4 @@ def exd_x_w5_domain_range_intro(rng, tier="exam"):
     """Exam chain: the range of a quadratic on whole inputs, its size, its greatest value and the inputs for one output."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    return retry_draw(rng, _dr_exam)
+    return with_set_latex(retry_draw(rng, _dr_exam))

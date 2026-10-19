@@ -54,6 +54,9 @@ difficulty_progression:
   hard:
     steps: 4
     demand: Apply the same idea to the distance between two points through a third.
+  exam:
+    steps: 5
+    demand: Chain the difference form and the three-point form of the triangle inequality, the second built on the first.
 tags:
 - proof
 - typed-steps

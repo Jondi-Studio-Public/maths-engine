@@ -56,4 +56,7 @@ difficulty_progression:
   hard:
     steps: 4
     demand: Read the degree and leading coefficient from factored form, or from a square root where the degree halves and the root of x squared is |x|.
+  exam:
+    steps: 5
+    demand: Chain three parts on one factored quotient: the growth exponent, the constant it settles to, and the sign of the limit as x tends to minus infinity.
 tags: []

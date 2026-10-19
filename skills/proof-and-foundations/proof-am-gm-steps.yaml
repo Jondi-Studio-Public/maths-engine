@@ -57,6 +57,9 @@ difficulty_progression:
   hard:
     steps: 4
     demand: Combine fractions or square roots first, then recognise the square of a difference.
+  exam:
+    steps: 5
+    demand: Chain two stages of one proof, completing the difference of squares on a scaled pair and then using it to reach the inequality, with the working shown as typed steps.
 tags:
 - proof
 - typed-steps

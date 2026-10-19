@@ -8,12 +8,13 @@ grader so that no distractor is accepted as the answer.
 
 from __future__ import annotations
 
+import re
 from fractions import Fraction
 
 import sympy
 
 from ..answers import Distractor
-from ..core import phrase, rational_text
+from ..core import latex_from_inline, phrase, rational_text
 from ..grading.inequality import set_text
 from ._r3i_kit import accepted_by_grader
 from ._w6a_kit import TooFewDistractors, enough, num_dist, num_fields, part, rat, retry_draw  # noqa: F401
@@ -316,12 +317,26 @@ def mc_question(rng, stems, key: str, wrongs, work, n: int = 4, **slots) -> dict
     return dict(text=phrase(rng, stems, **slots), working=work, distractors=cands, **fields)
 
 
+_BRACED = re.compile(r"\{[^{}]*\}")
+
+
+def with_set_latex(question: dict) -> dict:
+    """A stem that prints a set in braces gets a prompt `latex` that lifts each set into maths, because
+    `latex_prompt` would leave the braces inside the prose and a negative member would be torn out of it."""
+    text = question.get("text", "")
+    if "latex" not in question and _BRACED.search(text) and "\\" not in text:
+        question["latex"] = latex_from_inline(
+            _BRACED.sub(lambda m: "\\(\\{" + m.group()[1:-1].replace("\u2212", "-") + "\\}\\)", text)
+        )
+    return question
+
+
 def tier_pool(pools: dict, rng, tier: str):
     """Draw from the builders of `tier` (a ValueError for an unknown tier), redrawing a degenerate draw."""
     pool = pools.get(tier)
     if pool is None:
         raise ValueError(f"unknown tier {tier!r}")
-    return retry_draw(rng, rng.choice(pool))
+    return with_set_latex(retry_draw(rng, rng.choice(pool)))
 
 
 def length_balanced(rng, key: str, wrongs, n: int = 4):

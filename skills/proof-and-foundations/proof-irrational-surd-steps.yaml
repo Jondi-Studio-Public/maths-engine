@@ -65,6 +65,9 @@ difficulty_progression:
   hard:
     steps: 5
     demand: Isolate a surd from a supposed rational sum, or expand, collect and cancel to isolate one root of a sum of two.
+  exam:
+    steps: 6
+    demand: Chain the squaring step and the cancelling step of one proof by contradiction, so the second stage starts from the learner's own first result.
 tags:
 - proof
 - typed-steps

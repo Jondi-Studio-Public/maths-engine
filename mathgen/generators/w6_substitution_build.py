@@ -31,7 +31,7 @@ import sympy
 from sympy import Rational as R
 from sympy import Symbol, cos, exp, pi, sec, sin, sqrt, tan
 
-from ..core import attempts, check, generator
+from ..core import attempts, check, generator, latex_from_inline
 from ._r3b_kit import (
     Cand,
     Itg,
@@ -145,7 +145,9 @@ def _indef(rng, f: Itg, F, cands, working, hint=None):
         name = shown(base).replace("sqrt(x)", "√x")
         name = f"({name})" if base.is_Add else name
         text += f" Give your answer as a sum of powers of {name}, not expanded, plus C."
-        latex += rf" Give your answer as a sum of powers of \({tex(base)}\), not expanded, plus \(C\)."
+        latex += latex_from_inline(
+            rf" Give your answer as a sum of powers of \({tex(base)}\), not expanded, plus \(C\)."
+        )
     return dict(
         text=text, latex=latex, working=working, distractors=pick_expr(F, True, cands, rng=rng), **key_fields(F)
     )

@@ -59,6 +59,9 @@ difficulty_progression:
   hard:
     steps: 4
     demand: Expand a quadratic or cubic in 2k + 1 or 2k, collect like terms and take out the factor of 2.
+  exam:
+    steps: 5
+    demand: Chain the odd case and the even case of one proof by contradiction, each with its own expansion and factor of 2.
 tags:
 - proof
 - typed-steps
