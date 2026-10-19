@@ -53980,6 +53980,121 @@ _ENTRIES = (
         area="senior-solve-problems-involving-bearings",
     ),
     # w3 consumer block end
+    CatalogueEntry(
+        "w4-bridge-counts-leaves",
+        "Counting the vertices with only one edge instead of the edges whose removal splits the network.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-counts-cut-vertices",
+        "Counting the vertices whose removal splits the network, where the edges whose removal does so were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-counts-cycle-edges",
+        "Counting the edges that lie on a cycle, which are exactly the ones that are not bridges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-pieces-off-by-one",
+        "Giving the number of pieces where the number of bridges was asked for, or the reverse, one out because each bridge adds one piece.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-removal-ignored",
+        "Giving every vertex as still reachable after a bridge is removed, as if taking the edge away changed nothing.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-wrong-side",
+        "Counting the vertices on the far side of the removed bridge, or one more or fewer than the piece, instead of the piece that holds the start.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-only-endpoint-lost",
+        "Thinking only one vertex is cut off when a bridge is removed, so every other vertex can still be reached.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-heaviest-edge",
+        "Taking the dearest edges as the ones to remove, without checking that a bridge cannot be removed.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-pair-cuts-network",
+        "Taking the two dearest removable edges together, without checking that removing both leaves the network in two pieces.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-one-edge-only",
+        "Giving the saving from one edge where the total from two edges was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-sum-not-max",
+        "Adding the costs of every edge that could be removed where the greatest total saving from two edges was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-sum-of-bridges",
+        "Adding the costs of the bridges, which are exactly the edges that cannot be removed.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-lightest-bridge",
+        "Taking the cheapest bridge as the saving, though a bridge cannot be removed at all.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-pieces-all-vertices",
+        "Counting every vertex as a separate piece once the bridges are removed, though the edges on cycles still hold vertices together.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-new-road-ignored",
+        "Leaving the number of bridges unchanged after a new edge is added, though it can put bridges on a cycle.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-new-road-removes-one",
+        "Thinking a new edge stops only one bridge being a bridge, instead of every bridge on the path between its ends.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-new-road-clears-all",
+        "Thinking one new edge stops every bridge being a bridge, instead of only those on the path between its ends.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-repair-leaves",
+        "Giving the number of end pieces where the fewest new edges was asked for: each new edge can join two end pieces at once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-repair-per-bridge",
+        "Building one new edge for every bridge, when new edges between end pieces cover several bridges each.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-cost-of-cycle-edges",
+        "Totalling the costs of the edges on cycles, which are the ones that are not bridges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-cost-of-all-edges",
+        "Totalling the cost of every edge where only the bridges were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-cost-dearest-only",
+        "Giving the cost of one bridge, or the total less one, instead of the total of all the bridges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-removed-edge-kept",
+        "Counting the cost of the removed bridge as well as the edges that are left in the piece.",
+        area="networks",
+    ),
 )
 
 #: Every entry, by id.

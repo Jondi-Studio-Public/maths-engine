@@ -3148,6 +3148,73 @@ def _grid_drawing(s: dict, ids: _Ids) -> Body:
     return (_gd_isometric if s["grid"]["type"] == "isometric" else _gd_square)(s, ids)
 
 
+# ---------------------------------------------------------------- network
+
+_NET_SCALE = 3.0
+_NET_X0, _NET_Y0 = 50.0, 15.0
+_NET_R = 14.0
+_NET_DOT = 6.0
+
+
+def _network(s: dict, ids: _Ids) -> Body:
+    """Vertices as labelled circles at their fixed positions, straight edges (arrowheads when directed), labels
+    on a paper-coloured halo at ``label_t`` along their edge, highlighted edges thick."""
+    pos = {v["id"]: (_NET_X0 + _NET_SCALE * v["at"][0], _NET_Y0 + _NET_SCALE * v["at"][1]) for v in s["vertices"]}
+    radius = {v["id"]: (_NET_DOT if v.get("side") else _NET_R) for v in s["vertices"]}
+    lines, arrows, labels, nodes = [], [], [], []
+    for e in s["edges"]:
+        (x1, y1), (x2, y2) = pos[e["from"]], pos[e["to"]]
+        d = math.hypot(x2 - x1, y2 - y1)
+        ux, uy = (x2 - x1) / d, (y2 - y1) / d
+        r1, r2 = radius[e["from"]], radius[e["to"]]
+        hot = bool(e.get("highlight"))
+        width = 4.5 if hot else 1.6
+        sx, sy = x1 + ux * r1, y1 + uy * r1
+        ex, ey = x2 - ux * r2, y2 - uy * r2
+        lines.append(_line(sx, sy, ex, ey, stroke=INK, stroke_width=width, stroke_linecap="round"))
+        if e.get("directed"):
+            head = 11.0 if hot else 9.0
+            bx, by = ex - ux * head, ey - uy * head
+            arrows.append(
+                _poly(
+                    [
+                        (ex, ey),
+                        (bx - uy * head * 0.45, by + ux * head * 0.45),
+                        (bx + uy * head * 0.45, by - ux * head * 0.45),
+                    ],
+                    closed=True,
+                    fill=INK,
+                    stroke=INK,
+                    stroke_width=1,
+                )
+            )
+        if e.get("label"):
+            t = e.get("label_t", 0.5)
+            labels.append(_text(x1 + (x2 - x1) * t, y1 + (y2 - y1) * t, e["label"], size=13, weight="bold", halo=True))
+    marked = set(s.get("highlight_vertices", ()))
+    for v in s["vertices"]:
+        x, y = pos[v["id"]]
+        if v.get("side"):
+            nodes.append(_circle(x, y, _NET_DOT, fill=INK, stroke=INK, stroke_width=1))
+            gap = _NET_DOT + 6
+            nodes.append(
+                _text(
+                    x - gap if v["side"] == "left" else x + gap,
+                    y,
+                    v["id"],
+                    size=13,
+                    anchor="end" if v["side"] == "left" else "start",
+                    weight="bold",
+                )
+            )
+            continue
+        nodes.append(_circle(x, y, _NET_R, fill=PAPER, stroke=INK, stroke_width=2))
+        if v["id"] in marked:
+            nodes.append(_circle(x, y, _NET_R + 4, fill="none", stroke=INK, stroke_width=1.5))
+        nodes.append(_text(x, y, v["id"], size=14 if len(v["id"]) < 3 else 11, weight="bold"))
+    return "".join(lines + arrows + nodes + labels), _NET_Y0 + _NET_SCALE * 100 + 15
+
+
 # ---------------------------------------------------------------- entry point
 
 _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
@@ -3168,6 +3235,7 @@ _RENDERERS: dict[str, Callable[[dict, _Ids], Body]] = {
     "histogram": _histogram,
     "hundred_chart": _hundred_chart,
     "money": _money,
+    "network": _network,
     "number_line": _number_line,
     "pattern_strip": _pattern_strip,
     "picture_graph": _picture_graph,

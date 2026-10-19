@@ -22,6 +22,7 @@ import string
 from itertools import combinations
 
 from ..core import check, check_distinct, generator, pick_distractors
+from ._network_fig import with_network_figure
 
 
 # --- Minimal Spanning Tree Generator -----------------------------------------
@@ -125,6 +126,7 @@ def _verify_mst(towns, edges, mst_weight, mst_edges):
         "hard": dict(tier="hard"),
     },
 )
+@with_network_figure
 def use_minimal_spanning_trees_to_solve_minimal_connector(rng, tier="easy"):
     """Minimal spanning tree problems using Kruskal's algorithm."""
 
@@ -267,6 +269,7 @@ def _verify_flow(nodes, edges, source, sink, max_flow):
         "hard": dict(tier="hard"),
     },
 )
+@with_network_figure
 def solve_small_scale_network_flow_problems_including_the(rng, tier="easy"):
     """Network flow problems using Edmonds-Karp and max-flow-min-cut verification."""
 
