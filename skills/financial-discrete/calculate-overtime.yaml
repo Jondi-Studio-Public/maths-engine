@@ -3,14 +3,76 @@ name: Calculate overtime earnings
 domain: financial-discrete
 description: Combine regular pay with overtime paid at a stated rate multiplier.
 status: active
-prerequisites: [calculate-wages, decimal-arithmetic]
+prerequisites:
+- calculate-wages
+- decimal-arithmetic
 answer: number
 sources:
-- {topic: earnings, params: {kind: overtime}, difficulty: easy}
+- topic: earnings
+  params:
+    kind: overtime
+  difficulty: easy
+- topic: w3_ot_tiers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_ot_tiers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: exd_x_r3a_overtime_week
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
-misconceptions: [{id: multiplier-on-all-hours, description: Applies the overtime multiplier to every hour worked.}]
-tags: [expansion-batch-5, consumer-arithmetic]
+misconceptions:
+- id: multiplier-on-all-hours
+  description: Applies the overtime multiplier to every hour worked.
+- id: w3ot-one-hour
+  description: Pays one hour of overtime only.
+- id: w3ot-extra-hour
+  description: Counts one overtime hour too many.
+- id: w3ot-wrong-multiplier
+  description: Uses double time where time and a half applies.
+- id: w3ot-all-hours-multiplied
+  description: Applies the overtime multiplier to every hour worked.
+- id: w3ot-overtime-at-ordinary
+  description: Pays the overtime hours at the ordinary rate.
+- id: w3ot-hours-not-subtracted
+  description: Uses all the hours worked as the overtime hours.
+- id: w3ot-ordinary-only
+  description: Leaves out the overtime pay.
+- id: w3ot-overtime-only
+  description: Gives the overtime pay where the whole week's pay was asked.
+- id: w3ot-second-rate-throughout
+  description: Pays every overtime hour at the higher rate.
+- id: w3ot-first-rate-throughout
+  description: Pays every overtime hour at the lower rate.
+- id: w3ot-pay-over-rate
+  description: Divides the pay by the ordinary rate only and does not remove the ordinary hours first.
+- id: w3ot-multiplier-forgotten-on-division
+  description: Divides by the hours worked and ignores that some are paid at a higher rate.
+- id: w3ot-ordinary-as-total
+  description: Treats the whole pay as overtime pay.
+tags:
+- expansion-batch-5
+- consumer-arithmetic
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Add the overtime pay to the ordinary pay.
+  medium:
+    steps: 3
+    demand: Find a week's pay with time and a half, the overtime pay alone, or pay with double time.
+  hard:
+    steps: 5
+    demand: Use two overtime rates, or work back to the overtime hours or the ordinary rate from a pay.
+  exam:
+    steps: 7
+    demand: Chain a week of ordinary, overtime and penalty hours.
