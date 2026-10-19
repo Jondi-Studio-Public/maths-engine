@@ -46,7 +46,6 @@ from fractions import Fraction
 
 from mathgen.core import (
     VerificationError,
-    article_for_number,
     check,
     check_equivalent,
     check_pairwise_distinct,
@@ -568,8 +567,8 @@ def _compare_hard(rng):
     _verify_hard_compare(volA_mL, volB_L, packA_price, packB_price, priceA_perL, priceB_perL, answer_cents)
 
     text = (
-        f"Brand A sells {article_for_number(volA_mL)} {volA_mL} mL bottle for {_currency(packA_price)}. "
-        f"Brand B sells {article_for_number(volB_L)} {volB_L} L bottle for {_currency(packB_price)}. (1 L = 1000 mL.) "
+        f"Brand A sells a {volA_mL} mL bottle for {_currency(packA_price)}. "
+        f"Brand B sells a {volB_L} L bottle for {_currency(packB_price)}. (1 L = 1000 mL.) "
         f"Find the difference between the two brands' prices per litre, to the nearest cent."
     )
     answer_text = currency_from_cents(answer_cents)

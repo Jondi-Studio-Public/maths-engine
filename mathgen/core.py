@@ -1765,14 +1765,17 @@ _REPEATED_STEP_RE = re.compile(
 
 
 _UNIT_POWER_RE = re.compile(
-    r"(?<![A-Za-z])(mm|cm|km|m)\^([23])\b|(?<=\d )(mm|cm|km|m)([23])\b|(?<=\d)(mm|cm|km|m)([23])\b"
+    r"(?<![A-Za-z])(mm|cm|km)\^([23])\b|(?<=\d )(mm|cm|km|m)([23])\b|(?<=\d)(mm|cm|km)([23])\b|(?<=\d )(m)\^([23])\b|(?<=\()(m)([23])(?=\))"
 )
 _NUMBER_TIMES_RE = re.compile(r"(?<=[\d)]) x (?=\d)")
 
 
 def _unit_power(m):
-    unit, power = (m.group(1), m.group(2)) if m.group(1) else (m.group(3) or m.group(5), m.group(4) or m.group(6))
-    return unit + {"2": "\u00b2", "3": "\u00b3"}[power]
+    groups = [g for g in m.groups() if g]
+    return groups[0] + {"2": "\u00b2", "3": "\u00b3"}[groups[1]]
+
+
+_AN_NUMBER_RE = re.compile(r"\b([Aa]) (?=(?:8\d*|11|18)(?:\.\d+)?[ -]?[A-Za-z%\u00b0$])")
 
 
 def _learner_text(text, *, working=False):
@@ -1784,6 +1787,8 @@ def _learner_text(text, *, working=False):
         text = _DASH_RE.sub(" \u2013 ", text)
     if "m" in text:
         text = _UNIT_POWER_RE.sub(_unit_power, text)
+    if "a 8" in text.lower() or "a 11" in text.lower() or "a 18" in text.lower():
+        text = _AN_NUMBER_RE.sub(r"\1n ", text)
     if " x " in text:
         text = _NUMBER_TIMES_RE.sub(" \u00d7 ", text)
     if working and " = " in text:

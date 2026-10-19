@@ -158,10 +158,10 @@ _C3_SUBJECTS = [
     ("study time", "hours", "test score", "marks", "students"),
     ("advertising spend", "$", "weekly revenue", "$", "stores"),
     ("arm span", "cm", "height", "cm", "gymnasts"),
-    ("floor area", "m²", "sale price", "$", "houses"),
+    ("floor area", "m2", "sale price", "$", "houses"),
 ]
 _C3_HARD = [
-    ("house price", "$", "floor area", "m²", "houses sold in a suburb last year"),
+    ("house price", "$", "floor area", "m2", "houses sold in a suburb last year"),
     ("annual income", "$", "years of education", "years", "adults surveyed"),
     ("study hours per week", "hours", "final exam mark", "marks", "students"),
 ]

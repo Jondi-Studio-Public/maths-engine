@@ -86,7 +86,7 @@ _HARD = (
 )
 
 
-def _finalise(text: str, key: int, candidates: list[int], rng, working: str) -> dict:
+def _finalise(text: str, key: int, candidates: list[int], rng, working: str | None = None) -> dict:
     check(0 <= key <= 20, f"{TOPIC}: the key {key} is outside 0 to 20")
     chosen = pick_ranked_distractors(rng, key, candidates, lo=0, hi=20)
     check_distinct(key, *chosen, msg=f"{TOPIC}: a distractor equals the key")
@@ -97,7 +97,7 @@ def _finalise(text: str, key: int, candidates: list[int], rng, working: str) -> 
         answer_text=str(key),
         answer_latex=str(key),
         distractors=[str(c) for c in chosen],
-        working=[working],
+        working=[working if working else f"The answer is {key}."],
     )
 
 

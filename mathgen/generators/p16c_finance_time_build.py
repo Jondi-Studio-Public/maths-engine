@@ -623,7 +623,7 @@ _WAGE_TEMPLATES = (
     "A fast-food store's wage sheet lists each worker's hourly rate and hours this week: {table}."
     "{ot_note} What is {who}'s total wage for the week?",
     "The weekly wage spreadsheet for a fast-food store shows: {table}.{ot_note} Find {who}'s gross pay for the week.",
-    "This week's wage sheet shows: {table}.{ot_note} Calculate the total amount {who} earned.",
+    "This week's wage sheet shows: {table}.{ot_note} From this sheet, calculate the total amount {who} earned.",
 )
 
 _WAGE_OT_NOTE = " Overtime hours are paid at 1.5 times the hourly rate."

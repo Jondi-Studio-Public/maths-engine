@@ -400,13 +400,6 @@ def _step(base, slope, t) -> str:
     return f"{base} {sign} {exact_decimal_text(abs(slope))}×{t}"
 
 
-def _trend_line(a, b) -> str:
-    """The fitted line as a student writes it: "44 + 1.5t", "26 - 0.5t", "11 + t"."""
-    magnitude = abs(b)
-    coefficient = "" if magnitude == 1 else exact_decimal_text(magnitude)
-    return f"{a} {'+' if b >= 0 else '-'} {coefficient}t"
-
-
 @generator(
     "p16a_trend_value",
     level=12,
@@ -451,7 +444,7 @@ def p16a_trend_value(rng, variant="direct"):
         answer_text = stated_precision_string(round_half_up(value, 1), 1)
         b_str = f"({b})" if b < 0 else str(b)
         question_text = (
-            f"For {context}, a linear trend has been fitted: T(t) = {_trend_line(a, b)}, where t "
+            f"For {context}, a linear trend has been fitted: T(t) = {a} + {b_str}\u00d7t, where t "
             f"counts each {unit} starting from t = 1. Find the trend value T({t_star}), to 1 "
             f"decimal place."
         )
@@ -483,7 +476,7 @@ def p16a_trend_value(rng, variant="direct"):
         answer_text = stated_precision_string(round_half_up(value, 1), 1)
         b_str = f"({b})" if b < 0 else str(b)
         question_text = (
-            f"For {context}, a linear trend has been fitted: T(t) = {_trend_line(a, b)}, where t = 1 "
+            f"For {context}, a linear trend has been fitted: T(t) = {a} + {b_str}\u00d7t, where t = 1 "
             f"is the 1st {unit} of Year 1 and each Year has {per_group} {unit}s numbered in order. "
             f"Find the trend value for {label_word} {sub} of Year {year}, to 1 decimal place."
         )
