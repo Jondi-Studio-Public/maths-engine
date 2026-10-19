@@ -51948,6 +51948,197 @@ _ENTRIES = (
         "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
         area="quadric-surfaces",
     ),
+    # -- w7 figures (scale drawing, views, space strand) --
+    CatalogueEntry(
+        "scd-adds-instead-of-subtracts",
+        "Adds the two distances where the difference between them was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-adds-scale",
+        "Adds the scale (metres to the centimetre) to the length measured on the plan instead of multiplying by it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-for-perimeter",
+        "Gives the area where the perimeter was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-from-perimeter",
+        "Multiplies the actual perimeter by the scale to get an area, instead of scaling the area on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-linear-factor",
+        "Multiplies an area on the plan by the scale once instead of by its square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-unscaled",
+        "Gives the area measured on the plan without applying the scale at all.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-cost-adds-price",
+        "Adds the price to the quantity instead of multiplying them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-cost-of-fractional-rolls",
+        "Prices the exact fraction of a roll needed instead of the whole rolls that must be bought.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-difference-unscaled",
+        "Subtracts the shorter route from the longer on the plan but does not apply the scale to the difference.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-doubles-drawn-length",
+        "Doubles the length it divided by instead of dividing the real length by the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-rolls",
+        "Gives the number of rolls where the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-track-not-difference",
+        "Gives the length of the shorter route where the difference between the two routes was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-turf-bought-not-left",
+        "Gives the area covered by all the rolls bought where the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-hours-for-minutes",
+        "Leaves the time in hours, or reads decimal hours as minutes, instead of converting to minutes.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-kilometre-metre-slip",
+        "Slips by a power of ten between kilometres and metres when scaling a map distance.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leaves-out-a-leg",
+        "Leaves one leg of a road that doubles back out of the total length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leftover-complement",
+        "Takes the leftover as the part of a roll that is used instead of the part that is not.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leftover-extra-roll",
+        "Adds a whole extra roll to the leftover.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-length-unscaled",
+        "Gives the length measured on the plan without applying the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-metre-centimetre-slip",
+        "Slips by a power of ten when converting between metres and centimetres.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-multiplies-for-time",
+        "Multiplies the distance by the speed instead of dividing the distance by the speed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-multiplies-instead-of-divides",
+        "Multiplies where the scale should be divided into the real length, or divides where it should multiply.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-off-by-one",
+        "Is one centimetre out when converting a real length to a drawn length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-one-roll-too-many",
+        "Rounds up and then adds a further roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-perimeter-bounding-rectangle",
+        "Uses the perimeter of the rectangle round the whole shape instead of the shape's own boundary.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-perimeter-omits-side",
+        "Leaves one wall out when adding the sides of the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-on-drawn-area",
+        "Applies the price per square metre to the area measured on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-on-perimeter",
+        "Applies the price per square metre to the perimeter instead of the area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-per-square-metre-for-roll",
+        "Charges the price of one roll for each square metre instead of for each roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-ratio-not-converted",
+        "Writes the metres to the centimetre as the second term of the ratio without converting to centimetres.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-reads-label-as-scale",
+        "Gives the labelled actual length, or the count of squares, as the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-remainder-for-leftover",
+        "Gives the remainder when the area is divided by the roll size, not the area left on the last roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-rounds-down",
+        "Rounds down to whole packs or rolls, so the area is not covered.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-rounds-to-nearest",
+        "Rounds to the nearest whole pack or roll instead of always rounding up.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-scale-squared-for-length",
+        "Multiplies a length by the square of the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-straight-across-route",
+        "Measures the straight-across-then-up route instead of following the road that doubles back.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-time-off-by-an-hour",
+        "Is a whole hour out when converting a time in hours to minutes.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-wrong-wall",
+        "Reads a different wall from the one asked for.",
+        area="figure-views",
+    ),
 )
 
 #: Every entry, by id.
