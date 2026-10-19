@@ -52648,6 +52648,51 @@ _ENTRIES = (
         "Uses only the inputs on one side of the turning point.",
         area="domain-and-range-intro",
     ),
+    CatalogueEntry(
+        "w5t-drops-solutions",
+        "Gives only some of the solutions in the window and leaves the others out.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-forgets-the-coefficient",
+        "Solves as if the angle were x alone, ignoring the coefficient of x.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-multiplies-for-the-coefficient",
+        "Multiplies by the coefficient of x where the solution must be divided by it.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-one-period-only",
+        "Stops after the first period and misses the later solutions the coefficient of x brings into the window.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-opposite-quadrants",
+        "Uses the CAST quadrants for the opposite sign of the value.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-reference-angle-as-answer",
+        "Gives the reference angle itself as the solution without applying the coefficient.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-shift-wrong-way",
+        "Shifts the solutions the wrong way, adding the shift where it must be subtracted.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-wrong-end-of-the-list",
+        "Gives the largest solution where the smallest is asked for.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-wrong-function-quadrants",
+        "Uses the quadrant pattern of a different trigonometric function.",
+        area="trig-equations",
+    ),
 )
 
 #: Every entry, by id.
