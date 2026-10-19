@@ -81,7 +81,7 @@ def _build_easy(rng, name):
         (answer + 2, "eyt-count-one-over"),
     ]
     text = rng.choice(_EASY).format(pl=a, n=name)
-    distractors = tagged_numbers(answer, cands, low=0, high=30)
+    distractors = tagged_numbers(answer, cands, low=0, high=30)[:3]  # always three wrong counts
     working = [f"Count the {a} row: each gate is 5. There are {answer}."]
     return fig, text, str(answer), distractors, working
 
@@ -131,7 +131,7 @@ def _build_medium(rng, name):
 
 
 def _build_hard(rng, name):
-    kinds = rng.sample(ICONS, rng.choice((3, 4)))
+    kinds = rng.sample(ICONS, 4)  # four rows, so there are always three right rows to choose from besides the wrong one
     for _ in attempts(500, "counts that fit on the page"):
         true = {k: rng.randint(1, 7) for k in kinds}
         if sum(true.values()) <= 20:

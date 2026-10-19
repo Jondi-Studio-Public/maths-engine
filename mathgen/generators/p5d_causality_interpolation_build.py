@@ -204,9 +204,10 @@ def causality_correlation_classify(rng, question_type="easy"):
         answer not in (OPTION_BOTH, OPTION_NEITHER), f"padding options must never be the correct answer; got {answer!r}"
     )
 
-    # Distractors: pick the other two padding options, always wrong
-    # Since answer is one of (CAUSATION, CORRELATION), distractors are (BOTH, NEITHER)
-    distractors = [OPTION_BOTH, OPTION_NEITHER]
+    # Distractors: the other real category (a learner reads the study the wrong way round) and the two
+    # padding options, which are always wrong.
+    other = OPTION_CORRELATION if label == CAUSATION_BRANCH else OPTION_CAUSATION
+    distractors = [other, OPTION_BOTH, OPTION_NEITHER]
 
     working = [
         f"Which marker is present? {'Randomly assigned' if label == CAUSATION_BRANCH else 'Third variable'} indicates {label}."

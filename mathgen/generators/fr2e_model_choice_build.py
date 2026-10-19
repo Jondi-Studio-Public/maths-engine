@@ -353,6 +353,20 @@ def _choose_part(model: Model, marks: int, wrong_extra=()) -> dict:
     )
 
 
+def _first_distinct(wrong, key: str, n: int):
+    """The first `n` wrong options whose text differs from the key and from each other, so a tier shows the same
+    number of options every time. Fewer than `n` redraws."""
+    out, seen = [], {key}
+    for text, tag in wrong:
+        if text in seen:
+            continue
+        seen.add(text)
+        out.append((text, tag))
+    if len(out) < n:
+        raise Redraw("fewer distinct wrong options than the tier shows")
+    return out[:n]
+
+
 def _lin_rule_wrongs(model: Model):
     ys = model.ys
     d1 = first_diffs(ys)
@@ -454,7 +468,7 @@ def _rule_choice_part(model: Model, marks: int) -> dict:
             f"The rule is {key}.",
         ],
     }[model.kind]
-    return mcq_part("Which rule fits every value in the table?", key, wrong, marks, working)
+    return mcq_part("Which rule fits every value in the table?", key, _first_distinct(wrong, key, 4), marks, working)
 
 
 def _medium(rng):
@@ -504,7 +518,7 @@ def _hard(rng):
     part = mcq_part(
         f"Which is the value of y when x = {N}?",
         key_text,
-        wrong_text,
+        _first_distinct(wrong_text, key_text, 4),
         1,
         [
             f"The model is {_MODEL_NAMES[classify(ys)]} (checked using differences per row of {step} in x).",
