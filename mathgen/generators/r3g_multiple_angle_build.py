@@ -22,7 +22,7 @@ import math
 
 import sympy as sp
 
-from ..core import attempts, check, generator
+from ..core import attempts, check, generator, ordinal
 from ._r3g_kit import ex, latex, pick, retry_short, typed, vary_symbol
 
 R = sp.Rational
@@ -250,7 +250,7 @@ def _hard_power(rng):
         answer_latex=latex(value),
         working=[
             f"With z = cos θ + i sin θ, {fn} θ = {'(z + 1/z)/2' if fn == 'cos' else '(z - 1/z)/(2i)'}.",
-            f"Expand the {n}th power by the binomial theorem and pair z^k with z^-k using 2 cos kθ = z^k + z^-k and 2i sin kθ = z^k - z^-k.",
+            f"Expand the {ordinal(n)} power by the binomial theorem and pair z^k with z^-k using 2 cos kθ = z^k + z^-k and 2i sin kθ = z^k - z^-k.",
             f"The required coefficient is {text}.",
         ],
         distractors=pick(text, cands, 3),

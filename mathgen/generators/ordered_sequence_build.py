@@ -195,37 +195,37 @@ _DAY_PARTS = ["morning", "afternoon", "evening", "night"]
 _DAY_PART_INDEX = {label: i for i, label in enumerate(_DAY_PARTS)}
 _DAY_PART_EVENTS = {
     "morning": [
-        "wake up and eat breakfast",
-        "get dressed for school",
-        "brush your teeth after waking up",
+        "eat breakfast",
+        "get dressed",
+        "brush your teeth",
     ],
     "afternoon": [
         "eat lunch",
-        "play outside after school",
-        "do afternoon sport training",
+        "play outside",
+        "do sport training",
     ],
     "evening": [
-        "eat dinner with your family",
-        "watch the sun go down",
-        "do homework after school",
+        "eat dinner",
+        "watch the sunset",
+        "do homework",
     ],
     "night": [
-        "put on pyjamas and go to sleep",
+        "put on pyjamas",
         "read a bedtime story",
-        "turn off the lights to sleep",
+        "turn off the lights",
     ],
 }
 
 _WEEKDAYS = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 _WEEKDAY_INDEX = {label: i for i, label in enumerate(_WEEKDAYS)}
 _WEEKDAY_EVENTS = {
-    "Monday": ["a music lesson", "the school assembly", "the start of the school week"],
+    "Monday": ["a music lesson", "the school assembly", "the first school day"],
     "Tuesday": ["a library visit", "sports training", "an art class"],
     "Wednesday": ["swimming lessons", "a school excursion", "a science class"],
-    "Thursday": ["a computer lab session", "gardening club", "a class news day"],
+    "Thursday": ["computer lab", "gardening club", "a class news day"],
     "Friday": ["free-dress day", "an end-of-week quiz", "an awards assembly"],
     "Saturday": ["a weekend sport game", "a family outing", "a sleep-in morning"],
-    "Sunday": ["a family lunch", "a quiet rest day", "getting ready for the school week"],
+    "Sunday": ["a family lunch", "a quiet rest day", "packing the school bag"],
 }
 
 
@@ -285,7 +285,7 @@ def day_time_sequencing(rng, window="day_parts", run_lengths=(4,)):
     display_items = [(label, rng.choice(events[label])) for label in labels]
     rng.shuffle(display_items)
 
-    lines = "; ".join(f"{label} -- {event}" for label, event in display_items)
+    lines = "; ".join(f"{label} ({event})" for label, event in display_items)
     answer_text = ", ".join(correct_order)
 
     # Misconception distractors:
@@ -307,11 +307,7 @@ def day_time_sequencing(rng, window="day_parts", run_lengths=(4,)):
     ]
 
     return dict(
-        text=(
-            f"Here are some {cycle_name}, each shown with something that happens then, "
-            f"listed in a random order: {lines}. Write the {cycle_name} in the order "
-            "they actually happen, earliest first."
-        ),
+        text=f"Put these {cycle_name} in order, earliest first: {lines}.",
         latex=rf"\text{{Order: {lines}}}",
         answer=list(correct_order),
         answer_text=answer_text,

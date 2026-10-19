@@ -40,6 +40,7 @@ from ..figure_kinds.pattern import (
     structure,
 )
 from ..slots import NAMES
+from .early_math import _balanced
 
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
@@ -373,11 +374,6 @@ _NTH_STRUCTS = ("AB", "AAB", "ABB", "ABC")
 _MISTAKE_STRUCTS = ("AB", "AAB", "ABB", "ABC")
 
 
-def _count_distractors(p: int, total: int, kinds: int, reps: int) -> list[str]:
-    cands = [total, kinds, reps, p + 1, p - 1, 2 * p]
-    return [str(c) for c in cands if c >= 1 and c != p]
-
-
 def _build_count(rng):
     for _ in attempts(500, "a strip with a countable repeating part"):
         struct = rng.choice(_COUNT_STRUCTS)
@@ -447,8 +443,12 @@ def ey_pattern_unit(rng, tier="easy"):
     if tier == "easy":
         fig, p, total, kinds, reps = _build_count(rng)
         answer_text = str(p)
-        distractors = pick_distractors(answer_text, _count_distractors(p, total, kinds, reps), n=3)
-        check(len(distractors) >= 2, "too few distractors")
+        pool = [
+            v for v in dict.fromkeys([total, kinds, reps, p - 1, p + 1, p + 2, p + 3, 2 * p, 1]) if v >= 1 and v != p
+        ]
+        # The key's rank among the options is drawn at random, so it is not always the second-smallest.
+        distractors = _balanced(rng, p, pool, (total, kinds, reps, p + 1, p - 1))
+        check(len(distractors) == 3, "too few distractors")
         figures.assert_no_leak(fig, [answer_text, *distractors])
         check(_read_unit(fig, "") == answer_text, "the figure does not show the keyed length")
         return dict(
@@ -484,9 +484,9 @@ def ey_pattern_unit(rng, tier="easy"):
         )
     fig, place, length, p, unit, family = _build_mistake(rng)
     answer_text = f"Number {place}"
-    near = [place + 1, place - 1, length, p + 1, 2 * p + 1]
-    cands = [f"Number {c}" for c in dict.fromkeys(near) if 1 <= c <= length and c != place]
-    distractors = pick_distractors(answer_text, cands, n=3)
+    near = [place + 1, place - 1, place + 2, place - 2, length, p + 1, 2 * p + 1]
+    pool = [c for c in dict.fromkeys(near) if 1 <= c <= length and c != place]
+    distractors = [f"Number {c}" for c in _balanced(rng, place, pool, (place + 1, place - 1, length, p + 1))]
     check(len(distractors) == 3, "too few distractors")
     figures.assert_no_leak(fig, [answer_text, *distractors])
     check(_read_unit(fig, "One is wrong.") == answer_text, "the figure does not show the keyed mistake")

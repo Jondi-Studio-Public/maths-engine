@@ -1,36 +1,87 @@
 id: meaning-of-equality
 name: Understand equality as a relationship
 domain: equations
-description: Interpret the equals sign as asserting that two expressions have the same value.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '7'
+- '8'
+description: 'Interpret the equals sign as a statement that two expressions have the same value: decide whether a number
+  sentence is true, find the missing number that balances it, and say what keeps a balance true.'
+status: active
+placement_eligible: false
 prerequisites:
 - variable-concept
 answer: mcq
 sources:
-- topic: linear_equation
+- topic: w5_meaning_of_equality
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: linear_equation
+- topic: w5_meaning_of_equality
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: linear_equation
+- topic: w5_meaning_of_equality
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_meaning_of_equality
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Reading equals as an instruction to calculate
-- id: misconception-2
-  description: Believing operations may be applied to only one side
-tags: []
+- id: w5e-equals-means-answer-next
+  description: Reads the equals sign as 'the answer comes next', so accepts a sentence whose right side starts with the
+    answer to the left side.
+- id: w5e-sides-not-compared
+  description: Does not work out and compare the value of both sides.
+- id: w5e-equals-needs-single-number
+  description: Believes the equals sign must be followed by a single number.
+- id: w5e-wrong-side-value
+  description: Makes an error in working out the value of one side of the sentence.
+- id: w5e-compares-form
+  description: Judges whether the sides are equal by the numbers or signs written rather than by their values.
+- id: w5e-adds-all-numbers
+  description: Adds every number in the sentence to get the missing number.
+- id: w5e-copies-a-number
+  description: Copies a number from the sentence instead of balancing the two sides.
+- id: w5e-off-by-one
+  description: Is one out when balancing the two sides.
+- id: w5e-adds-instead-of-multiplies
+  description: Adds the numbers where the sentence multiplies them.
+- id: w5e-changes-one-side-only
+  description: Changes only one side of a true sentence and still expects it to balance.
+- id: w5e-opposite-changes
+  description: Adds to one side and subtracts from the other, expecting them to stay equal.
+- id: w5e-unequal-changes
+  description: Changes the two sides by different amounts and expects them to stay equal.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Work out both sides of a number sentence and compare them, rather than reading the equals sign as 'the answer
+      comes next'.
+  medium:
+    steps: 3
+    demand: Find the missing number that makes both sides equal, with the unknown on either side and with a product on one
+      side.
+  hard:
+    steps: 5
+    demand: Decide which changes keep a true sentence balanced, and spot the expression whose value differs from a product.
+  exam:
+    steps: 6
+    demand: Chain the missing number, the common value of both sides and the change that keeps the balance after one side
+      is altered.
+tags:
+- equality
+- balance
+- nsw-stage-4
+- algebra

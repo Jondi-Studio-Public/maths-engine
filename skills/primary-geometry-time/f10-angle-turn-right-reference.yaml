@@ -2,23 +2,38 @@ id: f10-angle-turn-right-reference
 name: Express turns as right angles
 domain: primary-geometry-time
 year_level: ['2', '3']
-description: Express a stated everyday turn (quarter, half, three-quarter or full turn) as a number of right angles.
+description: Express a stated everyday turn (quarter, half, three-quarter or full turn) as a number of right angles, then count the turns of a clock hand, a compass pointer or a wheel, whole turns with a part turn, a net turn, and the turn still needed to finish a whole turn.
 status: active
 placement_eligible: false
 prerequisites: [angle-types]
 answer: number
 sources:
 - topic: angle_turn_right_reference
-  params: {}
+  params: {varied: true}
   difficulty: easy
   stages: [0, 1, 2]
+- topic: w7f_turn_contexts
+  params: {tier: easy}
+  difficulty: easy
+  key: w7f-turn-contexts-easy
+  stages: [0, 1, 2]
 - topic: angle_turn_right_reference
-  params: {}
+  params: {varied: true}
   difficulty: medium
   stages: [3, 4]
+- topic: w7f_turn_contexts
+  params: {tier: medium}
+  difficulty: medium
+  key: w7f-turn-contexts-medium
+  stages: [3, 4]
 - topic: angle_turn_right_reference
-  params: {}
+  params: {varied: true}
   difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: w7f_turn_contexts
+  params: {tier: hard}
+  difficulty: hard
+  key: w7f-turn-contexts-hard
   stages: [5, 6, maintenance]
 misconceptions:
 - id: confuses-half-and-quarter

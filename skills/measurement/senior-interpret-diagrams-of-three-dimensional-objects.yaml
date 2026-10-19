@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_cube_stack_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: counts-columns-not-cubes
   description: "Counts the columns seen from above, or the squares on the top layer, and so ignores the cubes stacked under each top."
@@ -36,3 +40,16 @@ misconceptions:
 - id: surface-area-of-the-picture-only
   description: "Finds the surface area from the faces in the picture alone, forgetting the bottom and the hidden back and left faces, or takes 6 squares for every cube."
 tags: [acara-senior-v8-4, measurement, three-dimensional-objects, isometric, cubes, acmem115]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Count the cubes in a stack of one or two layers drawn on isometric dot paper."
+  medium:
+    steps: 2
+    demand: "Count a three-layer stack, including the cubes hidden below the tops."
+  hard:
+    steps: 3
+    demand: "Find the cubes still needed to fill a box, or the surface area counting hidden faces and the bottom."
+  exam:
+    steps: 6
+    demand: "Chain the cubes in the stack, the cubes needed to fill a box, the surface area in unit squares and the surface area in square centimetres."

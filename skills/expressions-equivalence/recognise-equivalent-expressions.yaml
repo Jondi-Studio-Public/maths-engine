@@ -1,41 +1,83 @@
 id: recognise-equivalent-expressions
 name: Recognise and justify equivalent expressions
 domain: expressions-equivalence
-description: Determine whether expressions are equivalent and justify the conclusion using properties
-  or substitution.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '7'
+- '8'
+description: Decide whether expressions are equivalent by expanding and collecting terms, find the expression that is or
+  is not equivalent, and recognise that a match at one value does not prove equivalence.
+status: active
+placement_eligible: false
 prerequisites:
 - simplify-multi-operation-expressions
 - apply-a-rule-to-inputs
 answer: mcq
 sources:
-- topic: simplify_expression
-  params:
-    kind: multi
+- topic: w5_equivalent_expressions
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: simplify_expression
-  params:
-    kind: multi
+- topic: w5_equivalent_expressions
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: simplify_expression
-  params:
-    kind: multi
+- topic: w5_equivalent_expressions
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_equivalent_expressions
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Assuming expressions are equivalent because they match for one value
-- id: misconception-2
-  description: Using examples as a complete proof
-tags: []
+- id: w5q-distributes-to-first-term
+  description: Multiplies only the first term in a bracket by the number outside it.
+- id: w5q-sign-slip
+  description: Changes the sign of a term when expanding or collecting.
+- id: w5q-adds-instead-of-multiplies
+  description: Adds the number outside a bracket to the terms instead of multiplying them.
+- id: w5q-drops-a-term
+  description: Leaves out one of the terms when writing an equivalent expression.
+- id: w5q-arithmetic-slip
+  description: Makes an arithmetic slip when expanding or evaluating an expression.
+- id: w5q-multiplies-like-terms
+  description: Multiplies the coefficients of like terms instead of adding them.
+- id: w5q-adds-powers
+  description: Writes the sum of like terms with x squared.
+- id: w5q-combines-unlike-terms
+  description: Adds a constant to the coefficient of x as if they were like terms.
+- id: w5q-subtracts-like-terms
+  description: Subtracts the coefficients of like terms that should be added.
+- id: w5q-appearance-differs
+  description: Believes expressions that look different cannot be equivalent.
+- id: w5q-one-example-as-proof
+  description: Treats the expressions as equivalent because they match for one value of x.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Expand a single bracket or collect like terms to find the equivalent expression.
+  medium:
+    steps: 4
+    demand: Expand a bracket with a constant to find the form that is not equivalent among rearranged and regrouped forms.
+  hard:
+    steps: 5
+    demand: 'Decide whether two expressions are equivalent and justify it: expand when they are, or use a value where they
+      differ when they are not, without trusting a value where they happen to match.'
+  exam:
+    steps: 6
+    demand: Chain the expansion of a bracketed expression, its value at a number and the form that is not equivalent.
+tags:
+- equivalent-expressions
+- expanding
+- nsw-stage-4
+- algebra

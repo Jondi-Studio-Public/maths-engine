@@ -23,6 +23,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_map_landmarks_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: column-and-row-swapped
   description: Reads the number as the column and the letter as the row, so the square or the reference is reflected across the diagonal.
@@ -39,3 +43,16 @@ misconceptions:
 - id: distances-swapped
   description: Applies the first distance to the second direction and the second distance to the first.
 tags: [acara-f10-v9, primary, geometry, map, grid-reference, landmarks, ac9m3sp02]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Read which landmark is in a named square."
+  medium:
+    steps: 2
+    demand: "Give the grid reference of a landmark, or name the landmark in a compass direction from a square."
+  hard:
+    steps: 3
+    demand: "Follow two moves from a named landmark to the finishing square."
+  exam:
+    steps: 5
+    demand: "Chain the landmark in a square, the grid reference of another, a two-move journey and the landmark where it ends."

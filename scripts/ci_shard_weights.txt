@@ -849,7 +849,6 @@
 1.9 tests/test_exam_parts_compound_interest.py
 1.9 tests/test_exd_e1_line_standard_form.py
 1.9 tests/test_exd_e6_division_two_step.py
-1.9 tests/test_exd_x_f5_trigquad.py
 1.9 tests/test_exd_x_m3_rectangle_area_path.py
 1.9 tests/test_exd_x_m4_cylinder_surface_chain.py
 1.9 tests/test_exd_x_pr4_decimal_numberline_scale.py

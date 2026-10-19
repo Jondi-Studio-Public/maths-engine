@@ -1,0 +1,65 @@
+id: proof-triangle-inequality-steps
+name: Prove the triangle inequality by squaring, step by step
+domain: proof-and-foundations
+year_level:
+- '12'
+description: Type the algebra that proves |a + b| is at most |a| + |b| by showing the difference of the squares is non-negative;
+  every line is checked.
+status: active
+placement_eligible: false
+prerequisites:
+- absolute-value-equations-inequalities
+- expand-binomial-trinomial
+answer: step_chain
+sources:
+- topic: w10_proof_triangle
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_proof_triangle
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_proof_triangle
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: w10_proof_triangle_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: tri-abs-squared-not-squared
+  description: Treats |a|^2 as |a|, or the cross term 2|a||b| as 2ab.
+- id: tri-cross-term-sign
+  description: Adds the cross term where it should be subtracted.
+- id: tri-cross-term-dropped
+  description: Drops the cross term, or its factor 2, when expanding the square of a sum.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Expand the square of a sum of absolute values and use |a|^2 = a^2.
+  medium:
+    steps: 3
+    demand: Expand two squares and subtract; the squared terms cancel.
+  hard:
+    steps: 4
+    demand: Apply the same idea to the distance between two points through a third.
+  exam:
+    steps: 5
+    demand: Chain the difference form and the three-point form of the triangle inequality, the second built on the first.
+tags:
+- proof
+- typed-steps
+- inequality
+- absolute-value
+- triangle-inequality

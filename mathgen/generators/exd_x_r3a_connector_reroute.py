@@ -26,6 +26,7 @@ from itertools import combinations
 from mathgen.answers import Distractor
 from mathgen.core import attempts, check, generator, latex_answer, pick_distractors
 from ._exd_distinct_parts import distinct_part_answers
+from ._network_fig import with_network_figure
 
 _TOWNS = string.ascii_uppercase[:7]
 
@@ -121,6 +122,7 @@ def _build(rng):
 
 @generator("exd_x_r3a_connector_reroute", level=12, presets={"exam": {"tier": "exam"}})
 @distinct_part_answers
+@with_network_figure
 def exd_x_r3a_connector_reroute(rng, tier: str = "exam"):
     check(tier == "exam", f"unknown tier {tier!r}")
     for _ in attempts(200, "enough distractors in every part"):

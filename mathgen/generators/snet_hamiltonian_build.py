@@ -40,6 +40,7 @@ from ._snet_kit import (
     route_of_class,
     route_text,
 )
+from ._network_fig import with_network_figure
 
 
 def is_hamiltonian_cycle(route, n, edges) -> bool:
@@ -273,6 +274,7 @@ def _hard(rng):
     level=12,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@with_network_figure
 def snet_hamiltonian(rng, tier="easy"):
     """Hamiltonian paths and cycles as counts; the tiers are described in the module docstring."""
     if tier == "easy":
@@ -303,6 +305,7 @@ def _money(value: Fraction) -> str:
 
 
 @generator("snet_hamiltonian_chain", level=12, presets={"exam": dict(tier="exam")})
+@with_network_figure
 def snet_hamiltonian_chain(rng, tier="exam"):
     """Exam chain on a network of roads with distances: tours counted, then the cheapest tour and its fuel cost."""
     check(tier == "exam", f"unknown tier {tier!r}")

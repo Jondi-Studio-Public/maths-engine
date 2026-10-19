@@ -1,0 +1,70 @@
+id: proof-parity-steps
+name: Prove results about odd and even numbers, step by step
+domain: proof-and-foundations
+year_level:
+- '10'
+- '11'
+description: Type the algebra that writes an expression in the form 2(...) + 1 or 2(...), the working behind a proof by
+  contradiction or cases about odd and even numbers.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-odd-even-properties
+- expand-binomial-trinomial
+answer: step_chain
+sources:
+- topic: w10_proof_parity
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_proof_parity
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_proof_parity
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: w10_proof_parity_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: parity-odd-square-forgets-cross-term
+  description: Squares 2k + c without the middle term.
+- id: parity-square-of-sum-termwise
+  description: Squares or cubes a sum term by term.
+- id: parity-odd-form-off-by-one
+  description: Ends with a form that does not equal the expression being rewritten.
+- id: parity-factor-not-taken-out-fully
+  description: Takes a factor of 2 out of some terms but not all.
+- id: parity-product-misses-cross-term
+  description: Multiplies two brackets with fewer than four products.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Expand the square or the sum of an odd number and write it as 2(...) + 1.
+  medium:
+    steps: 3
+    demand: Expand a product of two odd numbers, or a square minus one, and factorise.
+  hard:
+    steps: 4
+    demand: Expand a quadratic or cubic in 2k + 1 or 2k, collect like terms and take out the factor of 2.
+  exam:
+    steps: 5
+    demand: Chain the odd case and the even case of one proof by contradiction, each with its own expansion and factor of 2.
+tags:
+- proof
+- typed-steps
+- odd-even
+- contradiction
+- algebra

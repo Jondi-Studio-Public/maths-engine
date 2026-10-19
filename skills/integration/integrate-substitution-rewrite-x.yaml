@@ -1,0 +1,105 @@
+id: integrate-substitution-rewrite-x
+name: Integrate by substitution when the leftover x must be rewritten in u
+domain: integration
+year_level:
+- '12'
+description: Integrate x(x + a)^n, x times a root of x + a, x over a power of x + a, and odd powers of x times a function
+  of x squared, by a substitution that leaves a factor of x to be written in terms of u; then use it in a definite integral
+  with changed limits.
+status: active
+placement_eligible: false
+prerequisites:
+- integration-by-substitution
+- integrate-polynomial
+answer: expression
+sources:
+- topic: w6_subst_rewrite_x
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6_subst_rewrite_x
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6_subst_rewrite_x
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6_subst_rewrite_x
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w6-subst-leftover-x-kept
+  description: Integrates the bracket as a power of u but leaves the outside factor of x (or of the exponential) in place,
+    as if it were a constant.
+- id: w6-subst-x-replaced-by-u
+  description: Replaces the leftover x by u instead of by u minus the constant added in the substitution.
+- id: w6-subst-shift-sign-wrong
+  description: Writes x as u plus a where u equals x plus a, so the constant has the wrong sign inside the rewritten integrand.
+- id: w6-subst-exponent-denominator-mismatch
+  description: Divides each term by the same new exponent instead of by its own new exponent after integrating the powers
+    of u.
+- id: w6-subst-du-factor-forgotten
+  description: Forgets to divide by the factor in du, such as 2x dx or bx dx, and so leaves the answer too large.
+- id: w6-subst-odd-power-not-split
+  description: Takes the odd power of x as just the single x that goes into du, leaving out the even power that must be
+    rewritten in u.
+- id: w6-subst-square-binomial-expanded-wrong
+  description: Expands the square of a binomial as the difference of two squares, leaving out the middle term.
+- id: w6-subst-du-factor-doubled
+  description: Multiplies by the factor in du instead of dividing by it, so the result has the factor squared or doubled.
+- id: w6-subst-wrong-inner-function
+  description: Substitutes a different inner function from the one in the integrand, such as u equals the root alone, not
+    one plus the root.
+- id: w6-subst-power-rule-on-bracket
+  description: Applies the power rule to the bracket as if x were the variable, ignoring the inner function and the factor
+    outside it.
+- id: w6-subst-x-from-u-reversed
+  description: Writes x as the constant minus u instead of u minus the constant when solving the substitution for x.
+- id: w6-subst-power-of-u-dropped
+  description: Writes the factor u minus the constant but loses the power or root of u that multiplies it.
+- id: w6-subst-exponent-raised-twice
+  description: Raises the power of u once for the factor of x and again when integrating, so the exponent is one too large
+    in the integrand.
+- id: w6-subst-limits-not-changed
+  description: Puts the original limits of x into the antiderivative in u instead of the limits of u.
+- id: w6-subst-limit-shift-sign-wrong
+  description: Converts the upper limit by subtracting the constant of the substitution instead of adding it.
+- id: w6-subst-lower-limit-for-upper
+  description: Gives the value of u at the lower limit where the upper limit was asked for.
+- id: w6-subst-lower-limit-dropped
+  description: Evaluates the antiderivative at the upper limit only and does not subtract its value at the lower limit.
+- id: w6-subst-limits-swapped
+  description: Subtracts the value at the upper limit from the value at the lower limit, so the sign is wrong.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Substitute u = x + a, rewrite the leftover x as u - a, expand, integrate term by term and replace u.
+  medium:
+    steps: 4
+    demand: Do the same where the bracket is a root, a reciprocal power or a multiple bx + a (an extra factor of 1/b for
+      each dx).
+  hard:
+    steps: 5
+    demand: 'Choose the substitution unprompted: u = x^2 + a for an odd power of x, or u = 1 + sqrt(x), and rewrite an even
+      power of x in u.'
+  exam:
+    steps: 6
+    demand: Chain x in terms of u, the integrand in u, the new upper limit and the exact value of a definite integral.
+tags:
+- senior
+- integration
+- substitution
+- specialist-unit-4
+- extension-2

@@ -1,0 +1,100 @@
+id: circle-find-unknown-constant
+name: Find an unknown coordinate or constant of a circle
+domain: quadratics
+year_level:
+- '10'
+- '11'
+description: Use the equation of a circle to find the missing coordinate of a point on it, the constant F of x^2 + y^2 +
+  Dx + Ey + F = 0 for a stated radius or point, the greatest whole F that still gives a circle, or F when the circle touches
+  an axis.
+status: active
+placement_eligible: false
+prerequisites:
+- circle-complete-the-square
+answer: number
+sources:
+- topic: w5_circle_unknown
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w5_circle_unknown
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w5_circle_unknown
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w5_circle_unknown
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w5c-takes-the-other-point
+  description: Chooses the other point on the circle, on the wrong side of the centre.
+- id: w5c-forgets-the-centre-offset
+  description: Gives the offset from the centre as the coordinate, forgetting to add the centre.
+- id: w5c-centre-sign-as-written
+  description: Takes the centre with the signs as they appear inside the brackets, so (x - 3) gives a centre at x = -3.
+- id: w5c-radius-for-offset
+  description: Adds the radius to the centre as if the point were level with it.
+- id: w5c-constant-sign-reversed
+  description: Gives the constant term with its sign reversed.
+- id: w5c-radius-squared-added-not-subtracted
+  description: Adds the radius squared to the squares of the centre coordinates where it should be subtracted.
+- id: w5c-constant-is-minus-r-squared
+  description: Gives minus the radius squared as the constant term.
+- id: w5c-writes-radius-not-squared
+  description: Writes the radius where the radius squared belongs on the right of the equation.
+- id: w5c-expands-with-wrong-signs
+  description: Expands the squared brackets with the signs of the linear terms reversed.
+- id: w5c-ignores-the-linear-terms
+  description: Substitutes the point into the squared terms only and ignores the linear terms.
+- id: w5c-confuses-f-with-centre-form
+  description: Mixes up the constant F with the right-hand side of the centre-radius form.
+- id: w5c-allows-zero-radius
+  description: Allows the radius squared to be zero, which describes a single point rather than a circle.
+- id: w5c-wrong-direction-for-bound
+  description: Takes the bound in the wrong direction and gives a value that is too large.
+- id: w5c-off-by-one-at-the-bound
+  description: Gives a value one below the greatest whole number allowed.
+- id: w5c-tangent-wrong-axis
+  description: Uses the distance to the wrong axis as the radius of a circle that touches an axis.
+- id: w5c-centre-is-half-coefficient-with-its-sign
+  description: Halves the coefficient of x or y but keeps its sign, so x^2 - 6x gives a centre at x = -3.
+- id: w5c-centre-not-halved
+  description: Uses the whole coefficient of x or y as the coordinate of the centre, without halving it.
+- id: w5c-coordinates-swapped
+  description: Swaps the x- and y-coordinates of the centre.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Substitute the known coordinate of a point on the circle, solve for the other offset from the centre and choose
+      the side the point lies on.
+  medium:
+    steps: 4
+    demand: Complete the square with an unknown F and use a stated radius, or substitute a point on the circle, to find
+      F.
+  hard:
+    steps: 5
+    demand: 'Reason about what makes a circle: the greatest whole F that leaves a positive radius squared, or the F that
+      makes the radius equal the distance to an axis.'
+  exam:
+    steps: 6
+    demand: Chain the centre, the greatest whole F, F for a stated radius and F for tangency to the x-axis.
+tags:
+- circles
+- completing-the-square
+- tangent-to-axis
+- nsw-extension-1
+- vce-methods

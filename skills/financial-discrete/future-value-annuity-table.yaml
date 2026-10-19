@@ -1,0 +1,90 @@
+id: future-value-annuity-table
+name: Future value of an annuity from a table
+domain: financial-discrete
+year_level:
+- '11'
+- '12'
+description: Use a table of future value factors for $1 per period to find the future value of equal contributions, the payment
+  that reaches a target, and the interest earned.
+status: active
+placement_eligible: false
+prerequisites:
+- compound-interest
+answer: number
+sources:
+- topic: w3_annuity_table
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_annuity_table
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_annuity_table
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_annuity_table
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ann-wrong-period-row
+  description: Reads the factor for one period more or fewer than the contributions made.
+- id: ann-wrong-rate-row
+  description: Reads the factor for the next rate up or down in the table.
+- id: ann-no-interest
+  description: Multiplies the contribution by the number of periods, ignoring the interest.
+- id: ann-factor-only
+  description: Gives the table factor itself, forgetting to multiply by the contribution.
+- id: ann-lump-sum-growth
+  description: Grows a single deposit instead of using the annuity factor.
+- id: ann-divides-by-factor
+  description: Divides the contribution by the factor instead of multiplying.
+- id: ann-multiplies-for-payment
+  description: Multiplies the target by the factor instead of dividing by it.
+- id: ann-divides-by-periods
+  description: Divides the target by the number of periods, ignoring the interest.
+- id: ann-future-value-for-interest
+  description: Gives the future value where the interest earned was asked.
+- id: ann-contributions-for-interest
+  description: Gives the total contributed where the interest earned was asked.
+- id: ann-years-as-periods
+  description: Uses the number of years as the number of periods.
+- id: ann-rate-not-divided
+  description: Divides the annual rate by the wrong number of periods per year, so reads the wrong row of the table.
+- id: ann-difference-sign
+  description: Adds the two future values instead of finding their difference.
+- id: ann-contributions-total-only
+  description: Gives the total contributed for one option only.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Read the factor for the stated rate and number of periods, then multiply by the payment.
+  medium:
+    steps: 3
+    demand: Divide a target by the factor to find the payment, or subtract the contributions from the future value to find
+      the interest.
+  hard:
+    steps: 5
+    demand: Convert an annual rate and a number of years to the rate and periods for monthly, quarterly or half-yearly payments
+      before reading the table.
+  exam:
+    steps: 6
+    demand: Chain the future value, the total contributed, the interest earned and the payment for a second target.
+tags:
+- financial
+- annuity
+- future-value
+- table
+- nsw-standard

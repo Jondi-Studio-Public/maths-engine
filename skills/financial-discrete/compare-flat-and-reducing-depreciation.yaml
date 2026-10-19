@@ -1,0 +1,83 @@
+id: compare-flat-and-reducing-depreciation
+name: Compare flat-rate and reducing-balance depreciation
+domain: financial-discrete
+year_level:
+- '11'
+- '12'
+description: 'Compare the value of an asset under flat-rate and reducing-balance depreciation: the difference after some years,
+  the year the methods cross over, and the flat rate that matches a reducing-balance value.'
+status: active
+placement_eligible: false
+prerequisites:
+- flat-rate-depreciation
+- reducing-balance-depreciation
+answer: number
+sources:
+- topic: w3_compare_depreciation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_compare_depreciation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_compare_depreciation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_compare_depreciation
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: cmp-difference-sign
+  description: Adds the two values instead of finding their difference.
+- id: cmp-reports-one-method
+  description: Gives the value under one method where the difference was asked.
+- id: cmp-decimal-slip
+  description: Misplaces the decimal point in the difference.
+- id: cmp-doubles-difference
+  description: Doubles the difference, adding the gap for each method instead of comparing them once.
+- id: cmp-year-flat-zero
+  description: Gives the year the flat-rate value would reach zero instead of the year the methods cross over.
+- id: cmp-flat-total-rate
+  description: Uses the percentage for each year of the flat method as if it were applied once.
+- id: cmp-crossover-early
+  description: Names the year before the reducing-balance value becomes the higher.
+- id: cmp-crossover-late
+  description: Names the year after the reducing-balance value becomes the higher.
+- id: cmp-equal-rate
+  description: Assumes the matching flat rate equals the reducing-balance rate.
+- id: cmp-flat-rate-ignores-years
+  description: Gives the total percentage lost, without dividing by the number of years.
+- id: cmp-flat-rate-of-value
+  description: Divides the dollars lost by the number of years but not by the price, so the rate is in dollars.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find both values after two years at the same rate and subtract.
+  medium:
+    steps: 4
+    demand: Find both values after three to five years, rounding the reducing-balance value, and subtract.
+  hard:
+    steps: 6
+    demand: Find the year the reducing-balance value first exceeds the flat-rate value, or the flat rate that matches a reducing-balance
+      value.
+  exam:
+    steps: 7
+    demand: Chain both values, their difference and the crossover year.
+tags:
+- financial
+- depreciation
+- comparison
+- vce-general

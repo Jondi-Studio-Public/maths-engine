@@ -10,7 +10,7 @@ prerequisites: [fraction-decimal-percent, percentage-of-quantity]
 answer: fraction
 sources:
 - topic: percentage_to_fraction
-  params: {variant: benchmark}
+  params: {variant: benchmark, wide: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: percentage_to_fraction

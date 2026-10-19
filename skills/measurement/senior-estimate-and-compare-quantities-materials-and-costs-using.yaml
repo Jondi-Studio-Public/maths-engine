@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_scale_materials_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: rounds-down
   description: "Rounds the number of packs down or to the nearest whole, so there is not enough material."
@@ -34,3 +38,16 @@ misconceptions:
 - id: compares-unrounded-cost
   description: "Compares the costs without rounding to whole packs, or gives a total cost or a price difference instead of the saving."
 tags: [acara-senior-v8-4, measurement, grid_scale_materials, acmem110, scale-drawings, materials, costs, rounding-up]
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: "Find the actual area of a rectangle from its plan and round up to whole packs."
+  medium:
+    steps: 4
+    demand: "Find the actual area or boundary of an L- or U-shaped plan and round up to whole rolls or panels."
+  hard:
+    steps: 6
+    demand: "Find the actual area, round up to whole rolls for each of two options and compare the costs."
+  exam:
+    steps: 7
+    demand: "Chain the actual area, the whole rolls needed, their cost and the turf left over from one L- or U-shaped lawn."

@@ -38,6 +38,7 @@ from ._snet_kit import (
     route_of_class,
     route_text,
 )
+from ._network_fig import with_network_figure
 
 ORDER = ("walk", "trail", "path", "closed walk", "closed trail", "cycle")
 
@@ -174,6 +175,7 @@ def _hard(rng):
     level=12,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@with_network_figure
 def snet_route_types(rng, tier="easy"):
     """Name a route through a network; the tiers are described in the module docstring."""
     if tier == "easy":
@@ -188,6 +190,7 @@ def snet_route_types(rng, tier="easy"):
 
 
 @generator("snet_route_types_chain", level=12, presets={"exam": dict(tier="exam")})
+@with_network_figure
 def snet_route_types_chain(rng, tier="exam"):
     """Exam chain on one route that re-uses an edge: its steps, its different edges, the re-uses, its name."""
     check(tier == "exam", f"unknown tier {tier!r}")

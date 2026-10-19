@@ -3,7 +3,8 @@
 id: senior-solve-problems-involving-bearings
 name: Solve problems involving bearings
 domain: senior-mathematics
-description: Given bounded, fully specified inputs, solve problems involving bearings. Return the resulting value, expression, relation, or classification.
+description: Given bounded, fully specified inputs, solve problems involving bearings. Return the resulting value, expression,
+  relation, or classification.
 status: active
 placement_eligible: false
 prerequisites:
@@ -12,19 +13,42 @@ prerequisites:
 answer: number
 sources:
 - topic: bearings_problem
-  params: {variant: back_bearing}
+  params:
+    variant: back_bearing
   difficulty: easy
-  stages: [6]
+  stages:
+  - 6
 - topic: bearings_problem
-  params: {variant: leg_distance}
+  params:
+    variant: leg_distance
   difficulty: medium
-  stages: [6]
+  stages:
+  - 6
+- topic: w3_bearings_general
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+  key: general-legs
 - topic: bearings_problem
-  params: {variant: leg_bearing}
+  params:
+    variant: leg_bearing
   difficulty: hard
-  stages: [6, maintenance]
+  stages:
+  - 6
+  - maintenance
+- topic: w3_bearings_general
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+  key: general-legs-hard
 - topic: exd_x_r3a_bearings_triangle
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
@@ -32,19 +56,56 @@ misconceptions:
 - id: reports-bearing-unchanged
   description: Reports the given bearing back unchanged instead of computing the reverse (back) bearing.
 - id: forgets-to-normalise-mod-360
-  description: Adds or subtracts 180 degrees without normalising past 0 or 360, giving a negative value or one that needs +360.
+  description: Adds or subtracts 180 degrees without normalising past 0 or 360, giving a negative value or one that needs
+    +360.
 - id: adds-legs-instead-of-pythagoras
   description: Adds the two leg lengths directly instead of applying Pythagoras to find the straight-line distance.
 - id: subtracts-legs-instead-of-pythagoras
-  description: Subtracts the shorter leg length from the longer one instead of applying Pythagoras to find the straight-line distance.
+  description: Subtracts the shorter leg length from the longer one instead of applying Pythagoras to find the straight-line
+    distance.
 - id: reports-single-leg-only
   description: Reports one leg's length as if it were the straight-line distance, forgetting the second leg entirely.
 - id: forgets-to-convert-triangle-angle-to-bearing
-  description: Reports the raw inverse-tangent angle from inside the right triangle without converting it into an absolute compass bearing.
+  description: Reports the raw inverse-tangent angle from inside the right triangle without converting it into an absolute
+    compass bearing.
 - id: wrong-reference-direction
-  description: Subtracts the triangle's angle from the reference bearing instead of adding it (or vice versa), taking the wrong turn direction.
+  description: Subtracts the triangle's angle from the reference bearing instead of adding it (or vice versa), taking the
+    wrong turn direction.
 - id: reports-opposite-direction-bearing
-  description: Reports the forward bearing when the back bearing was asked, or vice versa, forgetting to add the 180-degree turn for the direction actually asked.
+  description: Reports the forward bearing when the back bearing was asked, or vice versa, forgetting to add the 180-degree
+    turn for the direction actually asked.
 - id: swaps-opposite-and-adjacent-legs
   description: Swaps which leg is opposite and which is adjacent in the inverse-tangent ratio, giving the complementary angle.
-tags: [acara-v8-4-essential, trigonometry, bearings, right-angled-triangles]
+- id: w3br-sin-cos-swapped
+  description: Swaps sine and cosine when finding a distance north or east.
+- id: w3br-adds-legs
+  description: Adds the two leg lengths instead of combining the north and east distances.
+- id: w3br-one-leg
+  description: Uses the first leg only.
+- id: w3br-no-reverse
+  description: Gives the bearing from the start to the finish where the bearing home was asked.
+- id: w3br-tan-swapped
+  description: Uses the north distance over the east distance for the angle.
+- id: w3br-raw-angle
+  description: Gives the angle in the triangle and does not turn it into a three-figure bearing.
+- id: w3br-angle-from-east
+  description: Measures the angle from east instead of from north.
+- id: w3br-sign-of-component
+  description: Adds a distance south or west as if it were north or east.
+- id: w3br-uses-sin-not-cos
+  description: Uses the sine of the bearing where the cosine is needed to cancel the north distance.
+- id: w3br-distance-as-component
+  description: Gives the distance walked as the distance north or east.
+- id: w3br-tan-used
+  description: Uses the tangent where the sine or cosine is needed.
+- id: w3br-divides
+  description: Divides by the sine or cosine where it should multiply.
+- id: w3br-adds-components
+  description: Adds the north and east distances instead of using Pythagoras.
+- id: w3br-uses-total-not-component
+  description: Uses the whole first leg as the distance to cancel.
+tags:
+- acara-v8-4-essential
+- trigonometry
+- bearings
+- right-angled-triangles

@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_solid_properties_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: counts-the-lengths-not-the-edges
   description: "Gives the number of lengths that match, 1, 2 or 3, instead of the number of edges, which come four to a length."
@@ -38,3 +42,16 @@ misconceptions:
 - id: misreads-the-base-from-the-count
   description: "Takes the number of edges, faces or vertices of a prism or pyramid to be the number of sides of its base."
 tags: [acara-senior-v8-4, measurement, geometric-shapes, solids, faces-edges-vertices, acmem105]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Read the three lengths of a cuboid from its picture and count edges or faces by length or area."
+  medium:
+    steps: 2
+    demand: "Count the faces, edges or vertices of a named prism or pyramid, or the diagonals of a polygon."
+  hard:
+    steps: 3
+    demand: "Work back from one count of faces, edges or vertices to another using Euler's rule or the shape of the base."
+  exam:
+    steps: 6
+    demand: "Chain the edges of one length, the volume and the surface area of a cuboid from its picture, then the cost of painting it."

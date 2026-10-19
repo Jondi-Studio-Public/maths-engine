@@ -22,6 +22,7 @@ from itertools import product
 from ..core import VerificationError, attempts, check, generator
 from ._exd_r3f_parts import number_part
 from ._exd_distinct_parts import distinct_part_answers
+from ._network_fig import with_network_figure
 
 _JUNCTIONS = ("A", "B", "C", "D")
 
@@ -78,6 +79,7 @@ def _brace(nodes) -> str:
 
 @generator("exd_x_r3f_network_flow", level=17, presets={"exam": dict(tier="exam")})
 @distinct_part_answers
+@with_network_figure
 def exd_x_r3f_network_flow(rng: random.Random, tier: str = "exam") -> dict:
     """A cut capacity, the maximum flow, the maximum flow after an upgrade, and the increase."""
     if tier != "exam":

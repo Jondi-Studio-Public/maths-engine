@@ -3,14 +3,72 @@ name: Calculate a unit price
 domain: financial-discrete
 description: Divide a pack price by its quantity to calculate price per item.
 status: active
-prerequisites: [ratio-rate-proportion]
+prerequisites:
+- ratio-rate-proportion
 answer: number
 sources:
-- {topic: unit_pricing, params: {}, difficulty: easy}
+- topic: unit_pricing
+  params: {}
+  difficulty: easy
+- topic: w3_unit_tiers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_unit_tiers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: exd_x_g5_unit_pricing
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
-misconceptions: [{id: reverses-rate, description: Divides quantity by price.}]
-tags: [expansion-batch-5, rates]
+misconceptions:
+- id: reverses-rate
+  description: Divides quantity by price.
+- id: w3up-miscounts-hundreds
+  description: Miscounts the number of 100 g lots in the packet.
+- id: w3up-unit-price-given
+  description: Gives one of the unit prices where the difference was asked.
+- id: w3up-total-as-unit
+  description: Gives the price of the pack where the price of one was asked.
+- id: w3up-inverted
+  description: Divides the quantity by the price instead of the price by the quantity.
+- id: w3up-adds-instead
+  description: Adds the unit price to itself instead of multiplying by the number of items.
+- id: w3up-difference-of-totals
+  description: Subtracts the two pack prices instead of the two unit prices.
+- id: w3up-per-gram
+  description: Gives the price per gram where the price per 100 grams was asked.
+- id: w3up-per-kg-as-100g
+  description: Gives the price per kilogram where the price per 100 grams was asked.
+- id: w3up-saving-per-item
+  description: Gives the saving on one item where the saving on all of them was asked.
+- id: w3up-wrong-pack
+  description: Prices all the items at the dearer pack's unit price.
+- id: w3up-percent-of-cheaper
+  description: Finds the percentage using the cheaper unit price as the starting amount.
+- id: w3up-percent-points
+  description: Gives the difference in cents as the percentage.
+tags:
+- expansion-batch-5
+- rates
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Divide a pack price by the number of items.
+  medium:
+    steps: 3
+    demand: Price a larger number of items, compare two packs by difference, or price per 100 g.
+  hard:
+    steps: 5
+    demand: Find the saving from the better-value pack, or how much cheaper one brand is as a percentage.
+  exam:
+    steps: 7
+    demand: Chain unit prices, savings and a percentage comparison.

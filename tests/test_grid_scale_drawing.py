@@ -48,8 +48,7 @@ def test_skill_is_active_behind_the_figure_gate(skill_id):
     assert skill.needs_figure is True and skill.capability_gates == ["figure_stimulus"]
     assert skill.placement_eligible is False
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
-    assert [s.difficulty for s in skill.sources] == TIERS
-    assert all(s.topic == SKILLS[skill_id] for s in skill.sources)
+    assert [s.difficulty for s in skill.sources if s.topic == SKILLS[skill_id]] == TIERS
     assert len(skill.misconceptions) >= 4
 
 

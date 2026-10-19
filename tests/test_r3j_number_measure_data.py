@@ -113,7 +113,7 @@ def test_skill_wiring(skill_id):
 def test_deepened_skills_keep_their_old_sources_and_gain_new_ones():
     classify = SKILLS["classify-data"]
     assert [(s.topic, s.difficulty) for s in classify.sources] == [
-        ("classify_data", "easy"),
+        ("w3_classify_easy", "easy"),  # w3 replaced the guessable easy tier
         ("r3j_classify_variable", "medium"),
         ("r3j_classify_variable", "hard"),
         ("exd_x_r3j_classify_variables", "exam"),

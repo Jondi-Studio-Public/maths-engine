@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_scale_map_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: map-distance-not-scaled
   description: "Gives the distance measured on the map and never applies the scale."
@@ -36,3 +40,16 @@ misconceptions:
 - id: multiplies-speed
   description: "Multiplies the distance by the speed instead of dividing."
 tags: [acara-senior-v8-4, measurement, grid_scale_map, acmgm023, scale-drawings, maps, distance, speed]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Count the squares along one straight road and apply the map scale."
+  medium:
+    steps: 3
+    demand: "Add the legs of a road that doubles back, then apply the scale."
+  hard:
+    steps: 5
+    demand: "Find the length of a road of several legs, then the walking time at a stated speed."
+  exam:
+    steps: 6
+    demand: "Chain the length of a road that doubles back, the walking time along it and how much shorter a direct track along the grid lines would be."

@@ -6,6 +6,7 @@ domain: financial-discrete
 year_level: ['12']
 description: 'Given bounded, fully specified inputs, solve small-scale network flow problems including the use of the ''maximum-flow minimum-cut'' theorem; for example, determining the maximum volume of oil that can flow through a network of pipes from an oil storage tank (the source) to a terminal (the sink). Return the resulting value, expression, relation, or classification.'
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites: [simple-interest]
 answer: number

@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_scale_conventions_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: metre-centimetre-slip
   description: "Slips by a power of ten when converting between metres and centimetres, so 1 cm : 2 m becomes 1 : 20 or 1 : 2000."
@@ -34,3 +38,16 @@ misconceptions:
 - id: actual-length-unscaled
   description: "Gives the actual length as the drawn length, or slips a power of ten in the conversion."
 tags: [acara-senior-v8-4, measurement, grid_scale_conventions, acmem111, scale-drawings, scale-ratio, dimensions]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Convert between a scale written 1 cm : k m and the ratio 1 : n."
+  medium:
+    steps: 2
+    demand: "Find the scale from one wall labelled with its actual length."
+  hard:
+    steps: 3
+    demand: "Find the scale from a labelled wall, then the drawn length of a stated real length."
+  exam:
+    steps: 5
+    demand: "Chain the scale from a labelled wall, the ratio 1 : n, the drawn length of a fence and the actual perimeter."

@@ -16,6 +16,7 @@ from mathgen.figure_kinds import (
     early,
     grid,
     measure,
+    network as network_kinds,
     pattern,
     scene,
     space,
@@ -279,6 +280,18 @@ def _hand_built() -> list[dict]:
         calendar_kinds.day_strip(cards=["bed"], alt="One card", numbered=True),
         *_compare_samples(),
         *_grid_specimens().values(),
+        network_kinds.network(
+            alt="A weighted network of four vertices",
+            vertices=[("A", 20, 20), ("B", 80, 20), ("C", 80, 80), ("D", 20, 80)],
+            edges=[
+                {"from": "A", "to": "B", "label": "4", "highlight": True},
+                {"from": "B", "to": "C", "label": "7", "directed": True},
+                ("C", "D"),
+                ("D", "A"),
+            ],
+            highlight_vertices=["A"],
+            plane=True,
+        ),
     ]
 
 

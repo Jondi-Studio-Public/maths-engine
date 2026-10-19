@@ -3,8 +3,72 @@ name: Calculate percentage change
 domain: secondary-number
 description: Calculate a percentage increase from an original and final value.
 status: active
-prerequisites: [percentage-of-quantity]
+prerequisites:
+- percentage-of-quantity
 answer: number
-sources: [{topic: percentage_change, params: {reverse: false}, difficulty: easy}, {topic: exd_x_n4_percentage_change, params: {tier: exam}, difficulty: exam, stages: [exam]}]
-misconceptions: [{id: divides-by-final, description: Divides the change by the final value instead of the original value.}]
-tags: [expansion-batch-4, percentages]
+sources:
+- topic: w3_percentage_change
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_percentage_change
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_percentage_change
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_n4_percentage_change
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: divides-by-final
+  description: Divides the change by the final value instead of the original value.
+- id: w3pc-over-final
+  description: Divides the change by the final value instead of the original value.
+- id: w3pc-change-as-percent
+  description: Gives the amount of the change as the percentage.
+- id: w3pc-ratio-as-change
+  description: Gives the final value as a percentage of the original and does not subtract 100.
+- id: w3pc-original-as-final
+  description: Gives the original value as a percentage of the final value.
+- id: w3pc-points-as-percent
+  description: Gives the rise in percentage points as the percentage change.
+- id: w3pc-adds-steps
+  description: Adds the increase and takes off the decrease instead of multiplying the two multipliers.
+- id: w3pc-sums-percentages
+  description: Adds the two percentages whatever their direction.
+- id: w3pc-reverse-same-percent
+  description: Takes the fall that undoes a rise to be the same percentage as the rise.
+- id: w3pc-second-step-on-original
+  description: Gives the fall in the second step as a percentage of the original price, not the overall change.
+- id: w3pc-wrong-direction
+  description: Gives a percentage increase where a decrease was asked, or the reverse.
+tags:
+- expansion-batch-4
+- percentages
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find a percentage increase from an original and a final value.
+  medium:
+    steps: 3
+    demand: Find an increase or a decrease, to one decimal place.
+  hard:
+    steps: 5
+    demand: Combine two changes, find the fall that undoes a rise, or the change in a rate itself.
+  exam:
+    steps: 7
+    demand: Chain percentage changes over several steps.
