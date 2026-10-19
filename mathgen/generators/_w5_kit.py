@@ -322,3 +322,21 @@ def tier_pool(pools: dict, rng, tier: str):
     if pool is None:
         raise ValueError(f"unknown tier {tier!r}")
     return retry_draw(rng, rng.choice(pool))
+
+
+def length_balanced(rng, key: str, wrongs, n: int = 4):
+    """`n` distinct `(text, tag)` wrongs, chosen at random, such that the key is not strictly the longest or the
+    shortest option when the pool allows it (so the length of an option never gives the key away)."""
+    seen = {key}
+    pool = []
+    for text, tag in wrongs:
+        if text is not None and text not in seen:
+            seen.add(text)
+            pool.append((text, tag))
+    n = min(n, len(pool))
+    for _ in range(60):
+        pick = rng.sample(pool, n)
+        lens = [len(t) for t, _ in pick]
+        if min(lens) <= len(key) <= max(lens):
+            return pick
+    return rng.sample(pool, n)

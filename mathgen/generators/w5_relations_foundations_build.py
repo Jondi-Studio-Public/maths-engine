@@ -24,11 +24,12 @@ from __future__ import annotations
 import math
 from fractions import Fraction as Fr
 
-from ..core import check, generator, join_terms, phrase
+from ..core import check, generator, join_terms, paren_negative, phrase
 from ._w5_kit import (
     NAMES,
     TooFewDistractors,
     enough,
+    length_balanced,
     mc_question,
     mcq_cands,
     mcq_fields,
@@ -141,7 +142,7 @@ def _eq_easy_collect(rng):
         (join_terms([(p - q, "x"), (r, "")]), lambda x: (p - q) * x + r, "w5q-subtracts-like-terms"),
     ]
     wrongs = [(t, tag) for t, g, tag in cands if not _same(f, g) and not t.lstrip("-").isdigit()]
-    work = [f"{p}x and {q}x are like terms, so they combine to {p + q}x.", f"The constant {r} stays as it is: {key}."]
+    work = [f"{p}x and {q}x are like terms, so they combine to {p + q}x.", f"The constant {r} is unchanged: {key}."]
     return _mc(
         rng,
         ("Which expression is equivalent to {t}?", "Simplify {t}. Which expression is equivalent to it?"),
@@ -746,7 +747,7 @@ def _prop_pair(rng, xs=None):
 def _prop_table(rng):
     prop, others, k = _prop_pair(rng)
     key = _table_text(prop)
-    wrongs = [(_table_text(p), tag) for p, tag in others]
+    wrongs = length_balanced(rng, key, [(_table_text(p), tag) for p, tag in others])
     work = [
         f"In the key table y ÷ x is always {k}, so y is a fixed multiple of x.",
         "In the other tables the value of y ÷ x changes.",
@@ -789,16 +790,19 @@ def _prop_table_not(rng):
 def _prop_equation(rng):
     k = rng.randint(2, 9)
     c = rng.randint(1, 9)
-    key = f"y = {k}x"
+    j = rng.choice([v for v in (2, 3, 4, 5) if k % v])
+    ct = rng.choice((f"{k}x", f"x/{k}", f"{k}x/{j}"))  # the fixed multiple of x, written three ways
+    key = f"y = {ct}"
     wrongs = [
-        (f"y = {k}x + {c}", "w5p-line-means-proportional"),
+        (f"y = {ct} + {c}", "w5p-line-means-proportional"),
         (f"y = x + {k}", "w5p-constant-difference-not-ratio"),
         (f"y = {k}/x", "w5p-inverse-is-proportional"),
         ("y = x^2" if rng.random() < 0.5 else f"y = x^2 + {k}", "w5p-increasing-means-proportional"),
-        (f"y = {k}x - {c}", "w5p-line-means-proportional"),
+        (f"y = {ct} - {c}", "w5p-line-means-proportional"),
     ]
+    wrongs = length_balanced(rng, key, wrongs)
     work = [
-        f"y = {k}x makes y a fixed multiple of x, and x = 0 gives y = 0.",
+        f"y = {ct} makes y a fixed multiple of x, and x = 0 gives y = 0.",
         "The other equations have an added number or put x in the wrong place, so y is not a fixed multiple of x.",
     ]
     return _mc(
@@ -849,7 +853,8 @@ def _prop_situation(rng):
 def _prop_two_points(rng):
     """The line through two points: proportional only when it passes through the origin."""
     x1, x2 = sorted(rng.sample(range(1, 9), 2))
-    m = rng.randint(1, 6)
+    m = rng.randint(2, 8)
+    near = rng.sample([v for v in (m - 2, m - 1, m + 1, m + 2, m + 3) if v >= 1], 2)  # wrong multipliers, either side
     proportional = rng.random() < 0.5
     c = 0 if proportional else rng.choice([-6, -4, -3, -2, 2, 3, 4, 6])
     y1, y2 = m * x1 + c, m * x2 + c
@@ -864,8 +869,8 @@ def _prop_two_points(rng):
                 "w5p-intercept-miscalculated",
             ),
             ("No: it is a straight line, and a straight line is never proportional", "w5p-line-not-proportional"),
-            (f"Yes: the line is y = {m + 1}x, which passes through the origin", "w5p-gradient-miscalculated"),
-            (f"Yes: the line is y = {m + 2}x, which passes through the origin", "w5p-gradient-miscalculated"),
+            (f"Yes: the line is y = {near[0]}x, which passes through the origin", "w5p-gradient-miscalculated"),
+            (f"Yes: the line is y = {near[1]}x, which passes through the origin", "w5p-gradient-miscalculated"),
             ("No: a proportional relationship must have a gradient of 1", "w5p-gradient-one-only"),
         ]
     else:
@@ -875,7 +880,7 @@ def _prop_two_points(rng):
             (f"Yes: the line is y = {m}x, which passes through the origin", "w5p-intercept-ignored"),
             ("Yes: the gradient is constant, so y is proportional to x", "w5p-line-means-proportional"),
             (
-                f"No: the line is y = {m + 1}x {'+' if c > 0 else '-'} {abs(c)}, which does not pass through the origin",
+                f"No: the line is y = {near[0]}x {'+' if c > 0 else '-'} {abs(c)}, which does not pass through the origin",
                 "w5p-gradient-miscalculated",
             ),
             (
@@ -889,7 +894,7 @@ def _prop_two_points(rng):
         "The points ({x1}, {y1}) and ({x2}, {y2}) both lie on the graph of a linear relationship. Decide whether y is proportional to x and pick the statement that is correct.",
     )
     work = [
-        f"The gradient is ({y2} - {y1}) ÷ ({x2} - {x1}) = {m}.",
+        f"The gradient is ({y2} - {paren_negative(y1)}) ÷ ({x2} - {x1}) = {m}.",
         f"Using a point, the y-intercept is {c}, so the line {'passes' if c == 0 else 'does not pass'} through the origin.",
     ]
     return _mc(rng, stems, key, wrongs, work, x1=x1, y1=y1, x2=x2, y2=y2)
@@ -1234,7 +1239,7 @@ def _ineq_double(rng):
     check(all(not ok(int(t[4:])) for t, _ in wrongs) and ok(key_v), "double inequality options are wrong")
     work = [
         f"x has to satisfy both parts of {text} at the same time.",
-        f"x = {key_v} satisfies both parts; each other value fails at least one.",
+        f"Both parts hold for x = {key_v}; each other value fails at least one.",
     ]
     return _mc(
         rng,
@@ -1380,6 +1385,11 @@ def exd_x_w5_inequality_symbols(rng, tier="exam"):
 # =====================================================================================================================
 
 
+def _plus(x, d) -> str:
+    """'x + d', written 'x - |d|' when d is negative."""
+    return f"{rt(x)} + {rt(d)}" if d >= 0 else f"{rt(x)} - {rt(-d)}"
+
+
 def _seq_text(terms) -> str:
     return ", ".join(rt(t) for t in terms)
 
@@ -1388,13 +1398,13 @@ def _is_arithmetic(terms) -> bool:
     return len({Fr(b) - Fr(a) for a, b in zip(terms, terms[1:])}) == 1
 
 
-def _arith(rng, n=5, decimals=False):
+def _arith(rng, n=5, decimals=False, wide=False):
     d = (
-        rng.choice([v for v in range(-9, 10) if v not in (0,)])
+        rng.choice([v for v in range(-12 if wide else -9, 13 if wide else 10) if v not in (0,)])
         if not decimals
         else Fr(rng.choice([-3, -2, -1, 1, 2, 3, 5]), 2)
     )
-    a = rng.randint(-5, 20)
+    a = rng.randint(-12, 40) if wide else rng.randint(-5, 20)
     return a, d, [Fr(a) + d * i for i in range(n)]
 
 
@@ -1508,7 +1518,7 @@ def _seq_statement(rng):
 
 
 def _seq_next(rng):
-    a, d, terms = _arith(rng, 3, decimals=False)
+    a, d, terms = _arith(rng, 3, decimals=False, wide=True)
     nxt = terms[-1] + d
     key = f"The next term is {rt(nxt)}"
     wrongs = [
@@ -1521,13 +1531,14 @@ def _seq_next(rng):
     wrongs = [(t, g) for t, g in wrongs if t != key]
     work = [
         f"The common difference is {rt(terms[1] - terms[0])}.",
-        f"Add it to the last term: {rt(terms[-1])} + {rt(d)} = {rt(nxt)}.",
+        f"Add it to the last term: {_plus(terms[-1], d)} = {rt(nxt)}.",
     ]
     return _mc(
         rng,
         (
             "The first three terms of an arithmetic sequence are {s}. Which is the next term?",
             "An arithmetic sequence begins {s}. What is the fourth term?",
+            "Three consecutive terms of an arithmetic sequence are {s}. What comes straight after them?",
         ),
         key,
         wrongs,
@@ -1632,8 +1643,8 @@ def _seq_gaps(rng):
     wrongs = [(t, g) for t, g in wrongs if t != key]
     check(_is_arithmetic([a, a + d, a + 2 * d, c]), "the filled sequence is not arithmetic")
     work = [
-        f"From {a} to {c} there are 3 equal steps, so the common difference is ({c} - {a}) ÷ 3 = {d}.",
-        f"The missing terms are {a} + {d} = {a + d} and {a + d} + {d} = {a + 2 * d}.",
+        f"From {a} to {c} there are 3 equal steps, so the common difference is ({c} - {paren_negative(a)}) ÷ 3 = {d}.",
+        f"The missing terms are {_plus(a, d)} = {a + d} and {_plus(a + d, d)} = {a + 2 * d}.",
     ]
     return _mc(
         rng,
@@ -1650,7 +1661,7 @@ def _seq_gaps(rng):
 
 
 def _seq_exam(rng):
-    a, d, terms = _arith(rng, 4)
+    a, d, terms = _arith(rng, 4, wide=True)
     seq = _seq_text(terms)
     more = "more" if d > 0 else "less"
     ka = f"Arithmetic: each term is {abs(d)} {more} than the term before"
@@ -1698,7 +1709,15 @@ def _seq_exam(rng):
         enough(xx, 2)
     check(_is_arithmetic(terms), "the sequence is not arithmetic")
     return dict(
-        text=f"The first four terms of a sequence are {seq}.",
+        text=phrase(
+            rng,
+            (
+                "The first four terms of a sequence are {s}.",
+                "A sequence begins {s}.",
+                "Here are the first four terms of a sequence: {s}.",
+            ),
+            s=seq,
+        ),
         parts=[
             part(
                 "Which statement about the sequence is correct?",
@@ -1713,7 +1732,7 @@ def _seq_exam(rng):
                 fb["answer_kind"],
                 _sub(fb),
                 1,
-                [f"{rt(terms[-1])} + {rt(d)} = {rt(nxt)}."],
+                [f"{_plus(terms[-1], d)} = {rt(nxt)}."],
                 db,
             ),
             part(
@@ -1721,7 +1740,7 @@ def _seq_exam(rng):
                 fc["answer_kind"],
                 _sub(fc),
                 2,
-                [f"The eighth term is the first term plus 7 differences: {a} + 7 × {rt(d)} = {eighth}."],
+                [f"The eighth term is the first term plus 7 differences: {a} + 7 × {paren_negative(d)} = {eighth}."],
                 dc,
             ),
         ],

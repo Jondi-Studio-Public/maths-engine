@@ -28,7 +28,7 @@ from __future__ import annotations
 import math
 from fractions import Fraction as Fr
 
-from ..core import attempts, check, generator, join_terms, phrase
+from ..core import attempts, check, generator, join_terms, paren_negative, phrase
 from ._w5_kit import (
     TooFewDistractors,
     enough,
@@ -72,7 +72,7 @@ def _sq(var: str, shift: int) -> str:
     """(x - 3)^2, (y + 2)^2 or just x^2 when the shift is 0."""
     if shift == 0:
         return f"{var}^2"
-    return f"({var} {'-' if shift > 0 else '+'} {abs(shift)})^2"
+    return f"({var} {'-' if shift > 0 else '+'} {rt(abs(shift))})^2"
 
 
 def _standard(h: int, k: int, rr) -> str:
@@ -156,7 +156,9 @@ def _forms_write(rng):
     )
     enough(cands)
     stem = f"A circle has centre ({h}, {k}) and radius {r}. {_ENTER_ABC}"
-    work = [f"(x - {h})^2 + (y - {k})^2 = {r}^2, so a = {-h}, b = {-k} and c = {r * r}."]
+    work = [
+        f"(x - {paren_negative(h)})^2 + (y - {paren_negative(k)})^2 = {r}^2, so a = {-h}, b = {-k} and c = {r * r}."
+    ]
     return dict(text=stem, working=work, distractors=cands, **fields)
 
 
@@ -206,7 +208,10 @@ def _forms_medium(rng):
             f"A circle has centre ({h}, {k}) and passes through the point ({px}, {py}). "
             f"Its equation is (x + a)^2 + (y + b)^2 = c. Enter a, b and c, in that order."
         )
-        work = [f"r^2 = ({px} - {h})^2 + ({py} - {k})^2 = {rr}.", f"So a = {-h}, b = {-k}, c = {rr}."]
+        work = [
+            f"r^2 = ({px} - {paren_negative(h)})^2 + ({py} - {paren_negative(k)})^2 = {rr}.",
+            f"So a = {-h}, b = {-k}, c = {rr}.",
+        ]
     else:
         h, k = _centre(rng)
         u, v, r = _signed_offset(rng, rng.choice(_TRIPLES[:3]))
@@ -377,7 +382,18 @@ def _forms_exam(rng):
         enough(d)
     sub = lambda f: {kk: vv for kk, vv in f.items() if kk != "answer_kind"}  # noqa: E731
     return dict(
-        text=f"A circle has a diameter with ends A({a1[0]}, {a1[1]}) and B({b1[0]}, {b1[1]}).",
+        text=phrase(
+            rng,
+            (
+                "A circle has a diameter with ends A({ax}, {ay}) and B({bx}, {by}).",
+                "The segment AB, where A is ({ax}, {ay}) and B is ({bx}, {by}), is a diameter of a circle.",
+                "A and B are opposite ends of a diameter of a circle: A({ax}, {ay}) and B({bx}, {by}).",
+            ),
+            ax=a1[0],
+            ay=a1[1],
+            bx=b1[0],
+            by=b1[1],
+        ),
         parts=[
             part(
                 "Find the coordinates of the centre. Enter the x-coordinate then the y-coordinate.",
@@ -401,7 +417,9 @@ def _forms_exam(rng):
                 "ordered_list",
                 sub(abc),
                 2,
-                [f"(x - {h})^2 + (y - {k})^2 = {r}^2 gives a = {-h}, b = {-k}, c = {r * r}."],
+                [
+                    f"(x - {paren_negative(h)})^2 + (y - {paren_negative(k)})^2 = {r}^2 gives a = {-h}, b = {-k}, c = {r * r}."
+                ],
                 abc_d,
             ),
             part(
@@ -495,7 +513,11 @@ def _cs_medium(rng):
         left = join_terms([(1, "x^2"), (1, "y^2"), (D, "x"), (E, "y"), (F, "")])
         stem = f"A circle has the equation {left} = 0. Complete the square. {_ENTER_HKRR} Write fractions such as 3/2."
         work = [
-            f"(x^2 + {D}x) gives (x + {rt(Fr(D, 2))})^2 - {rt(Fr(D, 2) ** 2)}; do the same for y.",
+            (
+                f"({join_terms([(1, 'x^2'), (D, 'x')])}) gives {_sq('x', h)} - {rt(h * h)}; do the same for y."
+                if D
+                else "x^2 is already a square; complete the square for y in the same way."
+            ),
             f"r^2 = {rt(h * h)} + {rt(k * k)} - ({F}) = {rt(rr)}.",
         ]
     elif kind == "expand":
@@ -517,7 +539,7 @@ def _cs_medium(rng):
             f"Enter D, E and F, in that order."
         )
         work = [
-            f"Expand: x^2 {join_terms([(D, 'x')])} + {h * h} + y^2 {join_terms([(E, 'y')])} + {k * k} = {r * r}.",
+            f"Expand: {join_terms([(1, 'x^2'), (D, 'x'), (h * h, '')])} + {join_terms([(1, 'y^2'), (E, 'y'), (k * k, '')])} = {r * r}.",
             f"So D = {D}, E = {E}, F = {F}.",
         ]
     else:
@@ -814,7 +836,7 @@ def _position_question(rng, expanded: bool, centred: bool):
     )
     work = [
         f"The centre is ({h}, {k}) and r^2 = {rr}.",
-        f"For each point work out (x - {h})^2 + (y - {k})^2 and compare it with {rr}: less means inside, equal means on the circle, more means outside.",
+        f"For each point work out (x - {paren_negative(h)})^2 + (y - {paren_negative(k)})^2 and compare it with {rr}: less means inside, equal means on the circle, more means outside.",
     ]
     return dict(text=stem, working=work, distractors=cands, **fields)
 
@@ -899,7 +921,7 @@ def _pos_exam(rng):
                 dist["answer_kind"],
                 _sub(dist),
                 1,
-                [f"({px} - {h})^2 + ({py} - {k})^2 = {d * d}, so the distance is {d}."],
+                [f"({px} - {paren_negative(h)})^2 + ({py} - {paren_negative(k)})^2 = {d * d}, so the distance is {d}."],
                 dist_d,
                 sensible_range=(0, None),
             ),
@@ -908,7 +930,7 @@ def _pos_exam(rng):
                 "mcq",
                 _sub(mc),
                 2,
-                [f"Compare (x - {h})^2 + (y - {k})^2 with {rr} for each point."],
+                [f"Compare (x - {paren_negative(h)})^2 + (y - {paren_negative(k)})^2 with {rr} for each point."],
                 mc_d,
             ),
             part(
@@ -987,7 +1009,7 @@ def _unknown_easy(rng):
     stem = f"The point ({px}, {py}) lies on the circle {_standard(h, k, r * r)} and is {word} the centre. Find t."
     work = [
         f"Substitute the known coordinate: the other squared term must equal {r * r} - {(abs(u) if solve_y else abs(v)) ** 2}.",
-        f"That gives t - {k if solve_y else h} = ±{abs(v) if solve_y else abs(u)}; the point is {word} the centre, so t = {unknown}.",
+        f"That gives t - {paren_negative(k if solve_y else h)} = ±{abs(v) if solve_y else abs(u)}; the point is {word} the centre, so t = {unknown}.",
     ]
     return dict(text=stem, working=work, distractors=cands, **fields)
 
@@ -1228,7 +1250,9 @@ def _tangent_easy(rng):
     )
     enough(cands)
     stem = f"{_tangent_stem(h, k, rr, px, py)} Find the gradient of the radius from the centre to P."
-    work = [f"The centre is ({h}, {k}). Gradient = ({py} - {k})/({px} - {h}) = {rt(g)}."]
+    work = [
+        f"The centre is ({h}, {k}). Gradient = ({py} - {paren_negative(k)})/({px} - {paren_negative(h)}) = {rt(g)}."
+    ]
     return dict(text=stem, working=work, distractors=cands, **fields)
 
 
@@ -1272,7 +1296,10 @@ def _tangent_hard(rng):
             (-c, "w5c-intercept-sign-error"),
         ]
         target = "where the tangent meets the y-axis. Find the y-coordinate of that point"
-        work = [f"The tangent is y - {py} = {rt(m)}(x - {px}).", f"Put x = 0: y = {rt(value)}."]
+        work = [
+            f"The tangent is y - {paren_negative(py)} = {rt(m)}(x - {paren_negative(px)}).",
+            f"Put x = 0: y = {rt(value)}.",
+        ]
     else:
         value = x0
         wrong = [
@@ -1282,7 +1309,10 @@ def _tangent_hard(rng):
             (-x0, "w5c-intercept-sign-error"),
         ]
         target = "where the tangent meets the x-axis. Find the x-coordinate of that point"
-        work = [f"The tangent is y - {py} = {rt(m)}(x - {px}).", f"Put y = 0: x = {rt(value)}."]
+        work = [
+            f"The tangent is y - {paren_negative(py)} = {rt(m)}(x - {paren_negative(px)}).",
+            f"Put y = 0: x = {rt(value)}.",
+        ]
     fields = number_fields(value)
     cands = number_cands(value, wrong)
     enough(cands)
@@ -1352,7 +1382,7 @@ def _tangent_exam(rng):
                 ga["answer_kind"],
                 _sub(ga),
                 1,
-                [f"Gradient = ({py} - {k})/({px} - {h}) = {rt(g)}."],
+                [f"Gradient = ({py} - {paren_negative(k)})/({px} - {paren_negative(h)}) = {rt(g)}."],
                 ga_d,
             ),
             part(
@@ -1369,7 +1399,7 @@ def _tangent_exam(rng):
                 cc["answer_kind"],
                 _sub(cc),
                 2,
-                [f"y - {py} = {rt(m)}(x - {px}); put x = 0."],
+                [f"y - {paren_negative(py)} = {rt(m)}(x - {paren_negative(px)}); put x = 0."],
                 cc_d,
                 follow_through=f"{py} - part_b*({px})",
             ),
@@ -1378,7 +1408,7 @@ def _tangent_exam(rng):
                 dd["answer_kind"],
                 _sub(dd),
                 2,
-                [f"Put y = 0 in y - {py} = {rt(m)}(x - {px})."],
+                [f"Put y = 0 in y - {paren_negative(py)} = {rt(m)}(x - {paren_negative(px)})."],
                 dd_d,
                 follow_through=f"{px} - {py}/part_b",
             ),

@@ -22,7 +22,7 @@ from __future__ import annotations
 
 from fractions import Fraction as Fr
 
-from ..core import check, generator, join_terms, phrase
+from ..core import attempts, check, fmt_signed, generator, join_terms, paren_negative, phrase
 from ._w5_kit import (
     NAMES,
     mc_question,
@@ -30,6 +30,7 @@ from ._w5_kit import (
     tier_pool,
     TooFewDistractors,
     enough,
+    length_balanced,
     mcq_cands,
     mcq_fields,
     number_cands,
@@ -730,7 +731,7 @@ def _inv_self_inverse(rng):
         check(Fr(k) - (Fr(k) - t) == t, "the key is not its own inverse")
         check(t + k + k != t and t - k - k != t and t * k * k != t and Fr(t) / k / k != t, "a distractor undoes itself")
     work = [
-        f"Apply n → {k} - n twice to 7: {k} - 7 = {k - 7}, then {k} - {k - 7} = 7. It returns to the start.",
+        f"Apply n → {k} - n twice to 7: {k} - 7 = {k - 7}, then {k} - {paren_negative(k - 7)} = 7. It returns to the start.",
         "Adding, subtracting, multiplying or dividing by a number needs a different operation to undo it.",
     ]
     stems = (
@@ -739,6 +740,78 @@ def _inv_self_inverse(rng):
         "One of these rules is its own inverse. Which one?",
     )
     return _mc(rng, stems, key, wrongs, work)
+
+
+def _inv_three_value(rng):
+    """A three-step machine run backwards from its output (the input is a whole number throughout)."""
+    for _ in attempts(300, "a three step machine"):
+        steps = _machine(rng, two=False)
+        families = {op in ("mul", "div") for op, _ in steps}
+        if len(families) < 2 or len({s for s in steps}) < 3:
+            continue
+        x = Fr(rng.randint(2, 20))
+        if any(_run(steps[: i + 1], x).denominator != 1 or _run(steps[: i + 1], x) <= 0 for i in range(3)):
+            continue
+        out = _run(steps, x)
+        if out == x:
+            continue
+        break
+    key_steps = _undo(steps)
+    check(_run(key_steps, out) == x and _run(steps, x) == out, "three step machine check failed")
+    cands = []
+    for seq, tag in (
+        (list(steps), "w5i-same-operation"),
+        ([(_INVERSE[op], n) for op, n in steps], "w5i-wrong-order"),
+        (key_steps[:1], "w5i-stops-after-one-step"),
+        (key_steps[:2], "w5i-stops-after-one-step"),
+        ([key_steps[0], key_steps[2], key_steps[1]], "w5i-wrong-order"),
+    ):
+        v = _run(seq, out)
+        if v != x:
+            cands.append((f"x = {rt(v)}", tag))
+    work = [
+        f"The steps are: {_steps_text(steps)}.",
+        f"Undo them in the reverse order: {_steps_text(key_steps)}, which gives x = {rt(x)}.",
+    ]
+    stem = phrase(
+        rng,
+        (
+            "A machine does these three steps in order to x: {s}. The output is {o}. What was the input x?",
+            "Starting from the output {o}, work backwards through a machine that does these steps to x in order: {s}. Find x.",
+        ),
+        s=_steps_text(steps),
+        o=rt(out),
+    )
+    return _mc(rng, (stem,), f"x = {rt(x)}", cands, work)
+
+
+def _inv_equation_steps(rng):
+    """The inverse operations, in order, that solve a x + b = c (or a x - b = c)."""
+    a = rng.randint(2, 9)
+    b = rng.randint(1, 12)
+    plus = rng.random() < 0.5
+    x = rng.randint(1, 12)
+    c = a * x + (b if plus else -b)
+    eq = f"{a}x {'+' if plus else '-'} {b} = {c}"
+    undo_b, wrong_b = ("Subtract", "Add") if plus else ("Add", "Subtract")
+    key = f"{undo_b} {b}, then divide by {a}"
+    wrongs = [
+        (f"Divide by {a}, then {undo_b.lower()} {b}", "w5i-wrong-order"),
+        (f"{wrong_b} {b}, then divide by {a}", "w5i-same-operation"),
+        (f"{undo_b} {b}, then multiply by {a}", "w5i-mixes-operation-pairs"),
+        (f"{undo_b} {a}, then divide by {b}", "w5i-wrong-amount"),
+        (f"Divide by {a}", "w5i-stops-after-one-step"),
+    ]
+    check((c + (-b if plus else b)) / a == x, "the equation does not give x")
+    work = [
+        f"{a}x {'+' if plus else '-'} {b} = {c}: x is multiplied by {a}, then {b} is {'added' if plus else 'subtracted'}.",
+        f"Undo in the reverse order: {undo_b.lower()} {b} from both sides, then divide by {a}, giving x = {x}.",
+    ]
+    stems = (
+        "To solve {e}, which inverse operations, in order, should be applied to both sides?",
+        "Which steps, in order, undo the operations in {e} to find x?",
+    )
+    return _mc(rng, stems, key, wrongs, work, e=eq)
 
 
 def _inv_exam(rng):
@@ -823,7 +896,7 @@ def w5_inverse_operations(rng, tier="easy"):
     pools = {
         "easy": (_inv_pair,),
         "medium": (_inv_machine, _inv_machine_value),
-        "hard": (_inv_rsub_machine, _inv_rsub_machine, _inv_self_inverse),
+        "hard": (_inv_rsub_machine, _inv_self_inverse, _inv_three_value, _inv_equation_steps),
     }
     return _tiers(pools, rng, tier)
 
@@ -1338,7 +1411,7 @@ def _inos_classify(rng, styles, kinds=("one", "none", "all")):
             f"{b} = {d} is never true, so there is no solution.",
         ]
     else:
-        work = [f"Collect the x terms: {a - c}x = {d - b}.", f"So x = {rt(s)}: exactly one solution."]
+        work = [f"Collect the x terms: {fmt_signed(a - c, 'x')} = {d - b}.", f"So x = {rt(s)}: exactly one solution."]
     stems = (
         "How many solutions does {e} have?",
         "Which statement about the equation {e} is correct?",
@@ -1357,7 +1430,7 @@ def _inos_final_form(rng):
         s = rng.choice([v for v in range(-9, 10) if v != 0])
         shown, a, b, c, d = f"x = {s}", 1, 0, 0, s
         key, wrongs = _outcome_options(rng, "one", 2, 0, 1, s, Fr(s))
-        work = [f"x = {s} names one value of x, so there is exactly one solution."]
+        work = [f"The equation says x must be {s}, which is a single value, so there is exactly one solution."]
     elif kind == "all":
         v = rng.randint(1, 15)
         shown = f"{v} = {v}"
@@ -1423,20 +1496,27 @@ def _inos_find_k(rng):
 
 
 def _inos_exam(rng):
-    a = rng.randint(2, 6)
-    p = rng.randint(1, 6)
-    r = a * p
+    a = rng.randint(2, 9)
+    p = rng.randint(1, 9)
+    q = rng.choice([v for v in range(-9, 10) if v != 0])
+    r = a * p + q
     kk = r + rng.choice([-4, -3, -2, -1, 1, 2, 3, 4])
-    eq = f"{a}(x + {p}) = {a}x + k"
+    eq = f"{join_terms([(a, f'(x + {p})'), (q, '')])} = {a}x + k"
     # (a) k = kk: no solution; (b) the k with infinitely many; (c) how many solutions when k = r (identity)
-    ka, wa = _outcome_options(rng, "none", a, r, a, kk, None)
+    ka = f"No solution, because {r} = {kk} is false"
+    wa = [
+        ("Every number is a solution, because the x terms cancel", "w5n-cancelling-means-every-number"),
+        ("Exactly one solution, x = 0, because the x terms cancel to leave 0", "w5n-zero-equals-zero-is-x-zero"),
+        (f"Exactly one solution, x = {kk}, because the constant on the right is left over", "w5n-constant-as-solution"),
+        (f"Exactly one solution, x = {r - kk}, because the constants are subtracted", "w5n-difference-as-solution"),
+    ]
     fa = mcq_fields(ka)
     da = mcq_cands(ka, wa, 4)
     fb = number_fields(r)
     db = number_cands(
         r,
         [
-            (p, "w5n-constant-as-solution"),
+            (a * p, "w5n-constant-as-solution"),
             (a, "w5n-sign-slip"),
             (r + 1, "w5n-off-by-one"),
             (r - 1, "w5n-off-by-one"),
@@ -1463,7 +1543,9 @@ def _inos_exam(rng):
                 "mcq",
                 _sub(fa),
                 1,
-                [f"Expand: {a}x + {r} = {a}x + {kk}. The x terms cancel and {r} = {kk} is false: no solution."],
+                [
+                    f"Expand the left side: {join_terms([(a, 'x'), (r, '')])} = {join_terms([(a, 'x'), (kk, '')])}. The x terms cancel and {r} = {kk} is false: no solution."
+                ],
                 da,
             ),
             part(
@@ -1471,7 +1553,7 @@ def _inos_exam(rng):
                 fb["answer_kind"],
                 _sub(fb),
                 2,
-                [f"Expanding the left side gives {a}x + {r}, so k must be {r}."],
+                [f"Expanding the left side gives {join_terms([(a, 'x'), (r, '')])}, so k must be {r}."],
                 db,
             ),
             part(
@@ -1562,6 +1644,9 @@ def _check_verdict(rng, one_sided: bool, negative: bool = False):
     if joined is not None:
         cands.append((_sides_option(joined, R, v), "w5k-joins-digits"))
     cands.append((_sides_option(v + b, R, v), "w5k-ignores-coefficient"))
+    cands.append((_sides_option(v + b, R, v, flip=True), "w5k-wrong-verdict"))
+    if joined is not None:
+        cands.append((_sides_option(joined, R, v, flip=True), "w5k-wrong-verdict"))
     if not one_sided:
         cands.append(
             (
@@ -1573,10 +1658,7 @@ def _check_verdict(rng, one_sided: bool, negative: bool = False):
     else:
         cands.append((_sides_option(L, R + b, v), "w5k-moves-the-constant-wrongly"))
         cands.append((_sides_option(a * abs(v) + b if v < 0 else a + v + b, R, v), "w5k-adds-instead-of-multiplies"))
-    wrongs = []
-    for text, tag in cands:
-        if text != key:
-            wrongs.append((text, tag))
+    wrongs = length_balanced(rng, key, [(text, tag) for text, tag in cands if text != key])
     work = [
         f"Substitute x = {v}: the left side is {a} × {rt(Fr(v))} {'+' if b > 0 else '-'} {abs(b)} = {L}.",
         f"The right side is {R}. {'The sides are equal' if L == R else 'The sides are not equal'}, so x = {v} {'is' if L == R else 'is not'} a solution.",
@@ -1676,12 +1758,13 @@ def _check_exam(rng):
     s = rng.randint(2, 9)
     b = rng.choice([v for v in range(-9, 10) if v != 0])
     d = (a - c) * s + b
-    v = s + rng.choice((1, 2, -1))
+    works = rng.random() < 0.5  # whether the proposed value really is the solution
+    v = s if works else s + rng.choice((1, 2, -1))
     if v <= 0:
         raise TooFewDistractors("bad proposed value")
     eq = f"{join_terms([(a, 'x'), (b, '')])} = {join_terms([(c, 'x'), (d, '')])}"
     L, R = _lhs(a, b, v), _rhs(c, d, v)
-    check(L != R, "the proposed value is a solution")
+    check((L == R) == works, "the proposed value does not behave as intended")
     fa = number_fields(L)
     da = number_cands(
         L,
@@ -1699,26 +1782,46 @@ def _check_exam(rng):
             (c + v + d, "w5k-ignores-coefficient"),
             (c * v - d, "w5k-sign-slip-on-constant"),
             (R + c, "w5k-off-by-one"),
-            (L, "w5k-copies-the-left-side"),
+            (L if not works else R + 1, "w5k-copies-the-left-side" if not works else "w5k-off-by-one"),
         ],
     )
-    key_c = f"No: the sides are not equal ({L} and {R})"
-    wc = [
-        (f"Yes: both sides equal {L}", "w5k-copies-the-left-side"),
-        (f"Yes: x = {v} gives a left side of {L}, so it works", "w5k-checks-one-side"),
-        (f"No: x = {v} makes the right side larger than {R}", "w5k-wrong-verdict"),
-    ]
+    if works:
+        key_c = f"Yes: both sides equal {L}"
+        wc = [
+            (f"No: the sides are not equal ({L} and {L + a})", "w5k-wrong-verdict"),
+            (f"Yes: both sides equal {L + 1}", "w5k-off-by-one"),
+            (f"No: x = {v} makes the left side larger than the right side", "w5k-wrong-verdict"),
+            (f"No: the sides are not equal ({L + c} and {L})", "w5k-checks-one-side"),
+        ]
+        key_d = f"x = {v} is the only solution"
+        wd = [
+            ("Every number is a solution", "w5n-cancelling-means-every-number"),
+            ("There is no solution", "w5n-cancelling-means-no-solution"),
+            (f"x = {v} and x = {-v} are both solutions", "w5k-negative-sign-dropped"),
+            (f"x = {v} and x = {v + 1} are both solutions", "w5k-checks-one-side"),
+        ]
+        prompt_d = f"{eq} is true for x = {v}. Which statement about its solutions is correct?"
+        work_d = f"The x terms do not cancel ({a} and {c} are different), so there is exactly one solution, x = {v}."
+    else:
+        key_c = f"No: the sides are not equal ({L} and {R})"
+        wc = [
+            (f"Yes: both sides equal {L}", "w5k-copies-the-left-side"),
+            (f"Yes: x = {v} gives a left side of {L}, so it works", "w5k-checks-one-side"),
+            (f"No: x = {v} makes the right side larger than {R}", "w5k-wrong-verdict"),
+        ]
+        key_d = f"x = {s}"
+        wd = [
+            (f"x = {v}", "w5k-wrong-verdict"),
+            (f"x = {s + 2}" if s + 2 != v else f"x = {s - 1}", "w5k-off-by-one"),
+            (f"x = {d}", "w5k-takes-the-constant"),
+            (f"x = {L}", "w5k-takes-the-constant"),
+        ]
+        prompt_d = f"Which value of x does satisfy {eq}?"
+        work_d = f"x = {s} gives {_lhs(a, b, s)} on both sides."
     fc = mcq_fields(key_c)
     dc = mcq_cands(key_c, wc, 4)
-    sol_key = f"x = {s}"
-    fd = mcq_fields(sol_key)
-    wd = [
-        (f"x = {v}", "w5k-wrong-verdict"),
-        (f"x = {s + 2}" if s + 2 != v else f"x = {s - 1}", "w5k-off-by-one"),
-        (f"x = {d}", "w5k-takes-the-constant"),
-        (f"x = {L}", "w5k-takes-the-constant"),
-    ]
-    dd = mcq_cands(sol_key, [(t, g) for t, g in wd if t != sol_key], 4)
+    fd = mcq_fields(key_d)
+    dd = mcq_cands(key_d, [(t, g) for t, g in wd if t != key_d], 4)
     check(_lhs(a, b, s) == _rhs(c, d, s), "the true solution fails the check")
     for xx in (da, db, dc, dd):
         enough(xx, 2)
@@ -1744,19 +1847,21 @@ def _check_exam(rng):
                 sensible_range=(None, None),
             ),
             part(
-                "Is x = {v} a solution? Choose the correct conclusion.".format(v=v),
+                f"Is x = {v} a solution? Choose the correct conclusion.",
                 "mcq",
                 _sub(fc),
                 1,
-                [f"{L} and {R} are different, so x = {v} is not a solution."],
+                [
+                    f"{L} and {R} are {'the same' if works else 'different'}, so x = {v} {'is' if works else 'is not'} a solution."
+                ],
                 dc,
             ),
             part(
-                f"Which value of x does satisfy {eq}?",
+                prompt_d,
                 "mcq",
                 _sub(fd),
                 2,
-                [f"Substitute x = {s}: both sides equal {_lhs(a, b, s)}."],
+                [work_d],
                 dd,
             ),
         ],

@@ -171,7 +171,9 @@ def test_forms_hard_covers_every_shape_and_medium_every_shape():
 def test_forms_exam_chain_by_independent_derivation():
     for seed in range(60):
         q = sup.exam(FORMS_X, seed)
-        x1, y1, x2, y2 = map(int, re.search(r"A\((-?\d+), (-?\d+)\) and B\((-?\d+), (-?\d+)\)", q.text).groups())
+        x1, y1, x2, y2 = map(
+            int, re.findall(r"-?\d+", q.text.split(" (a)")[0])
+        )  # the only numbers in the stem are the endpoints
         a, b, c, d = q.parts
         h, k = Fraction(x1 + x2, 2), Fraction(y1 + y2, 2)
         r2 = (x1 - h) ** 2 + (y1 - k) ** 2

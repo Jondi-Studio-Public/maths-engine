@@ -505,7 +505,7 @@ def test_sequence_singles():
                 want = (a + b) / 2
                 assert Fr(key.split("= ")[1]) == want, (seed, t, key)
                 assert all(Fr(d.split("= ")[1]) != want for d in wrong), (seed, t, wrong)
-            elif "next term" in t or "fourth term" in t:
+            elif "next term" in t or "fourth term" in t or "straight after" in t:
                 given = _terms(re.split(r"are |begins ", t)[1].split(".")[0].split(" Which")[0])
                 assert _is_ap(given + [given[-1] + (given[-1] - given[-2])])
                 want = given[-1] + (given[-1] - given[-2])
@@ -523,7 +523,7 @@ def test_sequence_singles():
 def test_sequence_exam():
     for seed in range(40):
         q = sup.exam("exd_x_w5_arithmetic_sequences", seed)
-        terms = _terms(q.text.split("are", 1)[1])
+        terms = _terms(q.text.split("(a)")[0])
         pa, pb, pc = q.parts
         assert _is_ap(terms)
         assert _seq_claim_ok(pa.answer_text, terms) and not any(_seq_claim_ok(d, terms) for d in pa.distractors), seed

@@ -125,7 +125,7 @@ def _fc_easy_input(rng):
         r=_set_text(pairs),
     )
     work = [
-        f"The input {bad[0]} appears twice, with different outputs.",
+        f"The input {bad[0]} is listed twice, with different outputs.",
         "Repeated outputs are allowed; a repeated input with different outputs is not.",
     ]
     return dict(text=stem, working=work, distractors=cands, **fields)
@@ -226,7 +226,9 @@ def _fc_medium(rng):
     functions, relations = _function_equations(rng), _relation_equations(rng)
     if rng.random() < 0.55:
         key = rng.choice(functions)
-        wrongs = rng.sample(relations, 4)
+        # the key starts "y = ", so at least one wrong equation must carry a leading "x = " label too
+        lead = rng.choice([r for r in relations if r[0].startswith("x =")])
+        wrongs = [lead, *rng.sample([r for r in relations if r is not lead], 3)]
         ask = "Which of these equations defines y as a function of x?"
         tagged = [(e, "w5f-curve-without-vertical-line-test") for e, _ in wrongs]
         work = [
@@ -477,6 +479,10 @@ def _fc_exam(rng):
         ],
     )
     key_b = f"x = {x_dup}"
+    dup_outs = sorted(y for x, y in pairs if x == x_dup)
+    holders = [x for x in xs_all if set(dup_outs) <= {yy for xx, yy in pairs if xx == x}]
+    if len(dup_outs) != 2 or holders != [x_dup]:
+        raise TooFewDistractors("the pair of outputs does not identify one input")
     repeated_outputs = [y for y in ys_all if sum(1 for _, yy in pairs if yy == y) > 1]
     wrong_b = []
     for y in repeated_outputs:
@@ -511,7 +517,15 @@ def _fc_exam(rng):
         enough(dd)
     enough(b_d, 3)
     return dict(
-        text=f"A relation R is {_set_text(pairs)}.",
+        text=phrase(
+            rng,
+            (
+                "A relation R is {r}.",
+                "The relation R consists of these ordered pairs: {r}.",
+                "Consider the set of ordered pairs R = {r}.",
+            ),
+            r=_set_text(pairs),
+        ),
         parts=[
             part(
                 "How many different inputs (first numbers) does R use?",
@@ -522,13 +536,11 @@ def _fc_exam(rng):
                 a_d,
             ),
             part(
-                "R is not a function. Which of these inputs has two different outputs?",
+                f"R is not a function. Which of these inputs is paired with both {dup_outs[0]} and {dup_outs[1]}?",
                 "mcq",
                 _sub(b),
                 1,
-                [
-                    f"Input {x_dup} is paired with both {sorted(y for x, y in pairs if x == x_dup)[0]} and {sorted(y for x, y in pairs if x == x_dup)[1]}."
-                ],
+                [f"Input {x_dup} is paired with both {dup_outs[0]} and {dup_outs[1]}."],
                 b_d,
             ),
             part(
@@ -664,9 +676,10 @@ def _dr_medium(rng):
     else:
         template, build, var = rng.choice(_CONTEXTS)
         a, b = rng.randint(2, 6), rng.randint(2, 9)
-        top = a * 10
+        top = a * rng.randint(8, 14)
         if build is None:
-            ds = list(range(0, 5))
+            first = rng.randint(0, 3)
+            ds = list(range(first, first + 5))
             outs = [top - a * t for t in ds]
             stem = (
                 template.format(a=a, b=b, ds=", ".join(map(str, ds)), top=top) + " List the possible volumes in litres."
@@ -705,34 +718,38 @@ def _dr_medium(rng):
 
 
 def _dr_hard_sqrt(rng):
-    a = rng.randint(-3, 4)
-    lo, hi = rng.randint(-4, 0), rng.randint(5, 8)
-    ints = [x for x in range(lo, hi + 1) if x - a >= 0]
-    check(ints == [x for x in range(lo, hi + 1) if x - a >= 0], "domain differs")
+    a = rng.randint(-3, 5)
+    sgn = rng.choice((1, -1))  # sqrt(x - a) needs x >= a; sqrt(a - x) needs x <= a
+    lo, hi = rng.randint(-5, 0), rng.randint(4, 8)
+    ok = lambda x: sgn * (x - a) >= 0  # noqa: E731
+    ints = [x for x in range(lo, hi + 1) if ok(x)]
+    check(ints == [x for x in range(lo, hi + 1) if sgn * x >= sgn * a], "domain differs")
+    if len(ints) < 2 or len(ints) == hi - lo + 1:
+        raise TooFewDistractors("the restriction removes none or all of the whole numbers")
     fields = list_fields(ints)
-    below = [x for x in range(lo, hi + 1) if x - a < 0]
+    below = [x for x in range(lo, hi + 1) if not ok(x)]
     cands = list_cands(
         fields,
         [
             (list(range(lo, hi + 1)), "w5f-ignores-the-restriction"),
-            ([x for x in range(lo, hi + 1) if x - a > 0], "w5f-excludes-the-boundary"),
+            ([x for x in range(lo, hi + 1) if sgn * (x - a) > 0], "w5f-excludes-the-boundary"),
             (below, "w5f-restriction-reversed"),
-            ([x for x in range(lo, hi + 1) if x + a >= 0], "w5f-restriction-sign-slip"),
+            ([x for x in range(lo, hi + 1) if sgn * (x + a) >= 0], "w5f-restriction-sign-slip"),
         ],
     )
     enough(cands)
-    inner = join_terms([(1, "x"), (-a, "")])
+    inner = join_terms([(sgn, "x"), (-sgn * a, "")])
     stem = f"The function f(x) = sqrt({inner}) is only defined when {inner} is zero or positive. List the whole numbers from {lo} to {hi} that are in its domain."
     work = [
-        f"Solve {inner} ≥ 0: x ≥ {a}.",
-        f"The whole numbers from {lo} to {hi} with x ≥ {a} are {', '.join(map(str, ints))}.",
+        f"Solve {inner} ≥ 0: x {'≥' if sgn == 1 else '≤'} {a}.",
+        f"The whole numbers from {lo} to {hi} with x {'≥' if sgn == 1 else '≤'} {a} are {', '.join(map(str, ints))}.",
     ]
     return dict(text=stem, working=work, distractors=cands, **fields)
 
 
 def _dr_hard_excluded(rng):
-    r1, r2 = sorted(rng.sample(range(-4, 5), 2))
-    lo, hi = -5, 5
+    r1, r2 = sorted(rng.sample(range(-5, 6), 2))
+    lo, hi = -rng.randint(5, 7), rng.randint(5, 7)
     out = [r1, r2]
     fields = list_fields(out)
     cands = list_cands(
@@ -779,13 +796,22 @@ def _dr_hard_range(rng):
             "Inputs on either side of the turning point give the same output, so each value is listed once.",
         ]
     else:
-        total = rng.choice((8, 10, 12, 14))
+        total = rng.randrange(8, 41, 2)
         ws = list(range(1, total))
         outs = [w * (total - w) for w in ws]
         ys = sorted(set(outs))
-        stem = (
-            f"A rectangle has perimeter {2 * total} cm and whole-number side lengths. Its width is w cm, so its area is "
-            f"A = w({total} - w) square centimetres. List the possible areas."
+        stem = phrase(
+            rng,
+            (
+                "A rectangle has perimeter {p} cm and whole-number side lengths. Its width is w cm, so its area is "
+                "A = w({t} - w) square centimetres. List the possible areas.",
+                "A farmer fences a rectangular pen with exactly {p} m of fencing, using whole-number side lengths. "
+                "If the width is w m, the area is A = w({t} - w) square metres. List the possible areas.",
+                "A rectangular poster has a border of length {p} cm all the way round and whole-number sides. "
+                "With width w cm, its area is A = w({t} - w) square centimetres. List the possible areas.",
+            ),
+            p=2 * total,
+            t=total,
         )
         cands_src = [
             (outs, "w5f-lists-repeated-outputs"),
@@ -825,23 +851,24 @@ def w5_domain_range_intro(rng, tier="easy"):
 
 
 def _dr_exam(rng):
-    h = rng.randint(1, 3)
+    h = rng.randint(-2, 4)
+    q = rng.choice((1, 1, 2, 3))  # the coefficient of x^2
     lo, hi = h - rng.randint(2, 3), h + rng.randint(2, 4)
-    c = rng.randint(-5, 5)
-    b = -2 * h
-    k = h * h + c
+    c = rng.randint(-6, 6)
+    b = -2 * q * h
+    k = q * h * h + c
     xs = list(range(lo, hi + 1))
-    f = lambda x: x * x + b * x + k  # noqa: E731
+    f = lambda x: q * x * x + b * x + k  # noqa: E731
     outs = [f(x) for x in xs]
     ys = sorted(set(outs))
-    body = join_terms([(1, "x^2"), (b, "x"), (k, "")])
+    body = join_terms([(q, "x^2"), (b, "x"), (k, "")])
     a = list_fields(ys)
     a_d = list_cands(
         a,
         [
             (outs, "w5f-lists-repeated-outputs"),
             (xs, "w5f-swaps-domain-and-range"),
-            (sorted({-(x * x) + b * x + k for x in xs}), "w5f-negative-squared-as-negative"),
+            (sorted({-q * x * x + b * x + k for x in xs}), "w5f-negative-squared-as-negative"),
             (ys[:-1], "w5f-omits-a-value"),
         ],
     )
