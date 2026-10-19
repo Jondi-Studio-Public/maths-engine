@@ -52614,6 +52614,146 @@ _ENTRIES = (
         "Adds the width and the height of the rectangle where its bare squares were asked.",
         area="figure-views",
     ),
+    CatalogueEntry(
+        "mod-gives-the-cubes-already-counted",
+        "Gives the cubes in the stacks that show a number where the stack marked with a question mark was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-total",
+        "Gives the total number of cubes in the model where another count was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-treats-every-stack-as-one-cube",
+        "Takes the total less one cube for every other stack, as if each stack with a number held a single cube.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-total-after-adding",
+        "Gives the number of cubes in the finished model where the cubes added were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-builds-on-the-bare-squares",
+        "Adds cubes to the bare squares too, instead of leaving them bare.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-forgets-the-marked-stack",
+        "Leaves the stack marked with a question mark out of the cubes already in the model.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-cubes-added",
+        "Gives the cubes added where the cubes in the finished model were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-takes-away-the-cubes-added",
+        "Takes the cubes added away from the total instead of adding them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-squares-not-the-cubes",
+        "Counts the squares of the plan that have a stack instead of adding the cubes in the stacks.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-makes-every-stack-the-tallest",
+        "Gives every stack the height of the tallest stack, instead of using the number written on each square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "view-adds-the-cubes-in-a-line",
+        "Adds the cubes in a line of stacks instead of taking the tallest, so the column is too tall.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "view-reads-only-the-nearest-row",
+        "Reads only the row of stacks nearest the viewer instead of the tallest stack in each line.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-direction-reversed",
+        "Turns the shape the right amount but the wrong way, clockwise for anticlockwise or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-wrong-amount",
+        "Turns the shape through the wrong amount, such as a half turn for a quarter turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-reflection-for-a-turn",
+        "Takes a reflection (a flip) of the shape to be a turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-uses-only-the-first-turn",
+        "Applies only the first of two turns.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-uses-only-the-second-turn",
+        "Applies only the second of two turns.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-a-side-face-for-the-top",
+        "Gives the squares in a side face where the top face was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-perimeter-of-the-top",
+        "Gives the distance round the top face where its squares were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-row-for-the-volume",
+        "Gives the squares in the row of four side faces where the volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-width-of-the-row",
+        "Gives the width of the row of four side faces where the height of the box was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-forgets-the-missing-corner",
+        "Finds the cells of the whole rectangle and forgets the corner that is missing.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-missing-corner",
+        "Gives the cells of the missing corner where the cells the plan covers were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-takes-away-the-sides-of-the-corner",
+        "Takes away the width and height of the missing corner instead of its area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-adds-the-notch-to-the-perimeter",
+        "Adds the sides of the missing corner to the distance round the plan, when the notch does not change it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-takes-the-notch-off-the-perimeter",
+        "Takes the sides of the missing corner off the distance round the plan, when the notch does not change it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-gives-half-the-perimeter",
+        "Gives the sum of the width and the height, half the distance round the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-area-for-perimeter",
+        "Gives the cells the plan covers where the distance round it was asked.",
+        area="figure-views",
+    ),
 )
 
 #: Every entry, by id.

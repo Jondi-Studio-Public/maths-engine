@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_plan_views_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: plan-front-back-swapped
   description: Draws the plan with the front of the stack at the top of the drawing instead of the bottom.
@@ -42,3 +46,16 @@ misconceptions:
 - id: net-has-wrong-number-of-faces
   description: Draws five squares, a face missing, or seven squares.
 tags: [acara-f10-v9, primary-geometry-time, grid_plan_views, ac9m3sp02, ac9m5sp01, nets, plan-view, drawn-answer]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Draw the plan view of a stack of cubes shown on isometric dot paper."
+  medium:
+    steps: 2
+    demand: "Draw the front, right or left view of a stack from a plan with the cubes in each column written on it."
+  hard:
+    steps: 3
+    demand: "Draw a net of a cube on a canvas that leaves only a few placements."
+  exam:
+    steps: 5
+    demand: "Read the cubes in a stack from its plan, then the column heights of its front and right-side views and the squares in the front view. The draw form is not set in the exam tier."
