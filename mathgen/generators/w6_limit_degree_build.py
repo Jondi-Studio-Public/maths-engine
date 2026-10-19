@@ -21,6 +21,7 @@ point for the root) at x = ±10^6 and compared with the limit.
 from __future__ import annotations
 
 import math
+import re
 from fractions import Fraction
 
 from ..answers import Distractor
@@ -76,10 +77,22 @@ def _value_text(value) -> str:
     return rational_text(Fraction(value))
 
 
+def _shape(text: str) -> str | None:
+    """``integer``, ``fraction`` or None (infinities, ``does not exist``): the shapes the option sweep compares."""
+    if re.fullmatch(r"-?\d+", text):
+        return "integer"
+    if re.fullmatch(r"-?\d+/\d+", text):
+        return "fraction"
+    return None
+
+
 def _dists(answer, cands, n: int = 3):
-    """Tagged distractors from ``(value, tag)`` candidates, each a different answer from the key and from each other."""
-    seen = {_value_text(answer)}
-    out = []
+    """Tagged distractors from ``(value, tag)`` candidates, each a different answer from the key and from each other.
+    When every option is a number, at least one distractor shares the key's shape (a whole number among fractions or
+    the reverse), so the key cannot be picked out by its shape alone."""
+    key = _value_text(answer)
+    seen = {key}
+    pool = []
     for value, tag in cands:
         if value is None:
             continue
@@ -87,9 +100,13 @@ def _dists(answer, cands, n: int = 3):
         if text in seen:
             continue
         seen.add(text)
-        out.append(Distractor(text, tag, text))
-        if len(out) == n:
-            break
+        pool.append(Distractor(text, tag, text))
+    out = pool[:n]
+    shapes = [_shape(key)] + [_shape(d.text) for d in out]
+    if None not in shapes and shapes.count(shapes[0]) == 1:
+        same = [d for d in pool[n:] if _shape(d.text) == shapes[0]]
+        if same:
+            out[-1] = same[0]
     enough(out)
     return out
 
@@ -190,7 +207,8 @@ def _easy_power(rng):
     den = _poly(rng, q, lead_d, 1)
     a = rng.choice((-1, 1)) * rng.randint(1, 9)
     c = rng.choice((-1, 1)) * rng.randint(1, 9)
-    num_text = f"{a}x^p + {c}" if c > 0 else f"{a}x^p - {-c}"
+    lead_text = {1: "", -1: "-"}.get(a, str(a))
+    num_text = f"{lead_text}x^p + {c}" if c > 0 else f"{lead_text}x^p - {-c}"
     if rng.random() < 0.5:
         want = q - 1
         stem = (
@@ -390,6 +408,10 @@ def _factored(rng):
             (Fraction(p * e2, c), "w6-limit-power-of-coefficient-not-taken"),
             (Fraction(c, lead_n), "inverted-ratio"),
             (Fraction(1, c), "w6-limit-factor-coefficients-dropped"),
+            (Fraction(p, c), "w6-limit-power-of-coefficient-not-taken"),
+            (Fraction(lead_n, c * max(factors_d, 2)), "w6-limit-factors-counted-not-degrees"),
+            (Fraction(lead_n), "w6-limit-factor-coefficients-dropped"),
+            (Fraction(lead_n * 2, c), "w6-limit-factors-counted-not-degrees"),
         ]
     # counting factors instead of degrees
     wrong_by_factors = _rule(lead_n, factors_n, c, factors_d)
@@ -500,7 +522,8 @@ _TIERS = {"easy": _easy, "medium": _medium, "hard": _hard}
 @generator("w6_limit_degree", level=14, presets={t: {"tier": t} for t in _TIERS})
 def w6_limit_degree(rng, tier: str = "easy"):
     """Degree-comparison limits; the tiers are described in the module docstring."""
-    check(tier in _TIERS, f"unknown tier {tier!r}")
+    if tier not in _TIERS:
+        raise ValueError(f"unknown tier {tier!r}")
     if tier == "hard":
         return _hard(rng)
     return retry_draw(rng, _TIERS[tier])

@@ -250,7 +250,8 @@ def test_trig_substitution_exam_chain_parts_match_an_independent_derivation():
         a = int(re.search(r"x = (\d+)sin", q.text).group(1))
         degrees, k, value = int(q.parts[0].answer_text), int(q.parts[1].answer_text), parse(q.parts[2].answer_text)
         assert abs(float(sympy.sin(sympy.pi * degrees / 180) * a - sympy.N(hi))) < 1e-9, (seed, q.text)
-        assert k * 2 == a * a, (seed, q.text)
+        c = int(re.search(r" of (\d*)(?:x\^2/)?√", q.text).group(1) or 1)
+        assert k * 2 == c * a * a, (seed, q.text)
         assert abs(float(sympy.N(value)) - numeric(f, lo, hi)) < 1e-7, (seed, q.text)
 
 
@@ -259,3 +260,12 @@ def test_exam_chains_have_at_least_twelve_distinct_answer_sets_in_sixty_seeds(si
     exam = SKILLS[sid][1]
     seen = {tuple(p.answer_text for p in sup.exam(exam, s).parts) for s in range(60)}
     assert len(seen) >= 12
+
+
+def test_rewrite_x_stems_name_the_form_of_the_answer():
+    """Two antiderivatives differing by a constant are both right, but the expression grader compares them exactly
+    (the reply must carry the key's own constant), so every stem names the form: a sum of powers of one base."""
+    for tier in sup.TIERS:
+        for seed in range(30):
+            text = sup.single("w6_subst_rewrite_x", tier, seed).text
+            assert "Give your answer as a sum of powers of" in text and "not expanded, plus C" in text, (tier, seed)
