@@ -51950,6 +51950,181 @@ _ENTRIES = (
     ),
     # -- w7 figures (scale drawing, views, space strand) --
     CatalogueEntry(
+        "plan-ignores-the-window-condition",
+        "Names the other room with a toilets symbol, which has a window, ignoring the condition that there is no window symbol.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-window-condition-without-toilets",
+        "Names a room with no window symbol that does not have the toilets symbol, ignoring the toilets condition.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-neighbouring-room",
+        "Names a room next to the correct one on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-other-wet-room",
+        "Names a different wet room (bathroom, ensuite, toilet or laundry) from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-other-fixture-room",
+        "Names the room that holds a different fixture or symbol from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-rooms-without-window",
+        "Counts the rooms with no window symbol where the rooms with a window symbol were asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-all-rooms",
+        "Counts every room on the plan instead of only those that meet the condition.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-omits-the-dishwasher",
+        "Leaves the room with the dishwasher out of the rooms a plumber must visit.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-toilets-only",
+        "Counts only the rooms with the toilets symbol and misses the other fixtures that need a plumber.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-a-shared-room-twice",
+        "Counts a room twice when it has more than one plumbing fixture.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-robe-room",
+        "Counts the room with the built-in robe, which needs no plumber.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-charges-per-window-room",
+        "Multiplies the price by the number of rooms with a window symbol instead of the rooms visited.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-names-an-existing-building",
+        "Names a feature drawn with a solid outline (existing) where the dashed (proposed) one was asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-reverses-the-direction",
+        "Gives the opposite compass direction, reading from the second feature to the first.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-swaps-east-and-west",
+        "Swaps east and west when reading a direction off the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-swaps-north-and-south",
+        "Swaps north and south when reading a direction off the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-turns-the-direction",
+        "Gives a compass direction a quarter turn from the correct one.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-perimeter-for-area",
+        "Gives the perimeter of the feature where its area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-reads-the-existing-building",
+        "Gives the area of an existing building where the proposed feature was asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-area-from-squares-on-the-plan",
+        "Counts squares on the plan as square metres without applying the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-adds-the-sides",
+        "Adds the length and width of the feature instead of multiplying them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-leaves-out-the-proposed-feature",
+        "Gives the area of the existing buildings only, leaving out the proposed feature.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-leaves-out-a-building",
+        "Leaves one building out of the total area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-proposed-feature-twice",
+        "Counts the proposed feature twice in the total area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-neighbouring-square",
+        "Reads the square next to the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-swaps-column-and-row",
+        "Swaps the column letter and the row number, reading the wrong square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-other-landmark",
+        "Names a different landmark from the one in the square asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-counts-rows-from-the-top",
+        "Counts the rows from the top of the map instead of from the bottom.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-confuses-east-and-west",
+        "Moves west where the journey goes east, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-confuses-north-and-south",
+        "Moves south where the journey goes north, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-swaps-the-two-distances",
+        "Swaps the two distances, going the first number of squares in the second direction.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-counts-the-start-square",
+        "Counts the starting square as the first step of each move.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-reverses-both-directions",
+        "Reverses both directions of the journey.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-lands-in-a-wrong-square",
+        "Names the landmark at a square the journey does not end in.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-names-the-start",
+        "Names the landmark where the journey started.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
         "scd-adds-instead-of-subtracts",
         "Adds the two distances where the difference between them was asked.",
         area="figure-views",

@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_plan_conventions_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: dashed-read-as-built
   description: Treats a dashed outline as an ordinary built feature and names a solid-outlined feature instead.
@@ -42,3 +46,16 @@ misconceptions:
 - id: counts-squares-not-dimensions
   description: Counts grid squares and ignores the dimension labels and the scale, so the area is in squares, not square metres.
 tags: [acara-senior-v8-4, measurement, grid_plan_conventions, acmem107, scale-drawings, conventions, site-plans, compass]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Read a dashed outline as proposed or hidden and name the feature from its abbreviation."
+  medium:
+    steps: 2
+    demand: "Use the north arrow to give the compass direction from one feature to another."
+  hard:
+    steps: 3
+    demand: "Read the dimension labels in metres and find the area of the proposed or the existing building."
+  exam:
+    steps: 6
+    demand: "Chain the proposed feature, its compass direction from a building, its area and the total area covered once it is built."

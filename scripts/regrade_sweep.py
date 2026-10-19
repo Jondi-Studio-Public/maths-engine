@@ -236,8 +236,9 @@ def _check_figure_plausibility(skill: Skill, question, grader) -> str | None:
         reread = reader(question)
     except Exception as exc:  # noqa: BLE001 - a reader failing IS a plausibility failure
         return f"figure reader raised: {exc}"
-    if skill.answer == "mcq":
-        # grade_mcq takes the option INDEX; a reader returns the option text.
+    if skill.answer == "mcq" and not question.parts:
+        # grade_mcq takes the option INDEX; a reader returns the option text. A multi-part (exam) question is
+        # graded part by part from the labelled reply, whatever the skill's practice tiers answer.
         options = mcq_options(question)
         if reread not in options:
             return f"figure reader derived {reread!r}, which is not one of the mcq options"
