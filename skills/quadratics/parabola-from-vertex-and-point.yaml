@@ -1,0 +1,103 @@
+id: parabola-from-vertex-and-point
+name: Draw a parabola from its vertex and a point
+domain: quadratics
+year_level:
+- '10'
+naplan_domain: []
+description: Draw a parabola from its vertex and one more point, or from its equation, by marking the vertex and a second
+  point on an interactive grid or typing them.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- quadratic-vertex
+answer: curve
+sources:
+- topic: w9_parabola_draw
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w9_parabola_draw
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w9_parabola_draw
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w9_parabola_draw
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w9-parabola-vertex-x-sign
+  description: 'Reads the vertex of y = a(x - h)² + k as (-h, k): the sign inside the bracket is taken at face value.'
+- id: w9-parabola-vertex-y-sign
+  description: 'Reads the vertex of y = a(x - h)² + k as (h, -k): the sign of the constant is flipped.'
+- id: w9-parabola-vertex-swapped
+  description: Swaps the coordinates of the vertex, giving (k, h).
+- id: w9-parabola-opens-wrong-way
+  description: Draws the parabola opening upwards when a is negative, or downwards when a is positive.
+- id: w9-parabola-stretch-ignored
+  description: Ignores the stretch a, so the second point is only 1 up (or down) for each 1 across.
+- id: w9-parabola-stretch-inverted
+  description: Uses 1/a for the stretch instead of a.
+- id: w9-parabola-stretch-not-squared
+  description: Multiplies the distance from the axis of symmetry by a without squaring it, so the second point is wrong.
+- id: w9-parabola-vertex-formula-no-half
+  description: Takes the x-coordinate of the vertex of ax² + bx + c as -b, forgetting to divide by 2a.
+- id: w9-parabola-vertex-formula-sign
+  description: Takes the x-coordinate of the vertex of ax² + bx + c as b/2a, forgetting the minus sign.
+- id: w9-parabola-vertex-formula-no-a
+  description: Takes the x-coordinate of the vertex of ax² + bx + c as -b/2, forgetting to divide by a.
+- id: w9-parabola-vertex-y-is-intercept
+  description: Takes the constant term c of the expanded equation as the y-coordinate of the vertex.
+- id: w9-parabola-vertex-x-is-root
+  description: Puts the vertex at one of the x-intercepts instead of halfway between them.
+- id: w9-parabola-roots-sum-not-halved
+  description: Adds the two x-intercepts to find the axis of symmetry but does not halve the sum.
+- id: w9-parabola-vertex-on-axis
+  description: Puts the vertex on the x-axis, at the midpoint of the roots, instead of at the minimum or maximum height.
+- id: w9-parabola-roots-sign
+  description: Reads the factor (x - p) as a root at -p, so the x-intercepts are on the wrong side of zero.
+- id: w9-parabola-stretch-from-intercept
+  description: Takes the y-intercept as the stretch a, instead of dividing it by the product of the roots.
+- id: w9-parabola-y-intercept-wrong-sign
+  description: Gives the y-intercept of a(x - p)(x - q) as -apq, forgetting that two negative signs multiply.
+- id: w9-parabola-y-intercept-coefficient
+  description: Gives the coefficient of x as the y-intercept of the expanded equation.
+- id: w9-parabola-y-intercept-vertex-y
+  description: Gives the y-coordinate of the vertex as the y-intercept.
+- id: w9-parabola-y-intercept-from-vertex-form
+  description: Gives the constant k of the vertex form as the y-intercept, without putting x = 0 into the squared bracket.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Draw y = a(x - h)^2 + k with a = 1 or -1.
+  medium:
+    steps: 3
+    demand: Draw a parabola with a stretch of 2, 3 or one half.
+  hard:
+    steps: 5
+    demand: Draw a parabola from expanded form, factorised form, or roots and the y-intercept.
+  exam:
+    steps: 6
+    demand: 'A multi-part question: find what the drawing needs by calculation, make the drawing, then use it for a follow-up
+      number.'
+tags:
+- quadratics
+- parabola
+- graphs
+- interactive

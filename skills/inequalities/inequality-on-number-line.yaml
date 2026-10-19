@@ -1,0 +1,112 @@
+id: inequality-on-number-line
+name: Show an inequality on a number line
+domain: inequalities
+year_level:
+- '8'
+- '9'
+naplan_domain: []
+description: Show the solution of an inequality on a number line with open or closed circles and shaded rays, by placing the
+  marks on an interactive line or typing the solution set.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- one-step-inequalities
+answer: number_line_set
+sources:
+- topic: w9_numberline_inequality
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w9_numberline_inequality
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w9_numberline_inequality
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w9_numberline_inequality
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w9-ray-wrong-direction
+  description: Shades the ray towards the wrong end of the number line, so it shows the opposite inequality.
+- id: w9-circle-open-closed-swapped
+  description: Uses an open circle where the bound is included (or a closed circle where it is not).
+- id: w9-ray-and-circle-wrong
+  description: Shades the wrong way and also uses the wrong kind of circle.
+- id: w9-bound-sign-ignored
+  description: Puts the bound on the wrong side of zero, as if its sign did not matter.
+- id: w9-bound-point-only
+  description: Marks only the bound itself and does not shade the numbers that satisfy the inequality.
+- id: w9-ineq-forgets-to-divide
+  description: Moves the constant across but does not divide by the coefficient of x.
+- id: w9-ineq-constant-sign
+  description: Adds the constant to the right-hand side instead of subtracting it (or the reverse).
+- id: w9-ineq-divides-wrongly
+  description: Multiplies by the coefficient of x instead of dividing by it.
+- id: w9-ineq-sign-not-reversed
+  description: Divides by a negative number without reversing the inequality sign.
+- id: w9-ineq-negative-bound-sign
+  description: Divides by a negative number and keeps the sign of the bound, so the bound is on the wrong side of zero.
+- id: w9-compound-wrong-end-open
+  description: 'Draws a compound inequality with the circles the wrong way round: closed where open and open where closed.'
+- id: w9-compound-one-ray
+  description: Shades only a ray from one end of a compound inequality, not the segment between the two bounds.
+- id: w9-compound-outside
+  description: Shades outside the two bounds instead of between them.
+- id: w9-abs-centre-sign
+  description: Takes the centre of |x - a| as -a, so the interval is centred on the wrong side of zero.
+- id: w9-abs-centre-ignored
+  description: Ignores the shift in |x - a| and centres the interval on zero.
+- id: w9-abs-union-for-intersection
+  description: Shades the two outer rays for a 'less than' absolute-value inequality, which needs the segment between them.
+- id: w9-abs-intersection-for-union
+  description: Shades the segment between the bounds for a 'greater than' absolute-value inequality, which needs the two outer
+    rays.
+- id: w9-abs-one-side-only
+  description: Solves only one of the two cases of an absolute-value inequality, so only one bound or ray is shown.
+- id: w9-or-drawn-as-and
+  description: Shades only where both inequalities hold when the word was 'or', or shades only one of the two rays.
+- id: w9-and-drawn-as-or
+  description: Shades everywhere either inequality holds when the word was 'and'.
+- id: w9-integer-count-includes-open-bound
+  description: Counts the whole number at an open circle as a solution.
+- id: w9-integer-count-misses-closed-bound
+  description: Leaves out the whole number at a closed circle when counting solutions.
+- id: w9-integer-count-fencepost
+  description: Counts the gaps between the bounds instead of the whole numbers, so is one out.
+- id: w9-integer-greatest-open-bound
+  description: Gives the bound itself as the greatest whole number even though the inequality is strict.
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Show x compared with a number, with the right circle and ray.
+  medium:
+    steps: 3
+    demand: Solve a two-step inequality or a compound a < x <= b and show it.
+  hard:
+    steps: 5
+    demand: Flip the sign for a negative coefficient, handle absolute value, or combine conditions with and/or.
+  exam:
+    steps: 6
+    demand: 'A multi-part question: find what the drawing needs by calculation, make the drawing, then use it for a follow-up
+      number.'
+tags:
+- inequalities
+- number-line
+- interactive

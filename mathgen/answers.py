@@ -40,6 +40,12 @@ ANSWER_KINDS = frozenset(
         "inequality",
         "matrix",
         "grid_cells",
+        "half_planes",
+        "number_line_set",
+        "polygon",
+        "curve",
+        "bars",
+        "edges",
     }
 )
 

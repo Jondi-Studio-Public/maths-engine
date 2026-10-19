@@ -55624,6 +55624,608 @@ _ENTRIES = (
         "Makes a small slip of one or two when adding or dividing.",
         area="acquire-and-check-data",
     ),
+    # -- w9: interactive graph answers (plot, line, number line, region, transform, parabola)
+    CatalogueEntry(
+        "w9-swapped-coordinates",
+        "Plots the point with its coordinates the wrong way round: goes up first and across second.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-x-sign-ignored",
+        "Plots a negative x-coordinate to the right of the y-axis, or a positive one to the left.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-y-sign-ignored",
+        "Plots a negative y-coordinate above the x-axis, or a positive one below it.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-both-signs-ignored",
+        "Ignores the signs of both coordinates, so the point lands in the first quadrant.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-counts-from-the-wrong-line",
+        "Counts one gridline too far or too few along an axis, so the point is a square out.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-midpoint-not-halved",
+        "Adds the coordinates of the two points to find the midpoint but does not halve the sums.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-midpoint-uses-difference",
+        "Subtracts the coordinates of the two points instead of adding them to find the midpoint.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-midpoint-on-one-axis",
+        "Finds the middle of the x-values but keeps the y-value of one of the points (or the reverse).",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-wrong-pairing",
+        "Completes the parallelogram on the wrong pair of sides, so the fourth point is not opposite the middle vertex.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-adds-all-three",
+        "Adds the coordinates of all three vertices to find the fourth.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-area-half",
+        "Gives the area of triangle ABC, which is half the area of the parallelogram.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-area-sides",
+        "Multiplies the lengths of two adjacent sides, as if the parallelogram were a rectangle.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-area-bounding-box",
+        "Gives the area of the box that just contains the parallelogram.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-line-point-sign",
+        "Subtracts the constant instead of adding it (or the reverse) when finding the point on the line.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-line-point-forgets-gradient",
+        "Uses the x-value as the y-value, or adds the gradient instead of multiplying by it.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-half-unit-rounded",
+        "Rounds a half-unit coordinate to a whole unit.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-line-gradient-sign",
+        "Draws a line as steep as the gradient says but sloping the wrong way: the sign of the gradient is flipped.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercept-sign",
+        "Starts the line at the opposite end of the y-axis, at minus the intercept.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-gradient-inverted",
+        "Moves across by the rise and up by the run, so the line has the reciprocal of the gradient.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-axes-swapped",
+        "Plots the points of the line with x and y the wrong way round, which reflects the line in y = x.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-starts-off-the-intercept",
+        "Starts the line one square above or below the intercept.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-ignores-the-point",
+        "Draws a line with the right gradient but through the origin instead of through the given point.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-through-swapped-point",
+        "Draws the line through the given point with its coordinates the wrong way round.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-parallel-reflected",
+        "Draws the line through the point with the opposite gradient, instead of the same gradient.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-perpendicular-parallel",
+        "Draws a parallel line through the point when a perpendicular one was asked for.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-perpendicular-no-flip",
+        "Takes the reciprocal of the gradient but keeps its sign, so the line is not perpendicular.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-perpendicular-negated-only",
+        "Negates the gradient but forgets to take the reciprocal, so the line is not perpendicular.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercepts-swapped",
+        "Swaps the x- and y-intercepts of the line, which gives a line with the wrong slope.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-standard-form-sign",
+        "Takes the gradient of ax + by = c as a/b instead of -a/b.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercept-from-coefficient",
+        "Reads the y-intercept off the constant on the right of the equation without dividing by the y-coefficient.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-x-intercept-sign",
+        "Finds the x-intercept as c/m instead of -c/m.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-x-intercept-is-y-intercept",
+        "Gives the y-intercept where the x-intercept was asked.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-x-intercept-inverted",
+        "Finds the x-intercept as -m/c, dividing the wrong way round.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercept-uses-gradient",
+        "Finds the y-intercept of the parallel line by using the gradient of the first line as the intercept.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercept-point-sign",
+        "Subtracts the gradient times x from y but adds it, or the reverse, when finding the intercept through the point.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-ray-wrong-direction",
+        "Shades the ray towards the wrong end of the number line, so it shows the opposite inequality.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-circle-open-closed-swapped",
+        "Uses an open circle where the bound is included (or a closed circle where it is not).",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ray-and-circle-wrong",
+        "Shades the wrong way and also uses the wrong kind of circle.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-bound-sign-ignored",
+        "Puts the bound on the wrong side of zero, as if its sign did not matter.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-bound-point-only",
+        "Marks only the bound itself and does not shade the numbers that satisfy the inequality.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-forgets-to-divide",
+        "Moves the constant across but does not divide by the coefficient of x.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-constant-sign",
+        "Adds the constant to the right-hand side instead of subtracting it (or the reverse).",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-divides-wrongly",
+        "Multiplies by the coefficient of x instead of dividing by it.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-sign-not-reversed",
+        "Divides by a negative number without reversing the inequality sign.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-negative-bound-sign",
+        "Divides by a negative number and keeps the sign of the bound, so the bound is on the wrong side of zero.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-compound-wrong-end-open",
+        "Draws a compound inequality with the circles the wrong way round: closed where open and open where closed.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-compound-one-ray",
+        "Shades only a ray from one end of a compound inequality, not the segment between the two bounds.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-compound-outside",
+        "Shades outside the two bounds instead of between them.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-centre-sign",
+        "Takes the centre of |x - a| as -a, so the interval is centred on the wrong side of zero.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-centre-ignored",
+        "Ignores the shift in |x - a| and centres the interval on zero.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-union-for-intersection",
+        "Shades the two outer rays for a 'less than' absolute-value inequality, which needs the segment between them.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-intersection-for-union",
+        "Shades the segment between the bounds for a 'greater than' absolute-value inequality, which needs the two outer rays.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-one-side-only",
+        "Solves only one of the two cases of an absolute-value inequality, so only one bound or ray is shown.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-or-drawn-as-and",
+        "Shades only where both inequalities hold when the word was 'or', or shades only one of the two rays.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-and-drawn-as-or",
+        "Shades everywhere either inequality holds when the word was 'and'.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-integer-count-includes-open-bound",
+        "Counts the whole number at an open circle as a solution.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-integer-count-misses-closed-bound",
+        "Leaves out the whole number at a closed circle when counting solutions.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-integer-count-fencepost",
+        "Counts the gaps between the bounds instead of the whole numbers, so is one out.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-integer-greatest-open-bound",
+        "Gives the bound itself as the greatest whole number even though the inequality is strict.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-region-wrong-side",
+        "Shades the side of the boundary line that does not satisfy the inequality.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-boundary-style",
+        "Draws a solid boundary for a strict inequality, or a dashed boundary for one that includes the line.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-intercept-sign",
+        "Puts the boundary line through the y-axis at the opposite end: the sign of the constant is wrong.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-sign",
+        "Draws the boundary sloping the wrong way: the sign of the gradient is wrong.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-inverted",
+        "Draws a boundary with the reciprocal of the gradient, going across by the rise and up by the run.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-axes-swapped",
+        "Swaps x and y when drawing the boundary, which reflects it in the line y = x.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-sign-not-flipped",
+        "Rearranges to make y positive by dividing by a negative number without reversing the inequality sign, so the shading is on the wrong side.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-intercepts-swapped",
+        "Swaps the x- and y-intercepts of the boundary when the equation is in standard form.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-intercept-not-divided",
+        "Uses the right-hand constant as an intercept without dividing by the coefficient of the variable.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-one-condition-only",
+        "Shades the region for one of the inequalities in a system and ignores the others.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-union-for-intersection",
+        "Shades everywhere that satisfies at least one inequality, when the system needs all of them at once.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-strip-one-side",
+        "Shades one side of only one of the two parallel boundaries instead of the strip between them.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-strip-outside",
+        "Shades outside the two parallel boundaries instead of between them.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-quadrant-ignored",
+        "Leaves out the conditions x ≥ 0 and y ≥ 0, so the region extends beyond the first quadrant.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-from-coefficients",
+        "Reads the gradient of ax + by = c as a/b, forgetting the minus sign.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-as-intercept",
+        "Gives the y-intercept c/b where the gradient was asked.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-inverted-number",
+        "Gives -b/a, the reciprocal of the gradient.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-count-boundary-strict",
+        "Counts a point on a dashed boundary as inside the region.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-count-boundary-missed",
+        "Leaves out a point on a solid boundary, which is part of the region.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-count-complement",
+        "Counts the points outside the region instead of inside it.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-translate-direction",
+        "Moves the shape the wrong way along one direction: right for left, or up for down.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-translate-components-swapped",
+        "Swaps the across and up parts of the translation.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-translate-one-component",
+        "Applies only the across part or only the up part of the translation.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-translate-negated",
+        "Moves the shape by the opposite vector, undoing the translation.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-wrong-axis",
+        "Reflects in the other axis, or the other mirror line, instead of the one named.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-distance-not-doubled",
+        "Moves each point only as far as the mirror line instead of through it, so the image lands on the line.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-line-value-not-doubled",
+        "Writes k - x instead of 2k - x for the image of a point in the line x = k (or k - y for y = k).",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-adds-instead",
+        "Moves each point the distance to the mirror line in the same direction, which translates the shape instead of reflecting it.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-diagonal-as-swap-sign",
+        "Reflects in y = -x by swapping the coordinates but forgetting to change both signs (or the reverse for y = x).",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-direction",
+        "Turns the shape the wrong way round: clockwise for anticlockwise or the reverse.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-angle",
+        "Turns the shape through a half turn when a quarter turn was asked, or the reverse.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-about-origin",
+        "Turns the shape about the origin instead of about the marked centre.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-as-reflection",
+        "Swaps the coordinates, which reflects the shape in y = x instead of turning it.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-sign-slip",
+        "Swaps the coordinates in a quarter turn but gives both the wrong sign.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-image-vertices-misordered",
+        "Puts the image vertices in the wrong order, so A' is not where A went.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-composite-order-reversed",
+        "Does the two transformations in the wrong order.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-composite-first-only",
+        "Applies only the first of the two transformations.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-composite-second-only",
+        "Applies only the second of the two transformations to the original shape.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-area-changes-with-image",
+        "Thinks the area changes under a reflection, translation or rotation, and recalculates it wrongly or doubles it.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-area-no-half",
+        "Gives the area of the box round the triangle, forgetting to halve it.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-area-base-times-side",
+        "Multiplies two sides of the triangle instead of using base times height over two.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-x-sign",
+        "Reads the vertex of y = a(x - h)² + k as (-h, k): the sign inside the bracket is taken at face value.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-y-sign",
+        "Reads the vertex of y = a(x - h)² + k as (h, -k): the sign of the constant is flipped.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-swapped",
+        "Swaps the coordinates of the vertex, giving (k, h).",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-opens-wrong-way",
+        "Draws the parabola opening upwards when a is negative, or downwards when a is positive.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-stretch-ignored",
+        "Ignores the stretch a, so the second point is only 1 up (or down) for each 1 across.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-stretch-inverted",
+        "Uses 1/a for the stretch instead of a.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-stretch-not-squared",
+        "Multiplies the distance from the axis of symmetry by a without squaring it, so the second point is wrong.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-formula-no-half",
+        "Takes the x-coordinate of the vertex of ax² + bx + c as -b, forgetting to divide by 2a.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-formula-sign",
+        "Takes the x-coordinate of the vertex of ax² + bx + c as b/2a, forgetting the minus sign.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-formula-no-a",
+        "Takes the x-coordinate of the vertex of ax² + bx + c as -b/2, forgetting to divide by a.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-y-is-intercept",
+        "Takes the constant term c of the expanded equation as the y-coordinate of the vertex.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-x-is-root",
+        "Puts the vertex at one of the x-intercepts instead of halfway between them.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-roots-sum-not-halved",
+        "Adds the two x-intercepts to find the axis of symmetry but does not halve the sum.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-on-axis",
+        "Puts the vertex on the x-axis, at the midpoint of the roots, instead of at the minimum or maximum height.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-roots-sign",
+        "Reads the factor (x - p) as a root at -p, so the x-intercepts are on the wrong side of zero.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-stretch-from-intercept",
+        "Takes the y-intercept as the stretch a, instead of dividing it by the product of the roots.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-y-intercept-wrong-sign",
+        "Gives the y-intercept of a(x - p)(x - q) as -apq, forgetting that two negative signs multiply.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-y-intercept-coefficient",
+        "Gives the coefficient of x as the y-intercept of the expanded equation.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-y-intercept-vertex-y",
+        "Gives the y-coordinate of the vertex as the y-intercept.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-y-intercept-from-vertex-form",
+        "Gives the constant k of the vertex form as the y-intercept, without putting x = 0 into the squared bracket.",
+        area="parabola-from-vertex-and-point",
+    ),
+    # -- end w9
 )
 
 #: Every entry, by id.
