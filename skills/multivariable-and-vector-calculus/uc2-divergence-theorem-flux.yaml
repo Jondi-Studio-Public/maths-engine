@@ -1,0 +1,90 @@
+id: uc2-divergence-theorem-flux
+name: The divergence theorem
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Find the outward flux of a vector field through a closed surface as the triple integral of its divergence over
+  the solid, closing an open surface where needed.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-triple-integral
+- uc2-flux-through-closed-surface-pieces
+answer: expression
+sources:
+- topic: s2a3_divergence_flux
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2a3_divergence_flux
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2a3_divergence_flux
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2a3_divergence_flux
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: div-base-added
+  description: Adding the flux through the flat piece to the total instead of subtracting it.
+- id: div-base-sign
+  description: Taking the flux through the flat piece with the wrong sign, using the upward normal on a base whose outward
+    normal points down.
+- id: div-cylindrical-no-r
+  description: Leaving the factor r out of the volume element r dr dtheta dz in cylindrical coordinates.
+- id: div-dropped-term
+  description: Leaving one of the three partial derivatives out of the divergence.
+- id: div-flat-wrong-height
+  description: Evaluating the field at the wrong height on the flat piece (z = 0 on the lid, or the top height on the base).
+- id: div-inward
+  description: Giving the inward flux, with the wrong sign, instead of the outward flux.
+- id: div-mixed-partials
+  description: Taking the divergence as P_y + Q_z + R_x, differentiating each component with respect to the wrong variable.
+- id: div-open-surface
+  description: Giving the total flux through the closed surface as the flux through the curved part alone, without subtracting
+    the flux through the flat piece that closes it.
+- id: div-spherical-no-rho-squared
+  description: Leaving the factor rho^2 out of the volume element rho^2 sin(phi) drho dphi dtheta in spherical coordinates.
+- id: div-spherical-no-sin
+  description: Leaving the factor sin(phi) out of the volume element rho^2 sin(phi) drho dphi dtheta in spherical coordinates.
+- id: div-sum-of-components
+  description: Integrating P + Q + R over the solid instead of the divergence P_x + Q_y + R_z.
+- id: div-total-for-flat
+  description: Giving the total flux through the closed surface as the flux through the flat piece.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Recognise a closed box, find div F and integrate it over the box instead of six faces.
+  medium:
+    steps: 5
+    demand: Find div F and integrate it over a ball or a solid cylinder in spherical or cylindrical coordinates.
+  hard:
+    steps: 7
+    demand: Integrate over a cone or a bowl with its lid, or close an open dome with its base and take the base flux away
+      again.
+  exam:
+    steps: 8
+    demand: "Chain four parts on one closed surface: find div F, use the divergence theorem for the total flux, find the flux through the flat lid, then find the curved part by subtraction."
+tags:
+- university-year-2
+- university-core-v1
+- multivariable-calculus
+- surface-integrals
+- flux
+- divergence-theorem
+framework_areas:
+- multivariable-and-vector-calculus

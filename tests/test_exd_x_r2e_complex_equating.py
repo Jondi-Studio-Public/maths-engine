@@ -70,8 +70,13 @@ def oracle(q) -> dict[str, str]:
 
 
 def test_wired_to_the_skill():
+    # The multi-part chain first, then the single-part exam question re-added under key exam-single (bf2fca7).
     exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [(s.topic, s.params, s.stages) for s in exam] == [(TOPIC, {"tier": "exam"}, ["exam"])]
+    assert [(s.topic, s.params, s.stages) for s in exam] == [
+        (TOPIC, {"tier": "exam"}, ["exam"]),
+        ("exd_x_complex_equating", {"tier": "exam"}, ["exam"]),
+    ]
+    assert exam[-1].key == "exam-single"
 
 
 def test_shape(questions):

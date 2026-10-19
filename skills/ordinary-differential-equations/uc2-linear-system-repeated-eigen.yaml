@@ -1,0 +1,80 @@
+id: uc2-linear-system-repeated-eigen
+name: Solve a linear system with a repeated eigenvalue
+domain: ordinary-differential-equations
+year_level:
+- university
+description: Solve the initial value problem x' = Ax when the matrix has a repeated eigenvalue with only one independent
+  eigenvector, so the solution needs a generalised eigenvector and a t e^(λt) term.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-eigenvectors
+- ucv1-diagonalisation
+answer: expression
+sources:
+- topic: s2c2_linear_system_repeated_eigen
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c2_linear_system_repeated_eigen
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c2_linear_system_repeated_eigen
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c2_linear_system_repeated_eigen
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ode2-repeated-eigenvalue-no-t-term
+  description: Treating a repeated eigenvalue with one eigenvector like a pair of ordinary exponentials, and leaving
+    out the t e^(λt) term of the solution.
+- id: ode2-matrix-used-instead-of-nilpotent-part
+  description: Using A where A - λI is needed, so the coefficient of the t e^(λt) term is built from the wrong vector.
+- id: ode2-t-term-sign
+  description: Getting the sign of the t e^(λt) term wrong when the generalised eigenvector is found from (A - λI)w
+    = v.
+- id: ode2-exponent-sign-flipped
+  description: Writing the exponential for an eigenvalue as e^(-λt) instead of e^(λt) in the solution of x' = Ax.
+- id: ode2-other-component-given
+  description: Giving a different component of the solution from the one asked for.
+- id: ode2-eigenvalue-eigenvector-mismatch
+  description: Pairing an eigenvector with the exponential of a different eigenvalue.
+- id: ode2-characteristic-sign-error
+  description: Solving λ² + Tλ + D = 0 instead of λ² - Tλ + D = 0, so every eigenvalue has the wrong sign.
+- id: ode2-trace-as-eigenvalue
+  description: Giving the trace of the matrix as an eigenvalue.
+- id: ode2-determinant-as-eigenvalue
+  description: Giving the determinant of the matrix as an eigenvalue.
+- id: ode2-diagonal-entries-as-eigenvalues
+  description: Reading the diagonal entries of the matrix as its eigenvalues.
+- id: ode2-nilpotent-part-sign
+  description: Forming A + λI instead of A - λI.
+- id: ode2-off-diagonal-term-dropped
+  description: Leaving the off-diagonal term out when multiplying A - λI by the initial vector.
+difficulty_progression: 'Easy is a 2x2 matrix whose repeated eigenvalue has a small eigenvector, asked for x(t):
+  the learner must notice the matrix is not diagonalisable and use the term in t e^(λt). Medium keeps the 2x2 case
+  but with a larger eigenvector and scale, and asks for y(t), whose t-term depends on the other row. Hard is a 3x3
+  matrix with a repeated eigenvalue (one eigenvector, one generalised eigenvector) and a third distinct eigenvalue,
+  so the answer mixes e^(λt), t e^(λt) and e^(μt). The exam chain finds the repeated eigenvalue, the first entry
+  of (A - λI) applied to the initial vector, the solution x(t) built from them, and its value at a stated time.'
+tags:
+- university-year-2
+- ordinary-differential-equations
+- linear-systems
+- repeated-eigenvalue
+- generalised-eigenvector
+framework_areas:
+- ordinary-differential-equations

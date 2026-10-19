@@ -1,0 +1,80 @@
+id: matrix-costing-model
+name: Cost orders with a price row and a quantity matrix
+domain: matrices
+year_level: ['11']
+description: 'A price row and a matrix of quantities ordered by several branches give the cost of each order. Easy: the cost
+  of one branch''s order in dollars. Medium: the cost of all the branches'' orders together. Hard: two stages, with a recipe
+  matrix of ingredients per product, ingredient prices and the batches each outlet orders, ending with the cost for one outlet.
+  The exam chain costs one batch of each of two products from the recipe matrix, the cost of an order (carried forward) and
+  the profit on it (carried forward).'
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-arithmetic
+- matrix-multiplication
+answer: number
+sources:
+- topic: r3c_costing
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 6
+- topic: r3c_costing
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 6
+- topic: r3c_costing
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: r3c_costing_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3c-cost-counts-items
+  description: Adds up the quantities (the number of items) and gives that as the cost in dollars, without using the prices.
+- id: r3c-cost-ignores-quantities
+  description: Adds the prices without multiplying each by the number of items ordered, so every cost is the cost of one of
+    each item.
+- id: r3c-cost-item-left-out
+  description: Leaves one item (or one product) out of the total, so its cost is missing.
+- id: r3c-cost-one-branch-only
+  description: Gives the cost of a single branch's order where the total for all the branches together was asked for.
+- id: r3c-cost-one-product-price
+  description: Uses the price or cost of one product for every product ordered, instead of each product's own price.
+- id: r3c-cost-one-stage-only
+  description: Stops after the first stage and gives the cost of one batch of each product, without multiplying by the number
+    of batches ordered.
+- id: r3c-cost-prices-mismatched
+  description: Pairs the prices with the quantities in the wrong order, so each quantity is multiplied by the price of a different
+    item.
+- id: r3c-cost-profit-added
+  description: Adds the cost of the order to the sales instead of subtracting it.
+- id: r3c-cost-profit-reversed
+  description: Subtracts the sales from the cost, so the profit has the wrong sign.
+- id: r3c-cost-revenue-not-profit
+  description: Gives the sales of the order where the profit, sales less cost, was asked for.
+- id: r3c-cost-row-for-column
+  description: Multiplies the prices by a row of the quantity matrix instead of a column, using the quantities of different
+    branches for one item.
+- id: r3c-cost-wrong-product
+  description: Uses the recipe or cost of the other product, so a batch is costed as the wrong product.
+- id: r3c-cost-wrong-store
+  description: Gives the cost for a different branch or outlet from the one asked about, or lists the branch costs in the
+    wrong order.
+tags:
+- matrices
+- matrix-costing
+- matrix-product
+- applications
+- acmgm016
+- r3c_costing

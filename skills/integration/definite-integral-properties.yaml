@@ -1,0 +1,109 @@
+id: definite-integral-properties
+name: Use the properties of definite integrals
+domain: integration
+description: Find the value of a definite integral from stated values of related integrals, using additivity, reversed limits,
+  symmetry of even and odd functions, reflection and periodicity, with no formula for the function.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+answer: number
+sources:
+- topic: r3b_integral_properties
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3b_integral_properties
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3b_integral_properties
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: r3b_exam_integral_properties
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3b-prop-parts-subtracted
+  description: Subtracting the integrals over two adjacent intervals instead of adding them.
+- id: r3b-prop-one-part-only
+  description: Giving the integral over one of the pieces when the integral over the combined interval was asked for.
+- id: r3b-prop-limits-reversed-sign
+  description: Giving the right size but the wrong sign when the limits of an integral are reversed or the order of limits
+    is mishandled.
+- id: r3b-prop-parts-added
+  description: Adding the integral over the whole interval and the part, instead of subtracting the part to find the rest.
+- id: r3b-prop-whole-for-part
+  description: Giving the integral over the whole interval as the integral over one part of it.
+- id: r3b-prop-even-not-doubled
+  description: Using the integral over [0, a] as the integral over [-a, a] of an even function, without doubling.
+- id: r3b-prop-even-treated-as-odd
+  description: Treating an even function as odd, so the integral over a symmetric interval is taken as 0 (or the half-interval
+    integral is negated).
+- id: r3b-prop-constant-not-over-width
+  description: Adding a constant term to the integral as the constant itself, without multiplying by the width of the interval.
+- id: r3b-prop-constant-dropped
+  description: Leaving out the contribution of a constant term in the integrand.
+- id: r3b-prop-odd-treated-as-even
+  description: Treating an odd function as even, doubling the integral over [0, a] instead of cancelling it.
+- id: r3b-prop-odd-part-kept
+  description: Keeping the integral of an odd term (such as x or g(x)) over a symmetric interval instead of cancelling it
+    to 0.
+- id: r3b-prop-reflection-reverses-sign
+  description: Treating the integral of f(a + b - x) over [a, b] as the negative of the integral of f(x), because the argument
+    runs backwards.
+- id: r3b-prop-reflected-term-dropped
+  description: Leaving out the reflected term f(a + b - x), as if its integral were 0.
+- id: r3b-prop-reflection-as-constant
+  description: Treating the integral of f(a + b - x) as the width of the interval.
+- id: r3b-prop-reflection-doubled
+  description: Doubling the result of two equal integrals that have already been added.
+- id: r3b-prop-one-period-only
+  description: Giving the integral over a single period when several periods were asked for.
+- id: r3b-prop-period-multiplied-twice
+  description: Multiplying by the period as well as by the number of periods.
+- id: r3b-prop-periods-miscounted
+  description: Counting one period too many or too few in an interval of several periods.
+- id: r3b-prop-shift-added-to-integral
+  description: Adding the shift times the width of the interval to the integral when f(x + c) is integrated over a shifted
+    interval.
+- id: r3b-prop-shift-multiplies-integral
+  description: Multiplying the integral by the shift c when integrating f(x + c).
+- id: r3b-prop-constant-sign
+  description: Subtracting the integral of a positive constant term, or adding that of a negative one.
+- id: r3b-prop-wrong-piece
+  description: Using the integral over the outer piece [p, q] where the integral over [0, p] belongs.
+- id: r3b-prop-even-applied-when-not-asked
+  description: Doubling the integral over [0, q] when the interval [0, q] is not symmetric about 0.
+- id: r3b-prop-one-part-doubled
+  description: Doubling only one of the two pieces of a symmetric interval, instead of doubling the whole integral over [0,
+    q].
+- id: r3b-prop-scale-factor-dropped
+  description: Leaving out the multiplier of f(x) when the integral of k f(x) + c is evaluated.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Combine or subtract integrals over adjacent intervals, or reverse the limits.
+  medium:
+    steps: 3
+    demand: Use the symmetry of an even or odd function over a symmetric interval, together with a constant term.
+  hard:
+    steps: 4
+    demand: Use reflection, a shift or periodicity of the function to relate integrals over different intervals.
+  exam:
+    steps: 5
+    demand: Chain integrals of an even function over several symmetric intervals and an integral with an odd term.
+tags:
+- acara-senior-v8-4
+- integration

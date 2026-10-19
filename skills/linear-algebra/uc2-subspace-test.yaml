@@ -1,0 +1,105 @@
+id: uc2-subspace-test
+name: Testing whether a set is a subspace
+domain: linear-algebra
+year_level:
+- university
+description: Decide which subsets of R^3, the polynomials of degree at most 2 or the 2x2 matrices are subspaces by testing
+  the zero vector and closure, and find the parameter value that makes a parametrised solution set a subspace. The exam
+  chain names the first failing test, finds the larger and smaller parameter values, and the dimension of the subspace.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-coordinate-basis
+answer: number
+sources:
+- topic: s2b1_subspace_test
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b1_subspace_test
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b1_subspace_test
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b1_subspace
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: subspace-zero-vector-only
+  description: Treating a set as a subspace because it contains the zero vector, without checking closure under addition
+    and scalar multiplication.
+- id: subspace-addition-only
+  description: Checking closure under addition but not under scalar multiplication.
+- id: subspace-scalar-only
+  description: Checking closure under scalar multiplication but not under addition.
+- id: subspace-count-complement
+  description: Reporting the number of sets that are not subspaces instead of the number that are.
+- id: subspace-miscounted
+  description: Miscounting the sets that are subspaces by accepting a set that fails a closure condition.
+- id: subspace-other-root
+  description: Choosing the other root of the condition on the parameter when the question asks for the larger or smaller
+    one.
+- id: subspace-parameter-sum-for-root
+  description: Giving the sum of the roots of the parameter condition instead of the requested root.
+- id: subspace-parameter-product-for-root
+  description: Giving the product of the roots of the parameter condition instead of the requested root.
+- id: subspace-parameter-zero
+  description: Assuming the parameter must be zero for the set to contain the zero vector.
+- id: subspace-zero-vector-overlooked
+  description: Overlooking that a set failing to contain the zero vector is not a subspace, and testing closure first.
+- id: subspace-equation-means-subspace
+  description: Assuming any set defined by an equation is a subspace, even when the equation is not homogeneous linear.
+- id: subspace-dimension-ambient
+  description: Giving the dimension of the ambient space instead of the dimension of the subspace.
+- id: subspace-dimension-affine-for-linear
+  description: Treating a translated solution set as if it had the dimension of the subspace it is parallel to, and calling
+    it a subspace.
+- id: dimension-counts-equations
+  description: Taking the dimension of the solution space to be n minus the number of equations, even though some equations
+    depend on the others.
+- id: sign-error-moving-term
+  description: 'Moving a term to the other side of the equals sign without changing its sign: adding it where it should
+    be subtracted, or the reverse.'
+difficulty_progression: 'Easy counts the subspaces among three subsets of R^3 where each set fails (or passes) for a single
+  visible reason: an inequality, integer coordinates, a non-zero constant, a quadratic condition. Medium moves to polynomial
+  and matrix spaces, where the conditions are about values, derivatives, symmetry, determinants and invertibility and must
+  be translated before they can be tested. Hard has a parameter in the defining condition, so the zero vector test fixes
+  k through a quadratic with two roots (the larger is asked for), or asks which unions, intersections and complements of
+  planes and a line are subspaces, which needs the closure theorems rather than the three tests. The exam chain names the
+  first failing test at a given k, finds the larger root, the dimension there, and then the smaller root by following through
+  from the first.'
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- subspace
+- closure
+- vector-spaces
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

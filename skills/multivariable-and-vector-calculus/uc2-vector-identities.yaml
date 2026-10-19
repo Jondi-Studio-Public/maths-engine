@@ -1,0 +1,114 @@
+id: uc2-vector-identities
+name: Vector calculus identities
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: 'Apply the product rules and second-derivative identities of vector calculus to concrete fields and evaluate them at a point: curl and divergence of a scalar multiple, divergence of a cross product, the Laplacian of a product and of a power of the radius, Green''s difference, and the double curl.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-divergence-of-field
+- uc2-curl-of-field
+answer: expression
+sources:
+- topic: s2a2_vector_identities
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a2_vector_identities
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a2_vector_identities
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a2_vector_identities
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: vc2-div-component-dropped
+  description: 'Adds only two of the three partial derivatives that make up the divergence.'
+- id: vc2-div-confused-with-curl
+  description: 'Adds the components of the curl instead of the three partial derivatives that make up the divergence.'
+- id: vc2-div-field-value-not-divergence
+  description: 'Adds the values of the components at the point instead of finding the divergence.'
+- id: vc2-div-wrong-variable
+  description: 'Differentiates each component with respect to the next variable (P by y, Q by z, R by x) instead of its own variable.'
+- id: vc2-id-cross-for-dot
+  description: 'Uses the cross product of the field and the gradient where the dot product is needed.'
+- id: vc2-id-cross-of-divergences
+  description: 'Believes the divergence of a cross product is the cross product of the divergences, which are scalars.'
+- id: vc2-id-cross-term-dropped
+  description: 'Leaves out the 2 grad f . grad g term in the Laplacian of a product.'
+- id: vc2-id-cross-term-factor-two-dropped
+  description: 'Includes grad f . grad g in the Laplacian of a product with a factor 1 instead of 2.'
+- id: vc2-id-cross-term-kept
+  description: 'Keeps a grad f . grad g term that cancels between the two products.'
+- id: vc2-id-cross-term-sign
+  description: 'Gets the sign of the cross-product term wrong in the product rule for the curl, or writes the cross product in the wrong order.'
+- id: vc2-id-difference-as-sum
+  description: 'Adds f times the Laplacian of g and g times the Laplacian of f instead of subtracting.'
+- id: vc2-id-div-curl-not-zero
+  description: 'Believes the divergence of a curl is not zero.'
+- id: vc2-id-divergences-multiplied
+  description: 'Takes the divergence of a cross product to be the product of the divergences.'
+- id: vc2-id-dot-for-cross
+  description: 'Uses the dot product grad f . v where the cross product grad f x v belongs in the curl product rule.'
+- id: vc2-id-dot-for-curl
+  description: 'Uses grad f . G in place of grad f . curl G.'
+- id: vc2-id-dot-product-missing-field
+  description: 'Adds the components of the gradient without dotting them with the field.'
+- id: vc2-id-double-curl-plus
+  description: 'Adds the Laplacian instead of subtracting it in the identity for the double curl.'
+- id: vc2-id-double-curl-sign
+  description: 'Reverses the sign of the identity for the double curl, giving the Laplacian minus the gradient of the divergence.'
+- id: vc2-id-double-curl-zero
+  description: 'Believes the curl of a curl is always zero.'
+- id: vc2-id-grad-div-zero
+  description: 'Believes the gradient of a divergence is always zero.'
+- id: vc2-id-gradient-replaced-by-ones
+  description: 'Dots the field with (1, 1, 1) instead of with the gradient.'
+- id: vc2-id-gradient-term-dropped
+  description: 'Leaves out the gradient of the divergence in the identity for the double curl.'
+- id: vc2-id-gradient-times-divergence
+  description: 'Believes the divergence of f v is the product of the gradient of f and the divergence of v.'
+- id: vc2-id-laplacian-term-dropped
+  description: 'Leaves out the Laplacian term in the identity for the double curl.'
+- id: vc2-id-laplacian-zero
+  description: 'Believes the divergence of a gradient (the Laplacian) is always zero.'
+- id: vc2-id-laplacians-multiplied
+  description: 'Takes the Laplacian of a product to be the product of the Laplacians.'
+- id: vc2-id-product-term-dropped
+  description: 'Applies only one term of a product rule, leaving out the other.'
+- id: vc2-id-product-term-sign
+  description: 'Subtracts the second term of a product rule that adds it.'
+- id: vc2-id-radial-one-dimensional
+  description: 'Uses the one-dimensional second derivative n(n - 1) r^(n - 2) for the Laplacian of r^n, forgetting the 2/r term from the other two directions.'
+- id: vc2-id-radial-power-not-lowered
+  description: 'Keeps the power r^n instead of lowering it to r^(n - 2) in the Laplacian of r^n.'
+- id: vc2-id-radial-wrong-factor
+  description: 'Uses the wrong coefficient (n(n + 2) or n squared) for the Laplacian of r^n.'
+- id: vc2-id-scalar-added
+  description: 'Adds the value of the scalar function to the dot product.'
+- id: vc2-id-scalar-factor-dropped
+  description: 'Leaves the scalar function out of the first term of a product rule.'
+- id: vc2-id-scalar-multiplied-twice
+  description: 'Multiplies the whole sum by the scalar function instead of only the first term of the product rule.'
+- id: vc2-id-second-term-dropped
+  description: 'Drops the term -grad f . curl G from the divergence of grad f cross G, reasoning that only the curl of a gradient is zero.'
+- id: vc2-id-triple-product-plus
+  description: 'Adds the two terms of the divergence of a cross product instead of subtracting.'
+- id: vc2-id-triple-product-sign
+  description: 'Takes the two terms of the divergence of a cross product, G . curl F and F . curl G, the wrong way round.'
+tags: [university-core-v1, university-year-2, multivariable-calculus, vector-fields, vector-identities]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

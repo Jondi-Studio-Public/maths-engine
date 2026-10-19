@@ -291,16 +291,33 @@ unknown_tier:
   exd_x_r3a_survey_conditional: raises VerificationError, not ValueError
   exd_x_r3a_vowel_arrangements: raises VerificationError, not ValueError
   exd_x_r3e_assignment_reduction: raises VerificationError, not ValueError
+  exd_x_r3e_bnpl: raises VerificationError, not ValueError
   exd_x_r3e_circle_centre_chain: raises VerificationError, not ValueError
   exd_x_r3e_code_counting: raises VerificationError, not ValueError
   exd_x_r3e_complex_quotient: raises VerificationError, not ValueError
+  exd_x_r3e_cpi: raises VerificationError, not ValueError
+  exd_x_r3e_credit_card: raises VerificationError, not ValueError
   exd_x_r3e_fee_discount_gst: raises VerificationError, not ValueError
+  exd_x_r3e_gst_invoice_bas: raises VerificationError, not ValueError
+  exd_x_r3e_hecs_help: raises VerificationError, not ValueError
+  exd_x_r3e_income_tax: raises VerificationError, not ValueError
   exd_x_r3e_inverse_trig_tangent: raises VerificationError, not ValueError
   exd_x_r3e_map_route: raises VerificationError, not ValueError
+  exd_x_r3e_payg_payslip: raises VerificationError, not ValueError
   exd_x_r3e_product_measure_complement: raises VerificationError, not ValueError
+  exd_x_r3e_superannuation: raises VerificationError, not ValueError
   exd_x_r3e_trig_identity_integral: raises VerificationError, not ValueError
+  exd_x_r3e_utility_bill: raises VerificationError, not ValueError
   exd_x_r3e_vector_combination: raises VerificationError, not ValueError
   exd_x_r3e_vector_points: raises VerificationError, not ValueError
+  exd_x_r3h_cooling: raises VerificationError, not ValueError
+  exd_x_r3h_euler_nonlinear: raises VerificationError, not ValueError
+  exd_x_r3h_families: raises VerificationError, not ValueError
+  exd_x_r3h_logistic: raises VerificationError, not ValueError
+  exd_x_r3h_methods_optimisation: raises VerificationError, not ValueError
+  exd_x_r3h_separable_de: raises VerificationError, not ValueError
+  exd_x_r3h_three_variable: raises VerificationError, not ValueError
+  exd_x_r3h_total_distance: raises VerificationError, not ValueError
   exd_x_r3i_cr_defects: raises VerificationError, not ValueError
   exd_x_r3i_curvature_chain: raises VerificationError, not ValueError
   exd_x_r3i_euler_edge_room: raises VerificationError, not ValueError
@@ -312,6 +329,29 @@ unknown_tier:
   exd_x_r3i_regression_fit: raises VerificationError, not ValueError
   exd_x_r3i_taylor_tangent: raises VerificationError, not ValueError
   exd_x_r3i_unit_price_saving: raises VerificationError, not ValueError
+  exd_x_r3j_classify_variables: raises VerificationError, not ValueError
+  exd_x_r3j_heron_plot: raises VerificationError, not ValueError
+  exd_x_r3j_imperial_voyage: raises VerificationError, not ValueError
+  exd_x_r3j_ratio_shares: raises VerificationError, not ValueError
+  exd_x_r3j_recurrence_savings: raises VerificationError, not ValueError
+  exd_x_r3j_salary_vs_hourly: raises VerificationError, not ValueError
+  exd_x_r3j_sample_space_events: raises VerificationError, not ValueError
+  exd_x_r3j_slope_two_plans: raises VerificationError, not ValueError
+  exd_x_r3j_speed_journey: raises VerificationError, not ValueError
+  exd_x_r3k_conditional_density: raises VerificationError, not ValueError
+  exd_x_r3k_geometric: raises VerificationError, not ValueError
+  exd_x_r3k_joint_density: raises VerificationError, not ValueError
+  exd_x_r3k_markov: raises VerificationError, not ValueError
+  exd_x_r3k_mgf: raises VerificationError, not ValueError
+  exd_x_r3k_mle: raises VerificationError, not ValueError
+  exd_x_r3k_transformation: raises VerificationError, not ValueError
+  exd_x_r3l_chromatic_polynomial_hall: raises VerificationError, not ValueError
+  exd_x_r3l_linear_recurrence_closed_form: raises VerificationError, not ValueError
+  exd_x_r3l_lp_corner_points: raises VerificationError, not ValueError
+  exd_x_r3l_lp_duality: raises VerificationError, not ValueError
+  exd_x_r3l_simplex_final_tableau: raises VerificationError, not ValueError
+  exd_x_r3l_simplex_one_pivot: raises VerificationError, not ValueError
+  exd_x_r3l_transportation_assignment: raises VerificationError, not ValueError
   exd_x_r4a_burnside_counting: raises VerificationError, not ValueError
   exd_x_r4a_cosets_and_index: raises VerificationError, not ValueError
   exd_x_r4a_dihedral_group_compositions: raises VerificationError, not ValueError
@@ -365,6 +405,64 @@ unknown_tier:
   exd_x_r4j_generating_function_partition_counting: raises VerificationError, not ValueError
   exd_x_r4j_partial_order_hasse: raises VerificationError, not ValueError
   exd_x_r4j_tree_counting_prufer: raises VerificationError, not ValueError
+  exd_x_s2a1_coordconv: raises VerificationError, not ValueError
+  exd_x_s2a1_cylindrical: raises VerificationError, not ValueError
+  exd_x_s2a1_jacobian_cov: raises VerificationError, not ValueError
+  exd_x_s2a1_region_integral: raises VerificationError, not ValueError
+  exd_x_s2a1_reverse_order: raises VerificationError, not ValueError
+  exd_x_s2a1_spherical: raises VerificationError, not ValueError
+  exd_x_s2a2_conservative3d: raises VerificationError, not ValueError
+  exd_x_s2a2_curl: raises VerificationError, not ValueError
+  exd_x_s2a2_divergence: raises VerificationError, not ValueError
+  exd_x_s2a2_scalar_surface: raises VerificationError, not ValueError
+  exd_x_s2a2_surface_area: raises VerificationError, not ValueError
+  exd_x_s2a2_surface_normal: raises VerificationError, not ValueError
+  exd_x_s2a2_vector_identities: raises VerificationError, not ValueError
+  exd_x_s2a3_divergence_flux: raises VerificationError, not ValueError
+  exd_x_s2a3_flux_graph: raises VerificationError, not ValueError
+  exd_x_s2a3_flux_pieces: raises VerificationError, not ValueError
+  exd_x_s2a3_green_area: raises VerificationError, not ValueError
+  exd_x_s2a3_green_circulation: raises VerificationError, not ValueError
+  exd_x_s2a3_stokes_circulation: raises VerificationError, not ValueError
+  exd_x_s2a3_theorem_verification: raises VerificationError, not ValueError
+  exd_x_s2b1_basis_equations: raises VerificationError, not ValueError
+  exd_x_s2b1_change_basis: raises VerificationError, not ValueError
+  exd_x_s2b1_coordinates: raises VerificationError, not ValueError
+  exd_x_s2b1_kernel_image: raises VerificationError, not ValueError
+  exd_x_s2b1_map_matrix: raises VerificationError, not ValueError
+  exd_x_s2b1_subspace: raises VerificationError, not ValueError
+  exd_x_s2b2_complex_eigenvalues_2x2: raises VerificationError, not ValueError
+  exd_x_s2b2_diagonalisability_test: raises VerificationError, not ValueError
+  exd_x_s2b2_jordan_form: raises VerificationError, not ValueError
+  exd_x_s2b2_matrix_exponential: raises VerificationError, not ValueError
+  exd_x_s2b2_orthogonal_diagonalisation: raises VerificationError, not ValueError
+  exd_x_s2b2_quadratic_form_definiteness: raises VerificationError, not ValueError
+  exd_x_s2b2_recurrence_diagonalisation: raises VerificationError, not ValueError
+  exd_x_s2b3_gram_schmidt: raises VerificationError, not ValueError
+  exd_x_s2b3_least_squares: raises VerificationError, not ValueError
+  exd_x_s2b3_orthogonal_complement: raises VerificationError, not ValueError
+  exd_x_s2b3_projection: raises VerificationError, not ValueError
+  exd_x_s2b3_qr: raises VerificationError, not ValueError
+  exd_x_s2c1_bernoulli_equation: raises VerificationError, not ValueError
+  exd_x_s2c1_euler_cauchy: raises VerificationError, not ValueError
+  exd_x_s2c1_exact_equation: raises VerificationError, not ValueError
+  exd_x_s2c1_forced_oscillator_resonance: raises VerificationError, not ValueError
+  exd_x_s2c1_homogeneous_substitution: raises VerificationError, not ValueError
+  exd_x_s2c1_second_order_ivp: raises VerificationError, not ValueError
+  exd_x_s2c1_variation_of_parameters: raises VerificationError, not ValueError
+  exd_x_s2c2_frobenius_indicial: raises VerificationError, not ValueError
+  exd_x_s2c2_linear_system_complex_eigen: raises VerificationError, not ValueError
+  exd_x_s2c2_linear_system_real_eigen: raises VerificationError, not ValueError
+  exd_x_s2c2_linear_system_repeated_eigen: raises VerificationError, not ValueError
+  exd_x_s2c2_nonlinear_equilibria_linearisation: raises VerificationError, not ValueError
+  exd_x_s2c2_power_series_solution: raises VerificationError, not ValueError
+  exd_x_s2c3_fourier_half_range: raises VerificationError, not ValueError
+  exd_x_s2c3_fourier_series: raises VerificationError, not ValueError
+  exd_x_s2c3_heat_equation: raises VerificationError, not ValueError
+  exd_x_s2c3_laplace_rectangle: raises VerificationError, not ValueError
+  exd_x_s2c3_laplace_step: raises VerificationError, not ValueError
+  exd_x_s2c3_sturm_liouville: raises VerificationError, not ValueError
+  exd_x_s2c3_wave_equation: raises VerificationError, not ValueError
   exd_x_s4_interval: builds a question for an unknown tier
   exd_x_s4_pascal: builds a question for an unknown tier
   exd_x_s4_union: builds a question for an unknown tier
@@ -476,6 +574,15 @@ unknown_tier:
   exd_x_uc_series_convergence: raises VerificationError, not ValueError
   exd_x_uc_t_test: raises VerificationError, not ValueError
   exd_x_uc_triple_integral: raises VerificationError, not ValueError
+  exd_x_w5a_cauchy_riemann: raises VerificationError, not ValueError
+  exd_x_w5a_complex_log: raises VerificationError, not ValueError
+  exd_x_w5a_contour: raises VerificationError, not ValueError
+  exd_x_w5a_laurent: raises VerificationError, not ValueError
+  exd_x_w5a_mobius: raises VerificationError, not ValueError
+  exd_x_w5a_real_integrals: raises VerificationError, not ValueError
+  exd_x_w5a_residues: raises VerificationError, not ValueError
+  exd_x_w5c_gradient_vector: raises VerificationError, not ValueError
+  exd_x_w5c_z_test_mean: raises VerificationError, not ValueError
   exd_x_y910_geometric_proof: raises VerificationError, not ValueError
   exd_x_y910_graph_system: raises VerificationError, not ValueError
   exd_x_y910_line_plane_angle: raises VerificationError, not ValueError
@@ -623,6 +730,107 @@ unknown_tier:
   probability_complement_union: builds a question for an unknown tier
   probability_complements_compounds: builds a question for an unknown tier
   probability_scale_classify: builds a question for an unknown tier
+  r3b_differentiate_ln: raises VerificationError, not ValueError
+  r3b_exact_definite_integral: raises VerificationError, not ValueError
+  r3b_exam_differentiate_ln: raises VerificationError, not ValueError
+  r3b_exam_exact_definite_integral: raises VerificationError, not ValueError
+  r3b_exam_integral_properties: raises VerificationError, not ValueError
+  r3b_exam_integrate_exponential: raises VerificationError, not ValueError
+  r3b_exam_integrate_f_prime_over_f: raises VerificationError, not ValueError
+  r3b_exam_integrate_reciprocal: raises VerificationError, not ValueError
+  r3b_exam_integrate_trig_powers: raises VerificationError, not ValueError
+  r3b_exam_partial_fractions: raises VerificationError, not ValueError
+  r3b_integral_properties: raises VerificationError, not ValueError
+  r3b_integrate_exponential: raises VerificationError, not ValueError
+  r3b_integrate_f_prime_over_f: raises VerificationError, not ValueError
+  r3b_integrate_reciprocal: raises VerificationError, not ValueError
+  r3b_integrate_trig_powers: raises VerificationError, not ValueError
+  r3b_partial_fractions: raises VerificationError, not ValueError
+  r3c_costing: raises VerificationError, not ValueError
+  r3c_costing_chain: raises VerificationError, not ValueError
+  r3c_dominance: raises VerificationError, not ValueError
+  r3c_dominance_chain: raises VerificationError, not ValueError
+  r3c_leslie: raises VerificationError, not ValueError
+  r3c_leslie_chain: raises VerificationError, not ValueError
+  r3c_matrix_arithmetic: raises VerificationError, not ValueError
+  r3c_matrix_arithmetic_chain: raises VerificationError, not ValueError
+  r3c_permutation: raises VerificationError, not ValueError
+  r3c_permutation_chain: raises VerificationError, not ValueError
+  r3c_steady_state_chain: raises VerificationError, not ValueError
+  r3c_transition_states: raises VerificationError, not ValueError
+  r3c_transition_states_chain: raises VerificationError, not ValueError
+  r3c_transition_steady_state: raises VerificationError, not ValueError
+  r3e_bnpl: raises VerificationError, not ValueError
+  r3e_cpi: raises VerificationError, not ValueError
+  r3e_credit_card: raises VerificationError, not ValueError
+  r3e_gst_invoice_bas: raises VerificationError, not ValueError
+  r3e_hecs_help: raises VerificationError, not ValueError
+  r3e_income_tax: raises VerificationError, not ValueError
+  r3e_payg_payslip: raises VerificationError, not ValueError
+  r3e_superannuation: raises VerificationError, not ValueError
+  r3e_utility_bill: raises VerificationError, not ValueError
+  r3g_absolute_value: raises VerificationError, not ValueError
+  r3g_ambiguous_case: raises VerificationError, not ValueError
+  r3g_compound_angle: raises VerificationError, not ValueError
+  r3g_exam_absolute_value: raises VerificationError, not ValueError
+  r3g_exam_ambiguous_case: raises VerificationError, not ValueError
+  r3g_exam_compound_angle: raises VerificationError, not ValueError
+  r3g_exam_multiple_angle: raises VerificationError, not ValueError
+  r3g_exam_product_sum: raises VerificationError, not ValueError
+  r3g_exam_quadratic_forms: raises VerificationError, not ValueError
+  r3g_exam_t_formulae: raises VerificationError, not ValueError
+  r3g_exam_trig_equations: raises VerificationError, not ValueError
+  r3g_multiple_angle: raises VerificationError, not ValueError
+  r3g_product_sum: raises VerificationError, not ValueError
+  r3g_quadratic_forms: raises VerificationError, not ValueError
+  r3g_t_formulae: raises VerificationError, not ValueError
+  r3g_trig_equations: raises VerificationError, not ValueError
+  r3h_cooling: raises KeyError, not ValueError
+  r3h_euler_nonlinear: raises KeyError, not ValueError
+  r3h_families: raises KeyError, not ValueError
+  r3h_logistic: raises KeyError, not ValueError
+  r3h_methods_optimisation: raises KeyError, not ValueError
+  r3h_separable_de: raises KeyError, not ValueError
+  r3h_three_variable: builds a question for an unknown tier
+  r3h_total_distance: builds a question for an unknown tier
+  r3i_complex_factor: raises VerificationError, not ValueError
+  r3i_domain_range: raises VerificationError, not ValueError
+  r3i_exam_complex_factor: raises VerificationError, not ValueError
+  r3i_exam_domain_range: raises VerificationError, not ValueError
+  r3i_exam_line_sphere: raises VerificationError, not ValueError
+  r3i_exam_parametric_conics: raises VerificationError, not ValueError
+  r3i_exam_pigeonhole: raises VerificationError, not ValueError
+  r3i_exam_poly_roots: raises VerificationError, not ValueError
+  r3i_exam_reflect_rotate: raises VerificationError, not ValueError
+  r3i_exam_series_sums: raises VerificationError, not ValueError
+  r3i_line_sphere: raises VerificationError, not ValueError
+  r3i_parametric_conics: raises VerificationError, not ValueError
+  r3i_pigeonhole: raises VerificationError, not ValueError
+  r3i_poly_roots: raises VerificationError, not ValueError
+  r3i_reflect_rotate: raises VerificationError, not ValueError
+  r3i_series_sums: raises VerificationError, not ValueError
+  r3j_classify_variable: raises VerificationError, not ValueError
+  r3j_heron: raises VerificationError, not ValueError
+  r3j_imperial: raises VerificationError, not ValueError
+  r3j_recurrence: raises VerificationError, not ValueError
+  r3j_salary: raises VerificationError, not ValueError
+  r3j_sample_space: raises VerificationError, not ValueError
+  r3j_slope_context: raises VerificationError, not ValueError
+  r3j_speed: raises VerificationError, not ValueError
+  r3k_conditional_density: raises VerificationError, not ValueError
+  r3k_geometric: raises VerificationError, not ValueError
+  r3k_joint_density: raises VerificationError, not ValueError
+  r3k_markov: raises VerificationError, not ValueError
+  r3k_mgf: raises VerificationError, not ValueError
+  r3k_mle: raises VerificationError, not ValueError
+  r3k_transformation: raises VerificationError, not ValueError
+  r3l_chromatic_polynomial_hall: raises VerificationError, not ValueError
+  r3l_linear_recurrence_closed_form: raises VerificationError, not ValueError
+  r3l_lp_corner_points: raises VerificationError, not ValueError
+  r3l_lp_duality: raises VerificationError, not ValueError
+  r3l_simplex_final_tableau: raises VerificationError, not ValueError
+  r3l_simplex_one_pivot: raises VerificationError, not ValueError
+  r3l_transportation_assignment: raises VerificationError, not ValueError
   r4a_burnside_counting: raises VerificationError, not ValueError
   r4a_cosets_and_index: raises VerificationError, not ValueError
   r4a_dihedral_group_compositions: raises VerificationError, not ValueError
@@ -681,6 +889,64 @@ unknown_tier:
   r4j_partial_order_hasse: raises VerificationError, not ValueError
   r4j_tree_counting_prufer: raises VerificationError, not ValueError
   random_equal_likelihood_outcomes: builds a question for an unknown tier
+  s2a1_coordconv: raises KeyError, not ValueError
+  s2a1_cylindrical: raises KeyError, not ValueError
+  s2a1_jacobian_cov: raises KeyError, not ValueError
+  s2a1_region_integral: raises KeyError, not ValueError
+  s2a1_reverse_order: raises KeyError, not ValueError
+  s2a1_spherical: raises KeyError, not ValueError
+  s2a2_conservative3d: builds a question for an unknown tier
+  s2a2_curl: builds a question for an unknown tier
+  s2a2_divergence: builds a question for an unknown tier
+  s2a2_scalar_surface: raises KeyError, not ValueError
+  s2a2_surface_area: raises KeyError, not ValueError
+  s2a2_surface_normal: builds a question for an unknown tier
+  s2a2_vector_identities: raises KeyError, not ValueError
+  s2a3_divergence_flux: raises VerificationError, not ValueError
+  s2a3_flux_graph: raises VerificationError, not ValueError
+  s2a3_flux_pieces: raises VerificationError, not ValueError
+  s2a3_green_area: raises VerificationError, not ValueError
+  s2a3_green_circulation: raises VerificationError, not ValueError
+  s2a3_stokes_circulation: raises VerificationError, not ValueError
+  s2a3_theorem_verification: raises VerificationError, not ValueError
+  s2b1_basis_from_equations: raises VerificationError, not ValueError
+  s2b1_change_of_basis_matrix: raises VerificationError, not ValueError
+  s2b1_coordinates_in_basis: raises VerificationError, not ValueError
+  s2b1_kernel_and_image: raises VerificationError, not ValueError
+  s2b1_matrix_of_linear_map: raises VerificationError, not ValueError
+  s2b1_subspace_test: raises VerificationError, not ValueError
+  s2b2_complex_eigenvalues_2x2: raises VerificationError, not ValueError
+  s2b2_diagonalisability_test: raises VerificationError, not ValueError
+  s2b2_jordan_form: raises VerificationError, not ValueError
+  s2b2_matrix_exponential: raises VerificationError, not ValueError
+  s2b2_orthogonal_diagonalisation: raises VerificationError, not ValueError
+  s2b2_quadratic_form_definiteness: raises VerificationError, not ValueError
+  s2b2_recurrence_diagonalisation: raises VerificationError, not ValueError
+  s2b3_gram_schmidt: raises VerificationError, not ValueError
+  s2b3_least_squares: raises VerificationError, not ValueError
+  s2b3_orthogonal_complement: raises VerificationError, not ValueError
+  s2b3_projection: raises VerificationError, not ValueError
+  s2b3_qr: raises VerificationError, not ValueError
+  s2c1_bernoulli_equation: raises KeyError, not ValueError
+  s2c1_euler_cauchy: raises KeyError, not ValueError
+  s2c1_exact_equation: builds a question for an unknown tier
+  s2c1_forced_oscillator_resonance: builds a question for an unknown tier
+  s2c1_homogeneous_substitution: builds a question for an unknown tier
+  s2c1_second_order_ivp: raises KeyError, not ValueError
+  s2c1_variation_of_parameters: builds a question for an unknown tier
+  s2c2_frobenius_indicial: builds a question for an unknown tier
+  s2c2_linear_system_complex_eigen: builds a question for an unknown tier
+  s2c2_linear_system_real_eigen: builds a question for an unknown tier
+  s2c2_linear_system_repeated_eigen: builds a question for an unknown tier
+  s2c2_nonlinear_equilibria_linearisation: raises KeyError, not ValueError
+  s2c2_power_series_solution: builds a question for an unknown tier
+  s2c3_fourier_half_range: raises VerificationError, not ValueError
+  s2c3_fourier_series: raises VerificationError, not ValueError
+  s2c3_heat_equation: raises VerificationError, not ValueError
+  s2c3_laplace_rectangle: raises VerificationError, not ValueError
+  s2c3_laplace_step: raises VerificationError, not ValueError
+  s2c3_sturm_liouville: raises VerificationError, not ValueError
+  s2c3_wave_equation: raises VerificationError, not ValueError
   salg_binomial_coefficient: raises VerificationError, not ValueError
   salg_binomial_expand: raises VerificationError, not ValueError
   salg_de_moivre_power: raises VerificationError, not ValueError
@@ -765,6 +1031,17 @@ unknown_tier:
   ucv1_series_convergence: raises VerificationError, not ValueError
   ucv1_trig_substitution: raises VerificationError, not ValueError
   ucv1_weak_solution_regularity: raises VerificationError, not ValueError
+  w5a_cauchy_riemann: raises VerificationError, not ValueError
+  w5a_complex_log: raises VerificationError, not ValueError
+  w5a_contour: raises VerificationError, not ValueError
+  w5a_laurent: raises VerificationError, not ValueError
+  w5a_mobius: raises VerificationError, not ValueError
+  w5a_real_integrals: raises VerificationError, not ValueError
+  w5a_residues: raises VerificationError, not ValueError
+  w5b_e_limit_table: raises VerificationError, not ValueError
+  w5b_precedence_table: raises VerificationError, not ValueError
+  w5c_gradient_vector: raises VerificationError, not ValueError
+  w5c_z_test_mean: raises VerificationError, not ValueError
   y910_classify_number_sets: raises VerificationError, not ValueError
   y910_geometric_proof_reasons: raises VerificationError, not ValueError
   y910_graph_inequality_match: raises VerificationError, not ValueError
@@ -773,42 +1050,14 @@ unknown_tier:
   y910_line_plane_angle: raises VerificationError, not ValueError
 
 unwired:
-  exd_e2_expand_binomial_trinomial: used by a skill, but not as its exam source
-  exd_e2_simplify_radicals_of_monomials: used by a skill, but not as its exam source
-  exd_e5_circle_area_to_diameter_and_circumference: used by a skill, but not as its exam source
-  exd_e5_square_pyramid_volume_and_surface_area: used by a skill, but not as its exam source
   exd_x_bearings_cosine: no skill source uses it at any tier
-  exd_x_c1_chain: no skill source uses it at any tier
-  exd_x_c1_polynomial: no skill source uses it at any tier
-  exd_x_c1_product: no skill source uses it at any tier
-  exd_x_c1_quotient: no skill source uses it at any tier
   exd_x_c1_second_derivative: no skill source uses it at any tier
-  exd_x_c1_stationary: no skill source uses it at any tier
-  exd_x_c1_trig: no skill source uses it at any tier
-  exd_x_c2_definite_integral: no skill source uses it at any tier
-  exd_x_c2_integrate_polynomial: no skill source uses it at any tier
   exd_x_c2_integrate_trig: no skill source uses it at any tier
-  exd_x_c2_integration_by_substitution: no skill source uses it at any tier
-  exd_x_c2_limit_at_infinity: no skill source uses it at any tier
   exd_x_c2_limit_degree_comparison: no skill source uses it at any tier
-  exd_x_c2_limit_removable: no skill source uses it at any tier
-  exd_x_c2_one_sided_limits: no skill source uses it at any tier
-  exd_x_c3_first_principles: no skill source uses it at any tier
-  exd_x_c3_increments: no skill source uses it at any tier
   exd_x_c3_inverse_trig_derivative: no skill source uses it at any tier
-  exd_x_c3_leibniz: no skill source uses it at any tier
-  exd_x_c3_product_quotient_chain: no skill source uses it at any tier
-  exd_x_c3_tangent_normal: no skill source uses it at any tier
-  exd_x_c3_vector_motion: no skill source uses it at any tier
-  exd_x_c4_by_parts_cyclic: no skill source uses it at any tier
   exd_x_c4_inverse_trig_forms: no skill source uses it at any tier
-  exd_x_c4_partial_fractions: no skill source uses it at any tier
-  exd_x_c4_solids_of_revolution: no skill source uses it at any tier
-  exd_x_c4_total_change: no skill source uses it at any tier
   exd_x_c4_trig_ratio_expressions: no skill source uses it at any tier
-  exd_x_complex_add: no skill source uses it at any tier
   exd_x_complex_conjugate: no skill source uses it at any tier
-  exd_x_complex_equating: no skill source uses it at any tier
   exd_x_complex_i_power: no skill source uses it at any tier
   exd_x_complex_imaginary_part: no skill source uses it at any tier
   exd_x_complex_modulus: no skill source uses it at any tier
@@ -816,59 +1065,40 @@ unwired:
   exd_x_complex_point: no skill source uses it at any tier
   exd_x_complex_real_part: no skill source uses it at any tier
   exd_x_g1_unit_vectors: no skill source uses it at any tier
-  exd_x_g1_vector_addition: no skill source uses it at any tier
   exd_x_g1_vector_dot_product: no skill source uses it at any tier
-  exd_x_g1_vector_line: no skill source uses it at any tier
-  exd_x_g1_vector_magnitude: no skill source uses it at any tier
-  exd_x_g1_vector_plane: no skill source uses it at any tier
   exd_x_g2_parallel_perp_condition: no skill source uses it at any tier
-  exd_x_g2_position_collision: no skill source uses it at any tier
-  exd_x_g2_projectile_landing: no skill source uses it at any tier
   exd_x_g2_scalar_pair: no skill source uses it at any tier
-  exd_x_g2_velocity_composition: no skill source uses it at any tier
   exd_x_g3_det2: no skill source uses it at any tier
   exd_x_g3_det3: no skill source uses it at any tier
   exd_x_g3_vec_component: no skill source uses it at any tier
   exd_x_g3_vec_curves: no skill source uses it at any tier
   exd_x_g3_vec_notation: no skill source uses it at any tier
   exd_x_g3_vec_scalar: no skill source uses it at any tier
-  exd_x_g4_lt_basic: no skill source uses it at any tier
-  exd_x_g4_lt_composition: no skill source uses it at any tier
-  exd_x_g4_lt_inverse: no skill source uses it at any tier
-  exd_x_g5_compound_interest: no skill source uses it at any tier
-  exd_x_g5_flat_loan: no skill source uses it at any tier
   exd_x_g5_overtime: no skill source uses it at any tier
   exd_x_g5_simple_interest: no skill source uses it at any tier
   exd_x_g6_assignment_max_forbidden: no skill source uses it at any tier
   exd_x_g6_compound_threshold: no skill source uses it at any tier
   exd_x_g6_connector_constraint: no skill source uses it at any tier
   exd_x_g6_crash_shortest_time: no skill source uses it at any tier
-  exd_x_g6_critical_path_after_change: no skill source uses it at any tier
   exd_x_g6_delay_propagation: no skill source uses it at any tier
   exd_x_g6_flow_upgrade: no skill source uses it at any tier
-  exd_x_g6_missing_duration: no skill source uses it at any tier
   exd_x_grams_dose: no skill source uses it at any tier
   exd_x_h2_combinations: no skill source uses it at any tier
   exd_x_h2_factorial_notation: no skill source uses it at any tier
   exd_x_h2_multiplication_principle: no skill source uses it at any tier
   exd_x_h2_permutations: no skill source uses it at any tier
   exd_x_h2_restricted_permutations: no skill source uses it at any tier
-  exd_x_h2_z_score: no skill source uses it at any tier
   exd_x_h4_centre_isosceles_chords: no skill source uses it at any tier
-  exd_x_h4_chords_intersecting: no skill source uses it at any tier
   exd_x_h4_cyclic_two_unknowns: no skill source uses it at any tier
   exd_x_h4_rhombus_diagonals_composed: no skill source uses it at any tier
   exd_x_h4_semicircle_composed: no skill source uses it at any tier
   exd_x_h4_similar_area_volume_scale: no skill source uses it at any tier
   exd_x_h4_tangent_pair_alternate_segment: no skill source uses it at any tier
-  exd_x_h4_trig_altitude: no skill source uses it at any tier
   exd_x_h5_limit_two_points_unknown_coefficients: no skill source uses it at any tier
   exd_x_h5_set_membership_counts: no skill source uses it at any tier
   exd_x_map_area: no skill source uses it at any tier
   exd_x_meridian_voyage: no skill source uses it at any tier
-  exd_x_s0_bayes2: no skill source uses it at any tier
   exd_x_s0_condprob: no skill source uses it at any tier
-  exd_x_s0_expval: no skill source uses it at any tier
   exd_x_s1_replacement: no skill source uses it at any tier
 
 answer_space:
@@ -985,6 +1215,19 @@ answer_space:
   exd_x_h5_set_membership_counts: [16, 49]
   exd_x_map_area: [67, 10]
   exd_x_meridian_voyage: [29, 19]
+  exd_x_r3e_bnpl: [76, 20]
+  exd_x_r3f_test_errors_power: [77, 14]
+  exd_x_r3h_euler_nonlinear: [35, 32]
+  exd_x_r3h_methods_optimisation: [98, 55]
+  exd_x_r3h_total_distance: [76, 8]
+  exd_x_r3j_classify_variables: [9, 47]
+  exd_x_r3j_imperial_voyage: [39, 14]
+  exd_x_r3j_sample_space_events: [31, 20]
+  exd_x_r3j_slope_two_plans: [30, 53]
+  exd_x_r3k_conditional_density: [63, 13]
+  exd_x_r3k_joint_density: [77, 14]
+  exd_x_r3k_transformation: [9, 84]
+  exd_x_r3l_chromatic_polynomial_hall: [16, 53]
   exd_x_r4a_burnside_counting: [8, 67]
   exd_x_r4a_dihedral_group_compositions: [33, 22]
   exd_x_r4a_orbit_stabiliser_count: [32, 37]
@@ -1011,6 +1254,16 @@ answer_space:
   exd_x_s2_markov_step: [96, 27]
   exd_x_s2_sample_space: [74, 23]
   exd_x_s2_traffic: [71, 19]
+  exd_x_s2a1_reverse_order: [21, 62]
+  exd_x_s2a3_green_area: [63, 19]
+  exd_x_s2b1_kernel_image: [49, 22]
+  exd_x_s2b1_subspace: [60, 15]
+  exd_x_s2b2_complex_eigenvalues_2x2: [30, 22]
+  exd_x_s2b2_diagonalisability_test: [74, 12]
+  exd_x_s2b2_jordan_form: [14, 30]
+  exd_x_s2c1_homogeneous_substitution: [56, 10]
+  exd_x_s2c3_laplace_rectangle: [34, 19]
+  exd_x_s2c3_sturm_liouville: [22, 25]
   exd_x_s3_likelihood: [2, 152]
   exd_x_s3_normality: [3, 107]
   exd_x_s3_rv: [14, 75]
@@ -1021,6 +1274,8 @@ answer_space:
   exd_x_u2_log_differentiation: [12, 47]
   exd_x_u2_parametric_polar: [54, 14]
   exd_x_u2_sequence_limits: [45, 19]
+  exd_x_w5a_cauchy_riemann: [58, 10]
+  exd_x_w5a_real_integrals: [68, 18]
   f10_linear_conjecture: [27, 164]
   find_the_equation_of_a_straight_line_given: [74, 9]
   find_the_surface_area_of_pyramids_such_as: [17, 33]
@@ -1194,6 +1449,21 @@ answer_space:
   pv1f_ftc_derivative_read: [16, 27]
   pv1f_graph_is_function: [25, 27]
   pv1f_trig_graph_id: [2, 134]
+  r3d_accel_position_exam: [36, 60]
+  r3d_accel_velocity_exam: [68, 14]
+  r3d_projectile_cartesian_exam: [26, 20]
+  r3d_shm_calculus_exam: [36, 17]
+  r3d_shm_speed_exam: [56, 19]
+  r3d_vertical_resistance_exam: [17, 29]
+  r3g_exam_compound_angle: [32, 18]
+  r3g_exam_multiple_angle: [8, 49]
+  r3g_exam_product_sum: [4, 87]
+  r3g_exam_t_formulae: [12, 35]
+  r3g_exam_trig_equations: [9, 43]
+  r3i_exam_line_sphere: [44, 19]
+  r3i_exam_parametric_conics: [25, 20]
+  r3i_exam_pigeonhole: [56, 14]
+  r3i_exam_reflect_rotate: [44, 14]
   r4e_power_functions_chain: [68, 13]
   r4e_simpsons_rule_chain: [21, 29]
   riemann_interchange: [66, 132]

@@ -1,0 +1,75 @@
+id: uc2-lp-formulation-and-corner-points
+name: Formulate a linear programme and optimise at the corner points
+domain: optimisation
+year_level:
+- university
+description: Turn a story about two products or two ingredients into a linear programme in two variables, find the corner
+  points of its feasible region, and read the optimum off them. The exam chain lists the corner points, then finds the optimal
+  plan and the greatest profit.
+status: active
+placement_eligible: false
+prerequisites:
+- inequality-word-problems
+- ucv1-linear-system-determinant
+answer: number
+sources:
+- topic: r3l_lp_corner_points
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3l_lp_corner_points
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3l_lp_corner_points
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3l_lp_corner_points
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3l-lp-nonoptimal-corner
+  description: Reading the objective at a corner point of the feasible region that is feasible but not the best one, instead
+    of comparing every corner.
+- id: r3l-lp-infeasible-vertex
+  description: Evaluating the objective at an intersection of two constraint lines that breaks another constraint, so it
+    is not a corner point of the feasible region.
+- id: r3l-lp-profits-swapped
+  description: Attaching the first product's unit profit to the second product's quantity and the reverse when evaluating
+    the objective.
+- id: r3l-lp-maximised-not-minimised
+  description: Taking the greatest objective value at a corner point when the problem asks for the least.
+- id: r3l-lp-isoprofit-normal-swapped
+  description: Making the profit line parallel to the constraint by matching the ratios the wrong way round, so the profit
+    coefficients are scaled by a/b instead of b/a.
+- id: r3l-lp-intercept-for-profit
+  description: Taking the intercept of the constraint line as the unit profit that makes the whole edge optimal.
+- id: r3l-lp-axis-corners-forgotten
+  description: Listing only the corner points where two resource constraints meet, forgetting the corners on the axes.
+- id: r3l-lp-corner-omitted
+  description: Leaving a corner point of the feasible region out of the list.
+- id: r3l-lp-coordinates-swapped
+  description: Reporting the y-value of the optimal corner point where the x-value was asked for, or the reverse.
+difficulty_progression: Easy sets up two resource constraints from a story and finds the greatest profit over the corner
+  points. Medium is a minimisation with three minimum requirements, so the feasible region is unbounded and some intersections
+  of constraint lines are not corner points. Hard leaves the profit on one product as an unknown k and asks for the value
+  at which every plan along one resource's edge of the region is equally good. The exam chain lists the corner points, finds
+  the optimal x and y, and follows through to the greatest profit.
+tags:
+- university-core-v1
+- university-year-2
+- optimisation
+- linear-programming
+- feasible-region
+- corner-points

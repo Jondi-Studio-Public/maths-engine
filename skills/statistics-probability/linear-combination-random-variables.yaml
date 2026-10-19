@@ -1,0 +1,91 @@
+id: linear-combination-random-variables
+name: "Find the mean, spread and probabilities of a linear combination of independent random variables"
+domain: statistics-probability
+year_level: ['12']
+description: "For independent random variables, find the mean and variance of aX + bY (variances add whatever the sign), the standard deviation of a total, a difference, n separate copies and n times one variable, and probabilities for sums and differences of independent normal variables such as P(total above c), P(X > Y) and P(|X - Y| < d). The exam chain finds the mean and standard deviation of a carton's total mass, a probability for it, and the probability it is heavier than a second carton."
+status: active
+placement_eligible: false
+prerequisites: [senior-recognise-the-expected-value-variance-and-standard-deviation, senior-calculate-probabilities-and-quantiles-associated-with-a-given]
+answer: number
+sources:
+- topic: r3f_linear_combination
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3f_linear_combination
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3f_linear_combination
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3f_linear_combination
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Apply E(aX + bY) = aE(X) + bE(Y) and Var(aX + bY) = a^2 Var(X) + b^2 Var(Y) for independent X and Y, with a negative coefficient or a standard deviation to square first."}
+  medium: {steps: 3, demand: "Model a context as a total, a difference, n separate copies (variance n sigma^2) or n times one variable (variance n^2 sigma^2), then find its mean or standard deviation."}
+  hard: {steps: 4, demand: "Find the distribution of a total or a difference of independent normal variables, then a probability from it: P(T > c), P(X > Y) or P(|X - Y| < d)."}
+  exam: {steps: 4, demand: "A connected chain: the mean of a total, its standard deviation, a probability using both, and a comparison with a second carton using both again."}
+misconceptions:
+- id: r3f-cdf-gives-complement
+  description: "Giving the probability of the complementary event, one minus the answer, where the probability asked for was needed."
+- id: r3f-copies-sd-unchanged
+  description: "Reporting the standard deviation of one item as the standard deviation of a total or a multiple of items."
+- id: r3f-copies-treated-as-a-multiple
+  description: "Treating n separate independent items as n times one item, so the standard deviation is n sigma instead of sigma times the square root of n."
+- id: r3f-difference-probability-assumed-half
+  description: "Assuming that one of two independent variables is equally likely to be greater than the other, though their means differ."
+- id: r3f-lincomb-adds-standard-deviations
+  description: "Adding the standard deviations of two independent variables to get the standard deviation of their sum or difference, instead of adding the variances and taking the square root."
+- id: r3f-lincomb-averages-the-means
+  description: "Averaging the two means for the mean of a sum or difference, instead of adding (or subtracting) them."
+- id: r3f-lincomb-ignores-the-coefficients
+  description: "Combining the standard deviations of X and Y without the coefficients a and b that multiply them."
+- id: r3f-lincomb-mean-adds-a-variance
+  description: "Adding a variance into the mean of a linear combination."
+- id: r3f-lincomb-mean-adds-the-sds
+  description: "Adding the standard deviations into the mean of a sum."
+- id: r3f-lincomb-mean-flips-the-second-sign
+  description: "Changing the sign of the second term when finding the mean of a linear combination, so a sum becomes a difference or the reverse."
+- id: r3f-lincomb-mean-ignores-the-sign
+  description: "Taking the magnitudes of the coefficients when finding the mean, so a negative coefficient is treated as positive."
+- id: r3f-lincomb-mean-reversed-sign
+  description: "Finding the mean of the difference the wrong way round, first minus second where second minus first was asked for."
+- id: r3f-lincomb-mean-uses-the-sum-of-coefficients
+  description: "Multiplying the sum of the coefficients by the sum of the means for the mean of aX + bY."
+- id: r3f-lincomb-sd-reported-as-variance
+  description: "Reporting the variance of the combination where its standard deviation was asked for."
+- id: r3f-lincomb-subtracts-standard-deviations
+  description: "Subtracting the standard deviations for a difference of independent variables; the variances add, never subtract."
+- id: r3f-lincomb-uses-the-larger-sd
+  description: "Taking the larger of the two standard deviations as the standard deviation of the sum."
+- id: r3f-lincomb-variance-coefficient-not-squared
+  description: "Multiplying each variance by the coefficient instead of by its square."
+- id: r3f-lincomb-variance-uses-the-means
+  description: "Using the means in place of the variances when combining."
+- id: r3f-lincomb-variance-uses-the-signed-coefficient
+  description: "Using a negative coefficient without squaring it, so the variance of a difference is reduced."
+- id: r3f-lincomb-variances-subtracted
+  description: "Subtracting the variances of two independent variables for their difference, instead of adding them."
+- id: r3f-multiple-treated-as-copies
+  description: "Treating n times one variable as the sum of n independent copies, so the standard deviation is sigma times the square root of n instead of n sigma."
+- id: r3f-multiple-variance-reported-as-sd
+  description: "Reporting the variance n squared sigma squared where the standard deviation n sigma was asked for."
+- id: r3f-total-mean-carton-counted-per-packet
+  description: "Adding the mass of the empty carton once for each packet, not once in total."
+- id: r3f-total-mean-forgets-the-carton
+  description: "Leaving the mass of the empty carton out of the mean of the total."
+- id: r3f-total-mean-one-packet-only
+  description: "Adding the carton to the mean of one packet instead of to the total of all the packets."
+- id: r3f-total-probability-uses-one-items-mean-and-sd
+  description: "Using the mean and standard deviation of one item in a probability about the total of several."
+- id: r3f-total-probability-uses-one-items-sd
+  description: "Using the standard deviation of one item with the mean of the total in a probability about the total."
+- id: r3f-total-sd-adds-the-carton
+  description: "Adding the mass of the empty carton into the standard deviation of the total, though a constant does not change the spread."
+- id: r3f-within-probability-one-sided
+  description: "Finding the probability that the difference is less than d, rather than the probability that it lies between minus d and d."
+tags: [round-3, statistics-probability, linear-combination, normal-distribution, acmsm137]

@@ -1,0 +1,128 @@
+id: uc2-integral-theorem-verification
+name: Verifying an integral theorem
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Check Green's, the divergence or Stokes' theorem on an example by working out both sides and giving the number
+  on which they agree.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-greens-theorem-circulation
+- uc2-divergence-theorem-flux
+- uc2-stokes-theorem-circulation
+answer: expression
+sources:
+- topic: s2a3_theorem_verification
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2a3_theorem_verification
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2a3_theorem_verification
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2a3_theorem_verification
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: div-cylindrical-no-r
+  description: Leaving the factor r out of the volume element r dr dtheta dz in cylindrical coordinates.
+- id: div-dropped-term
+  description: Leaving one of the three partial derivatives out of the divergence.
+- id: div-inward
+  description: Giving the inward flux, with the wrong sign, instead of the outward flux.
+- id: div-mixed-partials
+  description: Taking the divergence as P_y + Q_z + R_x, differentiating each component with respect to the wrong variable.
+- id: div-spherical-no-rho-squared
+  description: Leaving the factor rho^2 out of the volume element rho^2 sin(phi) drho dphi dtheta in spherical coordinates.
+- id: div-spherical-no-sin
+  description: Leaving the factor sin(phi) out of the volume element rho^2 sin(phi) drho dphi dtheta in spherical coordinates.
+- id: div-sum-of-components
+  description: Integrating P + Q + R over the solid instead of the divergence P_x + Q_y + R_z.
+- id: green-divergence-for-curl
+  description: Integrating P_x + Q_y (or Q_y - P_x) in place of the curl Q_x - P_y.
+- id: green-dropped-py
+  description: Integrating only Q_x and leaving out the term -P_y of the curl.
+- id: green-dropped-qx
+  description: Integrating only -P_y and leaving out the term Q_x of the curl.
+- id: green-not-differentiated
+  description: Integrating Q - P over the region without taking the partial derivatives.
+- id: green-polar-no-r
+  description: Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).
+- id: stokes-curl-sign-slip
+  description: Getting the sign of one component of curl F wrong when writing out the determinant.
+- id: stokes-flat-surface
+  description: Treating the tilted surface as if it were flat, integrating only the k component of curl F over the base
+    and ignoring the slope of the surface.
+- id: stokes-flux-of-field
+  description: Integrating F . n over the surface instead of curl F . n, the flux of the field itself.
+- id: stokes-normal-signs
+  description: Using the normal (f_x, f_y, 1) for the graph z = f(x, y) instead of (-f_x, -f_y, 1).
+- id: stokes-polar-no-r
+  description: Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).
+- id: stokes-z-not-replaced
+  description: Leaving z in curl F as 0 instead of replacing it by the height f(x, y) of the surface.
+- id: verify-one-piece-subtracted
+  description: Taking only one of the two known pieces away from the total when finding the remaining piece.
+- id: verify-piece-is-whole
+  description: Giving the value for the whole boundary as the value for a single piece of it.
+- id: verify-piece-missing
+  description: Adding up the direct integrals over all but one piece of the boundary and calling that the total, so the
+    two sides do not agree.
+- id: verify-piece-reversed
+  description: Running one piece of the boundary the wrong way (or taking its normal the wrong way), so its contribution
+    has the wrong sign.
+- id: verify-piece-share
+  description: Splitting the total equally among the pieces of the boundary, as if each contributed the same.
+- id: verify-piece-swapped
+  description: Reporting the value for a different piece of the boundary from the one asked about.
+- id: verify-pieces-for-remaining
+  description: Giving the sum of the pieces already found as the value of the remaining piece, instead of the total minus
+    that sum.
+- id: verify-remaining-sign
+  description: Subtracting the wrong way round when finding the remaining piece, so the sign is reversed.
+- id: verify-sides-added
+  description: Adding the two sides of the theorem together instead of recognising that they are equal.
+- id: verify-wrong-direction
+  description: Taking the whole answer with the opposite orientation to the one the theorem uses.
+difficulty_progression:
+  easy:
+    steps: 5
+    demand: Work out Green's theorem for a triangle both ways, the line integrals along three edges and the double integral,
+      and state the common value.
+  medium:
+    steps: 7
+    demand: Do both sides of the divergence theorem for a ball or closed cylinder, or Stokes' theorem for a triangle in
+      space.
+  hard:
+    steps: 9
+    demand: Do both sides for a cone or bowl with its lid, a disc or parabola region, or a cylinder cut by a plane.
+  exam:
+    steps: 10
+    demand: "Check Stokes' theorem on a triangular loop in space: find the total circulation by the theorem, then two edges directly, and find the last edge by subtraction."
+tags:
+- university-year-2
+- university-core-v1
+- multivariable-calculus
+- line-integrals
+- surface-integrals
+- greens-theorem
+- divergence-theorem
+- stokes-theorem
+framework_areas:
+- multivariable-and-vector-calculus

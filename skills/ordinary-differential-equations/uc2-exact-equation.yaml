@@ -1,0 +1,93 @@
+id: uc2-exact-equation
+name: Exact equations and integrating factors
+domain: ordinary-differential-equations
+year_level: [university]
+description: Test a first-order equation M dx + N dy = 0 for exactness, find its potential function and the
+  constant for an initial condition, and find an integrating factor in x or y alone when it is not exact.
+status: active
+placement_eligible: false
+prerequisites:
+- partial-derivative-x
+- partial-derivative-y
+- solve-ode-separable-poly
+answer: expression
+sources:
+- topic: s2c1_exact_equation
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2c1_exact_equation
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2c1_exact_equation
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2c1_exact_equation
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: exact-dropped-function-of-y
+  description: >-
+    Integrating M with respect to x to get F but leaving out the function of y that must be added, so F_y no
+    longer equals N.
+- id: exact-both-integrals-added
+  description: >-
+    Adding the integral of M with respect to x and the integral of N with respect to y, which counts the
+    cross terms twice.
+- id: exact-integrated-wrong-variable
+  description: >-
+    Integrating M with respect to y instead of x when looking for the potential.
+- id: exact-sign-on-g
+  description: >-
+    Subtracting the missing function of y (or of x) instead of adding it to the integral.
+- id: exact-dropped-function-of-x
+  description: >-
+    Integrating N with respect to y but leaving out the function of x that must be added.
+- id: exact-test-wrong-partials
+  description: >-
+    Testing exactness with M_x = N_y instead of M_y = N_x.
+- id: exact-derivative-power-dropped
+  description: >-
+    Forgetting the power in differentiating when comparing M_y with N_x, so k comes out as a bare
+    coefficient.
+- id: exact-sign-of-k
+  description: >-
+    Getting the sign of k wrong when equating M_y and N_x.
+- id: exact-k-inverted
+  description: >-
+    Dividing the coefficients the wrong way round when solving for k.
+- id: exact-ic-sign-on-constant
+  description: >-
+    Writing the constant C with the wrong sign after substituting the initial condition into F.
+- id: exact-ic-swapped-point
+  description: >-
+    Substituting the initial condition as (y0, x0) instead of (x0, y0).
+- id: exact-factor-sign-reversed
+  description: >-
+    Reversing the numerator of the quotient, so the integrating factor is the reciprocal of the right one.
+- id: exact-factor-not-exponentiated
+  description: >-
+    Integrating the quotient but not exponentiating, so the exponent is given as the integrating factor.
+- id: exact-factor-ratio-only
+  description: >-
+    Giving the quotient itself as the integrating factor, without integrating.
+- id: exact-factor-wrong-variable
+  description: >-
+    Writing the integrating factor in the other variable.
+- id: exact-factor-wrong-denominator
+  description: >-
+    Dividing the difference of partial derivatives by M instead of N, or by N instead of M.
+- id: exact-quotient-numerator-only
+  description: >-
+    Leaving out the division by M or N in the quotient.
+- id: exact-quotient-wrong-partials
+  description: >-
+    Using M_x - N_y in the quotient instead of M_y - N_x.
+- id: exact-factor-not-applied
+  description: >-
+    Finding the potential of the original equation instead of the equation multiplied by the integrating
+    factor.
+tags: [university-year-2, ordinary-differential-equations, exact-equation]

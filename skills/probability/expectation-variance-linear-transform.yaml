@@ -1,0 +1,53 @@
+id: expectation-variance-linear-transform
+name: "Find the mean and spread of aX + b"
+domain: probability
+year_level: ['12']
+description: "Find E(aX + b), Var(aX + b) and SD(aX + b) from the mean and spread of X (stated, or found from a table first), including a change of units and a negative multiplier. The exam chain finds E(X) and Var(X) from a table, then the mean and standard deviation of Y = aX + b."
+status: active
+placement_eligible: false
+prerequisites: [discrete-expected-value, finite-distribution-variance]
+answer: number
+sources:
+- topic: r3a_linear_transform
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3a_linear_transform
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3a_linear_transform
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3a_linear_transform
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 1, demand: "Apply the rule for the mean or the variance of aX + b to a stated mean or variance."}
+  medium: {steps: 2, demand: "Convert a mean, standard deviation or variance between units, where a shift moves the mean and leaves the spread alone."}
+  hard: {steps: 3, demand: "Find the variance from a table first, then transform it, or find E(aX^2 + bX + c) from E(X) and E(X^2)."}
+  exam: {steps: 4, demand: A connected chain of four parts in which each later part uses an earlier answer.}
+misconceptions:
+- id: r3a-linear-mean-omits-the-shift
+  description: "Finding E(aX + b) as a E(X), leaving out the added constant b."
+- id: r3a-linear-mean-omits-the-multiplier
+  description: "Finding E(aX + b) as E(X) + b, leaving out the multiplier a."
+- id: r3a-linear-mean-multiplies-the-shift
+  description: "Applying the multiplier to the added constant as well: a(E(X) + b) for E(aX + b)."
+- id: r3a-linear-variance-omits-the-square
+  description: "Finding Var(aX + b) as a Var(X): the multiplier is not squared."
+- id: r3a-linear-variance-adds-the-shift
+  description: "Adding the constant b to the variance of aX + b."
+- id: r3a-linear-sd-applies-the-shift
+  description: "Adding the constant b to the standard deviation of aX + b; a shift does not change the spread."
+- id: r3a-linear-sd-squares-the-multiplier
+  description: "Multiplying the standard deviation by a^2 instead of "
+- id: r3a-linear-sd-unchanged-by-scaling
+  description: "Leaving the standard deviation unchanged after the measure is multiplied by a constant; only a shift leaves it alone."
+- id: r3a-variance-without-subtracting-the-mean-squared
+  description: "Reporting E(X^2) as the variance, leaving out the subtraction of (E(X))^2."
+- id: r3a-second-moment-squares-the-mean
+  description: "Replacing E(X^2) by (E(X))^2."
+tags: [round-3, probability, expectation, variance, acmmm167, linear-transformation]

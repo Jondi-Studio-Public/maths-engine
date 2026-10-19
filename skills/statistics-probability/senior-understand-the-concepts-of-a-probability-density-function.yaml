@@ -28,6 +28,11 @@ sources:
   params: {tier: exam}
   difficulty: exam
   stages: [exam]
+- topic: exd_x_r3f_pdf_wider
+  params: {tier: exam}
+  difficulty: exam
+  key: wider-exam
+  stages: [exam]
 misconceptions:
 - id: reports-complement
   description: Reports the probability of X falling OUTSIDE [p, q] (1 minus the true answer) instead of within it.

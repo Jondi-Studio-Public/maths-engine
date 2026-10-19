@@ -1,0 +1,99 @@
+id: pdf-cdf-from-polynomial
+name: "Build and use a cumulative distribution function from a polynomial density"
+domain: statistics-probability
+year_level: ['12']
+description: "For a continuous random variable whose density is a polynomial on an interval, build the cumulative distribution function F(x) by integrating from the lower end, recover the density from F(x), use F(b) - F(a) for probabilities, handle an unknown constant k and conditional probabilities, and find the median, a percentile or the interquartile range by solving F(m) = p. The exam chain finds k, builds F(x), uses it for a probability and then finds the median."
+status: active
+placement_eligible: false
+prerequisites: [senior-understand-the-concepts-of-a-probability-density-function, integrate-polynomial]
+answer: expression
+sources:
+- topic: r3f_pdf_cdf
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3f_pdf_cdf
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3f_pdf_cdf
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3f_pdf_cdf
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Integrate a stated density from its lower end to get F(x), differentiate a stated F(x) back to the density, or read a probability as F(b) - F(a)."}
+  medium: {steps: 3, demand: "Find the constant k from the total area, then build F(x), take an upper tail through 1 - F(c), or condition one event on another."}
+  hard: {steps: 4, demand: "Solve F(m) = p for a polynomial F: the median, a percentile of the upper tail, or the interquartile range from two such solves."}
+  exam: {steps: 4, demand: "A connected chain: k, then F(x) built with k, then a probability through F, then the median from F(m) = 1/2."}
+misconceptions:
+- id: r3f-cdf-adds-the-values
+  description: "Adding F(a) and F(b) instead of subtracting to find P(a < X < b)."
+- id: r3f-cdf-assumes-uniform
+  description: "Treating the density as uniform, taking the probability as the length of the interval over the length of the support."
+- id: r3f-cdf-conditional-divides-by-the-wrong-event
+  description: "Dividing P(a < X < c) by P(X < c) instead of by P(X > a)."
+- id: r3f-cdf-conditional-ignores-the-condition
+  description: "Reporting P(X < c) and ignoring the condition X > a."
+- id: r3f-cdf-conditional-not-rescaled
+  description: "Finding P(a < X < c) and not dividing by P(X > a), the probability of the condition."
+- id: r3f-cdf-differentiates-the-density
+  description: "Differentiating the density instead of integrating it to find the cumulative distribution function."
+- id: r3f-cdf-divides-by-n-not-n-plus-one
+  description: "Integrating a power by dividing by the old power n instead of the new power n + 1."
+- id: r3f-cdf-forgets-k
+  description: "Integrating the shape of the density and leaving out the constant k, which is found from the total area being 1."
+- id: r3f-cdf-gives-complement
+  description: "Giving the probability of the complementary event, one minus the answer, where the probability asked for was needed."
+- id: r3f-cdf-halves-the-tail
+  description: "Halving the upper-tail probability, as though the tail were shared between two sides."
+- id: r3f-cdf-left-as-the-density
+  description: "Giving the density f(x) itself where the cumulative distribution function F(x) was asked for, without integrating."
+- id: r3f-cdf-omits-the-lower-limit
+  description: "Integrating the density with no constant of integration, so that F(x) does not start from 0 at the lower end of the interval."
+- id: r3f-cdf-probability-uses-lower-value-only
+  description: "Reporting F(a) alone as P(a < X < b), the probability below the lower bound."
+- id: r3f-cdf-probability-uses-upper-value-only
+  description: "Reporting F(b) alone as P(a < X < b), leaving out the subtraction of F(a)."
+- id: r3f-cdf-reports-lower-tail
+  description: "Reporting P(X < c) where the upper tail P(X > c) was asked for."
+- id: r3f-cdf-wrong-integration-constant
+  description: "Integrating the density but dividing the result by 2 or adding a constant, so that F(x) does not run from 0 to 1 across the interval."
+- id: r3f-iqr-adds-the-quartiles
+  description: "Adding the two quartiles instead of subtracting them."
+- id: r3f-iqr-assumes-uniform
+  description: "Taking half the length of the support as the interquartile range, as for a uniform density."
+- id: r3f-iqr-reports-the-upper-quartile
+  description: "Reporting the upper quartile Q3 alone where the interquartile range Q3 - Q1 was asked for."
+- id: r3f-iqr-uses-the-median-as-an-end
+  description: "Subtracting the lower quartile from the median instead of from the upper quartile."
+- id: r3f-k-inverted
+  description: "Giving the total area of the shape where its reciprocal, the constant k, was asked for."
+- id: r3f-k-power-not-raised
+  description: "Forgetting to raise the power when integrating the shape of the density, so that k is found from the wrong area."
+- id: r3f-median-taken-as-mean
+  description: "Reporting the mean E(X) where the median was asked for."
+- id: r3f-median-taken-as-midpoint
+  description: "Taking the midpoint of the interval as the median, which is true only for a symmetric density."
+- id: r3f-median-uses-a-quarter
+  description: "Solving F(m) = 1/4, the lower quartile, where the median satisfies F(m) = 1/2."
+- id: r3f-median-uses-three-quarters
+  description: "Solving F(m) = 3/4, the upper quartile, where the median satisfies F(m) = 1/2."
+- id: r3f-pdf-derivative-doubled
+  description: "Differentiating the cumulative distribution function correctly but then multiplying the result by 2."
+- id: r3f-pdf-differentiates-twice
+  description: "Differentiating the cumulative distribution function twice to find the density."
+- id: r3f-pdf-integrates-the-cdf
+  description: "Integrating the cumulative distribution function where its derivative, the density, was asked for."
+- id: r3f-pdf-left-as-the-cdf
+  description: "Giving the cumulative distribution function itself where the density was asked for."
+- id: r3f-percentile-assumes-uniform
+  description: "Placing the percentile as if the density were uniform on its interval."
+- id: r3f-percentile-uses-the-lower-tail
+  description: "Solving F(c) = p for the stated upper-tail probability p, instead of F(c) = 1 - p."
+- id: r3f-percentile-uses-the-median
+  description: "Giving the median where a different percentile was asked for."
+tags: [round-3, statistics-probability, continuous-random-variable, cumulative-distribution-function, acmmm165]

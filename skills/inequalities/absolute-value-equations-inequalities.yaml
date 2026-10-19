@@ -1,0 +1,77 @@
+id: absolute-value-equations-inequalities
+name: Solve equations and inequalities with absolute value
+domain: inequalities
+description: "Solve equations with the absolute value of a linear expression, including a modulus on both sides and a candidate that has to be rejected, and decide which integers satisfy a modulus inequality."
+status: active
+placement_eligible: false
+prerequisites:
+- two-step-inequalities
+- solve-quadratics-formula
+answer: set
+sources:
+- topic: r3g_absolute_value
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3g_absolute_value
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3g_absolute_value
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3g_exam_absolute_value
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3g-abs-second-case-missed
+  description: "Solving only one of the two cases of a modulus equation and missing the other solution."
+- id: r3g-abs-sign-of-constant
+  description: "Moving the constant across the equals sign without changing its sign when removing the modulus."
+- id: r3g-abs-coefficient-not-divided
+  description: "Forgetting to divide by the coefficient of x after removing the modulus."
+- id: r3g-abs-constant-moved-before-dividing
+  description: "Dividing only the right-hand side by the coefficient of x and then subtracting the constant, instead of dividing the whole expression."
+- id: r3g-abs-region-reversed
+  description: "Giving the interval between the boundary values where the region outside them was needed, or the reverse."
+- id: r3g-abs-one-bound-only
+  description: "Giving a single ray or bound where a modulus inequality has two bounds."
+- id: r3g-abs-equality-included
+  description: "Including the boundary values for a strict inequality, or leaving them out for an inequality that allows equality."
+- id: r3g-abs-negative-case-sign
+  description: "Not negating the whole expression in the second case of the modulus equation, only its first term."
+- id: r3g-abs-extraneous-root-kept
+  description: "Keeping a root that makes the right-hand side negative, where the modulus cannot equal it."
+- id: r3g-abs-valid-root-rejected
+  description: "Rejecting the valid root and keeping the one that fails the check."
+- id: r3g-abs-wrong-root
+  description: "Giving the other intersection where the left-hand or right-hand one was asked."
+- id: r3g-abs-line-not-subtracted
+  description: "Forgetting to subtract the line from the parabola, so the quadratic has the wrong middle and constant terms."
+- id: r3g-abs-roots-added
+  description: "Giving the sum or product of the two x-coordinates where one was asked."
+- id: r3g-abs-distance-gradient-ignored
+  description: "Giving the difference in x as the distance, which ignores the slope of the line joining the points."
+- id: r3g-abs-distance-not-pythagoras
+  description: "Adding the horizontal and vertical differences instead of using Pythagoras' theorem."
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Split |ax + b| = c into the two linear cases and solve each.
+  medium:
+    steps: 4
+    demand: Isolate the modulus, solve the inequality as an interval or two rays, and pick out the integers that satisfy it.
+  hard:
+    steps: 5
+    demand: Solve a two-modulus equation, reject the candidate that makes the modulus equal a negative number, or solve |ax + b| < cx + d.
+  exam:
+    steps: 6
+    demand: Find where a line meets a parabola, the distance between the points (from both x values) and where the parabola lies below the line.
+tags:
+- acara-senior-v8-4
+- inequalities
+- absolute-value
+- modulus
+- nsw-advanced

@@ -48,8 +48,9 @@ def _make(source, seed):
 
 
 def test_all_the_converted_chains_are_found():
-    # 42 skills carry an r3 exam chain; senior-identify-common-usage-of-rates was reverted (recognition only).
-    assert len(CHAINS) == 42
+    # 42 skills carried an r3 exam chain; senior-identify-common-usage-of-rates was reverted (recognition only).
+    # Train 2 (PR #115) added 17 more skills whose exam source is an exd_x_r3g/h/i/j chain: 59.
+    assert len(CHAINS) == 59
     assert not [s for _, s in CHAINS if s.topic == "exd_x_r3h_rates_speed_pulse"]
 
 

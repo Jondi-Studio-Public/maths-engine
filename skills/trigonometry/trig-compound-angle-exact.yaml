@@ -1,0 +1,73 @@
+id: trig-compound-angle-exact
+name: Use the compound and double angle formulas to find exact trigonometric values
+domain: trigonometry
+description: Find exact values of sine, cosine and tangent at 15°, 75° and 105°, of sums and differences of angles given by
+  fractions, with the quadrant deciding the signs, and of sin 2x, cos 2x and tan 2x from one ratio.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-recognise-the-exact-values-of-cos-theta-sin
+- angle-degrees-radians-pi-form
+answer: expression
+sources:
+- topic: r3g_compound_angle
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3g_compound_angle
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3g_compound_angle
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3g_exam_compound_angle
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3g-compound-sign-slip
+  description: "Using the wrong sign in a compound angle formula: adding where the cosine formula subtracts, or the reverse for the difference."
+- id: r3g-compound-wrong-quadrant-sign
+  description: "Getting the size of the exact value right and the sign wrong for the quadrant of the angle."
+- id: r3g-compound-values-added
+  description: "Treating a function of a sum as a sum of functions, such as sin(A + B) = sin A + sin B."
+- id: r3g-compound-single-product
+  description: "Keeping only one product of the compound angle formula, such as sin A cos B for sin(A + B)."
+- id: r3g-compound-tan-denominator-dropped
+  description: "Using tan A + tan B for tan(A + B) and dropping the denominator 1 - tan A tan B."
+- id: r3g-compound-sin-cos-swapped
+  description: "Swapping sine and cosine of an angle, so the wrong ratio enters the formula."
+- id: r3g-compound-multiplier-dropped
+  description: "Finding the exact value and forgetting to multiply by the number in front of it."
+- id: r3g-compound-formula-of-other-function
+  description: "Using the compound formula for the other function: the cosine formula for a sine, or the reverse."
+- id: r3g-compound-quadrant-sign-ignored
+  description: "Taking the missing sine or cosine as positive without checking the quadrant of the angle."
+- id: r3g-compound-double-the-ratio
+  description: "Doubling the given ratio instead of applying a double angle formula."
+- id: r3g-compound-double-angle-formula-slip
+  description: "Misquoting a double angle formula: leaving out the factor 2, the denominator, or the constant term."
+- id: r3g-compound-pythagorean-slip
+  description: "Using sin A = 1 - cos A, or the reverse, instead of the Pythagorean identity."
+- id: r3g-compound-root-not-taken
+  description: "Giving the square of the missing ratio and forgetting to take the square root."
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Split 15°, 75° or 105° into two standard angles and apply the sine, cosine or tangent sum or difference formula.
+  medium:
+    steps: 4
+    demand: Find the missing ratios of two acute angles from Pythagorean triples, then combine them with the right formula and sign.
+  hard:
+    steps: 5
+    demand: Choose the sign of each missing ratio from its quadrant before combining, or find a double angle ratio from one ratio and the quadrant.
+  exam:
+    steps: 6
+    demand: Find cos A and sin B from the quadrants, then sin(A + B) and cos(A + B) from them.
+tags:
+- acara-senior-v8-4
+- trigonometry
+- compound-angle
+- double-angle

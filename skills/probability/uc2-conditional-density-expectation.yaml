@@ -1,0 +1,131 @@
+id: uc2-conditional-density-expectation
+name: Conditional density and conditional expectation
+domain: probability
+year_level:
+- university
+description: >-
+  From a joint density of two continuous random variables, find the conditional density of one given the other,
+  the conditional mean and the conditional variance, including the case where the joint density factorises.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-joint-continuous-density
+- ucv1-total-variance-finite
+answer: expression
+sources:
+- topic: r3k_conditional_density
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3k_conditional_density
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3k_conditional_density
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3k_conditional_density
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3k-cond-gave-the-joint-density
+  description: Giving the joint density f(x, y) where the conditional density was asked, without dividing by the marginal.
+- id: r3k-cond-divided-by-the-other-marginal
+  description: >-
+    Dividing the joint density by the marginal of the other variable, instead of by the marginal of the variable
+    that is given.
+- id: r3k-cond-marginal-over-full-range
+  description: >-
+    Finding the marginal of the given variable by integrating over the whole range of the other variable instead of
+    the part of the triangle above or below it.
+- id: r3k-cond-assumed-uniform
+  description: Treating the conditional distribution as uniform on its range, giving 1 over the length of the range.
+- id: r3k-cond-multiplied-by-c-twice
+  description: Multiplying by the constant c a second time, or dividing by the marginal without cancelling c.
+- id: r3k-cond-forgot-the-constant
+  description: Giving g(x, y) without the normalising constant c, so the result does not integrate to 1.
+- id: r3k-cond-mean-forgot-to-divide
+  description: >-
+    Integrating y f(x, y) over y without dividing by the marginal f_X(x), which gives the unnormalised conditional
+    mean.
+- id: r3k-cond-mean-unconditional
+  description: Giving the unconditional mean E(Y), a number, where the conditional mean as a function of x was asked.
+- id: r3k-cond-mean-assumed-uniform
+  description: Giving the midpoint of the range of Y as E(Y | X = x), ignoring that the conditional density is not uniform.
+- id: r3k-cond-mean-wrong-limits
+  description: >-
+    Using the wrong limits of integration for the conditional mean, such as 0 to the rectangle width or 0 to the
+    upper bound of the triangle instead of the range of Y at that x.
+- id: r3k-cond-variance-second-moment-only
+  description: Giving E(Y² | X = x) as the conditional variance, without subtracting the square of the conditional mean.
+- id: r3k-cond-variance-mean-squared
+  description: Giving the square of the conditional mean as the conditional variance.
+- id: r3k-cond-variance-wrong-sign
+  description: Adding the square of the conditional mean to E(Y² | X = x) instead of subtracting it.
+- id: r3k-cond-variance-assumed-uniform
+  description: >-
+    Using the uniform variance (range)^2/12 for the conditional distribution, ignoring that the density is not
+    uniform.
+- id: r3k-cond-marginal-of-the-other-variable
+  description: Giving the marginal density of Y (integrating out x) where the marginal of X was asked.
+- id: r3k-cond-marginal-forgot-c
+  description: Leaving the constant c out of the marginal density.
+- id: r3k-cond-mean-second-moment
+  description: >-
+    Integrating y squared instead of y against the conditional density, giving E(Y² | X = x) where the conditional
+    mean was asked.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: >-
+      Divide the joint density by the marginal of the given variable (found by integrating over the
+      triangle or rectangle); on a rectangle where the density factorises the result is the marginal
+      density.
+  medium:
+    steps: 6
+    demand: >-
+      Find a conditional mean E(Y | X = x) on a triangle: the limits of the conditional integral depend on
+      the given value.
+  hard:
+    steps: 8
+    demand: >-
+      Find a rational-function conditional mean on a rectangle, or the conditional variance E(Y^2 | X = x)
+      - E(Y | X = x)^2 on a triangle.
+  exam:
+    steps: 9
+    demand: >-
+      Finds the marginal, the conditional density (following through from the marginal), the conditional
+      mean and its value at a stated x (following through from the conditional mean).
+tags:
+- university-core-v1
+- university-year-2
+- probability
+- conditional-density
+- conditional-expectation
+- independence
+framework_areas:
+- probability
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: probability

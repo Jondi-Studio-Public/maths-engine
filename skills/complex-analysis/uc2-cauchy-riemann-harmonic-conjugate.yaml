@@ -1,0 +1,93 @@
+id: uc2-cauchy-riemann-harmonic-conjugate
+name: Cauchy-Riemann equations and harmonic conjugates
+domain: complex-analysis
+year_level: [university]
+description: >-
+  Use the Cauchy-Riemann equations to find a harmonic conjugate, a parameter that makes a function harmonic, an analytic f(z) from its real part, or the point where a function is complex differentiable.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-cr-equations-check
+answer: expression
+sources:
+- topic: w5a_cauchy_riemann
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5a_cauchy_riemann
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5a_cauchy_riemann
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5a_cauchy_riemann
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx2-cr-chain-factor-dropped
+  description: >-
+    Leaving out the factor from the chain rule (the constant inside the exponential, trigonometric or rational function) when differentiating or integrating.
+- id: cx2-cr-conjugate-sign
+  description: >-
+    Getting the sign of the harmonic conjugate wrong, for example using u_y = v_x instead of u_y = -v_x, or reversing the sign of one term.
+- id: cx2-cr-conjugate-swapped-roles
+  description: >-
+    Swapping the roles of x and y, or of u and v, when building the harmonic conjugate or reading the Cauchy-Riemann equations.
+- id: cx2-cr-constant-ignored
+  description: >-
+    Leaving the imaginary constant out of f(z), so f(0) does not take the stated value.
+- id: cx2-cr-constant-not-fixed
+  description: >-
+    Leaving an arbitrary constant in the harmonic conjugate instead of applying the stated normalisation.
+- id: cx2-cr-derivative-at-wrong-point
+  description: >-
+    Evaluating the partial derivatives at the wrong point (the origin, or with x and y exchanged) instead of at the point of differentiability.
+- id: cx2-cr-derivative-formula
+  description: >-
+    Using the wrong formula for f' in terms of partial derivatives, for example u_x - i v_x or u_x + i u_y instead of u_x + i v_x.
+- id: cx2-cr-derivative-slip
+  description: >-
+    Slipping in differentiating u to find u_x, u_y or the second derivatives.
+- id: cx2-cr-f-conjugate
+  description: >-
+    Writing f(z) in terms of the conjugate of z, or with the imaginary part of every coefficient reversed.
+- id: cx2-cr-f-real-part-only
+  description: >-
+    Writing f(z) as the real part u with x replaced by z, ignoring the imaginary part of the coefficients.
+- id: cx2-cr-harmonic-sign
+  description: >-
+    Setting u_xx - u_yy = 0 or reversing the sign of the parameter when imposing u_xx + u_yy = 0.
+- id: cx2-cr-integration-function-missing
+  description: >-
+    Integrating u_x with respect to y and stopping, without adding the function h(x) that the second Cauchy-Riemann equation determines.
+- id: cx2-cr-parameter-factor-slip
+  description: >-
+    Slipping by a small numerical factor when solving u_xx + u_yy = 0 for the parameter.
+- id: cx2-cr-point-conjugated
+  description: >-
+    Giving the conjugate x - iy of the point where the Cauchy-Riemann equations hold.
+- id: cx2-cr-point-equation-slip
+  description: >-
+    Making an arithmetic slip in solving the two linear Cauchy-Riemann equations for the point.
+- id: calc-sign-slip
+  description: >-
+    Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating, integrating or substituting.
+tags: [university-year-2, complex-analysis, cauchy-riemann, harmonic-functions]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+difficulty_progression:
+  easy: {steps: 2, demand: "Integrate u_x with respect to y, fix the unknown function of x with u_y = -v_x and the condition v(0, 0) = 0 for a polynomial u; find the parameter that makes a polynomial harmonic; or recognise a polynomial u as Re f and write f(z) with f(0) = 0."}
+  medium: {steps: 3, demand: "Differentiate and integrate exponential, trigonometric and hyperbolic functions of x and y to build the conjugate; find the positive parameter making e^(kx) cos(my) or sin(kx) sinh(my) harmonic; or solve the two linear Cauchy-Riemann equations to find the single point at which a non-analytic f is differentiable."}
+  hard: {steps: 4, demand: "Recover f(z) as an expression in z from the real part of a sum of two analytic functions and a stated value f(0); find the conjugate of the real part of m/(z - a)^n with v = 0 on the real axis; or find both the point and the value of f' where a non-analytic f is differentiable."}
+  exam: {steps: 4, demand: "Find two parameters that make a cubic u harmonic, then its conjugate, then f'(1 + i), where the last part uses the parameters from the first two."}

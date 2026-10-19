@@ -1,0 +1,149 @@
+id: uc2-markov-n-step-three-state
+name: Three-state Markov chains, n-step, absorption and long-run behaviour
+domain: stochastic-processes
+year_level:
+- university
+description: >-
+  Work with a three-state Markov chain given by its transition matrix: n-step transition probabilities from the
+  matrix power, the distribution after n steps, absorption probabilities, expected time to absorption by first-
+  step analysis, and the stationary distribution.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-markov-hitting-probability
+- ucv1-poisson-count-probability
+answer: fraction
+sources:
+- topic: r3k_markov
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3k_markov
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3k_markov
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3k_markov
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3k-markov-squared-the-entry
+  description: Squaring each entry of P (an entrywise product) instead of multiplying the matrix by itself, row by column.
+- id: r3k-markov-one-step-only
+  description: Giving the one-step probability where a multi-step probability was asked.
+- id: r3k-markov-transposed
+  description: Reading the entry with the row and column swapped, giving the probability of the reverse transition.
+- id: r3k-markov-added-not-multiplied
+  description: Adding the probabilities along the two steps of a path instead of multiplying them.
+- id: r3k-markov-row-times-row
+  description: Pairing row i with row j (P times its transpose) instead of row i with column j.
+- id: r3k-markov-missed-a-path
+  description: Leaving out one of the paths through the middle state when summing the two-step probability.
+- id: r3k-markov-averaged-the-paths
+  description: Averaging the path probabilities through the middle states instead of summing them.
+- id: r3k-markov-one-step-short
+  description: Using one fewer transition than the question states.
+- id: r3k-markov-one-step-too-many
+  description: Using one more transition than the question states.
+- id: r3k-markov-powered-the-probability
+  description: Raising the one-step probability of ending in the state to the power n instead of using the matrix power.
+- id: r3k-markov-ignored-the-initial-distribution
+  description: Averaging over the starting states equally instead of weighting by the stated initial distribution.
+- id: r3k-markov-absorption-wrong-denominator
+  description: Dividing by 1 minus the probability of moving to state 1 instead of by the probability of leaving state 2.
+- id: r3k-markov-wrong-absorbing-state
+  description: Giving the probability of absorption in state 3 instead of state 1.
+- id: r3k-markov-ratio-for-probability
+  description: Giving the ratio of the two exit probabilities p21/p23 as a probability.
+- id: r3k-markov-two-steps-only
+  description: Adding only the first two terms of the series of ways to be absorbed in state 1.
+- id: r3k-markov-ignored-the-other-transient-state
+  description: >-
+    Treating the expected time as 1/(1 - p_ii), as if the chain could not move to the other transient state and come
+    back.
+- id: r3k-markov-direct-exit-only
+  description: Giving 1/p_i3, the expected time if the only way to absorption were a direct jump from this state.
+- id: r3k-markov-wrong-start-state
+  description: Giving the expected time from the other starting state.
+- id: r3k-markov-summed-both-starts
+  description: Adding the expected times from the two starting states.
+- id: r3k-markov-forgot-the-step-count
+  description: >-
+    Leaving out the 1 for the step just taken in the first-step equation, or the first-step term in the follow-
+    through.
+- id: r3k-markov-counted-states-not-steps
+  description: Adding 1 to the expected number of steps, counting the states visited rather than the steps taken.
+- id: r3k-markov-stationary-unnormalised
+  description: Giving the solution scaled so that one component is 1, without dividing by the total so the components sum to 1.
+- id: r3k-markov-stationary-columns-for-rows
+  description: Solving P π = π (using the columns of P) instead of πP = π.
+- id: r3k-markov-stationary-assumed-uniform
+  description: Giving 1/3 for every state without solving πP = π.
+- id: r3k-markov-stationary-column-average
+  description: Averaging the column of P for the state instead of solving for the stationary distribution.
+- id: r3k-markov-stationary-first-row-of-p
+  description: >-
+    Giving the entry of the first row of P as the long-run proportion, as if the chain started in its stationary
+    distribution after one step.
+- id: r3k-markov-stationary-self-transition
+  description: Giving the self-transition probability p_jj as the long-run proportion of time in state j.
+- id: r3k-markov-stationary-wrong-component
+  description: Giving a different state's component of the stationary distribution from the one asked for.
+- id: r3k-markov-doubled-not-squared
+  description: Doubling the one-step matrix, 2P, where the two-step matrix P² was asked.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: >-
+      Compute one two-step transition probability by summing over the middle state, that is one entry of P
+      squared.
+  medium:
+    steps: 6
+    demand: >-
+      Propagate an initial distribution forward for two or three steps, or find the probability of
+      eventual absorption in one of two absorbing states by summing a geometric series of returns.
+  hard:
+    steps: 8
+    demand: >-
+      Set up and solve the first-step equations for an expected time to absorption, or solve pi P = pi
+      with the components summing to 1 for a long-run proportion.
+  exam:
+    steps: 9
+    demand: >-
+      Forms the two-step matrix, a three-step probability, the expected time to absorption from one state,
+      and from another state (following through from the first).
+tags:
+- university-core-v1
+- university-year-2
+- probability
+- markov-chain
+- transition-matrix
+- stationary-distribution
+framework_areas:
+- stochastic-processes
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: stochastic-processes
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: stochastic-processes
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: stochastic-processes

@@ -1,0 +1,128 @@
+id: reflections-compose-to-rotation
+name: Compose reflections to make a rotation
+domain: matrices
+year_level: ['11']
+description: >-
+  Combine two reflections in lines through the origin into a rotation through twice the angle between
+  the lines, find a mirror from a rotation, and combine three reflections into one.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-define-and-use-composition-of-linear-transformations-and
+answer: matrix
+sources:
+- topic: r3i_reflect_rotate
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3i_reflect_rotate
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3i_reflect_rotate
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3i_exam_reflect_rotate
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3i-matrix-added-not-multiplied
+  description: >-
+    Adding the two matrices instead of multiplying them to combine the transformations.
+- id: r3i-matrix-entrywise-product
+  description: >-
+    Multiplying the matrices entry by entry instead of using the matrix product.
+- id: r3i-matrix-product-order-reversed
+  description: >-
+    Multiplying the matrices in the order the transformations are applied, so the first transformation's
+    matrix is written on the left instead of the right.
+- id: r3i-matrix-product-sign-slip
+  description: >-
+    Giving the negative of the correct matrix.
+- id: r3i-reflections-angle-doubled-twice
+  description: >-
+    Doubling the angle again after the reflection matrix already contains the doubled angle.
+- id: r3i-reflections-angle-not-doubled
+  description: >-
+    Using the angle between the mirror lines, not twice that angle, as the angle of the rotation.
+- id: r3i-reflections-angle-not-halved
+  description: >-
+    Taking the angle of the rotation as the angle between the mirror lines, instead of half of it.
+- id: r3i-reflections-angle-not-reduced
+  description: >-
+    Leaving a negative rotation angle as it is when an angle between 0° and 360° was asked for.
+- id: r3i-reflections-angles-added
+  description: >-
+    Adding the angles of the two mirror lines, instead of subtracting, to find the rotation.
+- id: r3i-reflections-first-mirror-forgotten
+  description: >-
+    Taking the second mirror to be at half the rotation angle from the x-axis, forgetting that it is
+    measured from the first mirror.
+- id: r3i-reflections-gave-the-rotation
+  description: >-
+    Giving the matrix of the rotation when the matrix of the second reflection was asked for.
+- id: r3i-reflections-order-doubled
+  description: >-
+    Giving twice the number of applications that bring every point back.
+- id: r3i-reflections-order-off-by-one
+  description: >-
+    Giving a number of applications one more or one fewer than the number that return every point to its
+    start.
+- id: r3i-reflections-order-reversed
+  description: >-
+    Taking the second mirror line first, which reverses the direction of the rotation.
+- id: r3i-reflections-order-taken-as-angle
+  description: >-
+    Giving the angle of the rotation as the number of applications needed.
+- id: r3i-reflections-product-taken-as-reflection
+  description: >-
+    Treating the combination of two reflections as a single reflection.
+- id: r3i-reflections-rotation-direction-reversed
+  description: >-
+    Using the matrix of the clockwise rotation (the inverse) in place of the anticlockwise one.
+- id: r3i-reflections-second-mirror-on-wrong-side
+  description: >-
+    Placing the second mirror on the wrong side of the first, so the rotation is clockwise instead of
+    anticlockwise.
+- id: r3i-reflections-second-mirror-only
+  description: >-
+    Reflecting the point in the second line only, forgetting the first reflection.
+- id: r3i-reflections-three-angles-signs-wrong
+  description: >-
+    Combining the three mirror angles with the wrong signs: the net mirror is at a - b + c, where b is
+    the middle line.
+- id: r3i-reflections-three-taken-as-rotation
+  description: >-
+    Treating the result of three reflections as a rotation, when an odd number of reflections gives a
+    reflection.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: >-
+      Multiply the stated matrices of two reflections in the axes or the lines y = x and y = -x, in the order
+      the transformations are applied.
+  medium:
+    steps: 3
+    demand: >-
+      Combine two reflections given only by the angles of their mirror lines into a rotation through twice
+      the angle between them, in the right direction, and write its matrix.
+  hard:
+    steps: 4
+    demand: >-
+      Combine three reflections into a single reflection and find its mirror, or recover the second mirror
+      line from the first and the rotation that the pair produces.
+  exam:
+    steps: 6
+    demand: >-
+      Chain the rotation angle of a pair of reflections, its matrix, the number of applications that bring
+      every point back, and the image of a point.
+tags:
+- acara-senior-v8-4
+- matrices
+- linear-transformations
+- reflections
+- rotations
+- ACMSM060
+- vce-specialist-mathematics

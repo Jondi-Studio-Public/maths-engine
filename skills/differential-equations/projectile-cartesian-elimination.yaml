@@ -1,0 +1,115 @@
+id: projectile-cartesian-elimination
+name: "Use the Cartesian equation of a projectile's path"
+domain: differential-equations
+description: "Eliminate time to get y = x tan a − g x²/(2V² cos² a) and use it for heights, range, greatest height, launch angle and speed to reach a point, then for launches from a height."
+status: active
+placement_eligible: false
+prerequisites:
+- senior-apply-vector-calculus-to-motion-in-a-plane
+answer: number
+sources:
+- topic: r3d_projectile_cartesian
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3d_projectile_cartesian
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3d_projectile_cartesian
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3d_projectile_cartesian_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3d-complementary-angle
+  description: "Giving the angle measured from the other axis (the complement) instead of the angle asked for."
+- id: r3d-cos-not-squared
+  description: "Using cos(a) instead of cos²(a) in the denominator of the path equation."
+- id: r3d-cos-squared-dropped
+  description: "Leaving the cos²(a) out of the denominator of the path equation y = x tan a - g x²/(2V² cos² a)."
+- id: r3d-cos-squared-misused
+  description: "Using cos²(45°) = 1/2 in the wrong place in the path equation at 45°, doubling or halving the speed squared."
+- id: r3d-cosine-for-sine
+  description: "Using cos² in place of sin² in the formula for the greatest height."
+- id: r3d-denominator-without-two
+  description: "Leaving the 2 out of the denominator of the quadratic formula."
+- id: r3d-derivative-slip
+  description: "Slipping in the derivative of the path, so the gradient at the landing point is wrong."
+- id: r3d-double-angle-for-square
+  description: "Using sin(2a) in place of sin²(a) in the formula for the greatest height."
+- id: r3d-double-angle-misused
+  description: "Treating sin(2a) = R g/V² as sin(a), or halving the ratio instead of the angle."
+- id: r3d-double-angle-not-halved
+  description: "Taking 2a from sin(2a) = gR/V² and reporting it without halving it to get a."
+- id: r3d-factor-two-dropped
+  description: "Leaving out the factor 2 (or the matching 1/2) that a = v dv/dx puts into v² = v0² + 2∫a dx, or in a related formula."
+- id: r3d-factor-two-misplaced
+  description: "Putting the factor 2 on the wrong term of the path equation."
+- id: r3d-gradient-term-dropped
+  description: "Leaving a term out of the gradient of the path when finding the angle of landing."
+- id: r3d-gravity-term-dropped
+  description: "Leaving the -g x²/(2V² cos² a) term out of the path, giving the straight-line height x tan a."
+- id: r3d-height-counted-twice
+  description: "Adding the launch height twice when finding the greatest height above the ground."
+- id: r3d-height-ignored
+  description: "Ignoring the height of the point the path must pass through."
+- id: r3d-height-sign
+  description: "Adding the height of the point to x instead of subtracting it in V² = g x²/(x - y)."
+- id: r3d-height-sign-in-discriminant
+  description: "Adding 4Qh in the discriminant of Qx² - x tan a + h = 0 where it should be subtracted."
+- id: r3d-larger-angle-given
+  description: "Giving the larger of the two angles that satisfy sin(2a) = gR/V² where the smaller was asked for."
+- id: r3d-launch-angle-for-landing
+  description: "Giving the launch angle as the angle of landing, forgetting that the object lands from a greater height."
+- id: r3d-launch-height-dropped
+  description: "Leaving the launch height out of the path or the greatest height."
+- id: r3d-launch-height-for-maximum
+  description: "Giving the launch height as the greatest height."
+- id: r3d-level-ground-range
+  description: "Giving the range on level ground where the object lands below the launch height."
+- id: r3d-line-of-sight-angle
+  description: "Giving the angle of the straight line to the target as the angle of projection."
+- id: r3d-linear-term-ignored
+  description: "Leaving the x term out of the equation of the path when finding where it reaches the ground."
+- id: r3d-other-angle-given
+  description: "Giving the other of the two angles that reach the target."
+- id: r3d-quadratic-formula-slip
+  description: "A slip in the quadratic formula: the square root term is used without the linear term."
+- id: r3d-range-for-return-height
+  description: "Giving the full range where the horizontal distance at a stated height was asked for."
+- id: r3d-range-halved
+  description: "Halving the range, forgetting the factor 2 in x = 2V² sin a cos a / g."
+- id: r3d-sec-squared-dropped
+  description: "Writing 1/cos² a as 1 (or leaving out the 1 + tan² a), so the quadratic in tan a is wrong."
+- id: r3d-sign-of-gravity-term
+  description: "Adding the gravity term to the path where it should be subtracted."
+- id: r3d-sin-for-tan
+  description: "Using the inverse sine of the tangent value, which is not the angle."
+- id: r3d-sin-squared-for-double-angle
+  description: "Using sin² a where sin 2a belongs in the range formula."
+- id: r3d-sine-not-squared
+  description: "Using sin a where sin² a belongs in the greatest-height formula."
+- id: r3d-single-angle-sine
+  description: "Using sin a in place of sin 2a in the range formula."
+- id: r3d-smaller-root-taken
+  description: "Taking the smaller root of the quadratic, which is the height on the way up, instead of the larger."
+- id: r3d-speed-in-numerator
+  description: "Putting V² in the numerator of the coefficient of x² where it belongs in the denominator."
+- id: r3d-speed-not-squared
+  description: "Using V instead of V² in the path equation."
+- id: r3d-speed-squared-reported
+  description: "Reporting v² where the speed v was asked for."
+- id: r3d-tan-for-sin
+  description: "Using the inverse tangent of sin(2a) = gR/V² in place of the inverse sine."
+- id: r3d-vertex-for-root
+  description: "Giving the x-coordinate of the vertex where a root of the quadratic was asked for."
+tags:
+- mechanics
+- projectile-motion
+- parametric-elimination
+- specialist-unit-4
+- extension-1
