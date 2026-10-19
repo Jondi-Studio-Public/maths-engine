@@ -56334,6 +56334,1391 @@ _ENTRIES = (
         "Turning p over q into q over p when squaring both sides of a quotient involving a surd.",
         area="proof-steps",
     ),
+    CatalogueEntry(
+        "w5qi-region-reversed",
+        "Takes the region on the wrong side of the roots: the part between them where the outside was needed, or the reverse.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-strictness-swapped",
+        "Includes the end values when the inequality is strict, or leaves them out when it is not.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-roots-negated",
+        "Writes the roots with their signs reversed, reading (x + 3) as a root of 3.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-one-factor-only",
+        "Treats the product like a single factor and gives one ray, by setting each factor to the same sign as the whole product.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-ignores-negative-leading",
+        "Overlooks a negative leading coefficient, so the parabola opens the wrong way and the regions swap.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-forgot-to-move-constant",
+        "Solves with the number on the right ignored, using the roots of the left-hand side alone.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-positive-root-only",
+        "Takes only the positive square root of the number, so a pair of regions becomes a single ray.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-ignores-repeated-root",
+        "Forgets that a squared factor is never negative, so the answer misses the single value where it is zero.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-no-solution-confusion",
+        "Mixes up all real numbers and no solution when the quadratic never changes sign.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-no-roots-wrong-sign",
+        "Gives the wrong verdict when a quadratic has no real roots, reading the sign of the leading coefficient the wrong way.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-invents-roots",
+        "Invents roots for a quadratic whose discriminant is negative and splits the number line at them.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-as-boundary",
+        "Uses the turning point as the boundary of the solution set.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-forgets-square-root",
+        "Writes the bounds as the centre plus and minus the number under the root, not its square root.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-rounds-surd-bounds",
+        "Replaces the exact bounds by nearby whole numbers.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-sum-not-half",
+        "Gives the sum of the roots as the turning point, forgetting to halve it.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-half-gap",
+        "Gives half the distance between the roots as the x-coordinate of the turning point.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-sign-flipped",
+        "Gives the turning point with its sign reversed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-root-for-turning-point",
+        "Gives one of the roots as the x-coordinate of the turning point.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-count-sums-roots",
+        "Adds the two roots to count the whole numbers between them, where their difference was needed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-intercept-not-extreme",
+        "Gives the y-intercept as the greatest or least value of the quadratic.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-extreme-sign-flipped",
+        "Gives the greatest or least value with its sign reversed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-gives-position-not-value",
+        "Gives the x-coordinate of the turning point where its y-value was asked.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-extreme-forgets-linear-term",
+        "Substitutes the turning point into the squared term alone and drops the rest of the quadratic.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-region-reversed",
+        "Takes the regions on the wrong side of the critical values, giving where the fraction has the opposite sign.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-zero-strictness",
+        "Mishandles the value that makes the numerator zero: leaving it out when the inequality allows equality, or including it when it does not.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-multiplied-by-denominator",
+        "Multiplies both sides by an expression that can be negative without reversing the inequality for the values where it is, leaving only the numerator to solve.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-included",
+        "Includes the value that makes the denominator zero, although the fraction is undefined there.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-roots-negated",
+        "Writes the critical values with their signs reversed, reading (x + 3) as zero at 3.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-compares-with-zero-not-k",
+        "Solves the fraction against 0 where the inequality compares it with another number.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-square-treated-as-sign-change",
+        "Treats a squared factor like a single factor, so the fraction appears to change sign where it does not.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-zero-for-pole",
+        "Gives the value that makes the numerator zero where the value that makes the denominator zero was asked.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-sign-flipped",
+        "Gives the value that makes the denominator zero with its sign reversed.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-zero-guess",
+        "Guesses that the fraction is undefined at x = 0.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-counts-the-pole",
+        "Counts the whole number where the denominator is zero as a solution, or the complement of the solution count.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5c-centre-sign-as-written",
+        "Takes the centre with the signs as they appear inside the brackets, so (x - 3) gives a centre at x = -3.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-sign-unchanged",
+        "Writes the centre coordinates into (x + a)^2 + (y + b)^2 with their own signs instead of reversing them.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-coordinates-swapped",
+        "Swaps the x- and y-coordinates of the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-is-r-squared",
+        "Gives the number on the right of the equation, r squared, as the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-off-by-one",
+        "Gives a radius one unit away from the correct one.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-writes-radius-not-squared",
+        "Writes the radius where the radius squared belongs on the right of the equation.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-doubles-radius-not-squares",
+        "Doubles the radius where it should be squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-distance-by-adding-offsets",
+        "Finds a distance by adding the horizontal and vertical offsets instead of using Pythagoras.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-centre-sign-in-distance",
+        "Measures the distance from the point to the centre with the signs of the centre reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-sum-not-midpoint",
+        "Adds the coordinates of the two ends of a diameter to get the centre, without halving.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-squared-for-radius",
+        "Squares the diameter where the radius should be squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-endpoint-not-midpoint",
+        "Uses an end of the diameter as the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-quadrant",
+        "Gives the centre in the wrong quadrant, ignoring which quadrant the circle lies in.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-tangent-wrong-axis",
+        "Uses the distance to the wrong axis as the radius of a circle that touches an axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-distance-from-origin",
+        "Uses the distance from the centre to the origin as the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-difference",
+        "Subtracts the coordinates of the two ends of a diameter to get the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-for-radius",
+        "Gives the diameter where the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-radius-for-gap",
+        "Adds the radius to the distance to the centre where the shortest distance to the circle was needed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-distance-to-centre-not-circle",
+        "Gives the distance from the point to the centre where the distance to the circle itself was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-for-gap",
+        "Gives the radius where the distance from the point to the circle was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-squared-distances",
+        "Subtracts squared distances where the distances themselves should be subtracted.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-half-coefficient-with-its-sign",
+        "Halves the coefficient of x or y but keeps its sign, so x^2 - 6x gives a centre at x = -3.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-not-halved",
+        "Uses the whole coefficient of x or y as the coordinate of the centre, without halving it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-to-add-completed-squares",
+        "Forgets to add the squares made by completing the square to the right side, so the radius squared comes out too small.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-completed-squares-subtracted-twice",
+        "Subtracts the completed squares from the right side instead of adding them.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-expands-with-wrong-signs",
+        "Expands the squared brackets with the signs of the linear terms reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-linear-term-not-doubled",
+        "Writes the linear term as the centre coordinate alone, without doubling it when expanding.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-squared-added-not-subtracted",
+        "Adds the radius squared to the squares of the centre coordinates where it should be subtracted.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-constant-sign-reversed",
+        "Gives the constant term with its sign reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-the-common-factor",
+        "Completes the square without first dividing through by the common factor of the squared terms.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-squares-the-radius-squared",
+        "Squares r squared a second time.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-the-centre-offset",
+        "Adds the height of the centre to the radius where only the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-chord-half-for-radius",
+        "Gives half the chord where the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-x-for-y",
+        "Gives x-coordinates where the y-coordinates of the points were asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-centre-offset",
+        "Gives plus and minus the radius, forgetting that the centre is not on the axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-one-intersection-only",
+        "Gives only one of the two points where the line meets the circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-half-chord-for-chord",
+        "Gives half the chord where the whole chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-for-chord",
+        "Gives the diameter where the chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-centre-height-for-chord",
+        "Doubles the height of the centre above the axis where the chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-chord-by-subtracting",
+        "Doubles the radius less the height of the centre instead of using Pythagoras for the chord.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-sign-flipped",
+        "Uses a centre with the signs reversed when deciding where a point lies.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-centre",
+        "Measures the distance from the origin instead of from the centre of the circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-compares-squared-distance-with-radius",
+        "Compares the squared distance with the radius instead of the radius squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-offsets-without-squaring",
+        "Adds the horizontal and vertical offsets instead of finding the distance, and compares the sum with the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-near-miss-treated-as-on",
+        "Treats a point that is close to the circle as being on it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-boundary-misjudged",
+        "Misjudges which side of the circle a point close to it lies on.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-square-root",
+        "Gives the squared distance where the distance was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-subtracts-radius-for-farthest",
+        "Subtracts the radius where the farthest point needs it added.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-squared-radius",
+        "Adds the radius squared to the distance.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-doubles-the-distance",
+        "Doubles the greatest distance.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-takes-the-other-point",
+        "Chooses the other point on the circle, on the wrong side of the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-the-centre-offset",
+        "Gives the offset from the centre as the coordinate, forgetting to add the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-for-offset",
+        "Adds the radius to the centre as if the point were level with it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-constant-is-minus-r-squared",
+        "Gives minus the radius squared as the constant term.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-the-linear-terms",
+        "Substitutes the point into the squared terms only and ignores the linear terms.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-confuses-f-with-centre-form",
+        "Mixes up the constant F with the right-hand side of the centre-radius form.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-allows-zero-radius",
+        "Allows the radius squared to be zero, which describes a single point rather than a circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-wrong-direction-for-bound",
+        "Takes the bound in the wrong direction and gives a value that is too large.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-off-by-one-at-the-bound",
+        "Gives a value one below the greatest whole number allowed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-inverted",
+        "Inverts the gradient, running across over up instead of up over across.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-sign-flipped",
+        "Gives the gradient with its sign reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-from-origin",
+        "Finds the gradient from the origin to the point instead of from the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-with-centre-sign-flipped",
+        "Finds the gradient from the centre with its signs reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-tangent-parallel-to-radius",
+        "Gives the gradient of the radius as the gradient of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-is-the-y-coordinate",
+        "Gives the y-coordinate of the point of contact as the y-intercept of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-sign-error",
+        "Makes a sign error when finding where the tangent meets the axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-with-radius-gradient",
+        "Finds the intercept using the gradient of the radius instead of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-is-the-x-coordinate",
+        "Gives the x-coordinate of the point of contact as the x-intercept of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5f-absolute-value-means-not-function",
+        "Decides that a rule containing an absolute value cannot be a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-adds-an-extra-value",
+        "Lists one more value than the rule produces.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-any-collection-is-function",
+        "Treats any collection of ordered pairs as a function, without checking that no input has two outputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-any-equation-with-restriction-fails",
+        "Decides that an equation with a restricted set of inputs is not a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-any-new-value-breaks-rule",
+        "Thinks any new output value for an input already used breaks the function rule, including a value that is the same as before.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-confuses-input-and-output",
+        "Looks for repeats in the outputs rather than in the inputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-confuses-repeated-output-with-repeated-input",
+        "Treats two inputs that share an output as an input with two outputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-counts-inputs-kept-not-removed",
+        "Gives the number of inputs that stay, not the number that must be removed.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-counts-inputs-not-outputs",
+        "Counts the inputs where the question asks for the number of different outputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-counts-pairs-not-inputs",
+        "Counts the ordered pairs rather than the different inputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-curve-without-vertical-line-test",
+        "Chooses a relation by its look without testing whether a vertical line meets it twice.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-excludes-the-boundary",
+        "Leaves out the boundary value when the restriction allows it.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-count",
+        "Gives how many values there are instead of the value asked for.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-input",
+        "Gives the input where the question asks for the output.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-least",
+        "Gives the least value where the question asks for the greatest.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-output",
+        "Gives the output where the question asks for the input.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-spread",
+        "Gives the difference between the greatest and least values instead of a count of values.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-ignores-the-restriction",
+        "Lists every value in the window and ignores the restriction on the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-ignores-the-restriction-from-context",
+        "Lists every whole number between the extremes, ignoring that only some are possible in the situation.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-input-outside-domain",
+        "Accepts a mapping that uses an input that is not in the first set.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-lists-repeated-outputs",
+        "Lists an output once for every input that gives it, instead of once.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-miscounts-inputs",
+        "Miscounts the inputs by one.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-negative-squared-as-negative",
+        "Squares a negative input and keeps the minus sign.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-omits-a-value",
+        "Leaves one of the values out of the list.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-one-input-only",
+        "Gives only one input where the rule has more than one.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-output-outside-codomain",
+        "Accepts a mapping that sends an input to a value outside the second set.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-repeated-identical-pair-counts",
+        "Treats a pair that is written twice as two outputs for one input.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-requires-distinct-outputs",
+        "Thinks every output in a function must be different.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-restriction-reversed",
+        "Reads the restriction the wrong way round and takes the inputs it excludes.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-restriction-sign-slip",
+        "Reverses the sign of the number in the restriction when solving for the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-rule-applied-with-sign-slip",
+        "Makes a sign slip when applying the rule to an input.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-shifts-the-values",
+        "Shifts every value in the list by one.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-sign-slip-on-inputs",
+        "Reverses the sign of the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-squared-term-means-not-function",
+        "Decides that an equation with a squared term is not a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-swaps-domain-and-range",
+        "Gives the domain where the range is asked for, or the range where the domain is asked for.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-takes-the-last-output",
+        "Gives the last output on the list instead of the greatest.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-unmapped-input-allowed",
+        "Accepts a mapping that leaves an input with no output.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-uses-half-the-domain",
+        "Uses only the inputs on one side of the turning point.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5t-drops-solutions",
+        "Gives only some of the solutions in the window and leaves the others out.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-forgets-the-coefficient",
+        "Solves as if the angle were x alone, ignoring the coefficient of x.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-multiplies-for-the-coefficient",
+        "Multiplies by the coefficient of x where the solution must be divided by it.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-one-period-only",
+        "Stops after the first period and misses the later solutions the coefficient of x brings into the window.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-opposite-quadrants",
+        "Uses the CAST quadrants for the opposite sign of the value.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-reference-angle-as-answer",
+        "Gives the reference angle itself as the solution without applying the coefficient.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-shift-wrong-way",
+        "Shifts the solutions the wrong way, adding the shift where it must be subtracted.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-wrong-end-of-the-list",
+        "Gives the largest solution where the smallest is asked for.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-wrong-function-quadrants",
+        "Uses the quadrant pattern of a different trigonometric function.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5e-equals-means-answer-next",
+        "Reads the equals sign as 'the answer comes next', so accepts a sentence whose right side starts with the answer to the left side.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-sides-not-compared",
+        "Does not work out and compare the value of both sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-equals-needs-single-number",
+        "Believes the equals sign must be followed by a single number.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-wrong-side-value",
+        "Makes an error in working out the value of one side of the sentence.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-compares-form",
+        "Judges whether the sides are equal by the numbers or signs written rather than by their values.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-adds-all-numbers",
+        "Adds every number in the sentence to get the missing number.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-copies-a-number",
+        "Copies a number from the sentence instead of balancing the two sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-off-by-one",
+        "Is one out when balancing the two sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-adds-instead-of-multiplies",
+        "Adds the numbers where the sentence multiplies them.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-changes-one-side-only",
+        "Changes only one side of a true sentence and still expects it to balance.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-opposite-changes",
+        "Adds to one side and subtracts from the other, expecting them to stay equal.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-unequal-changes",
+        "Changes the two sides by different amounts and expects them to stay equal.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5i-same-operation",
+        "Uses the same operation again instead of the inverse operation.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-mixes-operation-pairs",
+        "Pairs an operation with one that is not its inverse, such as adding with multiplying.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-wrong-amount",
+        "Chooses the inverse operation but uses the wrong number.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-reverses-the-numbers",
+        "Writes the inverse calculation with the two numbers the wrong way round.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-wrong-order",
+        "Undoes the steps in the order they were done instead of the reverse order.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-stops-after-one-step",
+        "Undoes only one of the steps of a two-step rule.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-rsub-treated-as-sub",
+        "Treats 'subtract it from a number' as 'subtract a number from it' when undoing it.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-undoes-itself",
+        "Believes that adding, subtracting, multiplying or dividing by a number undoes itself.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5s-takes-the-constant",
+        "Gives the number on the right-hand side of the equation as the solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-forgets-to-divide",
+        "Undoes the added or subtracted number but forgets to divide by the coefficient.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sign-slip",
+        "Makes a sign error when undoing a number or reading a bracket, and gets the opposite value.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-off-by-one",
+        "Gives a value one away from the solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-expression-value-not-checked",
+        "Does not work out the value of the left side, so accepts an equation whose sides differ.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-solution-copied-from-equation",
+        "Treats a number that appears in the equation as its solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-adds-the-coefficients",
+        "Adds the coefficients of n from the two sides instead of subtracting them.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-negative",
+        "Gives only the positive solution of an equation that also has a negative solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-positive",
+        "Gives only the negative solution of an equation that also has a positive solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-gives-the-number-not-the-root",
+        "Gives the number on the right-hand side, or its square, instead of the values of x that satisfy the equation.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-zero",
+        "Leaves out zero, which is also a solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-other-root",
+        "Gives one solution of an equation that has two.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-ignores-the-stated-set",
+        "Ignores the set of numbers the question allows and includes solutions outside it.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sum-and-product-as-roots",
+        "Uses the sum and the product of the solutions as if they were the solutions.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-repeats-one-root",
+        "Builds an equation from one solution used twice.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sum-of-constants",
+        "Adds the constants of the two sides instead of evaluating one side.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5n-cancelling-means-no-solution",
+        "Believes that when the x terms cancel or the equation looks true there is no solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-cancelling-means-every-number",
+        "Believes that when the x terms cancel every number is a solution, even if the numbers left over are not equal.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-zero-equals-zero-is-x-zero",
+        "Reads a true statement such as 6 = 6 as meaning x = 0.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-constant-as-solution",
+        "Gives one of the numbers in the equation as the solution when the x terms have cancelled.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-difference-as-solution",
+        "Subtracts the constants and gives the difference as the solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-sign-slip",
+        "Makes a sign error and gives the opposite of the solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-forgets-to-divide",
+        "Moves the terms across but does not divide by the coefficient of x.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-off-by-one",
+        "Gives a value one away from the correct value.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-adds-instead-of-multiplies",
+        "Adds the bracket's number and the multiplier instead of multiplying them.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5k-wrong-verdict",
+        "Works out both sides correctly but draws the wrong conclusion about whether the value is a solution.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-joins-digits",
+        "Writes the coefficient and the substituted value side by side as one number, so 3x with x = 4 becomes 34.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-ignores-coefficient",
+        "Replaces the term in x by the value of x alone and leaves out the coefficient.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-negative-sign-dropped",
+        "Drops the minus sign of a negative value when substituting it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-moves-the-constant-wrongly",
+        "Adds the constant to the right side when checking, instead of comparing the sides as they are.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-adds-instead-of-multiplies",
+        "Adds the coefficient and the value of x instead of multiplying them.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-multiplies-the-constant",
+        "Multiplies by the constant term instead of adding or subtracting it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-substitutes-the-answer",
+        "Substitutes the number on the right-hand side for x instead of the proposed value.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-brackets-the-constant",
+        "Groups the constant term with x as if it were inside a bracket.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-brackets-ignored",
+        "Multiplies only the first term of a bracket by the number outside it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-sign-slip-on-constant",
+        "Changes the sign of the constant term when substituting.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-trusts-the-working",
+        "Accepts a worked value without recalculating it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-off-by-one",
+        "Is one or a few away from the correct value of a side.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-copies-the-left-side",
+        "Gives the value of the left side as the value of the right side.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-checks-one-side",
+        "Works out one side only and does not compare it with the other.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-takes-the-constant",
+        "Gives a number from the equation as the solution without checking it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5q-distributes-to-first-term",
+        "Multiplies only the first term in a bracket by the number outside it.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-sign-slip",
+        "Changes the sign of a term when expanding or collecting.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-adds-instead-of-multiplies",
+        "Adds the number outside a bracket to the terms instead of multiplying them.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-drops-a-term",
+        "Leaves out one of the terms when writing an equivalent expression.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-arithmetic-slip",
+        "Makes an arithmetic slip when expanding or evaluating an expression.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-multiplies-like-terms",
+        "Multiplies the coefficients of like terms instead of adding them.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-adds-powers",
+        "Writes the sum of like terms with x squared.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-combines-unlike-terms",
+        "Adds a constant to the coefficient of x as if they were like terms.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-subtracts-like-terms",
+        "Subtracts the coefficients of like terms that should be added.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-appearance-differs",
+        "Believes expressions that look different cannot be equivalent.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-one-example-as-proof",
+        "Treats the expressions as equivalent because they match for one value of x.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5v-swaps-the-roles",
+        "Swaps the independent and dependent variables.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-picks-a-fixed-amount",
+        "Chooses a fixed amount, such as a rate or a starting charge, as a variable.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-irrelevant-quantity",
+        "Chooses a quantity that plays no part in the relationship.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-axis-position-decides",
+        "Decides which variable is independent by the axis it is drawn on.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-forgets-the-fixed-amount",
+        "Leaves out the fixed starting amount when working out the dependent value.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-adds-instead-of-multiplies",
+        "Adds the rate and the independent value instead of multiplying them.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-multiplies-the-fixed-amount",
+        "Multiplies the fixed starting amount by the independent value as well.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-off-by-a-step",
+        "Adds one extra step of the rate to the dependent value.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5p-line-means-proportional",
+        "Believes any straight-line relationship is proportional, even with an added number.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-constant-difference-not-ratio",
+        "Treats a constant difference between y and x, or a constant step in y, as proportionality.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-increasing-means-proportional",
+        "Believes a relationship is proportional whenever y increases as x increases.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-roughly-constant-ratio",
+        "Accepts a ratio y \u00f7 x that is nearly constant as constant.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-inverse-is-proportional",
+        "Believes y = k/x is a proportional relationship.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ratio-not-checked",
+        "Does not divide y by x for each pair, so cannot tell which table is not proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ignores-fixed-charge",
+        "Ignores a starting amount or fixed charge when deciding whether a relationship is proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-intercept-miscalculated",
+        "Makes an error finding where the line crosses the y-axis.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-line-not-proportional",
+        "Believes a straight line can never be proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-gradient-one-only",
+        "Believes a proportional relationship must have a gradient of 1.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-intercept-ignored",
+        "Finds the gradient of the line but ignores where it crosses the y-axis.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-sign-slip",
+        "Reverses the sign of the added number in the equation of the line.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ratio-miscalculated",
+        "Makes an error working out y \u00f7 x for a pair.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-origin-not-in-table",
+        "Believes a relationship is not proportional because the table does not show x = 0.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-difference-not-ratio",
+        "Subtracts x from y or finds differences of y where the ratio y \u00f7 x is needed.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-adds-instead-of-multiplies",
+        "Adds the multiplier and the value of x instead of multiplying them.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-off-by-a-step",
+        "Gives a value one step of the rule away from the correct value.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-first-y-as-constant",
+        "Takes the first y value as the number multiplied by x.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-gradient-miscalculated",
+        "Makes an error working out the gradient of the line from two points.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5g-strict-includes-equal",
+        "Believes a strict inequality such as 5 > 5 is true when the two numbers are equal.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-symbol-direction-reversed",
+        "Reads the inequality symbol the wrong way round.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-negative-larger-magnitude-bigger",
+        "Treats a negative number with a larger digit as the larger number.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-strict-includes-boundary",
+        "Includes the boundary value in a strict inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-strict-for-inclusive",
+        "Uses a strict symbol where the words allow the boundary value.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-inclusive-for-strict",
+        "Uses an inclusive symbol where the words exclude the boundary value.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-equals-for-inequality",
+        "Uses an equals sign where the words describe a range of values.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-reads-only-one-bound",
+        "Checks only one part of a double inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-adding-a-negative-increases",
+        "Believes adding a negative number makes a number larger.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-sign-of-product",
+        "Believes the product of two negative numbers is negative.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-squaring-keeps-order",
+        "Believes squaring negative numbers keeps their order.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-off-by-one",
+        "Is one away from the greatest or least whole number allowed.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-picks-the-lowest",
+        "Gives an unrelated extreme value instead of the one the inequality allows.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-values-not-checked",
+        "Does not test each value against the inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-increasing-decreasing-confused",
+        "Orders the numbers from greatest to least where least to greatest is asked, or the reverse.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-neighbours-swapped",
+        "Swaps two neighbouring numbers when ordering a list.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5a-ratio-for-difference",
+        "Treats a constant ratio between terms as the constant difference of an arithmetic sequence.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-increasing-pattern-is-arithmetic",
+        "Believes a sequence is arithmetic whenever the terms keep increasing in a pattern.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-repeating-differences",
+        "Believes a sequence is arithmetic when its differences repeat in a pattern rather than being the same.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-checks-one-pair",
+        "Compares only the first two terms and does not check the rest of the sequence.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-first-term-as-difference",
+        "Uses the first term as the common difference.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-difference-miscounted",
+        "Makes an error finding the difference between terms.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-direction-reversed",
+        "Gets the direction of the difference wrong, adding where the sequence goes down or the reverse.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-adds-previous-terms",
+        "Adds the previous two terms to find the next one.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-difference-for-middle",
+        "Gives the difference between the end terms as the middle term.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-decreasing-means-arithmetic",
+        "Believes a sequence that decreases by getting smaller is arithmetic.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-miscounts-steps",
+        "Divides the gap between the end terms by the wrong number of steps.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-off-by-one-term",
+        "Counts one term too many or too few when finding a later term.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-forgets-the-first-term",
+        "Multiplies the difference by the term number but leaves out the first term.",
+        area="arithmetic-sequences",
+    ),
 )
 
 #: Every entry, by id.

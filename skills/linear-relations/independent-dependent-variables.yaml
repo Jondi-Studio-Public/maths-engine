@@ -1,37 +1,79 @@
 id: independent-dependent-variables
 name: Identify independent and dependent variables
 domain: linear-relations
-description: Identify which quantity is selected or controlled and which depends on it.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '7'
+- '8'
+description: Identify which quantity is chosen or changes first (independent) and which depends on it (dependent), including
+  situations where time is not independent and where the axis a variable is drawn on gives no guide.
+status: active
+placement_eligible: false
 prerequisites:
 - variable-concept
 - input-output-tables
 answer: mcq
 sources:
-- topic: function_evaluation
+- topic: w5_variables_roles
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: function_evaluation
+- topic: w5_variables_roles
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: function_evaluation
+- topic: w5_variables_roles
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_variables_roles
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Assuming time is always the independent variable
-- id: misconception-2
-  description: Choosing variables based only on graph axis position
-tags: []
+- id: w5v-swaps-the-roles
+  description: Swaps the independent and dependent variables.
+- id: w5v-picks-a-fixed-amount
+  description: Chooses a fixed amount, such as a rate or a starting charge, as a variable.
+- id: w5v-irrelevant-quantity
+  description: Chooses a quantity that plays no part in the relationship.
+- id: w5v-axis-position-decides
+  description: Decides which variable is independent by the axis it is drawn on.
+- id: w5v-forgets-the-fixed-amount
+  description: Leaves out the fixed starting amount when working out the dependent value.
+- id: w5v-adds-instead-of-multiplies
+  description: Adds the rate and the independent value instead of multiplying them.
+- id: w5v-multiplies-the-fixed-amount
+  description: Multiplies the fixed starting amount by the independent value as well.
+- id: w5v-off-by-a-step
+  description: Adds one extra step of the rate to the dependent value.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Name the independent or the dependent variable in a situation with a clear rule, separating variables from fixed
+      amounts and irrelevant details.
+  medium:
+    steps: 3
+    demand: Name both variables, including situations where time is the dependent variable.
+  hard:
+    steps: 5
+    demand: Name a variable when the graph's axes are described in the opposite way to the usual, or when asked which quantity
+      changes as a result.
+  exam:
+    steps: 6
+    demand: Chain the independent variable, the dependent variable and the value of the dependent variable for a given value
+      of the independent variable.
+tags:
+- variables
+- independent-dependent
+- nsw-stage-4
+- algebra

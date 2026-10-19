@@ -1,40 +1,80 @@
 id: identity-and-no-solution
 name: Recognise identities and equations with no solution
 domain: equations
-description: Distinguish equations with one solution, no solution or infinitely many solutions.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '8'
+description: Decide whether an equation has exactly one solution, no solution or every number as a solution, from the form
+  it simplifies to or from the way its sides are built.
+status: active
+placement_eligible: false
 prerequisites:
 - variables-on-both-sides
 - recognise-equivalent-expressions
 answer: mcq
 sources:
-- topic: linear_equation
-  params:
-    kind: both_sides
+- topic: w5_identity_no_solution
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: linear_equation
-  params:
-    kind: both_sides
+- topic: w5_identity_no_solution
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: linear_equation
-  params:
-    kind: both_sides
+- topic: w5_identity_no_solution
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_identity_no_solution
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Treating 0 = 0 as x = 0
-- id: misconception-2
-  description: Stopping at a false statement without interpreting no solution
-tags: []
+- id: w5n-cancelling-means-no-solution
+  description: Believes that when the x terms cancel or the equation looks true there is no solution.
+- id: w5n-zero-equals-zero-is-x-zero
+  description: Reads a true statement such as 6 = 6 as meaning x = 0.
+- id: w5n-constant-as-solution
+  description: Gives one of the numbers in the equation as the solution when the x terms have cancelled.
+- id: w5n-cancelling-means-every-number
+  description: Believes that when the x terms cancel every number is a solution, even if the numbers left over are not equal.
+- id: w5n-difference-as-solution
+  description: Subtracts the constants and gives the difference as the solution.
+- id: w5n-sign-slip
+  description: Makes a sign error and gives the opposite of the solution.
+- id: w5n-forgets-to-divide
+  description: Moves the terms across but does not divide by the coefficient of x.
+- id: w5n-off-by-one
+  description: Gives a value one away from the correct value.
+- id: w5n-adds-instead-of-multiplies
+  description: Adds the bracket's number and the multiplier instead of multiplying them.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Collect terms in a simple linear equation, or read the final line of working, to decide how many solutions there
+      are.
+  medium:
+    steps: 4
+    demand: Expand brackets on one or both sides before comparing the x terms and the constants.
+  hard:
+    steps: 5
+    demand: Combine brackets and like terms, or find the value of k that gives no solution or infinitely many solutions.
+  exam:
+    steps: 6
+    demand: Chain the classification for a given k, the k that gives infinitely many solutions and the statement true for
+      every other k.
+tags:
+- identities
+- no-solution
+- equations
+- nsw-stage-4
+- algebra

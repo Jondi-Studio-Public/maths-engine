@@ -1,0 +1,104 @@
+id: quadratic-inequalities
+name: Solve quadratic inequalities
+domain: inequalities
+year_level:
+- '10'
+- '11'
+description: Solve a quadratic inequality by finding the roots and reading the sign of the parabola, and write the solution
+  set as inequalities or intervals, including a union of two rays, no solution and all real numbers.
+status: active
+placement_eligible: false
+prerequisites:
+- two-step-inequalities
+- solve-quadratics-factorable
+answer: inequality
+sources:
+- topic: w5_quadratic_inequality
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w5_quadratic_inequality
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w5_quadratic_inequality
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w5_quadratic_inequality
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w5qi-region-reversed
+  description: 'Takes the region on the wrong side of the roots: the part between them where the outside was needed, or
+    the reverse.'
+- id: w5qi-strictness-swapped
+  description: Includes the end values when the inequality is strict, or leaves them out when it is not.
+- id: w5qi-roots-negated
+  description: Writes the roots with their signs reversed, reading (x + 3) as a root of 3.
+- id: w5qi-one-factor-only
+  description: Treats the product like a single factor and gives one ray, by setting each factor to the same sign as the
+    whole product.
+- id: w5qi-ignores-negative-leading
+  description: Overlooks a negative leading coefficient, so the parabola opens the wrong way and the regions swap.
+- id: w5qi-forgot-to-move-constant
+  description: Solves with the number on the right ignored, using the roots of the left-hand side alone.
+- id: w5qi-positive-root-only
+  description: Takes only the positive square root of the number, so a pair of regions becomes a single ray.
+- id: w5qi-ignores-repeated-root
+  description: Forgets that a squared factor is never negative, so the answer misses the single value where it is zero.
+- id: w5qi-no-solution-confusion
+  description: Mixes up all real numbers and no solution when the quadratic never changes sign.
+- id: w5qi-no-roots-wrong-sign
+  description: Gives the wrong verdict when a quadratic has no real roots, reading the sign of the leading coefficient the
+    wrong way.
+- id: w5qi-invents-roots
+  description: Invents roots for a quadratic whose discriminant is negative and splits the number line at them.
+- id: w5qi-vertex-as-boundary
+  description: Uses the turning point as the boundary of the solution set.
+- id: w5qi-forgets-square-root
+  description: Writes the bounds as the centre plus and minus the number under the root, not its square root.
+- id: w5qi-rounds-surd-bounds
+  description: Replaces the exact bounds by nearby whole numbers.
+- id: w5qi-vertex-sum-not-half
+  description: Gives the sum of the roots as the turning point, forgetting to halve it.
+- id: w5qi-count-sums-roots
+  description: Adds the two roots to count the whole numbers between them, where their difference was needed.
+- id: w5qi-intercept-not-extreme
+  description: Gives the y-intercept as the greatest or least value of the quadratic.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find the two whole-number roots of a monic quadratic and choose between the middle region and the two outer
+      rays.
+  medium:
+    steps: 4
+    demand: Handle a leading coefficient that is not 1 (often negative), fractional roots, or a constant that must be moved
+      to the other side first.
+  hard:
+    steps: 5
+    demand: Recognise a repeated root or a quadratic with no real roots, give exact surd bounds, or turn a height or profit
+      model into an inequality.
+  exam:
+    steps: 6
+    demand: Chain the turning point, a solution set, the count of whole numbers in a closed region and the greatest or least
+      value.
+tags:
+- quadratics
+- inequalities
+- sign-diagram
+- interval-notation
+- nsw-advanced
+- vce-methods
+- qce-methods
