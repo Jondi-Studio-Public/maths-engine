@@ -43,9 +43,9 @@ _CONTEXTS = [
         one="student",
         verb="chose",
         leads=(
-            "Each student in a class chose a favourite pet.",
-            "A class voted for their favourite pet.",
-            "Students were asked which pet they like best.",
+            "Students chose a favourite pet.",
+            "A class voted for pets.",
+            "Students picked their favourite pet.",
         ),
         cats=("Dog", "Cat", "Bird", "Fish", "Rabbit", "Horse", "Turtle"),
     ),
@@ -54,9 +54,9 @@ _CONTEXTS = [
         one="student",
         verb="chose",
         leads=(
-            "Each student in a class chose a favourite fruit.",
-            "A class voted for their favourite fruit.",
-            "Students were asked which fruit they like best.",
+            "Students chose a favourite fruit.",
+            "A class voted for fruits.",
+            "Students picked their favourite fruit.",
         ),
         cats=("Apple", "Banana", "Orange", "Grapes", "Pear", "Mango", "Melon"),
     ),
@@ -65,9 +65,9 @@ _CONTEXTS = [
         one="student",
         verb="chose",
         leads=(
-            "Each student in a year level chose a favourite sport.",
-            "Students voted for the sport they would most like to play.",
-            "A school asked students to pick their favourite sport.",
+            "Students chose a favourite sport.",
+            "A school voted for sports.",
+            "Students picked their favourite sport.",
         ),
         cats=("Soccer", "Netball", "Cricket", "Tennis", "Swimming", "Hockey", "Rugby"),
     ),
@@ -76,9 +76,9 @@ _CONTEXTS = [
         one="day",
         verb="were",
         leads=(
-            "A class wrote down the weather every school day for a term.",
-            "The weather was recorded each day for one term.",
-            "Each day the weather was noted on a class chart.",
+            "A class recorded the weather.",
+            "Each day's weather was recorded.",
+            "Weather was noted daily.",
         ),
         cats=("Sunny", "Cloudy", "Rainy", "Windy", "Foggy", "Stormy", "Hot"),
     ),
@@ -88,9 +88,9 @@ _SYMBOLS = ("circle", "square", "triangle", "star", "heart", "diamond")
 
 _EASY_ASK = (
     "How many {unit} {verb} {c}?",
-    "Use the graph to find how many {unit} {verb} {c}.",
+    "Use the graph: how many {unit} {verb} {c}?",
     "Read the graph. How many {unit} {verb} {c}?",
-    "According to the graph, how many {unit} {verb} {c}?",
+    "From the graph, how many {unit} {verb} {c}?",
 )
 _MORE_ASK = (
     "How many more {unit} {verb} {a} than {b}?",
@@ -104,19 +104,18 @@ _FEWER_ASK = (
 _TOTAL_ASK = (
     "How many {unit} are there altogether?",
     "Find the total number of {unit} on the graph.",
-    "What is the total number of {unit} shown in the graph?",
+    "How many {unit} are there in total?",
     "How many {unit} are shown in total?",
 )
 _EXTREME_ASK = (
-    "How many more {unit} are in the most popular group than in the least popular group?",
-    "Find the difference between the most popular and the least popular group.",
-    "What is the difference between the biggest group and the smallest group?",
-    "How many more {unit} are in the most popular group than the least popular group?",
+    "Find the difference between the biggest group and smallest.",
+    "What is the biggest group minus the smallest?",
+    "Find the biggest group minus the smallest group.",
 )
 _INVERSE_ASK = (
-    "A new group, {c}, is added to the graph. {n} {unit} are in it. How many symbols are needed to show the {c} group?",
-    "Another group, {c}, has {n} {unit}. How many whole symbols would show the {c} group on this graph?",
-    "A new row for {c} is drawn with the same key. It has {n} {unit}. How many symbols does the row need?",
+    "{c} has {n} {unit}. How many symbols is that?",
+    "A new row, {c}, has {n} {unit}. How many symbols?",
+    "Another group, {c}, has {n} {unit}. How many symbols?",
 )
 
 

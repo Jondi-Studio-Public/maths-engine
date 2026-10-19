@@ -1,0 +1,79 @@
+id: circle-tangent-at-a-point
+name: Find the tangent to a circle at a point
+domain: quadratics
+year_level:
+- '10'
+- '11'
+description: Use the perpendicular radius to find the gradient of the tangent to a circle at a point, then the intercepts
+  of the tangent with the axes.
+status: active
+placement_eligible: false
+prerequisites:
+- circle-equation-centre-radius-form
+- gradient-from-graph
+answer: number
+sources:
+- topic: w5_circle_tangent
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w5_circle_tangent
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w5_circle_tangent
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w5_circle_tangent
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w5c-gradient-inverted
+  description: Inverts the gradient, running across over up instead of up over across.
+- id: w5c-gradient-sign-flipped
+  description: Gives the gradient with its sign reversed.
+- id: w5c-gradient-from-origin
+  description: Finds the gradient from the origin to the point instead of from the centre.
+- id: w5c-gradient-with-centre-sign-flipped
+  description: Finds the gradient from the centre with its signs reversed.
+- id: w5c-tangent-parallel-to-radius
+  description: Gives the gradient of the radius as the gradient of the tangent.
+- id: w5c-intercept-is-the-y-coordinate
+  description: Gives the y-coordinate of the point of contact as the y-intercept of the tangent.
+- id: w5c-intercept-with-radius-gradient
+  description: Finds the intercept using the gradient of the radius instead of the tangent.
+- id: w5c-intercept-sign-error
+  description: Makes a sign error when finding where the tangent meets the axis.
+- id: w5c-intercept-is-the-x-coordinate
+  description: Gives the x-coordinate of the point of contact as the x-intercept of the tangent.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the gradient of the radius from the centre to a point on the circle.
+  medium:
+    steps: 3
+    demand: Take the negative reciprocal of the radius gradient to get the gradient of the tangent.
+  hard:
+    steps: 5
+    demand: Write the tangent in point-gradient form and find where it meets the y-axis or the x-axis.
+  exam:
+    steps: 6
+    demand: Chain the radius gradient, the tangent gradient and both intercepts, each following through from the one before.
+tags:
+- circles
+- tangents
+- coordinate-geometry
+- nsw-extension-1
+- vce-methods

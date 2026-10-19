@@ -9,6 +9,7 @@ table)."""
 import math
 import re
 from fractions import Fraction
+from functools import cache
 
 from sympy import Symbol, symbols, expand, latex, Rational, solve, Eq, Poly, pi, simplify, sympify, together
 
@@ -26,6 +27,7 @@ from ..core import (
     symbolically_equal,
     phrase,
     paren_negative,
+    ordinal,
 )
 
 x = symbols("x")
@@ -128,21 +130,115 @@ def read_expression(rng):
 
 @generator("define_variable", level=5)
 def define_variable(rng):
+    # Each option is about the same length, so the length of an option says nothing about which is the key.
     contexts = [
         (
             "A cinema ticket costs $14. You want to represent the number of tickets bought.",
-            "Let t be the number of tickets bought.",
-            ["Let t be $14.", "Let tickets be the total cost.", "Let t be the cinema."],
+            "Let t be the tickets bought.",
+            [
+                "Let t be the fixed price of $14 for one ticket.",
+                "Let tickets be the total cost spent.",
+                "Let t be the cinema we go to.",
+            ],
         ),
         (
             "A tank contains some litres of water and loses 5 litres each hour.",
             "Let w be the starting litres of water.",
-            ["Let w be 5 hours.", "Let w be the tank.", "Let 5 be the unknown water."],
+            [
+                "Let w be the 5 litres lost each hour.",
+                "Let w be the tank holding the water.",
+                "Let 5 be the unknown water amount.",
+            ],
         ),
         (
             "A rectangle has an unknown width and a known length of 8 cm.",
             "Let w be the width in centimetres.",
-            ["Let w be 8 cm.", "Let w be the rectangle.", "Let length be the unknown width."],
+            [
+                "Let w be the known length of 8 cm.",
+                "Let w be the whole rectangle drawn.",
+                "Let length be the unknown width here.",
+            ],
+        ),
+        (
+            "A taxi charges $3 to start plus a cost for each kilometre travelled. The number of kilometres is not known yet.",
+            "Let k be the kilometres travelled.",
+            [
+                "Let k be the fixed $3 charge to start the trip.",
+                "Let k be the total cost of the whole taxi trip.",
+                "Let 3 be the unknown kilometres.",
+            ],
+        ),
+        (
+            "Mia saves $20 each week. You want to represent how many weeks she has been saving.",
+            "Let n be the weeks Mia has saved.",
+            [
+                "Let n be the $20 that Mia saves every week.",
+                "Let n be the total money Mia has saved so far.",
+                "Let 20 be the unknown weeks saved.",
+            ],
+        ),
+        (
+            "A bakery sells muffins for $4 each. You want to represent the total money it takes in.",
+            "Let T be the total takings in dollars.",
+            [
+                "Let T be the $4 price of one single muffin.",
+                "Let T be the number of muffins that were sold.",
+                "Let muffins be the total money.",
+            ],
+        ),
+        (
+            "A car travels at a steady 60 km/h. You want to represent the time it has been driving.",
+            "Let t be the time spent driving, in hours.",
+            [
+                "Let t be the steady speed of 60.",
+                "Let t be the distance the car goes.",
+                "Let 60 be the unknown driving time.",
+            ],
+        ),
+        (
+            "A pool holds 500 litres and is being filled. You want to represent the litres in it after some minutes.",
+            "Let V be the litres in the pool then.",
+            [
+                "Let V be the 500 litres it can hold.",
+                "Let V be the minutes spent filling it.",
+                "Let litres be the unknown minutes.",
+            ],
+        ),
+        (
+            "A phone plan costs $30 a month. You want to represent the cost of a whole year of the plan.",
+            "Let C be the yearly cost in dollars.",
+            [
+                "Let C be the $30 charged to the phone each month.",
+                "Let C be the number of months that are paid.",
+                "Let 12 be the unknown yearly cost.",
+            ],
+        ),
+        (
+            "A garden bed is 3 m long, and its width is unknown. You want to represent the width.",
+            "Let w be the bed width in metres.",
+            [
+                "Let w be the known 3 m of length.",
+                "Let w be the garden bed itself.",
+                "Let length be the unknown bed width.",
+            ],
+        ),
+        (
+            "A class has 24 students and some of them are away. You want to represent the number away.",
+            "Let a be the number of students who are away.",
+            [
+                "Let a be the 24 students who are in class.",
+                "Let a be the students who are here.",
+                "Let 24 be the unknown number away.",
+            ],
+        ),
+        (
+            "Sam is 5 years older than Jo. You want to represent how old Jo is.",
+            "Let j be Jo's age in years right now.",
+            [
+                "Let j be the 5 years by which Sam is older.",
+                "Let j be the age that Sam is now.",
+                "Let 5 be the unknown age of Jo.",
+            ],
         ),
     ]
     situation, answer, distractors = rng.choice(contexts)
@@ -894,7 +990,7 @@ def sequence(rng, kind="common_diff", hi=9, n_terms=4):
     # used (n-2); quoted d*n alone.
     cands = [a1 + d * n, a1 + d * (n - 2), d * n]
     return dict(
-        text=f"A sequence follows a_x = {rule}. Find the {n}th term.",
+        text=f"A sequence follows a_x = {rule}. Find the {ordinal(n)} term.",
         latex=latex(rule),
         answer=int(ans),
         answer_text=str(ans),
@@ -1221,12 +1317,15 @@ def _rearrange_formula(entry):
     )
 
 
-_REARRANGE_FORMULAS = [_rearrange_formula(e) for e in _REARRANGE_BANK]
-_REARRANGE_HARD = [_rearrange_formula(e) for e in _REARRANGE_HARD_BANK]
-# One (formula, target) pair per row, so a seed draws uniformly over every question the tier can ask.
-_REARRANGE_EASY = [(f, t) for f in _REARRANGE_FORMULAS for t, n in f["steps"].items() if n == 1]
-_REARRANGE_MEDIUM = [(f, t) for f in _REARRANGE_FORMULAS for t, n in f["steps"].items() if n == 2]
-_REARRANGE_HARD_POOL = [(f, t) for f in _REARRANGE_HARD for t in f["steps"]]
+@cache
+def _rearrange_pools():
+    formulas = [_rearrange_formula(e) for e in _REARRANGE_BANK]
+    hard = [_rearrange_formula(e) for e in _REARRANGE_HARD_BANK]
+    # One (formula, target) pair per row, so a seed draws uniformly over every question the tier can ask.
+    easy = [(f, t) for f in formulas for t, n in f["steps"].items() if n == 1]
+    medium = [(f, t) for f in formulas for t, n in f["steps"].items() if n == 2]
+    hard_pool = [(f, t) for f in hard for t in f["steps"]]
+    return easy, medium, hard_pool
 
 
 _REARRANGE_SOLVED: dict = {}
@@ -1267,9 +1366,9 @@ def _rearrange_solved(text, target_name, lhs, rhs, target):
 )
 def rearrange(rng, n_steps=1, hard=False):
     if hard:
-        formula, target_name = rng.choice(_REARRANGE_HARD_POOL)
+        formula, target_name = rng.choice(_rearrange_pools()[2])
     else:
-        formula, target_name = rng.choice(_REARRANGE_EASY if n_steps == 1 else _REARRANGE_MEDIUM)
+        formula, target_name = rng.choice(_rearrange_pools()[0] if n_steps == 1 else _rearrange_pools()[1])
     target = formula["symbols"][target_name]
     lhs, rhs = formula["lhs"], formula["rhs"]
     ans_expr, ans_str, ans_latex, cands = _rearrange_solved(formula["text"], target_name, lhs, rhs, target)

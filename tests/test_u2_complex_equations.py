@@ -95,7 +95,9 @@ def test_hard_keys():
             lhs = re.sub(r"(?<=[\d)])i", "*I", lhs.replace("z²", "z**2"))
             lhs = re.sub(r"(?<![\w*])i(?=z|\b)", "I", lhs)
             expr = parse_expr(
-                lhs, local_dict={"z": zz}, transformations=standard_transformations + (implicit_multiplication_application,)
+                lhs,
+                local_dict={"z": zz},
+                transformations=standard_transformations + (implicit_multiplication_application,),
             )
             roots = sympy.solve(expr - int(rhs), zz)
             assert len(roots) == 2 and z in roots

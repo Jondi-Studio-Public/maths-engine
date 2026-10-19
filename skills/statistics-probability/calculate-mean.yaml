@@ -3,15 +3,76 @@ name: Calculate the arithmetic mean
 domain: statistics-probability
 description: Calculate the arithmetic mean of a small whole-number data set.
 status: active
-prerequisites: [whole-number-division-facts]
+prerequisites:
+- whole-number-division-facts
 answer: number
 sources:
 - topic: summary_statistic
-  params: {kind: mean}
+  params:
+    kind: mean
   difficulty: easy
+- topic: w3_mean_tiers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_mean_tiers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: exam_mean_summary_statistic
   params: {}
   difficulty: exam
-  stages: [exam]
-misconceptions: [{id: forgets-divide, description: Reports the total without dividing by the number of observations.}]
-tags: [expansion-batch-3, statistics]
+  stages:
+  - exam
+misconceptions:
+- id: forgets-divide
+  description: Reports the total without dividing by the number of observations.
+- id: w3mn-known-mean
+  description: Gives the mean of the known values as the missing value.
+- id: w3mn-total-needed
+  description: Gives the total needed where the last score was asked.
+- id: w3mn-weights-swapped
+  description: Weights each mean by the other group's size.
+- id: w3mn-new-value-left-out
+  description: Leaves the new number out of the total.
+- id: w3mn-divides-by-wrong-count
+  description: Divides the total by the wrong number of values.
+- id: w3mn-freq-unweighted
+  description: Averages the scores without using the frequencies.
+- id: w3mn-freq-divides-by-rows
+  description: Divides the weighted total by the number of rows in the table.
+- id: w3mn-freq-sums-frequencies
+  description: Gives the total of the frequencies as the mean.
+- id: w3mn-mean-of-means
+  description: Averages the two group means without weighting them by group size.
+- id: w3mn-missing-is-mean
+  description: Gives the target mean as the missing value.
+- id: w3mn-missing-no-total
+  description: Subtracts the known values from the mean without multiplying the mean by the number of values.
+- id: w3mn-missing-wrong-count
+  description: Multiplies the target mean by one value too few when finding the missing total.
+- id: w3mn-new-value-averaged
+  description: Averages the old mean with the new value.
+- id: w3mn-new-count-forgotten
+  description: Divides the new total by the old number of values.
+tags:
+- expansion-batch-3
+- statistics
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the mean of a short list of whole numbers.
+  medium:
+    steps: 3
+    demand: Find the mean of decimal data or of a frequency table.
+  hard:
+    steps: 5
+    demand: Find the value that gives a target mean, a combined mean, or the mean after one more value.
+  exam:
+    steps: 7
+    demand: Chain means with other summary statistics.

@@ -25,6 +25,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_scale_plan_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: ignores-the-scale
   description: Draws the real lengths in cells, using 1 cell for each metre (or 1 cell for each stated unit), so the plan is too large by the scale factor.
@@ -39,3 +43,16 @@ misconceptions:
 - id: wrong-corner-or-notch
   description: Cuts the missing part from the wrong corner, or with its width and height swapped.
 tags: [acara-senior-v8-4, measurement, grid_scale_plan, acmem112, scale-drawings, drawn-answer]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Shade a rectangular plan from real lengths in metres and a scale such as 1 cm : 2 m."
+  medium:
+    steps: 3
+    demand: "Shade an L-shaped plan from real lengths and a scale, with the missing corner placed as described."
+  hard:
+    steps: 4
+    demand: "Convert a ratio scale such as 1 : 200 or 1 cm : 50 cm and shade the plan in any orientation."
+  exam:
+    steps: 5
+    demand: "Work out the cells across and up for an L-shaped room at a stated scale, the cells the plan covers and the distance round it. The shade form is not set in the exam tier."

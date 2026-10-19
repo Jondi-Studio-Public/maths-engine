@@ -49,8 +49,25 @@ TOPIC = "pv1c_period"
 _ALT = "the graph of a sine curve on a coordinate grid"
 
 # k = period / pi.  x_grid denominators must be among those the renderer reduces (1,2,3,4,6,8,12).
-_K_EASY = (F(1, 3), F(1, 2), F(2, 3), F(1), F(4, 3), F(2), F(3), F(4))
-_N_HARD = (1, 2, 3, 4, 6, 8)  # b = n, k = 2/n
+_K_EASY = (
+    F(1, 3),
+    F(1, 2),
+    F(2, 3),
+    F(3, 4),
+    F(1),
+    F(5, 4),
+    F(4, 3),
+    F(3, 2),
+    F(5, 3),
+    F(2),
+    F(5, 2),
+    F(8, 3),
+    F(3),
+    F(7, 2),
+    F(4),
+    F(5),
+)
+_N_HARD = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15)  # b = n, k = 2/n
 _K_EXAM = (F(4), F(6), F(8), F(10), F(12), F(14))
 
 #: probability that the drawn curve falls first (b < 0), hard and exam only
@@ -178,8 +195,9 @@ def _draw_spec(rng, variant: str) -> Spec:
     if variant == "count_cycles":
         n = rng.choice(_N_HARD)
         k = F(2, n)
-        grid = F(1, 2 * n) if n <= 6 else F(1, n)  # n = 8: zeros-only gridlines (1/16 is not a tick)
-        return Spec(variant, k, sign, F(0), F(2), grid, k / 32 if n <= 6 else k / 16, F(n) * sign)
+        grid = F(1, 2 * n) if n <= 6 else F(1, n)  # n > 6: zeros-only gridlines (1/(2n) is not a tick)
+        step = k / 32 if n <= 6 else (k / 16 if n <= 12 else k / 8)  # the quarter period stays an exact sample
+        return Spec(variant, k, sign, F(0), F(2), grid, step, F(n) * sign)
     if variant == "partial_cycle":
         k = rng.choice(_K_EXAM)
         return Spec(variant, k, sign, F(0), F(4), F(1, 2), F(1, 32), F(2) / k * sign)
@@ -215,7 +233,7 @@ def read_period(question) -> str:
     ext = [x for x, y in pts if abs(y) > 1 - 1e-9 and x > z0]
     check(bool(ext), f"{TOPIC} reader: no extremum on the curve")
     quarter = ext[0] - z0
-    k = F(4 * quarter).limit_denominator(12)
+    k = F(4 * quarter).limit_denominator(30)
     check(abs(float(k) - 4 * quarter) < 1e-4, f"{TOPIC} reader: quarter period is not a clean fraction")
     # every consecutive pair of zeros is half a period apart
     for a, b in zip(zeros, zeros[1:]):

@@ -1,33 +1,27 @@
 id: limit-degree-comparison
 name: Degree-mismatch limits
 domain: limits
-description: Evaluate a limit at infinity when numerator and denominator have different degrees.
+description: "Evaluate limits at infinity and minus infinity by comparing degrees: fractions with different degrees, sums with a mismatched term, factored and square-root forms, and the powers that decide whether a limit is 0 or infinite."
 status: active
 prerequisites:
 - limit-at-infinity
 answer: expression
 sources:
-- topic: limits
-  params:
-    kinds:
-    - degree_comparison
+- topic: w6_limit_degree
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: limits
-  params:
-    kinds:
-    - degree_comparison
+- topic: w6_limit_degree
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: limits
-  params:
-    kinds:
-    - degree_comparison
+- topic: w6_limit_degree
+  params: {}
   difficulty: hard
   stages:
   - 5
@@ -44,4 +38,25 @@ misconceptions:
   description: Applying the leading-coefficient ratio when the degrees differ.
 - id: wrong-infinite-sign
   description: Getting the sign of an infinite limit wrong.
+- id: w6-limit-direction-sign-ignored
+  description: Giving the sign of the limit as x tends to plus infinity when x tends to minus infinity.
+- id: w6-limit-root-of-x-squared-taken-as-x
+  description: Taking the square root of x squared as x, not |x|.
+- id: w6-limit-factors-counted-not-degrees
+  description: Counting the factors instead of adding their degrees.
+- id: w6-limit-equal-degree-allowed
+  description: Allowing a power equal to the denominator's degree when the limit is to be 0 or infinite.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Compare the degrees of one fraction to decide between 0, infinity and minus infinity, or find the largest or smallest power that gives 0 or an infinite limit.
+  medium:
+    steps: 3
+    demand: Combine a mismatched fraction with an equal-degree fraction in a sum, or take x to minus infinity where an odd difference of degrees flips the sign.
+  hard:
+    steps: 4
+    demand: Read the degree and leading coefficient from factored form, or from a square root where the degree halves and the root of x squared is |x|.
+  exam:
+    steps: 5
+    demand: 'Chain three parts on one factored quotient: the growth exponent, the constant it settles to, and the sign of the limit as x tends to minus infinity.'
 tags: []

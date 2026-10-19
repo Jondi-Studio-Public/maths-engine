@@ -128,6 +128,16 @@ _COUNT_ASK = (
     "Use the dot plot to find how many {subj} {has}.",
     "Count the dots: how many {subj} {has}?",
 )
+_TALLEST_ASK = (
+    "How many {subj} are in the tallest stack of dots?",
+    "Find the number of dots in the tallest stack.",
+    "How many dots are in the highest stack?",
+)
+_ABOVE_MEAN_ASK = (
+    "How many {subj} are above the mean of the data?",
+    "Work out the mean, then count how many values are above it.",
+    "How many of the data values are greater than the mean?",
+)
 _MODE_ASK = (
     "What is the mode of the data?",
     "Find the mode of the data shown.",
@@ -182,7 +192,7 @@ def _data(rng, ctx, tier):
     used = ticks[start : start + span]
     n_lo, n_hi = {"easy": (12, 20), "medium": (14, 22), "hard": (13, 25)}[tier]
     for _ in attempts(2000, "dot plot data"):
-        counts = {v: rng.randint(0, 7) for v in used}
+        counts = {v: rng.randint(0, 9 if tier == "easy" else 7) for v in used}
         counts[used[0]] = max(counts[used[0]], 1)
         counts[used[-1]] = max(counts[used[-1]], 1)
         n = sum(counts.values())
@@ -221,11 +231,11 @@ def _draw(rng, tier):
     lead = _pick(rng, ctx["leads"])
     step = ctx["step"]
     if tier == "hard":
-        variant = _pick(rng, ("median", "mean"))
+        variant = _pick(rng, ("median", "mean", "abovemean"))
     elif tier == "medium":
-        variant = _pick(rng, ("mode", "range", "more", "total"))
+        variant = _pick(rng, ("mode", "range", "more", "total", "fewer"))
     else:
-        variant = "count"
+        variant = _pick(rng, ("count", "count", "tallest"))
     for _ in attempts(500, "a dot plot of the right kind"):
         counts = _data(rng, ctx, tier)
         vals = _sorted_values(counts)
@@ -243,7 +253,7 @@ def _draw(rng, tier):
                 continue
             if n % 2 == 0 and vals[n // 2 - 1] == vals[n // 2] and rng.random() < 0.5:
                 continue  # prefer a genuinely averaged median half the time
-        if variant == "mean":
+        if variant in ("mean", "abovemean"):
             total = sum(vals)
             if total % n or len(set(vals)) < 5 or modes == [Fraction(total, n)]:
                 continue
@@ -258,6 +268,40 @@ def _draw(rng, tier):
         nb = [counts.get(v + d, 0) for d in (-step, step)]
         cand = [*nb, v, key + 1, key - 1, sum(1 for x in vals if x >= v)]
         working = [f"The stack above {_fmt(v)} has {key} {noun(key, 'dot')}."]
+    elif variant == "tallest":
+        key = top
+        ask = phrase(rng, _TALLEST_ASK, subj=ctx["subj"])
+        cand = [modes[0], len(used), n, top + 1, top - 1, min(counts[u] for u in used)]
+        working = [f"The tallest stack is above {_fmt(modes[0])} and has {top} {noun(top, 'dot')}."]
+    elif variant == "fewer":
+        v = _pick(rng, [u for u in used if min(used) < u < max(used)])
+        key = sum(1 for x in vals if x < v)
+        ask = phrase(rng, _MORE_ASK, subj=ctx["subj"], has=_valphrase(ctx, v, "fewer than "))
+        cand = [
+            sum(1 for x in vals if x <= v),
+            sum(1 for x in vals if x > v),
+            sum(x for x in vals if x < v),
+            key + 1,
+            key - 1,
+        ]
+        working = [f"Dots to the left of {_fmt(v)}: {key}."]
+    elif variant == "abovemean":
+        mean = Fraction(total, n)
+        key = sum(1 for x in vals if x > mean)
+        ask = phrase(rng, _ABOVE_MEAN_ASK, subj=ctx["subj"])
+        cand = [
+            sum(1 for x in vals if x >= mean),
+            sum(1 for x in vals if x < mean),
+            mean,
+            sum(1 for x in vals if x > _median(vals)),
+            sum(1 for x in used if x > mean),
+            key + 1,
+            key - 1,
+        ]
+        working = [
+            f"Sum of all values = {total}; there are {n} values, so the mean is {total} / {n} = {_fmt(mean)}.",
+            f"Values above {_fmt(mean)}: {key}.",
+        ]
     elif variant == "mode":
         key = modes[0]
         ask = phrase(rng, _MODE_ASK)
@@ -344,6 +388,14 @@ def _read(question) -> str:
     counts = {d["at"]: d["count"] for d in fig["dots"]}
     vals = _sorted_values(counts)
     low = text.lower()
+    if "tallest stack" in low or "highest stack" in low:
+        return _fmt(max(counts.values()))
+    if "mean" in low and ("above" in low or "greater" in low):
+        mean = Fraction(sum(vals), len(vals))
+        return _fmt(sum(1 for x in vals if x > mean))
+    if "fewer than" in low:
+        v = Fraction(re.findall(r"\d+", text)[-1])
+        return _fmt(sum(1 for x in vals if x < v))
     if "mode" in low:
         top = max(counts.values())
         winners = [v for v, c in counts.items() if c == top]

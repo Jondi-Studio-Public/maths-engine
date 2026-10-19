@@ -30,6 +30,27 @@ TURN_VALUES = {
 }
 
 
+_SUBJECTS = ("A shape", "A spinner", "A turntable", "A robot", "A windmill sail", "A toy car")
+# The closing question, by what is asked: one turn, two turns in total, or the second of two turns.
+_ASKS = (
+    {
+        "single": "How many right angles is this turn equal to?",
+        "total": "In total, how many right angles has it turned through?",
+        "second": "How many right angles did the second turn add?",
+    },
+    {
+        "single": "How many right angles is that?",
+        "total": "How many right angles is that altogether?",
+        "second": "How many right angles was the second turn?",
+    },
+    {
+        "single": "What is the turn in right angles?",
+        "total": "What is the total turn in right angles?",
+        "second": "What was the second turn in right angles?",
+    },
+)
+
+
 @generator(
     "angle_turn_right_reference",
     level=1,
@@ -39,7 +60,7 @@ TURN_VALUES = {
         "hard": dict(num_turns=2, inverse=True),
     },
 )
-def angle_turn_right_reference(rng, num_turns=1, inverse=False):
+def angle_turn_right_reference(rng, num_turns=1, inverse=False, varied=False):
     """Express a stated everyday turn as a number of right angles.
 
     - easy: sample one turn, report its right-angle count directly.
@@ -47,6 +68,10 @@ def angle_turn_right_reference(rng, num_turns=1, inverse=False):
     - hard: inverse -- sample label1 and a total T such that T - value(label1)
       is a valid turn value in {1,2,3,4}, then ask for the second turn's
       contribution to T.
+
+    ``varied=True`` tells the same question about a spinner, a dancer or a robot (and words the last
+    sentence three ways) so a tier holds dozens of different prompts; the numbers and the working are
+    unchanged. It draws from ``rng`` only after the original draws, so ``varied=False`` is byte-identical.
     """
     turn_labels = list(TURN_VALUES.keys())
 
@@ -80,6 +105,14 @@ def angle_turn_right_reference(rng, num_turns=1, inverse=False):
         label = rng.choice(turn_labels)
         answer = TURN_VALUES[label]
         text = f"A shape makes a {label}. How many right angles is this turn equal to?"
+
+    if varied:
+        # Same numbers and answer, told about a different mover and asked a different way.
+        subject = rng.choice(_SUBJECTS)
+        ask = rng.choice(_ASKS)
+        lead = text.rpartition(". ")[0].replace("A shape", subject, 1) + ". "
+        tail = "total" if num_turns == 2 and not inverse else "second" if inverse else "single"
+        text = lead + ask[tail]
 
     # Helper: extract Fraction for a turn label (check three-quarter first to avoid
     # matching "quarter" inside "three-quarter")
@@ -225,6 +258,42 @@ def shape_features_classification(rng, mode="forward_sides"):
     - medium: forward side-count lookup for one shape from {triangle, square, pentagon, hexagon, octagon}
     - hard: inverse -- given a count from {3, 5, 6, 8}, name the shape from {triangle, pentagon, hexagon, octagon}
     """
+
+    if mode == "which_curved_straight":
+        # Easy, four options: pick the one shape that has a curved side, or the one with only straight sides.
+        curved = ["circle", "oval", "semicircle"]
+        straight = ["triangle", "square", "pentagon", "hexagon", "octagon"]
+        want_curved = rng.random() < 0.5
+        answer = rng.choice(curved if want_curved else straight)
+        wrong = rng.sample(straight if want_curved else curved, 3)
+        # Second route: a shape has a curved side exactly when it is not a polygon with a side count.
+        polygon_sides = {"triangle": 3, "square": 4, "pentagon": 5, "hexagon": 6, "octagon": 8}
+        check(
+            (answer in polygon_sides) != want_curved and all((w in polygon_sides) == want_curved for w in wrong),
+            "curved/straight key or distractor wrong",
+        )
+        text = rng.choice(
+            (
+                "Which of these shapes has a curved side?",
+                "Which one of these shapes has a curved edge?",
+                "Which of these shapes is not made only of straight lines?",
+            )
+            if want_curved
+            else (
+                "Which of these shapes has only straight sides?",
+                "Which one of these shapes has no curved edge?",
+                "Which of these shapes is made only of straight lines?",
+            )
+        )
+        return dict(
+            text=text,
+            latex=f"plain:{text}",
+            answer=answer,
+            answer_text=answer,
+            answer_latex=latex_answer(answer, plain=True),
+            working=[f"{answer.capitalize()} {'has a curved side' if want_curved else 'has only straight sides'}."],
+            distractors=pick_distractors(answer, wrong, n=3),
+        )
 
     if mode == "curved_straight":
         # Easy: curved-vs-straight binary

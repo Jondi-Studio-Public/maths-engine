@@ -1,0 +1,114 @@
+id: supply-demand-equilibrium
+name: Supply and demand equilibrium
+domain: linear-relations
+year_level:
+- '10'
+- '11'
+description: Use linear demand and supply rules to find the quantity at a price, the shortage or surplus, the equilibrium
+  price and quantity, and the effect of a tax on sellers.
+status: active
+placement_eligible: false
+prerequisites:
+- two-step-equations
+answer: number
+sources:
+- topic: w3_supply_demand
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_supply_demand
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_supply_demand
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_supply_demand
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sd-sign-of-slope
+  description: Adds the price term to the demand intercept instead of subtracting it.
+- id: sd-uses-other-line
+  description: Substitutes the price into the other line (supply for demand or demand for supply).
+- id: sd-forgets-intercept
+  description: Leaves the intercept out and multiplies the price by the slope only.
+- id: sd-adds-lines
+  description: Adds the quantity demanded and the quantity supplied instead of finding their difference.
+- id: sd-ignores-price-terms
+  description: Subtracts the intercepts and ignores the price terms when finding the shortage or surplus.
+- id: sd-gives-demand-for-gap
+  description: Gives the quantity demanded where the shortage or surplus was asked.
+- id: sd-gives-supply-for-gap
+  description: Gives the quantity supplied where the shortage or surplus was asked.
+- id: sd-price-for-quantity
+  description: Gives the price where the quantity was asked.
+- id: sd-adds-intercepts
+  description: Adds the intercepts instead of subtracting them when setting demand equal to supply.
+- id: sd-subtracts-slopes
+  description: Subtracts the slopes instead of adding them when collecting the price terms.
+- id: sd-divides-by-one-slope
+  description: Divides by one slope only when solving for the price.
+- id: sd-average-intercepts
+  description: Takes the average of the two intercepts as the equilibrium quantity.
+- id: sd-quantity-for-price
+  description: Gives the quantity where the price was asked.
+- id: sd-wrong-line-quantity
+  description: Finds the quantity from an incorrect equilibrium price.
+- id: sd-price-plus-quantity
+  description: Adds the price and the quantity instead of multiplying them for the revenue.
+- id: sd-revenue-quantity-only
+  description: Gives the quantity where the revenue was asked.
+- id: sd-revenue-price-only
+  description: Gives the price where the revenue was asked.
+- id: sd-slope-from-one-point
+  description: Uses a quantity as the slope instead of the change in quantity for a change in price.
+- id: sd-slope-inverted
+  description: Divides the change in price by the change in quantity for the slope.
+- id: sd-tax-subtracted-from-quantity
+  description: Subtracts the tax from the quantity instead of the price in the supply line.
+- id: sd-tax-added-to-price
+  description: Adds the tax to the price in the supply line instead of subtracting it.
+- id: sd-tax-ignored
+  description: Ignores the tax and gives the original equilibrium quantity.
+- id: sd-tax-price-for-quantity
+  description: Gives the new equilibrium price where the quantity was asked.
+- id: sd-surplus-as-price
+  description: Divides the surplus by the sum of the slopes and gives that as the price.
+- id: sd-surplus-shortage-price
+  description: Subtracts the extra price needed for the surplus instead of adding it.
+- id: sd-surplus-equilibrium
+  description: Gives the equilibrium price where the price for a surplus was asked.
+- id: sd-surplus-one-slope
+  description: Divides the surplus by one slope only to find the extra price.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Substitute a price into a demand or supply rule, or both, and compare.
+  medium:
+    steps: 3
+    demand: Set demand equal to supply and solve for the price, then the quantity or the revenue.
+  hard:
+    steps: 5
+    demand: Build both rules from data points, shift the supply rule for a tax and re-solve, or find the price giving a stated
+      surplus.
+  exam:
+    steps: 6
+    demand: Chain quantity demanded, the shortage at a price, the equilibrium price and the equilibrium quantity.
+tags:
+- linear-models
+- supply-demand
+- nsw-standard
+- vce-general

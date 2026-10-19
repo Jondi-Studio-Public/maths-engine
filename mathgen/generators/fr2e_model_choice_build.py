@@ -258,6 +258,9 @@ def classify(ys) -> str:
     return passes[0]
 
 
+_MODEL_NAMES = {"lin": "linear", "quad": "quadratic", "exp": "exponential"}
+
+
 def _times(q: Fraction) -> str:
     if q == Fraction(1, 2):
         return "half the one before"
@@ -504,7 +507,7 @@ def _hard(rng):
         wrong_text,
         1,
         [
-            f"The model is {_MODEL_WORD[classify(ys)]} (checked using differences per row of {step} in x).",
+            f"The model is {_MODEL_NAMES[classify(ys)]} (checked using differences per row of {step} in x).",
             f"Rule: y = {rule_text(model.rule)}.",
             f"At x = {N}, y = {target}.",
         ],

@@ -23,6 +23,7 @@ from itertools import combinations
 
 from ..core import attempts, check, draw_until, generator, phrase
 from ._w6a_kit import enough, num_dist, num_fields, part, retry_draw
+from ._network_fig import with_network_figure
 
 TOPIC = "w7a_network_cut"
 EXAM_TOPIC = "exd_x_w7a_network_cut"
@@ -509,6 +510,7 @@ _HARD = (_hard_maxflow, _hard_widen)
     level=19,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@with_network_figure
 def w7a_network_cut(rng, tier="easy"):
     """Cut capacity, minimum cuts and maximum flow in a described network; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
@@ -521,6 +523,7 @@ def w7a_network_cut(rng, tier="easy"):
 
 
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
+@with_network_figure
 def exd_x_w7a_network_cut(rng, tier="exam"):
     """Exam chain: capacity of two stated cuts (one with a return link), the maximum flow, the source capacity left unused."""
     if not (tier == "exam"):

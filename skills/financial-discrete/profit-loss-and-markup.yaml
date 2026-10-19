@@ -1,0 +1,121 @@
+id: profit-loss-and-markup
+name: Profit, loss and mark-up
+domain: financial-discrete
+year_level:
+- '8'
+- '9'
+description: Find a profit or loss, a selling price after a mark-up, a percentage profit or loss on cost, and work back from
+  a selling price, including a mark-up followed by a discount.
+status: active
+placement_eligible: false
+prerequisites:
+- percentage-of-quantity
+answer: number
+sources:
+- topic: w3_profit_markup
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_profit_markup
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_profit_markup
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_profit_markup
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: pm-adds-cost-and-price
+  description: Adds the cost and the selling price instead of finding their difference.
+- id: pm-gives-selling-price
+  description: Gives the selling price where the profit or loss was asked.
+- id: pm-gives-cost
+  description: Gives the cost price where the profit or loss was asked.
+- id: pm-percent-for-dollars
+  description: Gives the profit as a percentage where the amount in dollars was asked.
+- id: pm-markup-only
+  description: Gives the mark-up in dollars where the selling price was asked.
+- id: pm-adds-percent-as-dollars
+  description: Adds the percentage to the cost as if it were a number of dollars.
+- id: pm-takes-off
+  description: Takes the percentage off the cost instead of adding it.
+- id: pm-rate-not-converted
+  description: Multiplies the cost by the percentage without dividing by 100.
+- id: pm-profit-on-selling-price
+  description: Finds the profit as a percentage of the selling price instead of the cost.
+- id: pm-forgets-subtraction
+  description: Divides the selling price by the cost and gives that as the percentage profit, forgetting to subtract 100%.
+- id: pm-dollars-for-percent
+  description: Gives the profit in dollars where a percentage was asked.
+- id: pm-loss-on-selling-price
+  description: Finds the loss as a percentage of the selling price instead of the cost.
+- id: pm-ratio-inverted
+  description: Divides the cost price by the selling price.
+- id: pm-over-average
+  description: Divides the profit or loss by the average of the cost and the selling price.
+- id: pm-per-item-only
+  description: Gives the profit on one item where the profit on the whole batch was asked.
+- id: pm-revenue-for-profit
+  description: Gives the money taken from the sale of the batch where the profit was asked.
+- id: pm-total-cost-for-profit
+  description: Gives the total cost of the batch where the profit was asked.
+- id: pm-percent-off-price
+  description: Takes the mark-up percentage off the selling price to find the cost.
+- id: pm-cost-adds-markup
+  description: Adds the mark-up percentage of the selling price to the selling price to find the cost.
+- id: pm-cost-from-markup-dollars
+  description: Divides the selling price by the mark-up percentage.
+- id: pm-markup-for-margin
+  description: Gives the mark-up on cost where the profit as a percentage of the selling price was asked.
+- id: pm-margin-over-cost
+  description: Divides the profit by the cost when the profit as a percentage of the selling price was asked.
+- id: pm-margin-dollars
+  description: Gives the profit in dollars where the percentage of the selling price was asked.
+- id: pm-percentages-added
+  description: Adds the mark-up and subtracts the discount as percentages of the cost (for example +40% then -25% is +15%).
+- id: pm-discount-ignored
+  description: Ignores the discount and gives the profit at the marked-up price.
+- id: pm-discount-only
+  description: Gives the discount in dollars where the profit was asked.
+- id: pm-cost-from-loss-wrong
+  description: Adds the loss percentage to the selling price to find the cost.
+- id: pm-profit-on-loss-price
+  description: Adds the profit percentage to the reduced selling price instead of to the cost.
+- id: pm-price-for-cost
+  description: Gives the cost price where the new selling price was asked.
+- id: pm-margin-price
+  description: Adds the margin percentage to the cost to find the selling price, instead of dividing the cost by what is left.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Subtract cost from selling price, or add a percentage of the cost to it.
+  medium:
+    steps: 3
+    demand: Express a profit or loss as a percentage of the cost, or find the profit on a whole batch.
+  hard:
+    steps: 4
+    demand: Work back from a price that includes a mark-up, compare a profit with the selling price rather than the cost,
+      chain a mark-up with a discount, or turn a stated loss into a stated profit.
+  exam:
+    steps: 6
+    demand: Chain the marked price, the sale price, the profit and the profit as a percentage of the cost.
+tags:
+- financial
+- profit-loss
+- mark-up
+- acara-y8
+- acara-y9

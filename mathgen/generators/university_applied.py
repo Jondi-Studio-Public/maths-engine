@@ -28,6 +28,34 @@ def _fraction_payload(value: Fraction) -> tuple[dict, str]:
     return {"p": value.numerator, "q": value.denominator}, text
 
 
+def _probability_options(answer: Fraction, values: list, den: int) -> list[str]:
+    """Distractor texts for a probability answer: every one a value in [0, 1], none equal to ``answer``.
+
+    ``values`` are the misconception values in priority order; anything outside [0, 1] is dropped
+    (a learner eliminates an impossible probability at sight). The tail is topped up with the
+    complement and one-step nudges of the answer, so the option count survives the drop.
+    """
+    nudges = [
+        1 - answer,
+        answer + Fraction(1, den),
+        answer - Fraction(1, den),
+        answer / 2,
+        (1 + answer) / 2,
+        answer + Fraction(2, den),
+        answer - Fraction(2, den),
+        Fraction(1, den),
+        Fraction(den - 1, den),
+        Fraction(1, 2),
+    ]
+    out: list[str] = []
+    for v in [*values, *nudges]:
+        v = Fraction(v)
+        text = _fraction_payload(v)[1]
+        if 0 <= v <= 1 and v != answer and text not in out:
+            out.append(text)
+    return out
+
+
 def _pair_payload(x: Fraction, y: Fraction) -> tuple[dict, str]:
     x, y = Fraction(x), Fraction(y)
 
@@ -244,14 +272,17 @@ def markov_two_state_step(rng, denominator_hi=9, kind=None):
         check(Fraction(0) <= step_one <= Fraction(1), "Markov probability outside [0,1]")
         answer = initial
         payload, answer_text = _fraction_payload(answer)
-        alternatives = [
-            _fraction_payload(step_one)[1],
-            _fraction_payload(p)[1],
-            _fraction_payload(1 - q)[1],
-            _fraction_payload((step_one - (1 - q)) / (p - (1 - q)) if p != (1 - q) else step_one)[1],
-            _fraction_payload(answer / 2)[1],
-            _fraction_payload(answer + 1)[1],
-        ]
+        alternatives = _probability_options(
+            answer,
+            [
+                step_one,
+                p,
+                1 - q,
+                (step_one - (1 - q)) / (p - (1 - q)) if p != (1 - q) else step_one,
+                answer / 2,
+            ],
+            den,
+        )
         return dict(
             text=(f"A two-state chain has P(0→1)={p}, P(1→0)={q}, and P(X₁=1)={step_one}. Find P(X₀=1)."),
             latex=rf"P(X_0=1),\quad P(0\to1)={p},\;P(1\to0)={q},\;P(X_1=1)={step_one}",
@@ -271,14 +302,7 @@ def markov_two_state_step(rng, denominator_hi=9, kind=None):
     check(row_sum == 1 and answer == independent, "Markov one-step transition mismatch")
     check(Fraction(0) <= answer <= Fraction(1), "Markov probability outside [0,1]")
     payload, answer_text = _fraction_payload(answer)
-    alternatives = [
-        _fraction_payload(p)[1],
-        _fraction_payload(1 - q)[1],
-        _fraction_payload(initial)[1],
-        _fraction_payload((1 - initial) * p + initial * q)[1],
-        _fraction_payload(answer / 2)[1],
-        _fraction_payload(answer + 1)[1],
-    ]
+    alternatives = _probability_options(answer, [p, 1 - q, initial, (1 - initial) * p + initial * q, answer / 2], den)
     return dict(
         text=(f"A two-state chain has P(0→1)={p}, P(1→0)={q}, and P(X₀=1)={initial}. Find P(X₁=1)."),
         latex=rf"P(X_1=1),\quad P(0\to1)={p},\;P(1\to0)={q},\;P(X_0=1)={initial}",
@@ -320,14 +344,7 @@ def markov_two_state_stationary(rng, denominator_hi=9, kind=None):
         derived_q = pi_zero * p / pi_one
         check(derived_q == q, "stationary backward-solve recovery mismatch")
         payload, answer_text = _fraction_payload(q)
-        alternatives = [
-            _fraction_payload(p)[1],
-            _fraction_payload(pi_one)[1],
-            _fraction_payload(1 - pi_one)[1],
-            _fraction_payload(pi_zero)[1],
-            _fraction_payload(q / 2)[1],
-            _fraction_payload(q + 1)[1],
-        ]
+        alternatives = _probability_options(q, [p, pi_one, 1 - pi_one, pi_zero, q / 2], den)
         return dict(
             text=(f"For P(0→1)={p} and a stationary probability of state 1 equal to {pi_one}, find P(1→0)."),
             latex=rf"\pi P=\pi,\quad P(0\to1)={p},\;\pi_1={pi_one};\quad\text{{find }}P(1\to0)",
@@ -341,16 +358,9 @@ def markov_two_state_stationary(rng, denominator_hi=9, kind=None):
             distractors=pick_distractors(answer_text, alternatives),
         )
     payload, answer_text = _fraction_payload(pi_one)
-    alternatives = [
-        _fraction_payload(q / (p + q))[1],
-        _fraction_payload(p / (1 - q + p))[1],
-        _fraction_payload(p)[1],
-        _fraction_payload(1 - pi_one)[1],
-        _fraction_payload(pi_one / 2)[1],
-        _fraction_payload(p / (p + q + 1))[1],
-        _fraction_payload(pi_one + 1)[1],
-        _fraction_payload(pi_one - 1)[1],
-    ]
+    alternatives = _probability_options(
+        pi_one, [q / (p + q), p / (1 - q + p), p, 1 - pi_one, pi_one / 2, p / (p + q + 1)], den
+    )
     return dict(
         text=f"For P(0→1)={p} and P(1→0)={q}, find the stationary probability of state 1.",
         latex=rf"\pi P=\pi,\quad P=\begin{{pmatrix}}1-{p}&{p}\\{q}&1-{q}\end{{pmatrix}}",

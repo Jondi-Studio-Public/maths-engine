@@ -571,6 +571,8 @@ _G = {
     "-f(x)": lambda v, av: -v,
     "f(|x|)": lambda v, av: av,
     "1/f(x)": lambda v, av: 1 / v if v else None,
+    "-|f(x)|": lambda v, av: -av,
+    "f(-x)": lambda v, av: v,  # (read from f at -x; see _which_g)
 }
 _OPTIONS = tuple(f"g(x) = {name}" for name in _G)
 
@@ -594,6 +596,8 @@ def _g_curve(name: str, fn):
         "-f(x)": lambda x: -fn(x),
         "f(|x|)": lambda x: fn(abs(x)),
         "1/f(x)": lambda x: 1 / fn(x),
+        "-|f(x)|": lambda x: -abs(fn(x)),
+        "f(-x)": lambda x: fn(-x),
     }[name]
     return sample(g, label="g")
 
@@ -609,6 +613,8 @@ def _which_g(f_map, g_map) -> str:
             fv = f_map[x]
             if name == "f(|x|)":
                 want = f_map[abs(x)] if abs(x) in f_map else None
+            elif name == "f(-x)":
+                want = f_map[-x] if -x in f_map else None
             else:
                 want = tf(fv, abs(fv))
             if want is not None:
@@ -642,7 +648,11 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
         raise ValueError(f"unknown tier {tier!r}")
     scale = rng.choice(_SCALE)
     if tier in ("easy", "medium"):
-        name = rng.choice(("|f(x)|", "-f(x)") if tier == "easy" else ("f(|x|)", "|f(x)|", "1/f(x)"))
+        name = rng.choice(
+            ("|f(x)|", "-f(x)", "-|f(x)|", "f(-x)")
+            if tier == "easy"
+            else ("f(|x|)", "|f(x)|", "1/f(x)", "f(-x)", "-|f(x)|")
+        )
         for _ in attempts(300, "a function f whose transformation is unambiguous"):
             fn, desc = _f_family(rng, rng.choice(("line", "quad")))
             if _distinct_forms(fn):
@@ -667,7 +677,7 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
                 )
             )
         key = f"g(x) = {name}"
-        distractors = mcq(key, [o for o in _OPTIONS if o != key])
+        distractors = mcq(key, [o for o in _OPTIONS if o != key], count=4)
         working = {
             "|f(x)|": ["Every part of f below the x-axis is reflected above it; the rest is unchanged."],
             "-f(x)": ["Every point of f is reflected in the x-axis: above becomes below and below becomes above."],
@@ -675,6 +685,10 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
                 "The part of f with x >= 0 is kept and reflected in the y-axis, so g is symmetric about the y-axis."
             ],
             "1/f(x)": ["g has a vertical asymptote at each zero of f, and is positive where f is positive."],
+            "-|f(x)|": ["Every part of f above the x-axis is reflected below it, so g is never positive."],
+            "f(-x)": [
+                "Every point of f is reflected in the y-axis: the graph of g is the mirror image of f left to right."
+            ],
         }[name] + [f"So {key}."]
         figures.assert_no_leak(fig, [key])
         return dict(

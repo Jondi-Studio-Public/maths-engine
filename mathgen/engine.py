@@ -10,6 +10,9 @@
     print(engine.grade(skill, q, "6√21").correct)   # True
     print(engine.grade(skill, q, "2√3").correct)    # False
 
+A service that grades replies from people it does not trust should call `grade_with_deadline` instead: same
+arguments, but a reply that takes the grader longer than a time limit is graded wrong rather than hanging the call.
+
 A question has a stable identity. `question_id(skill, source, seed, q)` is `<skill id>/<source key>/<seed>/<hash>`,
 where the source key is the source's optional `key` (default: its `difficulty` label) and the hash covers the
 question's content (`content_hash`). `make_with_id` builds a question and its id together, and `regenerate(id,
@@ -103,6 +106,15 @@ def grade(skill: Skill, question, given: str | dict) -> GradeResult:
     options '3', '2', '1', '4' is the option '2', not index 2. Send an index as an int. A `table` reply is the
     blanks as JSON text or as a dict keyed "row,column"."""
     return _grade_kind(skill.answer, question, given, skill=skill)
+
+
+def grade_with_deadline(skill: Skill, question, given: str, *, timeout: float | None = None) -> GradeResult:
+    """`grade`, in a worker process that is stopped after `timeout` seconds (2 by default); a reply that runs out of
+    time is graded wrong. Use this for replies from people you do not trust: see `mathgen.grading.deadline`."""
+    from .grading import deadline
+
+    limit = deadline.DEFAULT_TIMEOUT if timeout is None else timeout
+    return deadline.grade_with_deadline(skill.answer, question, given, skill=skill, timeout=limit)
 
 
 def content_hash(question) -> str:

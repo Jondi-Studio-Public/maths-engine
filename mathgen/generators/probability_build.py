@@ -121,22 +121,26 @@ def finite_sample_space_probability(rng, space_size=8, pool_hi=14, event_type="m
     answer_text = rational_text(prob)
     outcomes_str = ", ".join(map(str, outcomes))
 
-    # Misconception distractors, all genuine probabilities (strictly between 0 and 1):
+    # Misconception distractors, in priority order. Every one is a probability strictly between 0
+    # and 1: an option above 1 (the count, total/favourable) is eliminated at sight, so none is offered.
     #  - complement: reports (total - favourable)/total instead of favourable/total
-    #  - favourable-over-other: favourable/(total - favourable), the other way up when that would exceed 1
-    #  - off-by-one counts and a count that includes one extra outcome in the total
-    fav, total = len(favourable), len(outcomes)
-    other_count = total - fav
-    ratio = Fraction(fav, other_count)
-    candidates = [
-        Fraction(other_count, total),
-        ratio if ratio < 1 else Fraction(other_count, fav),
-        Fraction(fav + 1, total),
-        Fraction(fav - 1, total) if fav > 1 else Fraction(fav, total + 1),
-        Fraction(fav, total + 1),
-        Fraction(fav, total - 1),
+    #  - favourable-over-other: favourable/(total - favourable), the simple-event-probability slip
+    #    (only when it stays below 1)
+    #  - miscounts: one favourable outcome too many or too few, over the right total
+    #  - total-off-by-one: favourable over a total that is one out
+    n_fav, n_all = len(favourable), len(outcomes)
+    other_count = n_all - n_fav
+    values = [
+        Fraction(other_count, n_all),
+        Fraction(n_fav, other_count),
+        Fraction(n_fav + 1, n_all),
+        Fraction(n_fav - 1, n_all),
+        Fraction(n_fav, n_all + 1),
+        Fraction(n_fav, n_all - 1),
+        Fraction(n_fav + 2, n_all),
+        Fraction(n_fav - 2, n_all),
     ]
-    candidates = [rational_text(c) for c in candidates if 0 < c < 1]
+    candidates = [rational_text(v) for v in values if 0 < v < 1 and v != prob]
 
     return dict(
         text=(

@@ -4,7 +4,6 @@ from sympy import (
     symbols,
     Function,
     diff,
-    integrate,
     limit,
     latex,
     expand,
@@ -13,7 +12,6 @@ from sympy import (
     cos,
     oo,
     Rational,
-    dsolve,
     checkodesol,
     solve,
     Piecewise,
@@ -23,6 +21,7 @@ from sympy import (
 )
 
 from ..answers import Distractor
+from ..calc_cache import dsolve, integrate
 from ..core import (
     generator,
     check,

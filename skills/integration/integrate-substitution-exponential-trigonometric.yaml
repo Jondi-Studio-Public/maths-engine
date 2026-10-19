@@ -1,0 +1,109 @@
+id: integrate-substitution-exponential-trigonometric
+name: Integrate by substitution with exponential and trigonometric functions
+domain: integration
+year_level:
+- '12'
+description: 'Integrate by substitution where u is an exponential or trigonometric function: e^x and sin, cos and tan composites,
+  a leftover e^x written in u, and the even and odd powers of secant, sine and cosine beyond the squares.'
+status: active
+placement_eligible: false
+prerequisites:
+- integration-by-substitution
+- integrate-exponential-linear-argument
+- integrate-trig
+answer: expression
+sources:
+- topic: w6_subst_exp_trig
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6_subst_exp_trig
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6_subst_exp_trig
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6_subst_exp_trig
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w6-subst-power-not-divided
+  description: Raises the exponent but does not divide by the new exponent.
+- id: w6-subst-leftover-x-kept
+  description: Integrates the bracket as a power of u but leaves the outside factor of x (or of the exponential) in place,
+    as if it were a constant.
+- id: w6-subst-exponent-not-raised
+  description: 'Divides by the exponent but does not raise it: writes u to the n over n, not u to the n plus one over n
+    plus one.'
+- id: w6-subst-inner-derivative-divided
+  description: Divides by the inner function instead of recognising it as the derivative that cancels with du.
+- id: w6-subst-negative-exponent-sign
+  description: 'Gives the wrong sign when integrating a negative power of u: divides by n minus one instead of by one minus
+    n.'
+- id: w6-subst-log-for-power
+  description: Gives a logarithm for the integral of a power of u other than u to the minus one.
+- id: w6-subst-sign-of-du-wrong
+  description: Gives the integral the wrong overall sign.
+- id: w6-subst-minus-from-du-dropped
+  description: Forgets the minus sign in du when the derivative of the inner function is negative, such as u = cos x.
+- id: w6-subst-wrong-inner-function
+  description: Substitutes a different inner function from the one in the integrand, such as u equals the root alone, not
+    one plus the root.
+- id: w6-subst-x-replaced-by-u
+  description: Replaces the leftover x by u instead of by u minus the constant added in the substitution.
+- id: w6-subst-shift-sign-wrong
+  description: Writes x as u plus a where u equals x plus a, so the constant has the wrong sign inside the rewritten integrand.
+- id: w6-subst-exponent-denominator-mismatch
+  description: Divides each term by the same new exponent instead of by its own new exponent after integrating the powers
+    of u.
+- id: w6-subst-du-factor-forgotten
+  description: Forgets to divide by the factor in du, such as 2x dx or bx dx, and so leaves the answer too large.
+- id: w6-subst-du-factor-doubled
+  description: Multiplies by the factor in du instead of dividing by it, so the result has the factor squared or doubled.
+- id: w6-subst-power-rule-on-trig
+  description: Applies the power rule to the trigonometric function as if it were the variable.
+- id: w6-subst-identity-term-dropped
+  description: Drops one term of the identity, for example integrating only u to the n or only the first term of 1 plus
+    u squared.
+- id: w6-subst-identity-sign
+  description: Uses a plus where the identity needs a minus, or the reverse, when rewriting the power of the trigonometric
+    function in terms of u.
+- id: w6-subst-square-binomial-expanded-wrong
+  description: Expands the square of a binomial as the difference of two squares, leaving out the middle term.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Recognise the derivative of the inner function (e^x, cos x, sin x or sec^2 x) as the factor du and integrate
+      a power or an exponential of u.
+  medium:
+    steps: 4
+    demand: Rewrite the leftover e^x as u - a for e^(2x), or divide by 2 for du = 2 sin x cos x dx, before integrating.
+  hard:
+    steps: 5
+    demand: 'Choose the substitution unprompted for even and odd powers beyond the squares: sec^4, sec^6, sec^4 tan^n, sin^3/cos^4,
+      cos^3/sin^2 and e^(3x)/(e^x + a)^4.'
+  exam:
+    steps: 6
+    demand: Chain the new upper limit, the integrand in u and the exact value of a definite integral with u = tan x or u
+      = e^x + a.
+tags:
+- senior
+- integration
+- substitution
+- exponential
+- trigonometric
+- specialist-unit-4
+- extension-2

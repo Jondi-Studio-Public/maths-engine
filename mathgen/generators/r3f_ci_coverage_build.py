@@ -368,10 +368,7 @@ def _exam(rng: random.Random) -> dict:
         f"random samples of size {n} and from each builds a 95% confidence interval for μ, using the critical value 1.96 "
         f"and σ. The intervals are: {_table_text(rows)}."
     )
-    key = (
-        f"About 5% of such intervals miss μ in the long run, so about {count // 20} of {count} is expected, and a count of "
-        f"{miss} is not by itself a sign of a fault."
-    )
+    key = f"About 5% of such intervals miss μ, so about {count // 20} of {count} is expected and a count of {miss} is no sign of a fault."
     parts = [
         number_part(
             "Find the margin of error of each interval, correct to 2 decimal places.",
@@ -426,15 +423,15 @@ def _exam(rng: random.Random) -> dict:
             ],
             [
                 (
-                    f"Exactly {count // 20} of the {count} intervals must miss μ, so a count of {miss} shows the method has failed.",
+                    f"Exactly {count // 20} of the {count} intervals must miss μ, so a count of {miss} proves that the method has failed.",
                     "r3f-ci-coverage-treated-as-exact",
                 ),
                 (
-                    "Each interval has a 95% chance of containing the sample mean, so none should miss μ.",
+                    "Each interval has a 95% chance of containing the sample mean, so none of them should ever miss μ at all.",
                     "r3f-ci-confused-with-sample-mean",
                 ),
                 (
-                    "A 95% interval contains 95% of the individual values in the population, so the count tells us nothing.",
+                    "A 95% interval holds 95% of the individual values in the population, so the count means nothing at all.",
                     "r3f-ci-confused-with-data-spread",
                 ),
             ],

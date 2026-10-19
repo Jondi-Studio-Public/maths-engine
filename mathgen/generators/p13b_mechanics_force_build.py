@@ -62,6 +62,7 @@ Skill B: senior-consider-constant-and-non-constant-force
 from __future__ import annotations
 
 from fractions import Fraction
+from functools import cache
 from math import gcd
 
 from sympy import Derivative, Function, Rational, solve, symbols
@@ -71,13 +72,20 @@ from ..core import check, check_equivalent, generator, latex_answer, paren_negat
 x_sym, v_sym, k_sym, m_sym, u_sym = symbols("x v k m u")
 mA_sym, mB_sym, vA_sym, vB_sym, vf_sym = symbols("mA mB vA vB vf")
 
+
 # Solved ONCE at import time, symbolically, so each question only substitutes
 # numbers into an already-solved expression (`scripts/check_generator_speed.py`
 # flags a per-question `sympy.solve` call over 15ms median -- both exam tiers
 # hit that with a fresh solve() per draw; solving once here keeps the
 # independent-check route identical while making it cheap per question).
-_A_EXAM_SOLUTION = solve(mA_sym * vA_sym + mB_sym * vB_sym - (mA_sym + mB_sym) * vf_sym, vf_sym)[0]
-_B_EXAM_SOLUTIONS = solve(v_sym**2 - u_sym**2 - (k_sym / m_sym) * x_sym**2, x_sym)
+@cache
+def _a_exam_solution():
+    return solve(mA_sym * vA_sym + mB_sym * vB_sym - (mA_sym + mB_sym) * vf_sym, vf_sym)[0]
+
+
+@cache
+def _b_exam_solutions():
+    return solve(v_sym**2 - u_sym**2 - (k_sym / m_sym) * x_sym**2, x_sym)
 
 
 # =====================================================================
@@ -303,7 +311,7 @@ def p13b_momentum_force_reaction(rng, tier="easy"):
 
         # Independent check: sympy.solve of mA*vA + mB*vB - (mA+mB)*v == 0,
         # independent of the arithmetic route above.
-        solved_val = _A_EXAM_SOLUTION.subs({mA_sym: mA, mB_sym: mB, vA_sym: vA, vB_sym: vB})
+        solved_val = _a_exam_solution().subs({mA_sym: mA, mB_sym: mB, vA_sym: vA, vB_sym: vB})
         check_equivalent(solved_val, v_final, f"exam conservation mismatch: mA={mA}, mB={mB}, vA={vA}, vB={vB}")
 
         answer = v_final
@@ -579,7 +587,7 @@ def p13b_constant_nonconstant_force(rng, tier="easy"):
         # Independent check: sympy.solve on
         # v_target**2 - u**2 - (k/m)*x**2 == 0, a separate symbolic route.
         subs = {u_sym: u, k_sym: k, m_sym: m, v_sym: v_target}
-        candidates_solved = [s.subs(subs) for s in _B_EXAM_SOLUTIONS]
+        candidates_solved = [s.subs(subs) for s in _b_exam_solutions()]
         positive_solutions = [s for s in candidates_solved if s.is_positive]
         check(len(positive_solutions) == 1, f"exam: expected exactly one positive root, got {positive_solutions}")
         check_equivalent(positive_solutions[0], answer, f"exam x mismatch: u={u}, k={k}, m={m}, v_target={v_target}")

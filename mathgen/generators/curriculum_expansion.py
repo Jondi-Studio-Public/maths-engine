@@ -19,6 +19,7 @@ from ..core import (
 from ..figure_kinds import space
 from . import _space_kit as kit
 from .primary_math import _aligned
+from ._network_fig import with_network_figure
 
 
 def _number(text, answer, candidates, *, latex=None, working=None, aligned=False, places=None):
@@ -677,6 +678,7 @@ def moving_average(rng, window=3):
 
 
 @generator("shortest_path", level=11)
+@with_network_figure
 def shortest_path(rng):
     ab, bd, ac, cd, bc = (rng.randint(2, 12) for _ in range(5))
     routes = {"A-B-D": ab + bd, "A-C-D": ac + cd, "A-B-C-D": ab + bc + cd, "A-C-B-D": ac + bc + bd}

@@ -59,8 +59,8 @@ def test_skill_is_active_behind_the_figure_gate(skill_id):
     assert skill.needs_figure is True and skill.capability_gates == ["figure_stimulus"]
     assert skill.placement_eligible is False
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
-    assert [s.difficulty for s in skill.sources] == TIERS
-    assert {s.topic for s in skill.sources} == {SKILLS[skill_id]}
+    assert [s.difficulty for s in skill.sources if s.topic == SKILLS[skill_id]] == TIERS
+    assert SKILLS[skill_id] in {s.topic for s in skill.sources}
     assert len(skill.misconceptions) >= 4
     framework = "acara-f10-v9" if skill_id.startswith("f10-") else "acara-senior-v8-4"
     assert framework in skill.tags and any(re.fullmatch(r"ac(m|9m)\w+", t) for t in skill.tags)

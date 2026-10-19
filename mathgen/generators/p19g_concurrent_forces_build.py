@@ -71,6 +71,8 @@ of the above.
 
 from __future__ import annotations
 
+from functools import cache
+
 import cmath
 import math
 from fractions import Fraction
@@ -436,7 +438,12 @@ def _build_hard(rng):
 # for a per-question `sympy` check (`scripts/check_generator_speed.py` flags
 # a fresh `solve()` call per draw).
 _A_sym, _sinA_sym, _sinB_sym, _Ry_sym, _X_sym = symbols("A sinA sinB Ry X")
-_EXAM_X_SOLUTION = solve(Eq(_A_sym * _sinA_sym + _X_sym * _sinB_sym, _Ry_sym), _X_sym)[0]
+
+
+@cache
+def _exam_x_solution():
+    return solve(Eq(_A_sym * _sinA_sym + _X_sym * _sinB_sym, _Ry_sym), _X_sym)[0]
+
 
 _EXAM_PATTERNS = (
     "Two forces act at the same point on a body. The first, {A} N, acts at "
@@ -480,7 +487,7 @@ def _build_exam(rng):
         # Independent re-derivation of X: the pre-solved symbolic expression,
         # substituted -- a genuinely different route from the plain-algebra
         # division line directly above.
-        solved_X = float(_EXAM_X_SOLUTION.subs({_A_sym: A, _sinA_sym: sinA, _sinB_sym: sinB, _Ry_sym: Ry}))
+        solved_X = float(_exam_x_solution().subs({_A_sym: A, _sinA_sym: sinA, _sinB_sym: sinB, _Ry_sym: Ry}))
         check(abs(solved_X - X) < 1e-6, f"exam: X mismatch, {solved_X} vs {X}")
 
         cosA, cosB = math.cos(math.radians(thA)), math.cos(math.radians(thB))

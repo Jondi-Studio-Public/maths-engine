@@ -31,6 +31,8 @@ from itertools import combinations
 import sympy
 
 from ..core import attempts, check, generator, phrase
+from ..figure_kinds import network as net
+from ._network_fig import graph_figure
 from ._sr2a_kit import (
     LETTERS,
     edges_text,
@@ -78,10 +80,26 @@ def _ring_with_chords(rng, n: int, k: int):
     raise AssertionError  # pragma: no cover
 
 
-def _relabel(rng, n: int, edges):
+def _relabel(rng, n: int, edges, with_perm: bool = False):
     perm = list(range(n))
     rng.shuffle(perm)
-    return sorted(norm(perm[u], perm[v]) for u, v in edges)
+    out = sorted(norm(perm[u], perm[v]) for u, v in edges)
+    return (out, perm) if with_perm else out
+
+
+def _ring_figure(n: int, edges, perm, ctx):
+    """The ring with its chords drawn as a circle: the ring order is the original numbering, so no two edges cross."""
+    slots = net.circle_layout(n)
+    pos = [[0.0, 0.0]] * n
+    for i, p in enumerate(perm):
+        pos[p] = slots[i]
+    return graph_figure(
+        n,
+        edges,
+        positions=pos,
+        plane=True,
+        alt=f"A network of {n} {ctx['vs']} joined by {len(edges)} {ctx['es']}, drawn with no two {ctx['es']} crossing.",
+    )
 
 
 # -- easy -------------------------------------------------------------------------------------------------------
@@ -100,7 +118,7 @@ def _easy(rng):
         k = rng.randint(2, 5)
         n = rng.randint(max(7, k + 3), 9)
         ring, chords = _ring_with_chords(rng, n, k)
-        edges = _relabel(rng, n, ring + chords)
+        edges, perm = _relabel(rng, n, ring + chords, with_perm=True)
         e = len(edges)
         faces = k + 2
         # Second route: each chord splits one inside region in two, starting from one inside region and the outside.
@@ -118,7 +136,7 @@ def _easy(rng):
             f"There are {n} {ctx['vs']} and {e} {ctx['es']}.",
             f"Euler's formula v - e + f = 2 gives f = 2 - {n} + {e} = {faces}, and this count includes the outside region.",
         ]
-        q = single(text, faces, working, wrong, lo=1)
+        q = single(text, faces, working, wrong, lo=1, figure=_ring_figure(n, edges, perm, ctx))
         if q:
             return q
     raise AssertionError  # pragma: no cover

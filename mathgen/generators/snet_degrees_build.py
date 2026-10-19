@@ -34,6 +34,7 @@ from ._snet_kit import (
     pick_context,
     random_connected,
 )
+from ._network_fig import with_network_figure
 
 
 def _check_degrees(n, edges):
@@ -279,6 +280,7 @@ def _hard(rng):
     level=12,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@with_network_figure
 def snet_degrees(rng, tier="easy"):
     """Vertex degrees and the handshaking lemma; the tiers are described in the module docstring."""
     if tier == "easy":
@@ -299,6 +301,7 @@ _CHAIN_STEMS = (
 
 
 @generator("snet_degrees_chain", level=12, presets={"exam": dict(tier="exam")})
+@with_network_figure
 def snet_degrees_chain(rng, tier="exam"):
     """Exam chain: the degree sum, the missing degree, the odd vertices and the edges left after deleting a vertex."""
     check(tier == "exam", f"unknown tier {tier!r}")

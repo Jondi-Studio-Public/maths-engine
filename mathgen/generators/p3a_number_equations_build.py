@@ -356,6 +356,7 @@ def multiplication_division_inverse_unknown(rng, shape_choices=None):
 # Easy: exclude d=2 because k=1 forces denominator-inflation collision
 _EASY_DENOMS = {3, 4, 5}
 _MEDIUM_DENOMS = {2, 3, 4, 5, 10}
+_EASY_DENOMS_WIDE = (3, 4, 5, 6, 8, 10)  # for wide=True; the original easy set is {3, 4, 5}
 _HARD_DENOMS = {3, 4, 5, 10}  # Exclude 2; d >= 3 ensures n1+n2 < d is feasible
 
 
@@ -389,10 +390,11 @@ def _verify_fraction_complete_whole(d: int, n_total: int, answer: Fraction) -> N
         "hard": dict(shape="complete_two_parts"),
     },
 )
-def unit_fractions_combine_whole(rng, shape="multiple"):
-    """Represent and combine unit fractions to complete a whole."""
+def unit_fractions_combine_whole(rng, shape="multiple", wide=False):
+    """Represent and combine unit fractions to complete a whole. ``wide=True`` lets the easy shape use
+    sixths, eighths and tenths too (the default keeps the original draws)."""
     if shape == "multiple":
-        d = rng.choice(list(_EASY_DENOMS))
+        d = rng.choice(list(_EASY_DENOMS_WIDE if wide else _EASY_DENOMS))
         # k in 2..(d-1) -- exclude k=1 to avoid denominator-inflation collision
         # Since d >= 3 for easy, we have d-1 >= 2, so range is valid
         k = rng.randint(2, d - 1)

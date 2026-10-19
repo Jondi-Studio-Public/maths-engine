@@ -26,6 +26,7 @@ import re
 
 from .. import figures
 from ..core import attempts, check, generator, phrase, pick_distractors
+from .early_math import _balanced
 from ..figure_kinds.scene import (
     DISPLAY,
     FACTS,
@@ -76,10 +77,12 @@ def _word(n: int, one: str, many: str) -> str:
     return one if n == 1 else many
 
 
-def _numeric_distractors(answer: int, cands, fig) -> list[str]:
-    out = [str(c) for c in cands if isinstance(c, int) and c > 0]
-    out += [str(answer + d) for d in (1, 2, 3)]  # last resort, so a question always has four distinct options
-    chosen = pick_distractors(str(answer), out, n=3)
+def _numeric_distractors(rng, answer: int, cands, fig, floor: int = 1) -> list[str]:
+    """Three wrong counts. The first named slip is always offered; the key's rank among the four options is
+    drawn at random so it is not predictably the second-smallest."""
+    named = [c for c in cands if isinstance(c, int) and c >= floor and c != answer]
+    pool = list(dict.fromkeys(named + [v for v in range(answer - 2, answer + 4) if v >= floor and v != answer]))
+    chosen = _balanced(rng, answer, pool, tuple(named), must=named[:1])
     check(len(chosen) == 3, "needs three distractors")
     figures.assert_no_leak(fig, [str(answer), *chosen])
     return chosen
@@ -194,7 +197,7 @@ def _recognise_count(rng):
     upright = sum(1 for i in items if i["shape"] == target and not i["turn"])
     other = {s: sum(1 for i in items if i["shape"] == s) for s in set(decoys)}
     cands = [k + 1, k - 1, len(items), upright if upright != k else k + 2, max(other.values()), k + 2]
-    distractors = _numeric_distractors(k, cands, fig)
+    distractors = _numeric_distractors(rng, k, cands, fig, floor=0)
     working = [f"There {_word(k, 'is 1', f'are {k}')} {target if k == 1 else PLURAL[target]}, turned or not."]
     return _result(text, str(k), distractors, working, fig)
 
@@ -311,7 +314,7 @@ def _classify_solid(rng):
         break
     text = rng.choice(_SOLID_TEXT if want_solid else _FLAT_TEXT)
     cands = [n_other, k + 1, k - 1, total, k + 2]
-    distractors = _numeric_distractors(k, cands, fig)
+    distractors = _numeric_distractors(rng, k, cands, fig)
     word = "solid" if want_solid else "flat"
     return _result(text, str(k), distractors, [f"{k} of the {total} shapes are {word}."], fig)
 
@@ -342,7 +345,7 @@ def _classify_sort(rng):
     # misconceptions: counts the squares only for 4 corners; counts the shapes that are not in the group
     square_only = sum(1 for i in items if i["shape"] == "square") if mode == "4 corners" else k + 2
     cands = [total - k, k + 1, k - 1, square_only, total]
-    distractors = _numeric_distractors(k, cands, fig)
+    distractors = _numeric_distractors(rng, k, cands, fig)
     return _result(text, str(k), distractors, [f"{k} of the {total} shapes: {mode}."], fig)
 
 
@@ -478,7 +481,7 @@ def _sides_count(rng):
     corners = rng.random() < 0.4
     text = rng.choice(_CORNERS_TEXT if corners else _SIDES_TEXT)
     cands = [4 if n != 4 else 3, n + 1, n - 1, n + 2, 3, 6]
-    distractors = _numeric_distractors(n, cands, fig)
+    distractors = _numeric_distractors(rng, n, cands, fig)
     word = "corners" if corners else "sides"
     return _result(text, str(n), distractors, [f"This shape has {n} {word}."], fig)
 
@@ -549,7 +552,7 @@ def _count_sides_scene(rng):
     one_kind = sum(1 for s in yes if s == first)
     upright = sum(1 for i in items if pred(i["shape"]) and not i["turn"])
     cands = [one_kind if one_kind != k else k + 2, k + 1, k - 1, upright if upright != k else k + 2, total - k]
-    distractors = _numeric_distractors(k, cands, fig)
+    distractors = _numeric_distractors(rng, k, cands, fig)
     return _result(text, str(k), distractors, [f"{k} of the {total} shapes match."], fig)
 
 

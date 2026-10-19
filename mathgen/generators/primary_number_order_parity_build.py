@@ -361,13 +361,17 @@ def _verify_chained_op(
         "hard": dict(ops=("+", "-", "*"), chained=True),
     },
 )
-def odd_even_properties(rng, ops=("+",), chained=False):
+def odd_even_properties(rng, ops=("+",), chained=False, choose=False, stem="easy"):
     """Given the stated parities of two (or, chained, three) operands and
     stated operation(s), predict whether the result is odd or even. No
     concrete numbers are ever shown to the learner -- only parity labels and
     operation names. See the module docstring for the difficulty
     rationale."""
     ops = tuple(ops)
+    if choose:  # four-option form: which of four combinations gives the odd (or even) result
+        from .w2_pick_the_one import parity_pick
+
+        return parity_pick(rng, ops, chained, stem)
     if not ops:
         raise ValueError("ops must be non-empty")
     unknown_ops = [op for op in ops if op not in _PARITY_TABLE]

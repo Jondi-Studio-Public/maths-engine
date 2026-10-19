@@ -34,6 +34,7 @@ from ._snet_kit import (
     pick_context,
     random_connected,
 )
+from ._network_fig import with_network_figure
 
 _ORDER = "with rows and columns in the order {order}"
 
@@ -300,6 +301,7 @@ def _matrix_distractors(rng, n, edges, rows):
 
 
 @generator("snet_adjacency_chain", level=12, presets={"exam": dict(tier="exam")})
+@with_network_figure
 def snet_adjacency_chain(rng, tier="exam"):
     """Exam chain on one network: its adjacency matrix, then the walks of length 2 from a vertex."""
     check(tier == "exam", f"unknown tier {tier!r}")

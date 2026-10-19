@@ -120,6 +120,9 @@ def labels(spec: dict) -> list[str]:
         for item in spec.get(group, ()):
             if item.get("label"):
                 out.append(item["label"])
+    canvas = spec.get("canvas")
+    if isinstance(canvas, dict) and isinstance(canvas.get("vertex_labels"), list):
+        out.extend(t for t in canvas["vertex_labels"] if isinstance(t, str))
     texts = _TEXTS.get(spec.get("kind"))
     if texts is not None:
         out.extend(t for t in texts(spec) if t)
@@ -217,6 +220,7 @@ def cartesian(
     y_label: str = "y",
     title: str = "",
     tick_labels: bool = True,
+    canvas: dict | None = None,
 ) -> dict:
     """A coordinate plane.
 
@@ -240,6 +244,8 @@ def cartesian(
       labels are written as reduced multiples of pi (``pi/2``, ``pi``,
       ``3pi/2``, a proper minus sign for negatives, ``0`` stays ``0``), for a
       trig graph whose generator samples ``f(pi * u)``.
+    - ``canvas``: how the learner answers by working on the graph (plotting points, drawing a line, shading a
+      region, ...); see :mod:`mathgen.figure_kinds.canvas`. Left out of the spec when ``None``.
     """
     x_grid = grid if x_grid is None else x_grid
     y_grid = grid if y_grid is None else y_grid
@@ -263,6 +269,8 @@ def cartesian(
     }
     if title:
         spec["title"] = title
+    if canvas is not None:
+        spec["canvas"] = dict(canvas)
     return check(spec)
 
 
@@ -325,6 +333,10 @@ def _validate_cartesian(spec: dict) -> list[str]:
             total += len(piece)
     if total > MAX_CURVE_POINTS * 4:
         problems.append(f"curves carry {total} points; sample fewer")
+    if "canvas" in spec:
+        from mathgen.figure_kinds.canvas import validate_canvas
+
+        problems.extend(validate_canvas(spec["canvas"], "plane"))
     return problems
 
 
@@ -340,12 +352,14 @@ def number_line(
     rays: Iterable[dict] = (),
     intervals: Iterable[dict] = (),
     tick_labels: bool = True,
+    canvas: dict | None = None,
 ) -> dict:
     """A number line.
 
     - ``marks``: ``{"at": x, "open"?: bool, "label"?: str}`` (a dot; open = hollow)
     - ``rays``: ``{"from": x, "direction": "left" | "right", "open"?: bool}``
     - ``intervals``: ``{"from": x, "to": x, "open_start"?: bool, "open_end"?: bool}``
+    - ``canvas``: how the learner answers by marking the line; see :mod:`mathgen.figure_kinds.canvas`.
     """
     spec = {
         "kind": "number_line",
@@ -357,6 +371,8 @@ def number_line(
         "rays": [dict(r) for r in rays],
         "intervals": [dict(iv) for iv in intervals],
     }
+    if canvas is not None:
+        spec["canvas"] = dict(canvas)
     return check(spec)
 
 
@@ -382,6 +398,10 @@ def _validate_number_line(spec: dict) -> list[str]:
         a, b = iv.get("from"), iv.get("to")
         if not (_is_num(a) and _is_num(b) and r[0] <= a < b <= r[1]):
             problems.append(f"intervals[{i}] must satisfy min <= from < to <= max")
+    if "canvas" in spec:
+        from mathgen.figure_kinds.canvas import validate_canvas
+
+        problems.extend(validate_canvas(spec["canvas"], "number_line"))
     return problems
 
 

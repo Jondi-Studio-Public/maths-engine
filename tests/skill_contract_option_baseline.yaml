@@ -1,0 +1,607 @@
+# Generated baseline data, do not hand-edit: python scripts/build_contract_floors.py
+# family: {skill: [topic/difficulty]}. The tiers with each option fault over the 60-seed sweep
+# (scripts/skill_contract.py, option_faults). Multiple-choice tiers only: option_count, not always the
+# same number of options, at least 4; answer_position, number options in one unit where the
+# answer is the lowest or highest in under 20% of draws or at one rank in over
+# 75%; filler_option, an option shown in over 90% of draws that is never
+# the answer. Every skill: probability, a probability offered a wrong option above 1 or below 0.
+# May only shrink.
+answer_position:
+  compare-tally-and-picture-displays:
+  - ey_compare_displays/hard
+  f10-choose-model-from-data:
+  - fr2e_choose_model/hard
+  f10-money-change-from-note:
+  - money_change_from_note/easy
+  - money_change_from_note/hard
+  - money_change_from_note/medium
+  f10-shape-sides-spatial-terms:
+  - ey_shape_sides/easy
+  f10-square-roots-perfect-squares:
+  - square_roots_perfect_squares/hard
+  fraction-decimal-percent:
+  - fraction_decimal_percent/medium
+  place-value-to-100:
+  - teen_place_value/easy
+  place-value-to-20:
+  - teen_place_value/easy
+  senior-eview-metric-units-of-mass-and-weight-their:
+  - review_metric_units_of_mass/hard
+  - review_metric_units_of_mass/medium
+  senior-graph-dilation-read-factor:
+  - ey_graph_dilation/medium
+  senior-latitude-longitude-grid-places:
+  - grid_latlong_places/hard
+  senior-use-ests-and-lsts-to-locate-the-critical:
+  - w3_ests_lsts/hard
+  tally-tables:
+  - ey_tally_tables/easy
+  uc2-quadric-surfaces-level-sets:
+  - w7c_quadric/hard
+filler_option:
+  angle-types:
+  - classify_angle/medium
+  - classify_angle_protractor/hard
+  - classify_angle_protractor/medium
+  autonomous-equilibrium-stability:
+  - autonomous_equilibrium_stability/easy
+  - autonomous_equilibrium_stability/hard
+  - autonomous_equilibrium_stability/medium
+  classify-real-numbers:
+  - classify_real_number/easy
+  compare-common-fractions:
+  - compare_common_fractions/hard
+  compare-lengths:
+  - compare_length_picture/medium
+  ey-compare-by-paper-clips:
+  - compare_by_paper_clips/medium
+  ey-compare-capacity-by-cups:
+  - compare_capacity_by_cups/easy
+  - compare_capacity_by_cups/medium
+  ey-compare-duration:
+  - compare_duration_picture/medium
+  ey-order-by-two-balances:
+  - order_by_two_balances/easy
+  - order_by_two_balances/medium
+  f10-chance-language-and-outcomes:
+  - chance_outcome_classify/easy
+  f10-compare-box-plots:
+  - stat5_box_plot_compare/easy
+  f10-fraction-compare-models:
+  - fraction_compare_models/medium
+  f10-money-compare-collections:
+  - money_compare_collections/hard
+  - money_compare_collections/medium
+  f10-nets-build-solids:
+  - fsp_nets/medium
+  f10-number-algorithm-choose-complete:
+  - fr2e_number_algorithm/medium
+  f10-position-location-language:
+  - p19a_position_language/easy
+  - p19a_position_language/medium
+  f10-prism-cross-sections:
+  - prism_cross_sections/easy
+  f10-quantify-compare-collections-to-20:
+  - quantify_compare_to_20/easy
+  f10-spatial-algorithm-choose-test:
+  - fr2e_spatial_algorithm/easy
+  - fr2e_spatial_algorithm/medium
+  f10-square-roots-perfect-squares:
+  - square_roots_perfect_squares/easy
+  graph-walks-trails-paths-cycles:
+  - snet_route_types/easy
+  logarithm-laws:
+  - logarithm_law/easy
+  propositional-formula-equivalence:
+  - propositional_formula_equivalence/medium
+  propositional-truth-evaluation:
+  - propositional_truth_value/easy
+  - propositional_truth_value/hard
+  - propositional_truth_value/medium
+  residual-plot-linear-model-check:
+  - smech_residual_plots/easy
+  - smech_residual_plots/medium
+  senior-describe-spread-from-a-dot-plot:
+  - ey_dot_plot_spread/easy
+  senior-determine-when-the-composition-of-two-functions-is:
+  - function_composition/easy
+  - function_composition/hard
+  - function_composition/medium
+  senior-distinguish-between-causality-and-correlation-through-examples:
+  - causality_correlation_classify/easy
+  - causality_correlation_classify/hard
+  - causality_correlation_classify/medium
+  senior-distinguish-between-interpolation-and-extrapolation-when-using-the:
+  - exd_x_s3_interp/exam
+  - interpolation_extrapolation_classify/easy
+  - interpolation_extrapolation_classify/hard
+  - interpolation_extrapolation_classify/medium
+  senior-examine-the-approximate-normality-of-the-distribution-of:
+  - p8c_normality_approx_phat/hard
+  senior-graph-reciprocal-abs-compare:
+  - ey_graph_reciprocal_abs/easy
+  - ey_graph_reciprocal_abs/medium
+  senior-identify-contexts-such-as-naturally-occurring-variation-that:
+  - p19d_variation_context/hard
+  - p19d_variation_context/medium
+  senior-review-probability-as-a-measure-of-the-likelihood:
+  - probability_likelihood_compare/easy
+  - probability_likelihood_compare/hard
+  senior-review-the-concepts-and-language-of-outcomes-sample:
+  - outcomes_sample_classify/easy
+  - outcomes_sample_classify/hard
+  - outcomes_sample_classify/medium
+  senior-review-the-conditions-for-similarity-of-two-dimensional:
+  - similarity_conditions_classify/easy
+  - similarity_conditions_classify/hard
+  - similarity_conditions_classify/medium
+  senior-simulated-samples-variability:
+  - ey_sample_variability/easy
+  - ey_sample_variability/medium
+  senior-suitable-converses-of-some-of-the-above-results:
+  - circle_theorem_converses_classify/easy
+  - circle_theorem_converses_classify/hard
+  - circle_theorem_converses_classify/medium
+  senior-use-examples-and-counter-examples:
+  - counterexample_identify/easy
+  - counterexample_identify/medium
+  senior-use-implication-converse-equivalence-negation-contrapositive:
+  - implication_transform_identify/hard
+  - implication_transform_identify/medium
+  senior-use-proof-by-contradiction:
+  - proof_by_contradiction_identify/hard
+  senior-use-the-quantifiers-for-all-and-there-exists:
+  - quantifier_forall_exists_evaluate/hard
+  senior-use-the-symbols-for-implication-rightarrow-equivalence-longleftrightarrow:
+  - implication_equivalence_symbol_classify/easy
+  - implication_equivalence_symbol_classify/medium
+  ucv1-dominated-convergence-check:
+  - p15d_dominated_convergence/easy
+  - p15d_dominated_convergence/hard
+  - p15d_dominated_convergence/medium
+  ucv1-finite-subgroup-test:
+  - p15a_finite_subgroup_test/easy
+  - p15a_finite_subgroup_test/hard
+  - p15a_finite_subgroup_test/medium
+  ucv1-fundamental-group-map:
+  - p15b_fundamental_group_map/easy
+  - p15b_fundamental_group_map/medium
+  ucv1-symmetry-conservation:
+  - p15c_symmetry_conservation/hard
+  - p15c_symmetry_conservation/medium
+option_count:
+  acquire-and-check-data:
+  - exd_x_w8_data_acquisition/exam
+  add-complex-numbers:
+  - complex_number/easy
+  - exd_x_r2e_complex_add/exam
+  arithmetic-sequences:
+  - exd_x_w5_arithmetic_sequences/exam
+  autonomous-equilibrium-stability:
+  - exd_x_sc1_harvested_equilibria/exam
+  check-solution-by-substitution:
+  - exd_x_w5_check_substitution/exam
+  choose-sampling-method:
+  - exd_x_ir2a_choose_sampling_method/exam
+  - ir2a_choose_sampling_method/easy
+  - ir2a_choose_sampling_method/hard
+  - ir2a_choose_sampling_method/medium
+  circle-point-position:
+  - exd_x_w5_circle_point_position/exam
+  classify-constant-coefficient-pde:
+  - constant_coefficient_pde_classification/easy
+  - constant_coefficient_pde_classification/hard
+  - constant_coefficient_pde_classification/medium
+  - exd_x_sc2_pde_parameter/exam
+  classify-data:
+  - exd_x_r3j_classify_variables/exam
+  - w3_classify_easy/easy
+  classify-polynomials:
+  - polynomial_classify/easy
+  - polynomial_classify/hard
+  - polynomial_classify/medium
+  classify-real-numbers:
+  - classify_real_number/easy
+  - exd_x_sc5_rational_count/exam
+  compare-common-fractions:
+  - compare_common_fractions/easy
+  - compare_common_fractions/hard
+  - compare_common_fractions/medium
+  compare-functions-representations:
+  - exd_x_w12c_compare_functions/exam
+  - fg1_compare_functions/easy
+  - fg1_compare_functions/hard
+  - fg1_compare_functions/medium
+  compare-lengths:
+  - compare_length_picture/easy
+  - compare_length_picture/hard
+  compare-linear-representations:
+  - exd_x_w12c_compare_linear/exam
+  - fg1_compare_linear/easy
+  - fg1_compare_linear/hard
+  - fg1_compare_linear/medium
+  compare-quantities-to-10:
+  - compare_quantities/easy
+  compare-tally-and-picture-displays:
+  - ey_compare_displays/easy
+  - ey_compare_displays/hard
+  - ey_compare_displays/medium
+  compare-unit-prices:
+  - exd_x_r3i_unit_price_saving/exam
+  - p14b_compare_unit_prices/easy
+  - p14b_compare_unit_prices/medium
+  complex-conjugate:
+  - complex_number/easy
+  - exd_x_r3b_complex_conjugate/exam
+  continue-patterns:
+  - ey_pattern_match/hard
+  convert-time-systems:
+  - exd_x_w12a_time_crossing_midnight_chain/exam
+  equation-from-graph:
+  - exd_x_w12b_equation_from_graph/exam
+  ey-compare-by-paper-clips:
+  - compare_by_paper_clips/easy
+  - compare_by_paper_clips/hard
+  ey-compare-capacity-by-cups:
+  - compare_capacity_by_cups/easy
+  ey-compare-duration:
+  - compare_duration_picture/easy
+  f10-add-subtract-number-sentences:
+  - add_sub_number_sentence/easy
+  - add_sub_number_sentence/hard
+  - add_sub_number_sentence/medium
+  f10-choose-model-from-data:
+  - exd_x_fr2e_choose_model/exam
+  - fr2e_choose_model/hard
+  - fr2e_choose_model/medium
+  f10-choose-unit-and-convert:
+  - fr2c_choose_unit_convert_exam/exam
+  f10-compare-box-plots:
+  - exd_x_w12a_compare_box_plots_chain/exam
+  - stat5_box_plot_compare/easy
+  - stat5_box_plot_compare/medium
+  f10-compare-measurement-attributes:
+  - compare_mass_capacity_picture/easy
+  - compare_mass_capacity_picture/hard
+  - compare_mass_capacity_picture/medium
+  f10-conditional-probability-language:
+  - exd_x_r2x_conditional_probability_language/exam
+  f10-congruence-similarity-criteria:
+  - exd_x_sc2_similar_sas/exam
+  f10-direct-proportion-scale-model:
+  - exd_x_r2x_direct_proportion_table/exam
+  f10-fraction-compare-models:
+  - fraction_compare_models/easy
+  - fraction_compare_models/medium
+  f10-map-feature-and-landmark-representation:
+  - exd_x_w7f_map_landmarks_chain/exam
+  f10-match-inequality-to-line:
+  - exd_x_y910_graph_system/exam
+  f10-money-compare-collections:
+  - money_compare_collections/easy
+  - money_compare_collections/medium
+  f10-nets-build-solids:
+  - fsp_nets_exam/exam
+  f10-number-algorithm-choose-complete:
+  - exd_x_fr2e_number_algorithm/exam
+  f10-pattern-strip-repeating-unit:
+  - ey_pattern_match/medium
+  f10-pick-the-matching-view:
+  - exd_x_fr2a_matching_view_chain/exam
+  f10-polygon-classification:
+  - p14b_polygon_classification/easy
+  - p14b_polygon_classification/hard
+  f10-position-location-language:
+  - p19a_position_language/easy
+  - p19a_position_language/hard
+  f10-prism-cross-sections:
+  - prism_cross_sections/easy
+  - prism_cross_sections_forced/hard
+  - prism_cross_sections_forced/medium
+  f10-quadratic-parameter-effects:
+  - fr2c_parabola_effects_exam/exam
+  f10-quantify-compare-collections-to-20:
+  - quantify_compare_to_20/easy
+  - quantify_compare_to_20/hard
+  - quantify_compare_to_20/medium
+  f10-shape-sorting-algorithm:
+  - exd_x_r2j_shape_sorting_chain/exam
+  - p15d_shape_sorting/easy
+  f10-spatial-algorithm-choose-test:
+  - exd_x_fr2e_spatial_algorithm/exam
+  f10-square-roots-perfect-squares:
+  - exd_x_sc5_square_fix/exam
+  - square_roots_perfect_squares/easy
+  - square_roots_perfect_squares/medium
+  function-concept:
+  - exd_x_w5_function_concept/exam
+  graph-eulerian-trails-circuits:
+  - snet_eulerian/easy
+  - snet_eulerian_chain/exam
+  graph-walks-trails-paths-cycles:
+  - snet_route_types_chain/exam
+  graph-y-mx:
+  - exd_x_w12b_graph_y_mx/exam
+  graph-y-mx-plus-b:
+  - exd_x_w12b_graph_y_mx_plus_b/exam
+  identity-and-no-solution:
+  - exd_x_w5_identity_no_solution/exam
+  independent-dependent-variables:
+  - exd_x_w5_variables_roles/exam
+  inequality-solutions-number-line:
+  - exd_x_w12c_inequality_number_line/exam
+  inequality-symbols:
+  - exd_x_w5_inequality_symbols/exam
+  integer-polynomial-quotient-remainder:
+  - exd_x_sc1_poly_remainder_unknown/exam
+  inverse-operations:
+  - exd_x_w5_inverse_operations/exam
+  jacobian-two-variable:
+  - exd_x_sc5_jacobian_area/exam
+  locus-circle-disc-pick-sketch:
+  - sr2l_circle_pick_exam/exam
+  logarithm-laws:
+  - exd_x_sc5_log_equation/exam
+  matrix-multiplication:
+  - exd_x_h2_matrix_multiplication/exam
+  meaning-of-equality:
+  - exd_x_w5_meaning_of_equality/exam
+  multiply-complex-numbers:
+  - complex_number/easy
+  pick-display-for-question:
+  - exd_x_ir2a_pick_display_for_question/exam
+  - ir2a_pick_display_for_question/easy
+  - ir2a_pick_display_for_question/hard
+  - ir2a_pick_display_for_question/medium
+  place-value-to-20:
+  - teen_place_value/easy
+  plot-linear-points:
+  - exd_x_w12b_plot_linear_points/exam
+  prime-factorisation:
+  - exd_x_sc5_factor_count/exam
+  prime-factorisation-exponent:
+  - exd_x_sc6_prime_powers/exam
+  probability-representations:
+  - exd_x_sc8_prob_rep_chain/exam
+  proportional-vs-non-proportional:
+  - exd_x_w5_proportional_relations/exam
+  propositional-formula-equivalence:
+  - exd_x_sc4_prop_equiv/exam
+  propositional-truth-evaluation:
+  - exd_x_sc4_prop_eval/exam
+  recognise-equivalent-expressions:
+  - exd_x_w5_equivalent_expressions/exam
+  residual-plot-linear-model-check:
+  - smech_residual_plots_exam/exam
+  scientific-notation:
+  - exd_x_sc6_sci_notation/exam
+  scientific-notation-ops-to-engineering:
+  - exd_e5_scientific_notation_ops_to_engineering/easy
+  - exd_e5_scientific_notation_ops_to_engineering/medium
+  senior-check-results-of-calculations-for-accuracy:
+  - exd_x_sc1_check_calculation/exam
+  senior-compare-the-characteristics-of-the-shape-of-histograms:
+  - exd_x_r2k_histogram/exam
+  senior-describe-spread-from-a-dot-plot:
+  - ey_dot_plot_spread_exam/exam
+  senior-distinguish-between-causality-and-correlation-through-examples:
+  - causality_correlation_classify/easy
+  - causality_correlation_classify/hard
+  - causality_correlation_classify/medium
+  senior-estimate-lengths:
+  - exd_x_sc4_est_length/exam
+  senior-estimate-the-areas-of-different-shapes:
+  - exd_x_sc4_est_area/exam
+  senior-estimate-the-limit-of-frac-a-h-1:
+  - exd_x_r3h_limit_ah/exam
+  senior-estimate-the-mass-of-different-objects:
+  - exd_x_sc5_mass_load/exam
+  senior-estimate-volume-and-capacity-of-various-objects:
+  - exd_x_sc5_tank_capacity/exam
+  senior-eview-metric-units-of-mass-and-weight-their:
+  - exd_x_sc5_mass_ladder/exam
+  senior-examine-slope-direction-or-gradient-fields-of-a:
+  - exd_x_r3g_slope_euler/exam
+  senior-examine-the-position-of-two-particles-each-described:
+  - exd_x_r2i_particles_approach/exam
+  senior-examine-the-three-cases-for-solutions-of-systems:
+  - exd_x_r3h_system_parameters/exam
+  - pv0b_system_cases/easy
+  - pv0b_system_cases/hard
+  - pv0b_system_cases/medium
+  senior-find-the-line-of-best-fit-by-eye:
+  - exd_x_sc8_best_fit_line_chain/exam
+  senior-formulate-differential-equations-including-the-logistic-equation-that:
+  - exd_x_r3i_mixing_rates/exam
+  senior-graph-dilation-read-factor:
+  - ey_graph_dilation/easy
+  - ey_graph_dilation/hard
+  - ey_graph_dilation_exam/exam
+  senior-graph-reciprocal-abs-compare:
+  - ey_graph_reciprocal_abs/hard
+  - ey_graph_reciprocal_abs_exam/exam
+  senior-graph-slope-intercept-meaning:
+  - ey_context_line_exam/exam
+  senior-graph-translation-read-shift:
+  - ey_graph_translation/easy
+  - ey_graph_translation/medium
+  - ey_graph_translation_exam/exam
+  senior-identify-and-solve-linear-equations:
+  - identify_and_solve_linear_equation/easy
+  - identify_and_solve_linear_equation/hard
+  - identify_and_solve_linear_equation/medium
+  senior-identify-common-usage-of-rates-for-example-km:
+  - p19h_rate_usage_classification/easy
+  - p19h_rate_usage_classification/exam
+  - p19h_rate_usage_classification/hard
+  - p19h_rate_usage_classification/medium
+  senior-identify-contexts-such-as-naturally-occurring-variation-that:
+  - p19d_variation_context/easy
+  - p19d_variation_context/exam
+  senior-identify-contexts-suitable-for-modelling-by-bernoulli-random:
+  - exd_x_r2k_bernoulli_suitability/exam
+  senior-identify-contexts-suitable-for-modelling-by-binomial-random:
+  - exd_x_r2k_binomial_suitability/exam
+  senior-identify-possible-non-causal-explanations-for-an-association:
+  - p19b_noncausal_explanation/easy
+  - p19b_noncausal_explanation/exam
+  - p19b_noncausal_explanation/hard
+  - p19b_noncausal_explanation/medium
+  senior-identify-the-dependent-and-independent-variable:
+  - p19b_dependent_variable/easy
+  - p19b_dependent_variable/exam
+  - p19b_dependent_variable/medium
+  senior-interpret-commonly-used-probability-statements-including-possible-probable:
+  - exd_x_r2k_probability_language/exam
+  senior-interpret-commonly-used-symbols-and-abbreviations-in-scale:
+  - exd_x_w7f_plan_symbols_chain/exam
+  senior-interpret-complex-timetables-such-as-tide-charts-sunrise:
+  - exd_x_r3j_tide_chart_rate/exam
+  senior-interpret-different-forms-of-two-dimensional-representations-of:
+  - exd_x_w7f_net_chain/exam
+  senior-interpret-timetables-such-as-bus-train-and-ferry:
+  - exd_x_r2i_timetable_chain/exam
+  senior-recognise-features-of-the-graph-of-the-general:
+  - pv1d_quadratic_root_count/easy
+  - pv1d_quadratic_root_count/exam
+  - pv1d_quadratic_root_count/hard
+  - pv1d_quadratic_root_count/medium
+  senior-recognise-features-of-the-graph-of-y-mx:
+  - pv1a_gradient_sign/easy
+  - pv1a_gradient_sign/exam
+  - pv1a_gradient_sign/hard
+  - pv1a_gradient_sign/medium
+  senior-recognise-features-of-the-graphs-of-y-x-acmmm014:
+  - pv1e_power_end_behaviour/easy
+  - pv1e_power_end_behaviour/exam
+  - pv1e_power_end_behaviour/hard
+  - pv1e_power_end_behaviour/medium
+  senior-recognise-that-a-sequence-generated-by-a-first:
+  - exd_x_r3h_recurrence_steady_state/exam
+  - p19e_recurrence_long_term_class/easy
+  - p19e_recurrence_long_term_class/hard
+  - p19e_recurrence_long_term_class/medium
+  senior-recognise-the-graphs-of-y-sin-x-y:
+  - pv1f_trig_graph_id/easy
+  - pv1f_trig_graph_id/exam
+  - pv1f_trig_graph_id/hard
+  - pv1f_trig_graph_id/medium
+  senior-recognise-the-need-for-milligrams:
+  - exd_x_r3g_dose_units/exam
+  senior-review-probability-as-a-measure-of-the-likelihood:
+  - exd_x_s3_likelihood/exam
+  - probability_likelihood_compare/easy
+  - probability_likelihood_compare/hard
+  - probability_likelihood_compare/medium
+  senior-review-the-conditions-for-similarity-of-two-dimensional:
+  - exd_x_sc6_similarity/exam
+  senior-review-the-probability-scale-0-leq-p-a:
+  - probability_scale_classify/easy
+  - probability_scale_classify/hard
+  - probability_scale_classify/medium
+  senior-simulated-samples-variability:
+  - ey_sample_variability/easy
+  - ey_sample_variability/medium
+  - ey_sample_variability_exam/exam
+  senior-suitable-converses-of-some-of-the-above-results:
+  - exd_x_sc6_circle_converses/exam
+  senior-understand-the-concept-of-a-random-sample:
+  - exd_x_r2j_random_sample_strata/exam
+  senior-understand-the-limiting-behaviour-as-n-rightarrow-infty:
+  - p19e_geometric_limit_class/easy
+  - p19e_geometric_limit_class/exam
+  - p19e_geometric_limit_class/hard
+  - p19e_geometric_limit_class/medium
+  senior-use-ests-and-lsts-to-locate-the-critical:
+  - exd_x_r2e_network_crash/exam
+  senior-use-examples-and-counter-examples:
+  - exd_x_sc7_counterexample_search/exam
+  senior-use-implication-converse-equivalence-negation-contrapositive:
+  - exd_x_sc7_implication_counts/exam
+  senior-use-symbols-and-conventions-for-the-representation-of:
+  - exd_x_w7f_plan_conventions_chain/exam
+  senior-use-the-quantifiers-for-all-and-there-exists:
+  - exd_x_sc7_quantifier_threshold/exam
+  - quantifier_forall_exists_evaluate/easy
+  - quantifier_forall_exists_evaluate/medium
+  solution-and-solution-set:
+  - exd_x_w5_solution_set/exam
+  solve-linear-equations-graphically:
+  - exd_x_w12c_solve_graphically/exam
+  tally-tables:
+  - ey_tally_tables/easy
+  - ey_tally_tables/hard
+  uc2-quadric-surfaces-level-sets:
+  - exd_x_w7c_quadric/exam
+  - w7c_quadric/hard
+  - w7c_quadric/medium
+  ucv1-compactness-finite-check:
+  - exd_x_r2g_subcover_count/exam
+  ucv1-completeness-cauchy-check:
+  - exd_x_r2g_cauchy_tail/exam
+  ucv1-convexity-hessian-sign:
+  - exd_x_r3h_hessian_definiteness/exam
+  - p14d_convexity_hessian_sign/easy
+  - p14d_convexity_hessian_sign/hard
+  - p14d_convexity_hessian_sign/medium
+  ucv1-cr-equations-check:
+  - exd_x_r3i_cr_defects/exam
+  ucv1-definition-quantifier-check:
+  - exd_x_r2g_relation_repair/exam
+  ucv1-dominated-convergence-check:
+  - exd_x_r2g_dct_integrals/exam
+  ucv1-finite-automaton-acceptance:
+  - exd_x_r2g_dfa_counting/exam
+  ucv1-finite-subgroup-test:
+  - exd_x_r3g_unit_group_index/exam
+  ucv1-formal-derivation-check:
+  - exd_x_r2g_derivation_length/exam
+  ucv1-fundamental-group-map:
+  - exd_x_r2h_circle_maps_chain/exam
+  ucv1-ideal-membership:
+  - exd_x_r3h_ideal_unknown_coefficients/exam
+  ucv1-isomorphism-invariant:
+  - exd_x_r3i_product_group_orders/exam
+  - p15a_isomorphism_invariant/easy
+  - p15a_isomorphism_invariant/hard
+  - p15a_isomorphism_invariant/medium
+  ucv1-linear-oscillator-classification:
+  - exd_x_r3h_oscillator_damping/exam
+  - p14f_linear_oscillator_classification/easy
+  - p14f_linear_oscillator_classification/hard
+  - p14f_linear_oscillator_classification/medium
+  ucv1-metric-axiom-check:
+  - exd_x_r3j_metric_missing_distance/exam
+  ucv1-optimality-sensitivity:
+  - exd_x_r3g_quadratic_sensitivity/exam
+  ucv1-phase-plane-linear-classification:
+  - exd_x_r3i_phase_plane_invariants/exam
+  ucv1-regression-residual-diagnostic:
+  - exd_x_r3i_regression_fit/exam
+  - p14e_residual_diagnostic/easy
+  - p14e_residual_diagnostic/hard
+  - p14e_residual_diagnostic/medium
+  ucv1-sigma-algebra-closure:
+  - exd_x_r2h_sigma_generated_chain/exam
+  ucv1-structure-classification:
+  - exd_x_r2h_abelian_orders_chain/exam
+  ucv1-symmetry-conservation:
+  - exd_x_r2h_central_force_chain/exam
+  ucv1-syntactic-semantic-separation:
+  - exd_x_r2h_entailment_count_chain/exam
+  ucv1-topology-basis-membership:
+  - exd_x_r2h_finite_topology_chain/exam
+  ucv1-validation-calibration-check:
+  - exd_x_r2i_calibration_chain/exam
+probability:
+  binomial-point-probability:
+  - binomial_probability/easy
+  conditional-probability-counts:
+  - conditional_probability_counts/hard
+  f10-conditional-relative-frequency:
+  - fr2d_conditional_frequency/hard
+  f10-relative-frequency-estimate:
+  - fpm_relative_frequency/easy
+  - fpm_relative_frequency/medium
+  simple-event-probability:
+  - simple_probability/easy

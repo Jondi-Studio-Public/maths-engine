@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_scale_actual_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: uses-drawn-length
   description: "Gives the length, perimeter or area measured on the plan and never applies the scale."
@@ -34,3 +38,16 @@ misconceptions:
 - id: unit-slip
   description: "Gives the answer in centimetres or square centimetres when metres or square metres were asked for, or reads the ratio as metres."
 tags: [acara-senior-v8-4, measurement, grid_scale_actual, acmem109, scale-drawings, scale, perimeter, area]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Read one wall of a rectangular plan and multiply by the scale."
+  medium:
+    steps: 3
+    demand: "Add every wall of an L- or U-shaped plan, then apply the scale."
+  hard:
+    steps: 4
+    demand: "Find the area on the plan and scale it by the square of the scale factor."
+  exam:
+    steps: 6
+    demand: "Chain the longest wall, the perimeter, the area and the cost of covering the floor, all from one L- or U-shaped plan."

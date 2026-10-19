@@ -1,0 +1,125 @@
+id: hcf-lcm-word-problems
+name: HCF and LCM word problems
+domain: secondary-number
+year_level:
+- '7'
+- '8'
+description: Decide whether a story needs the highest common factor or the lowest common multiple, then use it for equal groups,
+  repeating events, tiling and meeting times.
+status: active
+placement_eligible: false
+prerequisites:
+- list-factors
+answer: number
+sources:
+- topic: w3_hcf_lcm_words
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_hcf_lcm_words
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_hcf_lcm_words
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_hcf_lcm_words
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: hl-product
+  description: Multiplies the two numbers instead of finding their common factor or multiple.
+- id: hl-sum
+  description: Adds the two numbers.
+- id: hl-smaller
+  description: Gives the smaller of the two numbers.
+- id: hl-larger
+  description: Gives the larger of the two numbers.
+- id: hl-difference
+  description: Gives the difference between the two numbers.
+- id: hl-lcm-for-hcf
+  description: Finds the lowest common multiple where the highest common factor was needed.
+- id: hl-hcf-for-lcm
+  description: Finds the highest common factor where the lowest common multiple was needed.
+- id: hl-hcf-not-divided
+  description: Gives the number of items in a share as the HCF, forgetting to divide by it.
+- id: hl-shares-for-size
+  description: Gives the number of groups where the size of each group was asked.
+- id: hl-size-for-shares
+  description: Gives the size of each group where the number of groups was asked.
+- id: hl-one-dimension
+  description: Counts the tiles along one side only.
+- id: hl-tiles-sum
+  description: Adds the number of tiles along each side instead of multiplying them.
+- id: hl-lcm-not-divided
+  description: Gives the time until the buses leave together where the number of trips was asked.
+- id: hl-trips-other-bus
+  description: Gives the number of trips of the other bus.
+- id: hl-two-numbers-only
+  description: Finds the lowest common multiple of two of the three numbers.
+- id: hl-three-product
+  description: Multiplies the three numbers together.
+- id: hl-turns-big-gear
+  description: Gives the turns of the larger gear where the smaller gear was asked.
+- id: hl-turns-lcm
+  description: Gives the number of teeth that pass instead of the number of turns.
+- id: hl-hcf-two-only
+  description: Finds the highest common factor of only two of the three lengths.
+- id: hl-side-not-area
+  description: Gives the side of the square where the number of tiles was asked.
+- id: hl-tiles-one-way
+  description: Counts the tiles along one side of the square only.
+- id: hl-ignores-remainders
+  description: Finds the HCF of the numbers without taking the remainders off first.
+- id: hl-adds-remainders
+  description: Adds the remainders to the numbers instead of subtracting them.
+- id: hl-remainder-lcm
+  description: Finds the lowest common multiple of the reduced numbers instead of the highest common factor.
+- id: hl-forgets-remainder
+  description: Gives the lowest common multiple and forgets to add the remainder.
+- id: hl-subtracts-remainder
+  description: Subtracts the remainder from the lowest common multiple instead of adding it.
+- id: hl-forgets-start
+  description: Leaves out the meeting at the start when counting how many times the events coincide.
+- id: hl-counts-extra
+  description: Counts one meeting too many.
+- id: hl-time-not-meetings
+  description: Gives the time of the first meeting where the number of meetings was asked.
+- id: hl-product-for-other
+  description: Multiplies the HCF and the LCM and does not divide by the known number.
+- id: hl-lcm-over-hcf
+  description: Divides the LCM by the HCF to find the other number.
+- id: hl-other-divides-lcm
+  description: Divides the LCM by the known number to find the other number.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Recognise a one-step story as an HCF or an LCM and find it for two numbers.
+  medium:
+    steps: 3
+    demand: 'Use the HCF or LCM for a count: tiles, trips, gear turns, or three quantities at once.'
+  hard:
+    steps: 5
+    demand: Fit rectangles into a square, find a divisor leaving remainders, count meetings, or work back to the other number
+      from the HCF and LCM.
+  exam:
+    steps: 7
+    demand: Chain the first time two runners meet, the laps each has run, and the number of meetings in a period.
+tags:
+- hcf
+- lcm
+- word-problems
+- acara-y7
+- acara-y8

@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_net_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: reads-the-view-from-the-wrong-side
   description: "Reads the columns from the back, the right or the left of the stack instead of the front, so the heights come out in the wrong order or the wrong number."
@@ -34,3 +38,16 @@ misconceptions:
 - id: volume-for-surface-area
   description: "Gives the volume where the surface area is asked, or the surface area or a sum of lengths where the volume is asked."
 tags: [acara-senior-v8-4, measurement, nets, perspective-diagrams, views, acmem106]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Read the column heights of the front view from the isometric picture of a stack."
+  medium:
+    steps: 3
+    demand: "Fold four drawings in the mind and pick the one that is not a net of a cube."
+  hard:
+    steps: 4
+    demand: "Read a closed box off its net and find its surface area or its volume."
+  exam:
+    steps: 6
+    demand: "Chain the longest edge, the surface area and the volume of a box read off its net, then the sheet left over when the net is cut out."

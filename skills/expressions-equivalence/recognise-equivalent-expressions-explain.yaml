@@ -1,0 +1,60 @@
+id: recognise-equivalent-expressions-explain
+name: Explain whether two expressions are equivalent
+domain: expressions-equivalence
+year_level:
+- '7'
+- '8'
+description: Decide whether two expressions are equivalent, using a test value and algebra, and explain what a test value
+  does and does not prove; marked against a rubric.
+status: active
+placement_eligible: false
+prerequisites:
+- combine-like-terms
+- expand-single-brackets
+answer: open_response
+sources:
+- topic: w10_explain_equivalent
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_explain_equivalent
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_explain_equivalent
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: one-matching-value-proves-equivalence
+  description: Believes that two expressions agreeing at one value must be equivalent.
+- id: distributes-to-first-term-only
+  description: Multiplies only the first term of a bracket.
+- id: adds-unlike-terms
+  description: Combines unlike terms, such as 5x + 3 into 8x.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Test one value in a bracket expansion and confirm by expanding.
+  medium:
+    steps: 4
+    demand: Test a value, state what one test proves, and confirm by collecting like terms.
+  hard:
+    steps: 4
+    demand: Explain why one test cannot prove equivalence and settle it algebraically with brackets on both terms.
+tags:
+- explain
+- open-response
+- rubric
+- year-7
+- year-8
+- equivalent-expressions
+- substitution

@@ -1,0 +1,61 @@
+id: identity-and-no-solution-explain
+name: Explain identities and equations with no solution
+domain: equations
+year_level:
+- '7'
+- '8'
+description: Explain how comparing the two sides tells whether an equation has no solution, one solution or every number
+  as a solution; marked against a rubric.
+status: active
+placement_eligible: false
+prerequisites:
+- variables-on-both-sides
+- combine-like-terms
+answer: open_response
+sources:
+- topic: w10_explain_identity
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_explain_identity
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_explain_identity
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: every-equation-has-one-solution
+  description: Believes every equation must have exactly one solution.
+- id: tries-numbers-instead-of-reasoning
+  description: Tries a few numbers instead of simplifying both sides and comparing them.
+- id: leftover-false-statement-means-zero
+  description: Reads a false leftover statement such as 6 = 9 as the solution x = 0.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: Expand a bracket and cancel the matching x-terms to decide between no solution and every number.
+  medium:
+    steps: 4
+    demand: Collect like terms and compare coefficients to decide among three cases.
+  hard:
+    steps: 4
+    demand: Expand, collect and compare on both sides, then decide among three cases.
+tags:
+- explain
+- open-response
+- rubric
+- year-7
+- year-8
+- identity
+- no-solution
+- solving-equations

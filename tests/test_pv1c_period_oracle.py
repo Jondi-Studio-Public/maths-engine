@@ -24,7 +24,9 @@ from mathgen.skills import load_skills
 SKILL_ID = "senior-examine-period-changes-and-the-graphs-of-y"
 SEEDS = 1000
 TIERS = ["easy", "medium", "hard", "exam"]
-_CANDIDATES = [Fraction(n, 12) for n in range(1, 193)]
+_CANDIDATES = sorted(
+    {Fraction(n, 12) for n in range(1, 193)} | {Fraction(2, n) for n in range(1, 16)}
+)  # hard now draws k = 2/n for n up to 15
 
 
 @functools.lru_cache(maxsize=1)
@@ -70,7 +72,7 @@ def _first_return(pts):
             continue
         # the last sample has no successor: a zero there closes the window exactly one cycle in
         if i == len(pts) - 1 or (pts[i + 1][1] > 0) == (sign > 0):
-            return Fraction(pts[i][0]).limit_denominator(12)
+            return Fraction(pts[i][0]).limit_denominator(30)
     return None
 
 
@@ -124,7 +126,22 @@ def test_the_boundary_each_tier_is_built_on(tier):
             assert (lo, hi) == (0, 2)
             assert "0 to 2pi" in q.text.replace("x = ", "")
             cycles = 2 / float(k)
-            assert abs(cycles - round(cycles)) < 1e-9 and round(cycles) in (1, 2, 3, 4, 6, 8)
+            assert abs(cycles - round(cycles)) < 1e-9 and round(cycles) in (
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                14,
+                15,
+            )
             assert all(_on_grid(x, grid) for x in zeros)
             negatives += sign < 0
         else:

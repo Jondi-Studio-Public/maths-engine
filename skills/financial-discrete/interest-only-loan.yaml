@@ -1,0 +1,116 @@
+id: interest-only-loan
+name: Interest-only loans
+domain: financial-discrete
+year_level:
+- '10'
+- '11'
+description: 'Work with a loan on which only the interest is paid: the yearly and monthly interest, the interest over a term,
+  the total repaid, and the effect of a rate change or a lump sum.'
+status: active
+placement_eligible: false
+prerequisites:
+- simple-interest
+answer: number
+sources:
+- topic: w3_interest_only_loan
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_interest_only_loan
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_interest_only_loan
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_interest_only_loan
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: iol-rate-not-converted
+  description: Multiplies the loan by the percentage without dividing by 100.
+- id: iol-divides-by-rate
+  description: Divides the loan by the rate instead of finding that percentage of it.
+- id: iol-decimal-slip
+  description: Misplaces the decimal point when finding the interest.
+- id: iol-annual-for-monthly
+  description: Gives the interest for a whole year where the monthly payment was asked.
+- id: iol-multiplies-by-twelve
+  description: Multiplies the yearly interest by 12 instead of dividing it by 12.
+- id: iol-principal-share
+  description: Divides the loan by 12 and calls that the monthly interest.
+- id: iol-one-year-only
+  description: Gives one year's interest where the interest over several years was asked.
+- id: iol-extra-year
+  description: Counts one year too many when adding up the interest.
+- id: iol-months-as-years
+  description: Multiplies the monthly payment by the number of years instead of the number of months.
+- id: iol-total-repaid-for-interest
+  description: Gives the total repaid (loan plus interest) where the interest was asked.
+- id: iol-forgets-principal
+  description: Gives only the interest paid where the total repaid, including the loan, was asked.
+- id: iol-compound
+  description: Compounds the interest each year, although the amount owing never changes on an interest-only loan.
+- id: iol-forgets-twelve
+  description: Divides the payment by the rate without first converting the monthly payment to a yearly amount.
+- id: iol-multiplies-by-rate
+  description: Multiplies the yearly interest by the rate instead of dividing by it.
+- id: iol-annual-as-loan
+  description: Takes the yearly interest as the amount borrowed.
+- id: iol-rate-from-annual-payment
+  description: Treats the monthly payment as the yearly interest when finding the rate.
+- id: iol-rate-inverted
+  description: Divides the loan by the yearly interest instead of the other way round.
+- id: iol-first-rate-throughout
+  description: Uses the first interest rate for the whole term of the loan.
+- id: iol-second-rate-throughout
+  description: Uses the later interest rate for the whole term of the loan.
+- id: iol-average-rate
+  description: Averages the two rates, although they apply for different lengths of time.
+- id: iol-swapped-years
+  description: Swaps the number of years at each rate.
+- id: iol-rise-as-payment
+  description: Gives the rise in the payment where the original payment was asked.
+- id: iol-loan-for-payment
+  description: Gives the amount borrowed where the original monthly payment was asked.
+- id: iol-rise-times-rate
+  description: Multiplies the rise in the payment by the rate instead of dividing by the change in rate.
+- id: iol-lump-ignored
+  description: Ignores the lump sum paid off the loan.
+- id: iol-lump-off-interest
+  description: Takes the lump sum off the interest instead of off the amount owing.
+- id: iol-lump-whole-term
+  description: Applies the lump sum to the whole term, as if it had been paid on the first day.
+- id: iol-lump-after-only
+  description: Counts only the interest after the lump sum was paid.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find a percentage of the loan for a year, divide by 12 for a month, or multiply by the years.
+  medium:
+    steps: 3
+    demand: Add the loan to the interest repaid, or work back from a monthly payment to the loan or the rate.
+  hard:
+    steps: 5
+    demand: Split a term at a rate change, work back through a rate rise, or reduce the amount owing part-way through.
+  exam:
+    steps: 6
+    demand: Chain the monthly payment, the interest over the term, the total repaid and the effect of a lump sum.
+tags:
+- financial
+- loans
+- interest-only
+- nsw-standard
+- vce-general

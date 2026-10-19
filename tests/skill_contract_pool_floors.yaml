@@ -13,8 +13,6 @@ before-and-after-to-10:
   before_after/easy: 17
 bisection-interval-update:
   bisection_interval_update/easy: 9
-classify-data:
-  classify_data/easy: 3
 classify-real-numbers:
   classify_real_number/easy: 5
 combinations:
@@ -31,26 +29,14 @@ equal-groups:
   equal_groups/easy: 19
 evaluate-powers:
   powers/easy: 8
-f10-angle-turn-right-reference:
-  angle_turn_right_reference/easy: 4
-  angle_turn_right_reference/hard: 16
-  angle_turn_right_reference/medium: 16
-f10-circle-measures:
-  circle_measures/easy: 13
-  circle_measures/medium: 13
 f10-decimal-notation-tenths-hundredths:
   decimal_tenths_hundredths_compose/easy: 17
-f10-fractions-half-quarter-eighth:
-  fraction_halving/easy: 2
-  fraction_halving/hard: 4
-  fraction_halving/medium: 2
 f10-logarithmic-scales:
   p10e_logarithmic_scales/easy: 10
 f10-odd-even-properties:
   odd_even_properties/easy: 4
   odd_even_properties/medium: 8
 f10-percentage-equivalence-comparison:
-  percentage_to_fraction/easy: 5
   percentage_to_fraction/hard: 12
   percentage_to_fraction/medium: 12
 f10-prism-cross-sections:
@@ -175,8 +161,6 @@ senior-y-tan-x-c-and-the-relationships-sin:
   tan_shift_complementary_identity/medium: 7
 simple-harmonic-angular-frequency:
   simple_harmonic_angular_frequency/easy: 9
-subtract-within-5:
-  early_subtraction/easy: 18
 variable-concept:
   variable_concept/easy: 3
 wave-frequency-from-speed-wavelength:

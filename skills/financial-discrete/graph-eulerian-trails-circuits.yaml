@@ -9,6 +9,7 @@ description: >-
   separate pieces); exam is a four-part chain on a network with four odd vertices, counting the odd vertices and the fewest
   new edges for a circuit and for a trail. The answer is a statement or pair of vertices chosen from a list, or a count.
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites: [graph-vertex-degrees-handshaking, graph-walks-trails-paths-cycles]
 answer: mcq

@@ -21,7 +21,7 @@ from fractions import Fraction
 
 import sympy
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, ordinal, phrase
 from ._r3k_kit import clean_working, frac_distractors, frac_fields, fr, need, rat
 
 # (setting sentence with {p}, one trial, trials, a success, a success with its article)
@@ -85,7 +85,7 @@ def _scene(rng, p):
 
 
 def _ordinal(n: int) -> str:
-    return {1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth"}.get(n, f"{n}th")
+    return {1: "first", 2: "second", 3: "third", 4: "fourth", 5: "fifth", 6: "sixth"}.get(n, ordinal(n))
 
 
 # -- the second route: exact recursions and generating functions ------------------------------------------------

@@ -175,10 +175,12 @@ Entry points only; the individual `grade_*` functions are internal.
 | Signature | Description |
 |---|---|
 | `grade(kind, question, given, *, skill=None) -> GradeResult` | Grades a reply with the grader named by `kind`. If the question has `parts`, grades part by part whatever `kind` is. A reply over 100,000 characters is wrong (the HTTP server and MCP tool refuse one over 2,000 characters before it gets here). If a grader raises, the error is logged and the reply is graded incorrect. A wrong reply that matches a tagged distractor sets `misconception`; `skill` adds that skill's own notes. Raises `KeyError` for an unknown `kind`. |
-| `GRADERS` | `dict` of answer kind to grader. Kinds: `expression`, `fraction`, `grid_cells`, `inequality`, `line`, `list`, `matrix`, `mcq`, `number`, `ordered_list`, `pair`, `points`, `polyline`, `set`, `table`. |
+| `GRADERS` | `dict` of answer kind to grader. Kinds: `expression`, `fraction`, `grid_cells`, `inequality`, `line`, `list`, `matrix`, `mcq`, `number`, `ordered_list`, `pair`, `points`, `polyline`, `set`, `table`, plus `open_response` (never marked: returns a pending result for hand-off) and `step_chain` (typed proof lines). |
 | `GradeResult` | See `mathgen.engine`. |
 | `mcq_options(question)` | Same function as `mathgen.core.mcq_options`. |
 | `spoken.check_answer(question, transcript, fallback=None) -> bool` | Checks a transcript of a spoken answer ("one hundred and eighteen") against `question.answer`. `fallback` is a second transcript tried only if the first fails. A single-number answer must be stated once, not negated or hedged ("not twelve", "twelve or thirteen" are wrong for 12); numbers match within ±0.051. |
+
+The hand-off for open answers (marking request, marking result, validation, self-marking, prompt text) is in `mathgen.grading.open_response`; see `docs/design/open-response-handoff.md`.
 
 `mathgen.grading.typed` holds the graders themselves. From it, `typed.normalise_reply(kind, given)` and
 `typed.grade` are the documented entry points; `grade` is the same function as `mathgen.grading.grade`.

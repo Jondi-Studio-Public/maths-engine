@@ -54,6 +54,7 @@ from mathgen.core import (
     check,
     check_pairwise_distinct,
     generator,
+    ordinal,
     pick_distractors,
     round_half_up,
     rounds_unambiguously,
@@ -62,12 +63,6 @@ from mathgen.core import (
 )
 
 _TOL2 = stated_precision_tolerance(2)
-
-
-def _ordinal(n: int) -> str:
-    """1st, 2nd, 3rd, 4th ... 11th, 12th, 13th, 21st."""
-    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
-    return f"{n}{suffix}"
 
 
 def _fmt_h(h: Fraction) -> str:
@@ -208,7 +203,7 @@ def _easy_once(rng):
     total = _dist_to_impact(h, r, k)
     check(rounds_unambiguously(float(total), 2), "easy total sits on the 2dp rounding boundary")
     template = rng.choice(_EASY_TEMPLATES)
-    text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k, k_ord=_ordinal(k))
+    text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k, k_ord=ordinal(k))
     candidates = _misconception_candidates(h, r, k, to_top=False)
     working = (
         f"D = h + 2h(r + ... + r^{k - 1}) with h = {_fmt_h(h)} and r = {_fmt_given(r)}, "
@@ -250,7 +245,7 @@ def _medium_once(rng):
     total = _dist_to_rebound_top(h, r, k)
     check(rounds_unambiguously(float(total), 2), "medium total sits on the 2dp rounding boundary")
     template = rng.choice(_MEDIUM_TEMPLATES)
-    text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k, k_ord=_ordinal(k))
+    text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k, k_ord=ordinal(k))
     candidates = _misconception_candidates(h, r, k, to_top=True)
     working = f"D = [h + 2h(r + ... + r^{k - 1})] + h*r^{k} = {stated_precision_string(round_half_up(total, 2), 2)} m."
     return _format_and_build(text, total, candidates, working=working)
@@ -315,7 +310,7 @@ def _hard_once(rng):
     ord1, ord2 = _ORDINALS[start], _ORDINALS[start + 1]
     templates = _HARD_TOP_TEMPLATES if to_top else _HARD_IMPACT_TEMPLATES
     template = rng.choice(templates)
-    text = template.format(ord1=ord1, ord2=ord2, h1=_fmt_given(h1), h2=_fmt_given(h2), k=k, k_ord=_ordinal(k))
+    text = template.format(ord1=ord1, ord2=ord2, h1=_fmt_given(h1), h2=_fmt_given(h2), k=k, k_ord=ordinal(k))
     candidates = _misconception_candidates(h, r, k, to_top=to_top)
     # A hard-tier-specific misconception: taking the FIRST STATED rebound
     # height itself as the drop height h.
@@ -391,11 +386,11 @@ def _exam_once(rng):
     candidates = _misconception_candidates(h, r, k_correct + 1, to_top=False)
     candidates += [one_early, one_late, to_top_same_k]
     working = (
-        f"The {k_correct}th rebound reaches {stated_precision_string(round_half_up(heights[k_correct - 1], 2), 2)} m "
-        f"(>= {stated_precision_string(x, 2)} m); the {k_correct + 1}th rebound reaches "
+        f"The {ordinal(k_correct)} rebound reaches {stated_precision_string(round_half_up(heights[k_correct - 1], 2), 2)} m "
+        f"(>= {stated_precision_string(x, 2)} m); the {ordinal(k_correct + 1)} rebound reaches "
         f"{stated_precision_string(round_half_up(heights[k_correct], 2), 2)} m (< "
         f"{stated_precision_string(x, 2)} m), the first below the threshold. Summing to the "
-        f"({k_correct + 2})th impact -- when the ball lands after that rebound -- gives "
+        f"{ordinal(k_correct + 2)} impact -- when the ball lands after that rebound -- gives "
         f"{stated_precision_string(round_half_up(total, 2), 2)} m."
     )
     return _format_and_build(text, total, candidates, working=working)
