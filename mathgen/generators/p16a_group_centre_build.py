@@ -89,6 +89,34 @@ def _manual_median(values: list[int]) -> Fraction:
     return Fraction(ordered[mid - 1] + ordered[mid], 2)
 
 
+def _measure_working(measure_word, name_a, name_b, values_a, values_b):
+    """One line per group showing how its mean or median comes from the stated values."""
+    lines = []
+    for name, values in ((name_a, values_a), (name_b, values_b)):
+        name = name[0].upper() + name[1:]
+        if measure_word == "mean":
+            total = sum(values)
+            mean = rational_text(Fraction(total, len(values)))
+            lines.append(f"{name}: the values add to {total}, so the mean is {total} ÷ {len(values)} = {mean}.")
+        else:
+            ordered = sorted(values)
+            mid = len(ordered) // 2
+            med = rational_text(_manual_median(values))
+            if len(ordered) % 2:
+                how = f"the middle value is {ordered[mid]}"
+            else:
+                how = f"the middle two values are {ordered[mid - 1]} and {ordered[mid]}"
+            lines.append(
+                f"{name} median: the sorted values are {', '.join(str(v) for v in ordered)}; {how}"
+                + (
+                    f", and ({ordered[mid - 1]} + {ordered[mid]}) ÷ 2 = {med}."
+                    if len(ordered) % 2 == 0
+                    else f", so the median is {med}."
+                )
+            )
+    return lines
+
+
 def _verify_weighted_mean_diff(table_a: dict, table_b: dict, diff: Fraction) -> None:
     """Independent route for the hard (frequency-table) tier: EXPAND each
     table into a flat list of observations and call ``statistics.mean`` --
@@ -295,7 +323,7 @@ def p16a_group_centre_difference(rng, variant="mean_plain"):
             f"{name_a} minus the same measure for {name_b}, as a fraction in lowest terms."
         )
         working = [
-            f"{name_a} {measure_word}, {name_b} {measure_word} computed from the stated data.",
+            *_measure_working(measure_word, name_a, name_b, values_a, values_b),
             f"Difference ({name_a} - {name_b}) = {answer_text}.",
         ]
         # sum_diff first: guarantees an integer-shaped option ("used the
@@ -335,7 +363,7 @@ def p16a_group_centre_difference(rng, variant="mean_plain"):
             measure_phrase=measure_phrase,
         )
         working = [
-            f"{name_a} {measure_word}, {name_b} {measure_word} computed from the stated data.",
+            *_measure_working(measure_word, name_a, name_b, values_a, values_b),
             f"Difference ({name_a} - {name_b}) = {answer_text}.",
         ]
         candidates = [rational_text(wrong_order), rational_text(only_a)]

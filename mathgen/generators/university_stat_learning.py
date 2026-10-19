@@ -155,13 +155,16 @@ def finite_distribution_variance(rng, outcome_hi=10, weight_hi=6, outcomes=4):
     check(sum(weights) == total and total > 0, "invalid distribution weights")
 
     answer, answer_text = _fraction_payload(variance)
-    alternatives = [
-        _fraction_payload(mean)[1],
-        _fraction_payload(second_moment)[1],
-        _fraction_payload(mean * mean)[1],
-        _fraction_payload(variance + 1)[1],
-        _fraction_payload(-variance)[1],
+    # A variance cannot be negative, so a negative slip (the mean, or the key negated) is never offered.
+    slips = [
+        mean,
+        second_moment,
+        mean * mean,
+        variance + 1,
+        variance * total / (total - 1) if total > 1 else None,  # divides by n - 1 instead of n
+        second_moment - mean,  # E[X^2] - E[X]
     ]
+    alternatives = [_fraction_payload(v)[1] for v in slips if v is not None and v >= 0]
     distribution = ", ".join(f"P(X={x})={w}/{total}" for x, w in zip(values, weights))
     return dict(
         text=f"A finite random variable has {distribution}. Find Var(X).",

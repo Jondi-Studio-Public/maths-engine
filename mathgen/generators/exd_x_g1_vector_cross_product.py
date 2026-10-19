@@ -21,7 +21,7 @@ import random
 
 from sympy import Matrix
 
-from ..core import check, check_equivalent, generator, join_terms, pick_distractors
+from ..core import check, check_equivalent, generator, join_terms, paren_negative, pick_distractors
 
 _POINTS = (
     "The points A{a}, B{b} and C{c} are given. Find the {axis}-component of AB × AC.",
@@ -53,7 +53,18 @@ def _scale(k, v):
 _AXES = ("x", "y", "z")
 
 
-def _result(text: str, ans, cands, k: int) -> dict | None:
+def _component(u, v, k: int, nu: str = "u", nv: str = "v") -> str:
+    """The k-th component of u x v written out with its numbers: "x-component = (-1)(2) - (3)(0) = -2"."""
+    i, j = (k + 1) % 3, (k + 2) % 3
+    n = _AXES
+    value = u[i] * v[j] - u[j] * v[i]
+    return (
+        f"{n[k]}-component = ({n[i]}-part of {nu}) × ({n[j]}-part of {nv}) - ({n[j]}-part of {nu}) × ({n[i]}-part of {nv}) = "
+        f"{paren_negative(u[i])} × {paren_negative(v[j])} - {paren_negative(u[j])} × {paren_negative(v[i])} = {value}"
+    )
+
+
+def _result(text: str, ans, cands, k: int, working=None) -> dict | None:
     """Key and distractors are the ``k``-th component of the answer and of each wrong vector."""
     answer_text = str(ans[k])
     distractors = pick_distractors(answer_text, [str(c[k]) for c in cands])
@@ -66,6 +77,7 @@ def _result(text: str, ans, cands, k: int) -> dict | None:
         answer_text=answer_text,
         answer_latex=str(ans[k]),
         distractors=distractors,
+        working=list(working or []),
     )
 
 
@@ -85,7 +97,11 @@ def _points(rng: random.Random) -> dict | None:
         _cross(_sub(a, b), ac),  # edge BA used for AB
     ]
     text = rng.choice(_POINTS).format(a=_fmt(a), b=_fmt(b), c=_fmt(c), axis=_AXES[k])
-    return _result(text, ans, cands, k)
+    working = [
+        f"AB = B - A = {_fmt(ab)} and AC = C - A = {_fmt(ac)}.",
+        "For AB × AC, the " + _component(ab, ac, k, "AB", "AC") + ".",
+    ]
+    return _result(text, ans, cands, k, working)
 
 
 def _bilinear(rng: random.Random) -> dict | None:
@@ -111,7 +127,13 @@ def _bilinear(rng: random.Random) -> dict | None:
     e1 = join_terms([(a, "p"), (b, "q")])
     e2 = join_terms([(c, "p"), (d, "q")])
     text = rng.choice(_BILINEAR).format(p=_fmt(p), q=_fmt(q), e1=e1, e2=e2, axis=_AXES[k])
-    return _result(text, ans, cands, k)
+    working = [
+        f"Expand, using p × p = 0, q × q = 0 and q × p = -(p × q): ({e1}) × ({e2}) = "
+        f"({a * d} - {paren_negative(b * c)})(p × q) = {f}(p × q).",
+        f"p × q = {_fmt(pq)}.",
+        f"The {_AXES[k]}-component is {f} × {paren_negative(pq[k])} = {ans[k]}.",
+    ]
+    return _result(text, ans, cands, k, working)
 
 
 @generator(

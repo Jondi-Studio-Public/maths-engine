@@ -472,10 +472,18 @@ def rectangle_mixed_unit_area_perimeter(rng, tier="easy"):
         f"A rectangle has one side of {_fmt_value(side1[0])} {side1[1]} and the other side of "
         f"{_fmt_value(side2[0])} {side2[1]}. What is its {quantity_label}, in {target_label}? {precision}"
     )
-    working = [
-        f"Convert both sides to a common unit before finding the {quantity_label}.",
-        f"{quantity_label.capitalize()} = {answer_text} {_bare_label(target_label)}.",
-    ]
+    converted = []
+    working = []
+    for value, unit in (side1, side2):
+        c = Fraction(value) * _linear_ratio(unit, target)
+        converted.append(c)
+        if unit != target:
+            working.append(f"{_fmt_value(value)} {unit} = {_fmt_value(c)} {target}.")
+    c1, c2 = (_fmt_value(c) for c in converted)
+    if quantity == "perimeter":
+        working.append(f"Perimeter = 2 × ({c1} + {c2}) = {answer_text} {_bare_label(target_label)}.")
+    else:
+        working.append(f"Area = {c1} × {c2} = {answer_text} {_bare_label(target_label)}.")
 
     return dict(
         text=text,

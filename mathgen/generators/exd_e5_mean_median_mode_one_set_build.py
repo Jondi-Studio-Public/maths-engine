@@ -153,10 +153,10 @@ _EXAM_TEMPLATES = (
     "This data set has {count} values (an even count): {values}. Show "
     "your working for each part as you find the mean (to 1 decimal digit), the median (the "
     "average of the two middle values once ordered) and the mode.",
-    "This exam question gives {count} values: {values}. Determine, with full working, the "
+    "A data set has {count} values: {values}. Determine, with full working, the "
     "mean (to 1 decimal digit), the median (average the two middle values after ordering) and "
     "the mode.",
-    "A {count}-value data set is given for this exam question: {values}. State your answer "
+    "A {count}-value data set is given: {values}. State your answer "
     "for the mean (to 1 decimal digit), the median (the two middle values' average, once "
     "ordered) and the mode, showing full working for each part.",
 )

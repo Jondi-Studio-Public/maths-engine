@@ -226,12 +226,24 @@ def use_informal_ways_of_describing_spread_such_as(rng, tier="easy"):
     options_str = "; ".join(options)
     text = f"A data set is described as '{descriptor}' if {rule}. Which of these four data sets fits that description? {options_str}"
 
-    working = [
-        f"Descriptor: {descriptor}",
-        f"Rule: {rule}",
-        f"Checking each option against the rule...",
-        f"Answer: {answer_text}",
-    ]
+    def verdict(data: list[int]) -> str:
+        vals = sorted(data)
+        if tier == "easy":
+            spread = vals[-1] - vals[0]
+            return f"largest - smallest = {vals[-1]} - {vals[0]} = {spread}, which is {'at most' if spread <= T else 'more than'} {T}"
+        if tier == "medium":
+            for i, val in enumerate(vals):
+                others = [abs(val - w) for j, w in enumerate(vals) if j != i]
+                if all(d > T for d in others):
+                    return f"{val} is more than {T} from every other value, so there is an outlier"
+            return f"no value is more than {T} from every other value, so there is no outlier"
+        gaps = [f"{b} - {a} = {b - a}" for a, b in zip(vals, vals[1:])]
+        word = "fits" if _check_gap_between_clusters(vals, T) else "does not fit"
+        return f"gaps between neighbours: {', '.join(gaps)}; {word} (more than {T} with two values on each side needed)"
+
+    working = [f"Rule: {rule}."]
+    working += [f"Data set {label}: {verdict(data)}." for label, data in zip(labels, options_data)]
+    working.append(f"Only {answer_text.split(':')[0]} fits, so the answer is {answer_text}.")
 
     return dict(
         text=text,

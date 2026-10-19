@@ -253,4 +253,9 @@ def p10a_antiderivative_given_fprime(rng, tier="easy"):
         "answer_text": answer_text,
         "answer_latex": latex_answer(answer_text),
         "distractors": distractors,
+        "working": [
+            f"Integrate term by term (power rule): f(x) = {_prose(g_expr)} + C.",
+            f"Use f({a_pt}) = {b_val}: {_prose(g_expr.subs(_x, a_pt))} + C = {b_val}, so C = {c_const}.",
+            f"f(x) = {_prose(f_expr)}.",
+        ],
     }

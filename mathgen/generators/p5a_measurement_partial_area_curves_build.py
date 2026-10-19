@@ -300,7 +300,9 @@ def area_between_curves_simple_cases(rng, mode="line_and_line"):
         answer_text = _format_area_answer(area)
 
         # Build distractors
-        wrong_order_val = numeric_answer(-area)
+        # An area cannot be negative, so the key negated is not offered; the slip is the area under the upper curve alone.
+        under_upper = Fraction(m1, 2) * (b**2 - a**2) + c1 * (b - a)
+        wrong_order_val = numeric_answer(under_upper)
         omit_lower = Fraction(m1 - m2, 2) * b**2 + (c1 - c2) * b
         omit_lower_val = numeric_answer(omit_lower)
         abs_answer = abs(answer)
@@ -369,11 +371,14 @@ def area_between_curves_simple_cases(rng, mode="line_and_line"):
         forgets_linear = Fraction(m, 2) * b**2 - Fraction(b**3, 3)
         swaps_power = Fraction(m, 2) * b**2 + c * b - b**3
 
-        candidates = [int(forgets_linear), int(swaps_power)]
+        # The area under the line alone, forgetting to take away the parabola.
+        upper_only = Fraction(m, 2) * b**2 + c * b
+        candidates = [int(forgets_linear), int(swaps_power), int(upper_only)]
 
         distractors_set = set()
         for c_val in candidates:
-            if c_val != answer:
+            # An area is never negative, so a slip that goes below zero is not offered.
+            if c_val != answer and c_val > 0:
                 distractors_set.add(c_val)
 
         # Ensure we have enough

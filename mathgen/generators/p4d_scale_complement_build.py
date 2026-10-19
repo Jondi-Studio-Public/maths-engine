@@ -226,6 +226,11 @@ def check_inclusion_exclusion_union(a, b, c, d):
     check(actual == expected, f"union check failed: {actual} != {expected}")
 
 
+def _proper(options):
+    """Keep only options that are possible probabilities (0 to 1)."""
+    return [o for o in options if 0 <= Fraction(o) <= 1]
+
+
 @generator(
     "probability_complement_union",
     level=11,
@@ -266,7 +271,11 @@ def probability_complement_union(rng, tier="medium"):
         check(Fraction(d - a + 1, d) != answer, "off-by-one distractor equals answer")
         check(abs(Fraction(d - a + 1, d) - answer) == Fraction(1, d), "off-by-one gap proof")
 
-        distractors = pick_distractors(answer_text, [distractor_forgot, distractor_off_by_one], n=2)
+        # 3. off-by-one the other way: reports (d-a-1)/d, only when it is a real (non-zero) probability
+        cands = [distractor_forgot, distractor_off_by_one]
+        if d - a - 1 >= 1:
+            cands.append(rational_text(Fraction(d - a - 1, d)))
+        distractors = pick_distractors(answer_text, _proper(cands), n=2)
 
     elif tier == "medium":
         # Medium: mutually-exclusive union P(A union B) = P(A) + P(B)
@@ -293,7 +302,12 @@ def probability_complement_union(rng, tier="medium"):
         # Proof: (2a+b)/d > (a+b)/d since a >= 1
         check(Fraction(2 * a + b, d) > answer, "double-counts distractor should be more")
 
-        distractors = pick_distractors(answer_text, [distractor_first, distractor_double], n=2)
+        # 3. multiplies instead of adding (the independent-events slip): reports P(A) x P(B)
+        distractor_product = rational_text(Fraction(a * b, d * d))
+        check(Fraction(a * b, d * d) != answer, "product distractor equals answer")
+        distractors = pick_distractors(
+            answer_text, _proper([distractor_first, distractor_double, distractor_product]), n=2
+        )
 
     else:  # hard
         # Hard: inclusion-exclusion P(A union B) = P(A) + P(B) - P(A intersect B)
@@ -351,7 +365,33 @@ def probability_complement_union(rng, tier="medium"):
         check(Fraction(a + b - 2 * c, d) != answer, "double-subtracts distractor equals answer")
         check(abs(Fraction(a + b - 2 * c, d) - answer) == Fraction(c, d), "double-subtracts gap proof")
 
-        distractors = pick_distractors(answer_text, [distractor_forgot, distractor_double_sub], n=2)
+        # 3. reports the larger of the two marginals (strictly below the union because the overlap is a proper part)
+        distractor_larger = rational_text(Fraction(max(a, b), d))
+        check(Fraction(max(a, b), d) != answer, "larger-marginal distractor equals answer")
+        distractors = pick_distractors(
+            answer_text,
+            _proper(
+                [
+                    distractor_forgot,
+                    distractor_double_sub,
+                    distractor_larger,
+                    rational_text(Fraction(a + b - c - 1, d)),  # off by one
+                    rational_text(Fraction(min(a, b), d)),  # reports the smaller marginal
+                ]
+            ),
+            n=2,
+        )
+
+    if tier == "easy":
+        raw = f"{d - a}/{d}"
+        step = f"P(not A) = 1 - P(A) = 1 - {a}/{d} = {raw}"
+    elif tier == "medium":
+        raw = f"{a + b}/{d}"
+        step = f"For mutually exclusive events, P(A union B) = P(A) + P(B) = {a}/{d} + {b}/{d} = {raw}"
+    else:
+        raw = f"{a + b - c}/{d}"
+        step = f"P(A union B) = P(A) + P(B) - P(A intersect B) = {a}/{d} + {b}/{d} - {c}/{d} = {raw}"
+    working = [step + ("." if raw == answer_text else f", which simplifies to {answer_text}.")]
 
     return dict(
         text=question_text,
@@ -359,4 +399,5 @@ def probability_complement_union(rng, tier="medium"):
         answer={"p": answer.numerator, "q": answer.denominator},
         answer_text=answer_text,
         distractors=distractors,
+        working=working,
     )

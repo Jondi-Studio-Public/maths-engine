@@ -172,7 +172,7 @@ _EXAM_TEMPLATES = (
     "A rectangular sheet metal panel measures {L} mm by {W} mm. Determine "
     "(a) the perimeter in mm, (b) the area in cm², and (c) the area in m², each area "
     "to the nearest whole number, showing your working for each part.",
-    "This exam question gives a rectangular panel {L} mm by {W} mm. Find, with full working, "
+    "A rectangular panel is {L} mm by {W} mm. Find, with full working, "
     "(a) the perimeter in mm, (b) the area in cm², and (c) the area in m², each area "
     "to the nearest whole number.",
     "Exam question: a rectangular sheet is {L} mm by {W} mm. Show your working to find the "

@@ -140,6 +140,9 @@ def _draw(rng, *, irregular: str | None, delta_pool=(-3, -2, 2, 2, 3, 3, 4)):
         s = Series(ctx, step, offsets, base, delta, cycles, irr)
         if min(s.units) < 1 or max(s.units) > 22:
             continue
+        # the value a question asks to predict (the next point) must be a plausible, positive amount
+        if base + delta * cycles + offsets[(s.n) % p] < 1:
+            continue
         # the one-off value must break the pattern: it is not a value its own season takes in the other cycles
         if irr:
             t, _jump = irr

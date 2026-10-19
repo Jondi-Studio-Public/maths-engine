@@ -179,7 +179,7 @@ _EXAM_TEMPLATES = (
     "A circle has an area of {A} cm². Calculate (a) the "
     "diameter and (b) the circumference of the circle, each correct to 1 decimal "
     "place, showing your working.",
-    "This exam question gives a circle of area {A} cm². Find, with full working, "
+    "A circle has an area of {A} cm². Find, with full working, "
     "(a) the diameter and (b) the circumference, each correct to 1 decimal place.",
     "Exam question: a circle has an area of {A} cm². Show your working to find "
     "(a) the diameter and (b) the circumference, each correct to 1 decimal place.",

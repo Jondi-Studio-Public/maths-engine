@@ -233,7 +233,8 @@ def triangular_prism_volume(rng, mode="with_slant"):
         omits_half = base * height_tri * length
         check(omits_half != answer, "omits_half_factor should be distinct from answer")
 
-        candidates = [str(omits_half)]
+        # - forgets_length: stops at the cross-section area; - adds_length: area + length instead of area x length
+        candidates = [str(omits_half), str(cross_section_area), str(cross_section_area + length)]
         distractors = pick_distractors(answer_text, candidates)
 
     elif mode == "with_slant":
@@ -261,7 +262,7 @@ def triangular_prism_volume(rng, mode="with_slant"):
         uses_slant = (base * slant // 2) * length
         check(uses_slant != answer, "uses_slant_side should be distinct from answer")
 
-        candidates = [str(omits_half), str(uses_slant)]
+        candidates = [str(omits_half), str(uses_slant), str(cross_section_area)]
         distractors = pick_distractors(answer_text, candidates)
 
     else:  # mode == "inverse"
@@ -326,6 +327,7 @@ def triangular_prism_volume(rng, mode="with_slant"):
         if uses_slant_recovered != answer:
             candidates.append(str(uses_slant_recovered))
         candidates.append(str(wrong_inverse))
+        candidates.append(str(answer * 2))  # doubled where it should halve
         distractors = pick_distractors(answer_text, candidates)
 
     return dict(

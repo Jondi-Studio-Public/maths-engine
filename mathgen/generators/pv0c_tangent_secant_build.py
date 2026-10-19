@@ -204,6 +204,10 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
         text = phrase(rng, _EASY_TEMPLATES, am=am, bm=bm)
         answer = tm
         check(bm * am == tm * tm, f"tangent_secant/easy: {bm}*{am} != {tm}^2")
+        working = [
+            "By the tangent-secant relation, AM x BM = TM².",
+            f"TM² = {am} x {bm} = {am * bm}, so TM = √{am * bm} = {tm} cm.",
+        ]
 
         raw = [
             ab,  # chord-for-secant: reports the chord, not TM
@@ -219,6 +223,10 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             text = phrase(rng, _MEDIUM_TEMPLATES_AM, tm=tm, bm=bm)
             answer = am
             check(bm * am == tm * tm, f"tangent_secant/medium(AM): {bm}*{am} != {tm}^2")
+            working = [
+                "By the tangent-secant relation, AM x BM = TM².",
+                f"AM = TM² / BM = {tm}² / {bm} = {tm * tm} / {bm} = {am} cm.",
+            ]
             raw = [
                 ab,  # chord-for-secant
                 tm * bm if tm * bm < 1000 else None,  # no-square-root
@@ -230,6 +238,10 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             text = phrase(rng, _MEDIUM_TEMPLATES_BM, tm=tm, am=am)
             answer = bm
             check(bm * am == tm * tm, f"tangent_secant/medium(BM): {bm}*{am} != {tm}^2")
+            working = [
+                "By the tangent-secant relation, AM x BM = TM².",
+                f"BM = TM² / AM = {tm}² / {am} = {tm * tm} / {am} = {bm} cm.",
+            ]
             raw = [
                 ab,  # chord-for-secant
                 tm * am if tm * am < 1000 else None,  # no-square-root
@@ -246,6 +258,10 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             answer = tm
             check(am == ab + bm, f"tangent_secant/hard: am != ab+bm ({am} vs {ab}+{bm})")
             check(bm * am == tm * tm, "tangent_secant/hard(find_tm): relation failed")
+            working = [
+                f"AM = AB + BM = {ab} + {bm} = {am} cm.",
+                f"By the tangent-secant relation, TM² = AM x BM = {am} x {bm} = {am * bm}, so TM = {tm} cm.",
+            ]
             chord_for_secant_sq = ab * bm
             root = math.isqrt(chord_for_secant_sq)
             chord_for_secant = root if root * root == chord_for_secant_sq else None
@@ -261,6 +277,10 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             answer = ab
             check(am == ab + bm, f"tangent_secant/hard: am != ab+bm ({am} vs {ab}+{bm})")
             check(bm * am == tm * tm, "tangent_secant/hard(find_ab): relation failed")
+            working = [
+                f"By the tangent-secant relation, AM x BM = TM², so AM = {tm}² / {bm} = {am} cm.",
+                f"AB = AM - BM = {am} - {bm} = {ab} cm.",
+            ]
             raw = [
                 am,  # whole-secant-when-part-asked: forgot -BM
                 am + bm,  # sign slip: added instead of subtracted
@@ -276,6 +296,11 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             text = phrase(rng, _EXAM_TEMPLATES_BM, tm=tm, ab=ab)
             answer = bm
             check(bm * (bm + ab) == tm * tm, "tangent_secant/exam(find_bm): quadratic failed")
+            working = [
+                f"Let BM = x, so AM = x + {ab}. The tangent-secant relation gives x(x + {ab}) = {tm}² = {tm * tm}.",
+                f"x² + {ab}x - {tm * tm} = 0 factorises as (x - {bm})(x + {am}) = 0.",
+                f"A length is positive, so BM = {bm} cm.",
+            ]
             raw = [
                 am,  # other-root-or-other-segment
                 2 * bm,  # forgot to halve the root sum
@@ -287,6 +312,11 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             text = phrase(rng, _EXAM_TEMPLATES_AM, tm=tm, ab=ab)
             answer = am
             check(am * (am - ab) == tm * tm, "tangent_secant/exam(find_am): quadratic failed")
+            working = [
+                f"Let AM = x, so BM = x - {ab}. The tangent-secant relation gives x(x - {ab}) = {tm}² = {tm * tm}.",
+                f"x² - {ab}x - {tm * tm} = 0 factorises as (x - {am})(x + {bm}) = 0.",
+                f"A length is positive, so AM = {am} cm.",
+            ]
             raw = [
                 bm,  # other-root-or-other-segment
                 2 * am,  # forgot to halve the root sum
@@ -299,6 +329,10 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             answer = mo
             check(tm * tm + r * r == mo * mo, "tangent_secant/exam(centre): Pythagorean check failed")
             check(bm * am == tm * tm, "tangent_secant/exam(centre): power-of-a-point check failed")
+            working = [
+                f"The tangent TM is perpendicular to the radius OT, and OT = {r} cm, so triangle OTM has a right angle at T.",
+                f"MO² = TM² + OT² = {tm}² + {r}² = {tm * tm} + {r * r} = {mo * mo}, so MO = {mo} cm.",
+            ]
             raw = [
                 bm,  # pythagoras-slip: BM given as MO
                 am,  # pythagoras-slip: AM given as MO
@@ -319,11 +353,6 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
         not (set(distractors) & printed),
         f"tangent_secant/{tier}: a distractor echoed a printed number ({distractors} vs {text!r})",
     )
-
-    working = [
-        "By the tangent-secant relation, AM x BM = TM^2.",
-        f"So the requested length is {answer} cm.",
-    ]
 
     return {
         "text": text,

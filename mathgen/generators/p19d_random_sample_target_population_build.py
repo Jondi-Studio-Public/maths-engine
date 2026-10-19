@@ -1118,7 +1118,7 @@ def _frame_surveyed_option(ctx, n) -> str:
     shorter and sometimes longer than ``ctx['full']`` itself -- this is what supplies the exam/easy/medium
     length-tell fix, since a fixed-full-echoing distractor shape would always be longer than the bare "all
     {full}" key by a constant margin."""
-    return _wrap(f"the {n} people who were actually surveyed")
+    return _wrap("the people who were actually surveyed")
 
 
 def _consent_subgroup_option(ctx, clause) -> str:

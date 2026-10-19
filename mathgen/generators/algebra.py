@@ -513,6 +513,22 @@ def simultaneous(rng, sol_hi=8, coef_hi=5):
     return dict(
         text=f"Solve the simultaneous equations: {e1} and {e2}",
         latex=rf"\begin{{cases}} {latex(eqs[0])} \ {latex(eqs[1])} \end{{cases}}",
+        working=[
+            (
+                "Subtract the second equation from the first to eliminate y."
+                if b1 == b2
+                else f"Eliminate y: multiply the first equation by {paren_negative(b2)} and the second by "
+                f"{paren_negative(b1)}, then subtract."
+            ),
+            (
+                f"{a1 - a2}x = {c1 - c2}, so x = {x0}."
+                if b1 == b2
+                else f"{a1 * b2 - a2 * b1}x = {c1 * b2 - c2 * b1}, so x = {x0}."
+            ),
+            f"Substitute x = {x0} into the first equation: {join_terms([(a1 * x0, ''), (b1, 'y')])} = {c1}"
+            + (f", so {join_terms([(b1, 'y')])} = {c1 - a1 * x0}" if a1 * x0 else "")
+            + f" and y = {y0}.",
+        ],
         **xy_solution(x0, y0),
     )
 

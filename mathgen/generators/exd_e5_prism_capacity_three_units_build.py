@@ -183,10 +183,10 @@ _EXAM_TEMPLATES = (
     "A rectangular tank measures {l} m by {w} cm by "
     "{h} mm. Show your working to find its capacity in cubic metres, "
     "cubic centimetres and litres.",
-    "This exam question gives a rectangular container {l} m long, {w} cm "
+    "A rectangular container is {l} m long, {w} cm "
     "wide and {h} mm high. Show full working to find its capacity in "
     "cubic metres, cubic centimetres and litres.",
-    "A rectangular tank for this exam question measures {l} m by {w} cm "
+    "A rectangular tank measures {l} m by {w} cm "
     "by {h} mm. Show your full working as you find its capacity in cubic "
     "metres, cubic centimetres and litres.",
 )

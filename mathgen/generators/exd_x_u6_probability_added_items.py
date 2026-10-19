@@ -130,7 +130,8 @@ def _build(rng: random.Random):
                 sensible_range=(0, None),
                 working=[
                     f"Let x be the number added: ({r} + x)/({n} + x) = {p}/{q}.",
-                    f"{q}({r} + x) = {p}({n} + x), so {fmt_signed(q - p, 'x')} = {p * n - q * r}, x = {x}.",
+                    f"{q}({r} + x) = {p}({n} + x), so {fmt_signed(q - p, 'x')} = {p * n - q * r}"
+                    + ("." if q - p == 1 else f", x = {x}."),
                 ],
                 distractors=b_d,
             ),

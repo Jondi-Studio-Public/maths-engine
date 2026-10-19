@@ -65,6 +65,11 @@ def _typed(expr) -> str:
     return str(expr).replace("**", "^")
 
 
+def _w(expr) -> str:
+    """Working rendering: ``**`` -> ``^`` and the implied product sign dropped (3t^2, not 3*t^2)."""
+    return str(expr).replace("**", "^").replace("*", "")
+
+
 def _prose(expr) -> str:
     """Learner-facing prose form for question text: ** -> ^, * -> the middle dot."""
     return str(expr).replace("**", "^").replace("*", "·")
@@ -204,6 +209,11 @@ def p10a_velocity_to_displacement_line(rng, tier="easy"):
         "answer_text": answer_text,
         "answer_latex": latex_answer(answer_text),
         "distractors": distractors,
+        "working": [
+            f"Integrate the velocity: s(t) = {_w(G)} + C.",
+            f"Use s({a}) = {s0}: {_w(G_a)} + C = {s0}, so C = {C}.",
+            f"s(t) = {_w(S)}.",
+        ],
     }
 
 
@@ -329,6 +339,12 @@ def _acceleration_to_position_split(rng):
         "answer_text": answer_text,
         "answer_latex": latex_answer(answer_text),
         "distractors": distractors,
+        "working": [
+            f"Integrate the acceleration: v(t) = {_w(G1)} + C₁. Since v(0) = {v0}, C₁ = {v0}.",
+            f"Integrate again: s(t) = {_w(G2)} + C₂.",
+            f"Use s({b}) = {s0}: {_w(G2_b)} + C₂ = {s0}, so C₂ = {C2}.",
+            f"s(t) = {_w(S)}.",
+        ],
     }
 
 
@@ -425,4 +441,10 @@ def p10a_acceleration_to_position_line(rng, tier="easy", split=False):
         "answer_text": answer_text,
         "answer_latex": latex_answer(answer_text),
         "distractors": distractors,
+        "working": [
+            f"Integrate the acceleration: v(t) = {_w(G1)} + C₁. Since v({a_ic}) = {v0}: {_w(G1_a)} + C₁ = {v0}, so C₁ = {C1}.",
+            f"Integrate again: s(t) = {_w(G2)} + C₂.",
+            f"Use s({a_ic}) = {s0}: {_w(G2_a)} + C₂ = {s0}, so C₂ = {C2}.",
+            f"s(t) = {_w(S)}.",
+        ],
     }

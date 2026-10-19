@@ -1814,6 +1814,11 @@ _LETTER_X_TIMES_RE = re.compile(r"(?<=[\d)|]) x (?=\d)")
 _COEFFICIENT_ONE_RE = re.compile(
     r"(?<![\w.^/])1(?=[xyztnui](?![A-Za-z0-9_])|[ab](?=\s[+=\u2212-])|[fgh]\(|e\^|\s(?:sin|cos|tan|ln)\()\s?"
 )
+# A coefficient of 1 before a bracket ("-1(x - 3)", "1(15/2)²"): the bracket stands alone. A bracket that is only a
+# label ("1(a)") or a lone letter is left alone.
+_COEFFICIENT_ONE_BRACKET_RE = re.compile(
+    r"(?<![\w.^/)\]\u00b2\u00b3])(?<!\d,)([-\u2212]?)1\((?=[^()]*(?:[\d+\u2212/^\u00b2]|\s-\s))"
+)
 # "+ 0x" and "- 0t" add nothing; "y = 0x" is "y = 0".
 _ZERO_TERM_RE = re.compile(r"\s[+\u2212-]\s0[xyztnu](?![A-Za-z0-9_(])")
 _ZERO_LEADING_RE = re.compile(r"(?<![\w.^/])0[xyztnu](?=\s[+\u2212-]\s)\s[+\u2212-]\s")
@@ -1867,6 +1872,8 @@ def _learner_text(text, *, working=False):
         text = _AN_NUMBER_RE.sub(r"\1n ", text)
     if "1" in text:
         text = _COEFFICIENT_ONE_RE.sub("", text)
+        if "1(" in text:
+            text = _COEFFICIENT_ONE_BRACKET_RE.sub(r"\1(", text)
         text = _ONE_PLURAL_RE.sub(lambda m: "1 " + _PLURALS[m.group(1)], text)
     if "0" in text:
         text = _ZERO_LEADING_RE.sub("", text)

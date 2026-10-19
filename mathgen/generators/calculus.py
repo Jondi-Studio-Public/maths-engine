@@ -860,11 +860,25 @@ def _ode_exponential(rng, ic_mode):
         text = phrase(rng, _ODE_EXAM_CONTEXTS, k=k, x0=x0, m=m)
         result_latex = None
 
+    def _e(power) -> str:
+        """e raised to an integer multiple of x, written "e^(-2x)", "e^x"."""
+        return "e^x" if power == 1 else ("e^(-x)" if power == -1 else f"e^({power}x)")
+
+    working = [f"A rate proportional to y has the general solution y = A{_e(k)}, where A is a constant."]
+    if ic_mode == "exam":
+        working.append(f"At x = {x0} the rate is {m} and dy/dx = {k}y, so y({x0}) = {m}/{k} = {y0}.")
+    if x0 == 0:
+        working.append(f"y(0) = {y0} gives A = {y0}.")
+    else:
+        const = f"{y0}e^({-k * x0})" if k * x0 != 0 else str(y0)
+        working.append(f"y({x0}) = {y0} gives A e^({k * x0}) = {y0}, so A = {const}.")
+    working.append(f"y = {str(ans).replace('**', '^')}.")
     result = dict(
         text=text,
         answer=str(ans),
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
+        working=working,
         distractors=pick_distractors(answer_text, cand_strs),
     )
     if result_latex is not None:
@@ -908,6 +922,10 @@ def differential_equation(rng, kinds=("exponential", "separable_poly"), ic_mode=
         answer=str(F),
         answer_text=f"y = {F} + C",
         answer_latex=rf"y = {latex(F)} + C",
+        working=[
+            "The right-hand side depends only on x, so integrate both sides with respect to x.",
+            f"y = ∫({p}) dx = {F} + C.",
+        ],
         distractors=pick_distractors(f"y = {F} + C", cands),
     )
 
@@ -930,6 +948,12 @@ def partial_derivatives(rng, coef_hi=6, pow_hi=3, kinds=("dx", "dy", "grad")):
     fx, fy_ = diff(f, x), diff(f, y)
     # Independent check: mixed partials commute.
     check(diff(fx, y) == diff(fy_, x))
+    terms = [a * x ** (px + 1), b * x**px * y**py, c * y ** (py + 1)]
+
+    def _term_working(var, other):
+        parts = "; ".join(f"d/d{var} of {t} is {diff(t, var)}" for t in terms)
+        return f"Treat {other} as a constant and differentiate each term with respect to {var}: {parts}."
+
     if kind == "dx":
         # Misconceptions: differentiated w.r.t. the wrong variable;
         # differentiated w.r.t. both and summed; took the mixed partial.
@@ -940,6 +964,7 @@ def partial_derivatives(rng, coef_hi=6, pow_hi=3, kinds=("dx", "dy", "grad")):
             answer=str(fx),
             answer_text=str(fx),
             answer_latex=latex(fx),
+            working=[_term_working(x, "y"), f"∂f/∂x = {fx}."],
             distractors=pick_distractors(str(fx), cands),
         )
     if kind == "dy":
@@ -950,6 +975,7 @@ def partial_derivatives(rng, coef_hi=6, pow_hi=3, kinds=("dx", "dy", "grad")):
             answer=str(fy_),
             answer_text=str(fy_),
             answer_latex=latex(fy_),
+            working=[_term_working(y, "x"), f"∂f/∂y = {fy_}."],
             distractors=pick_distractors(str(fy_), cands),
         )
     # Misconceptions: swapped the components; used the same variable for both.
@@ -960,5 +986,6 @@ def partial_derivatives(rng, coef_hi=6, pow_hi=3, kinds=("dx", "dy", "grad")):
         answer=[str(fx), str(fy_)],
         answer_text=f"∇f = ({fx}, {fy_})",
         answer_latex=rf"\nabla f = \left({latex(fx)},\ {latex(fy_)}\right)",
+        working=[_term_working(x, "y"), _term_working(y, "x"), f"∇f = (∂f/∂x, ∂f/∂y) = ({fx}, {fy_})."],
         distractors=pick_distractors(f"∇f = ({fx}, {fy_})", cands),
     )

@@ -39,9 +39,9 @@ _STEMS = (
     "A rectangular conservation reserve measures {w} m by {l} km. It lies inside a park of {s} km² in all.",
 )
 _TREATMENTS = (
-    "Fertiliser for the paddock costs ${p} per hectare.",
-    "Weed control costs ${p} per hectare.",
-    "Fencing the area off for revegetation costs ${p} per hectare.",
+    "Fertiliser for the whole block costs ${p} per hectare.",
+    "Weed control across the whole block costs ${p} per hectare.",
+    "Revegetation work across the whole block costs ${p} per hectare.",
 )
 
 

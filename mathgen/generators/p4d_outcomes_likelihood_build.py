@@ -149,7 +149,7 @@ def outcomes_sample_classify(rng, difficulty_tier="easy"):
     else:
         rule_text = ""
 
-    text = f"The sample space S = {{1, 2, ..., {n}}}. Set X = {x_display}. Which of the following best describes X?"
+    text = f"The sample space S = {{1, 2, ..., {n}}}. Set X = {x_display}. Which of the following is the most specific description of X?"
     if rule_text:
         text = rule_text + " " + text
 

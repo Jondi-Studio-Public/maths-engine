@@ -34,6 +34,23 @@ def _person_word(n: int) -> str:
     return "person" if n == 1 else "people"
 
 
+def _conditional_working(tier, N, n_b, n_ab, answer_text):
+    """Working that uses only what the stem states for this tier."""
+    cond = "P(Music | Sport)"
+    if tier == "hard":
+        return [
+            f"P(A | B) = P(A ∩ B) / P(B) = ({rational_text(Fraction(n_ab, N))}) ÷ ({rational_text(Fraction(n_b, N))}).",
+            f"Dividing by a fraction is multiplying by its reciprocal, so P(A | B) = {answer_text}.",
+        ]
+    lines = []
+    if tier == "medium":
+        lines.append(f"Sport-likers = {n_ab} (both) + {n_b - n_ab} (Sport but not Music) = {n_b}.")
+    lines.append(f"{cond} = (number who like both) / (number who like Sport) = {n_ab} / {n_b}.")
+    if Fraction(n_ab, n_b).denominator != n_b:
+        lines.append(f"Simplified: {answer_text}.")
+    return lines
+
+
 def _verify_conditional_enumeration(N: int, n_b: int, n_ab: int, answer: Fraction) -> None:
     """Independent check via explicit enumeration instead of direct division.
     Build items, filter to B, count A intersect B, divide by |B|."""
@@ -137,11 +154,7 @@ def conditional_probability_notation(rng, tier="easy"):
         answer={"p": answer.numerator, "q": answer.denominator},
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[
-            f"Group: {N} people. Sport: {n_b}. Both: {n_ab}.",
-            f"P(Music|Sport) = (count in both) / (count in Sport) = {n_ab} / {n_b}.",
-            f"Simplified: {answer_text}.",
-        ],
+        working=_conditional_working(tier, N, n_b, n_ab, answer_text),
         distractors=distractors,
     )
 
@@ -164,6 +177,22 @@ def _verify_pascal_formula(n: int, k: int, expected: int) -> None:
     computed = _pascal_row(n)[k]
     check(computed == expected, f"pascal_row(n={n})[{k}] = {computed}, expected {expected}")
     check(computed == math.comb(n, k), f"pascal_row(n={n})[{k}] = {computed}, math.comb({n}, {k}) = {math.comb(n, k)}")
+
+
+def _pascal_working(tier, n, k, answer, ctx):
+    """Working for the asked position, written from the numbers the stem states."""
+    if tier == "easy":
+        row = " ".join(str(v) for v in _pascal_row(n))
+        return [f"Row {n} of Pascal's triangle (counting the top 1 as row 0) is {row}.", f"Position {k} is {answer}."]
+    if tier == "medium":
+        return [
+            f"Each entry is the sum of the two above it: {ctx['parent1']} + {ctx['parent2']} = {answer}.",
+            f"So the value at position {k} in row {n} is {answer}.",
+        ]
+    return [
+        f"The entry in row {n} is the sum of the two above it: {ctx['child']} = {ctx['parent_given']} + (missing value).",
+        f"Missing value = {ctx['child']} - {ctx['parent_given']} = {answer}.",
+    ]
 
 
 @generator(
@@ -277,9 +306,6 @@ def pascals_triangle_properties(rng, tier="easy"):
         answer=answer,
         answer_text=str(answer),
         answer_latex=str(answer),
-        working=[
-            f"Using Pascal's triangle: row {n}, position {k}.",
-            f"Answer: {answer}.",
-        ],
+        working=_pascal_working(tier, n, k, answer, locals()),
         distractors=distractors,
     )

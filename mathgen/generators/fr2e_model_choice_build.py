@@ -240,6 +240,9 @@ def constant(values) -> bool:
     return len(set(values)) == 1
 
 
+_MODEL_WORD = {"lin": "linear", "quad": "quadratic", "exp": "exponential"}
+
+
 def classify(ys) -> str:
     """The one model whose test the table passes, by first differences, second differences and ratios."""
     d1 = first_diffs(ys)
@@ -501,7 +504,7 @@ def _hard(rng):
         wrong_text,
         1,
         [
-            f"The model is {classify(ys)} (checked using differences per row of {step} in x).",
+            f"The model is {_MODEL_WORD[classify(ys)]} (checked using differences per row of {step} in x).",
             f"Rule: y = {rule_text(model.rule)}.",
             f"At x = {N}, y = {target}.",
         ],

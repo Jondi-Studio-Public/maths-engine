@@ -165,7 +165,7 @@ _SI_EXAM_TEMPLATES = (
     "Quarter {c} = {ic}. Find the ADJUSTED seasonal index for Quarter {d}, once every quarter "
     "is scaled by the same factor so all four sum to exactly 400. Give your answer to 1 "
     "decimal place.",
-    "This exam question gives four unadjusted seasonal indices summing to {total}: Quarter {a} "
+    "Four unadjusted seasonal indices sum to {total}: Quarter {a} "
     "= {ia}, Quarter {b} = {ib}, Quarter {c} = {ic}, and Quarter {d} (not stated). Scale every "
     "quarter by the same factor so the four ADJUSTED indices sum to exactly 400, and find "
     "Quarter {d}'s adjusted index, to 1 decimal place.",
