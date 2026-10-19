@@ -52755,6 +52755,16 @@ _ENTRIES = (
         area="figure-views",
     ),
     CatalogueEntry(
+        "trial-gives-the-outcome-asked-not-the-rest",
+        "Gives the tally of the outcome named, where the trials that were not that outcome were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "trial-uses-one-group-only",
+        "Uses the tally of one group only, where the two groups' results were to be put together.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
         "turn-goes-the-wrong-way",
         "Counts the right angles the other way round the dial, from the end back to the start, instead of clockwise.",
         area="figure-views",
