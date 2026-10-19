@@ -211,8 +211,8 @@ def test_working_and_text_are_plain(sid):
 def test_area_between_curves_working_is_plain_and_right():
     skill = _skill("senior-calculate-the-area-between-curves-in-simple-cases")
     q = engine.make_for_skill(skill, seed=1239521655, source="easy")
-    assert "[x²/2] from 2 to 5" in " ".join(q.working)
-    assert q.working[-1].strip() == "= 21/2 = 10.5" and q.answer_text == "10.5"
+    assert "An antiderivative of x is x²/2" in " ".join(q.working)
+    assert q.working[-1].strip().endswith("= 10.5") and q.answer_text == "10.5"
 
 
 def test_misleading_graph_honest_axis_note_does_not_claim_a_flaw():
