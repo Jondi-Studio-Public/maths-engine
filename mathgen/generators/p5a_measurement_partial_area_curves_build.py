@@ -142,7 +142,7 @@ def unmarked_partial_measurement(rng, mode="from_lower_mark"):
         f"On a {noun}, marks are labelled every {M} {unit}. "
         f"Between the {lower_mark} {unit} mark and the {upper_mark} {unit} mark "
         f"there are {N} equal unmarked divisions. "
-        f"A measurement sits at the {position_text}. "
+        f"A measurement sits {position_text}. "
         f"What is the measurement, in {unit}?"
     )
 
@@ -184,14 +184,12 @@ def unmarked_partial_measurement(rng, mode="from_lower_mark"):
 
     # Build working
     # Avoid "1 divisions" by using ordinal phrasing
-    if k == 1:
-        divisions_desc = "division 1"
-    else:
-        divisions_desc = f"{k} divisions"
+    divisions_desc = f"{k} {_division_word(k)}"
+    sign = "+" if direction == "from_lower" else "−"
     working = [
         f"Each subdivision has value {M} ÷ {N} = {division_value} {unit}.",
         f"From the {ref_label}: {divisions_desc} × {division_value} {unit} = {k * division_value} {unit}.",
-        f"Answer: {answer} {unit}.",
+        f"The measurement is {ref_mark} {sign} {k * division_value} = {answer} {unit}.",
     ]
 
     return dict(
@@ -283,16 +281,25 @@ def area_between_curves_simple_cases(rng, mode="line_and_line"):
             )
 
         d_m, d_c = m1 - m2, c1 - c2
-        antiderivative = [f"{d_m // 2 if d_m > 2 else ''}x²" if d_m % 2 == 0 else f"{'' if d_m == 1 else d_m}x²/2"]
+        diff_text = join_terms([(d_m, "x"), (d_c, "")])
+        lead = Fraction(d_m, 2)
+        if lead.denominator == 1:
+            anti = ("" if lead == 1 else str(lead.numerator)) + "x²"
+        else:
+            anti = ("" if lead.numerator == 1 else str(lead.numerator)) + f"x²/{lead.denominator}"
         if d_c:
-            antiderivative.append(f"{'' if d_c == 1 else d_c}x")
+            anti += f" + {'' if d_c == 1 else d_c}x"
+
+        def _anti_value(x: int) -> Fraction:
+            return lead * x * x + d_c * x
+
+        fb, fa = _anti_value(b), _anti_value(a)
         working = [
             f"The curves are f(x) = {_format_linear(m1, c1)} and g(x) = {_format_linear(m2, c2)}.",
-            f"f(x) - g(x) = {join_terms([(d_m, 'x'), (d_c, '')])}, which is at least 0 for x >= 0, so f is the upper curve.",
-            f"Area = ∫[{a},{b}] [{_format_linear(m1, c1)} - ({_format_linear(m2, c2)})] dx",
-            f"     = ∫[{a},{b}] [{join_terms([(d_m, 'x'), (d_c, '')])}] dx",
-            f"     = [{' + '.join(antiderivative)}] from {a} to {b}",
-            f"     = {rational_text(area) + ' = ' if area.denominator != 1 else ''}{_format_area_answer(area)}",
+            f"f(x) − g(x) = {diff_text}, which is positive for x between {a} and {b}, so f is the upper curve.",
+            f"Area = ∫ from {a} to {b} of [{_format_linear(m1, c1)} − ({_format_linear(m2, c2)})] dx = ∫ from {a} to {b} of ({diff_text}) dx.",
+            f"An antiderivative of {diff_text} is {anti}.",
+            f"Putting in the limits: {rational_text(fb)} − {rational_text(fa)} = {_format_area_answer(area)}",
         ]
 
         _verify_area_easy(m1, m2, c1, c2, a, b, area)
@@ -354,13 +361,16 @@ def area_between_curves_simple_cases(rng, mode="line_and_line"):
             f"and below by y = x² for x between 0 and {b}."
         )
 
+        lin_part = f"{rational_text(Fraction(m, 2))}x²" if m != 2 else "x²"
+        if c:
+            lin_part += f" + {'' if c == 1 else c}x"
         working = [
-            f"f(x) = {_format_linear(m, c)}, g(x) = x²",
-            f"Verify f(x) >= g(x) on [0,{b}]: f(0) = {c} >= 0 = g(0), f({b}) = {m * b + c} >= {b**2} = g({b})",
-            f"Area = ∫[0,{b}] [{_format_linear(m, c)} - x²] dx",
-            f"     = [{m}/2·x² + {c}·x - x³/3] from 0 to {b}",
-            f"     = {m}/2·{b}² + {c}·{b} - {b}³/3",
-            f"     = {area}",
+            f"f(x) = {_format_linear(m, c)}, g(x) = x².",
+            f"Check f(x) ≥ g(x) on [0, {b}]: f(0) = {c} ≥ 0 = g(0), and f({b}) = {m * b + c} ≥ {b**2} = g({b}).",
+            f"Area = ∫ from 0 to {b} of [{_format_linear(m, c)} − x²] dx.",
+            f"An antiderivative of {_format_linear(m, c)} − x² is {lin_part} − x³/3.",
+            f"At x = {b}: {rational_text(Fraction(m, 2) * b * b)} + {c * b} − {rational_text(Fraction(b**3, 3))} = {area}; at x = 0 it is 0.",
+            f"Area = {area}",
         ]
 
         _verify_area_medium(m, c, b, int(area))

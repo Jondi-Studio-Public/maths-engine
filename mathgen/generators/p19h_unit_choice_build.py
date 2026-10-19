@@ -412,7 +412,8 @@ def _build_activity_medium(rng) -> tuple[str, str]:
     cell = act["km" if key == "km" else "m" if key == "m" else "speed"]
     q = rng.choice(cell)[0]
     conv = "" if _KEY_TYPE[key] == "distance" else _conv_suffix(rng, key)
-    return key, rng.choice(_FRAMES).format(q=f"{q} (for {act['name']})", c=conv)
+    frame = rng.choice(_FRAMES).format(q=q, c=conv)
+    return key, f"In {act['name']}, {frame[0].lower()}{frame[1:]}"
 
 
 def _recorded_clause(rng, act: dict, key: str, verb: str) -> str:

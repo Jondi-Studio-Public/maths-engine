@@ -354,7 +354,7 @@ def _build_easy_perimeter(rng, side_hi: int) -> dict:
         side = rng.randint(2, side_hi)
         sides = [side, side, side, side]
         text = f"A square has sides of length {side} cm. What is its perimeter, in cm?"
-        working = [f"Perimeter = 4 x side = 4 x {side} = {sum(sides)} cm."]
+        working = [f"Perimeter = 4 × side = 4 × {side} = {sum(sides)} cm."]
     else:
         length = rng.randint(2, side_hi)
         width = rng.randint(2, side_hi)
@@ -362,7 +362,7 @@ def _build_easy_perimeter(rng, side_hi: int) -> dict:
             width = rng.randint(2, side_hi)
         sides = [length, width, length, width]
         text = f"A rectangle is {length} cm long and {width} cm wide. What is its perimeter, in cm?"
-        working = [f"Perimeter = 2 x (length + width) = 2 x ({length} + {width}) = {sum(sides)} cm."]
+        working = [f"Perimeter = 2 × (length + width) = 2 × ({length} + {width}) = {sum(sides)} cm."]
 
     answer = sum(sides)
     _verify_straight_edged(sides, answer)

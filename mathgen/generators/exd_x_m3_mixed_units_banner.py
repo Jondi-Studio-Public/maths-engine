@@ -51,8 +51,9 @@ def exd_x_m3_mixed_units_banner(rng: random.Random, tier: str = "exam") -> dict:
                 2,
                 2,
                 [
-                    f"{W} cm = {Fraction(W, 100)} m.",
-                    f"Perimeter = 2 × ({float(L):.1f} + {float(Fraction(W, 100)):.1f}) m.",
+                    f"{W} cm = {float(Fraction(W, 100)):.1f} m.",
+                    f"Perimeter = 2 × ({float(L):.1f} + {float(Fraction(W, 100)):.1f}) = 2 × "
+                    f"{float(L + Fraction(W, 100)):.1f} = {float(perimeter):.2f} m.",
                 ],
                 [
                     (2 * (L + W), "unit-not-converted"),
@@ -67,7 +68,7 @@ def exd_x_m3_mixed_units_banner(rng: random.Random, tier: str = "exam") -> dict:
                 edge_cost,
                 2,
                 1,
-                [f"Cost = {float(perimeter):.2f} × {edge_price}."],
+                [f"Cost = {float(perimeter):.2f} × {edge_price} = ${float(edge_cost):.2f}."],
                 [
                     (2 * (L + W) * edge_price, "unit-not-converted"),
                     ((L + Fraction(W, 100)) * edge_price, None),
@@ -80,7 +81,7 @@ def exd_x_m3_mixed_units_banner(rng: random.Random, tier: str = "exam") -> dict:
                 area_cm2,
                 0,
                 2,
-                [f"{float(L):.1f} m = {int(Lcm)} cm.", f"Area = {int(Lcm)} × {W} cm²."],
+                [f"{float(L):.1f} m = {int(Lcm)} cm.", f"Area = {int(Lcm)} × {W} = {int(area_cm2)} cm²."],
                 [
                     (L * W, "unit-not-converted"),
                     (L * 10 * W, "unit-factor-wrong-power"),  # 10 cm to the metre
@@ -96,7 +97,8 @@ def exd_x_m3_mixed_units_banner(rng: random.Random, tier: str = "exam") -> dict:
                 2,
                 [
                     "1 m² = 100 cm × 100 cm = 10 000 cm².",
-                    f"Area = {float(area_m2):.2f} m²; cost = area × {paint_price}.",
+                    f"Area = {int(area_cm2)} ÷ 10 000 = {float(area_m2):.2f} m².",
+                    f"Cost = {float(area_m2):.2f} × {paint_price} = ${float(paint_cost):.2f}.",
                 ],
                 [
                     (area_cm2 / 100 * paint_price, "linear-factor-on-area"),

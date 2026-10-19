@@ -203,7 +203,7 @@ def _draw(rng, tier):
         cand = [syms[i] if each > 1 else None, key + each, key - each, *others, key + 1]
         working = [
             f"The {cats[i]} row has {_fmt(syms[i])} {noun(syms[i], 'symbol')} and each symbol is {each}.",
-            f"{_fmt(syms[i])} x {each} = {key}.",
+            f"{_fmt(syms[i])} × {each} = {key}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
     if tier == "medium":
@@ -234,8 +234,8 @@ def _draw(rng, tier):
             syms[b] * each,
         ]
         working = [
-            f"{cats[a]}: {_fmt(syms[a])} {noun(syms[a], 'symbol')} x {each} = {_fmt(syms[a] * each)}. "
-            f"{cats[b]}: {_fmt(syms[b])} {noun(syms[b], 'symbol')} x {each} = {_fmt(syms[b] * each)}.",
+            f"{cats[a]}: {_fmt(syms[a])} {noun(syms[a], 'symbol')} × {each} = {_fmt(syms[a] * each)}. "
+            f"{cats[b]}: {_fmt(syms[b])} {noun(syms[b], 'symbol')} × {each} = {_fmt(syms[b] * each)}.",
             f"{_fmt(syms[a] * each)} - {_fmt(syms[b] * each)} = {key}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working

@@ -240,7 +240,7 @@ _POOLS = {
             "Write F(x) for the integral of f(t) dt where the limits run from t = {a} to t = x.",
         ),
         (
-            "What is F'({x0}) when x = {x0}?",
+            "What is F'({x0}), the value of the derivative of F at x = {x0}?",
             "Work out F'({x0}), the derivative of F at x = {x0}.",
             "Evaluate F'({x0}).",
         ),

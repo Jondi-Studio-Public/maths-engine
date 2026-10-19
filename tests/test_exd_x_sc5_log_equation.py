@@ -33,7 +33,7 @@ def _frac(text):
 
 def _setup(q):
     b, p, qq, n = (
-        int(v) for v in re.search(r"log_\{(\d+)\}\(x \+ (\d+)\) \+ log_\{\d+\}\(x - (\d+)\) = (\d+)", q.stem).groups()
+        int(v) for v in re.search(r"log_(\d+)\(x \+ (\d+)\) \+ log_\d+\(x - (\d+)\) = (\d+)", q.stem).groups()
     )
     return b, p, qq, n
 

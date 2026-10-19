@@ -241,7 +241,7 @@ def _stack_hard(rng):
         answer = full - n
         cands = [n, full, full + n, width * depth * top - n, full - n + box_w * box_d, full - 2 * n]
         working = [
-            f"The stack has {n} cubes. The box holds {box_w} x {box_d} x {box_h} = {full} cubes.",
+            f"The stack has {n} cubes. The box holds {box_w} × {box_d} × {box_h} = {full} cubes.",
             f"{full} - {n} = {answer} more cubes.",
         ]
     else:
@@ -260,7 +260,7 @@ def _stack_hard(rng):
         cands = [seen, 6 * n, seen + len(grid.plan_view(cubes)), 2 * seen - len(grid.plan_view(cubes)), answer - 2]
         working = [
             f"The picture shows {seen} squares: tops, fronts and right sides.",
-            f"The back, the left side and the bottom match the squares you can see, so the total is 2 x {seen} = "
+            f"The back, the left side and the bottom match the squares you can see, so the total is 2 × {seen} = "
             f"{answer} unit squares.",
         ]
     return fig, text, answer, cands, working
@@ -417,7 +417,7 @@ def _properties_medium(rng):
     cands = [n * (n - 3), n - 3, n * (n - 1) // 2, answer + n, n]
     working = [
         f"Each of the {n} vertices joins to {n - 3} others by a diagonal, and each diagonal is counted twice: "
-        f"{n} x {n - 3} / 2 = {answer}."
+        f"{n} × {n - 3} / 2 = {answer}."
     ]
     return None, text, answer, cands, working
 
@@ -448,11 +448,11 @@ def _properties_hard(rng):
     elif kind == "pyramid_vertices":
         text = f"A pyramid has {n + 1} vertices. How many edges does it have?"
         answer, cands = 2 * n, [n, 2 * n + 2, n + 1, 3 * n]
-        working = [f"One vertex is the apex, so the base has {n} sides.", f"Edges: 2 x {n} = {2 * n}."]
+        working = [f"One vertex is the apex, so the base has {n} sides.", f"Edges: 2 × {n} = {2 * n}."]
     else:
         text = f"A prism has {n + 2} faces. How many edges does it have?"
         answer, cands = 3 * n, [n, 2 * n, n + 2, 3 * (n + 2)]
-        working = [f"Two faces are the bases, so the base has {n + 2} - 2 = {n} sides.", f"Edges: 3 x {n} = {3 * n}."]
+        working = [f"Two faces are the bases, so the base has {n + 2} - 2 = {n} sides.", f"Edges: 3 × {n} = {3 * n}."]
     text = rng.choice(("", "Think about solids with flat faces. ", "Here is a puzzle about solids. ")) + text
     return None, text, answer, cands, working
 
@@ -941,7 +941,7 @@ def _views_hard(rng):
             f"{surface - 2 * w * d + w * d} square units",
         ]
         working = [
-            f"The area of the net is the surface area of the box: 2 x ({w} x {d} + {w} x {h} + {d} x {h}) = {surface}."
+            f"The area of the net is the surface area of the box: 2 × ({w} × {d} + {w} × {h} + {d} × {h}) = {surface}."
         ]
     else:
         text = phrase(
@@ -960,7 +960,7 @@ def _views_hard(rng):
             f"{w + d + h} cubic units",
             f"{w * d * h + w * d} cubic units",
         ]
-        working = [f"Read the box off the net: {w} by {d} by {h}. Volume = {w} x {d} x {h} = {volume}."]
+        working = [f"Read the box off the net: {w} by {d} by {h}. Volume = {w} × {d} × {h} = {volume}."]
     return fig, text, answer, cands, working
 
 

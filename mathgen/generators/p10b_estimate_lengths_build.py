@@ -176,7 +176,7 @@ def _build(rng, tier: str) -> dict:
     text = f"What is the best estimate for the {attribute} of {name}? Give your answer in {_UNIT_WORD[unit]}."
     latex = f"plain:{text}"
     working = [
-        f"{name} is naturally around {exact_decimal_text(canonical)} m.",
+        f"{name[:1].upper() + name[1:]} is naturally around {exact_decimal_text(canonical)} m.",
         f"{exact_decimal_text(canonical)} m expressed in {_UNIT_WORD[unit]} is {correct_text}.",
     ][: 2 if unit != "m" else 1]
     return dict(

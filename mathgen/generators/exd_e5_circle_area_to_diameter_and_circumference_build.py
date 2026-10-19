@@ -181,7 +181,7 @@ _EXAM_TEMPLATES = (
     "place, showing your working.",
     "A circle has an area of {A} cm². Find, with full working, "
     "(a) the diameter and (b) the circumference, each correct to 1 decimal place.",
-    "Exam question: a circle has an area of {A} cm². Show your working to find "
+    "A circle has an area of {A} cm². Show your working to find "
     "(a) the diameter and (b) the circumference, each correct to 1 decimal place.",
 )
 _TEMPLATE_BANKS = {

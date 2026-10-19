@@ -1,10 +1,10 @@
-"""Generates `pv0c_tangent_secant` questions: find a missing length from AM x BM = TM^2 for a secant and a
+"""Generates `pv0c_tangent_secant` questions: find a missing length from AM × BM = TM² for a secant and a
 tangent.
 
 The tangent-secant length relation.
 
 ``pv0c_tangent_secant`` -- given two of the lengths AM, BM and TM for a secant through A and B and a tangent
-at T drawn from an external point M, find the third using AM x BM = TM^2.
+at T drawn from an external point M, find the third using AM x BM = TM².
 
 Convention stated every time: M is outside the circle; the secant from M
 meets the circle first at B, then at A, so B lies between A and M (AM > BM);
@@ -17,7 +17,7 @@ Tiers:
 - hard: BM and the chord AB stated, find TM; or TM and BM stated, find AB
   (draw which) -- the relation uses the WHOLE secant AM = AB + BM.
 - exam: TM and the chord AB stated, find BM or AM (draw which), solving
-  x(x + AB) = TM^2 and rejecting the negative root; or the secant passes
+  x(x + AB) = TM² and rejecting the negative root; or the secant passes
   through the circle's centre O (radius r stated) and TM is stated, find MO.
 
 Every (AM, BM, TM) triple is built from AM = d*q^2, BM = d*p^2 (q > p >= 1),
@@ -30,7 +30,7 @@ in the prompt -- an echoed given is identifiable without any geometry in
 multiple-choice mode, not a misconception. Every candidate is filtered
 against the numbers actually printed in ``text`` (a regex over the rendered
 string, not the generator's own variable names), which also catches stray
-literals such as the "2" in "TM^2".
+literals such as the "2" in "TM²".
 """
 
 from __future__ import annotations
@@ -123,30 +123,30 @@ _CONVENTION = (
 
 _EASY_TEMPLATES = (
     _CONVENTION + " AM is {am} cm and BM is {bm} cm. Find the length of TM, in cm.",
-    _CONVENTION + " The length AM is {am} cm and the length BM is {bm} cm. Using AM x BM = TM^2, find TM, in cm.",
+    _CONVENTION + " The length AM is {am} cm and the length BM is {bm} cm. Using AM × BM = TM², find TM, in cm.",
     "From an external point M, a secant meets a circle at B then A (with B between A and M), and a "
     "tangent from M touches the circle at T. Given AM = {am} cm and BM = {bm} cm, find TM, in cm.",
 )
 
 _MEDIUM_TEMPLATES_AM = (
     _CONVENTION + " TM is {tm} cm and BM is {bm} cm. Find the length of AM, in cm.",
-    _CONVENTION + " The tangent length TM is {tm} cm and BM is {bm} cm. Using AM x BM = TM^2, find AM, in cm.",
+    _CONVENTION + " The tangent length TM is {tm} cm and BM is {bm} cm. Using AM × BM = TM², find AM, in cm.",
 )
 
 _MEDIUM_TEMPLATES_BM = (
     _CONVENTION + " TM is {tm} cm and AM is {am} cm. Find the length of BM, in cm.",
-    _CONVENTION + " The tangent length TM is {tm} cm and AM is {am} cm. Using AM x BM = TM^2, find BM, in cm.",
+    _CONVENTION + " The tangent length TM is {tm} cm and AM is {am} cm. Using AM × BM = TM², find BM, in cm.",
 )
 
 _HARD_TEMPLATES_TM = (
     _CONVENTION + " BM is {bm} cm and the chord AB is {ab} cm. Find the length of TM, in cm.",
     _CONVENTION + " The chord AB is {ab} cm and BM is {bm} cm. Using the whole secant AM = AB + BM "
-    "and AM x BM = TM^2, find TM, in cm.",
+    "and AM × BM = TM², find TM, in cm.",
 )
 
 _HARD_TEMPLATES_AB = (
     _CONVENTION + " TM is {tm} cm and BM is {bm} cm. Find the length of the chord AB, in cm.",
-    _CONVENTION + " The tangent length TM is {tm} cm and BM is {bm} cm. Using AM x BM = TM^2 and "
+    _CONVENTION + " The tangent length TM is {tm} cm and BM is {bm} cm. Using AM × BM = TM² and "
     "AM = AB + BM, find the length of the chord AB, in cm.",
 )
 
@@ -172,7 +172,7 @@ def _computed_candidates(text: str, answer: int, raw: list) -> list[str]:
     positive integers that are neither the answer nor a number printed
     anywhere in ``text`` (a regex over the rendered string, not the
     generator's own variable names -- this is what also catches a stray
-    literal such as the "2" in "TM^2")."""
+    literal such as the "2" in "TM²")."""
     printed = set(re.findall(r"\d+", text))
     out = []
     for v in raw:
@@ -196,7 +196,7 @@ def _computed_candidates(text: str, answer: int, raw: list) -> list[str]:
     },
 )
 def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
-    """AM x BM = TM^2 for a secant through A, B and a tangent at T from an
+    """AM × BM = TM² for a secant through A, B and a tangent at T from an
     external point M, solving for whichever length is not given."""
 
     if tier == "easy":
@@ -205,13 +205,13 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
         answer = tm
         check(bm * am == tm * tm, f"tangent_secant/easy: {bm}*{am} != {tm}^2")
         working = [
-            "By the tangent-secant relation, AM x BM = TM².",
-            f"TM² = {am} x {bm} = {am * bm}, so TM = √{am * bm} = {tm} cm.",
+            "By the tangent-secant relation, AM × BM = TM².",
+            f"TM² = {am} × {bm} = {am * bm}, so TM = √{am * bm} = {tm} cm.",
         ]
 
         raw = [
             ab,  # chord-for-secant: reports the chord, not TM
-            am * bm if am * bm < 1000 else None,  # no-square-root: AM x BM = TM^2, not sqrt'd
+            am * bm if am * bm < 1000 else None,  # no-square-root: AM x BM = TM², not sqrt'd
             (am + bm) // 2,  # arithmetic-mean (floor when odd)
         ]
         candidates = _computed_candidates(text, answer, raw)
@@ -224,7 +224,7 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             answer = am
             check(bm * am == tm * tm, f"tangent_secant/medium(AM): {bm}*{am} != {tm}^2")
             working = [
-                "By the tangent-secant relation, AM x BM = TM².",
+                "By the tangent-secant relation, AM × BM = TM².",
                 f"AM = TM² / BM = {tm}² / {bm} = {tm * tm} / {bm} = {am} cm.",
             ]
             raw = [
@@ -239,7 +239,7 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             answer = bm
             check(bm * am == tm * tm, f"tangent_secant/medium(BM): {bm}*{am} != {tm}^2")
             working = [
-                "By the tangent-secant relation, AM x BM = TM².",
+                "By the tangent-secant relation, AM × BM = TM².",
                 f"BM = TM² / AM = {tm}² / {am} = {tm * tm} / {am} = {bm} cm.",
             ]
             raw = [
@@ -260,13 +260,13 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             check(bm * am == tm * tm, "tangent_secant/hard(find_tm): relation failed")
             working = [
                 f"AM = AB + BM = {ab} + {bm} = {am} cm.",
-                f"By the tangent-secant relation, TM² = AM x BM = {am} x {bm} = {am * bm}, so TM = {tm} cm.",
+                f"By the tangent-secant relation, TM² = AM × BM = {am} × {bm} = {am * bm}, so TM = {tm} cm.",
             ]
             chord_for_secant_sq = ab * bm
             root = math.isqrt(chord_for_secant_sq)
             chord_for_secant = root if root * root == chord_for_secant_sq else None
             raw = [
-                chord_for_secant,  # chord-for-secant: TM^2 = AB x BM
+                chord_for_secant,  # chord-for-secant: TM² = AB x BM
                 am,  # whole-secant-when-part-asked: stops at AM
                 am * bm if am * bm < 1000 else None,  # no-square-root
                 (am + bm) // 2,  # arithmetic-mean (floor when odd)
@@ -278,13 +278,13 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             check(am == ab + bm, f"tangent_secant/hard: am != ab+bm ({am} vs {ab}+{bm})")
             check(bm * am == tm * tm, "tangent_secant/hard(find_ab): relation failed")
             working = [
-                f"By the tangent-secant relation, AM x BM = TM², so AM = {tm}² / {bm} = {am} cm.",
+                f"By the tangent-secant relation, AM × BM = TM², so AM = {tm}² / {bm} = {am} cm.",
                 f"AB = AM - BM = {am} - {bm} = {ab} cm.",
             ]
             raw = [
                 am,  # whole-secant-when-part-asked: forgot -BM
                 am + bm,  # sign slip: added instead of subtracted
-                tm - bm if tm > bm else None,  # tm-not-squared: linear, not TM^2/BM
+                tm - bm if tm > bm else None,  # tm-not-squared: linear, not TM²/BM
                 (tm + bm) // 2,  # arithmetic-mean (floor when odd)
             ]
             candidates = _computed_candidates(text, answer, raw)
@@ -336,7 +336,7 @@ def pv0c_tangent_secant(rng: random.Random, tier: str = "easy"):
             raw = [
                 bm,  # pythagoras-slip: BM given as MO
                 am,  # pythagoras-slip: AM given as MO
-                tm + r,  # linear slip: TM + r instead of sqrt(TM^2 + r^2)
+                tm + r,  # linear slip: TM + r instead of sqrt(TM² + r^2)
             ]
             candidates = _computed_candidates(text, answer, raw)
 

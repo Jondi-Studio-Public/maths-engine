@@ -143,7 +143,7 @@ def _build(rng: random.Random) -> dict:
             sensible_range=(0, None),
             working=[
                 f"{power} W = {float(Fraction(power, 1000))} kW; {time_text} = {float(t_hours)} hours.",
-                f"Energy = {float(Fraction(power, 1000))} x {float(t_hours)} = {a_text} kWh.",
+                f"Energy = {float(Fraction(power, 1000))} × {float(t_hours)} = {a_text} kWh.",
             ],
             distractors=a_d,
         ),
@@ -157,8 +157,8 @@ def _build(rng: random.Random) -> dict:
             sensible_range=(0, None),
             follow_through=f"part_a*{days}*{tariff.numerator}/{tariff.denominator}/100",
             working=[
-                f"Energy over {days} days = {a_text} x {days} kWh.",
-                f"Cost = {a_text} x {days} x {tariff_text} cents = {b_text} dollars.",
+                f"Energy over {days} days = {a_text} × {days} kWh.",
+                f"Cost = {a_text} × {days} × {tariff_text} cents = {b_text} dollars.",
             ],
             distractors=b_d,
         ),
@@ -177,7 +177,7 @@ def _build(rng: random.Random) -> dict:
             follow_through=f"part_b*({power - new_power})/{power}",
             working=[
                 f"The cost is in proportion to the power: the new cost is {new_power}/{power} of {b_text}.",
-                f"Saving = {b_text} x ({power} - {new_power})/{power} = {c_text} dollars.",
+                f"Saving = {b_text} × ({power} - {new_power})/{power} = {c_text} dollars.",
             ],
             distractors=c_d,
         ),

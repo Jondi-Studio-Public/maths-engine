@@ -162,7 +162,7 @@ _EXAM_TEMPLATES = (
     "A square pyramid has a base side length of {s} cm and a "
     "perpendicular height of {h} cm. With full working, find (a) the volume, in "
     "cm³, and (b) the total surface area, in cm².",
-    "Exam question: a square-based pyramid has a base side length of {s} cm and a "
+    "A square-based pyramid has a base side length of {s} cm and a "
     "perpendicular height of {h} cm. Show your working to find (a) the volume, in "
     "cm³, and (b) the total surface area, in cm².",
 )

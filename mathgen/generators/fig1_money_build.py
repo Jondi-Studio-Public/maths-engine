@@ -289,7 +289,7 @@ def money_compare_collections(rng, tier="easy"):
     check(len(distractors) == 2)
     figures.assert_no_leak(fig, [answer_text, *distractors])
     check(_read_compare(fig, text) == answer_text, "the figure does not show the keyed collection")
-    totals = ", ".join(f"{'ABC'[i]} {_dollars(money_cents(fig, i))}" for i in range(len(cols)))
+    totals = ", ".join(f"Collection {'ABC'[i]} is {_dollars(money_cents(fig, i))}" for i in range(len(cols)))
     return dict(
         text=text,
         answer=answer_text,

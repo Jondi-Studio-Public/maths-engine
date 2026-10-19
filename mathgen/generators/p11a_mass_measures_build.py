@@ -214,7 +214,7 @@ def _build_estimate_mass(rng, tier: str) -> dict:
     text = f"What is the best estimate for the mass of {name}? Give your answer in {_UNIT_WORD_MASS[ask_unit]}."
     latex = f"plain:{text}"
     working = [
-        f"{name} has a mass of around {exact_decimal_text(canonical)} {base_unit}.",
+        f"{name[:1].upper() + name[1:]} has a mass of around {exact_decimal_text(canonical)} {base_unit}.",
         f"{exact_decimal_text(canonical)} {base_unit} expressed in {_UNIT_WORD_MASS[ask_unit]} is {correct_text}.",
     ][: 2 if base_unit != ask_unit else 1]
     return dict(
@@ -272,7 +272,9 @@ def _build_unit_choice(rng) -> dict:
 
     text = f"Which unit is the most appropriate choice for measuring the mass of {name}?"
     latex = f"plain:{text}"
-    working = [f"{name} is best measured in {unit} -- its own natural scale on the metric mass ladder (mg, g, kg, t)."]
+    working = [
+        f"{name[:1].upper() + name[1:]} is best measured in {unit} – its own natural scale on the metric mass ladder (mg, g, kg, t)."
+    ]
     return dict(
         text=text,
         latex=latex,
@@ -306,7 +308,7 @@ def _build_adjacent_relation(rng) -> dict:
     latex = f"plain:{text}"
     working = [
         f"1 {larger} = 1000 {smaller}.",
-        f"{n} {larger} = {n} x 1000 {smaller} = {correct_text}.",
+        f"{n} {larger} = {n} × 1000 {smaller} = {correct_text}.",
     ]
     return dict(
         text=text,
@@ -331,7 +333,7 @@ def _build_equivalence(rng) -> dict:
         ask_unit = big_unit
         text = f"Which of these has the same mass as {n} {small_unit}?"
         working = [
-            f"1 {big_unit} = 1,000,000 {small_unit}, so {n} {small_unit} = {n} / 1,000,000 {big_unit}.",
+            f"1 {big_unit} = 1,000,000 {small_unit}, so {n} {small_unit} = {n} ÷ 1,000,000 = {exact_decimal_text(big_value)} {big_unit}.",
         ]
     else:
         scaled = big_value * 10_000

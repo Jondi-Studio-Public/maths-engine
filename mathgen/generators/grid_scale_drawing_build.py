@@ -29,7 +29,7 @@ import re
 from fractions import Fraction
 
 from .. import figures
-from ..core import VerificationError, attempts, check, generator, phrase, pick_distractors
+from ..core import VerificationError, attempts, check, exact_decimal_string, generator, phrase, pick_distractors
 from ..figure_kinds import grid
 from . import _space_kit as kit
 
@@ -38,6 +38,14 @@ from . import _space_kit as kit
 
 def _fr(x) -> Fraction:
     return x if isinstance(x, Fraction) else Fraction(x)
+
+
+def _hours_text(hours: Fraction) -> str:
+    """A number of hours as a terminating decimal where it is one, otherwise as a fraction."""
+    try:
+        return exact_decimal_string(hours, 4)
+    except ValueError:
+        return f"{hours.numerator}/{hours.denominator}"
 
 
 def _text(x) -> str:
@@ -216,7 +224,7 @@ def _actual_easy(rng):
     cands = [cells, other * k, cells * k * 100, (cells + 1) * k, cells + k, other + k]
     working = [
         f"Count the squares along the {side} side: {cells} cm on the plan.",
-        f"Each 1 cm on the plan is {_text(k)} m, so the actual length is {cells} x {_text(k)} = {answer} m.",
+        f"Each 1 cm on the plan is {_text(k)} m, so the actual length is {cells} × {_text(k)} = {answer} m.",
     ]
     return fig, text, answer, cands, working
 
@@ -252,7 +260,7 @@ def _actual_medium(rng):
     ]
     working = [
         f"Add the lengths of all {len(poly)} sides on the plan: {p} cm.",
-        f"Each 1 cm on the plan is {_text(k)} m, so the actual perimeter is {p} x {_text(k)} = {p * k} m.",
+        f"Each 1 cm on the plan is {_text(k)} m, so the actual perimeter is {p} × {_text(k)} = {p * k} m.",
     ]
     return fig, text, p * k, cands, working
 
@@ -291,8 +299,8 @@ def _actual_hard(rng):
     ]
     working = [
         f"Find the area on the plan: {cells} square centimetres.",
-        f"1 cm on the plan is {_text(k)} m, so 1 square centimetre is {_text(k)} x {_text(k)} = {k * k} square metres.",
-        f"The actual area is {cells} x {k * k} = {answer} square metres.",
+        f"1 cm on the plan is {_text(k)} m, so 1 square centimetre is {_text(k)} × {_text(k)} = {k * k} square metres.",
+        f"The actual area is {cells} × {k * k} = {answer} square metres.",
     ]
     return fig, text, answer, cands, working
 
@@ -471,7 +479,7 @@ def _map_easy(rng):
     cands = [cells, cells + k, (cells + 1) * k, cells * k * 1000, cells * k * 10]
     working = [
         f"Count the squares along the road: {cells} cm on the map.",
-        f"{scale_text.replace('1 cm : ', '1 cm on the map is ')}, so the distance is {cells} x {_text(k)} = {_text(answer)} km.",
+        f"{scale_text.replace('1 cm : ', '1 cm on the map is ')}, so the distance is {cells} × {_text(k)} = {_text(answer)} km.",
     ]
     return fig, text, answer, cands, working
 
@@ -495,7 +503,7 @@ def _map_medium(rng):
     ]
     working = [
         f"Add the legs of the road on the map: {' + '.join(str(v) for v in legs)} = {cells} cm.",
-        f"Each 1 cm on the map is {_text(k)} km, so the distance is {cells} x {_text(k)} = {_text(answer)} km.",
+        f"Each 1 cm on the map is {_text(k)} km, so the distance is {cells} × {_text(k)} = {_text(answer)} km.",
     ]
     return fig, text, answer, cands, working
 
@@ -525,8 +533,9 @@ def _map_hard(rng):
     ]
     working = [
         f"Add the legs of the road on the map: {' + '.join(str(v) for v in legs)} = {cells} cm.",
-        f"Each 1 cm on the map is {float(k):g} km, so the road is {cells} x {float(k):g} = {_text(dist)} km long.",
-        f"Time = distance / speed = {_text(dist)} / {speed} hours = {_text(minutes)} minutes.",
+        f"Each 1 cm on the map is {float(k):g} km, so the road is {cells} × {float(k):g} = {_text(dist)} km long.",
+        f"Time = distance ÷ speed = {_text(dist)} ÷ {speed} = {_hours_text(_fr(dist) / speed)} hours.",
+        f"{_hours_text(_fr(dist) / speed)} hours × 60 = {_text(minutes)} minutes.",
     ]
     return fig, text, minutes, cands, working
 
@@ -605,8 +614,8 @@ def _materials_easy(rng):
         _packs(2 * (w + h) * k, cover),  # uses the perimeter
     ]
     working = [
-        f"Area on the plan: {w} x {h} = {w * h} square centimetres, and 1 cm is {_text(k)} m.",
-        f"Actual area: {w * h} x {k * k} = {area} square metres.",
+        f"Area on the plan: {w} × {h} = {w * h} square centimetres, and 1 cm is {_text(k)} m.",
+        f"Actual area: {w * h} × {k * k} = {area} square metres.",
         f"{area} / {cover} = {round(area / cover, 2)}, and part of a pack cannot be bought, so round up to {answer} packs.",
     ]
     return fig, text, answer, cands, working
@@ -719,9 +728,9 @@ def _materials_hard(rng):
     ]
     cands = [c if (_fr(c) * 10).denominator == 1 else round(_fr(c)) for c in cands]
     working = [
-        f"Actual area: {_area(poly)} square centimetres on the plan x {k * k} = {area} square metres.",
-        f"Option A: {area} / {c1} rounds up to {n1} rolls, costing {n1} x {p1} = ${t1}.",
-        f"Option B: {area} / {c2} rounds up to {n2} rolls, costing {n2} x {p2} = ${t2}.",
+        f"Actual area: {_area(poly)} square centimetres on the plan × {k * k} = {area} square metres.",
+        f"Option A: {area} / {c1} rounds up to {n1} rolls, costing {n1} × {p1} = ${t1}.",
+        f"Option B: {area} / {c2} rounds up to {n2} rolls, costing {n2} × {p2} = ${t2}.",
         f"The cheaper option saves ${dear} - ${cheap} = ${answer}.",
     ]
     return fig, text, answer, cands, working

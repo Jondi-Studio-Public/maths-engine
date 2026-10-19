@@ -179,8 +179,25 @@ def probability_scale_classify(rng, tier="medium"):
     answer_text = label
     distractors = pick_distractors(label, [o for o in OPTIONS_SCALE if o != label], n=2)
 
+    if not matches:
+        working = [
+            f"No outcome in S matches the rule, so X has 0 of the {n} outcomes.",
+            f"P(X) = 0/{n} = 0, so X is impossible.",
+        ]
+    elif len(matches) == n:
+        working = [
+            f"Every outcome in S matches the rule, so X has all {n} of the {n} outcomes.",
+            f"P(X) = {n}/{n} = 1, so X is certain.",
+        ]
+    else:
+        working = [
+            f"X has {len(matches)} of the {n} outcomes, so P(X) = {len(matches)}/{n}.",
+            "This is greater than 0 and less than 1, so X is possible but not certain.",
+        ]
+
     return dict(
         text=question_text,
+        working=working,
         latex=r"\text{P(X)}",
         answer=label,
         answer_text=label,

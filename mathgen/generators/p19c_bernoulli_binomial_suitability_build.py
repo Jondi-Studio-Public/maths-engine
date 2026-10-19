@@ -51,6 +51,41 @@ OPTIONS_BINOMIAL = (
     OPT_BINOMIAL_NOT_TWO,
 )
 
+_BINOMIAL_CHECKLIST = (
+    "A binomial model needs four things: a fixed number of trials, independent trials, "
+    "exactly two outcomes on each trial, and the same probability of success every time."
+)
+_BINOMIAL_WORKING = {
+    OPT_BINOMIAL_SUITED: (
+        _BINOMIAL_CHECKLIST,
+        "The number of trials is fixed, the trials are independent, each has two outcomes, "
+        "and the success probability is the same each time.",
+        "All four conditions hold, so a binomial model is suitable.",
+    ),
+    OPT_BINOMIAL_NOT_FIXED: (
+        _BINOMIAL_CHECKLIST,
+        "The trials continue until the first success, so the number of trials is not fixed in advance.",
+        "That condition fails, so a binomial model is not suitable.",
+    ),
+    OPT_BINOMIAL_NOT_INDEP: (
+        _BINOMIAL_CHECKLIST,
+        "The items are drawn without replacement from a small population, so each draw changes "
+        "what is left for the next one.",
+        "The trials are not independent, so a binomial model is not suitable.",
+    ),
+    OPT_BINOMIAL_NOT_CONST_P: (
+        _BINOMIAL_CHECKLIST,
+        "The probability of success is different for the two groups, and the trials are a mix of both.",
+        "The success probability is not the same on every trial, so a binomial model is not suitable.",
+    ),
+    OPT_BINOMIAL_NOT_TWO: (
+        _BINOMIAL_CHECKLIST,
+        "Each outcome is recorded as one of several categories, or as a value on a continuous scale, "
+        "not as success or failure.",
+        "A trial does not have exactly two outcomes, so a binomial model is not suitable.",
+    ),
+}
+
 # Construct-to-target weights: class 1 (genuinely suited) lands on ~30% of draws,
 # comfortably inside the composition's 25-40% band; the remaining four violation
 # classes split the rest evenly.
@@ -83,6 +118,33 @@ OPTIONS_BERNOULLI = (
     OPT_BERNOULLI_CONTINUOUS,
     OPT_BERNOULLI_DEPENDENT,
 )
+
+_BERNOULLI_CHECKLIST = (
+    "A Bernoulli model describes one trial with exactly two outcomes and a fixed, known probability of success."
+)
+_BERNOULLI_WORKING = {
+    OPT_BERNOULLI_SUITED: (
+        _BERNOULLI_CHECKLIST,
+        "This is a single trial, it has two outcomes, and the probability of success is fixed and known.",
+        "All the conditions hold, so a Bernoulli model is suitable.",
+    ),
+    OPT_BERNOULLI_IS_BINOMIAL: (
+        _BERNOULLI_CHECKLIST,
+        "The check is repeated a fixed number of times and the successes are counted.",
+        "That is a count over many trials (a binomial setup), not a single trial, so a Bernoulli model is not suitable.",
+    ),
+    OPT_BERNOULLI_CONTINUOUS: (
+        _BERNOULLI_CHECKLIST,
+        "The outcome is a measurement on a continuous scale, not one of two categories.",
+        "A Bernoulli model needs two outcomes, so it is not suitable.",
+    ),
+    OPT_BERNOULLI_DEPENDENT: (
+        _BERNOULLI_CHECKLIST,
+        "An unknown number of items have already been removed from a small population, so the "
+        "probability of success for this draw cannot be pinned down.",
+        "The probability of success is not a fixed known value, so a Bernoulli model is not suitable.",
+    ),
+}
 
 # Construct-to-target: class 1 (genuinely suited) at ~34%, comfortably under the
 # composition's 40% ceiling; the three distractor classes split the rest evenly.
@@ -404,8 +466,10 @@ def p19c_binomial_suitability(rng, tier="medium"):
     # are for numeric or symbolic answers and raise a sympify error on plain text.
     check(len({cls, *distractors}) == 4, "binomial suitability options must be pairwise distinct")
 
+    working = list(_BINOMIAL_WORKING[cls])
     return dict(
         text=text,
+        working=working,
         latex=r"\text{Binomial suitability}",
         answer=cls,
         answer_text=cls,
@@ -513,8 +577,10 @@ def p19c_bernoulli_suitability(rng, tier="medium"):
     check(len(distractors) == 3, f"expected 3 distractors, got {len(distractors)}")
     check(len({cls, *distractors}) == 4, "bernoulli suitability options must be pairwise distinct")
 
+    working = list(_BERNOULLI_WORKING[cls])
     return dict(
         text=text,
+        working=working,
         latex=r"\text{Bernoulli suitability}",
         answer=cls,
         answer_text=cls,

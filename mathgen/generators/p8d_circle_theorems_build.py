@@ -219,7 +219,7 @@ def the_angle_at_the_centre_subtended_by_an_arc(rng, variant="direct"):
 
 
 def _verify_chord_products(ap, pb, cp, pd) -> None:
-    """Independent confirmation of AP x PB = CP x PD using exact Fraction
+    """Independent confirmation of AP × PB = CP × PD using exact Fraction
     arithmetic -- the route the generator's own solve-for-the-unknown
     division does not take."""
     check(
