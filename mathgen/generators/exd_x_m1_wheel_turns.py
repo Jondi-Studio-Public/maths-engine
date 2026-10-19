@@ -146,7 +146,10 @@ def exd_x_m1_wheel_turns(rng, tier: str = "exam"):
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"part_a*{turns}/100",
-                working=[f"{turns} × {c_text} cm = {float(turns * circumference):.1f} cm.", f"÷ 100 gives {m_text} m (1 d.p.)."],
+                working=[
+                    f"{turns} × {c_text} cm = {float(turns * circumference):.1f} cm.",
+                    f"÷ 100 gives {m_text} m (1 d.p.).",
+                ],
                 distractors=b_d,
             ),
             dict(

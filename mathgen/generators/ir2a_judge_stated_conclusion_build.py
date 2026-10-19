@@ -70,7 +70,9 @@ def _verdict_part(flaw: str, others: tuple[str, ...], marks: int = 1) -> dict:
         wrongs,
         marks=marks,
         working=[
-            f"The claim fails for one reason only: {_REASON[flaw]}." if flaw != SOUND else "Nothing is wrong with the claim."
+            f"The claim fails for one reason only: {_REASON[flaw]}."
+            if flaw != SOUND
+            else "Nothing is wrong with the claim."
         ],
         keep=4,
     )

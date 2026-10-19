@@ -73,6 +73,16 @@ def _safe(v: Fraction) -> bool:
     return abs(frac - Fraction(1, 2)) > Fraction(1, 10**9)
 
 
+def _dec(x) -> str:
+    """A rate as a short decimal (6 significant figures); a repeating decimal is cut, not printed as float noise."""
+    return f"{float(x):.6g}"
+
+
+def _eq(x) -> str:
+    """ "= value" for an exact decimal, "\u2248 value" for one that had to be cut."""
+    return ("= " if Fraction(x) == Fraction(_dec(x)) else "\u2248 ") + _dec(x)
+
+
 def _pct(r: Fraction) -> str:
     v = r * 100
     return str(int(v)) if v.denominator == 1 else str(float(v))
@@ -175,7 +185,7 @@ def exam_parts_compound_interest(rng):
             f"{_FREQ_WORD[n] if _FREQ_WORD[n] in stem else _FREQ_LABEL[n]}, for the same {t} years. Find the "
             f"balance, to the nearest cent."
         )
-        c_work = [f"Rate {_pct(rate2)}%: A = {_money(p)} × (1 + {float(rate2 / n)})^{n * t} = ${_fmt(fv_c)}."]
+        c_work = [f"Rate {_pct(rate2)}%: A = {_money(p)} × (1 + {_dec(rate2 / n)})^{n * t} = ${_fmt(fv_c)}."]
 
     ans_a, ans_c = _cents(fv_a), _cents(fv_c)
     parts = [
@@ -184,8 +194,8 @@ def exam_parts_compound_interest(rng):
             fv_a,
             2,
             [
-                f"Rate per period = {_pct(rate)}% ÷ {n} = {float(rate / n * 100)}%; periods = {n} × {t} = {n * t}.",
-                f"A = {_money(p)} × (1 + {float(rate / n)})^{n * t} = ${_fmt(fv_a)}.",
+                f"Rate per period = {_pct(rate)}% ÷ {n} {_eq(rate / n * 100)}%; periods = {n} × {t} = {n * t}.",
+                f"A = {_money(p)} × (1 + {_dec(rate / n)})^{n * t} = ${_fmt(fv_a)}.",
             ],
             [wrong_rate, wrong_periods, simple, interest_a],
             sensible_range=(int(p), None),  # a balance that grew

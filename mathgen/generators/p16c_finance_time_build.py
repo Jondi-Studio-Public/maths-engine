@@ -740,10 +740,7 @@ def _wage_diff(rng):
         answer_text=answer_text,
         answer_latex=f"\\${answer_text}",
         distractors=distractors,
-        working=[
-            f"{who_a}'s wage minus {who_b}'s wage: ${_money(wage_a)} - ${_money(wage_b)} "
-            f"= ${answer_text}."
-        ],
+        working=[f"{who_a}'s wage minus {who_b}'s wage: ${_money(wage_a)} - ${_money(wage_b)} = ${answer_text}."],
     )
 
 

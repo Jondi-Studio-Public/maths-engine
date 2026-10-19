@@ -388,9 +388,7 @@ def _groups(rng, name, level):
     a, b = _two_groups(rng, n, lo, hi)
     ma, mb = median_of(a), median_of(b)
     qa, qb = quartiles(a), quartiles(b)
-    stem = (
-        f"{name} has measured {measure} for two groups. {_upper_first(ga)}: {_nums(a)}. {_upper_first(gb)}: {_nums(b)}. "
-    )
+    stem = f"{name} has measured {measure} for two groups. {_upper_first(ga)}: {_nums(a)}. {_upper_first(gb)}: {_nums(b)}. "
     if level == "medium":
         stem += f"{name} wants to compare the typical value of the two groups, side by side."
         diff = abs(ma - mb)

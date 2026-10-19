@@ -137,7 +137,7 @@ def exd_x_m4_roots_of_unity_chain(rng: random.Random, tier: str = "exam") -> dic
                 sensible_range=(0, 180),
                 working=[
                     f"The {n} roots are equally spaced, 360° ÷ {n} apart.",
-                    f"Indices {j} and {k} are {step} step{"s" if step != 1 else ""} apart the short way round, so angle POQ = {step} × 360° ÷ {n} "
+                    f"Indices {j} and {k} are {step} step{'s' if step != 1 else ''} apart the short way round, so angle POQ = {step} × 360° ÷ {n} "
                     f"= {a_text}°.",
                 ],
                 distractors=a_d,

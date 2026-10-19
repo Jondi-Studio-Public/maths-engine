@@ -57,7 +57,9 @@ def _medium(rng):
             f"angles to its flat surface, and leaves a solid behind. {rng.choice(_ASKS)}"
         )
         widths, shapes, ends_only = [m, m], [shape, shape], False
-        working = [f"Pushing one shape straight along its length makes every cross-section {article_for_number(m)} {m} cm {shape} shape."]
+        working = [
+            f"Pushing one shape straight along its length makes every cross-section {article_for_number(m)} {m} cm {shape} shape."
+        ]
     else:
         m2 = _other_width(rng, m) if family == "ends_differ" else m
         left, right = (m, m2) if rng.random() < 0.5 else (m2, m)

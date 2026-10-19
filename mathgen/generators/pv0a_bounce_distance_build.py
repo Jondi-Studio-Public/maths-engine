@@ -205,8 +205,8 @@ def _easy_once(rng):
     text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k)
     candidates = _misconception_candidates(h, r, k, to_top=False)
     working = (
-        f"D = h + 2h(r + ... + r^{k - 1}) = {_fmt_h(h)} + 2({_fmt_h(h)})"
-        f"({_fmt_r_pct(r)}% + ... ) = {stated_precision_string(round_half_up(total, 2), 2)} m."
+        f"D = h + 2h(r + ... + r^{k - 1}) with h = {_fmt_h(h)} and r = {_fmt_given(r)}, "
+        f"so D = {stated_precision_string(round_half_up(total, 2), 2)} m."
     )
     return _format_and_build(text, total, candidates, working=working)
 

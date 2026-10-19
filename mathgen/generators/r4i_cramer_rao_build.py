@@ -460,7 +460,7 @@ def exd_x_r4i_cramer_rao(rng, tier="exam"):
     )
     text = rng.choice(
         [
-            f"The number of faults X in a length of cable follows P(X = k) = e^(-λ) λ^k/k! for k = 0, 1, 2, ... , and {n} "
+            f"The number of faults X in a length of cable follows P(X = k) = e^(-λ) λ^k/k! for k = 0, 1, 2, ..., and {n} "
             f"independent lengths are inspected. In truth λ = {_ft(lam)}. Throughout, estimators are unbiased.",
             f"A sample of n = {n} independent counts is drawn from a Poisson distribution with mean λ, where in truth "
             f"λ = {_ft(lam)}. All estimators below are unbiased for the quantity they estimate.",

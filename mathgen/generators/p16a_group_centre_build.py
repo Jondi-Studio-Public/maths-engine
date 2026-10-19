@@ -395,7 +395,7 @@ def _verify_trend_value(a: Fraction, b: Fraction, t: Fraction, value: Fraction) 
 
 
 def _step(base, slope, t) -> str:
-    """"base + 1.5×t" or "base - 0.5×t" with the slope as a plain decimal, never a fraction or a bracketed negative."""
+    """ "base + 1.5×t" or "base - 0.5×t" with the slope as a plain decimal, never a fraction or a bracketed negative."""
     sign = "+" if slope >= 0 else "-"
     return f"{base} {sign} {exact_decimal_text(abs(slope))}×{t}"
 

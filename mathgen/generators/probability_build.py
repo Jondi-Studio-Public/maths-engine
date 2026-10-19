@@ -121,27 +121,22 @@ def finite_sample_space_probability(rng, space_size=8, pool_hi=14, event_type="m
     answer_text = rational_text(prob)
     outcomes_str = ", ".join(map(str, outcomes))
 
-    # Misconception distractors, in priority order:
-    #  - event-count: reports the count of favourable outcomes as a bare integer
-    #  - inverted-ratio: reports total/favourable instead of favourable/total
+    # Misconception distractors, all genuine probabilities (strictly between 0 and 1):
     #  - complement: reports (total - favourable)/total instead of favourable/total
-    #  - favourable-over-other: reports favourable/(total-favourable) (the prerequisite
-    #    misconception from simple-event-probability)
-    event_count_text = str(len(favourable))
-    inverted_text = rational_text(Fraction(len(outcomes), len(favourable)))
-    complement_text = rational_text(Fraction(len(outcomes) - len(favourable), len(outcomes)))
-    other_count = len(outcomes) - len(favourable)
-    if other_count > 0:
-        other_text = rational_text(Fraction(len(favourable), other_count))
-    else:
-        other_text = rational_text(Fraction(len(favourable), 1))
-
+    #  - favourable-over-other: favourable/(total - favourable), the other way up when that would exceed 1
+    #  - off-by-one counts and a count that includes one extra outcome in the total
+    fav, total = len(favourable), len(outcomes)
+    other_count = total - fav
+    ratio = Fraction(fav, other_count)
     candidates = [
-        event_count_text,
-        inverted_text,
-        complement_text,
-        other_text,
+        Fraction(other_count, total),
+        ratio if ratio < 1 else Fraction(other_count, fav),
+        Fraction(fav + 1, total),
+        Fraction(fav - 1, total) if fav > 1 else Fraction(fav, total + 1),
+        Fraction(fav, total + 1),
+        Fraction(fav, total - 1),
     ]
+    candidates = [rational_text(c) for c in candidates if 0 < c < 1]
 
     return dict(
         text=(

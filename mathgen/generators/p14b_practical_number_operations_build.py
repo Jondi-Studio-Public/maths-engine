@@ -430,7 +430,9 @@ def _build_hard(rng) -> dict:
     if flat_op == "add":
         flat_clause = f", then a flat {_dollar(flat_cents)} delivery fee is added"
     else:
-        flat_clause = f", then {article_for_number(_dollar(flat_cents))} {_dollar(flat_cents)} loyalty credit is subtracted"
+        flat_clause = (
+            f", then {article_for_number(_dollar(flat_cents))} {_dollar(flat_cents)} loyalty credit is subtracted"
+        )
     text = (
         f"{pct_clause}{flat_clause}. The total is then split equally among {n} people. How much does each person pay?"
     )
@@ -525,7 +527,9 @@ def _build_exam(rng) -> dict:
     if flat_op == "add":
         flat_clause = f", then a flat {_dollar(flat_cents)} delivery fee is added"
     else:
-        flat_clause = f", then {article_for_number(_dollar(flat_cents))} {_dollar(flat_cents)} loyalty credit is subtracted"
+        flat_clause = (
+            f", then {article_for_number(_dollar(flat_cents))} {_dollar(flat_cents)} loyalty credit is subtracted"
+        )
     text = (
         f"{pct_clause}{flat_clause} ({herring}). The total is then split equally among {n} people. "
         f"How much does each person pay?"

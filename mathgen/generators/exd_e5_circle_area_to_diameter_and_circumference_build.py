@@ -155,9 +155,9 @@ def _boundary_margin(value: Fraction, places: int) -> Fraction:
 _NOT_ON_BOUNDARY = Fraction(1, 10**6)
 
 _EASY_TEMPLATES = (
-    "A circle has an area of {A} cm². Find its diameter and its circumference.",
-    "A circular plate has an area of {A} cm². Work out its diameter and its circumference.",
-    "The area of a circle is {A} cm². Calculate the diameter and the circumference.",
+    "A circle has an area of {A} cm². Find its diameter and its circumference, each correct to 1 decimal place.",
+    "A circular plate has an area of {A} cm². Work out its diameter and its circumference, each correct to 1 decimal place.",
+    "The area of a circle is {A} cm². Calculate the diameter and the circumference, each correct to 1 decimal place.",
 )
 _MEDIUM_TEMPLATES = (
     "A circle has an area of {A} cm². Find its diameter and its circumference, each correct to 1 decimal place.",

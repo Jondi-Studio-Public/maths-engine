@@ -541,7 +541,7 @@ def rational_text(r) -> str:
 
 
 def article_for_number(value) -> str:
-    """"a" or "an" for a number written in digits and read aloud: "an 8", "an 85", "an 800", "an 11.5",
+    """ "a" or "an" for a number written in digits and read aloud: "an 8", "an 85", "an 800", "an 11.5",
     "an 18", but "a 40", "a 110", "a 0.8". Only a leading 8, or exactly eleven or eighteen, starts with a vowel
     sound."""
     whole = str(value).lstrip("-+$").split(".")[0].replace(",", "")
@@ -1758,6 +1758,39 @@ def paper_notation(text):
     return "".join(out)
 
 
+_DASH_RE = re.compile(r" -- ")
+_REPEATED_STEP_RE = re.compile(
+    r"(?P<pre>(?:^|[=:] |\) |\bso ))(?P<t>-?[\d,]*\d(?:\.\d+)?%?(?:[/:]\d+)?) = (?P=t)(?![\w/:%]|\.\d|,\d)"
+)
+
+
+_UNIT_POWER_RE = re.compile(
+    r"(?<![A-Za-z])(mm|cm|km|m)\^([23])\b|(?<=\d )(mm|cm|km|m)([23])\b|(?<=\d)(mm|cm|km|m)([23])\b"
+)
+_NUMBER_TIMES_RE = re.compile(r"(?<=[\d)]) x (?=\d)")
+
+
+def _unit_power(m):
+    unit, power = (m.group(1), m.group(2)) if m.group(1) else (m.group(3) or m.group(5), m.group(4) or m.group(6))
+    return unit + {"2": "\u00b2", "3": "\u00b3"}[power]
+
+
+def _learner_text(text, *, working=False):
+    """`paper_notation(text)` with " -- " written as an en dash and, in working, "x = x" collapsed to "x"."""
+    text = paper_notation(text)
+    if not isinstance(text, str):
+        return text
+    if " -- " in text:
+        text = _DASH_RE.sub(" \u2013 ", text)
+    if "m" in text:
+        text = _UNIT_POWER_RE.sub(_unit_power, text)
+    if " x " in text:
+        text = _NUMBER_TIMES_RE.sub(" \u00d7 ", text)
+    if working and " = " in text:
+        text = _REPEATED_STEP_RE.sub(r"\g<pre>\g<t>", text)
+    return text
+
+
 def display_question(question) -> dict:
     """The strings a learner reads for `question` (or a `Part`), written as on paper (`paper_notation`).
 
@@ -1769,11 +1802,11 @@ def display_question(question) -> dict:
     with its `label` added.
     """
     shown = {
-        "text": paper_notation(question.text),
-        "answer_text": paper_notation(question.answer_text),
-        "options": [paper_notation(o) for o in mcq_options(question)],
-        "distractors": [paper_notation(d) for d in question.distractors],
-        "working": [paper_notation(w) for w in (question.working or [])],
+        "text": _learner_text(question.text),
+        "answer_text": _learner_text(question.answer_text),
+        "options": [_learner_text(o) for o in mcq_options(question)],
+        "distractors": [_learner_text(d) for d in question.distractors],
+        "working": [_learner_text(w, working=True) for w in (question.working or [])],
     }
     parts = getattr(question, "parts", None)
     if parts:

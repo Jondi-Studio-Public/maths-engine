@@ -270,7 +270,10 @@ def _build(rng, tier: str = "easy") -> dict:
         check_equivalent(b + key, a, f"{TOPIC} {tier}: {b} + {key} should make {a}")
         check(_borrows(a, b) == _EXPECTED_BORROWS[tier], f"{TOPIC} {tier}: {a} - {b} has the wrong borrow pattern")
         candidates = _candidates_sub(a, b, key)
-        working = [f"Subtract column by column, regrouping when a digit is too small: {a} - {b} = {key}.", f"Check: {b} + {key} = {a}."]
+        working = [
+            f"Subtract column by column, regrouping when a digit is too small: {a} - {b} = {key}.",
+            f"Check: {b} + {key} = {a}.",
+        ]
         templates = _SUB[tier] + (_SUB_DIFFERENCE if tier == "easy" else ())
         pattern = rng.choice(templates)
         if pattern in _SUB_DIFFERENCE:

@@ -30,6 +30,7 @@ from ..core import (
     GRADER_TOLERANCE,
     attempts,
     check,
+    equals_chain,
     generator,
     latex_answer,
     numeric_answer,
@@ -226,7 +227,7 @@ def fpm_relative_frequency(rng, tier: str = "easy"):
     else:
         working = [
             f"There were {' + '.join(map(str, counts))} = {total} results in all.",
-            f"The event covers {' + '.join(map(str, named))} = {favourable} of them.",
+            f"The event covers {equals_chain(' + '.join(map(str, named)), favourable)} of them.",
             f"Relative frequency = {favourable}/{total} = {rational_text(p)}.",
         ]
     return dict(

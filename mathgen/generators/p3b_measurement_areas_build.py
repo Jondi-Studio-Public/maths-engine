@@ -186,7 +186,7 @@ def _build_medium_triangle_parallelogram(rng, dim_hi: int) -> dict:
         answer=numeric_answer(answer),
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[f"Area = base × height {'÷ 2' if shape == 'triangle' else ''} = {answer_text} cm²."],
+        working=[f"Area = base × height{' ÷ 2' if shape == 'triangle' else ''} = {answer_text} cm²."],
         distractors=_shaped_distractors(answer_text, candidates),
     )
 

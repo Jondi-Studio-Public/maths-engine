@@ -284,7 +284,9 @@ def shape_features_classification(rng, mode="forward_sides"):
             )
 
     if mode == "curved_straight":
-        working = [f"{_article(shape).capitalize()} {shape} has {'a curved edge' if answer == 'curved' else 'straight sides'}, so it is {answer}."]
+        working = [
+            f"{_article(shape).capitalize()} {shape} has {'a curved edge' if answer == 'curved' else 'straight sides'}, so it is {answer}."
+        ]
     elif mode == "inverse_sides":
         working = [f"The shape with {count} sides is {_article(answer)} {answer}."]
     else:

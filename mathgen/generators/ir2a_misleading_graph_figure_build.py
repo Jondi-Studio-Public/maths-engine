@@ -57,10 +57,10 @@ _CONTEXTS = (
         body="A cafe",
     ),
     dict(
-        what="average maths mark",
-        axis="Average maths mark (%)",
-        headline="Maths marks shoot up!",
-        noun="the school's average maths mark",
+        what="number of maths awards",
+        axis="Maths awards given",
+        headline="Maths awards shoot up!",
+        noun="the school's number of maths awards",
         body="A school",
     ),
     dict(
