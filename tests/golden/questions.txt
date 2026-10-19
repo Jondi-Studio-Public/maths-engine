@@ -49,13 +49,13 @@
 {"answer": "The number of goals scored in each game", "id": "acquire-and-check-data/easy/0/fbea54ef210b", "text": "A group wants to find out how many goals a team scores in a game. What should t…"}
 {"answer": "The way each person travels to school", "id": "acquire-and-check-data/easy/1/0cf68a364d8c", "text": "A group wants to find out how the children at an after-school club travel to sc…"}
 {"answer": "The number of goals scored in each game", "id": "acquire-and-check-data/easy/2/83ad1dcb59ca", "text": "To find out how many goals a team scores in a game, what data should be collect…"}
-{"answer": "(a) -5; (b) Discrete numerical; (c) 50; (d) 5", "id": "acquire-and-check-data/exam/0/ae23274f6e14", "text": "Students recorded the number of goals scored by each of 10 players this season.…"}
-{"answer": "(a) -4; (b) Discrete numerical; (c) 16; (d) 2", "id": "acquire-and-check-data/exam/1/bea59a60c084", "text": "Students recorded the number of pets each of 8 students has. The entries were: …"}
-{"answer": "(a) -6; (b) Discrete numerical; (c) 21; (d) 3", "id": "acquire-and-check-data/exam/2/12e4f2d0cf04", "text": "Students recorded the number of brothers and sisters each of 7 students has. Th…"}
-{"answer": "1.27", "id": "acquire-and-check-data/hard/0/e224525fd4ba", "text": "Students recorded the height, in centimetres, of each of 7 students. The entrie…"}
+{"answer": "(a) -5; (b) Discrete numerical; (c) 50; (d) 5", "id": "acquire-and-check-data/exam/0/dfb63613dbca", "text": "Students recorded the number of goals scored by each of 10 players this season.…"}
+{"answer": "(a) -4; (b) Discrete numerical; (c) 16; (d) 2", "id": "acquire-and-check-data/exam/1/24f915326b5d", "text": "Students recorded the number of pets each of 8 students has. The entries were: …"}
+{"answer": "(a) -6; (b) Discrete numerical; (c) 21; (d) 3", "id": "acquire-and-check-data/exam/2/fc604c721b5f", "text": "Students recorded the number of brothers and sisters each of 7 students has. Th…"}
+{"answer": "13.20", "id": "acquire-and-check-data/hard/0/1073451362e4", "text": "Students recorded the height, in metres, of each of 7 students. The entries wer…"}
 {"answer": "Seven", "id": "acquire-and-check-data/hard/1/47174c2fbd0f", "text": "Students recorded how each of 10 students travels to school. The entries were: …"}
 {"answer": "Red", "id": "acquire-and-check-data/hard/2/1aefab9c4c03", "text": "Students recorded the type of pet each of 8 students has. The entries were: liz…"}
-{"answer": "Which fruit do you prefer? (apple, banana, orange, grapes, …", "id": "acquire-and-check-data/medium/0/18528c0dbb51", "text": "A group wants to find out which fruit the members of the school choir prefer. W…"}
+{"answer": "Which fruit do you prefer?", "id": "acquire-and-check-data/medium/0/aeef9dd6c018", "text": "A group wants to find out which fruit the members of the school choir prefer. W…"}
 {"answer": "How many brothers and sisters do you have?", "id": "acquire-and-check-data/medium/1/502e91c14f4e", "text": "Which of these survey questions would give data to find out how many brothers a…"}
 {"answer": "How many brothers and sisters do you have?", "id": "acquire-and-check-data/medium/2/e5821b218c4d", "text": "A group wants to find out how many brothers and sisters the students in the cla…"}
 {"answer": "-9 + 4i", "id": "add-complex-numbers/easy/0/37b670839e06", "text": "Calculate (-5 − 4i) + (-4 + 8i)."}
@@ -265,14 +265,14 @@
 {"answer": "Not arithmetic: the differences are 4, 4, 7, 1", "id": "arithmetic-sequences/easy/0/b8ca5e3ab8e4", "text": "Which statement about the sequence 1, 5, 9, 16, 17 is correct?"}
 {"answer": "Not arithmetic: the differences are 0, 4, 4, 8", "id": "arithmetic-sequences/easy/1/dc1594e4457c", "text": "The sequence 4, 4, 8, 12, 20 is shown. Which description is correct?"}
 {"answer": "Arithmetic: each term is 6 less than the term before", "id": "arithmetic-sequences/easy/2/732ef6750074", "text": "Which statement about the sequence 2, -4, -10, -16, -22 is correct?"}
-{"answer": "(a) Arithmetic: each term is 4 less than the term before; (…", "id": "arithmetic-sequences/exam/0/8557534b6103", "text": "The first four terms of a sequence are 14, 10, 6, 2. (a) Which statement about …"}
-{"answer": "(a) Arithmetic: each term is 6 more than the term before; (…", "id": "arithmetic-sequences/exam/1/984d14d936aa", "text": "The first four terms of a sequence are 12, 18, 24, 30. (a) Which statement abou…"}
-{"answer": "(a) Arithmetic: each term is 6 more than the term before; (…", "id": "arithmetic-sequences/exam/2/55997513996c", "text": "The first four terms of a sequence are 12, 18, 24, 30. (a) Which statement abou…"}
+{"answer": "(a) Arithmetic: each term is 7 more than the term before; (…", "id": "arithmetic-sequences/exam/0/35ffb34fea33", "text": "Here are the first four terms of a sequence: -2, 5, 12, 19. (a) Which statement…"}
+{"answer": "(a) Arithmetic: each term is 10 more than the term before; …", "id": "arithmetic-sequences/exam/1/52600262fe18", "text": "Here are the first four terms of a sequence: 16, 26, 36, 46. (a) Which statemen…"}
+{"answer": "(a) Arithmetic: each term is 11 more than the term before; …", "id": "arithmetic-sequences/exam/2/31ad08f702b6", "text": "A sequence begins 38, 49, 60, 71. (a) Which statement about the sequence is cor…"}
 {"answer": "4n + 8", "id": "arithmetic-sequences/hard/0/ebf1d89d63ff", "text": "For which rule is the difference between neighbouring terms always the same?"}
 {"answer": "4n", "id": "arithmetic-sequences/hard/1/d1def7a6ae71", "text": "For which rule is the difference between neighbouring terms always the same?"}
-{"answer": "7 and 2", "id": "arithmetic-sequences/hard/2/7b1171f05edb", "text": "Two terms are missing from the arithmetic sequence 12, __, __, -3. Which pair f…"}
+{"answer": "7 and 2", "id": "arithmetic-sequences/hard/2/7e84526d7169", "text": "Two terms are missing from the arithmetic sequence 12, __, __, -3. Which pair f…"}
 {"answer": "Not arithmetic: the differences are 4, 4, 7, 1", "id": "arithmetic-sequences/medium/0/68c4a6bf57eb", "text": "Which statement about the sequence 1, 5, 9, 16, 17 is correct?"}
-{"answer": "The next term is 2", "id": "arithmetic-sequences/medium/1/82181fc201f5", "text": "The first three terms of an arithmetic sequence are 5, 4, 3. Which is the next …"}
+{"answer": "The next term is -4", "id": "arithmetic-sequences/medium/1/a0c8f8d8562d", "text": "The first three terms of an arithmetic sequence are 8, 4, 0. Which is the next …"}
 {"answer": "14, 10, 6, 2, -2", "id": "arithmetic-sequences/medium/2/7e9d355b912b", "text": "Which of these sequences is an arithmetic sequence?"}
 {"answer": "10 cents", "id": "australian-coin-values/easy/0/4973321cc86d", "text": "What is this Australian coin worth? 10c"}
 {"answer": "5 cents", "id": "australian-coin-values/easy/1/38ab9d9cb92e", "text": "What is this Australian coin worth? 5c"}
@@ -526,27 +526,27 @@
 {"answer": "2443/8", "id": "centered-difference-polynomial/medium/0/6b216049fd1d", "text": "For f(x) = 6x³ - 2x² + x - 6, use the centred finite difference with h = 1/4 at…"}
 {"answer": "7/4", "id": "centered-difference-polynomial/medium/1/dd49324042a1", "text": "For f(x) = 3x³ + 4x² - 2, use the centred finite difference with h = 1/2 at x =…"}
 {"answer": "723/4", "id": "centered-difference-polynomial/medium/2/93bcca1d6912", "text": "For f(x) = 3x³ + 5x² - 4x - 4, use the centred finite difference with h = 1/2 a…"}
-{"answer": "Put x = 8 into the left side: 6 × 8 + 6 = 48 + 6 = 54. The …", "id": "check-solution-by-substitution-explain/easy/0/9903cea1346a", "text": "Zoe solved 6x + 6 = 60 and got x = 8. Show how to check her answer by substitut…"}
-{"answer": "Put x = 7 into the left side: 4 × 7 + 9 = 28 + 9 = 37. The …", "id": "check-solution-by-substitution-explain/easy/1/f8b67687df82", "text": "Zoe solved 4x + 9 = 37 and got x = 7. Show how to check her answer by substitut…"}
-{"answer": "Put x = 3 into the left side: 4 × 3 + 8 = 12 + 8 = 20. The …", "id": "check-solution-by-substitution-explain/easy/2/43a86856ff85", "text": "Zoe solved 4x + 8 = 20 and got x = 3. Show how to check her answer by substitut…"}
-{"answer": "Substitute x = 5: the left side is 3 × 5 - 9 = 6, but the r…", "id": "check-solution-by-substitution-explain/hard/0/c6427eb3e7fc", "text": "Ari solved 3x - 9 = 24 and got x = 5. Check Ari's answer by substitution. Expla…"}
-{"answer": "Substitute x = 1: the left side is 5 × 1 - 10 = -5, but the…", "id": "check-solution-by-substitution-explain/hard/1/a2a7e1dd8064", "text": "Ari solved 5x - 10 = 15 and got x = 1. Check Ari's answer by substitution. Expl…"}
-{"answer": "Substitute x = 5: the left side is 5 × 5 - 5 = 20, but the …", "id": "check-solution-by-substitution-explain/hard/2/65a03ccb7fb2", "text": "Ari solved 5x - 5 = 30 and got x = 5. Check Ari's answer by substitution. Expla…"}
-{"answer": "Substitute x = 7 into both sides. Left side: 8 × 7 + 5 = 61…", "id": "check-solution-by-substitution-explain/medium/0/986f94637afe", "text": "Ben says the solution of 8x + 5 = 4x + 33 is x = 7. Explain how to check this b…"}
-{"answer": "Substitute x = 6 into both sides. Left side: 4 × 6 + 7 = 31…", "id": "check-solution-by-substitution-explain/medium/1/882767450d01", "text": "Ben says the solution of 4x + 7 = 3x + 13 is x = 6. Explain how to check this b…"}
-{"answer": "Substitute x = 7 into both sides. Left side: 5 × 7 + 7 = 42…", "id": "check-solution-by-substitution-explain/medium/2/cf3b4b56acc2", "text": "Ben says the solution of 5x + 7 = 3x + 23 is x = 7. Explain how to check this b…"}
+{"answer": "Put x = 8 into the left side: 6 × 8 + 6 = 48 + 6 = 54. The …", "id": "check-solution-by-substitution-explain/easy/0/72beac9b7df7", "text": "Zoe's answer to 6x + 6 = 60 is x = 8. Put her value back into the equation. Is …"}
+{"answer": "Put x = 7 into the left side: 4 × 7 + 9 = 28 + 9 = 37. The …", "id": "check-solution-by-substitution-explain/easy/1/97f682f52feb", "text": "Check by substitution whether x = 7 is the right answer to 4x + 9 = 37, and exp…"}
+{"answer": "Put x = 3 into the left side: 4 × 3 + 8 = 12 + 8 = 20. The …", "id": "check-solution-by-substitution-explain/easy/2/5c7148f63bf6", "text": "Zoe solved 4x + 8 = 20 and got x = 3. Show how to check her answer by substitut…"}
+{"answer": "Substitute x = 5: the left side is 3 × 5 - 9 = 6, but the r…", "id": "check-solution-by-substitution-explain/hard/0/5d85273f238d", "text": "Ari's answer to 3x - 9 = 24 is x = 5. Substitute it, say what happens, and sugg…"}
+{"answer": "Substitute x = 1: the left side is 5 × 1 - 10 = -5, but the…", "id": "check-solution-by-substitution-explain/hard/1/b9d88fd2fc9b", "text": "Ari's answer to 5x - 10 = 15 is x = 1. Substitute it, say what happens, and sug…"}
+{"answer": "Substitute x = 5: the left side is 5 × 5 - 5 = 20, but the …", "id": "check-solution-by-substitution-explain/hard/2/2e078dcdc003", "text": "Something is wrong with x = 5 as the solution of 5x - 5 = 30. Use substitution …"}
+{"answer": "Substitute x = 7 into both sides. Left side: 8 × 7 + 5 = 61…", "id": "check-solution-by-substitution-explain/medium/0/f826f3aec166", "text": "Ben says the solution of 8x + 5 = 4x + 33 is x = 7. Explain how to check this b…"}
+{"answer": "Substitute x = 6 into both sides. Left side: 4 × 6 + 7 = 31…", "id": "check-solution-by-substitution-explain/medium/1/a6216edf7134", "text": "Ben says the solution of 4x + 7 = 3x + 13 is x = 6. Explain how to check this b…"}
+{"answer": "Substitute x = 7 into both sides. Left side: 5 × 7 + 7 = 42…", "id": "check-solution-by-substitution-explain/medium/2/634876eaa87f", "text": "Substitute x = 7 into both sides of 5x + 7 = 3x + 23. What do the two sides sho…"}
 {"answer": "9 × 8 + 9 = 81", "id": "check-solution-by-substitution/easy/0/ca5cf0735337", "text": "What is the correct working for the left side of 9x + 9 when x = 8?"}
-{"answer": "Left side 46, right side 34: x = 10 is not a solution", "id": "check-solution-by-substitution/easy/1/ff4b76928d7d", "text": "Substitute x = 10 into 4x + 6 = 34. Which statement gives the correct value of …"}
+{"answer": "Left side 46, right side 34: x = 10 is not a solution", "id": "check-solution-by-substitution/easy/1/43befc017d1f", "text": "Substitute x = 10 into 4x + 6 = 34. Which statement gives the correct value of …"}
 {"answer": "3 × 7 + 4 = 25", "id": "check-solution-by-substitution/easy/2/111c5e92ac10", "text": "What is the correct working for the left side of 3x + 4 when x = 7?"}
-{"answer": "(a) 16; (b) 11; (c) No: the sides are not equal (16 and 11)…", "id": "check-solution-by-substitution/exam/0/8dbd5bcd29c2", "text": "Eli wants to check whether x = 3 is a solution of 7x - 5 = 2x + 5. (a) What is …"}
-{"answer": "(a) 19; (b) 17; (c) No: the sides are not equal (19 and 17)…", "id": "check-solution-by-substitution/exam/1/bb3fbf9353df", "text": "Gus wants to check whether x = 4 is a solution of 3x + 7 = x + 13. (a) What is …"}
-{"answer": "(a) 49; (b) 43; (c) No: the sides are not equal (49 and 43)…", "id": "check-solution-by-substitution/exam/2/d247c1f4c4e4", "text": "Eli wants to check whether x = 6 is a solution of 7x + 7 = x + 37. (a) What is …"}
-{"answer": "Left side -18, right side -18: x = -2 is a solution", "id": "check-solution-by-substitution/hard/0/2368be3d2ddc", "text": "Check whether x = -2 is a solution of 5x - 8 = 2x - 14. Which working and concl…"}
+{"answer": "(a) 9; (b) 9; (c) Yes: both sides equal 9; (d) x = 2 is the…", "id": "check-solution-by-substitution/exam/0/92974bc794ee", "text": "Aisha wants to check whether x = 2 is a solution of 7x - 5 = 2x + 5. (a) What i…"}
+{"answer": "(a) 16; (b) 16; (c) Yes: both sides equal 16; (d) x = 3 is …", "id": "check-solution-by-substitution/exam/1/3f37fa2c8aae", "text": "Gus wants to check whether x = 3 is a solution of 3x + 7 = x + 13. (a) What is …"}
+{"answer": "(a) 42; (b) 42; (c) Yes: both sides equal 42; (d) x = 5 is …", "id": "check-solution-by-substitution/exam/2/d234ce04ee7e", "text": "Aisha wants to check whether x = 5 is a solution of 7x + 7 = x + 37. (a) What i…"}
+{"answer": "Left side -18, right side -18: x = -2 is a solution", "id": "check-solution-by-substitution/hard/0/289716e97089", "text": "Substitute x = -2 into 5x - 8 = 2x - 14. Which statement gives the correct valu…"}
 {"answer": "She did not multiply the bracket by the number outside it", "id": "check-solution-by-substitution/hard/1/37c514abc495", "text": "Dana works out 6(x + 5) - 8 for x = -7 and gets -10. What was Dana's mistake?"}
 {"answer": "She multiplied only the x inside the bracket by the number …", "id": "check-solution-by-substitution/hard/2/ca6d7236e9a3", "text": "Dana works out 5(x + 2) + 6 for x = -3 and gets -7. What was Dana's mistake?"}
-{"answer": "Left side 78, right side 78: x = 9 is a solution", "id": "check-solution-by-substitution/medium/0/9083baac598e", "text": "Substitute x = 9 into 8x + 6 = -4x + 114. Which statement gives the correct val…"}
-{"answer": "Left side 78, right side 62: x = 11 is not a solution", "id": "check-solution-by-substitution/medium/1/a391b2701f41", "text": "Substitute x = 11 into 7x + 1 = -x + 73. Which statement gives the correct valu…"}
-{"answer": "Left side 39, right side 50: x = 4 is not a solution", "id": "check-solution-by-substitution/medium/2/2241c2c5db30", "text": "Check whether x = 4 is a solution of 8x + 7 = -3x + 62. Which working and concl…"}
+{"answer": "Left side 78, right side 78: x = 9 is a solution", "id": "check-solution-by-substitution/medium/0/e38047f62920", "text": "Substitute x = 9 into 8x + 6 = -4x + 114. Which statement gives the correct val…"}
+{"answer": "Left side 78, right side 62: x = 11 is not a solution", "id": "check-solution-by-substitution/medium/1/8b6045ae01a7", "text": "Substitute x = 11 into 7x + 1 = -x + 73. Which statement gives the correct valu…"}
+{"answer": "Left side 39, right side 50: x = 4 is not a solution", "id": "check-solution-by-substitution/medium/2/b60423f891ef", "text": "Substitute x = 4 into 8x + 7 = -3x + 62. Which statement gives the correct valu…"}
 {"answer": "(a) Convenience sample; (b) 10.0", "id": "choose-sampling-method/easy/0/cec6bd02e4eb", "text": "Priya stands at the staff car park of Southern Cross Freight on Monday morning …"}
 {"answer": "(a) Stratified random sample; (b) 3", "id": "choose-sampling-method/easy/1/2344a8aa0801", "text": "The 112 students of Banksia Secondary College fall into 3 year levels: 40 in Ye…"}
 {"answer": "(a) Stratified random sample; (b) 15", "id": "choose-sampling-method/easy/2/68be5cdafc92", "text": "The 300 residents of the Shire of Marlow fall into 3 areas: 100 in the northern…"}
@@ -584,13 +584,13 @@
 {"answer": "2, 2, 21", "id": "circle-complete-the-square/hard/1/8066813b46bb", "text": "A circle has the equation 4x^2 + 4y^2 - 16x - 16y - 52 = 0. Enter the x-coordin…"}
 {"answer": "-4, -2, 34", "id": "circle-complete-the-square/hard/2/f0c0952a1c07", "text": "A circle has the equation 3x^2 + 3y^2 + 24x + 12y - 42 = 0. Enter the x-coordin…"}
 {"answer": "-4, 5, 3", "id": "circle-complete-the-square/medium/0/85dbca93c8a6", "text": "A circle has the equation x^2 + y^2 + 8x - 10y = -32. Complete the square. Ente…"}
-{"answer": "10, 4, 4", "id": "circle-complete-the-square/medium/1/7e45518ea89e", "text": "The circle (x + 5)^2 + (y + 2)^2 = 25 is written as x^2 + y^2 + Dx + Ey + F = 0…"}
+{"answer": "10, 4, 4", "id": "circle-complete-the-square/medium/1/2ce1b84299d7", "text": "The circle (x + 5)^2 + (y + 2)^2 = 25 is written as x^2 + y^2 + Dx + Ey + F = 0…"}
 {"answer": "-3, 3, 10", "id": "circle-complete-the-square/medium/2/6e1982c74020", "text": "A circle has the equation x^2 + y^2 + 6x - 6y = 82. Complete the square. Enter …"}
-{"answer": "0, 1, 144", "id": "circle-equation-centre-radius-form/easy/0/225d09854a71", "text": "A circle has centre (0, -1) and radius 12. Write the equation as (x + a)^2 + (y…"}
-{"answer": "6, 0, 100", "id": "circle-equation-centre-radius-form/easy/1/875147dd41ff", "text": "A circle has centre (-6, 0) and radius 10. Write the equation as (x + a)^2 + (y…"}
+{"answer": "0, 1, 144", "id": "circle-equation-centre-radius-form/easy/0/0db663c2f5db", "text": "A circle has centre (0, -1) and radius 12. Write the equation as (x + a)^2 + (y…"}
+{"answer": "6, 0, 100", "id": "circle-equation-centre-radius-form/easy/1/20fe8ac6a8ce", "text": "A circle has centre (-6, 0) and radius 10. Write the equation as (x + a)^2 + (y…"}
 {"answer": "-2, -2, 4", "id": "circle-equation-centre-radius-form/easy/2/01b4d4d3fd7e", "text": "A circle has centre (2, 2) and radius 2. Write the equation as (x + a)^2 + (y +…"}
-{"answer": "(a) -3, -4; (b) 13; (c) 3, 4, 169; (d) 8", "id": "circle-equation-centre-radius-form/exam/0/783d3d809633", "text": "A circle has a diameter with ends A(-8, -16) and B(2, 8). (a) Find the coordina…"}
-{"answer": "(a) -12, 5; (b) 5; (c) 12, -5, 25; (d) 8", "id": "circle-equation-centre-radius-form/exam/1/d5f70d4d5499", "text": "A circle has a diameter with ends A(-15, 1) and B(-9, 9). (a) Find the coordina…"}
+{"answer": "(a) -3, -4; (b) 13; (c) 3, 4, 169; (d) 8", "id": "circle-equation-centre-radius-form/exam/0/e674e9878c0f", "text": "The segment AB, where A is (-8, -16) and B is (2, 8), is a diameter of a circle…"}
+{"answer": "(a) -12, 5; (b) 5; (c) 12, -5, 25; (d) 8", "id": "circle-equation-centre-radius-form/exam/1/00a79d9f673d", "text": "The segment AB, where A is (-15, 1) and B is (-9, 9), is a diameter of a circle…"}
 {"answer": "(a) 5, 0; (b) 15; (c) -5, 0, 225; (d) 10", "id": "circle-equation-centre-radius-form/exam/2/5b075a3ec097", "text": "A circle has a diameter with ends A(-7, 9) and B(17, -9). (a) Find the coordina…"}
 {"answer": "4, 4, 16", "id": "circle-equation-centre-radius-form/hard/0/0c81bf642ff4", "text": "A circle of radius 4 lies in the third quadrant and touches both axes. Its equa…"}
 {"answer": "-9, 9, 81", "id": "circle-equation-centre-radius-form/hard/1/48210e65f89c", "text": "A circle of radius 9 lies in the fourth quadrant and touches both axes. Its equ…"}
@@ -599,7 +599,7 @@
 {"answer": "4, 2, 100", "id": "circle-equation-centre-radius-form/medium/1/1bbda20cbd7b", "text": "The circle x^2 + y^2 = 100 is moved 4 left and 2 down. Its new equation is (x +…"}
 {"answer": "0, -5, 50", "id": "circle-equation-centre-radius-form/medium/2/7e7086bbb91c", "text": "A circle has centre (0, 5) and passes through the point (1, -2). Its equation i…"}
 {"answer": "10", "id": "circle-find-unknown-constant/easy/0/cc2257f1c31d", "text": "The point (t, -13) lies on the circle (x - 1)^2 + (y + 1)^2 = 225 and is to the…"}
-{"answer": "-22", "id": "circle-find-unknown-constant/easy/1/19d4948f4da9", "text": "The point (-18, t) lies on the circle (x + 6)^2 + (y + 6)^2 = 400 and is below …"}
+{"answer": "-22", "id": "circle-find-unknown-constant/easy/1/7078d77a70e5", "text": "The point (-18, t) lies on the circle (x + 6)^2 + (y + 6)^2 = 400 and is below …"}
 {"answer": "22", "id": "circle-find-unknown-constant/easy/2/0b3c0467c1e4", "text": "The point (-14, t) lies on the circle (x + 2)^2 + (y - 6)^2 = 400 and is above …"}
 {"answer": "(a) -3; (b) 12; (c) 4; (d) 9", "id": "circle-find-unknown-constant/exam/0/6fc837a7e79b", "text": "The equation x^2 + y^2 + 6x + 4y + F = 0 describes a circle for suitable values…"}
 {"answer": "(a) 4; (b) 40; (c) -8; (d) 16", "id": "circle-find-unknown-constant/exam/1/f2f08fb51c51", "text": "The equation x^2 + y^2 - 8x - 10y + F = 0 describes a circle for suitable value…"}
@@ -613,13 +613,13 @@
 {"answer": "(2, -1)", "id": "circle-point-position/easy/0/4956a2b68ad8", "text": "Exactly one of the following points lies inside the circle x^2 + y^2 = 49. Whic…"}
 {"answer": "(-1, -5)", "id": "circle-point-position/easy/1/4aa47a1c215e", "text": "Exactly one of the following points lies inside the circle x^2 + y^2 = 100. Whi…"}
 {"answer": "(2, 1)", "id": "circle-point-position/easy/2/dd98bfb4781b", "text": "Exactly one of the following points lies inside the circle x^2 + y^2 = 25. Whic…"}
-{"answer": "(a) 10; (b) (2, 10); (c) 4; (d) 16", "id": "circle-point-position/exam/0/3c0ee2bad958", "text": "A circle has the equation (x + 1)^2 + (y - 1)^2 = 36. The point P is (-7, 9). (…"}
+{"answer": "(a) 10; (b) (2, 10); (c) 4; (d) 16", "id": "circle-point-position/exam/0/f800fe6a35da", "text": "A circle has the equation (x + 1)^2 + (y - 1)^2 = 36. The point P is (-7, 9). (…"}
 {"answer": "(a) 10; (b) (-9, 9); (c) 1; (d) 21", "id": "circle-point-position/exam/1/6661f91c2472", "text": "A circle has the equation (x - 3)^2 + (y - 1)^2 = 121. The point P is (11, -5).…"}
-{"answer": "(a) 5; (b) (-8, -2); (c) 2; (d) 12", "id": "circle-point-position/exam/2/93c9439c7180", "text": "A circle has the equation (x + 2)^2 + (y + 1)^2 = 49. The point P is (-6, -4). …"}
+{"answer": "(a) 5; (b) (-8, -2); (c) 2; (d) 12", "id": "circle-point-position/exam/2/9fc2c9bc3b9e", "text": "A circle has the equation (x + 2)^2 + (y + 1)^2 = 49. The point P is (-6, -4). …"}
 {"answer": "(5, -5)", "id": "circle-point-position/hard/0/e87c23ddece6", "text": "Exactly one of the following points lies on the circle x^2 + y^2 - 10x - 4y - 2…"}
-{"answer": "(-15, -13)", "id": "circle-point-position/hard/1/298f7b4c31f3", "text": "Exactly one of the following points lies outside the circle x^2 + y^2 + 8x + 2y…"}
+{"answer": "(-15, -13)", "id": "circle-point-position/hard/1/ce50e75ca7b7", "text": "Exactly one of the following points lies outside the circle x^2 + y^2 + 8x + 2y…"}
 {"answer": "(9, 0)", "id": "circle-point-position/hard/2/d87eea25ce61", "text": "Which of these points lies on the circle x^2 + y^2 - 10x - 6y + 9 = 0?"}
-{"answer": "(1, -11)", "id": "circle-point-position/medium/0/4c8b75ffab85", "text": "Exactly one of the following points lies outside the circle (x - 3)^2 + (y + 4)…"}
+{"answer": "(1, -11)", "id": "circle-point-position/medium/0/3888931231f1", "text": "Exactly one of the following points lies outside the circle (x - 3)^2 + (y + 4)…"}
 {"answer": "(-2, -2)", "id": "circle-point-position/medium/1/97ee935c9d01", "text": "Exactly one of the following points lies outside the circle (x - 2)^2 + y^2 = 1…"}
 {"answer": "(7, 9)", "id": "circle-point-position/medium/2/29418e18595f", "text": "Which of these points lies outside the circle (x - 1)^2 + (y - 5)^2 = 49?"}
 {"answer": "6.1", "id": "circle-reverse-from-area/easy/0/15dc4bdae016", "text": "A circle has an area of 116.90 cm². Using π ≈ 3.14159, find the radius of the c…"}
@@ -634,14 +634,14 @@
 {"answer": "6.4", "id": "circle-reverse-from-area/medium/0/04bc827e316b", "text": "A circle has an area of 32.17 cm². Using π ≈ 3.14159, find the diameter of the …"}
 {"answer": "5.2", "id": "circle-reverse-from-area/medium/1/6c608d9deb57", "text": "A circle has an area of 21.24 cm². Using π ≈ 3.14159, find the diameter of the …"}
 {"answer": "23.4", "id": "circle-reverse-from-area/medium/2/05a39a943c19", "text": "A circle has an area of 430.05 cm². Using π ≈ 3.14159, find the diameter of the…"}
-{"answer": "-3/8", "id": "circle-tangent-at-a-point/easy/0/be6e9bc64bb1", "text": "The point P(-8, -1) lies on the circle x^2 + (y + 4)^2 = 73. Find the gradient …"}
-{"answer": "-8/3", "id": "circle-tangent-at-a-point/easy/1/a4115a62f18f", "text": "The point P(0, -12) lies on the circle (x + 3)^2 + (y + 4)^2 = 73. Find the gra…"}
-{"answer": "-9/2", "id": "circle-tangent-at-a-point/easy/2/cd6475d5d99f", "text": "The point P(-1, -12) lies on the circle (x + 3)^2 + (y + 3)^2 = 85. Find the gr…"}
-{"answer": "(a) -2/3; (b) 3/2; (c) 33/2; (d) -11", "id": "circle-tangent-at-a-point/exam/0/c930a7f42af0", "text": "The point P(-7, 6) lies on the circle (x + 4)^2 + (y - 4)^2 = 13. The tangent t…"}
-{"answer": "(a) 7/6; (b) -6/7; (c) -87/7; (d) -29/2", "id": "circle-tangent-at-a-point/exam/1/20eb96124477", "text": "The point P(-11, -3) lies on the circle (x + 5)^2 + (y - 4)^2 = 85. The tangent…"}
-{"answer": "(a) 2/3; (b) -3/2; (c) -21; (d) -14", "id": "circle-tangent-at-a-point/exam/2/361270910824", "text": "The point P(-8, -9) lies on the circle (x + 2)^2 + (y + 5)^2 = 52. The tangent …"}
-{"answer": "5", "id": "circle-tangent-at-a-point/hard/0/1ef4020d4f67", "text": "The point P(6, -1) lies on the circle (x - 4)^2 + (y + 3)^2 = 8. The tangent to…"}
-{"answer": "45", "id": "circle-tangent-at-a-point/hard/1/a46674fd725e", "text": "The point P(3, -6) lies on the circle (x - 2)^2 + (y - 1)^2 = 50. The tangent t…"}
+{"answer": "-3/8", "id": "circle-tangent-at-a-point/easy/0/615dadd171b1", "text": "The point P(-8, -1) lies on the circle x^2 + (y + 4)^2 = 73. Find the gradient …"}
+{"answer": "-8/3", "id": "circle-tangent-at-a-point/easy/1/5783b2a45ee5", "text": "The point P(0, -12) lies on the circle (x + 3)^2 + (y + 4)^2 = 73. Find the gra…"}
+{"answer": "-9/2", "id": "circle-tangent-at-a-point/easy/2/ada5997be754", "text": "The point P(-1, -12) lies on the circle (x + 3)^2 + (y + 3)^2 = 85. Find the gr…"}
+{"answer": "(a) -2/3; (b) 3/2; (c) 33/2; (d) -11", "id": "circle-tangent-at-a-point/exam/0/31e2b94437b2", "text": "The point P(-7, 6) lies on the circle (x + 4)^2 + (y - 4)^2 = 13. The tangent t…"}
+{"answer": "(a) 7/6; (b) -6/7; (c) -87/7; (d) -29/2", "id": "circle-tangent-at-a-point/exam/1/c6a9805effca", "text": "The point P(-11, -3) lies on the circle (x + 5)^2 + (y - 4)^2 = 85. The tangent…"}
+{"answer": "(a) 2/3; (b) -3/2; (c) -21; (d) -14", "id": "circle-tangent-at-a-point/exam/2/fa179010cac7", "text": "The point P(-8, -9) lies on the circle (x + 2)^2 + (y + 5)^2 = 52. The tangent …"}
+{"answer": "5", "id": "circle-tangent-at-a-point/hard/0/aee30e3116eb", "text": "The point P(6, -1) lies on the circle (x - 4)^2 + (y + 3)^2 = 8. The tangent to…"}
+{"answer": "45", "id": "circle-tangent-at-a-point/hard/1/fef19fef4503", "text": "The point P(3, -6) lies on the circle (x - 2)^2 + (y - 1)^2 = 50. The tangent t…"}
 {"answer": "93/4", "id": "circle-tangent-at-a-point/hard/2/fa5bcb6571d2", "text": "The point P(4, 11) lies on the circle x^2 + (y - 4)^2 = 65. The tangent to the …"}
 {"answer": "5/7", "id": "circle-tangent-at-a-point/medium/0/1c190d27991b", "text": "The point P(9, -10) lies on the circle (x - 4)^2 + (y + 3)^2 = 74. Find the gra…"}
 {"answer": "-9/5", "id": "circle-tangent-at-a-point/medium/1/d9bb0930729f", "text": "The point P(-7, -10) lies on the circle (x - 2)^2 + (y + 5)^2 = 106. Find the g…"}
@@ -712,12 +712,12 @@
 {"answer": "(a) 2170.00; (b) 3650.00; (c) 43000.00; (d) 1130.00", "id": "commission-pay/exam/0/7a29902bfe16", "text": "An insurance agent is paid $1,150 a week plus a commission of 5% on the first $…"}
 {"answer": "(a) 1690.00; (b) 2750.00; (c) 42500.00; (d) 450.00", "id": "commission-pay/exam/1/313583109e44", "text": "A phone-plan salesperson is paid $1,350 a week plus a commission of 2% on the f…"}
 {"answer": "(a) 2065.00; (b) 2550.00; (c) 28000.00; (d) 1670.00", "id": "commission-pay/exam/2/d2aba797a403", "text": "A real estate agent is paid $1,300 a week plus a commission of 5% on the first …"}
-{"answer": "2500.00", "id": "commission-pay/hard/0/22d657146992", "text": "A furniture salesperson can choose Plan A, $25 a week plus 5% commission on sal…"}
-{"answer": "5000.00", "id": "commission-pay/hard/1/1631a9756926", "text": "A solar-panel salesperson can choose Plan A, $200 a week plus 2% commission on …"}
+{"answer": "19500.00", "id": "commission-pay/hard/0/8bb49eb6dd7a", "text": "A travel agent can choose Plan A, $1,170 a week plus 2% commission on sales, or…"}
+{"answer": "16500.00", "id": "commission-pay/hard/1/c93010103f98", "text": "A car salesperson can choose Plan A, $825 a week plus 3% commission on sales, o…"}
 {"answer": "1800.00", "id": "commission-pay/hard/2/f91e5402035a", "text": "An insurance agent earns 4% commission on the first $15,000 of sales in a month…"}
 {"answer": "2550.00", "id": "commission-pay/medium/0/2e7bc45c6c1b", "text": "A phone-plan salesperson is paid $850 a week plus a commission of 10% of the sa…"}
 {"answer": "725.00", "id": "commission-pay/medium/1/57162461f83c", "text": "A travel agent is paid $500 a week plus a commission of 2% of the sales made. I…"}
-{"answer": "20000.00", "id": "commission-pay/medium/2/825880a4b9f1", "text": "A real estate agent is paid $1,450 a week plus a commission of 8% of the sales …"}
+{"answer": "20000.00", "id": "commission-pay/medium/2/32702a67dea8", "text": "A real estate agent is paid $1,450 a week plus a commission of 8% of the sales …"}
 {"answer": "5", "id": "common-difference/easy/0/dc94936ce7df", "text": "Find the common difference of the sequence: 4, 9, 14, 19, ..."}
 {"answer": "-2", "id": "common-difference/easy/1/3f9411e6f359", "text": "Find the common difference of the sequence: 8, 6, 4, 2, ..."}
 {"answer": "1", "id": "common-difference/easy/2/9feec0c330bc", "text": "Find the common difference of the sequence: 9, 10, 11, 12, ..."}
@@ -1296,11 +1296,11 @@
 {"answer": "76", "id": "definite-integral-properties/medium/2/5371be86b5eb", "text": "Let f be an even function with ∫ from 0 to 2 of f(x) dx = 7. Calculate ∫ from -…"}
 {"answer": "1456", "id": "definite-integral-substitution-changed-limits/easy/0/fb93cdc9835c", "text": "Use the substitution u = x^4 + 2 to find the exact value of ∫ from 0 to 2 of 3x…"}
 {"answer": "982828/15", "id": "definite-integral-substitution-changed-limits/easy/1/b52a28d3a92f", "text": "Find the exact value of ∫ from 1 to 2 of 4x^2(x^3 + 4)^4 dx using the substitut…"}
-{"answer": "1254635520", "id": "definite-integral-substitution-changed-limits/easy/2/9780e058a448", "text": "Find the exact value of ∫ from 1 to 3 of 6x^3(x^4 + 3)^4 dx using the substitut…"}
-{"answer": "(a) 60; (b) 32; (c) 8*(4*pi/3 - sqrt(3))", "id": "definite-integral-substitution-changed-limits/exam/0/31238d7557d5", "text": "Consider the integral I = ∫ from 0 to 4sqrt(3) of x^2/√(64 - x^2) dx, and use t…"}
-{"answer": "(a) 30; (b) 2; (c) (2*pi - 3*sqrt(3))/6", "id": "definite-integral-substitution-changed-limits/exam/1/26b45fd9dd26", "text": "Consider the integral I = ∫ from 0 to 1 of x^2/√(4 - x^2) dx, and use the subst…"}
-{"answer": "(a) 45; (b) 18; (c) 9*(pi/2 - 1)", "id": "definite-integral-substitution-changed-limits/exam/2/24d64a0dc07a", "text": "Let I be the value of ∫ from 0 to 3sqrt(2) of x^2/√(36 - x^2) dx. Use the subst…"}
-{"answer": "(4*pi + 3*sqrt(3))/24", "id": "definite-integral-substitution-changed-limits/hard/0/898914fdf29f", "text": "Find the exact value of ∫ from 0 to sqrt(3)/2 of √(1 - x^2) dx using the substi…"}
+{"answer": "1254635520", "id": "definite-integral-substitution-changed-limits/easy/2/1426f7f95b4b", "text": "Find the exact value of ∫ from 1 to 3 of 6x^3(x^4 + 3)^4 dx using the substitut…"}
+{"answer": "(a) 60; (b) 160; (c) 40*(4*pi/3 + sqrt(3))", "id": "definite-integral-substitution-changed-limits/exam/0/e280e88b41db", "text": "Let I be the value of ∫ from 0 to 4sqrt(3) of 5√(64 - x^2) dx. Use the substitu…"}
+{"answer": "(a) 45; (b) 4; (c) pi - 2", "id": "definite-integral-substitution-changed-limits/exam/1/f5aa72f9585c", "text": "Consider the integral I = ∫ from 0 to sqrt(2) of 2x^2/√(4 - x^2) dx, and use th…"}
+{"answer": "(a) 45; (b) 72; (c) 18*(pi + 2)", "id": "definite-integral-substitution-changed-limits/exam/2/84456ed78c03", "text": "Consider the integral I = ∫ from 0 to 3sqrt(2) of 4√(36 - x^2) dx, and use the …"}
+{"answer": "(4*pi + 3*sqrt(3))/24", "id": "definite-integral-substitution-changed-limits/hard/0/d4c33250cc66", "text": "Find the exact value of ∫ from 0 to sqrt(3)/2 of √(1 - x^2) dx using the substi…"}
 {"answer": "3", "id": "definite-integral-substitution-changed-limits/hard/1/4d2fc120316f", "text": "Evaluate ∫ from 0 to pi/4 of 4sec^4(x)tan(x) dx, giving an exact answer."}
 {"answer": "1/4", "id": "definite-integral-substitution-changed-limits/hard/2/6537900703e6", "text": "Evaluate ∫ from 0 to pi/2 of 3cos(x)/(3 + sin(x))^2 dx, giving an exact answer."}
 {"answer": "448/3", "id": "definite-integral-substitution-changed-limits/medium/0/2512420f4146", "text": "Use the substitution u = x + 1 to find the exact value of ∫ from 0 to 24 of 2x/…"}
@@ -1489,13 +1489,13 @@
 {"answer": "-2, 0, 3, 7, 12", "id": "domain-and-range-intro/easy/0/e053097f45d7", "text": "A function is {(7, 12), (-3, 3), (4, -2), (1, 7), (0, 0)}. List the range of th…"}
 {"answer": "-3, 1, 4", "id": "domain-and-range-intro/easy/1/1b3bc4dc8595", "text": "A function is {(5, 4), (3, 1), (4, 1), (8, -3)}. List the range of this functio…"}
 {"answer": "-1, 0, 4, 7, 8, 9", "id": "domain-and-range-intro/easy/2/fca9d109a644", "text": "A function is {(7, 9), (9, -1), (0, 5), (4, 6), (-1, 10), (8, -4)}. List the do…"}
-{"answer": "(a) 5, 6, 9, 14, 21; (b) 5; (c) 21; (d) 1, 5", "id": "domain-and-range-intro/exam/0/8bb06aab6153", "text": "A function is f(x) = x^2 - 6x + 14, with domain the whole numbers from 1 to 7 i…"}
-{"answer": "(a) -2, -1, 2, 7; (b) 4; (c) 7; (d) 0, 4", "id": "domain-and-range-intro/exam/1/0476c1a711b9", "text": "A function is f(x) = x^2 - 4x + 2, with domain the whole numbers from -1 to 5 i…"}
-{"answer": "(a) -3, -2, 1, 6; (b) 4; (c) 6; (d) -1, 3", "id": "domain-and-range-intro/exam/2/251adfaeb7a4", "text": "A function is f(x) = x^2 - 2x - 2, with domain the whole numbers from -2 to 3 i…"}
+{"answer": "(a) 4, 5, 8, 13; (b) 4; (c) 13; (d) 0, 4", "id": "domain-and-range-intro/exam/0/a547fbe021db", "text": "A function is f(x) = x^2 - 4x + 8, with domain the whole numbers from -1 to 5 i…"}
+{"answer": "(a) -5, -3, 3, 13; (b) 4; (c) 13; (d) -2, 2", "id": "domain-and-range-intro/exam/1/5dafd6ab2084", "text": "A function is f(x) = 2x^2 - 5, with domain the whole numbers from -3 to 2 inclu…"}
+{"answer": "(a) 0, 2, 8; (b) 3; (c) 8; (d) -2, 0", "id": "domain-and-range-intro/exam/2/c3fa3d3644e9", "text": "A function is f(x) = 2x^2 + 4x + 2, with domain the whole numbers from -3 to 1 …"}
 {"answer": "-11, -6, -3, -2", "id": "domain-and-range-intro/hard/0/63562754f50b", "text": "A function is f(x) = -(x - 2)^2 - 2, with domain the whole numbers from 0 to 5 …"}
 {"answer": "-20, -13, -8, -5, -4", "id": "domain-and-range-intro/hard/1/0c666840d897", "text": "A function is f(x) = -x^2 - 4, with domain the whole numbers from -2 to 4 inclu…"}
-{"answer": "1, 2, 3, 4, 5, 6, 7, 8", "id": "domain-and-range-intro/hard/2/42461f7fca08", "text": "The function f(x) = sqrt(x - 1) is only defined when x - 1 is zero or positive.…"}
-{"answer": "30, 35, 40, 45, 50", "id": "domain-and-range-intro/medium/0/e63451e99b26", "text": "A tank holds 50 litres and loses 5 litres every minute, so V = 50 - 5t litres a…"}
+{"answer": "-2, -1, 0, 1", "id": "domain-and-range-intro/hard/2/ba439430a479", "text": "The function f(x) = sqrt(-x + 1) is only defined when -x + 1 is zero or positiv…"}
+{"answer": "20, 25, 30, 35, 40", "id": "domain-and-range-intro/medium/0/de413e94bb9c", "text": "A tank holds 50 litres and loses 5 litres every minute, so V = 50 - 5t litres a…"}
 {"answer": "-7, -2, 3, 8, 13", "id": "domain-and-range-intro/medium/1/06df339a12df", "text": "A function is f(x) = 5x - 2, with domain {-1, 0, 1, 2, 3}. List the range of f."}
 {"answer": "-5, -2, 7, 22", "id": "domain-and-range-intro/medium/2/fe8f1fe12086", "text": "A function is f(x) = 3x^2 - 5, with domain {-3, -2, -1, 0, 1, 2}. List the rang…"}
 {"answer": "x ≥ 3", "id": "domain-range-standard-functions/easy/0/f4a99f92cc6e", "text": "State the largest possible domain of the function f(x) = √(4x - 12) + 6, as an …"}
@@ -1946,10 +1946,10 @@
 {"answer": "75", "id": "f10-angle-relationships/medium/1/4d87058799bc", "text": "The diagram shows angles meeting at a point and filling a full turn. Find angle…"}
 {"answer": "78", "id": "f10-angle-relationships/medium/2/3c8056c28c47", "text": "The diagram shows angles meeting at a point and filling a full turn. Find angle…"}
 {"answer": "2", "id": "f10-angle-turn-right-reference/easy/0/6a0d85a2732d", "text": "A turntable makes a half turn. How many right angles is this turn equal to?"}
-{"answer": "3", "id": "f10-angle-turn-right-reference/easy/0/fcd4dd3f0827", "text": "The minute hand of a clock points at the 12. It moves clockwise until it points…"}
+{"answer": "3", "id": "f10-angle-turn-right-reference/easy/0/bbdd1314877b", "text": "A robot faces west. It turns clockwise until it faces south. How many right ang…"}
+{"answer": "4", "id": "f10-angle-turn-right-reference/easy/1/5527f40e3c73", "text": "The minute hand of a clock points at the 12. It moves clockwise all the way rou…"}
 {"answer": "2", "id": "f10-angle-turn-right-reference/easy/1/8159e532bfa7", "text": "A spinner makes a half turn. How many right angles is this turn equal to?"}
-{"answer": "2", "id": "f10-angle-turn-right-reference/easy/1/932bc0ed447f", "text": "The minute hand of a clock points at the 12. It moves clockwise until it points…"}
-{"answer": "2", "id": "f10-angle-turn-right-reference/easy/2/07d421a5de08", "text": "A robot faces west. It turns clockwise until it faces east. How many right angl…"}
+{"answer": "3", "id": "f10-angle-turn-right-reference/easy/2/26ee0aaf239e", "text": "A robot faces west. It turns clockwise until it faces south. How many right ang…"}
 {"answer": "3", "id": "f10-angle-turn-right-reference/easy/2/4a975f84050d", "text": "A toy car makes a three-quarter turn. What is the turn in right angles?"}
 {"answer": "5", "id": "f10-angle-turn-right-reference/hard/0/0698b6d2323d", "text": "A gate turns clockwise through 4 full turns and a quarter turn. It then turns b…"}
 {"answer": "2", "id": "f10-angle-turn-right-reference/hard/0/1d8e93be7b07", "text": "A toy car makes a three-quarter turn. It then keeps turning until it has turned…"}
@@ -1984,9 +1984,9 @@
 {"answer": "(0, 0) (0, 1) (0, 2) (0, 3) (1, 3) (2, 3) (3, 3) (4, 3) (5,…", "id": "f10-box-nets-on-a-grid/easy/0/396c0acf0a8c", "text": "Shade the net of a box on the grid, which is 9 squares wide and 8 squares tall.…"}
 {"answer": "(0, 1) (1, 1) (2, 1) (0, 2) (1, 2) (2, 2) (3, 2) (4, 2) (5,…", "id": "f10-box-nets-on-a-grid/easy/1/124ba96493c0", "text": "Shade the net of a box on the grid, which is 9 squares wide and 5 squares tall.…"}
 {"answer": "(1, 1) (2, 1) (1, 2) (2, 2) (1, 3) (2, 3) (3, 3) (4, 3) (5,…", "id": "f10-box-nets-on-a-grid/easy/2/2c97b2512a23", "text": "Shade the net of a box on the grid, which is 9 squares wide and 7 squares tall.…"}
-{"answer": "(a) 94; (b) 15; (c) 4; (d) 60", "id": "f10-box-nets-on-a-grid/exam/0/00d18e57d3c7", "text": "The shaded squares on the grid are the net of a closed box. It folds up with no…"}
-{"answer": "(a) 52; (b) 8; (c) 3; (d) 24", "id": "f10-box-nets-on-a-grid/exam/1/512d7a57d048", "text": "The shaded squares on the grid are the net of a closed box. It folds up with no…"}
-{"answer": "(a) 30; (b) 3; (c) 3; (d) 9", "id": "f10-box-nets-on-a-grid/exam/2/b237be488dc2", "text": "The shaded squares on the grid are the net of a closed box. It folds up with no…"}
+{"answer": "(a) 148; (b) 24; (c) 5; (d) 120", "id": "f10-box-nets-on-a-grid/exam/0/866979e21231", "text": "On the grid, the shaded squares form a net. Folded up, it makes a closed box wi…"}
+{"answer": "(a) 94; (b) 20; (c) 3; (d) 60", "id": "f10-box-nets-on-a-grid/exam/1/50c4502508c3", "text": "The shaded squares on the grid are the net of a closed box. It folds up with no…"}
+{"answer": "(a) 46; (b) 5; (c) 3; (d) 15", "id": "f10-box-nets-on-a-grid/exam/2/7f435e63e5da", "text": "A closed box is made by folding the shaded squares of this grid. The net has no…"}
 {"answer": "(0, 4) (1, 4) (2, 4) (3, 4) (4, 4)", "id": "f10-box-nets-on-a-grid/hard/0/d0ac2a71292f", "text": "The hatched squares are the net of a box without its bottom face. Shade the bot…"}
 {"answer": "(8, 0) (9, 0) (8, 1) (9, 1) (8, 2) (9, 2)", "id": "f10-box-nets-on-a-grid/hard/1/52fe575f7da0", "text": "The hatched squares are the net of a box without its bottom face. Shade the bot…"}
 {"answer": "(5, 1) (6, 1) (7, 1) (5, 2) (6, 2) (7, 2)", "id": "f10-box-nets-on-a-grid/hard/2/31f584cca707", "text": "A box net is drawn in hatched squares, with the bottom missing. Shade the missi…"}
@@ -2143,9 +2143,9 @@
 {"answer": "6", "id": "f10-composite-shape-representation/easy/0/46ec38dad5eb", "text": "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. Wha…"}
 {"answer": "24", "id": "f10-composite-shape-representation/easy/1/a1e7a0b63f61", "text": "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. Wha…"}
 {"answer": "18", "id": "f10-composite-shape-representation/easy/2/d7f08f578676", "text": "A shape is drawn on a square grid in which each square is 1 unit by 1 unit. Wha…"}
-{"answer": "(a) 6; (b) 12; (c) 3; (d) 24", "id": "f10-composite-shape-representation/exam/0/48f9546933fd", "text": "The shape is drawn on a square grid. Each square is 1 unit long and 1 unit wide…"}
+{"answer": "(a) 6; (b) 12; (c) 3; (d) 24", "id": "f10-composite-shape-representation/exam/0/e38f1e74e927", "text": "Here is the outline of a shape on a square grid, where one square is 1 unit acr…"}
 {"answer": "(a) 21; (b) 20; (c) 4; (d) 42", "id": "f10-composite-shape-representation/exam/1/e5b49e9eebc3", "text": "The shape is drawn on a square grid. Each square is 1 unit long and 1 unit wide…"}
-{"answer": "(a) 18; (b) 22; (c) 10; (d) 54", "id": "f10-composite-shape-representation/exam/2/15766645d021", "text": "The shape is drawn on a square grid. Each square is 1 unit long and 1 unit wide…"}
+{"answer": "(a) 18; (b) 22; (c) 10; (d) 54", "id": "f10-composite-shape-representation/exam/2/a810d4c31bb2", "text": "A shape has been outlined on grid paper. Every grid square measures 1 unit by 1…"}
 {"answer": "54", "id": "f10-composite-shape-representation/hard/0/2bd0b75489fa", "text": "Estimate the area, in square units, of the irregular shape on the grid, where e…"}
 {"answer": "40", "id": "f10-composite-shape-representation/hard/1/15879a583820", "text": "An irregular shape is drawn on a square grid. Each square is 1 unit by 1 unit. …"}
 {"answer": "50", "id": "f10-composite-shape-representation/hard/2/6d4123f6ed64", "text": "Estimate the area of the irregular shape on the grid, in square units, where ea…"}
@@ -2872,9 +2872,9 @@
 {"answer": "10", "id": "f10-model-plans-cube-counts/easy/0/9a3fb258bfc1", "text": "A model is built from cubes. The plan shows how many cubes are in each stack. H…"}
 {"answer": "11", "id": "f10-model-plans-cube-counts/easy/1/a8735712c20d", "text": "This plan is a model seen from above. The number on a square is how many cubes …"}
 {"answer": "13", "id": "f10-model-plans-cube-counts/easy/2/1547133ec80e", "text": "A model is built from cubes. The plan shows how many cubes are in each stack. H…"}
-{"answer": "(a) 1; (b) 10; (c) 30", "id": "f10-model-plans-cube-counts/exam/0/b00ada6caa5f", "text": "A model is built from 20 cubes. The plan shows the number of cubes in each stac…"}
-{"answer": "(a) 2; (b) 10; (c) 30", "id": "f10-model-plans-cube-counts/exam/1/0e672c7a6a17", "text": "A model is built from 20 cubes. The plan shows the number of cubes in each stac…"}
-{"answer": "(a) 4; (b) 17; (c) 40", "id": "f10-model-plans-cube-counts/exam/2/32a994e85de8", "text": "A model is built from 23 cubes. The plan shows the number of cubes in each stac…"}
+{"answer": "(a) 1; (b) 16; (c) 40", "id": "f10-model-plans-cube-counts/exam/0/ee114cd628e2", "text": "A model is built from 24 cubes. The plan shows the number of cubes in each stac…"}
+{"answer": "(a) 4; (b) 24; (c) 50", "id": "f10-model-plans-cube-counts/exam/1/5538f3453184", "text": "A model is built from 26 cubes. The plan shows the number of cubes in each stac…"}
+{"answer": "(a) 4; (b) 18; (c) 40", "id": "f10-model-plans-cube-counts/exam/2/a2d9548f439b", "text": "A model is built from 22 cubes. The plan shows the number of cubes in each stac…"}
 {"answer": "4", "id": "f10-model-plans-cube-counts/hard/0/ffaf716fe080", "text": "34 cubes make this model. The numbers on the plan tell the size of each stack, …"}
 {"answer": "5", "id": "f10-model-plans-cube-counts/hard/1/4686b57416da", "text": "29 cubes make this model. The numbers on the plan tell the size of each stack, …"}
 {"answer": "2", "id": "f10-model-plans-cube-counts/hard/2/10542e73c8e8", "text": "The plan shows a cube model that has 20 cubes in all. One stack is marked with …"}
@@ -3700,9 +3700,9 @@
 {"answer": "135", "id": "f10-tessellation-vertex-angles/easy/0/caf05b29c747", "text": "One corner of a regular octagon is cut from a tile. What is the size of the int…"}
 {"answer": "144", "id": "f10-tessellation-vertex-angles/easy/1/5929fed2bc19", "text": "A tiler is choosing between shapes. What is the size of one interior angle of a…"}
 {"answer": "3", "id": "f10-tessellation-vertex-angles/easy/2/436db06fc51f", "text": "Regular hexagons are fitted together round a point with no gaps and no overlaps…"}
-{"answer": "(a) 160; (b) 60; (c) 140; (d) 9", "id": "f10-tessellation-vertex-angles/exam/0/e859f2ecb36e", "text": "A floor pattern is made from regular polygon tiles. At every corner point a reg…"}
-{"answer": "(a) 120; (b) 90; (c) 150; (d) 12", "id": "f10-tessellation-vertex-angles/exam/1/2e36ce6fbc74", "text": "A floor pattern is made from regular polygon tiles. At every corner point a reg…"}
-{"answer": "(a) 120; (b) 90; (c) 150; (d) 12", "id": "f10-tessellation-vertex-angles/exam/2/49f098fb6161", "text": "A floor pattern is made from regular polygon tiles. At every corner point a reg…"}
+{"answer": "(a) 160; (b) 60; (c) 140; (d) 9; (e) 63", "id": "f10-tessellation-vertex-angles/exam/0/b087d4edae8b", "text": "A floor pattern is made from regular polygon tiles. At every corner point a reg…"}
+{"answer": "(a) 120; (b) 90; (c) 150; (d) 12; (e) 84", "id": "f10-tessellation-vertex-angles/exam/1/c690f1993091", "text": "A floor pattern is made from regular polygon tiles. At every corner point a reg…"}
+{"answer": "(a) 144; (b) 60; (c) 156; (d) 15; (e) 45", "id": "f10-tessellation-vertex-angles/exam/2/2f6809d2fff7", "text": "A floor pattern is made from regular polygon tiles. At every corner point a reg…"}
 {"answer": "36", "id": "f10-tessellation-vertex-angles/hard/0/faff649ae845", "text": "Three regular pentagons are placed round a point, each sharing a side with the …"}
 {"answer": "6", "id": "f10-tessellation-vertex-angles/hard/1/a3bf0035a9d5", "text": "At one point of a tiling there are two equilateral triangles, and two more regu…"}
 {"answer": "90", "id": "f10-tessellation-vertex-angles/hard/2/f1bcfc477c77", "text": "Two regular octagons are fitted round a point, each touching the next along a s…"}
@@ -3835,9 +3835,9 @@
 {"answer": "(3, 5) (3, 6) (4, 6) (3, 7) (4, 7)", "id": "f10-turn-shapes-on-a-grid/easy/0/2200f6d6fd7d", "text": "The shaded shape is turned a half turn about the point P. Shade where the shape…"}
 {"answer": "(2, 3) (2, 4) (1, 5) (2, 5)", "id": "f10-turn-shapes-on-a-grid/easy/1/780d7425208d", "text": "The shape drawn in shaded squares is turned a half turn about the point P. Shad…"}
 {"answer": "(2, 2) (3, 2) (2, 3) (3, 3) (3, 4)", "id": "f10-turn-shapes-on-a-grid/easy/2/1fa729c468b1", "text": "The shape drawn in shaded squares is turned a half turn about the point P. Shad…"}
-{"answer": "(a) Picture B; (b) Picture D; (c) Picture A", "id": "f10-turn-shapes-on-a-grid/exam/0/3c811c61fd58", "text": "Each of the four pictures A to D shows the same shaded shape, the same point P …"}
-{"answer": "(a) Picture B; (b) Picture C; (c) Picture D", "id": "f10-turn-shapes-on-a-grid/exam/1/c4090d74a15a", "text": "Each of the four pictures A to D shows the same shaded shape, the same point P …"}
-{"answer": "(a) Picture D; (b) Picture C; (c) Picture A", "id": "f10-turn-shapes-on-a-grid/exam/2/ba1f43e25a43", "text": "Each of the four pictures A to D shows the same shaded shape, the same point P …"}
+{"answer": "(a) Picture D; (b) Picture C; (c) Picture G", "id": "f10-turn-shapes-on-a-grid/exam/0/fb2c417fcb5d", "text": "The four pictures C, D, F and G all start from the same shaded shape and the sa…"}
+{"answer": "(a) Picture B; (b) Picture J; (c) Picture H", "id": "f10-turn-shapes-on-a-grid/exam/1/579c5b104e54", "text": "The four pictures A, B, H and J all start from the same shaded shape and the sa…"}
+{"answer": "(a) Picture K; (b) Picture A; (c) Picture J", "id": "f10-turn-shapes-on-a-grid/exam/2/2f38825b84ac", "text": "Each of the four pictures A, F, J and K shows the same shaded shape, the same p…"}
 {"answer": "(10, 1) (8, 2) (9, 2) (10, 2) (11, 2)", "id": "f10-turn-shapes-on-a-grid/hard/0/1aad47faa799", "text": "One move takes the shaded shape to the hatched shape. If the move was a turn, i…"}
 {"answer": "(5, 2) (5, 3) (5, 4) (6, 4)", "id": "f10-turn-shapes-on-a-grid/hard/1/cbcb0ccc5f65", "text": "The shaded shape moved to the hatched shape with one move. If the move was a tu…"}
 {"answer": "(9, 1) (9, 2) (9, 3) (10, 3)", "id": "f10-turn-shapes-on-a-grid/hard/2/281df6e0fb65", "text": "The hatched shape is the shaded shape after one move. Shade the shape you get w…"}
@@ -3941,8 +3941,8 @@
 {"answer": "30", "id": "f3-read-a-column-graph/medium/1/49db60029325", "text": "How many fewer black cars than red cars were in the car park?"}
 {"answer": "20", "id": "f3-read-a-column-graph/medium/2/fdb41421fd99", "text": "How many fewer apples were sold on Tuesday than on Monday?"}
 {"answer": "4", "id": "f6-read-a-dot-plot/easy/0/ef1ae64a0e0b", "text": "Each student's score on a short spelling test was recorded. Count the dots: how…"}
-{"answer": "1", "id": "f6-read-a-dot-plot/easy/1/0343db312b27", "text": "A class measured how much each of their bean plants grew in two weeks. Count th…"}
-{"answer": "4", "id": "f6-read-a-dot-plot/easy/2/fc288389cd09", "text": "Students were asked how long it takes them to get to school. Find the number of…"}
+{"answer": "3", "id": "f6-read-a-dot-plot/easy/1/4338e9ee5c16", "text": "A class measured how much each of their bean plants grew in two weeks. How many…"}
+{"answer": "6", "id": "f6-read-a-dot-plot/easy/2/7d9d5b366dca", "text": "Students were asked how long it takes them to get to school. Find the number of…"}
 {"answer": "4", "id": "f6-read-a-dot-plot/hard/0/070146740c63", "text": "A class recorded the number of brothers and sisters each student has. Work out …"}
 {"answer": "4.5", "id": "f6-read-a-dot-plot/hard/1/154f3fa7d9c8", "text": "A netball club recorded the goals its team scored in each game of a season. Wor…"}
 {"answer": "5", "id": "f6-read-a-dot-plot/hard/2/fc2b0c507c77", "text": "A class recorded the number of brothers and sisters each student has. How many …"}
@@ -4006,18 +4006,18 @@
 {"answer": "(x + 6)(x + 9)", "id": "factorise-quadratic/medium/0/f7c6d1786650", "text": "Factorise x^2 + 15x + 54."}
 {"answer": "(x - 3)(x + 3)", "id": "factorise-quadratic/medium/1/98d2a288f418", "text": "Factorise x^2 - 9."}
 {"answer": "(x - 9)(x + 6)", "id": "factorise-quadratic/medium/2/d00fb8da25f2", "text": "Factorise x^2 - 3x - 54."}
-{"answer": "16.00", "id": "fair-game-expected-gain/easy/0/9154a8c84334", "text": "A game uses a bag holding 6 identical counters, one of which is drawn at random…"}
-{"answer": "-7.00", "id": "fair-game-expected-gain/easy/1/65b422dcc3cd", "text": "A game uses 12 numbered tickets in a hat, one of which is drawn at random. The …"}
-{"answer": "6.20", "id": "fair-game-expected-gain/easy/2/4e4b7d3e740b", "text": "A game uses a bag holding 20 identical counters, one of which is drawn at rando…"}
-{"answer": "(a) 20.75; (b) -4.00; (c) 24.75; (d) 1000.00", "id": "fair-game-expected-gain/exam/0/e670359b3833", "text": "A game uses a bag holding 8 identical counters, one of which is drawn at random…"}
-{"answer": "(a) 9.25; (b) 3.25; (c) 13.25; (d) -325.00", "id": "fair-game-expected-gain/exam/1/a0a957ca8004", "text": "A game uses 8 numbered tickets in a hat, one of which is drawn at random. The p…"}
-{"answer": "(a) 17.45; (b) 3.45; (c) 21.45; (d) -690.00", "id": "fair-game-expected-gain/exam/2/e9798ab1b539", "text": "A game uses 20 numbered tickets in a hat, one of which is drawn at random. The …"}
+{"answer": "16.00", "id": "fair-game-expected-gain/easy/0/db77231a444b", "text": "A game uses a bag holding 6 identical counters, one of which is drawn at random…"}
+{"answer": "-1.00", "id": "fair-game-expected-gain/easy/1/be6c628a0ab4", "text": "A game uses 12 numbered tickets in a hat, one of which is drawn at random. The …"}
+{"answer": "-4.80", "id": "fair-game-expected-gain/easy/2/e502e194b752", "text": "A game uses a bag holding 20 identical counters, one of which is drawn at rando…"}
+{"answer": "(a) 20.75; (b) -4.00; (c) 24.75; (d) 1000.00", "id": "fair-game-expected-gain/exam/0/c80fedb82c0b", "text": "A game uses a bag holding 8 identical counters, one of which is drawn at random…"}
+{"answer": "(a) 9.25; (b) 3.25; (c) 13.25; (d) -325.00", "id": "fair-game-expected-gain/exam/1/69e49e00c3c0", "text": "A game uses 8 numbered tickets in a hat, one of which is drawn at random. The p…"}
+{"answer": "(a) 17.45; (b) 3.45; (c) 21.45; (d) -690.00", "id": "fair-game-expected-gain/exam/2/819849ace896", "text": "A game uses 20 numbered tickets in a hat, one of which is drawn at random. The …"}
 {"answer": "57", "id": "fair-game-expected-gain/hard/0/787c05594045", "text": "A game uses 10 numbered tickets in a hat, one of which is drawn at random. A pr…"}
-{"answer": "775", "id": "fair-game-expected-gain/hard/1/ffed8cb1cccd", "text": "A game uses a bag holding 8 identical counters, one of which is drawn at random…"}
+{"answer": "600", "id": "fair-game-expected-gain/hard/1/3ca7080fca7c", "text": "A game uses a spinner with 10 equal sectors. The prizes are $32 on 1 sector, $1…"}
 {"answer": "14.20", "id": "fair-game-expected-gain/hard/2/f851f084fa19", "text": "A bag holds 3 red counters and 2 green counters. A player pays $2 to draw two c…"}
-{"answer": "3.75", "id": "fair-game-expected-gain/medium/0/ee582a369b93", "text": "A game uses a spinner with 8 equal sectors. The prizes are $16 on 1 sector and …"}
-{"answer": "10.45", "id": "fair-game-expected-gain/medium/1/83eb72faf34c", "text": "A game uses 20 numbered tickets in a hat, one of which is drawn at random. The …"}
-{"answer": "15.25", "id": "fair-game-expected-gain/medium/2/54e545e4803b", "text": "A game uses a spinner with 20 equal sectors. The prizes are $28 on 2 sectors, $…"}
+{"answer": "3.75", "id": "fair-game-expected-gain/medium/0/4d46d7d8b7c8", "text": "A game uses a spinner with 8 equal sectors. The prizes are $16 on 1 sector and …"}
+{"answer": "10.45", "id": "fair-game-expected-gain/medium/1/8c46189a5e22", "text": "A game uses 20 numbered tickets in a hat, one of which is drawn at random. The …"}
+{"answer": "15.25", "id": "fair-game-expected-gain/medium/2/f436871bf368", "text": "A game uses a spinner with 20 equal sectors. The prizes are $28 on 2 sectors, $…"}
 {"answer": "1", "id": "fair-sharing/easy/0/acccc5540ed6", "text": "Share 3 things equally between 3 children. How many each?"}
 {"answer": "5", "id": "fair-sharing/easy/1/335189e0d603", "text": "Share 10 things equally between 2 children. How many each?"}
 {"answer": "5", "id": "fair-sharing/easy/2/0c16eec93ed0", "text": "Share 15 things equally between 3 children. How many each?"}
@@ -4165,10 +4165,10 @@
 {"answer": "21", "id": "fraction-of-quantity/medium/0/9016cd5b6b5a", "text": "What is 3/4 of 28?"}
 {"answer": "20", "id": "fraction-of-quantity/medium/1/fba518b08825", "text": "What is 5/6 of 24?"}
 {"answer": "7", "id": "fraction-of-quantity/medium/2/3bc353d99678", "text": "What is 1/7 of 49?"}
-{"answer": "6", "id": "frequency-polygon-read/easy/0/cc2e5b29568a", "text": "The heights of students in a year level were measured. The frequency polygon sh…"}
-{"answer": "10", "id": "frequency-polygon-read/easy/1/a5de2509c6a7", "text": "The times taken by students to run one kilometre were recorded. The frequency p…"}
-{"answer": "6.5", "id": "frequency-polygon-read/easy/2/7f5c9d1b1e48", "text": "The times taken by students to run one kilometre were recorded. The frequency p…"}
-{"answer": "(a) 14; (b) 56; (c) 20; (d) 75", "id": "frequency-polygon-read/exam/0/71798eed3cc9", "text": "The heights of students in a year level were measured. The frequency polygon sh…"}
+{"answer": "6", "id": "frequency-polygon-read/easy/0/d6462137a711", "text": "The heights of students in a year level were measured. The frequency polygon sh…"}
+{"answer": "10", "id": "frequency-polygon-read/easy/1/bee56f6adbfc", "text": "The times taken by students to run one kilometre were recorded. The frequency p…"}
+{"answer": "6.5", "id": "frequency-polygon-read/easy/2/005e5ea6642c", "text": "The times taken by students to run one kilometre were recorded. The frequency p…"}
+{"answer": "(a) 14; (b) 56; (c) 20; (d) 75", "id": "frequency-polygon-read/exam/0/bb9ef2a152d7", "text": "The heights of students in a year level were measured. The frequency polygon sh…"}
 {"answer": "(a) 6; (b) 64; (c) 60; (d) 25", "id": "frequency-polygon-read/exam/1/157fc81be0ed", "text": "The electricity used by households in one week was recorded. The frequency poly…"}
 {"answer": "(a) 6; (b) 48; (c) 40; (d) 50", "id": "frequency-polygon-read/exam/2/9fca5889aadd", "text": "The electricity used by households in one week was recorded. The frequency poly…"}
 {"answer": "9.5", "id": "frequency-polygon-read/hard/0/99e8a90939df", "text": "The time customers waited to be served at a cafe was recorded. The frequency po…"}
@@ -4190,11 +4190,11 @@
 {"answer": "2789.7", "id": "frustum-volume/medium/1/782a9c043394", "text": "A frustum of a cone has a base diameter of 24 cm, a top diameter of 18 cm and a…"}
 {"answer": "6685.3", "id": "frustum-volume/medium/2/67b2a973f63d", "text": "A frustum of a cone has a base diameter of 34 cm, a top diameter of 10 cm and a…"}
 {"answer": "{(7, 6), (0, 10), (6, 10), (7, -3)}", "id": "function-concept/easy/0/f7b2b9d124ef", "text": "Look at the five relations below. Four of the relations below are functions. Wh…"}
-{"answer": "x = 9", "id": "function-concept/easy/1/5f5ed07e6067", "text": "The relation {(9, -3), (-1, -1), (8, -1), (9, 12), (5, 7), (6, 6)} is not a fun…"}
-{"answer": "x = 0", "id": "function-concept/easy/2/2b2e3a5f6d18", "text": "In the relation {(-2, 0), (0, 11), (3, 12), (8, -2), (4, 8), (0, 4)}, one input…"}
-{"answer": "(a) 5; (b) x = 6; (c) 2; (d) 2, 3, 4, 6, 7, 8", "id": "function-concept/exam/0/64875ac1fcb0", "text": "A relation R is {(7, 7), (6, 3), (4, 3), (7, 2), (6, 4), (2, 8), (3, 6)}. (a) H…"}
-{"answer": "(a) 6; (b) x = 1; (c) 1; (d) 2, 3, 4, 6, 9", "id": "function-concept/exam/1/581b14ad2f75", "text": "A relation R is {(7, 4), (5, 3), (8, 2), (1, 6), (1, 3), (2, 9), (4, 2)}. (a) H…"}
-{"answer": "(a) 5; (b) x = 5; (c) 1; (d) 1, 3, 5, 6, 7, 9", "id": "function-concept/exam/2/7c4294eaaa5d", "text": "A relation R is {(3, 1), (8, 9), (7, 7), (5, 6), (4, 5), (5, 3)}. (a) How many …"}
+{"answer": "x = 9", "id": "function-concept/easy/1/524f3ec9d0a9", "text": "The relation {(9, -3), (-1, -1), (8, -1), (9, 12), (5, 7), (6, 6)} is not a fun…"}
+{"answer": "x = 0", "id": "function-concept/easy/2/12bb10a6af50", "text": "In the relation {(-2, 0), (0, 11), (3, 12), (8, -2), (4, 8), (0, 4)}, one input…"}
+{"answer": "(a) 5; (b) x = 6; (c) 2; (d) 2, 3, 4, 6, 7, 8", "id": "function-concept/exam/0/7d983f56fad7", "text": "A relation R is {(7, 7), (6, 3), (4, 3), (7, 2), (6, 4), (2, 8), (3, 6)}. (a) H…"}
+{"answer": "(a) 6; (b) x = 1; (c) 1; (d) 2, 3, 4, 6, 9", "id": "function-concept/exam/1/ffbd19fad7ce", "text": "The relation R consists of these ordered pairs: {(7, 4), (5, 3), (8, 2), (1, 6)…"}
+{"answer": "(a) 5; (b) x = 5; (c) 1; (d) 1, 3, 5, 6, 7, 9", "id": "function-concept/exam/2/8bd182f89b18", "text": "Consider the set of ordered pairs R = {(3, 1), (8, 9), (7, 7), (5, 6), (4, 5), …"}
 {"answer": "k = 0", "id": "function-concept/hard/0/f889ee951ffe", "text": "The relation {(-4, -3), (5, -2), (0, 6), (-3, -3), (k, -3)} is not a function. …"}
 {"answer": "1→b, 2→a, 3→c, 4→b", "id": "function-concept/hard/1/b0b85ae3634a", "text": "A rule must send each member of A = {1, 2, 3, 4} to a member of B = {a, b, c}. …"}
 {"answer": "k = 6", "id": "function-concept/hard/2/4340baf581a2", "text": "The relation {(-2, 9), (6, 9), (0, 1), (8, 9), (5, 7), (k, 7)} is not a functio…"}
@@ -4216,11 +4216,11 @@
 {"answer": "10072.56", "id": "future-value-annuity-table/easy/0/3852e4304926", "text": "Tom saves for a future school fund by paying $1,200 into an account at the end …"}
 {"answer": "5204.01", "id": "future-value-annuity-table/easy/1/de946d0c2a5a", "text": "Leila saves for a new kitchen by paying $700 into an account at the end of each…"}
 {"answer": "18253.05", "id": "future-value-annuity-table/easy/2/fb57f2cb164d", "text": "Mei saves for a new kitchen by paying $1,500 into an account at the end of each…"}
-{"answer": "(a) 10398.88; (b) 7200.00; (c) 3198.88; (d) 1100.00", "id": "future-value-annuity-table/exam/0/2395d1532232", "text": "Imogen makes monthly payments of $200 into an account that pays 24% per annum, …"}
-{"answer": "(a) 8292.78; (b) 7200.00; (c) 1092.78; (d) 1200.00", "id": "future-value-annuity-table/exam/1/39273cc2aede", "text": "Luca makes quarterly payments of $900 into an account that pays 16% per annum, …"}
-{"answer": "(a) 29778.10; (b) 20000.00; (c) 9778.10; (d) 1200.00", "id": "future-value-annuity-table/exam/2/fed2396c4328", "text": "Imogen makes quarterly payments of $1,000 into an account that pays 16% per ann…"}
-{"answer": "900.00", "id": "future-value-annuity-table/hard/0/45fd14244d63", "text": "Claire wants $21,867.66 in 5 years and will make equal quarterly payments at th…"}
-{"answer": "7724.70", "id": "future-value-annuity-table/hard/1/b5833a556848", "text": "Imogen makes quarterly payments of $900 into an account that pays 8% per annum,…"}
+{"answer": "(a) 7867.22; (b) 7200.00; (c) 667.22; (d) 1100.00", "id": "future-value-annuity-table/exam/0/5dccac6878e9", "text": "Imogen makes monthly payments of $200 into an account that pays 6% per annum, w…"}
+{"answer": "(a) 7862.49; (b) 7200.00; (c) 662.49; (d) 1200.00", "id": "future-value-annuity-table/exam/1/92369fab92c2", "text": "Luca makes quarterly payments of $900 into an account that pays 10% per annum, …"}
+{"answer": "(a) 25544.70; (b) 20000.00; (c) 5544.70; (d) 1200.00", "id": "future-value-annuity-table/exam/2/c19e47c9b972", "text": "Imogen makes quarterly payments of $1,000 into an account that pays 10% per ann…"}
+{"answer": "900.00", "id": "future-value-annuity-table/hard/0/c2f325be7fdd", "text": "Claire wants $20,811.33 in 5 years and will make equal quarterly payments at th…"}
+{"answer": "7589.52", "id": "future-value-annuity-table/hard/1/337b0185669a", "text": "Imogen makes quarterly payments of $900 into an account that pays 6% per annum,…"}
 {"answer": "13139.64", "id": "future-value-annuity-table/hard/2/0f1b1944d8e0", "text": "Hana makes half-yearly payments of $1,200 into an account that pays 4% per annu…"}
 {"answer": "204.00", "id": "future-value-annuity-table/medium/0/1dea4e725753", "text": "Sam pays $1,000 at the end of each period for 5 periods into an account paying …"}
 {"answer": "1000.00", "id": "future-value-annuity-table/medium/1/ad1c16df36d8", "text": "A couple want to save exactly $14,192 for a deposit on a car by making equal pa…"}
@@ -4288,9 +4288,9 @@
 {"answer": "1", "id": "graph-bridges/easy/0/b65901764589", "text": "A rail network connects 7 stations, A to G. The diagram shows which stations ar…"}
 {"answer": "1", "id": "graph-bridges/easy/1/3ca8e5d5c266", "text": "A rail network connects 5 stations, A to E. The diagram shows which stations ar…"}
 {"answer": "2", "id": "graph-bridges/easy/2/94e685527e60", "text": "Towns A to H in a country region are linked by direct roads. The diagram shows …"}
-{"answer": "(a) 3; (b) 4; (c) 1; (d) 1", "id": "graph-bridges/exam/0/330551d36c4f", "text": "A museum has 6 galleries, A to F, joined by doorways. The diagram shows which g…"}
-{"answer": "(a) 4; (b) 5; (c) 2; (d) 2", "id": "graph-bridges/exam/1/9c7ab76ce467", "text": "Towns A to G in a country region are linked by direct roads. The diagram shows …"}
-{"answer": "(a) 5; (b) 6; (c) 4; (d) 2", "id": "graph-bridges/exam/2/4dad98639aaf", "text": "A rail network connects 8 stations, A to H. The diagram shows which stations ar…"}
+{"answer": "(a) 5; (b) 6; (c) 3; (d) 2; (e) 123", "id": "graph-bridges/exam/0/3cc2e1000c36", "text": "A rail network connects 8 stations, A to H. The diagram shows which stations ar…"}
+{"answer": "(a) 4; (b) 5; (c) 2; (d) 2; (e) 105", "id": "graph-bridges/exam/1/e57fdf6e7f31", "text": "Towns A to G in a country region are linked by direct roads. The diagram shows …"}
+{"answer": "(a) 3; (b) 4; (c) 1; (d) 2; (e) 100", "id": "graph-bridges/exam/2/f7a78cecb1cc", "text": "A council has built bike paths between 7 suburbs, A to G. The diagram shows whi…"}
 {"answer": "62", "id": "graph-bridges/hard/0/b4646f20682c", "text": "A council has built bike paths between 7 suburbs, A to G. The diagram shows whi…"}
 {"answer": "49", "id": "graph-bridges/hard/1/78bdda7c358f", "text": "A rail network connects 8 stations, A to H. The diagram shows which stations ar…"}
 {"answer": "49", "id": "graph-bridges/hard/2/db7be2f5a926", "text": "A national park has 7 lookouts, A to G, connected by walking tracks. The diagra…"}
@@ -4421,7 +4421,7 @@
 {"answer": "6", "id": "hcf-lcm-word-problems/easy/1/b8f571eda928", "text": "A club has 30 boys and 36 girls. They are split into teams with the same number…"}
 {"answer": "30", "id": "hcf-lcm-word-problems/easy/2/6ae4a7dd8c0d", "text": "Two joggers start together at the same point on a track. One takes 6 seconds fo…"}
 {"answer": "(a) 70; (b) 7; (c) 2; (d) 25", "id": "hcf-lcm-word-problems/exam/0/4f558104adef", "text": "Two cyclists start together at the start line of a circular velodrome. Cyclist …"}
-{"answer": "(a) 378; (b) 9; (c) 7; (d) 3", "id": "hcf-lcm-word-problems/exam/1/1e26ae4ef536", "text": "Two runners start together at the start line of a circular track. Runner A take…"}
+{"answer": "(a) 378; (b) 9; (c) 7; (d) 3", "id": "hcf-lcm-word-problems/exam/1/f57e1f17f0de", "text": "Two runners start together at the start line of a circular track. Runner A take…"}
 {"answer": "(a) 36; (b) 2; (c) 3; (d) 22", "id": "hcf-lcm-word-problems/exam/2/299516476b38", "text": "Two cyclists start together at the start line of a circular velodrome. Cyclist …"}
 {"answer": "24", "id": "hcf-lcm-word-problems/hard/0/e41137c376a7", "text": "Two whole numbers have a highest common factor of 3 and a lowest common multipl…"}
 {"answer": "63", "id": "hcf-lcm-word-problems/hard/1/fcee6d96cc4a", "text": "Two whole numbers have a highest common factor of 9 and a lowest common multipl…"}
@@ -4504,21 +4504,21 @@
 {"answer": "5*q**2", "id": "identify-like-terms/medium/0/21a56b66b296", "text": "Which of these is a like term to 10*q**2?"}
 {"answer": "9*p**2", "id": "identify-like-terms/medium/1/49d26f174451", "text": "Which of these is a like term to 8*p**2?"}
 {"answer": "9*m**3", "id": "identify-like-terms/medium/2/8d583e7c902c", "text": "Which of these is a like term to 8*m**3?"}
-{"answer": "Expand the left side: 3(x + 6) = 3x + 18. The equation beco…", "id": "identity-and-no-solution-explain/easy/0/c3c2436b996e", "text": "Does 3(x + 6) = 3x + 18 have no solution, exactly one solution, or every number…"}
-{"answer": "Expand the left side: 4(x + 3) = 4x + 12. The equation beco…", "id": "identity-and-no-solution-explain/easy/1/1223bcde926d", "text": "Does 4(x + 3) = 4x + 11 have no solution, exactly one solution, or every number…"}
-{"answer": "Expand the left side: 5(x + 7) = 5x + 35. The equation beco…", "id": "identity-and-no-solution-explain/easy/2/266c910b34d7", "text": "Does 5(x + 7) = 5x + 33 have no solution, exactly one solution, or every number…"}
-{"answer": "Expand and collect: 2(x + 3) + 3x = 5x + 6. The equation is…", "id": "identity-and-no-solution-explain/hard/0/9df36383948a", "text": "Decide whether 2(x + 3) + 3x = 5x + 7 has no solution, exactly one solution, or…"}
-{"answer": "Expand and collect: 3(x + 2) + 4x = 7x + 6. The equation is…", "id": "identity-and-no-solution-explain/hard/1/4af238b3a765", "text": "Decide whether 3(x + 2) + 4x = 7x + 6 has no solution, exactly one solution, or…"}
-{"answer": "Expand and collect: 4(x + 4) + 2x = 6x + 16. The equation i…", "id": "identity-and-no-solution-explain/hard/2/bbccfcde71f3", "text": "Decide whether 4(x + 4) + 2x = 6x + 19 has no solution, exactly one solution, o…"}
-{"answer": "Collect the x-terms on the left: x + 2 + 4x = 5x + 2. The e…", "id": "identity-and-no-solution-explain/medium/0/e15b8cfe9905", "text": "Without trying lots of numbers, decide whether x + 2 + 4x = 5x + 6 has no solut…"}
-{"answer": "Collect the x-terms on the left: 4x + 9 + 3x = 7x + 9. The …", "id": "identity-and-no-solution-explain/medium/1/6fc5d08e7df9", "text": "Without trying lots of numbers, decide whether 4x + 9 + 3x = 7x + 9 has no solu…"}
-{"answer": "Collect the x-terms on the left: 3x + 4 + 4x = 7x + 4. The …", "id": "identity-and-no-solution-explain/medium/2/1c24b4333b0d", "text": "Without trying lots of numbers, decide whether 3x + 4 + 4x = 7x + 4 has no solu…"}
+{"answer": "Expand the left side: 3(x + 6) = 3x + 18. The equation beco…", "id": "identity-and-no-solution-explain/easy/0/8ac6385d8b26", "text": "Without testing many values, say how many solutions 3(x + 6) = 3x + 18 has (non…"}
+{"answer": "Expand the left side: 4(x + 3) = 4x + 12. The equation beco…", "id": "identity-and-no-solution-explain/easy/1/e73b21728ee3", "text": "Lee claims 4(x + 3) = 4x + 11 is true for some numbers only. Is that right, or …"}
+{"answer": "Expand the left side: 5(x + 7) = 5x + 35. The equation beco…", "id": "identity-and-no-solution-explain/easy/2/aa8f25ed51aa", "text": "Without testing many values, say how many solutions 5(x + 7) = 5x + 33 has (non…"}
+{"answer": "Expand and collect: 2(x + 3) + 3x = 5x + 6. The equation is…", "id": "identity-and-no-solution-explain/hard/0/6e275ca3a38a", "text": "Decide whether 2(x + 3) + 3x = 5x + 7 has no solution, exactly one solution, or…"}
+{"answer": "Expand and collect: 3(x + 2) + 4x = 7x + 6. The equation is…", "id": "identity-and-no-solution-explain/hard/1/49457c8d8f06", "text": "Decide whether 3(x + 2) + 4x = 7x + 6 has no solution, exactly one solution, or…"}
+{"answer": "Expand and collect: 4(x + 4) + 2x = 6x + 16. The equation i…", "id": "identity-and-no-solution-explain/hard/2/b93353595319", "text": "Decide whether 4(x + 4) + 2x = 6x + 19 has no solution, exactly one solution, o…"}
+{"answer": "Collect the x-terms on the left: x + 2 + 4x = 5x + 2. The e…", "id": "identity-and-no-solution-explain/medium/0/7df5b44296d7", "text": "Without trying lots of numbers, decide whether x + 2 + 4x = 5x + 6 has no solut…"}
+{"answer": "Collect the x-terms on the left: 4x + 9 + 3x = 7x + 9. The …", "id": "identity-and-no-solution-explain/medium/1/c7fc9e49327b", "text": "Without trying lots of numbers, decide whether 4x + 9 + 3x = 7x + 9 has no solu…"}
+{"answer": "Collect the x-terms on the left: 3x + 4 + 4x = 7x + 4. The …", "id": "identity-and-no-solution-explain/medium/2/f5916c61ca26", "text": "Without trying lots of numbers, decide whether 3x + 4 + 4x = 7x + 4 has no solu…"}
 {"answer": "Exactly one solution, x = 4", "id": "identity-and-no-solution/easy/0/753f107d951b", "text": "Which statement about the equation 2x - 2 = 9x - 30 is correct?"}
 {"answer": "No solution", "id": "identity-and-no-solution/easy/1/59cad8b462d6", "text": "Working on an equation ends with the line 5 = 1. Which statement about the equa…"}
 {"answer": "Exactly one solution, x = -8", "id": "identity-and-no-solution/easy/2/f7fdedeb385d", "text": "Which statement about the equation 3x + 5 = 7x + 37 is correct?"}
-{"answer": "(a) No solution; (b) 18; (c) No solution", "id": "identity-and-no-solution/exam/0/f23e7f0e47e9", "text": "The equation 6(x + 3) = 6x + k has an unknown number k in it. (a) Dana puts k =…"}
-{"answer": "(a) No solution; (b) 6; (c) No solution", "id": "identity-and-no-solution/exam/1/e34053ef0c1b", "text": "The equation 3(x + 2) = 3x + k has an unknown number k in it. (a) Aisha puts k …"}
-{"answer": "(a) No solution; (b) 6; (c) No solution", "id": "identity-and-no-solution/exam/2/1010f63fa289", "text": "The equation 3(x + 2) = 3x + k has an unknown number k in it. (a) Farah puts k …"}
+{"answer": "(a) No solution, because 47 = 48 is false; (b) 47; (c) No s…", "id": "identity-and-no-solution/exam/0/50e3c595aeca", "text": "The equation 7(x + 7) - 2 = 7x + k has an unknown number k in it. (a) Aisha put…"}
+{"answer": "(a) No solution, because 9 = 5 is false; (b) 9; (c) No solu…", "id": "identity-and-no-solution/exam/1/083fb3a5c62f", "text": "The equation 4(x + 4) - 7 = 4x + k has an unknown number k in it. (a) Aisha put…"}
+{"answer": "(a) No solution, because 21 = 23 is false; (b) 21; (c) No s…", "id": "identity-and-no-solution/exam/2/008c686583bf", "text": "The equation 4(x + 4) + 5 = 4x + k has an unknown number k in it. (a) Ben puts …"}
 {"answer": "k = 7", "id": "identity-and-no-solution/hard/0/1ba235058677", "text": "The equation 7x - 8 = kx - 10 has no solution. What is the value of k?"}
 {"answer": "k = 3", "id": "identity-and-no-solution/hard/1/b8a4f3940a24", "text": "For which value of k does the equation 3x - 2 = kx + 2 have no solution?"}
 {"answer": "No solution", "id": "identity-and-no-solution/hard/2/c7ee5cd5a4a3", "text": "How many solutions does 4(x + 5) - 27 = 7x - 3x - 11 have?"}
@@ -4549,15 +4549,15 @@
 {"answer": "123508.00", "id": "income-tax-bracket-calculation/medium/0/283dbb34cfe2", "text": "Aisha is a paramedic with a taxable income of $167,600 for the year. Use these …"}
 {"answer": "150820.00", "id": "income-tax-bracket-calculation/medium/1/22b2df654bd5", "text": "Jack is a diesel mechanic with a taxable income of $216,000 for the year. Use t…"}
 {"answer": "38284.00", "id": "income-tax-bracket-calculation/medium/2/bcc692214d2b", "text": "Chloe is a physiotherapist. After deductions, Chloe's taxable income for the ye…"}
-{"answer": "The independent variable is the number of hours worked, bec…", "id": "independent-dependent-variables-explain/easy/0/9c18be8b960a", "text": "A plumber charges a $5 call-out fee plus $9 for each hour worked. Name the inde…"}
-{"answer": "The independent variable is the distance travelled, because…", "id": "independent-dependent-variables-explain/easy/1/ae70d062c097", "text": "A taxi charges $45 flag-fall plus $9 for each kilometre. Name the independent v…"}
-{"answer": "The independent variable is the number of hours worked, bec…", "id": "independent-dependent-variables-explain/easy/2/14ed2931faf7", "text": "A plumber charges a $50 call-out fee plus $3 for each hour worked. Name the ind…"}
-{"answer": "The distance travelled is the independent variable, so it g…", "id": "independent-dependent-variables-explain/hard/0/9d42cc392a8b", "text": "A taxi charges $20 flag-fall plus $6 for each kilometre. A student wants to dra…"}
-{"answer": "The time it has burned is the independent variable, so it g…", "id": "independent-dependent-variables-explain/hard/1/6a30521bfcb6", "text": "A candle starts 20 cm tall and burns down 4 cm each hour. A student wants to dr…"}
-{"answer": "The time the hose has run is the independent variable, so i…", "id": "independent-dependent-variables-explain/hard/2/c3397074b004", "text": "A tank already holds 10 litres and a hose adds 3 litres each minute. A student …"}
-{"answer": "d is the independent variable and C is the dependent variab…", "id": "independent-dependent-variables-explain/medium/0/c5c15513768e", "text": "The cost C dollars of hiring a bike for d days is C = 10 + 3d. Say which letter…"}
-{"answer": "d is the independent variable and C is the dependent variab…", "id": "independent-dependent-variables-explain/medium/1/99b885fb6e28", "text": "The cost C dollars of hiring a bike for d days is C = 20 + 7d. Say which letter…"}
-{"answer": "d is the independent variable and C is the dependent variab…", "id": "independent-dependent-variables-explain/medium/2/4f738f87d541", "text": "The cost C dollars of hiring a bike for d days is C = 10 + 5d. Say which letter…"}
+{"answer": "The independent variable is the number of hours worked, bec…", "id": "independent-dependent-variables-explain/easy/0/cdb207699b7b", "text": "A plumber charges a $50 call-out fee plus $110 for each hour worked. Name the i…"}
+{"answer": "The independent variable is the distance travelled, because…", "id": "independent-dependent-variables-explain/easy/1/41b11b1f90f4", "text": "A taxi charges $6 flag-fall plus $3 for each kilometre. Name the independent va…"}
+{"answer": "The independent variable is the number of hours worked, bec…", "id": "independent-dependent-variables-explain/easy/2/613871e0affe", "text": "A plumber charges a $100 call-out fee plus $70 for each hour worked. Name the i…"}
+{"answer": "The distance travelled is the independent variable, so it g…", "id": "independent-dependent-variables-explain/hard/0/c6ed7dc03068", "text": "A taxi charges $4 flag-fall plus $3 for each kilometre. A student wants to draw…"}
+{"answer": "The time it has burned is the independent variable, so it g…", "id": "independent-dependent-variables-explain/hard/1/65b031ce6eaf", "text": "A candle starts 24 cm tall and burns down 5 cm each hour. A student wants to dr…"}
+{"answer": "The time the hose has run is the independent variable, so i…", "id": "independent-dependent-variables-explain/hard/2/24ffaeffd4ab", "text": "A tank already holds 20 litres and a hose adds 5 litres each minute. A student …"}
+{"answer": "d is the independent variable and C is the dependent variab…", "id": "independent-dependent-variables-explain/medium/0/9da75f017c47", "text": "A bike hire shop uses C = 10 + 12d, where d is the number of days and C the cos…"}
+{"answer": "d is the independent variable and C is the dependent variab…", "id": "independent-dependent-variables-explain/medium/1/49ffb293b140", "text": "A bike hire shop uses C = 15 + 18d, where d is the number of days and C the cos…"}
+{"answer": "d is the independent variable and C is the dependent variab…", "id": "independent-dependent-variables-explain/medium/2/daf7cf97cf33", "text": "In the rule C = 10 + 15d for the cost of hiring a bike, explain which variable …"}
 {"answer": "The total fare", "id": "independent-dependent-variables/easy/0/b098916f1bd7", "text": "A taxi company charges $3 to start a trip and $3 for each kilometre travelled. …"}
 {"answer": "The mass hung from the spring", "id": "independent-dependent-variables/easy/1/705020094c58", "text": "Masses are hung one at a time from a spring and the length of the spring is mea…"}
 {"answer": "The amount of data used", "id": "independent-dependent-variables/easy/2/1f23626199b8", "text": "A phone plan costs $28 a month plus $3 for each gigabyte of data used. Which of…"}
@@ -4585,9 +4585,9 @@
 {"answer": "x > 6", "id": "inequality-on-number-line/easy/0/e0f77811ca8f", "text": "Mark the solutions of x > 6 on a number line."}
 {"answer": "x > 5", "id": "inequality-on-number-line/easy/1/21cd3f4c59e6", "text": "Show all the numbers x that are greater than 5 on the number line."}
 {"answer": "x > -2", "id": "inequality-on-number-line/easy/2/2f4b83470de5", "text": "Mark the solutions of x > -2 on a number line."}
-{"answer": "(a) x < 4; (b) x < 4; (c) 1 ≤ x < 4; (d) 3", "id": "inequality-on-number-line/exam/0/3debd313adde", "text": "Solve the inequality -6 - 3x > -18. (a) Write the solution as an inequality. (b…"}
-{"answer": "(a) x < 6; (b) x < 6; (c) -1 < x < 6; (d) 6", "id": "inequality-on-number-line/exam/1/f6000199afee", "text": "Solve the inequality 5 - 3x > -13. (a) Write the solution as an inequality. (b)…"}
-{"answer": "(a) x < 3; (b) x < 3; (c) 0 < x < 3; (d) 2", "id": "inequality-on-number-line/exam/2/62fee174ba49", "text": "Solve the inequality -1 - 3x > -10. (a) Write the solution as an inequality. (b…"}
+{"answer": "(a) x < 3; (b) x < 3; (c) 0 ≤ x < 3; (d) 3", "id": "inequality-on-number-line/exam/0/38926727cea1", "text": "Here is an inequality in x: -6 - 3x > -15. Work out which values of x make it t…"}
+{"answer": "(a) x < 5; (b) x < 5; (c) -2 < x < 5; (d) 6", "id": "inequality-on-number-line/exam/1/78198738ddf7", "text": "Solve the inequality 5 - 3x > -10. (a) Write the solution as an inequality. (b)…"}
+{"answer": "(a) x < 6; (b) x < 6; (c) 1 ≤ x < 6; (d) 5", "id": "inequality-on-number-line/exam/2/93de113e7ffc", "text": "Solve the inequality 5 - 4x > -19. (a) Write the solution as an inequality. (b)…"}
 {"answer": "-1 < x ≤ 6", "id": "inequality-on-number-line/hard/0/fce0d833d984", "text": "Solve 2x - 1 > -3 and 4x + 4 ≤ 28. Show the solution on a number line."}
 {"answer": "x < -7 or x ≥ -2", "id": "inequality-on-number-line/hard/1/e7d11047602d", "text": "Solve 3x - 1 < -22 or 4x ≥ -8. Show the solution on a number line."}
 {"answer": "2 < x < 6", "id": "inequality-on-number-line/hard/2/6f30920b8018", "text": "Solve |x - 4| < 2 and show the solution on a number line."}
@@ -4612,7 +4612,7 @@
 {"answer": "(a) T < 8; (b) 7; (c) T < 12", "id": "inequality-symbols/exam/0/c09db3385698", "text": "The temperature stays under 8 degrees. Let T be the temperature, and suppose T …"}
 {"answer": "(a) w > 8; (b) 9; (c) w > 5", "id": "inequality-symbols/exam/1/3eda72fe9457", "text": "A parcel must weigh more than 8 kilograms to be sent as freight. Let w be the m…"}
 {"answer": "(a) t ≥ 9; (b) 9; (c) t ≤ 13", "id": "inequality-symbols/exam/2/123a23c6278f", "text": "A minimum of 9 tickets is needed for a group booking. Let t be the number of ti…"}
-{"answer": "x = 7", "id": "inequality-symbols/hard/0/640d65dc0440", "text": "Which value of x satisfies 4 < x ≤ 7?"}
+{"answer": "x = 7", "id": "inequality-symbols/hard/0/f8dbc9344ae9", "text": "Which value of x satisfies 4 < x ≤ 7?"}
 {"answer": "ab > 0", "id": "inequality-symbols/hard/1/ae032553d571", "text": "a = -1 and b = -6. Which statement is true?"}
 {"answer": "a^2 > b^2", "id": "inequality-symbols/hard/2/b6ad381434fd", "text": "a = -8 and b = -2. Which statement is true?"}
 {"answer": "w > 11", "id": "inequality-symbols/medium/0/ce38697b83d6", "text": "A parcel must weigh more than 11 kilograms to be sent as freight. Let w be the …"}
@@ -4720,30 +4720,30 @@
 {"answer": "-9*ln|5*x + 5|/5 + C", "id": "integrate-reciprocal-linear/medium/0/b3af8a5f924f", "text": "Determine ∫ 9/(-5x - 5) dx."}
 {"answer": "-7*ln|4*x + 9|/4 + C", "id": "integrate-reciprocal-linear/medium/1/2d12afdc0bb7", "text": "Find the indefinite integral ∫ 7/(-4x - 9) dx."}
 {"answer": "3*ln|5*x - 7|/5 + C", "id": "integrate-reciprocal-linear/medium/2/4a4ab8cb6b69", "text": "Find ∫ -3/(7 - 5x) dx."}
-{"answer": "tan(x)^3/3 + C", "id": "integrate-substitution-exponential-trigonometric/easy/0/4b2891e18570", "text": "Determine ∫ sec^2(x)tan^2(x) dx using the substitution u = tan(x)."}
+{"answer": "tan(x)^3/3 + C", "id": "integrate-substitution-exponential-trigonometric/easy/0/f3849bf7c542", "text": "Determine ∫ sec^2(x)tan^2(x) dx using the substitution u = tan(x). Give your an…"}
 {"answer": "2*exp(sin(x)) + C", "id": "integrate-substitution-exponential-trigonometric/easy/1/943b26850465", "text": "Determine ∫ 2cos(x)e^(sin(x)) dx using the substitution u = sin(x)."}
-{"answer": "1/(cos(x) + 2) + C", "id": "integrate-substitution-exponential-trigonometric/easy/2/2d02ab4679de", "text": "Find ∫ sin(x)/(2 + cos(x))^2 dx. Use the substitution u = cos(x) + 2."}
-{"answer": "(a) 1; (b) 2*u^5 + 4*u^3 + 2*u; (c) 7/3", "id": "integrate-substitution-exponential-trigonometric/exam/0/69a339176e46", "text": "Let I be the value of ∫ from 0 to pi/4 of 2sec^6(x)tan(x) dx. Use the substitut…"}
-{"answer": "(a) sqrt(3); (b) u^5 + u^3; (c) 27/4", "id": "integrate-substitution-exponential-trigonometric/exam/1/a5f7fd9a736a", "text": "Consider the integral I = ∫ from 0 to pi/3 of sec^4(x)tan^3(x) dx, and use the …"}
-{"answer": "(a) 1; (b) 4*u^4 + 4*u^2; (c) 32/15", "id": "integrate-substitution-exponential-trigonometric/exam/2/ceb8d6c2d12d", "text": "Let I be the value of ∫ from 0 to pi/4 of 4sec^4(x)tan^2(x) dx. Use the substit…"}
-{"answer": "tan(x)^3/3 + tan(x) + C", "id": "integrate-substitution-exponential-trigonometric/hard/0/9c1801a38abb", "text": "Determine ∫ sec^4(x) dx."}
-{"answer": "tan(x)^3 + 3*tan(x) + C", "id": "integrate-substitution-exponential-trigonometric/hard/1/75d10ede1c65", "text": "Find the indefinite integral ∫ 3sec^4(x) dx."}
-{"answer": "tan(x)^4/4 + tan(x)^2/2 + C", "id": "integrate-substitution-exponential-trigonometric/hard/2/ecec40d2e2dd", "text": "Find ∫ sec^4(x)tan(x) dx."}
-{"answer": "-1/(2*(exp(x) + 3)^2) + (exp(x) + 3)^(-3) + C", "id": "integrate-substitution-exponential-trigonometric/medium/0/fceb6a99fc05", "text": "Use the substitution u = e^x + 3 to find ∫ e^(2x)/(e^x + 3)^4 dx."}
-{"answer": "-1/(2*(exp(x) + 2)^2) + 2/(3*(exp(x) + 2)^3) + C", "id": "integrate-substitution-exponential-trigonometric/medium/1/d93c6cd13f01", "text": "Determine ∫ e^(2x)/(e^x + 2)^4 dx using the substitution u = e^x + 2."}
-{"answer": "(exp(x) - 1)^4/4 + (exp(x) - 1)^3/3 + C", "id": "integrate-substitution-exponential-trigonometric/medium/2/e60894e08fc9", "text": "Determine ∫ e^(2x)(e^x - 1)^2 dx using the substitution u = e^x - 1."}
-{"answer": "(x - 4)^6 + 24*(x - 4)^5/5 + C", "id": "integrate-substitution-rewrite-x/easy/0/bd4726b7f422", "text": "Determine ∫ 6x(x - 4)^4 dx using the substitution u = x - 4."}
-{"answer": "3*(x - 2)^5/5 + 3*(x - 2)^4/2 + C", "id": "integrate-substitution-rewrite-x/easy/1/5c7ec232966c", "text": "Use the substitution u = x - 2 to find ∫ 3x(x - 2)^3 dx."}
-{"answer": "(x + 5)^4/2 - 10*(x + 5)^3/3 + C", "id": "integrate-substitution-rewrite-x/easy/2/be11e8514bed", "text": "Find ∫ 2x(x + 5)^2 dx. Use the substitution u = x + 5."}
+{"answer": "1/(cos(x) + 2) + C", "id": "integrate-substitution-exponential-trigonometric/easy/2/2e74d0c4776a", "text": "Find ∫ sin(x)/(2 + cos(x))^2 dx. Use the substitution u = cos(x) + 2. Give your…"}
+{"answer": "(a) 1; (b) 3*u^6 + 6*u^4 + 3*u^2; (c) 92/35", "id": "integrate-substitution-exponential-trigonometric/exam/0/30c76c04200d", "text": "Let I be the value of ∫ from 0 to pi/4 of 3sec^6(x)tan^2(x) dx. Use the substit…"}
+{"answer": "(a) sqrt(3); (b) 2*u^5 + 2*u^3; (c) 27/2", "id": "integrate-substitution-exponential-trigonometric/exam/1/0b4e57dc00cd", "text": "Consider the integral I = ∫ from 0 to pi/3 of 2sec^4(x)tan^3(x) dx, and use the…"}
+{"answer": "(a) 1; (b) 6*u^5 + 6*u^3; (c) 5/2", "id": "integrate-substitution-exponential-trigonometric/exam/2/ed0d42d16018", "text": "Let I be the value of ∫ from 0 to pi/4 of 6sec^4(x)tan^3(x) dx. Use the substit…"}
+{"answer": "tan(x)^3/3 + tan(x) + C", "id": "integrate-substitution-exponential-trigonometric/hard/0/c134fbe8f0f3", "text": "Determine ∫ sec^4(x) dx. Give your answer as a sum of powers of tan(x), not exp…"}
+{"answer": "tan(x)^3 + 3*tan(x) + C", "id": "integrate-substitution-exponential-trigonometric/hard/1/eb274caa4c7a", "text": "Find the indefinite integral ∫ 3sec^4(x) dx. Give your answer as a sum of power…"}
+{"answer": "tan(x)^4/4 + tan(x)^2/2 + C", "id": "integrate-substitution-exponential-trigonometric/hard/2/c4d0e3ab74ed", "text": "Find ∫ sec^4(x)tan(x) dx. Give your answer as a sum of powers of tan(x), not ex…"}
+{"answer": "-1/(2*(exp(x) + 3)^2) + (exp(x) + 3)^(-3) + C", "id": "integrate-substitution-exponential-trigonometric/medium/0/c71ee84b61ce", "text": "Use the substitution u = e^x + 3 to find ∫ e^(2x)/(e^x + 3)^4 dx. Give your ans…"}
+{"answer": "-1/(2*(exp(x) + 2)^2) + 2/(3*(exp(x) + 2)^3) + C", "id": "integrate-substitution-exponential-trigonometric/medium/1/8abd7cf03737", "text": "Determine ∫ e^(2x)/(e^x + 2)^4 dx using the substitution u = e^x + 2. Give your…"}
+{"answer": "(exp(x) - 1)^4/4 + (exp(x) - 1)^3/3 + C", "id": "integrate-substitution-exponential-trigonometric/medium/2/13755e1e1789", "text": "Determine ∫ e^(2x)(e^x - 1)^2 dx using the substitution u = e^x - 1. Give your …"}
+{"answer": "(x - 4)^6 + 24*(x - 4)^5/5 + C", "id": "integrate-substitution-rewrite-x/easy/0/1faae97b3950", "text": "Determine ∫ 6x(x - 4)^4 dx using the substitution u = x - 4. Give your answer a…"}
+{"answer": "3*(x - 2)^5/5 + 3*(x - 2)^4/2 + C", "id": "integrate-substitution-rewrite-x/easy/1/b2da4cbc3a6f", "text": "Use the substitution u = x - 2 to find ∫ 3x(x - 2)^3 dx. Give your answer as a …"}
+{"answer": "(x + 5)^4/2 - 10*(x + 5)^3/3 + C", "id": "integrate-substitution-rewrite-x/easy/2/618c6a26979b", "text": "Find ∫ 2x(x + 5)^2 dx. Use the substitution u = x + 5. Give your answer as a su…"}
 {"answer": "(a) u - 1; (b) 4*sqrt(u) - 4/sqrt(u); (c) 9; (d) 128/3", "id": "integrate-substitution-rewrite-x/exam/0/99b6743b908d", "text": "Let I be the value of ∫ from 3 to 8 of 4x/√(x + 1) dx. Use the substitution u =…"}
 {"answer": "(a) u - 4; (b) 3*u^(3/2) - 12*sqrt(u); (c) 16; (d) 3206/5", "id": "integrate-substitution-rewrite-x/exam/1/0564375de600", "text": "Let I be the value of ∫ from 5 to 12 of 3x√(x + 4) dx. Use the substitution u =…"}
 {"answer": "(a) u - 1; (b) 3*sqrt(u) - 3/sqrt(u); (c) 16; (d) 108", "id": "integrate-substitution-rewrite-x/exam/2/d52a8832278b", "text": "Consider the integral I = ∫ from 0 to 15 of 3x/√(x + 1) dx, and use the substit…"}
-{"answer": "(x^2 + 6)^6/4 - 9*(x^2 + 6)^5/5 + C", "id": "integrate-substitution-rewrite-x/hard/0/31a1a9452fc8", "text": "Find ∫ 3x^3(x^2 + 6)^4 dx."}
-{"answer": "-1/(2*(x^2 + 3)) + 3/(2*(x^2 + 3)^2) - 3/(2*(x^2 + 3)^3) + C", "id": "integrate-substitution-rewrite-x/hard/1/226541a73407", "text": "Determine ∫ x^5/(x^2 + 3)^4 dx."}
-{"answer": "-8/(sqrt(x) + 1) + C", "id": "integrate-substitution-rewrite-x/hard/2/ed6944823db4", "text": "Find the indefinite integral ∫ 4/(√x(1 + √x)^2) dx."}
-{"answer": "4*(x + 1)^(3/2) - 12*sqrt(x + 1) + C", "id": "integrate-substitution-rewrite-x/medium/0/daa03b6fa755", "text": "Use the substitution u = x + 1 to find ∫ 6x/√(x + 1) dx."}
-{"answer": "12*(x + 5)^(5/2)/5 - 20*(x + 5)^(3/2) + C", "id": "integrate-substitution-rewrite-x/medium/1/a032589c6c66", "text": "Use the substitution u = x + 5 to find ∫ 6x√(x + 5) dx."}
-{"answer": "2*(x + 5)^(5/2)/5 - 10*(x + 5)^(3/2)/3 + C", "id": "integrate-substitution-rewrite-x/medium/2/70b122b0e13d", "text": "Use the substitution u = x + 5 to find ∫ x√(x + 5) dx."}
+{"answer": "(x^2 + 6)^6/4 - 9*(x^2 + 6)^5/5 + C", "id": "integrate-substitution-rewrite-x/hard/0/e1f5ad109894", "text": "Find ∫ 3x^3(x^2 + 6)^4 dx. Give your answer as a sum of powers of (x^2 + 6), no…"}
+{"answer": "-1/(2*(x^2 + 3)) + 3/(2*(x^2 + 3)^2) - 3/(2*(x^2 + 3)^3) + C", "id": "integrate-substitution-rewrite-x/hard/1/220faa187d81", "text": "Determine ∫ x^5/(x^2 + 3)^4 dx. Give your answer as a sum of powers of (x^2 + 3…"}
+{"answer": "-8/(sqrt(x) + 1) + C", "id": "integrate-substitution-rewrite-x/hard/2/869d025cea7d", "text": "Find the indefinite integral ∫ 4/(√x(1 + √x)^2) dx. Give your answer as a sum o…"}
+{"answer": "4*(x + 1)^(3/2) - 12*sqrt(x + 1) + C", "id": "integrate-substitution-rewrite-x/medium/0/84b74f4adfa4", "text": "Use the substitution u = x + 1 to find ∫ 6x/√(x + 1) dx. Give your answer as a …"}
+{"answer": "12*(x + 5)^(5/2)/5 - 20*(x + 5)^(3/2) + C", "id": "integrate-substitution-rewrite-x/medium/1/4ca5b12ff308", "text": "Use the substitution u = x + 5 to find ∫ 6x√(x + 5) dx. Give your answer as a s…"}
+{"answer": "2*(x + 5)^(5/2)/5 - 10*(x + 5)^(3/2)/3 + C", "id": "integrate-substitution-rewrite-x/medium/2/24c5a5d78d57", "text": "Use the substitution u = x + 5 to find ∫ x√(x + 5) dx. Give your answer as a su…"}
 {"answer": "3*x - 3*sin(2*x)/2 + C", "id": "integrate-trig-powers/easy/0/35dc8e839c78", "text": "Find ∫ 6 sin^2(x) dx."}
 {"answer": "x - sin(2*x)/2 + C", "id": "integrate-trig-powers/easy/1/c737fbfb47e5", "text": "Find the indefinite integral ∫ 2 sin^2(x) dx."}
 {"answer": "x - sin(6*x)/6 + C", "id": "integrate-trig-powers/easy/2/37ab4c52d210", "text": "Find the indefinite integral ∫ 2 sin^2(3x) dx."}
@@ -4795,18 +4795,18 @@
 {"answer": "-4", "id": "intercept/medium/0/c452b6e296e9", "text": "x: -8, -7, -6 y: 68, 59, 50. Find the y-intercept."}
 {"answer": "-3", "id": "intercept/medium/1/64aa37c2ec5f", "text": "x: -2, 8, 9 y: 5, -35, -39. Find the y-intercept."}
 {"answer": "-6", "id": "intercept/medium/2/6e90c880ab5b", "text": "x: -9, 2, 4 y: -51, 4, 14. Find the y-intercept."}
-{"answer": "2040.00", "id": "interest-only-loan/easy/0/3c44b474d771", "text": "A bank lends $408,000 to buy an investment property on an interest-only loan at…"}
-{"answer": "46800.00", "id": "interest-only-loan/easy/1/2db5d98f02da", "text": "A bank lends $720,000 to buy a block of units on an interest-only loan at 6.5% …"}
-{"answer": "23940.00", "id": "interest-only-loan/easy/2/a81aa57e7969", "text": "A bank lends $684,000 to buy a shop on an interest-only loan at 3.5% per annum.…"}
-{"answer": "(a) 2145.00; (b) 257400.00; (c) 725400.00; (d) 2035.00", "id": "interest-only-loan/exam/0/45582079f1f2", "text": "A bank lends $468,000 to buy a holiday home on an interest-only loan at 5.5% pe…"}
-{"answer": "(a) 3480.00; (b) 417600.00; (c) 1113600.00; (d) 3300.00", "id": "interest-only-loan/exam/1/1a682ab1815d", "text": "A bank lends $696,000 to buy a rural property on an interest-only loan at 6% pe…"}
-{"answer": "(a) 3200.00; (b) 268800.00; (c) 748800.00; (d) 3040.00", "id": "interest-only-loan/exam/2/0c582846299a", "text": "A bank lends $480,000 to buy a rural property on an interest-only loan at 8% pe…"}
-{"answer": "340560.00", "id": "interest-only-loan/hard/0/bb7e057b7c47", "text": "A borrower takes out an interest-only loan of $648,000 at 5.5% per annum for 10…"}
-{"answer": "430560.00", "id": "interest-only-loan/hard/1/bb500db3278e", "text": "A borrower takes out an interest-only loan of $564,000 at 6.5% per annum for 12…"}
-{"answer": "910.00", "id": "interest-only-loan/hard/2/61363c78b638", "text": "A borrower has an interest-only loan. The interest rate is 6.5% per annum. When…"}
-{"answer": "6.5", "id": "interest-only-loan/medium/0/179fb66b8b63", "text": "A borrower has an interest-only loan of $348,000 and pays $1,885 in interest ea…"}
-{"answer": "144000.00", "id": "interest-only-loan/medium/1/cea216f87740", "text": "A borrower has an interest-only loan at 6.5% per annum and pays $780 in interes…"}
-{"answer": "3.5", "id": "interest-only-loan/medium/2/3f7dc82f1b1b", "text": "A borrower has an interest-only loan of $228,000 and pays $665 in interest each…"}
+{"answer": "2880.00", "id": "interest-only-loan/easy/0/ac4be3fe22f3", "text": "A bank lends $576,000 to buy an investment property on an interest-only loan at…"}
+{"answer": "24300.00", "id": "interest-only-loan/easy/1/b33175b7c4a7", "text": "A bank lends $540,000 to buy an investment property on an interest-only loan at…"}
+{"answer": "17160.00", "id": "interest-only-loan/easy/2/9c1cf990ee71", "text": "A bank lends $264,000 to buy a rural property on an interest-only loan at 6.5% …"}
+{"answer": "(a) 2695.00; (b) 323400.00; (c) 911400.00; (d) 2585.00", "id": "interest-only-loan/exam/0/1ce83b4f95a0", "text": "A bank lends $588,000 to buy a shop on an interest-only loan at 5.5% per annum.…"}
+{"answer": "(a) 2145.00; (b) 180180.00; (c) 648180.00; (d) 2090.00", "id": "interest-only-loan/exam/1/20153d11d612", "text": "A bank lends $468,000 to buy a holiday home on an interest-only loan at 5.5% pe…"}
+{"answer": "(a) 3150.00; (b) 189000.00; (c) 693000.00; (d) 2925.00", "id": "interest-only-loan/exam/2/582fed0d3626", "text": "A bank lends $504,000 to buy a rural property on an interest-only loan at 7.5% …"}
+{"answer": "199800.00", "id": "interest-only-loan/hard/0/ce1027f3218f", "text": "A borrower takes out an interest-only loan of $456,000 at 7.5% per annum for 6 …"}
+{"answer": "524160.00", "id": "interest-only-loan/hard/1/0c81829738ee", "text": "A borrower takes out an interest-only loan of $684,000 at 6.5% per annum for 12…"}
+{"answer": "1820.00", "id": "interest-only-loan/hard/2/3ab782fbe8ae", "text": "A borrower has an interest-only loan. The interest rate is 6.5% per annum. When…"}
+{"answer": "6.5", "id": "interest-only-loan/medium/0/44738c46f67a", "text": "A borrower has an interest-only loan of $516,000 and pays $2,795 in interest ea…"}
+{"answer": "312000.00", "id": "interest-only-loan/medium/1/24acf3abfcc4", "text": "A borrower has an interest-only loan at 6.5% per annum and pays $1,690 in inter…"}
+{"answer": "3.5", "id": "interest-only-loan/medium/2/bc7399b9f5d2", "text": "A borrower has an interest-only loan of $396,000 and pays $1,155 in interest ea…"}
 {"answer": "5", "id": "interpret-slope-in-context/easy/0/3459aaa75363", "text": "Chloe plots the total cost, in dollars, of a taxi trip against the distance tra…"}
 {"answer": "10", "id": "interpret-slope-in-context/easy/1/52c97154e108", "text": "Tom is checking a quote for hiring a kayak. The graph shows total cost in dolla…"}
 {"answer": "50", "id": "interpret-slope-in-context/easy/2/e33233e25dc1", "text": "Mia plots the total cost, in dollars, of a plumber's visit against the time wor…"}
@@ -4819,23 +4819,23 @@
 {"answer": "2.50", "id": "interpret-slope-in-context/medium/0/c61fafe208a2", "text": "Mia is comparing prices for a mobile phone plan. Using the graph of cost agains…"}
 {"answer": "7.50", "id": "interpret-slope-in-context/medium/1/96170697966c", "text": "The line shows how the total cost of a mobile phone plan depends on the data us…"}
 {"answer": "0.50", "id": "interpret-slope-in-context/medium/2/b866318fa4c3", "text": "Jack reads the graph of the total cost, in dollars, of a print run against the …"}
-{"answer": "In x - 4 = 4, 4 has been subtracted from x. The inverse ope…", "id": "inverse-operations-explain/easy/0/348cca9beb39", "text": "To solve x - 4 = 4, which operation undoes what has been done to x? Explain why…"}
-{"answer": "In x + 3 = 5, 3 has been added to x. The inverse operation,…", "id": "inverse-operations-explain/easy/1/3bb562fe44f9", "text": "To solve x + 3 = 5, which operation undoes what has been done to x? Explain why…"}
-{"answer": "In x + 7 = 19, 7 has been added to x. The inverse operation…", "id": "inverse-operations-explain/easy/2/9bf039eeadb9", "text": "To solve x + 7 = 19, which operation undoes what has been done to x? Explain wh…"}
-{"answer": "Dividing both sides by 3 divides every term, so the 3 must …", "id": "inverse-operations-explain/hard/0/e69a3fedb53b", "text": "Leo solves 3x - 3 = 30 by dividing both sides by 3 first, and writes x - 3 = 30…"}
-{"answer": "Dividing both sides by 3 divides every term, so the 9 must …", "id": "inverse-operations-explain/hard/1/471b7dc9a20c", "text": "Leo solves 3x - 9 = 12 by dividing both sides by 3 first, and writes x - 9 = 12…"}
-{"answer": "Dividing both sides by 4 divides every term, so the 6 must …", "id": "inverse-operations-explain/hard/2/7b125613781b", "text": "Leo solves 4x - 6 = 22 by dividing both sides by 4 first, and writes x - 6 = 22…"}
-{"answer": "In 6x - 7 = 11, x is first multiplied by 6 and then 7 is su…", "id": "inverse-operations-explain/medium/0/23dddcea2845", "text": "List, in order, the steps that undo the operations in 6x - 7 = 11, and explain …"}
-{"answer": "In 4x + 12 = 48, x is first multiplied by 4 and then 12 is …", "id": "inverse-operations-explain/medium/1/f3cf55aa2f51", "text": "List, in order, the steps that undo the operations in 4x + 12 = 48, and explain…"}
-{"answer": "In 2x - 7 = 15, x is first multiplied by 2 and then 7 is su…", "id": "inverse-operations-explain/medium/2/de6d73bd1bce", "text": "List, in order, the steps that undo the operations in 2x - 7 = 15, and explain …"}
+{"answer": "In x - 4 = 4, 4 has been subtracted from x. The inverse ope…", "id": "inverse-operations-explain/easy/0/7d43c0f1bbf4", "text": "To solve x - 4 = 4, which operation undoes what has been done to x? Explain why…"}
+{"answer": "In x + 3 = 5, 3 has been added to x. The inverse operation,…", "id": "inverse-operations-explain/easy/1/1e9f85e39cb8", "text": "To solve x + 3 = 5, which operation undoes what has been done to x? Explain why…"}
+{"answer": "In x + 7 = 19, 7 has been added to x. The inverse operation…", "id": "inverse-operations-explain/easy/2/c75f6b5133fa", "text": "To solve x + 7 = 19, which operation undoes what has been done to x? Explain wh…"}
+{"answer": "Dividing both sides by 3 divides every term, so the 3 must …", "id": "inverse-operations-explain/hard/0/1531941f1270", "text": "Which step in Leo's working of 3x - 3 = 30 is wrong, and why? Leo's first line …"}
+{"answer": "Dividing both sides by 3 divides every term, so the 9 must …", "id": "inverse-operations-explain/hard/1/6459cdea85d1", "text": "Which step in Leo's working of 3x - 9 = 12 is wrong, and why? Leo's first line …"}
+{"answer": "Dividing both sides by 4 divides every term, so the 6 must …", "id": "inverse-operations-explain/hard/2/a3cd35212c00", "text": "To solve 4x - 6 = 22, Leo divides only the 4x by 4 and gets x - 6 = 22 ÷ 4. Why…"}
+{"answer": "In 6x - 7 = 11, x is first multiplied by 6 and then 7 is su…", "id": "inverse-operations-explain/medium/0/bccd729b71f2", "text": "List, in order, the steps that undo the operations in 6x - 7 = 11, and explain …"}
+{"answer": "In 4x + 12 = 48, x is first multiplied by 4 and then 12 is …", "id": "inverse-operations-explain/medium/1/ba146b2b0ca0", "text": "Describe how to undo what has been done to x in 4x + 12 = 48, step by step, say…"}
+{"answer": "In 2x - 7 = 15, x is first multiplied by 2 and then 7 is su…", "id": "inverse-operations-explain/medium/2/53c0e6360eac", "text": "List, in order, the steps that undo the operations in 2x - 7 = 15, and explain …"}
 {"answer": "Multiply by 12", "id": "inverse-operations/easy/0/36a4c8e4a9a1", "text": "What do you do to reverse dividing by 12?"}
 {"answer": "Subtract 11", "id": "inverse-operations/easy/1/8077d7f1b7b0", "text": "Which operation undoes adding 11?"}
 {"answer": "Multiply by 3", "id": "inverse-operations/easy/2/6bd5aec4957e", "text": "Which operation undoes dividing by 3?"}
 {"answer": "(a) Subtract 6, then divide by 5; (b) 16; (c) 21", "id": "inverse-operations/exam/0/46df0337c135", "text": "A machine does these steps in order to an input x: multiply by 5, then add 6. (…"}
 {"answer": "(a) Add 7, then divide by 8; (b) 3; (c) 13", "id": "inverse-operations/exam/1/62ee5cd7a8ee", "text": "A machine does these steps in order to an input x: multiply by 8, then subtract…"}
 {"answer": "(a) Subtract 9, then divide by 7; (b) 16; (c) 14", "id": "inverse-operations/exam/2/31700b2c3cb8", "text": "A machine does these steps in order to an input x: multiply by 7, then add 9. (…"}
-{"answer": "Divide by 3, then subtract the number from 15", "id": "inverse-operations/hard/0/60d3f0185a25", "text": "x is put through these steps in order: subtract the number from 15, then multip…"}
-{"answer": "n → 21 - n", "id": "inverse-operations/hard/1/dc70ec1738b0", "text": "One of these rules is its own inverse. Which one?"}
+{"answer": "n → 17 - n", "id": "inverse-operations/hard/0/59ada0ced053", "text": "Which of these rules undoes itself, so that doing it twice returns the number y…"}
+{"answer": "n → 18 - n", "id": "inverse-operations/hard/1/54b359846e8e", "text": "Which of these rules undoes itself, so that doing it twice returns the number y…"}
 {"answer": "Divide by 6, then subtract the number from 26", "id": "inverse-operations/hard/2/efb9d981ddeb", "text": "x is put through these steps in order: subtract the number from 26, then multip…"}
 {"answer": "x = 2", "id": "inverse-operations/medium/0/f7babdb96a9d", "text": "The output of a machine is 4. The machine does these steps in order to x: multi…"}
 {"answer": "x = 16", "id": "inverse-operations/medium/1/48dd4411a195", "text": "The output of a machine is 42. The machine does these steps in order to x: subt…"}
@@ -4990,18 +4990,18 @@
 {"answer": "(a) 18; (b) the daily maximum temperature", "id": "limits-of-a-bivariate-claim/medium/0/9c2082ceaae7", "text": "Sam recorded the ice creams sold at a beach kiosk each day (tens) and the peopl…"}
 {"answer": "(a) 97; (b) Unreliable: the value of x is outside the range…", "id": "limits-of-a-bivariate-claim/medium/1/7c3a4f1be7c4", "text": "Noah collected data on students, where x is the hours of study each week and y …"}
 {"answer": "(a) 142; (b) Unreliable: the value of x is outside the rang…", "id": "limits-of-a-bivariate-claim/medium/2/eab05a93c528", "text": "Tom collected data on sunflowers, where x is the age of a sunflower in weeks an…"}
-{"answer": "(0, -2) (1, -5)", "id": "line-draw-from-gradient-and-point/easy/0/e0507191d80e", "text": "Draw the line y = -3x - 2 on the grid."}
-{"answer": "(0, 3) (1, 4)", "id": "line-draw-from-gradient-and-point/easy/1/e2f25b5f24b0", "text": "Draw the line y = x + 3 on the grid."}
-{"answer": "(0, 3) (1, 6)", "id": "line-draw-from-gradient-and-point/easy/2/3a2882b4a76f", "text": "Draw the straight line with gradient 3 and y-intercept 3."}
-{"answer": "(a) (0, 4) (1, 2); (b) 2; (c) (-1, -5) (0, -7); (d) -7", "id": "line-draw-from-gradient-and-point/exam/0/bc84d484df53", "text": "The line l has equation y = -2x + 4. The point P is (-1, -5). (a) Draw the line…"}
-{"answer": "(a) (0, -6) (1, -4); (b) 3; (c) (3, -1) (4, 1); (d) -7", "id": "line-draw-from-gradient-and-point/exam/1/aef5c5fe9f1c", "text": "The line l has equation y = 2x - 6. The point P is (3, -1). (a) Draw the line l…"}
-{"answer": "(a) (0, 2) (1, 3); (b) -2; (c) (-1, 5) (0, 6); (d) 6", "id": "line-draw-from-gradient-and-point/exam/2/1356e49a5067", "text": "The line l has equation y = x + 2. The point P is (-1, 5). (a) Draw the line l …"}
-{"answer": "(4, 1) (7, 3)", "id": "line-draw-from-gradient-and-point/hard/0/332a825c20f3", "text": "Draw the line that is perpendicular to y = -(3/2)x - 3 and passes through P(4, …"}
-{"answer": "(5, 0) (0, -3)", "id": "line-draw-from-gradient-and-point/hard/1/9b6d5d4b1824", "text": "Draw the graph of 3x - 5y = 15 on the grid."}
-{"answer": "(5, -5) (3, -8)", "id": "line-draw-from-gradient-and-point/hard/2/8ecc4076f0eb", "text": "The line 3x - 2y = -12 is given. Draw the line parallel to it that passes throu…"}
-{"answer": "(-2, -4) (1, -5)", "id": "line-draw-from-gradient-and-point/medium/0/2ffee0f2467b", "text": "Draw the line that passes through the point P(-2, -4) and has gradient -1/3."}
-{"answer": "(-2, 0) (-1, 1)", "id": "line-draw-from-gradient-and-point/medium/1/be325ae8e4d1", "text": "Draw the line that crosses the x-axis at (-2, 0) and has gradient 1."}
-{"answer": "(-2, 1) (1, 0)", "id": "line-draw-from-gradient-and-point/medium/2/d019b9ccdd3d", "text": "Draw the line that passes through the point P(-2, 1) and has gradient -1/3."}
+{"answer": "(0, -2) (1, -5)", "id": "line-draw-from-gradient-and-point/easy/0/12689d51e37c", "text": "Draw the line y = -3x - 2 on the grid."}
+{"answer": "(0, 3) (1, 4)", "id": "line-draw-from-gradient-and-point/easy/1/aee4454e4f99", "text": "Draw the line y = x + 3 on the grid."}
+{"answer": "(0, 3) (1, 6)", "id": "line-draw-from-gradient-and-point/easy/2/436e2df52e28", "text": "Draw the straight line with gradient 3 and y-intercept 3."}
+{"answer": "(a) (0, 4) (1, 2); (b) 2; (c) (-1, -5) (0, -7); (d) -7", "id": "line-draw-from-gradient-and-point/exam/0/ed1b0294cd42", "text": "The line l has equation y = -2x + 4. The point P is (-1, -5). (a) Draw the line…"}
+{"answer": "(a) (0, -6) (1, -4); (b) 3; (c) (3, -1) (4, 1); (d) -7", "id": "line-draw-from-gradient-and-point/exam/1/7639bafe1905", "text": "The line l has equation y = 2x - 6. The point P is (3, -1). (a) Draw the line l…"}
+{"answer": "(a) (0, 2) (1, 3); (b) -2; (c) (-1, 5) (0, 6); (d) 6", "id": "line-draw-from-gradient-and-point/exam/2/8698fcc8f88f", "text": "The line l has equation y = x + 2. The point P is (-1, 5). (a) Draw the line l …"}
+{"answer": "(4, 1) (7, 3)", "id": "line-draw-from-gradient-and-point/hard/0/31b79fe73eb3", "text": "Draw the line that is perpendicular to y = -(3/2)x - 3 and passes through P(4, …"}
+{"answer": "(5, 0) (0, -3)", "id": "line-draw-from-gradient-and-point/hard/1/3035a520a259", "text": "Draw the graph of 3x - 5y = 15 on the grid."}
+{"answer": "(5, -5) (3, -8)", "id": "line-draw-from-gradient-and-point/hard/2/7a5eb6e00a84", "text": "The line 3x - 2y = -12 is given. Draw the line parallel to it that passes throu…"}
+{"answer": "(-2, -4) (1, -5)", "id": "line-draw-from-gradient-and-point/medium/0/ba42be7e8b28", "text": "Draw the line that passes through the point P(-2, -4) and has gradient -1/3."}
+{"answer": "(-2, 0) (-1, 1)", "id": "line-draw-from-gradient-and-point/medium/1/1bf02da25bc3", "text": "Draw the line that crosses the x-axis at (-2, 0) and has gradient 1."}
+{"answer": "(-2, 1) (1, 0)", "id": "line-draw-from-gradient-and-point/medium/2/2b3a46747e4a", "text": "Draw the line that passes through the point P(-2, 1) and has gradient -1/3."}
 {"answer": "-6", "id": "line-meets-parabola-circle/easy/0/8bca9354adc2", "text": "The line y = -9x + 12 and the parabola y = -x² - x meet at two points. Find the…"}
 {"answer": "6", "id": "line-meets-parabola-circle/easy/1/f92c58a4686c", "text": "Find the larger x-coordinate where the parabola y = x² - 4x - 5 and the line y …"}
 {"answer": "-3", "id": "line-meets-parabola-circle/easy/2/9b6752402536", "text": "Find the sum of the x-coordinates of the two points where the parabola y = -x² …"}
@@ -5323,15 +5323,15 @@
 {"answer": "mean = 22.3, median = 22, mode = 13", "id": "mean-median-mode-one-set/medium/0/c67a46e106a0", "text": "Given the data set 22, 8, 42, 31, 13, 42, 31, 13, 8, 22, 13, determine (a) the …"}
 {"answer": "mean = 26.5, median = 21, mode = 6", "id": "mean-median-mode-one-set/medium/1/599fc5732d13", "text": "A data set of 11 values is recorded below: 17, 40, 17, 40, 21, 59, 6, 21, 6, 59…"}
 {"answer": "mean = 35.1, median = 42, mode = 4", "id": "mean-median-mode-one-set/medium/2/f1f39c1ebe2c", "text": "This data set has 9 values: 59, 59, 42, 51, 4, 51, 4, 4, 42. Find (a) the mean,…"}
-{"answer": "The equals sign says the two sides must have the same value…", "id": "meaning-of-equality-explain/easy/0/395daef54c60", "text": "Is the statement 7 + 4 = 9 + 4 true or false? Explain, using what the equals si…"}
-{"answer": "The equals sign says the two sides must have the same value…", "id": "meaning-of-equality-explain/easy/1/67d561c83457", "text": "Is the statement 7 + 15 = 11 + 15 true or false? Explain, using what the equals…"}
-{"answer": "The equals sign says the two sides have the same value. The…", "id": "meaning-of-equality-explain/easy/2/98292490d781", "text": "Is the statement 13 + 10 = 12 + 11 true or false? Explain, using what the equal…"}
-{"answer": "When x = 5, the left side 2x + 5 is 15, which is the same v…", "id": "meaning-of-equality-explain/hard/0/2b94f13276f3", "text": "The equation 2x + 5 = 15 is true when x = 5. Using what the equals sign means, …"}
-{"answer": "The equation x + 2 = 11 says both sides have the same value…", "id": "meaning-of-equality-explain/hard/1/96003e16f60d", "text": "Mia has the equation x + 2 = 11. She adds 2 to the left side only and writes x …"}
-{"answer": "The equation x + 9 = 11 says both sides have the same value…", "id": "meaning-of-equality-explain/hard/2/2df100a8fd14", "text": "Mia has the equation x + 9 = 11. She adds 6 to the left side only and writes x …"}
-{"answer": "Sam read the equals sign as 'the answer comes next' and loo…", "id": "meaning-of-equality-explain/medium/0/e271cc509fe1", "text": "Sam says that 16 + 6 = 22 + 5 is true, because 16 + 6 makes 22. Say what Sam ha…"}
-{"answer": "Sam read the equals sign as 'the answer comes next' and loo…", "id": "meaning-of-equality-explain/medium/1/f3a203f60054", "text": "Sam says that 12 + 3 = 15 + 4 is true, because 12 + 3 makes 15. Say what Sam ha…"}
-{"answer": "Sam read the equals sign as 'the answer comes next' and loo…", "id": "meaning-of-equality-explain/medium/2/22be21ec51e6", "text": "Sam says that 7 + 6 = 13 + 6 is true, because 7 + 6 makes 13. Say what Sam has …"}
+{"answer": "The equals sign says the two sides must have the same value…", "id": "meaning-of-equality-explain/easy/0/c4176a0c7a09", "text": "A worksheet has the line 7 + 4 = 9 + 4. Decide whether it is correct, and expla…"}
+{"answer": "The equals sign says the two sides must have the same value…", "id": "meaning-of-equality-explain/easy/1/d94cd971c648", "text": "Jo writes 7 + 15 = 11 + 15. Using the meaning of the equals sign, explain wheth…"}
+{"answer": "The equals sign says the two sides have the same value. The…", "id": "meaning-of-equality-explain/easy/2/4373ac26ded6", "text": "A worksheet has the line 13 + 10 = 12 + 11. Decide whether it is correct, and e…"}
+{"answer": "When x = 5, the left side 2x + 5 is 15, which is the same v…", "id": "meaning-of-equality-explain/hard/0/abff50a3a9e2", "text": "The equation 2x + 5 = 15 is true when x = 5. Using what the equals sign means, …"}
+{"answer": "The equation x + 2 = 11 says both sides have the same value…", "id": "meaning-of-equality-explain/hard/1/fe3cf3dbb933", "text": "Mia has the equation x + 2 = 11. She adds 2 to the left side only and writes x …"}
+{"answer": "The equation x + 9 = 11 says both sides have the same value…", "id": "meaning-of-equality-explain/hard/2/e32c82b9ad8e", "text": "Mia has the equation x + 9 = 11. She adds 6 to the left side only and writes x …"}
+{"answer": "Sam read the equals sign as 'the answer comes next' and loo…", "id": "meaning-of-equality-explain/medium/0/d20dcec2aafb", "text": "Sam says that 16 + 6 = 22 + 5 is true, because 16 + 6 makes 22. Say what Sam ha…"}
+{"answer": "Sam read the equals sign as 'the answer comes next' and loo…", "id": "meaning-of-equality-explain/medium/1/f24dd650de27", "text": "Sam says that 12 + 3 = 15 + 4 is true, because 12 + 3 makes 15. Say what Sam ha…"}
+{"answer": "Sam read the equals sign as 'the answer comes next' and loo…", "id": "meaning-of-equality-explain/medium/2/90c228836f71", "text": "Is Sam right that 7 + 6 = 13 + 6 is a true statement because 7 + 6 is 13? Expla…"}
 {"answer": "Yes: both sides are equal to 18", "id": "meaning-of-equality/easy/0/76b866e63842", "text": "Hana says that 6 + 12 = 8 + 10 is a true number sentence. Which reply is correc…"}
 {"answer": "7 + 8 = 4 + 13", "id": "meaning-of-equality/easy/1/fbc42ae132fe", "text": "Exactly one of these number sentences is false. Which one?"}
 {"answer": "7 × 8 = 56 + 6", "id": "meaning-of-equality/easy/2/a7a590926312", "text": "Which one of these statements is NOT correct?"}
@@ -5644,18 +5644,18 @@
 {"answer": "36", "id": "order-of-operations/medium/0/17e5a0423ab4", "text": "Evaluate 6 × 6 + 4 - 4"}
 {"answer": "-17", "id": "order-of-operations/medium/1/32b2e098befb", "text": "Evaluate 1 - 2 - 4 × 4"}
 {"answer": "96", "id": "order-of-operations/medium/2/00ed55c406e7", "text": "Evaluate 9 × 11 + 8 - 11"}
-{"answer": "vertex (1, 0) point (2, 1)", "id": "parabola-from-vertex-and-point/easy/0/380a24f56528", "text": "Draw the graph of y = (x - 1)²: place the vertex and one other point on the cur…"}
-{"answer": "vertex (3, -1) point (4, 0)", "id": "parabola-from-vertex-and-point/easy/1/64470a9c610e", "text": "The parabola y = (x - 3)² - 1 is to be drawn. Place its vertex and one other po…"}
-{"answer": "vertex (-1, 5) point (0, 6)", "id": "parabola-from-vertex-and-point/easy/2/e8d4db8b0fbe", "text": "The parabola y = (x + 1)² + 5 is to be drawn. Place its vertex and one other po…"}
+{"answer": "vertex (1, 0) point (2, 1)", "id": "parabola-from-vertex-and-point/easy/0/c467d1ec3d0e", "text": "Draw the graph of y = (x - 1)²: place the vertex and one other point on the cur…"}
+{"answer": "vertex (3, -1) point (4, 0)", "id": "parabola-from-vertex-and-point/easy/1/d4adb3b65a1f", "text": "The parabola y = (x - 3)² - 1 is to be drawn. Place its vertex and one other po…"}
+{"answer": "vertex (-1, 5) point (0, 6)", "id": "parabola-from-vertex-and-point/easy/2/62a1698a4ee4", "text": "The parabola y = (x + 1)² + 5 is to be drawn. Place its vertex and one other po…"}
 {"answer": "(a) 3; (b) 2; (c) vertex (3, 2) point (4, 3); (d) 11", "id": "parabola-from-vertex-and-point/exam/0/b4b0fb001255", "text": "A parabola has the equation y = x² - 6x + 11. (a) Find the x-coordinate of the …"}
 {"answer": "(a) 2; (b) 3; (c) vertex (2, 3) point (3, 4); (d) 7", "id": "parabola-from-vertex-and-point/exam/1/e032a17c91b4", "text": "A parabola has the equation y = x² - 4x + 7. (a) Find the x-coordinate of the v…"}
 {"answer": "(a) -2; (b) -5; (c) vertex (-2, -5) point (-1, -3); (d) 3", "id": "parabola-from-vertex-and-point/exam/2/d06f3c2512ee", "text": "A parabola has the equation y = 2x² + 8x + 3. (a) Find the x-coordinate of the …"}
 {"answer": "vertex (2, 2) point (3, 1)", "id": "parabola-from-vertex-and-point/hard/0/331de5a3bb4a", "text": "The parabola y = -x² + 4x - 2 is to be drawn. Place its vertex and one other po…"}
-{"answer": "vertex (-1, 4) point (0, 3)", "id": "parabola-from-vertex-and-point/hard/1/cf4420c60bed", "text": "A parabola crosses the x-axis at x = -3 and x = 1, and crosses the y-axis at y …"}
+{"answer": "vertex (-1, 4) point (0, 3)", "id": "parabola-from-vertex-and-point/hard/1/233aa20830cb", "text": "A parabola crosses the x-axis at x = -3 and x = 1, and crosses the y-axis at y …"}
 {"answer": "vertex (2, -4) point (3, -5)", "id": "parabola-from-vertex-and-point/hard/2/881ef51a9c1f", "text": "Draw the graph of y = -x² + 4x - 8: place the vertex and one other point on the…"}
-{"answer": "vertex (2, 0) point (4, -2)", "id": "parabola-from-vertex-and-point/medium/0/ebe1213959fc", "text": "Draw the graph of y = (-1/2)(x - 2)²: place the vertex and one other point on t…"}
-{"answer": "vertex (-1, 3) point (0, 5)", "id": "parabola-from-vertex-and-point/medium/1/c1f33e7ee2c4", "text": "The parabola y = 2(x + 1)² + 3 is to be drawn. Place its vertex and one other p…"}
-{"answer": "vertex (-2, 3) point (0, 5)", "id": "parabola-from-vertex-and-point/medium/2/11ee675b55ef", "text": "The parabola y = (1/2)(x + 2)² + 3 is to be drawn. Place its vertex and one oth…"}
+{"answer": "vertex (2, 0) point (4, -2)", "id": "parabola-from-vertex-and-point/medium/0/2baeec4b1d57", "text": "Draw the graph of y = (-1/2)(x - 2)²: place the vertex and one other point on t…"}
+{"answer": "vertex (-1, 3) point (0, 5)", "id": "parabola-from-vertex-and-point/medium/1/3519f1f3ec6f", "text": "The parabola y = 2(x + 1)² + 3 is to be drawn. Place its vertex and one other p…"}
+{"answer": "vertex (-2, 3) point (0, 5)", "id": "parabola-from-vertex-and-point/medium/2/d80707a51903", "text": "The parabola y = (1/2)(x + 2)² + 3 is to be drawn. Place its vertex and one oth…"}
 {"answer": "8", "id": "parallel-box-plots-outlier-fences/easy/0/30730d9aeab2", "text": "The box plots compare the marks of two classes on the same test. By how many ma…"}
 {"answer": "20", "id": "parallel-box-plots-outlier-fences/easy/1/106bba620582", "text": "The box plots compare the battery life of two brands of torch. What is the inte…"}
 {"answer": "16", "id": "parallel-box-plots-outlier-fences/easy/2/5f1b796406b7", "text": "The box plots compare the weekly screen time of two year groups. Find the inter…"}
@@ -5884,11 +5884,11 @@
 {"answer": "(2, 7)", "id": "plot-a-point-from-coordinates/easy/0/839efe9d5671", "text": "Place a point at (2, 7)."}
 {"answer": "(4, 5)", "id": "plot-a-point-from-coordinates/easy/1/eb98794f65a4", "text": "Plot the point U(4, 5)."}
 {"answer": "(5, 8)", "id": "plot-a-point-from-coordinates/easy/2/704ded95eaca", "text": "Mark point U at (5, 8) on the grid."}
-{"answer": "(a) (2, 0) (6, 1) (8, 4); (b) (5, 2); (c) (4, 3); (d) 10", "id": "plot-a-point-from-coordinates/exam/0/7e09de9b07e6", "text": "A(2, 0), B(6, 1) and C(8, 4) are three vertices of the parallelogram ABCD, take…"}
-{"answer": "(a) (1, 0) (5, 2) (7, 6); (b) (4, 3); (c) (3, 4); (d) 12", "id": "plot-a-point-from-coordinates/exam/1/24021933138c", "text": "A(1, 0), B(5, 2) and C(7, 6) are three vertices of the parallelogram ABCD, take…"}
-{"answer": "(a) (-5, 0) (0, 0) (1, 4); (b) (-2, 2); (c) (-4, 4); (d) 20", "id": "plot-a-point-from-coordinates/exam/2/6c653d928114", "text": "A(-5, 0), B(0, 0) and C(1, 4) are three vertices of the parallelogram ABCD, tak…"}
-{"answer": "(-1, 4)", "id": "plot-a-point-from-coordinates/hard/0/60529d78271f", "text": "A point on the line y = -2x + 2 has x-coordinate -1. Plot the point."}
-{"answer": "(5, 2)", "id": "plot-a-point-from-coordinates/hard/1/b53f74933f48", "text": "The points A and B are plotted. Plot M, the midpoint of the line segment AB."}
+{"answer": "(a) (2, 0) (6, 1) (8, 4); (b) (5, 2); (c) (4, 3); (d) 10", "id": "plot-a-point-from-coordinates/exam/0/a7f99d5e18d1", "text": "ABCD is a parallelogram drawn on a grid. Its corners A, B and C are at A(2, 0),…"}
+{"answer": "(a) (1, 0) (5, 2) (7, 6); (b) (4, 3); (c) (3, 4); (d) 12", "id": "plot-a-point-from-coordinates/exam/1/6b674bda4ede", "text": "A(1, 0), B(5, 2) and C(7, 6) are three vertices of the parallelogram ABCD, take…"}
+{"answer": "(a) (-5, 0) (0, 0) (1, 4); (b) (-2, 2); (c) (-4, 4); (d) 20", "id": "plot-a-point-from-coordinates/exam/2/c108bb108875", "text": "A(-5, 0), B(0, 0) and C(1, 4) are three vertices of the parallelogram ABCD, tak…"}
+{"answer": "(-1, 4)", "id": "plot-a-point-from-coordinates/hard/0/96186eced2c9", "text": "A point on the line y = -2x + 2 has x-coordinate -1. Plot the point."}
+{"answer": "(5, 2)", "id": "plot-a-point-from-coordinates/hard/1/40b2bde82245", "text": "The points A and B are plotted. Plot M, the midpoint of the line segment AB."}
 {"answer": "(-2, 4)", "id": "plot-a-point-from-coordinates/hard/2/4e8a1be826db", "text": "The points A and B are plotted. Plot M, the midpoint of the line segment AB."}
 {"answer": "(-3, -7)", "id": "plot-a-point-from-coordinates/medium/0/c571681910fd", "text": "Plot the point (-3, -7) on the grid."}
 {"answer": "(-5, 3)", "id": "plot-a-point-from-coordinates/medium/1/a2db1bf0f4e8", "text": "Plot the point that is 5 squares to the left of the y-axis and 3 squares above …"}
@@ -6025,18 +6025,18 @@
 {"answer": "sqrt(2)/2", "id": "product-to-sum-evaluate-solve/medium/0/d3a3c9c532d0", "text": "What is the exact value of sin 75° - sin 15°? Type surds as sqrt(3), for exampl…"}
 {"answer": "1/2", "id": "product-to-sum-evaluate-solve/medium/1/340b23896e5f", "text": "What is the exact value of cos 45° cos 45°? Type surds as sqrt(3), for example."}
 {"answer": "sqrt(3)/4 + 1/2", "id": "product-to-sum-evaluate-solve/medium/2/5fb4e69ebb41", "text": "Find the exact value of sin 105° cos 15°. Type surds as sqrt(3), for example."}
-{"answer": "646.00", "id": "profit-loss-and-markup/easy/0/bb644db11f2c", "text": "A shop buys a coffee machine for $340 and marks it up by 90% of the cost price.…"}
-{"answer": "130.00", "id": "profit-loss-and-markup/easy/1/8add20014f74", "text": "A shop buys a coffee machine for $370 and sells it for $240. What is the loss o…"}
-{"answer": "100.00", "id": "profit-loss-and-markup/easy/2/1f2bf7b5a09b", "text": "A shop buys a tent for $230 and sells it for $330. What is the profit on the te…"}
-{"answer": "(a) 600.00; (b) 450.00; (c) 150.00; (d) 50", "id": "profit-loss-and-markup/exam/0/873bab3240a3", "text": "A shop buys a cricket bat for $300. It marks the cricket bat up by 100% of the …"}
-{"answer": "(a) 2250.00; (b) 1800.00; (c) 300.00; (d) 20", "id": "profit-loss-and-markup/exam/1/492add8447d6", "text": "A shop buys a bookshelf for $1,500. It marks the bookshelf up by 50% of the cos…"}
-{"answer": "(a) 1400.00; (b) 1260.00; (c) 560.00; (d) 80", "id": "profit-loss-and-markup/exam/2/687590136e96", "text": "A shop buys a bicycle helmet for $700. It marks the bicycle helmet up by 100% o…"}
-{"answer": "320.00", "id": "profit-loss-and-markup/hard/0/0d89ad4f59ec", "text": "A shop sells a jacket for $512. This price includes a mark-up of 60% on the cos…"}
-{"answer": "780.00", "id": "profit-loss-and-markup/hard/1/dcfeeb24aaf3", "text": "A shop sells a tent for $1,248. This price includes a mark-up of 60% on the cos…"}
-{"answer": "1440.00", "id": "profit-loss-and-markup/hard/2/1c744ccc27f8", "text": "A shop sold a backpack for $1,080, which was a loss of 10% on the cost price. F…"}
-{"answer": "50", "id": "profit-loss-and-markup/medium/0/a7a4bc20b6a1", "text": "A shop buys a desk lamp for $120 and sells it for $60, which is less than it pa…"}
-{"answer": "1260.00", "id": "profit-loss-and-markup/medium/1/c19c3f30dff7", "text": "A trader buys 36 garden hoses at $135 each and sells every one of them for $170…"}
-{"answer": "25", "id": "profit-loss-and-markup/medium/2/4d982c7d498f", "text": "A shop buys a toaster for $280 and sells it for $350. What is the percentage pr…"}
+{"answer": "456.00", "id": "profit-loss-and-markup/easy/0/9860b57afde8", "text": "A shop buys a coffee machine for $240 and marks it up by 90% of the cost price.…"}
+{"answer": "130.00", "id": "profit-loss-and-markup/easy/1/355db2d2bb70", "text": "A shop buys a coffee machine for $440 and sells it for $310. What is the loss o…"}
+{"answer": "100.00", "id": "profit-loss-and-markup/easy/2/7bd7c628b65d", "text": "A shop buys a tent for $260 and sells it for $360. What is the profit on the te…"}
+{"answer": "(a) 300.00; (b) 240.00; (c) 40.00; (d) 20", "id": "profit-loss-and-markup/exam/0/c7ce7c5ea64f", "text": "A shop buys a tent for $200. It marks the tent up by 50% of the cost price. (a)…"}
+{"answer": "(a) 1080.00; (b) 648.00; (c) 48.00; (d) 8", "id": "profit-loss-and-markup/exam/1/8bcba3dd17de", "text": "A shop buys a coffee machine for $600. It marks the coffee machine up by 80% of…"}
+{"answer": "(a) 400.00; (b) 360.00; (c) 160.00; (d) 80", "id": "profit-loss-and-markup/exam/2/4000db0445dd", "text": "A shop buys a cricket bat for $200. It marks the cricket bat up by 100% of the …"}
+{"answer": "100.00", "id": "profit-loss-and-markup/hard/0/22b880c12eb0", "text": "A shop sells a jacket for $160. This price includes a mark-up of 60% on the cos…"}
+{"answer": "300.00", "id": "profit-loss-and-markup/hard/1/3f6bd0682193", "text": "A shop sells a tent for $480. This price includes a mark-up of 60% on the cost …"}
+{"answer": "360.00", "id": "profit-loss-and-markup/hard/2/769bda5d7470", "text": "A shop sold a bookshelf for $270, which was a loss of 10% on the cost price. Fo…"}
+{"answer": "50", "id": "profit-loss-and-markup/medium/0/96940ea47085", "text": "A shop buys a desk lamp for $40 and sells it for $20, which is less than it pai…"}
+{"answer": "1260.00", "id": "profit-loss-and-markup/medium/1/31208a813636", "text": "A trader buys 36 garden hoses at $80 each and sells every one of them for $115 …"}
+{"answer": "25", "id": "profit-loss-and-markup/medium/2/09d1028f7334", "text": "A shop buys a toaster for $40 and sells it for $50. What is the percentage prof…"}
 {"answer": "3.56", "id": "projectile-cartesian-elimination/easy/0/8b3c1fc74605", "text": "A footballer kicks a ball from level ground with speed 14 m/s at an angle whose…"}
 {"answer": "0.0157", "id": "projectile-cartesian-elimination/easy/1/260dc8011848", "text": "A footballer kicks a ball from level ground with speed 25 m/s at 45° above the …"}
 {"answer": "0.0340", "id": "projectile-cartesian-elimination/easy/2/96c46fa351f4", "text": "A cricket ball is thrown from ground level with speed 24 m/s at 60° above the h…"}
@@ -6049,30 +6049,30 @@
 {"answer": "52.94", "id": "projectile-cartesian-elimination/medium/0/a339376853c5", "text": "A footballer kicks a ball from level ground with speed 28 m/s at an angle whose…"}
 {"answer": "27.04", "id": "projectile-cartesian-elimination/medium/1/9a2a6a7e16e5", "text": "A cricket ball is thrown from ground level with speed 18 m/s at an angle whose …"}
 {"answer": "26.6", "id": "projectile-cartesian-elimination/medium/2/7e8e7a7e4e57", "text": "A ball is kicked from level ground with speed 42 m/s and lands 144 m away on th…"}
-{"answer": "2.4", "id": "projectile-with-linear-resistance/easy/0/e9a89e8d702f", "text": "A pebble is projected from level ground at 20 m/s at an angle α above the horiz…"}
-{"answer": "4.0", "id": "projectile-with-linear-resistance/easy/1/54d9bd935cca", "text": "A tennis ball is projected from level ground at 20 m/s at an angle α above the …"}
-{"answer": "14.8", "id": "projectile-with-linear-resistance/easy/2/e351cee725cf", "text": "A golf ball is projected from level ground at 29 m/s at an angle α above the ho…"}
-{"answer": "(a) 15.8; (b) 1.91; (c) 21.1; (d) 27.3", "id": "projectile-with-linear-resistance/exam/0/c8eea31e1ddb", "text": "A cricket ball is projected from level ground at 30 m/s at an angle α above the…"}
-{"answer": "(a) 11.4; (b) 1.51; (c) 11.8; (d) 42.1", "id": "projectile-with-linear-resistance/exam/1/01948f774b10", "text": "A small stone is projected from level ground at 34 m/s at an angle α above the …"}
-{"answer": "(a) 17.3; (b) 1.14; (c) 7.7; (d) 17.3", "id": "projectile-with-linear-resistance/exam/2/9424ebfef4a2", "text": "A small stone is projected from level ground at 25 m/s at an angle α above the …"}
-{"answer": "4.78", "id": "projectile-with-linear-resistance/hard/0/4f9270b47540", "text": "A small stone is projected from level ground at 26 m/s at an angle α above the …"}
-{"answer": "18.17", "id": "projectile-with-linear-resistance/hard/1/4ad7a53b0c02", "text": "A small stone is projected from level ground at 26 m/s at an angle α above the …"}
-{"answer": "28.38", "id": "projectile-with-linear-resistance/hard/2/6f27365ec3a4", "text": "A golf ball is projected from level ground at 29 m/s at an angle α above the ho…"}
-{"answer": "8.83", "id": "projectile-with-linear-resistance/medium/0/ac10c57a511f", "text": "A cricket ball is projected from level ground at 30 m/s at an angle α above the…"}
-{"answer": "16.31", "id": "projectile-with-linear-resistance/medium/1/abddfc8ce2f0", "text": "A small stone is projected from level ground at 30 m/s at an angle α above the …"}
-{"answer": "19.65", "id": "projectile-with-linear-resistance/medium/2/a14452933e14", "text": "A tennis ball is projected from level ground at 30 m/s at an angle α above the …"}
+{"answer": "1.8", "id": "projectile-with-linear-resistance/easy/0/898356deebbe", "text": "A pebble is projected from level ground at 20 m/s at an angle α above the horiz…"}
+{"answer": "20.0", "id": "projectile-with-linear-resistance/easy/1/a5a3b28af0c8", "text": "A ball is projected from level ground at 50 m/s at an angle α above the horizon…"}
+{"answer": "12.8", "id": "projectile-with-linear-resistance/easy/2/87f49a4a88d1", "text": "A golf ball is projected from level ground at 26 m/s at an angle α above the ho…"}
+{"answer": "(a) 24.2; (b) 2.26; (c) 34.6; (d) 40.2", "id": "projectile-with-linear-resistance/exam/0/a0dbf7010f34", "text": "A pebble is projected from level ground at 45 m/s at an angle α above the horiz…"}
+{"answer": "(a) 26.0; (b) 2.17; (c) 32.8; (d) 37.4", "id": "projectile-with-linear-resistance/exam/1/cc054e524482", "text": "A golf ball is projected from level ground at 45 m/s at an angle α above the ho…"}
+{"answer": "(a) 16.8; (b) 1.54; (c) 14.0; (d) 17.9", "id": "projectile-with-linear-resistance/exam/2/d240f5b2492d", "text": "A pebble is projected from level ground at 25 m/s at an angle α above the horiz…"}
+{"answer": "10.43", "id": "projectile-with-linear-resistance/hard/0/78ad6489c522", "text": "A small stone is projected from level ground at 25 m/s at an angle α above the …"}
+{"answer": "9.20", "id": "projectile-with-linear-resistance/hard/1/aecfdd8e880c", "text": "A tennis ball is projected from level ground at 39 m/s at an angle α above the …"}
+{"answer": "18.75", "id": "projectile-with-linear-resistance/hard/2/e7e6b578fa00", "text": "A golf ball is projected from level ground at 26 m/s at an angle α above the ho…"}
+{"answer": "12.74", "id": "projectile-with-linear-resistance/medium/0/18a208e869b1", "text": "A cricket ball is projected from level ground at 29 m/s at an angle α above the…"}
+{"answer": "14.50", "id": "projectile-with-linear-resistance/medium/1/8a31d17f102a", "text": "A small stone is projected from level ground at 34 m/s at an angle α above the …"}
+{"answer": "14.48", "id": "projectile-with-linear-resistance/medium/2/ba82fc54281e", "text": "A tennis ball is projected from level ground at 20 m/s at an angle α above the …"}
 {"answer": "(a + b)^2 - 4a b = a^2 + 2a b + b^2 - 4a b = a^2 - 2a b + b…", "id": "proof-am-gm-steps/easy/0/b7cb9f9f61af", "text": "To prove (a + b)^2 ≥ 4ab, first show that (a + b)^2 - 4ab is a perfect square. …"}
 {"answer": "(u - v)^2 + 4u v = u^2 - 2u v + v^2 + 4u v = u^2 + 2u v + v…", "id": "proof-am-gm-steps/easy/1/822a66db8fc4", "text": "To prove (u + v)^2 ≥ 4uv, first show that (u - v)^2 + 4uv equals (u + v)^2. A s…"}
-{"answer": "(u + v)^2 - 4u v = u^2 + 2u v + v^2 - 4u v = u^2 - 2u v + v…", "id": "proof-am-gm-steps/easy/2/c1c7b9f299d8", "text": "To prove (u + v)^2 ≥ 4uv, first show that (u + v)^2 - 4uv is a perfect square. …"}
-{"answer": "(a) (u)^2 + (2v)^2 - 4u v = (u - 2v)^2; (b) (u + 2v)/2 - √(…", "id": "proof-am-gm-steps/exam/0/8a8977e61aa1", "text": "A proof that the mean of two positive numbers is at least their geometric mean …"}
-{"answer": "(a) (3x)^2 + (2y)^2 - 12x y = (3x - 2y)^2; (b) (3x + 2y)/2 …", "id": "proof-am-gm-steps/exam/1/ee977e76dcc3", "text": "A proof that the mean of two positive numbers is at least their geometric mean …"}
-{"answer": "(a) (x + 2y)^2 - 8x y = x^2 + 4x y + 4y^2 - 8x y = x^2 - 4x…", "id": "proof-am-gm-steps/exam/2/55502e5903f9", "text": "A proof that the mean of two positive numbers is at least their geometric mean …"}
-{"answer": "p/q + q/p - 2 = (p^2 + q^2 - 2p q)/(p q) = (p - q)^2/(p q)", "id": "proof-am-gm-steps/hard/0/b36f685a2f64", "text": "For positive p and q, prove p/q + q/p ≥ 2. First show that p/q + q/p - 2 equals…"}
-{"answer": "t + 16/t - 8 = (t^2 + 16 - 8t)/t = (t - 4)^2/t", "id": "proof-am-gm-steps/hard/1/66857f80f112", "text": "For t > 0, prove t + 16/t ≥ 8. First show that t + 16/t - 8 equals a square div…"}
-{"answer": "t + 36/t - 12 = (t^2 + 36 - 12t)/t = (t - 6)^2/t", "id": "proof-am-gm-steps/hard/2/5f3267cfec83", "text": "For t > 0, prove t + 36/t ≥ 12. First show that t + 36/t - 12 equals a square d…"}
-{"answer": "(2x)^2 + (y)^2 - 4x y = (2x - y)^2", "id": "proof-am-gm-steps/medium/0/3d14dfba7363", "text": "Show that 4x^2 + 1y^2 - 4xy is a perfect square. This proves 4x^2 + 1y^2 ≥ 4xy.…"}
-{"answer": "(3u)^2 + (4v)^2 - 24u v = (3u - 4v)^2", "id": "proof-am-gm-steps/medium/1/10e127eb367e", "text": "Show that 9u^2 + 16v^2 - 24uv is a perfect square. This proves 9u^2 + 16v^2 ≥ 2…"}
-{"answer": "(3s + t)^2 - 12s t = 9s^2 + 6s t + t^2 - 12s t = 9s^2 - 6s …", "id": "proof-am-gm-steps/medium/2/dade9885f605", "text": "Show that (3s + 1t)^2 - 12st is a perfect square. This proves (3s + 1t)^2 ≥ 12s…"}
+{"answer": "t^2 + 1 - 2t = (t - 1)^2", "id": "proof-am-gm-steps/easy/2/c0e6bf386c51", "text": "To prove t^2 + 1 ≥ 2t, first show that t^2 + 1 - 2t is a perfect square. A squa…"}
+{"answer": "(a) (2u)^2 + (3v)^2 - 12u v = (2u - 3v)^2; (b) (2u + 3v)/2 …", "id": "proof-am-gm-steps/exam/0/68a0ce9cf851", "text": "A proof that the mean of two positive numbers is at least their geometric mean …"}
+{"answer": "(a) (4x)^2 + (3y)^2 - 24x y = (4x - 3y)^2; (b) (4x + 3y)/2 …", "id": "proof-am-gm-steps/exam/1/cc269960236a", "text": "A proof that the mean of two positive numbers is at least their geometric mean …"}
+{"answer": "(a) (2x + 3y)^2 - 24x y = 4x^2 + 12x y + 9y^2 - 24x y = 4x^…", "id": "proof-am-gm-steps/exam/2/231da131498f", "text": "A proof that the mean of two positive numbers is at least their geometric mean …"}
+{"answer": "f/g + g/f - 2 = (f^2 + g^2 - 2f g)/(f g) = (f - g)^2/(f g)", "id": "proof-am-gm-steps/hard/0/439037e261cd", "text": "For positive f and g, prove f/g + g/f ≥ 2. First show that f/g + g/f - 2 equals…"}
+{"answer": "u + 36/u - 12 = (u^2 + 36 - 12u)/u = (u - 6)^2/u", "id": "proof-am-gm-steps/hard/1/23edaba92186", "text": "For u > 0, prove u + 36/u ≥ 12. First show that u + 36/u - 12 equals a square d…"}
+{"answer": "m + 36/m - 12 = (m^2 + 36 - 12m)/m = (m - 6)^2/m", "id": "proof-am-gm-steps/hard/2/05b19eec1f98", "text": "For m > 0, prove m + 36/m ≥ 12. First show that m + 36/m - 12 equals a square d…"}
+{"answer": "(3x)^2 + (2y)^2 - 12x y = (3x - 2y)^2", "id": "proof-am-gm-steps/medium/0/c11fdd19f3cc", "text": "Show that 9x^2 + 4y^2 - 12xy is a perfect square. This proves 9x^2 + 4y^2 ≥ 12x…"}
+{"answer": "(4u)^2 + (5v)^2 - 40u v = (4u - 5v)^2", "id": "proof-am-gm-steps/medium/1/c07fee248db9", "text": "Show that 16u^2 + 25v^2 - 40uv is a perfect square. This proves 16u^2 + 25v^2 ≥…"}
+{"answer": "(6p + 4q)^2 - 96p q = 36p^2 + 48p q + 16q^2 - 96p q = 36p^2…", "id": "proof-am-gm-steps/medium/2/03b18295f266", "text": "Show that (6p + 4q)^2 - 96pq is a perfect square. This proves (6p + 4q)^2 ≥ 96p…"}
 {"answer": "26", "id": "proof-by-induction-divisibility/easy/0/69eb4b68b3bc", "text": "P(n): f(n) = 3^(2n + 2) + 7^(2n) is divisible by 5, for every integer n ≥ 1. P(…"}
 {"answer": "477", "id": "proof-by-induction-divisibility/easy/1/9e0f66192484", "text": "P(n): f(n) = 7^(2n + 2) - 4^(n + 1) is divisible by 5, for every integer n ≥ 1.…"}
 {"answer": "211", "id": "proof-by-induction-divisibility/easy/2/5c927f717ab4", "text": "P(n): f(n) = 2^(2n + 1) + 5^(2n + 2) is divisible by 3, for every integer n ≥ 1…"}
@@ -6112,18 +6112,18 @@
 {"answer": "(2u + 1)^2 = 4u^2 + 4u + 1 = 2(2u^2 + 2u) + 1", "id": "proof-parity-steps/easy/0/abc116cf18f2", "text": "To prove by contradiction that if n^2 is even then n is even, suppose n is odd,…"}
 {"answer": "(2k + 3) + 2m = 2k + 2m + 3 = 2(k + m + 1) + 1", "id": "proof-parity-steps/easy/1/187773d0bb26", "text": "Show that the sum of an odd number 2k + 3 and an even number 2m is odd, by writ…"}
 {"answer": "(2u + 3)^2 = 4u^2 + 12u + 9 = 2(2u^2 + 6u + 4) + 1", "id": "proof-parity-steps/easy/2/bce42ecb9f44", "text": "To prove by contradiction that if n^2 is even then n is even, suppose n is odd,…"}
-{"answer": "(a) (2m + 7)^2 = 4m^2 + 28m + 49 = 2(2m^2 + 14m + 24) + 1; …", "id": "proof-parity-steps/exam/0/21bcdb12674c", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
-{"answer": "(a) (2t + 1)^2 = 4t^2 + 4t + 1 = 2(2t^2 + 2t) + 1; (b) (2t …", "id": "proof-parity-steps/exam/1/dabe8f264750", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
-{"answer": "(a) (2u + 3)^2 = 4u^2 + 12u + 9 = 2(2u^2 + 6u + 4) + 1; (b)…", "id": "proof-parity-steps/exam/2/8b8ab99d0e1c", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
-{"answer": "(2m + 1)^3 + (2m + 1) = 8m^3 + 12m^2 + 8m + 2 = 2(4m^3 + 6m…", "id": "proof-parity-steps/hard/0/069cef51369b", "text": "Show that n^3 + n is even when n is odd, by putting n = 2m + 1 and writing the …"}
-{"answer": "(2u + 1)^3 + (2u + 1) = 8u^3 + 12u^2 + 8u + 2 = 2(4u^3 + 6u…", "id": "proof-parity-steps/hard/1/8cd00058eb7a", "text": "Show that n^3 + n is even when n is odd, by putting n = 2u + 1 and writing the …"}
-{"answer": "(2u + 1)^3 + (2u + 1) = 8u^3 + 12u^2 + 8u + 2 = 2(4u^3 + 6u…", "id": "proof-parity-steps/hard/2/bd64b237cdf8", "text": "Show that n^3 + n is even when n is odd, by putting n = 2u + 1 and writing the …"}
-{"answer": "(2u + 3)^2 - 1 = 4u^2 + 12u + 8 = 4(u + 1)(u + 2)", "id": "proof-parity-steps/medium/0/9dc24babae81", "text": "For the odd number n = 2u + 3, show that n^2 - 1 is a multiple of 4, by factori…"}
-{"answer": "(2m + 1)^2 - 1 = 4m^2 + 4m + 0 = 4m(m + 1)", "id": "proof-parity-steps/medium/1/28b981a36a08", "text": "For the odd number n = 2m + 1, show that n^2 - 1 is a multiple of 4, by factori…"}
-{"answer": "(2u + 5)^2 - 1 = 4u^2 + 20u + 24 = 4(u + 2)(u + 3)", "id": "proof-parity-steps/medium/2/c13b230b8dcb", "text": "For the odd number n = 2u + 5, show that n^2 - 1 is a multiple of 4, by factori…"}
-{"answer": "(|u| + 3|v|)^2 = |u|^2 + 6|u||v| + 9|v|^2 = u^2 + 6|u||v| +…", "id": "proof-triangle-inequality-steps/easy/0/27c664541ac4", "text": "To prove a triangle inequality by squaring, we need (|u| + 3|v|)^2 in terms of …"}
-{"answer": "(|a| + |b|)^2 = |a|^2 + 2|a||b| + |b|^2 = a^2 + 2|a||b| + b…", "id": "proof-triangle-inequality-steps/easy/1/69b450f62ac9", "text": "To prove a triangle inequality by squaring, we need (|a| + |b|)^2 in terms of a…"}
-{"answer": "(|a| + |b|)^2 = |a|^2 + 2|a||b| + |b|^2 = a^2 + 2|a||b| + b…", "id": "proof-triangle-inequality-steps/easy/2/57ca47f81b5f", "text": "To prove a triangle inequality by squaring, we need (|a| + |b|)^2 in terms of a…"}
+{"answer": "(a) (2m + 7)^2 = 4m^2 + 28m + 49 = 2(2m^2 + 14m + 24) + 1; …", "id": "proof-parity-steps/exam/0/9ae1734990fd", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
+{"answer": "(a) (2v + 3)^2 - 1 = 4v^2 + 12v + 8 = 4(v + 1)(v + 2); (b) …", "id": "proof-parity-steps/exam/1/c4078679f141", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
+{"answer": "(a) (2w + 3)^2 - 1 = 4w^2 + 12w + 8 = 4(w + 1)(w + 2); (b) …", "id": "proof-parity-steps/exam/2/83c21a2cb8dc", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
+{"answer": "(2t + 1)^3 + (2t + 1) = 8t^3 + 12t^2 + 8t + 2 = 2(4t^3 + 6t…", "id": "proof-parity-steps/hard/0/91733bee8854", "text": "Show that n^3 + n is even when n is odd, by putting n = 2t + 1 and writing the …"}
+{"answer": "(2z + 1)^3 + (2z + 1) = 8z^3 + 12z^2 + 8z + 2 = 2(4z^3 + 6z…", "id": "proof-parity-steps/hard/1/50e4f1c27cc6", "text": "Show that n^3 + n is even when n is odd, by putting n = 2z + 1 and writing the …"}
+{"answer": "(2z + 1)^3 + (2z + 1) = 8z^3 + 12z^2 + 8z + 2 = 2(4z^3 + 6z…", "id": "proof-parity-steps/hard/2/42a2d0744eb6", "text": "Show that n^3 + n is even when n is odd, by putting n = 2z + 1 and writing the …"}
+{"answer": "(2m + 7)^2 - 1 = 4m^2 + 28m + 48 = 4(m + 3)(m + 4)", "id": "proof-parity-steps/medium/0/034ae7cf9d3f", "text": "For the odd number n = 2m + 7, show that n^2 - 1 is a multiple of 4, by factori…"}
+{"answer": "(2v + 7)^2 - 1 = 4v^2 + 28v + 48 = 4(v + 3)(v + 4)", "id": "proof-parity-steps/medium/1/69cec73f9eea", "text": "For the odd number n = 2v + 7, show that n^2 - 1 is a multiple of 4, by factori…"}
+{"answer": "(2w + 5)^2 - 1 = 4w^2 + 20w + 24 = 4(w + 2)(w + 3)", "id": "proof-parity-steps/medium/2/7897de3e7bc4", "text": "For the odd number n = 2w + 5, show that n^2 - 1 is a multiple of 4, by factori…"}
+{"answer": "(3|f| + |g|)^2 = 9|f|^2 + 6|f||g| + |g|^2 = 9f^2 + 6|f||g| …", "id": "proof-triangle-inequality-steps/easy/0/b4fc5885cf08", "text": "To prove a triangle inequality by squaring, we need (3|f| + |g|)^2 in terms of …"}
+{"answer": "(2|a| + 2|b|)^2 = 4|a|^2 + 8|a||b| + 4|b|^2 = 4a^2 + 8|a||b…", "id": "proof-triangle-inequality-steps/easy/1/6164bd5ab34d", "text": "To prove a triangle inequality by squaring, we need (2|a| + 2|b|)^2 in terms of…"}
+{"answer": "(2|a| + |b|)^2 = 4|a|^2 + 4|a||b| + |b|^2 = 4a^2 + 4|a||b| …", "id": "proof-triangle-inequality-steps/easy/2/fe75e6e94e43", "text": "To prove a triangle inequality by squaring, we need (2|a| + |b|)^2 in terms of …"}
 {"answer": "(a) (4|x| + |y|)^2 - (4x + y)^2 = 16x^2 + 8|x||y| + y^2 - (…", "id": "proof-triangle-inequality-steps/exam/0/c526cd85a238", "text": "The triangle inequality for numbers is proved by squaring both sides and showin…"}
 {"answer": "(a) (4|m| + |n|)^2 - (4m + n)^2 = 16m^2 + 8|m||n| + n^2 - (…", "id": "proof-triangle-inequality-steps/exam/1/24076cf20e88", "text": "The triangle inequality for numbers is proved by squaring both sides and showin…"}
 {"answer": "(a) (2|m| + |n|)^2 - (2m + n)^2 = 4m^2 + 4|m||n| + n^2 - (2…", "id": "proof-triangle-inequality-steps/exam/2/180112e59b6d", "text": "The triangle inequality for numbers is proved by squaring both sides and showin…"}
@@ -6131,26 +6131,26 @@
 {"answer": "(|p - q| + |q - r|)^2 - (p - r)^2 = (p - q)^2 + 2|p - q||q …", "id": "proof-triangle-inequality-steps/hard/1/32967e96600b", "text": "To prove the distance inequality |p - r| ≤ |p - q| + |q - r| by squaring, show …"}
 {"answer": "(|u - v| + |v - w|)^2 - (u - w)^2 = (u - v)^2 + 2|u - v||v …", "id": "proof-triangle-inequality-steps/hard/2/6df7532e9470", "text": "To prove the distance inequality |u - w| ≤ |u - v| + |v - w| by squaring, show …"}
 {"answer": "(3|u| + |v|)^2 - (3u + v)^2 = 9u^2 + 6|u||v| + v^2 - (3u + …", "id": "proof-triangle-inequality-steps/medium/0/bd6715faabab", "text": "To prove |3u + v| ≤ 3|u| + |v| by squaring, show that the difference of the squ…"}
-{"answer": "(2|u| + |v|)^2 - (2u + v)^2 = 4u^2 + 4|u||v| + v^2 - (2u + …", "id": "proof-triangle-inequality-steps/medium/1/ee564c5b1d17", "text": "To prove |2u + v| ≤ 2|u| + |v| by squaring, show that the difference of the squ…"}
-{"answer": "(3|x| + |y|)^2 - (3x + y)^2 = 9x^2 + 6|x||y| + y^2 - (3x + …", "id": "proof-triangle-inequality-steps/medium/2/91d6ce88ae1f", "text": "To prove |3x + y| ≤ 3|x| + |y| by squaring, show that the difference of the squ…"}
-{"answer": "Work out y ÷ x for each pair: 2 ÷ 1 = 2 and 4 ÷ 2 = 2 and 1…", "id": "proportional-vs-non-proportional-explain/easy/0/b844724dc8cb", "text": "A table gives these pairs of values: x = 1, y = 2, x = 2, y = 4, x = 5, y = 10.…"}
-{"answer": "Work out y ÷ x for each pair: 18 ÷ 2 = 9 and 45 ÷ 5 = 9 and…", "id": "proportional-vs-non-proportional-explain/easy/1/a5f5d101a619", "text": "A table gives these pairs of values: x = 2, y = 18, x = 5, y = 45, x = 8, y = 7…"}
-{"answer": "Work out y ÷ x for each pair: 10 ÷ 2 = 5 and 25 ÷ 5 = 5 and…", "id": "proportional-vs-non-proportional-explain/easy/2/5a680dbbb7fb", "text": "A table gives these pairs of values: x = 2, y = 10, x = 5, y = 25, x = 8, y = 4…"}
-{"answer": "Plan A: 2 km costs $6 and 5 km costs $15; cost ÷ distance i…", "id": "proportional-vs-non-proportional-explain/hard/0/b4b454440555", "text": "Plan A charges $3 for each kilometre. Plan B charges a $8 fee plus $3 for each …"}
-{"answer": "Plan A: 2 km costs $18 and 4 km costs $36; cost ÷ distance …", "id": "proportional-vs-non-proportional-explain/hard/1/4c7c146c308a", "text": "Plan A charges $9 for each kilometre. Plan B charges a $5 fee plus $9 for each …"}
-{"answer": "Shop A: 2 km costs $8 and 5 km costs $20; cost ÷ distance i…", "id": "proportional-vs-non-proportional-explain/hard/2/ec5806f56e11", "text": "Shop A charges $4 for each kilometre. Shop B charges a $6 fee plus $4 for each …"}
-{"answer": "When x = 0, y = 24. When x = 6, y = 60. A proportional rela…", "id": "proportional-vs-non-proportional-explain/medium/0/ef0348a51535", "text": "Is the relationship y = 6(x + 4) proportional? Find y when x = 0 and when x = 6…"}
-{"answer": "When x = 0, y = 8. When x = 2, y = 24. A proportional relat…", "id": "proportional-vs-non-proportional-explain/medium/1/ebf7d0114683", "text": "Is the relationship y = 8x + 8 proportional? Find y when x = 0 and when x = 2, …"}
-{"answer": "When x = 0, y = 0. When x = 3, y = 6. A proportional relati…", "id": "proportional-vs-non-proportional-explain/medium/2/fbe865e7c6c8", "text": "Is the relationship y = 2x proportional? Find y when x = 0 and when x = 3, and …"}
-{"answer": "x: 3, 4, 5, 6 y: 27, 36, 45, 54", "id": "proportional-vs-non-proportional/easy/0/8c95ab2a04a8", "text": "The x values are 3, 4, 5, 6. In which table is y proportional to x?"}
-{"answer": "x: 1, 4, 7, 10 y: 7, 28, 49, 70", "id": "proportional-vs-non-proportional/easy/1/dadadee34ee2", "text": "The x values are 1, 4, 7, 10. In which table is y proportional to x?"}
-{"answer": "x: 2, 3, 4, 5 y: 14, 21, 28, 35", "id": "proportional-vs-non-proportional/easy/2/83278b22e144", "text": "The x values are 2, 3, 4, 5. In which table is y proportional to x?"}
+{"answer": "(5|u| + |v|)^2 - (5u + v)^2 = 25u^2 + 10|u||v| + v^2 - (5u …", "id": "proof-triangle-inequality-steps/medium/1/f59b76b1a89b", "text": "To prove |5u + v| ≤ 5|u| + |v| by squaring, show that the difference of the squ…"}
+{"answer": "(2|f| + |g|)^2 - (2f + g)^2 = 4f^2 + 4|f||g| + g^2 - (2f + …", "id": "proof-triangle-inequality-steps/medium/2/0a17322dee6f", "text": "To prove |2f + g| ≤ 2|f| + |g| by squaring, show that the difference of the squ…"}
+{"answer": "Work out y ÷ x for each pair: 2 ÷ 1 = 2 and 4 ÷ 2 = 2 and 1…", "id": "proportional-vs-non-proportional-explain/easy/0/b17e5558f771", "text": "Is the relationship in this table a proportional one? The pairs are x = 1, y = …"}
+{"answer": "Work out y ÷ x for each pair: 18 ÷ 2 = 9 and 45 ÷ 5 = 9 and…", "id": "proportional-vs-non-proportional-explain/easy/1/ef20edded783", "text": "Is the relationship in this table a proportional one? The pairs are x = 2, y = …"}
+{"answer": "Work out y ÷ x for each pair: 10 ÷ 2 = 5 and 25 ÷ 5 = 5 and…", "id": "proportional-vs-non-proportional-explain/easy/2/ac85160e7da0", "text": "A table gives these pairs of values: x = 2, y = 10, x = 5, y = 25, x = 8, y = 4…"}
+{"answer": "Plan A: 2 km costs $6 and 5 km costs $15; cost ÷ distance i…", "id": "proportional-vs-non-proportional-explain/hard/0/2a88471c2abd", "text": "Plan A charges $3 for each kilometre. Plan B charges a $8 fee plus $3 for each …"}
+{"answer": "Plan A: 2 km costs $18 and 4 km costs $36; cost ÷ distance …", "id": "proportional-vs-non-proportional-explain/hard/1/dacaaa8ac160", "text": "Plan A charges $9 for each kilometre. Plan B charges a $5 fee plus $9 for each …"}
+{"answer": "Taxi A: 2 km costs $8 and 5 km costs $20; cost ÷ distance i…", "id": "proportional-vs-non-proportional-explain/hard/2/13c18f53ebd7", "text": "Taxi A charges $4 for each kilometre. Taxi B charges a $6 fee plus $4 for each …"}
+{"answer": "When x = 0, y = 24. When x = 6, y = 60. A proportional rela…", "id": "proportional-vs-non-proportional-explain/medium/0/135767d2ae8a", "text": "Is the relationship y = 6(x + 4) proportional? Find y when x = 0 and when x = 6…"}
+{"answer": "When x = 0, y = 8. When x = 2, y = 24. A proportional relat…", "id": "proportional-vs-non-proportional-explain/medium/1/19438136f556", "text": "Is the relationship y = 8x + 8 proportional? Find y when x = 0 and when x = 2, …"}
+{"answer": "When x = 0, y = 0. When x = 3, y = 6. A proportional relati…", "id": "proportional-vs-non-proportional-explain/medium/2/a11a9c3c553b", "text": "Is the relationship y = 2x proportional? Find y when x = 0 and when x = 3, and …"}
+{"answer": "x: 3, 4, 5, 6 y: 27, 36, 45, 54", "id": "proportional-vs-non-proportional/easy/0/cee0eb0d3f7c", "text": "Exactly one table, with x = 3, 4, 5, 6, shows y proportional to x. Which one?"}
+{"answer": "x: 1, 4, 7, 10 y: 7, 28, 49, 70", "id": "proportional-vs-non-proportional/easy/1/58dc786a9ed6", "text": "Exactly one table, with x = 1, 4, 7, 10, shows y proportional to x. Which one?"}
+{"answer": "x: 2, 3, 4, 5 y: 14, 21, 28, 35", "id": "proportional-vs-non-proportional/easy/2/d3c744ff90d9", "text": "Exactly one table, with x = 2, 3, 4, 5, shows y proportional to x. Which one?"}
 {"answer": "(a) Yes: y ÷ x is 2 for every pair; (b) 40; (c) 2", "id": "proportional-vs-non-proportional/exam/0/e04ac1589965", "text": "A table of values has x: 3, 5, 7, 9 y: 6, 10, 14, 18. It follows the rule y = 2…"}
 {"answer": "(a) No: y ÷ x is 8 for the first pair and 13/2 for the seco…", "id": "proportional-vs-non-proportional/exam/1/131d2519033e", "text": "A table of values has x: 1, 2, 3, 4 y: 8, 13, 18, 23. It follows the rule y = 5…"}
 {"answer": "(a) Yes: y ÷ x is 8 for every pair; (b) 120; (c) 8", "id": "proportional-vs-non-proportional/exam/2/6350fcd123cf", "text": "A table of values has x: 1, 2, 3, 4 y: 8, 16, 24, 32. It follows the rule y = 8…"}
-{"answer": "Yes: the line is y = 6x, which passes through the origin", "id": "proportional-vs-non-proportional/hard/0/b8fa628ba453", "text": "The relationship between x and y is a straight line through (2, 12) and (7, 42)…"}
-{"answer": "No: the line is y = 4x + 2, which does not pass through the…", "id": "proportional-vs-non-proportional/hard/1/c9c6a4d08ae0", "text": "The points (4, 18) and (6, 26) both lie on the graph of a linear relationship. …"}
-{"answer": "Yes: the line is y = 6x, which passes through the origin", "id": "proportional-vs-non-proportional/hard/2/28d25caf9850", "text": "The points (3, 18) and (7, 42) both lie on the graph of a linear relationship. …"}
+{"answer": "Yes: the line is y = 8x, which passes through the origin", "id": "proportional-vs-non-proportional/hard/0/b4020d3e0e05", "text": "The points (2, 16) and (7, 56) both lie on the graph of a linear relationship. …"}
+{"answer": "No: the line is y = 5x - 2, which does not pass through the…", "id": "proportional-vs-non-proportional/hard/1/ba4132d436ef", "text": "The relationship between x and y is a straight line through (4, 18) and (6, 28)…"}
+{"answer": "No: the line is y = 7x + 4, which does not pass through the…", "id": "proportional-vs-non-proportional/hard/2/d0aca4d1e081", "text": "The relationship between x and y is a straight line through (3, 25) and (7, 53)…"}
 {"answer": "x: 2, 5, 8, 11 y: 16, 41, 64, 89", "id": "proportional-vs-non-proportional/medium/0/ada271bf80de", "text": "Each table has 4 pairs of values, starting at x = 2. In which table is y NOT pr…"}
 {"answer": "x: 3, 4, 5 y: 9, 16, 25", "id": "proportional-vs-non-proportional/medium/1/177eaee96d1a", "text": "Four of these tables, all with 3 pairs of values, show y proportional to x exce…"}
 {"answer": "The cost of sandwiches bought at $2 each, for different num…", "id": "proportional-vs-non-proportional/medium/2/af342b150a0b", "text": "Every situation below involves a rate of 2. Which one shows a proportional rela…"}
@@ -6218,9 +6218,9 @@
 {"answer": "x ≤ -5 or x ≥ -2", "id": "quadratic-inequalities/easy/1/20ca67137735", "text": "Find all values for which x^2 + 7x + 10 ≥ 0. Write your answer as inequalities …"}
 {"answer": "4 ≤ x ≤ 5", "id": "quadratic-inequalities/easy/2/28ba87c2ecb6", "text": "Find all values for which x^2 - 9x ≤ -20. State the solution using inequalities…"}
 {"answer": "(a) 1/2; (b) x < -7 or x > 8; (c) 16; (d) 225/4", "id": "quadratic-inequalities/exam/0/ee5bcab1ea1d", "text": "Let f(x) = -x^2 + x + 56, which has two real roots. (a) Find the x-coordinate o…"}
-{"answer": "(a) -9/2; (b) -7 ≤ x ≤ -2; (c) 6; (d) -25/4", "id": "quadratic-inequalities/exam/1/d2b2df045409", "text": "Let f(x) = x^2 + 9x + 14, which has two real roots. (a) Find the x-coordinate o…"}
+{"answer": "(a) -9/2; (b) -7 ≤ x ≤ -2; (c) 6; (d) -25/4", "id": "quadratic-inequalities/exam/1/16da05fd4ceb", "text": "Let f(x) = x^2 + 9x + 14, which has two real roots. (a) Find the x-coordinate o…"}
 {"answer": "(a) -9/2; (b) -9 < x < 0; (c) 10; (d) -81/4", "id": "quadratic-inequalities/exam/2/aea36ee35310", "text": "Let f(x) = x^2 + 9x, which has two real roots. (a) Find the x-coordinate of the…"}
-{"answer": "1 < n < 12", "id": "quadratic-inequalities/hard/0/0f60e98999cf", "text": "A small business sells n items (n ≥ 0). Its profit in dollars is P = -2n^2 + 26…"}
+{"answer": "0 ≤ n < 3 or n > 7", "id": "quadratic-inequalities/hard/0/4b4442fd7182", "text": "A small business sells n items (n ≥ 0). Its profit in dollars is P = -5n^2 + 50…"}
 {"answer": "no solution", "id": "quadratic-inequalities/hard/1/41d0b6e3f448", "text": "Solve the inequality -3x^2 - 18x - 48 > 0. If every real number works write 'al…"}
 {"answer": "x < 7 or x > 7", "id": "quadratic-inequalities/hard/2/76b1e03f1614", "text": "Solve x^2 - 14x + 49 > 0. Give the solution set as inequalities (join separate …"}
 {"answer": "x ≤ -5 or x ≥ 5", "id": "quadratic-inequalities/medium/0/221f195d8e9c", "text": "Solve the inequality x^2 ≥ 25. State the solution using inequalities (use 'or' …"}
@@ -6355,18 +6355,18 @@
 {"answer": "-5/12", "id": "reciprocal-trig-identities/medium/0/7a9e865a0bfb", "text": "The angle θ satisfies cosec θ = 13/12 and 90° < θ < 180°. Find cot θ."}
 {"answer": "-8/15", "id": "reciprocal-trig-identities/medium/1/3aff250cc2de", "text": "Given that sec θ = -17/15 and 90° < θ < 180°, find the exact value of tan θ."}
 {"answer": "-3/4", "id": "reciprocal-trig-identities/medium/2/e9440e041c24", "text": "The angle θ satisfies sec θ = -5/4 and 90° < θ < 180°. Find tan θ."}
-{"answer": "Try x = 6: 4(x + 2) gives 32 and 4x + 8 gives 32, which mat…", "id": "recognise-equivalent-expressions-explain/easy/0/bc3cce800bd9", "text": "Are 4(x + 2) and 4x + 8 equivalent expressions? Test a value of x, then explain…"}
-{"answer": "Try x = 4: 4(x + 2) gives 24 and 4x + 8 gives 24, which mat…", "id": "recognise-equivalent-expressions-explain/easy/1/cd4b95521b86", "text": "Are 4(x + 2) and 4x + 8 equivalent expressions? Test a value of x, then explain…"}
-{"answer": "Try x = 5: 6(x + 6) gives 66 but 6x + 12 gives 42. The valu…", "id": "recognise-equivalent-expressions-explain/easy/2/82d41aa580b1", "text": "Are 6(x + 6) and 6x + 12 equivalent expressions? Test a value of x, then explai…"}
-{"answer": "Try x = 3: 3(x + 5) + 4(x - 2) gives 28 and 7x + 7 gives 28…", "id": "recognise-equivalent-expressions-explain/hard/0/93a066031365", "text": "Decide whether 3(x + 5) + 4(x - 2) and 7x + 7 are equivalent. Explain why testi…"}
-{"answer": "Try x = 7: 3(x + 3) + 3(x - 4) gives 39 but 6x - 2 gives 40…", "id": "recognise-equivalent-expressions-explain/hard/1/f1e2df52e5f4", "text": "Decide whether 3(x + 3) + 3(x - 4) and 6x - 2 are equivalent. Explain why testi…"}
-{"answer": "Try x = 5: 4(x + 3) + 4(x - 1) gives 48 and 8x + 8 gives 48…", "id": "recognise-equivalent-expressions-explain/hard/2/a78eb098dfb5", "text": "Decide whether 4(x + 3) + 4(x - 1) and 8x + 8 are equivalent. Explain why testi…"}
-{"answer": "Try x = 7: 7x + 2 + 4x gives 79 and 11x + 2 gives 79, which…", "id": "recognise-equivalent-expressions-explain/medium/0/1aeba73220dd", "text": "Are 7x + 2 + 4x and 11x + 2 equivalent? Test x = 7 in both, then explain what y…"}
-{"answer": "Try x = 5: 7x + 4 + 7x gives 74 and 14x + 4 gives 74, which…", "id": "recognise-equivalent-expressions-explain/medium/1/5c4f0cffd4c0", "text": "Are 7x + 4 + 7x and 14x + 4 equivalent? Test x = 5 in both, then explain what y…"}
-{"answer": "Try x = 4: 2x + 4 + 4x gives 28 and 6x + 4 gives 28, which …", "id": "recognise-equivalent-expressions-explain/medium/2/f424f95ecc51", "text": "Are 2x + 4 + 4x and 6x + 4 equivalent? Test x = 4 in both, then explain what yo…"}
+{"answer": "Try x = 6: 4(x + 2) gives 32 and 4x + 8 gives 32, which mat…", "id": "recognise-equivalent-expressions-explain/easy/0/a38477af0d8a", "text": "Pick a value for x and use it to compare 4(x + 2) with 4x + 8. Are the two expr…"}
+{"answer": "Try x = 4: 4(x + 2) gives 24 and 4x + 8 gives 24, which mat…", "id": "recognise-equivalent-expressions-explain/easy/1/f083313488b9", "text": "Mei says 4(x + 2) and 4x + 8 are the same expression written two ways. Is she r…"}
+{"answer": "Try x = 5: 6(x + 6) gives 66 but 6x + 12 gives 42. The valu…", "id": "recognise-equivalent-expressions-explain/easy/2/4f4cae06c652", "text": "Mei says 6(x + 6) and 6x + 12 are the same expression written two ways. Is she …"}
+{"answer": "Try x = 3: 3(x + 5) + 4(x - 2) gives 28 and 7x + 7 gives 28…", "id": "recognise-equivalent-expressions-explain/hard/0/9f793d3f4d6f", "text": "Decide whether 3(x + 5) + 4(x - 2) and 7x + 7 are equivalent. Explain why testi…"}
+{"answer": "Try x = 7: 3(x + 3) + 3(x - 4) gives 39 but 6x - 2 gives 40…", "id": "recognise-equivalent-expressions-explain/hard/1/3cbe84903067", "text": "Decide whether 3(x + 3) + 3(x - 4) and 6x - 2 are equivalent. Explain why testi…"}
+{"answer": "Try x = 5: 4(x + 3) + 4(x - 1) gives 48 and 8x + 8 gives 48…", "id": "recognise-equivalent-expressions-explain/hard/2/a2f399b989e2", "text": "Decide whether 4(x + 3) + 4(x - 1) and 8x + 8 are equivalent. Explain why testi…"}
+{"answer": "Try x = 7: 7x + 2 + 4x gives 79 and 11x + 2 gives 79, which…", "id": "recognise-equivalent-expressions-explain/medium/0/97320bb7d804", "text": "Are 7x + 2 + 4x and 11x + 2 equivalent? Test x = 7 in both, then explain what y…"}
+{"answer": "Try x = 5: 7x + 4 + 7x gives 74 and 14x + 4 gives 74, which…", "id": "recognise-equivalent-expressions-explain/medium/1/dd2a206c8a09", "text": "Are 7x + 4 + 7x and 14x + 4 equivalent? Test x = 5 in both, then explain what y…"}
+{"answer": "Try x = 4: 2x + 4 + 4x gives 28 and 6x + 4 gives 28, which …", "id": "recognise-equivalent-expressions-explain/medium/2/1a1d0b6aaf96", "text": "Put x = 4 into 2x + 4 + 4x and into 6x + 4. What does the result tell you about…"}
 {"answer": "15x - 5", "id": "recognise-equivalent-expressions/easy/0/9d433830e7a3", "text": "Which expression is equivalent to 5(3x - 1)?"}
 {"answer": "10x - 45", "id": "recognise-equivalent-expressions/easy/1/7316a645f4d2", "text": "Which expression is equivalent to 5(2x - 9)?"}
-{"answer": "10x + 3", "id": "recognise-equivalent-expressions/easy/2/58636c1931e1", "text": "Simplify 7x + 3x + 3. Which expression is equivalent to it?"}
+{"answer": "10x + 3", "id": "recognise-equivalent-expressions/easy/2/ddd6e29454bb", "text": "Simplify 7x + 3x + 3. Which expression is equivalent to it?"}
 {"answer": "(a) 5x - 11; (b) -1; (c) 5x - 2 - 1", "id": "recognise-equivalent-expressions/exam/0/0fa03326792d", "text": "Consider the expression 5(x - 2) - 1. (a) Which expression is equivalent to it,…"}
 {"answer": "(a) 3x + 20; (b) 29; (c) 3x + 5 + 5", "id": "recognise-equivalent-expressions/exam/1/a668fa569f3e", "text": "Consider the expression 3(x + 5) + 5. (a) Which expression is equivalent to it,…"}
 {"answer": "(a) 8x - 17; (b) -1; (c) 8x - 4 - 1", "id": "recognise-equivalent-expressions/exam/2/8edff4505598", "text": "Consider the expression 4(2x - 4) - 1. (a) Which expression is equivalent to it…"}
@@ -6455,17 +6455,17 @@
 {"answer": "(a) 26/33; (b) 46/165; (c) 28/55", "id": "recurring-decimal-to-fraction/exam/1/e20711b08006", "text": "Let y = 0.787878... (the digits 78 repeat forever) and x = 0.2787878... (the di…"}
 {"answer": "(a) 50/99; (b) 322/495; (c) 8/55", "id": "recurring-decimal-to-fraction/exam/2/1d08aaa20c07", "text": "Let y = 0.505050... (the digits 50 repeat forever) and x = 0.6505050... (the di…"}
 {"answer": "58100.00", "id": "reducing-balance-depreciation/easy/0/d6c596923076", "text": "A food truck is bought for $83,000. It loses 30% of its value at the start of e…"}
-{"answer": "3420.00", "id": "reducing-balance-depreciation/easy/1/63383b22eae5", "text": "A hot-water system is bought for $3,600. It depreciates at 5% per year by the r…"}
+{"answer": "3420.00", "id": "reducing-balance-depreciation/easy/1/a613b68f41ab", "text": "A hot-water system is bought for $3,600. It depreciates at 5% per year by the r…"}
 {"answer": "486.00", "id": "reducing-balance-depreciation/easy/2/f5d55138aa44", "text": "A hot-water system is bought for $2,700. It depreciates at 18% per year by the …"}
-{"answer": "(a) 43225.00; (b) 37060.03; (c) 8439.97; (d) 8", "id": "reducing-balance-depreciation/exam/0/36faec537868", "text": "A food truck is bought for $45,500. It depreciates at 5% per year by the reduci…"}
-{"answer": "(a) 51920.00; (b) 31136.18; (c) 27863.82; (d) 8", "id": "reducing-balance-depreciation/exam/1/08cc330687e5", "text": "A delivery van is bought for $59,000. It depreciates at 12% per year by the red…"}
-{"answer": "(a) 4800.00; (b) 1966.08; (c) 4033.92; (d) 6", "id": "reducing-balance-depreciation/exam/2/4d78c0611568", "text": "A security camera system is bought for $6,000. It depreciates at 20% per year b…"}
+{"answer": "(a) 43225.00; (b) 37060.03; (c) 8439.97; (d) 8", "id": "reducing-balance-depreciation/exam/0/585fd801db41", "text": "A food truck is bought for $45,500. It depreciates at 5% per year by the reduci…"}
+{"answer": "(a) 51920.00; (b) 31136.18; (c) 27863.82; (d) 8", "id": "reducing-balance-depreciation/exam/1/39025a18feb2", "text": "A delivery van is bought for $59,000. It depreciates at 12% per year by the red…"}
+{"answer": "(a) 4800.00; (b) 1966.08; (c) 4033.92; (d) 6", "id": "reducing-balance-depreciation/exam/2/b8b628382aa6", "text": "A security camera system is bought for $6,000. It depreciates at 20% per year b…"}
 {"answer": "12", "id": "reducing-balance-depreciation/hard/0/e9df779d137b", "text": "A laser cutter is bought for $15,500. It depreciates by the reducing-balance me…"}
 {"answer": "8", "id": "reducing-balance-depreciation/hard/1/a6aa8acda8db", "text": "An excavator is bought for $148,000. It depreciates by the reducing-balance met…"}
 {"answer": "5", "id": "reducing-balance-depreciation/hard/2/c8074d054606", "text": "A photocopier is bought for $6,300. It loses 15% of its value at the start of e…"}
 {"answer": "8", "id": "reducing-balance-depreciation/medium/0/ae998805ea34", "text": "A food truck is bought for $50,000. It depreciates by the reducing-balance meth…"}
-{"answer": "13969.66", "id": "reducing-balance-depreciation/medium/1/635fdd84fcee", "text": "A laser cutter is bought for $19,500. It depreciates at 8% per year by the redu…"}
-{"answer": "47241.57", "id": "reducing-balance-depreciation/medium/2/3835d94b3b01", "text": "The value, V dollars, of a food truck after n years is given by V = 90500 × 0.8…"}
+{"answer": "13969.66", "id": "reducing-balance-depreciation/medium/1/16a7314f264f", "text": "A laser cutter is bought for $19,500. It depreciates at 8% per year by the redu…"}
+{"answer": "47241.57", "id": "reducing-balance-depreciation/medium/2/50243e98c60b", "text": "The value, V dollars, of a food truck after n years is given by V = 90500 × 0.8…"}
 {"answer": "[[1, 0], [0, -1]]", "id": "reflections-compose-to-rotation/easy/0/b519e9a3e898", "text": "The matrix of the reflection in the line y = x is P = [[0, 1], [1, 0]] and the …"}
 {"answer": "[[0, -1], [-1, 0]]", "id": "reflections-compose-to-rotation/easy/1/c5c476fb8caf", "text": "The matrix of the reflection in the x-axis is P = [[1, 0], [0, -1]] and the mat…"}
 {"answer": "[[1, 0], [0, -1]]", "id": "reflections-compose-to-rotation/easy/2/89aa46d17fe6", "text": "The matrix of the reflection in the line y = x is P = [[0, 1], [1, 0]] and the …"}
@@ -8584,9 +8584,9 @@
 {"answer": "Bathroom", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/easy/0/93f0fbe61548", "text": "Which room on this plan has no window symbol?"}
 {"answer": "Ensuite", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/easy/1/4c8104b80183", "text": "The toilets symbol is drawn in one room of this plan. What is that room called?"}
 {"answer": "Ensuite", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/easy/2/cc977907d772", "text": "The toilets symbol is drawn in one room of this plan. What is that room called?"}
-{"answer": "(a) Bathroom; (b) Laundry; (c) 6; (d) 4; (e) 340", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/exam/0/c8377a8ba814", "text": "The floor plan of a house is drawn on a square grid. The rooms are named by the…"}
-{"answer": "(a) Bathroom; (b) Laundry; (c) 6; (d) 4; (e) 440", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/exam/1/5c5dd121dfa2", "text": "The floor plan of a house is drawn on a square grid. The rooms are named by the…"}
-{"answer": "(a) Bathroom; (b) Bathroom; (c) 7; (d) 3; (e) 480", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/exam/2/37de450f4c94", "text": "The floor plan of a house is drawn on a square grid. The rooms are named by the…"}
+{"answer": "(a) Bathroom; (b) Laundry; (c) 6; (d) 4; (e) 300", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/exam/0/00ad11ddd39f", "text": "The floor plan of a house is drawn on a square grid. The rooms are named by the…"}
+{"answer": "(a) Bathroom; (b) Laundry; (c) 6; (d) 4; (e) 420", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/exam/1/0dc784bf7917", "text": "A house plan is drawn to a square grid. Rooms are written as short plan abbrevi…"}
+{"answer": "(a) Bathroom; (b) Bathroom; (c) 7; (d) 3; (e) 450", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/exam/2/c06332fceabc", "text": "A house plan is drawn to a square grid. Rooms are written as short plan abbrevi…"}
 {"answer": "2 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/0/cbcb4bc26c54", "text": "How many rooms on this plan need a plumber, that is, rooms with a toilets symbo…"}
 {"answer": "3 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/1/9cd9236b2109", "text": "How many wet areas (bathroom, ensuite, toilet or laundry) on this plan have a w…"}
 {"answer": "3 rooms", "id": "senior-interpret-commonly-used-symbols-and-abbreviations-in-scale/hard/2/f415e79843b2", "text": "A plumber must visit every room that has a toilets symbol or a hot water system…"}
@@ -8608,7 +8608,7 @@
 {"answer": "11", "id": "senior-interpret-diagrams-of-three-dimensional-objects/easy/0/a8532ee242ec", "text": "Count the unit cubes in the stack drawn on isometric dot paper. Every cube rest…"}
 {"answer": "6", "id": "senior-interpret-diagrams-of-three-dimensional-objects/easy/1/d54fcbbafeb8", "text": "The picture shows a stack of unit cubes on isometric dot paper. Every cube rest…"}
 {"answer": "12", "id": "senior-interpret-diagrams-of-three-dimensional-objects/easy/2/8da7a66b6d1f", "text": "The picture shows a stack of unit cubes on isometric dot paper. Every cube rest…"}
-{"answer": "(a) 11; (b) 49; (c) 40; (d) 160", "id": "senior-interpret-diagrams-of-three-dimensional-objects/exam/0/b67f98e9febd", "text": "A stack of unit cubes is drawn on isometric dot paper. There are no gaps in the…"}
+{"answer": "(a) 11; (b) 49; (c) 40; (d) 160", "id": "senior-interpret-diagrams-of-three-dimensional-objects/exam/0/6b00a60c1c23", "text": "Unit cubes have been glued into a solid stack and drawn on isometric dot paper.…"}
 {"answer": "(a) 17; (b) 19; (c) 46; (d) 184", "id": "senior-interpret-diagrams-of-three-dimensional-objects/exam/1/12b6710ce641", "text": "A stack of unit cubes is drawn on isometric dot paper. There are no gaps in the…"}
 {"answer": "(a) 16; (b) 32; (c) 44; (d) 176", "id": "senior-interpret-diagrams-of-three-dimensional-objects/exam/2/cb48e8a71dfa", "text": "A stack of unit cubes is drawn on isometric dot paper. There are no gaps in the…"}
 {"answer": "44", "id": "senior-interpret-diagrams-of-three-dimensional-objects/hard/0/bbaa40afdb3c", "text": "Find the surface area, in unit squares, of the stack of unit cubes. Count every…"}
@@ -8620,9 +8620,9 @@
 {"answer": "Column heights, left to right: 3, 2, 2", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/easy/0/ad43ed131133", "text": "The stack of unit cubes has no gaps. Its front is the face on the left of the p…"}
 {"answer": "Column heights, left to right: 3, 1, 1, 1", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/easy/1/78c2a9a28ce5", "text": "Look at the stack of unit cubes, which has no gaps. The face on the left of the…"}
 {"answer": "Column heights, left to right: 3, 2, 2, 1", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/easy/2/2efa80cbf764", "text": "The stack of unit cubes has no gaps. Its front is the face on the left of the p…"}
-{"answer": "(a) 3; (b) 14; (c) 3; (d) 10", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/exam/0/df6bb17774bf", "text": "The net of a closed box is drawn on a square grid with each square 1 unit by 1 …"}
-{"answer": "(a) 4; (b) 66; (c) 36; (d) 60", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/exam/1/798ef1101beb", "text": "The net of a closed box is drawn on a square grid with each square 1 unit by 1 …"}
-{"answer": "(a) 4; (b) 28; (c) 8; (d) 20", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/exam/2/93d23b6d3618", "text": "The net of a closed box is drawn on a square grid with each square 1 unit by 1 …"}
+{"answer": "(a) 5; (b) 110; (c) 75; (d) 66", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/exam/0/a27e4e294e6e", "text": "The net of a closed box is drawn on a square grid with each square 1 unit by 1 …"}
+{"answer": "(a) 5; (b) 94; (c) 60; (d) 104", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/exam/1/31c374026a31", "text": "On a sheet of square grid paper, each square 1 unit by 1 unit, the net of a clo…"}
+{"answer": "(a) 5; (b) 34; (c) 10; (d) 20", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/exam/2/e8c89120a579", "text": "On a sheet of square grid paper, each square 1 unit by 1 unit, the net of a clo…"}
 {"answer": "36 cubic units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/0/40beb9c7e150", "text": "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds u…"}
 {"answer": "32 cubic units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/1/13c28b6254ad", "text": "A closed box is made by folding the net on the grid, where each square is 1 uni…"}
 {"answer": "32 square units", "id": "senior-interpret-different-forms-of-two-dimensional-representations-of/hard/2/d4db8a7ef74d", "text": "The net is drawn on a square grid with each square 1 unit by 1 unit. It folds u…"}
@@ -9161,8 +9161,8 @@
 {"answer": "4", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/easy/1/6977b69dc5d2", "text": "Look at the cuboid of unit cubes. Some of its edges are exactly 2 cubes long. H…"}
 {"answer": "2", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/easy/2/fa981a2efb19", "text": "The cuboid is built from unit cubes. How many of its 6 faces are squares?"}
 {"answer": "(a) 4; (b) 16; (c) 40; (d) 320", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/exam/0/717dddff45b4", "text": "The cuboid is built from unit cubes and drawn on isometric dot paper. There are…"}
-{"answer": "(a) 4; (b) 12; (c) 38; (d) 456", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/exam/1/ad32798ec11e", "text": "The cuboid is built from unit cubes and drawn on isometric dot paper. There are…"}
-{"answer": "(a) 4; (b) 4; (c) 16; (d) 48", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/exam/2/069a0e5df01c", "text": "The cuboid is built from unit cubes and drawn on isometric dot paper. There are…"}
+{"answer": "(a) 4; (b) 12; (c) 38; (d) 456", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/exam/1/8a0c7dc72427", "text": "An isometric drawing shows a solid cuboid. It is made of unit cubes packed toge…"}
+{"answer": "(a) 4; (b) 4; (c) 16; (d) 48", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/exam/2/c543fef91562", "text": "An isometric drawing shows a solid cuboid. It is made of unit cubes packed toge…"}
 {"answer": "14", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/hard/0/a9a1d8e87332", "text": "Here is a puzzle about solids. A solid with flat faces has 8 faces and 8 vertic…"}
 {"answer": "10", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/hard/1/5c043ce64804", "text": "A prism has 24 edges. How many faces does it have?"}
 {"answer": "13", "id": "senior-recognise-the-properties-of-common-two-dimensional-geometric/hard/2/12140f453064", "text": "Here is a puzzle about solids. A prism has 33 edges. How many faces does it hav…"}
@@ -10921,15 +10921,15 @@
 {"answer": "y ≤ -2x - 4", "id": "shade-linear-inequality-region/easy/0/6ce1710d0f41", "text": "Draw the boundary line and shade the region y ≤ -2x - 4. A strict inequality ha…"}
 {"answer": "y ≤ 2x + 1", "id": "shade-linear-inequality-region/easy/1/6455cd3249ac", "text": "Shade the region of the grid where y ≤ 2x + 1. Use a dashed boundary for < and …"}
 {"answer": "y < 6", "id": "shade-linear-inequality-region/easy/2/36deeaea4cea", "text": "Draw the boundary line and shade the region y < 6. A strict inequality has a da…"}
-{"answer": "(a) -1/2; (b) x + 2y ≤ 4; (c) 1; (d) x ≥ 0 and y ≥ 0 and x …", "id": "shade-linear-inequality-region/exam/0/25b119ac75ee", "text": "The inequality x + 2y ≤ 4 is given. (a) Find the gradient of the boundary line.…"}
-{"answer": "(a) -7/5; (b) 7x + 5y > 35; (c) 3; (d) x ≥ 0 and y ≥ 0 and …", "id": "shade-linear-inequality-region/exam/1/f6473f03c12e", "text": "The inequality 7x + 5y > 35 is given. (a) Find the gradient of the boundary lin…"}
-{"answer": "(a) -3/7; (b) 3x + 7y > 21; (c) 2; (d) x ≥ 0 and y ≥ 0 and …", "id": "shade-linear-inequality-region/exam/2/5080a91849c7", "text": "The inequality 3x + 7y > 21 is given. (a) Find the gradient of the boundary lin…"}
+{"answer": "(a) -1/2; (b) x + 2y ≤ 4; (c) 1; (d) x ≥ 0 and y ≥ 0 and x …", "id": "shade-linear-inequality-region/exam/0/893bb393cabf", "text": "The inequality x + 2y ≤ 4 is given. (a) Find the gradient of the boundary line.…"}
+{"answer": "(a) -7/5; (b) 7x + 5y > 35; (c) 3; (d) x ≥ 0 and y ≥ 0 and …", "id": "shade-linear-inequality-region/exam/1/e17032f77539", "text": "The inequality 7x + 5y > 35 is given. (a) Find the gradient of the boundary lin…"}
+{"answer": "(a) -3/7; (b) 3x + 7y > 21; (c) 2; (d) x ≥ 0 and y ≥ 0 and …", "id": "shade-linear-inequality-region/exam/2/41067e3e0df3", "text": "The inequality 3x + 7y > 21 is given. (a) Find the gradient of the boundary lin…"}
 {"answer": "y - 3x ≥ -4 and y - 3x ≤ 1", "id": "shade-linear-inequality-region/hard/0/1f76c09db31f", "text": "Shade the region where y - 3x ≥ -4 and y - 3x ≤ 1. Use a dashed boundary for < …"}
 {"answer": "y + x ≥ -1 and y + x < 3", "id": "shade-linear-inequality-region/hard/1/3a30b0b7eb33", "text": "Shade the region where y + x ≥ -1 and y + x < 3. Use a dashed boundary for < an…"}
 {"answer": "y - 2x > -5 and y - 2x ≤ -1", "id": "shade-linear-inequality-region/hard/2/85ad13ef14b2", "text": "Shade the region where y - 2x > -5 and y - 2x ≤ -1. Use a dashed boundary for <…"}
 {"answer": "y + x > -5", "id": "shade-linear-inequality-region/medium/0/255adc15f7d9", "text": "Shade the region y + x > -5. Use a dashed boundary for < and >, and a solid bou…"}
-{"answer": "4x - 3y < 12", "id": "shade-linear-inequality-region/medium/1/7dfa59822d26", "text": "Show the inequality 4x - 3y < 12 on the grid by shading its region. A strict in…"}
-{"answer": "3x + 4y ≤ 12", "id": "shade-linear-inequality-region/medium/2/3b886e03caff", "text": "Shade the region 3x + 4y ≤ 12. Use a dashed boundary for < and >, and a solid b…"}
+{"answer": "4x - 3y < 12", "id": "shade-linear-inequality-region/medium/1/d541cb0f3707", "text": "Show the inequality 4x - 3y < 12 on the grid by shading its region. A strict in…"}
+{"answer": "3x + 4y ≤ 12", "id": "shade-linear-inequality-region/medium/2/a53a5610191f", "text": "Shade the region 3x + 4y ≤ 12. Use a dashed boundary for < and >, and a solid b…"}
 {"answer": "0.96", "id": "shm-displacement-velocity-calculus/easy/0/253967851c5f", "text": "A mass hanging from a spring oscillates vertically. Its displacement from the e…"}
 {"answer": "-1.35", "id": "shm-displacement-velocity-calculus/easy/1/6afd1f11ec42", "text": "A buoy rises and falls with the swell. Its height above the mean water level is…"}
 {"answer": "0.6", "id": "shm-displacement-velocity-calculus/easy/2/6b4a25c7d4b0", "text": "A mass hanging from a spring oscillates vertically. Its displacement from the e…"}
@@ -11014,9 +11014,9 @@
 {"answer": "(a) 168.00; (b) 5768.00; (c) 4.50", "id": "simple-interest/exam/0/a2ff7ccaa878", "text": "Grace puts $5600 into a term investment paying simple interest at 4% p.a. for a…"}
 {"answer": "(a) 144.00; (b) 4944.00; (c) 9.00", "id": "simple-interest/exam/1/02b39e6b55f4", "text": "Isla puts $4800 into a term investment paying simple interest at 6% p.a. for a …"}
 {"answer": "(a) 230.00; (b) 18630.00; (c) 3.75", "id": "simple-interest/exam/2/4999f27c85d3", "text": "For 6 months, Ava's $18400 earns simple interest at a rate of 2.5% p.a. in a fi…"}
-{"answer": "9.0", "id": "simple-interest/hard/0/11842bc28363", "text": "$16,000 earns $5,760 simple interest over 4 years. What is the annual interest …"}
+{"answer": "9.0", "id": "simple-interest/hard/0/ebdf0f92420e", "text": "$16,000 earns $5,760 simple interest over 4 years. What is the annual interest …"}
 {"answer": "5", "id": "simple-interest/hard/1/d70feb8cde1c", "text": "$15,000 is invested at 8% p.a. simple interest and earns $6,000. For how many y…"}
-{"answer": "10.0", "id": "simple-interest/hard/2/204a43e1e749", "text": "$2,000 earns $1,200 simple interest over 6 years. What is the annual interest r…"}
+{"answer": "10.0", "id": "simple-interest/hard/2/9160ea43d667", "text": "$2,000 earns $1,200 simple interest over 6 years. What is the annual interest r…"}
 {"answer": "1050.00", "id": "simple-interest/medium/0/892f2e44667f", "text": "Find the simple interest earned on $7,500 at 4% p.a. for 42 months."}
 {"answer": "6095.00", "id": "simple-interest/medium/1/825a61886ce5", "text": "$5,750 is invested at 3% p.a. simple interest for 2 years. What is the total am…"}
 {"answer": "4960.00", "id": "simple-interest/medium/2/56d93a0bf4e8", "text": "$4,000 is invested at 8% p.a. simple interest for 3 years. What is the total am…"}
@@ -11131,15 +11131,15 @@
 {"answer": "95", "id": "skip-count-2-5-10/easy/0/568cf7debbcf", "text": "What comes next? 80, 85, 90, __"}
 {"answer": "95", "id": "skip-count-2-5-10/easy/1/5db1d9934b05", "text": "What comes next? 80, 85, 90, __"}
 {"answer": "70", "id": "skip-count-2-5-10/easy/2/fc9d122f638b", "text": "What comes next? 55, 60, 65, __"}
-{"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/0/c8776b4e331e", "text": "Is x = 7 a solution of 5x + 9 = 39? Explain how you can tell."}
-{"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/1/28abfae723f6", "text": "Is x = 7 a solution of 3x + 2 = 26? Explain how you can tell."}
-{"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/2/fa435df9d3ff", "text": "Is x = 2 a solution of 4x + 9 = 17? Explain how you can tell."}
-{"answer": "Substitute: 8 + 3 = 11, which is greater than 9, so 8 is a …", "id": "solution-and-solution-set-explain/hard/0/03f0787a79f7", "text": "Explain why x = 8 is a solution of x + 3 > 9 but x = 4 is not, and describe the…"}
-{"answer": "Substitute: 15 + 3 = 18, which is greater than 14, so 15 is…", "id": "solution-and-solution-set-explain/hard/1/fdd8f1dbe4f3", "text": "Explain why x = 15 is a solution of x + 3 > 14 but x = 9 is not, and describe t…"}
-{"answer": "A solution is a value of x that makes the equation true. 5 …", "id": "solution-and-solution-set-explain/hard/2/a51dfe534571", "text": "Explain why the equation x² = 25 has two solutions, and write its solution set."}
-{"answer": "Substitute each number for x. For x = 6: 6 + 6 = 12, which …", "id": "solution-and-solution-set-explain/medium/0/ef9b4487dfde", "text": "Which of the numbers 6, 7 and 11 is a solution of x + 6 = 12? Explain how you d…"}
-{"answer": "Substitute each number for x. For x = 12: 12 + 7 = 19, whic…", "id": "solution-and-solution-set-explain/medium/1/2b6cae2980d6", "text": "Which of the numbers 9, 12 and 14 is a solution of x + 7 = 19? Explain how you …"}
-{"answer": "Substitute each number for x. For x = 3: 3 + 2 = 5, which m…", "id": "solution-and-solution-set-explain/medium/2/9d353ffa8514", "text": "Which of the numbers 3, 6 and 15 is a solution of x + 2 = 5? Explain how you de…"}
+{"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/0/910ba3650faf", "text": "Does x = 7 make 5x + 9 = 39 true? Show how you decide whether it is a solution."}
+{"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/1/88621a614207", "text": "Does x = 7 make 3x + 2 = 26 true? Show how you decide whether it is a solution."}
+{"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/2/14879ed67597", "text": "Kim thinks 2 is a solution of the equation 4x + 9 = 17. Test Kim's idea and exp…"}
+{"answer": "Substitute: 8 + 3 = 11, which is greater than 9, so 8 is a …", "id": "solution-and-solution-set-explain/hard/0/d5d46b36ce28", "text": "Describe every value of x that satisfies x + 3 > 9. Use x = 8 and x = 4 to expl…"}
+{"answer": "Substitute: 15 + 3 = 18, which is greater than 14, so 15 is…", "id": "solution-and-solution-set-explain/hard/1/1bbae74ce420", "text": "Substitute 15 and 9 for x in x + 3 > 14. What do you find, and what does the fu…"}
+{"answer": "A solution is a value of x that makes the equation true. 5 …", "id": "solution-and-solution-set-explain/hard/2/c26b5021a43d", "text": "Explain why the equation x² = 25 has two solutions, and write its solution set."}
+{"answer": "Substitute each number for x. For x = 6: 6 + 6 = 12, which …", "id": "solution-and-solution-set-explain/medium/0/9a8ab2e1c601", "text": "Test 6, 7 and 11 in the equation x + 6 = 12. Say which is the solution and what…"}
+{"answer": "Substitute each number for x. For x = 12: 12 + 7 = 19, whic…", "id": "solution-and-solution-set-explain/medium/1/64fb3b3e19f0", "text": "One of 9, 12 and 14 satisfies x + 7 = 19. Find it by testing, and explain why e…"}
+{"answer": "Substitute each number for x. For x = 3: 3 + 2 = 5, which m…", "id": "solution-and-solution-set-explain/medium/2/f33a9ae797e2", "text": "One of 3, 6 and 15 satisfies x + 2 = 5. Find it by testing, and explain why eac…"}
 {"answer": "7n - 3 = -38", "id": "solution-and-solution-set/easy/0/38003c3570ca", "text": "For which of these equations is n = -5 a solution?"}
 {"answer": "6n - 9 = 3", "id": "solution-and-solution-set/easy/1/93d237f95872", "text": "For which of these equations is n = 2 a solution?"}
 {"answer": "n = 11", "id": "solution-and-solution-set/easy/2/e8bc850c0676", "text": "Which of these values of n makes 9n - 12 = 87 true?"}
@@ -11356,18 +11356,18 @@
 {"answer": "20502.00", "id": "superannuation-contributions/medium/0/e20a0e348a6b", "text": "Jack is a diesel mechanic on a salary of $126,000 a year. Jack's employer pays …"}
 {"answer": "10880.00", "id": "superannuation-contributions/medium/1/1099ce836bfe", "text": "Ben is a surveyor on a salary of $83,000 a year. Ben's employer pays super of 1…"}
 {"answer": "12257.00", "id": "superannuation-contributions/medium/2/5481f7647024", "text": "Ben is a surveyor on a salary of $91,000 a year. Ben's employer pays super of 1…"}
-{"answer": "492", "id": "supply-demand-equilibrium/easy/0/d8cab80b16fd", "text": "The weekly demand for cups of coffee at a market is given by Q = 580 - 11P, and…"}
-{"answer": "254", "id": "supply-demand-equilibrium/easy/1/2d57302de208", "text": "The weekly demand for bicycles at a market is given by Q = 260 - 9P, and the we…"}
-{"answer": "409", "id": "supply-demand-equilibrium/easy/2/1bcff61e8868", "text": "The weekly demand for potted plants at a market is given by Q = 423 - 7P, and t…"}
-{"answer": "(a) 509; (b) 22; (c) 17; (d) 503", "id": "supply-demand-equilibrium/exam/0/151fe1c236cb", "text": "The weekly demand for cups of coffee at a market is given by Q = 554 - 3P, and …"}
-{"answer": "(a) 283; (b) 51; (c) 14; (d) 256", "id": "supply-demand-equilibrium/exam/1/a57109f05d84", "text": "The weekly demand for tickets to a show at a market is given by Q = 382 - 9P, a…"}
-{"answer": "(a) 410; (b) 32; (c) 11; (d) 398", "id": "supply-demand-equilibrium/exam/2/3d7081bf7c04", "text": "The weekly demand for loaves of bread at a market is given by Q = 464 - 6P, and…"}
-{"answer": "28", "id": "supply-demand-equilibrium/hard/0/9a0e91ec7ea3", "text": "For potted plants sold at a market, the weekly quantity demanded falls steadily…"}
-{"answer": "6", "id": "supply-demand-equilibrium/hard/1/44368f71c1cf", "text": "The weekly demand for loaves of bread at a market is given by Q = 232 - 8P, and…"}
-{"answer": "19", "id": "supply-demand-equilibrium/hard/2/f5d1bf7afe6e", "text": "For tickets to a show sold at a market, the weekly quantity demanded falls stea…"}
-{"answer": "375", "id": "supply-demand-equilibrium/medium/0/2e1aab859a17", "text": "The weekly demand for bicycles at a market is given by Q = 429 - 6P, and the we…"}
-{"answer": "1412", "id": "supply-demand-equilibrium/medium/1/0eb78a2d6095", "text": "The weekly demand for potted plants at a market is given by Q = 377 - 6P, and t…"}
-{"answer": "21", "id": "supply-demand-equilibrium/medium/2/6b3a8c63db5c", "text": "The weekly demand for tickets to a show at a market is given by Q = 742 - 10P, …"}
+{"answer": "369", "id": "supply-demand-equilibrium/easy/0/73ffdb8c9671", "text": "The weekly demand for pies at a market is given by Q = 379 - 4P, and the weekly…"}
+{"answer": "545", "id": "supply-demand-equilibrium/easy/1/1839f518f48d", "text": "The weekly demand for tickets to a show at a market is given by Q = 793 - 4P, a…"}
+{"answer": "346", "id": "supply-demand-equilibrium/easy/2/134aa8f4234f", "text": "The weekly demand for T-shirts at a market is given by Q = 922 - 12P, and the w…"}
+{"answer": "(a) 283; (b) 28; (c) 25; (d) 267", "id": "supply-demand-equilibrium/exam/0/2822dc134f43", "text": "The weekly demand for kayak hire sessions at a market is given by Q = 467 - 8P,…"}
+{"answer": "(a) 215; (b) 42; (c) 22; (d) 191", "id": "supply-demand-equilibrium/exam/1/e0eaa376e492", "text": "The weekly demand for phone covers at a market is given by Q = 367 - 8P, and th…"}
+{"answer": "(a) 459; (b) 21; (c) 5; (d) 449", "id": "supply-demand-equilibrium/exam/2/6991712be93f", "text": "The weekly demand for loaves of bread at a market is given by Q = 499 - 10P, an…"}
+{"answer": "3", "id": "supply-demand-equilibrium/hard/0/3116dcba2497", "text": "For loaves of bread sold at a market, the weekly quantity demanded falls steadi…"}
+{"answer": "10", "id": "supply-demand-equilibrium/hard/1/edd551cd78e9", "text": "The weekly demand for bags of oranges at a market is given by Q = 236 - 10P, an…"}
+{"answer": "5", "id": "supply-demand-equilibrium/hard/2/f25bf8adb56e", "text": "For cups of coffee sold at a market, the weekly quantity demanded falls steadil…"}
+{"answer": "441", "id": "supply-demand-equilibrium/medium/0/359d18d1c717", "text": "The weekly demand for pairs of sunglasses at a market is given by Q = 729 - 9P,…"}
+{"answer": "2784", "id": "supply-demand-equilibrium/medium/1/cb66f4f8b15d", "text": "The weekly demand for bags of oranges at a market is given by Q = 482 - 3P, and…"}
+{"answer": "34", "id": "supply-demand-equilibrium/medium/2/221a470bc5e0", "text": "The weekly demand for T-shirts at a market is given by Q = 963 - 10P, and the w…"}
 {"answer": "-7/25", "id": "t-formulae-half-angle/easy/0/894c701e9f72", "text": "Let t = tan(φ/2). Given that t = -4/3, find the value of cos φ."}
 {"answer": "7/25", "id": "t-formulae-half-angle/easy/1/a99a729cd4ad", "text": "Let t = tan(x/2). Given that t = -3/4, find the value of cos x."}
 {"answer": "35/37", "id": "t-formulae-half-angle/easy/2/18dd59f37666", "text": "Let t = tan(x/2). Given that t = 1/6, find the value of cos x."}
@@ -14842,7 +14842,7 @@
 {"answer": "48", "id": "unit-pricing/exam/0/45986dcade8d", "text": "A pack of 6 tea bags costs $4.32. A special offer: buy 3 packs and pay for only…"}
 {"answer": "173", "id": "unit-pricing/exam/1/eccf60c40750", "text": "A pack of 6 tinned tomatoes costs $13.84. A special offer: buy 4 packs and take…"}
 {"answer": "37", "id": "unit-pricing/exam/2/311f9d57d05f", "text": "A supermarket sells coffee beans in two packs: 300 g for $6.33 and 1.5 kg for $…"}
-{"answer": "2.88", "id": "unit-pricing/hard/0/9fb43684f056", "text": "Muffins come in a pack of 4 for $4.68 or a pack of 12 for $13.08. How much is s…"}
+{"answer": "2.88", "id": "unit-pricing/hard/0/7dc17b815ec8", "text": "Muffins come in a pack of 4 for $4.68 or a pack of 12 for $13.08. How much is s…"}
 {"answer": "40", "id": "unit-pricing/hard/1/c27814076382", "text": "Brand A costs $25 for 10 items. Brand B costs $15 for 10 items. Brand B is what…"}
 {"answer": "40", "id": "unit-pricing/hard/2/647369229b39", "text": "Brand A costs $49 for 10 items. Brand B costs $29.40 for 10 items. Brand B is w…"}
 {"answer": "0.71", "id": "unit-pricing/medium/0/09de880ce152", "text": "A 500 g packet of rice costs $3.55. What is its price per 100 g, in dollars?"}
