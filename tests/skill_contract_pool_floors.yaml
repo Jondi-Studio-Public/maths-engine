@@ -29,11 +29,8 @@ equal-groups:
   equal_groups/easy: 19
 evaluate-powers:
   powers/easy: 8
-f10-circle-measures:
-  circle_measures/medium: 13
 f10-decimal-notation-tenths-hundredths:
   decimal_tenths_hundredths_compose/easy: 17
-f10-fractions-half-quarter-eighth:
 f10-logarithmic-scales:
   p10e_logarithmic_scales/easy: 10
 f10-odd-even-properties:
@@ -164,7 +161,6 @@ senior-y-tan-x-c-and-the-relationships-sin:
   tan_shift_complementary_identity/medium: 7
 simple-harmonic-angular-frequency:
   simple_harmonic_angular_frequency/easy: 9
-subtract-within-5:
 variable-concept:
   variable_concept/easy: 3
 wave-frequency-from-speed-wavelength:
