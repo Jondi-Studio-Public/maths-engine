@@ -1,0 +1,65 @@
+id: proof-am-gm-steps
+name: Prove inequalities by showing a difference is a square, step by step
+domain: proof-and-foundations
+year_level:
+- '11'
+- '12'
+description: Type the algebra that shows a difference is a perfect square, which proves a two-variable inequality such as
+  the AM-GM inequality; every line is checked.
+status: active
+placement_eligible: false
+prerequisites:
+- expand-binomial-trinomial
+- difference-of-squares
+answer: step_chain
+sources:
+- topic: w10_proof_am_gm
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_proof_am_gm
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_proof_am_gm
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: w10_proof_am_gm_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: amgm-cross-term-sign
+  description: Writes the square of a sum where the square of a difference is needed.
+- id: amgm-difference-of-squares
+  description: Writes (a - b)(a + b) where (a - b)^2 is needed.
+- id: amgm-cross-term-halved
+  description: Expands or factorises a square with -ab instead of -2ab.
+- id: amgm-drops-denominator
+  description: Combines fractions with the wrong common denominator.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Expand and collect to see a^2 + b^2 - 2ab is (a - b)^2.
+  medium:
+    steps: 3
+    demand: Do the same with coefficients, or from a square of a sum minus 4cd times the product.
+  hard:
+    steps: 4
+    demand: Combine fractions or square roots first, then recognise the square of a difference.
+tags:
+- proof
+- typed-steps
+- inequality
+- am-gm
+- squares

@@ -1,0 +1,59 @@
+id: solution-and-solution-set-explain
+name: Explain what a solution and a solution set are
+domain: equations
+year_level:
+- '7'
+- '8'
+description: Explain that a solution is a value that makes an equation or inequality true, test values by substitution,
+  and describe a solution set; marked against a rubric.
+status: active
+placement_eligible: false
+prerequisites:
+- variable-concept
+answer: open_response
+sources:
+- topic: w10_explain_solution
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_explain_solution
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_explain_solution
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: solution-is-any-number-in-equation
+  description: Calls a number from the equation a solution without testing it.
+- id: one-solution-only
+  description: Believes every equation has exactly one solution.
+- id: boundary-included-in-strict-inequality
+  description: Includes the boundary value in the solution set of a strict inequality.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: Substitute a value into an equation and decide whether it is a solution.
+  medium:
+    steps: 4
+    demand: Test several values and explain why only one makes the equation true.
+  hard:
+    steps: 4
+    demand: 'Describe a whole solution set: all numbers beyond a boundary, or both roots of a square.'
+tags:
+- explain
+- open-response
+- rubric
+- year-7
+- year-8
+- solutions
+- substitution

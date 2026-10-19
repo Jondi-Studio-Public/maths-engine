@@ -1,0 +1,59 @@
+id: check-solution-by-substitution-explain
+name: Explain how to check a solution by substitution
+domain: equations
+year_level:
+- '7'
+- '8'
+description: Check a proposed solution by substitution and explain what the check shows, including the slip behind a wrong
+  answer; marked against a rubric.
+status: active
+placement_eligible: false
+prerequisites:
+- two-step-equations
+answer: open_response
+sources:
+- topic: w10_explain_check
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_explain_check
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_explain_check
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: checks-by-solving-again
+  description: Checks an answer by repeating the same working instead of substituting into the original equation.
+- id: substitutes-into-one-side-only
+  description: Substitutes into one side and never compares it with the other.
+- id: subtracts-where-addition-needed
+  description: Subtracts a term from both sides where it should be added when undoing a subtraction.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: Substitute into one side, evaluate and compare with the other side.
+  medium:
+    steps: 4
+    demand: Substitute into both sides of an equation with x on both sides and compare.
+  hard:
+    steps: 5
+    demand: Use a failed check to find the slip, correct the solution and check again.
+tags:
+- explain
+- open-response
+- rubric
+- year-7
+- year-8
+- substitution
+- checking

@@ -1,0 +1,61 @@
+id: meaning-of-equality-explain
+name: Explain what the equals sign means
+domain: equations
+year_level:
+- '7'
+- '8'
+description: Explain in words that the equals sign says two sides have the same value, using the question's own numbers;
+  marked against a rubric by a teacher, a model or the learner.
+status: active
+placement_eligible: false
+prerequisites:
+- variable-concept
+answer: open_response
+sources:
+- topic: w10_explain_equality
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_explain_equality
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_explain_equality
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: equals-means-answer-comes-next
+  description: Reads the equals sign as an instruction to calculate, with the answer after it, and looks only at the left
+    side.
+- id: balance-one-side-only
+  description: Changes one side of an equation and believes the equation is still true.
+- id: equal-sides-need-same-form
+  description: Believes both sides must be written the same way to be equal.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Work out both sides of a number sentence and say whether they have the same value.
+  medium:
+    steps: 3
+    demand: Diagnose a misreading of the equals sign, or find the missing number that balances the sides and check it.
+  hard:
+    steps: 4
+    demand: Explain why an operation done to one side only breaks the balance, or why subtracting from both sides keeps
+      an equation true.
+tags:
+- explain
+- open-response
+- rubric
+- year-7
+- year-8
+- equals-sign
+- balance
