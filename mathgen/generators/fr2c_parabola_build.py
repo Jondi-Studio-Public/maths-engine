@@ -440,7 +440,7 @@ def _equation_question(rng, tier):
     working = [f"The vertex is at ({h}, {k}), so h = {h} and k = {k}."]
     if p:
         working.append(
-            f"P({p[0]}, {p[1]}) is on the graph, so {p[1]} = a x ({p[0] - h})^2 {'+' if k >= 0 else '-'} {abs(k)}, which gives a = {_frac(a)}."
+            f"P({p[0]}, {p[1]}) is on the graph, so {p[1]} = a × ({p[0] - h})^2 {'+' if k >= 0 else '-'} {abs(k)}, which gives a = {_frac(a)}."
         )
     else:
         working.append(
@@ -561,7 +561,7 @@ def _build_fr2c_parabola_effects_exam(rng):
             "Using your vertex, find the y-intercept of the graph.",
             value,
             2,
-            [f"Put x = 0: y = {_frac(a)} x ({-h})^2 {'+' if k >= 0 else '-'} {abs(k)} = {value}."],
+            [f"Put x = 0: y = {_frac(a)} × ({-h})^2 {'+' if k >= 0 else '-'} {abs(k)} = {value}."],
             [
                 ("fr2c-bracket-not-squared", int(a * (-h) + k)),
                 ("fr2c-intercept-is-the-vertex-height", k),
@@ -638,7 +638,7 @@ def _build_fr2c_parabola_equation_exam(rng):
             a,
             3,
             [
-                f"P is at ({px}, {py}), so {py} = a x ({px - h})^2 {'+' if k >= 0 else '-'} {abs(k)} and a = {py - k} / {(px - h) ** 2}."
+                f"P is at ({px}, {py}), so {py} = a × ({px - h})^2 {'+' if k >= 0 else '-'} {abs(k)} and a = {py - k} / {(px - h) ** 2}."
             ],
             [
                 ("fr2c-a-taken-as-the-rise", py - k),

@@ -63,7 +63,9 @@ def _cents(v: Fraction) -> Fraction:
 
 
 def _fmt(v: Fraction) -> str:
-    return stated_precision_string(_cents(v), 2)
+    """A dollar amount to the cent with a thousands comma, as the stem writes the principal ("$21,426.12")."""
+    whole, _, cents = stated_precision_string(_cents(v), 2).partition(".")
+    return f"{int(whole):,}" + (f".{cents}" if cents else "")
 
 
 def _safe(v: Fraction) -> bool:

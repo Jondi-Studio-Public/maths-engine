@@ -480,7 +480,7 @@ def tangent_tail(f0, m, x0, *, variant: str, m_at_neg_x0=None):
             2,
             [
                 f"The tangent meets the axes at (0, {rational_text(c0)}) and ({rational_text(x_int)}, 0).",
-                f"Area = 1/2 × {rational_text(abs(x_int))} × {rational_text(abs(c0))} = {rational_text(area)}.",
+                f"Area = (1/2) × {paren(abs(x_int))} × {paren(abs(c0))} = {rational_text(area)}.",
             ],
             [
                 ("forgot-half-in-triangle-area", abs(c0 * x_int)),

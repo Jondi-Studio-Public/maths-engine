@@ -68,6 +68,11 @@ M_ONE_CONSTRAINT = "compound-bound-omitted"
 M_SUBSTITUTION = "substitution-sign-error"
 
 
+def _subtract(k) -> str:
+    """The step that removes k from every side: "Subtract 4", or "Add 4" when k is -4."""
+    return f"Subtract {k}" if k >= 0 else f"Add {-k}"
+
+
 # -- small helpers ---------------------------------------------------------------------------------------------------
 
 
@@ -301,7 +306,7 @@ def _draw_b_minus_ax(rng, v):
             (S(_STRICT_SWAP[_FLIP[op]], bound), M_STRICT),
         ],
         working=[
-            f"Subtract {b}: {fmt_signed(-a, v)} {op} {c - b}.",
+            f"{_subtract(b)}: {fmt_signed(-a, v)} {op} {c - b}.",
             f"Divide by {-a} and reverse: {v} {_FLIP[op]} {_rt(bound)}.",
         ],
     )
@@ -356,7 +361,7 @@ def _draw_two_step_basic(rng, v, *, fractional: bool):
             (S(op, c - b), M_NO_DIVIDE),
             (S(_STRICT_SWAP[op], bound), M_STRICT),
         ],
-        working=[f"Subtract {b}: {a}{v} {op} {c - b}.", f"Divide by {a}: {v} {op} {_rt(bound)}."],
+        working=[f"{_subtract(b)}: {a}{v} {op} {c - b}.", f"Divide by {a}: {v} {op} {_rt(bound)}."],
     )
 
 
@@ -401,7 +406,7 @@ def _draw_two_step_fraction(rng, v):
                 (S(_FLIP[op], bound), M_REVERSED_UNPROMPTED),
                 (S(_STRICT_SWAP[op], bound), M_STRICT),
             ],
-            working=[f"Subtract {b}: {v}/{a} {op} {c - b}.", f"Multiply by {a}: {v} {op} {a * (c - b)}."],
+            working=[f"{_subtract(b)}: {v}/{a} {op} {c - b}.", f"Multiply by {a}: {v} {op} {a * (c - b)}."],
         )
     p = rng.randint(2, 5)
     q = _nz(rng, -9, 9)
@@ -522,7 +527,7 @@ def _draw_compound(rng, v, *, allow_negative: bool = True):
             hi_op=hi_op,
             cands=cands,
             working=[
-                f"Subtract {q} from every part: {lo_val - q} {op1} {fmt_signed(p, v)} {op2} {hi_val - q}.",
+                f"{_subtract(q)} from every part: {lo_val - q} {op1} {fmt_signed(p, v)} {op2} {hi_val - q}.",
                 f"Divide every part by {p}" + (" and reverse both signs." if p < 0 else "."),
                 f"{_range_text(v, lo, lo_op, hi, hi_op)}.",
             ],

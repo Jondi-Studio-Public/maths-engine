@@ -25,7 +25,7 @@ from __future__ import annotations
 
 from fractions import Fraction as F
 
-from ..core import generator, join_terms, phrase
+from ..core import generator, paren_negative, phrase
 from ._exd_x_w12b_kit import (
     F,
     check,
@@ -44,6 +44,12 @@ from ._exd_x_w12b_kit import (
     retry,
     slope_of,
 )
+
+
+def _br(text: str) -> str:
+    """Bracket a rendered number that is negative or a fraction, so it can follow an operator."""
+    return f"({text})" if text.startswith("-") or "/" in text else text
+
 
 _SLOPES = [F(s) for s in (1, 2, 3, -1, -2, -3)] + [
     F(1, 2),
@@ -97,7 +103,7 @@ def _build(rng):
         c1,
         2,
         [
-            f"The marked points are ({xa}, {ya}) and ({xb}, {yb}), so m = {yb - ya} / {xb - xa} = {frac_text(m)}.",
+            f"The marked points are ({xa}, {ya}) and ({xb}, {yb}), so m = {yb - ya} / {paren_negative(xb - xa)} = {frac_text(m)}.",
             f"Running the line to x = 0 gives c = {frac_text(c1)}, so {eq_text(m, c1)}.",
         ],
         [
@@ -114,7 +120,7 @@ def _build(rng):
         2,
         [
             f"Parallel lines have the same gradient, m = {frac_text(m)}.",
-            f"Substituting ({p}, {int(q)}): {int(q)} = {frac_text(m)} × ({p}) + c, so c = {frac_text(c2)}.",
+            f"Substituting ({p}, {int(q)}): {int(q)} = {_br(frac_text(m))} × {paren_negative(p)} + c, so c = {frac_text(c2)}.",
             f"The equation is {eq_text(m, c2)}.",
         ],
         [
@@ -130,8 +136,8 @@ def _build(rng):
         xint,
         2,
         [
-            f"On the x-axis y = 0, so 0 = {join_terms([(F(m), 'x'), (F(c2), '')])}.",
-            f"x = {frac_text(-c2)} ÷ {frac_text(m)} = {frac_text(xint)}.",
+            f"On the x-axis y = 0, so 0 = {eq_text(m, c2)[4:]}.",
+            f"x = {frac_text(-c2)} ÷ {_br(frac_text(m))} = {frac_text(xint)}.",
         ],
         [(c2 / m, "x-intercept-sign-reversed"), (-m / c2, "x-intercept-ratio-inverted"), (c2, "intercepts-confused")],
         follow=f"-{icpt_of('b')}/{slope_of('b')}",
@@ -143,7 +149,7 @@ def _build(rng):
         1,
         [
             f"The lines cross the y-axis at {frac_text(c1)} and {frac_text(c2)}.",
-            f"The vertical distance is |{frac_text(c2)} - ({frac_text(c1)})| = {frac_text(gap)}.",
+            f"The vertical distance is |{frac_text(c2)} - {_br(frac_text(c1))}| = {frac_text(gap)}.",
         ],
         [
             (c1 + c2, "parallel-gap-intercepts-added"),

@@ -64,6 +64,12 @@ from mathgen.core import (
 _TOL2 = stated_precision_tolerance(2)
 
 
+def _ordinal(n: int) -> str:
+    """1st, 2nd, 3rd, 4th ... 11th, 12th, 13th, 21st."""
+    suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+    return f"{n}{suffix}"
+
+
 def _fmt_h(h: Fraction) -> str:
     """ "6" or "6.5" -- h is always a whole or half metre."""
     return str(int(h)) if h.denominator == 1 else str(float(h))
@@ -182,15 +188,15 @@ _EASY_TEMPLATES = (
     "A ball is dropped from a height of {h} m. Each time it hits the ground, it rebounds to "
     "{r}% of the height it fell from. Counting both the upward and downward travel of each "
     "rebound (and the initial drop once), find the total vertical distance the ball has "
-    "travelled by the time it hits the ground for the {k}th time. Give your answer in metres, "
+    "travelled by the time it hits the ground for the {k_ord} time. Give your answer in metres, "
     "to 2 decimal places.",
     "A ball dropped from {h} m rebounds to {r}% of its previous height every time it bounces. "
     "Counting the initial drop once and both the upward and downward travel of every rebound, "
-    "find the total vertical distance travelled up to the {k}th impact with the ground. Give "
+    "find the total vertical distance travelled up to the {k_ord} impact with the ground. Give "
     "your answer in metres, to 2 decimal places.",
     "Dropped from a height of {h} m, a ball rebounds to {r}% of the height of its previous fall "
     "each time it lands. Find the total vertical distance travelled (the initial drop counted "
-    "once, and both the rise and fall of every rebound counted) by the {k}th time it hits the "
+    "once, and both the rise and fall of every rebound counted) by the {k_ord} time it hits the "
     "ground. Give your answer in metres, to 2 decimal places.",
 )
 
@@ -202,7 +208,7 @@ def _easy_once(rng):
     total = _dist_to_impact(h, r, k)
     check(rounds_unambiguously(float(total), 2), "easy total sits on the 2dp rounding boundary")
     template = rng.choice(_EASY_TEMPLATES)
-    text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k)
+    text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k, k_ord=_ordinal(k))
     candidates = _misconception_candidates(h, r, k, to_top=False)
     working = (
         f"D = h + 2h(r + ... + r^{k - 1}) with h = {_fmt_h(h)} and r = {_fmt_given(r)}, "
@@ -223,15 +229,15 @@ _MEDIUM_TEMPLATES = (
     "A ball is dropped from a height of {h} m and rebounds to {r}% of the height it fell from "
     "every time it bounces. Counting both the upward and downward travel of each rebound (and "
     "the initial drop once), find the total vertical distance the ball has travelled by the "
-    "time it reaches the TOP of its {k}th rebound (the final upward rise is counted once, not "
+    "time it reaches the TOP of its {k_ord} rebound (the final upward rise is counted once, not "
     "twice). Give your answer in metres, to 2 decimal places.",
     "Dropped from {h} m, a ball rebounds to {r}% of its previous height each time it lands. "
     "Counting the initial drop once and both the rise and fall of every completed rebound, find "
-    "the total vertical distance travelled up to the highest point of its {k}th bounce (that "
+    "the total vertical distance travelled up to the highest point of its {k_ord} bounce (that "
     "last rise upward is counted only once). Give your answer in metres, to 2 decimal places.",
     "A ball dropped from a height of {h} m rebounds to {r}% of the height of its previous fall "
     "each time it hits the ground. Find the total vertical distance it has travelled once it "
-    "reaches the top of its {k}th rebound -- every earlier rebound counted both up and down, "
+    "reaches the top of its {k_ord} rebound -- every earlier rebound counted both up and down, "
     "the initial drop counted once, and this final rise counted once only. Give your answer in "
     "metres, to 2 decimal places.",
 )
@@ -244,7 +250,7 @@ def _medium_once(rng):
     total = _dist_to_rebound_top(h, r, k)
     check(rounds_unambiguously(float(total), 2), "medium total sits on the 2dp rounding boundary")
     template = rng.choice(_MEDIUM_TEMPLATES)
-    text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k)
+    text = template.format(h=_fmt_h(h), r=_fmt_r_pct(r), k=k, k_ord=_ordinal(k))
     candidates = _misconception_candidates(h, r, k, to_top=True)
     working = f"D = [h + 2h(r + ... + r^{k - 1})] + h*r^{k} = {stated_precision_string(round_half_up(total, 2), 2)} m."
     return _format_and_build(text, total, candidates, working=working)
@@ -263,11 +269,11 @@ _HARD_IMPACT_TEMPLATES = (
     "height of the previous fall. Its {ord1} rebound reaches {h1} m and its {ord2} rebound "
     "reaches {h2} m. Counting the initial drop once and both the upward and downward travel of "
     "every rebound, find the total vertical distance the ball has travelled by the time it hits "
-    "the ground for the {k}th time. Give your answer in metres, to 2 decimal places.",
+    "the ground for the {k_ord} time. Give your answer in metres, to 2 decimal places.",
     "Dropped from some height, a ball rebounds by the same fraction of its previous fall's "
     "height every time it lands. Its {ord1} rebound rises to {h1} m and its {ord2} rebound "
     "rises to {h2} m. Find the total vertical distance travelled (the initial drop counted "
-    "once, every rebound counted both up and down) by the {k}th impact with the ground. Give "
+    "once, every rebound counted both up and down) by the {k_ord} impact with the ground. Give "
     "your answer in metres, to 2 decimal places.",
 )
 _HARD_TOP_TEMPLATES = (
@@ -275,11 +281,11 @@ _HARD_TOP_TEMPLATES = (
     "height of its previous fall. Its {ord1} rebound reaches {h1} m and its {ord2} rebound "
     "reaches {h2} m. Counting the initial drop once and both the upward and downward travel of "
     "every earlier rebound, find the total vertical distance travelled once the ball reaches "
-    "the TOP of its {k}th rebound (that final rise is counted once only). Give your answer in "
+    "the TOP of its {k_ord} rebound (that final rise is counted once only). Give your answer in "
     "metres, to 2 decimal places.",
     "A ball dropped from some height rebounds by the same fraction of its previous fall's "
     "height on every bounce. Its {ord1} rebound rises to {h1} m and its {ord2} rebound rises to "
-    "{h2} m. Find the total vertical distance travelled up to the top of its {k}th rebound -- "
+    "{h2} m. Find the total vertical distance travelled up to the top of its {k_ord} rebound -- "
     "every earlier rebound counted both up and down, the initial drop counted once, and this "
     "final rise counted once only. Give your answer in metres, to 2 decimal places.",
 )
@@ -309,7 +315,7 @@ def _hard_once(rng):
     ord1, ord2 = _ORDINALS[start], _ORDINALS[start + 1]
     templates = _HARD_TOP_TEMPLATES if to_top else _HARD_IMPACT_TEMPLATES
     template = rng.choice(templates)
-    text = template.format(ord1=ord1, ord2=ord2, h1=_fmt_given(h1), h2=_fmt_given(h2), k=k)
+    text = template.format(ord1=ord1, ord2=ord2, h1=_fmt_given(h1), h2=_fmt_given(h2), k=k, k_ord=_ordinal(k))
     candidates = _misconception_candidates(h, r, k, to_top=to_top)
     # A hard-tier-specific misconception: taking the FIRST STATED rebound
     # height itself as the drop height h.

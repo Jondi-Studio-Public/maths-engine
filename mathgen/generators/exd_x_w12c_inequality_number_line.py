@@ -159,7 +159,7 @@ def _build(rng):
         solved,
         2,
         [
-            f"Subtract {q} from both sides, or add {-q}: {p}x {op} {r - q}.",
+            f"{f'Subtract {q} from' if q >= 0 else f'Add {-q} to'} both sides: {p}x {op} {r - q}.",
             f"Divide both sides by {p}{', reversing the inequality sign because the divisor is negative' if p < 0 else ''}: {solved}.",
         ],
         cands_b,

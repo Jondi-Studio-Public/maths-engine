@@ -296,7 +296,7 @@ def geometric_nth_term_formula(
             answer=answer,
             answer_text=answer_text,
             answer_latex=answer_text,
-            working=[f"t_n = r^(n-1) × t1, so r^{n - 1} = t_n / t1 = {t_n} / {t1} = {t_n / t1}, so r = {answer}."],
+            working=[f"t_n = r^(n-1) × t1, so r^{n - 1} = t_n / t1 = {t_n} / {t1} = {t_n // t1}, so r = {answer}."],
             distractors=pick_distractors(answer_text, candidates),
         )
 

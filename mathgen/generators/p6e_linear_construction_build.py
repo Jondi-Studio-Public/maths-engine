@@ -7,6 +7,7 @@ import math
 from sympy import symbols, expand, Rational, simplify
 
 from ..core import (
+    article_for_number,
     generator,
     check,
     check_distinct,
@@ -395,7 +396,7 @@ def develop_a_linear_formula_from_a_word_description(rng, variant="increasing"):
         if template_choice == 0:
             # Gym template
             var_in, var_out = "w", "C"
-            text = f"A gym charges a ${intercept} joining fee, then ${rate} per week of membership. Write a formula for the total cost C (in dollars) after w weeks."
+            text = f"A gym charges {article_for_number(intercept)} ${intercept} joining fee, then ${rate} per week of membership. Write a formula for the total cost C (in dollars) after w weeks."
         elif template_choice == 1:
             # Tank template with singular/plural handling
             var_in, var_out = "t", "V"
@@ -405,7 +406,7 @@ def develop_a_linear_formula_from_a_word_description(rng, variant="increasing"):
         elif template_choice == 2:
             # Storage unit template: "charges a $N ... then $N per" with a different business
             var_in, var_out = "m", "C"
-            text = f"A storage unit charges a ${intercept} setup fee, then ${rate} per month. Write a formula for the total cost C (in dollars) after m months."
+            text = f"A storage unit charges {article_for_number(intercept)} ${intercept} setup fee, then ${rate} per month. Write a formula for the total cost C (in dollars) after m months."
         else:
             # Reservoir template: "starts with N ... is filled at N per" with a different container
             var_in, var_out = "h", "V"

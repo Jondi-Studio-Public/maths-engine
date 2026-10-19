@@ -99,7 +99,9 @@ def _build_distractors(D: int, minutes_rounded: int, degree_decimal: float, D_or
         wrong_minutes -= 100
         wm_degrees += 1
     minutes_as_hundredths = (wm_degrees, wrong_minutes)
-    if minutes_as_hundredths != answer_tuple and minutes_as_hundredths not in accepted:
+    # A "minutes" figure of 60 or more cannot be a real answer and gives the distractor away, so it is
+    # not offered (the complement below takes its place).
+    if wrong_minutes < 60 and minutes_as_hundredths != answer_tuple and minutes_as_hundredths not in accepted:
         check(minutes_as_hundredths != answer_tuple, "minutes_as_hundredths collides with answer")
         accepted.append(minutes_as_hundredths)
 
@@ -109,6 +111,12 @@ def _build_distractors(D: int, minutes_rounded: int, degree_decimal: float, D_or
     if swapped != answer_tuple and swapped not in accepted:
         check(swapped != answer_tuple, "swapped collides with answer")
         accepted.append(swapped)
+
+    # complement: measured the minutes back from the next whole degree instead of forward from this one.
+    if 0 < minutes_rounded < 60:
+        complement = (D, 60 - minutes_rounded)
+        if complement != answer_tuple and complement not in accepted:
+            accepted.append(complement)
 
     return [_format_dms(d, m) for d, m in accepted[:3]]
 

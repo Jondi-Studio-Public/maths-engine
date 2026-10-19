@@ -583,14 +583,14 @@ def earnings(rng, kind="wages"):
     if kind == "wages":
         answer = rate * hours
         text = f"A worker earns ${rate} per hour for {hours} hours. Find the gross wage."
-        working = [f"Gross wage = {rate} × {hours} = ${answer}."]
+        working = [f"Gross wage = {rate} × {hours} = ${answer:,}."]
     else:
         overtime = rng.randint(2, 10)
         multiplier = rng.choice((1.5, 2))
         answer = rate * hours + rate * multiplier * overtime
         text = f"A worker earns ${rate}/h for {hours} regular hours plus {overtime} hours at {multiplier:g}× rates. Find gross pay."
         working = [
-            f"Regular pay plus overtime pay = ${rate * hours} + ${rate * multiplier * overtime:g} = ${answer:g}."
+            f"Regular pay plus overtime pay = ${rate * hours:,} + ${rate * multiplier * overtime:,g} = ${answer:,g}."
         ]
     return _number(
         text,
@@ -608,12 +608,12 @@ def financial_interest(rng, kind="simple"):
     years = rng.randint(2, 5)
     if kind == "simple":
         answer = principal * rate * years / 100
-        text = f"Find the simple interest on ${principal} at {rate}% p.a. for {years} years."
-        working = [f"I = Prt = {principal} × {rate / 100:g} × {years} = ${answer:g}."]
+        text = f"Find the simple interest on ${principal:,} at {rate}% p.a. for {years} years."
+        working = [f"I = Prt = {principal:,} × {rate / 100:g} × {years} = ${answer:,g}."]
     else:
         answer = round(principal * (1 + rate / 100) ** years, 2)
-        text = f"Find the balance of ${principal} invested at {rate}% p.a., compounded annually for {years} years. Give your answer to the nearest cent."
-        working = [f"A = P(1+r)^n = {principal}(1+{rate / 100:g})^{years} = ${answer:.2f}."]
+        text = f"Find the balance of ${principal:,} invested at {rate}% p.a., compounded annually for {years} years. Give your answer to the nearest cent."
+        working = [f"A = P(1+r)^n = {principal:,}(1+{rate / 100:g})^{years} = ${answer:,.2f}."]
     return _number(
         text,
         answer,
@@ -648,12 +648,12 @@ def flat_loan_repayment(rng):
     total = principal * (1 + annual_rate * years / 100)
     answer = round(total / months, 2)
     return _number(
-        f"A ${principal} flat-interest loan charges {annual_rate}% of principal per year for {years} years. Find the monthly repayment to the nearest cent.",
+        f"A ${principal:,} flat-interest loan charges {annual_rate}% of principal per year for {years} years. Find the monthly repayment to the nearest cent.",
         answer,
         [round(principal / months, 2), round(total / years, 2), round(answer * 12, 2), round(answer * 1.1, 2)],
         aligned=True,
         places=2,
-        working=[f"Total repayable is ${total:.2f}; divide by {months} months to get ${answer:.2f}."],
+        working=[f"Total repayable is ${total:,.2f}; divide by {months} months to get ${answer:,.2f}."],
     )
 
 

@@ -8,7 +8,12 @@ expressions, then re-derived with sympy substitution written fresh here.
 import re
 
 import pytest
-from sympy import sympify, symbols
+from sympy import symbols
+from sympy.parsing.sympy_parser import (
+    implicit_multiplication_application,
+    parse_expr,
+    standard_transformations,
+)
 
 from mathgen import make
 
@@ -21,8 +26,13 @@ _x = symbols("x")
 
 
 def _parse_poly(prose: str):
-    py_text = prose.replace("^", "**").replace("·", "*")
-    return sympify(py_text, locals={"x": _x})
+    # The prose writes a product by juxtaposition ("3x^2"), so parse with implicit multiplication.
+    py_text = prose.replace("^", "**")
+    return parse_expr(
+        py_text,
+        local_dict={"x": _x},
+        transformations=standard_transformations + (implicit_multiplication_application,),
+    )
 
 
 _EASY_MEDIUM_RE = re.compile(r"^f\(x\) = (?P<f>.+?)\. Using x = (?P<p>-?\d+) and the fixed step h = (?P<h>-?\d+)")

@@ -22,7 +22,7 @@ def questions():
 
 
 def _facts(q):
-    p = int(re.search(r"\$(\d+)", q.stem).group(1))
+    p = int(re.search(r"\$(\d[\d,]*)", q.stem).group(1).replace(",", ""))  # the stem writes $5,600
     rate = Fraction(re.search(r"(\d+(?:\.\d+)?)% p\.a\.", q.stem).group(1))
     months = int(re.search(r"(\d+) months", q.stem).group(1))
     shorter = int(re.search(r"in (\d+) months instead", q.parts[2].prompt).group(1))
