@@ -209,7 +209,7 @@ def _easy(rng: random.Random):
             ("What is the coefficient of ", " in the Maclaurin expansion of "),
         ]
     )
-    prompt = say(ask[0], M(f"x^{{{k}}}"), ask[1], M(rf"f(x) = {series.tex}"), "?" if ask[0].startswith("What") else ".")
+    prompt = say(ask[0], M(f"x^{{{k}}}"), ask[1], M(rf"f(x) = {series.tex}"), ".")
     working = _easy_working(name, a, k, value)
     return prompt, Link(prompt, "fraction", value, working=working, wrongs=wrongs), order
 

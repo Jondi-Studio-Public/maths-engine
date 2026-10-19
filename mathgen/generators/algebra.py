@@ -509,23 +509,8 @@ def simultaneous(rng, sol_hi=8, coef_hi=5):
     return dict(
         text=f"Solve the simultaneous equations: {e1} and {e2}",
         latex=rf"\begin{{cases}} {latex(eqs[0])} \ {latex(eqs[1])} \end{{cases}}",
-        working=_simultaneous_working(a1, b1, c1, a2, b2, c2, x0, y0),
         **xy_solution(x0, y0),
     )
-
-
-def _simultaneous_working(a1, b1, c1, a2, b2, c2, x0, y0):
-    """Elimination working shared by the simultaneous-equations skills: remove x, solve for y, then back-substitute."""
-    det = a1 * b2 - a2 * b1
-    num = a1 * c2 - a2 * c1
-    rest = c1 - b1 * y0
-    lead = join_terms([(a1, "x")])
-    return [
-        f"Eliminate x: equation 2 × {paren_negative(a1)} minus equation 1 × {paren_negative(a2)} gives {join_terms([(det, 'y')])} = {num}.",
-        f"y = {num} / {paren_negative(det)} = {y0}.",
-        f"Substitute y = {y0} into equation 1: {lead} = {c1} - {paren_negative(b1)} × {paren_negative(y0)} = {rest}.",
-        f"x = {rest} / {paren_negative(a1)} = {x0}.",
-    ]
 
 
 def _roots_text(roots):
