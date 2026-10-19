@@ -112,12 +112,11 @@ _LOAN_PURPOSES = (
     "a block of units",
     "a rural property",
     "a shop",
-    "a farm",
     "a holiday home",
 )
 
 
-def _loan(rng, lo=6, hi=60):
+def _loan(rng, lo=20, hi=60):
     return Fraction(rng.randint(lo, hi) * _PRINCIPAL_UNIT)
 
 
@@ -235,7 +234,7 @@ def _iol_total_repaid(rng):
 
 
 def _iol_loan_from_payment(rng):
-    k = rng.randint(6, 60)
+    k = rng.randint(20, 60)
     loan = Fraction(k * _PRINCIPAL_UNIT)
     r = _rate(rng)
     monthly = loan * r / 1200
@@ -325,7 +324,7 @@ def _iol_rate_change(rng):
 
 
 def _iol_rate_rise(rng):
-    k = rng.randint(6, 60)
+    k = rng.randint(20, 60)
     loan = Fraction(k * _PRINCIPAL_UNIT)
     r1 = _rate(rng)
     rise = Fraction(rng.choice((1, 2, 3, 4))) / 2
@@ -345,7 +344,7 @@ def _iol_rate_rise(rng):
     enough(d, 3)
     text = (
         f"A borrower has an interest-only loan. The interest rate is {pct_text(r1)}% per annum. When the rate rises by {pct_text(rise)} percentage "
-        f"points, the monthly payment increases by {dollars(extra)}. What was the monthly payment before the rise, in dollars?"
+        f"{'point' if rise == 1 else 'points'}, the monthly payment increases by {dollars(extra)}. What was the monthly payment before the rise, in dollars?"
     )
     working = [
         f"Extra yearly interest = 12 × {dollars(extra)} = {dollars(extra * 12)}, which is {pct_text(rise)}% of the loan, so the loan is {dollars(loan)}.",
@@ -355,7 +354,7 @@ def _iol_rate_rise(rng):
 
 
 def _iol_lump_sum(rng):
-    loan = _loan(rng, 10, 60)
+    loan = _loan(rng)
     r = _rate(rng)
     n = rng.randint(6, 12)
     k = rng.randint(2, n - 2)
@@ -410,7 +409,7 @@ def exd_x_w3_interest_only_loan(rng, tier="exam"):
         raise ValueError(f"unknown tier {tier!r}")
 
     def build(rng):
-        loan, r = _loan(rng, 10, 60), _rate(rng)
+        loan, r = _loan(rng), _rate(rng)
         n = rng.randint(4, 10)
         lump = Fraction(rng.randint(1, 5) * _PRINCIPAL_UNIT)
         if lump >= loan / 2:
@@ -645,7 +644,7 @@ def _ann_interest(rng):
 
 
 _PER_YEAR = {"monthly": 12, "quarterly": 4, "half-yearly": 2}
-_CONV_RATES = {"monthly": (6, 12, 18, 24), "quarterly": (4, 8, 12, 16), "half-yearly": (4, 6, 8, 10)}
+_CONV_RATES = {"monthly": (6,), "quarterly": (4, 6, 8, 10), "half-yearly": (4, 6, 8, 10)}
 
 
 def _conv_case(rng, kind=None):

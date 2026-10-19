@@ -61,10 +61,12 @@ misconceptions:
   description: Divides the selling price by the cost and gives that as the percentage profit, forgetting to subtract 100%.
 - id: pm-dollars-for-percent
   description: Gives the profit in dollars where a percentage was asked.
-- id: pm-profit-over-100
-  description: Divides the profit by 100 instead of by the cost.
 - id: pm-loss-on-selling-price
   description: Finds the loss as a percentage of the selling price instead of the cost.
+- id: pm-ratio-inverted
+  description: Divides the cost price by the selling price.
+- id: pm-over-average
+  description: Divides the profit or loss by the average of the cost and the selling price.
 - id: pm-per-item-only
   description: Gives the profit on one item where the profit on the whole batch was asked.
 - id: pm-revenue-for-profit
