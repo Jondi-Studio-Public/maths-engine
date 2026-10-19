@@ -939,7 +939,7 @@ def _attrs_for(shape, type_name):
 # builder): every internal node's test genuinely splits the types that can
 # still reach it, so both branches are reachable and no test's answer is
 # ever already forced by an earlier test on the same path.
-#   easy:   sides3? -> equal_sides? (triangle only) / single quad bin.
+#   easy:   sides3? -> equal_sides? on both branches (four bins, so four options).
 #   medium: + right_angle, on BOTH branches (square/rhombus/rectangle/
 #           parallelogram all differ on it; equilateral+right_angle is
 #           impossible, so that leaf is terminal one level earlier).
@@ -951,7 +951,11 @@ def _attrs_for(shape, type_name):
 #           not right" quad branch to split off kite (no parallel pair at
 #           all) before the hard tier's own second-pair question -- a step
 #           the hard tier never asks.
-_TREE_EASY = _node("sides3", _node("equal_sides", _leaf("Bin A"), _leaf("Bin B")), _leaf("Bin C"))
+_TREE_EASY = _node(
+    "sides3",
+    _node("equal_sides", _leaf("Bin A"), _leaf("Bin B")),
+    _node("equal_sides", _leaf("Bin C"), _leaf("Bin D")),
+)
 
 _TREE_MEDIUM = _node(
     "sides3",

@@ -557,8 +557,8 @@ def compare_by_paper_clips(rng, tier="easy"):
 
         answer_text = pair(key)
         others = [p for p in itertools.combinations(labels, 2) if set(p) != set(key) and set(p) != set(trap)]
-        cands = [pair(trap), pair(rng.choice(others)), pair(rng.choice(others))]
-        distractors = pick_distractors(answer_text, cands, n=2)
+        cands = [pair(trap), pair(rng.choice(others)), pair(rng.choice(others)), *map(pair, others)]
+        distractors = pick_distractors(answer_text, cands, n=3)
         working = [f"Count the {uname}s: two are the same. The ends are not at the same place for the same length."]
         return _finish(fig, text, answer_text, distractors, working, _read_clips)
     pair_q = len(objs) == 2

@@ -400,7 +400,7 @@ def ey_graph_dilation(rng, tier="easy"):
         )
         f0 = _f0(kind, m, s)
         key = frac_text(c)
-        wrong = [1 / c, c - 1, c * f0, f0 * c - f0]
+        wrong = [1 / c, c - 1, c * f0, f0 * c - f0, -c, c + 1, 1 / (c + 1)]
         working = [
             f"The y-intercept of f is {f0} and the y-intercept of g is {c * f0}.",
             f"c = {c * f0} / {f0} = {frac_text(c)}.",
