@@ -30,6 +30,8 @@ Brand new module; no existing generator is edited.
 
 from __future__ import annotations
 
+import re as _re
+
 import sympy
 from sympy import I, diff, im, re, sin, symbols
 
@@ -54,11 +56,16 @@ def _fmt(expr) -> str:
     display benefit: `expand` is idempotent on an already-expanded
     expression, so the string is unchanged for every non-trig value this
     module ever formats, and for the trig ones it is dramatically cheaper."""
-    return str(sympy.expand(expr)).replace("**", "^")
+    return _imaginary_i(str(sympy.expand(expr)).replace("**", "^"))
 
 
 def _text_fmt(expr) -> str:
-    return str(sympy.expand(expr)).replace("**", "^").replace("*", "·")
+    return _imaginary_i(str(sympy.expand(expr)).replace("**", "^").replace("*", "·"))
+
+
+def _imaginary_i(text: str) -> str:
+    """SymPy writes the imaginary unit as `I`; the stems (and a learner) write `i`."""
+    return _re.sub(r"\bI\b", "i", text)
 
 
 def _eq(a, b) -> bool:

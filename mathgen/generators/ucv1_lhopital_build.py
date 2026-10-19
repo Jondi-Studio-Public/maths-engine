@@ -309,7 +309,7 @@ def _easy_poly_linear(rng):
         _near(c),
         [
             f"At x = {c} the numerator and denominator are both 0, so L'Hôpital's rule applies.",
-            f"The numerator differentiates to {poly_tex(d)} and the denominator to 1.",
+            f"The numerator differentiates to {_poly_plain(d)} and the denominator to 1.",
             f"Substituting x = {c} gives {rational_text(value)}.",
         ],
         [
@@ -318,6 +318,11 @@ def _easy_poly_linear(rng):
             (_q(slip), "calc-power-rule-exponent-dropped"),
         ],
     )
+
+
+def _poly_plain(coeffs) -> str:
+    """`poly_tex` as plain text for a worked line: ``x^3 - 2x + 5`` rather than ``x^{3} - 2x + 5``."""
+    return re.sub(r"\^\{(\d+)\}", r"^\1", poly_tex(coeffs))
 
 
 def _easy_poly_quadratic(rng):
@@ -340,7 +345,7 @@ def _easy_poly_quadratic(rng):
         _near(c),
         [
             f"At x = {c} the numerator and denominator are both 0, so L'Hôpital's rule applies.",
-            f"The numerator differentiates to {poly_tex(_pder(coeffs))} and the denominator to 2x.",
+            f"The numerator differentiates to {_poly_plain(_pder(coeffs))} and the denominator to 2x.",
             f"At x = {c} the ratio is {_eq(f'{n_prime}/{2 * c}', value)}.",
         ],
         [

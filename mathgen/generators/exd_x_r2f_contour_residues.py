@@ -22,7 +22,12 @@ from sympy import I, Rational, pi
 
 from ..core import attempts, check, generator, join_terms, paren_negative, rational_text
 from ._exd_distinct_parts import distinct_part_answers
-from .exd_x_r2f_common import expr_part, frac_part
+from .exd_x_r2f_common import expr_part, frac_part, typed
+
+
+def _pi_i(value) -> str:
+    """An integral such as 12 i pi as it is written on paper: ``12πi`` (the key itself stays typeable)."""
+    return typed(value).replace("*i*pi", "πi").replace("i*pi", "πi")
 
 
 def _circle(c0: int, r: Rational) -> str:
@@ -107,14 +112,14 @@ def exd_x_r2f_contour_residues(rng: random.Random, tier: str = "exam") -> dict:
         "Hence evaluate the contour integral of f around C.",
         integral_c,
         1,
-        [f"Integral = 2πi × Res = 2πi × {rational_text(res_p)} = {sympy.sstr(integral_c)}."],
+        [f"Integral = 2πi × Res = 2πi × {rational_text(res_p)} = {_pi_i(integral_c)}."],
         [
             ("forgets-2-pi-i", res_p),
             ("forgets-i-in-residue-theorem", sympy.expand(2 * pi * res_p)),
             ("integral-sign-error", -integral_c),
             ("uses-pi-i-not-2-pi-i", sympy.expand(pi * I * res_p)),
         ],
-        follow_through="2*pi*I*part_b",
+        follow_through="2*pi*i*part_b",
     )
     d_part = expr_part(
         f"Hence evaluate the contour integral of f around the larger circle {big_text}, traversed once anticlockwise.",
@@ -122,7 +127,7 @@ def exd_x_r2f_contour_residues(rng: random.Random, tier: str = "exam") -> dict:
         2,
         [
             f"This circle encloses both poles, so the integral is 2πi × (Res at z = {p} + Res at z = {q}).",
-            f"Res at z = {q} is {rational_text(res_q)}, so the integral is 2πi × {a} = {sympy.sstr(integral_big)}.",
+            f"Res at z = {q} is {rational_text(res_q)}, so the integral is 2πi × {a} = {_pi_i(integral_big)}.",
         ],
         [
             ("ignores-pole-enclosed-by-larger-contour", integral_c),
@@ -130,6 +135,6 @@ def exd_x_r2f_contour_residues(rng: random.Random, tier: str = "exam") -> dict:
             ("assumes-zero-outside", sympy.Integer(0)),
             ("residue-at-wrong-pole", sympy.expand(2 * pi * I * res_q)),
         ],
-        follow_through=f"part_c + 2*pi*I*({a}*({q}) + {b})/(({q}) - part_a)",
+        follow_through=f"part_c + 2*pi*i*({a}*({q}) + {b})/(({q}) - part_a)",
     )
     return dict(text=stem, parts=[a_part, b_part, c_part, d_part])

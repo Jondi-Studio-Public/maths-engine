@@ -8,6 +8,8 @@ text repeats an earlier candidate's, and keeps the first three.
 
 from __future__ import annotations
 
+import re
+
 import sympy
 from sympy import Rational
 
@@ -42,8 +44,9 @@ def same_expression(a, b) -> bool:
 
 
 def typed(expr) -> str:
-    """An expression as a learner would type it: SymPy's text with `^` for powers and `ln` for its natural log."""
-    return str(expr).replace("**", "^").replace("log(", "ln(")
+    """An expression as a learner would type it: SymPy's text with `^` for powers, `ln` for its natural log and
+    `i` (not SymPy's `I`) for the imaginary unit."""
+    return re.sub(r"\bI\b", "i", str(expr).replace("**", "^").replace("log(", "ln("))
 
 
 def _rational(value):

@@ -21,7 +21,7 @@ import random
 from sympy import Integer, Rational, exp, log, pi
 
 from ..core import check, generator
-from .exd_x_r2f_common import expr_part
+from .exd_x_r2f_common import expr_part, typed
 
 _LENGTHS = (6, 8, 10, 12, 15, 18, 20, 24, 30)
 
@@ -30,6 +30,11 @@ def _argument(n: int, length: int) -> str:
     """ "nπx/L" with n/L in lowest terms, as it would be written: πx/12, 3πx/10."""
     ratio = Rational(n, length)
     return f"{'' if ratio.p == 1 else ratio.p}πx/{ratio.q}"
+
+
+def _paper(value) -> str:
+    """A multiple of pi as written on paper: ``7π²/576`` rather than SymPy's ``7*pi**2/576``."""
+    return typed(value).replace("pi^2", "π²").replace("*π", "π").replace("*pi", "π").replace("pi", "π")
 
 
 @generator(
@@ -61,6 +66,7 @@ def exd_x_r2f_heat_rod_mode(rng: random.Random, tier: str = "exam") -> dict:
     check(c * exp(-lam * half) * (n * pi / length if dirichlet else 1) == end_val, "boundary value disagrees")
 
     arg = _argument(n, length)
+    n_pi = "π" if n == 1 else f"{n}π"
     if dirichlet:
         condition = f"its ends held at temperature 0, so that u(0, t) = u({length}, t) = 0"
         form = f"u(x, t) = {c} e^(−λt) sin({arg})"
@@ -76,7 +82,10 @@ def exd_x_r2f_heat_rod_mode(rng: random.Random, tier: str = "exam") -> dict:
         "Find the value of λ.",
         lam,
         2,
-        [f"Substituting into u_t = {alpha}u_xx gives λ = {alpha}(nπ/L)² with nπ/L = {n}π/{length}.", f"λ = {lam}."],
+        [
+            f"Substituting into u_t = {alpha}u_xx gives λ = {alpha}(nπ/L)² with nπ/L = {n_pi}/{length}.",
+            f"λ = {_paper(lam)}.",
+        ],
         [
             ("drops-the-square", Rational(alpha * n, length * length) * pi**2),
             ("drops-alpha", Rational(n * n, length * length) * pi**2),
@@ -99,7 +108,7 @@ def exd_x_r2f_heat_rod_mode(rng: random.Random, tier: str = "exam") -> dict:
     )
     if dirichlet:
         c_prompt = "Find the exact value of u_x(0, T), where T is the time found in part (b)."
-        c_work = [f"u_x(0, t) = {c}(nπ/L)e^(−λt), so u_x(0, T) = {c}({n}π/{length}) × 1/2 = {end_val}."]
+        c_work = [f"u_x(0, t) = {c}(nπ/L)e^(−λt), so u_x(0, T) = {c}({n_pi}/{length}) × 1/2 = {_paper(end_val)}."]
         c_cands = [
             ("drops-exponential-factor", c * n * pi / length),
             ("forgot-inner-derivative", Rational(c, 2)),
@@ -109,7 +118,7 @@ def exd_x_r2f_heat_rod_mode(rng: random.Random, tier: str = "exam") -> dict:
         c_ft = f"{c}*{n}*pi/{length}*exp(-part_a*part_b)"
     else:
         c_prompt = "Find the exact value of u(0, T), where T is the time found in part (b)."
-        c_work = [f"u(0, t) = {c} e^(−λt), so u(0, T) = {c} × 1/2 = {end_val}."]
+        c_work = [f"u(0, t) = {c} e^(−λt), so u(0, T) = {c} × 1/2 = {_paper(end_val)}."]
         c_cands = [
             ("drops-exponential-factor", Integer(c)),
             ("sign-error-exponent", Integer(2 * c)),

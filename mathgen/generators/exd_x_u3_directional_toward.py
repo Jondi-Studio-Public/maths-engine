@@ -19,6 +19,7 @@ from fractions import Fraction
 import sympy
 
 from mathgen.answers import Distractor
+from mathgen.generators._fy1ms_common import plain_expr
 from mathgen.core import (
     GRADER_TOLERANCE,
     attempts,
@@ -43,6 +44,11 @@ _SETTINGS = [
 ]
 _UNITS = ["metres per kilometre", "metres per hundred metres", "degrees Celsius per centimetre"]
 _X, _Y = sympy.symbols("x y")
+
+
+def _plain(expr) -> str:
+    """A derivative as the stem writes f: ``-4xy + 4y + 5`` and ``-2x^2 + 4x + 8y``, not SymPy's ``-4*x*y``."""
+    return plain_expr(expr).replace("²", "^2").replace("³", "^3")
 
 
 def _dp2(value: Fraction) -> Fraction:
@@ -152,7 +158,7 @@ def exd_x_u3_directional_toward(rng, tier: str = "exam") -> dict:
                 answer_text=a_text,
                 answer_latex=latex_answer(a_text),
                 marks=2,
-                working=[f"f_x = {sympy.sstr(sympy.diff(f, _X))}, so f_x({x0}, {y0}) = {g1}."],
+                working=[f"f_x = {_plain(sympy.diff(f, _X))}, so f_x({x0}, {y0}) = {g1}."],
                 distractors=a_d,
             ),
             dict(
@@ -162,7 +168,7 @@ def exd_x_u3_directional_toward(rng, tier: str = "exam") -> dict:
                 answer_text=b_text,
                 answer_latex=latex_answer(b_text),
                 marks=2,
-                working=[f"f_y = {sympy.sstr(sympy.diff(f, _Y))}, so f_y({x0}, {y0}) = {g2}."],
+                working=[f"f_y = {_plain(sympy.diff(f, _Y))}, so f_y({x0}, {y0}) = {g2}."],
                 distractors=b_d,
             ),
             dict(
