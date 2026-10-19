@@ -301,15 +301,20 @@ def test_inverse_medium_and_hard():
                     twice = all(apply(text, apply(text, v)) == v for v in (3, 7, 11))
                     assert twice is good, (seed, text)
                 continue
+            if m := re.search(r"(\d+)x ([+-]) (\d+) = (\d+)", q.text):
+                a_, sign, b_, c_ = int(m.group(1)), m.group(2), int(m.group(3)), int(m.group(4))
+                x_true = Fr(c_ - b_ if sign == "+" else c_ + b_, a_)
+                assert _chain(q.answer_text)(Fr(c_)) == x_true, (seed, q.text, q.answer_text)
+                for d in q.distractors:
+                    assert _chain(d)(Fr(c_)) != x_true, (seed, q.text, d)
+                continue
             steps_text = re.search(
-                r"(?:in order(?: to x)?|machine that does|through these steps in order): (.+?)\.(?: |$)", q.text
+                r"(?:in order(?: to x)?|machine that does|through these steps in order|steps to x in order): (.+?)\.(?: |$)",
+                q.text,
             ).group(1)
             fwd = _chain(steps_text)
             if q.answer_text.startswith("x = "):
-                out = int(
-                    re.search(r"output of a machine is (\d+)|output is (\d+)", q.text).group(1)
-                    or re.search(r"output is (\d+)", q.text).group(1)
-                )
+                out = int(re.search(r"output(?: of a machine)?(?: is)? (\d+)", q.text).group(1))
                 val = Fr(sympy.Rational(q.answer_text.removeprefix("x = ")))
                 assert fwd(val) == out, (seed, q.text, q.answer_text)
                 for d in q.distractors:
@@ -465,11 +470,17 @@ def test_identity_exam():
     for seed in range(60):
         q = sup.exam("exd_x_w5_identity_no_solution", seed)
         pa, pb, pc = q.parts
-        a, p = (int(v) for v in re.search(r"equation (\d+)\(x \+ (\d+)\) = \d+x \+ k", _stem(q)).groups())
+        m = re.search(r"equation (\d+)\(x \+ (\d+)\)(?: ([+-]) (\d+))? = \d+x \+ k", _stem(q))
+        a, p = int(m.group(1)), int(m.group(2))
+        q0 = 0 if m.group(3) is None else (int(m.group(4)) if m.group(3) == "+" else -int(m.group(4)))
         kk = int(re.search(r"k = (-?\d+)", pa.prompt).group(1))
-        left = sympy.expand(a * (X + p))
-        assert pa.answer_text == _describe(left, a * X + kk)
-        assert int(pb.answer_text) == a * p
+        left = sympy.expand(a * (X + p) + q0)
+        r = int(left.subs(X, 0))
+        assert _describe(left, a * X + kk) == "No solution"
+        assert pa.answer_text == f"No solution, because {r} = {kk} is false"
+        for d in pa.distractors:  # every wrong option states a verdict that differs from "no solution"
+            assert d.split(",")[0] != "No solution", d
+        assert int(pb.answer_text) == r
         assert _describe(left, a * X + int(pb.answer_text)) == "Every number is a solution"
         assert pc.answer_text == "No solution"
 
@@ -546,10 +557,18 @@ def test_check_exam():
         left, right = _sides(eq)
         pa, pb, pc, pd = q.parts
         L, R = left.subs(X, v), right.subs(X, v)
-        assert L != R
         assert int(pa.answer_text) == L and int(pb.answer_text) == R
-        assert pc.answer_text == f"No: the sides are not equal ({L} and {R})"
         (s,) = sympy.solve(left - right, X)
-        assert pd.answer_text == f"x = {s}"
-        for d in pd.distractors:
-            assert sympy.simplify((left - right).subs(X, sympy.Rational(d.removeprefix("x = ")))) != 0
+        if L == R:  # the proposed value is the solution
+            assert v == s
+            assert pc.answer_text == f"Yes: both sides equal {L}"
+            assert pd.answer_text == f"x = {v} is the only solution"
+            for d in pc.distractors:  # the verdict is yes with the right value, so each wrong option differs
+                assert d != pc.answer_text and (d.startswith("No") or f"equal {L}" not in d), d
+            for d in pd.distractors:
+                assert d.startswith(("Every number", "There is no solution", f"x = {v} and x = ")), d
+        else:
+            assert pc.answer_text == f"No: the sides are not equal ({L} and {R})"
+            assert pd.answer_text == f"x = {s}"
+            for d in pd.distractors:
+                assert sympy.simplify((left - right).subs(X, sympy.Rational(d.removeprefix("x = ")))) != 0

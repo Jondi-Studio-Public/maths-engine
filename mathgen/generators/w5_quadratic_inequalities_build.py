@@ -32,7 +32,7 @@ from fractions import Fraction as Fr
 
 import sympy
 
-from ..core import attempts, check, generator, join_terms, phrase
+from ..core import attempts, check, generator, join_terms, paren_negative, phrase
 from ._w5_kit import (
     TooFewDistractors,
     enough,
@@ -384,13 +384,13 @@ def _hard_surd(rng):
 
 _MODELS = (
     (
-        "A ball is thrown upward from a platform. Its height in metres, t seconds after the throw (t ≥ 0), is h = {e}.",
+        "A ball is thrown upward from a platform. Its height in metres, t seconds after the throw (0 ≤ t ≤ {T}, until it lands), is h = {e}.",
         "h",
         "t",
         "metres",
     ),
     (
-        "A stone is launched from a cliff. Its height above the sea in metres, after t seconds (t ≥ 0), is h = {e}.",
+        "A stone is launched from a cliff. Its height above the sea in metres, after t seconds (0 ≤ t ≤ {T}, until it lands in the sea), is h = {e}.",
         "h",
         "t",
         "metres",
@@ -401,19 +401,34 @@ _MODELS = (
 
 def _hard_model(rng):
     pat, out_var, in_var, unit = rng.choice(_MODELS)
-    for _ in attempts(500, "a model with two crossing values"):
-        r1, r2 = sorted(rng.sample(range(0, 16), 2))
-        if r2 - r1 >= 3:
-            break
-    a = rng.choice((1, 2, 5)) if out_var == "h" else rng.choice((1, 2, 3, 5))
-    level = rng.choice((0, 5, 10, 15, 20, 30, 40))
+    height = out_var == "h"
+    if height:
+        # model = -a(t - r1)(t - r2) + level, with the landing time T (an integer) beyond r1 + r2 so that the height at
+        # t = 0 is positive: level = a(T - r1)(T - r2) makes the height zero at t = T.
+        r1 = rng.randint(1, 5)
+        r2 = r1 + rng.randint(3, 6)
+        T = r1 + r2 + rng.randint(1, 3)
+        a = rng.choice((1, 2))
+        level = a * (T - r1) * (T - r2)
+        domain = sympy.Interval(0, T)
+    else:
+        r1 = rng.randint(3, 8)
+        r2 = r1 + rng.randint(3, 6)
+        T = None
+        a = rng.choice((1, 2, 3, 5))
+        level = rng.choice((5, 10, 15, 20, 30, 40))
+        domain = sympy.Interval(0, _OO)
     A, B, C = -a, a * (r1 + r2), -a * r1 * r2 + level  # model = -a(t - r1)(t - r2) + level
     above = rng.random() < 0.65
     op = ">" if above else "<"
     f = lambda t: -a * (t - r1) * (t - r2)  # noqa: E731  (the model minus the level)
-    domain = sympy.Interval(0, _OO)
     solution = sinter(solve_sign(f, [Fr(r1), Fr(r2)], [], op), domain)
-    verify(f, op, solution, [Fr(r1), Fr(r2)], extra=[Fr(0), Fr(1, 3)], floor=Fr(0))
+    if height:
+        check(C > 0 and A * T * T + B * T + C == 0, "the height at the start or the landing time is wrong")
+        bounded = lambda t: f(t) if t <= T else None  # noqa: E731
+    else:
+        bounded = f
+    verify(bounded, op, solution, [Fr(r1), Fr(r2)], extra=[Fr(0), Fr(1, 3)], floor=Fr(0))
     fields = ineq_fields(solution, in_var)
     cands = ineq_cands(
         fields,
@@ -422,7 +437,7 @@ def _hard_model(rng):
             (
                 sympy.Interval(sym(r1), sym(r2))
                 if above
-                else sunion(sympy.Interval(0, sym(r1)), sympy.Interval(sym(r2), _OO)),
+                else sunion(sympy.Interval(0, sym(r1)), sinter(sympy.Interval(sym(r2), _OO), domain)),
                 "w5qi-strictness-swapped",
             ),
             (sinter(_ray(">", r2), domain) if above else sympy.Interval.open(0, sym(r1)), "w5qi-one-factor-only"),
@@ -432,12 +447,15 @@ def _hard_model(rng):
     enough(cands)
     expr = join_terms([(A, f"{in_var}^2"), (B, in_var), (C, "")])
     word = "more than" if above else "less than"
+    limit = f"0 ≤ {in_var} ≤ {T}" if height else f"{in_var} ≥ 0"
     work = [
         f"Reaching {level} {unit} means {expr} = {level}, which is {-a}({in_var} - {r1})({in_var} - {r2}) = 0.",
         f"The roots are {in_var} = {r1} and {in_var} = {r2} and the parabola opens downward.",
-        f"{out_var} is {word} {level} when: {fields['answer_text']} (with {in_var} ≥ 0).",
+        f"{out_var} is {word} {level} when: {fields['answer_text']} (with {limit}).",
     ]
-    stem = f"{pat.format(e=expr)} For which values of {in_var} is {out_var} {word} {level} {unit}? {rng.choice(_ASK)}"
+    stem = (
+        f"{pat.format(e=expr, T=T)} For which values of {in_var} is {out_var} {word} {level} {unit}? {rng.choice(_ASK)}"
+    )
     return dict(text=stem, working=work, distractors=cands, **fields)
 
 
@@ -529,7 +547,9 @@ def _quad_exam(rng):
                 v_fields["answer_kind"],
                 {k: val for k, val in v_fields.items() if k != "answer_kind"},
                 1,
-                [f"The turning point is halfway between the roots {p} and {q}: x = ({p} + {q})/2 = {rt(v)}."],
+                [
+                    f"The turning point is halfway between the roots {p} and {q}: x = ({p} + {paren_negative(q)})/2 = {rt(v)}."
+                ],
                 v_dist,
             ),
             part(

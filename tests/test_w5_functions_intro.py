@@ -258,11 +258,10 @@ def _expected_dr(text: str):
     ):
         xs = range(int(m.group(2)), int(m.group(3)) + 1)
         return sorted({int(v) for v in _fx(m.group(1), xs)})
-    if m := re.search(r"\b[VCA] = (.+?) (?:litres|dollars|square centimetres)", text):
+    if m := re.search(r"\b[VCA] = (.+?) (?:litres|dollars|square (?:centimetres|metres))", text):
         expr = m.group(1)
-        if "rectangle" in text.lower():
-            half = int(re.search(r"perimeter (\d+) cm", text).group(1)) // 2
-            ws = range(1, half)
+        if re.search(r"A = w\(\d+ - w\)", text):
+            ws = range(1, int(re.search(r"A = w\((\d+) - w\)", text).group(1)))
         else:
             ws = _listed(re.search(r"(?:Orders of|Trips of|t =) ([-\d, ]+)(?: packs| km| minutes)", text).group(1))
         var = next(v for v in "tndw" if re.search(rf"\b\d*{v}\b|\({v}|{v}\)", expr))

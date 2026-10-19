@@ -765,6 +765,27 @@ OPTION_NOTES_TOPICS = frozenset(
         "w7b_unit_cost_depreciation",
         "w7b_number_systems_primes",
         "w7b_floor_ceiling_estimation",
+        # w5 algebra batch
+        "w5_arithmetic_sequences",
+        "w5_check_substitution",
+        "w5_domain_range_intro",
+        "w5_equivalent_expressions",
+        "w5_function_concept",
+        "w5_identity_no_solution",
+        "w5_inequality_symbols",
+        "w5_inverse_operations",
+        "w5_meaning_of_equality",
+        "w5_proportional_relations",
+        "w5_solution_set",
+        "w5_trig_all_solutions",
+        "w5_variables_roles",
+        "w5_quadratic_inequality",
+        "w5_rational_inequality",
+        "w5_circle_complete_square",
+        "w5_circle_forms",
+        "w5_circle_point_position",
+        "w5_circle_tangent",
+        "w5_circle_unknown",
     }
 )
 
