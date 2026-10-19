@@ -151,7 +151,7 @@ def ey_graph_translation(rng, tier="easy"):
                 f"g is a vertical translation of f, with g(x) = f(x) + a. {scale} What is the value of a?",
             )
         )
-        key, wrong = str(a), [-a, k + a, k, -(k + a)]
+        key, wrong = str(a), [-a, k + a, k, -(k + a), a + 1, a - 1]
         working = [
             f"The vertex of f is at ({h}, {k}) and the vertex of g is at ({h}, {k + a}).",
             f"a = {k + a} - {pn(k)} = {a}.",
@@ -163,7 +163,7 @@ def ey_graph_translation(rng, tier="easy"):
                 f"g is a horizontal translation of f, with g(x) = f(x + b). {scale} What is the value of b?",
             )
         )
-        key, wrong = str(b), [-b, h - b, h, -(h - b)]
+        key, wrong = str(b), [-b, h - b, h, -(h - b), b + 1, b - 1]
         working = [
             f"The vertex of f is at x = {h} and the vertex of g is at x = {h - b}.",
             f"g(x) = f(x + b) moves the graph by -b, so -b = {h - b} - {pn(h)} = {-b} and b = {b}.",
@@ -182,7 +182,7 @@ def ey_graph_translation(rng, tier="easy"):
             f"A move of {-b} in x is f({arg('x', b)}) and a move of {a} in y adds {pn(a)}, so {key}.",
         ]
         wrong = [w for w in wrong if w != key]
-    distractors = mcq(key, [str(w) for w in wrong])
+    distractors = mcq(key, [str(w) for w in wrong], minimum=3)
     check(
         _read_translation(type("Q", (), {"figure": fig, "text": text})) == key,
         "the translation reader disagrees with the key",

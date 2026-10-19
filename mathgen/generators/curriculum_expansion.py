@@ -758,12 +758,21 @@ def complex_number(rng, kind="real_part"):
             working=["Keep the real part and reverse the sign of the imaginary part."],
         )
     if kind == "add":
+        while c == 0 and d == 0:  # adding 0 + 0i makes most wrong sums collapse onto the answer
+            c, d = rng.randint(-8, 8), rng.randint(-8, 8)
         answer = _cx(a + c, b + d)
         other = _cx(c, d)
         return _mcq(
             f"Calculate ({z}) + ({other}).",
             answer,
-            [_cx(a + c, abs(b - d)), _cx(a * c, abs(b * d)), _cx(a - c, abs(b - d))],
+            [
+                _cx(a + c, abs(b - d)),
+                _cx(a * c, abs(b * d)),
+                _cx(a - c, abs(b - d)),
+                # imaginary part's sign flipped, then the real part of one number added to the other's coefficient
+                _cx(a + c, -(b + d)),
+                _cx(a + d, b + c),
+            ],
             working=["Add real parts together and imaginary coefficients together."],
         )
     if kind == "multiply":
@@ -779,6 +788,8 @@ def complex_number(rng, kind="real_part"):
                 _cx(real, abs(a * d - b * c)),
                 _cx(real + 1, imag),
                 _cx(real, imag + (1 if imag >= 0 else -1)),
+                _cx(real, -imag),
+                _cx(a * c + b * d, imag),
             ],
             working=["Expand and use i² = −1, then collect real and imaginary parts."],
         )
