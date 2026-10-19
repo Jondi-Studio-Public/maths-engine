@@ -106,7 +106,7 @@ def rubric_of(answer: dict) -> dict:
     total. Deterministic; reads data only."""
     if not isinstance(answer, dict):
         raise MarkingError("an open-response answer is a rubric object")
-    unknown = set(answer) - {"reference", "criteria", "exemplars"}
+    unknown = set(answer) - {"reference", "criteria", "exemplars", "checks"}
     if unknown:
         raise MarkingError(f"unknown rubric field(s): {', '.join(sorted(map(str, unknown)))}")
     reference = _text(answer.get("reference"), "reference answer", limit=MAX_ANSWER_CHARS)
@@ -152,6 +152,9 @@ def rubric_of(answer: dict) -> dict:
             )
         entry["levels"].sort(key=lambda lv: -lv["marks"])
         criteria.append(entry)
+    checks = answer.get("checks")
+    if checks is not None and (not isinstance(checks, list) or not all(isinstance(c, str) and c for c in checks)):
+        raise MarkingError("checks must be a list of non-empty strings")
     total = sum(c["marks"] for c in criteria)
     exemplars = []
     for i, item in enumerate(answer.get("exemplars") or []):

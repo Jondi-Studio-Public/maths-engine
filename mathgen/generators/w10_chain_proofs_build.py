@@ -453,7 +453,7 @@ def w10_proof_irrational_surd_exam(rng):
 # ---------------------------------------------------------------------------------------------------------------
 # Odd and even
 # ---------------------------------------------------------------------------------------------------------------
-_K = ("k", "m", "t", "u")
+_K = ("k", "m", "t", "u", "v", "w")
 _KM = (("k", "m"), ("t", "u"), ("v", "w"))
 
 
@@ -572,7 +572,7 @@ def parity_product_of_odds(rng) -> dict:
 
 
 def parity_odd_square_minus_one(rng, k=None, c=None) -> dict:
-    c = pick(rng, (1, 3, 5, 7)) if c is None else c
+    c = pick(rng, (3, 5, 7)) if c is None else c
     k = pick(rng, _K) if k is None else k
     lo, hi = (c - 1) // 2, (c + 1) // 2
     a = f"{k}" if lo == 0 else f"({k}+{lo})"
@@ -613,7 +613,7 @@ def parity_odd_square_minus_one(rng, k=None, c=None) -> dict:
 
 
 def parity_quadratic_even(rng, k=None, c=None) -> dict:
-    c = pick(rng, (1, 3, 5, 7)) if c is None else c
+    c = pick(rng, (3, 5, 7)) if c is None else c
     k = pick(rng, _K) if k is None else k
     half = (c + 1) // 2
     ref = [
@@ -654,7 +654,7 @@ def parity_quadratic_even(rng, k=None, c=None) -> dict:
 
 
 def parity_odd_cube(rng) -> dict:
-    k = pick(rng, _K)
+    k = pick(rng, _K + ("r", "z", "y", "h"))
     ref = [
         f"(2*{k}+1)**3+(2*{k}+1)",
         f"8*{k}**3+12*{k}**2+8*{k}+2",
@@ -695,7 +695,7 @@ def parity_odd_cube(rng) -> dict:
 
 
 def parity_even_plus_one(rng, k=None, c=None) -> dict:
-    c = pick(rng, (1, 3, 5, 7)) if c is None else c
+    c = pick(rng, (3, 5, 7)) if c is None else c
     k = pick(rng, _K) if k is None else k
     ref = [f"(2*{k})**2+{c}*(2*{k})+1", f"4*{k}**2+{2 * c}*{k}+1", f"2*(2*{k}**2+{c}*{k})+1"]
     return dict(
@@ -760,8 +760,8 @@ def w10_proof_parity_exam(rng):
 # ---------------------------------------------------------------------------------------------------------------
 # Inequalities that reduce to a square: AM-GM
 # ---------------------------------------------------------------------------------------------------------------
-_AB = (("a", "b"), ("x", "y"), ("p", "q"), ("u", "v"))
-_XY3 = (("x", "y"), ("u", "v"), ("s", "t"))
+_AB = (("a", "b"), ("x", "y"), ("p", "q"), ("u", "v"), ("m", "n"), ("f", "g"), ("h", "k"))
+_XY3 = (("x", "y"), ("u", "v"), ("p", "q"))
 
 
 def amgm_sum_squares(rng) -> dict:
@@ -846,7 +846,7 @@ def amgm_scaled(rng, x=None, y=None, c=None, d=None, form=None) -> dict:
     if x is None:
         x, y = pick(rng, _XY3)
     if c is None:
-        c, d = rng.sample((1, 2, 3, 4), 2)
+        c, d = rng.sample((2, 3, 4, 5, 6), 2)
     if form is None:
         form = rng.randrange(2)
     if form:
@@ -902,8 +902,8 @@ def amgm_scaled(rng, x=None, y=None, c=None, d=None, form=None) -> dict:
 
 
 def amgm_reciprocal(rng) -> dict:
-    x = pick(rng, ("x", "t", "u"))
-    c = pick(rng, (2, 3, 4, 5, 6))
+    x = pick(rng, ("x", "t", "u", "m", "z", "w"))
+    c = pick(rng, (2, 3, 4, 5, 6, 7, 8, 9))
     ref = [f"{x}+{c * c}/{x}-{2 * c}", f"({x}**2+{c * c}-{2 * c}*{x})/{x}", f"({x}-{c})**2/{x}"]
     return dict(
         key="amgm_reciprocal",
@@ -934,7 +934,7 @@ def amgm_reciprocal(rng) -> dict:
 
 
 def amgm_ratio(rng) -> dict:
-    a, b = pick(rng, (("a", "b"), ("x", "y"), ("p", "q")))
+    a, b = pick(rng, _AB)
     ref = [f"{a}/{b}+{b}/{a}-2", f"({a}**2+{b}**2-2*{a}*{b})/({a}*{b})", f"({a}-{b})**2/({a}*{b})"]
     return dict(
         key="amgm_ratio",
@@ -1021,7 +1021,7 @@ def w10_proof_am_gm(rng, tier: str = "easy"):
 @generator("w10_proof_am_gm_exam", level=12, presets={"exam": {}})
 def w10_proof_am_gm_exam(rng):
     x, y = pick(rng, _XY3)
-    c, d = rng.sample((1, 2, 3, 4, 5), 2)
+    c, d = rng.sample((2, 3, 4, 5, 6), 2)
     first = amgm_scaled(rng, x=x, y=y, c=c, d=d, form=rng.randrange(2))
     cx = f"{c}*{x}" if c > 1 else x
     dy = f"{d}*{y}" if d > 1 else y
@@ -1074,12 +1074,12 @@ def w10_proof_am_gm_exam(rng):
 # ---------------------------------------------------------------------------------------------------------------
 # The triangle inequality
 # ---------------------------------------------------------------------------------------------------------------
-_AB_TRI = (("a", "b"), ("x", "y"), ("u", "v"), ("m", "n"))
+_AB_TRI = (("a", "b"), ("x", "y"), ("u", "v"), ("m", "n"), ("f", "g"), ("h", "k"), ("p", "q"))
 
 
 def tri_square_of_sum(rng) -> dict:
     a, b = pick(rng, _AB_TRI)
-    c, d = pick(rng, (1, 2, 3)), pick(rng, (1, 2, 3))
+    c, d = pick(rng, (1, 2, 3, 4)), pick(rng, (1, 2, 3, 4))
     ca = f"{c}*abs({a})" if c > 1 else f"abs({a})"
     db = f"{d}*abs({b})" if d > 1 else f"abs({b})"
     shown_a = f"{c}|{a}|" if c > 1 else f"|{a}|"
@@ -1131,7 +1131,7 @@ def tri_difference(rng, a=None, b=None, c=None) -> dict:
     if a is None:
         a, b = pick(rng, _AB_TRI)
     if c is None:
-        c = pick(rng, (1, 2, 3, 4))
+        c = pick(rng, (1, 2, 3, 4, 5))
     ca = f"{c}*abs({a})" if c > 1 else f"abs({a})"
     cb = f"{c}*{a}" if c > 1 else a
     ref = [
