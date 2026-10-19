@@ -2,7 +2,7 @@
 
 from sympy import Matrix, Rational, eye, latex
 
-from ..core import generator, check, pick_distractors, rational_text, xy_solution
+from ..core import generator, check, paren_negative, pick_distractors, rational_text, xy_solution
 
 
 def _mat_text(M):
@@ -23,6 +23,37 @@ def _unimodular(rng, n, shears=4, hi=3):
         S[0, 0] = -1
         M = M * S
     return M
+
+
+def _det3_working(M, ans):
+    """Cofactor expansion along the first row, with every 2 x 2 minor written out."""
+    pn = paren_negative
+
+    def minor(r, c):
+        (a, b), (d, e) = [[M[i, j] for j in range(3) if j != c] for i in range(3) if i != r]
+        return f"({pn(a)} × {pn(e)} - {pn(b)} × {pn(d)})", int(a * e - b * d)
+
+    terms = [minor(0, c) for c in range(3)]
+    line = f"det A = {pn(M[0, 0])} × {terms[0][0]} - {pn(M[0, 1])} × {terms[1][0]} + {pn(M[0, 2])} × {terms[2][0]}"
+    return [
+        "Expand along the first row: det A = a(ei - fh) - b(di - fg) + c(dh - eg).",
+        line,
+        f"= {pn(M[0, 0])} × {pn(terms[0][1])} - {pn(M[0, 1])} × {pn(terms[1][1])} + {pn(M[0, 2])} × {pn(terms[2][1])}",
+        f"= {ans}",
+    ]
+
+
+def _system_working(A, b_vec, x0, y0):
+    """Solve A x = b with the 2 x 2 inverse: x = (1/det) [[d, -b], [-c, a]] b."""
+    a, b, c, d = (int(A[0, 0]), int(A[0, 1]), int(A[1, 0]), int(A[1, 1]))
+    det = a * d - b * c
+    p, q = int(b_vec[0]), int(b_vec[1])
+    pn = paren_negative
+    return [
+        f"det A = {pn(a)} × {pn(d)} - {pn(b)} × {pn(c)} = {det}.",
+        f"x = (1/{pn(det)}) × ({pn(d)} × {pn(p)} - {pn(b)} × {pn(q)}) = {d * p - b * q}/{pn(det)} = {x0}.",
+        f"y = (1/{pn(det)}) × ({pn(a)} × {pn(q)} - {pn(c)} × {pn(p)}) = {a * q - c * p}/{pn(det)} = {y0}.",
+    ]
 
 
 @generator(
@@ -116,6 +147,7 @@ def matrices(rng, kinds=("determinant", "inverse", "system", "determinant3", "in
             answer=ans,
             answer_text=str(ans),
             answer_latex=str(ans),
+            working=_det3_working(M, ans),
             distractors=pick_distractors(str(ans), [str(allplus), str(-ans), str(down_only), str(up_only), str(diag)]),
         )
     if kind == "determinant3_product":
@@ -267,6 +299,7 @@ def matrices(rng, kinds=("determinant", "inverse", "system", "determinant3", "in
             answer=base["answer"],
             answer_text=ans_text,
             answer_latex=base["answer_latex"],
+            working=_system_working(A, b_vec, x0, y0),
             distractors=pick_distractors(ans_text, cands, n=4),
         )
     # 2x2 system in matrix form, backwards from a chosen solution.
@@ -287,5 +320,6 @@ def matrices(rng, kinds=("determinant", "inverse", "system", "determinant3", "in
     return dict(
         text=f"Solve A x = b where A = {_mat_text(A)} and b = ({b_vec[0]}, {b_vec[1]})",
         latex=rf"{latex(A)} \mathbf{{x}} = {latex(b_vec)}",
+        working=_system_working(A, b_vec, x0, y0),
         **solved,
     )

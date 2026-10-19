@@ -360,6 +360,11 @@ def _typed(expr) -> str:
     return str(expr).replace("**", "^")
 
 
+def _dot(expr) -> str:
+    """Plain working text for a SymPy expression: ^ for powers, · for products."""
+    return _typed(expr).replace("*", "·")
+
+
 def _term(coef: int, var_text: str) -> str:
     """A coefficient-times-variable term for the question prose: omits a
     coefficient of 1 (never "1*x^2" -- a student would just write "x^2")."""
@@ -492,5 +497,10 @@ def p12c_implicit_diff_gradient(rng, tier="easy"):
         answer=str(true_yprime),
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
+        working=[
+            f"Differentiate both sides with respect to x, treating y as a function of x: "
+            f"{_dot(diff(lhs, x))} + ({_dot(diff(lhs, y))})·dy/dx = 0.",
+            f"Solve for dy/dx: dy/dx = -({_dot(diff(lhs, x))}) / ({_dot(diff(lhs, y))}) = {_dot(true_yprime)}.",
+        ],
         distractors=distractors,
     )

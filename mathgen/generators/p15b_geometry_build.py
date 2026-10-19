@@ -101,7 +101,7 @@ def p15b_fundamental_group_map(rng, m_lo=1, m_hi=2, allow_zero=False, allow_inte
         b = rng.choice(pool)
         true_m = a * b
         check(true_m != 0, "fundamental-group-map exam: composed degree must be nonzero")
-        text_body = f"f: S^1 -> S^1, f(z) = z^{_exp(a)}; g: S^1 -> S^1, g(z) = z^{_exp(b)}. h = g o f."
+        text_body = f"f: S^1 -> S^1, f(z) = z^{{{a}}}; g: S^1 -> S^1, g(z) = z^{{{b}}}. h = g o f."
         latex_body = rf"f(z)=z^{{{a}}},\ g(z)=z^{{{b}}},\ h=g\circ f"
         working_kind = "compose"
         interval = False
@@ -132,7 +132,7 @@ def p15b_fundamental_group_map(rng, m_lo=1, m_hi=2, allow_zero=False, allow_inte
             pool.append(0)
         true_n = rng.choice(pool)
         true_m = true_n
-        text_body = f"f: S^1 -> S^1, f(z) = z^{_exp(true_n)}."
+        text_body = f"f: S^1 -> S^1, f(z) = z^{{{true_n}}}."
         latex_body = rf"f(z)=z^{{{true_n}}}"
         working_kind = "degree"
 

@@ -144,6 +144,7 @@ def engineering(rng, kinds=("stress", "strain", "moment", "equilibrium")):
             answer=float(M),
             answer_text=ans_text,
             answer_latex=rf"M = {num}\,\text{{N}}\cdot\text{{m}}",
+            working=[f"M = F × d = {F} × {float(d):g} = {float(M):g} N\u00b7m"],
             # Misconceptions: added force and distance; divided; ignored the
             # distance entirely.
             distractors=pick_distractors(ans_text, dist),

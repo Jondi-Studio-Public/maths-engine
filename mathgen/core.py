@@ -1652,6 +1652,8 @@ def _paper_right_class(text: str) -> tuple[str, int]:
         if text[j : j + 1] == "(":
             close = _paper_matching_close(text, j)
             return "FUNC", (close + 1 if close >= 0 else j + 1)
+        if run in ("ln", "log") and text[j : j + 1] == "|" and text.find("|", j + 1) > 0:
+            return "FUNC", text.find("|", j + 1) + 1  # ln|x + 1| is a function call, like ln(x + 1)
         if len(run) == 1 and text[j : j + 1] != "_":
             return "VAR1", j
         return "WORD", j
