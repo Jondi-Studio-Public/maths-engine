@@ -405,7 +405,7 @@ def _exam(rng):
     working = [
         f"Split the integrand: {combined_str} = {p}({f1str}) + {q}({gstr}).",
         f"By linearity, ∫({combined_str}) dx = {p}∫({f1str}) dx + {q}∫({gstr}) dx = {p}({F1str}) + {q}({Gstr}) + C.",
-        f"So ∫({combined_str}) dx = {_value(full_F)} + C.",
+        f"So ∫({combined_str}) dx = {_disp(full_F)} + C.",
     ]
     return _finish(full_F, cands, text, working)
 
