@@ -1277,6 +1277,17 @@ def check_pairwise_distinct(*values, msg: str = "a distractor collides with anot
 # exactly as they are, and new code should call these instead.
 
 
+def exact_decimal_text(value) -> str:
+    """An exact rational as plain decimal text with no trailing zeros ("0.12", "1.7", "12"), never as a fraction
+    such as "3/25". The value must terminate."""
+    exact = Fraction(value)
+    places = 0
+    while (exact * 10**places).denominator != 1:
+        places += 1
+        check(places <= 12, f"{value} does not terminate as a decimal")
+    return fixed_point_string(int(exact * 10**places), places)
+
+
 def fixed_point_string(scaled_int: int, places: int) -> str:
     """Sign-prefixed fixed-point string from an integer already scaled by
     ``10 ** places`` (so ``fixed_point_string(-305, 2)`` is "-3.05"). This
