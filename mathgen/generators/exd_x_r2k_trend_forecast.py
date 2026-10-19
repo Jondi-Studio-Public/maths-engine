@@ -67,7 +67,7 @@ def _build_k_trend_forecast(rng: random.Random) -> dict | None:
         m,
         1,
         1,
-        [f"({tx(y2, 1)} - {tx(y1, 1)}) / ({q2} - {q1}) = {tx(m, 1)} per {period}."],
+        [f"({tx(y2, 1)} - {tx(y1, 1)}) ÷ ({q2} - {q1}) = {tx(m, 1)} per {period}."],
         [
             ((y1 - y2) / (q2 - q1) if y1 != y2 else None, "reversed-difference"),
             (Fraction(q2 - q1) / (y2 - y1) if y2 != y1 else None, "inverted-rate-of-change"),
@@ -82,7 +82,7 @@ def _build_k_trend_forecast(rng: random.Random) -> dict | None:
         2,
         [
             f"t for {label(q1)} of Year 2 is {t1}; t for {label(qt)} of Year {year} is {tt}.",
-            f"Trend = {tx(y1, 1)} {'+' if m >= 0 else '-'} {tx(abs(m), 1)} x ({tt} - {t1}) = {tx(trend_t, 1)}.",
+            f"Trend = {tx(y1, 1)} {'+' if m >= 0 else '-'} {tx(abs(m), 1)} × ({tt} - {t1}) = {tx(trend_t, 1)}.",
         ],
         [
             (y1 + m * (tt - t1 - per_year), "miscounted-periods-between"),
@@ -98,7 +98,7 @@ def _build_k_trend_forecast(rng: random.Random) -> dict | None:
         forecast,
         1,
         2,
-        [f"Forecast = trend x index = {tx(trend_t, 1)} x {tx(s, 2)} = {tx(forecast, 1)}."],
+        [f"Forecast = trend × index = {tx(trend_t, 1)} × {tx(s, 2)} = {tx(forecast, 1)}."],
         [
             (trend_t / s, "divided-by-seasonal-index"),
             (trend_t * (s - 1) if s > 1 else None, "gave-adjustment-not-forecast"),
