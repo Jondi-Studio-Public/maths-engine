@@ -1,0 +1,124 @@
+id: uc2-joint-continuous-density
+name: Joint continuous density, regions and marginals
+domain: probability
+year_level:
+- university
+description: >-
+  Work with a joint density of two continuous random variables on a rectangle or a triangle: find the
+  normalising constant, the probability of a sloping event, a marginal density and an expectation by double
+  integration.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-joint-distribution-marginal
+- ucv1-double-integral-rectangle
+- senior-understand-the-concepts-of-a-probability-density-function
+answer: expression
+sources:
+- topic: r3k_joint_density
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3k_joint_density
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3k_joint_density
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3k_joint_density
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3k-jointden-forgot-reciprocal
+  description: >-
+    Giving the value of the double integral of g as the constant c (or as E(Y)), instead of c = 1/(that integral) or
+    c times the integral.
+- id: r3k-jointden-wrong-region-limits
+  description: Integrating over the wrong region, such as the whole square or a different rectangle, instead of the stated one.
+- id: r3k-jointden-integral-plus-one
+  description: Adding 1 to the integral before taking the reciprocal.
+- id: r3k-jointden-midpoint-for-integral
+  description: >-
+    Estimating the double integral by area times the value of g at the centre of the rectangle, which is only exact
+    for a linear g.
+- id: r3k-jointden-complement-region
+  description: Giving the probability of the complementary event, 1 minus the correct value.
+- id: r3k-jointden-assumed-symmetry
+  description: Assuming P(Y > X) = 1/2 by symmetry when the density is not symmetric in x and y.
+- id: r3k-jointden-event-as-box
+  description: Treating a sloping event such as X + Y < L or Y > X as a corner box such as X < L/2 and Y < L/2.
+- id: r3k-jointden-halved-the-region
+  description: Halving the probability because the event covers half of the square, ignoring that the density is not uniform.
+- id: r3k-jointden-marginal-wrong-limits
+  description: >-
+    Integrating the other variable over the whole range instead of the part of the triangle that lies above or below
+    x (or y).
+- id: r3k-jointden-marginal-other-variable
+  description: Giving the marginal density of the other variable, integrating out x instead of y (or the reverse).
+- id: r3k-jointden-marginal-forgot-c
+  description: Leaving the constant c out of the marginal density.
+- id: r3k-jointden-marginal-lower-limit-dropped
+  description: >-
+    Substituting only the upper limit into the antiderivative and forgetting to subtract its value at the variable
+    lower limit.
+- id: r3k-jointden-ex-for-ey
+  description: Computing E(X) where E(Y) was asked.
+- id: r3k-jointden-mean-from-the-midpoint
+  description: Giving the midpoint of the range of Y as its mean, ignoring that the density is not uniform.
+- id: r3k-jointden-swapped-triangle
+  description: Integrating over the complementary triangle, with the limits y < x and x < y the wrong way round.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: >-
+      Find c for a density c g(x, y) on a rectangle, where g is a sum so the double integral does not
+      split into a product.
+  medium:
+    steps: 6
+    demand: >-
+      Find a probability such as P(Y > X) or P(X + Y < L) for a density on a square: the inner limit of
+      integration depends on the outer variable.
+  hard:
+    steps: 8
+    demand: >-
+      Find the marginal density of one variable of a density on a triangle: first the constant c over the
+      triangle, then integrate out the other variable between limits that depend on the first.
+  exam:
+    steps: 10
+    demand: >-
+      Finds c over a triangle, a marginal density, a probability and E(Y), the last three following
+      through from c.
+tags:
+- university-core-v1
+- university-year-2
+- probability
+- joint-density
+- double-integral
+- marginal-density
+framework_areas:
+- probability
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: probability

@@ -1,0 +1,157 @@
+id: polynomial-roots-sum-product
+name: Use the sum and product of the roots of a polynomial
+domain: functions-sequences
+description: >-
+  Find symmetric functions of the roots of a quadratic or cubic from its coefficients, find an unknown
+  coefficient, build a polynomial whose roots are a transformation of the originals, and use roots in
+  progression.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-solve-simple-polynomial-equations
+- senior-solve-quadratic-equations-using-the-quadratic-formula-and
+answer: expression
+sources:
+- topic: r3i_poly_roots
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3i_poly_roots
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3i_poly_roots
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3i_exam_poly_roots
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3i-roots-common-difference-doubled
+  description: >-
+    Giving the gap between the smallest and largest roots, which is twice the common difference.
+- id: r3i-roots-cross-term-not-doubled
+  description: >-
+    Subtracting the sum of the pairwise products once instead of twice in (sum of roots)² - 2 × (sum of
+    pairwise products).
+- id: r3i-roots-cross-term-sign
+  description: >-
+    Adding the cross term instead of subtracting it when writing a sum of squares of the roots.
+- id: r3i-roots-cube-of-sum-only
+  description: >-
+    Giving the cube of the sum of the roots as the sum of their cubes.
+- id: r3i-roots-cube-sum-cross-sign
+  description: >-
+    Adding 3e₁e₂ instead of subtracting it in the formula for the sum of cubes of the roots.
+- id: r3i-roots-cube-sum-product-missed
+  description: >-
+    Leaving the 3αβγ term out of the formula for the sum of cubes of the roots.
+- id: r3i-roots-cube-sum-product-sign
+  description: >-
+    Subtracting 3αβγ instead of adding it in the formula for the sum of cubes of the roots.
+- id: r3i-roots-difference-squared-given
+  description: >-
+    Giving the square of the common difference when the common difference was asked for.
+- id: r3i-roots-divided-by-four
+  description: >-
+    Dividing by 4 instead of 2 when solving 2k = e₁² minus the stated sum of squares for k.
+- id: r3i-roots-expansion-sign
+  description: >-
+    Adding αβγ instead of subtracting it when expanding the product of the pair sums of the roots.
+- id: r3i-roots-expansion-term-miscounted
+  description: >-
+    Subtracting 2αβγ instead of αβγ when expanding the product of the pair sums of the roots.
+- id: r3i-roots-expansion-term-missed
+  description: >-
+    Leaving out the -αβγ term when expanding the product of the pair sums of the roots.
+- id: r3i-roots-factorised-incorrectly
+  description: >-
+    Writing α²β + αβ² as α²β², or as the product of the sum with itself, instead of αβ(α + β).
+- id: r3i-roots-forgot-to-divide-by-leading-coefficient
+  description: >-
+    Using the coefficients b and c directly as the sum and product of the roots when the leading
+    coefficient is not 1.
+- id: r3i-roots-forgot-to-square-sum
+  description: >-
+    Subtracting twice the product from the sum of the roots, without squaring the sum, when finding (α -
+    β)².
+- id: r3i-roots-largest-root-given
+  description: >-
+    Giving the largest root when the common ratio was asked for.
+- id: r3i-roots-middle-root-given
+  description: >-
+    Giving the middle root when the common difference or ratio was asked for.
+- id: r3i-roots-new-polynomial-sign-of-sum
+  description: >-
+    Writing the new polynomial as x² + (sum)x + (product), with the sign of the linear coefficient
+    wrong.
+- id: r3i-roots-new-polynomial-sum-product-swapped
+  description: >-
+    Putting the new product where the new sum belongs, and the sum where the product belongs.
+- id: r3i-roots-new-product-not-recomputed
+  description: >-
+    Finding the new sum of roots but keeping the original product of roots.
+- id: r3i-roots-product-taken-as-sum
+  description: >-
+    Adding the sum and the product of the roots instead of multiplying them.
+- id: r3i-roots-ratio-inverted
+  description: >-
+    Giving the reciprocal of the common ratio.
+- id: r3i-roots-ratio-squared-given
+  description: >-
+    Giving the square of the common ratio when the common ratio was asked for.
+- id: r3i-roots-reciprocal-sum-inverted
+  description: >-
+    Writing the sum of the reciprocals of the roots upside down: (product)/(sum) instead of
+    (sum)/(product).
+- id: r3i-roots-reciprocals-taken-termwise
+  description: >-
+    Adding the reciprocals of the sum and the product of the roots instead of finding (α + β)/(αβ).
+- id: r3i-roots-sign-of-sum
+  description: >-
+    Using b/a instead of -b/a for the sum of the roots, or -d/a for the product with the wrong sign.
+- id: r3i-roots-smallest-root-given
+  description: >-
+    Giving the smallest root when the common difference was asked for.
+- id: r3i-roots-square-of-sum-only
+  description: >-
+    Giving the square of the sum of the roots as the sum of their squares.
+- id: r3i-roots-transformation-applied-to-coefficients
+  description: >-
+    Substituting the transformation into the polynomial instead of finding the sum and product of the
+    transformed roots.
+- id: r3i-roots-wrong-symmetric-function-used
+  description: >-
+    Using the wrong combination of the roots' sum, pairwise products and product in the formula.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: >-
+      Express a symmetric function of the two roots of a quadratic, such as the sum of squares or of
+      reciprocals, through the sum and product read from the coefficients; the roots are irrational, so they
+      cannot be found.
+  medium:
+    steps: 3
+    demand: >-
+      Do the same for a cubic with three roots, using the sum, the pairwise sum and the product, or find an
+      unknown coefficient from a stated value of the sum of squares.
+  hard:
+    steps: 4
+    demand: >-
+      Build the monic polynomial whose roots are a transformation (a linear change, squares, reciprocals) of
+      the originals, or find the common difference or ratio of roots in progression from the sum and product
+      of the roots.
+  exam:
+    steps: 6
+    demand: >-
+      Chain the sum and pairwise sum of the roots of a cubic into the sum of their squares, then into the sum
+      of their cubes using the product.
+tags:
+- acara-senior-v8-4
+- polynomials
+- roots-of-polynomials
+- sum-and-product-of-roots
+- nsw-mathematics-extension-1
+- nsw-mathematics-extension-2

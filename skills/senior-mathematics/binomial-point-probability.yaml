@@ -8,6 +8,6 @@ prerequisites:
 - simple-event-probability
 - senior-identify-contexts-suitable-for-modelling-by-binomial-random
 answer: number
-sources: [{topic: binomial_probability, params: {}, difficulty: easy}, {topic: exd_x_h2_binomial_point_probability, params: {tier: exam}, difficulty: exam, stages: [exam]}]
+sources: [{topic: binomial_probability, params: {}, difficulty: easy}, {topic: exd_x_h2_binomial_point_probability, params: {tier: exam}, difficulty: exam, stages: [exam]}, {topic: exd_x_r3a_binomial_point_wide, params: {tier: exam}, difficulty: exam, stages: [exam], key: wide-exam}]
 misconceptions: [{id: omits-combinations, description: Omits the binomial coefficient.}]
 tags: [expansion-batch-6, probability, acara-v8-4]

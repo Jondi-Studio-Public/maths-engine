@@ -1,0 +1,120 @@
+id: uc2-residues-higher-order-poles
+name: Residues at simple and higher-order poles
+domain: complex-analysis
+year_level: [university]
+description: >-
+  Find the residue of a rational or elementary function at a simple pole or a pole of order two or three, as an exact complex number.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-residue-simple-pole
+answer: expression
+sources:
+- topic: w5a_residues
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5a_residues
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5a_residues
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5a_residues
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx2-denominator-derivative-slip
+  description: >-
+    Differentiating the denominator wrongly in N(a)/D'(a), for example dropping its linear term or leaving a power of the pole unreduced.
+- id: cx2-exp-chain-factor-dropped
+  description: >-
+    Differentiating e^(cz) as e^(cz), leaving the factor c out of each derivative.
+- id: cx2-residue-alternating-sign-dropped
+  description: >-
+    Forgetting that the derivative of sin(pi z) at an integer n is pi times (-1)^n, so the sign alternates.
+- id: cx2-residue-derivative-order
+  description: >-
+    Differentiating the wrong number of times at a pole of order m: m or m - 2 times instead of m - 1.
+- id: cx2-residue-exponential-factor-dropped
+  description: >-
+    Leaving the exponential factor e^(ca) out of a residue found from e^(cz) over a polynomial.
+- id: cx2-residue-factor-omitted
+  description: >-
+    Leaving one of the other linear factors out of the denominator when evaluating the residue at a simple pole.
+- id: cx2-residue-factorial-dropped
+  description: >-
+    Taking the (m - 1)th derivative of the rest of the function at an m-th order pole but not dividing by (m - 1)!.
+- id: cx2-residue-numerator-derivative-only
+  description: >-
+    Differentiating only the numerator at a double pole and leaving the other factors of the denominator undifferentiated.
+- id: cx2-residue-numerator-only
+  description: >-
+    Giving the numerator's value at the pole as the residue, without dividing by the other factors of the denominator.
+- id: cx2-residue-pi-dropped
+  description: >-
+    Forgetting the factor pi from the derivative of sin(pi z).
+- id: cx2-residue-pi-inverted
+  description: >-
+    Multiplying by pi where the derivative of sin(pi z) should divide by pi.
+- id: cx2-residue-simple-formula
+  description: >-
+    Using the simple-pole shortcut (the rest of the function evaluated at the pole) at a pole of order two or more, so no derivative is taken.
+- id: cx2-residue-sum-sign
+  description: >-
+    Taking the residue at the double pole to be the sum of the other residues instead of minus that sum.
+- id: cx2-residue-times-2-pi-i
+  description: >-
+    Giving 2*pi*i times the residue (the value of the contour integral) where the residue itself was asked for.
+- id: cx2-series-alternating-sign-dropped
+  description: >-
+    Forgetting the alternating sign of the cosine or sine series.
+- id: cx2-series-coefficient-slip
+  description: >-
+    Slipping on a coefficient of a Maclaurin series by one factor of c or of a small integer.
+- id: cx2-series-factorial-dropped
+  description: >-
+    Leaving the factorial out of the Maclaurin coefficient.
+- id: cx2-series-leading-term-only
+  description: >-
+    Taking only the first term of the series of 1/sin(cz), so the correction that produces the z^(-1) term is missed.
+- id: cx2-series-wrong-term
+  description: >-
+    Reading the residue off the wrong term of the Maclaurin series.
+- id: forgets-i-in-residue-theorem
+  description: >-
+    Multiplying the residue by 2*pi but leaving out the factor i.
+- id: ignores-pole-enclosed-by-larger-contour
+  description: >-
+    Using only the residue at the first pole for a larger contour that also encloses the second pole.
+- id: included-pole-outside-contour
+  description: >-
+    Adding the residues at poles that lie outside the contour.
+- id: pole-outside-the-contour
+  description: >-
+    Taking the pole that lies outside the contour as the one the contour encloses.
+- id: residue-at-wrong-pole
+  description: >-
+    Finding the residue at the pole the contour does not enclose, or using it where the other pole's was needed.
+- id: residue-sign-error
+  description: >-
+    Subtracting the poles in the wrong order when forming a residue, so the residue has the wrong sign.
+tags: [university-year-2, complex-analysis, residues, poles]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+difficulty_progression:
+  easy: {steps: 2, demand: "Evaluate the residue at a simple pole of a rational function whose denominator is a conjugate-pair quadratic, a product of three factors, or z^n - c."}
+  medium: {steps: 3, demand: "Differentiate the rest of the function at a double or triple pole and divide by (m - 1)!."}
+  hard: {steps: 4, demand: "Find the residue of a function with an exponential, trigonometric or inverse-sine factor by differentiating or by series, including g(z)/sin(pi z) at an integer."}
+  exam: {steps: 4, demand: "Find two simple residues, then the double-pole residue from the fact that the residues sum to zero, then use them in a contour integral."}

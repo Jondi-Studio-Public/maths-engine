@@ -27,6 +27,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c4_partial_fractions
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: swapped-residues
   description: Swapping which residue goes with which linear factor.

@@ -1,0 +1,100 @@
+id: uc2-laplace-step-and-convolution
+name: Laplace transforms with step functions and convolution
+domain: ordinary-differential-equations
+year_level:
+- university
+description: Transform a signal that switches on at a later time, invert a transform containing e^(-as), find a convolution
+  with the convolution theorem, and solve a second-order equation driven by a step.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-laplace-transform
+answer: expression
+sources:
+- topic: s2c3_laplace_step
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c3_laplace_step
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c3_laplace_step
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c3_laplace_step
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: lt2-body-not-shifted
+  description: Applies the second shift theorem to a body written in t without first rewriting it in terms of t - a, so
+    the e^(-as) factor multiplies the transform of the unshifted body.
+- id: lt2-switch-factor-dropped
+  description: Leaves out the e^(-as) factor and transforms the body as if it acted from t = 0.
+- id: lt2-shift-factor-sign
+  description: Writes e^(+as) instead of e^(-as) for a signal that switches on at t = a.
+- id: lt2-body-shifted-wrong-way
+  description: Rewrites the body in terms of t - a with the wrong sign (using t - a in place of t + a), so the constants
+    after the shift are wrong.
+- id: lt2-no-shift-in-time
+  description: Inverts the transform but leaves out the delay, writing the terms in t instead of t - a.
+- id: lt2-shift-sign-in-time
+  description: Delays the inverse transform the wrong way, writing t + a in place of t - a.
+- id: lt2-sin-cos-swapped-in-inverse
+  description: Swaps the sine and cosine terms when inverting, or in a convolution.
+- id: lt2-sine-not-divided-by-b
+  description: Inverts Q/(s^2 + b^2) as Q sin(bt) instead of (Q/b) sin(bt).
+- id: laplace-inverse-coefficient-undivided
+  description: Finding each partial fraction coefficient by evaluating the numerator at the pole and not dividing by the
+    other factor there.
+- id: laplace-inverse-pole-sign
+  description: Reading a pole at s = a as e^(-at), or a denominator factor (s + m) as e^(mt), when inverting.
+- id: laplace-inverse-coefficient-swap
+  description: Attaching the partial fraction coefficients to the wrong exponentials when inverting.
+- id: lt2-frequency-is-b-squared
+  description: Reads the denominator s^2 + b^2 as a frequency of b^2 instead of b.
+- id: lt2-convolution-term-dropped
+  description: Loses one of the terms when inverting a product of transforms or evaluating a convolution.
+- id: lt2-convolution-sign-slip
+  description: Gets the sign of one term wrong when inverting a product of transforms or evaluating a convolution.
+- id: lt2-step-treated-as-impulse
+  description: Transforms the unit step u(t - T) as e^(-Ts) instead of e^(-Ts)/s, losing the factor 1/s.
+- id: lt2-damping-term-sign
+  description: Takes the transform of py' as -p s Y, so the middle term of the denominator has the wrong sign.
+- id: lt2-final-value-no-divide
+  description: Takes the long-time value to be the forcing amplitude A, forgetting to divide by q.
+- id: lt2-final-value-inverted
+  description: Takes the long-time value to be q/A instead of A/q.
+- id: lt2-final-value-wrong-coefficient
+  description: Divides the forcing amplitude by the damping coefficient, or by p + q, instead of q.
+- id: lt2-steady-term-dropped
+  description: Leaves the constant term A/q out of the step response.
+- id: lt2-final-value-sign
+  description: Gets the sign of the long-time value wrong.
+difficulty_progression: 'Easy transforms a body written in t that switches on at t = a, which needs the body rewritten in
+  t - a before the second shift theorem applies. Medium inverts e^(-as) times a partial-fraction or sine-cosine transform
+  and must return the delayed function. Hard finds a convolution of two standard functions (or the inverse of the product
+  of their transforms), which needs the convolution theorem and a partial-fraction split with a repeated or complex factor.
+  The exam chain solves a step-driven second-order equation: Y(s), the long-time value, y(t) for t at least T, and a value
+  of y.'
+tags:
+- university-year-2
+- ordinary-differential-equations
+- laplace-transform
+- step-function
+- convolution
+- university-year-2
+framework_areas:
+- ordinary-differential-equations

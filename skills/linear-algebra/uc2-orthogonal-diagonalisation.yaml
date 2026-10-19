@@ -1,0 +1,103 @@
+id: uc2-orthogonal-diagonalisation
+name: Orthogonally diagonalise a symmetric matrix
+domain: linear-algebra
+year_level:
+- university
+description: Find the eigenvalues and orthonormal eigenvectors of a real symmetric 2×2 or 3×3 matrix, in a stated normal
+  form, and use them for QᵀAQ and for eigenspace projections.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-diagonalisation
+- ucv1-gram-schmidt-2d
+answer: matrix
+sources:
+- topic: s2b2_orthogonal_diagonalisation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b2_orthogonal_diagonalisation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b2_orthogonal_diagonalisation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b2_orthogonal_diagonalisation
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: diag-columns-wrong-order
+  description: Putting the eigenvectors into the columns of P in the opposite order from the eigenvalues down D.
+- id: diag-conjugation-reversed
+  description: Multiplying in the order P⁻¹DP instead of PDP⁻¹ (or the same reversal for P⁻¹AP).
+- id: diag-eigenvalues-swapped
+  description: Writing the eigenvalues down the diagonal of D in the opposite order from the columns of P.
+- id: diag-forgot-change-of-basis
+  description: Giving Dⁿ as the answer for Aⁿ, leaving out the P and P⁻¹ on either side.
+- id: diag-forgot-inverse
+  description: Stopping at PD, leaving out the final multiplication by P⁻¹.
+- id: diag-vectors-as-rows
+  description: Writing the eigenvectors as the rows of P instead of its columns.
+- id: eigval-diagonal-entry
+  description: Reading a diagonal entry of a matrix that is not triangular as an eigenvalue.
+- id: eigval-other-root
+  description: Giving the other eigenvalue when the larger or smaller one was asked for.
+- id: eigval-trace-as-eigenvalue
+  description: Reporting the trace of the matrix as an eigenvalue.
+- id: eigval-trace-difference-sign
+  description: Adding the known eigenvalue to the trace instead of subtracting it to find the other eigenvalue.
+- id: eigval-trace-single-count
+  description: Subtracting a repeated eigenvalue from the trace only once when finding the third eigenvalue.
+- id: eigvec-components-swapped
+  description: Swapping two components of the eigenvector when reading it off the reduced system.
+- id: eigvec-normalised-by-sum
+  description: Scaling an eigenvector by the sum of its entries instead of its length when making it a unit vector.
+- id: eigvec-not-normalised
+  description: Giving eigenvectors with whole-number entries without dividing each by its length, so the columns of Q are
+    not unit vectors.
+- id: eigvec-other-eigenvalue
+  description: Finding the eigenvector for a different eigenvalue from the one asked for.
+- id: projection-complement-confused
+  description: 'Giving the projection onto the complementary subspace: the line instead of the plane, or the plane instead
+    of the line.'
+- id: projection-not-normalised
+  description: Writing the projection as v vᵀ without dividing by vᵀv.
+- id: projection-scaled-by-eigenvalue
+  description: Multiplying the projection onto an eigenspace by its eigenvalue, which gives that term of the spectral decomposition
+    rather than the projection.
+- id: sign-flip-both-roots
+  description: 'Reading the roots straight off the factors'' numbers, so both roots have the wrong sign: (x - 2)(x + 3)
+    = 0 read as x = -2 or x = 3.'
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find both eigenvalues of a symmetric 2×2 matrix, the eigenvectors, and normalise them into the columns of Q
+      in the stated order and sign.
+  medium:
+    steps: 4
+    demand: For a 3×3 symmetric matrix, find the eigenvalues, identify the largest, and normalise its eigenvector; or check
+      which eigenvalue goes with each column of a given Q to form QᵀAQ.
+  hard:
+    steps: 5
+    demand: Build the whole of Q for a 3×3 symmetric matrix, or turn the eigenvector into the orthogonal projection onto
+      an eigenspace, including a repeated eigenvalue where the plane is the complement of the line.
+  exam:
+    steps: 5
+    demand: Find the largest and smallest eigenvalue, the third from the trace, then the full orthogonal Q.
+tags:
+- university-year-2
+- linear-algebra
+- orthogonal-diagonalisation
+- symmetric-matrices

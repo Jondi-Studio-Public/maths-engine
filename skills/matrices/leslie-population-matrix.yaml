@@ -1,0 +1,96 @@
+id: leslie-population-matrix
+name: Project an age-class population with a Leslie matrix
+domain: matrices
+description: 'An animal population is counted in three age classes, with a birth rate for each class and a survival share
+  into the next class, described in words. Easy: the whole population next year. Medium: the whole population in two years.
+  Hard: the age classes keep a fixed ratio from year to year, so the growth factor of the whole population is found. The exam
+  chain finds the young born, the total next year, the percentage change in the total (carried forward) and the age classes
+  after two years.'
+status: active
+placement_eligible: false
+prerequisites:
+- transition-matrix-states
+answer: number
+sources:
+- topic: r3c_leslie
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 6
+- topic: r3c_leslie
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 6
+- topic: r3c_leslie
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: r3c_leslie_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3c-leslie-birth-share
+  description: Gives the share of next year's young in the whole population where the growth factor of the whole population
+    was asked for.
+- id: r3c-leslie-births-added-to-all
+  description: Adds the new young to last year's whole population, forgetting that the oldest class dies and the others move
+    up an age class.
+- id: r3c-leslie-births-omits-class
+  description: Works out the number of young born from only some of the age classes, leaving one that breeds out.
+- id: r3c-leslie-births-one-class
+  description: Counts the young born from only one age class instead of from every class that breeds.
+- id: r3c-leslie-births-plus-survivors
+  description: Adds the survivors of the youngest class to the births when working out the number of young.
+- id: r3c-leslie-change-not-percent
+  description: Gives the change in the population as a number of animals where the percentage change was asked for.
+- id: r3c-leslie-constant-growth
+  description: Assumes the population grows by the same factor in the second year as in the first, instead of applying the
+    age-class rates again.
+- id: r3c-leslie-double-the-change
+  description: Finds the population in two years by adding the first year's change twice, instead of applying the rates to
+    the new age classes.
+- id: r3c-leslie-fertility-sum
+  description: Adds the birth rates of the age classes and gives that as the growth factor or the number of young, ignoring
+    how many animals are in each class.
+- id: r3c-leslie-matrix-transposed
+  description: Puts the birth rates down the first column and the survival shares along the first row, so the matrix is the
+    wrong way round and the classes are updated wrongly.
+- id: r3c-leslie-no-ageing
+  description: Adds the births to each class but leaves the other animals in the age class they were in, instead of moving
+    survivors up a class.
+- id: r3c-leslie-no-births
+  description: Moves the survivors up an age class but adds no new young.
+- id: r3c-leslie-oldest-survive
+  description: Lets the animals in the oldest class survive into the next year, when none do.
+- id: r3c-leslie-one-year-only
+  description: Applies the rates once when two years were asked for.
+- id: r3c-leslie-percent-as-decimal
+  description: Gives the percentage change as a decimal fraction (0.2 for 20%).
+- id: r3c-leslie-percent-not-change
+  description: Gives the new population as a percentage of the old one, so 100% more than the percentage change.
+- id: r3c-leslie-percent-of-new
+  description: Finds the percentage change as a share of the new population instead of the old one.
+- id: r3c-leslie-rate-not-factor
+  description: Gives the growth rate (the factor minus 1) where the factor the population is multiplied by each year was asked
+    for.
+- id: r3c-leslie-ratio-inverted
+  description: Divides the old population by the new one, giving the reciprocal of the growth factor.
+- id: r3c-leslie-survival-average
+  description: Gives the average of the survival shares as the growth factor, ignoring the births.
+- id: r3c-leslie-wrong-class-ratio
+  description: Divides next year's young by the oldest class instead of by the youngest class when finding the growth factor.
+tags:
+- matrices
+- leslie-matrix
+- population-model
+- age-classes
+- r3c_leslie

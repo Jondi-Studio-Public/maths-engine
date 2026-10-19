@@ -242,9 +242,12 @@ def _oriented(given: list[list], expected: list[list]) -> list[list] | None:
 
 
 def _multiple_of(given: list, expected: list) -> bool:
-    """Whether the vector `given` is a non-zero multiple of the non-zero vector `expected`."""
+    """Whether the vector `given` is a multiple of `expected`: a non-zero multiple of a non-zero vector, or the
+    zero vector for a zero one (zero times anything is zero, and nothing else is a multiple of it)."""
     pivot = next((i for i, e in enumerate(expected) if not same_number(e, 0)), None)
-    if pivot is None or same_number(given[pivot], 0):
+    if pivot is None:
+        return all(same_number(g, 0) for g in given)
+    if same_number(given[pivot], 0):
         return False
     ratio = given[pivot] / expected[pivot]
     return all(same_number(g, ratio * e) for g, e in zip(given, expected))

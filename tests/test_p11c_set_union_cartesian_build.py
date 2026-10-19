@@ -499,4 +499,5 @@ def test_both_skills_load_through_api(skills_dict):
     assert cartesian.answer == "pair"
     assert cartesian.placement_eligible is False
     assert cartesian.status == "active"
-    assert len(cartesian.sources) == 4  # easy, medium, hard and exam
+    # easy, medium, hard, exam chain, plus the single-part exam question re-added as key exam-single (bf2fca7)
+    assert len(cartesian.sources) == 5

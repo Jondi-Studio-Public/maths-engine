@@ -1,0 +1,114 @@
+id: factor-polynomial-over-complex
+name: Factorise real polynomials over the complex numbers
+domain: complex-analysis
+year_level: ['11']
+description: >-
+  Factorise a real quadratic, cubic or quartic into linear factors over the complex numbers, using
+  conjugate pairs of zeros, and find the real quadratic factor that holds a complex pair.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-determine-complex-conjugate-solutions-of-real-quadratic-equations
+- senior-consider-conjugate-roots-for-polynomials-with-real-coefficients
+answer: expression
+sources:
+- topic: r3i_complex_factor
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3i_complex_factor
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3i_complex_factor
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3i_exam_complex_factor
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3i-factor-conjugate-missed
+  description: >-
+    Writing the same complex factor twice instead of pairing it with its conjugate.
+- id: r3i-factor-constant-multiplied
+  description: >-
+    Multiplying the constant term of the quartic by the constant of the known factor instead of dividing
+    by it.
+- id: r3i-factor-constant-sign
+  description: >-
+    Giving the constant of the other quadratic factor with the wrong sign.
+- id: r3i-factor-constant-subtracted
+  description: >-
+    Subtracting the constant of the known factor from the constant term of the quartic instead of
+    dividing.
+- id: r3i-factor-constant-sum-not-product
+  description: >-
+    Adding the real and imaginary parts of the zero to get the constant of the quadratic factor, instead
+    of finding p² + q².
+- id: r3i-factor-imaginary-part-lost
+  description: >-
+    Dropping the imaginary part of the zero, so only the real part is used in the quadratic factor.
+- id: r3i-factor-imaginary-part-not-squared
+  description: >-
+    Adding q instead of q² to (x - p)² when forming the real quadratic factor.
+- id: r3i-factor-imaginary-part-squared
+  description: >-
+    Using q² as the imaginary part of the zero, as if the zeros were p ± q²i.
+- id: r3i-factor-leading-coefficient-dropped
+  description: >-
+    Leaving out the leading coefficient when writing the factorised form.
+- id: r3i-factor-linear-coefficient-given
+  description: >-
+    Giving the coefficient of x in the second quadratic factor instead of its larger zero.
+- id: r3i-factor-quadratic-sign-of-q-squared
+  description: >-
+    Subtracting q² instead of adding it, as if the quadratic (x - p)² + q² were (x - p)² - q².
+- id: r3i-factor-real-part-dropped
+  description: >-
+    Ignoring the real part of the zeros, so p ± qi becomes ±qi.
+- id: r3i-factor-root-sign-read-from-coefficient
+  description: >-
+    Reading a zero off the factor with the wrong sign, so x + 2 is taken to mean the zero is +2 (or the
+    reverse).
+- id: r3i-factor-smaller-zero-given
+  description: >-
+    Giving the smaller zero when the larger was asked for.
+- id: r3i-factor-sum-of-squares-as-difference
+  description: >-
+    Treating x² + k² as if it were a difference of squares and factorising it over the reals as (x -
+    k)(x + k).
+- id: r3i-factor-zero-dropped
+  description: >-
+    Leaving one of the real linear factors out of the complete factorisation.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: >-
+      Find the complex zeros of a real quadratic with a negative discriminant and write it as a product of
+      two linear factors, keeping any leading coefficient.
+  medium:
+    steps: 3
+    demand: >-
+      Divide a cubic by the factor for a stated real zero, then factorise the remaining quadratic over the
+      complex numbers or write the real quadratic factor.
+  hard:
+    steps: 4
+    demand: >-
+      Use the conjugate of a stated complex zero to split off a real quadratic from a quartic, divide,
+      factorise what remains (over the reals or the complex numbers) and assemble all four linear factors.
+  exam:
+    steps: 7
+    demand: >-
+      Chain the constant of the real quadratic factor, the constant of the other factor, its larger zero and
+      the complete factorisation of a quartic over the complex numbers.
+tags:
+- acara-senior-v8-4
+- complex-numbers
+- factorisation
+- conjugate-roots
+- polynomials
+- ACMSM076
+- nsw-mathematics-extension-2
+- vce-specialist-mathematics

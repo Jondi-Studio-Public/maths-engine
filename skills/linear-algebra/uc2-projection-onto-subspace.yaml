@@ -1,0 +1,113 @@
+id: uc2-projection-onto-subspace
+name: Orthogonal projection onto a subspace
+domain: linear-algebra
+year_level:
+- university
+description: Project a vector orthogonally onto a line or plane in R^3 or R^4, write the projection matrix of a plane or
+  hyperplane, and find the distance from a vector to a subspace.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-projection
+- ucv1-null-space
+answer: matrix
+sources:
+- topic: s2b3_projection
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b3_projection
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b3_projection
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b3_projection
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: proj-onto-the-wrong-vector
+  description: Projecting the line's direction onto the given vector instead of the given vector onto the line's direction.
+- id: proj-forgot-divide-by-norm-squared
+  description: Multiplying a by v . a without dividing by a . a.
+- id: proj-gives-the-perpendicular-part
+  description: Giving the component of v perpendicular to the subspace, v - p, instead of the projection p.
+- id: proj-scales-v-not-a
+  description: Finding the right coefficient (v . a)/(a . a) but multiplying v by it instead of a.
+- id: proj-adds-line-projections
+  description: Projecting onto each spanning vector separately and adding, which only works when the spanning vectors are
+    orthogonal.
+- id: proj-onto-one-spanning-vector
+  description: Projecting onto only one of the two spanning vectors of the plane.
+- id: proj-matrix-onto-the-complement
+  description: Giving the projection matrix onto the orthogonal complement (the matrix of the normal direction) instead
+    of onto the subspace.
+- id: proj-matrix-forgot-the-inverse
+  description: Using A A^T as the projection matrix, leaving out the factor (A^T A)^-1.
+- id: proj-matrix-forgot-divide-by-norm-squared
+  description: Using n n^T, or I - n n^T, without dividing by n . n.
+- id: proj-distance-is-the-projection-length
+  description: Giving the length of the projection as the distance to the subspace.
+- id: proj-forgot-to-subtract-the-projection
+  description: Giving the length of v itself as the distance, without removing the projection.
+- id: proj-pythagoras-with-the-wrong-sign
+  description: Adding the squared lengths of v and its projection to get the squared distance instead of subtracting.
+- id: proj-forgot-the-square-root
+  description: Giving the squared distance where the distance itself was asked for.
+- id: proj-cosine-for-sine
+  description: Giving the cosine of the angle between v and the plane (projection length over length of v) where the sine
+    was asked for.
+- id: proj-wrong-ratio
+  description: Dividing the distance by the length of the projection instead of by the length of v.
+- id: proj-forgot-to-divide-by-the-length
+  description: Giving the distance as the sine of the angle, without dividing by the length of v.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: 'Project onto a line in R^3 or R^4: one coefficient (v . a)/(a . a) and a scalar multiple of a.'
+  medium:
+    steps: 5
+    demand: 'Project onto a plane spanned by two non-orthogonal vectors: the line projections cannot be added, so use the
+      normal equations or the normal vector.'
+  hard:
+    steps: 6
+    demand: Build the whole projection matrix, either A(A^T A)^-1 A^T for a plane or I - nn^T/(n . n) for a hyperplane given
+      by its equation.
+  exam:
+    steps: 7
+    demand: Finds the projection onto a plane in R^3, the squared distance, the exact distance and the exact sine of the
+      angle (each following through from the squared distance).
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- orthogonality
+- projection
+- normal-equations
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

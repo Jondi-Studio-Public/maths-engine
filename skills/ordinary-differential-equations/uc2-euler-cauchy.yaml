@@ -1,0 +1,54 @@
+id: uc2-euler-cauchy
+name: Euler-Cauchy equations
+domain: ordinary-differential-equations
+year_level: [university]
+description: >-
+  Solve x^2 y'' + a x y' + b y = 0 for distinct, repeated and complex exponents, and fit y(1) and y'(1).
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-second-order-characteristic-roots
+answer: expression
+sources:
+- topic: s2c1_euler_cauchy
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2c1_euler_cauchy
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2c1_euler_cauchy
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2c1_euler_cauchy
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: euler-cauchy-indicial-slip
+  description: >-
+    Forming the exponent equation wrongly from y = x^r, such as r^2 + a r + b = 0, forgetting that y'' gives
+    r(r - 1).
+- id: euler-cauchy-sign-of-exponent
+  description: >-
+    Reversing the sign of the exponents, so x^r is written as x^(-r).
+- id: euler-cauchy-constants-swapped
+  description: >-
+    Attaching the constants to the wrong powers of x after solving the initial conditions.
+- id: euler-cauchy-missing-log
+  description: >-
+    For a repeated root or complex roots, leaving out the ln x, writing the second solution as x^(r+1) or
+    using cos(bx) instead of cos(b ln x).
+- id: euler-cauchy-derivative-slip
+  description: >-
+    Forgetting the term from the first solution when matching y'(1) for a repeated or complex root.
+- id: euler-cauchy-indicial-sign
+  description: >-
+    Giving the exponent equation the wrong sign on its middle coefficient.
+- id: euler-cauchy-root-slip
+  description: >-
+    Slipping when reading the required value off the exponent equation, such as reversing its sign or using
+    the other root.
+tags: [university-year-2, ordinary-differential-equations, euler-cauchy]

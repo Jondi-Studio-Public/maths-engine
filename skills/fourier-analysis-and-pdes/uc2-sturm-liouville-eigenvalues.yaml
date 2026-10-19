@@ -1,0 +1,99 @@
+id: uc2-sturm-liouville-eigenvalues
+name: Eigenvalues and eigenfunctions of y'' + lambda y = 0
+domain: fourier-analysis-and-pdes
+year_level:
+- university
+description: Find the n-th eigenvalue of y'' + lambda y = 0 on an interval with mixed, insulated, periodic or Robin end
+  conditions, a normalised eigenfunction value, and a coefficient in the eigenfunction expansion of a function.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-wave-equation-separation
+answer: number
+sources:
+- topic: s2c3_sturm_liouville
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c3_sturm_liouville
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c3_sturm_liouville
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c3_sturm_liouville
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sl-dirichlet-formula-used
+  description: Using the eigenvalues (n pi / l)^2 of the problem with both ends fixed, when one end is free (or the frequencies
+    are those of a mixed problem).
+- id: sl-index-off-by-one
+  description: Counting the eigenvalues from the wrong index, so the answer is the neighbouring eigenvalue.
+- id: sl-half-factor-dropped
+  description: Using (2n - 1) pi / l instead of (2n - 1) pi / (2 l) for a mixed problem, missing the factor 2 in the quarter
+    wavelength.
+- id: sl-eigenvalue-not-squared
+  description: Giving the wavenumber k instead of the eigenvalue lambda = k squared.
+- id: sl-normalisation-forgotten
+  description: Giving the value of the un-normalised eigenfunction sin(kx) or cos(kx), without the normalising factor.
+- id: sl-normalisation-wrong-constant
+  description: Normalising with 1/sqrt(l) instead of sqrt(2/l), as if the integral of sin squared over the interval were
+    l.
+- id: sl-normalisation-root-dropped
+  description: Normalising with 2/l instead of sqrt(2/l).
+- id: sl-mixed-formula-used
+  description: Using the wavenumbers of the mixed problem for a problem with both ends fixed.
+- id: sl-multiplicity-ignored
+  description: Counting each repeated eigenvalue of the periodic problem once, instead of once for each independent eigenfunction.
+- id: sl-interval-shift-ignored
+  description: Evaluating sin(kx) or cos(kx) at x instead of at x - a on an interval that starts at a.
+- id: sl-zero-eigenvalue-forgotten
+  description: Leaving out the eigenvalue lambda = 0 when counting, so every later eigenvalue is numbered one place too
+    early.
+- id: sl-half-factor-wrongly-used
+  description: Using (n pi / 2l)^2 for a problem with both ends insulated, as if the ends were mixed.
+- id: sl-norm-not-divided
+  description: Giving the integral of f times the eigenfunction without dividing by the norm of the eigenfunction.
+- id: sl-norm-wrong
+  description: Dividing by L instead of L/2, the squared norm of the eigenfunction, so the coefficient is half the true
+    value.
+- id: sl-coefficient-sign-flip
+  description: Losing a sign when evaluating the integral at the end points.
+- id: sl-sine-cosine-swap
+  description: Using sin(kx) where the eigenfunction is cos(kx), or the reverse, so the integral is taken against the wrong
+    function.
+- id: sl-robin-condition-ignored
+  description: Using the eigenvalues of the problem with a Neumann end, ignoring the h y term in the end condition.
+- id: sl-dirichlet-limit-used
+  description: Using the eigenvalues (n pi / L)^2 of the problem with both ends fixed in place of the Robin condition.
+- id: sl-robin-sign-error
+  description: Solving tan(mu L) = mu/h instead of tan(mu L) = -mu/h for the Robin condition.
+difficulty_progression: Easy has one end fixed and the other free, on [0, L] or a shifted interval, and asks for the n-th
+  eigenvalue, which needs the end conditions turned into (2n - 1) pi / (2 l) and the interval length found. Medium either
+  counts eigenvalues when lambda = 0 is allowed (both ends insulated) or when every eigenvalue is double (periodic ends),
+  or finds the value of a normalised eigenfunction, which needs the normalising factor and the shift to the left end. Hard
+  either gives a Robin end condition, so the eigenvalue is the square of a root of mu cos(mu L) + h sin(mu L) = 0 that must
+  be found numerically and indexed correctly, or expands a linear function in the eigenfunctions using orthogonality. The
+  exam chain finds lambda_1, lambda_n (following through), a normalised eigenfunction value and an expansion coefficient
+  (following through from lambda_n).
+tags:
+- university-year-2
+- fourier-analysis-and-pdes
+- sturm-liouville
+- eigenvalues
+- eigenfunction-expansion
+framework_areas:
+- fourier-analysis-and-pdes

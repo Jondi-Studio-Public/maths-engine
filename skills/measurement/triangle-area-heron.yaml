@@ -1,0 +1,93 @@
+id: triangle-area-heron
+name: Find the area of a triangle from its three sides
+domain: measurement
+description: Find the area of a triangular region from its three side lengths with Heron's formula, then use it for a height
+  on the longest side or the cost of covering the region.
+status: active
+placement_eligible: false
+prerequisites:
+- triangle-area-base-height
+- evaluate-powers
+answer: number
+sources:
+- topic: r3j_heron
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3j_heron
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3j_heron
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3j_heron_plot
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3j-heron-area-converted-with-cube-factor
+  description: Converting square centimetres to square metres by dividing by 1000 instead of 10 000.
+- id: r3j-heron-area-converted-with-linear-factor
+  description: Converting square centimetres to square metres by dividing by 100 instead of 10 000.
+- id: r3j-heron-area-given-as-height
+  description: Giving the area where the height was asked for.
+- id: r3j-heron-assumed-isosceles
+  description: Treating the triangle as isosceles and using Pythagoras on half the longest side.
+- id: r3j-heron-cm2-given
+  description: Giving the area in square centimetres where square metres were asked for.
+- id: r3j-heron-divided-by-three
+  description: Dividing the perimeter by three instead of two to find the semi-perimeter.
+- id: r3j-heron-half-product-of-two-sides
+  description: Treating the triangle as right-angled and taking half the product of two of its sides as the area.
+- id: r3j-heron-halving-forgotten
+  description: Doubling the area, or forgetting the factor of one half that links a base and a height to the area.
+- id: r3j-heron-height-halving-forgotten
+  description: Dividing the area by the base without first doubling it, so the height comes out half its size.
+- id: r3j-heron-height-on-middle-side
+  description: Finding the height on the middle-length side instead of the longest side.
+- id: r3j-heron-height-on-shortest-side
+  description: Finding the height on the shortest side instead of the longest side.
+- id: r3j-heron-one-factor-dropped
+  description: Using only two of the three differences (s - a), (s - b), (s - c) under the root.
+- id: r3j-heron-perimeter-priced
+  description: Pricing the perimeter of the region instead of its area.
+- id: r3j-heron-perimeter-used-as-semi
+  description: Using the whole perimeter where the semi-perimeter belongs in Heron's formula.
+- id: r3j-heron-root-left-out
+  description: Leaving out the square root, giving the product s(s - a)(s - b)(s - c) as the area.
+- id: r3j-heron-semi-of-two-sides
+  description: Halving the sum of only two sides to find the semi-perimeter.
+- id: r3j-heron-semi-perimeter-given
+  description: Stopping at the semi-perimeter and giving it as the area.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find the area of a triangle with a whole-number area from its three sides; the semi-perimeter is not given.
+  medium:
+    steps: 4
+    demand: Find the area to 1 decimal place for any three sides, including a triangle with an obtuse angle, or when the sides
+      are written in two units and the area is asked in square metres.
+  hard:
+    steps: 5
+    demand: 'Use the area for a second quantity: the height on the longest side, or the cost of covering the region at a stated
+      price.'
+  exam:
+    steps: 6
+    demand: Semi-perimeter, area, height on the longest side and cost of surfacing, each following through from the earlier
+      parts.
+tags:
+- general-maths
+- measurement
+- heron
+- area

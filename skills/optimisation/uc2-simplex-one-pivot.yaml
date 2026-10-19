@@ -1,0 +1,74 @@
+id: uc2-simplex-one-pivot
+name: One pivot of the simplex method
+domain: optimisation
+year_level:
+- university
+description: Build and pivot a simplex tableau for a maximisation problem with a stated pivot rule (most negative objective
+  entry, then the minimum ratio, lowest index on a tie), giving every tableau as a matrix of exact fractions. The exam chain
+  writes the initial tableau, the minimum ratio, the tableau after the first pivot and the new value of z.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-lp-formulation-and-corner-points
+- ucv1-null-space
+answer: matrix
+sources:
+- topic: r3l_simplex_one_pivot
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3l_simplex_one_pivot
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3l_simplex_one_pivot
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3l_simplex_one_pivot
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3l-simplex-leaving-row-wrong
+  description: Choosing a pivot row by a rule other than the smallest ratio (for example the largest ratio), so the next
+    solution is infeasible.
+- id: r3l-simplex-entering-column-wrong
+  description: Choosing an entering column that is not the most negative entry of the objective row.
+- id: r3l-simplex-pivot-row-unscaled
+  description: Clearing the pivot column without first dividing the pivot row by the pivot, so the pivot entry is not 1.
+- id: r3l-simplex-objective-row-not-updated
+  description: Pivoting the constraint rows but leaving the objective row as it was.
+- id: r3l-simplex-objective-row-sign
+  description: Writing the profits with their own sign in the objective row of the tableau instead of their negatives.
+- id: r3l-simplex-slack-misplaced
+  description: Putting the slack columns in the wrong order, so the identity block of the tableau is not in constraint order.
+- id: r3l-simplex-columns-swapped
+  description: Swapping the coefficient columns of two decision variables when copying the constraints into the tableau.
+- id: r3l-simplex-ratio-for-entering-value
+  description: Reporting an entering coefficient, a ratio or their sum where the product of the two (the rise in z) was
+    asked for.
+- id: r3l-simplex-objective-sign
+  description: Reading the new objective value with the wrong sign from the objective-row entry of the entering column.
+difficulty_progression: Easy writes the initial tableau from a linear programme, with the slack columns and the negated
+  objective row. Medium performs the first pivot from the supplied initial tableau, choosing the entering column and the
+  leaving row by the stated rule. Hard performs a pivot from the middle of a run, where the entries are already fractions
+  and the basic columns are no longer the slacks. The exam chain writes the initial tableau, finds the smallest ratio, writes
+  the tableau after the pivot and follows the ratio through to the new value of z.
+tags:
+- university-core-v1
+- university-year-2
+- optimisation
+- linear-programming
+- simplex
+- tableau
+- pivot

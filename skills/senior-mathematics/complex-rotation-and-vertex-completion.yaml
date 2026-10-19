@@ -1,0 +1,111 @@
+id: complex-rotation-and-vertex-completion
+name: Rotate points and complete vertices in the complex plane
+domain: senior-mathematics
+year_level:
+- '12'
+description: Rotate a point of the complex plane about the origin or about another centre by multiplying by a unit complex
+  number, and find the missing vertex of a square or equilateral triangle from the vertices given. The exam chain gives the
+  side, length and area of a square ABCD and one of its missing vertices.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form
+- senior-consider-complex-numbers-as-points-in-a-plane
+answer: expression
+sources:
+- topic: w6b_complex_rotation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6b_complex_rotation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6b_complex_rotation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6b_complex_rotation
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: rotation-adds-instead-of-multiplies
+  description: Adding the unit number to the point instead of multiplying by it.
+- id: rotation-centre-added-to-rotated-point
+  description: Rotating the point itself and then adding the centre, instead of rotating the vector from the centre.
+- id: rotation-centre-ignored
+  description: Rotating about the origin when the centre of rotation is another point.
+- id: rotation-centre-not-added-back
+  description: Rotating the vector from the centre to the point but not adding the centre back.
+- id: rotation-half-turn-as-quarter-turn
+  description: Multiplying by i for a half turn.
+- id: rotation-half-turn-negates-one-part
+  description: Negating only the real part (or only the imaginary part) for a half turn.
+- id: rotation-half-turn-reflects
+  description: Taking a half turn to be the conjugate, which reflects the point in the real axis.
+- id: rotation-multiplies-by-cos-plus-sin
+  description: Multiplying by cos θ + sin θ, a real number, instead of cos θ + i sin θ.
+- id: rotation-quarter-turn-as-half-turn
+  description: Negating the number (a half turn) where a quarter turn was asked.
+- id: rotation-sine-and-cosine-swapped
+  description: Multiplying by sin θ + i cos θ, which turns through 90° − θ instead of θ.
+- id: rotation-swaps-real-and-imaginary
+  description: Swapping the real and imaginary parts to turn a point through a quarter turn, which reflects it in the line
+    y = x instead.
+- id: rotation-wrong-direction
+  description: Rotating the opposite way, clockwise where anticlockwise was asked or the reverse.
+- id: side-length-adds-the-parts
+  description: Adding the real and imaginary parts to get a length, instead of using Pythagoras.
+- id: side-length-forgets-square-root
+  description: Leaving the length as the sum of the squares, without taking the square root.
+- id: side-length-takes-the-larger-part
+  description: Giving the larger of the real and imaginary parts as the length of the side.
+- id: side-vector-difference-reversed
+  description: Subtracting the vertices in the wrong order, so the vector points from B to A.
+- id: side-vector-parts-swapped
+  description: Swapping the real and imaginary parts of the side vector.
+- id: side-vector-sum-for-difference
+  description: Adding the two vertices instead of subtracting them.
+- id: square-area-as-perimeter
+  description: Giving the perimeter of the square where the area was asked.
+- id: square-area-doubles-side
+  description: Doubling the side length instead of squaring it.
+- id: square-area-halved
+  description: Halving the square of the side, as for the area of a triangle.
+- id: square-extends-the-side
+  description: Continuing along the line AB instead of turning through a right angle.
+- id: square-opposite-vertex
+  description: Giving the vertex opposite A (the reflection of A in the centre) where the neighbouring vertex was asked for.
+- id: square-rotates-position-not-side
+  description: Rotating the position of a vertex about the origin instead of rotating the side vector.
+- id: square-vertices-swapped
+  description: Giving the other missing vertex of the square, C for D or D for C.
+- id: square-wrong-orientation
+  description: Turning the wrong way for the labelling of the square, so the vertex is on the other side of AB.
+- id: triangle-height-equals-side
+  description: Placing the apex a whole side length above the midpoint, forgetting that the height of an equilateral triangle
+    is √3/2 of its side.
+- id: triangle-wrong-orientation
+  description: Giving the third vertex on the wrong side of AB for the labelling of the triangle.
+difficulty_progression: Easy turns a Gaussian integer through a quarter turn either way or a half turn about the origin. Medium
+  moves the centre of rotation off the origin, or turns through 30, 45, 60 or 120 degrees so the image has surds. Hard completes
+  a square from two adjacent vertices or from its centre, or finds the apex of an equilateral triangle, with the direction
+  of the labelling stated. The exam chain finds the side AB, its length, the area (following through from the length) and
+  a missing vertex.
+tags:
+- complex-numbers
+- argand-diagram
+- rotation
+- geometry-of-complex-numbers
+- nsw-extension-2
+- vertices-of-polygons

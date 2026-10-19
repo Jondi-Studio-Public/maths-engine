@@ -63,7 +63,7 @@ _TAILS = (
 
 
 def _typed(expr) -> str:
-    return str(expr).replace("**", "^")
+    return str(expr).replace("**", "^").replace("log(", "ln(")
 
 
 def _linear(r: int) -> str:

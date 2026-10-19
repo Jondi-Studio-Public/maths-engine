@@ -39,6 +39,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c1_stationary
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: forgot-set-zero
   description: Forgetting to set the derivative equal to zero before solving.

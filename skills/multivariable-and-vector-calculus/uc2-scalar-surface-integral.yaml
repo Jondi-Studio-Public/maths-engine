@@ -1,0 +1,85 @@
+id: uc2-scalar-surface-integral
+name: Scalar surface integral
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: 'Evaluate the surface integral of a scalar function over a parametrised surface as the double integral of g(r(u, v)) times the length of r_u x r_v, over planes, cylinders, cones, spheres and triangular regions, find the mass of a thin sheet, and chain the area element of a spherical shell through its mass, area and average density.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-surface-area-parametric
+answer: expression
+sources:
+- topic: s2a2_scalar_surface
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a2_scalar_surface
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a2_scalar_surface
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a2_scalar_surface
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: vc2-ssi-angle-halved
+  description: 'Halves the area of a sphere zone by integrating v over half the circle, or by using pi where 2 pi belongs.'
+- id: vc2-ssi-antiderivative-sign
+  description: 'Takes the antiderivative of sin u to be cos u, or substitutes w = cos u and loses the sign, so 1 - cos of the upper limit becomes 1 + cos or cos - 1.'
+- id: vc2-ssi-area-element-dropped
+  description: 'Integrates g(r(u, v)) du dv, leaving out the length of r_u x r_v, so the surface area element is replaced by the parameter area element.'
+- id: vc2-ssi-average-height-wrong
+  description: 'Takes the average density to be the density constant times the radius, as if the height z were the radius everywhere.'
+- id: vc2-ssi-average-inverted
+  description: 'Divides the area by the mass instead of the mass by the area when finding the average density.'
+- id: vc2-ssi-average-not-divided
+  description: 'Gives the total mass as the average density without dividing by the area.'
+- id: vc2-ssi-derivative-slip
+  description: 'Gives the area-element constant of a sphere as twice the radius, differentiating a squared radius.'
+- id: vc2-ssi-height-taken-constant
+  description: 'Takes z to be the radius a everywhere on the dome instead of a cos u, so the density is constant.'
+- id: vc2-ssi-integrand-at-corner
+  description: 'Evaluates g at the corner of the parameter region u = 0, v = 0 instead of integrating it over the region.'
+- id: vc2-ssi-integrand-dropped
+  description: 'Integrates 1 instead of g, finding the area of the surface instead of the integral of g.'
+- id: vc2-ssi-jacobian-factor-dropped
+  description: 'Leaves the factor u out of the length of r_u x r_v for a cone, so the integrand has one power of u too few.'
+- id: vc2-ssi-magnitude-not-rooted
+  description: 'Uses the sum of the squares of the components of r_u x r_v as the area element, without taking the square root.'
+- id: vc2-ssi-power-rule-division-dropped
+  description: 'Raises the power of u or v by one when integrating but does not divide by the new power.'
+- id: vc2-ssi-radius-cubed
+  description: 'Gives the area-element constant of a sphere as the cube of the radius instead of the square.'
+- id: vc2-ssi-radius-not-substituted
+  description: 'Writes x and y in terms of cos v and sin v but leaves out the radius a, so the radius factors are missing.'
+- id: vc2-ssi-scale-added
+  description: 'Adds the radius and its square when finding the area-element constant of a sphere.'
+- id: vc2-ssi-scale-dropped
+  description: 'Leaves a constant factor out of the length of r_u x r_v, such as the radius of a cylinder, the factor a of a cone, or a power of the radius of a sphere.'
+- id: vc2-ssi-sine-dropped
+  description: 'Leaves the factor sin u out of the area element of a sphere and integrates the constant a squared.'
+- id: vc2-ssi-substitution-limits-slip
+  description: 'Makes the substitution w = cos u but uses the limits in the wrong order or leaves out the value at u = 0.'
+- id: vc2-ssi-triangle-as-square
+  description: 'Integrates over the square 0 to k by 0 to k instead of the triangle, so the inner limit does not depend on u.'
+- id: vc2-ssi-triangle-halved
+  description: 'Integrates over the square and halves the result, as if the triangle were half of the square for any g.'
+- id: vc2-ssi-trig-average-slip
+  description: 'Takes the integral of cos squared v or sin squared v over the range to be the length of the range, or doubles an integral of sin u cos u, instead of using the half-angle form.'
+- id: vc2-ssi-trig-power-slip
+  description: 'Integrates sin u cos u as sin u, losing one power of sine.'
+tags: [university-core-v1, university-year-2, multivariable-calculus, surfaces, parametrised-surface, surface-integral]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

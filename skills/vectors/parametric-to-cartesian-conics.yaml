@@ -1,0 +1,142 @@
+id: parametric-to-cartesian-conics
+name: Eliminate the parameter to find the Cartesian relation
+domain: vectors
+year_level: ['12']
+description: >-
+  Eliminate the parameter from parametric equations (lines, parabolas, ellipses with cos and sin,
+  hyperbolas with sec and tan) and from a polar line, and write y or y² in terms of x.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-vector-equations-of-curves-in-two-or
+answer: expression
+sources:
+- topic: r3i_parametric_conics
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3i_parametric_conics
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3i_parametric_conics
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3i_exam_parametric_conics
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3i-parametric-coefficient-not-squared
+  description: >-
+    Squaring the trigonometric identity but leaving the scale factor of y unsquared, so y² is given as
+    b(...) instead of b²(...).
+- id: r3i-parametric-coefficient-of-y-ignored
+  description: >-
+    Moving r sin(θ) to y but ignoring its coefficient, so a multiple of y is treated as y.
+- id: r3i-parametric-conic-sign-confused
+  description: >-
+    Using the wrong sign between the x² and y² terms, treating an ellipse as a hyperbola or the reverse.
+- id: r3i-parametric-constant-dropped
+  description: >-
+    Dropping the constant term when substituting for the parameter.
+- id: r3i-parametric-cos-squared-used-for-sin
+  description: >-
+    Using cos²(π/3) = 1/4 where sin²(π/3) = 3/4 is needed.
+- id: r3i-parametric-cross-term-halved
+  description: >-
+    Taking (t + 1/t)² - (t - 1/t)² to be 2 instead of 4.
+- id: r3i-parametric-denominator-not-squared
+  description: >-
+    Writing x/a squared as x²/a instead of x²/a².
+- id: r3i-parametric-divided-only-one-term
+  description: >-
+    Dividing only the constant by the coefficient of y, leaving the x term undivided.
+- id: r3i-parametric-double-angle-factor-lost
+  description: >-
+    Using cos(2t) = 1 - sin²(t), losing the factor of 2.
+- id: r3i-parametric-double-angle-sign
+  description: >-
+    Using cos(2t) = 1 + 2sin²(t), with the wrong sign on the squared term.
+- id: r3i-parametric-factor-two-squared-wrongly
+  description: >-
+    Squaring the coefficient 2b of t/(1 + t²) and carrying the factor 4 into the equation of the curve,
+    although b was the scale of y.
+- id: r3i-parametric-instruction-not-followed
+  description: >-
+    Evaluating at the wrong value of x, not the one the question names.
+- id: r3i-parametric-multiplied-not-divided
+  description: >-
+    Multiplying by the coefficient of y instead of dividing by it.
+- id: r3i-parametric-parameter-not-eliminated
+  description: >-
+    Replacing t by x without first solving x = pt + q for t.
+- id: r3i-parametric-scale-dropped
+  description: >-
+    Dropping the scale factor of y from the equation, so y² is given as 1 - x²/a² for an ellipse that is
+    scaled in y.
+- id: r3i-parametric-scale-lost-in-squaring
+  description: >-
+    Squaring only the numerator x - q when substituting t = (x - q)/p, and not the divisor p.
+- id: r3i-parametric-sec-for-cos
+  description: >-
+    Using sec(π/3) = 2 where cos(π/3) = 1/2 is needed.
+- id: r3i-parametric-sec-tan-identity-sign
+  description: >-
+    Using tan²(t) = sec²(t) + 1 instead of tan²(t) = sec²(t) - 1.
+- id: r3i-parametric-shift-dropped
+  description: >-
+    Ignoring the translation of the centre, so (x - h)² appears as x².
+- id: r3i-parametric-shift-sign-wrong
+  description: >-
+    Writing x + h in place of x - h for a curve whose centre is at x = h.
+- id: r3i-parametric-sign-lost-moving-term
+  description: >-
+    Making a sign slip when moving the x term across the equals sign.
+- id: r3i-parametric-sign-lost-squaring-difference
+  description: >-
+    Adding where the squared terms are subtracted, so (t + 1/t)² - (t - 1/t)² = 4 becomes a sum.
+- id: r3i-parametric-solved-for-t-multiplied
+  description: >-
+    Solving x = pt + q for t by multiplying by p instead of dividing.
+- id: r3i-parametric-solved-for-t-wrong-sign
+  description: >-
+    Solving x = pt + q for t with the wrong sign on q, writing t = (x + q)/p.
+- id: r3i-parametric-square-forgotten
+  description: >-
+    Dropping the square on x when substituting sin(t) = x/a into 1 - 2sin²(t).
+- id: r3i-parametric-trig-value-misread
+  description: >-
+    Using a wrong exact trigonometric value at t = π/3 (taking the cosine or the sine to be 1 or 3/2).
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: >-
+      Solve a linear equation for the parameter and substitute it into the second equation to write y in
+      terms of x.
+  medium:
+    steps: 3
+    demand: >-
+      Choose the identity cos² + sin² = 1 or sec² - tan² = 1 to remove the parameter, or convert a polar line
+      to Cartesian form, and write y or y² in terms of x.
+  hard:
+    steps: 4
+    demand: >-
+      Remove the parameter from a shifted ellipse, a reciprocal pair t + 1/t and t - 1/t, a double-angle
+      equation, or a rational parametrisation, choosing the identity the pair of equations suggests.
+  exam:
+    steps: 6
+    demand: >-
+      Chain exact values at t = π/3, the Cartesian relation of an ellipse, and a value read from it at a
+      stated x.
+tags:
+- acara-senior-v8-4
+- vectors
+- parametric-equations
+- conics
+- ellipse
+- hyperbola
+- polar
+- ACMSM112
+- vce-specialist-mathematics

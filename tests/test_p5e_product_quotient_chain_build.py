@@ -144,7 +144,8 @@ def test_skill_sources_cover_correct_stages():
     _, skills = load_skills()
     skill = next((s for s in skills if s.id == "senior-apply-the-product-quotient-and-chain-rule-to"), None)
     assert skill is not None
-    assert len(skill.sources) == 4
+    # easy, medium, hard, exam chain, plus the single-part exam question re-added as key exam-single (bf2fca7)
+    assert len(skill.sources) == 5
     assert skill.sources[3].difficulty == "exam"
     # Check that all sources have the correct topic
     for source in skill.sources[:3]:

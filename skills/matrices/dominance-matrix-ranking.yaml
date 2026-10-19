@@ -1,0 +1,79 @@
+id: dominance-matrix-ranking
+name: Rank teams with a dominance matrix
+domain: matrices
+description: 'Round-robin results are turned into a one-step dominance matrix and used to rank the teams. Easy: given the
+  dominance matrix, rank the teams by wins (one-step dominance). Medium: given the matrix, rank the teams by one-step plus
+  two-step dominance. Hard: from results listed in sentences, with the two best teams level on wins, rank by one-step plus
+  two-step dominance. The exam chain writes the matrix from the results, then one team''s one-step dominance, its two-step
+  dominance and their sum (carried forward). Distinct from graph-adjacency walk counts: here the matrix records who beat whom
+  and the aim is a ranking.'
+status: active
+placement_eligible: false
+prerequisites:
+- matrix-multiplication
+- senior-understand-the-matrix-definition-and-notation
+answer: ordered_list
+sources:
+- topic: r3c_dominance
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 6
+- topic: r3c_dominance
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 6
+- topic: r3c_dominance
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: r3c_dominance_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3c-dom-count-slip
+  description: Is one out when counting the routes or wins, giving a total one more or one less than the matrix shows.
+- id: r3c-dom-counts-all-teams
+  description: Gives the number of other teams, as if the team had beaten all of them, instead of counting the games it won.
+- id: r3c-dom-counts-teams-not-routes
+  description: Counts the teams a team reaches in two steps instead of the number of routes, so routes through different teams
+    to the same team are counted once.
+- id: r3c-dom-diagonal-ones
+  description: Puts 1s on the diagonal of the dominance matrix, as if each team had beaten itself.
+- id: r3c-dom-entry-slip
+  description: Writes one entry of the dominance matrix the wrong way round, so one game's winner and loser are swapped.
+- id: r3c-dom-multiplies
+  description: Multiplies the one-step and two-step dominance where they were to be added.
+- id: r3c-dom-one-step-only
+  description: Ranks the teams by wins (one-step dominance) alone, so teams with the same wins are not separated by what they
+    beat indirectly.
+- id: r3c-dom-order-reversed
+  description: Writes the ranking with the weakest team first instead of the strongest.
+- id: r3c-dom-ranking-slip
+  description: Swaps two neighbouring teams in the ranking, a slip in comparing their totals.
+- id: r3c-dom-row-order-slip
+  description: Writes the rows of the dominance matrix in a different order from the order the teams were listed in.
+- id: r3c-dom-rows-columns-swapped
+  description: Reads a dominance matrix by columns where rows are meant, so a team is credited with its losses (the games
+    it lost) instead of its wins.
+- id: r3c-dom-squares-wins
+  description: Squares the number of wins to find the two-step dominance instead of counting routes through beaten teams.
+- id: r3c-dom-two-step-only
+  description: Ranks the teams by two-step dominance alone and leaves out the games a team won directly.
+- id: r3c-dom-wins-losses-swapped
+  description: Puts a 1 where the team in the row lost to the team in the column, or counts losses where wins were asked for.
+tags:
+- matrices
+- dominance-matrix
+- ranking
+- tournament
+- r3c_dominance

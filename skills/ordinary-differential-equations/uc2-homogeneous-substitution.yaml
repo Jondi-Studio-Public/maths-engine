@@ -1,0 +1,57 @@
+id: uc2-homogeneous-substitution
+name: Homogeneous first-order equations
+domain: ordinary-differential-equations
+year_level: [university]
+description: Recognise dy/dx = F(y/x), substitute y = vx, separate and integrate, and fit an initial condition.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-separable-poly
+answer: expression
+sources:
+- topic: s2c1_homogeneous_substitution
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2c1_homogeneous_substitution
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2c1_homogeneous_substitution
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2c1_homogeneous_substitution
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: homogeneous-sign-in-separation
+  description: >-
+    Making a sign slip while separating variables and integrating after the substitution y = vx.
+- id: homogeneous-forgot-back-substitution
+  description: >-
+    Stopping at v(x) without multiplying by x to return to y = vx.
+- id: homogeneous-reciprocal-slip
+  description: >-
+    Inverting the result of the integration, so v is replaced by 1/v.
+- id: homogeneous-coefficient-dropped
+  description: >-
+    Dropping the coefficient of the squared term, or the factor 2 from the half-angle, in the solution.
+- id: homogeneous-constant-error
+  description: >-
+    Fixing the constant of integration wrongly from the initial condition, such as inverting it or using the
+    wrong value of y/x.
+- id: homogeneous-dropped-product-rule
+  description: >-
+    Taking dy/dx = x dv/dx and leaving out the v term of the product rule in y = vx.
+- id: homogeneous-sign-in-partial-fractions
+  description: >-
+    Getting a sign wrong in the partial fractions for the separated integral.
+- id: homogeneous-divided-by-x
+  description: >-
+    Writing dv/dx without the factor x, so the transformed equation is divided by x once too often.
+- id: homogeneous-wrong-term
+  description: >-
+    Swapping the roles of the v and v^2 terms in the equation for v.
+tags: [university-year-2, ordinary-differential-equations, homogeneous-substitution]

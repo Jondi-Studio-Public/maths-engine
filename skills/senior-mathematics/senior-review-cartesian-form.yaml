@@ -39,6 +39,12 @@ sources:
     difficulty: exam
     stages:
       - exam
+  - topic: exd_x_complex_equating
+    params: {tier: exam}
+    difficulty: exam
+    key: exam-single
+    stages:
+      - exam
 misconceptions:
   - id: drops-sign-across-equals
     description: Drops or flips the imaginary unit's sign when moving a term across the equals sign while separating real and imaginary parts.

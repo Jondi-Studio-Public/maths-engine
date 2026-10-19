@@ -1,0 +1,67 @@
+id: euler-method-nonlinear-table
+name: Euler's method for a non-linear equation
+domain: differential-equations
+description: Apply several steps of Euler's method to dy/dx = f(x, y) with f non-linear in y (xy, y^2, x/y, y(1 - y)), recomputing
+  the slope at each new estimate, completing a table of estimates and slopes, and comparing the final estimate with the exact
+  solution. The existing Euler skill takes one step of a linear equation.
+status: active
+placement_eligible: false
+prerequisites:
+- explicit-euler-linear-ode
+- senior-examine-slope-direction-or-gradient-fields-of-a
+answer: table
+sources:
+- topic: r3h_euler_nonlinear
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3h_euler_nonlinear
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3h_euler_nonlinear
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3h_euler_nonlinear
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3h-euler-slope-at-next-point
+  description: Evaluating the slope at the next x-value (with the old y) instead of at the current point (x(n), y(n)).
+- id: r3h-euler-step-size-not-applied
+  description: Adding the slope itself to y instead of the slope times the step size, y(n+1) = y(n) + f(x(n), y(n)).
+- id: r3h-euler-restarts-from-initial-value
+  description: Adding each new increment to the starting value y(x0) instead of to the previous estimate.
+- id: r3h-euler-slope-not-updated
+  description: Reusing the first slope for every step instead of recomputing f at each new estimate.
+- id: r3h-euler-error-reversed
+  description: Subtracting in the wrong order, giving the estimate minus the exact value, so the error has the wrong sign.
+- id: r3h-euler-error-uses-previous-step
+  description: Comparing the exact value with the estimate from the step before the last.
+- id: r3h-euler-increment-reported-as-estimate
+  description: Reporting the increment h f(x, y) as the new estimate instead of adding it to the old one.
+- id: r3h-euler-slope-uses-old-point
+  description: Finding the slope with the old x or the old y instead of the new estimate.
+- id: r3h-euler-slope-uses-x-only
+  description: Reporting x, or a function of x alone, as the slope when the equation depends on y as well.
+- id: r3h-euler-error-relative
+  description: Reporting the error as a percentage of the exact value instead of the difference asked for.
+- id: r3h-euler-error-estimate-only
+  description: Giving the Euler estimate itself where the error was asked for.
+tags:
+- senior-secondary
+- specialist-mathematics
+- differential-equations
+- eulers-method

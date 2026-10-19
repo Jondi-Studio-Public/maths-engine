@@ -1759,6 +1759,8 @@ def paper_notation(text):
     A multiplication between two numbers, or whose neighbour is a longer name (``lambda*t``), keeps a visible
     sign: ``lambda × t``. A negative factor is bracketed: ``3*-1`` -> ``3 × (-1)``.
     Text with none of these is returned unchanged, and the result is unchanged by a second pass.
+    A star touching the operand before it with a space after (``x* is``, ``z* = a - bi``) is a superscript mark
+    and stays as written.
     Not a parser: it reads only the operands on each side of a ``*``, so prose passes through untouched.
     The graders read the result as well as the input; ``tests/test_paper_notation.py`` pins that.
     """
@@ -1781,6 +1783,8 @@ def paper_notation(text):
     for m in _PAPER_STAR_RE.finditer(s):
         if m.start() < pos:
             continue  # inside a negative factor already rewritten
+        if m.group()[0] == "*" and m.group()[-1] in " \t":
+            continue  # ``x* is``: a star hugging the name before it is a superscript mark, not a product
         left = _paper_left_class(s[: m.start()])
         right, end = _paper_right_class(s[m.end() :])
         if left == "OTHER" or right == "OTHER":

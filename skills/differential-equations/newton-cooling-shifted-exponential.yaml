@@ -1,0 +1,69 @@
+id: newton-cooling-shifted-exponential
+name: 'Newton''s law of cooling: the shifted exponential'
+domain: differential-equations
+description: Solve dT/dt = -k(T - A) for T = A + (T0 - A)e^(-kt), where the object approaches the surrounding temperature
+  A rather than zero; find k from a later reading and the time to reach a stated temperature, for cooling and for warming
+  objects.
+status: active
+placement_eligible: false
+prerequisites:
+- solve-ode-exponential
+- senior-formulate-differential-equations-including-the-logistic-equation-that
+answer: expression
+sources:
+- topic: r3h_cooling
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3h_cooling
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3h_cooling
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3h_cooling
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3h-cooling-k-sign
+  description: Giving k the wrong sign when solving for it from the later reading, so the cooling constant comes out negative.
+- id: r3h-cooling-ambient-ignored
+  description: Ignoring the surrounding temperature, using T(0) or T(t) in place of the excess over the surroundings in the
+    ratio or the model.
+- id: r3h-cooling-k-not-divided-by-time
+  description: Finding the exponent -kt from the reading but not dividing by t, so k is the logarithm itself; or multiplying
+    where a division is needed.
+- id: r3h-cooling-log-base-ten
+  description: Using a base-10 logarithm to undo the natural exponential.
+- id: r3h-cooling-no-shift
+  description: Writing T = T(0)e^(-kt), as if the object cooled towards 0 instead of towards the surrounding temperature.
+- id: r3h-cooling-ambient-added-to-initial
+  description: Writing T = A + T(0)e^(-kt), using the initial temperature instead of the initial excess T(0) - A.
+- id: r3h-cooling-excess-sign
+  description: Subtracting the decaying term, T = A - (T(0) - A)e^(-kt), so the temperature moves away from the surroundings.
+- id: r3h-cooling-exponent-sign
+  description: Writing e^(kt) instead of e^(-kt), so the temperature moves away from the surroundings without bound.
+- id: r3h-cooling-time-times-k
+  description: Multiplying the logarithm by k instead of dividing by k when solving for the time.
+- id: r3h-cooling-ratio-inverted
+  description: Inverting the ratio of excesses inside the logarithm, so the time comes out negative.
+- id: r3h-cooling-target-not-shifted
+  description: Using the target temperature itself, not its excess over the surroundings, in the ratio.
+tags:
+- senior-secondary
+- specialist-mathematics
+- differential-equations
+- newtons-law-of-cooling

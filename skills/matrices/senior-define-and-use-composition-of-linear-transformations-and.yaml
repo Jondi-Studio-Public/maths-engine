@@ -27,6 +27,11 @@ sources:
   params: {tier: exam}
   difficulty: exam
   stages: [exam]
+- topic: exd_x_g4_lt_composition
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages: [exam]
 misconceptions:
 - id: only-second
   description: Applies only the second stated transformation to the point, skipping the first transformation entirely.

@@ -27,6 +27,11 @@ sources:
   params: {tier: exam}
   difficulty: exam
   stages: [exam]
+- topic: exd_x_g4_lt_inverse
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages: [exam]
 misconceptions:
 - id: forward-not-inverse
   description: Reapplies the stated transformation to the image instead of inverting it to recover the original point.

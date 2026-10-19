@@ -1,0 +1,100 @@
+id: uc2-basis-from-equations
+name: Basis of a subspace from equations
+domain: linear-algebra
+year_level:
+- university
+description: Find a basis, and so the dimension, of a subspace of R^n, the cubics, or the 2x2 matrices defined by homogeneous
+  conditions or by an intersection, written in a stated unique normal form (one vector per free variable, or the reduced
+  row echelon form of a basis). The exam chain finds the parameter at which three equations become dependent and the dimension
+  and basis there.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-null-space
+- uc2-coordinates-in-basis
+answer: matrix
+sources:
+- topic: s2b1_basis_from_equations
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b1_basis_from_equations
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b1_basis_from_equations
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b1_basis_equations
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: basis-vectors-as-columns
+  description: Writing the basis vectors as the columns of the answer matrix when the rows were asked for, so the matrix
+    is transposed.
+- id: basis-order-ignored
+  description: Listing the basis vectors in the wrong order, not following the order of the free variables.
+- id: basis-free-variables-misidentified
+  description: Choosing the wrong variables as free (for example the first ones rather than the ones without a pivot), so
+    each vector is built on the wrong coordinates.
+- id: basis-not-normalised
+  description: Giving a correct but unreduced basis vector, a multiple of the one in reduced row echelon form, when the
+    normal form was asked for.
+- id: nullvec-row-as-vector
+  description: Writing a row of the matrix as a null-space vector instead of a solution of Mx = 0.
+- id: nullvec-component-sign-slip
+  description: Dropping a minus sign when reading the null-space vector off the reduced matrix.
+- id: dimension-counts-equations
+  description: Taking the dimension of the solution space to be n minus the number of equations, even though some equations
+    depend on the others.
+- id: dimension-ignores-parameter
+  description: Giving the dimension at the special value of the parameter for every value of the parameter.
+- id: intersection-used-one-subspace
+  description: Giving a basis of one of the two subspaces instead of their intersection.
+- id: intersection-sum-for-intersection
+  description: Adding generators of the two subspaces instead of finding the vectors that lie in both.
+- id: intersection-substitution-sign-slip
+  description: Substituting a vector of the spanning set into the equation of the other subspace and getting the sign of
+    the resulting relation wrong.
+difficulty_progression: 'Easy solves two independent equations of R^4 whose free variables are not simply the last two,
+  giving the null-space basis in the stated normal form. Medium first turns conditions into equations (p(1) = 0 or p''(0)
+  = p(-1) on the coefficients of a cubic, trace, symmetry or AB = BA for 2x2 matrices), or faces a system of three equations
+  in R^4 or R^5 with a hidden dependency, or the vectors of R^5 orthogonal to given vectors (fractions appear). Hard is
+  an intersection: a subspace given by an equation meets a subspace given by spanning vectors, or two subspaces given by
+  shuffled spanning vectors meet in a line, with the reduced row echelon form of the answer as the normal form. The exam
+  chain finds the parameter k at which three equations become dependent, the dimension there, the basis there and the generic
+  dimension (following through).'
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- subspaces
+- basis
+- dimension
+- homogeneous-systems
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

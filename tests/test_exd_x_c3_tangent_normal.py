@@ -34,10 +34,12 @@ def _independent_line(text: str):
 
 
 def test_registered():
-    # The skill's exam source is now the multi-part chain; this single-answer preset stays registered, unused.
-    last = sup.skill(SKILL)["sources"][-1]
-    assert last["topic"] == "exd_x_r2a_parallel_tangent_normal"
-    assert last["difficulty"] == "exam" and last["stages"] == ["exam"]
+    # The skill's first exam source is the multi-part chain; this single-answer preset is its second exam source,
+    # re-added by the maintainer under key exam-single (bf2fca7).
+    exam = [s for s in sup.skill(SKILL)["sources"] if s["difficulty"] == "exam"]
+    assert [s["topic"] for s in exam] == ["exd_x_r2a_parallel_tangent_normal", TOPIC]
+    assert all(s["stages"] == ["exam"] for s in exam)
+    assert exam[-1]["key"] == "exam-single"
 
 
 def test_text_and_determinism():

@@ -41,12 +41,16 @@ def test_skill_yaml_has_the_exam_source_last():
         .glob("skills/*/senior-angles-at-the-circumference-of-a-circle-subtended.yaml")
     )
     skill = yaml.safe_load(path.read_text(encoding="utf-8"))
-    last = skill["sources"][-1]
-    assert last["topic"] == "exd_x_r2f_chords_chain"
-    assert last["difficulty"] == "exam"
-    assert last["stages"] == ["exam"]
-    assert last["params"] == {"tier": "exam"}
-    assert [s["difficulty"] for s in skill["sources"]] == ["easy", "medium", "hard", "exam"]
+    # The multi-part chain is second to last; this single-part topic was re-added after it as key exam-single (bf2fca7).
+    chain, last = skill["sources"][-2:]
+    assert chain["topic"] == "exd_x_r2f_chords_chain"
+    assert last["topic"] == "exd_x_h4_chords_intersecting"
+    assert last["key"] == "exam-single"
+    for source in (chain, last):
+        assert source["difficulty"] == "exam"
+        assert source["stages"] == ["exam"]
+        assert source["params"] == {"tier": "exam"}
+    assert [s["difficulty"] for s in skill["sources"]] == ["easy", "medium", "hard", "exam", "exam"]
 
 
 _X = sympy.Symbol("x")

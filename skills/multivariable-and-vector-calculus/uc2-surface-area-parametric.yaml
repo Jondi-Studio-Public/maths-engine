@@ -1,0 +1,84 @@
+id: uc2-surface-area-parametric
+name: Surface area of a parametrised surface
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: 'Find the exact area of a parametrised surface as the double integral of the length of r_u x r_v, for planes over rectangles and triangles, cylinders, cones, spheres, paraboloids and tori, and chain the area element of a cone through its area to the cost of covering it.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-surface-normal-parametrised
+- ucv1-double-integral-rectangle
+answer: expression
+sources:
+- topic: s2a2_surface_area
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a2_surface_area
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a2_surface_area
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a2_surface_area
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: vc2-surf-area-angle-dropped
+  description: 'Leaves out the range of the angle parameter v, integrating over u only.'
+- id: vc2-surf-area-antiderivative-factor
+  description: 'Gets the constant in the antiderivative wrong when integrating the square-root expression, so the area is a multiple of the true area.'
+- id: vc2-surf-area-antiderivative-sign
+  description: 'Takes the antiderivative of sin u to be cos u, giving 1 + cos of the upper limit where 1 - cos is needed.'
+- id: vc2-surf-area-cost-added
+  description: 'Adds the price per square metre to the area instead of multiplying.'
+- id: vc2-surf-area-cost-divided
+  description: 'Divides the area by the price per square metre instead of multiplying.'
+- id: vc2-surf-area-halved
+  description: 'Halves the area of a cylinder, as if it were a cone.'
+- id: vc2-surf-area-integral-slip
+  description: 'Integrates the length of the normal incorrectly, for example integrating u to u squared and not u squared over 2, or sin u to cos u.'
+- id: vc2-surf-area-integrand-not-integrated
+  description: 'Evaluates the integrand at the upper limit instead of integrating it.'
+- id: vc2-surf-area-jacobian-factor-dropped
+  description: 'Leaves the factor u out of the area element of a cone, so the integral is over a constant.'
+- id: vc2-surf-area-lower-limit-dropped
+  description: 'Evaluates the antiderivative at the upper limit only and does not subtract its value at the lower limit.'
+- id: vc2-surf-area-magnitude-not-rooted
+  description: 'Uses the sum of the squares of the components of r_u x r_v as the area element, without taking the square root.'
+- id: vc2-surf-area-radii-swapped
+  description: 'Swaps the two radii of a torus in the area formula.'
+- id: vc2-surf-area-radius-squared
+  description: 'Squares the radius of a cylinder in the area element.'
+- id: vc2-surf-area-range-added
+  description: 'Adds the lengths of the parameter ranges instead of multiplying them to get the area of the parameter region.'
+- id: vc2-surf-area-range-dropped
+  description: 'Gives the length of r_u x r_v, or an integral over only one parameter, without integrating over the whole parameter range.'
+- id: vc2-surf-area-scale-dropped
+  description: 'Leaves a constant factor out of the length of r_u x r_v, such as the radius of a cylinder or the factor a of a cone.'
+- id: vc2-surf-area-sine-dropped
+  description: 'Leaves the factor sin u out of the area element of a sphere and integrates the constant a squared.'
+- id: vc2-surf-area-speed-dropped
+  description: 'Gives the area of the parameter region itself, leaving out the length of r_u x r_v.'
+- id: vc2-surf-area-sum-of-components
+  description: 'Adds the absolute values of the components of r_u x r_v instead of finding its length.'
+- id: vc2-surf-area-term-kept
+  description: 'Keeps the cos u term of a torus area element as if it integrated to a non-zero amount.'
+- id: vc2-surf-area-triangle-as-square
+  description: 'Uses the area k squared of a square for the area of the triangular parameter region.'
+- id: vc2-surf-area-wrong-component
+  description: 'Takes the product of the two scale factors as the constant in the area element instead of finding the length of r_u x r_v.'
+tags: [university-core-v1, university-year-2, multivariable-calculus, surfaces, parametrised-surface, surface-area]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

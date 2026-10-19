@@ -1,0 +1,141 @@
+id: uc2-geometric-negative-binomial
+name: Geometric and negative binomial waiting times
+domain: probability
+year_level:
+- university
+description: >-
+  Find probabilities, tails and variances for the number of independent trials up to the first success
+  (geometric) or the r-th success (negative binomial), including parity and two-player race questions that need
+  a geometric series.
+status: active
+placement_eligible: false
+prerequisites:
+- binomial-point-probability
+- discrete-expected-value
+answer: fraction
+sources:
+- topic: r3k_geometric
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3k_geometric
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3k_geometric
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3k_geometric
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3k-geometric-exponent-off-by-one
+  description: 'Using one failure too many or too few in a geometric probability: q^k p for P(X = k), or q^(k-1) for P(X > k).'
+- id: r3k-geometric-binomial-for-first-success
+  description: >-
+    Treating the first-success trial number as a binomial count and multiplying by k, so that the success may fall
+    on any of the k trials.
+- id: r3k-geometric-forgot-the-success
+  description: Giving q^(k-1), the chance of k-1 failures, without the factor p for the success on trial k.
+- id: r3k-geometric-swapped-p-and-q
+  description: Swapping the success and failure probabilities in a geometric or race probability.
+- id: r3k-geometric-tail-complement-slip
+  description: Giving P(X <= k) = 1 - q^k where the tail P(X > k) = q^k was asked, or the reverse.
+- id: r3k-geometric-tail-as-point-mass
+  description: Giving the single mass q^(k-1) p where the whole tail P(X > k) was asked.
+- id: r3k-negbin-binomial-for-rth-success
+  description: >-
+    Giving the binomial probability of exactly r successes in n trials, C(n, r) p^r q^(n-r), where the r-th success
+    must come on the last trial.
+- id: r3k-negbin-forgot-the-arrangements
+  description: Omitting the binomial coefficient C(n-1, r-1) that counts where the first r-1 successes fall.
+- id: r3k-negbin-wrong-choose-argument
+  description: Using C(n, r-1) in place of C(n-1, r-1), forgetting that the last trial is fixed as a success.
+- id: r3k-negbin-geometric-for-rth-success
+  description: Using the geometric probability q^(n-1) p for the r-th success instead of the negative binomial.
+- id: r3k-geometric-even-for-odd
+  description: Summing the odd-numbered masses (1/(1+q)) where the even ones (q/(1+q)) were asked.
+- id: r3k-geometric-even-wrong-start
+  description: Starting the series for P(X even) at q^2 instead of qp, so that the first term and the factor p are wrong.
+- id: r3k-geometric-even-forgot-p
+  description: Summing q + q^3 + q^5 + ... without the factor p in every term.
+- id: r3k-geometric-even-first-term-only
+  description: Giving only the first even mass's failure factor q instead of summing the whole series.
+- id: r3k-race-wrong-winner
+  description: Giving the probability that the second player wins instead of the first.
+- id: r3k-race-ratio-of-probabilities
+  description: Giving p_A/(p_A + p_B), which ignores that the players take turns and the race can go on for more rounds.
+- id: r3k-race-ignores-the-opponent
+  description: Dividing by 1 - q_A alone, as if the opponent never played.
+- id: r3k-race-two-rounds-only
+  description: Adding only the first two terms of the series for the first player winning.
+- id: r3k-negbin-variance-forgot-square
+  description: Dividing by p instead of p^2 in the variance r q / p^2 of the trial of the r-th success.
+- id: r3k-negbin-variance-forgot-q
+  description: Giving r / p^2 for the variance, leaving out the factor q.
+- id: r3k-negbin-variance-single-geometric
+  description: Giving the variance of a single geometric waiting time for the r-th success.
+- id: r3k-negbin-variance-swapped-p-and-q
+  description: Swapping p and q in the variance formula.
+- id: r3k-geometric-ignores-the-memoryless-property
+  description: >-
+    Conditioning on no success in the first m trials but still using m + k trials, ignoring that the process
+    restarts.
+- id: r3k-geometric-point-mass-for-cumulative
+  description: Giving the single mass p q^(k-1) where the probability of succeeding at some point within k trials was asked.
+- id: r3k-negbin-variance-scaled-like-a-multiple
+  description: Scaling the variance by r^2, as for r times one waiting time, instead of by r for a sum of r independent ones.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: >-
+      One clean application of the geometric mass or tail: k-1 failures then a success, or k failures in a
+      row.
+  medium:
+    steps: 5
+    demand: >-
+      A negative binomial probability: the r-th success is on the last trial, so the earlier r-1 successes
+      can fall anywhere before it and the coefficient is C(n-1, r-1), not C(n, r).
+  hard:
+    steps: 7
+    demand: >-
+      A structural question that needs a series or a decomposition: the probability the trial number is
+      even, the first player of a two-player race winning, Var of the r-th success, or a memoryless
+      conditional probability.
+  exam:
+    steps: 8
+    demand: >-
+      Finds a geometric mass, a negative binomial mass, Var(X) and Var(Y), the last following through from
+      Var(X).
+tags:
+- university-core-v1
+- university-year-2
+- probability
+- geometric-distribution
+- negative-binomial
+framework_areas:
+- probability
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: probability
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: probability

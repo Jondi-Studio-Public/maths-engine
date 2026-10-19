@@ -1,0 +1,55 @@
+id: binomial-at-least-complement
+name: "Find binomial tails and ranges by the complement"
+domain: statistics-probability
+year_level: ['12']
+description: "For X binomial with n from 10 to 30 and a small success probability, find an at-least, at-most, strict-inequality or range probability by choosing between summing and taking the complement, then conditional probabilities built from two tails. The exam chain finishes with the chance an event happens on at least one of several independent days."
+status: active
+placement_eligible: false
+prerequisites: [binomial-point-probability]
+answer: number
+sources:
+- topic: r3a_binomial_at_least
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3a_binomial_at_least
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3a_binomial_at_least
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3a_binomial_at_least
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 1, demand: "An event with one or two terms or a one-line complement: at least one, at most one, at most two."}
+  medium: {steps: 2, demand: "A tail or range that needs several point probabilities, with the boundary and strict or inclusive wording handled correctly."}
+  hard: {steps: 3, demand: "A conditional probability built from two tails of the same distribution."}
+  exam: {steps: 4, demand: A connected chain of four parts in which each later part uses an earlier answer.}
+misconceptions:
+- id: r3a-at-least-one-gives-none
+  description: "Reporting P(X = 0) for \"at least one\", stopping before the complement is taken."
+- id: r3a-at-least-one-gives-exactly-one
+  description: "Reading \"at least one\" as \"exactly one\" and reporting only P(X = 1)."
+- id: r3a-complement-boundary-off-by-one
+  description: "Taking the complement of a tail from the wrong value: 1 - P(X <= k) for P(X >= k), or 1 - P(X <= k - 1) for P(X > k)."
+- id: r3a-reports-the-complement-tail
+  description: "Reporting the opposite tail of the distribution, stopping before the subtraction from 1."
+- id: r3a-tail-reduced-to-one-point
+  description: "Reporting the single probability at the boundary of a tail instead of the sum of all the values in it."
+- id: r3a-strict-inequality-read-as-inclusive
+  description: "Reading \"more than k\" as \"at least k\" and including P(X = k)."
+- id: r3a-range-sums-only-the-ends
+  description: "Adding the probabilities at the two ends of a range and leaving out the values between them."
+- id: r3a-range-ignores-the-lower-bound
+  description: "Summing from zero up to the upper end and ignoring the lower end of the range."
+- id: r3a-conditional-ignores-the-condition
+  description: "Reporting the unconditional probability of the event and not dividing by the probability of the condition."
+- id: r3a-conditional-divides-by-the-wrong-tail
+  description: "Dividing the numerator by a tail that is not the condition (for example P(X <= k) rather than P(X >= j))."
+- id: r3a-repeated-event-adds-the-probabilities
+  description: "Multiplying the probability of one day by the number of days to find the chance on at least one day."
+tags: [round-3, statistics-probability, binomial-distribution, acmmm147, complement]

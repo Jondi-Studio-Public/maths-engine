@@ -1,6 +1,8 @@
 id: f10-solid-faces-edges-vertices
 name: Count the faces, edges and vertices of a solid
 domain: geometry
+naplan_domain: [space]
+year_level: ['5']
 description: Given a drawn prism or pyramid, count its faces, edges or vertices, including the ones hidden at the back, and, from a drawn net, find the vertices of the folded solid by counting faces and edges and applying Euler's formula V - E + F = 2.
 status: active
 capability_gates: [figure_stimulus]
@@ -46,4 +48,4 @@ misconceptions:
   description: Adds up the sides of every face and gives that total as the number of edges, though each edge is shared by two faces.
 - id: solid-euler-sign
   description: Gets the signs or the 2 wrong in Euler's formula, V - E + F = 2, when solving for the vertices.
-tags: [acara-f10-v9, geometry, solids, faces-edges-vertices, euler, nets, figure]
+tags: [acara-f10-v9, ac9m5sp01, geometry, solids, faces-edges-vertices, euler, nets, figure]
