@@ -1,0 +1,64 @@
+id: uc2-second-order-ivp
+name: Second-order initial value problems
+domain: ordinary-differential-equations
+year_level: [university]
+description: Solve a non-homogeneous constant-coefficient second-order equation with initial conditions, in
+  every root case and including resonant forcing, and evaluate the solution.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-second-order-characteristic-roots
+- ucv1-initial-value-constant
+answer: expression
+sources:
+- topic: s2c1_second_order_ivp
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2c1_second_order_ivp
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2c1_second_order_ivp
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2c1_second_order_ivp
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: ode-particular-coefficient-slip
+  description: >-
+    Slipping in the coefficient of the particular solution when substituting the trial form, such as
+    forgetting to divide by p^2 + bp + c or dropping the b term.
+- id: ode-particular-derivative-dropped
+  description: >-
+    Dropping the term from the first derivative of the trial solution, so a linear particular solution has
+    the wrong constant term.
+- id: ode-resonance-coefficient-slip
+  description: >-
+    Getting the coefficient of the resonant particular solution wrong, such as forgetting to divide by 2p +
+    b or by 2.
+- id: ode-resonance-factor-x-dropped
+  description: >-
+    Using a trial solution with the same form as a term of the complementary function instead of multiplying
+    by x (or x^2).
+- id: ode-ic-applied-to-homogeneous-only
+  description: >-
+    Fitting the constants of the complementary function to the initial conditions without allowing for the
+    particular solution.
+- id: ode-ic-derivative-particular-forgotten
+  description: >-
+    Subtracting the particular solution from y(0) but not its slope from y'(0) when fitting the constants.
+- id: ode-homogeneous-root-sign
+  description: >-
+    Reading the characteristic roots with the wrong sign, so the complementary function has e^(-rx) in place
+    of e^(rx).
+- id: ode-particular-sign-error
+  description: >-
+    Taking the particular solution with the wrong overall sign.
+- id: ode-complex-real-part-dropped
+  description: >-
+    For complex roots, dropping the exponential factor e^(ax) from the complementary function.
+tags: [university-year-2, ordinary-differential-equations, second-order-ivp]

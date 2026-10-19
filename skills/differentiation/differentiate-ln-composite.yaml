@@ -1,0 +1,103 @@
+id: differentiate-ln-composite
+name: Differentiate natural logarithms of composite functions
+domain: differentiation
+year_level: ['12']
+description: Differentiate ln f(x) for composite arguments as f'(x)/f(x), simplify products, quotients and roots with the
+  laws of logarithms first, and find gradients at a point.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-chain-rule
+- senior-use-logarithmic-functions-and-their-derivatives-to-solve
+answer: expression
+sources:
+- topic: r3b_differentiate_ln
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3b_differentiate_ln
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3b_differentiate_ln
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: r3b_exam_differentiate_ln
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3b-lnd-chain-factor-missing
+  description: Differentiating ln(f(x)) as 1/f(x), leaving out the derivative f'(x) of the inside function.
+- id: r3b-lnd-derivative-of-inside-only
+  description: Giving the derivative of the inside function f'(x) alone, forgetting to divide by f(x).
+- id: r3b-lnd-quotient-inverted
+  description: Writing f(x)/f'(x), the reciprocal of the correct f'(x)/f(x).
+- id: r3b-lnd-log-kept
+  description: Leaving a logarithm in the derivative, as f'(x) ln f(x), as if the logarithm were part of the answer.
+- id: r3b-lnd-power-coefficient-dropped
+  description: 'Dropping the power from a repeated factor: differentiating ln(u^n) as u''/u instead of n u''/u.'
+- id: r3b-lnd-trig-ratio-inverted
+  description: 'Turning the ratio of sine and cosine upside down: tan where cot belongs, or the reverse.'
+- id: r3b-lnd-sign-slip
+  description: Losing the minus sign that comes from differentiating cosine, or adding one to a derivative that has none.
+- id: r3b-lnd-constant-dropped
+  description: Dropping the constant term from the function inside the logarithm when forming f'(x)/f(x).
+- id: r3b-lnd-exponentials-cancelled
+  description: Cancelling e^(kx) in k e^(kx)/(e^(kx) + c) as if the denominator were e^(kx) alone, leaving just k.
+- id: r3b-lnd-linear-term-derivative-dropped
+  description: Differentiating x^2 + bx + c as 2x, forgetting the derivative b of the linear term.
+- id: r3b-lnd-denominator-differentiated
+  description: Adding the derivative to the denominator instead of dividing the derivative by the function.
+- id: r3b-lnd-sum-as-difference
+  description: Subtracting the logarithmic derivatives of two factors of a product, instead of adding them.
+- id: r3b-lnd-logarithmic-derivatives-multiplied
+  description: Multiplying the two logarithmic derivatives u'/u and v'/v of a product or quotient instead of adding or subtracting
+    them.
+- id: r3b-lnd-difference-as-sum
+  description: Adding the logarithmic derivatives of the numerator and denominator of a quotient, instead of subtracting.
+- id: r3b-lnd-quotient-rule-not-divided-by-quotient
+  description: Differentiating the quotient inside the logarithm by the quotient rule but not dividing by the quotient itself.
+- id: r3b-lnd-root-halving-dropped
+  description: Differentiating ln of a square root as if the root were not there, losing the factor of 1/2.
+- id: r3b-lnd-root-power-misapplied
+  description: Treating the derivative of the logarithm of a square root as f'(x)/f(x)^(3/2).
+- id: r3b-chain-square-term-forgotten
+  description: Solving for the constant inside ln(x^2 + k) by using the stated x as if the squared term were absent.
+- id: r3b-chain-square-taken-as-linear
+  description: Replacing x^2 by x when substituting the stated x into x^2 + k.
+- id: r3b-chain-numerator-two-dropped
+  description: Dropping the factor 2 from 2x in the derivative of x^2 + k when solving for k.
+- id: r3b-chain-denominator-for-constant
+  description: Giving the value of the whole denominator x^2 + k at the stated x as the constant k.
+- id: r3b-lnd-log-of-difference
+  description: Combining ln a - ln b as ln(a - b) instead of ln(a/b).
+- id: r3b-chain-constant-dropped
+  description: Leaving out the constant of integration when evaluating the curve, so the height is only the logarithm term.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Apply f'/f to a linear, quadratic or power argument.
+  medium:
+    steps: 3
+    demand: Differentiate the argument when it is trigonometric, exponential or a general quadratic.
+  hard:
+    steps: 4
+    demand: Simplify a product, quotient or root with the laws of logarithms before differentiating, or find an exact gradient.
+  exam:
+    steps: 5
+    demand: Find an unknown constant from a gradient, differentiate, evaluate a gradient and an exact difference of values.
+tags:
+- acara-senior-v8-4
+- differentiation
+- ACMMM163

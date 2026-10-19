@@ -136,8 +136,14 @@ def _canonical(q):
 
 @pytest.mark.parametrize(("topic", "skill_id", "hard_topic", "marks"), CASES)
 def test_wired_to_the_skill(topic, skill_id, hard_topic, marks):
+    # The multi-part chain first, then the single-part exam question re-added under key exam-single (bf2fca7).
+    single = {CRASH: "exd_x_g6_critical_path_after_change", MISSING: "exd_x_g6_missing_duration"}[topic]
     exam = [s for s in _SKILLS[skill_id].sources if s.difficulty == "exam"]
-    assert [(s.topic, s.params, s.stages) for s in exam] == [(topic, {"tier": "exam"}, ["exam"])]
+    assert [(s.topic, s.params, s.stages) for s in exam] == [
+        (topic, {"tier": "exam"}, ["exam"]),
+        (single, {"tier": "exam"}, ["exam"]),
+    ]
+    assert exam[-1].key == "exam-single"
 
 
 @pytest.mark.parametrize(("topic", "skill_id", "hard_topic", "marks"), CASES)

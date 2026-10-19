@@ -31,7 +31,8 @@ def canon(q) -> dict[str, str]:
 
 
 def check_wiring(skill_id: str, topic: str) -> None:
-    exam = [s for s in skill(skill_id).sources if s.difficulty == "exam"]
+    # The chain is the primary exam source; a second, single-part source keyed `exam-single` may follow it.
+    exam = [s for s in skill(skill_id).sources if s.difficulty == "exam" and s.key != "exam-single"]
     assert [s.topic for s in exam] == [topic]
     assert [list(s.stages) for s in exam] == [["exam"]]
 

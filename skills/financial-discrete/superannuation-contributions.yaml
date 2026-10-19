@@ -1,0 +1,115 @@
+id: superannuation-contributions
+name: Calculate super contributions, contributions tax and balances
+domain: financial-discrete
+description: Find the employer's super contribution at a stated rate, the effect of salary sacrifice and contributions tax,
+  the room left under a cap, and an account balance when growth and a yearly contribution are added.
+status: active
+placement_eligible: false
+prerequisites:
+- percentage-of-quantity
+- compound-interest
+answer: number
+sources:
+- topic: r3e_superannuation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3e_superannuation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3e_superannuation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3e_superannuation
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3e-added-to-super-given-as-benefit
+  description: Giving the amount added to super where the difference from the fall in take-home pay was asked for.
+- id: r3e-annual-given-for-quarter
+  description: Giving the annual contribution where a quarter's payment was asked for.
+- id: r3e-cap-applied-after-tax
+  description: Counting the contributions after contributions tax towards a cap that applies before it.
+- id: r3e-cap-subtracted-wrong-way
+  description: Subtracting the cap from the contributions instead of the contributions from the cap.
+- id: r3e-complement-of-rate-taken
+  description: Taking the percentage left over after the rate instead of the rate itself.
+- id: r3e-contributions-grown-too
+  description: Letting the end-of-year contributions earn a full year's growth as well.
+- id: r3e-contributions-left-out
+  description: Growing the opening balance but leaving the contributions out.
+- id: r3e-contributions-not-grown
+  description: Adding the contributions without letting the balance earn growth each year.
+- id: r3e-contributions-tax-left-out
+  description: Adding the contributions to the account without taking the contributions tax off.
+- id: r3e-employer-left-out-of-cap
+  description: Leaving the employer's contribution out of the contributions that count towards the cap.
+- id: r3e-employer-left-out-of-total
+  description: Giving the sacrifice alone where the total with the employer's contribution was asked for.
+- id: r3e-growth-left-out
+  description: Leaving the year's earnings out of the closing balance.
+- id: r3e-monthly-for-annual
+  description: Working out a month's contribution when the year's was asked for.
+- id: r3e-percent-decimal-slip
+  description: Moving the decimal point one place too far when turning a percentage into dollars.
+- id: r3e-rate-ignored
+  description: Dividing the salary by the number of payments without applying the contribution rate.
+- id: r3e-rates-added
+  description: Adding the tax-bracket rate and the contributions tax rate instead of finding their difference.
+- id: r3e-sacrifice-left-out
+  description: Leaving the salary sacrifice out of the total.
+- id: r3e-sacrifice-left-out-of-cap
+  description: Leaving the salary sacrifice out of the contributions that count towards the cap.
+- id: r3e-sacrifice-subtracted
+  description: Subtracting the salary sacrifice instead of adding it.
+- id: r3e-simple-growth-used
+  description: Adding growth as a fixed amount each year instead of compounding it on the growing balance.
+- id: r3e-take-home-fall-given-as-benefit
+  description: Giving the fall in take-home pay where the difference from the amount added to super was asked for.
+- id: r3e-tax-given-for-balance
+  description: Giving the contributions tax where the amount added to the account was asked for.
+- id: r3e-tax-on-employer-only
+  description: Taking contributions tax off the employer's contribution but not the salary sacrifice.
+- id: r3e-tax-on-sacrifice-only
+  description: Taking contributions tax off the salary sacrifice but not the employer's contribution.
+- id: r3e-tax-saved-given-as-benefit
+  description: Giving the tax saved on the sacrifice where the net advantage was asked for.
+- id: r3e-tax-taken-twice
+  description: Taking the contributions tax off twice.
+- id: r3e-wrong-number-of-payments
+  description: Dividing the annual contribution by the wrong number of payments.
+- id: r3e-wrong-number-of-years
+  description: Compounding for the wrong number of years.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Take a stated percentage of salary and share it across four payments.
+  medium:
+    steps: 4
+    demand: Add the employer's contribution and a salary sacrifice, then take contributions tax from the total.
+  hard:
+    steps: 5
+    demand: Run a growth-then-contribution recurrence for three years; or find the room under a cap; or compare the super
+      gained with the take-home pay given up.
+  exam:
+    steps: 6
+    demand: Employer contribution, total concessional contribution, contributions tax, then the closing balance after growth,
+      each following through.
+tags:
+- consumer-finance
+- superannuation
+- recurrence
+- contributions-tax
+- salary-sacrifice

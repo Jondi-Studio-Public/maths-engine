@@ -1,0 +1,91 @@
+id: uc2-stokes-theorem-circulation
+name: Stokes' theorem for circulation
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Find the circulation of a vector field round a space curve by choosing a surface the curve bounds and finding
+  the flux of the curl through it.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-line-integral
+- uc2-flux-through-graph-surface
+answer: expression
+sources:
+- topic: s2a3_stokes_circulation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2a3_stokes_circulation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2a3_stokes_circulation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2a3_stokes_circulation
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: stokes-conservative-all-zero
+  description: Deciding the whole circulation is 0 because a conservative field was added, when only the added gradient
+    contributes 0.
+- id: stokes-curl-sign-slip
+  description: Getting the sign of one component of curl F wrong when writing out the determinant.
+- id: stokes-flat-surface
+  description: Treating the tilted surface as if it were flat, integrating only the k component of curl F over the base
+    and ignoring the slope of the surface.
+- id: stokes-flux-of-field
+  description: Integrating F . n over the surface instead of curl F . n, the flux of the field itself.
+- id: stokes-gradient-doubled
+  description: Counting the original field twice when a conservative field is added.
+- id: stokes-normal-signs
+  description: Using the normal (f_x, f_y, 1) for the graph z = f(x, y) instead of (-f_x, -f_y, 1).
+- id: stokes-orientation-ignored
+  description: Tripling the work for the stronger force but not changing its sign for the clockwise loop.
+- id: stokes-polar-no-r
+  description: Changing to polar coordinates over a disc without the factor r in dA = r dr d(theta).
+- id: stokes-scale-ignored
+  description: Changing the sign for the clockwise loop but not tripling the work for the stronger force.
+- id: stokes-scale-squared
+  description: Squaring the factor of 3 for the tripled force, so the work is nine times too big.
+- id: stokes-wrong-direction
+  description: 'Getting the sign of the circulation wrong by using the wrong orientation: counterclockwise as seen from
+    above goes with the upward normal, clockwise with the downward one.'
+- id: stokes-z-not-replaced
+  description: Leaving z in curl F as 0 instead of replacing it by the height f(x, y) of the surface.
+difficulty_progression:
+  easy:
+    steps: 4
+    demand: Find curl F, choose the planar triangle bounded by three given points, and integrate over its base.
+  medium:
+    steps: 6
+    demand: Take the curve in which a cylinder meets a plane, pick the elliptical surface it bounds, write it as a graph
+      and integrate in polar coordinates.
+  hard:
+    steps: 8
+    demand: Do the same for an off-centre cylinder or a paraboloid rim, with a field of degree three and a clockwise direction.
+  exam:
+    steps: 9
+    demand: "Chain four parts on one loop: write the work as a double integral over a plane piece and find its integrand, evaluate the work, reverse the direction with a scaled force, then add a conservative force and see that it changes nothing."
+tags:
+- university-year-2
+- university-core-v1
+- multivariable-calculus
+- line-integrals
+- surface-integrals
+- stokes-theorem
+framework_areas:
+- multivariable-and-vector-calculus

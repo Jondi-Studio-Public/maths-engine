@@ -1,0 +1,107 @@
+id: uc2-reverse-order-of-integration
+name: Reverse the order of integration to evaluate a double integral
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: >-
+  Evaluate an iterated integral whose inner integral has no elementary antiderivative in the order
+  given, by sketching the region of integration, reversing the order, and integrating the
+  exponential, root or sine integrand after a substitution. Regions are bounded by a line, a
+  parabola or a cubic through the origin, some are given as a triangle or a bounded curve instead
+  of as limits, and the exam chain asks for the area, the reversed inner integral, the exact value
+  and the mean value.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-double-integral-general-region
+answer: expression
+sources:
+- topic: s2a1_reverse_order
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a1_reverse_order
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a1_reverse_order
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a1_reverse_order
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: reverse-order-limits-swapped
+  description: >-
+    Reversing the sign of the answer by taking the limits of the reversed integral the wrong way
+    round.
+- id: reverse-order-substitution-factor
+  description: >-
+    Losing or adding the constant factor from the substitution, for example forgetting the 1/2 in
+    the integral of u times e to the u squared.
+- id: reverse-order-lower-limit-forgotten
+  description: >-
+    Evaluating the antiderivative at the upper limit only and not subtracting its value at the
+    lower limit.
+- id: reverse-order-lower-limit-added
+  description: >-
+    Adding the value of the antiderivative at the lower limit instead of subtracting it.
+- id: reverse-order-coefficient-dropped
+  description: >-
+    Leaving the constant multiplier of the integrand out of the final answer.
+- id: reverse-order-coefficient-squared
+  description: >-
+    Applying the constant multiplier of the integrand twice.
+- id: reverse-order-swapped-extent
+  description: >-
+    Using the outer variable's largest value as the upper limit of the reversed integral instead
+    of the inner variable's.
+- id: reverse-order-slope-misread
+  description: >-
+    Solving the boundary line for the wrong variable, so its slope is inverted in the reversed
+    limits.
+- id: reverse-order-slope-dropped
+  description: >-
+    Dropping the slope of the boundary line when it becomes the upper limit of the reversed inner
+    integral.
+- id: reverse-order-product-rule-slip
+  description: >-
+    Getting the sign wrong when integrating u sin u by parts.
+- id: reverse-order-bounding-rectangle
+  description: >-
+    Giving the area of the rectangle that encloses the region.
+- id: reverse-order-curve-area-as-triangle
+  description: >-
+    Treating the region under a parabola or cubic as a triangle.
+- id: reverse-order-complement-area
+  description: >-
+    Giving the area of the part of the bounding rectangle outside the region.
+- id: reverse-order-constant-inner-limit
+  description: >-
+    Using the largest value of the bound as a constant limit for the inner integral instead of its
+    value at the point.
+- id: reverse-order-derivative-of-limit
+  description: >-
+    Multiplying by the derivative of the bound instead of its value.
+- id: reverse-order-mean-inverted
+  description: >-
+    Dividing the area by the integral instead of the integral by the area to find the mean value.
+- id: reverse-order-mean-wrong-area
+  description: >-
+    Dividing by the area of the bounding rectangle, not of the region, to find the mean value.
+- id: region-average-not-divided
+  description: >-
+    Giving the integral of the quantity over the region as its average value, without dividing by
+    the area.
+tags: [university-core-v1, university-year-2, multivariable-calculus, double-integral, reverse-order, iterated-integral]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

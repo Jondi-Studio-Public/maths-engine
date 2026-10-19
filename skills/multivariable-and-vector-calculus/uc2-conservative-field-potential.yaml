@@ -1,0 +1,66 @@
+id: uc2-conservative-field-potential
+name: Conservative fields and potentials in space
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: 'Use the zero-curl test for a field in three dimensions to find an unknown constant, find the scalar potential, and use the potential for the work between two points or along an awkward curve; the exam chain goes from the constant to the potential to two work values.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-curl-of-field
+- ucv1-line-integral
+answer: expression
+sources:
+- topic: s2a2_conservative3d
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a2_conservative3d
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a2_conservative3d
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a2_conservative3d
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: vc2-cons-coefficient-not-scaled
+  description: 'Takes the unknown to be the coefficient in the potential, forgetting the factor that differentiating a power brings in.'
+- id: vc2-cons-direction-sign
+  description: 'Takes the potential difference the wrong way round, so the sign of the work is wrong.'
+- id: vc2-cons-endpoint-field
+  description: 'Takes the work to be the field at the end point dotted with the displacement.'
+- id: vc2-cons-endpoints-added
+  description: 'Adds the potential at the two endpoints instead of subtracting.'
+- id: vc2-cons-forgot-initial-potential
+  description: 'Gives the potential at the end point as the work, without subtracting the potential at the start.'
+- id: vc2-cons-half
+  description: 'Halves the answer, differentiating a squared factor with the wrong coefficient.'
+- id: vc2-cons-off-by-one
+  description: 'Slips by one in the arithmetic of the final value.'
+- id: vc2-cons-potential-double-counted
+  description: 'Adds the integrals of P, Q and R separately, counting every mixed term more than once.'
+- id: vc2-cons-potential-one-variable-only
+  description: 'Integrates P with respect to x and stops, so the terms in y and z alone are missing.'
+- id: vc2-cons-potential-sign
+  description: 'Writes the potential with the wrong sign.'
+- id: vc2-cons-potential-third-component-ignored
+  description: 'Matches the potential to P and Q but never checks R, so the terms in z alone are missing.'
+- id: vc2-cons-power-factor-extra
+  description: 'Multiplies by the wrong power when matching the mixed partial derivatives of the field.'
+- id: vc2-cons-solve-sign
+  description: 'Sets up the zero-curl condition correctly but gives the constant with the wrong sign.'
+tags: [university-core-v1, university-year-2, multivariable-calculus, vector-fields, conservative-fields, potential-functions]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

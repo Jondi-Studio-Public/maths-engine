@@ -1,0 +1,163 @@
+id: line-sphere-and-plane-intersection
+name: Intersect a line with a plane or a sphere in three dimensions
+domain: vectors
+description: >-
+  Find the distance from a point to a plane, the point where a line meets a plane, and the points where
+  a line meets a sphere, as numbers (a distance, a value of the parameter, or one coordinate).
+status: active
+placement_eligible: false
+prerequisites:
+- senior-determine-a-vector-equation-of-a-straight-line
+- senior-determine-vector-and-cartesian-equations-of-a-plane
+answer: number
+sources:
+- topic: r3i_line_sphere
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3i_line_sphere
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3i_line_sphere
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3i_exam_line_sphere
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3i-linesphere-absolute-value-forgotten
+  description: >-
+    Leaving the distance from a point to a plane negative, instead of taking the absolute value of the
+    signed distance.
+- id: r3i-linesphere-centre-forgotten
+  description: >-
+    Using the dot product of the direction with the line's point instead of with the vector from the
+    sphere's centre to that point.
+- id: r3i-linesphere-components-added-for-length
+  description: >-
+    Adding the components of a vector to get its length instead of taking the square root of the sum of
+    their squares.
+- id: r3i-linesphere-direction-added-not-subtracted
+  description: >-
+    Finding the direction of the line through two points by adding the position vectors instead of
+    subtracting them.
+- id: r3i-linesphere-direction-dot-forgotten
+  description: >-
+    Leaving out the direction vector's part of the substitution, so λ or the coordinate is found without
+    the dot product or the factor of the direction.
+- id: r3i-linesphere-direction-length-forgotten
+  description: >-
+    Giving the difference in the parameter λ as a distance, forgetting to multiply by the length of the
+    direction vector.
+- id: r3i-linesphere-direction-reversed
+  description: >-
+    Subtracting along the line in the wrong direction when finding a point from λ.
+- id: r3i-linesphere-divided-by-point-term
+  description: >-
+    Dividing by the dot product of the plane's normal with the line's point, instead of with the line's
+    direction.
+- id: r3i-linesphere-division-by-a-forgotten
+  description: >-
+    Giving the numerator of the quadratic formula, -B minus the square root, without dividing by A.
+- id: r3i-linesphere-half-chord-given
+  description: >-
+    Giving half the distance between the two intersection points.
+- id: r3i-linesphere-half-gap-given
+  description: >-
+    Giving the distance from the midpoint to an intersection point in λ units instead of the larger
+    value of λ.
+- id: r3i-linesphere-intersection-given-for-nearest
+  description: >-
+    Giving a value of λ at a point where the line meets the sphere instead of the point closest to the
+    centre.
+- id: r3i-linesphere-length-added
+  description: >-
+    Adding the length of the direction vector to a result instead of multiplying by it.
+- id: r3i-linesphere-length-not-squared
+  description: >-
+    Dividing by the length of the direction vector instead of by its length squared.
+- id: r3i-linesphere-length-squared-forgotten
+  description: >-
+    Leaving out the division by the squared length of the direction vector.
+- id: r3i-linesphere-length-squared-used
+  description: >-
+    Multiplying or dividing by the squared length of the vector where its length is needed.
+- id: r3i-linesphere-midpoint-added-to-length
+  description: >-
+    Adding the midpoint's λ to a distance, mixing parameter values with lengths.
+- id: r3i-linesphere-midpoint-given
+  description: >-
+    Giving the value of λ at the midpoint of the chord instead of at an end of it.
+- id: r3i-linesphere-moved-term-sign
+  description: >-
+    Making a sign slip when moving a term across the equals sign while solving for λ.
+- id: r3i-linesphere-nearby-value-given
+  description: >-
+    Giving a value of λ that is one away from the value at the point nearest the centre.
+- id: r3i-linesphere-normal-length-forgotten
+  description: >-
+    Omitting the division by the length of the normal vector in the point-to-plane distance.
+- id: r3i-linesphere-parameter-given-for-coordinate
+  description: >-
+    Giving the value of λ when a coordinate of the point was asked for.
+- id: r3i-linesphere-parameter-given-for-length
+  description: >-
+    Giving a value of λ when a distance between the points was asked for.
+- id: r3i-linesphere-plane-constant-sign
+  description: >-
+    Using the wrong sign for the constant of the plane (or for the value subtracted from it).
+- id: r3i-linesphere-point-ignored
+  description: >-
+    Using only the constant of the plane in the distance formula, ignoring the point.
+- id: r3i-linesphere-point-term-forgotten
+  description: >-
+    Dropping the point's own contribution when substituting the line into the plane, or the starting
+    coordinate when finding the intersection.
+- id: r3i-linesphere-quotient-inverted
+  description: >-
+    Dividing the other way round, writing n·v ÷ (d - n·p) instead of (d - n·p) ÷ n·v.
+- id: r3i-linesphere-smaller-solution-given
+  description: >-
+    Giving the other solution of the quadratic in λ than the one asked for.
+- id: r3i-linesphere-squares-miscounted
+  description: >-
+    Making an arithmetic slip when adding the squares of the components of the direction.
+- id: r3i-linesphere-two-included-in-b
+  description: >-
+    Including the factor of 2 from the middle term in B, so B is doubled.
+- id: r3i-linesphere-wrong-point-used
+  description: >-
+    Starting from point B instead of point A when stepping along the line by λ.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: >-
+      Apply the point-to-plane distance formula with a normal whose length is a whole number, taking the
+      absolute value of the signed distance.
+  medium:
+    steps: 3
+    demand: >-
+      Substitute a vector line (given by a point and direction, or through two points) into the equation of a
+      plane to find the parameter, then a coordinate of the point of intersection.
+  hard:
+    steps: 4
+    demand: >-
+      Substitute a vector line into the equation of a sphere to find the two values of the parameter, the
+      distance between the points, or the value at the point nearest the centre.
+  exam:
+    steps: 6
+    demand: >-
+      Chain the coefficients A and B of the quadratic in the parameter, its smaller solution and the distance
+      between the two intersection points.
+tags:
+- acara-senior-v8-4
+- vectors
+- three-dimensions
+- planes
+- spheres
+- lines
+- nsw-mathematics-extension-2
+- vce-specialist-mathematics

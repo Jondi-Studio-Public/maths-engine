@@ -1,0 +1,87 @@
+id: uc2-linear-recurrence-closed-form
+name: Closed form of a linear recurrence
+domain: discrete-mathematics
+year_level:
+- university
+description: Solve a second-order linear recurrence with two initial terms for a closed form in n, with distinct roots,
+  a repeated root, or a constant term. The exam chain finds the characteristic roots, the constant particular solution,
+  the closed form and one term from it.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-recurrence-two-step
+- ucv1-second-order-characteristic-roots
+answer: expression
+sources:
+- topic: r3l_linear_recurrence_closed_form
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3l_linear_recurrence_closed_form
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3l_linear_recurrence_closed_form
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3l_linear_recurrence_closed_form
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3l-recurrence-coefficients-swapped
+  description: Attaching the two initial-condition coefficients to the wrong characteristic roots in the closed form of
+    a recurrence.
+- id: r3l-recurrence-root-sign
+  description: Taking the characteristic roots with the wrong sign, for example from r squared plus pr plus q instead of
+    r squared minus pr minus q.
+- id: r3l-recurrence-initial-conditions-misapplied
+  description: Using the first two terms as the coefficients of the two root powers instead of solving for the coefficients
+    from the initial conditions.
+- id: r3l-recurrence-initial-conditions-ignored
+  description: Leaving every coefficient as 1 in the closed form, ignoring the initial terms.
+- id: r3l-recurrence-repeated-root-single-term
+  description: Writing only one term (a constant times the root to the n) for a recurrence whose characteristic equation
+    has a repeated root.
+- id: r3l-recurrence-repeated-root-coefficient
+  description: Getting the coefficient of n wrong when fitting (A + Bn) to the initial terms of a repeated-root recurrence.
+- id: r3l-recurrence-repeated-root-no-n
+  description: Combining the two terms of a repeated root into one constant multiple of the root to the n, losing the factor
+    n.
+- id: r3l-recurrence-constant-ignored
+  description: Solving only the homogeneous recurrence and ignoring the constant term in a non-homogeneous one.
+- id: r3l-recurrence-particular-sign
+  description: Finding the particular solution of a non-homogeneous recurrence with the wrong sign.
+- id: r3l-recurrence-particular-is-k
+  description: Taking the constant term of the recurrence itself as the particular solution, without solving for it.
+- id: r3l-recurrence-particular-not-fitted
+  description: Adding the particular solution to the homogeneous solution after fitting the initial terms, instead of fitting
+    them to the sum.
+- id: r3l-recurrence-resonance-missed
+  description: Trying a constant particular solution when 1 is a characteristic root, instead of a constant multiple of
+    n.
+- id: r3l-recurrence-coefficients-as-roots
+  description: Reading the coefficients of the recurrence as the roots of its characteristic equation.
+- id: r3l-recurrence-index-off-by-one
+  description: Returning the term next to the one asked for from a recurrence or its closed form.
+difficulty_progression: 'Easy solves a homogeneous recurrence with two distinct integer roots, fitting the two coefficients
+  to the initial terms. Medium has a repeated root, so the closed form is (A + Bn) times a power. Hard adds a constant term:
+  a constant particular solution when 1 is not a root, or a multiple of n when it is. The exam chain finds the characteristic
+  roots, the particular solution, the closed form and a later term, following the closed form through.'
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- recurrence-relations
+- characteristic-equation
+- closed-form

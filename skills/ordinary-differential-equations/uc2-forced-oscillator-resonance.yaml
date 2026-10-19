@@ -1,0 +1,89 @@
+id: uc2-forced-oscillator-resonance
+name: Forced oscillations, resonance and beats
+domain: ordinary-differential-equations
+year_level: [university]
+description: Model a driven spring-mass system, find its forced response, resonant growth, beat behaviour and
+  the driving frequency of greatest amplitude.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-second-order-characteristic-roots
+- ucv1-linear-oscillator-classification
+- hookes-law
+answer: expression
+sources:
+- topic: s2c1_forced_oscillator_resonance
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2c1_forced_oscillator_resonance
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2c1_forced_oscillator_resonance
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2c1_forced_oscillator_resonance
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: forced-oscillator-force-not-divided-by-mass
+  description: >-
+    Leaving out the division by the mass when writing the equation of motion, so the forcing term is F0
+    instead of F0/m.
+- id: forced-oscillator-sign-of-detuning
+  description: >-
+    Reversing the sign of the difference between the natural and driving frequencies squared, so the
+    amplitude has the wrong sign.
+- id: forced-oscillator-frequencies-added
+  description: >-
+    Adding the squares of the natural and driving frequencies instead of subtracting them.
+- id: forced-oscillator-sin-for-cos
+  description: >-
+    Writing the forced response as a sine when the driving force is a cosine.
+- id: forced-oscillator-stiffness-as-frequency
+  description: >-
+    Using the spring stiffness k where the squared natural frequency k/m belongs.
+- id: forced-oscillator-resonance-factor-two
+  description: >-
+    Missing the factor 2 in the resonant solution F0 t sin(w0 t)/(2 m w0), or putting it in the wrong place.
+- id: forced-oscillator-resonance-no-growth
+  description: >-
+    Using the non-resonant form for a system driven at its natural frequency, so the amplitude does not
+    grow.
+- id: forced-oscillator-resonance-wrong-trig
+  description: >-
+    Writing the resonant solution with cos instead of sin for a force that is a cosine.
+- id: forced-oscillator-resonance-frequency-slip
+  description: >-
+    Dividing by w0 squared instead of w0 in the resonant amplitude growth rate.
+- id: forced-oscillator-initial-conditions-ignored
+  description: >-
+    Giving only the forced response and ignoring the starting conditions.
+- id: forced-oscillator-homogeneous-sine
+  description: >-
+    Adding a sine term at the natural frequency, although the mass starts with zero velocity.
+- id: forced-oscillator-natural-frequency-used
+  description: >-
+    Giving the undamped natural frequency as the frequency of greatest steady amplitude in a damped system.
+- id: forced-oscillator-damped-frequency-used
+  description: >-
+    Giving the damped natural frequency as the frequency of greatest steady amplitude.
+- id: forced-oscillator-peak-damping-slip
+  description: >-
+    Making a slip in the damping term of the formula for the frequency of greatest amplitude, k/m -
+    c^2/(2m^2).
+- id: forced-oscillator-beat-period-slip
+  description: >-
+    Using the wrong frequency combination for the beat period, such as the sum of the frequencies or the
+    period of the fast oscillation.
+- id: forced-oscillator-beat-amplitude-slip
+  description: >-
+    Taking the greatest displacement during beats to be the amplitude of one cosine rather than twice it.
+- id: forced-oscillator-frequency-slip
+  description: >-
+    Slipping when finding the natural angular frequency or a quantity built from it, such as using k/m or k
+    instead of its square root.
+tags: [university-year-2, ordinary-differential-equations, forced-oscillation]

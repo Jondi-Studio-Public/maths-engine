@@ -1,0 +1,72 @@
+id: de-moivre-multiple-angle
+name: Use De Moivre's theorem for multiple angles and powers of sine and cosine
+domain: trigonometry
+description: Expand (cos θ + i sin θ) to the third and fourth powers to find cos 3θ, sin 3θ, cos 4θ and sin 4θ from one
+  ratio, write cos nθ as a polynomial in cos θ, and write powers of sine and cosine as sums of multiple angles.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-convert-between-cartesian-and-polar-form
+- multiply-complex-numbers
+answer: expression
+sources:
+- topic: r3g_multiple_angle
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3g_multiple_angle
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3g_multiple_angle
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3g_exam_multiple_angle
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3g-multiple-angle-i-squared-sign
+  description: "Forgetting that i squared is minus one when expanding (cos \u03b8 + i sin \u03b8) to a power, so a sign is wrong."
+- id: r3g-multiple-angle-binomial-coefficient
+  description: "Using the wrong binomial coefficient when expanding the power of cos \u03b8 + i sin \u03b8, or when pairing terms."
+- id: r3g-multiple-angle-multiplied-ratio
+  description: "Multiplying the ratio by the multiple, such as cos 3\u03b8 = 3 cos \u03b8, instead of expanding the power."
+- id: r3g-multiple-angle-parts-swapped
+  description: "Taking the imaginary part of the expansion for a cosine, or the real part for a sine."
+- id: r3g-multiple-angle-paired-terms-halved
+  description: "Giving half of the coefficient of a multiple angle, forgetting that z^k and z^-k together give 2 cos k\u03b8."
+- id: r3g-multiple-angle-paired-terms-doubled
+  description: "Doubling the coefficient of a multiple angle, adding z^k and z^-k twice."
+- id: r3g-multiple-angle-binomial-without-power-of-two
+  description: "Giving the binomial coefficient and forgetting the factor 1/2^n from the powers of one half."
+- id: r3g-multiple-angle-wrong-term
+  description: "Giving the coefficient of a different term of the expansion."
+- id: r3g-multiple-angle-sign-of-root
+  description: "Taking the negative square root for an acute angle."
+- id: r3g-multiple-angle-pythagorean-slip
+  description: "Using sin \u03b8 = 1 - cos \u03b8 in place of sin\u00b2\u03b8 = 1 - cos\u00b2\u03b8."
+- id: r3g-multiple-angle-root-not-taken
+  description: "Giving sin\u00b2\u03b8 where sin \u03b8 was asked, without taking the square root."
+- id: r3g-multiple-angle-ratio-inverted
+  description: "Finding tan 3\u03b8 as cos 3\u03b8 over sin 3\u03b8."
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Find the other ratio of an acute angle, expand the cube of cos θ + i sin θ and read the real or imaginary part.
+  medium:
+    steps: 4
+    demand: Expand the fourth power, keeping the signs of the powers of i, and pick the real or imaginary part.
+  hard:
+    steps: 5
+    demand: "Go the other way: pair z^k with z^-k to write cos^n θ or sin^n θ in multiple angles, or replace sin² with 1 - cos² to write cos nθ in powers of cos θ."
+  exam:
+    steps: 6
+    demand: Find sin θ, then cos 3θ and sin 3θ by De Moivre's theorem, then tan 3θ from them.
+tags:
+- acara-senior-v8-4
+- trigonometry
+- complex-numbers
+- de-moivre
+- multiple-angle

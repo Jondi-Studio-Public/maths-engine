@@ -1,0 +1,171 @@
+id: arithmetic-geometric-series-sums
+name: Sum arithmetic and geometric series
+domain: functions-sequences
+year_level: ['11']
+description: >-
+  Find the sum of the first n terms of an arithmetic or geometric series, the number of terms that gives
+  a stated sum, a term from S(n) - S(n - 1), and the sum to infinity of a convergent geometric series.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-arithmetic-sequences-in-contexts-involving-discrete-linear
+- senior-use-geometric-sequences-in-contexts-involving-geometric-growth
+answer: number
+sources:
+- topic: r3i_series_sums
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3i_series_sums
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3i_series_sums
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3i_exam_series_sums
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3i-ap-difference-mean-minus-first
+  description: >-
+    Giving the mean of the terms minus the first term as the common difference, without allowing for the
+    terms' average sitting (n - 1)/2 steps above the first.
+- id: r3i-ap-difference-not-divided-by-steps
+  description: >-
+    Stopping at the total of the steps (9d) without dividing by the number of steps to find the common
+    difference.
+- id: r3i-ap-sum-first-term-not-doubled
+  description: >-
+    Using a + (n - 1)d in place of 2a + (n - 1)d inside the arithmetic sum formula.
+- id: r3i-ap-sum-forgot-halving
+  description: >-
+    Leaving out the 1/2 in the sum formula, so the sum is double what it should be.
+- id: r3i-ap-sum-n-instead-of-n-minus-1
+  description: >-
+    Using n instead of n - 1 as the number of steps in the arithmetic sum formula 2a + (n - 1)d.
+- id: r3i-gave-common-difference-not-term
+  description: >-
+    Giving the common difference when a term was asked for.
+- id: r3i-gave-first-term-not-term
+  description: >-
+    Giving the first term when a later term was asked for.
+- id: r3i-gave-sum-not-first-term
+  description: >-
+    Giving the sum to infinity when the first term was asked for.
+- id: r3i-gave-sum-not-tail
+  description: >-
+    Giving the sum of the first three terms when the sum of the terms after them was asked for.
+- id: r3i-gp-first-term-from-second-term-sign
+  description: >-
+    Dropping the minus sign of a negative ratio when working back from the second term to the first.
+- id: r3i-gp-nonconvergent-root-kept
+  description: >-
+    Keeping the root of the quadratic that gives a ratio of size 1 or more, for which the series does
+    not converge.
+- id: r3i-gp-ratio-gave-one-minus-r
+  description: >-
+    Giving 1 - r (the first term over the sum) as the common ratio.
+- id: r3i-gp-ratio-inverted
+  description: >-
+    Giving the sum over the first term as the common ratio.
+- id: r3i-gp-ratio-sum-formula-sign
+  description: >-
+    Using a/(S + a) for the ratio, putting the first term on the wrong side of the sum formula.
+- id: r3i-gp-sum-forgot-divide-by-r-minus-1
+  description: >-
+    Stopping at a(r^n - 1) in the geometric sum formula, without dividing by r - 1.
+- id: r3i-gp-sum-power-off-by-one
+  description: >-
+    Using r to the power n - 1 (or n + 1) instead of r to the power n in the geometric sum formula.
+- id: r3i-gp-sum-sign-slip
+  description: >-
+    Using (r^n + 1)/(r + 1) in place of (r^n - 1)/(r - 1) in the geometric sum formula.
+- id: r3i-gp-sum-to-infinity-formula-sign
+  description: >-
+    Using a/(1 + r) as the sum to infinity of a series with a negative ratio, as if r were positive.
+- id: r3i-mean-taken-as-first-term
+  description: >-
+    Taking the mean of the first terms as the first term of the series.
+- id: r3i-sum-gave-last-term
+  description: >-
+    Giving the last term when the sum of the terms was asked for.
+- id: r3i-sum-one-term-short
+  description: >-
+    Adding one term fewer than asked.
+- id: r3i-sum-wrong-series-formula
+  description: >-
+    Using the sum formula for the wrong kind of series: the geometric formula for an arithmetic
+    sequence, or the reverse.
+- id: r3i-tail-subtracted-one-term
+  description: >-
+    Subtracting only the fourth term from the sum to infinity when the first three terms should come
+    off.
+- id: r3i-tail-wrong-number-removed
+  description: >-
+    Subtracting the sum of the wrong number of terms from the sum to infinity.
+- id: r3i-term-common-difference-halved
+  description: >-
+    Using half the common difference when counting from the first term to a later term.
+- id: r3i-term-difference-confused-with-first
+  description: >-
+    Using the first term as the common difference when counting on to a later term.
+- id: r3i-term-gave-partial-sum
+  description: >-
+    Giving the sum of the first k terms when the k-th term was asked for.
+- id: r3i-term-index-off-by-one
+  description: >-
+    Counting k steps (or k - 2) from the first term instead of k - 1 steps to reach the k-th term.
+- id: r3i-term-multiplied-not-powered
+  description: >-
+    Multiplying the first term by 3r instead of raising the ratio to the third power.
+- id: r3i-term-wrong-previous-sum
+  description: >-
+    Subtracting the wrong earlier sum from S(k) when finding the k-th term, instead of S(k - 1).
+- id: r3i-terms-off-by-one
+  description: >-
+    Counting the number of terms one too many or one too few after solving for n.
+- id: r3i-terms-power-taken-as-count
+  description: >-
+    Giving the power of the ratio as the number of terms instead of the exponent plus one.
+- id: r3i-terms-sum-over-first-term
+  description: >-
+    Dividing the stated sum by the first term to get the number of terms.
+- id: r3i-terms-sum-over-last-term
+  description: >-
+    Dividing the stated sum by the last term to get the number of terms.
+- id: r3i-terms-treated-sum-as-last-term
+  description: >-
+    Treating the stated sum as the last term, so counting steps from the first term up to the sum.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: >-
+      Decide from three listed terms whether a sequence is arithmetic or geometric, then sum the first n
+      terms with the matching formula.
+  medium:
+    steps: 4
+    demand: >-
+      Solve for the number of terms that gives a stated sum (a quadratic or a power), or find a term of a
+      sequence from the formula for the sum of its first n terms.
+  hard:
+    steps: 5
+    demand: >-
+      Find a term of an arithmetic series known only through two partial sums, or the first term of a
+      geometric series from its sum to infinity and second term, rejecting the root that does not converge.
+  exam:
+    steps: 7
+    demand: >-
+      Chain a common difference or ratio, a later term, a partial sum and either the week when a total is
+      reached or the sum of the terms beyond the partial sum.
+tags:
+- acara-senior-v8-4
+- sequences-and-series
+- arithmetic-series
+- geometric-series
+- sum-to-infinity
+- ACMMM075
+- nsw-mathematics-advanced
+- vce-mathematical-methods

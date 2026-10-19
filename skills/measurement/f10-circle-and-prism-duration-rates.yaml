@@ -2,7 +2,7 @@ id: f10-circle-and-prism-duration-rates
 name: Calculate duration across time zones
 domain: measurement
 year_level: ['8']
-description: Given a starting date/time, a stated sequence of elapsed durations, and stated time-zone offsets, determine the resulting date/time or total duration using 12-hour or 24-hour clock notation.
+description: Find flight times across time zones. Each flight is given by its local departure and arrival times and the hours one zone is ahead of or behind the other, with a layover or a change of day in the harder questions. The learner converts the arrival to the departure zone's time and finds the duration in minutes. The exam chain follows a two-flight journey with a stopover. The skill is about time zones and elapsed time, not circles or prisms, despite its id.
 status: active
 placement_eligible: false
 prerequisites: [convert-time-systems, elapsed-time, ratio-rate-proportion]

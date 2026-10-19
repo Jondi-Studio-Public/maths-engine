@@ -46,6 +46,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_e5_square_pyramid_volume_and_surface_area
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: uses-apex-height-as-slant-height
   description: Plugs the given perpendicular (apex) height straight into the surface-area

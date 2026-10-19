@@ -1,0 +1,86 @@
+id: t-formulae-half-angle
+name: Use the t = tan(x/2) substitution for half angles and equations in sine and cosine
+domain: trigonometry
+description: Write sin x, cos x and tan x in terms of t = tan(x/2), find tan(x/2) from cos x or from a standard angle, and
+  solve a sin x + b cos x = c by reducing it to a quadratic in t.
+status: active
+placement_eligible: false
+prerequisites:
+- trig-compound-angle-exact
+- senior-recognise-the-exact-values-of-cos-theta-sin
+answer: expression
+sources:
+- topic: r3g_t_formulae
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3g_t_formulae
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3g_t_formulae
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3g_exam_t_formulae
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3g-t-formula-tan-formula-used
+  description: "Using the tangent formula 2t/(1 - t\u00b2) where the sine formula 2t/(1 + t\u00b2) was needed."
+- id: r3g-t-formula-functions-swapped
+  description: "Swapping the t-formulas for sine and cosine."
+- id: r3g-t-formula-denominator-not-squared
+  description: "Writing the denominator of a t-formula as 1 + t or 1 - t instead of 1 + t\u00b2 or 1 - t\u00b2."
+- id: r3g-t-formula-numerator-wrong
+  description: "Writing the numerator of the sine formula as t instead of 2t."
+- id: r3g-t-formula-reciprocal
+  description: "Giving the reciprocal of the value."
+- id: r3g-t-formula-sin-formula-used
+  description: "Using the sine formula 2t/(1 + t\u00b2) where the tangent formula 2t/(1 - t\u00b2) was needed."
+- id: r3g-t-formula-doubling-only
+  description: "Doubling t and stopping, without the denominator of the tangent formula."
+- id: r3g-t-formula-half-angle-sign
+  description: "Giving the wrong sign for tan(x/2), ignoring the quadrant that x/2 is in."
+- id: r3g-t-formula-root-not-taken
+  description: "Giving t squared where t was asked, without taking the square root."
+- id: r3g-t-formula-sine-half-angle-used
+  description: "Giving the value of sin(x/2) instead of tan(x/2)."
+- id: r3g-t-formula-wrong-root
+  description: "Giving the other root of the quadratic in t."
+- id: r3g-t-formula-halved-tangent
+  description: "Halving tan x to find tan(x/2)."
+- id: r3g-t-formula-half-angle-not-doubled
+  description: "Giving arctan t as the solution, forgetting that t = tan(x/2) so x = 2 arctan t."
+- id: r3g-t-formula-negative-solution-not-shifted
+  description: "Leaving a negative angle from arctan as a solution instead of adding 2 pi to bring it into the interval."
+- id: r3g-t-formula-roots-given-as-solutions
+  description: "Giving the roots of the quadratic in t as the solutions for x."
+- id: r3g-t-formula-one-root-only
+  description: "Using only one root of the quadratic in t and missing the second solution."
+- id: r3g-t-formula-root-sign-slip
+  description: "Reading a root of the quadratic in t with the wrong sign."
+- id: r3g-t-formula-roots-added
+  description: "Giving the sum or product of the roots where one root was asked."
+- id: r3g-t-formula-degrees-for-radians
+  description: "Giving the solution in degrees where radians were asked."
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Apply the correct t-formula for sin x, cos x or tan x to a given fractional value of t.
+  medium:
+    steps: 4
+    demand: Work backwards from cos x or tan x to tan(x/2), using the quadrant of x/2 to choose the sign or the root.
+  hard:
+    steps: 5
+    demand: Substitute into a sin x + b cos x = c, solve the quadratic in t and turn each root into a solution x in 0 to 2 pi.
+  exam:
+    steps: 6
+    demand: Find both roots of the quadratic in t, then the solution x each gives, following through from the roots.
+tags:
+- acara-senior-v8-4
+- trigonometry
+- half-angle
+- t-formulae
+- nsw-extension-1

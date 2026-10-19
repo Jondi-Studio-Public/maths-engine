@@ -1,0 +1,81 @@
+id: trig-equations-radians-list
+name: Solve trigonometric equations over 0 to 2 pi and give every solution in exact radians
+domain: trigonometry
+description: Find all solutions of sine, cosine and tangent equations over 0 ≤ x < 2π, typed as multiples of pi. Covers negative
+  values, rearranged equations, multiple angles, quadratics in sine or cosine, and shifted arguments.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-recognise-the-exact-values-of-cos-theta-sin
+- angle-degrees-radians-pi-form
+answer: set
+sources:
+- topic: r3g_trig_equations
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3g_trig_equations
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3g_trig_equations
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3g_exam_trig_equations
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3g-trig-second-solution-wrong-quadrant
+  description: "Finding the second solution of a trigonometric equation from the wrong quadrant rule, such as adding pi to the reference angle for a cosine or taking pi minus it for a tangent."
+- id: r3g-trig-principal-value-only
+  description: "Giving only the calculator or first-quadrant solution and missing the second solution in the interval."
+- id: r3g-trig-sign-of-value-ignored
+  description: "Solving with the size of the value and ignoring its sign, so the solutions come from the wrong pair of quadrants."
+- id: r3g-trig-calculator-value-outside-interval
+  description: "Keeping the negative calculator value as a solution instead of moving it into the interval 0 to 2 pi."
+- id: r3g-trig-multiple-angle-not-divided
+  description: "Solving for the multiple angle and reporting those values as x without dividing by the multiplier."
+- id: r3g-trig-multiple-angle-first-period-only
+  description: "Taking only the solutions from the first period of the multiple angle, so a repeated solution is missing."
+- id: r3g-trig-shift-wrong-direction
+  description: "Moving the shift in the wrong direction: using x + b where the equation has x - b."
+- id: r3g-trig-shift-ignored-in-answer
+  description: "Solving for the shifted angle and forgetting to add the shift back to get x."
+- id: r3g-trig-quadratic-root-dropped
+  description: "Using only one root of the quadratic in the trigonometric function and missing the solutions of the other."
+- id: r3g-trig-quadratic-root-sign-slip
+  description: "Reading a root of the quadratic with the wrong sign when factorising, such as taking (2s + 1) as s = 1/2."
+- id: r3g-trig-quadratic-root-inverted
+  description: "Giving the reciprocal of a root of the quadratic: s = 2 for (2s - 1) = 0."
+- id: r3g-trig-square-root-negative-dropped
+  description: "Taking only the positive square root when solving tan squared x = k, so half the solutions are missing."
+- id: r3g-trig-solution-not-smallest
+  description: "Naming a solution that is not the smallest in the interval."
+- id: r3g-trig-solution-not-largest
+  description: "Naming a solution that is not the largest in the interval."
+- id: r3g-trig-sum-for-difference
+  description: "Adding the largest and smallest solutions where their difference was asked for."
+- id: r3g-trig-interval-complement
+  description: "Giving 2 pi minus the difference between the solutions, the gap round the other way."
+- id: r3g-trig-difference-halved
+  description: "Halving the difference of the largest and smallest solutions."
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Use the reference angle for a positive standard value and place the two solutions in the right quadrants.
+  medium:
+    steps: 3
+    demand: Handle a negative value, a rearranged equation or a multiple angle, which doubles the solutions in the interval.
+  hard:
+    steps: 4
+    demand: Factorise a quadratic in sine or cosine and reject a root outside [-1, 1], or solve with a shifted and scaled argument.
+  exam:
+    steps: 6
+    demand: Solve a quadratic in sine or cosine, then find the smallest and largest solutions and the difference between them.
+tags:
+- acara-senior-v8-4
+- trigonometry
+- radians
+- trigonometric-equations

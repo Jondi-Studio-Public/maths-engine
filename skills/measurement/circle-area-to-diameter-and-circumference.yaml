@@ -44,6 +44,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_e5_circle_area_to_diameter_and_circumference
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: reports-radius-as-diameter
   description: Reports the radius (not doubled) as the diameter answer, skipping the

@@ -30,6 +30,11 @@ sources:
     params: {tier: exam}
     difficulty: exam
     stages: [exam]
+  - topic: exd_x_g1_vector_line
+    params: {tier: exam}
+    difficulty: exam
+    key: exam-single
+    stages: [exam]
 misconceptions:
   - id: wrong-direction
     description: Computes A minus B instead of B minus A, reversing the direction vector.

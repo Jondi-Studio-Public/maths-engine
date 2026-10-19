@@ -1,0 +1,143 @@
+id: uc2-spherical-triple-integral
+name: Evaluate a triple integral in spherical coordinates
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: >-
+  Convert a solid described by Cartesian inequalities to spherical coordinates and evaluate a
+  triple integral over it, with the volume element rho squared sin phi, exact answers in pi, and
+  the volume, mass, centre of mass and average density of a solid with a density. Regions run from
+  balls, half balls and shells, through a ball cut by a cone and a shell in the first octant, to a
+  ball through the origin whose radius depends on the angle, a spherical cap cut off by a plane,
+  and a shell above a cone.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-triple-integral
+answer: expression
+sources:
+- topic: s2a1_spherical
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a1_spherical
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a1_spherical
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a1_spherical
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: spherical-jacobian-omitted
+  description: >-
+    Leaving out the whole volume factor ρ² sin φ of spherical coordinates and integrating dρ dφ dθ
+    alone.
+- id: spherical-sin-phi-omitted
+  description: >-
+    Writing the volume element of spherical coordinates as ρ² dρ dφ dθ, without the factor sin φ.
+- id: spherical-rho-squared-omitted
+  description: >-
+    Writing the volume element of spherical coordinates as sin φ dρ dφ dθ, without the factor ρ².
+- id: spherical-colatitude-confused
+  description: >-
+    Taking φ as the angle up from the xy-plane, so z = ρ sin φ, instead of the angle down from the
+    positive z-axis.
+- id: spherical-radius-limit-squared
+  description: >-
+    Using the squared radius of the sphere, not the radius, as the limit for ρ.
+- id: spherical-angle-range-halved
+  description: >-
+    Using the wrong range of the angle: half a turn in φ for a whole ball, or the whole range for
+    half of one.
+- id: spherical-cone-angle-complement
+  description: >-
+    Measuring the half-angle of a cone from the xy-plane instead of from the z-axis, so φ stops at
+    π/2 minus the right angle.
+- id: spherical-lower-limit-added
+  description: >-
+    Adding the value of the antiderivative at the lower limit of φ to the value at the upper limit
+    instead of subtracting it.
+- id: spherical-polar-angle-range
+  description: >-
+    Letting φ run from 0 to π when the solid lies in a cone or above a plane.
+- id: spherical-hemisphere-as-cone
+  description: >-
+    Stopping φ at π/2, the whole upper half, when the solid lies in a narrower cone.
+- id: spherical-octant-ignored
+  description: >-
+    Integrating over the whole shell, with θ over 0 to 2π and φ over 0 to π, when the solid is
+    only the first octant.
+- id: spherical-octant-angle-halved
+  description: >-
+    Giving φ the range 0 to π although z is non-negative, so the solid is taken in both halves.
+- id: spherical-offset-radius
+  description: >-
+    Taking a constant limit for ρ on a sphere through the origin, whose radius depends on φ.
+- id: spherical-offset-angle-range
+  description: >-
+    Letting φ run from 0 to π on a sphere through the origin that lies above the xy-plane.
+- id: spherical-cap-lower-limit-zero
+  description: >-
+    Starting ρ at 0 for the cap above a plane, so the cone of rays is integrated down to the
+    origin.
+- id: spherical-plane-limit-cos
+  description: >-
+    Writing the plane z = h as ρ = h cos φ instead of ρ = h sec φ.
+- id: spherical-plane-ignored
+  description: >-
+    Ignoring the plane that cuts off the cap and integrating over the whole upper half of the
+    ball.
+- id: spherical-cap-cone-instead
+  description: >-
+    Integrating ρ from 0 to the plane instead of from the plane to the sphere, which gives the
+    cone below the plane instead of the cap above it.
+- id: spherical-cap-complement
+  description: >-
+    Giving the part of the ball on the other side of the plane, the whole ball less the cap,
+    instead of the cap.
+- id: spherical-inner-sphere-ignored
+  description: >-
+    Starting ρ at 0 for a shell, so the hole in the middle is filled in.
+- id: integral-constant-multiplier-dropped
+  description: >-
+    Integrating the function without the constant multiplier in front of it, so the answer is a
+    fraction of the true value.
+- id: triple-integral-density-term-dropped
+  description: >-
+    Taking the density as the constant term only, leaving out the variable part, when finding the
+    mass.
+- id: triple-integral-density-maximum
+  description: >-
+    Using the greatest density in the solid as if it applied everywhere, mass = (maximum density)
+    x volume.
+- id: triple-integral-density-midpoint
+  description: >-
+    Using the density halfway along its range instead of integrating the density over the solid.
+- id: triple-integral-moment-not-divided
+  description: >-
+    Giving the moment of the solid, the integral of x rho dV, as the centre-of-mass coordinate
+    without dividing by the mass.
+- id: triple-integral-centroid-uniform
+  description: >-
+    Giving the centroid of the solid, as if the density were uniform, for the centre of mass.
+- id: triple-integral-moment-inverted
+  description: >-
+    Dividing the wrong way round: mass over moment, or volume over mass.
+- id: triple-integral-mass-not-divided
+  description: >-
+    Giving the mass where the average density, mass divided by volume, was asked for.
+tags: [university-core-v1, university-year-2, multivariable-calculus, triple-integrals, spherical-coordinates]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

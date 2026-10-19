@@ -1,0 +1,64 @@
+id: uc2-variation-of-parameters
+name: Variation of parameters
+domain: ordinary-differential-equations
+year_level: [university]
+description: >-
+  Find a particular solution of a second-order linear equation whose forcing term (sec, csc, tan, e^x/x, ln x,
+  1/(1 + e^x)) defeats undetermined coefficients, and work with the Wronskian, u1' and u2'.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-second-order-characteristic-roots
+- senior-integrate-by-parts
+answer: expression
+sources:
+- topic: s2c1_variation_of_parameters
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2c1_variation_of_parameters
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2c1_variation_of_parameters
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2c1_variation_of_parameters
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: vop-sign-on-first-term
+  description: >-
+    Putting the wrong sign on the first term in variation of parameters: using +y2 g/W where -y2 g/W is
+    needed, so y_p changes sign in one term.
+- id: vop-swapped-solutions
+  description: >-
+    Pairing u1 with y2 and u2 with y1 (or swapping u1' and u2') when forming y_p = u1 y1 + u2 y2.
+- id: vop-wronskian-reversed
+  description: >-
+    Taking the Wronskian as y1' y2 - y1 y2', the negative of the right one, so every u and y_p has the wrong
+    sign.
+- id: vop-sign-on-second-term
+  description: >-
+    Putting the wrong sign on the second term in variation of parameters, so y_p = u1 y1 - u2 y2.
+- id: vop-one-term-only
+  description: >-
+    Keeping only one of the two terms u1 y1 and u2 y2 in the particular solution.
+- id: vop-wronskian-forgotten
+  description: >-
+    Leaving out the division by the Wronskian in u1' = -y2 g/W or u2' = y1 g/W.
+- id: vop-wronskian-sum
+  description: >-
+    Adding y1 y2' and y1' y2 in the Wronskian instead of subtracting.
+- id: vop-wronskian-wrong-arrangement
+  description: >-
+    Building the Wronskian as y1 y2 - y1' y2' instead of y1 y2' - y1' y2.
+- id: vop-wronskian-no-derivative
+  description: >-
+    Forgetting to differentiate y1 in the Wronskian, which gives y1 y2' - y1 y2.
+- id: vop-wronskian-multiplied
+  description: >-
+    Multiplying by the Wronskian instead of dividing by it in u1' or u2'.
+tags: [university-year-2, ordinary-differential-equations, variation-of-parameters]

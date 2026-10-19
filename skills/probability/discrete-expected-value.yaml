@@ -32,6 +32,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_s0_expval
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: unweighted-average
   description: Averages the listed outcomes without weighting by their probabilities.

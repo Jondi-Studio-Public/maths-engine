@@ -1,0 +1,73 @@
+id: product-to-sum-evaluate-solve
+name: Use product-to-sum and sum-to-product identities to evaluate and to solve
+domain: trigonometry
+description: Evaluate exact products and sums of sines and cosines of standard angles through the product-to-sum and
+  sum-to-product identities, and solve equations that these identities reduce to sin mx = 0 or cos mx = 0.
+status: active
+placement_eligible: false
+prerequisites:
+- trig-compound-angle-exact
+- trig-equations-radians-list
+answer: expression
+sources:
+- topic: r3g_product_sum
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3g_product_sum
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3g_product_sum
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3g_exam_product_sum
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3g-product-sum-sign-slip
+  description: "Using the wrong sign in a product-to-sum or sum-to-product identity, such as adding the cosines where 2 sin A sin B is their difference."
+- id: r3g-product-sum-factor-handled-wrongly
+  description: "Mishandling the factor of two: leaving it out of a product that has a leading 2, or keeping it when the product has none."
+- id: r3g-product-sum-wrong-function
+  description: "Turning a product into a sum of the wrong function: sines where cosines were needed, or the reverse."
+- id: r3g-product-sum-angles-not-added
+  description: "Multiplying the sum and difference values instead of adding them, or using A and B themselves in the sum form."
+- id: r3g-product-sum-wrong-half-angles
+  description: "Swapping the half-sum and half-difference of the two angles in a sum-to-product identity."
+- id: r3g-product-sum-wrong-multiple
+  description: "Using the wrong multiple of x after combining the terms, so the solutions are spaced wrongly."
+- id: r3g-product-sum-zero-solution-dropped
+  description: "Dropping x = 0 (or the other end of a family of solutions) from the list."
+- id: r3g-product-sum-cosine-zero-as-sine-zero
+  description: "Solving cos mx = 0 as if it were sin mx = 0, giving multiples of pi over m instead of odd multiples of pi over 2m."
+- id: r3g-product-sum-solution-dropped
+  description: "Listing too few solutions of the equation in the interval."
+- id: r3g-product-sum-one-factor-only
+  description: "Solving only one factor of the factorised equation and missing the solutions of the other."
+- id: r3g-product-sum-interval-not-doubled
+  description: "Counting the solutions in an interval of length pi and not doubling for an interval of length 2 pi."
+- id: r3g-product-sum-endpoint-counted
+  description: "Counting the right end point of the interval as a solution, which the interval excludes."
+- id: r3g-product-sum-sum-limits-wrong
+  description: "Using the wrong first or last term when adding the equally spaced solutions."
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Rewrite 2 sin A cos B, 2 cos A cos B or 2 sin A sin B as a sum of two standard values and evaluate it.
+  medium:
+    steps: 4
+    demand: Evaluate a product with no leading 2, or turn a sum or difference of two values into a product through the half-sum and half-difference.
+  hard:
+    steps: 5
+    demand: Reduce an equation with a product, or a sum of sines, to sin mx = 0 and cos nx = 0 and list every solution in the interval.
+  exam:
+    steps: 6
+    demand: Reduce an equation to sin mx = 0, then find the smallest solution, the number of solutions in 0 to 2 pi and the sum of those in 0 to pi.
+tags:
+- acara-senior-v8-4
+- trigonometry
+- product-to-sum
+- sum-to-product

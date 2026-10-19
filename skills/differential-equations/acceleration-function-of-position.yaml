@@ -1,0 +1,78 @@
+id: acceleration-function-of-position
+name: "Solve motion where acceleration is a function of position"
+domain: differential-equations
+description: "Use a = v dv/dx to find v² from an acceleration that depends on position (linear, inverse-square and power laws), then speeds, turning points and greatest speeds."
+status: active
+placement_eligible: false
+prerequisites:
+- senior-determine-positions-given-acceleration-and-initial-values-of
+- solve-ode-separable-poly
+answer: number
+sources:
+- topic: r3d_accel_position
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3d_accel_position
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3d_accel_position
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: r3d_accel_position_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3d-acceleration-for-speed
+  description: "Reporting an acceleration (or the acceleration constant) where a speed was asked for."
+- id: r3d-amplitude-for-distance
+  description: "Reporting the amplitude of the motion where the greatest distance from O was asked for."
+- id: r3d-amplitude-from-start
+  description: "Adding the amplitude to the starting position instead of to the centre of the motion."
+- id: r3d-constant-acceleration-assumed
+  description: "Treating a varying acceleration as constant at its starting (or launch) value and using the constant-acceleration formulas."
+- id: r3d-distance-from-start-for-amplitude
+  description: "Adding the distance from the start to the amplitude when the greatest speed is the amplitude times the root of k."
+- id: r3d-doubled-centre
+  description: "Doubling the position of the centre where the end of the motion was asked for."
+- id: r3d-equilibrium-for-rest
+  description: "Giving the equilibrium position (where the acceleration is zero) as the position where the particle comes to rest."
+- id: r3d-factor-root-dropped
+  description: "Leaving the square root of k out of the greatest speed R√k."
+- id: r3d-factor-two-dropped
+  description: "Leaving out the factor 2 (or the matching 1/2) that a = v dv/dx puts into v² = v0² + 2∫a dx, or in a related formula."
+- id: r3d-given-speed-for-greatest
+  description: "Reporting a speed given in the question as the greatest speed."
+- id: r3d-initial-speed-added
+  description: "Adding the starting speed squared to the term that already holds the whole of v² at the centre."
+- id: r3d-initial-speed-dropped
+  description: "Leaving the initial speed out of the result, as if v0 = 1."
+- id: r3d-integral-sign
+  description: "Getting the sign of the integral of an inverse-square (or other) acceleration wrong."
+- id: r3d-integrated-once-for-speed
+  description: "Integrating the acceleration with respect to position once and reporting that as the speed, as if a dx gave v."
+- id: r3d-log-for-inverse-power
+  description: "Integrating -k/x² as a logarithm instead of as k/x."
+- id: r3d-other-turning-point
+  description: "Giving the turning point on the opposite side of the centre from the direction of motion."
+- id: r3d-position-for-speed
+  description: "Reporting the position of the greatest speed where the speed itself was asked for."
+- id: r3d-power-rule-no-division
+  description: "Integrating a power of x without dividing by the new exponent."
+- id: r3d-product-for-position
+  description: "Multiplying two positions together instead of solving for the turning point."
+- id: r3d-reciprocal-reported
+  description: "Reporting 1/x (the value from the integral) where the position x was asked for."
+- id: r3d-speed-squared-reported
+  description: "Reporting v² where the speed v was asked for."
+- id: r3d-start-speed-for-greatest
+  description: "Giving the starting speed as the greatest speed."
+tags:
+- mechanics
+- v-dv-dx
+- calculus
+- specialist-unit-4
+- extension-2

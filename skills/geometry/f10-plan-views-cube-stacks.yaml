@@ -1,6 +1,8 @@
 id: f10-plan-views-cube-stacks
 name: Read plan views and elevations of stacked cubes
 domain: geometry
+naplan_domain: [space]
+year_level: ['7']
 description: Given the plan view of a structure built from identical cubes, with the number of cubes stacked in each square, find the total number of cubes, the number of squares in the front or right-side elevation (the tallest stack in each column or row shows), and, working back from an elevation, the unknown stack marked on the plan.
 status: active
 capability_gates: [figure_stimulus]
@@ -54,4 +56,4 @@ misconceptions:
   description: Multiplies the number of cubes by the edge of one cube, not by its volume.
 - id: plan-volume-for-surface
   description: Finds the area of every face of every cube where the volume of the structure was asked for.
-tags: [acara-f10-v9, geometry, plans, elevations, cubes, essential-mathematics, figure]
+tags: [acara-f10-v9, ac9m7sp01, geometry, plans, elevations, cubes, essential-mathematics, figure]

@@ -38,6 +38,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c1_trig
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: dropped-inner-factor
   description: Dropping the inner-derivative factor on sin/cos terms.

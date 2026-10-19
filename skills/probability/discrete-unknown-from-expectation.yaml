@@ -1,0 +1,52 @@
+id: discrete-unknown-from-expectation
+name: "Find unknown probabilities and values in a discrete distribution"
+domain: probability
+description: "Find an unknown probability from the total of 1, then E(X) from it; solve for two unknown probabilities from the total and a stated mean; find an unknown outcome from a stated mean; and find Var(X) once the unknowns are known. Every answer is an exact fraction."
+status: active
+placement_eligible: false
+prerequisites: [discrete-expected-value]
+answer: fraction
+sources:
+- topic: r3a_discrete_unknown
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3a_discrete_unknown
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3a_discrete_unknown
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3a_discrete_unknown
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 1, demand: "Find the one unknown probability that completes the total to 1."}
+  medium: {steps: 2, demand: "Find the unknown first, then use it in E(X)."}
+  hard: {steps: 3, demand: "Solve two equations together for two unknown probabilities, or use E(X) to find an unknown outcome, or find a variance after solving."}
+  exam: {steps: 4, demand: A connected chain of four parts in which each later part uses an earlier answer.}
+misconceptions:
+- id: r3a-unknown-assumes-equal-probabilities
+  description: "Treating the unknown probability as an equal share, 1/n for n outcomes, instead of solving for it."
+- id: r3a-sum-misses-a-term
+  description: "Leaving one term out when adding the coefficients or probabilities that must sum to 1."
+- id: r3a-unknown-inverted
+  description: "Giving the sum of the coefficients instead of its reciprocal as the value of k."
+- id: r3a-reports-the-sum-of-the-known-probabilities
+  description: "Reporting the total of the stated probabilities instead of the missing one that completes the sum to 1."
+- id: r3a-expectation-omits-the-unknown-term
+  description: "Adding up x P(X = x) for the stated probabilities only, and leaving out the term for the unknown probability."
+- id: r3a-expectation-averages-the-outcomes
+  description: "Taking the plain average of the outcomes instead of weighting each by its probability."
+- id: r3a-unknowns-swapped
+  description: "Solving the pair of equations correctly but reporting the other unknown."
+- id: r3a-unknown-ignores-the-sum-equation
+  description: "Using the expectation equation alone to find an unknown, as if the other unknown were zero."
+- id: r3a-unknown-value-forgets-to-divide-by-probability
+  description: "Finding the unknown outcome as the remaining expectation, without dividing by its probability."
+- id: r3a-variance-without-subtracting-the-mean-squared
+  description: "Reporting E(X^2) as the variance, leaving out the subtraction of (E(X))^2."
+tags: [round-3, probability, discrete-random-variable, expectation, unknown-parameters]
