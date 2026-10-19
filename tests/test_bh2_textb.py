@@ -135,7 +135,6 @@ STEMS = [
     ("compare-unit-prices", 0),
     ("compare-unit-prices", 1),
     ("riemann-sum-to-definite-integral", 1),
-    ("senior-solve-problems-involving-greenwich-mean-time-and-the", 1),
     ("senior-use-forward-and-backward-scanning-to-determine-the", 3),
     ("senior-use-the-critical-path-to-determine-the-minimum", 3),
     ("senior-define-and-use-unit-vectors-and-the-perpendicular", 0),

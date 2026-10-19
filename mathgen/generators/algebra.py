@@ -845,6 +845,8 @@ def function_evaluation(rng, coef_hi=5, arg_hi=6, a_lo=1):
         answer_text=f"f({n}) = {ans}",
         answer_latex=f"f({n}) = {ans}",
         answer_kind="number",
-        working=[f"f({n}) = {join_terms([(a, f'({n})^2'), (b, f'({n})'), (c, '')])} = {ans}"],
+        working=[
+            f"f({n}) = {a}({n})^2 {'+' if b >= 0 else '-'} {abs(b)}({n}) {'+' if c >= 0 else '-'} {abs(c)} = {ans}"
+        ],
         distractors=pick_distractors(f"f({n}) = {ans}", cands),
     )
