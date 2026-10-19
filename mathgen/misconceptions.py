@@ -51950,6 +51950,46 @@ _ENTRIES = (
     ),
     # -- w6-calculus (limits, substitution, resisted motion, graph reading) ---------------------------------
     CatalogueEntry(
+        "w6-proj-speed-for-component",
+        "Uses the launch speed where the horizontal or vertical component of the velocity belongs, so the angle is never resolved.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-components-swapped",
+        "Swaps the horizontal and vertical components of the launch velocity (cosine for sine).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-gravity-on-horizontal",
+        "Adds gravity to the horizontal acceleration, although gravity acts only vertically.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-speed-times-time",
+        "Multiplies the horizontal speed at time t by t to get the distance, as if the speed stayed at that value.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-sign-of-velocity",
+        "Gives the vertical velocity the wrong sign: reports the downward speed as if upward were positive, or the reverse.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-gravity-term-dropped",
+        "Leaves the g/k terminal-speed term out of the vertical velocity, so the vertical speed decays like the horizontal one.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-limit-for-height",
+        "Uses the limiting value of the formula (u over k) in place of the value at the time the projectile is at the top.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-no-drag-range-used",
+        "Multiplies the horizontal launch speed by the time to the top, ignoring the slowing of the horizontal motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
         "w6-subst-x-from-u-reversed",
         "Writes x as the constant minus u instead of u minus the constant when solving the substitution for x.",
         area="integration",
