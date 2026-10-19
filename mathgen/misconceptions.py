@@ -53739,6 +53739,236 @@ _ENTRIES = (
         "Takes the closed road's length off the old shortest route instead of finding a new route.",
         area="shortest-network-path",
     ),
+    CatalogueEntry(
+        "w3pc-over-final",
+        "Divides the change by the final value instead of the original value.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-change-as-percent",
+        "Gives the amount of the change as the percentage.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-ratio-as-change",
+        "Gives the final value as a percentage of the original and does not subtract 100.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-original-as-final",
+        "Gives the original value as a percentage of the final value.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-points-as-percent",
+        "Gives the rise in percentage points as the percentage change.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-adds-steps",
+        "Adds the increase and takes off the decrease instead of multiplying the two multipliers.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-sums-percentages",
+        "Adds the two percentages whatever their direction.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-reverse-same-percent",
+        "Takes the fall that undoes a rise to be the same percentage as the rise.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-second-step-on-original",
+        "Gives the fall in the second step as a percentage of the original price, not the overall change.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-wrong-direction",
+        "Gives a percentage increase where a decrease was asked, or the reverse.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3cd-category-as-number",
+        "Treats a variable recorded in words or labels as numerical.",
+        area="classify-data",
+    ),
+    CatalogueEntry(
+        "w3as-geometric-as-arithmetic",
+        "Takes a constant ratio for a constant difference.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-one-pair",
+        "Judges the sequence from its first two terms only.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-first-term",
+        "Gives the first term as the common difference.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-growing-gaps",
+        "Takes terms that grow by a growing amount for an arithmetic sequence.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-repeating-gaps",
+        "Takes gaps that repeat in a pattern for a constant difference.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-sign",
+        "Gives the common difference with the wrong sign.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-wrong-break",
+        "Names the wrong place where the difference changes.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-halving-forgotten",
+        "Stops at 2k = n and gives 2k as the value of k.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3as-arithmetic-slip",
+        "Makes an arithmetic slip when solving the equation, so the answer is one out.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w3el-smallest-float",
+        "Chooses the activity with the smallest float that is not zero.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-largest-est",
+        "Chooses the activity with the latest earliest start time.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-largest-lst",
+        "Chooses the activity with the latest latest start time.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-first-listed",
+        "Chooses the first activity in the table.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-longest-activity",
+        "Follows the longest single activities instead of the longest path.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-most-activities",
+        "Takes the path with the most activities for the critical path.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-one-swap",
+        "Swaps one critical activity for a non-critical one.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-est-for-lst",
+        "Gives the earliest start time where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-ignores-successors",
+        "Finds the latest start time from the project duration alone and ignores the activities that follow.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-forgets-duration",
+        "Gives the latest start time of the next activity without taking off the duration.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-finish-for-start",
+        "Gives the earliest finish time where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-float-for-lst",
+        "Gives the float where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3br-sin-cos-swapped",
+        "Swaps sine and cosine when finding a distance north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-adds-legs",
+        "Adds the two leg lengths instead of combining the north and east distances.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-one-leg",
+        "Uses the first leg only.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-no-reverse",
+        "Gives the bearing from the start to the finish where the bearing home was asked.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-tan-swapped",
+        "Uses the north distance over the east distance for the angle.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-raw-angle",
+        "Gives the angle in the triangle and does not turn it into a three-figure bearing.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-angle-from-east",
+        "Measures the angle from east instead of from north.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-sign-of-component",
+        "Adds a distance south or west as if it were north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-uses-sin-not-cos",
+        "Uses the sine of the bearing where the cosine is needed to cancel the north distance.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-distance-as-component",
+        "Gives the distance walked as the distance north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-tan-used",
+        "Uses the tangent where the sine or cosine is needed.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-divides",
+        "Divides by the sine or cosine where it should multiply.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-adds-components",
+        "Adds the north and east distances instead of using Pythagoras.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-uses-total-not-component",
+        "Uses the whole first leg as the distance to cancel.",
+        area="senior-solve-problems-involving-bearings",
+    ),
     # w3 consumer block end
 )
 

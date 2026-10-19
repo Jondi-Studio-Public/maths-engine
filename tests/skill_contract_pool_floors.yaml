@@ -13,8 +13,6 @@ before-and-after-to-10:
   before_after/easy: 17
 bisection-interval-update:
   bisection_interval_update/easy: 9
-classify-data:
-  classify_data/easy: 3
 classify-real-numbers:
   classify_real_number/easy: 5
 combinations:

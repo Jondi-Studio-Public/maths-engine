@@ -8,24 +8,21 @@ prerequisites:
 - integer-arithmetic
 answer: mcq
 sources:
-- topic: sequence
-  params:
-    kind: common_diff
+- topic: w3_arith_recognise
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: sequence
-  params:
-    kind: common_diff
+- topic: w3_arith_recognise
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: sequence
-  params:
-    kind: common_diff
+- topic: w3_arith_recognise
+  params: {}
   difficulty: hard
   stages:
   - 5
@@ -36,4 +33,32 @@ misconceptions:
   description: Judging from only one pair of terms
 - id: misconception-2
   description: Confusing a constant ratio with a constant difference
+- id: w3as-geometric-as-arithmetic
+  description: Takes a constant ratio for a constant difference.
+- id: w3as-one-pair
+  description: Judges the sequence from its first two terms only.
+- id: w3as-first-term
+  description: Gives the first term as the common difference.
+- id: w3as-growing-gaps
+  description: Takes terms that grow by a growing amount for an arithmetic sequence.
+- id: w3as-repeating-gaps
+  description: Takes gaps that repeat in a pattern for a constant difference.
+- id: w3as-sign
+  description: Gives the common difference with the wrong sign.
+- id: w3as-wrong-break
+  description: Names the wrong place where the difference changes.
+- id: w3as-halving-forgotten
+  description: Stops at 2k = n and gives 2k as the value of k.
+- id: w3as-arithmetic-slip
+  description: Makes an arithmetic slip when solving the equation, so the answer is one out.
 tags: []
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Pick the arithmetic sequence out of four.
+  medium:
+    steps: 2
+    demand: Judge a sequence whose first two terms are misleading and state its common difference.
+  hard:
+    steps: 3
+    demand: Find the value that makes three algebraic terms consecutive terms of an arithmetic sequence.
