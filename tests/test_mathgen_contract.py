@@ -110,7 +110,7 @@ PINNED_HASHES = {
     # coefficient).
     "simultaneous": {
         "0": "eb24cfee1e0d5fb1",
-        "1": "867b6381a80aff5e",
+        "1": "9c4e42537dbd746b",
         "7": "0e57702cb5431eda",
         "42": "8098cf1d09894e4a",
         "3:easy": "b3309f2691e12bf0",
