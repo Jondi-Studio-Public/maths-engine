@@ -44,6 +44,7 @@ from mathgen.core import (
     check_distinct,
     check_equivalent,
     generator,
+    ordinal,
     pick_distractors,
     round_half_up,
 )
@@ -520,30 +521,30 @@ _EXAM_TEMPLATES = {
     "withdrawal": (
         "An annuity begins with ${a0}, earning {annual}% per annum compounded {freq_adv} "
         "(interest credited before each withdrawal). A fixed ${d1} is withdrawn at the end of "
-        "each {period}. After the {k}th withdrawal, the withdrawal amount changes to ${d2} for "
+        "each {period}. After the {k_ord} withdrawal, the withdrawal amount changes to ${d2} for "
         "every {period} after that (the rate stays the same); a withdrawal counts as full only "
-        "when the full amount can be paid. Carrying the balance forward from the {k}th "
+        "when the full amount can be paid. Carrying the balance forward from the {k_ord} "
         "withdrawal, find the TOTAL number of full withdrawals the annuity makes. Give your "
         "answer as a whole number of withdrawals.",
         "${a0} is invested in an annuity earning {annual}% per annum compounded {freq_adv}, "
         "withdrawing a fixed ${d1} at the end of each {period} for the first {k} withdrawals; "
-        "every withdrawal after the {k}th is ${d2} instead (the rate is unchanged). Using the "
-        "balance carried forward after the {k}th withdrawal, find the total number of full "
+        "every withdrawal after the {k_ord} is ${d2} instead (the rate is unchanged). Using the "
+        "balance carried forward after the {k_ord} withdrawal, find the total number of full "
         "withdrawals the annuity makes in all. Give your answer as a whole number of "
         "withdrawals.",
     ),
     "rate": (
         "An annuity begins with ${a0}, earning {annual1}% per annum compounded {freq_adv} "
         "(interest credited before each withdrawal), withdrawing a fixed ${d} at the end of "
-        "each {period}. After the {k}th withdrawal, the rate changes to {annual2}% per annum "
+        "each {period}. After the {k_ord} withdrawal, the rate changes to {annual2}% per annum "
         "compounded {freq_adv} for every {period} after that (the withdrawal stays the same); a "
         "withdrawal counts as full only when the full amount can be paid. Carrying the balance "
-        "forward from the {k}th withdrawal, find the TOTAL number of full withdrawals the "
+        "forward from the {k_ord} withdrawal, find the TOTAL number of full withdrawals the "
         "annuity makes. Give your answer as a whole number of withdrawals.",
         "${a0} is invested in an annuity, initially earning {annual1}% per annum compounded "
         "{freq_adv}, withdrawing a fixed ${d} at the end of each {period} for the first {k} "
-        "withdrawals; every withdrawal after the {k}th earns {annual2}% per annum instead (the "
-        "withdrawal is unchanged). Using the balance carried forward after the {k}th "
+        "withdrawals; every withdrawal after the {k_ord} earns {annual2}% per annum instead (the "
+        "withdrawal is unchanged). Using the balance carried forward after the {k_ord} "
         "withdrawal, find the total number of full withdrawals the annuity makes in all. Give "
         "your answer as a whole number of withdrawals.",
     ),
@@ -590,6 +591,7 @@ def _exam_scenario(rng):
                 d1=d1,
                 d2=d2,
                 k=k,
+                k_ord=ordinal(k),
                 n2=n2,
                 n1_virtual=n1_virtual_actual,
             )
@@ -610,6 +612,7 @@ def _exam_scenario(rng):
                 r2=r2,
                 r2_pct=r2_pct,
                 k=k,
+                k_ord=ordinal(k),
                 n2=n2,
                 n1_virtual=n1_virtual_actual,
             )
@@ -639,6 +642,7 @@ def _annuity_exam(rng):
             d1=int(scenario["d1"]),
             d2=int(scenario["d2"]),
             k=k,
+            k_ord=ordinal(k),
             period=period,
         )
         no_change = scenario["n1_virtual"]
@@ -652,6 +656,7 @@ def _annuity_exam(rng):
             annual2=_fmt_pct(annual2),
             d=int(scenario["d"]),
             k=k,
+            k_ord=ordinal(k),
             period=period,
             freq_adv=freq_adv,
         )

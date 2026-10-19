@@ -309,6 +309,13 @@ def topics() -> list[tuple[int, str]]:
     return sorted((lvl, t) for t, (lvl, _fn) in REGISTRY.items())
 
 
+def ordinal(n: int) -> str:
+    """`n` as an English ordinal numeral: 1st, 2nd, 3rd, 4th, 11th, 12th, 13th, 21st, 112th."""
+    if 10 <= abs(n) % 100 <= 20:
+        return f"{n}th"
+    return f"{n}" + {1: "st", 2: "nd", 3: "rd"}.get(abs(n) % 10, "th")
+
+
 def check(cond: bool, msg: str = "answer verification failed"):
     if not cond:
         raise VerificationError(msg)

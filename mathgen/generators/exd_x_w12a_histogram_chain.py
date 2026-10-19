@@ -31,7 +31,7 @@ import re
 from fractions import Fraction
 
 from mathgen import figures
-from mathgen.core import attempts, check, generator, phrase
+from mathgen.core import attempts, check, generator, ordinal, phrase
 from mathgen.figure_kinds.data import histogram, histogram_panel
 from mathgen.generators._exd_x_w12a_kit import number_part, split_parts
 from mathgen.generators.stat4_histogram_build import _CONTEXTS
@@ -164,7 +164,11 @@ def exd_x_w12a_histogram_chain(rng, tier: str = "exam"):
             2,
             [
                 f"There are {total} values, so the median is the middle value"
-                + (f" (between the {half}th and {half + 1}th)." if half else f" (the {(total + 1) // 2}th)."),
+                + (
+                    f" (between the {ordinal(half)} and {ordinal(half + 1)})."
+                    if half
+                    else f" (the {ordinal((total + 1) // 2)})."
+                ),
                 f"Adding from the lowest class, the running total reaches that position in the class from {edges[m]} "
                 f"to {edges[m + 1]}, so its lower boundary is {edges[m]}.",
             ],
