@@ -716,15 +716,19 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
     t = rng.choice(ts)
     if mode == "abs":
         gname, at, ans = "|f(x)|", t, abs(F(fn(t)))
-        wrong = [fn(t), abs(t), -abs(fn(t))]
+        wrong = [fn(t), abs(t), -abs(fn(t)), fn(-t), abs(fn(t)) + 1, abs(fn(t)) - 1]  # f(-t): read at -t
         working = [f"From the graph, f({t}) = {fn(t)}.", f"|f({t})| = |{fn(t)}| = {abs(fn(t))}."]
     elif mode == "fabs":
         at = -t
-        gname, ans, wrong = "f(|x|)", F(fn(t)), [fn(-t), -fn(t), abs(fn(t))]
+        gname, ans, wrong = "f(|x|)", F(fn(t)), [fn(-t), -fn(t), abs(fn(t)), -fn(-t), fn(t) + 1, fn(t) - 1]
         working = [f"|{at}| = {t}, so g({at}) = f({t}).", f"From the graph, f({t}) = {fn(t)}."]
     else:
         at = t
-        gname, ans, wrong = "1/f(x)", 1 / F(fn(t)), [-1 / F(fn(t)), F(fn(t)), F(1, t)]
+        gname, ans, wrong = (
+            "1/f(x)",
+            1 / F(fn(t)),
+            [-1 / F(fn(t)), F(fn(t)), F(1, t), F(1, fn(t) ** 2), -F(1, t), F(1, 2 * fn(t)), F(2, fn(t))],
+        )
         working = [f"From the graph, f({t}) = {fn(t)}.", f"1/f({t}) = 1/{fn(t)} = {frac_text(ans)}."]
     fig = _plane([sample(fn, label="f")], alt="the graph of f on a coordinate grid, one unit per grid square")
     text = rng.choice(
@@ -734,7 +738,7 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
         )
     )
     key = frac_text(ans)
-    distractors = mcq(key, [frac_text(F(w)) for w in wrong])
+    distractors = mcq(key, [frac_text(F(w)) for w in wrong], minimum=3)
     q = type("Q", (), {"figure": fig, "text": text})
     check(_read_recip(q) == key, "the reciprocal reader disagrees with the key")
     figures.assert_no_leak(fig, [key])
