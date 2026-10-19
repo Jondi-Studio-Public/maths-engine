@@ -422,7 +422,7 @@ def _build_nominal_compounding(rng) -> dict:
         answer_latex=answer_text,
         working=[
             f"The nominal {c_disp}% p.a. compounded {_FREQ_WORDS[freq]} gives a per-period rate of "
-            f"{c_disp}/{freq}%, applied {freq} times a year. Comparing balances year by year, the "
+            f"({c_disp}% ÷ {freq}), applied {freq} times a year. Comparing balances year by year, the "
             f"first whole year n at which Account B's balance exceeds Account A's is n = {m}."
         ],
         distractors=distractors,

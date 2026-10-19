@@ -194,7 +194,7 @@ def _hard_both(rng):
     check(sympy.limit(left.subs(k, key), x, a, "-") == sympy.limit(right.subs(k, key), x, a, "+"), "not continuous")
     stem = f"The function f is defined by f(x) = {rule_text_k(left)} for x < {a} and f(x) = {rule_text_k(right)} for x ≥ {a}, where k is a constant."
     working = [
-        f"At x = {a} the rules give {sympy.sstr(left.subs(x, a)).replace('*', ' ')} and {sympy.sstr(right.subs(x, a)).replace('*', ' ')}.",
+        f"At x = {a} the rules give {sympy.sstr(left.subs(x, a)).replace('*', '')} and {sympy.sstr(right.subs(x, a)).replace('*', '')}.",
         f"Setting them equal gives k = {num(key)}.",
     ]
     return single(

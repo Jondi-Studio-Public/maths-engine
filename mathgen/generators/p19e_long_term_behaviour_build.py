@@ -344,7 +344,8 @@ def _a_display(a: Fraction) -> str:
 
 def _recurrence_formula(a: Fraction, b: int) -> str:
     sign = "+" if b >= 0 else "-"
-    return f"u(n+1) = {_a_display(a)} × u(n) {sign} {abs(b)}"
+    lead = "u(n)" if a == 1 else f"{_a_display(a)} × u(n)"
+    return f"u(n+1) = {lead}" + (f" {sign} {abs(b)}" if b else "")
 
 
 def _fixed_point_case(rng, a: Fraction, cls: str, j_range, offset_range):

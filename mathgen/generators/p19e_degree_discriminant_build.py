@@ -562,7 +562,7 @@ def _draw_exam_quadratic(rng, target):
 
 
 def _zeros_sentence(count: int) -> str:
-    """"No real zeros.", "1 real zero." or "2 real zeros." """
+    """ "No real zeros.", "1 real zero." or "2 real zeros." """
     return "No real zeros." if count == 0 else f"{count} real zero{'' if count == 1 else 's'}."
 
 

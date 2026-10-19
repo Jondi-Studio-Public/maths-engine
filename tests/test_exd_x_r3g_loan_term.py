@@ -14,7 +14,8 @@ SKILL = "senior-investigate-the-effect-of-the-interest-rate-and"
 def _facts(q):
     """Everything the stem states, read back from the rendered text alone."""
     amounts = []
-    for m in re.findall(r"\$(\d+)", q.text):
+    for m in re.findall(r"\$(\d[\d,]*)", q.text):  # the stem writes thousands with a comma ($31,200)
+        m = m.replace(",", "")
         if int(m) not in amounts:
             amounts.append(int(m))
     P, M1, M2 = amounts

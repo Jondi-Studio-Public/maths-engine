@@ -316,7 +316,12 @@ def _hard_circle(rng):
     f, g = factorial(n), factorial(n - 1)
     h = factorial(n - 2)
     a, b = rng.choice((("Ravi", "Sam"), ("Imogen", "Kai"), ("Ngaire", "Dale")))
-    setting = rng.choice(("sit around a circular table", "are seated at a round table"))
+    setting_base, setting_finite = rng.choice(
+        (
+            ("sit around a circular table", "sit around a circular table"),
+            ("be seated at a round table", "are seated at a round table"),
+        )
+    )
     if kind == "free":
         cands = [
             int_dist(f, "sr2b-rotations-counted-as-different"),
@@ -356,11 +361,12 @@ def _hard_circle(rng):
     stem = phrase(
         rng,
         (
-            "In how many different ways can {n} people {setting}{ask}? Arrangements that are rotations of each other count as the same.",
-            "{n} different people {setting}{ask}. How many different seating arrangements are there, if rotations are not counted as different?",
+            "In how many different ways can {n} people {setting_base}{ask}? Arrangements that are rotations of each other count as the same.",
+            "{n} different people {setting_finite}{ask}. How many different seating arrangements are there, if rotations are not counted as different?",
         ),
         n=n,
-        setting=setting,
+        setting_base=setting_base,
+        setting_finite=setting_finite,
         ask=ask,
     )
     return dict(

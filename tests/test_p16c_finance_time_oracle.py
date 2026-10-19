@@ -75,6 +75,7 @@ def _loan_iterate(principal, r, R, n, extra_at=None, extra=Fraction(0)):
 
 
 def _loan_oracle_forward_or_lump(text: str) -> Fraction:
+    text = re.sub(r"(?<=\d),(?=\d{3})", "", text)  # stems write $20,000
     # Dollar amounts always appear, in order, as: principal, regular
     # repayment, then (only when a lump sum is stated) the extra amount.
     amounts = [Fraction(a) for a in _L_MONEY_RE.findall(text)]
@@ -90,6 +91,7 @@ def _loan_oracle_forward_or_lump(text: str) -> Fraction:
 
 
 def _loan_oracle_find_n(text: str) -> int:
+    text = re.sub(r"(?<=\d),(?=\d{3})", "", text)  # stems write $20,000
     # Dollar amounts always appear, in order: principal, regular repayment,
     # target balance.
     amounts = [Fraction(a) for a in _L_MONEY_RE.findall(text)]
@@ -107,6 +109,7 @@ _L_RC_TOTAL_N_RE = re.compile(r"after (\d+) periods")
 
 
 def _loan_oracle_rate_change(text: str) -> Fraction:
+    text = re.sub(r"(?<=\d),(?=\d{3})", "", text)  # stems write $20,000
     # Dollar amounts always appear, in order: principal, then the (repeated)
     # regular repayment -- take the first two.
     amounts = [Fraction(a) for a in _L_MONEY_RE.findall(text)]

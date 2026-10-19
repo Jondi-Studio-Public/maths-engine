@@ -176,7 +176,7 @@ def test_geo_oracle_grader_agrees():
 # recurrence long-term class -- parse a, b, u0 (or the exam-context numbers)
 # ==========================================================================
 
-_FORMULA_RE = re.compile(r"u\(n\+1\) = ([\d.]+) × u\(n\) ([+-]) (\d+)")
+_FORMULA_RE = re.compile(r"u\(n\+1\) = (?:([\d.]+) × )?u\(n\)(?: ([+-]) (\d+))?")
 _U0_RE = re.compile(r"u\(0\) = (-?\d+)")
 _EXAM_PCT_RE = re.compile(r"(?:grows by|increases by) (\d+)% each period")
 _EXAM_AMOUNT_RE = re.compile(r"\$(\d+) is(?: also)? (added|removed)")
@@ -186,9 +186,9 @@ _EXAM_START_RE = re.compile(r"starting at \$(\d+)|starts at \$(\d+)")
 def _rec_oracle_class(text: str) -> str:
     m = _FORMULA_RE.search(text)
     if m:
-        a = Fraction(m.group(1))
-        sign = 1 if m.group(2) == "+" else -1
-        b = sign * int(m.group(3))
+        a = Fraction(m.group(1) or 1)  # the stem leaves out a multiplier of 1 and a constant of 0
+        sign = -1 if m.group(2) == "-" else 1
+        b = sign * int(m.group(3) or 0)
         u0_match = _U0_RE.search(text)
         u0 = int(u0_match.group(1))
         return _rec_true_class(a, b, u0)
