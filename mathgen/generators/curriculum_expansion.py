@@ -809,8 +809,8 @@ def complex_number(rng, kind="real_part"):
             working=["Keep the real part and reverse the sign of the imaginary part."],
         )
     if kind == "add":
-        while c == 0 and d == 0:  # adding 0 + 0i makes most wrong sums collapse onto the answer
-            c, d = rng.randint(-8, 8), rng.randint(-8, 8)
+        if c == 0 and d == 0:  # adding 0 + 0i makes most wrong sums collapse onto the answer
+            c, d = rng.randint(1, 8), rng.randint(-8, 8)
         answer = _cx(a + c, b + d)
         other = _cx(c, d)
         return _mcq(
