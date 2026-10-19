@@ -293,7 +293,13 @@ def probability_complement_union(rng, tier="medium"):
         # Proof: (2a+b)/d > (a+b)/d since a >= 1
         check(Fraction(2 * a + b, d) > answer, "double-counts distractor should be more")
 
-        distractors = pick_distractors(answer_text, [distractor_first, distractor_double], n=2)
+        # The double count can exceed 1, an impossible probability a learner eliminates at sight, so it is
+        # offered only when in range. In-range stand-ins: treating the events as independent (P(A) x P(B)),
+        # and P(B) alone.
+        candidates = [Fraction(a, d), Fraction(2 * a + b, d), Fraction(a * b, d * d), Fraction(b, d)]
+        candidates = [rational_text(v) for v in candidates if 0 <= v <= 1 and v != answer]
+        distractors = pick_distractors(answer_text, candidates, n=2)
+        check(len(distractors) == 2, "medium: need two in-range distractors")
 
     else:  # hard
         # Hard: inclusion-exclusion P(A union B) = P(A) + P(B) - P(A intersect B)
@@ -351,7 +357,17 @@ def probability_complement_union(rng, tier="medium"):
         check(Fraction(a + b - 2 * c, d) != answer, "double-subtracts distractor equals answer")
         check(abs(Fraction(a + b - 2 * c, d) - answer) == Fraction(c, d), "double-subtracts gap proof")
 
-        distractors = pick_distractors(answer_text, [distractor_forgot, distractor_double_sub], n=2)
+        # Forgetting the overlap can push the sum past 1, so it is offered only when in range. In-range
+        # stand-ins: treating the events as independent (P(A) x P(B)), and the larger marginal alone.
+        candidates = [
+            Fraction(a + b, d),
+            Fraction(a + b - 2 * c, d),
+            Fraction(a * b, d * d),
+            Fraction(max(a, b), d),
+        ]
+        candidates = [rational_text(v) for v in candidates if 0 <= v <= 1 and v != answer]
+        distractors = pick_distractors(answer_text, candidates, n=2)
+        check(len(distractors) == 2, "hard: need two in-range distractors")
 
     return dict(
         text=question_text,

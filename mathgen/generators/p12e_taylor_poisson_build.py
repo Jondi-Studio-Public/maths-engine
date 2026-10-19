@@ -550,8 +550,26 @@ def _build_poisson_easy_medium(rng, tier: str) -> dict:
             k=k,
             event_word=event_word,
         )
-    distractor_strs = [rational_text(v) for v in candidates.values()]
-    distractors = pick_distractors(answer_text, distractor_strs, n=4)
+    # The answer is a probability, so every option must be one: an "omits the factorial" or "drops the
+    # exponential" value above 1 is eliminated at sight. Out-of-range candidates are dropped and replaced,
+    # keeping the option count, by in-range misreadings of the same pmf: the next count up, and "at most k"
+    # (the cumulative sum read as a single term).
+    wanted = len(candidates)
+    in_range = [v for v in candidates.values() if 0 <= v <= 1]
+    replacements = [
+        _poisson_probability(e_val, m, k + 1),
+        sum((_poisson_probability(e_val, m, j) for j in range(k + 1)), Fraction(0)),
+        _poisson_probability(e_val, m, k + 2),
+        _poisson_probability(e_val, m, max(k - 2, 0)),
+    ]
+    distractor_strs = [rational_text(v) for v in in_range]
+    for v in replacements:
+        if len(distractor_strs) >= wanted + 1:
+            break
+        if 0 <= v <= 1:
+            distractor_strs.append(rational_text(v))
+    distractors = pick_distractors(answer_text, distractor_strs, n=wanted)
+    check(len(distractors) == wanted, "need a full set of in-range distractors")
     return dict(
         text=question_text,
         latex=question_text,
