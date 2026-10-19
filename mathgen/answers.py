@@ -40,6 +40,8 @@ ANSWER_KINDS = frozenset(
         "inequality",
         "matrix",
         "grid_cells",
+        "open_response",
+        "step_chain",
     }
 )
 
