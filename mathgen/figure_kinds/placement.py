@@ -22,6 +22,7 @@ Pt = tuple[float, float]
 STEP = 3.0  # spacing of the sample points that stand in for a curve when measuring distances
 _GAP = 4.0  # distance from the item to the label box
 _LABEL_H = 14.0
+_OTHER_END = 100.0  # extra walk charged to the far end of an item when its label should stand at the last point
 
 
 def text_box(x: float, y: float, width: float, anchor: str, height: float = _LABEL_H) -> Box:
@@ -124,23 +125,23 @@ def _candidate(p: Pt, d: tuple[int, int], w: float, h: float, gap: float) -> Box
     return (cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2)
 
 
-def _walk_positions(own: list[Pt]) -> list[tuple[Pt, float]]:
+def _walk_positions(own: list[Pt]) -> list[tuple[Pt, float, bool]]:
     """Points about a label height apart along ``own`` from both ends inwards, each with its walk from the
-    nearer end, nearest the last point first."""
+    nearer end and whether that end is the last point, nearest the last point first."""
     n = len(own)
     cum = [0.0]
     for i in range(1, n):
         cum.append(cum[-1] + math.hypot(own[i][0] - own[i - 1][0], own[i][1] - own[i - 1][1]))
     total = cum[-1]
-    out: list[tuple[Pt, float]] = []
+    out: list[tuple[Pt, float, bool]] = []
     seen: set[int] = set()
     k = 0
     while k * 12.0 <= total:
-        for target in (total - k * 12.0, k * 12.0):
+        for from_last, target in ((True, total - k * 12.0), (False, k * 12.0)):
             i = _bisect(cum, target)
             if i not in seen:
                 seen.add(i)
-                out.append((own[i], k * 12.0))
+                out.append((own[i], k * 12.0, from_last))
         k += 1
     return out
 
@@ -168,12 +169,15 @@ def place(
     gap: float = _GAP,
     ownership: bool = True,
     clear: list[list[Pt]] | None = None,
+    same_end: bool = False,
 ) -> tuple[Box, bool]:
     """Choose a box of ``width`` for an item whose visible samples are ``own`` (in drawing order). ``others``
     are the samples of the other items, ``avoid`` of things to keep clear of without ownership (the axes).
 
     With ``ownership`` the best candidate is the one with the widest lead of its own item over every other
     item (ties to the nearest an end of the item); without it the first acceptable candidate in ``order`` wins.
+    With ``same_end`` a label near the last point of its item is preferred, so that the labels of several curves
+    all stand at the same end of their curves and none can be read as belonging to its neighbour.
     Returns the box and whether every rule was met."""
     h = _LABEL_H
     other_idx = SampleIndex(others)
@@ -183,7 +187,12 @@ def place(
     compass = order or _COMPASS
     spots = _walk_positions(own)
     rings = (gap,) if len(own) > 1 else (gap, gap * 2.2, gap * 3.6)  # a lone point's label may stand further off
-    cands = [(_candidate(p, d, width, h, g), walked) for g in rings for p, walked in spots for d in compass]
+    cands = [
+        (_candidate(p, d, width, h, g), walked + (0.0 if from_last or not same_end else _OTHER_END))
+        for g in rings
+        for p, walked, from_last in spots
+        for d in compass
+    ]
 
     def judge(box: Box, walked: float, tier: int) -> float | None:
         """A score (higher is better) or None when the box breaks a rule at this tier."""
