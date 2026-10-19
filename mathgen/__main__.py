@@ -13,11 +13,12 @@ Examples:
 import argparse
 import contextlib
 import difflib
+import json
 import os
 import sys
 
 from . import REGISTRY, __version__, make, topics
-from .core import PRESETS, mcq_options
+from .core import PRESETS, display_question, mcq_options, paper_notation
 
 # Always accepted as difficulty names. A topic with no presets runs on its defaults for any of them.
 STANDARD_TIERS = ("easy", "medium", "hard")
@@ -32,6 +33,24 @@ def _fail(message, code=1):
 def _squash(text):
     """`text` with runs of whitespace collapsed to one space."""
     return " ".join(text.split())
+
+
+def _display_json(q):
+    """`q` as a JSON line whose learner-facing strings are in paper notation (`core.display_question`), as the
+    web service shows them: `3x^2`, not `3*x**2`. The stored question, which the graders read, is not changed."""
+    d = q.to_dict()
+    shown = display_question(q)
+    d["text"] = shown["text"]
+    d["answer_text"] = shown["answer_text"]
+    d["distractors"] = shown["distractors"]
+    d["working"] = shown["working"]
+    if d.get("stem") is not None:
+        d["stem"] = paper_notation(d["stem"])
+    for part, part_shown in zip(d.get("parts", ()), shown.get("parts", ())):
+        for key in ("text", "answer_text", "distractors", "working"):
+            if key in part:
+                part[key] = part_shown[key]
+    return json.dumps(d, ensure_ascii=False, default=str)
 
 
 def _positive_int(text):
@@ -163,15 +182,16 @@ def _run_skills(ap, args):
         return _fail(f"cannot make a question for deferred skill {found.id!r}: {exc}")
 
     options = None
-    answer_text = q.answer_text
-    print(f"[{found.id} #{q.seed}]\n  Q: {q.text}")
+    shown = display_question(q)
+    answer_text = shown["answer_text"]
+    print(f"[{found.id} #{q.seed}]\n  Q: {shown['text']}")
     if found.answer == "mcq" and not q.parts:
         options = mcq_options(q)
         labels = _labels(options)
-        for label, option in zip(labels, options):
+        for label, option in zip(labels, shown["options"]):
             print(f"     {label}) {option}")
         if q.answer_text in options:
-            answer_text = f"{labels[options.index(q.answer_text)]}) {q.answer_text}"
+            answer_text = f"{labels[options.index(q.answer_text)]}) {shown['answer_text']}"
     print(f"  A: {answer_text}")
 
     if args.answer is None:
@@ -183,6 +203,8 @@ def _run_skills(ap, args):
     if options is not None:
         # The mcq grader wants the 0-based index of the chosen option; the CLI takes a letter or the text.
         index = _choose_option(options, args.answer)
+        if index is None:  # the option as printed (paper notation) names it too
+            index = _choose_option(shown["options"], args.answer)
         given = "" if index is None else index
         if index is None:
             labels = _labels(options)
@@ -250,12 +272,13 @@ def _run_topics(ap, args):
                 q = make(topic, seed=seed, difficulty=args.difficulty)
                 if args.pretty:
                     tag = f" {q.difficulty}" if q.difficulty else ""
-                    line = f"[L{q.level} {q.topic} #{q.seed}{tag}]\n  Q: {q.text}\n  A: {q.answer_text}\n"
-                    if q.distractors:
-                        line += f"  wrong: {' | '.join(q.distractors)}\n"
+                    shown = display_question(q)
+                    line = f"[L{q.level} {q.topic} #{q.seed}{tag}]\n  Q: {shown['text']}\n  A: {shown['answer_text']}\n"
+                    if shown["distractors"]:
+                        line += f"  wrong: {' | '.join(shown['distractors'])}\n"
                     out.write(line)
                 else:
-                    out.write(q.to_json() + "\n")
+                    out.write(_display_json(q) + "\n")
                 n_written += 1
         out.flush()  # a full disk or a closed pipe shows here, not at interpreter exit
         if to_file:
