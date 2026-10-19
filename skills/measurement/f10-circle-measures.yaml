@@ -9,15 +9,15 @@ prerequisites: [pythagorean-hypotenuse]
 answer: number
 sources:
 - topic: circle_measures
-  params: {}
+  params: {r_hi: 25}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: circle_measures
-  params: {}
+  params: {r_hi: 25}
   difficulty: medium
   stages: [3, 4]
 - topic: circle_measures
-  params: {}
+  params: {r_hi: 25}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_m1_wheel_turns

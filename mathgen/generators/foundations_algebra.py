@@ -114,6 +114,39 @@ def read_expression(rng):
             f"the sum of x and {n}, divided by two",
             [f"x plus {n} divided by two", f"twice the sum of x and {n}", f"x divided by the sum of {n} and two"],
         ),
+        (
+            f"2x − {n}",
+            f"two times x, then subtract {n}",
+            [f"two times the difference of x and {n}", f"x minus two times {n}", f"subtract {n} from x, then add two"],
+        ),
+        (
+            f"2(x − {n})",
+            f"two times the difference of x and {n}",
+            [
+                f"two times x, then subtract {n}",
+                f"x minus two times {n}",
+                f"the difference of two and x, then subtract {n}",
+            ],
+        ),
+        (
+            f"{n} − 2x",
+            f"{n} minus two times x",
+            [
+                f"two times x, then subtract {n}",
+                f"{n} minus two, then times x",
+                f"two times the difference of {n} and x",
+            ],
+        ),
+        (
+            f"x/3 + {n}",
+            f"x divided by three, then add {n}",
+            [f"x plus {n}, divided by three", f"three times x, then add {n}", f"x divided by the sum of three and {n}"],
+        ),
+        (
+            f"x² + {n}",
+            f"x squared, then add {n}",
+            [f"x plus {n}, all squared", f"two times x, then add {n}", f"x times {n}, then square it"],
+        ),
     ]
     expression, answer, distractors = rng.choice(choices)
     return dict(

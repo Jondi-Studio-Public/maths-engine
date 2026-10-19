@@ -12,7 +12,7 @@ prerequisites:
 answer: fraction
 sources:
 - topic: unit_fractions_combine_whole
-  params: {shape: "multiple"}
+  params: {shape: "multiple", wide: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: unit_fractions_combine_whole
