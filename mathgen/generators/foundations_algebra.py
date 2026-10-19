@@ -1013,9 +1013,9 @@ def word_problem(rng, kind="linear_eq", coef_hi=9, sol_hi=15):
         return _word_problem_linear_eq_reverse(rng, coef_hi, sol_hi)
     x0 = rng.randint(1, sol_hi)
     a = rng.randint(2, coef_hi)
-    b = rng.randint(-20, 20)
-    while b == 0:  # "then add 0" is not a step
-        b = rng.randint(-20, 20)
+    b = draw_until(
+        rng, lambda r: r.randint(-20, 20), lambda v: v != 0, what='a nonzero constant ("then add 0" is not a step)'
+    )
     c = a * x0 + b
     check(solve(Eq(a * x + b, c), x) == [x0])
     b_phrase = f"add {b}" if b >= 0 else f"subtract {abs(b)}"

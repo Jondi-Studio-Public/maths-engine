@@ -286,6 +286,8 @@ TWO_SET_CONTEXTS = [
     ("dog owners", "cat owners"),
     ("math fans", "history fans"),
     ("sports players", "music lovers"),
+    ("swimmers", "runners"),
+    ("book readers", "video gamers"),
 ]
 
 # Context tuples for 3-set questions (A, B, C group names)

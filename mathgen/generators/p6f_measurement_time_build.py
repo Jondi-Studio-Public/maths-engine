@@ -281,7 +281,9 @@ def _build_hard(rng) -> dict:
     working = [
         f"{num}/{den} of an hour = {num}/{den} × 60 = {minutes_equiv} minutes.",
         *(
-            [f"{n} hours = {n * 60} minutes, so the total is {n * 60} + {minutes_equiv} = {answer} minutes."]
+            [
+                f"{n} {'hour' if n == 1 else 'hours'} = {n * 60} minutes, so the total is {n * 60} + {minutes_equiv} = {answer} minutes."
+            ]
             if n
             else []
         ),
