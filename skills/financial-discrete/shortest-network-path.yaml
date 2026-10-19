@@ -3,6 +3,7 @@ name: Find a shortest network path
 domain: financial-discrete
 description: Compare route weights in a small text-defined network to find the shortest distance.
 status: active
+needs_figure: true
 prerequisites:
 - add-within-100
 answer: number

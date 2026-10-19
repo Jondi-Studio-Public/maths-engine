@@ -1452,7 +1452,6 @@ answer_space:
   r3d_accel_position_exam: [36, 60]
   r3d_accel_velocity_exam: [68, 14]
   r3d_projectile_cartesian_exam: [26, 20]
-  r3d_shm_calculus_exam: [36, 17]
   r3d_shm_speed_exam: [56, 19]
   r3d_vertical_resistance_exam: [17, 29]
   r3g_exam_compound_angle: [32, 18]

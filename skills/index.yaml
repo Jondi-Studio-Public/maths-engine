@@ -3438,8 +3438,12 @@ limit-at-infinity:
     module: mathgen/generators/exd_x_c2_limit_at_infinity_build.py
 limit-degree-comparison:
   domain: limits
-  status: deferred
-  sources: []
+  status: active
+  sources:
+  - topic: w6_limit_degree
+    module: mathgen/generators/w6_limit_degree_build.py
+  - topic: exd_x_r3d_limit_growth
+    module: mathgen/generators/exd_x_r3d_limit_growth.py
 limit-removable:
   domain: limits
   status: active

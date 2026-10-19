@@ -15,6 +15,7 @@ from __future__ import annotations
 import math
 
 from ..core import attempts, check, pick_distractors
+from ..slots import NAMES
 from .p3a_secondary_number_factors_build import _factored_text, _factored_value, _is_prime_trial_division
 
 _SUP = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
@@ -30,7 +31,7 @@ def _spread(rng, key, pool, n=3):
     return rng.sample(below, r) + rng.sample(above, n - r)
 
 
-def _result(text, key, wrong, working):
+def _result(text, key, wrong, working, plain=False):
     wrong = pick_distractors(str(key), list(wrong), n=3)
     check(len(wrong) == 3, "need three distinct wrong options")
     return dict(
@@ -38,7 +39,7 @@ def _result(text, key, wrong, working):
         latex=f"plain:{text}",
         answer=key,
         answer_text=str(key),
-        answer_latex=str(key),
+        answer_latex=f"plain:{key}" if plain else str(key),
         working=working,
         distractors=wrong,
     )
@@ -138,7 +139,32 @@ def _apply(op, x, y):
     return x + y if op == "+" else x - y if op == "-" else x * y
 
 
-def _parity_pick(rng, ops, chained):
+# Question stems. Easy and medium keep a small fixed set; hard names a character and asks the reverse question
+# ("which does NOT give ..."), which is a new prompt shape, not a bigger number.
+_PARITY_STEMS = {
+    "easy": ("Which of these gives an {t} result?", "Which of these combinations makes an {t} number?"),
+    "medium": (
+        "Which of these gives an {t} result?",
+        "Which one of these always gives an {t} answer?",
+        "Which of these combinations ends up {t}?",
+        "Pick the combination whose result is {t}.",
+        "Which of these will give an {t} number?",
+    ),
+}
+_PARITY_STEMS_HARD = (
+    "{n} asks which of these does not give an {t} result. Which one?",
+    "Which of these is the one that does not give an {t} result, {n}?",
+    "{n} has four combinations and only one fails to give an {t} result. Which is it?",
+)
+
+
+def _parity_stem(rng, stem, target):
+    if stem == "hard":
+        return rng.choice(_PARITY_STEMS_HARD).format(n=rng.choice(NAMES), t=target)
+    return rng.choice(_PARITY_STEMS[stem]).format(t=target)
+
+
+def _parity_pick(rng, ops, chained, stem="easy"):
     parities = ("odd", "even")
     if chained:
         combos = [
@@ -150,8 +176,10 @@ def _parity_pick(rng, ops, chained):
         result = lambda c: _par(c[1], c[0], c[2])  # noqa: E731
     target = rng.choice(parities)
     other = "even" if target == "odd" else "odd"
-    right = [c for c in combos if result(c) == target]
-    wrong = [c for c in combos if result(c) == other]
+    negate = stem == "hard"  # hard asks which one does NOT give the named parity
+    key_par, wrong_par = (other, target) if negate else (target, other)
+    right = [c for c in combos if result(c) == key_par]
+    wrong = [c for c in combos if result(c) == wrong_par]
     key = rng.choice(right)
     picks = rng.sample(wrong, 3)
 
@@ -170,18 +198,19 @@ def _parity_pick(rng, ops, chained):
         p1, o, p2 = c
         return _apply(o, _value(p1, rng), _value(p2, rng)) % 2
 
-    want = 1 if target == "odd" else 0
+    want = 1 if key_par == "odd" else 0
     check(all(real(c) == want for c in [key]) and all(real(c) != want for c in picks), "parity key or distractor wrong")
     texts = [words(c).capitalize() for c in [key, *picks]]
     check(len(set(texts)) == 4, "options must be distinct")
-    text = f"Which of these gives an {target} result?"
-    working = [f"{texts[0]} gives an {target} result; each of the others gives an {other} one."]
-    return _result(text, texts[0], texts[1:], working)
+    text = _parity_stem(rng, stem, target)
+    working = [f"{texts[0]} gives an {key_par} result; each of the others gives an {wrong_par} one."]
+    return _result(text, texts[0], texts[1:], working, plain=True)
 
 
-def parity_pick(rng, ops=("+", "-"), chained=False):
-    """Four combinations of odd and even numbers; exactly one gives the odd (or even) result named."""
-    return _parity_pick(rng, tuple(ops), chained)
+def parity_pick(rng, ops=("+", "-"), chained=False, stem="easy"):
+    """Four combinations of odd and even numbers; exactly one gives the odd (or even) result named
+    (``stem="hard"``: exactly one does not)."""
+    return _parity_pick(rng, tuple(ops), chained, stem)
 
 
 # ---------------------------------------------------------------- prime, composite, square
@@ -189,6 +218,13 @@ def parity_pick(rng, ops=("+", "-"), chained=False):
 
 def _is_square(n):
     return math.isqrt(n) ** 2 == n
+
+
+_PROPERTY_STEMS = (
+    "Which of these is {noun}?",
+    "{n} needs {noun}. Which of these will do?",
+    "Which of these numbers could {n} choose as {noun}?",
+)
 
 
 def _pick_property(rng, prop, lo, hi, hard):
@@ -228,10 +264,44 @@ def _pick_property(rng, prop, lo, hi, hard):
             "square key or distractor wrong",
         )
     noun = "a perfect square" if prop == "perfect square" else f"a {prop} number"
-    return _result(f"Which of these is {noun}?", key, wrong, [why])
+    text = rng.choice(_PROPERTY_STEMS).format(noun=noun, n=rng.choice(NAMES))
+    return _result(text, key, wrong, [why])
+
+
+_FACTORED_STEMS = (
+    "{n} writes four numbers as products of primes. Which one is not a perfect square?",
+    "Written as products of prime factors, which of these is not a perfect square, {n}?",
+    "Only one of {n}'s four prime-factor products is not a perfect square. Which is it?",
+)
+
+
+def _pick_nonsquare_factored(rng):
+    """Reverse reasoning: three factorised squares and one that is not -- find the odd exponent."""
+    primes = sorted(rng.sample([2, 3, 5, 7, 11], rng.choice([2, 3])))
+    squares = []
+    for _ in attempts(500, "three factorised squares"):
+        if len(squares) == 3:
+            break
+        f = {p: rng.choice([2, 4]) for p in primes}
+        if f not in squares:
+            squares.append(f)
+    key_fac = {p: rng.choice([2, 4]) for p in primes}
+    for p in rng.sample(primes, rng.choice([1, 2][: len(primes)])):
+        key_fac[p] = rng.choice([1, 3])
+    key_n = _factored_value(key_fac)
+    sq_n = [_factored_value(f) for f in squares]
+    check(not _is_square(key_n) and all(_is_square(n) for n in sq_n), "factored non-square key or distractor wrong")
+    texts = [_factored_text(f) for f in [key_fac, *squares]]
+    check(len(set(texts)) == 4, "options must be distinct")
+    bad = ", ".join(str(p) for p in primes if key_fac[p] % 2)
+    why = f"The exponent of {bad} in {texts[0]} is odd; every exponent in each other option is even."
+    text = rng.choice(_FACTORED_STEMS).format(n=rng.choice(NAMES))
+    return _result(text, texts[0], texts[1:], [why])
 
 
 def _pick_square_factored(rng):
+    if rng.random() < 0.5:
+        return _pick_nonsquare_factored(rng)
     primes = sorted(rng.sample([2, 3, 5, 7, 11], rng.choice([2, 3])))
     key_fac = {p: rng.choice([2, 4]) for p in primes}
     wrong_fac = []

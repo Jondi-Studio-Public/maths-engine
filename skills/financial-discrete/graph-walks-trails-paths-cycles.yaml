@@ -8,6 +8,7 @@ description: >-
   kind; exam is a four-part chain on one route that re-uses an edge (steps, different edges, repeated uses, name). The
   answer is a name chosen from a fixed list, or a count of steps or edges.
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites: [graph-vertex-degrees-handshaking]
 answer: mcq

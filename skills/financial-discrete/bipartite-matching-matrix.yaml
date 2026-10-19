@@ -4,6 +4,7 @@ domain: financial-discrete
 year_level: ['12']
 description: 'Workers and tasks (or students and stations, drivers and routes) are described by lists of who can do what. Easy: write the 0/1 matrix from each worker''s list, rows for one side and columns for the other. Medium: write it from the lists on the other side (a transpose) or from lists of what each person cannot do (a complement). Hard: reduce the matrix after some jobs are forced, keeping the original order of rows and columns. The exam chain asks the matrix, the size of a maximum matching, how many workers are left without a job (carried forward) and how many different maximum matchings there are. Distinct from senior-determine-the-optimum-assignment-s-by-inspection-for, which assigns by cost rather than by possible pairings.'
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites: [network-model-from-situation]
 answer: matrix

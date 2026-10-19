@@ -11,6 +11,7 @@ description: >-
   and the fewest new edges that leave no bridge. Distinct from graph-walks-trails-paths-cycles, which classifies routes, and
   from senior-use-minimal-spanning-trees-to-solve-minimal-connector, which keeps the cheapest set of edges that joins everything.
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites: [graph-vertex-degrees-handshaking, graph-walks-trails-paths-cycles]
 answer: number

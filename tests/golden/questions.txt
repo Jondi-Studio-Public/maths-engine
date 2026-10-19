@@ -1486,9 +1486,9 @@
 {"answer": "(a) 75; (b) 1050; (c) 375; (d) 7.1", "id": "divide-quantity-in-ratio/three-shares/0/f739799265c1", "text": "Priya, Ben and Hamid share a club's fundraising total in the ratio 1 : 5 : 8. H…"}
 {"answer": "(a) 12; (b) 120; (c) 24; (d) 10.0", "id": "divide-quantity-in-ratio/three-shares/1/a9655530a7a9", "text": "Ruby, Callum and Tom share a lottery prize in the ratio 1 : 2 : 7. Tom's share …"}
 {"answer": "(a) 30; (b) 510; (c) 210; (d) 11.8", "id": "divide-quantity-in-ratio/three-shares/2/915f2b44b334", "text": "Tom, Chloe and Liam share the profit from a market stall in the ratio 2 : 7 : 8…"}
-{"answer": "-2, 0, 3, 7, 12", "id": "domain-and-range-intro/easy/0/e053097f45d7", "text": "A function is {(7, 12), (-3, 3), (4, -2), (1, 7), (0, 0)}. List the range of th…"}
-{"answer": "-3, 1, 4", "id": "domain-and-range-intro/easy/1/1b3bc4dc8595", "text": "A function is {(5, 4), (3, 1), (4, 1), (8, -3)}. List the range of this functio…"}
-{"answer": "-1, 0, 4, 7, 8, 9", "id": "domain-and-range-intro/easy/2/fca9d109a644", "text": "A function is {(7, 9), (9, -1), (0, 5), (4, 6), (-1, 10), (8, -4)}. List the do…"}
+{"answer": "-2, 0, 3, 7, 12", "id": "domain-and-range-intro/easy/0/1bcb8434c23f", "text": "A function is {(7, 12), (-3, 3), (4, -2), (1, 7), (0, 0)}. List the range of th…"}
+{"answer": "-3, 1, 4", "id": "domain-and-range-intro/easy/1/fcb69ea292f9", "text": "A function is {(5, 4), (3, 1), (4, 1), (8, -3)}. List the range of this functio…"}
+{"answer": "-1, 0, 4, 7, 8, 9", "id": "domain-and-range-intro/easy/2/c26ef9470b65", "text": "A function is {(7, 9), (9, -1), (0, 5), (4, 6), (-1, 10), (8, -4)}. List the do…"}
 {"answer": "(a) 4, 5, 8, 13; (b) 4; (c) 13; (d) 0, 4", "id": "domain-and-range-intro/exam/0/a547fbe021db", "text": "A function is f(x) = x^2 - 4x + 8, with domain the whole numbers from -1 to 5 i…"}
 {"answer": "(a) -5, -3, 3, 13; (b) 4; (c) 13; (d) -2, 2", "id": "domain-and-range-intro/exam/1/5dafd6ab2084", "text": "A function is f(x) = 2x^2 - 5, with domain the whole numbers from -3 to 2 inclu…"}
 {"answer": "(a) 0, 2, 8; (b) 3; (c) 8; (d) -2, 0", "id": "domain-and-range-intro/exam/2/c3fa3d3644e9", "text": "A function is f(x) = 2x^2 + 4x + 2, with domain the whole numbers from -3 to 1 …"}
@@ -1496,8 +1496,8 @@
 {"answer": "-20, -13, -8, -5, -4", "id": "domain-and-range-intro/hard/1/0c666840d897", "text": "A function is f(x) = -x^2 - 4, with domain the whole numbers from -2 to 4 inclu…"}
 {"answer": "-2, -1, 0, 1", "id": "domain-and-range-intro/hard/2/ba439430a479", "text": "The function f(x) = sqrt(-x + 1) is only defined when -x + 1 is zero or positiv…"}
 {"answer": "20, 25, 30, 35, 40", "id": "domain-and-range-intro/medium/0/de413e94bb9c", "text": "A tank holds 50 litres and loses 5 litres every minute, so V = 50 - 5t litres a…"}
-{"answer": "-7, -2, 3, 8, 13", "id": "domain-and-range-intro/medium/1/06df339a12df", "text": "A function is f(x) = 5x - 2, with domain {-1, 0, 1, 2, 3}. List the range of f."}
-{"answer": "-5, -2, 7, 22", "id": "domain-and-range-intro/medium/2/fe8f1fe12086", "text": "A function is f(x) = 3x^2 - 5, with domain {-3, -2, -1, 0, 1, 2}. List the rang…"}
+{"answer": "-7, -2, 3, 8, 13", "id": "domain-and-range-intro/medium/1/81bc836f49b1", "text": "A function is f(x) = 5x - 2, with domain {-1, 0, 1, 2, 3}. List the range of f."}
+{"answer": "-5, -2, 7, 22", "id": "domain-and-range-intro/medium/2/979da8c329c2", "text": "A function is f(x) = 3x^2 - 5, with domain {-3, -2, -1, 0, 1, 2}. List the rang…"}
 {"answer": "x ≥ 3", "id": "domain-range-standard-functions/easy/0/f4a99f92cc6e", "text": "State the largest possible domain of the function f(x) = √(4x - 12) + 6, as an …"}
 {"answer": "y ≤ 4", "id": "domain-range-standard-functions/easy/1/efdebcca70c1", "text": "State the range of the function f(x) = 4 - √(5x - 15), as an inequality in y."}
 {"answer": "x ≥ -6", "id": "domain-range-standard-functions/easy/2/a334f9988e82", "text": "Find the largest possible domain of f(x) = -4 - √(4x + 24). Give your answer as…"}
@@ -1946,23 +1946,23 @@
 {"answer": "75", "id": "f10-angle-relationships/medium/1/4d87058799bc", "text": "The diagram shows angles meeting at a point and filling a full turn. Find angle…"}
 {"answer": "78", "id": "f10-angle-relationships/medium/2/3c8056c28c47", "text": "The diagram shows angles meeting at a point and filling a full turn. Find angle…"}
 {"answer": "2", "id": "f10-angle-turn-right-reference/easy/0/6a0d85a2732d", "text": "A turntable makes a half turn. How many right angles is this turn equal to?"}
-{"answer": "3", "id": "f10-angle-turn-right-reference/easy/0/bbdd1314877b", "text": "A robot faces west. It turns clockwise until it faces south. How many right ang…"}
-{"answer": "4", "id": "f10-angle-turn-right-reference/easy/1/5527f40e3c73", "text": "The minute hand of a clock points at the 12. It moves clockwise all the way rou…"}
 {"answer": "2", "id": "f10-angle-turn-right-reference/easy/1/8159e532bfa7", "text": "A spinner makes a half turn. How many right angles is this turn equal to?"}
-{"answer": "3", "id": "f10-angle-turn-right-reference/easy/2/26ee0aaf239e", "text": "A robot faces west. It turns clockwise until it faces south. How many right ang…"}
 {"answer": "3", "id": "f10-angle-turn-right-reference/easy/2/4a975f84050d", "text": "A toy car makes a three-quarter turn. What is the turn in right angles?"}
-{"answer": "5", "id": "f10-angle-turn-right-reference/hard/0/0698b6d2323d", "text": "A gate turns clockwise through 4 full turns and a quarter turn. It then turns b…"}
 {"answer": "2", "id": "f10-angle-turn-right-reference/hard/0/1d8e93be7b07", "text": "A toy car makes a three-quarter turn. It then keeps turning until it has turned…"}
 {"answer": "3", "id": "f10-angle-turn-right-reference/hard/1/1c92edcbedc3", "text": "A shape makes a full turn. It then keeps turning until it has turned through 7 …"}
-{"answer": "4", "id": "f10-angle-turn-right-reference/hard/1/7c96cc10c1a9", "text": "A dial turns clockwise through 3 full turns and a three-quarter turn. It then t…"}
 {"answer": "3", "id": "f10-angle-turn-right-reference/hard/2/51030df5c52c", "text": "A robot makes a half turn. It then keeps turning until it has turned through 5 …"}
-{"answer": "2", "id": "f10-angle-turn-right-reference/hard/2/c215a42d6bde", "text": "A gate turns clockwise through 1 full turn and a quarter turn. It then turns ba…"}
 {"answer": "5", "id": "f10-angle-turn-right-reference/medium/0/c3a9a89b5ac7", "text": "A toy car makes a three-quarter turn, then makes another half turn. In total, h…"}
-{"answer": "5", "id": "f10-angle-turn-right-reference/medium/0/dad0b0c236f8", "text": "A propeller makes 1 full turn and then a quarter turn. How many right angles ha…"}
 {"answer": "7", "id": "f10-angle-turn-right-reference/medium/1/63c3d1c87684", "text": "A robot makes a full turn, then makes another three-quarter turn. How many righ…"}
-{"answer": "26", "id": "f10-angle-turn-right-reference/medium/1/c2ebf4f9361b", "text": "A gate makes 6 full turns and then a half turn. How many right angles has it tu…"}
 {"answer": "4", "id": "f10-angle-turn-right-reference/medium/2/23b3bfd24b9d", "text": "A spinner makes a three-quarter turn, then makes another quarter turn. How many…"}
-{"answer": "18", "id": "f10-angle-turn-right-reference/medium/2/933ca591683f", "text": "A turntable makes 4 full turns and then a half turn. How many right angles has …"}
+{"answer": "3", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-easy/0/bbdd1314877b", "text": "A robot faces west. It turns clockwise until it faces south. How many right ang…"}
+{"answer": "4", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-easy/1/5527f40e3c73", "text": "The minute hand of a clock points at the 12. It moves clockwise all the way rou…"}
+{"answer": "3", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-easy/2/26ee0aaf239e", "text": "A robot faces west. It turns clockwise until it faces south. How many right ang…"}
+{"answer": "5", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-hard/0/0698b6d2323d", "text": "A gate turns clockwise through 4 full turns and a quarter turn. It then turns b…"}
+{"answer": "4", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-hard/1/7c96cc10c1a9", "text": "A dial turns clockwise through 3 full turns and a three-quarter turn. It then t…"}
+{"answer": "2", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-hard/2/c215a42d6bde", "text": "A gate turns clockwise through 1 full turn and a quarter turn. It then turns ba…"}
+{"answer": "5", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-medium/0/dad0b0c236f8", "text": "A propeller makes 1 full turn and then a quarter turn. How many right angles ha…"}
+{"answer": "26", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-medium/1/c2ebf4f9361b", "text": "A gate makes 6 full turns and then a half turn. How many right angles has it tu…"}
+{"answer": "18", "id": "f10-angle-turn-right-reference/w7f-turn-contexts-medium/2/933ca591683f", "text": "A turntable makes 4 full turns and then a half turn. How many right angles has …"}
 {"answer": "14", "id": "f10-area-perimeter-count-squares/easy/0/fdaf23af05fc", "text": "Each square on the grid is 1 cm by 1 cm. Find the area of the shape, in square …"}
 {"answer": "16", "id": "f10-area-perimeter-count-squares/easy/1/a2987916cc56", "text": "Every grid square has sides of 1 cm. What is the area of the shape, in square c…"}
 {"answer": "9", "id": "f10-area-perimeter-count-squares/easy/2/6af053b2d4ca", "text": "Each square on the grid is 1 cm by 1 cm. What is the area of the shape, in squa…"}
@@ -3070,15 +3070,15 @@
 {"answer": "10000", "id": "f10-numerals-words-and-place-value/medium/0/abce71569cd3", "text": "The digit 1 is in the number 314 975. What is its value?"}
 {"answer": "400", "id": "f10-numerals-words-and-place-value/medium/1/ebf040fe002a", "text": "The digit 4 is in the number 561 409. What is its value?"}
 {"answer": "700", "id": "f10-numerals-words-and-place-value/medium/2/7b0a80bfa05e", "text": "The digit 7 is in the number 238 749. What is its value?"}
-{"answer": "An odd number minus an even number", "id": "f10-odd-even-properties/easy/0/c9191c8a72fa", "text": "Which of these gives an odd result?"}
-{"answer": "An even number minus an odd number", "id": "f10-odd-even-properties/easy/1/e6a760bad7d5", "text": "Which of these gives an odd result?"}
-{"answer": "An odd number minus an even number", "id": "f10-odd-even-properties/easy/2/c71915c11513", "text": "Which of these gives an odd result?"}
-{"answer": "An odd number multiplied by an odd number, then that answer…", "id": "f10-odd-even-properties/hard/0/930befe0ab53", "text": "Which of these gives an even result?"}
-{"answer": "An even number multiplied by an even number, then that answ…", "id": "f10-odd-even-properties/hard/1/9fbd84adf6f6", "text": "Which of these gives an even result?"}
-{"answer": "An even number minus an even number, then that answer multi…", "id": "f10-odd-even-properties/hard/2/ad8d7f64a672", "text": "Which of these gives an even result?"}
-{"answer": "An even number multiplied by an even number", "id": "f10-odd-even-properties/medium/0/83b6a8d05da6", "text": "Which of these gives an even result?"}
-{"answer": "An odd number minus an even number", "id": "f10-odd-even-properties/medium/1/463388fe7524", "text": "Which of these gives an odd result?"}
-{"answer": "An odd number minus an even number", "id": "f10-odd-even-properties/medium/2/1f7dae00244f", "text": "Which of these gives an odd result?"}
+{"answer": "An odd number minus an even number", "id": "f10-odd-even-properties/easy/0/1645576549ce", "text": "Which of these combinations makes an odd number?"}
+{"answer": "An even number minus an odd number", "id": "f10-odd-even-properties/easy/1/a4d814b4475a", "text": "Which of these combinations makes an odd number?"}
+{"answer": "An odd number minus an even number", "id": "f10-odd-even-properties/easy/2/6e943052a4f1", "text": "Which of these combinations makes an odd number?"}
+{"answer": "An odd number multiplied by an odd number, then that answer…", "id": "f10-odd-even-properties/hard/0/94f6dbe3339d", "text": "Which of these is the one that does not give an even result, Nadia?"}
+{"answer": "An even number plus an even number, then that answer minus …", "id": "f10-odd-even-properties/hard/1/e83693ca8727", "text": "Which of these is the one that does not give an even result, Noah?"}
+{"answer": "An even number plus an even number, then that answer plus a…", "id": "f10-odd-even-properties/hard/2/3340a67b0007", "text": "Ingrid has four combinations and only one fails to give an even result. Which i…"}
+{"answer": "An even number multiplied by an even number", "id": "f10-odd-even-properties/medium/0/d8c22d3c08fe", "text": "Which one of these always gives an even answer?"}
+{"answer": "An odd number minus an even number", "id": "f10-odd-even-properties/medium/1/f93fa13f616f", "text": "Which of these will give an odd number?"}
+{"answer": "An odd number minus an even number", "id": "f10-odd-even-properties/medium/2/b5f859a23979", "text": "Which of these will give an odd number?"}
 {"answer": "B, D, C, A", "id": "f10-order-events-independent-dependent/easy/0/06b0f392ab29", "text": "A bag holds 5 orange, 3 white, 1 red, 2 yellow and 4 black. One counter is take…"}
 {"answer": "D, C, A, B", "id": "f10-order-events-independent-dependent/easy/1/6f5830c0e83a", "text": "A bag holds 1 blue, 2 orange, 6 green, 5 red and 1 black. One counter is taken …"}
 {"answer": "A, C, B, D", "id": "f10-order-events-independent-dependent/easy/2/a754383609a6", "text": "A bag holds 1 red, 6 green, 4 blue, 3 black and 1 white. One counter is taken w…"}
@@ -3259,14 +3259,14 @@
 {"answer": "7200", "id": "f10-powers-ten-multiply-divide/medium/0/355e7cd6f1e5", "text": "What is 9 × 800?"}
 {"answer": "13", "id": "f10-powers-ten-multiply-divide/medium/1/0e2c3247652b", "text": "What is 9100 ÷ 700?"}
 {"answer": "42300", "id": "f10-powers-ten-multiply-divide/medium/2/ce1a1d9e16c7", "text": "What is 47 × 900?"}
-{"answer": "5", "id": "f10-prime-composite-square-properties/easy/0/5f280c7c19ff", "text": "Which of these is a prime number?"}
+{"answer": "5", "id": "f10-prime-composite-square-properties/easy/0/b66160ff770b", "text": "Which of these numbers could Kai choose as a prime number?"}
 {"answer": "23", "id": "f10-prime-composite-square-properties/easy/1/80345d2f29c4", "text": "Which of these is a prime number?"}
-{"answer": "3", "id": "f10-prime-composite-square-properties/easy/2/31cff0054066", "text": "Which of these is a prime number?"}
+{"answer": "3", "id": "f10-prime-composite-square-properties/easy/2/cc6aff0717ad", "text": "Kai needs a prime number. Which of these will do?"}
 {"answer": "3² × 5² × 7²", "id": "f10-prime-composite-square-properties/hard/0/24767f37e48c", "text": "Which of these is a perfect square?"}
-{"answer": "2² × 5²", "id": "f10-prime-composite-square-properties/hard/1/6d3a208319ea", "text": "Which of these is a perfect square?"}
-{"answer": "2² × 3²", "id": "f10-prime-composite-square-properties/hard/2/dbd93eccc983", "text": "Which of these is a perfect square?"}
+{"answer": "3³ × 5⁴", "id": "f10-prime-composite-square-properties/hard/1/fca0b7986081", "text": "Written as products of prime factors, which of these is not a perfect square, Y…"}
+{"answer": "3² × 11⁴", "id": "f10-prime-composite-square-properties/hard/2/7ccd33152609", "text": "Which of these is a perfect square?"}
 {"answer": "64", "id": "f10-prime-composite-square-properties/medium/0/e1b7ab0dec6b", "text": "Which of these is a perfect square?"}
-{"answer": "95", "id": "f10-prime-composite-square-properties/medium/1/aa52a3a3a330", "text": "Which of these is a composite number?"}
+{"answer": "95", "id": "f10-prime-composite-square-properties/medium/1/a776f22c7835", "text": "Which of these numbers could Santiago choose as a composite number?"}
 {"answer": "38", "id": "f10-prime-composite-square-properties/medium/2/a815295dc9a4", "text": "Which of these is a composite number?"}
 {"answer": "a right prism", "id": "f10-prism-cross-sections/easy/0/0e88591034e6", "text": "A solid's cross-sections, taken perpendicular to its length, are always the sam…"}
 {"answer": "a right prism", "id": "f10-prism-cross-sections/easy/1/167afb27106d", "text": "A solid's cross-sections, taken perpendicular to its length, are always the sam…"}
@@ -3790,23 +3790,23 @@
 {"answer": "A'B' = 8 cm, angle A'B'C' = 39°, and the image is a mirror …", "id": "f10-transformations-invariants/medium/0/ce3147b4101c", "text": "A quadrilateral ABCD has AB = 8 cm and angle ABC = 39°. It is reflected in a mi…"}
 {"answer": "A'B' = 8 cm, angle A'B'C' = 44°, and the image is not a mir…", "id": "f10-transformations-invariants/medium/1/98be589006ef", "text": "A quadrilateral ABCD has AB = 8 cm and angle ABC = 44°. It is rotated 270° anti…"}
 {"answer": "A'B' = 13 cm, angle A'B'C' = 84°, and the image is not a mi…", "id": "f10-transformations-invariants/medium/2/d7b58ba7a12d", "text": "A pentagon ABCDE has AB = 13 cm and angle ABC = 84°. It is rotated 180° clockwi…"}
+{"answer": "11", "id": "f10-trial-tallies-compare-outcomes/alt-easy/0/37d74281a2e0", "text": "A coin was tossed 20 times and the side that landed face up was tallied. The ta…"}
+{"answer": "17", "id": "f10-trial-tallies-compare-outcomes/alt-easy/1/f2c100f59265", "text": "A six-sided die was rolled 24 times and the number on top was tallied. The tall…"}
+{"answer": "8", "id": "f10-trial-tallies-compare-outcomes/alt-easy/2/a4ab5d208a4f", "text": "A coin was tossed 19 times and the side that landed face up was tallied. The ta…"}
+{"answer": "25", "id": "f10-trial-tallies-compare-outcomes/alt-hard/0/f653f2a58398", "text": "Two groups drew a card from the same pack, wrote down its suit and put it back …"}
+{"answer": "2", "id": "f10-trial-tallies-compare-outcomes/alt-hard/1/1f86ee3394cd", "text": "Two groups tossed the same coin and tallied the side that landed face up. Group…"}
+{"answer": "32", "id": "f10-trial-tallies-compare-outcomes/alt-hard/2/b7e5bb541748", "text": "Two groups drew a card from the same pack, wrote down its suit and put it back …"}
+{"answer": "17", "id": "f10-trial-tallies-compare-outcomes/alt-medium/0/f92685a1b5cf", "text": "Two groups drew a tile from the same bag, wrote its letter down and put it back…"}
+{"answer": "10", "id": "f10-trial-tallies-compare-outcomes/alt-medium/1/45e7402feeaa", "text": "Two groups drew a card from the same pack, wrote down its suit and put it back …"}
+{"answer": "14", "id": "f10-trial-tallies-compare-outcomes/alt-medium/2/77053b619145", "text": "Two groups drew a card from the same pack, wrote down its suit and put it back …"}
 {"answer": "8", "id": "f10-trial-tallies-compare-outcomes/easy/0/3469e4a1cd81", "text": "Hana spun a spinner marked with shapes. She tallied the shape it stopped on eac…"}
-{"answer": "11", "id": "f10-trial-tallies-compare-outcomes/easy/0/37d74281a2e0", "text": "A coin was tossed 20 times and the side that landed face up was tallied. The ta…"}
 {"answer": "5", "id": "f10-trial-tallies-compare-outcomes/easy/1/6e76d2ae4ccc", "text": "Tom pulled a counter from a bag, wrote down its colour and put it back, again a…"}
-{"answer": "17", "id": "f10-trial-tallies-compare-outcomes/easy/1/f2c100f59265", "text": "A six-sided die was rolled 24 times and the number on top was tallied. The tall…"}
 {"answer": "9", "id": "f10-trial-tallies-compare-outcomes/easy/2/8bf1b64bb00c", "text": "Priya spun a spinner with 4 equal sections and recorded the colour it landed on…"}
-{"answer": "8", "id": "f10-trial-tallies-compare-outcomes/easy/2/a4ab5d208a4f", "text": "A coin was tossed 19 times and the side that landed face up was tallied. The ta…"}
 {"answer": "4", "id": "f10-trial-tallies-compare-outcomes/hard/0/8172b53233e2", "text": "A class drew a counter from a bag and put it back each time. They tallied the c…"}
-{"answer": "25", "id": "f10-trial-tallies-compare-outcomes/hard/0/f653f2a58398", "text": "Two groups drew a card from the same pack, wrote down its suit and put it back …"}
-{"answer": "2", "id": "f10-trial-tallies-compare-outcomes/hard/1/1f86ee3394cd", "text": "Two groups tossed the same coin and tallied the side that landed face up. Group…"}
 {"answer": "15", "id": "f10-trial-tallies-compare-outcomes/hard/1/88bf74440c7a", "text": "A class drew a counter from a bag and put it back each time. They tallied the c…"}
 {"answer": "6", "id": "f10-trial-tallies-compare-outcomes/hard/2/840b6a3f32f4", "text": "Ruby spun a spinner with 4 equal sections. She tallied the results after her fi…"}
-{"answer": "32", "id": "f10-trial-tallies-compare-outcomes/hard/2/b7e5bb541748", "text": "Two groups drew a card from the same pack, wrote down its suit and put it back …"}
 {"answer": "2", "id": "f10-trial-tallies-compare-outcomes/medium/0/41a3eedee852", "text": "A spinner has 3 sections that are all the same size, each a different colour. M…"}
-{"answer": "17", "id": "f10-trial-tallies-compare-outcomes/medium/0/f92685a1b5cf", "text": "Two groups drew a tile from the same bag, wrote its letter down and put it back…"}
 {"answer": "6", "id": "f10-trial-tallies-compare-outcomes/medium/1/19f37ac07dee", "text": "A game board spinner has 4 equal sections, each a different colour. Jack spun i…"}
-{"answer": "10", "id": "f10-trial-tallies-compare-outcomes/medium/1/45e7402feeaa", "text": "Two groups drew a card from the same pack, wrote down its suit and put it back …"}
-{"answer": "14", "id": "f10-trial-tallies-compare-outcomes/medium/2/77053b619145", "text": "Two groups drew a card from the same pack, wrote down its suit and put it back …"}
 {"answer": "6", "id": "f10-trial-tallies-compare-outcomes/medium/2/cb14da59bff9", "text": "A game board spinner has 3 equal sections, each a different colour. Jack spun i…"}
 {"answer": "40", "id": "f10-triangular-prism-volume/easy/0/3d7d4c2183f8", "text": "A triangular prism has a triangular cross-section with a base of 10 cm and a pe…"}
 {"answer": "320", "id": "f10-triangular-prism-volume/easy/1/b2bc5d9bee81", "text": "A triangular prism has a triangular cross-section with a base of 8 cm and a per…"}
@@ -4190,14 +4190,14 @@
 {"answer": "2789.7", "id": "frustum-volume/medium/1/782a9c043394", "text": "A frustum of a cone has a base diameter of 24 cm, a top diameter of 18 cm and a…"}
 {"answer": "6685.3", "id": "frustum-volume/medium/2/67b2a973f63d", "text": "A frustum of a cone has a base diameter of 34 cm, a top diameter of 10 cm and a…"}
 {"answer": "{(7, 6), (0, 10), (6, 10), (7, -3)}", "id": "function-concept/easy/0/f7b2b9d124ef", "text": "Look at the five relations below. Four of the relations below are functions. Wh…"}
-{"answer": "x = 9", "id": "function-concept/easy/1/524f3ec9d0a9", "text": "The relation {(9, -3), (-1, -1), (8, -1), (9, 12), (5, 7), (6, 6)} is not a fun…"}
-{"answer": "x = 0", "id": "function-concept/easy/2/12bb10a6af50", "text": "In the relation {(-2, 0), (0, 11), (3, 12), (8, -2), (4, 8), (0, 4)}, one input…"}
-{"answer": "(a) 5; (b) x = 6; (c) 2; (d) 2, 3, 4, 6, 7, 8", "id": "function-concept/exam/0/7d983f56fad7", "text": "A relation R is {(7, 7), (6, 3), (4, 3), (7, 2), (6, 4), (2, 8), (3, 6)}. (a) H…"}
-{"answer": "(a) 6; (b) x = 1; (c) 1; (d) 2, 3, 4, 6, 9", "id": "function-concept/exam/1/ffbd19fad7ce", "text": "The relation R consists of these ordered pairs: {(7, 4), (5, 3), (8, 2), (1, 6)…"}
-{"answer": "(a) 5; (b) x = 5; (c) 1; (d) 1, 3, 5, 6, 7, 9", "id": "function-concept/exam/2/8bd182f89b18", "text": "Consider the set of ordered pairs R = {(3, 1), (8, 9), (7, 7), (5, 6), (4, 5), …"}
-{"answer": "k = 0", "id": "function-concept/hard/0/f889ee951ffe", "text": "The relation {(-4, -3), (5, -2), (0, 6), (-3, -3), (k, -3)} is not a function. …"}
-{"answer": "1→b, 2→a, 3→c, 4→b", "id": "function-concept/hard/1/b0b85ae3634a", "text": "A rule must send each member of A = {1, 2, 3, 4} to a member of B = {a, b, c}. …"}
-{"answer": "k = 6", "id": "function-concept/hard/2/4340baf581a2", "text": "The relation {(-2, 9), (6, 9), (0, 1), (8, 9), (5, 7), (k, 7)} is not a functio…"}
+{"answer": "x = 9", "id": "function-concept/easy/1/f61530b73cdd", "text": "The relation {(9, -3), (-1, -1), (8, -1), (9, 12), (5, 7), (6, 6)} is not a fun…"}
+{"answer": "x = 0", "id": "function-concept/easy/2/32f730fa4954", "text": "In the relation {(-2, 0), (0, 11), (3, 12), (8, -2), (4, 8), (0, 4)}, one input…"}
+{"answer": "(a) 5; (b) x = 6; (c) 2; (d) 2, 3, 4, 6, 7, 8", "id": "function-concept/exam/0/1f0e0686bcab", "text": "A relation R is {(7, 7), (6, 3), (4, 3), (7, 2), (6, 4), (2, 8), (3, 6)}. (a) H…"}
+{"answer": "(a) 6; (b) x = 1; (c) 1; (d) 2, 3, 4, 6, 9", "id": "function-concept/exam/1/de317e513ac7", "text": "The relation R consists of these ordered pairs: {(7, 4), (5, 3), (8, 2), (1, 6)…"}
+{"answer": "(a) 5; (b) x = 5; (c) 1; (d) 1, 3, 5, 6, 7, 9", "id": "function-concept/exam/2/c5cd8c8d2b65", "text": "Consider the set of ordered pairs R = {(3, 1), (8, 9), (7, 7), (5, 6), (4, 5), …"}
+{"answer": "k = 0", "id": "function-concept/hard/0/aca0f1c8483a", "text": "The relation {(-4, -3), (5, -2), (0, 6), (-3, -3), (k, -3)} is not a function. …"}
+{"answer": "1→b, 2→a, 3→c, 4→b", "id": "function-concept/hard/1/9c57b43b9cec", "text": "A rule must send each member of A = {1, 2, 3, 4} to a member of B = {a, b, c}. …"}
+{"answer": "k = 6", "id": "function-concept/hard/2/f6a09598108c", "text": "The relation {(-2, 9), (6, 9), (0, 1), (8, 9), (5, 7), (k, 7)} is not a functio…"}
 {"answer": "x: 7, 4, 5, 2 y: 12, -5, -5, 12", "id": "function-concept/medium/0/1a8623235ded", "text": "In which table is y a function of x?"}
 {"answer": "x: 2, -2, 0, 4, 9 y: 7, 10, -5, 11, 2", "id": "function-concept/medium/1/bae110ce9f77", "text": "In which table is y a function of x?"}
 {"answer": "(y - 2)^2 = x", "id": "function-concept/medium/2/a1f4f31d5b6e", "text": "Which of these equations does NOT define y as a function of x?"}
@@ -4720,30 +4720,30 @@
 {"answer": "-9*ln|5*x + 5|/5 + C", "id": "integrate-reciprocal-linear/medium/0/b3af8a5f924f", "text": "Determine ∫ 9/(-5x - 5) dx."}
 {"answer": "-7*ln|4*x + 9|/4 + C", "id": "integrate-reciprocal-linear/medium/1/2d12afdc0bb7", "text": "Find the indefinite integral ∫ 7/(-4x - 9) dx."}
 {"answer": "3*ln|5*x - 7|/5 + C", "id": "integrate-reciprocal-linear/medium/2/4a4ab8cb6b69", "text": "Find ∫ -3/(7 - 5x) dx."}
-{"answer": "tan(x)^3/3 + C", "id": "integrate-substitution-exponential-trigonometric/easy/0/f3849bf7c542", "text": "Determine ∫ sec^2(x)tan^2(x) dx using the substitution u = tan(x). Give your an…"}
+{"answer": "tan(x)^3/3 + C", "id": "integrate-substitution-exponential-trigonometric/easy/0/7aa3d7c5dac3", "text": "Determine ∫ sec^2(x)tan^2(x) dx using the substitution u = tan(x). Give your an…"}
 {"answer": "2*exp(sin(x)) + C", "id": "integrate-substitution-exponential-trigonometric/easy/1/943b26850465", "text": "Determine ∫ 2cos(x)e^(sin(x)) dx using the substitution u = sin(x)."}
-{"answer": "1/(cos(x) + 2) + C", "id": "integrate-substitution-exponential-trigonometric/easy/2/2e74d0c4776a", "text": "Find ∫ sin(x)/(2 + cos(x))^2 dx. Use the substitution u = cos(x) + 2. Give your…"}
+{"answer": "1/(cos(x) + 2) + C", "id": "integrate-substitution-exponential-trigonometric/easy/2/94ef56b80017", "text": "Find ∫ sin(x)/(2 + cos(x))^2 dx. Use the substitution u = cos(x) + 2. Give your…"}
 {"answer": "(a) 1; (b) 3*u^6 + 6*u^4 + 3*u^2; (c) 92/35", "id": "integrate-substitution-exponential-trigonometric/exam/0/30c76c04200d", "text": "Let I be the value of ∫ from 0 to pi/4 of 3sec^6(x)tan^2(x) dx. Use the substit…"}
 {"answer": "(a) sqrt(3); (b) 2*u^5 + 2*u^3; (c) 27/2", "id": "integrate-substitution-exponential-trigonometric/exam/1/0b4e57dc00cd", "text": "Consider the integral I = ∫ from 0 to pi/3 of 2sec^4(x)tan^3(x) dx, and use the…"}
 {"answer": "(a) 1; (b) 6*u^5 + 6*u^3; (c) 5/2", "id": "integrate-substitution-exponential-trigonometric/exam/2/ed0d42d16018", "text": "Let I be the value of ∫ from 0 to pi/4 of 6sec^4(x)tan^3(x) dx. Use the substit…"}
-{"answer": "tan(x)^3/3 + tan(x) + C", "id": "integrate-substitution-exponential-trigonometric/hard/0/c134fbe8f0f3", "text": "Determine ∫ sec^4(x) dx. Give your answer as a sum of powers of tan(x), not exp…"}
-{"answer": "tan(x)^3 + 3*tan(x) + C", "id": "integrate-substitution-exponential-trigonometric/hard/1/eb274caa4c7a", "text": "Find the indefinite integral ∫ 3sec^4(x) dx. Give your answer as a sum of power…"}
-{"answer": "tan(x)^4/4 + tan(x)^2/2 + C", "id": "integrate-substitution-exponential-trigonometric/hard/2/c4d0e3ab74ed", "text": "Find ∫ sec^4(x)tan(x) dx. Give your answer as a sum of powers of tan(x), not ex…"}
-{"answer": "-1/(2*(exp(x) + 3)^2) + (exp(x) + 3)^(-3) + C", "id": "integrate-substitution-exponential-trigonometric/medium/0/c71ee84b61ce", "text": "Use the substitution u = e^x + 3 to find ∫ e^(2x)/(e^x + 3)^4 dx. Give your ans…"}
-{"answer": "-1/(2*(exp(x) + 2)^2) + 2/(3*(exp(x) + 2)^3) + C", "id": "integrate-substitution-exponential-trigonometric/medium/1/8abd7cf03737", "text": "Determine ∫ e^(2x)/(e^x + 2)^4 dx using the substitution u = e^x + 2. Give your…"}
-{"answer": "(exp(x) - 1)^4/4 + (exp(x) - 1)^3/3 + C", "id": "integrate-substitution-exponential-trigonometric/medium/2/13755e1e1789", "text": "Determine ∫ e^(2x)(e^x - 1)^2 dx using the substitution u = e^x - 1. Give your …"}
-{"answer": "(x - 4)^6 + 24*(x - 4)^5/5 + C", "id": "integrate-substitution-rewrite-x/easy/0/1faae97b3950", "text": "Determine ∫ 6x(x - 4)^4 dx using the substitution u = x - 4. Give your answer a…"}
-{"answer": "3*(x - 2)^5/5 + 3*(x - 2)^4/2 + C", "id": "integrate-substitution-rewrite-x/easy/1/b2da4cbc3a6f", "text": "Use the substitution u = x - 2 to find ∫ 3x(x - 2)^3 dx. Give your answer as a …"}
-{"answer": "(x + 5)^4/2 - 10*(x + 5)^3/3 + C", "id": "integrate-substitution-rewrite-x/easy/2/618c6a26979b", "text": "Find ∫ 2x(x + 5)^2 dx. Use the substitution u = x + 5. Give your answer as a su…"}
+{"answer": "tan(x)^3/3 + tan(x) + C", "id": "integrate-substitution-exponential-trigonometric/hard/0/48664e9f2189", "text": "Determine ∫ sec^4(x) dx. Give your answer as a sum of powers of tan(x), not exp…"}
+{"answer": "tan(x)^3 + 3*tan(x) + C", "id": "integrate-substitution-exponential-trigonometric/hard/1/a69a8515c0ce", "text": "Find the indefinite integral ∫ 3sec^4(x) dx. Give your answer as a sum of power…"}
+{"answer": "tan(x)^4/4 + tan(x)^2/2 + C", "id": "integrate-substitution-exponential-trigonometric/hard/2/0894039e8452", "text": "Find ∫ sec^4(x)tan(x) dx. Give your answer as a sum of powers of tan(x), not ex…"}
+{"answer": "-1/(2*(exp(x) + 3)^2) + (exp(x) + 3)^(-3) + C", "id": "integrate-substitution-exponential-trigonometric/medium/0/b9440b11ab14", "text": "Use the substitution u = e^x + 3 to find ∫ e^(2x)/(e^x + 3)^4 dx. Give your ans…"}
+{"answer": "-1/(2*(exp(x) + 2)^2) + 2/(3*(exp(x) + 2)^3) + C", "id": "integrate-substitution-exponential-trigonometric/medium/1/244e8d70ff38", "text": "Determine ∫ e^(2x)/(e^x + 2)^4 dx using the substitution u = e^x + 2. Give your…"}
+{"answer": "(exp(x) - 1)^4/4 + (exp(x) - 1)^3/3 + C", "id": "integrate-substitution-exponential-trigonometric/medium/2/d873cdc93904", "text": "Determine ∫ e^(2x)(e^x - 1)^2 dx using the substitution u = e^x - 1. Give your …"}
+{"answer": "(x - 4)^6 + 24*(x - 4)^5/5 + C", "id": "integrate-substitution-rewrite-x/easy/0/42c9265717f1", "text": "Determine ∫ 6x(x - 4)^4 dx using the substitution u = x - 4. Give your answer a…"}
+{"answer": "3*(x - 2)^5/5 + 3*(x - 2)^4/2 + C", "id": "integrate-substitution-rewrite-x/easy/1/45b83e9d5786", "text": "Use the substitution u = x - 2 to find ∫ 3x(x - 2)^3 dx. Give your answer as a …"}
+{"answer": "(x + 5)^4/2 - 10*(x + 5)^3/3 + C", "id": "integrate-substitution-rewrite-x/easy/2/ef40723ab43e", "text": "Find ∫ 2x(x + 5)^2 dx. Use the substitution u = x + 5. Give your answer as a su…"}
 {"answer": "(a) u - 1; (b) 4*sqrt(u) - 4/sqrt(u); (c) 9; (d) 128/3", "id": "integrate-substitution-rewrite-x/exam/0/99b6743b908d", "text": "Let I be the value of ∫ from 3 to 8 of 4x/√(x + 1) dx. Use the substitution u =…"}
 {"answer": "(a) u - 4; (b) 3*u^(3/2) - 12*sqrt(u); (c) 16; (d) 3206/5", "id": "integrate-substitution-rewrite-x/exam/1/0564375de600", "text": "Let I be the value of ∫ from 5 to 12 of 3x√(x + 4) dx. Use the substitution u =…"}
 {"answer": "(a) u - 1; (b) 3*sqrt(u) - 3/sqrt(u); (c) 16; (d) 108", "id": "integrate-substitution-rewrite-x/exam/2/d52a8832278b", "text": "Consider the integral I = ∫ from 0 to 15 of 3x/√(x + 1) dx, and use the substit…"}
-{"answer": "(x^2 + 6)^6/4 - 9*(x^2 + 6)^5/5 + C", "id": "integrate-substitution-rewrite-x/hard/0/e1f5ad109894", "text": "Find ∫ 3x^3(x^2 + 6)^4 dx. Give your answer as a sum of powers of (x^2 + 6), no…"}
-{"answer": "-1/(2*(x^2 + 3)) + 3/(2*(x^2 + 3)^2) - 3/(2*(x^2 + 3)^3) + C", "id": "integrate-substitution-rewrite-x/hard/1/220faa187d81", "text": "Determine ∫ x^5/(x^2 + 3)^4 dx. Give your answer as a sum of powers of (x^2 + 3…"}
-{"answer": "-8/(sqrt(x) + 1) + C", "id": "integrate-substitution-rewrite-x/hard/2/869d025cea7d", "text": "Find the indefinite integral ∫ 4/(√x(1 + √x)^2) dx. Give your answer as a sum o…"}
-{"answer": "4*(x + 1)^(3/2) - 12*sqrt(x + 1) + C", "id": "integrate-substitution-rewrite-x/medium/0/84b74f4adfa4", "text": "Use the substitution u = x + 1 to find ∫ 6x/√(x + 1) dx. Give your answer as a …"}
-{"answer": "12*(x + 5)^(5/2)/5 - 20*(x + 5)^(3/2) + C", "id": "integrate-substitution-rewrite-x/medium/1/4ca5b12ff308", "text": "Use the substitution u = x + 5 to find ∫ 6x√(x + 5) dx. Give your answer as a s…"}
-{"answer": "2*(x + 5)^(5/2)/5 - 10*(x + 5)^(3/2)/3 + C", "id": "integrate-substitution-rewrite-x/medium/2/24c5a5d78d57", "text": "Use the substitution u = x + 5 to find ∫ x√(x + 5) dx. Give your answer as a su…"}
+{"answer": "(x^2 + 6)^6/4 - 9*(x^2 + 6)^5/5 + C", "id": "integrate-substitution-rewrite-x/hard/0/61bb0c0fa944", "text": "Find ∫ 3x^3(x^2 + 6)^4 dx. Give your answer as a sum of powers of (x^2 + 6), no…"}
+{"answer": "-1/(2*(x^2 + 3)) + 3/(2*(x^2 + 3)^2) - 3/(2*(x^2 + 3)^3) + C", "id": "integrate-substitution-rewrite-x/hard/1/0a22028f2baf", "text": "Determine ∫ x^5/(x^2 + 3)^4 dx. Give your answer as a sum of powers of (x^2 + 3…"}
+{"answer": "-8/(sqrt(x) + 1) + C", "id": "integrate-substitution-rewrite-x/hard/2/01a6c3427781", "text": "Find the indefinite integral ∫ 4/(√x(1 + √x)^2) dx. Give your answer as a sum o…"}
+{"answer": "4*(x + 1)^(3/2) - 12*sqrt(x + 1) + C", "id": "integrate-substitution-rewrite-x/medium/0/a2009925173f", "text": "Use the substitution u = x + 1 to find ∫ 6x/√(x + 1) dx. Give your answer as a …"}
+{"answer": "12*(x + 5)^(5/2)/5 - 20*(x + 5)^(3/2) + C", "id": "integrate-substitution-rewrite-x/medium/1/6ee158ccd787", "text": "Use the substitution u = x + 5 to find ∫ 6x√(x + 5) dx. Give your answer as a s…"}
+{"answer": "2*(x + 5)^(5/2)/5 - 10*(x + 5)^(3/2)/3 + C", "id": "integrate-substitution-rewrite-x/medium/2/4d7ea98a9f33", "text": "Use the substitution u = x + 5 to find ∫ x√(x + 5) dx. Give your answer as a su…"}
 {"answer": "3*x - 3*sin(2*x)/2 + C", "id": "integrate-trig-powers/easy/0/35dc8e839c78", "text": "Find ∫ 6 sin^2(x) dx."}
 {"answer": "x - sin(2*x)/2 + C", "id": "integrate-trig-powers/easy/1/c737fbfb47e5", "text": "Find the indefinite integral ∫ 2 sin^2(x) dx."}
 {"answer": "x - sin(6*x)/6 + C", "id": "integrate-trig-powers/easy/2/37ab4c52d210", "text": "Find the indefinite integral ∫ 2 sin^2(3x) dx."}
@@ -9520,11 +9520,11 @@
 {"answer": "(a) 80; (b) 22.3; (c) 42", "id": "senior-solve-problems-involving-bearings/exam/0/bc286a8aa849", "text": "A ship steams 21 km on a bearing of 010° from A to B, then 12 km on a bearing o…"}
 {"answer": "(a) 65; (b) 19.1; (c) 216", "id": "senior-solve-problems-involving-bearings/exam/1/009dbbacf246", "text": "A ship steams 7 km on a bearing of 120° from A to B, then 21 km on a bearing of…"}
 {"answer": "(a) 85; (b) 19.4; (c) 144", "id": "senior-solve-problems-involving-bearings/exam/2/d872b70eb475", "text": "A fishing boat travels 11 km on a bearing of 205° from A to B, then 17 km on a …"}
-{"answer": "12.1", "id": "senior-solve-problems-involving-bearings/general-legs/0/4431384c2165", "text": "A boat sails 11 km on a bearing of 020°. It then changes course to a bearing of…"}
+{"answer": "12.1", "id": "senior-solve-problems-involving-bearings/general-legs-hard/0/4431384c2165", "text": "A boat sails 11 km on a bearing of 020°. It then changes course to a bearing of…"}
+{"answer": "238", "id": "senior-solve-problems-involving-bearings/general-legs-hard/1/f1b06ca4c3bc", "text": "A ship sails 50 km on a bearing of 047° and then 15 km on a bearing of 198°. Wh…"}
+{"answer": "24.5", "id": "senior-solve-problems-involving-bearings/general-legs-hard/2/34a4721e4dff", "text": "A ship sails 11 km on a bearing of 056° and then 26 km on a bearing of 166°. Ho…"}
 {"answer": "46.7", "id": "senior-solve-problems-involving-bearings/general-legs/0/9f2595ecc3cf", "text": "A cyclist rides 57 km on a bearing of 055°. How far east of the starting point …"}
 {"answer": "32.1", "id": "senior-solve-problems-involving-bearings/general-legs/1/60e718b9d3e7", "text": "A pilot flies 51 km on a bearing of 039°. How far east of the starting point is…"}
-{"answer": "238", "id": "senior-solve-problems-involving-bearings/general-legs/1/f1b06ca4c3bc", "text": "A ship sails 50 km on a bearing of 047° and then 15 km on a bearing of 198°. Wh…"}
-{"answer": "24.5", "id": "senior-solve-problems-involving-bearings/general-legs/2/34a4721e4dff", "text": "A ship sails 11 km on a bearing of 056° and then 26 km on a bearing of 166°. Ho…"}
 {"answer": "18.8", "id": "senior-solve-problems-involving-bearings/general-legs/2/50660c398496", "text": "A sailor sails 40 km on a bearing of 028°. How far east of the starting point i…"}
 {"answer": "037", "id": "senior-solve-problems-involving-bearings/hard/0/b5692ce44354", "text": "Starting at point A, a surveyor walks on a bearing of 000° for 40 m, arriving a…"}
 {"answer": "302", "id": "senior-solve-problems-involving-bearings/hard/1/c3ec802b26bb", "text": "Starting at point A, a surveyor walks on a bearing of 090° for 13 m, arriving a…"}
@@ -11147,8 +11147,8 @@
 {"answer": "(a) n = -2; (b) -12; (c) n - 8 = -10", "id": "solution-and-solution-set/exam/1/084c5294be21", "text": "Consider the equation 2n - 8 = n - 10. (a) Which value of n is a solution of th…"}
 {"answer": "(a) n = -5; (b) -24; (c) n + 1 = -4", "id": "solution-and-solution-set/exam/2/6609ea34478a", "text": "Consider the equation 5n + 1 = 4n - 4. (a) Which value of n is a solution of th…"}
 {"answer": "{8}", "id": "solution-and-solution-set/hard/0/40ab6799b3a1", "text": "x is a positive whole number. Which set contains every solution of x^2 = 64?"}
-{"answer": "(x + 3)(x + 2) = 0", "id": "solution-and-solution-set/hard/1/8aef47e9aca6", "text": "The solution set of an equation is {-3, -2}. Which equation could it be?"}
-{"answer": "x^2 - 14x + 48 = 0", "id": "solution-and-solution-set/hard/2/f26bc18c44c2", "text": "The solution set of an equation is {6, 8}. Which equation could it be?"}
+{"answer": "(x + 3)(x + 2) = 0", "id": "solution-and-solution-set/hard/1/3a982e79d87c", "text": "The solution set of an equation is {-3, -2}. Which equation could it be?"}
+{"answer": "x^2 - 14x + 48 = 0", "id": "solution-and-solution-set/hard/2/792a97e1c78d", "text": "The solution set of an equation is {6, 8}. Which equation could it be?"}
 {"answer": "n = -4", "id": "solution-and-solution-set/medium/0/d9c674d5ba8b", "text": "Which value of n makes both sides of 10n - 10 = 5n - 30 equal?"}
 {"answer": "{0, 4}", "id": "solution-and-solution-set/medium/1/3bff9ab515b8", "text": "The equation x(x - 4) = 0 is solved over the integers. Which set lists all of i…"}
 {"answer": "n = 6", "id": "solution-and-solution-set/medium/2/ac63047bc8c0", "text": "Which value is a solution of 7n - 8 = 2n + 22?"}

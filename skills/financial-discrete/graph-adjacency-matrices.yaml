@@ -9,6 +9,7 @@ description: >-
   vertex; exam is a four-part chain on a stated network whose first part writes the adjacency matrix itself, followed by walks
   of length 2 from one vertex. The answers are whole numbers, and in the exam chain also a matrix.
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites: [graph-vertex-degrees-handshaking]
 answer: number

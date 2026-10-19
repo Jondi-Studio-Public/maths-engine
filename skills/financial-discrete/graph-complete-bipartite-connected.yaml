@@ -7,6 +7,7 @@ description: Count with the kinds of simple graph. Find the edges of a complete 
   vertices reachable when a network is not connected, the parts of a bipartite network given only as an edge list, and the
   extreme edge counts for a graph with several components or a bipartite graph. Every answer is a whole number.
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites:
 - graph-vertex-degrees-handshaking

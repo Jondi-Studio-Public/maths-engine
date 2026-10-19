@@ -9,6 +9,7 @@ description: >-
   network; exam is a four-part chain on a road network with distances: the number of cycles, the number of tours when start and
   direction matter, the shortest tour and its fuel cost. Every answer is a whole number or an amount of money.
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites: [graph-walks-trails-paths-cycles]
 answer: number

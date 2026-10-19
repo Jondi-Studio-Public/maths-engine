@@ -45,7 +45,7 @@ sources:
   - 5
   - 6
   - maintenance
-  key: general-legs
+  key: general-legs-hard
 - topic: exd_x_r3a_bearings_triangle
   params:
     tier: exam

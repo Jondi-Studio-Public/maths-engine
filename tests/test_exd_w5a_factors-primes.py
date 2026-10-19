@@ -82,4 +82,4 @@ def test_yaml_hard_sources_use_factored_and_easy_medium_untouched():
         d = yaml.safe_load((ROOT / "skills" / "secondary-number" / f"{sid}.yaml").read_text(encoding="utf-8"))
         by = {s["difficulty"]: s["params"] for s in d["sources"]}
         assert by["hard"] == {"form": "factored", "choose": True}  # w2: "choose" gives these skills 4 options
-        assert by["easy"] == {} and by["medium"] == {}
+        assert "form" not in by["easy"] and "form" not in by["medium"]  # w2 gave these tiers range params and "choose"

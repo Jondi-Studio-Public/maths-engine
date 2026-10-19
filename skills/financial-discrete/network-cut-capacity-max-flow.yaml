@@ -7,6 +7,7 @@ description: Find the capacity of a cut in a directed network described in words
   side count), choose the smallest of several cuts, use the maximum-flow minimum-cut theorem to find the maximum flow, and
   find the new maximum flow when one link is widened. Every answer is a whole number.
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites:
 - senior-solve-small-scale-network-flow-problems-including-the

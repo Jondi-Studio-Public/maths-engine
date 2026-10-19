@@ -30,14 +30,17 @@ sources:
 - topic: w7f_trial_variants
   params: {tier: easy}
   difficulty: easy
+  key: alt-easy
   stages: [0, 1, 2]
 - topic: w7f_trial_variants
   params: {tier: medium}
   difficulty: medium
+  key: alt-medium
   stages: [3, 4]
 - topic: w7f_trial_variants
   params: {tier: hard}
   difficulty: hard
+  key: alt-hard
   stages: [5, 6, maintenance]
 misconceptions:
 - id: fr2d-adds-instead-of-compares
