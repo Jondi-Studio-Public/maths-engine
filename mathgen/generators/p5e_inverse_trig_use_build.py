@@ -104,7 +104,7 @@ def _lookup_question(fn, display, input_expr, answer_str, distractors_list):
 
     base_fn = {"asin": "sin", "acos": "cos", "atan": "tan"}[fn]
     value_range = {"asin": "[-π/2, π/2]", "acos": "[0, π]", "atan": "(-π/2, π/2)"}[fn]
-    answer_shown = _typed(answer_parsed)
+    answer_shown = _typed(answer_parsed).replace("*pi", "\u03c0").replace("pi", "\u03c0")
     display = re.sub(r"sqrt\((\d+)\)", "\u221a\\1", display)
     return {
         "text": question_text,
