@@ -850,7 +850,10 @@ def grade_fraction(question, given: str) -> GradeResult:
     if isinstance(answer, int) and not isinstance(answer, bool):
         # A whole-number key on a fraction skill is a typed number like any other. The spoken reading's +/-0.05
         # slack would take "-2.04" for -2, and its value reader "8!" for 8.
-        return grade_number(question, given)
+        result = grade_number(question, given)
+        # ... but never wider than the spoken reading that graded it before: a unit it refused stays refused.
+        result.correct = result.correct and _check_answer_kind(question, given).correct
+        return result
     return _check_answer_kind(question, given)
 
 

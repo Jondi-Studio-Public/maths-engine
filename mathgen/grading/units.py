@@ -12,9 +12,10 @@ the one the question asks for:
 When neither says which unit is wanted, the reply's unit is not judged: "24 m/s" is a fair way to state a rate of
 change of a height in metres, and nothing in such a question rules it out.
 
-The degree is deliberately absent: a degree sign is read by the grader itself, and many angle questions never
-write a unit. Radians, gradians and turns are listed, so that a reply in one of them is refused for a key in
-degrees ("31 radians" for "31.0°") and judged against the unit a question asks for ("to radians").
+Angles are deliberately absent from the table: a degree sign is read by the grader itself, and many angle
+questions never write a unit. Radians, gradians and turns are handled apart (`_ANGLE_WORD_RE`), only where an angle
+is asked: a reply in one of them is refused for a key in degrees ("31 radians" for "31.0°"), and "rad" is taken
+off an answer to "convert to radians". Everywhere else they are unknown words, as before.
 """
 
 from __future__ import annotations
@@ -114,11 +115,6 @@ _UNITS: dict[str, tuple[str, ...]] = {
     # money
     "dollar": ("$", "dollar", "dollars"),
     "cent": ("cent", "cents"),
-    # angle units other than the degree: the degree sign is read by the grader itself, so a degree key or a stem
-    # asking "in degrees" has no unit id of its own and refuses these as a different unit (see `_asked_unit`)
-    "rad": ("rad", "radian", "radians"),
-    "grad": ("grad", "grads", "gradian", "gradians", "gon", "gons"),
-    "turn": ("turn", "turns"),
 }
 
 _SPELLING_TO_UNIT = {spelling: unit for unit, spellings in _UNITS.items() for spelling in spellings}
@@ -382,6 +378,12 @@ def _prefixed_unit_conflicts(question, given: str) -> bool:
     return _asked_unit(question) is not None
 
 
+# An angle unit other than the degree, written after a number.
+_ANGLE_WORD_RE = re.compile(r"[ \t]*(?:rad|radians?|grads?|gradians?|gons?|turns?)[ \t]*\.?$", re.IGNORECASE)
+_RADIAN_WORD_RE = re.compile(r"[ \t]*(?:rad|radians?)[ \t]*\.?$", re.IGNORECASE)
+_ASKS_RADIANS_RE = re.compile(r"\b(?:to|in|into)\s+radians\b", re.IGNORECASE)
+
+
 def _same_unlisted_unit(unit: str, asked: str) -> bool:
     """Whether a reply's unit is the key's own unit, spelled with a space where the key has a middle dot: "N m" or
     "kN m" for a key in "N·m" or "kN·m". `asked` is an `_unlisted_unit_text` id, "unlisted:kn·m"."""
@@ -393,6 +395,8 @@ def _same_unlisted_unit(unit: str, asked: str) -> bool:
 def unit_is_acceptable(question, given: str) -> bool:
     """Whether the unit a typed number reply gives (if any) is one the question allows. See the module docstring."""
     unit = _unit_of(given or "")
+    if unit is None and _asked_unit(question) == "unlisted:°" and _ANGLE_WORD_RE.search(given or ""):
+        return False  # "31 radians" for an answer in degrees
     if unit is None:
         return not _prefixed_unit_conflicts(question, given or "")
     asked = _asked_unit(question)
@@ -410,6 +414,10 @@ def strip_asked_unit(question, text: str) -> str:
     """`text` without the unit it ends in, when that unit is the one the question asks for ("360 cm³" for "Find its
     volume, in cm³", "π/4 rad" for "Convert 45 degrees to radians"); otherwise `text` as it was. For a graded value
     that is not read as a number-with-unit, such as an expression: a question that names no unit strips nothing."""
+    if _ASKS_RADIANS_RE.search(getattr(question, "text", "") or ""):
+        stripped = _RADIAN_WORD_RE.sub("", text or "")
+        if stripped != (text or "") and stripped.strip():
+            return stripped
     bare, unit = split_unit(text or "")
     if unit is None or unit in ("%", "dollar") or _asked_unit(question) != unit:
         return text
