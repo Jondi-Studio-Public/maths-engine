@@ -220,7 +220,8 @@ def cartesian(
 ) -> dict:
     """A coordinate plane.
 
-    - ``points``: ``{"at": [x, y], "label"?: str, "open"?: bool}``
+    - ``points``: ``{"at": [x, y], "label"?: str, "open"?: bool, "marker"?: bool, "size"?: number}``
+      (``"marker": false`` draws the label alone, centred on the point, for captions and cell counts)
     - ``segments``: ``{"from": [x, y], "to": [x, y], "label"?: str,
       "open_start"?: bool, "open_end"?: bool}`` (step graphs use the open ends)
     - ``lines``: infinite lines through two points ``{"through": [[x, y], [x, y]], "label"?: str}``

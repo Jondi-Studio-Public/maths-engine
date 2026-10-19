@@ -115,7 +115,7 @@ def _effects_easy(rng):
             ("fr2c-shift-on-wrong-axis", vertex_form(1, -k, 0)),
         ]
     fig = _plane(
-        [_parabola(1, 0, 0, "y = x^2"), _parabola(1, h, k, "B")], alt="The parabola y = x^2 and a second parabola B."
+        [_parabola(1, 0, 0, "y = x²"), _parabola(1, h, k, "B")], alt="The parabola y = x^2 and a second parabola B."
     )
     text = phrase(
         rng,
@@ -217,7 +217,7 @@ def _effects_hard_width(rng):
     ]
     rng.shuffle(attrs)
     fig = _plane(
-        [_parabola(1, 0, 0, "y = x^2"), _parabola(a, h, k, "B")], alt="The parabola y = x^2 and a second parabola B."
+        [_parabola(1, 0, 0, "y = x²"), _parabola(a, h, k, "B")], alt="The parabola y = x^2 and a second parabola B."
     )
     text = phrase(
         rng,
