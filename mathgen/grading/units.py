@@ -12,8 +12,9 @@ the one the question asks for:
 When neither says which unit is wanted, the reply's unit is not judged: "24 m/s" is a fair way to state a rate of
 change of a height in metres, and nothing in such a question rules it out.
 
-Angles are deliberately absent: a degree sign is read by the grader itself, and many angle questions never
-write a unit.
+The degree is deliberately absent: a degree sign is read by the grader itself, and many angle questions never
+write a unit. Radians, gradians and turns are listed, so that a reply in one of them is refused for a key in
+degrees ("31 radians" for "31.0°") and judged against the unit a question asks for ("to radians").
 """
 
 from __future__ import annotations
@@ -113,6 +114,11 @@ _UNITS: dict[str, tuple[str, ...]] = {
     # money
     "dollar": ("$", "dollar", "dollars"),
     "cent": ("cent", "cents"),
+    # angle units other than the degree: the degree sign is read by the grader itself, so a degree key or a stem
+    # asking "in degrees" has no unit id of its own and refuses these as a different unit (see `_asked_unit`)
+    "rad": ("rad", "radian", "radians"),
+    "grad": ("grad", "grads", "gradian", "gradians", "gon", "gons"),
+    "turn": ("turn", "turns"),
 }
 
 _SPELLING_TO_UNIT = {spelling: unit for unit, spellings in _UNITS.items() for spelling in spellings}
@@ -336,7 +342,7 @@ def _asked_unit(question) -> str | None:
 
 
 # What a unit written with the number looks like: letters, a degree or micro sign, a slash, an exponent, spaces.
-_UNIT_TEXT_RE = re.compile(r"[a-zA-Z°µμΩ/^²³\d ]{1,20}")
+_UNIT_TEXT_RE = re.compile(r"[a-zA-Z°µμΩ/^²³·⋅\d ]{1,20}")
 
 
 def _unlisted_unit_text(answer_text: str) -> str | None:
@@ -376,6 +382,14 @@ def _prefixed_unit_conflicts(question, given: str) -> bool:
     return _asked_unit(question) is not None
 
 
+def _same_unlisted_unit(unit: str, asked: str) -> bool:
+    """Whether a reply's unit is the key's own unit, spelled with a space where the key has a middle dot: "N m" or
+    "kN m" for a key in "N·m" or "kN·m". `asked` is an `_unlisted_unit_text` id, "unlisted:kn·m"."""
+    if not asked.startswith("unlisted:") or not any(dot in asked for dot in "·⋅"):
+        return False
+    return unit == asked.removeprefix("unlisted:").replace("·", "*").replace("⋅", "*")
+
+
 def unit_is_acceptable(question, given: str) -> bool:
     """Whether the unit a typed number reply gives (if any) is one the question allows. See the module docstring."""
     unit = _unit_of(given or "")
@@ -383,10 +397,20 @@ def unit_is_acceptable(question, given: str) -> bool:
         return not _prefixed_unit_conflicts(question, given or "")
     asked = _asked_unit(question)
     if asked is not None:
-        return unit == asked
+        return unit == asked or _same_unlisted_unit(unit, asked)
     parts = _asked_compound_parts(question)
     if parts is None or unit in parts or unit in _RATE_UNITS:
         return True
     # "N/s" is not a way to write "N/m", but "N/m" itself, spelled out as parts, is.
     pieces = {piece.rstrip("23") or piece for piece in unit.split("/")} if "/" in unit else None
     return pieces is not None and pieces <= parts
+
+
+def strip_asked_unit(question, text: str) -> str:
+    """`text` without the unit it ends in, when that unit is the one the question asks for ("360 cm³" for "Find its
+    volume, in cm³", "π/4 rad" for "Convert 45 degrees to radians"); otherwise `text` as it was. For a graded value
+    that is not read as a number-with-unit, such as an expression: a question that names no unit strips nothing."""
+    bare, unit = split_unit(text or "")
+    if unit is None or unit in ("%", "dollar") or _asked_unit(question) != unit:
+        return text
+    return bare

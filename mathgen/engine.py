@@ -96,7 +96,12 @@ def grade(skill: Skill, question, given: str | dict) -> GradeResult:
 
     A multi-part question (`question.parts`) is marked part by part with each part's own grader, and `given`
     may be a dict of replies keyed by part label; the result's `marks`, `max_marks` and `parts` give the
-    marks (see `mathgen.grading.parts`)."""
+    marks (see `mathgen.grading.parts`).
+
+    A multiple-choice reply is an option: an `int` is its 0-based index, always; a string is read as the option's
+    text first (or its letter), and only a string that matches no option's text is read as an index, so "2" on
+    options '3', '2', '1', '4' is the option '2', not index 2. Send an index as an int. A `table` reply is the
+    blanks as JSON text or as a dict keyed "row,column"."""
     return _grade_kind(skill.answer, question, given, skill=skill)
 
 
