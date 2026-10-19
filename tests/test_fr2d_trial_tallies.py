@@ -92,7 +92,9 @@ def test_options_text_and_determinism(tier):
 
 
 def test_tiers_differ_and_use_no_fractions():
-    check_tiers(SKILL, tiers=("easy", "easy", "medium", "medium", "hard", "hard"))  # w7 added the w7f_trial_variants sources, in tier order
+    check_tiers(
+        SKILL, tiers=("easy", "easy", "medium", "medium", "hard", "hard")
+    )  # w7 added the w7f_trial_variants sources, in tier order
     for tier in ORACLES:
         for seed in SEEDS:
             q = question(SKILL, tier, seed)
