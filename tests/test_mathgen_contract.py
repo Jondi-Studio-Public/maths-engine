@@ -319,7 +319,6 @@ OPTION_NOTES_TOPICS = frozenset(
         "w3_netpath_tiers",
         "w3_percentage_change",
         "w3_classify_easy",
-        "w3_arith_recognise",
         "w10_proof_irrational_surd",
         "w10_proof_parity",
         "w10_proof_am_gm",

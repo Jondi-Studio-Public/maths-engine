@@ -73,14 +73,14 @@ MISCONCEPTIONS = [
     ("sd-surplus-one-slope", "Divides the surplus by one slope only to find the extra price.", _SD),
     ("fg-unweighted-average", "Averages the prizes without weighting them by their probabilities.", _FG),
     ("fg-sum-of-prizes", "Adds the prizes without weighting them by their probabilities.", _FG),
-    ("fg-probability-only", "Gives the probability of winning where the expected prize was asked.", _FG),
     ("fg-largest-prize", "Gives the largest prize as the expected prize.", _FG),
     ("fg-forgets-entry", "Gives the expected prize where the expected gain (after paying to play) was asked.", _FG),
     ("fg-reversed-sign", "Subtracts the expected prize from the entry fee, so the sign of the gain is wrong.", _FG),
     ("fg-adds-entry", "Adds the entry fee to the expected prize.", _FG),
     ("fg-sum-for-fee", "Gives the total of the prizes as the fair entry fee.", _FG),
     ("fg-fee-largest-prize", "Gives the largest prize as the fair entry fee.", _FG),
-    ("fg-fee-prize-over-outcomes", "Divides one prize by the number of outcomes and ignores the other prizes.", _FG),
+    ("fg-total-not-divided", "Adds the prizes on all the tickets and does not divide by the number of tickets.", _FG),
+    ("fg-ignores-blanks", "Divides by the number of winning tickets only, ignoring the blank ones.", _FG),
     ("fg-fee-ignores-target-profit", "Gives the fair entry fee, leaving out the profit the organiser wants.", _FG),
     (
         "fg-fee-subtracts-target-profit",
@@ -125,25 +125,26 @@ MISCONCEPTIONS = [
     ("fg-games-fee-based", "Divides the target by the entry fee instead of the expected profit.", _FG),
 ]
 
+# (name, lowest and highest realistic equilibrium price in dollars)
 _PRODUCTS = (
-    "bags of oranges",
-    "tickets to a show",
-    "bicycles",
-    "loaves of bread",
-    "cups of coffee",
-    "phone covers",
-    "kayak hire sessions",
-    "potted plants",
-    "T-shirts",
-    "pies",
+    ("bags of oranges", 4, 9),
+    ("tickets to a show", 20, 60),
+    ("pairs of sunglasses", 15, 50),
+    ("loaves of bread", 3, 6),
+    ("cups of coffee", 3, 6),
+    ("phone covers", 8, 25),
+    ("kayak hire sessions", 20, 60),
+    ("potted plants", 5, 20),
+    ("T-shirts", 10, 40),
+    ("pies", 4, 12),
 )
 _TIME = ("week", "day", "month")
 
 
-def _market(rng, c_min: int = 0):
+def _market(rng, c_min: int = 0, price=(4, 30)):
     """(P*, Q*, a, b, c, d): demand Q = a - bP and supply Q = c + dP meet at (P*, Q*), all whole numbers, c >= c_min."""
     for _ in attempts(500, "a market"):
-        p = rng.randint(4, 30)
+        p = rng.randint(*price)
         b = rng.randint(2, 12)
         d = rng.randint(2, 12)
         if abs(b - d) < 1:
@@ -153,6 +154,12 @@ def _market(rng, c_min: int = 0):
         if c >= c_min and a - b * (p * 2) > 0:  # demand still positive at twice the equilibrium price
             return p, q, a, b, c, d
     raise AssertionError  # pragma: no cover
+
+
+def _market_for(rng, c_min: int = 0):
+    """(product, P*, Q*, a, b, c, d): a market for a product whose price scale is realistic."""
+    product, lo, hi = rng.choice(_PRODUCTS)
+    return (product, *_market(rng, c_min, (lo, hi)))
 
 
 def _dem(a, b):
@@ -178,8 +185,7 @@ def _units(n) -> str:
 
 
 def _sd_quantity(rng):
-    p0, q0, a, b, c, d = _market(rng)
-    product = rng.choice(_PRODUCTS)
+    product, p0, q0, a, b, c, d = _market_for(rng)
     price = rng.randint(2, p0 * 2 - 1)
     demanded = rng.random() < 0.5
     qd, qs = a - b * price, c + d * price
@@ -211,8 +217,7 @@ def _sd_quantity(rng):
 
 
 def _sd_gap(rng):
-    p0, q0, a, b, c, d = _market(rng)
-    product = rng.choice(_PRODUCTS)
+    product, p0, q0, a, b, c, d = _market_for(rng)
     offset = rng.choice([x for x in range(-p0 + 2, p0) if x != 0])
     price = p0 + offset
     qd, qs = a - b * price, c + d * price
@@ -244,8 +249,7 @@ def _sd_gap(rng):
 
 
 def _sd_price(rng):
-    p0, q0, a, b, c, d = _market(rng)
-    product = rng.choice(_PRODUCTS)
+    product, p0, q0, a, b, c, d = _market_for(rng)
     dist = WHOLE.dist(
         p0,
         [
@@ -267,8 +271,7 @@ def _sd_price(rng):
 
 
 def _sd_quantity_eq(rng):
-    p0, q0, a, b, c, d = _market(rng)
-    product = rng.choice(_PRODUCTS)
+    product, p0, q0, a, b, c, d = _market_for(rng)
     wrong_p = Fraction(a + c, b + d)
     dist = WHOLE.dist(
         q0,
@@ -287,8 +290,7 @@ def _sd_quantity_eq(rng):
 
 
 def _sd_revenue(rng):
-    p0, q0, a, b, c, d = _market(rng)
-    product = rng.choice(_PRODUCTS)
+    product, p0, q0, a, b, c, d = _market_for(rng)
     revenue = p0 * q0
     dist = WHOLE.dist(
         revenue,
@@ -312,8 +314,7 @@ def _sd_revenue(rng):
 
 
 def _sd_data_points(rng):
-    p0, q0, a, b, c, d = _market(rng)
-    product = rng.choice(_PRODUCTS)
+    product, p0, q0, a, b, c, d = _market_for(rng)
     p1 = rng.randint(2, p0 - 1) if p0 > 2 else 1
     gap = rng.randint(2, 6)
     p2 = p1 + gap
@@ -348,11 +349,12 @@ def _sd_data_points(rng):
 
 
 def _sd_tax(rng):
+    product, plo, phi = rng.choice(_PRODUCTS)
     for _ in attempts(300, "a taxed market"):
-        p1 = rng.randint(8, 34)  # new equilibrium price paid by buyers
+        p1 = rng.randint(max(plo, 4), phi)  # new equilibrium price paid by buyers
         q1 = rng.randint(40, 500)
         b, d = rng.randint(2, 12), rng.randint(2, 12)
-        t = rng.randint(1, 6)
+        t = rng.randint(1, max(1, p1 // 4))
         a = q1 + b * p1
         c = q1 - d * (p1 - t)
         if c < 0 or p1 - t < 1 or a - b * 2 * p1 <= 0:
@@ -364,7 +366,6 @@ def _sd_tax(rng):
         break
     else:
         raise TooFewDistractors("no taxed market")
-    product = rng.choice(_PRODUCTS)
     # second way: solve both lines for the taxed price by substitution
     price = Fraction(a - c + d * t, b + d)
     check(price == p1 and a - b * price == q1, "taxed equilibrium")
@@ -392,8 +393,7 @@ def _sd_tax(rng):
 
 
 def _sd_surplus_price(rng):
-    p0, q0, a, b, c, d = _market(rng)
-    product = rng.choice(_PRODUCTS)
+    product, p0, q0, a, b, c, d = _market_for(rng)
     k = rng.randint(1, min(8, p0 - 1)) if p0 > 1 else 1
     surplus = (b + d) * k
     price = p0 + k
@@ -445,8 +445,7 @@ def exd_x_w3_supply_demand(rng, tier="exam"):
         raise ValueError(f"unknown tier {tier!r}")
 
     def build(rng):
-        p0, q0, a, b, c, d = _market(rng)
-        product = rng.choice(_PRODUCTS)
+        product, p0, q0, a, b, c, d = _market_for(rng)
         price = p0 - rng.randint(1, max(1, min(6, p0 - 2)))
         if price < 1:
             raise TooFewDistractors("price")
@@ -589,8 +588,8 @@ def _fg_dist_for_prize(ev, n, groups, *, with_fee=None):
         (Fraction(sum(prizes), len(prizes)), "fg-unweighted-average"),
         (sum(prizes), "fg-sum-of-prizes"),
         (max(prizes), "fg-largest-prize"),
-        (Fraction(sum(c for c, _ in groups), n), "fg-probability-only"),
-        (Fraction(max(prizes), n), "fg-fee-prize-over-outcomes"),
+        (sum(c * p for c, p in groups), "fg-total-not-divided"),
+        (Fraction(sum(c * p for c, p in groups), sum(c for c, _ in groups)), "fg-ignores-blanks"),
     ]
 
 
@@ -606,7 +605,7 @@ def _fg_expected_prize(rng):
 
 def _fg_expected_gain(rng):
     n, groups, ev = _game(rng)
-    fee = Fraction(rng.randint(1, 20))
+    fee = max(Fraction(2), Fraction(round(ev * rng.randint(70, 130) / 100)))
     gain = ev - fee
     if gain == 0:
         raise TooFewDistractors("fair game")
@@ -642,7 +641,8 @@ def _fg_fair_fee(rng):
         [
             (sum(prizes), "fg-sum-for-fee"),
             (max(prizes), "fg-fee-largest-prize"),
-            (Fraction(max(prizes), n), "fg-fee-prize-over-outcomes"),
+            (sum(c * p for c, p in groups), "fg-total-not-divided"),
+            (Fraction(sum(c * p for c, p in groups), sum(c for c, _ in groups)), "fg-ignores-blanks"),
             (Fraction(sum(prizes), len(prizes)), "fg-unweighted-average"),
         ],
     )

@@ -2,7 +2,8 @@ id: fair-game-expected-gain
 name: Fair games and expected gain
 domain: statistics-probability
 year_level:
-- '12'
+- '10'
+- '11'
 description: Find the expected prize and expected gain of a game of chance, the entry fee that makes it fair, and the organiser's
   expected profit.
 status: active
@@ -42,8 +43,6 @@ misconceptions:
   description: Averages the prizes without weighting them by their probabilities.
 - id: fg-sum-of-prizes
   description: Adds the prizes without weighting them by their probabilities.
-- id: fg-probability-only
-  description: Gives the probability of winning where the expected prize was asked.
 - id: fg-largest-prize
   description: Gives the largest prize as the expected prize.
 - id: fg-forgets-entry
@@ -56,8 +55,10 @@ misconceptions:
   description: Gives the total of the prizes as the fair entry fee.
 - id: fg-fee-largest-prize
   description: Gives the largest prize as the fair entry fee.
-- id: fg-fee-prize-over-outcomes
-  description: Divides one prize by the number of outcomes and ignores the other prizes.
+- id: fg-total-not-divided
+  description: Adds the prizes on all the tickets and does not divide by the number of tickets.
+- id: fg-ignores-blanks
+  description: Divides by the number of winning tickets only, ignoring the blank ones.
 - id: fg-fee-ignores-target-profit
   description: Gives the fair entry fee, leaving out the profit the organiser wants.
 - id: fg-fee-subtracts-target-profit

@@ -44,8 +44,9 @@ MISCONCEPTIONS = [
         _PM,
     ),
     ("pm-dollars-for-percent", "Gives the profit in dollars where a percentage was asked.", _PM),
-    ("pm-profit-over-100", "Divides the profit by 100 instead of by the cost.", _PM),
     ("pm-loss-on-selling-price", "Finds the loss as a percentage of the selling price instead of the cost.", _PM),
+    ("pm-ratio-inverted", "Divides the cost price by the selling price.", _PM),
+    ("pm-over-average", "Divides the profit or loss by the average of the cost and the selling price.", _PM),
     ("pm-per-item-only", "Gives the profit on one item where the profit on the whole batch was asked.", _PM),
     ("pm-revenue-for-profit", "Gives the money taken from the sale of the batch where the profit was asked.", _PM),
     ("pm-total-cost-for-profit", "Gives the total cost of the batch where the profit was asked.", _PM),
@@ -130,20 +131,35 @@ MISCONCEPTIONS = [
     ("com-tier-base-dropped", "Leaves the base pay out of the total.", _COM),
 ]
 
+# (singular, plural, lowest and highest realistic cost in dollars)
 _ITEMS = (
-    "jacket",
-    "toaster",
-    "tent",
-    "pair of boots",
-    "bicycle helmet",
-    "coffee machine",
-    "backpack",
-    "desk lamp",
-    "cricket bat",
-    "bookshelf",
-    "skateboard",
-    "garden hose",
+    ("jacket", "jackets", 40, 200),
+    ("toaster", "toasters", 20, 80),
+    ("tent", "tents", 60, 400),
+    ("pair of boots", "pairs of boots", 40, 200),
+    ("bicycle helmet", "bicycle helmets", 20, 120),
+    ("coffee machine", "coffee machines", 100, 600),
+    ("backpack", "backpacks", 20, 120),
+    ("desk lamp", "desk lamps", 20, 100),
+    ("cricket bat", "cricket bats", 60, 300),
+    ("bookshelf", "bookshelves", 60, 300),
+    ("skateboard", "skateboards", 40, 200),
+    ("garden hose", "garden hoses", 20, 80),
 )
+_PLURAL = {name: plural for name, plural, _lo, _hi in _ITEMS}
+_RANGE = {name: (lo, hi) for name, _p, lo, hi in _ITEMS}
+
+
+def _item(rng, unit):
+    """An item whose realistic price range holds several multiples of `unit`."""
+    return rng.choice([name for name, _p, _lo, hi in _ITEMS if hi >= 3 * unit])
+
+
+def _price(rng, item, unit) -> Fraction:
+    """A realistic price for `item`, a whole multiple of `unit` dollars."""
+    lo, hi = _RANGE[item]
+    first = max(-(-lo // unit), 2)
+    return Fraction(rng.randint(first, hi // unit) * unit)
 
 
 def _mult(total_percent) -> str:
@@ -151,16 +167,12 @@ def _mult(total_percent) -> str:
     return f"{total_percent / 100:g}"
 
 
-def _cost(rng, lo=2, hi=60, unit=20) -> Fraction:
-    return Fraction(rng.randint(lo, hi) * unit)
-
-
 # -- profit and loss: easy ----------------------------------------------------------------------------------------------
 
 
 def _pm_profit_loss(rng):
-    item = rng.choice(_ITEMS)
-    cost = _cost(rng, 3, 40, 10)
+    item = _item(rng, 10)
+    cost = _price(rng, item, 10)
     loss = rng.random() < 0.4
     gap = Fraction(rng.randint(2, min(30, int(cost) // 5 - 1)) * 5)
     sale = cost - gap if loss else cost + gap
@@ -186,8 +198,8 @@ def _pm_profit_loss(rng):
 
 
 def _pm_markup_price(rng):
-    item = rng.choice(_ITEMS)
-    cost = _cost(rng, 3, 40, 20)
+    item = _item(rng, 20)
+    cost = _price(rng, item, 20)
     r = rng.choice(range(10, 101, 10))
     markup = cost * r / 100
     sale = cost + markup
@@ -214,8 +226,8 @@ def _pm_markup_price(rng):
 
 
 def _pm_markup_amount(rng):
-    item = rng.choice(_ITEMS)
-    cost = _cost(rng, 3, 40, 20)
+    item = _item(rng, 20)
+    cost = _price(rng, item, 20)
     r = rng.choice(range(10, 101, 10))
     markup = cost * r / 100
     d = MONEY.dist(
@@ -241,8 +253,8 @@ def _pm_markup_amount(rng):
 
 
 def _pm_percent_profit(rng):
-    item = rng.choice(_ITEMS)
-    cost = _cost(rng, 3, 40, 20)
+    item = _item(rng, 20)
+    cost = _price(rng, item, 20)
     p = rng.choice(range(10, 101, 5))
     sale = cost * (100 + p) / 100
     profit = sale - cost
@@ -251,9 +263,9 @@ def _pm_percent_profit(rng):
         [
             (profit * 100 / sale, "pm-profit-on-selling-price"),
             (sale * 100 / cost, "pm-forgets-subtraction"),
+            (cost * 100 / sale, "pm-ratio-inverted"),
+            (profit * 200 / (cost + sale), "pm-over-average"),
             (profit, "pm-dollars-for-percent"),
-            (profit / 100, "pm-profit-over-100"),
-            (p + 5, "pm-profit-on-selling-price"),
         ],
     )
     enough(d, 3)
@@ -269,8 +281,8 @@ def _pm_percent_profit(rng):
 
 
 def _pm_percent_loss(rng):
-    item = rng.choice(_ITEMS)
-    cost = _cost(rng, 3, 40, 20)
+    item = _item(rng, 20)
+    cost = _price(rng, item, 20)
     p = rng.choice(range(10, 61, 5))
     sale = cost * (100 - p) / 100
     loss = cost - sale
@@ -279,9 +291,9 @@ def _pm_percent_loss(rng):
         [
             (loss * 100 / sale, "pm-loss-on-selling-price"),
             (sale * 100 / cost, "pm-forgets-subtraction"),
+            (cost * 100 / sale, "pm-ratio-inverted"),
+            (loss * 200 / (cost + sale), "pm-over-average"),
             (loss, "pm-dollars-for-percent"),
-            (loss / 100, "pm-profit-over-100"),
-            (p + 5, "pm-loss-on-selling-price"),
         ],
     )
     enough(d, 3)
@@ -297,9 +309,9 @@ def _pm_percent_loss(rng):
 
 
 def _pm_batch(rng):
-    item = rng.choice(_ITEMS)
+    item = _item(rng, 5)
     n = rng.randint(6, 40)
-    cost = _cost(rng, 2, 30, 5)
+    cost = _price(rng, item, 5)
     gap = Fraction(rng.randint(1, 12) * 5)
     sale = cost + gap
     total = n * gap
@@ -315,7 +327,7 @@ def _pm_batch(rng):
     )
     enough(d, 3)
     text = (
-        f"A trader buys {n} {item}s at {dollars(cost)} each and sells every one of them for {dollars(sale)} each. "
+        f"A trader buys {n} {_PLURAL[item]} at {dollars(cost)} each and sells every one of them for {dollars(sale)} each. "
         f"What is the total profit, in dollars?"
     )
     working = [
@@ -329,10 +341,10 @@ def _pm_batch(rng):
 
 
 def _pm_cost_back(rng):
-    item = rng.choice(_ITEMS)
+    item = _item(rng, 20)
     r = rng.choice((10, 20, 25, 40, 50, 60, 80, 100))
     # the selling price is a whole-dollar amount and the cost works back to a whole-dollar amount
-    cost = Fraction(rng.randint(2, 40) * 20)
+    cost = _price(rng, item, 20)
     sale = cost * (100 + r) / 100
     d = MONEY.dist(
         cost,
@@ -356,9 +368,9 @@ def _pm_cost_back(rng):
 
 
 def _pm_margin(rng):
-    item = rng.choice(_ITEMS)
+    item = _item(rng, 20)
     m = rng.choice((10, 20, 25, 30, 40, 50))
-    sale = Fraction(rng.randint(2, 40) * 20)
+    sale = _price(rng, item, 20)
     cost = sale * (100 - m) / 100
     profit = sale - cost
     d = WHOLE.dist(
@@ -367,8 +379,8 @@ def _pm_margin(rng):
             (profit * 100 / cost, "pm-margin-over-cost"),
             (profit, "pm-margin-dollars"),
             (sale * 100 / cost, "pm-forgets-subtraction"),
-            (m + 5, "pm-margin-over-cost"),
-            (m / 2, "pm-profit-over-100"),
+            (cost * 100 / sale, "pm-ratio-inverted"),
+            (profit * 200 / (cost + sale), "pm-over-average"),
         ],
     )
     enough(d, 3)
@@ -392,9 +404,9 @@ _MARK_DISCOUNT = [
 
 
 def _pm_markup_discount(rng):
-    item = rng.choice(_ITEMS)
+    item = _item(rng, 100)
     r, dsc = rng.choice(_MARK_DISCOUNT)
-    cost = Fraction(rng.randint(2, 30) * 100)
+    cost = _price(rng, item, 100)
     marked = cost * (100 + r) / 100
     sale = marked * (100 - dsc) / 100
     check((sale * 100).denominator == 1 and (marked * 100).denominator == 1, "exact")
@@ -426,10 +438,10 @@ def _pm_markup_discount(rng):
 
 
 def _pm_loss_to_profit(rng):
-    item = rng.choice(_ITEMS)
+    item = _item(rng, 100)
     loss = rng.choice((10, 20, 25, 40, 50))
     gain = rng.choice((10, 20, 25, 30, 50))
-    cost = Fraction(rng.randint(2, 30) * 100)
+    cost = _price(rng, item, 100)
     low = cost * (100 - loss) / 100
     target = cost * (100 + gain) / 100
     d = MONEY.dist(
@@ -454,9 +466,9 @@ def _pm_loss_to_profit(rng):
 
 
 def _pm_margin_price(rng):
-    item = rng.choice(_ITEMS)
+    item = _item(rng, 20)
     m = rng.choice((10, 20, 25, 40, 50))
-    sale = Fraction(rng.randint(2, 40) * 20)
+    sale = _price(rng, item, 20)
     cost = sale * (100 - m) / 100
     d = MONEY.dist(
         sale,
@@ -505,9 +517,9 @@ def exd_x_w3_profit_markup(rng, tier="exam"):
     combos = [(r, dsc) for r, dsc in _MARK_DISCOUNT if (100 + r) * (100 - dsc) // 100 > 100]
 
     def build(rng):
-        item = rng.choice(_ITEMS)
+        item = _item(rng, 100)
         r, dsc = rng.choice(combos)
-        cost = Fraction(rng.randint(2, 30) * 100)
+        cost = _price(rng, item, 100)
         marked = cost * (100 + r) / 100
         sale = marked * (100 - dsc) / 100
         profit = sale - cost
@@ -866,7 +878,7 @@ def _com_break_even(rng):
     gap = r2 - r1
     s = Fraction(rng.randint(2, 40) * 500)
     base = s * gap / 100
-    if (base * 100).denominator != 1:
+    if (base * 100).denominator != 1 or not 300 <= base <= 1500:
         raise TooFewDistractors("base")
     d = MONEY.dist(
         s,

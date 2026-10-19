@@ -51948,2038 +51948,6 @@ _ENTRIES = (
         "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
         area="quadric-surfaces",
     ),
-    # w3 consumer block begin
-    CatalogueEntry(
-        "fdep-rate-not-converted",
-        "Multiplies the price by the percentage without dividing by 100.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-value-for-depreciation",
-        "Gives the value left after one year where the yearly depreciation was asked.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-decimal-slip",
-        "Misplaces the decimal point when finding a percentage of the price.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-divides-by-rate",
-        "Divides the price by the percentage instead of finding that percentage of it.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-amount-not-value",
-        "Gives the total depreciation where the value after the years was asked.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-one-year-only",
-        "Takes off only one year's depreciation however many years have passed.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-adds-to-price",
-        "Adds the depreciation to the price instead of subtracting it.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-uses-reducing",
-        "Takes the percentage off the new value each year when the flat rate is a percentage of the purchase price.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-year-not-total",
-        "Gives one year's depreciation where the total over several years was asked.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-ignores-years",
-        "Finds the percentage lost in total and does not divide by the number of years.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-dollars-not-percent",
-        "Gives the depreciation per year in dollars where a percentage of the price was asked.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-percent-of-value",
-        "Finds the percentage of the later value instead of the purchase price.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-years-from-value",
-        "Divides the target value by the yearly depreciation instead of the amount lost.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-years-from-price",
-        "Divides the purchase price by the yearly depreciation, ignoring the value to be reached.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-counts-year-zero",
-        "Adds an extra year, counting the day of purchase as a year.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-boundary-year",
-        "Gives the last year the value is still at or above the target, not the first year it is below it.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-salvage-ignored",
-        "Divides the purchase price by the life, forgetting to take off the scrap value first.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-salvage-added",
-        "Adds the scrap value to the price before dividing by the life.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-adds-one-year-back",
-        "Adds back only one year of depreciation to a later value to find the price.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-reading-as-price",
-        "Takes a later value as the purchase price.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-years-remaining",
-        "Gives the years still to go, not the total number of years until the value is zero.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-rate-from-price-only",
-        "Divides the percentage lost by the years, then forgets the value left is a share of the price.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "fdep-remaining-for-lost",
-        "Uses the percentage remaining as the percentage lost.",
-        area="flat-rate-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-rate-not-converted",
-        "Multiplies by the percentage without dividing by 100.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-depreciation-for-value",
-        "Gives the amount depreciated where the value was asked.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-uses-flat",
-        "Takes the same amount off each year (flat rate) when the percentage applies to the current value.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-one-year-only",
-        "Applies the percentage once however many years have passed.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-multiplies-by-years",
-        "Multiplies the rate by the number of years inside the bracket instead of using a power.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-extra-year",
-        "Applies the percentage one year too many.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-one-year-short",
-        "Applies the percentage one year too few.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-rate-for-multiplier",
-        "Multiplies by the rate (for example 0.15) instead of by one less the rate (0.85).",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-growth-multiplier",
-        "Uses one plus the rate as the yearly multiplier, which grows the value.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-total-for-value",
-        "Gives the value left where the total depreciation was asked.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-first-year-amount",
-        "Finds the depreciation for the first year only and calls it the total.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-boundary-year",
-        "Gives the last year the value is still at or above the target, not the first year it is below it.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-flat-years",
-        "Finds the years to reach the target as if the same amount came off each year.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-rate-from-whole-drop",
-        "Takes the whole drop over two years as the yearly rate instead of finding the yearly multiplier.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-rate-halved",
-        "Halves the two-year drop to get the yearly rate.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-multiplier-for-rate",
-        "Gives the yearly multiplier as a percentage instead of the rate of depreciation.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-price-from-flat",
-        "Adds back the same amount each year to find the price instead of dividing by the multiplier.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-price-multiplies",
-        "Multiplies the later value by the multiplier instead of dividing, so the 'price' is smaller than the value.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-wrong-year-amount",
-        "Gives the depreciation of the wrong year (the year before or after).",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "rbd-year-from-first-value",
-        "Takes the percentage of the purchase price for the year asked, as if every year lost the same amount.",
-        area="reducing-balance-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-difference-sign",
-        "Adds the two values instead of finding their difference.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-reports-one-method",
-        "Gives the value under one method where the difference was asked.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-decimal-slip",
-        "Misplaces the decimal point in the difference.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-doubles-difference",
-        "Doubles the difference, adding the gap for each method instead of comparing them once.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-year-flat-zero",
-        "Gives the year the flat-rate value would reach zero instead of the year the methods cross over.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-flat-total-rate",
-        "Uses the percentage for each year of the flat method as if it were applied once.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-crossover-early",
-        "Names the year before the reducing-balance value becomes the higher.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-crossover-late",
-        "Names the year after the reducing-balance value becomes the higher.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-equal-rate",
-        "Assumes the matching flat rate equals the reducing-balance rate.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-flat-rate-ignores-years",
-        "Gives the total percentage lost, without dividing by the number of years.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "cmp-flat-rate-of-value",
-        "Divides the dollars lost by the number of years but not by the price, so the rate is in dollars.",
-        area="compare-flat-and-reducing-depreciation",
-    ),
-    CatalogueEntry(
-        "iol-rate-not-converted",
-        "Multiplies the loan by the percentage without dividing by 100.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-divides-by-rate",
-        "Divides the loan by the rate instead of finding that percentage of it.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-decimal-slip",
-        "Misplaces the decimal point when finding the interest.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-annual-for-monthly",
-        "Gives the interest for a whole year where the monthly payment was asked.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-multiplies-by-twelve",
-        "Multiplies the yearly interest by 12 instead of dividing it by 12.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-principal-share",
-        "Divides the loan by 12 and calls that the monthly interest.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-one-year-only",
-        "Gives one year's interest where the interest over several years was asked.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-extra-year",
-        "Counts one year too many when adding up the interest.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-months-as-years",
-        "Multiplies the monthly payment by the number of years instead of the number of months.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-total-repaid-for-interest",
-        "Gives the total repaid (loan plus interest) where the interest was asked.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-forgets-principal",
-        "Gives only the interest paid where the total repaid, including the loan, was asked.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-compound",
-        "Compounds the interest each year, although the amount owing never changes on an interest-only loan.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-forgets-twelve",
-        "Divides the payment by the rate without first converting the monthly payment to a yearly amount.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-multiplies-by-rate",
-        "Multiplies the yearly interest by the rate instead of dividing by it.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-annual-as-loan",
-        "Takes the yearly interest as the amount borrowed.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-rate-from-annual-payment",
-        "Treats the monthly payment as the yearly interest when finding the rate.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-rate-inverted",
-        "Divides the loan by the yearly interest instead of the other way round.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-first-rate-throughout",
-        "Uses the first interest rate for the whole term of the loan.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-second-rate-throughout",
-        "Uses the later interest rate for the whole term of the loan.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-average-rate",
-        "Averages the two rates, although they apply for different lengths of time.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-swapped-years",
-        "Swaps the number of years at each rate.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-rise-as-payment",
-        "Gives the rise in the payment where the original payment was asked.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-loan-for-payment",
-        "Gives the amount borrowed where the original monthly payment was asked.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-rise-times-rate",
-        "Multiplies the rise in the payment by the rate instead of dividing by the change in rate.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-lump-ignored",
-        "Ignores the lump sum paid off the loan.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-lump-off-interest",
-        "Takes the lump sum off the interest instead of off the amount owing.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-lump-whole-term",
-        "Applies the lump sum to the whole term, as if it had been paid on the first day.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "iol-lump-after-only",
-        "Counts only the interest after the lump sum was paid.",
-        area="interest-only-loan",
-    ),
-    CatalogueEntry(
-        "ann-wrong-period-row",
-        "Reads the factor for one period more or fewer than the contributions made.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-wrong-rate-row",
-        "Reads the factor for the next rate up or down in the table.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-no-interest",
-        "Multiplies the contribution by the number of periods, ignoring the interest.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-factor-only",
-        "Gives the table factor itself, forgetting to multiply by the contribution.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-lump-sum-growth",
-        "Grows a single deposit instead of using the annuity factor.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-divides-by-factor",
-        "Divides the contribution by the factor instead of multiplying.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-multiplies-for-payment",
-        "Multiplies the target by the factor instead of dividing by it.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-divides-by-periods",
-        "Divides the target by the number of periods, ignoring the interest.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-future-value-for-interest",
-        "Gives the future value where the interest earned was asked.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-contributions-for-interest",
-        "Gives the total contributed where the interest earned was asked.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-years-as-periods",
-        "Uses the number of years as the number of periods.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-rate-not-divided",
-        "Divides the annual rate by the wrong number of periods per year, so reads the wrong row of the table.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-difference-sign",
-        "Adds the two future values instead of finding their difference.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "ann-contributions-total-only",
-        "Gives the total contributed for one option only.",
-        area="future-value-annuity-table",
-    ),
-    CatalogueEntry(
-        "pm-adds-cost-and-price",
-        "Adds the cost and the selling price instead of finding their difference.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-gives-selling-price",
-        "Gives the selling price where the profit or loss was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-gives-cost",
-        "Gives the cost price where the profit or loss was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-percent-for-dollars",
-        "Gives the profit as a percentage where the amount in dollars was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-markup-only",
-        "Gives the mark-up in dollars where the selling price was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-adds-percent-as-dollars",
-        "Adds the percentage to the cost as if it were a number of dollars.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-takes-off",
-        "Takes the percentage off the cost instead of adding it.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-rate-not-converted",
-        "Multiplies the cost by the percentage without dividing by 100.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-profit-on-selling-price",
-        "Finds the profit as a percentage of the selling price instead of the cost.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-forgets-subtraction",
-        "Divides the selling price by the cost and gives that as the percentage profit, forgetting to subtract 100%.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-dollars-for-percent",
-        "Gives the profit in dollars where a percentage was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-profit-over-100",
-        "Divides the profit by 100 instead of by the cost.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-loss-on-selling-price",
-        "Finds the loss as a percentage of the selling price instead of the cost.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-per-item-only",
-        "Gives the profit on one item where the profit on the whole batch was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-revenue-for-profit",
-        "Gives the money taken from the sale of the batch where the profit was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-total-cost-for-profit",
-        "Gives the total cost of the batch where the profit was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-percent-off-price",
-        "Takes the mark-up percentage off the selling price to find the cost.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-cost-adds-markup",
-        "Adds the mark-up percentage of the selling price to the selling price to find the cost.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-cost-from-markup-dollars",
-        "Divides the selling price by the mark-up percentage.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-markup-for-margin",
-        "Gives the mark-up on cost where the profit as a percentage of the selling price was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-margin-over-cost",
-        "Divides the profit by the cost when the profit as a percentage of the selling price was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-margin-dollars",
-        "Gives the profit in dollars where the percentage of the selling price was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-percentages-added",
-        "Adds the mark-up and subtracts the discount as percentages of the cost (for example +40% then -25% is +15%).",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-discount-ignored",
-        "Ignores the discount and gives the profit at the marked-up price.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-discount-only",
-        "Gives the discount in dollars where the profit was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-cost-from-loss-wrong",
-        "Adds the loss percentage to the selling price to find the cost.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-profit-on-loss-price",
-        "Adds the profit percentage to the reduced selling price instead of to the cost.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-price-for-cost",
-        "Gives the cost price where the new selling price was asked.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "pm-margin-price",
-        "Adds the margin percentage to the cost to find the selling price, instead of dividing the cost by what is left.",
-        area="profit-loss-and-markup",
-    ),
-    CatalogueEntry(
-        "com-rate-not-converted",
-        "Multiplies the sales by the rate without dividing by 100.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-divides-by-rate",
-        "Divides the sales by the rate instead of finding that percentage of them.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-decimal-slip",
-        "Misplaces the decimal point when finding the commission.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-sales-over-commission",
-        "Divides the sales by the commission instead of the commission by the sales.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-commission-over-100",
-        "Divides the commission by 100 instead of by the sales.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-largest-only",
-        "Finds the commission on the largest sale only.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-misses-one-sale",
-        "Leaves one of the sales out of the total.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-commission-only",
-        "Gives the commission alone where the total pay was asked.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-base-only",
-        "Gives the base pay alone where the total pay was asked.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-base-times-rate",
-        "Finds the commission rate of the base pay instead of the sales.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-rate-as-dollars",
-        "Adds the commission rate to the base pay as a number of dollars.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-multiplies-for-sales",
-        "Multiplies the commission by the rate instead of dividing by it.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-sales-from-total-pay",
-        "Treats the whole pay as commission when finding the sales.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-sales-adds-base",
-        "Adds the base pay to the pay before finding the sales.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-gross-sales",
-        "Finds the commission on the gross sales, ignoring the returns.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-returns-only",
-        "Finds the commission on the returns instead of on the net sales.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-plan-total-only",
-        "Gives the pay under one plan where the difference between the plans was asked.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-plan-sum",
-        "Adds the pay under the two plans instead of finding the difference.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-second-rate-everywhere",
-        "Applies the higher rate to all the sales, ignoring the tier.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-first-rate-everywhere",
-        "Applies the lower rate to all the sales, ignoring the tier.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-tier-excess-only",
-        "Finds the commission on the sales above the tier only, forgetting the first tier.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-second-rate-on-all-above",
-        "Applies the higher rate to all the sales and adds the first tier as well.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-inverse-first-rate",
-        "Divides the commission by the first rate to find the sales, ignoring the tier.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-inverse-second-rate",
-        "Divides the commission by the higher rate to find the sales, ignoring the first tier.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-inverse-adds-tier",
-        "Adds the whole tier to sales found from the commission, without taking off the first tier's commission.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-break-even-ignores-first",
-        "Divides the base pay by the higher rate, ignoring the commission the other plan also pays.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-break-even-sums-rates",
-        "Divides the base pay by the sum of the rates instead of their difference.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-break-even-no-hundred",
-        "Divides the base pay by the difference in rates but forgets that the rates are percentages.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-break-even-first-rate",
-        "Divides the base pay by the lower rate alone.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "com-tier-base-dropped",
-        "Leaves the base pay out of the total.",
-        area="commission-pay",
-    ),
-    CatalogueEntry(
-        "sd-sign-of-slope",
-        "Adds the price term to the demand intercept instead of subtracting it.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-uses-other-line",
-        "Substitutes the price into the other line (supply for demand or demand for supply).",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-forgets-intercept",
-        "Leaves the intercept out and multiplies the price by the slope only.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-adds-lines",
-        "Adds the quantity demanded and the quantity supplied instead of finding their difference.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-ignores-price-terms",
-        "Subtracts the intercepts and ignores the price terms when finding the shortage or surplus.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-gives-demand-for-gap",
-        "Gives the quantity demanded where the shortage or surplus was asked.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-gives-supply-for-gap",
-        "Gives the quantity supplied where the shortage or surplus was asked.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-price-for-quantity",
-        "Gives the price where the quantity was asked.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-adds-intercepts",
-        "Adds the intercepts instead of subtracting them when setting demand equal to supply.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-subtracts-slopes",
-        "Subtracts the slopes instead of adding them when collecting the price terms.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-divides-by-one-slope",
-        "Divides by one slope only when solving for the price.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-average-intercepts",
-        "Takes the average of the two intercepts as the equilibrium quantity.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-quantity-for-price",
-        "Gives the quantity where the price was asked.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-wrong-line-quantity",
-        "Finds the quantity from an incorrect equilibrium price.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-price-plus-quantity",
-        "Adds the price and the quantity instead of multiplying them for the revenue.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-revenue-quantity-only",
-        "Gives the quantity where the revenue was asked.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-revenue-price-only",
-        "Gives the price where the revenue was asked.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-slope-from-one-point",
-        "Uses a quantity as the slope instead of the change in quantity for a change in price.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-slope-inverted",
-        "Divides the change in price by the change in quantity for the slope.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-tax-subtracted-from-quantity",
-        "Subtracts the tax from the quantity instead of the price in the supply line.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-tax-added-to-price",
-        "Adds the tax to the price in the supply line instead of subtracting it.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-tax-ignored",
-        "Ignores the tax and gives the original equilibrium quantity.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-tax-price-for-quantity",
-        "Gives the new equilibrium price where the quantity was asked.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-surplus-as-price",
-        "Divides the surplus by the sum of the slopes and gives that as the price.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-surplus-shortage-price",
-        "Subtracts the extra price needed for the surplus instead of adding it.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-surplus-equilibrium",
-        "Gives the equilibrium price where the price for a surplus was asked.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "sd-surplus-one-slope",
-        "Divides the surplus by one slope only to find the extra price.",
-        area="supply-demand-equilibrium",
-    ),
-    CatalogueEntry(
-        "fg-unweighted-average",
-        "Averages the prizes without weighting them by their probabilities.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-sum-of-prizes",
-        "Adds the prizes without weighting them by their probabilities.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-probability-only",
-        "Gives the probability of winning where the expected prize was asked.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-largest-prize",
-        "Gives the largest prize as the expected prize.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-forgets-entry",
-        "Gives the expected prize where the expected gain (after paying to play) was asked.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-reversed-sign",
-        "Subtracts the expected prize from the entry fee, so the sign of the gain is wrong.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-adds-entry",
-        "Adds the entry fee to the expected prize.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-sum-for-fee",
-        "Gives the total of the prizes as the fair entry fee.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-fee-largest-prize",
-        "Gives the largest prize as the fair entry fee.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-fee-prize-over-outcomes",
-        "Divides one prize by the number of outcomes and ignores the other prizes.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-fee-ignores-target-profit",
-        "Gives the fair entry fee, leaving out the profit the organiser wants.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-fee-subtracts-target-profit",
-        "Takes the profit the organiser wants off the fair entry fee instead of adding it.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-fee-is-target-profit",
-        "Gives the profit the organiser wants as the entry fee.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-profit-sign",
-        "Gives the players' expected gain over all the plays where the organiser's profit was asked.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-profit-prize-total",
-        "Gives the expected prize paid out over all the plays where the profit was asked.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-profit-per-play",
-        "Gives the profit on one play where the profit over many plays was asked.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-profit-fee-total",
-        "Gives the entry fees taken where the profit was asked.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-missing-prize-no-probability",
-        "Sets the prize equal to the entry fee without allowing for the chance of winning it.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-missing-prize-forgets-others",
-        "Ignores the expected value of the other prizes when finding the missing prize.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-missing-prize-times-probability",
-        "Multiplies by the probability instead of dividing by it when finding the missing prize.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-missing-prize-adds-others",
-        "Adds the expected value of the other prizes instead of subtracting it.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-with-replacement",
-        "Uses the same probability for the second draw, as if the first counter were put back.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-one-draw",
-        "Uses the chance for one draw only, ignoring the second.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-probability-added",
-        "Adds the two probabilities instead of multiplying them.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-games-per-play",
-        "Gives the profit per play where the number of plays was asked.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-games-multiplies",
-        "Multiplies the target profit by the profit per play instead of dividing.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-games-prize-based",
-        "Divides the target by the expected prize instead of the expected profit.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "fg-games-fee-based",
-        "Divides the target by the entry fee instead of the expected profit.",
-        area="fair-game-expected-gain",
-    ),
-    CatalogueEntry(
-        "hl-product",
-        "Multiplies the two numbers instead of finding their common factor or multiple.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-sum",
-        "Adds the two numbers.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-smaller",
-        "Gives the smaller of the two numbers.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-larger",
-        "Gives the larger of the two numbers.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-difference",
-        "Gives the difference between the two numbers.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-lcm-for-hcf",
-        "Finds the lowest common multiple where the highest common factor was needed.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-hcf-for-lcm",
-        "Finds the highest common factor where the lowest common multiple was needed.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-hcf-not-divided",
-        "Gives the number of items in a share as the HCF, forgetting to divide by it.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-shares-for-size",
-        "Gives the number of groups where the size of each group was asked.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-size-for-shares",
-        "Gives the size of each group where the number of groups was asked.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-one-dimension",
-        "Counts the tiles along one side only.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-tiles-sum",
-        "Adds the number of tiles along each side instead of multiplying them.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-lcm-not-divided",
-        "Gives the time until the buses leave together where the number of trips was asked.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-trips-other-bus",
-        "Gives the number of trips of the other bus.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-two-numbers-only",
-        "Finds the lowest common multiple of two of the three numbers.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-three-product",
-        "Multiplies the three numbers together.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-turns-big-gear",
-        "Gives the turns of the larger gear where the smaller gear was asked.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-turns-lcm",
-        "Gives the number of teeth that pass instead of the number of turns.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-hcf-two-only",
-        "Finds the highest common factor of only two of the three lengths.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-side-not-area",
-        "Gives the side of the square where the number of tiles was asked.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-tiles-one-way",
-        "Counts the tiles along one side of the square only.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-ignores-remainders",
-        "Finds the HCF of the numbers without taking the remainders off first.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-adds-remainders",
-        "Adds the remainders to the numbers instead of subtracting them.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-remainder-lcm",
-        "Finds the lowest common multiple of the reduced numbers instead of the highest common factor.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-forgets-remainder",
-        "Gives the lowest common multiple and forgets to add the remainder.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-subtracts-remainder",
-        "Subtracts the remainder from the lowest common multiple instead of adding it.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-forgets-start",
-        "Leaves out the meeting at the start when counting how many times the events coincide.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-counts-extra",
-        "Counts one meeting too many.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-time-not-meetings",
-        "Gives the time of the first meeting where the number of meetings was asked.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-product-for-other",
-        "Multiplies the HCF and the LCM and does not divide by the known number.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-lcm-over-hcf",
-        "Divides the LCM by the HCF to find the other number.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "hl-other-divides-lcm",
-        "Divides the LCM by the known number to find the other number.",
-        area="hcf-lcm-word-problems",
-    ),
-    CatalogueEntry(
-        "w3ci-balance-for-interest",
-        "Gives the final balance where the interest earned was asked.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-simple-instead",
-        "Finds simple interest, adding the same amount every year.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-one-year",
-        "Gives one year's interest only.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-wrong-years",
-        "Compounds for one year too many or too few.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-annual-rate-each-period",
-        "Uses the annual rate in every compounding period instead of the rate for one period.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-periods-as-years",
-        "Counts the years instead of the number of compounding periods.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-annual-compounding",
-        "Compounds once a year although the interest is added more often.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-multiplies-by-amount",
-        "Multiplies the target amount by the growth factor instead of dividing.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-simple-discount",
-        "Takes the simple interest off the target amount to find the amount to invest.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-first-rate-throughout",
-        "Uses the first rate for the whole term when the rate changes.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-average-rate",
-        "Uses the average of the two rates for the whole term.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3ci-difference-reversed",
-        "Gives one kind of interest where the difference between the two was asked.",
-        area="compound-interest",
-    ),
-    CatalogueEntry(
-        "w3si-compounded",
-        "Compounds the interest every year instead of using simple interest.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-adds-principal",
-        "Adds the principal to the interest where only the interest was asked.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-off-by-one",
-        "Counts one year too many.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-forgets-principal",
-        "Gives the interest where the total amount was asked.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-months-as-years",
-        "Uses the number of months as the number of years.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-month-not-divided",
-        "Divides the months by 100 or by 10 instead of by 12.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-rate-not-percent",
-        "Leaves the rate as a whole number and does not divide it by 100.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-ignores-time",
-        "Leaves the time out of the working.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-time-for-rate",
-        "Divides the interest by the principal and by the rate but not by the time (or the reverse).",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-multiplies-for-inverse",
-        "Multiplies by the other quantities where the interest should be divided by them.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3si-total-for-interest",
-        "Uses the total amount as the interest when working back.",
-        area="simple-interest",
-    ),
-    CatalogueEntry(
-        "w3wg-adds-instead",
-        "Adds the rate and the hours instead of multiplying them.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-misses-a-shift",
-        "Leaves one day's hours out of the total.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-first-day-repeated",
-        "Uses the first day's hours for every day.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-extra-hour",
-        "Counts one hour too many.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-loading-only",
-        "Gives the loading alone, not the pay including it.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-tax-as-dollars",
-        "Takes the tax rate off as a number of dollars.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-tax-ignored",
-        "Gives the gross pay and does not take off tax.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-rate-misread",
-        "Divides by a rate that is a dollar out.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-rates-difference",
-        "Subtracts the two rates instead of the two pays.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-hours-difference",
-        "Multiplies the difference in hours by one rate.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-minutes-as-decimal",
-        "Writes 30 minutes as 0.30 of an hour (and 15 minutes as 0.15).",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-ignores-minutes",
-        "Leaves the minutes out of the hours worked.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-rounds-up-hour",
-        "Rounds the part hour up to a whole hour.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-rate-inverted",
-        "Divides the hours by the pay instead of the pay by the hours.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-loading-as-percent-only",
-        "Adds the loading as a dollar amount instead of a percentage of the rate.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-loading-ignored",
-        "Leaves the casual loading out.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-tax-as-pay",
-        "Gives the tax withheld where the pay after tax was asked.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-tax-added",
-        "Adds the tax to the gross pay instead of taking it off.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-floor-hours",
-        "Rounds the hours needed down, so the target is not reached.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-pay-as-hours",
-        "Divides the pay by the wrong number of hours.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-single-job",
-        "Gives the pay from one job only.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3wg-sum-not-difference",
-        "Adds the two pays where the difference was asked.",
-        area="calculate-wages",
-    ),
-    CatalogueEntry(
-        "w3ot-one-hour",
-        "Pays one hour of overtime only.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-extra-hour",
-        "Counts one overtime hour too many.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-wrong-multiplier",
-        "Uses double time where time and a half applies.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-all-hours-multiplied",
-        "Applies the overtime multiplier to every hour worked.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-overtime-at-ordinary",
-        "Pays the overtime hours at the ordinary rate.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-hours-not-subtracted",
-        "Uses all the hours worked as the overtime hours.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-ordinary-only",
-        "Leaves out the overtime pay.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-overtime-only",
-        "Gives the overtime pay where the whole week's pay was asked.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-second-rate-throughout",
-        "Pays every overtime hour at the higher rate.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-first-rate-throughout",
-        "Pays every overtime hour at the lower rate.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-pay-over-rate",
-        "Divides the pay by the ordinary rate only and does not remove the ordinary hours first.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-multiplier-forgotten-on-division",
-        "Divides by the hours worked and ignores that some are paid at a higher rate.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3ot-ordinary-as-total",
-        "Treats the whole pay as overtime pay.",
-        area="calculate-overtime",
-    ),
-    CatalogueEntry(
-        "w3up-miscounts-hundreds",
-        "Miscounts the number of 100 g lots in the packet.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-unit-price-given",
-        "Gives one of the unit prices where the difference was asked.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-total-as-unit",
-        "Gives the price of the pack where the price of one was asked.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-inverted",
-        "Divides the quantity by the price instead of the price by the quantity.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-adds-instead",
-        "Adds the unit price to itself instead of multiplying by the number of items.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-difference-of-totals",
-        "Subtracts the two pack prices instead of the two unit prices.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-per-gram",
-        "Gives the price per gram where the price per 100 grams was asked.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-per-kg-as-100g",
-        "Gives the price per kilogram where the price per 100 grams was asked.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-saving-per-item",
-        "Gives the saving on one item where the saving on all of them was asked.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-wrong-pack",
-        "Prices all the items at the dearer pack's unit price.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-percent-of-cheaper",
-        "Finds the percentage using the cheaper unit price as the starting amount.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3up-percent-points",
-        "Gives the difference in cents as the percentage.",
-        area="unit-pricing",
-    ),
-    CatalogueEntry(
-        "w3fl-compounded",
-        "Compounds the interest instead of charging flat interest.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-one-year-of-payments",
-        "Counts one year of repayments only.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-off-by-one",
-        "Counts one year too many or too few.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-ignores-interest",
-        "Divides the amount borrowed alone by the number of months.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-interest-as-total",
-        "Gives the interest where the total repaid was asked.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-one-year-interest",
-        "Finds one year's interest only.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-total-as-interest",
-        "Gives the total repaid where the interest was asked.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-deposit-ignored",
-        "Charges interest on the price although a deposit is paid first.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-deposit-not-subtracted",
-        "Forgets to take the deposit off the price before adding interest.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-months-as-years",
-        "Divides by the number of years instead of the number of months.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-rate-without-time",
-        "Finds the rate without allowing for the number of years.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-rate-from-total",
-        "Uses the total repaid, not the interest, to find the rate.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-term-in-months",
-        "Gives the number of months where the number of years was asked.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3fl-term-from-total",
-        "Uses the total repaid, not the interest, to find the term.",
-        area="flat-loan-repayment",
-    ),
-    CatalogueEntry(
-        "w3ma-missing-wrong-window",
-        "Multiplies the average by the wrong window size.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-wrong-window",
-        "Averages a window of the wrong size.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-shifted-window",
-        "Averages the window that starts at the stated point instead of the one centred on it.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-total-as-mean",
-        "Gives the total of the window without dividing.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-whole-series",
-        "Averages the whole series instead of one window.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-change-not-divided",
-        "Gives the change in the window total without dividing by the window size.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-change-as-new-value",
-        "Gives the difference between the values leaving and entering as the change in the mean.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-missing-not-from-total",
-        "Treats the moving average as the missing value.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-missing-no-total",
-        "Subtracts the known values from the average without multiplying it by the window size first.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-centred-unweighted",
-        "Gives the end values of a centred 4-point mean the same weight as the others.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3ma-centred-simple",
-        "Averages only the middle four values.",
-        area="moving-average",
-    ),
-    CatalogueEntry(
-        "w3mn-known-mean",
-        "Gives the mean of the known values as the missing value.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-total-needed",
-        "Gives the total needed where the last score was asked.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-weights-swapped",
-        "Weights each mean by the other group's size.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-new-value-left-out",
-        "Leaves the new number out of the total.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-divides-by-wrong-count",
-        "Divides the total by the wrong number of values.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-freq-unweighted",
-        "Averages the scores without using the frequencies.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-freq-divides-by-rows",
-        "Divides the weighted total by the number of rows in the table.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-freq-sums-frequencies",
-        "Gives the total of the frequencies as the mean.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-mean-of-means",
-        "Averages the two group means without weighting them by group size.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-missing-is-mean",
-        "Gives the target mean as the missing value.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-missing-no-total",
-        "Subtracts the known values from the mean without multiplying the mean by the number of values.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-missing-wrong-count",
-        "Multiplies the target mean by one value too few when finding the missing total.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-new-value-averaged",
-        "Averages the old mean with the new value.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3mn-new-count-forgotten",
-        "Divides the new total by the old number of values.",
-        area="calculate-mean",
-    ),
-    CatalogueEntry(
-        "w3np-fewest-roads",
-        "Chooses the route with the fewest roads instead of the shortest total.",
-        area="shortest-network-path",
-    ),
-    CatalogueEntry(
-        "w3np-greedy",
-        "Always takes the shortest road next and does not compare whole routes.",
-        area="shortest-network-path",
-    ),
-    CatalogueEntry(
-        "w3np-longest",
-        "Gives the longest route instead of the shortest.",
-        area="shortest-network-path",
-    ),
-    CatalogueEntry(
-        "w3np-second-shortest",
-        "Gives the second shortest route.",
-        area="shortest-network-path",
-    ),
-    CatalogueEntry(
-        "w3np-skips-stop",
-        "Ignores that the route must pass through the stated town.",
-        area="shortest-network-path",
-    ),
-    CatalogueEntry(
-        "w3np-two-legs-shortest-sum-error",
-        "Joins the two shortest legs even when they overlap or share a road.",
-        area="shortest-network-path",
-    ),
-    CatalogueEntry(
-        "w3np-closed-ignored",
-        "Keeps using the road that has been closed.",
-        area="shortest-network-path",
-    ),
-    CatalogueEntry(
-        "w3np-drops-the-detour",
-        "Takes the closed road's length off the old shortest route instead of finding a new route.",
-        area="shortest-network-path",
-    ),
-    CatalogueEntry(
-        "w3pc-over-final",
-        "Divides the change by the final value instead of the original value.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-change-as-percent",
-        "Gives the amount of the change as the percentage.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-ratio-as-change",
-        "Gives the final value as a percentage of the original and does not subtract 100.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-original-as-final",
-        "Gives the original value as a percentage of the final value.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-points-as-percent",
-        "Gives the rise in percentage points as the percentage change.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-adds-steps",
-        "Adds the increase and takes off the decrease instead of multiplying the two multipliers.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-sums-percentages",
-        "Adds the two percentages whatever their direction.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-reverse-same-percent",
-        "Takes the fall that undoes a rise to be the same percentage as the rise.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-second-step-on-original",
-        "Gives the fall in the second step as a percentage of the original price, not the overall change.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3pc-wrong-direction",
-        "Gives a percentage increase where a decrease was asked, or the reverse.",
-        area="percentage-change",
-    ),
-    CatalogueEntry(
-        "w3cd-category-as-number",
-        "Treats a variable recorded in words or labels as numerical.",
-        area="classify-data",
-    ),
-    CatalogueEntry(
-        "w3as-geometric-as-arithmetic",
-        "Takes a constant ratio for a constant difference.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-one-pair",
-        "Judges the sequence from its first two terms only.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-first-term",
-        "Gives the first term as the common difference.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-growing-gaps",
-        "Takes terms that grow by a growing amount for an arithmetic sequence.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-repeating-gaps",
-        "Takes gaps that repeat in a pattern for a constant difference.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-sign",
-        "Gives the common difference, or the next term, with the wrong sign.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-skips-a-term",
-        "Adds the common difference twice to get the next term.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-wrong-break",
-        "Names the wrong place where the difference changes.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-halving-forgotten",
-        "Stops at 2k = n and gives 2k as the value of k.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-arithmetic-slip",
-        "Makes an arithmetic slip, so the answer is out by a small amount.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3el-smallest-float",
-        "Chooses the activity with the smallest float that is not zero.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-largest-est",
-        "Chooses the activity with the latest earliest start time.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-largest-lst",
-        "Chooses the activity with the latest latest start time.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-first-listed",
-        "Chooses the first activity in the table.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-longest-activity",
-        "Follows the longest single activities instead of the longest path.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-most-activities",
-        "Takes the path with the most activities for the critical path.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-one-swap",
-        "Swaps one critical activity for a non-critical one.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-est-for-lst",
-        "Gives the earliest start time where the latest start time was asked.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-ignores-successors",
-        "Finds the latest start time from the project duration alone and ignores the activities that follow.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-forgets-duration",
-        "Gives the latest start time of the next activity without taking off the duration.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-finish-for-start",
-        "Gives the earliest finish time where the latest start time was asked.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3el-float-for-lst",
-        "Gives the float where the latest start time was asked.",
-        area="senior-use-ests-and-lsts-to-locate-the-critical",
-    ),
-    CatalogueEntry(
-        "w3br-sin-cos-swapped",
-        "Swaps sine and cosine when finding a distance north or east.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-adds-legs",
-        "Adds the two leg lengths instead of combining the north and east distances.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-one-leg",
-        "Uses the first leg only.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-no-reverse",
-        "Gives the bearing from the start to the finish where the bearing home was asked.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-tan-swapped",
-        "Uses the north distance over the east distance for the angle.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-raw-angle",
-        "Gives the angle in the triangle and does not turn it into a three-figure bearing.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-angle-from-east",
-        "Measures the angle from east instead of from north.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-sign-of-component",
-        "Adds a distance south or west as if it were north or east.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-uses-sin-not-cos",
-        "Uses the sine of the bearing where the cosine is needed to cancel the north distance.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-distance-as-component",
-        "Gives the distance walked as the distance north or east.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-tan-used",
-        "Uses the tangent where the sine or cosine is needed.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-divides",
-        "Divides by the sine or cosine where it should multiply.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-adds-components",
-        "Adds the north and east distances instead of using Pythagoras.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    CatalogueEntry(
-        "w3br-uses-total-not-component",
-        "Uses the whole first leg as the distance to cancel.",
-        area="senior-solve-problems-involving-bearings",
-    ),
-    # w3 consumer block end
     CatalogueEntry(
         "w4-bridge-counts-leaves",
         "Counting the vertices with only one edge instead of the edges whose removal splits the network.",
@@ -57743,6 +55711,1993 @@ _ENTRIES = (
         "Multiplies the difference by the term number but leaves out the first term.",
         area="arithmetic-sequences",
     ),
+    # w3 consumer block begin
+    CatalogueEntry(
+        "fdep-rate-not-converted",
+        "Multiplies the price by the percentage without dividing by 100.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-value-for-depreciation",
+        "Gives the value left after one year where the yearly depreciation was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-decimal-slip",
+        "Misplaces the decimal point when finding a percentage of the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-divides-by-rate",
+        "Divides the price by the percentage instead of finding that percentage of it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-amount-not-value",
+        "Gives the total depreciation where the value after the years was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-one-year-only",
+        "Takes off only one year's depreciation however many years have passed.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-adds-to-price",
+        "Adds the depreciation to the price instead of subtracting it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-uses-reducing",
+        "Takes the percentage off the new value each year when the flat rate is a percentage of the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-year-not-total",
+        "Gives one year's depreciation where the total over several years was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-ignores-years",
+        "Finds the percentage lost in total and does not divide by the number of years.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-dollars-not-percent",
+        "Gives the depreciation per year in dollars where a percentage of the price was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-percent-of-value",
+        "Finds the percentage of the later value instead of the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-from-value",
+        "Divides the target value by the yearly depreciation instead of the amount lost.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-from-price",
+        "Divides the purchase price by the yearly depreciation, ignoring the value to be reached.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-counts-year-zero",
+        "Adds an extra year, counting the day of purchase as a year.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-boundary-year",
+        "Gives the last year the value is still at or above the target, not the first year it is below it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-salvage-ignored",
+        "Divides the purchase price by the life, forgetting to take off the scrap value first.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-salvage-added",
+        "Adds the scrap value to the price before dividing by the life.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-adds-one-year-back",
+        "Adds back only one year of depreciation to a later value to find the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-reading-as-price",
+        "Takes a later value as the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-remaining",
+        "Gives the years still to go, not the total number of years until the value is zero.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-rate-from-price-only",
+        "Divides the percentage lost by the years, then forgets the value left is a share of the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-remaining-for-lost",
+        "Uses the percentage remaining as the percentage lost.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-not-converted",
+        "Multiplies by the percentage without dividing by 100.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-depreciation-for-value",
+        "Gives the amount depreciated where the value was asked.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-uses-flat",
+        "Takes the same amount off each year (flat rate) when the percentage applies to the current value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-one-year-only",
+        "Applies the percentage once however many years have passed.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-multiplies-by-years",
+        "Multiplies the rate by the number of years inside the bracket instead of using a power.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-extra-year",
+        "Applies the percentage one year too many.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-one-year-short",
+        "Applies the percentage one year too few.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-for-multiplier",
+        "Multiplies by the rate (for example 0.15) instead of by one less the rate (0.85).",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-growth-multiplier",
+        "Uses one plus the rate as the yearly multiplier, which grows the value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-total-for-value",
+        "Gives the value left where the total depreciation was asked.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-first-year-amount",
+        "Finds the depreciation for the first year only and calls it the total.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-boundary-year",
+        "Gives the last year the value is still at or above the target, not the first year it is below it.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-flat-years",
+        "Finds the years to reach the target as if the same amount came off each year.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-from-whole-drop",
+        "Takes the whole drop over two years as the yearly rate instead of finding the yearly multiplier.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-halved",
+        "Halves the two-year drop to get the yearly rate.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-multiplier-for-rate",
+        "Gives the yearly multiplier as a percentage instead of the rate of depreciation.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-price-from-flat",
+        "Adds back the same amount each year to find the price instead of dividing by the multiplier.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-price-multiplies",
+        "Multiplies the later value by the multiplier instead of dividing, so the 'price' is smaller than the value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-wrong-year-amount",
+        "Gives the depreciation of the wrong year (the year before or after).",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-year-from-first-value",
+        "Takes the percentage of the purchase price for the year asked, as if every year lost the same amount.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-difference-sign",
+        "Adds the two values instead of finding their difference.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-reports-one-method",
+        "Gives the value under one method where the difference was asked.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-decimal-slip",
+        "Misplaces the decimal point in the difference.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-doubles-difference",
+        "Doubles the difference, adding the gap for each method instead of comparing them once.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-year-flat-zero",
+        "Gives the year the flat-rate value would reach zero instead of the year the methods cross over.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-total-rate",
+        "Uses the percentage for each year of the flat method as if it were applied once.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-crossover-early",
+        "Names the year before the reducing-balance value becomes the higher.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-crossover-late",
+        "Names the year after the reducing-balance value becomes the higher.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-equal-rate",
+        "Assumes the matching flat rate equals the reducing-balance rate.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-rate-ignores-years",
+        "Gives the total percentage lost, without dividing by the number of years.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-rate-of-value",
+        "Divides the dollars lost by the number of years but not by the price, so the rate is in dollars.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "iol-rate-not-converted",
+        "Multiplies the loan by the percentage without dividing by 100.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-divides-by-rate",
+        "Divides the loan by the rate instead of finding that percentage of it.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-decimal-slip",
+        "Misplaces the decimal point when finding the interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-annual-for-monthly",
+        "Gives the interest for a whole year where the monthly payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-multiplies-by-twelve",
+        "Multiplies the yearly interest by 12 instead of dividing it by 12.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-principal-share",
+        "Divides the loan by 12 and calls that the monthly interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-one-year-only",
+        "Gives one year's interest where the interest over several years was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-extra-year",
+        "Counts one year too many when adding up the interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-months-as-years",
+        "Multiplies the monthly payment by the number of years instead of the number of months.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-total-repaid-for-interest",
+        "Gives the total repaid (loan plus interest) where the interest was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-forgets-principal",
+        "Gives only the interest paid where the total repaid, including the loan, was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-compound",
+        "Compounds the interest each year, although the amount owing never changes on an interest-only loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-forgets-twelve",
+        "Divides the payment by the rate without first converting the monthly payment to a yearly amount.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-multiplies-by-rate",
+        "Multiplies the yearly interest by the rate instead of dividing by it.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-annual-as-loan",
+        "Takes the yearly interest as the amount borrowed.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rate-from-annual-payment",
+        "Treats the monthly payment as the yearly interest when finding the rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rate-inverted",
+        "Divides the loan by the yearly interest instead of the other way round.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-first-rate-throughout",
+        "Uses the first interest rate for the whole term of the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-second-rate-throughout",
+        "Uses the later interest rate for the whole term of the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-average-rate",
+        "Averages the two rates, although they apply for different lengths of time.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-swapped-years",
+        "Swaps the number of years at each rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rise-as-payment",
+        "Gives the rise in the payment where the original payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-loan-for-payment",
+        "Gives the amount borrowed where the original monthly payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rise-times-rate",
+        "Multiplies the rise in the payment by the rate instead of dividing by the change in rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-ignored",
+        "Ignores the lump sum paid off the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-off-interest",
+        "Takes the lump sum off the interest instead of off the amount owing.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-whole-term",
+        "Applies the lump sum to the whole term, as if it had been paid on the first day.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-after-only",
+        "Counts only the interest after the lump sum was paid.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "ann-wrong-period-row",
+        "Reads the factor for one period more or fewer than the contributions made.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-wrong-rate-row",
+        "Reads the factor for the next rate up or down in the table.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-no-interest",
+        "Multiplies the contribution by the number of periods, ignoring the interest.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-factor-only",
+        "Gives the table factor itself, forgetting to multiply by the contribution.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-lump-sum-growth",
+        "Grows a single deposit instead of using the annuity factor.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-divides-by-factor",
+        "Divides the contribution by the factor instead of multiplying.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-multiplies-for-payment",
+        "Multiplies the target by the factor instead of dividing by it.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-divides-by-periods",
+        "Divides the target by the number of periods, ignoring the interest.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-future-value-for-interest",
+        "Gives the future value where the interest earned was asked.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-contributions-for-interest",
+        "Gives the total contributed where the interest earned was asked.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-years-as-periods",
+        "Uses the number of years as the number of periods.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-rate-not-divided",
+        "Divides the annual rate by the wrong number of periods per year, so reads the wrong row of the table.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-difference-sign",
+        "Adds the two future values instead of finding their difference.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-contributions-total-only",
+        "Gives the total contributed for one option only.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "pm-adds-cost-and-price",
+        "Adds the cost and the selling price instead of finding their difference.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-gives-selling-price",
+        "Gives the selling price where the profit or loss was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-gives-cost",
+        "Gives the cost price where the profit or loss was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percent-for-dollars",
+        "Gives the profit as a percentage where the amount in dollars was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-markup-only",
+        "Gives the mark-up in dollars where the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-adds-percent-as-dollars",
+        "Adds the percentage to the cost as if it were a number of dollars.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-takes-off",
+        "Takes the percentage off the cost instead of adding it.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-rate-not-converted",
+        "Multiplies the cost by the percentage without dividing by 100.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-profit-on-selling-price",
+        "Finds the profit as a percentage of the selling price instead of the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-forgets-subtraction",
+        "Divides the selling price by the cost and gives that as the percentage profit, forgetting to subtract 100%.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-dollars-for-percent",
+        "Gives the profit in dollars where a percentage was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-loss-on-selling-price",
+        "Finds the loss as a percentage of the selling price instead of the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-ratio-inverted",
+        "Divides the cost price by the selling price.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-over-average",
+        "Divides the profit or loss by the average of the cost and the selling price.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-per-item-only",
+        "Gives the profit on one item where the profit on the whole batch was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-revenue-for-profit",
+        "Gives the money taken from the sale of the batch where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-total-cost-for-profit",
+        "Gives the total cost of the batch where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percent-off-price",
+        "Takes the mark-up percentage off the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-adds-markup",
+        "Adds the mark-up percentage of the selling price to the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-from-markup-dollars",
+        "Divides the selling price by the mark-up percentage.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-markup-for-margin",
+        "Gives the mark-up on cost where the profit as a percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-over-cost",
+        "Divides the profit by the cost when the profit as a percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-dollars",
+        "Gives the profit in dollars where the percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percentages-added",
+        "Adds the mark-up and subtracts the discount as percentages of the cost (for example +40% then -25% is +15%).",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-discount-ignored",
+        "Ignores the discount and gives the profit at the marked-up price.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-discount-only",
+        "Gives the discount in dollars where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-from-loss-wrong",
+        "Adds the loss percentage to the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-profit-on-loss-price",
+        "Adds the profit percentage to the reduced selling price instead of to the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-price-for-cost",
+        "Gives the cost price where the new selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-price",
+        "Adds the margin percentage to the cost to find the selling price, instead of dividing the cost by what is left.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "com-rate-not-converted",
+        "Multiplies the sales by the rate without dividing by 100.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-divides-by-rate",
+        "Divides the sales by the rate instead of finding that percentage of them.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-decimal-slip",
+        "Misplaces the decimal point when finding the commission.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-over-commission",
+        "Divides the sales by the commission instead of the commission by the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-commission-over-100",
+        "Divides the commission by 100 instead of by the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-largest-only",
+        "Finds the commission on the largest sale only.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-misses-one-sale",
+        "Leaves one of the sales out of the total.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-commission-only",
+        "Gives the commission alone where the total pay was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-base-only",
+        "Gives the base pay alone where the total pay was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-base-times-rate",
+        "Finds the commission rate of the base pay instead of the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-rate-as-dollars",
+        "Adds the commission rate to the base pay as a number of dollars.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-multiplies-for-sales",
+        "Multiplies the commission by the rate instead of dividing by it.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-from-total-pay",
+        "Treats the whole pay as commission when finding the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-adds-base",
+        "Adds the base pay to the pay before finding the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-gross-sales",
+        "Finds the commission on the gross sales, ignoring the returns.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-returns-only",
+        "Finds the commission on the returns instead of on the net sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-plan-total-only",
+        "Gives the pay under one plan where the difference between the plans was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-plan-sum",
+        "Adds the pay under the two plans instead of finding the difference.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-second-rate-everywhere",
+        "Applies the higher rate to all the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-first-rate-everywhere",
+        "Applies the lower rate to all the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-tier-excess-only",
+        "Finds the commission on the sales above the tier only, forgetting the first tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-second-rate-on-all-above",
+        "Applies the higher rate to all the sales and adds the first tier as well.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-first-rate",
+        "Divides the commission by the first rate to find the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-second-rate",
+        "Divides the commission by the higher rate to find the sales, ignoring the first tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-adds-tier",
+        "Adds the whole tier to sales found from the commission, without taking off the first tier's commission.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-ignores-first",
+        "Divides the base pay by the higher rate, ignoring the commission the other plan also pays.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-sums-rates",
+        "Divides the base pay by the sum of the rates instead of their difference.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-no-hundred",
+        "Divides the base pay by the difference in rates but forgets that the rates are percentages.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-first-rate",
+        "Divides the base pay by the lower rate alone.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-tier-base-dropped",
+        "Leaves the base pay out of the total.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "sd-sign-of-slope",
+        "Adds the price term to the demand intercept instead of subtracting it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-uses-other-line",
+        "Substitutes the price into the other line (supply for demand or demand for supply).",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-forgets-intercept",
+        "Leaves the intercept out and multiplies the price by the slope only.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-adds-lines",
+        "Adds the quantity demanded and the quantity supplied instead of finding their difference.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-ignores-price-terms",
+        "Subtracts the intercepts and ignores the price terms when finding the shortage or surplus.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-gives-demand-for-gap",
+        "Gives the quantity demanded where the shortage or surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-gives-supply-for-gap",
+        "Gives the quantity supplied where the shortage or surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-price-for-quantity",
+        "Gives the price where the quantity was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-adds-intercepts",
+        "Adds the intercepts instead of subtracting them when setting demand equal to supply.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-subtracts-slopes",
+        "Subtracts the slopes instead of adding them when collecting the price terms.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-divides-by-one-slope",
+        "Divides by one slope only when solving for the price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-average-intercepts",
+        "Takes the average of the two intercepts as the equilibrium quantity.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-quantity-for-price",
+        "Gives the quantity where the price was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-wrong-line-quantity",
+        "Finds the quantity from an incorrect equilibrium price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-price-plus-quantity",
+        "Adds the price and the quantity instead of multiplying them for the revenue.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-revenue-quantity-only",
+        "Gives the quantity where the revenue was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-revenue-price-only",
+        "Gives the price where the revenue was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-slope-from-one-point",
+        "Uses a quantity as the slope instead of the change in quantity for a change in price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-slope-inverted",
+        "Divides the change in price by the change in quantity for the slope.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-subtracted-from-quantity",
+        "Subtracts the tax from the quantity instead of the price in the supply line.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-added-to-price",
+        "Adds the tax to the price in the supply line instead of subtracting it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-ignored",
+        "Ignores the tax and gives the original equilibrium quantity.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-price-for-quantity",
+        "Gives the new equilibrium price where the quantity was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-as-price",
+        "Divides the surplus by the sum of the slopes and gives that as the price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-shortage-price",
+        "Subtracts the extra price needed for the surplus instead of adding it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-equilibrium",
+        "Gives the equilibrium price where the price for a surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-one-slope",
+        "Divides the surplus by one slope only to find the extra price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "fg-unweighted-average",
+        "Averages the prizes without weighting them by their probabilities.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-sum-of-prizes",
+        "Adds the prizes without weighting them by their probabilities.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-largest-prize",
+        "Gives the largest prize as the expected prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-forgets-entry",
+        "Gives the expected prize where the expected gain (after paying to play) was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-reversed-sign",
+        "Subtracts the expected prize from the entry fee, so the sign of the gain is wrong.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-adds-entry",
+        "Adds the entry fee to the expected prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-sum-for-fee",
+        "Gives the total of the prizes as the fair entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-largest-prize",
+        "Gives the largest prize as the fair entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-total-not-divided",
+        "Adds the prizes on all the tickets and does not divide by the number of tickets.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-ignores-blanks",
+        "Divides by the number of winning tickets only, ignoring the blank ones.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-ignores-target-profit",
+        "Gives the fair entry fee, leaving out the profit the organiser wants.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-subtracts-target-profit",
+        "Takes the profit the organiser wants off the fair entry fee instead of adding it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-is-target-profit",
+        "Gives the profit the organiser wants as the entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-sign",
+        "Gives the players' expected gain over all the plays where the organiser's profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-prize-total",
+        "Gives the expected prize paid out over all the plays where the profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-per-play",
+        "Gives the profit on one play where the profit over many plays was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-fee-total",
+        "Gives the entry fees taken where the profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-no-probability",
+        "Sets the prize equal to the entry fee without allowing for the chance of winning it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-forgets-others",
+        "Ignores the expected value of the other prizes when finding the missing prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-times-probability",
+        "Multiplies by the probability instead of dividing by it when finding the missing prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-adds-others",
+        "Adds the expected value of the other prizes instead of subtracting it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-with-replacement",
+        "Uses the same probability for the second draw, as if the first counter were put back.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-one-draw",
+        "Uses the chance for one draw only, ignoring the second.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-probability-added",
+        "Adds the two probabilities instead of multiplying them.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-per-play",
+        "Gives the profit per play where the number of plays was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-multiplies",
+        "Multiplies the target profit by the profit per play instead of dividing.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-prize-based",
+        "Divides the target by the expected prize instead of the expected profit.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-fee-based",
+        "Divides the target by the entry fee instead of the expected profit.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "hl-product",
+        "Multiplies the two numbers instead of finding their common factor or multiple.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-sum",
+        "Adds the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-smaller",
+        "Gives the smaller of the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-larger",
+        "Gives the larger of the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-difference",
+        "Gives the difference between the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-for-hcf",
+        "Finds the lowest common multiple where the highest common factor was needed.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-for-lcm",
+        "Finds the highest common factor where the lowest common multiple was needed.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-not-divided",
+        "Gives the number of items in a share as the HCF, forgetting to divide by it.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-shares-for-size",
+        "Gives the number of groups where the size of each group was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-size-for-shares",
+        "Gives the size of each group where the number of groups was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-one-dimension",
+        "Counts the tiles along one side only.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-tiles-sum",
+        "Adds the number of tiles along each side instead of multiplying them.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-not-divided",
+        "Gives the time until the buses leave together where the number of trips was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-trips-other-bus",
+        "Gives the number of trips of the other bus.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-two-numbers-only",
+        "Finds the lowest common multiple of two of the three numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-three-product",
+        "Multiplies the three numbers together.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-turns-big-gear",
+        "Gives the turns of the larger gear where the smaller gear was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-turns-lcm",
+        "Gives the number of teeth that pass instead of the number of turns.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-two-only",
+        "Finds the highest common factor of only two of the three lengths.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-side-not-area",
+        "Gives the side of the square where the number of tiles was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-tiles-one-way",
+        "Counts the tiles along one side of the square only.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-ignores-remainders",
+        "Finds the HCF of the numbers without taking the remainders off first.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-adds-remainders",
+        "Adds the remainders to the numbers instead of subtracting them.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-remainder-lcm",
+        "Finds the lowest common multiple of the reduced numbers instead of the highest common factor.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-forgets-remainder",
+        "Gives the lowest common multiple and forgets to add the remainder.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-subtracts-remainder",
+        "Subtracts the remainder from the lowest common multiple instead of adding it.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-forgets-start",
+        "Leaves out the meeting at the start when counting how many times the events coincide.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-counts-extra",
+        "Counts one meeting too many.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-time-not-meetings",
+        "Gives the time of the first meeting where the number of meetings was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-product-for-other",
+        "Multiplies the HCF and the LCM and does not divide by the known number.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-over-hcf",
+        "Divides the LCM by the HCF to find the other number.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-other-divides-lcm",
+        "Divides the LCM by the known number to find the other number.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "w3ci-balance-for-interest",
+        "Gives the final balance where the interest earned was asked.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-simple-instead",
+        "Finds simple interest, adding the same amount every year.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-one-year",
+        "Gives one year's interest only.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-wrong-years",
+        "Compounds for one year too many or too few.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-annual-rate-each-period",
+        "Uses the annual rate in every compounding period instead of the rate for one period.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-periods-as-years",
+        "Counts the years instead of the number of compounding periods.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-annual-compounding",
+        "Compounds once a year although the interest is added more often.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-multiplies-by-amount",
+        "Multiplies the target amount by the growth factor instead of dividing.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-simple-discount",
+        "Takes the simple interest off the target amount to find the amount to invest.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-first-rate-throughout",
+        "Uses the first rate for the whole term when the rate changes.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-average-rate",
+        "Uses the average of the two rates for the whole term.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-difference-reversed",
+        "Gives one kind of interest where the difference between the two was asked.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3si-compounded",
+        "Compounds the interest every year instead of using simple interest.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-adds-principal",
+        "Adds the principal to the interest where only the interest was asked.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-off-by-one",
+        "Counts one year too many.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-forgets-principal",
+        "Gives the interest where the total amount was asked.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-months-as-years",
+        "Uses the number of months as the number of years.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-month-not-divided",
+        "Divides the months by 100 or by 10 instead of by 12.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-rate-not-percent",
+        "Leaves the rate as a whole number and does not divide it by 100.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-ignores-time",
+        "Leaves the time out of the working.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-time-for-rate",
+        "Divides the interest by the principal and by the rate but not by the time (or the reverse).",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-multiplies-for-inverse",
+        "Multiplies by the other quantities where the interest should be divided by them.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-total-for-interest",
+        "Uses the total amount as the interest when working back.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3wg-adds-instead",
+        "Adds the rate and the hours instead of multiplying them.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-misses-a-shift",
+        "Leaves one day's hours out of the total.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-first-day-repeated",
+        "Uses the first day's hours for every day.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-extra-hour",
+        "Counts one hour too many.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-only",
+        "Gives the loading alone, not the pay including it.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-as-dollars",
+        "Takes the tax rate off as a number of dollars.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-ignored",
+        "Gives the gross pay and does not take off tax.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rate-misread",
+        "Divides by a rate that is a dollar out.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rates-difference",
+        "Subtracts the two rates instead of the two pays.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-hours-difference",
+        "Multiplies the difference in hours by one rate.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-minutes-as-decimal",
+        "Writes 30 minutes as 0.30 of an hour (and 15 minutes as 0.15).",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-ignores-minutes",
+        "Leaves the minutes out of the hours worked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rounds-up-hour",
+        "Rounds the part hour up to a whole hour.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rate-inverted",
+        "Divides the hours by the pay instead of the pay by the hours.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-as-percent-only",
+        "Adds the loading as a dollar amount instead of a percentage of the rate.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-ignored",
+        "Leaves the casual loading out.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-as-pay",
+        "Gives the tax withheld where the pay after tax was asked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-added",
+        "Adds the tax to the gross pay instead of taking it off.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-floor-hours",
+        "Rounds the hours needed down, so the target is not reached.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-pay-as-hours",
+        "Divides the pay by the wrong number of hours.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-single-job",
+        "Gives the pay from one job only.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-sum-not-difference",
+        "Adds the two pays where the difference was asked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3ot-one-hour",
+        "Pays one hour of overtime only.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-extra-hour",
+        "Counts one overtime hour too many.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-wrong-multiplier",
+        "Uses double time where time and a half applies.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-all-hours-multiplied",
+        "Applies the overtime multiplier to every hour worked.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-overtime-at-ordinary",
+        "Pays the overtime hours at the ordinary rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-hours-not-subtracted",
+        "Uses all the hours worked as the overtime hours.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-ordinary-only",
+        "Leaves out the overtime pay.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-overtime-only",
+        "Gives the overtime pay where the whole week's pay was asked.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-second-rate-throughout",
+        "Pays every overtime hour at the higher rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-first-rate-throughout",
+        "Pays every overtime hour at the lower rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-pay-over-rate",
+        "Divides the pay by the ordinary rate only and does not remove the ordinary hours first.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-multiplier-forgotten-on-division",
+        "Divides by the hours worked and ignores that some are paid at a higher rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-ordinary-as-total",
+        "Treats the whole pay as overtime pay.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3up-miscounts-hundreds",
+        "Miscounts the number of 100 g lots in the packet.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-unit-price-given",
+        "Gives one of the unit prices where the difference was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-total-as-unit",
+        "Gives the price of the pack where the price of one was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-inverted",
+        "Divides the quantity by the price instead of the price by the quantity.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-adds-instead",
+        "Adds the unit price to itself instead of multiplying by the number of items.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-difference-of-totals",
+        "Subtracts the two pack prices instead of the two unit prices.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-per-gram",
+        "Gives the price per gram where the price per 100 grams was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-per-kg-as-100g",
+        "Gives the price per kilogram where the price per 100 grams was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-saving-per-item",
+        "Gives the saving on one item where the saving on all of them was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-wrong-pack",
+        "Prices all the items at the dearer pack's unit price.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-percent-of-cheaper",
+        "Finds the percentage using the cheaper unit price as the starting amount.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-percent-points",
+        "Gives the difference in cents as the percentage.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3fl-compounded",
+        "Compounds the interest instead of charging flat interest.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-one-year-of-payments",
+        "Counts one year of repayments only.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-off-by-one",
+        "Counts one year too many or too few.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-ignores-interest",
+        "Divides the amount borrowed alone by the number of months.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-interest-as-total",
+        "Gives the interest where the total repaid was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-one-year-interest",
+        "Finds one year's interest only.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-total-as-interest",
+        "Gives the total repaid where the interest was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-deposit-ignored",
+        "Charges interest on the price although a deposit is paid first.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-deposit-not-subtracted",
+        "Forgets to take the deposit off the price before adding interest.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-months-as-years",
+        "Divides by the number of years instead of the number of months.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-rate-without-time",
+        "Finds the rate without allowing for the number of years.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-rate-from-total",
+        "Uses the total repaid, not the interest, to find the rate.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-term-in-months",
+        "Gives the number of months where the number of years was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-term-from-total",
+        "Uses the total repaid, not the interest, to find the term.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-wrong-window",
+        "Multiplies the average by the wrong window size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-wrong-window",
+        "Averages a window of the wrong size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-shifted-window",
+        "Averages the window that starts at the stated point instead of the one centred on it.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-total-as-mean",
+        "Gives the total of the window without dividing.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-whole-series",
+        "Averages the whole series instead of one window.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-change-not-divided",
+        "Gives the change in the window total without dividing by the window size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-change-as-new-value",
+        "Gives the difference between the values leaving and entering as the change in the mean.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-not-from-total",
+        "Treats the moving average as the missing value.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-no-total",
+        "Subtracts the known values from the average without multiplying it by the window size first.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-centred-unweighted",
+        "Gives the end values of a centred 4-point mean the same weight as the others.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-centred-simple",
+        "Averages only the middle four values.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3mn-known-mean",
+        "Gives the mean of the known values as the missing value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-total-needed",
+        "Gives the total needed where the last score was asked.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-weights-swapped",
+        "Weights each mean by the other group's size.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-value-left-out",
+        "Leaves the new number out of the total.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-divides-by-wrong-count",
+        "Divides the total by the wrong number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-unweighted",
+        "Averages the scores without using the frequencies.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-divides-by-rows",
+        "Divides the weighted total by the number of rows in the table.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-sums-frequencies",
+        "Gives the total of the frequencies as the mean.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-mean-of-means",
+        "Averages the two group means without weighting them by group size.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-is-mean",
+        "Gives the target mean as the missing value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-no-total",
+        "Subtracts the known values from the mean without multiplying the mean by the number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-wrong-count",
+        "Multiplies the target mean by one value too few when finding the missing total.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-value-averaged",
+        "Averages the old mean with the new value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-count-forgotten",
+        "Divides the new total by the old number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3np-fewest-roads",
+        "Chooses the route with the fewest roads instead of the shortest total.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-greedy",
+        "Always takes the shortest road next and does not compare whole routes.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-longest",
+        "Gives the longest route instead of the shortest.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-second-shortest",
+        "Gives the second shortest route.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-skips-stop",
+        "Ignores that the route must pass through the stated town.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-two-legs-shortest-sum-error",
+        "Joins the two shortest legs even when they overlap or share a road.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-closed-ignored",
+        "Keeps using the road that has been closed.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-drops-the-detour",
+        "Takes the closed road's length off the old shortest route instead of finding a new route.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3pc-over-final",
+        "Divides the change by the final value instead of the original value.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-change-as-percent",
+        "Gives the amount of the change as the percentage.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-ratio-as-change",
+        "Gives the final value as a percentage of the original and does not subtract 100.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-original-as-final",
+        "Gives the original value as a percentage of the final value.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-points-as-percent",
+        "Gives the rise in percentage points as the percentage change.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-adds-steps",
+        "Adds the increase and takes off the decrease instead of multiplying the two multipliers.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-sums-percentages",
+        "Adds the two percentages whatever their direction.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-reverse-same-percent",
+        "Takes the fall that undoes a rise to be the same percentage as the rise.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-second-step-on-original",
+        "Gives the fall in the second step as a percentage of the original price, not the overall change.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-wrong-direction",
+        "Gives a percentage increase where a decrease was asked, or the reverse.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3cd-category-as-number",
+        "Treats a variable recorded in words or labels as numerical.",
+        area="classify-data",
+    ),
+    CatalogueEntry(
+        "w3el-smallest-float",
+        "Chooses the activity with the smallest float that is not zero.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-largest-est",
+        "Chooses the activity with the latest earliest start time.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-largest-lst",
+        "Chooses the activity with the latest latest start time.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-first-listed",
+        "Chooses the first activity in the table.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-longest-activity",
+        "Follows the longest single activities instead of the longest path.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-most-activities",
+        "Takes the path with the most activities for the critical path.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-one-swap",
+        "Swaps one critical activity for a non-critical one.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-est-for-lst",
+        "Gives the earliest start time where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-ignores-successors",
+        "Finds the latest start time from the project duration alone and ignores the activities that follow.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-forgets-duration",
+        "Gives the latest start time of the next activity without taking off the duration.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-finish-for-start",
+        "Gives the earliest finish time where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-float-for-lst",
+        "Gives the float where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3br-sin-cos-swapped",
+        "Swaps sine and cosine when finding a distance north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-adds-legs",
+        "Adds the two leg lengths instead of combining the north and east distances.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-one-leg",
+        "Uses the first leg only.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-no-reverse",
+        "Gives the bearing from the start to the finish where the bearing home was asked.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-tan-swapped",
+        "Uses the north distance over the east distance for the angle.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-raw-angle",
+        "Gives the angle in the triangle and does not turn it into a three-figure bearing.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-angle-from-east",
+        "Measures the angle from east instead of from north.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-sign-of-component",
+        "Adds a distance south or west as if it were north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-uses-sin-not-cos",
+        "Uses the sine of the bearing where the cosine is needed to cancel the north distance.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-distance-as-component",
+        "Gives the distance walked as the distance north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-tan-used",
+        "Uses the tangent where the sine or cosine is needed.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-divides",
+        "Divides by the sine or cosine where it should multiply.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-adds-components",
+        "Adds the north and east distances instead of using Pythagoras.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-uses-total-not-component",
+        "Uses the whole first leg as the distance to cancel.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    # w3 consumer block end
 )
 
 #: Every entry, by id.
