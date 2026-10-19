@@ -1,0 +1,67 @@
+id: f10-fraction-decimal-links
+name: Link tenths and hundredths as fractions and decimals
+domain: primary-number
+year_level: ['4']
+naplan_domain: [number]
+description: Move between decimals and fractions of tenths and hundredths, add and subtract tenths and hundredths written
+  as fractions and give the result as a decimal, and count a mixed total in hundredths.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-decimal-notation-tenths-hundredths
+- f10-fractions-half-quarter-eighth
+answer: number
+sources:
+- topic: fr2b_fraction_decimal_links
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2b_fraction_decimal_links
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2b_fraction_decimal_links
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: fr2b-decimal-place-gives-wrong-denominator
+  description: 'Choosing the denominator from the wrong place: writing 0.07 as 7/10 or 0.7 as 7/100.'
+- id: fr2b-decimal-digits-split-into-a-fraction
+  description: 'Reading the digits after the decimal point as a numerator and a denominator: 0.43 as 4/3.'
+- id: fr2b-decimal-point-ignored
+  description: 'Ignoring the decimal point and writing the digits as a whole number: 0.07 as 7/1.'
+- id: fr2b-tenths-added-as-hundredths
+  description: 'Adding the numerators of tenths and hundredths as if both were hundredths: 6/10 + 25/100 as 31/100.'
+- id: fr2b-ignores-the-hundredths-part
+  description: Leaving out the hundredths fraction and giving only the tenths.
+- id: fr2b-ignores-the-tenths-part
+  description: Leaving out the tenths fraction and giving only the hundredths.
+- id: fr2b-tenths-counted-as-hundredths
+  description: Counting 3 tenths as 3 hundredths instead of 30 hundredths.
+- id: fr2b-tenths-counted-as-hundreds-of-hundredths
+  description: Counting 3 tenths as 300 hundredths.
+- id: fr2b-decimal-counted-in-tenths
+  description: Counting the digits of a two-place decimal as tenths, so 0.45 is taken as 4 hundredths.
+- id: fr2b-counts-thousandths-not-hundredths
+  description: Counting in thousandths when hundredths were asked for, so the total is ten times too big.
+difficulty_progression: Easy writes a decimal as a fraction, where the place of the last digit sets the denominator (0.7 is
+  not 0.07). Medium adds or subtracts a tenths fraction and a hundredths fraction and gives the decimal. Hard combines a tenths
+  fraction, a decimal and a hundredths fraction and gives the total as a number of hundredths.
+tags:
+- acara-f10-v9
+- primary
+- decimals
+- fractions
+- ac9m4n03

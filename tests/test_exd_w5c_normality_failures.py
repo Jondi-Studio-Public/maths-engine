@@ -56,7 +56,7 @@ def test_distractors_clear_the_real_grader():
         options = mcq_options(q)
         assert len(options) == 4 and len(set(options)) == 4
         for i, option in enumerate(options):
-            assert grader(q, str(i)).correct == (option == q.answer_text), (seed, option)
+            assert grader(q, i).correct == (option == q.answer_text), (seed, option)
 
 
 def test_prompt_shape_differs_from_easy_and_medium():

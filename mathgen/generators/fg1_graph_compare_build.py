@@ -763,8 +763,64 @@ def _ray_text(p, direction, open_):
     return f"x {_SYM[sym]} {p}"
 
 
+_NL_VALUE_ASK = [
+    "Which of these numbers is a solution of the inequality?",
+    "Which number is in the solution shown on the number line?",
+    "Which of these values makes the inequality true?",
+]
+
+
+def _in_ray(v, p, direction, open_):
+    if direction == "right":
+        return v > p if open_ else v >= p
+    return v < p if open_ else v <= p
+
+
+def _nl_easy_value(rng, notes):
+    """The ray is shown and four numbers are offered: which one is in the solution? The endpoint itself is the
+    deciding case, a solution only when the circle is closed."""
+    lo, hi = _NL_RANGE
+    for _ in range(ATT):
+        p = rng.choice([v for v in range(-6, 7) if v != 0])
+        direction, open_ = rng.choice(("left", "right")), rng.choice((True, False))
+        sgn = 1 if direction == "right" else -1
+        inside = [v for v in range(lo, hi + 1) if _in_ray(v, p, direction, open_)]
+        outside = [v for v in range(lo, hi + 1) if not _in_ray(v, p, direction, open_)]
+        if not inside or len(outside) < 3:
+            continue
+        key_v = p if (not open_ and rng.random() < 0.4) else rng.choice(inside)
+        cands = [(str(v), _N_DIR) for v in outside if v != p]
+        if open_:
+            cands.append((str(p), _N_CLOSED))
+            cands.append((str(p), _N_CLOSED))  # the endpoint is the likeliest slip, so it is drawn more often
+        else:
+            cands.append((str(p - sgn), _N_OPEN))
+        texts, note_map = take_distractors(rng, str(key_v), cands)
+        if len(texts) < 3:
+            continue
+        fig = figures.number_line(
+            range_=_NL_RANGE, alt=_ALT_NUMBER_LINE, tick=1, rays=[{"from": p, "direction": direction, "open": open_}]
+        )
+        try:
+            no_leak(fig, str(key_v), texts)
+        except AssertionError:
+            continue
+        text = f"{phrase(rng, _NL_OPEN)} {phrase(rng, _NL_VALUE_ASK)}"
+        word = "an open circle, so the end is not included" if open_ else "a closed circle, so the end is included"
+        working = [
+            f"The shading goes {direction} from {p}, with {word}.",
+            f"{key_v} is in the shaded part, so it is a solution.",
+        ]
+        return mcq_result(
+            text=text, key_text=str(key_v), texts=texts, notes=note_map, working=working, fig=fig, option_notes=notes
+        )
+    raise ValueError("could not build a solution-value question")
+
+
 def _nl_easy(rng, notes):
-    p = rng.choice([v for v in range(-6, 7) if v != 0])
+    if rng.random() < 0.4:
+        return _nl_easy_value(rng, notes)
+    p = rng.choice([v for v in range(-7, 8) if v != 0])
     direction, open_ = rng.choice(("left", "right")), rng.choice((True, False))
     fig = figures.number_line(
         range_=_NL_RANGE, alt=_ALT_NUMBER_LINE, tick=1, rays=[{"from": p, "direction": direction, "open": open_}]
@@ -913,6 +969,10 @@ def _read_number_line(question) -> str:
     if fig["rays"]:
         ray = fig["rays"][0]
         shown = (ray["direction"], F(ray["from"]), bool(ray.get("open")))
+        if all(re.fullmatch(r"-?\d+", o) for o in options):
+            inside = [o for o in options if _in_ray(int(o), int(ray["from"]), ray["direction"], bool(ray.get("open")))]
+            check(len(inside) == 1, "exactly one offered number must be in the shaded part")
+            return inside[0]
         for o in options:
             m = _LIN_RE.match(o)
             if m:

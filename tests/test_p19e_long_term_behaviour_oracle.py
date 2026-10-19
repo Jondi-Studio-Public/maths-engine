@@ -8,6 +8,7 @@ whose displayed option matches that class.
 >= 1000 questions are checked over the four tiers -- per topic.
 """
 
+from dataclasses import replace
 import os
 import re
 from fractions import Fraction
@@ -46,6 +47,7 @@ def _skill_sources(skill_id):
 
 GEO_SOURCES = _skill_sources(GEO_ID)
 REC_SOURCES = _skill_sources(REC_ID)
+REC_SOURCES["exam"] = replace(REC_SOURCES["exam"], topic="p19e_recurrence_long_term_class", params={})
 
 
 def _make(sources, difficulty, seed):
@@ -167,7 +169,7 @@ def test_geo_oracle_grader_agrees():
             true_class = _geo_oracle_class(q.text)
             true_letter = _letter_for(q.text, _GEO_OPTION_TEXT, true_class)
             correct_idx = options.index(true_letter)
-            assert grade_mcq(q, str(correct_idx)).correct
+            assert grade_mcq(q, correct_idx).correct
 
 
 # ==========================================================================
@@ -237,4 +239,4 @@ def test_rec_oracle_grader_agrees():
             true_class = _rec_oracle_class(q.text)
             true_letter = _letter_for(q.text, _REC_OPTION_TEXT, true_class)
             correct_idx = options.index(true_letter)
-            assert grade_mcq(q, str(correct_idx)).correct
+            assert grade_mcq(q, correct_idx).correct

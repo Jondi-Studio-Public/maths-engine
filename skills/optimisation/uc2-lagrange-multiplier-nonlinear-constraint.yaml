@@ -1,0 +1,101 @@
+id: uc2-lagrange-multiplier-nonlinear-constraint
+name: Extremise on a nonlinear constraint with a Lagrange multiplier
+domain: optimisation
+year_level:
+- university
+description: Use a Lagrange multiplier to find the extreme value of a function of two variables on a circle, an ellipse or
+  another conic.
+status: active
+placement_eligible: false
+prerequisites:
+- lagrange-constrained-point
+answer: fraction
+sources:
+- topic: r4h_lagrange_nonlinear_constraint
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_lagrange_nonlinear_constraint
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_lagrange_nonlinear_constraint
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_lagrange_nonlinear_constraint
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-lagr-minimum-reported
+  description: Reporting the minimum value (the negative of the maximum) when the maximum was asked for.
+- id: num2t-lagr-radius-for-radius-squared
+  description: Treating the constant on the right of the circle as the radius instead of the radius squared.
+- id: num2t-lagr-radius-squared-factor
+  description: Multiplying the length of the objective's gradient by the right-hand side instead of its square root.
+- id: num2t-lagr-sum-of-coefficients
+  description: Using the sum of the coefficients in place of the length of the objective's gradient.
+- id: num2t-lagr-objective-at-gradient-point
+  description: Evaluating the objective at the point (a, b) itself instead of at the point on the constraint.
+- id: num2t-lagr-circle-value-unscaled
+  description: Dividing by the right-hand side instead of multiplying by its square root.
+- id: num2t-lagr-ellipse-weights-ignored
+  description: Ignoring the weights of the squares when solving for the point on an ellipse.
+- id: num2t-lagr-multiplier-reported
+  description: Reporting the multiplier λ in place of the extreme value.
+- id: num2t-lagr-factor-two-lost
+  description: Losing the factor 2 in the value 2λc by writing the extreme value as λc.
+- id: num2t-lagr-gradient-cross-term-missed
+  description: Differentiating x² + xy + y² as 2x + 2y, missing the cross term.
+- id: num2t-lagr-product-over-weights
+  description: Writing the maximum of xy on px² + qy² = c as c/(2pq) instead of c/(2√(pq)).
+- id: num2t-lagr-product-no-root
+  description: Writing the maximum of xy as c/√(pq), a factor 2 too large.
+- id: num2t-lagr-product-factor-four
+  description: Writing the maximum of xy as c/(4√(pq)), a factor 2 too small.
+- id: num2t-lagr-product-at-axis
+  description: Evaluating xy at a point of the ellipse on an axis, where xy = 0.
+- id: num2t-lagr-lambda-squared
+  description: Giving λ² where λ was asked for, forgetting the square root.
+- id: num2t-lagr-lambda-doubled
+  description: Giving 2λ where λ was asked for.
+- id: num2t-lagr-lambda-negative-root
+  description: Giving the negative root λ, which belongs to the minimum.
+- id: num2t-lagr-lambda-unweighted
+  description: Solving for λ with the ellipse's weights p and q left out.
+- id: num2t-lagr-coordinate-gradient-not-scaled
+  description: Giving the coordinate as a/(2λ), leaving out the weight on the square.
+- id: num2t-lagr-coordinate-sign
+  description: Giving the coordinate of the minimiser instead of the maximiser.
+- id: num2t-lagr-coordinate-swapped
+  description: Giving the other variable's coordinate.
+- id: num2t-lagr-coordinate-uses-doubled-lambda
+  description: Dividing by λ rather than 2pλ when solving for the coordinate.
+- id: num2t-lagr-value-sum-of-coordinates
+  description: Adding the coordinates of the maximiser instead of evaluating the objective.
+- id: num2t-lagr-value-first-term
+  description: Evaluating only the first term of the objective at the maximiser.
+- id: num2t-lagr-value-constraint
+  description: Giving the constraint's right-hand side as the maximum.
+difficulty_progression: Easy finds the maximum of a linear function on a circle. Medium uses an ellipse with unequal weights,
+  or the product xy on an ellipse, where the stationarity equations must be combined before the constraint is used. Hard uses
+  the conic x^2 + xy + y^2 = c, where the cross term couples the two gradient equations. The exam chain asks for the multiplier,
+  then the maximiser's coordinates from the learner's multiplier, then the maximum value.
+tags:
+- university-year-2
+- optimisation
+- lagrange-multipliers
+- constrained-optimisation
+- optimisation
+framework_areas:
+- optimisation

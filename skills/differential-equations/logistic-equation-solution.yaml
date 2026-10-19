@@ -1,0 +1,81 @@
+id: logistic-equation-solution
+name: Solve the logistic equation
+domain: differential-equations
+description: 'Solve dP/dt = kP(1 - P/M) for P(t) = M/(1 + A e^(-kt)) from the initial population, find k from a later reading,
+  and find the time to reach a stated fraction of the carrying capacity or the time and size of the greatest growth rate.
+  The equation is given: the formulation skill covers writing it from a description.'
+status: active
+placement_eligible: false
+prerequisites:
+- senior-formulate-differential-equations-including-the-logistic-equation-that
+- solve-ode-exponential
+answer: expression
+sources:
+- topic: r3h_logistic
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3h_logistic
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3h_logistic
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3h_logistic
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3h-logistic-k-sign
+  description: Taking k from ln(A/(M/P - 1)) with the wrong sign, so the growth constant comes out negative.
+- id: r3h-logistic-forgot-minus-one
+  description: Writing the constant as M/P(0) instead of (M - P(0))/P(0) in P = M/(1 + A e^(-kt)).
+- id: r3h-logistic-k-not-divided-by-time
+  description: Finding the exponent -kt but not dividing by t, so k is the logarithm itself.
+- id: r3h-logistic-log-base-ten
+  description: Using a base-10 logarithm to undo the natural exponential.
+- id: r3h-logistic-constant-inverted
+  description: Inverting the constant, A = P(0)/(M - P(0)) instead of (M - P(0))/P(0).
+- id: r3h-logistic-k-dropped
+  description: Leaving k out of the exponent, writing e^(-t) where e^(-kt) is needed.
+- id: r3h-logistic-exponent-sign
+  description: Giving the exponent the wrong sign, e^(kt) in the denominator, so the population shrinks instead of approaching
+    M.
+- id: r3h-logistic-exponential-model
+  description: Using unrestricted exponential growth P(0)e^(kt) and ignoring the carrying capacity.
+- id: r3h-logistic-fraction-not-converted
+  description: Mishandling the stated fraction of capacity, using 0.9 or 90 where the ratio f/(1 - f) is needed.
+- id: r3h-logistic-forgot-constant
+  description: Solving f = 1/(1 + A e^(-kt)) with the constant A left out of the logarithm.
+- id: r3h-logistic-time-times-k
+  description: Multiplying the logarithm by k instead of dividing by k when solving for the time.
+- id: r3h-logistic-half-capacity
+  description: Answering with the time at which the population reaches half of M, the point of greatest growth, instead of
+    the time asked for.
+- id: r3h-logistic-max-rate-at-start
+  description: Taking the greatest growth rate to occur at the start, or giving the rate at t = 0.
+- id: r3h-logistic-capacity-added
+  description: Adding M and P(0) instead of subtracting when finding the constant A.
+- id: r3h-logistic-max-rate-missing-quarter
+  description: Giving the greatest growth rate as kM, missing the factors P = M/2 and (1 - P/M) = 1/2.
+- id: r3h-logistic-max-rate-half
+  description: Giving the greatest growth rate as kM/2, using P = M/2 but forgetting the factor (1 - P/M).
+- id: r3h-logistic-max-rate-at-capacity
+  description: Evaluating the growth rate at the wrong population, giving kM/8.
+tags:
+- senior-secondary
+- specialist-mathematics
+- differential-equations
+- logistic-growth

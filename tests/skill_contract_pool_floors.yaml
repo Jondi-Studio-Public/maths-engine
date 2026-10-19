@@ -7,8 +7,6 @@ add-within-5:
 angle-degrees-radians-pi-form:
   t4_degrees_radians_pi_form/easy: 16
   t4_degrees_radians_pi_form/medium: 15
-angle-types:
-  classify_angle/easy: 10
 australian-coin-values:
   australian_coins/easy: 6
 before-and-after-to-10:
@@ -21,8 +19,6 @@ classify-real-numbers:
   classify_real_number/easy: 5
 combinations:
   combinatorics/easy: 18
-compare-lengths:
-  compare_length/easy: 2
 complex-modulus:
   complex_number/easy: 3
 condition-number-diagonal:
@@ -42,10 +38,6 @@ f10-angle-turn-right-reference:
 f10-circle-measures:
   circle_measures/easy: 13
   circle_measures/medium: 13
-f10-compare-measurement-attributes:
-  compare_measurement_attributes/easy: 4
-  compare_measurement_attributes/hard: 12
-  compare_measurement_attributes/medium: 4
 f10-decimal-notation-tenths-hundredths:
   decimal_tenths_hundredths_compose/easy: 17
 f10-fractions-half-quarter-eighth:

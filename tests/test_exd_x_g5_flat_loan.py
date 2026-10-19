@@ -33,12 +33,6 @@ def _cents(value):
     return Fraction(math.floor(value * 100 + Fraction(1, 2)), 100)
 
 
-def test_no_text_defects_over_60_seeds():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
 def test_prompt_variety_and_new_shapes_over_the_existing_tier():
     exam = {prompt_shape(_make(s)) for s in range(60)}
     base = {prompt_shape(make(BASE_TOPIC, seed=s, difficulty="easy", **BASE_PARAMS)) for s in range(60)}

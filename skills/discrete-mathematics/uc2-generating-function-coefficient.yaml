@@ -1,0 +1,88 @@
+id: uc2-generating-function-coefficient
+name: Coefficient of a generating function
+domain: discrete-mathematics
+year_level:
+- university
+description: 'Extract a coefficient from a generating function written in closed form: a product of geometric series, a shifted
+  and scaled negative binomial series, or a bounded count with a numerator that cuts the series. The exam chain shares tickets
+  among three people with two caps, using the unrestricted count, the two counts that break a cap and inclusion and exclusion.'
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-inclusion-exclusion-two-sets
+- ucv1-power-series-convergence
+answer: number
+sources:
+- topic: r4j_generating_function_coefficient
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4j_generating_function_coefficient
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4j_generating_function_coefficient
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4j_generating_function_coefficient
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: gf-bounded-numerator-ignored
+  description: Ignoring the numerator 1 - x to the m that caps the parts, and counting the unrestricted ways.
+- id: gf-coefficient-index-off-by-one
+  description: Taking the coefficient of the neighbouring power of x, one place to the left or right of the one asked for.
+- id: gf-convolution-term-count
+  description: Summing one term too few or too many when a coefficient of a product of series is the sum of products of coefficients.
+- id: gf-correction-terms-truncated
+  description: Stopping the inclusion-exclusion correction terms of a capped count after the first or second, leaving out
+    a later one.
+- id: gf-cutoff-off-by-one
+  description: Subtracting the ways where a part is at least m instead of at least m + 1, so every correction term is shifted
+    by one.
+- id: gf-inclusion-exclusion-sign
+  description: Adding every correction term of a capped count instead of alternating the signs.
+- id: gf-negbinomial-choose-swapped
+  description: Writing the coefficient of x to the k in 1/(1 - x) to the r as C(k + r - 1, r) instead of C(k + r - 1, r -
+    1).
+- id: gf-negbinomial-power-off-by-one
+  description: Using the series for 1/(1 - x) to the r plus 1 (or minus 1) because the exponent of the denominator was misread.
+- id: gf-scale-factor-dropped
+  description: Dropping the power of a when finding the coefficient of x to the k in 1/(1 - ax) to the r.
+- id: gf-scale-factor-not-powered
+  description: Multiplying by a times k instead of raising a to the k when the series is in powers of ax.
+- id: gf-series-coefficients-added
+  description: Adding the coefficients of two series term by term to get the coefficient of a product, instead of convolving
+    them.
+- id: gf-series-coefficients-multiplied
+  description: Multiplying the matching coefficients of two series to get the coefficient of their product, instead of convolving
+    them.
+- id: gf-shift-ignored
+  description: Ignoring a factor x to the s in the numerator, so that the coefficient of x to the k is taken instead of x
+    to the k minus s.
+- id: gf-wrong-denominator-power
+  description: Reading the coefficient of x to the k in 1/(1 - x) to the r as the coefficient for a different power of the
+    denominator.
+difficulty_progression: Easy multiplies two geometric series, so the coefficient is a convolution. Medium takes a negative
+  binomial series with a scale factor and a shift in the numerator. Hard adds a numerator that caps the parts, so the unrestricted
+  count has to be corrected by alternating terms, and the same count may be asked as a plain counting question. The exam chain
+  finds the unrestricted count, the two counts that break a cap, then the capped count following through from them.
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- generating-functions
+- counting
+- power-series
+- negative-binomial

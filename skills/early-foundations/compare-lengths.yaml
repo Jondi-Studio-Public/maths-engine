@@ -1,17 +1,34 @@
 id: compare-lengths
-name: Compare lengths
+name: Compare lengths of objects
 domain: early-foundations
-placement_order: 190
-placement_questions: 3
-placement_pass: 2
+year_level: [F]
+naplan_domain: [measurement]
 learner_band: early
-description: Compare two objects and identify which is longer.
+description: Look at a picture of objects and say which is longer, shorter, longest or shortest, first with the objects lined up at one end and then when they are not lined up.
 status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
 prerequisites: [compare-quantities-to-10]
 answer: mcq
 sources:
-- topic: compare_length
-  params: {}
+- topic: compare_length_picture
   difficulty: easy
-misconceptions: []
-tags: [age-5, measurement, visual]
+  stages: [0, 1, 2]
+- topic: compare_length_picture
+  difficulty: medium
+  stages: [3, 4]
+- topic: compare_length_picture
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: picks-furthest-end
+  description: Picks the object whose end reaches furthest right, even though it started further along and is not the longest.
+- id: says-same-when-ends-meet
+  description: Says two objects are the same length because one end of each is at the same place, when they start in different places.
+- id: reads-shortest-as-longest
+  description: Answers the opposite question, giving the longest when asked for the shortest or the reverse.
+- id: calls-equal-different
+  description: Picks one object when the two are exactly the same length.
+tags: [acara-f10-v9, early, measurement, length, comparison, ac9mfm01, age-5, visual]

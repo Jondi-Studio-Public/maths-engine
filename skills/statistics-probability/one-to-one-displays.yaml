@@ -1,0 +1,63 @@
+id: one-to-one-displays
+name: "One-to-one displays: tally and picture graph"
+domain: statistics-probability
+year_level: ['1']
+naplan_domain: [statistics]
+learner_band: early
+description: "Read a tally table or a picture graph where one picture is one thing, and compare the counts: how many in a row, how many more, how many altogether, and how many fewer the least has than the most."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [sort-and-count-objects, skip-count-2-5-10]
+answer: number
+sources:
+- topic: ey_one_to_one_data
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_one_to_one_data
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_one_to_one_data
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Read one row of marks or pictures."
+  medium:
+    steps: 2
+    demand: "Read two rows, then compare them or add them."
+  hard:
+    steps: 3
+    demand: "Read five rows, then find the least and the most and compare them, or add every row."
+misconceptions:
+- id: eyt-neighbouring-row
+  description: "Reads the row above or below the one the question names."
+- id: eyt-skips-the-slash
+  description: "Counts only the upright strokes of a tally, so each gate of five is read as four."
+- id: eyt-gate-counted-as-one
+  description: "Counts each gate of five tally marks as a single mark."
+- id: eyt-counts-all-kinds
+  description: "Gives the total of every row when the question asked about one row or two."
+- id: eyt-count-one-over
+  description: "Counts one too many in a row of marks or pictures."
+- id: eyt-count-one-short
+  description: "Counts one too few in a row of marks or pictures."
+- id: eyt-reports-one-group
+  description: "Gives the count of one row when asked how many more or how many fewer."
+- id: eyt-adds-instead-of-compares
+  description: "Adds two rows when asked how many more or how many fewer one row has than another."
+- id: eyt-other-group
+  description: "Uses a different row from the one named."
+- id: eyt-misses-a-group
+  description: "Leaves one row out when adding up every row."
+- id: eyt-counts-the-rows
+  description: "Gives the number of rows instead of how many there are altogether."
+- id: eyt-wrong-group
+  description: "Compares the wrong pair of rows, such as the second most instead of the most."
+tags: [acara-f10-v9, early, ac9m1st02, data, tally, picture-graph, visual]

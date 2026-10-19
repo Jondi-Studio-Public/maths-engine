@@ -3,6 +3,7 @@
 id: senior-distinguish-between-causality-and-correlation-through-examples
 name: Distinguish between causality and correlation through examples
 domain: statistics-probability
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, distinguish between causality and correlation through examples. Return the resulting value, expression, relation, or classification. This skill assesses the distinction directly: causation requires random assignment (controlled experiment), correlation requires an observational study with a named confounding variable. A binary classification with two real answer categories (causation vs. correlation only) and no third-party "no relationship" category or "unknown" outcome.'
 status: active
 placement_eligible: false

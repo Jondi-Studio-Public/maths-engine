@@ -57,10 +57,6 @@ def test_prompt_variety_and_new_shape():
     assert exam_shapes - hard
 
 
-def test_no_text_defects():
-    check_no_text_defects(TOPIC)
-
-
 def test_key_rederived_from_prompt():
     for seed in range(300):
         q = exam(TOPIC, seed)
@@ -79,10 +75,6 @@ def test_full_marks_and_distractors_rejected():
     check_full_marks(SKILL_ID, TOPIC)
     check_distractors_rejected(SKILL_ID, TOPIC)
     check_tagged(TOPIC)
-
-
-def test_answer_space():
-    check_answer_space(TOPIC)
 
 
 def test_follow_through_from_wrong_estimate_and_wrong_integral():

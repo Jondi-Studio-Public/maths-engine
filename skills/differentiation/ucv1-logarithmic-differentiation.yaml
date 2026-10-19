@@ -1,0 +1,97 @@
+id: ucv1-logarithmic-differentiation
+name: Differentiate by taking logarithms
+domain: differentiation
+year_level:
+- university
+description: Differentiate functions with a variable exponent, such as x to the power of sin x, and long products and quotients
+  of powers, by taking logarithms first; evaluate the result at a point.
+status: active
+placement_eligible: false
+prerequisites:
+- differentiate-chain-rule
+answer: expression
+sources:
+- topic: u2_log_differentiation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: u2_log_differentiation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: u2_log_differentiation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_u2_log_differentiation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: log-diff-denominator-sign
+  description: Giving the factors in the denominator a positive exponent in the logarithmic derivative, so their terms are
+    added instead of subtracted.
+- id: log-diff-exponent-dropped
+  description: Leaving the exponent out of each term of the logarithmic derivative, so every factor contributes 1 over its
+    base.
+- id: log-diff-forgot-base-derivative
+  description: Differentiating only the exponent's effect (as for a to the x) and forgetting that the base also varies.
+- id: log-diff-forgot-base-derivative-log
+  description: Differentiating x ln(x + a) as if only the second factor changed, dropping the ln(x + a) from the product
+    rule.
+- id: log-diff-forgot-exponent-derivative
+  description: Differentiating the base's effect but forgetting to differentiate the variable exponent, so the log term
+    loses its factor.
+- id: log-diff-forgot-original-function
+  description: Stopping at the derivative of ln y, without multiplying by y to get dy/dx.
+- id: log-diff-multiplied-not-divided
+  description: Multiplying each exponent by its base instead of dividing, when differentiating the logarithm of a power
+    of x plus a constant.
+- id: log-diff-power-rule-on-variable-exponent
+  description: Applying the power rule to a power whose exponent is a variable, bringing the exponent down and reducing
+    it by one.
+- id: log-diff-product-rule-dropped-x
+  description: Differentiating x ln(x + a) with the derivative of ln(x + a) as 1/(x + a) but without the factor x on that
+    term.
+- id: log-diff-product-rule-one-factor
+  description: Differentiating only one factor of the product and leaving the others unchanged.
+- id: normal-gradient-is-tangent
+  description: Giving the gradient of the tangent where the gradient of the normal was asked for.
+- id: normal-gradient-not-negated
+  description: Taking the reciprocal of the tangent's gradient without the minus sign for the normal.
+- id: normal-gradient-not-reciprocal
+  description: Negating the tangent's gradient without taking the reciprocal for the normal.
+- id: tangent-intercept-forgot-slope
+  description: Giving the value of the function at the point of tangency as the y-intercept of the tangent.
+- id: tangent-intercept-sign
+  description: Taking the tangent's y-intercept as y(1) plus the slope, or the slope minus y(1), instead of y(1) minus the
+    slope.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Recognise a variable base with a variable exponent, take logarithms, differentiate implicitly and multiply back
+      by y.
+  medium:
+    steps: 4
+    demand: Take logarithms of a product and quotient of powers of linear factors, differentiate to a sum of fractions,
+      evaluate it and multiply by the value of y at the point.
+  hard:
+    steps: 5
+    demand: Take logarithms of u(x) to the power v(x) where both the base and the exponent need the chain rule, differentiate
+      with the product rule, and evaluate the exact value at a point.
+  exam:
+    steps: 6
+    demand: Differentiate the logarithm of (x + a)^x, use it to find the derivative at x = 1, then find the tangent's y-intercept and the normal's gradient from that value.
+tags:
+- university-core-v1
+- differentiation
+- logarithmic-differentiation

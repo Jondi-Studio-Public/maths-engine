@@ -77,14 +77,14 @@ def test_real_grader_accepts_answer_index_rejects_distractor_indices(topic, tier
         q = make(topic, seed=seed, difficulty=tier)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        result = grader(q, str(correct_index))
+        result = grader(q, correct_index)
         assert result.correct, f"{topic} {tier} seed={seed}: correct index rejected"
         for dist in q.distractors:
             dist_index = options.index(dist)
-            result = grader(q, str(dist_index))
+            result = grader(q, dist_index)
             assert not result.correct, f"{topic} {tier} seed={seed}: distractor index {dist_index} accepted"
         out_of_range = len(options)
-        result = grader(q, str(out_of_range))
+        result = grader(q, out_of_range)
         assert not result.correct, f"{topic} {tier} seed={seed}: out-of-range index accepted"
 
 

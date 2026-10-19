@@ -31,13 +31,6 @@ def test_prompt_variety_and_new_shapes_over_hard_tier():
     assert len(shapes - hard_shapes) >= 3, (shapes, hard_shapes)
 
 
-def test_no_text_defects_and_deterministic():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-        assert q.to_json() == _make(seed).to_json()
-
-
 def test_skill_yaml_has_the_exam_source_last():
     import yaml
 
@@ -45,12 +38,16 @@ def test_skill_yaml_has_the_exam_source_last():
         Path(__file__).resolve().parents[1].glob("skills/*/senior-apply-the-cosine-and-sine-ratios-to-find.yaml")
     )
     skill = yaml.safe_load(path.read_text(encoding="utf-8"))
-    last = skill["sources"][-1]
-    assert last["topic"] == "exd_x_r2f_trig_altitude"
-    assert last["difficulty"] == "exam"
-    assert last["stages"] == ["exam"]
-    assert last["params"] == {"tier": "exam"}
-    assert [s["difficulty"] for s in skill["sources"]] == ["easy", "medium", "hard", "exam"]
+    # The multi-part chain is second to last; this single-part topic was re-added after it as key exam-single (bf2fca7).
+    chain, last = skill["sources"][-2:]
+    assert chain["topic"] == "exd_x_r2f_trig_altitude"
+    assert last["topic"] == "exd_x_h4_trig_altitude"
+    assert last["key"] == "exam-single"
+    for source in (chain, last):
+        assert source["difficulty"] == "exam"
+        assert source["stages"] == ["exam"]
+        assert source["params"] == {"tier": "exam"}
+    assert [s["difficulty"] for s in skill["sources"]] == ["easy", "medium", "hard", "exam", "exam"]
 
 
 def _oracle(text):

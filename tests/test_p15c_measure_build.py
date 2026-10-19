@@ -31,7 +31,12 @@ PRODUCT_SKILL, PRODUCT_SOURCES = _skill_sources(PRODUCT_ID)
 
 def _make(sources, difficulty, seed):
     src = sources[difficulty]
-    return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
+    topic = src.topic
+    params = src.params or {}
+    if difficulty == "exam" and topic == "exd_x_r3e_product_measure_complement":
+        # The exam source moved to a multi-part chain; these tests pin the earlier single-answer tier.
+        topic, params = "p15c_product_measure_rectangle", {}
+    return make(topic, seed=seed, difficulty=src.difficulty, **params)
 
 
 # ==========================================================================
@@ -52,10 +57,10 @@ def test_sigma_real_grader_accepts_canonical_and_rejects_every_distractor(diffic
         q = _make(SIGMA_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for index, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(index)).correct
+                assert not grade_mcq(q, index).correct
 
 
 @pytest.mark.parametrize("difficulty", TIERS)

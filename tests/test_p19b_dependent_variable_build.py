@@ -38,10 +38,10 @@ def test_answer_in_mcq_options_and_grader_accepts_rejects(tier):
         options = mcq_options(q)
         assert q.answer_text in options
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for distractor in q.distractors:
             distractor_index = options.index(distractor)
-            assert not grade_mcq(q, str(distractor_index)).correct
+            assert not grade_mcq(q, distractor_index).correct
 
 
 @pytest.mark.parametrize("tier", TIERS)

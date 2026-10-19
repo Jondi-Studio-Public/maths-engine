@@ -4,6 +4,7 @@ id: senior-examine-the-position-of-two-particles-each-described
 name: Examine the position of two particles each described as a vector function of time,
   and determine if their paths cross or if the particles meet
 domain: vectors
+year_level: ['12']
 description: 'Given two particles whose position vectors are stated as vector functions of time, r_A(t) and r_B(t) in the plane, determine whether the particles meet -- occupy the same position at the same time -- choosing from the offered options on the easy to hard tiers: a genuine meeting (with its point and time), the paths crossing in space but at different times for each particle, or the paths never crossing at all. Easy uses small integers, drawing a genuine never-intersect (parallel, distinct paths) case alongside meet and cross-at-different-times. Medium may share one velocity component between the two particles (forcing genuine per-component reasoning) and shares the same three live verdicts with easy. Hard allows fractional/negative coefficients with both no-flavours live. Exam is a four-part closest-approach chain for two points moving steadily: the time of closest approach, the least distance, how long they stay within a stated range, and when they first come within it. Never asks for the meeting time/position as a second graded value on a non-meeting instance (vector-addition, the active prerequisite, only adds/subtracts two given vectors and never solves a component-wise time-consistency system).'
 status: active
 placement_eligible: false

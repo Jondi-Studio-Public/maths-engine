@@ -1,37 +1,78 @@
 id: gradient-vector
 name: Gradient vector
 domain: partial-derivatives
-description: Find the gradient vector of a two-variable function.
-status: deferred
-deferred_reason: grader
+year_level: [university]
+description: Find the gradient vector of a function of two variables at a point, including functions that need the
+  chain, product or quotient rule, and use it to find the direction of steepest ascent or descent, the point where the
+  gradient takes a stated value, the unit tangent to a level curve, and the rates of change in a stated direction and
+  in the steepest direction. Answers are ordered pairs, graded as pairs.
+status: active
 prerequisites:
 - partial-derivative-x
 - partial-derivative-y
-answer: list
+answer: pair
 sources:
-- topic: partial_derivatives
+- topic: w5c_gradient_vector
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: partial_derivatives
+- topic: w5c_gradient_vector
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: partial_derivatives
+- topic: w5c_gradient_vector
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5c_gradient_vector
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: swapped-components
-  description: Swapping the two components of the gradient vector.
-- id: same-variable-both
-  description: Using the same variable for both components.
-tags: []
+- id: gradient-vector-components-swapped
+  description: Writes the gradient as (f_y, f_x), with the partial derivatives in the wrong order.
+- id: gradient-partial-repeated
+  description: Uses the same partial derivative for both components of the gradient.
+- id: gradient-term-omitted
+  description: Leaves out the contribution of the cross term when taking a partial derivative.
+- id: partial-other-variable-also-differentiated
+  description: Applies the product rule to both variables when taking a partial derivative of a mixed term such as x^2 y.
+- id: gradient-chain-inner-derivative-dropped
+  description: Differentiates the outer function of a composite (logarithm, root, exponential) and leaves out the
+    derivative of the inner expression.
+- id: gradient-quotient-rule-reversed
+  description: Subtracts the two products of the quotient rule in the wrong order, so the signs are reversed.
+- id: steepest-descent-for-ascent
+  description: Gives the direction of steepest descent, the negative of the gradient direction, where steepest ascent
+    was asked for.
+- id: gradient-normalised-by-component-sum
+  description: Divides the gradient by the sum of the sizes of its components instead of by its length.
+- id: tangent-parallel-to-gradient
+  description: Gives the unit vector along the gradient where the tangent to the level curve, which is perpendicular to
+    it, was asked for.
+- id: solve-gradient-set-to-zero
+  description: Sets the gradient to the zero vector (a critical point) instead of to the stated vector.
+- id: direction-not-normalised
+  description: Takes the dot product with a direction vector that has not been divided by its length.
+- id: gradient-length-no-root
+  description: Gives the sum of the squares of the components as the length of the gradient.
+difficulty_progression: >-
+  Easy asks for the gradient at a point of a polynomial in x and y with mixed terms such as
+  x^2 y and xy, so the cross terms must be differentiated one variable at a time. Medium asks for the gradient at a
+  point of a function needing the chain, product or quotient rule (a logarithm or root of x^2 + y^2, an exponential
+  times a linear factor, a ratio of linear expressions) at a point chosen so the answer is exact. Hard uses the
+  gradient: the unit vector of steepest ascent or descent, the point where the gradient equals a stated vector (two
+  linear equations in x and y), the unit tangent to the level curve through a point, and the rate of change in a
+  stated direction together with the greatest rate of change. The exam chain finds both partial derivatives of a
+  logarithm, root or quotient surface, then the rate of change towards a second point and the greatest rate of
+  increase, following through from the partial derivatives.
+tags: [university-core-v1, multivariable-calculus, partial-derivatives, gradient]

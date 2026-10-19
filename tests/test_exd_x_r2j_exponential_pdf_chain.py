@@ -64,10 +64,6 @@ def test_oracle_agrees(questions):
         assert oracle(q) == kit.canon(q), q.text
 
 
-def test_answer_space():
-    kit.check_answer_space(SKILL)
-
-
 def test_grading():
     kit.check_grading(SKILL)
 

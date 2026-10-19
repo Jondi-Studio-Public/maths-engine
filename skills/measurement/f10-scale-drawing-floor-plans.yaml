@@ -1,0 +1,68 @@
+id: f10-scale-drawing-floor-plans
+name: Find real lengths and areas from a scale floor plan
+domain: measurement
+naplan_domain: [measurement]
+year_level: ['8']
+description: Given a floor plan drawn to scale with some lengths marked in centimetres and its scale as a ratio, find a real wall length, the real floor area of a room (each length is scaled, so the area grows by the square of the ratio), and, for an L-shaped plan with two sides unmarked, the real floor area or perimeter. The exam chain goes from a marked plan to two real wall lengths, the floor area and a tile count.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- f10-direct-proportion-scale-model
+- rectangle-area
+answer: number
+sources:
+- topic: fsp_scale_plan
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fsp_scale_plan
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fsp_scale_plan
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: fsp_scale_plan_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: scale-units-not-converted
+  description: Multiplies a plan length by the scale and leaves the answer in centimetres, or stops before the units are changed.
+- id: scale-converted-wrong-power
+  description: Changes centimetres to metres with the wrong power of ten after applying the scale.
+- id: scale-wrong-wall-read
+  description: Uses the length of a different wall from the one the question names.
+- id: scale-applied-the-wrong-way
+  description: Divides a plan length by the scale where it should be multiplied.
+- id: scale-area-linear-factor
+  description: Scales a plan area by the ratio once instead of scaling each length, so the area grows by the ratio rather than its square.
+- id: scale-one-side-scaled
+  description: Scales only one side of the room to real size and multiplies it by the other side as measured on the plan.
+- id: linear-factor-on-area
+  description: Converts a plan area to square metres with the length factor (100) instead of its square (10 000).
+- id: perimeter-for-area
+  description: Adds the sides of the room where its area was asked for.
+- id: scale-notch-ignored
+  description: Finds the area of the rectangle that surrounds an L-shaped plan and does not take away the corner that is missing.
+- id: scale-overlap-counted-twice
+  description: Adds two rectangles that overlap, so part of an L-shaped plan is counted twice.
+- id: scale-notch-misread
+  description: Takes away a corner rectangle of the wrong size from an L-shaped plan.
+- id: scale-labelled-sides-only
+  description: Adds only the marked sides of an L-shaped plan for its perimeter and leaves out the sides that are not marked.
+- id: scale-rectangles-perimeters-added
+  description: Adds the perimeters of the two rectangles that make up an L-shaped plan, so the shared side is counted twice.
+- id: scale-perimeter-halved
+  description: Adds one of each pair of opposite sides, so the answer is half the perimeter.
+- id: scale-tile-side-for-area
+  description: Divides the floor area by the side of a tile instead of by its area.
+- id: scale-tile-area-multiplied
+  description: Multiplies the floor area by the size of a tile instead of dividing by it.
+- id: scale-area-given-as-tiles
+  description: Gives the floor area in square metres as the number of tiles.
+tags: [acara-f10-v9, ac9m8m07, measurement, scale-drawing, plans, area, essential-mathematics, figure]

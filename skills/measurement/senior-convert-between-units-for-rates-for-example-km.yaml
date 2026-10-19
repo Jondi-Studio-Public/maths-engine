@@ -3,6 +3,7 @@
 id: senior-convert-between-units-for-rates-for-example-km
 name: Convert between units for rates
 domain: measurement
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, convert between units for rates; for example, km/h to m/s. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false

@@ -1,0 +1,81 @@
+id: uc2-simplex-final-tableau-reading
+name: Reading a final simplex tableau
+domain: optimisation
+year_level:
+- university
+description: 'Read an optimal simplex tableau: the value of a variable, a constraint''s shadow price, how far a resource
+  can change before the basis changes, and the new optimum after a change. The exam chain finds the decision variables,
+  a shadow price, the allowable increase and the new maximum.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-simplex-one-pivot
+answer: fraction
+sources:
+- topic: r3l_simplex_final_tableau
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r3l_simplex_final_tableau
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r3l_simplex_final_tableau
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r3l_simplex_final_tableau
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3l-tableau-range-sign-reversed
+  description: Using the rows with positive entries in the slack column (which limit a decrease) to find how far a resource
+    can be increased.
+- id: r3l-tableau-range-not-minimum
+  description: Taking the ratio from one row with a negative slack-column entry as the allowable increase without comparing
+    all such rows for the smallest.
+- id: r3l-tableau-range-wrong-column
+  description: Finding the allowable change of a resource from a decision-variable column of the tableau instead of the
+    slack column.
+- id: r3l-tableau-objective-for-variable
+  description: Reporting the optimal value of z (or another objective-row entry) where the value of a single variable or
+    a shadow price was asked for.
+- id: r3l-tableau-wrong-row-rhs
+  description: Reading a variable's value from the right-hand side of the wrong row of the tableau.
+- id: r3l-tableau-objective-entry-as-value
+  description: Reading the value of a non-basic variable from its objective-row entry, when a non-basic variable is 0.
+- id: r3l-tableau-shadow-price-slack-value
+  description: Reporting the unused amount of a resource (the slack variable's value) as its shadow price.
+- id: r3l-tableau-shadow-price-wrong-column
+  description: Taking the shadow price of a resource from the objective-row entry of the wrong column (a decision variable
+    or another slack).
+- id: r3l-tableau-shadow-price-sign
+  description: Applying the shadow price with the wrong sign, so extra resource appears to lower the maximum.
+- id: r3l-tableau-price-ignored
+  description: Adding the increase in a resource straight to the maximum value of z, without multiplying by its shadow price.
+- id: r3l-tableau-increase-not-added
+  description: Reporting the rise in z (shadow price times increase) instead of the new maximum value.
+difficulty_progression: Easy asks for the value of one variable in the optimal solution, which is a row's right-hand side
+  for a basic variable and 0 for a non-basic one. Medium asks for the shadow price of a constraint, read from the objective
+  row under its slack variable (0 when the constraint is not binding). Hard asks either for the largest increase in a binding
+  resource that keeps the same basis, from the ratios in its slack column, or for the new maximum after a stated increase.
+  The exam chain gives the decision variables, a shadow price, the allowable increase and the new maximum, following the
+  shadow price through.
+tags:
+- university-core-v1
+- university-year-2
+- optimisation
+- linear-programming
+- simplex
+- shadow-price
+- sensitivity

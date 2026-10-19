@@ -78,7 +78,9 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   changes the ids of that source's questions.
 - **`answer`:** one of the kinds in `GRADERS` (`mathgen/grading/typed.py`): `number`,
   `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, `table`, `set`, `points`,
-  `polyline`, `line`, `inequality`, `matrix`. `list` ignores order and `ordered_list` is positional, so a vector answer
+  `polyline`, `line`, `inequality`, `matrix`, `grid_cells`. `grid_cells` is the cells a learner shades on a
+  `grid_drawing` figure's canvas, matched exactly, up to a move, up to a turn or flip, or as any cube net
+  (`mathgen/grading/grid.py`). `list` ignores order and `ordered_list` is positional, so a vector answer
   is an `ordered_list` (it also reads `<5, 6, -5>` and `5i + 6j - 5k`). A `number` reply may group
   thousands with a space (`12 345`), may be a mixed number (`2 1/2`, `2½`) and may use scientific
   notation written `1.2 × 10^3`; calculator notation (`1.2e3`) is refused. A question with a single
@@ -110,11 +112,17 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   `scripts/backfill_year_level.py` derives `year_level` and `naplan_domain` from the ACARA v9 codes
   (`ac9m<level><strand><nn>`, such as `ac9m6n03`) and `acara-v9-year-N` tags in a file's `tags`, and
   from the university framework tag; `--check` lists files that disagree and `--write` fixes them, and
-  `tests/public/test_skill_coverage.py` fails when a file drifts from its codes. Senior files carry no
-  unit or year, so they have none of these fields unless a person sets them.
+  `tests/public/test_skill_coverage.py` fails when a file drifts from its codes. Senior content codes
+  (`ACMMM`, `ACMSM`, `ACMGM`, `ACMEM` plus a number) are mapped to Unit 1 to 4 by the table in
+  `scripts/senior_code_units.yaml` (from ACARA's Version 8.4 unit pages): Units 1 and 2 give `'11'`,
+  Units 3 and 4 give `'12'`, and codes from both give `['11', '12']`. A senior file with no such code
+  has no year unless a person sets it.
 - **Optional:** `placement_eligible` (default `true`), `placement_order`, `placement_questions`,
   `placement_pass`, `learner_band` (`early`, `primary` or `general`), `framework_areas`, `alignments`,
-  `needs_figure`, `capability_gates` and `mental` (below).
+  `needs_figure`, `read_aloud`, `capability_gates` and `mental` (below).
+- **`read_aloud`** (default `false`): the prompts are meant to be read aloud to a young learner, so each
+  is at most 15 words and the figure carries the detail. `tests/test_read_aloud.py` checks every
+  question of every active `read_aloud` skill against that cap.
 - **`alignments`:** entries of `source_id`, `status`, `code`, `framework`, `area`, `verified_on`.
   `status` is `verified`, `candidate` or `unverified`. Only `verified` is a formal claim, and it
   requires `verified_on`. A `framework` entry requires an `area`.

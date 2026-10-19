@@ -3,6 +3,7 @@
 id: senior-use-formulas-to-calculate-areas-of-regular-shapes
 name: Use formulas to calculate areas of regular shapes
 domain: measurement
+year_level: ['12']
 description: Given bounded, fully specified inputs, use formulas to calculate areas of regular shapes, including triangles, squares, rectangles, parallelograms, trapeziums, circles and sectors. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false

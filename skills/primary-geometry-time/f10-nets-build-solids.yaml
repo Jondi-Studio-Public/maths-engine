@@ -1,14 +1,98 @@
+# Name and description adapted from the Australian Curriculum: Mathematics (Version 9.0),
+# (c) ACARA, https://v9.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
 id: f10-nets-build-solids
 name: Connect nets and three-dimensional objects
 domain: primary-geometry-time
-description: Match a net to a solid, construct a solid from a valid net and explain how faces meet.
-status: deferred
-deferred_reason: visual
-capability_gates:
-- visual_construction
+year_level: ['5']
+naplan_domain: [space]
+description: "Given a drawn net, name the solid it folds into, decide whether squares joined edge to edge fold into a cube (and why not), and find which corners of a lettered cube net meet when it is folded. Grid questions draw nets on a square grid: name the solid, pick the one net of a cube from four drawings, and name the face opposite a lettered face once the cube is folded. The exam chain works from a drawn net of a closed box with measurements marked, to the area of a side face, then its width, surface area and volume."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
 prerequisites:
 - name-basic-shapes
-answer: ""
-sources: []
-misconceptions: []
-tags: []
+answer: mcq
+sources:
+- topic: fsp_nets
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: easy
+  key: grid-easy
+  stages: [0, 1, 2]
+- topic: fsp_nets
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: medium
+  key: grid-medium
+  stages: [3, 4]
+- topic: fsp_nets
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: grid_nets_build_solids
+  params: {}
+  difficulty: hard
+  key: grid-hard
+  stages: [5, 6, maintenance]
+- topic: fsp_nets_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: net-face-count-ignored
+  description: Names a solid with the wrong number of faces because the faces of the net were not counted.
+- id: net-prism-pyramid-confused
+  description: Mixes up a prism and a pyramid; a prism has two matching ends and rectangle sides, a pyramid has one base and triangle sides.
+- id: net-face-shape-only
+  description: Chooses a solid because one face matches a shape in the net, without checking the other faces.
+- id: net-any-six-squares
+  description: Believes any six squares joined edge to edge fold into a cube.
+- id: net-overlap-seen-in-valid-net
+  description: Thinks two squares would land on the same face when a correct cube net is folded.
+- id: net-faces-miscounted
+  description: Counts the squares of a net wrongly, so the reason given is about the number of faces when the count is right (or the reverse).
+- id: net-two-faces-for-one
+  description: Doubles a face's area because the box has two faces of that size, when only one face was asked for.
+- id: net-neighbours-meet
+  description: Thinks the corners next to a corner in the net are the ones that meet it when the net is folded.
+- id: net-corner-half-right
+  description: Finds one corner that meets the given corner and guesses the other.
+- id: net-wrong-corner
+  description: Names the corners that meet at a different corner of the cube from the one asked about.
+- id: net-strip-not-halved
+  description: Uses the whole length of the strip of side faces as one length and one width, forgetting it goes round the box once and holds two of each.
+- id: net-strip-length-not-removed
+  description: Halves the length of the strip of side faces but does not take away the length that is already known.
+- id: net-strip-as-equal-faces
+  description: Treats the four side faces in the strip as four equal faces and divides its length by four.
+- id: net-one-of-each-face
+  description: Adds the areas of three different faces of a box and forgets that each appears twice.
+- id: net-sides-counted-once
+  description: Counts the four side faces of a box once each as if the box had one end face and one lid-sized strip.
+- id: net-volume-for-area
+  description: Gives the volume of a box where its surface area was asked for.
+- id: net-area-for-volume
+  description: Gives the surface area of a box where its volume was asked for.
+- id: net-edges-added-for-volume
+  description: Adds the three edge lengths of a box instead of multiplying them to get its volume.
+- id: net-base-area-for-volume
+  description: Gives the area of the base of a box as its volume, leaving out the height.
+- id: surface-area-omits-ends
+  description: Finds the area of the four side faces of the box and leaves out the top and bottom.
+- id: perimeter-for-area
+  description: Adds the sides of a rectangle where its area was asked for.
+- id: net-face-sides-added
+  description: Adds a face's length and height once instead of multiplying them to get its area.
+- id: opposite-is-the-neighbour
+  description: Names a face that touches the marked face in the net, forgetting that touching faces fold to meet at an edge.
+- id: opposite-is-across-the-row
+  description: Names the face at the far end of the marked face's row or column, forgetting that faces two apart in a row are the ones that end up opposite.
+tags: [acara-f10-v9, geometry, nets, solids, cube, prism, pyramid, ac9m5sp01, figure]

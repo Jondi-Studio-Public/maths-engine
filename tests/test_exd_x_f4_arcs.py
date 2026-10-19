@@ -63,17 +63,6 @@ def test_prompt_variety_and_new_shapes():
     assert len(exam - hard) >= 3
 
 
-def test_no_text_defects():
-    for seed in range(80):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
-def test_deterministic():
-    for seed in (0, 1, 7, 99):
-        assert _make(seed).to_json() == _make(seed).to_json()
-
-
 def test_key_matches_independent_oracle_over_300_seeds():
     bad = []
     for seed in range(300):

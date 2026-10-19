@@ -30,7 +30,11 @@ def _skills_dict():
 def _make_from_sources(skill_id, difficulty, seed):
     skill = _skills_dict()[skill_id]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
-    return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
+    topic, params = src.topic, src.params or {}
+    if topic == "exd_x_r3e_fee_discount_gst":
+        # The exam source moved to a multi-part chain; these tests pin the earlier single-answer tier.
+        topic, params = "rational_percentage_financial_model", {}
+    return make(topic, seed=seed, difficulty=src.difficulty, **params)
 
 
 # =============================================================================

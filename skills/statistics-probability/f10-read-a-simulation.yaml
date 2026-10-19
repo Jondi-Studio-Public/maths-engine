@@ -1,0 +1,111 @@
+id: f10-read-a-simulation
+name: Read the results of a simulation
+domain: statistics-probability
+year_level: ['7', '8', '9']
+naplan_domain: [probability]
+description: >-
+  Run a simulation that is already described and estimate a probability from its results. Easy counts the random
+  digits that match a rule, one digit per trial. Medium counts trials made of two digits for both, at least one or
+  exactly one. Hard reads a two-draw simulation without replacing and estimates a chance given the first (or
+  second) draw, P(B given A), from the recorded pairs. The exam chain counts the successful trials, estimates,
+  finds the theoretical probability from the rule and compares the count with what the theory expects. Designing a
+  simulation is not asked.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-chance-language-and-outcomes
+- f10-probability-complements-compounds
+answer: fraction
+sources:
+- topic: fr2d_read_simulation
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2d_read_simulation
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2d_read_simulation
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: fr2d_read_simulation_exam
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: fr2d-adds-chances-for-the-pair
+  description: >-
+    Adding the chances for the two digits to find the chance for the pair, which counts the overlap twice or
+    ignores it.
+- id: fr2d-adds-instead-of-compares
+  description: >-
+    Adding two counts where the question asked how many more one is than the other.
+- id: fr2d-and-instead-of-or
+  description: >-
+    Counting only the trials where both digits succeed, where at least one was enough.
+- id: fr2d-count-for-difference-from-expected
+  description: >-
+    Giving the number of times an outcome came up, where the question asked how far that is from the equal-
+    likelihood count.
+- id: fr2d-count-off-by-one
+  description: >-
+    Being one out when adding or subtracting counts.
+- id: fr2d-counts-both-as-exactly-one
+  description: >-
+    Counting the trials where both digits succeed as well, where exactly one digit had to succeed.
+- id: fr2d-counts-digits-not-trials
+  description: >-
+    Counting successful digits instead of successful trials, so a trial with two successes is counted twice.
+- id: fr2d-counts-the-opposite-event
+  description: >-
+    Counting the trials where the event did not happen, where the trials where it did happen were asked for.
+- id: fr2d-difference-the-wrong-way
+  description: >-
+    Subtracting the chance given the condition from the overall chance, so the difference has the wrong sign.
+- id: fr2d-divides-by-the-digits-not-trials
+  description: >-
+    Dividing by 10, the number of different digits, instead of by the number of trials.
+- id: fr2d-expected-for-difference
+  description: >-
+    Giving the expected count itself, where the difference from it was asked for.
+- id: fr2d-gives-simulation-not-theory
+  description: >-
+    Giving the estimate from the simulation, where the theoretical chance from the rule was asked for.
+- id: fr2d-gives-the-opposite-event
+  description: >-
+    Giving the chance that the event does not happen, where the chance that it does happen was asked for.
+- id: fr2d-gives-theory-not-simulation
+  description: >-
+    Giving the theoretical chance from the rule, where the estimate from the simulation's results was asked for.
+- id: fr2d-ignores-the-condition
+  description: >-
+    Giving the chance of the event over all the records, as if the condition had not been stated.
+- id: fr2d-ignores-the-target
+  description: >-
+    Giving the share of all trials that meet the condition, without checking the target event within them.
+- id: fr2d-joint-for-conditional
+  description: >-
+    Dividing the count for both events by all the records, which gives the chance of both events and not the
+    chance of one given the other.
+- id: fr2d-odds-for-probability
+  description: >-
+    Dividing the number of successes by the number of failures, which compares the two outcomes instead of
+    finding the share of all trials.
+- id: fr2d-one-digit-chance-for-the-pair
+  description: >-
+    Giving the chance for a single digit, where the chance for a pair of digits was asked for.
+- id: fr2d-or-and-confused
+  description: >-
+    Mixing up 'both' with 'at least one' when counting the successful trials.
+- id: fr2d-or-instead-of-and
+  description: >-
+    Counting the trials where at least one digit succeeds, where both digits had to succeed.
+- id: fr2d-swaps-condition-and-target
+  description: >-
+    Dividing the count for both events by the total for the event asked about, so the condition and the target
+    are swapped.
+- id: fr2d-wrong-trial-total
+  description: >-
+    Dividing by the number of successes added to the number of trials, instead of by the number of trials.
+tags: [acara-f10-v9, statistics-probability, fr2d_read_simulation, AC9M7P02, AC9M8P03, AC9M9P03]

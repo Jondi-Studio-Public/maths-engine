@@ -12,5 +12,11 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_g5_compound_interest
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions: [{id: uses-simple-interest, description: Adds the same interest amount each year.}]
 tags: [expansion-batch-5, finance]

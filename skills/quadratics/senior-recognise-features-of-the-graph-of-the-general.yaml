@@ -3,6 +3,7 @@
 id: senior-recognise-features-of-the-graph-of-the-general
 name: 'Recognise features of the graph of the general quadratic \(y=ax^2+bx+c\)'
 domain: quadratics
+year_level: ['11']
 description: Given the graph of a quadratic y = ax^2 + bx + c drawn on an integer grid, say how many real roots (x-intercepts) the graph shows, choosing 0, 1 or 2. Never asks for the roots' values, the vertex or the axis.
 status: active
 capability_gates: [figure_stimulus]

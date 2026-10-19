@@ -1,0 +1,51 @@
+id: f10-solid-faces-edges-vertices
+name: Count the faces, edges and vertices of a solid
+domain: geometry
+naplan_domain: [space]
+year_level: ['5']
+description: Given a drawn prism or pyramid, count its faces, edges or vertices, including the ones hidden at the back, and, from a drawn net, find the vertices of the folded solid by counting faces and edges and applying Euler's formula V - E + F = 2.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- name-basic-shapes
+answer: number
+sources:
+- topic: fsp_solids
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fsp_solids
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fsp_solids
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: fsp_solids_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: solid-hidden-faces-missed
+  description: Counts only the faces that can be seen in the drawing and misses the ones hidden at the back or underneath.
+- id: solid-hidden-edges-missed
+  description: Counts only the solid lines and leaves out the dashed (hidden) edges.
+- id: solid-hidden-vertices-missed
+  description: Counts only the corners that can be seen and misses those hidden at the back.
+- id: solid-ends-forgotten
+  description: Counts the side faces of a prism or pyramid and forgets its base and top.
+- id: solid-faces-edges-vertices-mixed
+  description: Mixes up faces, edges and vertices and gives the count of one where another was asked.
+- id: solid-net-corners-counted
+  description: Counts the corners drawn on the net instead of the corners of the solid it folds into.
+- id: solid-net-lines-counted
+  description: Counts the lines drawn on the net instead of the edges of the solid it folds into.
+- id: solid-edges-counted-twice
+  description: Adds up the sides of every face and gives that total as the number of edges, though each edge is shared by two faces.
+- id: solid-euler-sign
+  description: Gets the signs or the 2 wrong in Euler's formula, V - E + F = 2, when solving for the vertices.
+tags: [acara-f10-v9, ac9m5sp01, geometry, solids, faces-edges-vertices, euler, nets, figure]

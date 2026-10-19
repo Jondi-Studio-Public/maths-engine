@@ -1,0 +1,72 @@
+id: uc2-generating-function-partition-counting
+name: Counting partitions with generating functions
+domain: discrete-mathematics
+year_level:
+- university
+description: 'Count the ways to write a total as an unordered sum under restrictions on the parts, which is a coefficient
+  of a product of generating-function factors: allowed part sizes, different parts, and limited supplies of coins and notes.
+  The exam chain splits a count by how many 1-point items are used and adds the cases.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-generating-function-coefficient
+answer: number
+sources:
+- topic: r4j_generating_function_partition_counting
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4j_generating_function_partition_counting
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4j_generating_function_partition_counting
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4j_generating_function_partition_counting
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: gf-coefficient-index-off-by-one
+  description: Taking the coefficient of the neighbouring power of x, one place to the left or right of the one asked for.
+- id: partition-at-most-as-exactly
+  description: Treating 'at most c' of a coin as 'exactly c' of it when counting combinations.
+- id: partition-cap-off-by-one
+  description: Treating a supply of c coins as c + 1 or c - 1 in a limited-supply count.
+- id: partition-cases-not-added
+  description: Reporting one case, or too few of the disjoint cases, as the total number of ways.
+- id: partition-limit-ignored
+  description: Ignoring the limit on how many coins or notes of a kind are available, and counting as if the supply were unlimited.
+- id: partition-order-counted
+  description: Counting sums that differ only in the order of their terms as different ways, in a partition count.
+- id: partition-part-range-off-by-one
+  description: Allowing parts up to one more or one less than the largest part stated.
+- id: partition-part-size-omitted
+  description: Leaving one of the allowed part sizes out of the count.
+- id: partition-part-size-required
+  description: Counting only the sums that use every allowed part size at least once, when a size may be left out.
+- id: partition-repeats-allowed
+  description: Allowing a part to be used more than once when the parts must all be different.
+difficulty_progression: Easy allows three part sizes with no limit on how often each is used. Medium requires different parts
+  from a fixed range, so each size is used once or not at all. Hard mixes limited and unlimited supplies in a change-making
+  context, so some factors are polynomials and some are infinite series. The exam chain counts the cases with no, one and
+  two 1-point items and then adds them, following the case counts through.
+tags:
+- university-core-v1
+- university-year-2
+- discrete-mathematics
+- generating-functions
+- partitions
+- counting
+- change-making

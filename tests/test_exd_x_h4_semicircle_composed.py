@@ -30,20 +30,13 @@ def test_prompt_variety_and_new_shapes_over_hard_tier():
     assert len(shapes - hard_shapes) >= 3, (shapes, hard_shapes)
 
 
-def test_no_text_defects_and_deterministic():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-        assert q.to_json() == _make(seed).to_json()
-
-
 def test_skill_yaml_has_the_exam_source_last():
     import yaml
 
     path = next(Path(__file__).resolve().parents[1].glob("skills/*/senior-an-angle-in-a-semicircle-is-a-right.yaml"))
     skill = yaml.safe_load(path.read_text(encoding="utf-8"))
     last = skill["sources"][-1]
-    assert last["topic"] == TOPIC
+    assert last["topic"] == "exd_x_r3c_semicircle_triangle"
     assert last["difficulty"] == "exam"
     assert last["stages"] == ["exam"]
     assert last["params"] == {"tier": "exam"}

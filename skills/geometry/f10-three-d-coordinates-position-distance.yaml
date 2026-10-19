@@ -1,0 +1,56 @@
+id: f10-three-d-coordinates-position-distance
+name: Find position, midpoint and distance in a drawn box
+domain: geometry
+year_level: ['8']
+naplan_domain: [space]
+description: Given a box drawn in oblique view with its corner at the origin (or on a survey grid) and three edge lengths, write the coordinates of a corner, the midpoint of the line joining two corners, or the straight-line distance between two corners.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-three-dimensional-coordinates]
+answer: pair
+sources:
+- topic: fr2a_box_coordinates
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2a_box_coordinates
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2a_box_coordinates
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fr2a_box_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: adds-instead-of-using-pythagoras
+  description: "Adding the two shorter sides of a right-angled triangle (or the components of a displacement) instead of using Pythagoras' theorem."
+- id: forgets-the-square-root
+  description: Stopping at the sum of the squares of the components without taking the square root for the distance.
+- id: fr2a-box-corner-all-lengths
+  description: Giving all three lengths of the box as the coordinates of a corner that is not the far top corner.
+- id: fr2a-box-length-left-out
+  description: Putting 0 for one of the coordinates of a corner when it should be the length of that edge.
+- id: fr2a-distance-one-dimension-left-out
+  description: Leaving one of the three differences out of the distance between two points in three dimensions.
+- id: fr2a-height-not-squared
+  description: Squaring the floor diagonal but not the height when finding the diagonal of the box.
+- id: fr2a-midpoint-difference-halved
+  description: Halving the difference of the coordinates of the two ends instead of their sum to find the midpoint.
+- id: fr2a-midpoint-is-an-endpoint
+  description: Giving one end of the line as its midpoint.
+- id: fr2a-midpoint-not-halved
+  description: Adding the coordinates of the two ends of a line without halving to find the midpoint.
+- id: fr2a-midpoint-one-coordinate-halved
+  description: Halving one coordinate of a midpoint but adding the other two.
+- id: fr2a-wrong-face-diagonal
+  description: Using the wrong two edges for the diagonal of a face of the box.
+- id: swapped-coordinates
+  description: Giving the y value where the x value was asked, or the reverse.
+tags: [acara-f10-v9, geometry, coordinates, three-dimensional, distance, midpoint, ac9m8sp03, figure]

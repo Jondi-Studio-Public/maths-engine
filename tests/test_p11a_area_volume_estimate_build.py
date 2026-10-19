@@ -127,10 +127,10 @@ class TestEstimateAreaReference:
             q = _mk_area(seed, difficulty)
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
-            assert grade_mcq(q, str(correct_index)).correct
+            assert grade_mcq(q, correct_index).correct
             for dist in q.distractors:
                 dist_index = options.index(dist)
-                assert not grade_mcq(q, str(dist_index)).correct
+                assert not grade_mcq(q, dist_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_grader_rejects_a_deliberately_wrong_index(self, difficulty):
@@ -139,7 +139,7 @@ class TestEstimateAreaReference:
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
             wrong_index = (correct_index + 1) % len(options)
-            assert not grade_mcq(q, str(wrong_index)).correct
+            assert not grade_mcq(q, wrong_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_answer_in_options(self, difficulty):
@@ -272,10 +272,10 @@ class TestEstimateVolumeCapacityReference:
             q = _mk_capacity(seed, difficulty)
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
-            assert grade_mcq(q, str(correct_index)).correct
+            assert grade_mcq(q, correct_index).correct
             for dist in q.distractors:
                 dist_index = options.index(dist)
-                assert not grade_mcq(q, str(dist_index)).correct
+                assert not grade_mcq(q, dist_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_grader_rejects_a_deliberately_wrong_index(self, difficulty):
@@ -284,7 +284,7 @@ class TestEstimateVolumeCapacityReference:
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
             wrong_index = (correct_index + 1) % len(options)
-            assert not grade_mcq(q, str(wrong_index)).correct
+            assert not grade_mcq(q, wrong_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_answer_in_options(self, difficulty):

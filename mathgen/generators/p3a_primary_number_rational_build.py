@@ -609,49 +609,10 @@ def _rational_operation_strategy_medium(rng):
     else:
         se_result = se_result - sign_error_operands[2]
 
-    # wrong-operation-order
-    reord_step1 = operand1
-    if op2 == "+":
-        reord_step1 = reord_step1 + operand3
-    else:
-        reord_step1 = reord_step1 - operand3
-    reord_result = reord_step1
-    if op1 == "+":
-        reord_result = reord_result + operand2
-    else:
-        reord_result = reord_result - operand2
-
-    if reord_result == answer:
-        # Resample
-        for _ in range(10):
-            operand1 = sample_operand(operand_types[0], allow_negative=True)
-            operand2 = sample_operand(operand_types[1], allow_negative=True)
-            operand3 = sample_operand(operand_types[2], allow_negative=True)
-            if operand1 < 0 or operand2 < 0 or operand3 < 0:
-                result = operand1
-                if op1 == "+":
-                    result = result + operand2
-                else:
-                    result = result - operand2
-                if op2 == "+":
-                    result = result + operand3
-                else:
-                    result = result - operand3
-
-                reord_step1 = operand1
-                if op2 == "+":
-                    reord_step1 = reord_step1 + operand3
-                else:
-                    reord_step1 = reord_step1 - operand3
-                reord_result = reord_step1
-                if op1 == "+":
-                    reord_result = reord_result + operand2
-                else:
-                    reord_result = reord_result - operand2
-
-                if reord_result != result:
-                    answer = result
-                    break
+    # wrong grouping: the second operation is done first, as a op1 (b op2 c). Adding and subtracting in
+    # either order give the same total, so only a leading subtraction makes this differ from the answer.
+    inner = operand2 + operand3 if op2 == "+" else operand2 - operand3
+    reord_result = operand1 + inner if op1 == "+" else operand1 - inner
 
     # stops-one-step-early
     stopped_early = operand1
@@ -660,7 +621,7 @@ def _rational_operation_strategy_medium(rng):
     else:
         stopped_early = stopped_early - operand2
 
-    candidates = [se_result, reord_result, stopped_early]
+    candidates = [se_result, reord_result, stopped_early, -answer]
 
     # Format for display
     def fmt_frac(f: Fraction):

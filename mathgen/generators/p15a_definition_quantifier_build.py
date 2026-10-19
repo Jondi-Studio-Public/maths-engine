@@ -223,11 +223,14 @@ def _build_function_question(rng, m, n):
     if target != "is_function":
         check(degree[culprit] != 1, "is-it-a-function: named culprit is not actually the offending element")
 
+    # The decoys name an element too. When the relation is a function every element has exactly one image, so any
+    # element makes both decoys false.
+    named = culprit if culprit is not None else A[0]
     labels = ["A", "B", "C", "D"]
     real_labels = {
         "is_function": _fn_label("is_function"),
-        "fails_multi": _fn_label("fails_multi", culprit),
-        "fails_missing": _fn_label("fails_missing", culprit),
+        "fails_multi": _fn_label("fails_multi", named),
+        "fails_missing": _fn_label("fails_missing", named),
     }
     options = [real_labels[c] for c in _FN_CLASSES] + [_fn_label("always_wrong")]
     check(len(set(options)) == 4, "is-it-a-function options must all display differently")
@@ -314,11 +317,14 @@ def _function_question_grid(rng, m, n):
         recomputed = "fails_missing"
     check(recomputed == target, "exam is-it-a-function construction mismatch")
 
+    # The decoys name an element too. When the relation is a function every element has exactly one image, so any
+    # element makes both decoys false.
+    named = culprit if culprit is not None else A[0]
     labels = ["A", "B", "C", "D"]
     real_labels = {
         "is_function": _fn_label("is_function"),
-        "fails_multi": _fn_label("fails_multi", culprit),
-        "fails_missing": _fn_label("fails_missing", culprit),
+        "fails_multi": _fn_label("fails_multi", named),
+        "fails_missing": _fn_label("fails_missing", named),
     }
     options = [real_labels[c] for c in _FN_CLASSES] + [_fn_label("always_wrong")]
     check(len(set(options)) == 4, "exam is-it-a-function options must all display differently")

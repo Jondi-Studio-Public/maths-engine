@@ -1,0 +1,48 @@
+id: am-gm-inequality
+name: "Use the AM-GM inequality to find a least or greatest value"
+domain: inequalities
+year_level: ['12']
+description: "Use the inequality of arithmetic and geometric means to find the least value of an expression such as x + k/x for x > 0, the greatest product of two numbers with a weighted sum, the value of x where equality holds, and the bound in a word problem (a fenced paddock, a running cost, an open box). The answers are numbers."
+status: active
+placement_eligible: false
+prerequisites:
+- inequality-word-problems
+- factorise-quadratic
+answer: number
+sources:
+- topic: r4f_am_gm
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4f_am_gm
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4f_am_gm
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4f_am_gm
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: amgm-forgets-the-two
+  description: "Giving the square root of pq as the minimum, forgetting the 2 in u + v >= 2 sqrt(uv)."
+- id: amgm-forgets-the-root
+  description: "Writing 2pq where AM-GM gives 2 times the square root of pq."
+- id: amgm-ignores-the-coefficients
+  description: "Bounding xy by the square of half the total, ignoring the coefficients of x and y in the constraint."
+- id: amgm-forgets-the-four
+  description: "Dropping the factor of 4 when bounding the product xy by the square of half the sum."
+- id: evaluates-at-x-equals-1
+  description: "Evaluating the expression at x = 1 and taking that as the least value."
+- id: gives-the-value-not-x
+  description: "Giving the least or greatest value where the value of x at which it occurs is asked for."
+- id: forgets-to-take-the-root
+  description: "Giving x squared (or q over p) where its square root is needed."
+- id: forgets-the-fixed-charge
+  description: "Leaving the fixed charge out of the least cost."
+- id: two-term-bound-used-on-three-terms
+  description: "Using the two-term bound 2 sqrt(uv) on a sum of three terms."
+tags: [acara-v8-4-specialist, inequalities, am-gm, optimisation]

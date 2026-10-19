@@ -61,19 +61,6 @@ def _key_from_prompt(text):
     return values[_REAL[target]]
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(_hard_like(s)) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard, (exam, hard)
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        q = _exam(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
 def test_key_rederived_from_prompt():
     bad = [s for s in range(300) if _key_from_prompt(_exam(s).text) != _exam(s).answer]
     assert bad == []

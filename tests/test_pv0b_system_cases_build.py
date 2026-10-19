@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
+
 import re
 
 import pytest
@@ -32,6 +34,10 @@ def skills_dict():
 def _make_from_sources(skills_dict, difficulty, seed):
     skill = skills_dict[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if (
+        difficulty == "exam"
+    ):  # the skill's exam source is now a multi-part chain; these tests pin the earlier exam generator
+        src = replace(src, topic="pv0b_system_cases", params={})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 
@@ -60,10 +66,10 @@ def test_real_grader_accepts_canonical_and_rejects_every_distractor(skills_dict,
         q = _make_from_sources(skills_dict, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct, (difficulty, seed, q.text)
+        assert grade_mcq(q, correct_index).correct, (difficulty, seed, q.text)
         for i, opt in enumerate(options):
             if opt != q.answer_text:
-                assert not grade_mcq(q, str(i)).correct, (difficulty, seed, q.text, opt)
+                assert not grade_mcq(q, i).correct, (difficulty, seed, q.text, opt)
 
 
 @pytest.mark.parametrize("difficulty", DIFFICULTIES)

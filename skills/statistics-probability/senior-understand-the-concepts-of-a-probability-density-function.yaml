@@ -3,6 +3,7 @@
 id: senior-understand-the-concepts-of-a-probability-density-function
 name: Understand the concepts of a probability density function, cumulative distribution function, and probabilities associated with a continuous random variable given by integrals; examine simple types of continuous random variables and use them in appropriate contexts
 domain: statistics-probability
+year_level: ['12']
 description: 'Given a probability density function stated algebraically on a bounded interval [c, d] and two bounds [p, q] within that interval, compute the probability that the random variable falls between those bounds by evaluating the definite integral of the density over that range. This skill covers only the first of the three clauses of the descriptor ACMMM165 -- the cumulative distribution function clause and the "examine simple types/use in appropriate contexts" clause are both dropped entirely: no CDF value is ever built or graded, and no learner is ever asked to classify a "type" of continuous random variable. Every density is constructed from a normalising constant solved algebraically so it genuinely integrates to 1 over its stated support and is nonnegative there; the two stated bounds always sit inside that support (the exam tier is a four-part chain on a density with an unknown constant k: solve for k, find a probability, then E(X) and Var(X)).'
 status: active
 placement_eligible: false
@@ -26,6 +27,11 @@ sources:
 - topic: exd_x_r2k_density
   params: {tier: exam}
   difficulty: exam
+  stages: [exam]
+- topic: exd_x_r3f_pdf_wider
+  params: {tier: exam}
+  difficulty: exam
+  key: wider-exam
   stages: [exam]
 misconceptions:
 - id: reports-complement

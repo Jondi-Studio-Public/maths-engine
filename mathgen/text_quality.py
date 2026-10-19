@@ -116,6 +116,14 @@ BAD_TEXT_PATTERNS: tuple[TextPattern, ...] = (
         "adds another -- fix the join, or drop the item punctuation",
     ),
     TextPattern(
+        "python_null_in_text",
+        "learner",
+        _regex(r"\bNone\s+(?!of\b)[a-z]|\bNaN\b"),
+        'a Python None or NaN printed into the text, as "NOT a function: None has no image in R" -- a value the '
+        "generator never set reached an f-string. Give it a value, or leave the clause out. A category "
+        'called None ("House None = 3") is not this: only None followed by a lower-case word counts',
+    ),
+    TextPattern(
         "newline_in_text",
         "learner",
         _regex(r"[\r\n]"),
@@ -250,6 +258,50 @@ _SIGNIFICANT_FIGURES_RE = re.compile(
     r"(?:significant\s+(?:figures?|digits?)|sig\.?\s*figs?\b|s\.f\b\.?|sf\b)",
     re.I,
 )
+
+
+# "rounding each of the three numbers to 1 significant figure" and "each value is given to 4 significant figures"
+# state the precision of numbers on the way to the answer, not of the answer.
+_ABOUT_THE_DATA_RE = re.compile(
+    r"\brounding\s+(?:each|every|all|both)\b|\bround\s+(?:each|every|all|both)\b"
+    r"|\b(?:is|are|was|were)\s+(?:given|measured|recorded|stated|correct)\s+to\s*$",
+    re.I,
+)
+_FIGURE_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6}
+
+
+def requested_significant_figures(text: str) -> int | None:
+    """Significant figures the question asks the learner to round to, or None.
+
+    None when the text states no count, states two different counts, or also asks for decimal places or a
+    nearest unit (`conflicting_rounding` names that clash). A repeated statement of the same count is fine.
+    """
+    counts = set()
+    for match in _SIGNIFICANT_FIGURES_RE.finditer(text or ""):
+        lead = text[max(0, match.start() - 60) : match.start()]
+        if _ABOUT_THE_DATA_RE.search(lead):
+            continue  # figures the data are given to, or that some other number is rounded to on the way
+        counts.add(_FIGURE_WORDS.get(match.group(1).lower()) or int(match.group(1)))
+    if len(counts) != 1 or requested_rounding(text) is not None:
+        return None
+    return next(iter(counts))
+
+
+def significant_figure_count(token: str) -> int:
+    """The fewest significant figures the written number `token` can be read as having.
+
+    Digits from the first non-zero one to the last digit, so "0.550" and "23.0" have three. A whole number's
+    trailing zeros may only fix the magnitude, so "230" counts two: the count of the least precise reading.
+    A zero counts as one.
+    """
+    body = (token or "").strip().lstrip("+-\u2212")
+    whole, _, fraction = body.partition(".")
+    digits = (whole + fraction).lstrip("0")
+    if not digits:
+        return 1
+    if fraction:
+        return len(digits)
+    return len(digits.rstrip("0")) or 1
 
 
 def conflicting_rounding(text: str) -> str | None:

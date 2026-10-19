@@ -5,6 +5,7 @@ name: 'Define and use basic linear transformations: dilations of the form (x,y) 
   y), rotations about the origin and reflection in a line which passes through the origin, and the
   representations of these transformations by 2x2 matrices'
 domain: matrices
+year_level: ['11']
 description: |
   Given bounded, fully specified inputs, define and use basic linear transformations: dilations of the
   form (x, y) -> (lambda1 x, lambda2 y), rotations about the origin and reflection in a line which
@@ -37,6 +38,11 @@ sources:
   - topic: exd_x_r2d_lt_reflection_gradient
     params: {tier: exam}
     difficulty: exam
+    stages: [exam]
+  - topic: exd_x_g4_lt_basic
+    params: {tier: exam}
+    difficulty: exam
+    key: exam-single
     stages: [exam]
 misconceptions:
   - id: swapped-lambda

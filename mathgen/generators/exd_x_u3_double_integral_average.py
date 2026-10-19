@@ -29,7 +29,7 @@ from mathgen.core import (
     stated_precision_string,
 )
 
-from ._exd_distinct_parts import distinct_part_answers
+from ._exd_distinct_parts import DrawRejected, distinct_part_answers
 
 _X, _Y = sympy.symbols("x y")
 _THIRD = Fraction(1, 3)
@@ -109,7 +109,8 @@ def exd_x_u3_double_integral_average(rng, tier: str = "exam") -> dict:
     a_text, b_text = _text(total), _text(mean)
     a_d = pick_distractors(a_text, a_cand, 3, tolerance=GRADER_TOLERANCE)
     b_d = pick_distractors(b_text, b_cand, 3, tolerance=GRADER_TOLERANCE)
-    check(len(a_d) >= 2 and len(b_d) >= 2, f"too few distractors {len(a_d)} {len(b_d)}")
+    if len(a_d) < 2 or len(b_d) < 2:
+        raise DrawRejected(f"too few distractors {len(a_d)} {len(b_d)}")
     check(a_text not in stem and b_text not in stem, "an answer appears in the stem")
 
     return dict(

@@ -25,6 +25,7 @@ from sympy import Rational, Symbol, diff, expand, latex
 from ..core import check, generator, join_terms
 from .exd_x_r2a_common import (
     X,
+    EXACT_NOTE,
     Redraw,
     build_with_redraw,
     expr_part,
@@ -87,7 +88,7 @@ def _build(rng: random.Random):
     line_text = "y = " + join_terms([(m, "x"), (k, "")])
 
     part_a = fraction_part(
-        part_prompt("Find the x-coordinate of P."),
+        part_prompt("Find the x-coordinate of P. " + EXACT_NOTE),
         target,
         2,
         [
@@ -143,7 +144,7 @@ def _build(rng: random.Random):
         prefix="y = ",
     )
     part_d = fraction_part(
-        part_prompt("Find the y-coordinate of the point where this normal meets the y-axis."),
+        part_prompt("Find the y-coordinate of the point where this normal meets the y-axis. " + EXACT_NOTE),
         c_n,
         1,
         [f"Put x = 0 in the normal: y = {c_n}."],

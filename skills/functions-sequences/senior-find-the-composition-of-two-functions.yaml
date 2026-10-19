@@ -3,6 +3,7 @@
 id: senior-find-the-composition-of-two-functions
 name: Find the composition of two functions
 domain: functions-sequences
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, find the composition of two functions. Return the resulting value, expression, relation, or classification. This skill assesses computing f(g(x)) or g(f(x)) for a supplied reciprocal function f(x) = 1/(x - k) and a supplied square-root function g(x) = sqrt(x - a), always by direct substitution once both formulas are given (sometimes as a general expression, sometimes evaluated at a concrete point), and never asks the learner to determine where the composition is defined (see the sibling senior-determine-when-the-composition-of-two-functions-is skill).'
 status: active
 placement_eligible: false

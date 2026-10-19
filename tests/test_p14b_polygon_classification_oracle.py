@@ -36,6 +36,24 @@ EXAM_POOL = {"parallelogram", "rectangle", "rhombus", "square"}
 
 _THREE_UNITS_RE = re.compile(r"(\d+), (\d+) and (\d+) units")
 _THREE_DEGREES_RE = re.compile(r"(\d+), (\d+) and (\d+) degrees")
+# The medium stem states the side facts in words (no list of lengths, which could not agree with the angles).
+_EQUAL_PAIR_RE = re.compile(r"two of its sides are each (\d+) units long and the third side is a different length")
+_ALL_DIFFERENT_CLAUSE = "its three sides all have different lengths"
+
+
+def _medium_is_isosceles(text: str) -> bool:
+    """Read the side-equality fact from the stated clause, then require the stated angles to agree with it
+    (a triangle has two equal sides exactly when it has two equal angles), so the fact is checked, not trusted."""
+    pair, different = _EQUAL_PAIR_RE.search(text), _ALL_DIFFERENT_CLAUSE in text
+    assert pair is not None or different, f"could not parse medium-tier sides: {text!r}"
+    assert not (pair is not None and different), f"ambiguous medium-tier sides clause: {text!r}"
+    am = _THREE_DEGREES_RE.search(text)
+    assert am, f"could not parse medium-tier angles: {text!r}"
+    angles = [int(am.group(i)) for i in (1, 2, 3)]
+    has_equal_angles = len(set(angles)) < 3
+    assert (pair is not None) == has_equal_angles, f"stated sides and angles disagree: {text!r}"
+    return pair is not None
+
 
 _ALL_SIDES_EQUAL_RE = re.compile(r"all four sides are equal, each (\d+) units")
 _OPPOSITE_PAIRS_RE = re.compile(
@@ -61,13 +79,11 @@ def _oracle_easy(text: str) -> str:
 
 
 def _oracle_medium(text: str) -> str:
-    sm = _THREE_UNITS_RE.search(text)
     am = _THREE_DEGREES_RE.search(text)
-    assert sm and am, f"could not parse medium-tier sides/angles: {text!r}"
-    sides = [int(sm.group(i)) for i in (1, 2, 3)]
+    assert am, f"could not parse medium-tier angles: {text!r}"
     angles = [int(am.group(i)) for i in (1, 2, 3)]
     assert sum(angles) == 180, f"medium-tier angles do not sum to 180: {angles} in {text!r}"
-    is_isosceles = sides[0] == sides[1] or sides[1] == sides[2] or sides[0] == sides[2]
+    is_isosceles = _medium_is_isosceles(text)
     is_right = 90 in angles
     if is_isosceles and is_right:
         return "isosceles right-angled"
@@ -99,14 +115,10 @@ def _is_true_description_medium(label: str, is_isosceles: bool, is_right: bool) 
 
 
 def _facts_from_medium_text(text: str):
-    sm = _THREE_UNITS_RE.search(text)
     am = _THREE_DEGREES_RE.search(text)
-    assert sm and am, f"could not parse medium-tier sides/angles: {text!r}"
-    sides = [int(sm.group(i)) for i in (1, 2, 3)]
+    assert am, f"could not parse medium-tier angles: {text!r}"
     angles = [int(am.group(i)) for i in (1, 2, 3)]
-    is_isosceles = sides[0] == sides[1] or sides[1] == sides[2] or sides[0] == sides[2]
-    is_right = 90 in angles
-    return is_isosceles, is_right
+    return _medium_is_isosceles(text), 90 in angles
 
 
 def test_medium_exactly_one_offered_option_is_true_over_1000_seeds():

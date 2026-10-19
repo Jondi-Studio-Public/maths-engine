@@ -1,0 +1,96 @@
+id: matrix-arithmetic
+name: Add, scale and multiply matrices
+domain: matrices
+year_level: ['11']
+description: 'Matrix operations written out in full. Easy: a combination such as 2A - 3B of two matrices of the same size.
+  Medium: the product AB of matrices of different sizes, where the order of the factors and the size of the answer matter.
+  Hard: A squared minus a multiple of A plus a multiple of the identity, or (A + B) squared - A squared - B squared, which
+  is AB + BA and not 2AB. The exam chain finds the determinants of two matrices, writes their product and finds the determinant
+  of the product (carried forward). Full-matrix answers; the multiple-choice matrix-multiplication skill checks recognition
+  only.'
+status: active
+placement_eligible: false
+prerequisites:
+- senior-understand-the-matrix-definition-and-notation
+answer: matrix
+sources:
+- topic: r3c_matrix_arithmetic
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 6
+- topic: r3c_matrix_arithmetic
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 6
+- topic: r3c_matrix_arithmetic
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 6
+  - maintenance
+- topic: r3c_matrix_arithmetic_chain
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r3c-ma-commutes
+  description: Treats matrices like numbers, so that AB and BA are the same, and writes 2AB where AB + BA was needed.
+- id: r3c-ma-constant-as-all-entries
+  description: Adds the constant term of a matrix polynomial to every entry of the matrix instead of only to the diagonal
+    (the constant times the identity matrix).
+- id: r3c-ma-determinant-adds
+  description: Adds the diagonal entries and subtracts the others instead of finding the product of the diagonals minus the
+    product of the others.
+- id: r3c-ma-determinant-adds-factors
+  description: Adds or subtracts the determinants of the two matrices where the determinant of a product is the product of
+    the determinants.
+- id: r3c-ma-determinant-one-diagonal
+  description: Takes the product of the leading diagonal as the determinant and leaves out the other diagonal.
+- id: r3c-ma-determinant-reversed
+  description: Subtracts the products of the diagonals in the wrong order, so the determinant has the wrong sign.
+- id: r3c-ma-determinant-sign
+  description: Adds the products of the diagonals where the second is to be subtracted.
+- id: r3c-ma-determinant-slip
+  description: Makes a slip in multiplying the determinants of the two matrices, so the determinant of the product is off
+    by one of the factors.
+- id: r3c-ma-entry-slip
+  description: Makes a single arithmetic slip in one entry of the answer matrix, with all the others right.
+- id: r3c-ma-entrywise-product
+  description: Multiplies the entries in matching positions instead of multiplying rows by columns.
+- id: r3c-ma-expansion-cancels
+  description: Cancels (A + B) squared against A squared and B squared as if they left nothing, giving the zero matrix.
+- id: r3c-ma-identity-dropped
+  description: Leaves the constant term out of a matrix polynomial, forgetting the identity matrix it multiplies.
+- id: r3c-ma-no-subtraction
+  description: Stops after squaring A + B without taking away A squared and B squared.
+- id: r3c-ma-order-reversed
+  description: Finds BA where AB was asked for, multiplying the matrices in the wrong order.
+- id: r3c-ma-product-transposed
+  description: Writes the product with its rows and columns swapped, so the matrix is the transpose of the product.
+- id: r3c-ma-scalar-forgotten
+  description: Adds or subtracts the matrices without multiplying them by the stated numbers first.
+- id: r3c-ma-scalar-one-matrix
+  description: Multiplies only the first matrix by its number and leaves the second matrix as it was.
+- id: r3c-ma-scalars-swapped
+  description: Multiplies each matrix by the other matrix's number, so A is multiplied by the number meant for B and the reverse.
+- id: r3c-ma-sign-slip
+  description: Adds where the matrices were to be subtracted, or subtracts where they were to be added.
+- id: r3c-ma-squares-entries
+  description: Squares each entry to find the square of a matrix instead of multiplying the matrix by itself.
+- id: r3c-ma-term-missing
+  description: Leaves one of the products out of the sum for one entry of a matrix product, so that entry is short by one
+    product.
+tags:
+- matrices
+- matrix-arithmetic
+- matrix-product
+- scalar-multiple
+- acmgm015
+- r3c_matrix_arithmetic

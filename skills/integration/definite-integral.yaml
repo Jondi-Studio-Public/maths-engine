@@ -39,6 +39,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_c2_definite_integral
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: forgot-subtract-lower
   description: Forgetting to subtract the value at the lower limit.

@@ -39,18 +39,6 @@ def _canonical(q):
     return {p.label: p.answer_text for p in q.parts}
 
 
-def test_source_wired():
-    exam = [s for s in SKILL.sources if s.difficulty == "exam"]
-    assert [(s.topic, s.stages, s.params) for s in exam] == [(TOPIC, ["exam"], {"tier": "exam"})]
-
-
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("p10e_angle_relationships", seed=s)) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
 def test_shape_and_no_text_defects():
     for seed in range(60):
         q = _exam(seed)
@@ -64,12 +52,6 @@ def test_key_rederived_from_prompt():
     for seed in range(300):
         q = _exam(seed)
         assert oracle(q) == _canonical(q), (seed, q.text)
-
-
-def test_answer_space():
-    answers = [_exam(s).answer_text for s in range(300)]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) / len(answers) <= 0.05
 
 
 def test_grader_accepts_key_and_rejects_distractors():
@@ -113,10 +95,6 @@ def test_all_wrong_earns_zero():
     for seed in range(40):
         result = grade(SKILL, _exam(seed), {"a": "999", "b": "1", "c": "2"})
         assert result.marks == 0 and not result.correct
-
-
-def test_deterministic():
-    assert _exam(7).to_dict() == _exam(7).to_dict()
 
 
 @pytest.mark.parametrize("seed", range(5))

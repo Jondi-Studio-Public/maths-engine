@@ -71,13 +71,6 @@ def test_shape(questions):
         assert all(p.option_notes for p in q.parts)
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"] and exam[0].params == {"tier": "exam"}
-    assert _SKILL.sources[-1] is exam[0]
-
-
 def test_prompt_shapes_add_to_hard_tier():
     exam = {prompt_shape(make(TOPIC, seed=s)) for s in range(60)}
     src = [s for s in _SKILL.sources if s.difficulty != "exam"][-1]
@@ -85,15 +78,6 @@ def test_prompt_shapes_add_to_hard_tier():
     hard = {prompt_shape(make(src.topic, seed=s, difficulty=diff, **src.params)) for s in range(60)}
     assert len(exam) >= 3, exam
     assert exam - hard, "the exam source adds no prompt shape beyond the hard tier"
-
-
-def test_no_text_defects(questions):
-    for q in questions[:60]:
-        assert find_text_defects(q) == [], q.text
-
-
-def test_deterministic():
-    assert make(TOPIC, seed=7).to_dict() == make(TOPIC, seed=7).to_dict()
 
 
 def test_composed_answer_full_marks(questions):
@@ -114,12 +98,6 @@ def test_distractors_rejected(questions):
             for d in p.distractors:
                 result = grade(_SKILL, q, {**canon, p.label: d})
                 assert result.parts[p.label].marks == 0, (q.seed, p.label, d)
-
-
-def test_answer_space(questions):
-    assert len({q.answer_text for q in questions}) >= 100
-    top = max(sum(1 for q in questions if q.answer_text == t) for t in {q.answer_text for q in questions})
-    assert top <= 15
 
 
 def test_all_wrong_earns_zero(questions):

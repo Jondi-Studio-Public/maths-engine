@@ -308,7 +308,8 @@ class TestSkillLoads:
         assert skill.answer == "number"
         assert skill.prerequisites == ["senior-review-sine-cosine-and-tangent-as-ratios-of"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 4  # easy, medium, hard, exam
+        # easy, medium, hard, exam chain, plus the single-part exam question re-added as key exam-single (bf2fca7)
+        assert len(skill.sources) == 5
 
     def test_skill_sources_cover_all_difficulties(self):
         """Test that skill sources cover easy, medium, and hard."""

@@ -4,6 +4,7 @@ id: senior-introduce-cartesian-coordinates-for-three-dimensional-space-including
 name: Introduce Cartesian coordinates for three-dimensional space, including plotting points and
   the equations of spheres
 domain: vectors
+year_level: ['12']
 description: Given the equation of a sphere in centre-radius form, or in expanded form that needs
   completing the square, state its centre coordinates and radius as the ordered 4-tuple (a, b, c,
   r). easy reads centre-radius form directly (flip the printed signs, take the square root);

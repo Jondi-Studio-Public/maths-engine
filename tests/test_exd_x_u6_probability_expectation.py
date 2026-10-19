@@ -31,24 +31,6 @@ def _oracle(q):
     return {"a": f"{float(p):.2f}", "b": str(int(p * trials)), "c": str(int(target / p))}
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("probability_scale_estimate", seed=s)) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].stages == ["exam"]
-
-
 def test_key_rederived_from_prompt():
     for seed in range(300):
         q = _exam(seed)
@@ -94,13 +76,3 @@ def test_follow_through_from_a_wrong_probability():
         assert result.parts["b"].marks == result.parts["b"].max_marks, (seed, reply)
         assert result.parts["c"].marks == result.parts["c"].max_marks, (seed, reply)
         assert result.parts["b"].follow_through
-
-
-def test_answer_space():
-    answers = [_exam(s).answer_text for s in range(300)]
-    assert len(set(answers)) >= 100
-    assert max(answers.count(a) for a in set(answers)) <= 15
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

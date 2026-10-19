@@ -1,0 +1,92 @@
+id: f10-conditional-relative-frequency
+name: Estimate a conditional probability from a two-way table
+domain: statistics-probability
+year_level: ['9', '10']
+naplan_domain: [probability]
+description: >-
+  Estimate P(A given B) as a fraction from a two-way table of trial or survey counts. Easy reads one group's total
+  off a table that shows its totals. Medium works from four counts, conditioning on an event or on its opposite
+  and in either direction. Hard finds how much greater the chance of A given B is than the chance of A overall,
+  the comparison that shows whether the events look independent. The exam chain finds a lost count, P(A given B),
+  P(A given not B) and the conclusion the two chances support.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-conditional-probability-language
+- f10-two-way-table-relationship
+answer: fraction
+sources:
+- topic: fr2d_conditional_frequency
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: fr2d_conditional_frequency
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: fr2d_conditional_frequency
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: fr2d_conditional_frequency_exam
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: fr2d-answers-for-the-opposite-event
+  description: >-
+    Giving the chance of the opposite of the event asked about, from the same group.
+- id: fr2d-calls-different-chances-independent
+  description: >-
+    Calling two events independent although the chance of one changes with the other.
+- id: fr2d-condition-and-opposite-confused
+  description: >-
+    Using the chance given the condition where the chance given its opposite was asked for.
+- id: fr2d-conditional-not-compared
+  description: >-
+    Giving the chance given the condition, without taking off the chance over all the records.
+- id: fr2d-confuses-independent-with-exclusive
+  description: >-
+    Thinking events that can happen together cannot be independent, which mixes up independent with mutually
+    exclusive.
+- id: fr2d-count-off-by-one
+  description: >-
+    Being one out when adding or subtracting counts.
+- id: fr2d-difference-the-wrong-way
+  description: >-
+    Subtracting the chance given the condition from the overall chance, so the difference has the wrong sign.
+- id: fr2d-divides-by-the-wrong-group
+  description: >-
+    Dividing by the total of the wrong group, not the group the condition describes.
+- id: fr2d-ignores-the-condition
+  description: >-
+    Giving the chance of the event over all the records, as if the condition had not been stated.
+- id: fr2d-joint-for-conditional
+  description: >-
+    Dividing the count for both events by all the records, which gives the chance of both events and not the
+    chance of one given the other.
+- id: fr2d-left-a-count-out-of-the-sum
+  description: >-
+    Leaving one known count out when taking the known counts from the total, so the lost count comes out too
+    large.
+- id: fr2d-overall-not-compared
+  description: >-
+    Giving the chance over all the records, where the difference from the chance given the condition was asked
+    for.
+- id: fr2d-reads-the-comparison-backwards
+  description: >-
+    Choosing the statement that reverses which chance is greater.
+- id: fr2d-reports-the-known-sum
+  description: >-
+    Giving the sum of the counts that are known, where the lost count was asked for.
+- id: fr2d-reports-the-total
+  description: >-
+    Giving the total number of trials where a count for one outcome was asked for.
+- id: fr2d-sees-a-link-in-equal-chances
+  description: >-
+    Seeing a link between two events even though the chance of one is the same whatever the other does.
+- id: fr2d-swaps-condition-and-target
+  description: >-
+    Dividing the count for both events by the total for the event asked about, so the condition and the target
+    are swapped.
+tags: [acara-f10-v9, statistics-probability, fr2d_conditional_frequency, AC9M10P02, AC9M9P03]

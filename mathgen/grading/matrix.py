@@ -190,6 +190,12 @@ def _scale(text: str) -> tuple[str, sympy.Basic]:
     return text, factor
 
 
+# "(2, 3)^T", "[2,3]ᵀ", "(2,3)^{T}", "\\top", "(2, 3)'": a vector with a transpose mark. A vector and its transpose
+# name the same vector here (`_oriented` already reads a row for a column), so the mark is dropped. It means
+# nothing on a matrix, which would be a different answer when transposed, so such a reply stays unread.
+_TRANSPOSE_SUFFIX_RE = re.compile(r"\s*(?:\^\s*\{?\s*(?:[Tt]|\\top|\\intercal)\s*\}?|ᵀ|\\top|['′’])\s*$")
+
+
 def read_matrix(text: str) -> list[list] | None:
     """A reply as a rectangular list of rows of exact SymPy numbers, or None if it cannot be read."""
     if not isinstance(text, str) or not text.strip() or len(text) > MAX_MATRIX_LENGTH:
@@ -200,10 +206,15 @@ def read_matrix(text: str) -> list[list] | None:
     text = text.replace("\\\\", ";").replace("&", ",").replace("\\cdot", "*").replace("\\times", "×")
     text = text.translate(_ANGLE_BRACKETS).strip().rstrip(".")
     text = _LABEL_RE.sub("", text, count=1)
+    transposed = _TRANSPOSE_SUFFIX_RE.search(text) is not None
+    if transposed:
+        text = _TRANSPOSE_SUFFIX_RE.sub("", text, count=1)
     try:
         text, factor = _scale(text)
         rows = _rows_text(text)
     except _Unreadable:
+        return None
+    if transposed and len(rows) > 1 and len(rows[0]) > 1:
         return None
     if len(rows) > MAX_DIMENSION or any(len(r) > MAX_DIMENSION for r in rows) or len({len(r) for r in rows}) != 1:
         return None
@@ -231,9 +242,12 @@ def _oriented(given: list[list], expected: list[list]) -> list[list] | None:
 
 
 def _multiple_of(given: list, expected: list) -> bool:
-    """Whether the vector `given` is a non-zero multiple of the non-zero vector `expected`."""
+    """Whether the vector `given` is a multiple of `expected`: a non-zero multiple of a non-zero vector, or the
+    zero vector for a zero one (zero times anything is zero, and nothing else is a multiple of it)."""
     pivot = next((i for i, e in enumerate(expected) if not same_number(e, 0)), None)
-    if pivot is None or same_number(given[pivot], 0):
+    if pivot is None:
+        return all(same_number(g, 0) for g in given)
+    if same_number(given[pivot], 0):
         return False
     ratio = given[pivot] / expected[pivot]
     return all(same_number(g, ratio * e) for g, e in zip(given, expected))

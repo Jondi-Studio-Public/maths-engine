@@ -25,6 +25,12 @@ from __future__ import annotations
 import math
 from collections import defaultdict
 
+# The public names: see docs/api.md. Anything else here may change in any release.
+__all__ = [
+    "item_difficulty",
+    "fsrs_calibration",
+]
+
 PRIOR_SD = 2.0  # logits; see `rasch`
 RASCH_ITERATIONS = 50
 WILSON_Z = 1.96

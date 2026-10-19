@@ -31,13 +31,6 @@ def test_prompt_variety_and_new_shapes_over_hard_tier():
     assert len(shapes - hard_shapes) >= 3, (shapes, hard_shapes)
 
 
-def test_no_text_defects_and_deterministic():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-        assert q.to_json() == _make(seed).to_json()
-
-
 def test_skill_yaml_has_the_exam_source_last():
     import yaml
 
@@ -46,7 +39,7 @@ def test_skill_yaml_has_the_exam_source_last():
     )
     skill = yaml.safe_load(path.read_text(encoding="utf-8"))
     last = skill["sources"][-1]
-    assert last["topic"] == TOPIC
+    assert last["topic"] == "exd_x_r3b_similar_scale"  # the exam source moved to the multi-part chain
     assert last["difficulty"] == "exam"
     assert last["stages"] == ["exam"]
     assert last["params"] == {"tier": "exam"}

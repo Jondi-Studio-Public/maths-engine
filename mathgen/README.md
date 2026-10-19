@@ -9,7 +9,7 @@ graders that check replies. For install and a first run, see the top-level
 | Path | What it is |
 |---|---|
 | `core.py` | `Question`, the `@generator` decorator, `make()`, and the shared helpers |
-| `generators/` | The generators, one decorated function each, in about 400 modules |
+| `generators/` | The generators, one decorated function each, in about 1,000 modules |
 | `grading/typed.py` | The graders and the `GRADERS` registry (`number`, `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, and a few structured kinds) |
 | `grading/spoken.py` | Number and expression parsing the typed graders share, and `check_answer` for transcripts of spoken answers. For a single-number answer a transcript must state one value and not negate or hedge it ("not twelve", "twelve or thirteen" and "twelve and a half" are wrong for 12) |
 | `answers.py` | The typed answer contract: `answer_spec()`, `Distractor`, the answer kinds and forms |
@@ -18,6 +18,12 @@ graders that check replies. For install and a first run, see the top-level
 | `skills.py` | Skill loader and validator |
 | `figures.py` | Figure specs for questions that show a picture |
 | `text_quality.py` | Learner-facing text checks (no `**`, no `*` as a times sign, no "1 parts") |
+| `capabilities.py` | Capability-gate registry loader: blocks skills whose gates have not passed |
+| `slots.py` | Shared word-problem vocabulary (names, objects, units) drawn through `core.phrase` |
+| `figure_kinds/` | The figure kinds `figures.py` builds, by area |
+| `scheduling/` | Spaced-review maths: FSRS, stages, prerequisites, calibration |
+
+For how these fit together, see `docs/architecture.md`.
 
 Generator file names carry historical batch prefixes (such as `p19h_`). They
 are identifiers, not categories. Dropping a module into `generators/` is enough:
@@ -114,7 +120,9 @@ accepts half a unit in its last place, and an answer shown exactly (`2.6` for 7.
 exactly. If the stored answer is itself rounded, say so in the question ("to the nearest cent").
 `grade_fraction` compares
 by value, so `2/4` is accepted for `1/2` and you cannot build a "does not simplify"
-distractor. Expressions are compared by symbolic equivalence.
+distractor. The exception is a stem that asks for "lowest terms", "simplest form" or "simplify": `2/4` and `0.5` are
+then wrong for `1/2` (a whole number is still fine), and each item of an `ordered_list` of fractions is held to the
+same rule. Expressions are compared by symbolic equivalence.
 
 **Presets.** `presets` maps names such as `easy`, `medium` and `hard` to keyword bundles.
 Explicit params passed to `make()` override a preset. A topic with no presets uses its

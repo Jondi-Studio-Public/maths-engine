@@ -57,10 +57,10 @@ def test_square_roots_correct_and_incorrect_options_grade_through_real_mcq_grade
         question = make("square_roots_perfect_squares", seed=seed, difficulty=difficulty)
         options = mcq_options(question)
         correct_idx = options.index(question.answer_text)
-        assert grade_mcq(question, str(correct_idx)).correct
+        assert grade_mcq(question, correct_idx).correct
         for i, option in enumerate(options):
             if option != question.answer_text:
-                assert not grade_mcq(question, str(i)).correct
+                assert not grade_mcq(question, i).correct
 
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "hard"])

@@ -1,0 +1,91 @@
+id: uc2-first-isomorphism-theorem-orders
+name: Find kernel and image orders by the first isomorphism theorem
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Use the first isomorphism theorem to find an order when the others are not given: the kernel of
+  a map Z_m to Z_n or of a map from Z_m x Z_n to Z_k, and the size of the image of a power map on
+  the unit group of Z_n, where the group is often not cyclic. The exam chain finds the image
+  order, the kernel order, the order of a coset in the quotient by the kernel and the size of a
+  fibre.
+status: active
+placement_eligible: false
+prerequisites:
+- cyclic-group-element-order
+- ucv1-isomorphism-invariant
+answer: number
+sources:
+- topic: r4c_first_isomorphism_theorem_orders
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4c_first_isomorphism_theorem_orders
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4c_first_isomorphism_theorem_orders
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4c_first_isomorphism_theorem_orders
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: coset-order-taken-from-the-domain
+  description: >-
+    Giving the order of the generator in the domain as the order of its coset modulo the kernel.
+- id: fibre-size-assumes-injective
+  description: >-
+    Assuming each element of the image has exactly one preimage, which holds only when the kernel
+    is trivial.
+- id: image-order-assumes-cyclic-unit-group
+  description: >-
+    Assuming the unit group is cyclic, so that raising to the e-th power divides the order by
+    gcd(e, order).
+- id: image-order-assumes-kernel-has-e-elements
+  description: >-
+    Assuming exactly e elements satisfy x^e = 1, so dividing the order of the group by e.
+- id: image-order-assumes-onto
+  description: >-
+    Assuming every element is an e-th power, so reporting the order of the whole group.
+- id: image-order-is-gcd-not-index
+  description: >-
+    Giving the gcd that generates the image as its order, when the order is the modulus divided by
+    that gcd.
+- id: image-order-is-kernel-order
+  description: >-
+    Giving the number of elements with x^e = 1 where the size of the image was asked.
+- id: kernel-order-assumes-image-is-the-codomain
+  description: >-
+    Assuming the homomorphism is onto the codomain, so dividing the order of the domain by the
+    order of the codomain.
+- id: kernel-order-ignores-one-generator
+  description: >-
+    Finding the image from only one of the two terms of the map, so dividing by the wrong image
+    order.
+- id: kernel-order-is-gcd-with-the-codomain
+  description: >-
+    Taking the kernel order to be the gcd of the multiplier and the order of the codomain, which
+    is the order of the generator's complement in the image.
+- id: kernel-order-is-gcd-with-the-generator
+  description: >-
+    Taking the kernel order to be the gcd of the multiplier and the order of the domain, instead
+    of dividing by the image order.
+- id: kernel-order-is-group-order
+  description: >-
+    Giving the order of the whole domain as the order of the kernel.
+- id: kernel-order-is-image-order
+  description: >-
+    Giving the order of the image where the order of the kernel was asked.
+tags: [university-core-v1, university-year-2, abstract-algebra, isomorphism-theorem,homomorphism,kernel,image]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

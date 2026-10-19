@@ -5,6 +5,7 @@ name: With the aid of a financial calculator or computer-based financial softwar
   annuities (including perpetuities as a special case); for example, determining the amount to be invested
   in an annuity to provide a regular monthly income of a certain amount
 domain: financial-discrete
+year_level: ['12']
 description: Given bounded, fully specified inputs, with the aid of a financial calculator or computer-based
   financial software, solve problems involving annuities (including perpetuities as a special case); for
   example, determining the amount to be invested in an annuity to provide a regular monthly income of a

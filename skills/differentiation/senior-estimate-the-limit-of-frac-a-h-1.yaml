@@ -3,7 +3,16 @@
 id: senior-estimate-the-limit-of-frac-a-h-1
 name: 'Estimate the limit of (a^h-1)/h as h->0 using technology, for various values of a>0'
 domain: differentiation
-description: 'Given bounded, fully specified inputs, estimate the limit of (a^h-1)/h as h->0 using technology, for various values of a>0. Return the resulting value, expression, relation, or classification. Presents a table of (a^h-1)/h at decreasing positive h for a stated a, computed as a learner''s own calculator would show it, and asks the learner to estimate the limit from the table''s trend as an MCQ over rounded numerals -- never an exact closed-form value, which the learner never sees or types. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.'
+year_level: ['12']
+description: >-
+  Given bounded, fully specified inputs, estimate the limit of (a^h-1)/h as h->0 using technology,
+  for various values of a>0. Return the resulting value, expression, relation, or classification.
+  Presents a table of (a^h-1)/h at decreasing positive h for a stated a, computed as a learner's own
+  calculator would show it, and asks the learner to estimate the limit from the table's trend as an
+  MCQ over rounded numerals -- never an exact closed-form value, which the learner never sees or
+  types. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside
+  capability_gate. At the exam tier the estimate is typed, not chosen, and is carried on to the
+  gradient of a^x at x = 2 and the x-intercept of the tangent there.
 status: active
 placement_eligible: false
 prerequisites:
@@ -22,8 +31,8 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: p12c_estimate_limit_ah
-  params: {}
+- topic: exd_x_r3h_limit_ah
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

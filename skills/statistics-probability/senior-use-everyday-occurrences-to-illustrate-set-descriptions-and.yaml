@@ -3,6 +3,7 @@
 id: senior-use-everyday-occurrences-to-illustrate-set-descriptions-and
 name: Use everyday occurrences to illustrate set descriptions and representations of events, and set operations
 domain: statistics-probability
+year_level: ['11']
 description: 'Given bounded, fully specified inputs, use everyday occurrences to illustrate set descriptions and representations of events, and set operations. Return the resulting value, expression, relation, or classification. This skill assesses the description/representation half only: translating an everyday-language description of a group into a matching set-notation phrase (word form, never symbolic notation like ∪/∩/\). The operations half (computing or listing the actual elements of any set) is not covered by this skill; that is left to finite-set-operations, a separate already-shipped skill that handles computation over explicitly listed finite sets. This skill never lists a set''s elements and never asks for a computed result set.'
 status: active
 placement_eligible: false

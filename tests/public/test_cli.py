@@ -1,5 +1,6 @@
 """The `mathgen` command line: what the README promises, and clear errors instead of tracebacks."""
 
+import dataclasses
 import errno
 import json
 import os
@@ -156,7 +157,7 @@ def test_every_mcq_skill_can_be_answered_by_label_and_by_text(library):
                     expected = labels.index(text) if text in labels else i
                     assert _choose_option(options, text) == expected, (text, *where)
                     for given, index in ((label, i), (text, expected)):
-                        assert engine.grade(skill, q, str(index)).correct == (index == key), (given, *where)
+                        assert engine.grade(skill, q, index).correct == (index == key), (given, *where)
                     checked += 1
     assert checked > 20000
 
@@ -178,8 +179,14 @@ def test_options_that_are_themselves_letters_are_numbered_so_labels_cannot_clash
 # -- deferred skills ----------------------------------------------------------------------------
 
 
-def test_deferred_skill_without_sources_is_a_clear_error_not_a_traceback(capsys, library):
-    skill = next(s for s in library if s.status == "deferred" and not s.sources)
+def test_deferred_skill_without_sources_is_a_clear_error_not_a_traceback(capsys, library, monkeypatch):
+    # The library may have no deferred skill without sources left, so strip the sources from a copy
+    # of one deferred skill and serve the CLI that copy.
+    original = next(s for s in library if s.status == "deferred")
+    skill = dataclasses.replace(original, sources=[])
+    domains, skills = engine.load_skills()
+    patched = [skill if s.id == skill.id else s for s in skills]
+    monkeypatch.setattr(engine, "load_skills", lambda *a, **k: (domains, patched))
     code, out, err = run(capsys, "--skill", skill.id, "--seed", "1", "--answer", "1")
     assert code == 1
     assert out == ""
@@ -189,10 +196,10 @@ def test_deferred_skill_without_sources_is_a_clear_error_not_a_traceback(capsys,
 
 
 def test_deferred_skill_without_a_grader_prints_the_question_then_says_it_cannot_grade(capsys, library, monkeypatch):
-    # Every kind the library's deferred skills name now has a grader, so take one away for this test: `list`, the
-    # only kind a deferred skill still names whose reason is `grader` (the inequality skills are active now).
-    monkeypatch.delitem(GRADERS, "list")
-    skill = next(s for s in library if s.status == "deferred" and s.sources and s.answer not in GRADERS)
+    # Every kind the library's deferred skills name has a grader, so take one away for this test: the answer
+    # kind of the first deferred skill that has sources (`gradient-vector`, the last `list` skill, is active now).
+    skill = next(s for s in library if s.status == "deferred" and s.sources and s.answer in GRADERS)
+    monkeypatch.delitem(GRADERS, skill.answer)
     code, out, err = run(capsys, "--skill", skill.id, "--seed", "1", "--answer", "x")
     assert code == 1
     assert out.startswith(f"[{skill.id} #1]\n  Q: ")

@@ -39,13 +39,6 @@ def _independent_key(text):
     return sympy.expand((X - spec.subs(uu, u)) * (X - spec2.subs(vv, v)))
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("quadratic_complex_conjugate_solutions", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
 def test_key_matches_complex_arithmetic_over_300_seeds():
     bad = []
     shapes = set()

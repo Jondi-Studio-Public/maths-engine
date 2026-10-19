@@ -1,0 +1,93 @@
+id: f10-ampm-elapsed-and-24h-practical
+name: Work out elapsed time with am, pm and 24-hour times
+domain: primary-geometry-time
+year_level:
+- '4'
+- '5'
+naplan_domain:
+- measurement
+description: Find the minutes between two times in one day, across noon, with one time in am or pm and the other in 24-hour
+  time, and over a timetable of two journey legs with a wait between them. The exam chain finds each leg, the wait, the total
+  and the total in hours and minutes.
+status: active
+placement_eligible: false
+prerequisites:
+- elapsed-time
+- convert-time-systems
+answer: number
+sources:
+- topic: fr2c_clock_elapsed
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2c_clock_elapsed
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2c_clock_elapsed
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fr2c_clock_elapsed_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: 'Split the interval at noon: the minutes up to 12:00 and the minutes after it.'
+  medium:
+    steps: 2
+    demand: Write both times in the same style, then find the gap.
+  hard:
+    steps: 3
+    demand: Find the gap from the first departure to the last arrival across a wait, with times in different styles.
+  exam:
+    steps: 4
+    demand: Each leg and the wait in minutes, then their total, then the total in hours and minutes.
+misconceptions:
+- id: fr2c-noon-not-crossed
+  description: Finding the gap between two clock readings as if both were in the same half of the day, so the interval across
+    noon comes out wrong.
+- id: clock-time-read-as-decimal
+  description: Reading a time such as 5 h 45 min as 5.45 hours.
+- id: fr2c-hour-lost-at-noon
+  description: Being an hour short when crossing from the morning into the afternoon, for example by skipping the hour that
+    starts at 12:00.
+- id: fr2c-hour-gained-at-noon
+  description: Being an hour over when crossing from the morning into the afternoon, for example by counting the hour from
+    12:00 to 1:00 twice.
+- id: fr2c-twelve-hour-clock-used-for-24
+  description: Reading a 24-hour time such as 17:25 as 7:25 and so taking the wrong gap between two times.
+- id: fr2c-count-off-by-one
+  description: Being one out when counting units or steps.
+- id: left-out-the-break
+  description: Leaving an unpaid break out of the time worked, or taking it off the wrong way.
+- id: fr2c-wait-counted-twice
+  description: Counting the wait between two journeys twice when finding the total time.
+- id: fr2c-wait-only
+  description: Giving the length of the wait instead of the time for the whole trip.
+- id: minutes-over-100
+  description: Turning minutes into a decimal part of an hour by dividing by 100 instead of 60.
+- id: fr2c-hours-and-minutes-swapped
+  description: Writing the minutes where the hours belong and the hours where the minutes belong.
+- id: fr2c-minutes-remainder-lost
+  description: Changing minutes to hours and leaving out the minutes that are left over.
+tags:
+- acara-f10-v9
+- primary
+- time
+- elapsed-time
+- am-pm
+- 24-hour-time
+- ac9m4m03
+- ac9m5m03

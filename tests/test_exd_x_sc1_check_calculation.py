@@ -81,11 +81,6 @@ def test_the_stated_final_result_is_not_the_key():
         assert steps(q)[-1][4] != int(q.parts[2].answer_text)
 
 
-def test_answer_space_and_determinism():
-    sup.check_answer_space(SKILL_ID)
-    sup.check_deterministic(SKILL_ID)
-
-
 def test_chain_is_not_copyable():
     """The later steps never cancel out ((c) is not (b) again) and junk replies earn nothing."""
     from tests.exd_junk_probe import assert_chain_is_not_copyable

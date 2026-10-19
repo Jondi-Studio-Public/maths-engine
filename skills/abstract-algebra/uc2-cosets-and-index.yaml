@@ -1,0 +1,99 @@
+id: uc2-cosets-and-index
+name: List cosets and find the index of a subgroup
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  List the elements of a coset: in Z_n for a subgroup given by a non-minimal generator, in the group
+  of units modulo n, and a left coset in S_4 where the right coset is a different set. The exam
+  chain finds the order and index of a subgroup of Z_N and a coset of it.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-finite-subgroup-test
+- cyclic-group-element-order
+answer: set
+sources:
+- topic: r4a_cosets_and_index
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4a_cosets_and_index
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4a_cosets_and_index
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4a_cosets_and_index
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: coset-computed-with-addition
+  description: >-
+    Adding the representative to each element of the subgroup where the group operation is
+    multiplication.
+- id: coset-element-missing
+  description: >-
+    Leaving one element out of a coset, so the set has fewer elements than the subgroup.
+- id: coset-inverse-representative
+  description: >-
+    Using the inverse of the representative, which gives the coset of the inverse and not the coset
+    asked for.
+- id: coset-is-the-subgroup-itself
+  description: >-
+    Giving the subgroup itself where a coset away from it was asked for.
+- id: coset-least-element-negated
+  description: >-
+    Reporting the gap from the least member up to the modulus instead of the least member of the
+    coset.
+- id: coset-left-right-swapped
+  description: >-
+    Giving the right coset Hg where the left coset gH was asked for, which differ when H is not
+    normal.
+- id: coset-modulus-index-confusion
+  description: >-
+    Taking the coset to be the residues congruent to the representative modulo the index, when the
+    modulus is the gcd that generates the subgroup.
+- id: coset-multiplied-not-added
+  description: >-
+    Multiplying the representative by each element of the subgroup where the group operation is
+    addition.
+- id: coset-of-wrong-representative
+  description: >-
+    Listing the coset of a different element of the group, such as one not in the coset asked for.
+- id: coset-order-of-group-for-subgroup
+  description: >-
+    Giving the order of the whole group as the order of the subgroup.
+- id: coset-representative-not-reduced
+  description: >-
+    Reporting the representative as given instead of the least non-negative member of its coset.
+- id: coset-representative-off-by-one
+  description: >-
+    Adding the representative plus or minus one to the subgroup, which lists a neighbouring coset.
+- id: coset-representative-sign-slip
+  description: >-
+    Adding the negative of the representative to the subgroup, which is the coset of the inverse and
+    not the coset asked for.
+- id: index-confused-with-subgroup-order
+  description: >-
+    Reporting the order of the subgroup where its index was asked.
+- id: index-of-trivial-subgroup-confusion
+  description: >-
+    Reporting the order of the whole group, the index of the trivial subgroup, as the index.
+- id: subgroup-order-read-as-gcd
+  description: >-
+    Giving the gcd of the generator and the group order as the order of the subgroup, when it is the
+    index.
+tags: [university-core-v1, university-year-2, abstract-algebra, cosets, index, lagrange]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

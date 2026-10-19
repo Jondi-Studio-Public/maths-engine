@@ -2,6 +2,7 @@
 
 compare-unit-prices (ACMEM016, ACMGM005), domain arithmetic, answer: mcq."""
 
+from dataclasses import replace
 from fractions import Fraction
 
 import pytest
@@ -26,6 +27,8 @@ def _make_from_sources(skills_dict, difficulty, seed):
     """Generate through the skill's own `sources` entry, not a bare `make(topic, seed, difficulty)` call."""
     skill = skills_dict[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if difficulty == "exam":
+        src = replace(src, topic="p14b_compare_unit_prices", params={})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 
@@ -80,11 +83,11 @@ def test_real_grader_accepts_canonical_and_rejects_every_distractor(skills_dict,
         q = _make_from_sources(skills_dict, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct, (difficulty, seed, q.text)
+        assert grade_mcq(q, correct_index).correct, (difficulty, seed, q.text)
         for i, opt in enumerate(options):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(i)).correct, (difficulty, seed, q.text, opt)
+            assert not grade_mcq(q, i).correct, (difficulty, seed, q.text, opt)
 
 
 @pytest.mark.parametrize("difficulty", DIFFICULTIES)
@@ -94,7 +97,7 @@ def test_real_grader_rejects_a_deliberately_wrong_index(skills_dict, difficulty)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
         wrong_index = (correct_index + 1) % len(options)
-        assert not grade_mcq(q, str(wrong_index)).correct, (difficulty, seed, q.text)
+        assert not grade_mcq(q, wrong_index).correct, (difficulty, seed, q.text)
 
 
 @pytest.mark.parametrize("difficulty", DIFFICULTIES)

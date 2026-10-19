@@ -63,7 +63,7 @@ def test_real_grader_accepts_key_and_rejects_every_other_option(difficulty):
         options = mcq_options(q)
         assert len(options) == 4 and len(set(options)) == 4
         for index, option in enumerate(options):
-            assert grade_mcq(q, str(index)).correct == (option == q.answer_text)
+            assert grade_mcq(q, index).correct == (option == q.answer_text)
         assert not grade_mcq(q, "not a number").correct
         assert not grade_mcq(q, "9").correct
 
@@ -182,7 +182,7 @@ def test_skill_properties():
     assert SKILL.status == "active"
     assert SKILL.placement_eligible is False
     assert SKILL.answer == "mcq"
-    assert {s.difficulty for s in SKILL.sources} == set(TIERS)
+    assert {s.difficulty for s in SKILL.sources} == set(TIERS) | {"exam"}  # plus the multi-part exam chain
     assert "AC9M10P01" in SKILL.tags
     _d, skills = load_skills()
     for prereq in SKILL.prerequisites:

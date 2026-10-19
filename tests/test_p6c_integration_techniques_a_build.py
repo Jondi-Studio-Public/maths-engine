@@ -135,14 +135,12 @@ def test_integrate_by_parts_medium_bounds_both_nonzero():
 
 
 def test_integrate_by_parts_hard_bounds_at_least_one():
-    """Hard tier (log): both bounds must be >= 1 (log domain)."""
+    """Hard tier (ln): both bounds must be >= 1 (log domain)."""
     for seed in SEEDS:
         question = make(INTEGRATE_BY_PARTS_TOPIC, seed=seed, difficulty="hard")
         # Parse to verify no log(0) or negative log arguments
         # This is checked in the generator; we just verify it renders
-        assert "x log(x)" in question.text or "x·log(x)" in question.text, (
-            f"Seed {seed}: hard tier doesn't have x*log(x)"
-        )
+        assert "x ln(x)" in question.text or "x·ln(x)" in question.text, f"Seed {seed}: hard tier doesn't have x*log(x)"
 
 
 def test_integrate_by_parts_distinct_rendered_questions_per_tier():

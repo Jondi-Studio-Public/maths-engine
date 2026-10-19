@@ -233,4 +233,4 @@ def test_oracle_grader_agrees():
             truths = [_oracle_option_truth(contains, opt_kind, x, a, b) for (letter, opt_kind, x, a, b) in parsed]
             true_letter = parsed[truths.index(True)][0]
             correct_idx = options.index(true_letter)
-            assert grade_mcq(q, str(correct_idx)).correct
+            assert grade_mcq(q, correct_idx).correct

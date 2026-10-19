@@ -1,0 +1,51 @@
+id: tally-tables
+name: Tally tables
+domain: statistics-probability
+year_level: ['2']
+naplan_domain: [statistics]
+learner_band: early
+description: "Read a tally table with marks in gates of five: how many a row shows, which row shows a stated count, and which row of a tally does not match the things that were sorted."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+read_aloud: true
+prerequisites: [one-to-one-displays]
+answer: mcq
+sources:
+- topic: ey_tally_tables
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_tally_tables
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_tally_tables
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Read the marks in one row, counting gates of five."
+  medium:
+    steps: 2
+    demand: "Read every row to find the one that shows a stated count, rejecting rows that look close."
+  hard:
+    steps: 3
+    demand: "Count each kind of thing in a scatter, read each row of the tally, and compare the two to find the row that is wrong."
+misconceptions:
+- id: eyt-neighbouring-row
+  description: "Reads the row above or below the one the question names."
+- id: eyt-skips-the-slash
+  description: "Counts only the upright strokes of a tally, so each gate of five is read as four."
+- id: eyt-gate-counted-as-one
+  description: "Counts each gate of five tally marks as a single mark."
+- id: eyt-count-one-over
+  description: "Counts one too many in a row of tally marks."
+- id: eyt-count-one-short
+  description: "Counts one too few in a row of tally marks."
+- id: eyt-picks-a-matching-row
+  description: "Chooses a row of the tally that is right, so the row that is wrong is missed."
+tags: [acara-f10-v9, early, ac9m2st01, data, tally, sorting, visual]

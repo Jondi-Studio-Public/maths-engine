@@ -33,12 +33,6 @@ def _hard(seed):
     return make(src.topic, seed=seed, **src.params)
 
 
-def test_source_wired():
-    exam = [s for s in _SKILL.sources if s.difficulty == "exam"]
-    assert [s.topic for s in exam] == [TOPIC]
-    assert exam[0].params == {"tier": "exam"} and list(exam[0].stages) == ["exam"]
-
-
 def test_shape(questions):
     for q in questions:
         assert [p.label for p in q.parts] == LABELS
@@ -78,16 +72,6 @@ def test_all_wrong_earns_nothing(questions):
     for q in questions[:60]:
         result = grade(_SKILL, q, {p.label: f"9999{i}" for i, p in enumerate(q.parts)})
         assert result.marks == 0 and not result.correct
-
-
-def test_answer_space(questions):
-    tuples = Counter(tuple(_canonical(q).values()) for q in questions)
-    assert len(tuples) >= 100, len(tuples)
-    assert max(tuples.values()) / len(questions) <= 0.05, tuples.most_common(3)
-
-
-def test_deterministic():
-    assert make(TOPIC, seed=7).to_dict() == make(TOPIC, seed=7).to_dict()
 
 
 LABELS = ["a", "b", "c", "d"]

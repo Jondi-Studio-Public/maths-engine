@@ -119,7 +119,9 @@ def exd_x_n3_decibel_scale(rng: random.Random, tier: str = "exam") -> dict:
                 answer_text=c3_text,
                 answer_latex=latex_answer(c3_text),
                 marks=2,
-                working=[f"{times} = 10^{j}, which is {j} steps of 10 dB: {l2} + {10 * j} = {l3} dB."],
+                working=[
+                    f"{times} = 10^{j}, which is {j} step{'' if j == 1 else 's'} of 10 dB: {l2} + {10 * j} = {l3} dB."
+                ],
                 distractors=c_dist,
             ),
         ],

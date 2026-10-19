@@ -1,0 +1,128 @@
+id: uc2-regression-slope-inference
+name: Inference for a regression slope
+domain: statistics
+year_level:
+- university
+description: "Fit a simple linear regression from summary totals or raw pairs and make inferences about its slope: the estimate,\
+  \ residual variance, standard error, t statistic (against zero or a claimed value), confidence limits, and a confidence\
+  \ interval for the mean response."
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-regression-residual-diagnostic
+- ucv1-one-sample-t-test
+answer: number
+sources:
+- topic: r4i_regression_slope
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4i_regression_slope
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4i_regression_slope
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4i_regression_slope
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4i-rs-correlation-for-slope
+  description: Giving the correlation coefficient r where the slope was asked.
+- id: r4i-rs-denominator-dropped
+  description: Dropping the square root of 1 - r squared from the denominator of the t statistic.
+- id: r4i-rs-distance-not-squared
+  description: "Using the distance of x0 from the mean without squaring it in the standard error of the mean response."
+- id: r4i-rs-divided-by-n
+  description: Dividing the residual sum of squares by n instead of n - 2.
+- id: r4i-rs-divided-by-n-minus-one
+  description: Dividing the residual sum of squares by n - 1 instead of n - 2.
+- id: r4i-rs-forgot-centering
+  description: Using the raw totals sum xy over sum x squared, without subtracting the products of the means.
+- id: r4i-rs-forgot-distance-term
+  description: Leaving out the (x0 - mean)^2/Sxx term in the standard error of the mean response.
+- id: r4i-rs-forgot-division
+  description: Giving the residual sum of squares without dividing by its degrees of freedom.
+- id: r4i-rs-forgot-division-by-n
+  description: Forgetting to divide by n in the corrections sum x times sum y over n and (sum x)^2 over n.
+- id: r4i-rs-forgot-one-over-n
+  description: Leaving out the 1/n term in the standard error of the mean response.
+- id: r4i-rs-forgot-sxx
+  description: Dividing the slope by s instead of by s over the square root of Sxx.
+- id: r4i-rs-forgot-t-value
+  description: Using one standard error as the margin instead of the t value times the standard error.
+- id: r4i-rs-margin-only
+  description: Giving the margin of error alone instead of the confidence limit.
+- id: r4i-rs-mean-formula-used
+  description: Using s over the square root of n, the standard error of a mean, for the slope.
+- id: r4i-rs-multiplied
+  description: Multiplying the slope by its standard error instead of dividing.
+- id: r4i-rs-multiplied-by-root-sxx
+  description: Multiplying s by the square root of Sxx instead of dividing.
+- id: r4i-rs-null-value-ignored
+  description: Ignoring the claimed slope and testing against zero.
+- id: r4i-rs-prediction-interval
+  description: Giving the half-width for predicting a single new value, adding 1 inside the square root.
+- id: r4i-rs-r-for-one-minus-r-squared
+  description: Using the square root of r in place of the square root of 1 - r squared.
+- id: r4i-rs-regressed-x-on-y
+  description: Dividing Sxy by Syy, the slope of x on y, instead of by Sxx.
+- id: r4i-rs-sd-for-variance
+  description: Giving the standard deviation where the variance was asked.
+- id: r4i-rs-sign-reversed
+  description: Subtracting the estimate from the claimed slope instead of the claimed slope from the estimate.
+- id: r4i-rs-slope-inverted
+  description: Giving Sxx over Sxy, the reciprocal of the slope.
+- id: r4i-rs-slope-times-factor
+  description: "Multiplying the slope by the t factor instead of recognising the t statistic depends only on r and n."
+- id: r4i-rs-square-root-missing
+  description: Leaving the square root off 1 - r squared in the denominator.
+- id: r4i-rs-sxx-root-missing
+  description: Dividing s by Sxx instead of by the square root of Sxx.
+- id: r4i-rs-t-inverted
+  description: Dividing the standard error by the slope instead of the slope by its standard error.
+- id: r4i-rs-total-for-residual
+  description: Dividing Syy, the total sum of squares, by n - 2 instead of the residual sum of squares.
+- id: r4i-rs-variance-for-sd
+  description: Using the variance s squared where the standard deviation s belongs in the standard error.
+- id: r4i-rs-wrong-df
+  description: Using n - 1 (or n) in place of n - 2 degrees of freedom.
+- id: r4i-rs-wrong-end
+  description: Giving the other end of the confidence interval.
+- id: r4i-rs-z-for-t
+  description: Using the normal value 1.96 where the stated t value belongs.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: "Form Sxx, Sxy and Syy from the totals and take one step: the slope, the residual variance with n - 2 degrees\
+      \ of freedom, or the t statistic for a stated correlation."
+  medium:
+    steps: 4
+    demand: "Chain the full set of steps from totals to the standard error of the slope, or to the t statistic against zero\
+      \ or against a claimed non-zero slope."
+  hard:
+    steps: 6
+    demand: "Start from raw pairs and reach a confidence limit, find the mean-response interval with the extra distance term,\
+      \ or see that the slope's t statistic depends only on r and n."
+  exam:
+    steps: 6
+    demand: "A four-part chain from summary totals: find the fitted slope, its standard error, the t statistic for the slope, then a one-sided confidence limit using a stated t value."
+tags:
+- university-year-2
+- statistics
+- regression
+- slope-inference
+- t-test
+- confidence-interval

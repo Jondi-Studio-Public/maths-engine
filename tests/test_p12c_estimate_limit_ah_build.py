@@ -6,6 +6,8 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
+
 import re
 from fractions import Fraction
 
@@ -26,6 +28,10 @@ _A_RE = re.compile(r"a = (-?\d+(?:\.\d+)?)")
 def _make_from_sources(skills_dict, difficulty, seed):
     skill = skills_dict[SKILL_ID]
     src = next(s for s in skill.sources if s.difficulty == difficulty)
+    if (
+        difficulty == "exam"
+    ):  # the skill's exam source is now a multi-part chain; these tests pin the earlier exam generator
+        src = replace(src, topic="p12c_estimate_limit_ah", params={})
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
 
@@ -67,11 +73,11 @@ def test_real_grader_accepts_canonical_and_rejects_every_distractor(skills_dict,
         q = _make_from_sources(skills_dict, difficulty, seed)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct, (difficulty, seed, q.text)
+        assert grade_mcq(q, correct_idx).correct, (difficulty, seed, q.text)
         for i, opt in enumerate(options):
             if i == correct_idx:
                 continue
-            assert not grade_mcq(q, str(i)).correct, (difficulty, seed, q.text, opt)
+            assert not grade_mcq(q, i).correct, (difficulty, seed, q.text, opt)
 
 
 @pytest.mark.parametrize("difficulty", DIFFICULTIES)
@@ -79,7 +85,7 @@ def test_real_grader_rejects_a_deliberately_wrong_answer(skills_dict, difficulty
     for seed in SEEDS:
         q = _make_from_sources(skills_dict, difficulty, seed)
         wrong_idx = _wrong_index(q)
-        assert not grade_mcq(q, str(wrong_idx)).correct, (difficulty, seed, q.text)
+        assert not grade_mcq(q, wrong_idx).correct, (difficulty, seed, q.text)
         # Out-of-range and non-numeric input must also be rejected, never crash.
         assert not grade_mcq(q, "99").correct
         assert not grade_mcq(q, "not a number").correct

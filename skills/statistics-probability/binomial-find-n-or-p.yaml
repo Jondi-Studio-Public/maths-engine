@@ -1,0 +1,55 @@
+id: binomial-find-n-or-p
+name: "Find n or p of a binomial distribution from its mean or variance"
+domain: statistics-probability
+year_level: ['12']
+description: "Recover the number of trials or the success probability of a binomial random variable from its mean, from its mean and variance (or standard deviation), or from a stated probability: the least n for which P(X >= 1) exceeds a level, or p from P(X = 0) or P(X = n)."
+status: active
+placement_eligible: false
+prerequisites: [binomial-mean-variance-sd, binomial-point-probability]
+answer: number
+sources:
+- topic: r3a_binomial_find_np
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3a_binomial_find_np
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3a_binomial_find_np
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3a_binomial_find_np
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 1, demand: "Use np = mean once to find n or p."}
+  medium: {steps: 2, demand: "Use variance / mean = 1 - p to find p, then n = mean / p."}
+  hard: {steps: 3, demand: "Solve an inequality or an equation in which n or p sits inside a power, using logarithms or a root."}
+  exam: {steps: 4, demand: A connected chain of four parts in which each later part uses an earlier answer.}
+misconceptions:
+- id: r3a-find-n-uses-failure-probability
+  description: "Dividing the mean by 1 - p instead of p when finding the number of trials."
+- id: r3a-find-n-multiplies-mean-by-p
+  description: "Multiplying the mean by p instead of dividing by p to find the number of trials."
+- id: r3a-find-p-gives-failure-probability
+  description: "Finding q = 1 - p and reporting it as p."
+- id: r3a-find-p-reports-failure-probability
+  description: "Reporting the ratio of variance to mean, which is the failure probability q, as the success probability p."
+- id: r3a-find-n-divides-mean-by-variance
+  description: "Dividing the mean by the variance to find n; that ratio is 1/q, not n."
+- id: r3a-uses-sd-as-variance
+  description: "Using the standard deviation where the variance belongs when finding the success probability."
+- id: r3a-least-n-rounds-down
+  description: "Rounding the solution of an inequality down to a whole number, so the condition is not quite met."
+- id: r3a-least-n-logs-the-level
+  description: "Taking the logarithm of the required probability itself instead of its complement when solving for the number of trials."
+- id: r3a-least-n-uses-p-as-base
+  description: "Taking the logarithm with the success probability p as the base instead of the failure probability q."
+- id: r3a-find-p-divides-probability-by-n
+  description: "Dividing a stated probability by n to recover p, treating the power as a product."
+- id: r3a-exactly-one-omits-the-coefficient
+  description: "Finding P(X = 1) as p q^(n-1) and leaving out the factor n for the positions of the single success."
+tags: [round-3, statistics-probability, binomial-distribution, acmmm149, find-parameters]

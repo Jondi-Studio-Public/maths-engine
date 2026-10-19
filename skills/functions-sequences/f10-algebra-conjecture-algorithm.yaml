@@ -1,0 +1,64 @@
+id: f10-algebra-conjecture-algorithm
+name: Test conjectures and vary formula inputs
+domain: functions-sequences
+year_level: ['7', '8', '10']
+naplan_domain: [algebra]
+description: Find how a formula's output changes when its inputs change, find the smallest whole number that defeats a conjecture,
+  and find which entry of a quadratic or exponential table breaks one.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-linear-conjecture-testing
+- f10-exponential-relations-equations
+answer: fraction
+sources:
+- topic: fr2e_conjecture
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fr2e_conjecture
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fr2e_conjecture
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_fr2e_conjecture
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fr2e-conj-power-ignored
+  description: Multiplying the factors by which the inputs change without raising each to the power it has in the formula.
+- id: fr2e-conj-later-counterexample
+  description: Giving a counterexample that is not the smallest, because a smaller one was not found.
+- id: fr2e-conj-accepted-after-partial-check
+  description: Deciding that no entry breaks the conjecture, or that it is proved, after checking only some of the table.
+- id: fr2e-conj-neighbouring-entry-blamed
+  description: Blaming the entry next to the one that breaks the conjecture, because the step into or out of it looks wrong.
+- id: fr2e-conj-table-size-treated-as-proof
+  description: Taking the number of entries in a table as enough to prove a rule.
+difficulty_progression: 'Easy changes one or two inputs of a formula that uses a power or a quotient and gives the factor
+  the output changes by. Medium finds the smallest whole number that defeats a conjecture that an expression is always prime,
+  which takes testing many values in order. Hard checks a conjecture about a table from a quadratic or exponential rule
+  and gives the x-value of the one entry that breaks it. The exam chain takes one table: what the conjecture predicts at
+  a tested value, the table''s difference from it (following through), and the correct next step in the test.'
+tags:
+- acara-f10-v9
+- functions-sequences
+- conjecture
+- algebra
+- testing
+- ac9m7a06
+- ac9m8a04
+- ac9m10a05

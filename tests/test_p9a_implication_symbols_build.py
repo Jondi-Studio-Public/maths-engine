@@ -167,10 +167,10 @@ def test_real_grader_accepts_answer_and_rejects_distractors(topic, tier):
         q = make(topic, seed=seed, difficulty=tier)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(i)).correct, f"seed={seed} option {i} {option!r} wrongly accepted"
+                assert not grade_mcq(q, i).correct, f"seed={seed} option {i} {option!r} wrongly accepted"
 
 
 # ---------------------------------------------------------------------------

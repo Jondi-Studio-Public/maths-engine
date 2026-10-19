@@ -134,7 +134,9 @@ def _run_skills(ap, args):
 
     found = next((sk for sk in skill_list if sk.id == args.skill), None)
     if found is None:
-        ap.error(f"unknown skill {args.skill!r} (use --skills)")
+        close = difflib.get_close_matches(args.skill, [sk.id for sk in skill_list], n=3)
+        hint = f"; did you mean {', '.join(repr(c) for c in close)}?" if close else " (use --skills)"
+        ap.error(f"unknown skill {args.skill!r}{hint}")
     problems = load_problems([found])
     if problems:
         return _fail(f"skill {found.id!r} did not load: {problems[0]}")
@@ -181,7 +183,7 @@ def _run_skills(ap, args):
     if options is not None:
         # The mcq grader wants the 0-based index of the chosen option; the CLI takes a letter or the text.
         index = _choose_option(options, args.answer)
-        given = "" if index is None else str(index)
+        given = "" if index is None else index
         if index is None:
             labels = _labels(options)
             unmatched = f" (not an option label {labels[0]}-{labels[-1]} or option text)"
@@ -207,7 +209,9 @@ def _run_topics(ap, args):
             ap.error(f"unknown difficulty {args.difficulty!r}; valid names are {', '.join(known)}")
     if args.topic is not None:
         if args.topic not in REGISTRY:
-            ap.error(f"unknown topic {args.topic!r} (use --list)")
+            close = difflib.get_close_matches(args.topic, REGISTRY, n=3)
+            hint = f"; did you mean {', '.join(repr(c) for c in close)}?" if close else " (use --list)"
+            ap.error(f"unknown topic {args.topic!r}{hint}")
         chosen = [args.topic]
     elif args.level is not None:
         chosen = [t for lvl, t in topics() if lvl == args.level]

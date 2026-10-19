@@ -12,5 +12,11 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_g5_flat_loan
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions: [{id: ignores-interest, description: Divides principal alone by the number of months.}]
 tags: [expansion-batch-5, loans]

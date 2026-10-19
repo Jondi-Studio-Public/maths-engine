@@ -3,6 +3,7 @@
 id: senior-examine-examples-of-vectors-including-displacement-and-velocity
 name: Examine examples of vectors including displacement and velocity
 domain: vectors
+year_level: ['11']
 description: Given bounded, fully specified inputs, examine examples of vectors including displacement and velocity. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
@@ -25,6 +26,12 @@ sources:
 - topic: exd_x_r2d_velocity_chain
   params: {tier: exam}
   difficulty: exam
+  stages:
+  - exam
+- topic: exd_x_g2_velocity_composition
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
   stages:
   - exam
 misconceptions:

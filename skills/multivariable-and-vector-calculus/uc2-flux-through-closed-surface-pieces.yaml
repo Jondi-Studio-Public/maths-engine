@@ -1,0 +1,93 @@
+id: uc2-flux-through-closed-surface-pieces
+name: Flux through the pieces of a surface
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Find the flux of a vector field through a box face, a cylinder, a hemisphere or a sphere piece by parametrising
+  the surface directly, with the outward normal stated.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-double-integral-rectangle
+- uc2-flux-through-graph-surface
+answer: expression
+sources:
+- topic: s2a3_flux_pieces
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2a3_flux_pieces
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2a3_flux_pieces
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2a3_flux_pieces
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: flux-piece-base-sign
+  description: Using the normal +k on the base of a solid, where the outward normal is -k, so the base flux has the wrong
+    sign.
+- id: flux-piece-cap-at-wrong-height
+  description: Evaluating the field on the wrong end of the cylinder (z = 0 on the top, or z = h on the base).
+- id: flux-piece-forgot-polar-r
+  description: Integrating over a disc in polar coordinates without the factor r in dA = r dr dtheta.
+- id: flux-piece-forgot-radius-factor
+  description: Writing the area element of a cylinder of radius a as dtheta dz and leaving out the factor a.
+- id: flux-piece-inward-normal
+  description: Using the normal that points into the solid, so the flux through a piece of the surface has the wrong sign.
+- id: flux-piece-opposite-face
+  description: Evaluating the field on the opposite face of the box (the plane at the other end of the axis) instead of
+    on the face asked for.
+- id: flux-piece-sphere-no-sin
+  description: Leaving the factor sin(phi) out of the area element a^2 sin(phi) dphi dtheta of a sphere.
+- id: flux-piece-sphere-radius-power
+  description: Using the wrong power of the radius a in the area element of a sphere.
+- id: flux-piece-total-missing-end
+  description: Adding up the fluxes through only two of the three pieces of the closed cylinder.
+- id: flux-piece-total-missing-side
+  description: Counting only the two flat ends of the closed cylinder and leaving out the curved side.
+- id: flux-piece-unnormalised-normal
+  description: Dotting with (x, y, 0), which has length a, as if it were the unit normal, and also multiplying by a, so
+    the flux is a times too large.
+- id: flux-piece-wrong-component
+  description: Integrating a component of the field that does not cross the piece (P on a face where the normal is k, say)
+    instead of the component along the normal.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: 'Find the flux through one flat face of a box: the normal is a coordinate direction, so the integral is of one
+      component of the field over a rectangle.'
+  medium:
+    steps: 5
+    demand: Parametrise a cylinder side or disc cap, find the normal from the cross product of the tangent vectors, orient
+      it outward and integrate.
+  hard:
+    steps: 7
+    demand: Parametrise part of a sphere, orient the normal outward, integrate in two angles, or add up the pieces of a
+      closed cylinder.
+  exam:
+    steps: 8
+    demand: "Chain four parts on one closed solid: the outward flux through the curved side, the top and the base separately, then the total, each part following through from the earlier ones."
+tags:
+- university-year-2
+- university-core-v1
+- multivariable-calculus
+- surface-integrals
+- flux
+framework_areas:
+- multivariable-and-vector-calculus

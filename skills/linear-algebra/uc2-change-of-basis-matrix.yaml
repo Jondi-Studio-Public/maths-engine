@@ -1,0 +1,93 @@
+id: uc2-change-of-basis-matrix
+name: Change-of-basis (transition) matrices
+domain: linear-algebra
+year_level:
+- university
+description: Find the transition matrix P with [v]_C = P[v]_B between two bases of R^2, R^3 or the quadratics, convert coordinates
+  with a transition matrix supplied in the opposite direction, compose two transitions, and find the transition between
+  shifted-power bases of P_2.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-coordinates-in-basis
+- ucv1-coordinate-basis
+answer: matrix
+sources:
+- topic: s2b1_change_of_basis_matrix
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2b1_change_of_basis_matrix
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2b1_change_of_basis_matrix
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2b1_change_basis
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: change-basis-direction-reversed
+  description: 'Using the transition matrix the wrong way round: giving the matrix from C to B where the matrix from B to
+    C was asked for, or multiplying by P where P-inverse is needed.'
+- id: change-basis-transposed
+  description: Writing the coordinates of each old basis vector as a row of the transition matrix instead of a column, so
+    the matrix is transposed.
+- id: change-basis-product-order
+  description: Multiplying the factors of a transition matrix in the wrong order (B times C-inverse instead of C-inverse
+    times B, or the first transition on the left).
+- id: change-basis-forgot-target-inverse
+  description: Stopping at the matrix whose columns are the old basis vectors, forgetting to convert them into coordinates
+    relative to the new basis.
+- id: coords-order-swapped
+  description: Writing the coordinates relative to a basis in the reverse order, so each is paired with the wrong basis
+    vector.
+- id: coords-standard-used
+  description: Giving the entries of the vector itself as its coordinates, as if the basis were the standard one.
+- id: taylor-centre-sign-error
+  description: Expanding about -a instead of a when the basis is the powers of (x - a).
+- id: inverse-adjugate-undivided
+  description: Swapping the diagonal and negating the off-diagonal of a 2×2 matrix but not dividing by the determinant.
+- id: inverse-sign-pattern
+  description: Swapping the diagonal of a 2×2 matrix but leaving the off-diagonal entries unchanged, or negating the wrong
+    pair.
+difficulty_progression: 'Easy finds the transition matrix C^-1 B between two non-standard bases of R^2, so the answer has
+  fractions and the direction matters. Medium does the same for bases of R^3 or of P_2 (a 3x3 system with fractional entries).
+  Hard makes the reader choose the direction and the factor order: convert coordinates when the transition matrix is supplied
+  from C to B, compose two supplied transitions (the later one goes on the left), or find the transition between the shifted
+  bases 1, (x - a), (x - a)^2 and 1, (x - b), (x - b)^2 by expanding binomials. The exam chain finds det P, P, a converted
+  coordinate vector and an entry of the inverse transition, which follows through from the determinant.'
+tags:
+- university-core-v1
+- university-year-2
+- linear-algebra
+- basis
+- change-of-basis
+- vector-spaces
+framework_areas:
+- linear-algebra
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra
+- source_id: oxford-first-year
+  status: candidate
+  framework: university-core-v1
+  area: linear-algebra

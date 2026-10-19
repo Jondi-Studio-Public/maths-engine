@@ -3,6 +3,7 @@
 id: senior-recognise-features-of-the-graphs-of-y-x-acmmm017
 name: 'Recognise features of the graphs of \(y=x^3\), \(y=a{(x-b)}^3+c\) and \(y=k(x-a)(x-b)(x-c)\), including shape, intercepts and behaviour as \(x\rightarrow\infty\) and \(x\rightarrow-\infty\)'
 domain: functions-sequences
+year_level: ['11']
 description: Given a cubic y = a(x - b)^3 + c or y = k(x - a)(x - b)(x - c) drawn on an integer grid, type its y-intercept, the value of y where the curve crosses the y-axis (an integer on a grid line). Never asks for an x-intercept, the shape, a turning point or the end behaviour.
 status: active
 capability_gates: [figure_stimulus]

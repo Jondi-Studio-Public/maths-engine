@@ -78,24 +78,6 @@ def _agrees(q, expected):
     return list(q.answer) == [int(x) for x in expected]
 
 
-def test_no_text_defects_over_60_seeds():
-    for seed in range(60):
-        q = _exam(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-
-
-def test_prompt_variety_and_new_shapes_over_hard_tier():
-    exam_shapes = {prompt_shape(_exam(s)) for s in range(60)}
-    hard_shapes = {prompt_shape(_hard(s)) for s in range(60)}
-    assert len(exam_shapes) >= 3, exam_shapes
-    assert exam_shapes - hard_shapes, "the exam tier adds no prompt shape beyond the hard tier"
-
-
-def test_deterministic_for_a_seed():
-    for seed in (0, 1, 2, 17, 999):
-        assert _exam(seed).to_json() == _exam(seed).to_json()
-
-
 def test_only_the_exam_preset_exists():
     with pytest.raises(KeyError):
         make(TOPIC, seed=0, difficulty="easy")

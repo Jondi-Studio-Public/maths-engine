@@ -1,0 +1,147 @@
+id: number-bases-primes-and-divisors
+name: Number bases, primality and prime factorisation
+domain: number-theory
+year_level:
+- '11'
+- '12'
+description: Convert between binary, octal, hexadecimal and decimal, add in binary, test primality by trial division up to
+  the square root, and use prime factorisations to count divisors and find the greatest common divisor and lowest common multiple.
+status: active
+placement_eligible: false
+prerequisites:
+- prime-factorisation
+- list-factors
+answer: number
+sources:
+- topic: w7b_number_systems_primes
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w7b_number_systems_primes
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w7b_number_systems_primes
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w7b_number_systems_primes
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: nsp-reads-bits-reversed
+  description: Reads the digits of the numeral in the wrong order, so the place values run backwards.
+- id: nsp-counts-ones
+  description: Counts the 1s in the binary numeral instead of adding the place values they stand for.
+- id: nsp-reads-as-decimal
+  description: Reads the digits of a binary, octal or hexadecimal numeral as an ordinary decimal number.
+- id: nsp-powers-start-at-one
+  description: Starts the place values at 2 (or 8, or 16) instead of 1, so every value is a base too large.
+- id: nsp-hex-letter-off-by-one
+  description: Gives a hexadecimal letter a value one too large (A as 11 up to F as 16).
+- id: nsp-remainders-read-top-down
+  description: Writes the remainders of repeated division in the order they were found instead of from the last to the first.
+- id: nsp-stops-division-early
+  description: Stops the repeated division one step early and leaves off the last digit.
+- id: nsp-appends-a-digit
+  description: Divides once too often or multiplies in an extra place, giving a numeral one digit too long.
+- id: nsp-no-conversion
+  description: Writes the decimal digits of the number as if they were already the numeral in the new base.
+- id: nsp-groups-from-the-left
+  description: Groups the binary digits in threes from the left instead of from the right, so the groups do not line up with
+    the place values.
+- id: nsp-nibbles-swapped
+  description: Writes the four-digit groups for the hexadecimal digits in the wrong order.
+- id: nsp-digit-values-not-nibbles
+  description: Writes each hexadecimal digit's value in binary without padding it to four digits.
+- id: nsp-binary-no-carry
+  description: Adds binary digits without carrying, treating 1 + 1 as 0 in every column.
+- id: nsp-adds-as-decimal
+  description: Adds the two binary numerals as if they were decimal numbers.
+- id: nsp-drops-final-carry
+  description: Loses the carry out of the leftmost column, so the sum has too few digits.
+- id: nsp-gives-cofactor
+  description: Gives the larger factor found when the smallest factor was asked.
+- id: nsp-gives-square-root
+  description: Gives the whole-number part of the square root of the number instead of its smallest prime factor.
+- id: nsp-overshoots-first-factor
+  description: Gives the next prime after the smallest prime factor.
+- id: nsp-tests-every-integer
+  description: Counts every whole number up to the square root instead of only the primes.
+- id: nsp-counts-one-as-prime
+  description: Counts 1 as a prime when listing the primes up to the square root.
+- id: nsp-omits-two
+  description: Leaves 2 out of the primes to be tried.
+- id: nsp-uses-root-itself
+  description: Gives the whole-number part of the square root itself, although it is not prime.
+- id: nsp-tests-up-to-half
+  description: Tests every prime up to half the number instead of stopping at its square root.
+- id: nsp-rounds-root-up
+  description: Rounds the square root up to the next whole number before listing the primes, so one prime too many is tested.
+- id: nsp-adds-exponents
+  description: Adds the exponents in the prime factorisation instead of adding one to each and multiplying.
+- id: nsp-multiplies-exponents
+  description: Multiplies the exponents without adding one to each first.
+- id: nsp-counts-prime-factors
+  description: Gives the number of prime factors, counted with repeats, instead of the number of divisors.
+- id: nsp-counts-distinct-primes-only
+  description: Counts only the distinct prime factors as divisors.
+- id: nsp-sum-one-and-n-only
+  description: Adds only 1 and the number itself when summing the divisors.
+- id: nsp-gives-count-for-sum
+  description: Gives the number of divisors where their sum was asked.
+- id: nsp-sum-adds-one-to-powers
+  description: Multiplies (1 + p^a) for each prime instead of summing the whole geometric series of powers.
+- id: nsp-gives-count-for-square
+  description: Gives the number of all divisors where the number of square divisors was asked.
+- id: nsp-rounds-halves-up
+  description: Rounds each half-exponent up instead of down when counting the even exponents a square divisor may use.
+- id: nsp-gcd-lcm-swapped
+  description: Gives the lowest common multiple where the greatest common divisor was asked, or the reverse.
+- id: nsp-gcd-is-difference
+  description: Gives the difference of the two numbers as their greatest common divisor.
+- id: nsp-lcm-is-product
+  description: Gives the product of the two numbers as their lowest common multiple.
+- id: nsp-gcd-ignores-exponents
+  description: Multiplies the common primes each to the first power, ignoring the smaller exponent in the numbers.
+- id: nsp-lcm-drops-unshared
+  description: Multiplies only the primes the two numbers share when finding the lowest common multiple.
+- id: nsp-counts-up-to-factor-only
+  description: Counts the primes up to the smallest factor but forgets to count the factor itself.
+- id: nsp-counts-up-to-root
+  description: Counts the primes tried up to the square root, where the primes only up to the smallest factor were needed.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Convert a short binary, octal or hexadecimal numeral to decimal, or a small decimal number to binary, using place
+      values.
+  medium:
+    steps: 3
+    demand: Convert larger numbers between bases, add in binary with carries, or find the smallest prime factor or the primes
+      needed to test a number by trial division.
+  hard:
+    steps: 5
+    demand: Count the divisors of a number from its prime factorisation, find a greatest common divisor or lowest common multiple
+      from prime factorisations, or combine a base conversion with a primality or divisor question.
+  exam:
+    steps: 6
+    demand: Convert a hexadecimal numeral to decimal, decide which primes a trial division needs, count the divisors, and
+      find a greatest common divisor with a second number.
+tags:
+- senior
+- number-theory
+- number-bases
+- binary
+- primes
+- vce-specialist
+- vce-foundation

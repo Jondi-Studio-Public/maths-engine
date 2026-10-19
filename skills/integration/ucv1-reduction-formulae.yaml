@@ -1,0 +1,80 @@
+id: ucv1-reduction-formulae
+name: Reduction formulae for integrals
+domain: integration
+year_level: [university]
+description: Evaluate a specific member of a family of integrals, such as the integral of sin^n x, x^n e^(ax), tan^n x
+  or (ln x)^n, by applying its reduction formula step by step from the base cases.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-integrate-by-parts
+- integration-by-substitution
+answer: number
+sources:
+- topic: ucv1_reduction_formulae
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ucv1_reduction_formulae
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ucv1_reduction_formulae
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_fy_reduction_formulae
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: redform-boundary-dropped
+  description: Dropping the boundary term from the reduction formula that integration by parts produces, so only the multiple of the previous integral is left.
+- id: redform-boundary-not-divided
+  description: "Leaving the boundary term undivided by the exponent's coefficient a in the reduction formula for the integral of x^n e^(ax)."
+- id: redform-boundary-value-wrong
+  description: Evaluating the boundary term of the reduction formula wrongly, for example taking 1 where the upper limit gives e.
+- id: redform-coefficient-dropped
+  description: Leaving out the factor n that integration by parts brings in front of the previous integral.
+- id: redform-denominator-off-by-one
+  description: Using 1/n where the reduction formula has 1/(n - 1), so the denominator is off by one.
+- id: redform-factor-one-over-k
+  description: Using the factor 1/k in place of (k - 1)/k when stepping the reduction formula down by two.
+- id: redform-limit-sign
+  description: Adding the value at the lower limit instead of subtracting it when evaluating the integral of e^(ax).
+- id: redform-lower-limit-dropped
+  description: Forgetting the contribution of the lower limit when evaluating the base case or the boundary term.
+- id: redform-n-term-not-divided
+  description: Leaving the multiple of the previous integral undivided by a, so the term is n times the previous integral where it should be n/a times it.
+- id: redform-order-off-by-one
+  description: Applying the reduction formula from the wrong earlier integral, one step too few or too many, or using the previous integral where the one two steps back is needed.
+- id: redform-power-of-b-dropped
+  description: Dropping the power of the upper limit b from the boundary term, so b^n e^(ab) becomes e^(ab).
+- id: redform-ratio-index-shift
+  description: Using a ratio with the index shifted by one, such as (2n - 1)/(2n) where 2n/(2n + 1) is needed.
+- id: redform-ratio-inverted
+  description: Inverting the ratio in the reduction formula, so the integral grows with n instead of shrinking.
+- id: redform-ratio-simplified-wrongly
+  description: Using a simpler ratio such as n/(n + 1) where the reduction formula has 2n/(2n + 1).
+- id: redform-sign-of-recurrence-term
+  description: Getting the sign of the term in the previous integral wrong in the reduction formula, adding where it should be subtracted.
+- id: redform-stopped-early
+  description: Stopping before the base case is reached, so the answer is only the factor from the last step or starts from the wrong value.
+- id: redform-term-dropped
+  description: Leaving the previous integral out of the reduction formula, so only the boundary or constant term remains.
+- id: redform-upper-limit-ignored
+  description: Ignoring the upper limit b when evaluating the base case, as if the integral ran from 0 to 1.
+- id: redform-wrong-base
+  description: Starting the recurrence from swapped or wrong base cases, such as using the value for n = 1 where n = 0 is needed.
+difficulty_progression: Easy gives a homogeneous formula, I_k = ((k - 1)/k) I_(k-2), so the work is stepping up from the
+  right base case and using the factor in the right order. Medium gives a formula with a boundary term and a division
+  by the exponent's coefficient, so a slip in the sign, the division or the base case changes the answer. Hard does not
+  give the formula, so the learner has to derive it by parts or from an identity (tan^n, (ln x)^n, (1 - x²)^n) before
+  stepping it. The exam chain evaluates K_0, K_1, K_2 and K_3 for the integral of x^n e^(ax) in turn, each using the one before.
+tags:
+- university-core-v1
+- integration
+- reduction-formulae
+- senior-integrate-by-parts
+framework_areas:
+- integration

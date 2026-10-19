@@ -3,6 +3,7 @@
 id: senior-differentiate-and-integrate-a-vector-function-with-respect
 name: Differentiate and integrate a vector function with respect to time
 domain: differentiation
+year_level: ['12']
 description: Given bounded, fully specified inputs, differentiate and integrate a vector function with respect to time. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
@@ -25,6 +26,12 @@ sources:
 - topic: exd_x_r2a_vector_motion_chain
   params: {}
   difficulty: exam
+  stages:
+  - exam
+- topic: exd_x_c3_vector_motion
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
   stages:
   - exam
 misconceptions:

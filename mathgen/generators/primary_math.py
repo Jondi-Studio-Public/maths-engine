@@ -2,6 +2,7 @@
 
 from fractions import Fraction
 
+from ..answers import Distractor
 from ..core import generator, latex_answer, pick_distractors, rational_text, round_half_up, stated_precision_string
 
 
@@ -214,44 +215,158 @@ def round_decimal(rng, target_places=1, whole_hi=100):
     )
 
 
+def _fdp_dec(x) -> str:
+    """A decimal the way str(float) prints it ("0.5", "0.05", "5.0"), never in exponent form."""
+    text = f"{float(x):.6f}".rstrip("0")
+    return text + "0" if text.endswith(".") else text
+
+
+def _fdp_pct(x) -> str:
+    v = Fraction(x) * 100
+    return f"{v.numerator}%" if v.denominator == 1 else f"{float(v):g}%"
+
+
+def _fdp_swap(digits: str) -> str | None:
+    """The two digits in the other order, or None when that changes nothing or leaves a trailing zero."""
+    if len(digits) != 2 or digits[0] == digits[1] or digits[1] == "0":
+        return None
+    return digits[1] + digits[0]
+
+
+_FDP_STEMS = {
+    "percent": (
+        "Which percentage is equal to {f}?",
+        "Write {f} as a percentage.",
+        "{f} of a tank is full. What percentage of the tank is full?",
+        "A class has {f} of its students on the bus. What percentage is that?",
+    ),
+    "decimal": (
+        "Which decimal is equal to {f}?",
+        "Write {f} as a decimal.",
+        "A runner finished {f} of the course. Which decimal shows that?",
+        "{f} of the ribbon was used. Which decimal is that?",
+    ),
+    "fraction": (
+        "Which fraction is equal to {d}?",
+        "Write {d} as a fraction.",
+        "A jug is filled to {d} of its capacity. Which fraction shows that?",
+        "Which fraction has the same value as {d}?",
+    ),
+    "percent_from_decimal": (
+        "Which percentage is equal to the decimal {d}?",
+        "Write the decimal {d} as a percentage.",
+        "A battery is charged to {d} of its full charge. What percentage is that?",
+    ),
+    "decimal_from_percent": (
+        "Which decimal is equal to {p}?",
+        "Write {p} as a decimal.",
+        "A phone battery shows {p}. Which decimal shows the charge?",
+    ),
+}
+
+
 @generator("fraction_decimal_percent", level=6)
-def fraction_decimal_percent(rng, denominators=(2, 4, 5, 10, 20, 25), reverse_directions=False):
+def fraction_decimal_percent(rng, denominators=(2, 4, 5, 10, 20, 25), reverse_directions=False, allow_improper=False):
     denominator = rng.choice(tuple(denominators))
-    numerator = rng.randint(1, denominator - 1)
+    top = 2 * denominator - 1 if allow_improper else denominator - 1
+    numerator = rng.randint(1, top)
     value = Fraction(numerator, denominator)
-    percent = int(value * 100)
-    decimal = float(value)
+    n, d = value.numerator, value.denominator
     fraction_text = rational_text(value)
+    decimal = _fdp_dec(value)
+    percent_text = _fdp_pct(value)
     modes = ("percent", "decimal", "fraction")
     if reverse_directions:
         modes = modes + ("percent_from_decimal", "decimal_from_percent")
     mode = rng.choice(modes)
-    alternatives = []
-    for other in (Fraction(1, 4), Fraction(1, 2), Fraction(3, 4), Fraction(1, 5), Fraction(4, 5)):
-        if other != value:
-            alternatives.append(other)
-    if mode == "percent":
-        text, answer = f"Which percentage is equal to {fraction_text}?", f"{percent}%"
-        candidates = [f"{int(other * 100)}%" for other in alternatives]
-    elif mode == "decimal":
-        text, answer = f"Which decimal is equal to {fraction_text}?", str(float(value))
-        candidates = [str(float(other)) for other in alternatives]
-    elif mode == "fraction":
-        text, answer = f"Which fraction is equal to {decimal}?", fraction_text
-        candidates = [rational_text(other) for other in alternatives]
-    elif mode == "percent_from_decimal":
-        text, answer = f"Which percentage is equal to the decimal {decimal}?", f"{percent}%"
-        candidates = [f"{int(other * 100)}%" for other in alternatives]
-    else:  # "decimal_from_percent"
-        text, answer = f"Which decimal is equal to {percent}%?", str(float(value))
-        candidates = [str(float(other)) for other in alternatives]
+    stem = rng.choice(_FDP_STEMS[mode])
+    if mode in ("percent", "percent_from_decimal"):
+        render, answer = _fdp_pct, percent_text
+    elif mode in ("decimal", "decimal_from_percent"):
+        render, answer = _fdp_dec, decimal
+    else:
+        render, answer = rational_text, fraction_text
+    text = stem.format(f=fraction_text, d=decimal, p=percent_text)
+
+    # Near misses, each a slip a learner makes, rendered in the answer's own form so no option stands out by being
+    # a "nice" benchmark. (text, value, tag): value is what the option is worth, so a slip that lands on the right
+    # value is dropped rather than offered.
+    near = []  # place-value slips
+    digit_slips = []  # digits read straight off the other form
+    neighbours = []  # wrong numerator or denominator
+    for k in (-1, 1, 2):
+        if numerator + k > 0:
+            neighbours.append(Fraction(numerator + k, denominator))
+    for k in (-1, 1):
+        if d + k > 1 and n < d + k:
+            neighbours.append(Fraction(n, d + k))
+    near += [value / 10, value * 10]
+    if render is _fdp_pct:
+        digit_slips += [Fraction(int(f"{n}{d}"), 100), Fraction(d, 100)]
+        swapped = _fdp_swap(str(int(value * 100))) if (value * 100).denominator == 1 else None
+        if swapped:
+            digit_slips.append(Fraction(int(swapped), 100))
+    elif render is _fdp_dec:
+        digit_slips += [Fraction(f"0.{n}{d}"), Fraction(f"0.{d}")]
+        frac_digits = decimal.split(".")[1]
+        swapped = _fdp_swap(frac_digits) if decimal.startswith("0.") else None
+        if swapped:
+            digit_slips.append(Fraction(f"0.{swapped}"))
+    else:
+        if n != d:
+            digit_slips.append(Fraction(d, n))  # numerator and denominator swapped
+        frac_digits = decimal.split(".")[1] if decimal.startswith("0.") else ""
+        if frac_digits and int(frac_digits) > 1:
+            digit_slips.append(Fraction(1, int(frac_digits)))  # the decimal's digits used as a denominator
+        if len(frac_digits) == 2 and frac_digits[1] != "0" and frac_digits[0] != "0":
+            digit_slips.append(Fraction(int(frac_digits[0]), int(frac_digits[1])))
+    groups = [near, digit_slips, neighbours]
+    for g in groups:
+        rng.shuffle(g)
+    picked: list[Fraction] = []
+    seen = {value}
+
+    def take(candidate):
+        if candidate in seen or candidate <= 0:
+            return False
+        q = candidate.denominator
+        while q % 2 == 0:
+            q //= 2
+        while q % 5 == 0:
+            q //= 5
+        if q != 1 and render is not rational_text:
+            return False  # a recurring decimal is not a near miss a learner could write down
+        seen.add(candidate)
+        picked.append(candidate)
+        return True
+
+    # one of each kind first, in a shuffled order, then top up from whatever is left
+    order = [0, 1, 2]
+    rng.shuffle(order)
+    for gi in order:
+        for c in groups[gi]:
+            if take(c):
+                break
+    for gi in order:
+        for c in groups[gi]:
+            if len(picked) >= 3:
+                break
+            take(c)
+    near_set = set(near)
+    candidates = [
+        Distractor(
+            render(c), misconception="decimal-place-shift" if c in near_set and render is not rational_text else None
+        )
+        for c in picked
+    ]
+    rng.shuffle(candidates)
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer,
         answer_latex=latex_answer(answer),
-        working=[f"{fraction_text} = {decimal} = {percent}%."],
+        working=[f"{fraction_text} = {decimal} = {percent_text}."],
         distractors=pick_distractors(answer, candidates),
     )
 

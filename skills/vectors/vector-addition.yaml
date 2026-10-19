@@ -38,6 +38,11 @@ sources:
   params: {tier: exam}
   difficulty: exam
   stages: [exam]
+- topic: exd_x_g1_vector_addition
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages: [exam]
 misconceptions:
 - id: multiplied-not-added
   description: Multiplying components instead of adding them.

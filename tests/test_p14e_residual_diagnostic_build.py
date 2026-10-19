@@ -80,7 +80,7 @@ def test_real_grader_accepts_answer_index_rejects_distractor_indices(tier):
         q = make(TOPIC, seed=seed, difficulty=tier)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grader(q, str(correct_index)).correct, f"{tier} seed={seed}: correct index rejected"
+        assert grader(q, correct_index).correct, f"{tier} seed={seed}: correct index rejected"
         for dist in q.distractors:
             dist_index = options.index(dist)
             assert not grader(q, str(dist_index)).correct, f"{tier} seed={seed}: distractor accepted"
@@ -285,7 +285,10 @@ def test_skill_loads_with_correct_properties():
     stages = [set(s.stages) for s in skill.sources]
     assert stages == [{0, 1, 2}, {3, 4}, {5, 6, "maintenance"}, {"exam"}]
     assert skill.sources[3].difficulty == "exam"
-    assert all(source.topic == TOPIC for source in skill.sources)
+    assert all(
+        source.topic == ("exd_x_r3i_regression_fit" if source.difficulty == "exam" else TOPIC)
+        for source in skill.sources
+    )
 
 
 # --- Sanity on the generator's own helpers ---------------------------------

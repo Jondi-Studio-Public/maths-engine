@@ -35,6 +35,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_e2_expand_binomial_trinomial
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages:
+  - exam
 misconceptions:
 - id: only-multiplied-first-terms
   description: Distributes the binomial's leading x across the second factor but drops the second binomial term's

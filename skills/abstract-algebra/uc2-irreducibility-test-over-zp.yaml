@@ -1,0 +1,88 @@
+id: uc2-irreducibility-test-over-zp
+name: Factor a polynomial over Z_p and test irreducibility
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Factor a polynomial over Z_p into irreducibles and report the degrees of the factors. A root
+  test settles degrees 2 and 3, but from degree 4 a polynomial with no root can still have a
+  quadratic or cubic factor. The exam chain counts the linear factors, the degree left, the
+  degrees of all factors and the number of maximal ideals of the quotient ring.
+status: active
+placement_eligible: false
+prerequisites:
+- integer-polynomial-quotient-remainder
+- ucv1-quotient-ring-operation
+answer: ordered_list
+sources:
+- topic: r4c_irreducibility_test_over_zp
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4c_irreducibility_test_over_zp
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4c_irreducibility_test_over_zp
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4c_irreducibility_test_over_zp
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: every-factor-taken-as-linear
+  description: >-
+    Giving every factor degree 1, as if the polynomial split completely.
+- id: factor-degree-left-is-the-linear-count
+  description: >-
+    Giving the number of linear factors where the degree of what is left was asked.
+- id: factor-degree-left-is-the-whole-degree
+  description: >-
+    Giving the degree of f itself where the degree of the part left after dividing out the linear
+    factors was asked.
+- id: factor-degrees-in-descending-order
+  description: >-
+    Listing the degrees of the factors in descending order where increasing order was asked.
+- id: factor-search-stops-after-one-linear-factor
+  description: >-
+    Stopping once one linear factor is found and treating the quotient as a single irreducible
+    factor.
+- id: factors-merged-into-one
+  description: >-
+    Merging two of the irreducible factors into one factor whose degree is the sum.
+- id: irreducible-assumed-without-checking
+  description: >-
+    Calling a polynomial irreducible without searching for any factor of degree 2 or more.
+- id: linear-factors-counted-without-multiplicity
+  description: >-
+    Counting each root once, so that a repeated linear factor is counted only once.
+- id: maximal-ideals-assumed-one
+  description: >-
+    Assuming the quotient ring has a single maximal ideal.
+- id: maximal-ideals-counted-with-multiplicity
+  description: >-
+    Counting each irreducible factor once for each time it repeats, which gives the number of
+    factors, not of distinct ones.
+- id: no-root-taken-as-irreducible
+  description: >-
+    Concluding that a polynomial of degree 4 or more with no root is irreducible, although it may
+    have a quadratic factor.
+- id: quadratic-factor-split-into-linears
+  description: >-
+    Splitting an irreducible quadratic factor into two linear factors, which would need roots in
+    Z_p.
+- id: repeated-factor-counted-once
+  description: >-
+    Listing the degree of a repeated factor only once.
+tags: [university-core-v1, university-year-2, abstract-algebra, polynomial-factorisation,irreducibility,finite-fields,quotient-ring]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

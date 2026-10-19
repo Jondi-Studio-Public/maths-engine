@@ -230,13 +230,26 @@ def _draw_medium(rng):
 
 
 _MEDIUM_TEMPLATES = [
-    "A triangle has side lengths {sides} units, and angle measures {angles} degrees. "
+    "A triangle has angle measures {angles} degrees, and {sides_desc}. "
     "Classify the triangle, giving the single most specific type that applies.",
-    "A triangle's sides measure {sides} units and its angles measure {angles} degrees. "
+    "A triangle's angles measure {angles} degrees, and {sides_desc}. "
     "What is the most specific classification for this triangle?",
-    "The sides of a triangle are {sides} units, and the angles are {angles} degrees. "
+    "The angles of a triangle are {angles} degrees, and {sides_desc}. "
     "Classify the triangle by both its sides and its angles, giving the most specific type.",
 ]
+
+
+def _medium_sides_desc(sides):
+    """Describe the sides WITHOUT printing a full set of whole-number lengths:
+    lengths rounded from the law of sines contradict the stated angles (a right
+    triangle cannot have sides 21, 9, 23), so only the side-equality fact and,
+    for an equal pair, its length are stated -- facts true of every triangle
+    with those angles."""
+    a, b, c = sides
+    for x, y, z in ((a, b, c), (a, c, b), (b, c, a)):
+        if x == y and x != z:
+            return f"two of its sides are each {x} units long and the third side is a different length"
+    return "its three sides all have different lengths"
 
 
 def _build_medium(rng):
@@ -248,12 +261,12 @@ def _build_medium(rng):
         f"{_classify_side_angle_independent(sides, angles)}, expected {cls})",
     )
 
-    text = phrase(rng, _MEDIUM_TEMPLATES, sides=_format_list3(sides), angles=_format_list3(angles))
+    text = phrase(rng, _MEDIUM_TEMPLATES, sides_desc=_medium_sides_desc(sides), angles=_format_list3(angles))
     answer = cls
     distractors_list = [c for c in MEDIUM_CLASSES if c != cls]
 
     working = [
-        f"Side lengths: {_format_list3(sides)}; angle measures: {_format_list3(angles)} degrees.",
+        f"Sides: {_medium_sides_desc(sides)}; angle measures: {_format_list3(angles)} degrees.",
         f"Equal sides present: {'yes' if (sides[0] == sides[1] or sides[1] == sides[2] or sides[0] == sides[2]) else 'no'}.",
         f"A right angle present: {'yes' if 90 in angles else 'no'}.",
         f"Most specific classification: {answer}.",

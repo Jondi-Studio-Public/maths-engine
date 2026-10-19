@@ -1,0 +1,53 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-graph-reciprocal-abs-compare
+name: Compare y = |f(x)|, y = -f(x), y = f(|x|) and y = 1/f(x) with the graph of y = f(x)
+domain: functions-sequences
+year_level: ['12']
+description: Given the graph of y = f(x), a line or a parabola with whole-number zeros, relate it to the graphs
+  of y = |f(x)|, y = -f(x), y = f(|x|) and y = 1/f(x). Easy and medium pick which equation gives a drawn graph g,
+  hard reads a value of g at a point using the graph of f alone (including f(|x|) at a negative x and 1/f at a point
+  where f is 1 or 2 in size), and the exam chain finds the two vertical asymptotes of 1/f from the zeros of f, their
+  distance apart and the value halfway between them.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [function-notation]
+answer: mcq
+sources:
+- topic: ey_graph_reciprocal_abs
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_graph_reciprocal_abs
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_graph_reciprocal_abs
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: ey_graph_reciprocal_abs_exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: abs-confused-with-negative, description: 'Takes y = -f(x), which reflects the whole graph, for y = |f(x)|,
+    which reflects only the part below the x-axis.'}
+- {id: abs-inside-confused, description: 'Mixes up y = |f(x)|, which puts the absolute value on the output, with
+    y = f(|x|), which puts it on the input and makes the graph symmetric about the y-axis.'}
+- {id: reciprocal-has-no-asymptote, description: Does not expect y = 1/f(x) to have a vertical asymptote at each
+    zero of f.}
+- {id: abs-value-keeps-sign, description: 'Reads |f(t)| as f(t) when f(t) is negative, so the sign is kept.'}
+- {id: f-abs-reads-left, description: Reads y = f(|x|) at a negative x from the left-hand part of f instead of from
+    f at the matching positive x.}
+- {id: reciprocal-sign-flipped, description: 'Gives -1/f(t) for 1/f(t), or gives f(t) itself.'}
+- {id: asymptote-sign-flipped, description: Gives the zero of f with the wrong sign as the position of an asymptote
+    of 1/f.}
+- {id: distance-as-sum, description: Adds the two asymptote positions instead of finding how far apart they are.}
+difficulty_progression:
+  easy: {steps: 2, demand: 'Compare g with f: parts below the x-axis reflected (|f|) or the whole graph turned over
+      (-f).'}
+  medium: {steps: 3, demand: "'Tell apart f(|x|), |f(x)| and 1/f(x) from symmetry, the folded part and the asymptotes.'"}
+  hard: {steps: 3, demand: 'Evaluate a transformed function at a point by reading f at the right place: the absolute
+      value, f at |x| or the reciprocal.'}
+  exam: {steps: 5, demand: 'Find both zeros of f, hence both asymptotes of 1/f, their distance apart and the midpoint
+      between them.'}
+tags: [acara-senior-v8-4, functions, reciprocal, absolute-value, transformations, acmsm099, figure]

@@ -22,7 +22,7 @@ sources:
   params: {variant: ratio}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: exd_x_h4_semicircle_composed
+- topic: exd_x_r3c_semicircle_triangle
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -3,6 +3,7 @@
 id: senior-calculate-the-effective-annual-rate-of-interest-and
 name: Calculate the effective annual rate of interest and use the results to compare investment returns and cost of loans when interest is paid or charged daily, monthly, quarterly or six-monthly
 domain: financial-discrete
+year_level: ['12']
 description: Given a stated nominal annual interest rate and two named compounding frequencies (from daily, monthly, quarterly or six-monthly), calculate the effective annual rate of interest, EAR = (1 + r/n)^n - 1, for each frequency. The answer is the ordered pair (EAR at frequency 1, EAR at frequency 2), each a percentage to a stated decimal precision. This skill is distinguished from the existing active catalog skills "simple-interest" (flat, non-compounding interest -- never this compounding formula) and "senior-investigate-the-effect-of-the-interest-rate-and" (computes a flat-loan repayment TERM/period, never an effective rate).
 status: active
 placement_eligible: false

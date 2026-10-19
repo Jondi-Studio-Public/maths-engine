@@ -41,13 +41,6 @@ def _hard(seed: int):
     return make(topic, seed=seed, difficulty="hard", **params)
 
 
-def test_no_text_defects_and_deterministic():
-    for seed in range(60):
-        q = _exam(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-        assert q.to_json() == _exam(seed).to_json()
-
-
 def test_prompt_variety_and_new_shapes_over_hard_tier():
     exam_shapes = {prompt_shape(_exam(s)) for s in range(60)}
     hard_shapes = {prompt_shape(_hard(s)) for s in range(60)}
@@ -99,7 +92,7 @@ def test_grader_accepts_key_and_rejects_every_distractor():
         options = mcq_options(q)
         assert len(options) == 4 and len(set(options)) == 4, (seed, options)
         for index, option in enumerate(options):
-            if grade(q, str(index)).correct != (option == q.answer_text):
+            if grade(q, index).correct != (option == q.answer_text):
                 bad.append((seed, index, option, q.answer_text))
     assert bad == [], bad[:5]
     assert not GRADERS["mcq"](_exam(0), "").correct

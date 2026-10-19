@@ -3,6 +3,7 @@
 id: senior-use-relative-frequencies-obtained-from-data-as-point
 name: Use relative frequencies obtained from data as point estimates of probabilities
 domain: statistics-probability
+year_level: ['11']
 description: From a frequency table of OBSERVED trials of an experiment, estimate the probability of a stated event (single, union or complement) as its relative frequency, or project that estimate onto a stated number of future trials. Genuinely different from the shipping simple-event-probability and finite-sample-space-probability skills, whose probability comes from an enumerated collection of KNOWN outcomes rather than observed trial counts.
 status: active
 placement_eligible: false

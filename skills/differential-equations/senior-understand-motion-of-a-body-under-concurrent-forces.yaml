@@ -3,6 +3,7 @@
 id: senior-understand-motion-of-a-body-under-concurrent-forces
 name: Understand motion of a body under concurrent forces
 domain: differential-equations
+year_level: ['12']
 description: Given two or more force vectors, stated by magnitude and direction,
   acting concurrently on a body of stated mass, compute the resultant force's
   magnitude and direction (or the resulting acceleration's magnitude and

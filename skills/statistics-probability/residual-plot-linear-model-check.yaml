@@ -1,0 +1,92 @@
+id: residual-plot-linear-model-check
+name: Use residuals to judge whether a linear model is appropriate
+domain: statistics-probability
+description: 'Decide from a residual plot or a list of residuals whether fitting a linear model is appropriate:
+  random scatter supports it, a curved or fanning pattern does not, whatever the value of r squared.'
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- least-squares-residuals
+answer: mcq
+sources:
+- topic: smech_residual_plots
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: smech_residual_plots
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: smech_residual_plots
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: smech_residual_plots_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: mech-absolute-not-squared
+  description: Adding the sizes of the residuals where their squares were asked for.
+- id: mech-fan-and-curve-confused
+  description: Describing residuals that fan out as a curve, or a curved residual pattern as fanning.
+- id: mech-intercept-and-slope-swapped
+  description: Swapping the intercept and the slope when substituting into the line.
+- id: mech-intercept-left-out
+  description: Leaving the intercept out when predicting from the line, so the prediction is just slope times x.
+- id: mech-large-residuals-mean-poor-fit
+  description: Judging a linear model by the size of a few residuals instead of by whether they form a pattern.
+- id: mech-low-r-squared-rejects
+  description: Rejecting a linear model because r² is low, although patternless residuals mean only that predictions
+    are less precise.
+- id: mech-mean-instead-of-sum
+  description: Dividing the sum of squared residuals by the number of observations.
+- id: mech-nonzero-residuals-mean-poor-fit
+  description: Rejecting a linear model because the residuals are not all zero, although a good fit leaves small
+    residuals with no pattern.
+- id: mech-observed-reported-as-residual
+  description: Reporting the observed value where the residual was asked for.
+- id: mech-observed-used-as-predicted
+  description: Using the observed value as the predicted value.
+- id: mech-one-residual-left-out
+  description: Leaving the residual just calculated out of the sum of squares.
+- id: mech-pattern-read-as-random-scatter
+  description: Reading residuals that form a curve or fan as random scatter, and accepting a linear model that does
+    not fit.
+- id: mech-pattern-seen-in-random-scatter
+  description: Seeing a pattern in residuals that are scattered at random, and rejecting a linear model that fits
+    well.
+- id: mech-pattern-taken-as-good-fit
+  description: Taking a clear pattern in the residuals as a sign that the linear model fits well, when a pattern
+    is the sign that it does not.
+- id: mech-predicted-reported-as-residual
+  description: Reporting the predicted value where the residual was asked for.
+- id: mech-r-squared-trusted
+  description: Accepting a linear model because r² is high, without checking the residuals for a pattern.
+- id: mech-sign-mix-taken-as-pattern
+  description: Treating a mix of positive and negative residuals as a pattern, when both signs are expected of a
+    good fit.
+- id: mech-sum-zero-taken-as-linear
+  description: Taking residuals that add to zero as evidence of a linear relationship, when the residuals of every
+    least-squares line add to zero.
+- id: mech-x-value-replaced-by-one
+  description: Putting x = 1 into the line instead of the stated value.
+- id: residual-sign-reversed
+  description: Subtracting the observed value from the predicted value, giving a residual with the wrong sign.
+tags:
+- bivariate-data
+- residual-plot
+- linear-model
+- general-mathematics

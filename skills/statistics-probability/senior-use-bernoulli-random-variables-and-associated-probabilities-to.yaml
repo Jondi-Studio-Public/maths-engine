@@ -3,6 +3,7 @@
 id: senior-use-bernoulli-random-variables-and-associated-probabilities-to
 name: Use Bernoulli random variables and associated probabilities
 domain: statistics-probability
+year_level: ['12']
 description: 'Given a stated two-outcome scenario (with context) and a stated probability of success p (or, at the hard/exam tiers, a stated probability of FAILURE q, forcing the learner to identify p = 1 - q), compute the probability of one specific, stated, ORDERED sequence of independent Bernoulli trials -- a plain product of p/(1-p) factors in the stated order, never a combinatorial count of unordered outcomes (that is the neighbouring skill binomial-point-probability''s own kernel) and never the expected value or variance of the Bernoulli random variable itself (that is the neighbouring skill senior-use-a-bernoulli-random-variable-as-a-model''s own kernel, ACMMM143 -- this skill deliberately excludes the expected-value deliverable that the broader "model data and solve practical problems" wording would also permit, so the two skills stay distinguishable to a learner).'
 status: active
 placement_eligible: false

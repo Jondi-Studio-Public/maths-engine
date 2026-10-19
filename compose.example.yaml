@@ -1,0 +1,20 @@
+# A starting point for running the API on a school's own machine: `docker compose -f compose.example.yaml up -d`.
+# Put real keys in a .env file beside this one (MATHS_API_KEYS=author:...,learner:...), never in this file.
+services:
+  maths-engine:
+    build: .
+    ports:
+      - "127.0.0.1:8080:8080" # loopback only; put a TLS reverse proxy in front to serve a network
+    environment:
+      MATHS_API_KEYS: ${MATHS_API_KEYS:?set MATHS_API_KEYS in .env}
+      MATHS_API_WORKERS: "2"
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 128
+    init: true
+    mem_limit: 1g
+    cpus: 2
+    restart: unless-stopped

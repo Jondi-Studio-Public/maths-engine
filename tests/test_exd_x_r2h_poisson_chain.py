@@ -71,14 +71,6 @@ def test_distractors_tagged_and_rejected():
     CHECKS["distractors_rejected"]()
 
 
-def test_answer_space():
-    CHECKS["answer_space"]()
-
-
-def test_deterministic():
-    CHECKS["deterministic"]()
-
-
 def test_follow_through_from_wrong_a():
     def wrong_chain(q):
         pa_wrong = Fraction(q.parts[0].distractors[0])

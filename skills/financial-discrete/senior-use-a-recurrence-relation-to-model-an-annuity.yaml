@@ -3,6 +3,7 @@
 id: senior-use-a-recurrence-relation-to-model-an-annuity
 name: Use a recurrence relation to model an annuity, and investigate the effect of the amount invested, the interest rate and the withdrawal on its duration
 domain: financial-discrete
+year_level: ['12']
 description: Given an annuity's opening balance, interest rate per period and fixed withdrawal per period, iterate the recurrence A(n+1) = A(n)(1 + r) - d to find how many full withdrawals the annuity pays before its balance falls below one withdrawal.
 status: active
 placement_eligible: false
@@ -21,8 +22,8 @@ sources:
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
-- topic: pv0a_annuity_duration
-  params: {variant: exam}
+- topic: exd_x_r3c_annuity_payout
+  params: {tier: exam}
   difficulty: exam
   stages: [exam]
 misconceptions:

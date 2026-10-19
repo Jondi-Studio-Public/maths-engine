@@ -1,0 +1,45 @@
+id: ey-position-words-scene
+name: Say where a picture is using position words
+domain: primary-geometry-time
+year_level: ['F', '1']
+naplan_domain: [space]
+learner_band: early
+description: "Read a small picture grid and use position words (between, next to, just above, below, left of, right of) to find which picture is where, from one line of pictures up to a scene that needs two clues or the words for a position."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: []
+answer: mcq
+sources:
+- topic: ey_position_words
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_position_words
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_position_words
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Find the picture next to, between or just beside another in one line of five pictures."}
+  medium: {steps: 2, demand: "Pick out the picture just above, below, left of or right of another in a scene, with pictures all around it."}
+  hard: {steps: 3, demand: "Combine two clues, find the picture between two others in a scene, or choose the words that say where a picture is."}
+misconceptions:
+- id: eyp-opposite-direction
+  description: "Chooses the picture on the opposite side, such as the one below when asked for above, or the one on the left when asked for right."
+- id: eyp-names-the-reference
+  description: "Answers with one of the pictures named in the question instead of the picture asked about."
+- id: eyp-not-next-to
+  description: "Chooses a picture that is in the right direction but not right next to the one named, or a corner away."
+- id: eyp-wrong-reference
+  description: "Uses the right position word about the wrong picture, so picks the picture above the second one named instead of the first."
+- id: eyp-next-to-not-between
+  description: "Chooses a picture beside the middle one but not in line between the two named."
+- id: eyp-wrong-axis
+  description: "Gives left or right when the picture is above or below, or the other way round."
+tags: [acara-f10-v9, early, space, position, ac9mfsp02, ac9m1sp02]

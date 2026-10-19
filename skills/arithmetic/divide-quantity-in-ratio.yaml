@@ -39,6 +39,12 @@ sources:
   difficulty: exam
   stages:
   - exam
+- topic: exd_x_r3j_ratio_shares
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+  key: three-shares
 misconceptions:
 - id: ignores-the-ratio
   description: Splits the quantity into two equal halves instead of using the
@@ -51,4 +57,34 @@ misconceptions:
   description: Divides using one more part than the ratio actually has (or, on
     the medium tier, divides the difference by the ratio's sum instead of its
     difference).
+- id: r3j-ratio-difference-divided-by-largest-term
+  description: Dividing the difference between two shares by the larger ratio term alone.
+- id: r3j-ratio-difference-divided-by-sum
+  description: Dividing the difference between two shares by the sum of their ratio terms instead of by their difference.
+- id: r3j-ratio-difference-divided-by-terms-counted
+  description: Dividing the difference between two shares by a count of the parts one more than their difference.
+- id: r3j-ratio-difference-divided-by-total-parts
+  description: Dividing the difference between two shares by the total number of parts.
+- id: r3j-ratio-difference-given-as-total
+  description: Giving the difference between two shares where the total was asked for.
+- id: r3j-ratio-difference-of-terms-used
+  description: Using the difference of two ratio terms as the number of parts in a share.
+- id: r3j-ratio-equal-shares
+  description: Sharing equally among the people instead of using the ratio.
+- id: r3j-ratio-fraction-not-percentage
+  description: Giving a share of the total as a decimal fraction where a percentage was asked for.
+- id: r3j-ratio-largest-share-tripled
+  description: Treating every share as equal to the largest share when finding the total.
+- id: r3j-ratio-other-two-shares-added
+  description: Adding the other two shares instead of finding the share asked for.
+- id: r3j-ratio-parts-counted-as-people
+  description: Multiplying the value of a part by the number of people instead of the number of parts.
+- id: r3j-ratio-percentage-of-largest
+  description: Finding one share as a percentage of the largest share instead of the total.
+- id: r3j-ratio-percentage-of-middle
+  description: Finding one share as a percentage of the middle share instead of the total.
+- id: r3j-ratio-total-divided-by-term
+  description: Dividing the total by one ratio term instead of multiplying the value of a part by it.
+- id: r3j-ratio-two-shares-only
+  description: Totalling only two of the three shares.
 tags: []

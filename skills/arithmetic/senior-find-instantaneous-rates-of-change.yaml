@@ -3,6 +3,7 @@
 id: senior-find-instantaneous-rates-of-change
 name: Find instantaneous rates of change
 domain: arithmetic
+year_level: ['11']
 description: Given bounded, fully specified inputs, find instantaneous rates of change. Return
   the resulting value, expression, relation, or classification.
 status: active

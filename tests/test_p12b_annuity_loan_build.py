@@ -178,7 +178,10 @@ def test_rbl_skill_loads_with_correct_properties():
     assert skill.prerequisites == ["simple-interest"]
     assert len(skill.sources) == 4
     for source in skill.sources:
-        assert source.topic == RBL_TOPIC
+        if source.difficulty == "exam":
+            assert source.topic == "exd_x_r3c_loan_first_period"  # the multi-part exam source
+        else:
+            assert source.topic == RBL_TOPIC
     difficulties = {source.difficulty for source in skill.sources}
     assert difficulties == set(TIERS)
     exam_source = next(s for s in skill.sources if s.difficulty == "exam")

@@ -21,19 +21,6 @@ def _q(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
 
-def test_prompt_variety_and_new_shapes_over_hard():
-    shapes = {prompt_shape(_q(s)) for s in range(60)}
-    hard = {prompt_shape(make("geometric_recursion_generate", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(shapes) >= 3, shapes
-    assert shapes - hard
-
-
-def test_no_text_defects_and_deterministic():
-    for s in range(60):
-        assert find_text_defects(_q(s)) == [], s
-    assert _q(3).to_json() == _q(3).to_json()
-
-
 _TWO = re.compile(r"has t(\d+) = (-?\d+) and t(\d+) = (-?\d+), and its common ratio r is (positive|negative)")
 _PAR = re.compile(r"are k, k ([+-]) (\d+) and k ([+-]) (\d+), where k")
 

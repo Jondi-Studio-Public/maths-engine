@@ -3,6 +3,7 @@
 id: senior-use-ests-and-lsts-to-locate-the-critical
 name: Use ESTs and LSTs to locate the critical path(s) for the project
 domain: financial-discrete
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, use ESTs and LSTs to locate the critical path(s) for the project. Return the resulting value, expression, relation, or classification.'
 status: active
 placement_eligible: false
@@ -24,6 +25,12 @@ sources:
 - topic: exd_x_r2e_network_crash
   params: {tier: exam}
   difficulty: exam
+  stages:
+  - exam
+- topic: exd_x_g6_critical_path_after_change
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
   stages:
   - exam
 misconceptions:

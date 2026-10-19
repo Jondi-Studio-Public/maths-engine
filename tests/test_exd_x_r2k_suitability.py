@@ -1,6 +1,6 @@
 """Tests for the exam sources of the Bernoulli and binomial suitability skills.
 
-Every answer, and the final yes or no, is re-derived with exact fractions from the numbers in the rendered stem.
+Every answer, and the final yes or no (after the margin from the limit), is re-derived with exact fractions from the numbers in the rendered stem.
 """
 
 from __future__ import annotations
@@ -36,7 +36,8 @@ def bernoulli_oracle(q) -> dict[str, str]:
         "a": kit.frac_text(a),
         "b": kit.frac_text(b),
         "c": kit.fixed(fall, 1),
-        "d": "yes" if fall < t else "no",
+        "d": kit.fixed(t - Fraction(kit.fixed(fall, 1)), 1),
+        "e": "yes" if fall < t else "no",
     }
 
 
@@ -53,7 +54,8 @@ def binomial_oracle(q) -> dict[str, str]:
         "a": kit.frac_text(a),
         "b": kit.frac_text(b),
         "c": kit.fixed(over, 1),
-        "d": "yes" if over < t else "no",
+        "d": kit.fixed(t - Fraction(kit.fixed(over, 1)), 1),
+        "e": "yes" if over < t else "no",
     }
 
 
@@ -80,13 +82,13 @@ def test_binomial_oracle_over_300_seeds():
 
 def test_both_decisions_occur():
     for skill_id in (BERNOULLI, BINOMIAL):
-        decisions = [kit.canon(kit.exam_q(skill_id, s))["d"] for s in range(120)]
+        decisions = [kit.canon(kit.exam_q(skill_id, s))["e"] for s in range(120)]
         assert 30 <= decisions.count("yes") <= 90, (skill_id, decisions.count("yes"))
 
 
 def test_grading_and_tags():
     for skill_id in (BERNOULLI, BINOMIAL):
-        kit.check_grading(skill_id, min_parts=4)
+        kit.check_grading(skill_id, min_parts=5)
         kit.check_tags(skill_id)
 
 
@@ -136,3 +138,27 @@ def test_binomial_follow_through_from_a_wrong_exact_probability():
         assert result.parts["c"].marks == q.parts[2].marks and result.parts["c"].follow_through
         checked += 1
     assert checked == 100
+
+
+def test_margin_part_follows_through_from_a_wrong_percentage_and_precedes_the_verdict():
+    for skill_id in (BERNOULLI, BINOMIAL):
+        for seed in range(40):
+            q = kit.exam_q(skill_id, seed)
+            labels = [p.label for p in q.parts]
+            assert labels == ["a", "b", "c", "d", "e"]
+            d, e = q.parts[3], q.parts[4]
+            assert d.answer_kind == "number" and d.follow_through and "part_c" in d.follow_through and d.marks >= 2
+            assert e.answer_text in ("yes", "no")
+            # the sign of the margin is the verdict, so the verdict cannot be reached without the value
+            assert (float(d.answer_text) > 0) == (e.answer_text == "yes")
+
+
+def test_chains_are_not_copyable_and_the_margin_is_not_guessable():
+    from tests.exd_junk_probe import assert_answer_spread, assert_chain_is_not_copyable
+
+    for skill_id, topic in (
+        (BERNOULLI, "exd_x_r2k_bernoulli_suitability"),
+        (BINOMIAL, "exd_x_r2k_binomial_suitability"),
+    ):
+        assert_chain_is_not_copyable(topic, skill_id)
+        assert_answer_spread(topic, "d", max_share=0.2, at_least=10)

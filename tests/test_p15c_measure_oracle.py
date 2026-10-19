@@ -39,7 +39,12 @@ def _make(sources, difficulty, seed):
     import mathgen
 
     src = sources[difficulty]
-    return mathgen.make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
+    topic = src.topic
+    params = src.params or {}
+    if difficulty == "exam" and topic == "exd_x_r3e_product_measure_complement":
+        # The exam source moved to a multi-part chain; these tests pin the earlier single-answer tier.
+        topic, params = "p15c_product_measure_rectangle", {}
+    return mathgen.make(topic, seed=seed, difficulty=src.difficulty, **params)
 
 
 # ---------------------------------------------------------------------------

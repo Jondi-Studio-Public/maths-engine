@@ -1,0 +1,40 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-interpret-commonly-used-symbols-and-abbreviations-in-scale
+name: Interpret commonly used symbols and abbreviations in scale drawings
+domain: measurement
+year_level: ['12']
+description: 'Read a floor plan whose rooms are marked with abbreviations (BR 1, ENS, L''DRY, WIR) and whose windows and toilets are drawn as symbols, and answer in full words. Easy names the room that has the toilets symbol or the only room with no window symbol. Medium names the room that holds a fixture asked for by its full name (DW, HWS and BIR on the plan). Hard counts rooms that need decoded abbreviations and symbols together, such as the wet areas that have a window.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-map-feature-and-landmark-representation]
+answer: mcq
+sources:
+- topic: grid_plan_symbols
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_plan_symbols
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_plan_symbols
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: reads-the-neighbouring-room
+  description: Gives the room next to the one that holds the symbol or label, because the symbol sits near a wall.
+- id: wet-room-mixed-up
+  description: Picks another wet area (bathroom, laundry, ensuite or toilet) when asked which room has the toilets symbol or a window, because they are all water rooms.
+- id: fixture-label-paired-with-wrong-room
+  description: Gives the room that holds a different fixture label, mixing up which abbreviation (DW, HWS, BIR) sits in which room.
+- id: br-read-as-bathroom
+  description: Reads BR as bathroom instead of bedroom, so the count is of the wrong rooms.
+- id: counts-rooms-without-the-symbol
+  description: Counts the rooms that lack the window symbol, or every room of that kind, instead of those that have it.
+- id: shared-room-counted-twice
+  description: Counts a room once for the toilets symbol and again for the hot water system when both are in the same room.
+tags: [acara-senior-v8-4, measurement, grid_plan_symbols, acmem108, scale-drawings, symbols, abbreviations, floor-plans]

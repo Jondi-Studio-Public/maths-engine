@@ -3,6 +3,7 @@
 id: senior-use-geometric-sequences-in-contexts-involving-geometric-growth
 name: Use geometric sequences in contexts involving geometric growth or decay, such as compound interest
 domain: financial-discrete
+year_level: ['11']
 description: Given a geometric growth or decay context with a stated first value and rate per period, find the first whole period in which the value passes a stated threshold.
 status: active
 placement_eligible: false

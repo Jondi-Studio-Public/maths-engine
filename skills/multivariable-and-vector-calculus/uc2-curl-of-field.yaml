@@ -1,0 +1,68 @@
+id: uc2-curl-of-field
+name: Curl of a vector field
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: 'Find the curl of a three-dimensional vector field at a point and as a triple of expressions, find unknown constants from the curl at a point, use the fact that a gradient has no curl, and chain the components of a vorticity into its magnitude.'
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-divergence-of-field
+- vector-cross-product
+answer: expression
+sources:
+- topic: s2a2_curl
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a2_curl
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a2_curl
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a2_curl
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: vc2-chain-factor-dropped
+  description: 'Differentiates a function of a function, such as sin(xz) or e^(xy), and leaves out the derivative of the inner function.'
+- id: vc2-curl-components-shifted
+  description: 'Writes the components of the curl in the wrong places, putting the k expression where the i expression belongs.'
+- id: vc2-curl-factor-two-dropped
+  description: 'Takes the curl of the rotation field ω × r to be ω instead of 2ω.'
+- id: vc2-curl-gave-divergence
+  description: 'Finds the divergence, a single number, instead of the curl, a vector.'
+- id: vc2-curl-j-sign
+  description: 'Expands the curl determinant without the minus sign on the j component, so the j component has the wrong sign.'
+- id: vc2-curl-magnitude-component-dropped
+  description: 'Uses only two of the three components when finding the magnitude.'
+- id: vc2-curl-magnitude-not-rooted
+  description: 'Gives the sum of the squares of the components as the magnitude, without taking the square root.'
+- id: vc2-curl-magnitude-sum
+  description: 'Adds the components, or their absolute values, instead of taking the root of the sum of squares.'
+- id: vc2-curl-parameters-swapped
+  description: 'Gives the two constants in the wrong order.'
+- id: vc2-curl-partial-dropped
+  description: 'Uses only one partial derivative in a component of the curl instead of the difference of two.'
+- id: vc2-curl-partials-added
+  description: 'Adds the two partial derivatives in a component of the curl instead of subtracting.'
+- id: vc2-curl-reversed-order
+  description: 'Subtracts the two partial derivatives in each component of the curl in the wrong order, so every sign is reversed.'
+- id: vc2-curl-solve-sign
+  description: 'Sets up the equations for the unknown constants correctly but gives a constant with the wrong sign.'
+- id: vc2-curl-wrong-variables
+  description: 'Differentiates with respect to the wrong variables in a component of the curl, such as R_z - Q_y for R_y - Q_z.'
+tags: [university-core-v1, university-year-2, multivariable-calculus, vector-fields, curl]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

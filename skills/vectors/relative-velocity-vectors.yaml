@@ -1,0 +1,131 @@
+id: relative-velocity-vectors
+name: Relative velocity, closest approach and interception
+domain: vectors
+year_level:
+- '12'
+description: Find the velocity of one moving object relative to another from components or from speeds on perpendicular bearings,
+  then use it for the time of closest approach, the least distance and the time to intercept a moving target.
+status: active
+placement_eligible: false
+prerequisites:
+- vector-addition
+answer: number
+sources:
+- topic: w7b_relative_velocity
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w7b_relative_velocity
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w7b_relative_velocity
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w7b_relative_velocity
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: relvel-wrong-order
+  description: Subtracts the velocities in the wrong order, giving the velocity of B relative to A where A relative to B was
+    asked, or the reverse.
+- id: relvel-adds-velocities
+  description: Adds the two velocities instead of subtracting to find a relative velocity.
+- id: relvel-ignores-reference
+  description: Gives the velocity of the moving object itself, forgetting to subtract the velocity of the object it is measured
+    against.
+- id: relvel-swaps-components
+  description: 'Gives the other component of the relative velocity: the j-component where the i-component was asked, or the
+    reverse.'
+- id: relvel-1d-direction
+  description: Adds the speeds of two vehicles moving the same way, or subtracts them when they move in opposite directions.
+- id: relvel-rearranges-wrongly
+  description: Rearranges the relative velocity equation with a sign slip, so the unknown velocity has the wrong sign or the
+    relative velocity is added where it should be subtracted.
+- id: relvel-catch-up-gives-speed
+  description: Gives the closing speed where the time to catch up was asked.
+- id: relvel-catch-up-gives-gap
+  description: Gives the starting gap where the time to catch up was asked.
+- id: relvel-adds-components
+  description: Adds the sizes of the two components instead of using Pythagoras to find a speed.
+- id: relvel-forgets-root
+  description: Stops at the sum of the squares of the components and does not take the square root.
+- id: relvel-takes-larger-component
+  description: Takes the larger component as the speed and ignores the other.
+- id: relvel-adds-perpendicular-speeds
+  description: Adds the two speeds for motion at right angles instead of combining them with Pythagoras.
+- id: relvel-subtracts-perpendicular-speeds
+  description: Subtracts the two speeds for motion at right angles instead of combining them with Pythagoras.
+- id: relvel-position-ignores-start
+  description: Finds only how far the relative position has changed and forgets the starting relative position.
+- id: relvel-position-uses-one-velocity
+  description: Moves the relative position using one object's velocity instead of the relative velocity.
+- id: relvel-time-added
+  description: Adds the time to the coordinate instead of multiplying the velocity component by it.
+- id: approach-sign-error
+  description: Drops the minus sign in the time of closest approach and gives a negative time.
+- id: approach-divides-by-speed
+  description: Divides the dot product of the relative position and velocity by the relative speed instead of by its square.
+- id: approach-equal-coordinate
+  description: Takes the time when one coordinate of the two positions agrees as the time of closest approach.
+- id: approach-gives-square
+  description: Gives the square of the least distance between the objects.
+- id: approach-distance-travelled
+  description: Gives how far the relative position moves before the moment of closest approach instead of the least distance.
+- id: approach-adds-components
+  description: Adds the sizes of the components of the closest separation instead of using Pythagoras.
+- id: approach-first-within-uses-closest
+  description: Gives the time of closest approach where the time they first come within the stated range was asked.
+- id: approach-last-within
+  description: Adds the half-duration to the time of closest approach and gives the time they leave the range.
+- id: approach-half-width
+  description: Gives the half-duration spent within range instead of the time they first come within it.
+- id: intercept-ignores-motion
+  description: Divides the starting separation by the chaser's speed as if the target were standing still.
+- id: intercept-gives-distance
+  description: Gives the starting separation of the two boats where the time to intercept was asked.
+- id: intercept-gives-chaser-distance
+  description: Gives how far the chaser travels where the time to intercept was asked.
+- id: intercept-negative-root
+  description: Reports the negative root of the interception quadratic, a time before the chase began.
+- id: intercept-copies-target-velocity
+  description: Gives the target's velocity component as the chaser's.
+- id: intercept-sign-flipped
+  description: Gives the chaser's velocity component with the wrong sign.
+- id: intercept-relative-component
+  description: Gives the component of the chaser's velocity relative to the target instead of its own velocity.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Subtract one velocity from the other to read a component of the velocity of A relative to B (or the reverse),
+      work out a closing speed on a straight road, or recover one velocity from a relative velocity.
+  medium:
+    steps: 3
+    demand: Combine perpendicular velocities into a relative speed with Pythagoras, take the magnitude of a relative velocity
+      from components, or carry a relative position forward in time using the relative velocity.
+  hard:
+    steps: 5
+    demand: Find the time of closest approach and the least distance from the relative position and velocity, or set up and
+      solve the quadratic for the time a chaser of known speed needs to intercept a moving target.
+  exam:
+    steps: 6
+    demand: Chain relative speed, time of closest approach, least distance and the time the ships first come within a stated
+      range, carrying each answer into the next.
+tags:
+- senior
+- vectors
+- relative-velocity
+- closest-approach
+- interception
+- acara-specialist

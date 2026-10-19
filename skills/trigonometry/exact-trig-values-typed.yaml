@@ -1,0 +1,76 @@
+id: exact-trig-values-typed
+name: Find exact values of sine, cosine and tangent at multiples of pi/6 and pi/4, and the angle for a value
+domain: trigonometry
+year_level: ['11']
+description: Type the exact value of sin, cos or tan at a multiple of pi/6 or pi/4 in any quadrant, including negative angles
+  and angles above 2 pi, and find the angle in 0 to 2 pi from a value together with a sign condition.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034
+- angle-degrees-radians-pi-form
+answer: expression
+sources:
+- topic: sr2b_exact_trig_values
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sr2b_exact_trig_values
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sr2b_exact_trig_values
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sr2b_exam_exact_trig_values
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sr2b-exact-value-sign-error
+  description: Taking the right size of the exact value but the wrong sign for the quadrant.
+- id: sr2b-exact-value-sin-cos-swapped
+  description: Giving the value of cosine for the angle where sine was asked, or the other way round.
+- id: sr2b-exact-value-complement-used
+  description: Using the value for the complementary angle, swapping the values of one half and root three over two.
+- id: sr2b-exact-value-tan-inverted
+  description: Finding tangent as cosine over sine instead of sine over cosine.
+- id: sr2b-exact-value-wrong-function
+  description: Giving the value of a different trigonometric function at the reference angle.
+- id: sr2b-exact-value-reciprocal-given
+  description: Giving the reciprocal of the value, as for the reciprocal function.
+- id: sr2b-exact-value-multiplier-dropped
+  description: Finding the exact value of the trigonometric function and forgetting to multiply by the number in front of
+    it.
+- id: sr2b-angle-wrong-quadrant
+  description: Choosing the other angle that has the stated value, whose other function has the wrong sign.
+- id: sr2b-angle-reference-angle-given
+  description: Giving the reference angle as the answer without placing it in the quadrant the conditions require.
+- id: sr2b-angle-negated
+  description: Giving the negative of the angle, taken into [0, 2 pi), as the other angle with the same value.
+- id: sr2b-angle-added-pi
+  description: Adding pi to the angle instead of finding the other angle with the same value, which is pi minus it.
+- id: sr2b-exact-value-sum-for-product
+  description: Adding the two exact values where they should be multiplied.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Recall the first-quadrant value and use the supplement to reach the second quadrant.
+  medium:
+    steps: 3
+    demand: Reduce a negative or large angle, name the quadrant, take the reference angle and set the sign.
+  hard:
+    steps: 4
+    demand: Use a value and a sign condition to choose the one angle in 0 to 2 pi, or multiply two exact values with different
+      signs.
+  exam:
+    steps: 5
+    demand: Chain sin, cos and tan of one angle (tan from the other two) and the other angle with the same sine.
+tags:
+- acara-senior-v8-4
+- trigonometry
+- exact-values
+- unit-circle
+- ACMMM035
+- ACMMM034

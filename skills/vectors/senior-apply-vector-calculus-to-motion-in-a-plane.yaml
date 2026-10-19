@@ -3,6 +3,7 @@
 id: senior-apply-vector-calculus-to-motion-in-a-plane
 name: Apply vector calculus to motion in a plane including projectile and circular motion
 domain: vectors
+year_level: ['12']
 description: Given bounded, fully specified inputs, apply vector calculus to motion in a plane including projectile and circular motion. Return the resulting value, expression, relation, or classification. This build covers projectile motion (constant acceleration vector) only; circular motion is out of scope.
 status: active
 placement_eligible: false
@@ -25,6 +26,12 @@ sources:
 - topic: exd_x_r2c_projectile
   params: {tier: exam}
   difficulty: exam
+  stages:
+  - exam
+- topic: exd_x_g2_projectile_landing
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
   stages:
   - exam
 misconceptions:

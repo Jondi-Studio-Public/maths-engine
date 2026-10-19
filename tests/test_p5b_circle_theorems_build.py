@@ -224,4 +224,5 @@ class TestSkillsLoad:
         assert skill.placement_eligible == False
         # Check that all three tiers are represented in sources
         sources_topics = [s.topic for s in skill.sources]
-        assert len(sources_topics) == 4, f"Expected 4 sources, got {len(sources_topics)}"  # plus the exam source
+        # 3 tiers + the multi-part exam chain + the single-part exam source re-added as key exam-single (bf2fca7)
+        assert len(sources_topics) == 5, f"Expected 5 sources, got {len(sources_topics)}"

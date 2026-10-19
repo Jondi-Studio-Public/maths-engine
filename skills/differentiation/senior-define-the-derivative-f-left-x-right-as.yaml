@@ -3,6 +3,7 @@
 id: senior-define-the-derivative-f-left-x-right-as
 name: Define the derivative f'(x) as lim_(h->0) (f(x+h)-f(x))/h
 domain: differentiation
+year_level: ['11']
 description: Given bounded, fully specified inputs, define the derivative f'(x) as lim_(h->0) (f(x+h)-f(x))/h. Return the resulting value, expression, relation, or classification. Does not assess unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 placement_eligible: false
@@ -26,6 +27,12 @@ sources:
 - topic: exd_x_r2a_first_principles_tangent
   params: {}
   difficulty: exam
+  stages:
+  - exam
+- topic: exd_x_c3_first_principles
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
   stages:
   - exam
 misconceptions:

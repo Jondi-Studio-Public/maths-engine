@@ -1,0 +1,64 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-use-de-moivre-s-theorem-for-integral-powers
+name: Use De Moivre's theorem for integral powers
+domain: senior-mathematics
+year_level: ['12']
+description: Find a positive or negative integer power of a complex number in polar form with De Moivre's theorem,
+  raising the modulus to the power and multiplying the argument by it, from a number given as r cis theta or in
+  Cartesian form, with the argument brought back into the range 0 to 360 degrees.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form
+answer: pair
+sources:
+- topic: salg_de_moivre_power
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: salg_de_moivre_power
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: salg_de_moivre_power
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: salg_exam_de_moivre_power
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: demoivre-modulus-not-raised
+  description: Leaves the modulus as it was instead of raising it to the power n.
+- id: demoivre-modulus-multiplied
+  description: Multiplies the modulus by n instead of raising it to the power n.
+- id: demoivre-argument-not-multiplied
+  description: Raises the modulus to the power n but leaves the argument unchanged.
+- id: demoivre-negative-power-sign-lost
+  description: Gives the argument as if the negative power were positive, so it has the wrong sign.
+- id: demoivre-quadrant-ignored
+  description: Finds the argument from the reference angle alone, without placing the number in its quadrant.
+- id: demoivre-modulus-root-not-taken
+  description: Gives the sum of the squares of the real and imaginary parts as the modulus, without the square root.
+- id: demoivre-modulus-is-one-component
+  description: Takes the modulus to be one part of the number instead of the root of the sum of squares.
+- id: demoivre-argument-from-wrong-ratio
+  description: Finds the argument from the real part over the imaginary part, so the angle is the complement.
+- id: demoivre-modulus-raised-the-wrong-way
+  description: Raises n to the power of the modulus instead of the modulus to the power n.
+- id: demoivre-conjugate-given
+  description: Writes the power in Cartesian form with the sign of the imaginary part reversed.
+- id: demoivre-sine-cosine-swapped
+  description: Writes the power in Cartesian form with sine as the real part and cosine as the imaginary part.
+- id: polar-angle-not-reduced
+  description: Leaves the argument at 360 degrees or more, or negative, instead of bringing it into range.
+- id: polar-angle-reduced-by-half-turn
+  description: Reduces an argument of more than 360 degrees by 180 degrees instead of a full turn.
+difficulty_progression: Easy squares or cubes a number in polar form whose argument stays below 360 degrees. Medium
+  uses powers whose argument passes 360 degrees, so it has to be reduced, and negative powers, where the argument goes
+  negative first. Hard gives the number in Cartesian form, so the modulus and the argument, in the right quadrant,
+  come first, and the power is chosen to keep the modulus whole. The exam chain finds the modulus and the argument of
+  a Cartesian number, then the modulus of its power and the power itself in the form p + qi.
+tags: [acara-v8-4, complex-numbers, de-moivre, polar-form, ACMSM083]

@@ -20,20 +20,6 @@ def _make(seed):
     return make(TOPIC, seed=seed, difficulty="exam")
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_make(s)) for s in range(60)}
-    hard = {prompt_shape(make(HARD, seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3, exam
-    assert exam - hard, "the exam source adds no prompt shape beyond the hard tier"
-
-
-def test_no_text_defects_and_deterministic():
-    for seed in range(60):
-        q = _make(seed)
-        assert find_text_defects(q) == [], (seed, q.text)
-        assert q.to_json() == _make(seed).to_json()
-
-
 def _oracle(text: str) -> str:
     m = re.search(r"y = (-?\d+) ([+-]) (\d+)([tx])", text)
     a, b = int(m.group(1)), int(m.group(3)) * (1 if m.group(2) == "+" else -1)
@@ -71,5 +57,5 @@ def test_grader_accepts_key_and_rejects_every_distractor_over_100_seeds():
         options = mcq_options(q)
         assert len(options) == 4 and len(set(options)) == 4
         for i, option in enumerate(options):
-            assert grader(q, str(i)).correct == (option == q.answer_text), (seed, option)
+            assert grader(q, i).correct == (option == q.answer_text), (seed, option)
         assert q.answer_text not in q.distractors

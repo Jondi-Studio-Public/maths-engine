@@ -1,0 +1,79 @@
+id: spot-bias
+name: Spot bias in a survey
+domain: statistics-probability
+year_level: ['6', '8', '9']
+naplan_domain: [statistics]
+description: Given five numbered survey statements, list which describe a source of bias, estimate a population count from a described sample, and at the hard tier pick the flaw from five options. The exam chain estimates a population count and then judges the survey.
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-median
+answer: list
+sources:
+- topic: ir2a_spot_bias
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ir2a_spot_bias
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ir2a_spot_bias
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_ir2a_spot_bias
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ir2a-adds-instead-of-subtracting
+  description: Adding the sample to the population when finding how much more a census needs.
+- id: ir2a-blames-easy-to-reach-sample
+  description: Naming an easy-to-reach sample as the main flaw when another source of bias is the real one.
+- id: ir2a-blames-leading-question
+  description: Naming a leading question as the main flaw when another source of bias is the real one.
+- id: ir2a-blames-non-response
+  description: Naming non-response as the main flaw when another source of bias is the real one.
+- id: ir2a-blames-undercoverage
+  description: Naming undercoverage (a list that leaves people out) as the main flaw when another source of bias is the real one.
+- id: ir2a-blames-voluntary-response
+  description: Naming voluntary response (people choosing themselves) as the main flaw when another source of bias is the real one.
+- id: ir2a-compares-percentages-not-counts
+  description: Giving the difference in percentage points when the difference in the numbers of people was asked.
+- id: ir2a-flags-a-sound-feature-as-biased
+  description: Counting a sound part of a survey as a source of bias.
+- id: ir2a-gives-those-who-disagree
+  description: Giving the number who did not agree when the number who agreed was asked.
+- id: ir2a-misses-a-biased-feature
+  description: Leaving a source of bias out of the list of biased statements.
+- id: ir2a-reports-the-better-estimate
+  description: Giving the better estimate itself instead of the amount by which the other estimate is too high.
+- id: ir2a-reports-the-percentage-as-the-count
+  description: Giving the percentage who agreed as if it were the number of people.
+- id: ir2a-reports-the-sample-count-not-the-population-estimate
+  description: Giving the number who agreed in the sample instead of scaling up to the whole population.
+- id: ir2a-slips-a-power-of-ten
+  description: Taking one tenth of the correct share, by dividing by 1000 instead of 100.
+- id: ir2a-uses-the-biased-survey-percentage
+  description: Estimating from the percentage in the biased survey when a properly drawn sample was available.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ir2a_spot_bias
+- AC9M6ST02
+- AC9M8ST02
+- AC9M9ST02

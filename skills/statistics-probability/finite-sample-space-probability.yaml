@@ -1,6 +1,7 @@
 id: finite-sample-space-probability
 name: Calculate probability from a finite sample space
 domain: statistics-probability
+year_level: ['12']
 description: Enumerate a small supplied finite sample space and calculate one event probability.
 status: active
 placement_eligible: false

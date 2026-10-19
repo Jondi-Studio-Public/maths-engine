@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 # Not `mathgen`: that name on PyPI belongs to an unrelated project. The import package and the
 # command are still `mathgen`.
 name = "maths-engine"
-version = "0.1.0"
+version = "0.2.0"
 description = "Maths question generators with verified answers, deterministic graders and a skill library."
 readme = "README.md"
 requires-python = ">=3.12" # generators use 3.12-only f-string syntax
@@ -25,6 +25,7 @@ classifiers = [
   "Programming Language :: Python :: 3 :: Only",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Education",
   "Topic :: Scientific/Engineering :: Mathematics",
 ]
@@ -33,22 +34,29 @@ classifiers = [
 dependencies = ["sympy>=1.12.1", "numpy>=1.26", "pyyaml>=6.0.1"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "pytest-xdist>=3.5", "mpmath>=1.3", "jsonschema>=4.18"]
+# The HTTP API (`python -m mathgen.server`, docs/server.md). `import mathgen` never needs these.
+server = ["fastapi>=0.115", "uvicorn>=0.30"]
+# The MCP server for AI agents (`mathgen-mcp`, docs/mcp.md, and the Agent Plugins under plugins/).
+mcp = ["mcp>=2.0,<3"]
+# The server's and the MCP server's deps are here too, so CI tests both; httpx2 drives FastAPI's test client.
+dev = ["pytest>=8.0", "pytest-xdist>=3.5", "mpmath>=1.3", "jsonschema>=4.18", "fastapi>=0.115", "uvicorn>=0.30", "httpx2>=2.0", "mcp>=2.0,<3"]
 
 [project.urls]
 Homepage = "https://github.com/Jondi-Studio-Public/maths-engine"
 Source = "https://github.com/Jondi-Studio-Public/maths-engine"
 Issues = "https://github.com/Jondi-Studio-Public/maths-engine/issues"
+Changelog = "https://github.com/Jondi-Studio-Public/maths-engine/blob/main/CHANGELOG.md"
 
 [project.scripts]
 mathgen = "mathgen.__main__:main"
+mathgen-mcp = "mathgen.mcp_server:main"
 
 # The skill library lives in `skills/` at the repository root (tests and scripts read it there). The wheel
 # carries the same files as the package `mathgen._skills`: setuptools maps that package onto `skills/`, so
 # there is one copy in the repository. `mathgen/_paths.py` finds whichever layout it is running from. Keep
 # this list equal to every folder under mathgen/ with an __init__.py (tests/public/test_packaging.py checks).
 [tool.setuptools]
-packages = ["mathgen", "mathgen.figure_kinds", "mathgen.generators", "mathgen.grading", "mathgen.scheduling", "mathgen._skills"]
+packages = ["mathgen", "mathgen.figure_kinds", "mathgen.generators", "mathgen.grading", "mathgen.scheduling", "mathgen.server", "mathgen._skills"]
 # Only the `package-data` globs below go in the wheel; the default (true) makes setuptools treat every
 # domain folder under skills/ as a package it must be told about, and warn about each one.
 include-package-data = false

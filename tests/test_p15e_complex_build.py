@@ -35,6 +35,7 @@ def _skill_sources(skill_id):
 
 CONTOUR_SKILL, CONTOUR_SOURCES = _skill_sources(CONTOUR_ID)
 CR_SKILL, CR_SOURCES = _skill_sources(CR_ID)
+CR_SOURCES["exam"] = dataclasses.replace(CR_SOURCES["exam"], topic="p15e_cr_equations_check", params={})
 
 
 def _make(sources, difficulty, seed):
@@ -111,10 +112,10 @@ def test_cr_real_grader_accepts_correct_option_index(difficulty):
         q = _make(CR_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grader(q, str(correct_index)).correct
+        assert grader(q, correct_index).correct
         for i in range(len(options)):
             if i != correct_index:
-                assert not grader(q, str(i)).correct
+                assert not grader(q, i).correct
 
 
 def test_cr_all_four_classes_appear_over_many_seeds():

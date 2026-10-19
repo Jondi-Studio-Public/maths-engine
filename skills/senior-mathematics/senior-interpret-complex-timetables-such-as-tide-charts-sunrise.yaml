@@ -4,10 +4,13 @@ id: senior-interpret-complex-timetables-such-as-tide-charts-sunrise
 name: Interpret complex timetables, such as tide charts, sunrise charts and moon
   phases
 domain: senior-mathematics
-description: Given a stated tide, sunrise/sunset or moon-phase table for several
-  days, choose from offered entries the day or time that meets a stated condition
-  (for example the highest high tide, the latest sunrise, or the first full moon
-  after a stated date).
+year_level: ['11']
+description: >-
+  Given a stated tide, sunrise/sunset or moon-phase table for several days, choose from offered
+  entries the day or time that meets a stated condition (for example the highest high tide, the
+  latest sunrise, or the first full moon after a stated date). The exam tier reads one day of a tide
+  chart and works out the time and rise between a low and high tide, the rate of rise and the time
+  to reach a stated height.
 status: active
 placement_eligible: false
 prerequisites:
@@ -37,9 +40,8 @@ sources:
   - 5
   - 6
   - maintenance
-- topic: p19i_timetable_condition_lookup
-  params:
-    tier: exam
+- topic: exd_x_r3j_tide_chart_rate
+  params: {}
   difficulty: exam
   stages:
   - exam

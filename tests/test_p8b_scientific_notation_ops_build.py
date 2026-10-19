@@ -152,10 +152,10 @@ def test_real_mcq_grader_accepts_answer_rejects_distractors(op):
         q = make(TOPIC, seed=seed, ops=(op,))
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct
+        assert grade_mcq(q, correct_idx).correct
         for i, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(i)).correct
+                assert not grade_mcq(q, i).correct
 
 
 @pytest.mark.parametrize("op", OPS)
@@ -164,7 +164,7 @@ def test_deliberately_wrong_answer_rejected(op):
         q = make(TOPIC, seed=seed, ops=(op,))
         options = mcq_options(q)
         bogus_idx = len(options) + 5
-        assert not grade_mcq(q, str(bogus_idx)).correct
+        assert not grade_mcq(q, bogus_idx).correct
         assert not grade_mcq(q, "not-a-number").correct
 
 

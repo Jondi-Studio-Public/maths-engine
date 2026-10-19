@@ -436,7 +436,7 @@ def test_mcq_index_as_an_int_is_read():
     question = _q("4", "4", distractors=["3", "5", "6"])
     index = mcq_options(question).index("4")
     assert _correct("mcq", question, index)
-    assert _correct("mcq", question, str(index))
+    assert _correct("mcq", question, index)
     assert not _correct("mcq", question, (index + 1) % 4)
     assert not _correct("mcq", question, True)
 

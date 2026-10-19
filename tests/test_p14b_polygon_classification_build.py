@@ -83,10 +83,10 @@ class TestDeterminismAndShape:
             q = make(TOPIC, seed=seed, difficulty=difficulty)
             options = mcq_options(q)
             correct_index = options.index(q.answer_text)
-            assert grade_mcq(q, str(correct_index)).correct
+            assert grade_mcq(q, correct_index).correct
             for dist in q.distractors:
                 dist_index = options.index(dist)
-                assert not grade_mcq(q, str(dist_index)).correct
+                assert not grade_mcq(q, dist_index).correct
 
     @pytest.mark.parametrize("difficulty", TIERS)
     def test_grader_rejects_out_of_range_index(self, difficulty):
@@ -222,10 +222,12 @@ class TestMediumTierExactlyOneTrueOption:
             # `_classify_side_angle_independent` acting on parsed values.
             import re
 
-            sm = re.search(r"(\d+), (\d+) and (\d+) units", q.text)
+            sm = re.search(r"two of its sides are each (\d+) units", q.text)
             am = re.search(r"(\d+), (\d+) and (\d+) degrees", q.text)
-            assert sm and am, f"seed {seed}: could not parse sides/angles from {q.text!r}"
-            sides = [int(sm.group(i)) for i in (1, 2, 3)]
+            assert am, f"seed {seed}: could not parse angles from {q.text!r}"
+            assert sm or "three sides all have different lengths" in q.text, q.text
+            # The stem states only the side-equality fact; rebuild stand-in sides from it.
+            sides = [int(sm.group(1)), int(sm.group(1)), int(sm.group(1)) + 1] if sm else [3, 4, 5]
             angles = [int(am.group(i)) for i in (1, 2, 3)]
             is_isosceles = sides[0] == sides[1] or sides[1] == sides[2] or sides[0] == sides[2]
             is_right = 90 in angles

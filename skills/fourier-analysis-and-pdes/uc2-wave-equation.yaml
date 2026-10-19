@@ -1,0 +1,93 @@
+id: uc2-wave-equation
+name: Solve the one-dimensional wave equation
+domain: fourier-analysis-and-pdes
+year_level:
+- university
+description: Find the displacement of a string at a point and time, by d'Alembert's formula on the whole line or by separation
+  of variables on a string fixed at both ends, including the effect of an initial velocity.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-wave-equation-separation
+answer: number
+sources:
+- topic: s2c3_wave_equation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: s2c3_wave_equation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: s2c3_wave_equation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_s2c3_wave_equation
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: dalembert-half-dropped
+  description: Adding f(x - ct) and f(x + ct) in d'Alembert's formula without the factor one half.
+- id: dalembert-one-pulse-only
+  description: Using only one travelling pulse, f(x - ct) or f(x + ct), instead of the average of both.
+- id: wave-speed-not-square-rooted
+  description: Using the coefficient c squared (or T/rho) as the wave speed, when the speed is its square root.
+- id: wave-no-time-evolution
+  description: Giving the initial displacement at the point, as if no time had passed.
+- id: wave-frequency-pi-dropped
+  description: Using w_n = n c/L for the angular frequency, leaving pi out of n pi c/L.
+- id: wave-frequency-c-dropped
+  description: Using w_n = n pi/L for the angular frequency, leaving the wave speed out of n pi c/L.
+- id: wave-mode-frequency-not-scaled
+  description: Giving every mode the angular frequency of the first mode, instead of n times it.
+- id: wave-cos-sin-swap
+  description: Putting the displacement coefficient with sin(w t) and the velocity coefficient with cos(w t), the wrong
+    way round.
+- id: dalembert-velocity-term-undivided
+  description: Adding the integral of the initial velocity from x - ct to x + ct without dividing by 2c.
+- id: dalembert-velocity-term-half
+  description: Dividing the integral of the initial velocity by 2 instead of by 2c.
+- id: dalembert-velocity-term-dropped
+  description: Leaving the initial-velocity term out of d'Alembert's formula.
+- id: wave-velocity-coefficient-not-divided
+  description: Using the initial-velocity coefficient B_n directly in B_n sin(w_n t), without dividing by the angular frequency
+    w_n.
+- id: wave-speed-root-of-tension-only
+  description: Taking the wave speed to be the square root of the tension divided by the density, with the root on the tension
+    only.
+- id: wave-speed-product
+  description: Taking the wave speed to be the square root of the product of tension and density instead of their quotient.
+- id: wave-fundamental-half-wavelength-missed
+  description: Taking the fundamental frequency to be c/L, forgetting that the fundamental wavelength is 2L.
+- id: wave-fundamental-quarter-wavelength
+  description: Taking the fundamental frequency to be c/(4L), as for a string free at one end.
+- id: wave-frequency-hertz-vs-radians
+  description: Giving the angular frequency in rad/s where the frequency in hertz was asked.
+- id: wave-mode-frequency-squared
+  description: Taking the angular frequency of mode n to be n squared times that of the first mode.
+difficulty_progression: Easy applies d'Alembert's formula to a string released from rest, where the equation is given as
+  u_tt = K u_xx so the speed is the square root of K. Medium adds an initial velocity (its integral over the moving interval,
+  divided by 2c), or moves to a string fixed at both ends released from rest, where each mode oscillates at n pi c / L.
+  Hard gives the string a tension and density (so c is found first) and both an initial displacement and an initial velocity,
+  with the time in milliseconds, so the velocity coefficient of each mode must be divided by its angular frequency. The
+  exam chain finds the wave speed, the fundamental frequency and the second-mode angular frequency (both following through
+  from the speed) and the displacement at a point.
+tags:
+- university-year-2
+- fourier-analysis-and-pdes
+- wave-equation
+- separation-of-variables
+- dalembert
+framework_areas:
+- fourier-analysis-and-pdes

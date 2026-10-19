@@ -3,6 +3,7 @@
 id: senior-recognise-and-use-linearity-properties-of-the-derivative
 name: Recognise and use linearity properties of the derivative
 domain: differentiation
+year_level: ['11']
 description: 'Given two differentiable functions f and g whose derivatives f''(x) and
   g''(x) are stated as expressions, and constants a and b, compute the derivative of
   a*f(x) + b*g(x) as a*f''(x) + b*g''(x). Easy draws a, b as positive small integers with

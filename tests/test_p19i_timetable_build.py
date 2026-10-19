@@ -80,12 +80,12 @@ def test_real_grader_accepts_answer_rejects_distractors_and_a_wrong_value(topic,
         q = make(topic, seed=seed, difficulty=difficulty)
         options = mcq_options(q)
         correct_idx = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct, (topic, difficulty, seed)
+        assert grade_mcq(q, correct_idx).correct, (topic, difficulty, seed)
         for idx, opt in enumerate(options):
             if opt != q.answer_text:
-                assert not grade_mcq(q, str(idx)).correct, (topic, difficulty, seed, opt)
+                assert not grade_mcq(q, idx).correct, (topic, difficulty, seed, opt)
         # a deliberately out-of-range index is rejected, not accepted by luck
-        assert not grade_mcq(q, str(len(options) + 5)).correct
+        assert not grade_mcq(q, len(options) + 5).correct
 
 
 # --- variety ------------------------------------------------------------
@@ -1055,6 +1055,7 @@ def test_skill_b_loads_with_expected_shape():
     assert skill.placement_eligible is False
     assert skill.status == "active"
     assert skill.prerequisites == ["senior-interpret-timetables-such-as-bus-train-and-ferry"]
-    assert {source.topic for source in skill.sources} == {TOPIC_B}
+    assert {source.topic for source in skill.sources[:3]} == {TOPIC_B}
+    assert skill.sources[3].topic == "exd_x_r3j_tide_chart_rate"
     assert [source.difficulty for source in skill.sources] == ["easy", "medium", "hard", "exam"]
     assert [source.stages for source in skill.sources][-1] == ["exam"]

@@ -1,0 +1,103 @@
+id: normal-curve-empirical-rule
+name: "Use the 68-95-99.7 rule to describe a normal curve"
+domain: statistics-probability
+year_level: ['12']
+description: "Use the 68-95-99.7 rule for a normal distribution: the percentage of values in a region from its end values, the expected count in a sample, the standard deviation or mean from the points of inflection or from a stated interval, and the mean and standard deviation recovered from two tail percentages. The exam chain finds sigma from the points of inflection, then a percentage, a count and a cut-off value."
+status: active
+placement_eligible: false
+prerequisites: [senior-calculate-probabilities-and-quantiles-associated-with-a-given]
+answer: number
+sources:
+- topic: r3f_empirical_rule
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r3f_empirical_rule
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r3f_empirical_rule
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r3f_empirical_rule
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Turn the end values into numbers of standard deviations from the mean, then add the bands of the rule that the region covers."}
+  medium: {steps: 3, demand: "Build on the percentage (an expected count), or read the standard deviation from the points of inflection or a 95% interval, or compare two curves by their spread."}
+  hard: {steps: 4, demand: "Work backwards from two tail percentages to the mean or the standard deviation, or move an interval between two normal populations and re-read its share."}
+  exam: {steps: 4, demand: "A connected chain: sigma from the points of inflection, a percentage, a count that uses the percentage, and a cut-off that uses sigma."}
+misconceptions:
+- id: r3f-compare-difference-taken-as-ratio
+  description: "Giving the difference between the two standard deviations where their ratio was asked for."
+- id: r3f-compare-extra-taken-as-ratio
+  description: "Giving how much larger the second standard deviation is, as a fraction of the first, where the ratio of the two was asked for."
+- id: r3f-compare-ratio-inverted
+  description: "Giving the ratio of the standard deviations upside down, curve A's over curve B's."
+- id: r3f-compare-ratio-of-variances
+  description: "Giving the ratio of the variances, the square of the ratio of the standard deviations."
+- id: r3f-cutoff-one-sd-above-mean
+  description: "Giving the value one standard deviation above the mean, which 16% exceed, for the value that only 2.5% exceed."
+- id: r3f-cutoff-three-sd-above-mean
+  description: "Giving the value three standard deviations above the mean, which only 0.15% exceed, for the value that 2.5% exceed."
+- id: r3f-cutoff-uses-the-gap-as-sd
+  description: "Adding twice the full gap between the points of inflection to the mean, using the gap as if it were the standard deviation."
+- id: r3f-empirical-band-too-many
+  description: "Including one more band of the rule (the 13.5%, 2.35% or 0.15% beyond the stated end) than the region actually covers."
+- id: r3f-empirical-count-of-the-complement
+  description: "Counting the values outside the stated region, the complement, where the values inside it were asked for."
+- id: r3f-empirical-gives-complement
+  description: "Giving the percentage outside the stated region, the complement, where the percentage inside it was asked for."
+- id: r3f-empirical-halves-the-middle
+  description: "Halving the percentage of a region that spans both sides of the mean."
+- id: r3f-empirical-percentage-reported-as-count
+  description: "Reporting the percentage of the sample as if it were the expected number of values."
+- id: r3f-empirical-tail-as-half-of-the-middle
+  description: "Taking half of the central percentage as the share of a tail, which is the share between the mean and the end instead."
+- id: r3f-empirical-tail-not-halved
+  description: "Taking 100 minus the central percentage as one tail, forgetting that this is the two tails together and must be halved."
+- id: r3f-empirical-treats-interval-as-symmetric
+  description: "Using the central percentage for the larger distance from the mean on both sides, when the region is not symmetric about the mean."
+- id: r3f-inflection-gap-quartered
+  description: "Dividing the gap between the points of inflection by four to get the standard deviation instead of by two."
+- id: r3f-inflection-gap-taken-as-mean
+  description: "Reporting the gap between the points of inflection where the mean (their midpoint) was asked for."
+- id: r3f-inflection-gap-taken-as-sd
+  description: "Reporting the whole gap between the points of inflection as the standard deviation, instead of half of it."
+- id: r3f-inflection-lower-point-taken-as-mean
+  description: "Reporting the lower point of inflection as the mean."
+- id: r3f-inflection-lower-point-taken-as-sd
+  description: "Reporting the lower point of inflection as the standard deviation."
+- id: r3f-inflection-midpoint-taken-as-sd
+  description: "Reporting the midpoint of the points of inflection, the mean, where the standard deviation was asked for."
+- id: r3f-inflection-sd-reported-as-mean
+  description: "Reporting the standard deviation, half the gap between the points of inflection, where the mean was asked for."
+- id: r3f-inflection-upper-point-taken-as-mean
+  description: "Reporting the upper point of inflection as the mean."
+- id: r3f-interval95-half-width-taken-as-sd
+  description: "Taking half the width of the 95% interval as the standard deviation, when 95% spans two standard deviations either side."
+- id: r3f-interval95-treated-as-99-7
+  description: "Treating the 95% interval as if it were the 99.7% interval, three standard deviations either side, and dividing its width by six."
+- id: r3f-interval95-width-divided-by-eight
+  description: "Dividing the width of the 95% interval by eight, treating it as four standard deviations either side."
+- id: r3f-interval95-width-taken-as-sd
+  description: "Reporting the whole width of the 95% interval as the standard deviation."
+- id: r3f-second-population-reports-95
+  description: "Reporting 95% for the second population, which has the same interval as the first population but a different mean or spread."
+- id: r3f-two-tails-gap-halved
+  description: "Dividing the gap between the two stated values by two to get the standard deviation, as if they were one standard deviation either side of the mean."
+- id: r3f-two-tails-gap-quartered
+  description: "Dividing the gap between the two stated values by four to get the standard deviation."
+- id: r3f-two-tails-gap-taken-as-sd
+  description: "Reporting the whole gap between the two stated values as the standard deviation."
+- id: r3f-two-tails-midpoint-taken-as-mean
+  description: "Taking the midpoint of the two stated values as the mean, though they are different numbers of standard deviations from it."
+- id: r3f-two-tails-miscounts-sds
+  description: "Dividing the gap between the two stated values by one more than the number of standard deviations it spans."
+- id: r3f-two-tails-one-sd-assumed
+  description: "Taking the mean to be exactly one standard deviation from one of the stated values, whatever its tail percentage."
+- id: r3f-two-tails-wrong-multiple
+  description: "Subtracting the whole span in standard deviations from the upper value, where only the upper value's own multiple should be removed."
+tags: [round-3, statistics-probability, normal-distribution, empirical-rule, acmmm169]

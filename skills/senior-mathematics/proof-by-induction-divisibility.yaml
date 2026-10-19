@@ -1,0 +1,46 @@
+id: proof-by-induction-divisibility
+name: "Work the steps of an induction proof of divisibility"
+domain: senior-mathematics
+year_level: ['12']
+description: "For a divisibility statement such as 7 divides 3^(2n + 1) + 2^(n + 2), supply one typed step of its proof by induction -- the whole-number multiple at the base case, the leftover term when f(k + 1) is written as a multiple of f(k) plus a remainder, or the multiple of the divisor exhibited in the inductive step. The answers are numbers and expressions, never a choice of which line of a proof is wrong."
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-proof-by-induction
+- senior-review-indices-including-fractional-indices-and-the-index
+answer: expression
+sources:
+- topic: r4f_induction_divisibility
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: r4f_induction_divisibility
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: r4f_induction_divisibility
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_r4f_induction_divisibility
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: gives-quotient-not-value
+  description: "Giving the quotient f(1) divided by d where the value of f(1) itself is asked for."
+- id: forgets-to-divide-by-d
+  description: "Stopping at the value of f(1) (or f(3)) without dividing by the divisor to find the whole-number multiple."
+- id: exponent-shift-dropped
+  description: "Dropping the constant shift in an exponent, so 3^(2n + 1) is evaluated as 3^(2n)."
+- id: exponent-multiplier-dropped
+  description: "Dropping the multiplier of n in an exponent when substituting n = 1, so 3^(2n + 1) becomes 3^(n + 1)."
+- id: remainder-keeps-the-wrong-term
+  description: "Keeping the other power as the leftover term when rearranging f(k + 1) = c f(k) + remainder."
+- id: remainder-drops-the-factor
+  description: "Forgetting the numerical factor (the difference of the bases) on the leftover power when rearranging f(k + 1)."
+- id: remainder-sign-reversed
+  description: "Getting the sign of the leftover term wrong when rearranging f(k + 1) into a\u00b7f(k) plus a remainder."
+- id: uses-sum-not-difference-of-bases
+  description: "Using a + b where the rearrangement gives a - b."
+tags: [acara-v8-4-specialist, induction, proof, divisibility]

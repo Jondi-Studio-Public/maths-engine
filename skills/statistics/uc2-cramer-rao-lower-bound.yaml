@@ -1,0 +1,113 @@
+id: uc2-cramer-rao-lower-bound
+name: Cramér–Rao lower bound
+domain: statistics
+year_level:
+- university
+description: "Find the Fisher information of a model and the Cramér–Rao lower bound for the variance of an unbiased estimator\
+  \ of a parameter or of a function of it, and judge an estimator by its efficiency."
+status: active
+placement_eligible: false
+prerequisites:
+- bernoulli-mle
+- ucv1-poisson-count-probability
+answer: fraction
+sources:
+- topic: r4i_cramer_rao
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4i_cramer_rao
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4i_cramer_rao
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4i_cramer_rao
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4i-cr-bound-for-parameter
+  description: "Giving the bound for estimating the parameter itself where a bound for a function of it was asked, leaving\
+    \ out the derivative factor."
+- id: r4i-cr-bound-times-variance
+  description: Multiplying the bound by the variance of the estimator instead of dividing.
+- id: r4i-cr-derivative-ignored
+  description: "Ignoring the derivative of the function being estimated and using the bound for the parameter, rescaled wrongly."
+- id: r4i-cr-derivative-ignored-factor
+  description: Dropping the constant factor from the derivative of the function being estimated.
+- id: r4i-cr-derivative-not-squared
+  description: Using g-prime where g-prime squared belongs in the numerator of the bound.
+- id: r4i-cr-derivative-squared-twice
+  description: Squaring the derivative twice, or squaring its reciprocal too.
+- id: r4i-cr-derivative-wrong-power
+  description: Raising the derivative of the function to the wrong power.
+- id: r4i-cr-efficiency-inverted
+  description: Giving the variance divided by the bound instead of the bound divided by the variance.
+- id: r4i-cr-forgot-bound
+  description: Giving the sample size or variance ratio without the bound.
+- id: r4i-cr-forgot-info
+  description: Leaving out the Fisher information, giving g-prime squared over n.
+- id: r4i-cr-forgot-n
+  description: 'Leaving out the sample size: the bound for one observation instead of for the sample.'
+- id: r4i-cr-forgot-to-invert
+  description: Giving n times the information instead of its reciprocal.
+- id: r4i-cr-forgot-two-observations
+  description: Using the sample size n in place of the two observations the estimator uses.
+- id: r4i-cr-halved-info
+  description: Using half the correct information, giving twice the correct bound.
+- id: r4i-cr-info-per-observation
+  description: Giving the reciprocal of the information of one observation, ignoring n.
+- id: r4i-cr-info-power-wrong
+  description: Using the wrong power of the parameter in the information.
+- id: r4i-cr-info-squared
+  description: Squaring the information before inverting it.
+- id: r4i-cr-n-squared
+  description: Dividing by n squared instead of n.
+- id: r4i-cr-sample-info-for-one
+  description: Giving the information of the whole sample where the information of one observation was asked.
+- id: r4i-cr-shape-ignored
+  description: Ignoring the shape of the density, so the information is that of an exponential.
+- id: r4i-cr-square-of-sum-weights
+  description: Using the square of the sum of the weights where the sum of squared weights belongs.
+- id: r4i-cr-variance-for-information
+  description: Giving the variance lambda where the information 1/lambda was asked.
+- id: r4i-cr-variance-shifted
+  description: Using the wrong denominator in the variance of the unbiased estimator.
+- id: r4i-cr-weights-not-squared
+  description: Summing the weights rather than their squares in the variance of the weighted mean.
+- id: r4i-cr-wrong-power
+  description: Using the wrong power of the parameter in the information, so the bound has the wrong form.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: "Differentiate the log-likelihood of a standard model to find the Fisher information of one observation and invert\
+      \ n times it."
+  medium:
+    steps: 4
+    demand: "Carry a derivative factor through the bound for a function of the parameter (e to the minus lambda, a mean, p\
+      \ squared, a standard deviation)."
+  hard:
+    steps: 5
+    demand: "Compare an unbiased estimator's variance with the bound as an efficiency, find the information of a density that\
+      \ must be differentiated twice, or carry a nonlinear reparametrisation such as the odds."
+  exam:
+    steps: 6
+    demand: "A four-part chain on a Poisson sample: find the Fisher information, the bound for an unbiased estimator of the parameter, the bound for a function of the parameter, then the efficiency of a competing estimator."
+tags:
+- university-year-2
+- statistics
+- cramer-rao
+- fisher-information
+- efficiency

@@ -3,6 +3,7 @@
 id: senior-recognise-the-graphs-of-y-sin-x-y
 name: 'Recognise the graphs of \(y=\sin x,\;y=\cos x,\) and \(y=\tan x\) on extended domains'
 domain: trigonometry
+year_level: ['11']
 description: Given an unlabelled graph of y = sin x, y = cos x or y = tan x on a grid whose x-axis is marked in multiples of pi, choose which of the three functions is drawn (or, with several curves drawn, which function's curve passes through a lettered point). Never asks for an amplitude, period, shift or any value.
 status: active
 capability_gates: [figure_stimulus]

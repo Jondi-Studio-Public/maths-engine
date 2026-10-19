@@ -1,0 +1,102 @@
+id: uc2-jacobian-change-of-variables
+name: Evaluate a double integral by a change of variables
+domain: multivariable-and-vector-calculus
+year_level: [university]
+description: >-
+  Evaluate a double integral over a region of the xy-plane by changing variables: find the
+  Jacobian of the substitution or of its inverse, map the region to a rectangle or triangle in the
+  uv-plane, rewrite the integrand and integrate, taking the absolute value of the Jacobian. Cases
+  run from a linear map that carries a rectangle onto a parallelogram, through regions between
+  four lines where only the inverse substitution is given, to hyperbolic coordinates whose
+  Jacobian depends on v and whose answer involves a logarithm.
+status: active
+placement_eligible: false
+prerequisites:
+- jacobian-two-variable
+- uc2-double-integral-general-region
+answer: expression
+sources:
+- topic: s2a1_jacobian_cov
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: s2a1_jacobian_cov
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: s2a1_jacobian_cov
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_s2a1_jacobian_cov
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: jacobian-omitted
+  description: >-
+    Leaving out the Jacobian factor, so that dA is replaced by du dv.
+- id: jacobian-inverted
+  description: >-
+    Using the Jacobian where its reciprocal is needed, or the reciprocal where the Jacobian is
+    needed, when changing variables.
+- id: jacobian-sign-ignored
+  description: >-
+    Using a negative Jacobian without taking its absolute value, so the area element and the
+    answer come out negative.
+- id: jacobian-sign-dropped
+  description: >-
+    Giving the absolute value of the Jacobian when its signed value was asked for.
+- id: jacobian-cross-term-dropped
+  description: >-
+    Taking the Jacobian as the product of the two diagonal partial derivatives and leaving out the
+    cross term of the determinant.
+- id: jacobian-factor-slip
+  description: >-
+    Getting a constant in the Jacobian wrong, such as 1/v in place of 1/(2v) for x = √(u/v), y =
+    √(uv).
+- id: jacobian-variable-swapped
+  description: >-
+    Writing the Jacobian in terms of the wrong new variable.
+- id: cov-integrand-not-substituted
+  description: >-
+    Changing the limits and the area element but leaving the integrand in x and y, or treating x
+    and y as u and v.
+- id: cov-limits-from-region
+  description: >-
+    Using the extent of the original region in x and y as the limits for the new variables u and
+    v.
+- id: cov-integrand-dropped
+  description: >-
+    Integrating 1 over the new region instead of the integrand, so the answer is the area.
+- id: cov-inversion-slip
+  description: >-
+    Making a sign error when solving the substitution for x and y in terms of u and v.
+- id: cov-triangle-as-rectangle
+  description: >-
+    Integrating over the square 0 ≤ u, v ≤ k instead of the triangle u + v ≤ k.
+- id: triple-integral-density-term-dropped
+  description: >-
+    Taking the density as the constant term only, leaving out the variable part, when finding the
+    mass.
+- id: triple-integral-mass-not-divided
+  description: >-
+    Giving the mass where the average density, mass divided by volume, was asked for.
+- id: triple-integral-moment-inverted
+  description: >-
+    Dividing the wrong way round: mass over moment, or volume over mass.
+- id: triple-integral-moment-not-divided
+  description: >-
+    Giving the moment of the solid, the integral of x rho dV, as the centre-of-mass coordinate
+    without dividing by the mass.
+tags: [university-core-v1, university-year-2, multivariable-calculus, jacobian, change-of-variables, double-integral]
+framework_areas: [multivariable-and-vector-calculus]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: multivariable-and-vector-calculus

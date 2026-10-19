@@ -3,6 +3,7 @@
 id: senior-determine-when-the-composition-of-two-functions-is
 name: Determine when the composition of two functions is defined
 domain: functions-sequences
+year_level: ['12']
 description: 'Given bounded, fully specified inputs, determine when the composition of two functions is defined. Return the resulting value, expression, relation, or classification. This skill assesses identifying the domain restriction of f(g(x)) for the same supplied reciprocal function f(x) = 1/(x - k) and square-root function g(x) = sqrt(x - a) -- recognising whether g''s own range can ever reach f''s excluded value -- and never asks the learner to compute the composed expression itself (see the sibling senior-find-the-composition-of-two-functions skill).'
 status: active
 placement_eligible: false

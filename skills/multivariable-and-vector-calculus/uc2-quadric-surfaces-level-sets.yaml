@@ -1,0 +1,171 @@
+id: uc2-quadric-surfaces-level-sets
+name: Quadric surfaces, level sets and cross-sections
+domain: multivariable-and-vector-calculus
+year_level:
+- university
+description: Name a quadric surface (ellipsoid, hyperboloids of one and two sheets, cone, elliptic and hyperbolic paraboloids,
+  cylinders) from its equation, by reading signs, completing the square or using the determinant of a cross term; describe
+  the level sets f(x, y, z) = c; and find the curve in which a plane cuts a quadric, with its semi-axes or radius.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-conic-sections-features
+- ucv1-lines-and-planes-3d
+answer: mcq
+sources:
+- topic: w7c_quadric
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w7c_quadric
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w7c_quadric
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w7c_quadric
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: quad-ellipsoid-mixed-up
+  description: Naming an ellipsoid (three positive squares and a positive constant) as a hyperboloid, a cone, a paraboloid
+    or a cylinder, because the signs and the right side were not both checked.
+- id: quad-sheets-swapped
+  description: Swapping the hyperboloid of one sheet and the hyperboloid of two sheets, by not counting how many squared terms
+    have the sign opposite to the right side.
+- id: quad-zero-rhs-ignored
+  description: 'Not checking whether the right side is 0: calling a cone a hyperboloid, or a hyperboloid a cone.'
+- id: quad-elliptical-sections-means-ellipsoid
+  description: Calling a surface an ellipsoid because some of its cross-sections are ellipses, although other cross-sections
+    are open curves.
+- id: quad-hyperbolic-sections-means-saddle
+  description: Calling a hyperboloid a hyperbolic paraboloid because some of its cross-sections are hyperbolas.
+- id: quad-squared-axis-confused
+  description: Confusing a squared variable with a variable to the first power, so a cone or hyperboloid is taken for a paraboloid,
+    or a paraboloid for a cone or hyperboloid.
+- id: quad-paraboloid-sign-mixed
+  description: Swapping the elliptic and the hyperbolic paraboloid by misreading whether the two squared terms have the same
+    sign or opposite signs.
+- id: quad-minus-sign-means-hyperboloid
+  description: Taking any minus sign between squared terms to mean a hyperboloid, without checking whether one variable appears
+    only to the first power.
+- id: quad-missing-variable-ignored
+  description: Not noticing that one variable is missing from the squares (or is only to the first power), so naming a surface
+    that involves all three variables.
+- id: quad-cylinder-kind-mixed
+  description: Mixing up the elliptic, hyperbolic and parabolic cylinders by misreading which terms are squared or what sign
+    they have.
+- id: quad-level-zero-empty
+  description: Taking the level set f = 0 of a sum of squares to be empty, rather than the single point at the origin.
+- id: quad-level-sign-ignored
+  description: Ignoring the sign of c, treating a negative level like the positive level of the same size.
+- id: quad-level-negative-point
+  description: Taking a negative level of a sum of squares to be a single point instead of no points.
+- id: quad-trace-closed-vs-open
+  description: Mixing up the closed traces (circle, ellipse) with the open ones (hyperbola, parabola) by not checking whether
+    the squared terms have the same sign.
+- id: quad-trace-degenerate-missed
+  description: Confusing a genuine conic with a degenerate one (a single point or a pair of lines) by not checking where the
+    plane lies compared with the vertex or centre.
+- id: quad-trace-circle-vs-ellipse
+  description: Calling an ellipse a circle although the two squared terms have different coefficients.
+- id: quad-trace-hyperbola-vs-parabola
+  description: Swapping hyperbola and parabola by not checking whether both variables are squared.
+- id: quad-trace-point-vs-empty
+  description: 'Swapping a single point and no points: a plane that just touches the surface against one that misses it.'
+- id: quad-level-sign-flipped
+  description: Reading the sign of c the wrong way round when describing the level set f = c.
+- id: quad-forgot-completing-constant
+  description: Forgetting the constants added when completing the square, so the right side used to name the surface is the
+    original one.
+- id: quad-centre-sign-error
+  description: Giving the centre coordinate with the wrong sign after completing the square.
+- id: quad-centre-coefficient-not-divided
+  description: Halving the linear coefficient but not dividing by the coefficient of the squared term.
+- id: quad-centre-not-halved
+  description: Dividing the linear coefficient by the coefficient of the squared term but forgetting to halve it.
+- id: quad-centre-linear-coefficient-read
+  description: Reading the coefficient of the linear term as the coordinate of the centre.
+- id: quad-centre-halved-twice
+  description: Halving the coordinate of the centre a second time when completing the square.
+- id: quad-trace-axis-ignores-cut
+  description: Giving the semi-axis read from the equation as if the plane passed through the centre, ignoring how the cross-section
+    changes with the height k.
+- id: quad-denominator-as-semi-axis
+  description: Reading the denominator (the square of the semi-axis) as the semi-axis.
+- id: quad-trace-axis-not-rooted
+  description: Forgetting the final square root and giving the square of the semi-axis of the cross-section.
+- id: quad-trace-axis-factor-unrooted
+  description: Scaling the semi-axis by 1 ± k²/c² instead of by its square root.
+- id: quad-trace-axis-k-not-squared
+  description: Scaling the semi-axis by 1 ± k/c instead of by √(1 ± k²/c²), leaving k unsquared and the root untaken.
+- id: quad-trace-axis-wrong-direction
+  description: Giving the semi-axis in the other direction.
+- id: quad-trace-axis-sign-flipped
+  description: Using the wrong sign on the k² term when putting the plane into the equation, so 1 + k²/c² is used where 1
+    − k²/c² is needed, or the reverse.
+- id: quad-radius-not-rooted
+  description: Giving r², the right side after completing the square, as the radius.
+- id: quad-radius-from-constant
+  description: Reading the constant term of the plane as the radius.
+- id: quad-radius-slope-not-halved
+  description: Adding the squares of the plane's x and y coefficients without halving them when completing the square.
+- id: quad-radius-completing-sign
+  description: Subtracting instead of adding the completed-square terms when finding the radius.
+- id: quad-radius-centre-as-radius
+  description: Giving a coordinate of the circle's centre (half a coefficient of the plane) as its radius.
+- id: quad-radius-constant-only
+  description: Ignoring the completed-square terms and taking the square root of the constant alone.
+- id: quad-intercept-coordinate-of-point
+  description: Giving the coordinate of the given point along that axis as the intercept, as if the point were on the axis.
+- id: quad-intercept-level-value
+  description: Giving the value c of the level surface instead of the intercept.
+- id: quad-intercept-coefficient-forgotten
+  description: Solving for the intercept as √c, forgetting to divide by the coefficient of the squared term first.
+- id: quad-intercept-root-forgotten
+  description: Dividing c by the coefficient of the squared term but not taking the square root.
+- id: quad-intercept-coefficient-inverted
+  description: Multiplying c by the coefficient of the squared term instead of dividing by it.
+- id: quad-cross-term-ignored
+  description: Naming the surface from the signs of the x², y² and z² terms alone, ignoring a cross term that changes the
+    signs of the quadratic form.
+- id: quad-area-uses-sum
+  description: Adding the two semi-axes instead of multiplying them in the area formula πpq.
+- id: quad-area-halved
+  description: Halving the product of the semi-axes, as for the area of a triangle.
+- id: quad-area-uses-squares
+  description: Adding the squares of the semi-axes instead of multiplying them.
+- id: quad-area-perimeter-style
+  description: Using 2(p + q), a perimeter-style quantity, in place of pq.
+- id: quad-area-uses-denominators
+  description: Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes
+    of the cross-section.
+difficulty_progression: Easy names a quadric from an axis-aligned equation with every type present, describes a level set
+  f = c where the sign of c (and a definite form giving a single point or no points) changes the answer, or names the curve
+  cut by a plane parallel to a coordinate plane. Medium completes the square to name a shifted quadric or find a coordinate
+  of its centre, meets traces that are degenerate (a point, no points, a pair of lines), and finds the semi-axis of the ellipse
+  cut by a horizontal plane. Hard cuts the cone or a one-sheet hyperboloid with an oblique plane and names the curve from
+  the slope against the generators, finds the radius of the circle in which a plane cuts z = x² + y², finds the intercept
+  of the level surface through a point, and names quadrics with an xy term from the sign of a determinant or discriminant
+  rather than from the diagonal. The exam chain names a quadric, finds the two semi-axes of a horizontal cross-section and
+  its area as a multiple of π (following through from both semi-axes).
+tags:
+- university-year-2
+- multivariable-calculus
+- quadric-surfaces
+- level-sets
+- cross-sections
+framework_areas:
+- multivariable-and-vector-calculus

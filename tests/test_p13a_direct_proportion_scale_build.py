@@ -31,6 +31,10 @@ def _skills_dict():
 
 def _make_from_sources(difficulty, seed):
     skill = _skills_dict()[SKILL]
+    if difficulty == "exam":
+        # The skill's exam tier is now the multi-part chain `exd_x_r2x_direct_proportion_table`; this module
+        # tests this topic's own single-step exam preset, which the generator still provides.
+        return make(TOPIC, seed=seed, difficulty="exam")
     src = next(s for s in skill.sources if s.difficulty == difficulty)
     return make(src.topic, seed=seed, difficulty=src.difficulty, **(src.params or {}))
 
@@ -61,11 +65,11 @@ def test_real_grader_accepts_canonical_and_rejects_every_distractor(difficulty):
         q = _make_from_sources(difficulty, seed)
         opts = mcq_options(q)
         correct_idx = opts.index(q.answer_text)
-        assert grade_mcq(q, str(correct_idx)).correct, (difficulty, seed, q.text, q.answer_text)
+        assert grade_mcq(q, correct_idx).correct, (difficulty, seed, q.text, q.answer_text)
         for idx, opt in enumerate(opts):
             if opt == q.answer_text:
                 continue
-            assert not grade_mcq(q, str(idx)).correct, (difficulty, seed, q.text, opt)
+            assert not grade_mcq(q, idx).correct, (difficulty, seed, q.text, opt)
 
 
 @pytest.mark.parametrize("difficulty", DIFFICULTIES)
@@ -74,7 +78,7 @@ def test_real_grader_rejects_a_deliberately_wrong_answer(difficulty):
         q = _make_from_sources(difficulty, seed)
         opts = mcq_options(q)
         # an out-of-range index is unambiguously wrong regardless of shuffle
-        assert not grade_mcq(q, str(len(opts) + 5)).correct, (difficulty, seed, q.text)
+        assert not grade_mcq(q, len(opts) + 5).correct, (difficulty, seed, q.text)
         assert not grade_mcq(q, "not-a-number").correct, (difficulty, seed, q.text)
 
 

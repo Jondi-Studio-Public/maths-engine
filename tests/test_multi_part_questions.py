@@ -6,7 +6,9 @@ removed afterwards, so no library-wide sweep ever sees them.
 
 from __future__ import annotations
 
+import dataclasses
 import json
+import time
 from fractions import Fraction
 
 import pytest
@@ -428,3 +430,17 @@ def test_follow_through_states_a_tiny_value_as_zero_and_refuses_a_huge_one(regis
     assert follow_through_target(b, {"a": reply_value("number", "3")}).answer_text == "0.0013"
     assert follow_through_target(c, {"a": reply_value("number", "999999")}) is None
     assert follow_through_target(c, {"a": reply_value("number", "3")}).answer_text == "20.1"
+
+
+def test_follow_through_to_significant_figures_states_a_tiny_value_and_refuses_one_too_small_to_write(register):
+    """A part fixed to significant figures states any size of value to that many, so a small carried value is not
+    rounded away to zero as a part fixed to decimal places would. A value too small to write out has no answer, as
+    one too big has none, and is refused at once rather than built digit by digit."""
+    register(_tail_probability)
+    q = make(TOPIC, seed=1)
+    b = dataclasses.replace(q.parts[1], sig_figs=2)
+    assert follow_through_target(b, {"a": reply_value("number", "3")}).answer_text == "0.0013"
+    assert follow_through_target(b, {"a": reply_value("number", "6")}).answer_text == "0.00000000099"
+    started = time.monotonic()
+    assert follow_through_target(b, {"a": reply_value("number", "999999")}) is None
+    assert time.monotonic() - started < 2.0

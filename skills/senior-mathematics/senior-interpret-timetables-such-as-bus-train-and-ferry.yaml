@@ -3,6 +3,7 @@
 id: senior-interpret-timetables-such-as-bus-train-and-ferry
 name: Interpret timetables, such as bus, train and ferry timetables
 domain: senior-mathematics
+year_level: ['11']
 description: Given a stated timetable of several services' scheduled times at named
   stops, choose from offered times the departure time of the latest service from a
   named stop that reaches a second named stop by a stated time.

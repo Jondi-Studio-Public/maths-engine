@@ -1,0 +1,98 @@
+id: ucv1-average-value-mvt
+name: Find average values and the c of the mean value theorem
+domain: single-variable-calculus
+year_level: [university]
+description: Find the average value of a function over an interval by integrating, and find the number c guaranteed
+  by Rolle's theorem, the mean value theorem for derivatives or the mean value theorem for integrals.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+answer: expression
+sources:
+- topic: fy1ca_average_value_mvt
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: fy1ca_average_value_mvt
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: fy1ca_average_value_mvt
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: fy1ca_average_value_mvt_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fy1ca-avg-division-forgotten
+  description: Gives the integral without dividing by the length of the interval.
+- id: fy1ca-avg-divide-by-upper-limit
+  description: Divides by the upper limit instead of the length of the interval.
+- id: fy1ca-avg-endpoint-mean
+  description: Averages the values of the function at the two ends instead of integrating.
+- id: fy1ca-avg-midpoint-value
+  description: Gives the value of the function at the midpoint of the interval.
+- id: fy1ca-avg-multiplied
+  description: Multiplies by the length of the interval instead of dividing.
+- id: fy1ca-avg-lower-limit-ignored
+  description: Evaluates the antiderivative at the upper limit only.
+- id: fy1ca-avg-wrong-antiderivative
+  description: Sets up the average correctly but integrates incorrectly.
+- id: fy1ca-avg-power-rule-slip
+  description: Makes a slip applying the power rule when integrating.
+- id: fy1ca-avg-no-antiderivative
+  description: Evaluates the function at the limits instead of its antiderivative.
+- id: fy1ca-avg-substitution-factor-dropped
+  description: Drops the factor of 1/2 that comes from the substitution u = x squared.
+- id: fy1ca-avg-substitution-factor-slip
+  description: Uses the wrong constant factor after a substitution.
+- id: fy1ca-avg-chain-rule-misapplied
+  description: Integrates a composite function as though it were a product of the pieces.
+- id: fy1ca-avg-divide-by-sum
+  description: Divides by the sum of the limits instead of their difference.
+- id: fy1ca-avg-percentage-of-wrong-base
+  description: Finds the excess as a percentage of the peak instead of the average.
+- id: fy1ca-avg-difference-not-percentage
+  description: Gives the difference, or the ratio, where a percentage was asked for.
+- id: fy1ca-avg-percentage-sign
+  description: Subtracts in the wrong order, giving a negative percentage.
+- id: fy1ca-mvt-midpoint-assumed
+  description: Takes c to be the midpoint of the interval.
+- id: fy1ca-mvt-slope-reported
+  description: Gives the slope of the chord instead of the value of c.
+- id: fy1ca-mvt-value-for-c
+  description: Gives the value of the function or of its square root where c was asked for.
+- id: fy1ca-mvt-root-not-squared
+  description: Stops at the square root of c and does not square it.
+- id: fy1ca-mvt-geometric-mean
+  description: Takes c to be the geometric mean of the ends for a square-root function.
+- id: fy1ca-mvt-algebra-slip
+  description: Makes an algebra slip when solving f'(c) = slope.
+- id: fy1ca-mvt-root-not-taken
+  description: Stops at c squared and does not take the square root.
+- id: fy1ca-mvt-negative-root
+  description: Gives the negative square root, which lies outside the interval.
+- id: fy1ca-rolle-endpoint-root
+  description: Gives the root of the derivative that is an end of the interval instead of the one inside it.
+- id: fy1ca-rolle-wrong-factor
+  description: Solves the wrong factor of the derivative, giving the other root.
+- id: fy1ca-rolle-algebra-slip
+  description: Makes an algebra slip when solving f'(c) = 0.
+tags:
+- first-year-calculus
+- single-variable-calculus
+- average-value
+- mean-value-theorem
+- rolles-theorem

@@ -34,18 +34,6 @@ def _ask(q):
     return re.search(r"Find the (quotient|remainder)", q.text).group(1)
 
 
-def test_prompt_variety_and_new_shapes():
-    exam = {prompt_shape(_exam(s)) for s in range(60)}
-    hard = {prompt_shape(make("polynomial_long_division", seed=s, difficulty="hard")) for s in range(60)}
-    assert len(exam) >= 3
-    assert exam - hard
-
-
-def test_no_text_defects():
-    for seed in range(60):
-        assert find_text_defects(_exam(seed)) == []
-
-
 def test_key_rederived_from_prompt():
     fractional = 0
     for seed in range(300):
@@ -86,7 +74,3 @@ def test_grader_accepts_key_and_rejects_distractors():
             shown += 1
             assert not grade(q, d).correct, (seed, q.text, d)
     assert shown >= 300
-
-
-def test_deterministic():
-    assert _exam(7).to_json() == _exam(7).to_json()

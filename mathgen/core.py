@@ -3,6 +3,7 @@ difficulty presets, distractor helper."""
 
 from __future__ import annotations
 
+import difflib
 import json
 import math
 import random
@@ -11,8 +12,9 @@ from fractions import Fraction
 from dataclasses import dataclass, field, asdict
 from typing import Any, Callable
 
-from sympy import Eq, Float, Integer, Rational, Symbol, Tuple, simplify, sympify
+from sympy import Eq, Float, Integer, Rational, S, Symbol, Tuple, simplify, sympify
 from sympy import latex as _sympy_latex
+from sympy.core.function import AppliedUndef
 from sympy.core.sympify import SympifyError
 
 from .answers import ANSWER_FORMS, ANSWER_KINDS, Distractor, flatten_distractors
@@ -79,6 +81,9 @@ class Question:
             d.pop("parts", None)
         if d.get("stem") is None:
             d.pop("stem", None)
+        for part in d.get("parts", ()):
+            if part.get("sig_figs") is None:
+                part.pop("sig_figs", None)  # omitted when unset, like `answer_alt`, so unset parts hash as before
         if d.get("answer_alt") is None:
             d.pop("answer_alt", None)
         if not d.get("option_notes"):
@@ -134,6 +139,9 @@ class Part:
     distractor_values: dict[str, Any] = field(default_factory=dict)  # as on `Question` (mathgen/answers.py)
     distractor_credit: dict[str, str] = field(default_factory=dict)  # as on `Question`: a share of this part's marks
     sensible_range: tuple | None = None  # (low, high), open, None for no bound: see below
+    sig_figs: int | str | None = None  # significant figures the answer is given to when the prompt leaves the count
+    # to an earlier answer ("to that number of significant figures"): the label of the part that gives it. Graders
+    # refuse a reply with more figures; follow-through uses the learner's own count.
     seed: str = ""  # "<question seed>:<label>"; shuffles this part's options for an mcq part (`mcq_options`)
 
     @property
@@ -251,7 +259,10 @@ def make(topic: str, seed: int | None = None, difficulty: str | None = None, **p
     no presets simply uses its defaults for any difficulty name.
     """
     if topic not in REGISTRY:
-        raise KeyError(f"unknown topic {topic!r}; known: {', '.join(sorted(REGISTRY))}")
+        # Close matches, not the whole list: there are over a thousand topics, and `topics()` lists them.
+        close = difflib.get_close_matches(topic, REGISTRY, n=3) if isinstance(topic, str) else []
+        hint = f"; did you mean {', '.join(repr(c) for c in close)}?" if close else "; topics() lists them"
+        raise KeyError(f"unknown topic {topic!r}{hint}")
     level, fn = REGISTRY[topic]
     if seed is None:
         seed = random.randrange(2**31)
@@ -1110,6 +1121,10 @@ def _probe_differs(left, right) -> bool:
     # cancels C in the difference but not in `left`/`right`, whose scale evaluation then raised on
     # every probe point and made the probe always inconclusive, sending each such distractor check
     # to the slow `simplify` fallback.
+    if difference.atoms(AppliedUndef):
+        # An unknown function (text such as "k(k + 1)" reads as one) cannot be evaluated, so evalf falls back to a
+        # symbolic .subs() that can take minutes on the other side. Leave it to the caller's symbolic check.
+        return False
     symbols_used = sorted(left.free_symbols | right.free_symbols, key=str)
     hits = 0
     for offset in range(len(_PROBE_POINTS)):
@@ -1117,10 +1132,12 @@ def _probe_differs(left, right) -> bool:
             symbol: _PROBE_POINTS[(offset + index) % len(_PROBE_POINTS)] for index, symbol in enumerate(symbols_used)
         }
         try:
-            value = abs(difference.subs(substitutions).evalf(30))
+            # evalf(subs=...) evaluates numerically straight away. A symbolic .subs() first auto-evaluates
+            # the substituted function exactly, and for sqrt(acos(x)**2) at x = 11/5 that took 40 s.
+            value = abs(difference.evalf(30, subs=substitutions))
             scale = max(
-                abs(left.subs(substitutions).evalf(30)),
-                abs(right.subs(substitutions).evalf(30)),
+                abs(left.evalf(30, subs=substitutions)),
+                abs(right.evalf(30, subs=substitutions)),
                 Integer(1),
             )
             if not (value.is_number and scale.is_number and value.is_finite and scale.is_finite):
@@ -1133,6 +1150,12 @@ def _probe_differs(left, right) -> bool:
             if hits >= 2:
                 return True
     return False
+
+
+def _has_undefined(value) -> bool:
+    """Whether a sympified value contains zoo, nan or an infinity (anything else, a plain set included, is False)."""
+    has = getattr(value, "has", None)
+    return bool(has and has(S.ComplexInfinity, S.NaN, S.Infinity, S.NegativeInfinity))
 
 
 def symbolically_equal(left, right) -> bool:
@@ -1152,6 +1175,10 @@ def symbolically_equal(left, right) -> bool:
         if left_seq is None or right_seq is None:
             return False
         return pairs_equal(left_seq, right_seq)
+    if _has_undefined(left) or _has_undefined(right):
+        # An infinite or undefined value is only "equal" to the very same expression. Sent to `simplify`, a
+        # reply such as 1/0 or log(0) spent seconds there and could never be shown equal to a finite answer.
+        return bool(left == right)
     if _probe_differs(left, right):
         return False
     return bool(simplify(left - right).is_zero)
@@ -1658,6 +1685,8 @@ def paper_notation(text):
     A multiplication between two numbers, or whose neighbour is a longer name (``lambda*t``), keeps a visible
     sign: ``lambda × t``. A negative factor is bracketed: ``3*-1`` -> ``3 × (-1)``.
     Text with none of these is returned unchanged, and the result is unchanged by a second pass.
+    A star touching the operand before it with a space after (``x* is``, ``z* = a - bi``) is a superscript mark
+    and stays as written.
     Not a parser: it reads only the operands on each side of a ``*``, so prose passes through untouched.
     The graders read the result as well as the input; ``tests/test_paper_notation.py`` pins that.
     """
@@ -1680,6 +1709,8 @@ def paper_notation(text):
     for m in _PAPER_STAR_RE.finditer(s):
         if m.start() < pos:
             continue  # inside a negative factor already rewritten
+        if m.group()[0] == "*" and m.group()[-1] in " \t":
+            continue  # ``x* is``: a star hugging the name before it is a superscript mark, not a product
         left = _paper_left_class(s[: m.start()])
         right, end = _paper_right_class(s[m.end() :])
         if left == "OTHER" or right == "OTHER":

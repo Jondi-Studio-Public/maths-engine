@@ -1,0 +1,83 @@
+id: uc2-richardson-extrapolation
+name: Improve an estimate by Richardson extrapolation
+domain: numerical-and-computational-mathematics
+year_level:
+- university
+description: Combine a difference quotient (or a trapezoid-rule value) at two step sizes so that the leading error term cancels.
+status: active
+placement_eligible: false
+prerequisites:
+- centered-difference-polynomial
+answer: number
+sources:
+- topic: r4h_richardson_extrapolation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4h_richardson_extrapolation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4h_richardson_extrapolation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4h_richardson_extrapolation
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: num2t-rich-finer-only
+  description: Reporting the estimate at the smaller step size and not combining it with the larger-step estimate.
+- id: num2t-rich-weights-swapped
+  description: Swapping the roles of the two estimates, so the coarse estimate gets the larger weight.
+- id: num2t-rich-average
+  description: Averaging the two estimates instead of extrapolating, so the leading error is only halved.
+- id: num2t-rich-wrong-order-weights
+  description: Using the weights for the wrong error order, such as (4D(h/2) − D(h))/3 for a first-order formula.
+- id: num2t-rich-first-order-weights
+  description: Using the first-order weights 2D(h/2) − D(h) for a second-order formula.
+- id: num2t-rich-coarse-only
+  description: Reporting the estimate at the larger step size.
+- id: num2t-rich-one-level-only
+  description: Stopping after the first level of extrapolation when two error terms were to be removed.
+- id: num2t-rich-second-level-weights
+  description: Using the weights 4 and 3 again at the second level instead of 16 and 15.
+- id: num2t-rich-levels-in-wrong-order
+  description: Combining the first and last estimates directly instead of extrapolating the two improved estimates.
+- id: num2t-rich-no-division-by-step
+  description: Leaving out the division by the step size in a difference quotient.
+- id: num2t-rich-no-division-by-double-step
+  description: Dividing a central difference by h instead of 2h.
+- id: num2t-rich-forward-for-central
+  description: Using a forward difference where a central difference was specified.
+- id: num2t-rich-error-sign
+  description: Reporting the exact value minus the estimate instead of the estimate minus the exact value.
+- id: num2t-rich-error-of-coarse
+  description: Computing the error of the coarse central difference instead of the extrapolated value.
+- id: num2t-rich-derivative-evaluated-elsewhere
+  description: Evaluating the exact derivative at the wrong point when measuring the error.
+- id: num2t-rich-fine-step-quartered
+  description: Taking the finer step as h/4 instead of h/2.
+difficulty_progression: Easy combines forward differences at h and h/2, where the error is first order and the weights are
+  2 and 1. Medium combines central differences, where the error is second order and the weights are 4 and 3, so the learner
+  must know which error order applies. Hard extrapolates twice from a table of three trapezoid values, using weights 4/3 and
+  then 16/15. The exam chain asks for the two difference quotients, the extrapolated value from the learner's own values,
+  then its error against the exact derivative.
+tags:
+- university-year-2
+- numerical-and-computational-mathematics
+- richardson-extrapolation
+- numerical-differentiation
+- numerical-methods
+framework_areas:
+- numerical-and-computational-mathematics

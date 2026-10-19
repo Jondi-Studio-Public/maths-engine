@@ -48,6 +48,10 @@ def exd_x_n1_budget_to_goal(rng, tier="exam"):
         if savings < 100:
             continue
         fixed_shown = round_half_up(fixed, 2)
+        # The working rounds each bill to cents and adds them, so that sum must equal the displayed total.
+        bills = (phone * 12 / 52, ins / 13, reg / 52)
+        if rent + sum(round_half_up(b, 2) for b in bills) != fixed_shown:
+            continue
         savings_chain = income - fixed_shown - discretionary
         savings_shown = round_half_up(savings_chain, 2)
         if show(savings, 2) != show(savings_chain, 2):

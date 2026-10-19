@@ -160,11 +160,11 @@ def test_prism_cross_sections_correct_answer_grades_correct_and_distractors_grad
         # For mcq, grade_mcq expects an index into mcq_options(question)
         options = mcq_options(question)
         correct_index = options.index(question.answer_text)
-        result = grade_mcq(question, str(correct_index))
+        result = grade_mcq(question, correct_index)
         assert result.correct, f"canonical answer index {correct_index} should grade correct"
         for distractor in question.distractors:
             distractor_index = options.index(distractor)
-            result = grade_mcq(question, str(distractor_index))
+            result = grade_mcq(question, distractor_index)
             assert not result.correct, f"distractor index {distractor_index} should grade incorrect"
 
 

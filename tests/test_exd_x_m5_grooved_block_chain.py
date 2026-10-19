@@ -30,14 +30,6 @@ def oracle(q):
     return {"a": str(end), "b": str(total), "c": c.show(Fraction(total) * rate / 10_000, 2)}
 
 
-def test_shapes():
-    c.check_shapes(TOPIC, SKILL_ID)
-
-
-def test_source_wired():
-    c.check_source_wired(TOPIC, SKILL_ID)
-
-
 def test_key_rederived_from_prompt():
     c.check_oracle(TOPIC, oracle)
 

@@ -3,6 +3,7 @@
 id: senior-define-and-use-composition-of-linear-transformations-and
 name: Compose two linear transformations using their matrix product
 domain: matrices
+year_level: ['11']
 description: Given bounded, fully specified inputs, define and use composition of linear transformations and the corresponding matrix products. Return the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
@@ -25,6 +26,11 @@ sources:
 - topic: exd_x_r2d_lt_composition_chain
   params: {tier: exam}
   difficulty: exam
+  stages: [exam]
+- topic: exd_x_g4_lt_composition
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
   stages: [exam]
 misconceptions:
 - id: only-second

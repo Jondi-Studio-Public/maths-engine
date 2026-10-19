@@ -1,0 +1,89 @@
+id: longitude-local-clock-time
+name: Find the local clock time at a place from its longitude
+domain: senior-mathematics
+year_level: ['12']
+description: Convert clock times between places using longitude, with 15 degrees of longitude as 1 hour. Easy finds the local
+  time at a port on the same side of the prime meridian. Medium does the same across the prime meridian. Hard finds the local
+  arrival time of a flight. The exam chain finds the longitude difference, the time difference, the local time and a distance
+  along a meridian.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-find-time-differences-between-two-places-on-earth
+- convert-time-systems
+answer: number
+sources:
+- topic: r4g_longitude_local_time
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: r4g_longitude_local_time
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: r4g_longitude_local_time
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_r4g_longitude_local_time
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: r4g-east-west-direction-reversed
+  description: Making the clock later for a place to the west, or earlier for a place to the east.
+- id: r4g-no-time-shift
+  description: Giving the same clock time for both places, or ignoring the change of time zone.
+- id: r4g-half-the-hours
+  description: Dividing the longitude difference by 30 instead of 15 to get the hours.
+- id: r4g-longitudes-added-same-side
+  description: Adding the two longitudes although both ports are on the same side of the prime meridian, so they should be
+    subtracted.
+- id: r4g-longitudes-subtracted-opposite-sides
+  description: Subtracting the two longitudes although the ports are on opposite sides of the prime meridian, so they should
+    be added.
+- id: r4g-flight-time-left-out
+  description: Applying the time difference but leaving out the flight time.
+- id: r4g-time-zone-off-by-one-hour
+  description: Getting the time difference right except for being one hour out, by miscounting the 15 degree steps.
+- id: r4g-flight-time-subtracted
+  description: Subtracting the flight time from the departure time instead of adding it.
+- id: r4g-degrees-left-as-hours
+  description: Giving the difference in degrees as the number of hours without dividing by 15.
+- id: r4g-latitude-for-longitude
+  description: Using the difference in latitude where the difference in longitude was asked for.
+- id: r4g-one-longitude-not-the-difference
+  description: Giving one of the two longitudes instead of the difference between them.
+- id: r4g-multiplied-by-15
+  description: Multiplying the degrees by 15 instead of dividing by 15 to get hours.
+- id: r4g-ten-degrees-per-hour
+  description: Using 10 degrees of longitude for each hour instead of 15.
+- id: wrong-hemisphere-rule
+  description: Subtracting the two latitudes when they are in opposite hemispheres (the magnitudes are added), or adding them
+    when they are in the same hemisphere (they are subtracted).
+- id: r4g-degrees-given-as-km
+  description: Giving the difference in degrees as the distance in kilometres.
+- id: r4g-nautical-miles-given-as-km
+  description: Using 60 nautical miles per degree and reporting it as kilometres.
+- id: r4g-longitude-rule-wrong-side
+  description: Adding the longitudes when both are on the same side of the prime meridian, or subtracting them when they are
+    on opposite sides.
+tags:
+- longitude
+- local-time
+- time-zones
+- latitude
+- acmem159
+- acmem162

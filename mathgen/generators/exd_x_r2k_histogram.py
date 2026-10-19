@@ -201,7 +201,7 @@ def _build_k_histogram(rng: random.Random) -> dict | None:
         why = "The mean is below the median: the long tail is to the left, so the distribution is skewed left."
     pd = word_part(
         "Use the sign and size of this difference, and the table, to state the shape of the distribution. "
-        "Answer with one word: right (skewed right), left (skewed left), symmetric or bimodal.",
+        "Answer with exactly one of these words: right, left, symmetric or bimodal.",
         _LABELS[kind],
         shape_wrongs,
         1,

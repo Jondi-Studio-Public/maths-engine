@@ -35,6 +35,8 @@ CONVERTED = {
 }
 ALL = {**NUMBER_SKILLS, **MCQ_SKILLS}
 TIERS = ["easy", "medium", "hard"]
+# Skills that also carry a multi-part exam chain as a fourth source (stages [exam], its own exd_x_* topic).
+EXAM_CHAINED = {"f7-read-a-histogram", "f10-read-a-box-plot", "f10-compare-box-plots"}
 SEEDS = range(60)
 
 
@@ -67,16 +69,23 @@ def test_new_skill_shape(skill_id, info):
     skill = _skills()[skill_id]
     topic, _kind, code = info
     assert skill.answer == ("mcq" if skill_id in MCQ_SKILLS else "number")
-    assert [s.difficulty for s in skill.sources] == TIERS
-    assert all(s.topic == topic for s in skill.sources)
-    assert [list(s.stages) for s in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    core = [s for s in skill.sources if s.difficulty != "exam"]
+    exam = [s for s in skill.sources if s.difficulty == "exam"]
+    assert [s.difficulty for s in core] == TIERS
+    assert all(s.topic == topic for s in core)
+    assert [list(s.stages) for s in core] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"]]
+    if skill_id in EXAM_CHAINED:
+        assert len(exam) == 1 and list(exam[0].stages) == ["exam"] and exam[0].topic.startswith("exd_x_")
+    else:
+        assert exam == []
     assert code in skill.tags and "acara-f10-v9" in skill.tags
 
 
 @pytest.mark.parametrize("skill_id", ALL)
 def test_tiers_escalate_in_prompt_shape(skill_id):
     verdict, adds = classify_skill(_skills()[skill_id], 60)
-    assert verdict == "escalates" and adds == [False, True, True], adds
+    expected = [False, True, True, True] if skill_id in EXAM_CHAINED else [False, True, True]
+    assert verdict == "escalates" and adds == expected, adds
 
 
 # ------------------------------------------------------------------ figures, readers, graders
@@ -118,7 +127,7 @@ def test_compare_box_plots_mcq_key_and_distractors(tier):
         options = mcq_options(q)
         assert len(options) == (4 if tier == "hard" else 3) and len(set(options)) == len(options)
         for idx, opt in enumerate(options):
-            assert grade_mcq(q, str(idx)).correct == (opt == q.answer_text)
+            assert grade_mcq(q, idx).correct == (opt == q.answer_text)
 
 
 @pytest.mark.parametrize("skill_id", ALL)

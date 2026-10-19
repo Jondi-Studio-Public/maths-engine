@@ -1,0 +1,103 @@
+id: uc2-contour-integrals-residue-theorem
+name: Contour integrals by the residue theorem
+domain: complex-analysis
+year_level: [university]
+description: >-
+  Evaluate the integral of a function round a circle of stated centre and radius by finding which poles lie inside and summing their residues.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-residues-higher-order-poles
+- ucv1-contour-integral-residue
+answer: expression
+sources:
+- topic: w5a_contour
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5a_contour
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5a_contour
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5a_contour
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx2-conjugate-residues-doubled
+  description: >-
+    Counting the residue at the centre twice when the pole lies outside the circle.
+- id: cx2-conjugate-treated-as-analytic
+  description: >-
+    Treating the conjugate of z - c as an analytic factor, instead of rewriting it as r^2/(z - c) on the circle.
+- id: cx2-forgot-2-pi-i
+  description: >-
+    Giving the sum of the enclosed residues as the value of the integral, without the factor 2*pi*i.
+- id: cx2-orientation-ignored
+  description: >-
+    Giving the anticlockwise value when the contour is traversed clockwise, or the reverse: the sign of the integral is wrong.
+- id: cx2-pole-count-slip
+  description: >-
+    Miscounting how many poles lie inside a circle by comparing the wrong distances with the radius.
+- id: cx2-radius-not-squared
+  description: >-
+    Replacing conj(z - c) by r/(z - c) on the circle of radius r, instead of r^2/(z - c).
+- id: cx2-residue-exponential-factor-dropped
+  description: >-
+    Leaving the exponential factor e^(ca) out of a residue found from e^(cz) over a polynomial.
+- id: cx2-residue-numerator-only
+  description: >-
+    Giving the numerator's value at the pole as the residue, without dividing by the other factors of the denominator.
+- id: cx2-residue-simple-formula
+  description: >-
+    Using the simple-pole shortcut (the rest of the function evaluated at the pole) at a pole of order two or more, so no derivative is taken.
+- id: cx2-sum-of-residues-assumed-zero
+  description: >-
+    Assuming the residues of a rational function always sum to zero when every pole is enclosed, so the integral is 0; that needs the numerator to be two degrees below the denominator.
+- id: cx2-wrong-coefficient-for-infinity
+  description: >-
+    Reading the wrong coefficient of the numerator as the one that governs the integral round a circle enclosing every pole.
+- id: calc-sign-slip
+  description: >-
+    Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating, integrating or substituting.
+- id: forgets-i-in-residue-theorem
+  description: >-
+    Multiplying the residue by 2*pi but leaving out the factor i.
+- id: ignores-pole-enclosed-by-larger-contour
+  description: >-
+    Using only the residue at the first pole for a larger contour that also encloses the second pole.
+- id: included-pole-outside-contour
+  description: >-
+    Adding the residues at poles that lie outside the contour.
+- id: pole-outside-the-contour
+  description: >-
+    Taking the pole that lies outside the contour as the one the contour encloses.
+- id: residue-at-wrong-pole
+  description: >-
+    Finding the residue at the pole the contour does not enclose, or using it where the other pole's was needed.
+- id: residue-sign-error
+  description: >-
+    Subtracting the poles in the wrong order when forming a residue, so the residue has the wrong sign.
+- id: residues-subtracted
+  description: >-
+    Subtracting the residues at two enclosed poles instead of adding them.
+tags: [university-year-2, complex-analysis, residue-theorem, contour-integrals]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+difficulty_progression:
+  easy: {steps: 3, demand: "Decide which of two poles lies inside a circle, find its residue and multiply by 2*pi*i."}
+  medium: {steps: 4, demand: "Select the enclosed poles among a double pole and two simple poles, find each residue and add them."}
+  hard: {steps: 5, demand: "Handle a function with an exponential factor, a circle enclosing every pole with the numerator one degree short of the denominator, an orientation reversal, or a conjugate factor replaced by r^2/(z - c) on the circle."}
+  exam: {steps: 5, demand: "Count the poles inside a circle, find two residues, and combine the enclosed residues into the integral."}

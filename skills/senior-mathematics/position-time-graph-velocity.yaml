@@ -1,0 +1,106 @@
+id: position-time-graph-velocity
+name: 'Combine the segments of a position-time graph: average velocity, average speed and time of return'
+domain: senior-mathematics
+year_level: ['11']
+description: From a position-time graph made of straight segments, with positions above and below a fixed point, find the
+  average velocity over the whole journey, the average speed (total distance over time), the time the object first returns
+  to its start, and the velocity on a segment.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- senior-interpret-distance-versus-time-graphs
+- rate-of-change
+answer: number
+sources:
+- topic: sr2b_position_time
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sr2b_position_time
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sr2b_position_time
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sr2b_exam_position_time
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sr2b-average-speed-for-average-velocity
+  description: Giving the total distance over the time (average speed) when the net change in position over the time (average
+    velocity) was asked.
+- id: sr2b-start-position-ignored
+  description: Dividing the final position by the time, forgetting that the journey did not start at zero.
+- id: sr2b-displacement-not-divided
+  description: Finding the net change in position and not dividing by the time taken.
+- id: sr2b-segment-velocities-averaged
+  description: Averaging the velocities of the segments, ignoring that the segments last different lengths of time.
+- id: sr2b-velocity-sign-reversed
+  description: Giving a velocity with its sign reversed, so it points the wrong way.
+- id: sr2b-average-velocity-for-average-speed
+  description: Giving the net change in position over the time (average velocity) when the total distance over the time
+    (average speed) was asked.
+- id: sr2b-distance-not-divided
+  description: Finding the total distance travelled and not dividing by the time taken.
+- id: sr2b-segment-speeds-averaged
+  description: Averaging the speeds of the segments, ignoring that the segments last different lengths of time.
+- id: sr2b-farthest-point-only
+  description: Using only the greatest distance from the start as the distance travelled, leaving out the legs that follow
+    it.
+- id: sr2b-turning-point-for-return
+  description: Giving the time of the turning point, where the object is farthest from the start, as the time it returns.
+- id: sr2b-next-vertex-for-crossing
+  description: Giving the time of the next corner of the graph as the time it crosses the starting level, which happens
+    part-way along a segment.
+- id: sr2b-end-of-graph-for-return
+  description: Giving the end of the journey as the time of the first return to the starting position.
+- id: sr2b-origin-for-start-position
+  description: Looking for the time the graph reaches zero when the question asks for the time it is back at its starting
+    position.
+- id: sr2b-return-time-off-by-one
+  description: Reading the time of the return one unit away from where the graph crosses the starting level.
+- id: sr2b-velocity-sign-dropped
+  description: Giving the size of a negative velocity without its sign, so the direction of travel is lost.
+- id: sr2b-rise-not-divided
+  description: Giving the change in position over the segment without dividing by the time it took.
+- id: sr2b-neighbouring-segment
+  description: Reading the velocity of the segment next to the one asked about.
+- id: sr2b-average-velocity-for-segment-velocity
+  description: Giving the average velocity over the whole journey when the velocity on one segment was asked.
+- id: sr2b-displacement-for-distance
+  description: Giving the net change in position as the total distance travelled, so the legs that double back cancel.
+- id: sr2b-return-leg-lost
+  description: Leaving out one leg of the journey when adding the distances.
+- id: sr2b-out-and-back-only
+  description: Doubling the greatest distance from the start as the distance travelled, leaving out the final stage.
+- id: sr2b-start-position-counted
+  description: Adding the starting position to the distance travelled.
+- id: sr2b-distance-over-segments
+  description: Dividing the total distance by the number of segments instead of by the time.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Read the first and last positions and divide the net change by the time for a path that doubles back.
+  medium:
+    steps: 3
+    demand: Add the distance of every leg in absolute value and divide by the time.
+  hard:
+    steps: 4
+    demand: Find where a segment crosses the starting level (not zero) and read off the time.
+  exam:
+    steps: 5
+    demand: Chain the velocity on a segment, the time of return, the total distance and the average speed.
+tags:
+- acara-senior-v8-4
+- senior-mathematics
+- position-time-graph
+- velocity
+- speed
+- ACMMM094
+- ACMEM088
+- figure

@@ -53,10 +53,10 @@ def test_fgm_real_grader_accepts_canonical_and_rejects_every_distractor(difficul
         q = _make(FGM_SOURCES, difficulty, seed)
         options = mcq_options(q)
         correct_index = options.index(q.answer_text)
-        assert grade_mcq(q, str(correct_index)).correct
+        assert grade_mcq(q, correct_index).correct
         for index, option in enumerate(options):
             if option != q.answer_text:
-                assert not grade_mcq(q, str(index)).correct
+                assert not grade_mcq(q, index).correct
 
 
 def test_fgm_easy_medium_never_draw_zero_or_interval():

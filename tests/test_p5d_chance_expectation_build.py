@@ -82,7 +82,7 @@ def test_real_grader_accepts_canonical_and_rejects_every_distractor_mcq(topic, d
         ), f"seed={seed}: no option matched answer"
         for idx, distractor in enumerate(question.distractors):
             for option_idx in range(4):
-                result = grade_mcq(question, str(option_idx))
+                result = grade_mcq(question, option_idx)
                 if result.canonical == distractor:
                     assert not result.correct, f"seed={seed}: distractor {distractor} was graded correct"
 
@@ -115,7 +115,7 @@ def test_real_grader_rejects_a_deliberately_wrong_answer_mcq(topic, difficulty):
             for wrong_opt in wrong_options[:1]:
                 try:
                     idx = options.index(wrong_opt)
-                    result = grade_mcq(question, str(idx))
+                    result = grade_mcq(question, idx)
                     assert not result.correct, f"seed={seed}: wrong option {wrong_opt} was graded correct"
                 except ValueError:
                     pass
