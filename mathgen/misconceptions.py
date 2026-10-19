@@ -52429,6 +52429,301 @@ _ENTRIES = (
         "Gives the total contributed for one option only.",
         area="future-value-annuity-table",
     ),
+    CatalogueEntry(
+        "pm-adds-cost-and-price",
+        "Adds the cost and the selling price instead of finding their difference.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-gives-selling-price",
+        "Gives the selling price where the profit or loss was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-gives-cost",
+        "Gives the cost price where the profit or loss was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percent-for-dollars",
+        "Gives the profit as a percentage where the amount in dollars was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-markup-only",
+        "Gives the mark-up in dollars where the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-adds-percent-as-dollars",
+        "Adds the percentage to the cost as if it were a number of dollars.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-takes-off",
+        "Takes the percentage off the cost instead of adding it.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-rate-not-converted",
+        "Multiplies the cost by the percentage without dividing by 100.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-profit-on-selling-price",
+        "Finds the profit as a percentage of the selling price instead of the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-forgets-subtraction",
+        "Divides the selling price by the cost and gives that as the percentage profit, forgetting to subtract 100%.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-dollars-for-percent",
+        "Gives the profit in dollars where a percentage was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-profit-over-100",
+        "Divides the profit by 100 instead of by the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-loss-on-selling-price",
+        "Finds the loss as a percentage of the selling price instead of the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-per-item-only",
+        "Gives the profit on one item where the profit on the whole batch was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-revenue-for-profit",
+        "Gives the money taken from the sale of the batch where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-total-cost-for-profit",
+        "Gives the total cost of the batch where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percent-off-price",
+        "Takes the mark-up percentage off the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-adds-markup",
+        "Adds the mark-up percentage of the selling price to the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-from-markup-dollars",
+        "Divides the selling price by the mark-up percentage.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-markup-for-margin",
+        "Gives the mark-up on cost where the profit as a percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-over-cost",
+        "Divides the profit by the cost when the profit as a percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-dollars",
+        "Gives the profit in dollars where the percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percentages-added",
+        "Adds the mark-up and subtracts the discount as percentages of the cost (for example +40% then -25% is +15%).",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-discount-ignored",
+        "Ignores the discount and gives the profit at the marked-up price.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-discount-only",
+        "Gives the discount in dollars where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-from-loss-wrong",
+        "Adds the loss percentage to the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-profit-on-loss-price",
+        "Adds the profit percentage to the reduced selling price instead of to the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-price-for-cost",
+        "Gives the cost price where the new selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-price",
+        "Adds the margin percentage to the cost to find the selling price, instead of dividing the cost by what is left.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "com-rate-not-converted",
+        "Multiplies the sales by the rate without dividing by 100.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-divides-by-rate",
+        "Divides the sales by the rate instead of finding that percentage of them.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-decimal-slip",
+        "Misplaces the decimal point when finding the commission.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-over-commission",
+        "Divides the sales by the commission instead of the commission by the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-commission-over-100",
+        "Divides the commission by 100 instead of by the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-largest-only",
+        "Finds the commission on the largest sale only.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-misses-one-sale",
+        "Leaves one of the sales out of the total.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-commission-only",
+        "Gives the commission alone where the total pay was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-base-only",
+        "Gives the base pay alone where the total pay was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-base-times-rate",
+        "Finds the commission rate of the base pay instead of the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-rate-as-dollars",
+        "Adds the commission rate to the base pay as a number of dollars.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-multiplies-for-sales",
+        "Multiplies the commission by the rate instead of dividing by it.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-from-total-pay",
+        "Treats the whole pay as commission when finding the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-adds-base",
+        "Adds the base pay to the pay before finding the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-gross-sales",
+        "Finds the commission on the gross sales, ignoring the returns.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-returns-only",
+        "Finds the commission on the returns instead of on the net sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-plan-total-only",
+        "Gives the pay under one plan where the difference between the plans was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-plan-sum",
+        "Adds the pay under the two plans instead of finding the difference.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-second-rate-everywhere",
+        "Applies the higher rate to all the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-first-rate-everywhere",
+        "Applies the lower rate to all the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-tier-excess-only",
+        "Finds the commission on the sales above the tier only, forgetting the first tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-second-rate-on-all-above",
+        "Applies the higher rate to all the sales and adds the first tier as well.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-first-rate",
+        "Divides the commission by the first rate to find the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-second-rate",
+        "Divides the commission by the higher rate to find the sales, ignoring the first tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-adds-tier",
+        "Adds the whole tier to sales found from the commission, without taking off the first tier's commission.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-ignores-first",
+        "Divides the base pay by the higher rate, ignoring the commission the other plan also pays.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-sums-rates",
+        "Divides the base pay by the sum of the rates instead of their difference.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-no-hundred",
+        "Divides the base pay by the difference in rates but forgets that the rates are percentages.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-first-rate",
+        "Divides the base pay by the lower rate alone.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-tier-base-dropped",
+        "Leaves the base pay out of the total.",
+        area="commission-pay",
+    ),
     # w3 consumer block end
 )
 
