@@ -116,11 +116,15 @@ def exd_x_h5_increments_unknown_coefficient(rng, tier="exam"):
         """A coefficient written before a bracket: 1 and -1 are not written out."""
         return f"({body})" if c == 1 else (f"-({body})" if c == -1 else f"{pn(c)}({body})")
 
+    def add(c, body):
+        """A coefficient-times-bracket term appended after a leading term: '+ 3(..)' or '- (..)'."""
+        return f"{'-' if c < 0 else '+'} {sc(abs(c), body)}"
+
     working = [
-        f"From x = {u1} to x = {u2}: δy = k({pn(u2)}² - {pn(u1)}²) + {sc(b, f'{u2} - {pn(u1)}')} = {first}.",
+        f"From x = {u1} to x = {u2}: δy = k({pn(u2)}² - {pn(u1)}²) {add(b, f'{u2} - {pn(u1)}')} = {first}.",
         f"So {join_terms([(u2**2 - u1**2, 'k'), (b * (u2 - u1), '')])} = {first}, giving k = {k}.",
         f"δx = {w2} - {pn(w1)} = {dx}.",
-        f"δy = {sc(k, f'{pn(w2)}² - {pn(w1)}²')} + {sc(b, f'{w2} - {pn(w1)}')} = {dy}.",
+        f"δy = {sc(k, f'{pn(w2)}² - {pn(w1)}²')} {add(b, f'{w2} - {pn(w1)}')} = {dy}.",
     ]
     return {
         "text": text,

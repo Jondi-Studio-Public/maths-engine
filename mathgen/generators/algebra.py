@@ -521,9 +521,9 @@ def simultaneous(rng, sol_hi=8, coef_hi=5):
                 f"{paren_negative(b1)}, then subtract."
             ),
             (
-                f"{a1 - a2}x = {c1 - c2}, so x = {x0}."
+                f"{fmt_signed(a1 - a2, 'x')} = {c1 - c2}, so x = {x0}."
                 if b1 == b2
-                else f"{a1 * b2 - a2 * b1}x = {c1 * b2 - c2 * b1}, so x = {x0}."
+                else f"{fmt_signed(a1 * b2 - a2 * b1, 'x')} = {c1 * b2 - c2 * b1}, so x = {x0}."
             ),
             f"Substitute x = {x0} into the first equation: {join_terms([(a1 * x0, ''), (b1, 'y')])} = {c1}"
             + (f", so {join_terms([(b1, 'y')])} = {c1 - a1 * x0}" if a1 * x0 else "")
