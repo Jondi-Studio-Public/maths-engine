@@ -24,7 +24,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..answers import Distractor
-from ..core import attempts, check, generator, pick_distractors
+from ..core import attempts, check, generator, join_terms, pick_distractors
 from ._r4j_kit import keep_distinct, say
 
 _TAGS = {
@@ -403,18 +403,24 @@ def _single(rng, kind, working_fn):
 
 def _working(inst, answer):
     kind, part = inst["kind"], inst["part"]
+    # For an exponential forcing term the base is the one thing the particular solution is built on.
+    base = part[0][1] if kind in ("exp1", "res1", "exp2") else None
+    s = f"({base})" if base is not None and base < 0 else str(base)
     names = {
-        "exp1": "The forcing term is a multiple of s^n and s is not a root, so try a multiple of s^n.",
-        "res1": "The forcing term is r^n and r is a root of the homogeneous equation, so try a multiple of n·r^n.",
+        "exp1": f"The forcing term is a multiple of {s}^n and {base} is not a root of the characteristic "
+        f"equation, so try C·{s}^n.",
+        "res1": f"The forcing term is a multiple of {s}^n and {base} is a root of the characteristic "
+        f"equation, so try C·n·{s}^n.",
         "poly1": "The forcing term is linear and 1 is not a root, so try An + B.",
         "poly2": "The forcing term is linear and 1 is not a root, so try An + B.",
-        "exp2": "The forcing term is s^n and s is a root of the homogeneous equation, so try a multiple of n·s^n.",
+        "exp2": f"The forcing term is a multiple of {s}^n and {base} is a root of the characteristic "
+        f"equation, so try C·n·{s}^n.",
         "poly2res": "The forcing term is linear and 1 is a root, so try n(An + B).",
     }
+    solutions = ", ".join(_term_body(b, k) or "1" for b, k in inst["hom"])
     return [
-        f"Homogeneous part: aₙ = {inst['p']}aₙ₋₁"
-        + (f" + ({inst['q']})aₙ₋₂" if inst["q"] else "")
-        + f" has the solutions {', '.join(_term_body(b, k) or '1' for b, k in inst['hom'])}.",
+        f"Homogeneous part: aₙ = {join_terms([(inst['p'], 'aₙ₋₁'), (inst['q'], 'aₙ₋₂')])} "
+        f"has the solution{'s' if len(inst['hom']) > 1 else ''} {solutions}.",
         names[kind] + f" Substituting gives the particular solution {_show(_expr_text(part))}.",
         f"Fit the constants to the starting terms: aₙ = {_show(answer)}.",
     ]

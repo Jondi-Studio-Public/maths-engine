@@ -32,6 +32,7 @@ from ..core import (
     check_equivalent,
     check_pairwise_distinct,
     generator,
+    join_terms,
     phrase,
     pick_distractors,
     rational_text,
@@ -56,47 +57,52 @@ def _clears_grader_tolerance(candidate: tuple[Fraction, Fraction], answer: tuple
 
 
 _ONE_STEP_TEMPLATES = (
-    "For {a11}x + ({a12})y = {b1} and ({a21})x + {a22}y = {b2}, perform one "
+    "For {eq1} and {eq2}, perform one "
     "Gauss-Seidel iteration from (x0, y0) = ({x0}, {y0}): solve the first "
     "equation for x1 using y0, then solve the second equation for y1 using "
     "the just-computed x1 (not x0). Give (x1, y1).",
-    "A Gauss-Seidel step on {a11}x + ({a12})y = {b1}, ({a21})x + {a22}y = "
-    "{b2} starts from (x0, y0) = ({x0}, {y0}). Solve the first equation for "
+    "A Gauss-Seidel step on {eq1}, {eq2} starts from (x0, y0) = ({x0}, {y0}). Solve the first equation for "
     "x1 from y0, then solve the second equation for y1 using the "
     "just-computed x1. Give (x1, y1).",
     "Starting from (x0, y0) = ({x0}, {y0}), take one Gauss-Seidel iteration "
-    "for {a11}x + ({a12})y = {b1} and ({a21})x + {a22}y = {b2}: first find "
+    "for {eq1} and {eq2}: first find "
     "x1 from the first equation using y0, then find y1 from the second "
     "equation using the just-computed x1, not x0. Give (x1, y1).",
 )
 
 _HARD_TEMPLATES = (
-    "For {a11}x + ({a12})y = {b1} and ({a21})x + {a22}y = {b2}, starting "
+    "For {eq1} and {eq2}, starting "
     "from (x0, y0) = ({x0}, {y0}), perform TWO Gauss-Seidel iterations: "
     "each iteration solves the first equation for the new x using the "
     "current y, then solves the second equation for the new y using the "
     "just-computed x. Give (x2, y2) after both iterations.",
-    "A Gauss-Seidel iteration on {a11}x + ({a12})y = {b1}, ({a21})x + "
-    "{a22}y = {b2} starts from (x0, y0) = ({x0}, {y0}). Chain two full "
+    "A Gauss-Seidel iteration on {eq1}, {eq2} starts from (x0, y0) = ({x0}, {y0}). Chain two full "
     "iterations (each solves for the new x first, using the current y, "
     "then the new y using the just-computed x) and give the resulting "
     "(x2, y2).",
-    "Starting from (x0, y0) = ({x0}, {y0}) for the system {a11}x + "
-    "({a12})y = {b1}, ({a21})x + {a22}y = {b2}, apply TWO Gauss-Seidel "
-    "updates -- in each, solve for the new x from the current y first, "
-    "then for the new y from that just-computed x -- and report the "
+    "Starting from (x0, y0) = ({x0}, {y0}) for the system {eq1}, {eq2}, "
+    "apply TWO Gauss-Seidel updates — in each, solve for the new x from "
+    "the current y first, then for the new y from that just-computed x — and report the "
     "pair (x2, y2) reached after the second update.",
 )
 
 
-# Both exam-tier equations are rendered in this SAME "both terms
-# parenthesised" style regardless of which one is x-dominant, so the
-# printed shape never leaks which equation plays which role -- unlike the
-# lower tiers, which always print the x-dominant term bare and the
-# off-diagonal term in parens (a positional tell that would make the
-# identification step trivial to fake).
+# Both exam-tier equations are rendered in this SAME style regardless of
+# which one is x-dominant, so the printed shape never leaks which equation
+# plays which role.
 def _exam_eq_text(cx, cy, rhs) -> str:
-    return f"({cx})x + ({cy})y = {rhs}"
+    return _eq_text(cx, cy, rhs)
+
+
+def _eq_text(cx, cy, rhs) -> str:
+    """``cx x + cy y = rhs`` as written on paper: ``2x - y = -4``, ``x + 2y = -2``."""
+    return f"{join_terms([(cx, 'x'), (cy, 'y')])} = {rhs}"
+
+
+def _pn(value) -> str:
+    """A rational in brackets when negative or a fraction, for use after an operator."""
+    text = rational_text(value)
+    return f"({text})" if value < 0 or "/" in text else text
 
 
 _EXAM_TEMPLATES = (
@@ -197,7 +203,12 @@ def _build_one_step(rng, *, coefficient_hi, point_hi, frac_start, templates):
         payload, answer_text = _pair_payload(x1, y1)
         distractor_strs = [f"x = {rational_text(cx)}, y = {rational_text(cy)}" for cx, cy in candidates.values()]
         text = phrase(
-            rng, templates, a11=a11, a12=a12, b1=b1, a21=a21, a22=a22, b2=b2, x0=rational_text(x0), y0=rational_text(y0)
+            rng,
+            templates,
+            eq1=_eq_text(a11, a12, b1),
+            eq2=_eq_text(a21, a22, b2),
+            x0=rational_text(x0),
+            y0=rational_text(y0),
         )
         return dict(
             text=text,
@@ -206,8 +217,8 @@ def _build_one_step(rng, *, coefficient_hi, point_hi, frac_start, templates):
             answer_text=answer_text,
             answer_latex=answer_text,
             working=[
-                f"x1 = ({b1} - ({a12})×{rational_text(y0)}) / {a11} = {rational_text(x1)}.",
-                f"y1 = ({b2} - ({a21})×{rational_text(x1)}) / {a22} = {rational_text(y1)} "
+                f"x1 = ({b1} - {_pn(a12)} × {_pn(y0)}) / {a11} = {rational_text(x1)}.",
+                f"y1 = ({b2} - {_pn(a21)} × {_pn(x1)}) / {a22} = {rational_text(y1)} "
                 "(uses the just-computed x1, not x0).",
             ],
             distractors=pick_distractors(answer_text, distractor_strs, n=5),
@@ -325,10 +336,10 @@ def _build_exam(rng, *, coefficient_hi, point_hi):
             working=[
                 f"{_exam_eq_text(a11, a12, b1)} has |x-coefficient| = {abs(a11)} > "
                 f"|y-coefficient| = {abs(a12)}, so it is the x-equation: "
-                f"x1 = ({b1} - ({a12})×{rational_text(y0)}) / {a11} = {rational_text(x1)}.",
+                f"x1 = ({b1} - {_pn(a12)} × {_pn(y0)}) / {a11} = {rational_text(x1)}.",
                 f"{_exam_eq_text(a21, a22, b2)} is then the y-equation, using the "
                 f"just-computed x1 (not x0): "
-                f"y1 = ({b2} - ({a21})×{rational_text(x1)}) / {a22} = {rational_text(y1)}.",
+                f"y1 = ({b2} - {_pn(a21)} × {_pn(x1)}) / {a22} = {rational_text(y1)}.",
             ],
             distractors=pick_distractors(answer_text, distractor_strs, n=5),
         )
@@ -381,12 +392,8 @@ def _build_hard(rng, *, coefficient_hi, point_hi):
         text = phrase(
             rng,
             _HARD_TEMPLATES,
-            a11=a11,
-            a12=a12,
-            b1=b1,
-            a21=a21,
-            a22=a22,
-            b2=b2,
+            eq1=_eq_text(a11, a12, b1),
+            eq2=_eq_text(a21, a22, b2),
             x0=rational_text(x0),
             y0=rational_text(y0),
         )
@@ -397,10 +404,10 @@ def _build_hard(rng, *, coefficient_hi, point_hi):
             answer_text=answer_text,
             answer_latex=answer_text,
             working=[
-                f"Iteration 1: x1 = ({b1} - ({a12})×{rational_text(y0)}) / {a11} = {rational_text(x1)}; "
-                f"y1 = ({b2} - ({a21})×{rational_text(x1)}) / {a22} = {rational_text(y1)}.",
-                f"Iteration 2: x2 = ({b1} - ({a12})×{rational_text(y1)}) / {a11} = {rational_text(x2)}; "
-                f"y2 = ({b2} - ({a21})×{rational_text(x2)}) / {a22} = {rational_text(y2)}.",
+                f"Iteration 1: x1 = ({b1} - {_pn(a12)} × {_pn(y0)}) / {a11} = {rational_text(x1)}; "
+                f"y1 = ({b2} - {_pn(a21)} × {_pn(x1)}) / {a22} = {rational_text(y1)}.",
+                f"Iteration 2: x2 = ({b1} - {_pn(a12)} × {_pn(y1)}) / {a11} = {rational_text(x2)}; "
+                f"y2 = ({b2} - {_pn(a21)} × {_pn(x2)}) / {a22} = {rational_text(y2)}.",
             ],
             distractors=pick_distractors(answer_text, distractor_strs, n=5),
         )

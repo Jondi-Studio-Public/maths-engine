@@ -37,6 +37,11 @@ _STEMS = (
 )
 
 
+def _pn(value) -> str:
+    """A number in brackets when negative or a fraction, for use after an operator."""
+    return f"({value})" if value < 0 or "/" in str(value) else str(value)
+
+
 def _eq(a: int, b: int, rhs: int) -> str:
     return f"{join_terms([(a, 'x'), (b, 'y')])} = {rhs}"
 
@@ -77,7 +82,10 @@ def _build(rng: random.Random) -> dict:
         "Find x1.",
         x1,
         2,
-        [f"x has the larger coefficient in {_eq(a11, a12, b1)}.", f"x1 = ({b1} - ({a12})({y0}))/{a11} = {x1}."],
+        [
+            f"x has the larger coefficient in {_eq(a11, a12, b1)}.",
+            f"x1 = ({b1} - {_pn(a12)}·{_pn(y0)}) / {_pn(a11)} = {x1}.",
+        ],
         [
             ("sign-error-on-off-diagonal", Fraction(b1 + a12 * y0, a11)),
             ("forgets-diagonal-divide", Fraction(b1 - a12 * y0)),
@@ -89,7 +97,7 @@ def _build(rng: random.Random) -> dict:
         "Hence find y1.",
         y1,
         2,
-        [f"y1 = ({b2} - ({a21})({x1}))/{a22} = {y1}."],
+        [f"y1 = ({b2} - {_pn(a21)}·{_pn(x1)}) / {_pn(a22)} = {y1}."],
         [
             ("uses-jacobi-method", jacobi_y()),
             ("sign-error-on-off-diagonal", Fraction(b2 + a21 * x1, a22)),
@@ -103,7 +111,7 @@ def _build(rng: random.Random) -> dict:
         "Find the residual b - (ax + by) of the equation used to find x1, evaluated at (x1, y1).",
         r1,
         1,
-        [f"{b1} - ({a11})({x1}) - ({a12})({y1}) = {r1}."],
+        [f"{b1} - {_pn(a11)}·{_pn(x1)} - {_pn(a12)}·{_pn(y1)} = {r1}."],
         [
             ("residual-of-the-wrong-equation", Fraction(0)),
             ("residual-sign-reversed", -r1),
@@ -115,7 +123,7 @@ def _build(rng: random.Random) -> dict:
         f"The exact solution of the system has x = {xs}. Find the error in x1, that is, the distance of x1 from the exact value.",
         error,
         2,
-        [f"Error = |{x1} - ({xs})| = {error}."],
+        [f"Error = |{x1} - {_pn(xs)}| = {error}."],
         [
             ("error-measured-from-start", Fraction(abs(x0 - xs))),
             ("error-in-wrong-variable", abs(y1 - ys)),

@@ -91,6 +91,21 @@ def _answer(re, im):
     )
 
 
+def _signed_term(re, im, var: str = "") -> str:
+    """`` + 2z`` / `` - iz`` / `` + (3 - i)``: a complex coefficient added to an expression, as written on paper."""
+    re, im = Fraction(re), Fraction(im)
+    if im == 0:
+        sign, body = ("-" if re < 0 else "+"), _coef(abs(re), "") if var else rational_text(abs(re))
+    elif re == 0:
+        sign, body = ("-" if im < 0 else "+"), _coef(abs(im), "i")
+    else:
+        # A bracketed complex coefficient: subtract (3 + i)z rather than add (-3 - i)z.
+        if re < 0 and im < 0:
+            return f" - ({cx_text(-re, -im)}){var}"
+        return f" + ({cx_text(re, im)}){var}"
+    return f" {sign} {body}{var}"
+
+
 def _lit(re, im):
     """A complex number written in a stem, in brackets: (3 + 4i)."""
     return f"({cx_text(re, im)})"
@@ -253,14 +268,13 @@ def _hard_quadratic(rng):
     mid = sympy.nsimplify(prod)
     mid_re, mid_im = int(sympy.re(mid)), int(sympy.im(mid))
     text = (
-        f"The equation z² - {_lit(*s)}z + {_lit(mid_re, mid_im)} = 0 has two distinct roots. "
+        f"The equation z²{_signed_term(-s[0], -s[1], 'z')}{_signed_term(mid_re, mid_im)} = 0 has two distinct roots. "
         "Find the root with the larger imaginary part."
     )
     disc = cx(*s) ** 2 - 4 * prod
     working = [
-        f"The discriminant is {_lit(*s)}² - 4{_lit(mid_re, mid_im)} = {sympy.expand(disc)}, which equals ({cx_text(hi[0] - lo[0], hi[1] - lo[1])})².".replace(
-            "*I", "i"
-        ),
+        f"The discriminant is {_lit(*s)}² - 4{_lit(mid_re, mid_im)} = {cx_text(sympy.re(sympy.expand(disc)), sympy.im(sympy.expand(disc)))}, "
+        f"which equals ({cx_text(hi[0] - lo[0], hi[1] - lo[1])})².",
         f"So z = ({_lit(*s)} ± ({cx_text(hi[0] - lo[0], hi[1] - lo[1])}))/2, and the root with the larger imaginary part is {cx_text(*hi)}.",
     ]
     return dict(text=text, working=working, distractors=keep(cx_text(*hi), cands, 4), **_answer(*hi))

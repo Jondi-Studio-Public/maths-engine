@@ -26,11 +26,11 @@ _MASSES = (1, 2, 3, 4)
 _COEFFS = (1, 2, 3, 4, 5, 6)
 _STEM = (
     "A particle of mass {m} kg moves in the xy-plane with Lagrangian L = (m/2)(x'^2 + y'^2) - V(x, y), where "
-    "V(x, y) = {c}(x^2 + y^2) joules, with x and y in metres. At t = 0 it is at ({x0}, {y0}) with velocity "
+    "V(x, y) = {cc}(x^2 + y^2) joules, with x and y in metres. At t = 0 it is at ({x0}, {y0}) with velocity "
     "({vx}, {vy}) m/s. V depends on x and y only through x^2 + y^2 and L has no explicit time dependence, so "
     "Noether's theorem gives two conserved quantities: the angular momentum L_z about the origin and the energy E.",
     "A particle of mass {m} kg obeys L = (m/2)(x'^2 + y'^2) - V(x, y) in the xy-plane, with V(x, y) = "
-    "{c}(x^2 + y^2) joules (x and y in metres). It starts at ({x0}, {y0}) moving with velocity ({vx}, {vy}) m/s. "
+    "{cc}(x^2 + y^2) joules (x and y in metres). It starts at ({x0}, {y0}) moving with velocity ({vx}, {vy}) m/s. "
     "Rotations about the origin leave V unchanged and L has no explicit time dependence, so by Noether's theorem "
     "the angular momentum L_z and the energy E are both conserved.",
 )
@@ -117,7 +117,8 @@ def _build(rng: random.Random) -> dict:
     )
     check(abs(v_perp * r1 * m) == abs(lz), "perpendicular speed does not rebuild L_z")
 
-    stem = phrase(rng, _STEM, m=m, c=c, x0=x0, y0=y0, vx=vx, vy=vy)
+    cc = "" if c == 1 else c  # a coefficient of 1 is not written
+    stem = phrase(rng, _STEM, m=m, cc=cc, x0=x0, y0=y0, vx=vx, vy=vy)
     parts = [
         build_part(
             phrase(rng, _PROMPT_A),
@@ -126,7 +127,7 @@ def _build(rng: random.Random) -> dict:
             marks=2,
             working=[
                 "L_z = m (x vy - y vx) is conserved because V is unchanged by rotation about the origin.",
-                f"L_z = {m} x ({paren_negative(x0)} x {paren_negative(vy)} - {paren_negative(y0)} x {paren_negative(vx)}) = {lz}.",
+                f"L_z = {m} × ({paren_negative(x0)} × {paren_negative(vy)} - {paren_negative(y0)} × {paren_negative(vx)}) = {lz}.",
             ],
             wrong=a_wrong,
         ),
@@ -137,7 +138,7 @@ def _build(rng: random.Random) -> dict:
             marks=2,
             working=[
                 "E = kinetic + potential energy is conserved because L has no explicit time dependence.",
-                f"E = ({m}/2)({paren_negative(vx)}^2 + {paren_negative(vy)}^2) + {c}({paren_negative(x0)}^2 + {paren_negative(y0)}^2) = {energy}.",
+                f"E = ({m}/2)({paren_negative(vx)}^2 + {paren_negative(vy)}^2) + {cc}({paren_negative(x0)}^2 + {paren_negative(y0)}^2) = {energy}.",
             ],
             wrong=b_wrong,
             sensible_range=(0, None),
@@ -147,7 +148,7 @@ def _build(rng: random.Random) -> dict:
             v_perp,
             kind="fraction",
             marks=1,
-            working=[f"L_z = m r v_perp, so v_perp = {lz} / ({m} x {r1}) = {v_perp}."],
+            working=[f"L_z = m r v_perp, so v_perp = {lz} / ({m} × {r1}) = {v_perp}."],
             wrong=c_wrong,
             follow_through=f"part_a/({m}*{r1})",
         ),
@@ -157,7 +158,7 @@ def _build(rng: random.Random) -> dict:
             kind="fraction",
             marks=2,
             working=[
-                f"E = c r^2 + (m/2) v_perp^2 + radial kinetic energy, with c r^2 = {c * r1 * r1}.",
+                f"E = V + (m/2) v_perp^2 + radial kinetic energy, with V = {c * r1 * r1}.",
                 f"Radial kinetic energy = {energy} - {c * r1 * r1} - ({m}/2)({v_perp})^2 = {k_radial}.",
             ],
             wrong=d_wrong,

@@ -34,6 +34,7 @@ from ..core import (
     latex_answer,
     phrase,
     join_terms,
+    paren_negative,
 )
 
 x, y = symbols("x y")
@@ -505,7 +506,10 @@ def limits(rng, kinds=("removable", "infinity")):
             answer_text=str(ans),
             answer_latex=str(ans),
             answer_kind="number",
-            working=[f"({num})/({den}) = x - ({b}) for x ≠ {a}", f"limit = {a} - ({b}) = {ans}"],
+            working=[
+                f"({num})/({den}) = {join_terms([(1, 'x'), (-b, '')])} for x ≠ {a}",
+                f"limit = {a} - {paren_negative(b)} = {ans}",
+            ],
             distractors=pick_distractors(str(ans), cands),
         )
     if kind == "quad_over_quad":
@@ -543,8 +547,8 @@ def limits(rng, kinds=("removable", "infinity")):
             answer_latex=str(ans),
             answer_kind="number",
             working=[
-                f"({num})/({den}) = (x - {b}) / (x - {c}) for x ≠ {a}",
-                f"limit = ({a} - {b}) / ({a} - {c}) = {ans}",
+                f"({num})/({den}) = ({join_terms([(1, 'x'), (-b, '')])}) / ({join_terms([(1, 'x'), (-c, '')])}) for x ≠ {a}",
+                f"limit = ({a} - {paren_negative(b)}) / ({a} - {paren_negative(c)}) = {ans}",
             ],
             distractors=pick_distractors(str(ans), cands),
         )

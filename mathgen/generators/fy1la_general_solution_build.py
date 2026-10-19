@@ -134,7 +134,7 @@ def _easy(rng):
             answer_text=text,
             answer_latex="plain:" + text,
             working=[
-                f"Row-reducing the augmented matrix gives x = {c} - ({a_})z and y = {e} - ({d_})z.",
+                f"Row-reducing the augmented matrix gives x = {join_terms([(c, ''), (-a_, 'z')])} and y = {join_terms([(e, ''), (-d_, 'z')])}.",
                 f"With z = {t0}: x = {answer[0]} and y = {answer[1]}.",
             ],
             distractors=dist,
@@ -179,7 +179,8 @@ def _medium(rng):
             answer_latex="plain:" + text,
             answer_form="scalar_multiple",
             working=[
-                f"Row-reducing gives x = {target[0][3]} - ({a_})z and y = {target[1][3]} - ({d_})z, with z free.",
+                f"Row-reducing gives x = {join_terms([(target[0][3], ''), (-a_, 'z')])} and "
+                f"y = {join_terms([(target[1][3], ''), (-d_, 'z')])}, with z free.",
                 f"So the solutions are {vec_str(particular)} + z{vec_str(direction)}, and the direction vector is {text}.",
             ],
             distractors=dist,
@@ -239,8 +240,9 @@ def _hard(rng):
             answer_text=text,
             answer_latex="plain:" + text,
             working=[
-                f"Row-reducing [A | b] gives x1 = {target[0][4]} - ({target[0][2]})x3 - ({target[0][3]})x4 and "
-                f"x2 = {target[1][4]} - ({target[1][2]})x3 - ({target[1][3]})x4.",
+                f"Row-reducing [A | b] gives x1 = "
+                f"{join_terms([(target[0][4], ''), (-target[0][2], 'x3'), (-target[0][3], 'x4')])} and "
+                f"x2 = {join_terms([(target[1][4], ''), (-target[1][2], 'x3'), (-target[1][3], 'x4')])}.",
                 f"With x3 = {s0} and x4 = {t0}: x1 = {sol[0]}, x2 = {sol[1]}.",
             ],
             distractors=dist,

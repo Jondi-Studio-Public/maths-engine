@@ -179,9 +179,13 @@ _HARD_STEMS = (
 
 
 def _working_ratio(p, c, b, k, interval):
+    inner = _x_term(c, b)
+    if inner.startswith("(") and inner.endswith(")"):
+        inner = inner[1:-1]  # |2x + 7|, not |(2x + 7)|
+    bound = f"|{inner}|" if k == 1 else f"|{inner}| / {k}"
     return [
-        f"The ratio of consecutive terms tends to |{_x_term(c, b)}| / {k}, which is below 1 when "
-        f"|{_x_term(c, b)}| < {k}.",
+        f"The ratio of consecutive terms tends to {bound}, which is below 1 when "
+        + (f"|{inner}| < {k}." if k != 1 else f"|{inner}| < 1."),
         f"That is {_text(Interval.open(interval.start, interval.end))}.",
     ]
 
@@ -195,9 +199,9 @@ def _working_endpoints(s, p, c, b, k, interval):
         if p == 1:
             series = "the harmonic series Σ 1/n" if eps == 1 else "the alternating harmonic series Σ (-1)^n/n"
         elif p == 2:
-            series = "Σ 1/n² (convergent)" if eps == 1 else "Σ (-1)^n/n² (convergent)"
+            series = "Σ 1/n²" if eps == 1 else "Σ (-1)^n/n²"
         elif p <= 0:
-            series = "a series whose terms do not tend to 0"
+            return f"At x = {rational_text(x)} the terms do not tend to 0, so the series diverges."
         verdict = "converges" if _included(eps, p) else "diverges"
         return f"At x = {rational_text(x)} the series is {series}, which {verdict}."
 

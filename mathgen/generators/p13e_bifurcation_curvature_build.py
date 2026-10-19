@@ -25,6 +25,7 @@ from ..core import (
     fmt_signed,
     generator,
     join_terms,
+    paren_negative,
     numeric_answer,
     phrase,
     pick_distractors,
@@ -219,7 +220,7 @@ def _p13e_bifurcation_easy(rng):
         text = phrase(rng, _EASY_MEDIUM_PATTERNS, expr=expr, precision_note="")
         working = [
             f"Discriminant = b^2 - 4ar = ({b})^2 - 4({a})r; setting it to 0 gives "
-            f"r* = ({b})^2 / (4 x {a}) = {answer_int}.",
+            f"r* = {paren_negative(b)}^2 / (4 × {a}) = {answer_int}.",
         ]
         return dict(
             text=text,
@@ -266,7 +267,7 @@ def _p13e_bifurcation_medium(rng):
         text = phrase(rng, _EASY_MEDIUM_PATTERNS, expr=expr, precision_note=_precision_note(dp))
         working = [
             f"Discriminant = b^2 - 4ar = ({b})^2 - 4({a})r; setting it to 0 gives "
-            f"r* = ({b})^2 / (4 x {a}) = {answer_text}.",
+            f"r* = {paren_negative(b)}^2 / (4 × {a}) = {answer_text}.",
         ]
         return dict(
             text=text,
@@ -305,11 +306,11 @@ def _p13e_bifurcation_hard(rng):
 
         lead = fmt_signed(a, "x^2")
         sign_str = "+" if c >= 0 else "-"
-        expr = f"{lead} + r*x {sign_str} {abs(c)}"
+        expr = f"{lead} + rx {sign_str} {abs(c)}"
         text = phrase(rng, _HARD_PATTERNS, expr=expr)
         working = [
             f"Discriminant = r^2 - 4({a})({c}) = r^2 - 4({s * s}); setting it to 0 gives "
-            f"r = +/- 2 x {s} = +/- {answer}. The positive value is r = {answer}.",
+            f"r = ± 2 × {s} = ± {answer}. The positive value is r = {answer}.",
         ]
         return dict(
             text=text,
@@ -571,7 +572,7 @@ def _p13e_curvature_easy(rng):
         text = phrase(rng, _EASY_PATTERNS, x_expr=x_expr, y_expr=y_expr)
         working = [
             f"x'(0) = 3, x''(0) = {xpp0}; y'(0) = 4, y''(0) = {ypp0}.",
-            f"kappa(0) = |3 x ({ypp0}) - 4 x ({xpp0})| / 125 = {answer_text}.",
+            f"kappa(0) = |3 × {paren_negative(ypp0)} - 4 × {paren_negative(xpp0)}| / 125 = {answer_text}.",
         ]
         return dict(
             text=text,
@@ -634,9 +635,10 @@ def _p13e_curvature_medium(rng):
         y_expr = join_terms([(r, "t^2"), (c2, "t")])
         text = phrase(rng, _MEDIUM_HARD_PATTERNS, x_expr=x_expr, y_expr=y_expr, t0=t0)
         working = [
-            f"x'(t) = {2 * p}t + ({c1}), so x'({t0}) = 3; y'(t) = {2 * r}t + ({c2}), so y'({t0}) = 4.",
+            f"x'(t) = {join_terms([(2 * p, 't'), (c1, '')])}, so x'({t0}) = 3; "
+            f"y'(t) = {join_terms([(2 * r, 't'), (c2, '')])}, so y'({t0}) = 4.",
             f"x''({t0}) = {xpp0}; y''({t0}) = {ypp0}.",
-            f"kappa({t0}) = |3 x ({ypp0}) - 4 x ({xpp0})| / 125 = {answer_text}.",
+            f"kappa({t0}) = |3 × {paren_negative(ypp0)} - 4 × {paren_negative(xpp0)}| / 125 = {answer_text}.",
         ]
         return dict(
             text=text,
@@ -700,7 +702,7 @@ def _p13e_curvature_hard(rng):
         text = phrase(rng, _MEDIUM_HARD_PATTERNS, x_expr=x_expr, y_expr=y_expr, t0=t0)
         working = [
             f"x'({t0}) = 3, x''({t0}) = {xpp0}; y'({t0}) = 4, y''({t0}) = {ypp0}.",
-            f"kappa({t0}) = |3 x ({ypp0}) - 4 x ({xpp0})| / 125 = {answer_text}.",
+            f"kappa({t0}) = |3 × {paren_negative(ypp0)} - 4 × {paren_negative(xpp0)}| / 125 = {answer_text}.",
         ]
         return dict(
             text=text,

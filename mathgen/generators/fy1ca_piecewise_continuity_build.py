@@ -26,7 +26,7 @@ import math
 import random
 from fractions import Fraction
 
-from ..core import attempts, check, draw_until, generator, join_terms, paren_negative, phrase
+from ..core import attempts, check, draw_until, fmt_signed, generator, join_terms, paren_negative, phrase
 from ._fy1ca_kit import (
     build_with_redraws,
     need_distractors,
@@ -94,8 +94,8 @@ def _easy(rng: random.Random) -> dict:
         ]
         working = [
             f"For {name} to be continuous at x = {c}, the two pieces must have the same value there.",
-            f"The quadratic piece gives {_eval_quad(p, r, s, c)} at x = {c}; the linear piece gives {paren_negative(c)}k + {paren_negative(u)}.",
-            f"So {paren_negative(c)}k + {paren_negative(u)} = {q_c}, which gives k = {ratio_text(answer)}.",
+            f"The quadratic piece gives {_eval_quad(p, r, s, c)} at x = {c}; the linear piece gives {join_terms([(c, 'k'), (u, '')])}.",
+            f"So {join_terms([(c, 'k'), (u, '')])} = {q_c}, which gives k = {ratio_text(answer)}.",
         ]
         left_fn = (lambda x: k * x + u) if shape == "slope" else (lambda x: _eval_quad(p, r, s, x))
         right_fn = (lambda x: _eval_quad(p, r, s, x)) if shape == "slope" else (lambda x: k * x + u)
@@ -118,7 +118,7 @@ def _easy(rng: random.Random) -> dict:
         ]
         working = [
             f"For {name} to be continuous at x = {c}, the two pieces must have the same value there.",
-            f"The right piece gives {paren_negative(m)}({paren_negative(c)}) + {paren_negative(n)} = {m * c + n}; the left piece gives {c * c} + k.",
+            f"The right piece gives {join_terms([(1, f'{paren_negative(m)} × {paren_negative(c)}'), (n, '')])} = {m * c + n}; the left piece gives {c * c} + k.",
             f"So {c * c} + k = {m * c + n}, which gives k = {ratio_text(answer)}.",
         ]
         left_fn = lambda x: x * x + k  # noqa: E731
@@ -200,8 +200,9 @@ def _medium(rng: random.Random) -> dict:
             (Fraction(-p * s), "fy1ca-limit-cancel-slip"),
         ]
         working = [
-            f"The numerator factorises as (x - {paren_negative(p)})(x + {paren_negative(s)}), so away from x = {p} the quotient equals x + {paren_negative(s)}.",
-            f"The limit as x → {p} is {p} + {paren_negative(s)} = {p + s}, so k must be {p + s}.",
+            f"The numerator factorises as ({join_terms([(1, 'x'), (-p, '')])})({join_terms([(1, 'x'), (s, '')])}), "
+            f"so away from x = {p} the quotient equals {join_terms([(1, 'x'), (s, '')])}.",
+            f"The limit as x → {p} is {join_terms([(p, ''), (s, '')])} = {p + s}, so k must be {p + s}.",
         ]
     elif kind == "sine":
         m = rng.choice([2, 3, 4, 5, 6, 7])
@@ -249,8 +250,8 @@ def _medium(rng: random.Random) -> dict:
             (Fraction(p - 1, p), "fy1ca-limit-cancel-slip"),
         ]
         working = [
-            f"As x → {p} from the left, (x² - {p * p})/({_lin_factor(p)}) = x + {paren_negative(p)} → {2 * p}.",
-            f"At x = {p} the right piece is {paren_negative(p)}k + 1, so {paren_negative(p)}k + 1 = {2 * p} and k = {ratio_text(answer)}.",
+            f"As x → {p} from the left, (x² - {p * p})/({_lin_factor(p)}) = {join_terms([(1, 'x'), (p, '')])} → {2 * p}.",
+            f"At x = {p} the right piece is {join_terms([(p, 'k'), (1, '')])}, so {join_terms([(p, 'k'), (1, '')])} = {2 * p} and k = {ratio_text(answer)}.",
         ]
         left_fn = lambda x: (x * x - p * p) / (x - p)  # noqa: E731
         right_fn = lambda x: float(answer) * x + 1  # noqa: E731
@@ -338,9 +339,12 @@ def _hard(rng: random.Random) -> dict:
         ((Fraction(u * p + v + z, p * p) * q * q + z - w) / q, "fy1ca-continuity-first-constant-slip"),
     ]
     working = [
-        f"At x = {p}: {paren_negative(u)}({paren_negative(p)}) + {paren_negative(v)} = a({paren_negative(p)})² + {paren_negative(z)}, so {u * p + v} = {p * p}a + {paren_negative(z)} and a = {a}.",
-        f"At x = {q}: {a}({q})² + {paren_negative(z)} = {a * q * q + z} must equal b({q}) + {paren_negative(w)}.",
-        f"So {q}b = {a * q * q + z - w}, giving b = {b}.",
+        f"At x = {p}: {join_terms([(1, f'{paren_negative(u)} × {paren_negative(p)}'), (v, '')])} = "
+        f"{join_terms([(1, f'a × {paren_negative(p)}²'), (z, '')])}, "
+        f"so {u * p + v} = {join_terms([(p * p, 'a'), (z, '')])} and a = {a}.",
+        f"At x = {q}: {join_terms([(1, f'{paren_negative(a)} × {paren_negative(q)}²'), (z, '')])} = "
+        f"{a * q * q + z} must equal {join_terms([(1, f'b × {paren_negative(q)}'), (w, '')])}.",
+        f"So {fmt_signed(q, 'b')} = {a * q * q + z - w}, giving b = {b}.",
     ]
     # second route: one-sided numerical values at both junctions
     f1 = lambda x: u * x + v  # noqa: E731
