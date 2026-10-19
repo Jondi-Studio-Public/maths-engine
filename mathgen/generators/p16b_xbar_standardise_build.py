@@ -820,8 +820,8 @@ def _row_b_medium(rng):
     latex = _row_b_latex(base_text)
 
     working = [
-        f"s = sqrt({round(s * s, 2)}) = {s}.",
-        f"Standard error = s / sqrt(n) = {s} / sqrt({n}) = {se:.4f}.",
+        f"s = √{round(s * s, 2)} ≈ {s:.4f}.",
+        f"Standard error = s / √n ≈ {s:.4f} / √{n} ≈ {se:.4f}.",
         f"z = ({xbar} - {_fmt_num(mu)}) / {se:.4f} = {answer_text}.",
     ]
     return {

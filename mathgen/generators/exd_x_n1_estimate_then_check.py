@@ -74,6 +74,11 @@ def _plain(value: Fraction) -> str:
     return show(value, places)
 
 
+def _trim_zeros(text: str) -> str:
+    """`14,174.1600` -> `14,174.16`; `14,174.0000` -> `14,174`."""
+    return text.rstrip("0").rstrip(".") if "." in text else text
+
+
 @generator("exd_x_n1_estimate_then_check", level=11, presets={"exam": dict(tier="exam")})
 def exd_x_n1_estimate_then_check(rng, tier="exam"):
     for _ in attempts(1000, "an estimation draw clear of ties and rounding boundaries"):
@@ -138,7 +143,9 @@ def exd_x_n1_estimate_then_check(rng, tier="exam"):
         exact_whole,
         0,
         1,
-        [f"{_plain(a)} × {_plain(b)} × {show(c, 2)} = {money(exact, 4)}, so about ${_plain(exact_whole)}."],
+        [
+            f"{_plain(a)} × {_plain(b)} × {show(c, 2)} = {_trim_zeros(money(exact, 4))}, so about ${_plain(exact_whole)}."
+        ],
         [
             (estimate, None),
             (a * b * ec, None),

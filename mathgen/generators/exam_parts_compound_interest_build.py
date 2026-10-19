@@ -82,6 +82,12 @@ def _money(v: Fraction) -> str:
     return f"{int(v):,}"
 
 
+def _per_period(value) -> str:
+    """`= 0.5` when the periodic rate is exact to 4 decimal places, else `≈ 0.6083` (never a 17-digit float)."""
+    exact = round(float(value), 4)
+    return f"= {exact:g}" if abs(float(value) - exact) < 1e-12 else f"≈ {exact:g}"
+
+
 def _part(prompt, v, marks, working, candidates, follow_through=None, others=(), sensible_range=None):
     """One number part; every candidate is checked wrong against the answer and the other displayed values."""
     answer = _cents(v)
@@ -175,7 +181,7 @@ def exam_parts_compound_interest(rng):
             f"{_FREQ_WORD[n] if _FREQ_WORD[n] in stem else _FREQ_LABEL[n]}, for the same {t} years. Find the "
             f"balance, to the nearest cent."
         )
-        c_work = [f"Rate {_pct(rate2)}%: A = {_money(p)} × (1 + {float(rate2 / n)})^{n * t} = ${_fmt(fv_c)}."]
+        c_work = [f"Rate {_pct(rate2)}%: A = {_money(p)} × (1 + {float(rate2)}/{n})^{n * t} = ${_fmt(fv_c)}."]
 
     ans_a, ans_c = _cents(fv_a), _cents(fv_c)
     parts = [
@@ -184,8 +190,8 @@ def exam_parts_compound_interest(rng):
             fv_a,
             2,
             [
-                f"Rate per period = {_pct(rate)}% ÷ {n} = {float(rate / n * 100)}%; periods = {n} × {t} = {n * t}.",
-                f"A = {_money(p)} × (1 + {float(rate / n)})^{n * t} = ${_fmt(fv_a)}.",
+                f"Rate per period = {_pct(rate)}% ÷ {n} {_per_period(rate / n * 100)}%; periods = {n} × {t} = {n * t}.",
+                f"A = {_money(p)} × (1 + {float(rate)}/{n})^{n * t} = ${_fmt(fv_a)}.",
             ],
             [wrong_rate, wrong_periods, simple, interest_a],
             sensible_range=(int(p), None),  # a balance that grew

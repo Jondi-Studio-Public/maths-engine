@@ -267,7 +267,7 @@ def _distractors(answer, wrong):
     return text, out
 
 
-_REPLY = "Give each missing entry as `x y = z`, meaning x∘y = z, with the row element first."
+_REPLY = "Give each missing entry as “x y = z”, meaning x∘y = z, with the row element first."
 _STEMS = {
     "easy": "The table below is the Cayley table of a group under the operation ∘; the entry in row x and column y is x∘y. "
     "Some entries are missing. {grid} Fill in the missing entries. " + _REPLY,

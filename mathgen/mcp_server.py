@@ -456,14 +456,20 @@ def build_server(
 
 
 def _positive_seconds(text: str) -> float:
-    value = float(text)
+    try:
+        value = float(text)
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"must be a number of seconds above 0, got {text!r}") from None
     if not math.isfinite(value) or value <= 0:
         raise argparse.ArgumentTypeError(f"must be a number of seconds above 0, got {text!r}")
     return value
 
 
 def _workers(text: str) -> int:
-    value = int(text)
+    try:
+        value = int(text)
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"must be a whole number from 1 to 8, got {text!r}") from None
     if not 1 <= value <= 8:
         raise argparse.ArgumentTypeError(f"must be from 1 to 8, got {text!r}")
     return value
@@ -482,6 +488,11 @@ def main(argv=None) -> int:
     parser.add_argument("--workers", type=_workers, default=1, help="worker processes, 1 to 8 (default 1)")
     parser.add_argument("--version", action="version", version=f"mathgen-mcp {__version__}")
     args = parser.parse_args(argv)
+    # Argument errors reach a model or a person: leave out pydantic's documentation links.
+    os.environ.setdefault("PYDANTIC_ERRORS_INCLUDE_URL", "0")
+    for folder in args.skills or []:
+        if not os.path.isdir(folder):
+            parser.error(f"--skills {folder!r} is not a folder of skill YAML")
     # Logs go to stderr: stdout is the MCP pipe.
     logging.basicConfig(level=logging.INFO, stream=sys.stderr, format="%(name)s %(levelname)s %(message)s")
     try:
