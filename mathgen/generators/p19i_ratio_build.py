@@ -58,6 +58,7 @@ from ..core import (
     check_distinct,
     check_pairwise_distinct,
     check_equivalent,
+    equals_chain,
     phrase,
     pick_distractors,
     generator,
@@ -166,7 +167,7 @@ def _build_fraction_share_easy(rng):
     ans_text = f"{answer.numerator}/{answer.denominator}"
     working = [
         f"Total parts: {a} + {b} = {denom}.",
-        f"Fraction that is {x_label}: {a}/{denom} = {ans_text}.",
+        f"Fraction that is {x_label}: {equals_chain(f'{a}/{denom}', ans_text)}.",
     ]
     candidates = [f"{c.numerator}/{c.denominator}" for c in cands]
     return dict(
@@ -207,7 +208,7 @@ def _build_fraction_share_medium(rng):
     ans_text = f"{answer.numerator}/{answer.denominator}"
     working = [
         f"Total parts: {a} + {b} = {denom}.",
-        f"Fraction that is {y_label}: {b}/{denom} = {ans_text}.",
+        f"Fraction that is {y_label}: {equals_chain(f'{b}/{denom}', ans_text)}.",
     ]
     candidates = [f"{c.numerator}/{c.denominator}" for c in cands]
     return dict(
@@ -288,7 +289,7 @@ def _build_fraction_share_hard(rng):
     ans_text = f"{answer.numerator}/{answer.denominator}"
     working = [
         f"Number that are {asked_label}: {total} - {given} = {other}.",
-        f"Fraction that are {asked_label}: {other}/{total} = {ans_text}.",
+        f"Fraction that are {asked_label}: {equals_chain(f'{other}/{total}', ans_text)}.",
     ]
     candidates = [f"{c.numerator}/{c.denominator}" for c in cands]
     return dict(
@@ -383,11 +384,11 @@ def _build_fraction_share_exam(rng):
         )
         text = phrase(rng, patterns, whole=whole, Whole=Whole, x=x, y=y, z=z, cy=cy, cz=cz, a=a, b=b, asked=asked)
         working = [
-            f"Each ratio part is {cy} / {b} = {k}, so there are {a} x {k} = {cx} {x}.",
+            f"Each ratio part is {cy} / {b} = {k}, so there are {a} × {k} = {cx} {x}.",
             f"Whole: {cx} + {cy} + {cz} = {total}.",
         ]
     ans_text = f"{answer.numerator}/{answer.denominator}"
-    working.append(f"Fraction that are {asked}: {numerator}/{total} = {ans_text}.")
+    working.append(f"Fraction that are {asked}: {equals_chain(f'{numerator}/{total}', ans_text)}.")
     candidates = [f"{c.numerator}/{c.denominator}" for c in cands]
     return dict(
         text=text,
@@ -502,7 +503,7 @@ def _build_simplest_form_easy(rng):
     ans_text = _simplest_form_answer_text(p, q)
     working = [
         f"Ratio of {x_label} to {y_label}: {x}:{y}.",
-        f"gcd({x}, {y}) = {g2}. Divide both terms: {x // g2}:{y // g2} = {ans_text}.",
+        f"gcd({x}, {y}) = {g2}. Divide both terms: {equals_chain(f'{x // g2}:{y // g2}', ans_text)}.",
     ]
     candidates = [f"{a}:{b}" for a, b in (swapped_terms, reduced_second_only, reduced_first_only)]
     return dict(
@@ -576,7 +577,7 @@ def _build_simplest_form_medium(rng):
     working = [
         f"The {z_label} count ({z}) is not part of the {x_label}/{y_label} ratio.",
         f"Ratio of {x_label} to {y_label}: {x}:{y}.",
-        f"gcd({x}, {y}) = {g2}. Divide both terms: {x // g2}:{y // g2} = {ans_text}.",
+        f"gcd({x}, {y}) = {g2}. Divide both terms: {equals_chain(f'{x // g2}:{y // g2}', ans_text)}.",
     ]
     candidates = [f"{a}:{b}" for a, b in (swapped_terms, first_with_irrelevant_count, irrelevant_count_with_second)]
     return dict(
@@ -650,7 +651,7 @@ def _build_simplest_form_hard(rng):
     ans_text = _simplest_form_answer_text(p, q)
     working = [
         f"Girls: {a_frac}/{b_frac} x {total} = {girls}. Boys: {total} - {girls} = {boys}.",
-        f"gcd({girls}, {boys}) = {g2}. Divide both terms: {girls // g2}:{boys // g2} = {ans_text}.",
+        f"gcd({girls}, {boys}) = {g2}. Divide both terms: {equals_chain(f'{girls // g2}:{boys // g2}', ans_text)}.",
     ]
     candidates = [f"{a}:{b}" for a, b in (swapped_terms, fraction_denominator_as_term, total_as_second_term)]
     return dict(

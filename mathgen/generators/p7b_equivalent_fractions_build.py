@@ -249,7 +249,14 @@ def equivalent_fraction_related_denominator(rng, shape="direct"):
         f"{n + k}/{d + k}",  # added the scale factor instead of multiplying
         f"{n * d}/{D}",  # used the original denominator as the scale factor
     ]
-    distractors = pick_distractors(answer_text, distractor_texts)
+    # Two misconceptions can land on the same value ("3/9" and "4/12" are both 1/3): show it once.
+    seen_values = {answer}
+    unique_texts = []
+    for value, text_option in zip(candidates, distractor_texts):
+        if value not in seen_values:
+            seen_values.add(value)
+            unique_texts.append(text_option)
+    distractors = pick_distractors(answer_text, unique_texts)
 
     working = [
         f"Scale factor: {D} ÷ {d} = {k}.",

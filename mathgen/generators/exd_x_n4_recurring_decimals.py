@@ -29,6 +29,7 @@ from mathgen.core import (
     attempts,
     check,
     check_equivalent,
+    equals_chain,
     generator,
     latex_answer,
     pick_distractors,
@@ -63,15 +64,6 @@ def _recurring_value(lead: int, lead_width: int, block: int, width: int) -> Frac
     """The value of 0.<lead><block repeating>, worked out as a geometric series (an independent route)."""
     series = Fraction(block, 10 ** (lead_width + width)) / (1 - Fraction(1, 10**width))
     return Fraction(lead, 10**lead_width) + series
-
-
-def _eq_chain(*steps: str) -> str:
-    """Join steps with "=", dropping a step that repeats the one before it (no "95/99 = 95/99")."""
-    kept = [steps[0]]
-    for step in steps[1:]:
-        if step != kept[-1]:
-            kept.append(step)
-    return " = ".join(kept)
 
 
 def _fraction_part(prompt, value, *, marks, distractors, working, follow_through=None, sensible_range=None):
@@ -196,7 +188,7 @@ def exd_x_n4_decimal_sum(rng, tier: str = "exam"):
                 terminating,
                 marks=1,
                 distractors=d_a,
-                working=[f"{_eq_chain(shown_t, f'{numerator}/{10**places}', a_text)}."],
+                working=[f"{equals_chain(shown_t, f'{numerator}/{10**places}', a_text)}."],
             ),
             _fraction_part(
                 prompts[1],
@@ -205,7 +197,7 @@ def exd_x_n4_decimal_sum(rng, tier: str = "exam"):
                 distractors=d_b,
                 working=[
                     f"The repeating block has {width} digit{'s' if width != 1 else ''}, "
-                    f"so {_eq_chain('r', f'{block}/{10**width - 1}', b_text)}."
+                    f"so {equals_chain('r', f'{block}/{10**width - 1}', b_text)}."
                 ],
             ),
             _fraction_part(
@@ -293,7 +285,7 @@ def exd_x_n4_recurring_mixed(rng, tier: str = "exam"):
                 y,
                 marks=2,
                 distractors=d_a,
-                working=[f"{_eq_chain('y', f'{block}/{10**width - 1}', a_text)}."],
+                working=[f"{equals_chain('y', f'{block}/{10**width - 1}', a_text)}."],
             ),
             _fraction_part(
                 prompts[1],

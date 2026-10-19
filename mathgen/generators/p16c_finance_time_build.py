@@ -623,7 +623,7 @@ _WAGE_TEMPLATES = (
     "A fast-food store's wage sheet lists each worker's hourly rate and hours this week: {table}."
     "{ot_note} What is {who}'s total wage for the week?",
     "The weekly wage spreadsheet for a fast-food store shows: {table}.{ot_note} Find {who}'s gross pay for the week.",
-    "From this week's wage sheet -- {table}{ot_note} -- calculate the total amount {who} earned.",
+    "This week's wage sheet shows: {table}.{ot_note} Calculate the total amount {who} earned.",
 )
 
 _WAGE_OT_NOTE = " Overtime hours are paid at 1.5 times the hourly rate."
@@ -631,8 +631,8 @@ _WAGE_DIFF_TEMPLATES = (
     "A fast-food store's wage sheet lists each worker's hourly rate and hours this week: {table}. "
     "Overtime hours are paid at the stated multiple of the hourly rate. How much MORE did {who_a} "
     "earn than {who_b} this week?",
-    "From this week's wage spreadsheet -- {table}, overtime paid at the stated multiple of the "
-    "hourly rate -- find the difference between {who_a}'s wage and {who_b}'s wage.",
+    "This week's wage sheet shows: {table}. Overtime is paid at the stated multiple of the "
+    "hourly rate. Find the difference between {who_a}'s wage and {who_b}'s wage.",
 )
 
 
@@ -688,7 +688,7 @@ def _wage_single(rng, k: int, with_ot: bool, uniform_mult: bool, force_ot_for_an
         answer_text=answer_text,
         answer_latex=f"\\${answer_text}",
         distractors=distractors,
-        working=[f"Reading {who}'s own row and applying the stated rate(s): total wage = ${answer_text}."],
+        working=[f"Reading {who}'s own row and applying the stated rates: total wage = ${answer_text}."],
     )
 
 
@@ -742,7 +742,7 @@ def _wage_diff(rng):
         distractors=distractors,
         working=[
             f"{who_a}'s wage minus {who_b}'s wage: ${_money(wage_a)} - ${_money(wage_b)} "
-            f"= ${answer_text} (in magnitude)."
+            f"= ${answer_text}."
         ],
     )
 

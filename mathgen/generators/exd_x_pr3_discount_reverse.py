@@ -65,7 +65,7 @@ def exd_x_pr3_discount_reverse(rng, tier="exam"):
             follow_through=f"{sale}*100/part_a",
             working=[
                 f"{paid_pct}% of the original is ${sale}.",
-                f"1% is ${Fraction(sale, paid_pct)}, so 100% is ${original}.",
+                f"1% is ${sale} ÷ {paid_pct} = ${original / 100:.2f}, so 100% is ${original}.",
             ],
             candidates=[
                 (Fraction(sale * (100 + p), 100), "percent-of-sale-price"),

@@ -548,6 +548,16 @@ def article_for_number(value) -> str:
     return "an" if whole.startswith("8") or whole in ("11", "18") else "a"
 
 
+def equals_chain(*steps) -> str:
+    """Steps of a worked line joined with " = ", leaving out a step that repeats the one before it, so an
+    already-simplified fraction reads "19/35" and never "19/35 = 19/35"."""
+    kept = [str(steps[0])]
+    for step in steps[1:]:
+        if str(step) != kept[-1]:
+            kept.append(str(step))
+    return " = ".join(kept)
+
+
 def phrase(rng: random.Random, patterns, **slots) -> str:
     """Pick ONE wording from `patterns` and fill it with `slots`.
 
