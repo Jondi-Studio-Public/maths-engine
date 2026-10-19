@@ -182,9 +182,13 @@ def decimals(rng, dp=1, hi=12, ops=("+", "-", "*")):
         answer_text, cands = _aligned(exact, slips, exact_only=True)
     else:
         _, cands = _aligned(Fraction(answer_text), slips, shown_places)
+    stem, stem_latex = f"{a_disp} {sym} {b_disp}", f"{a_disp} {sym} {b_disp}"
+    if Fraction(answer_text) != exact:  # the key is rounded, so the stem has to say how
+        stem += ", correct to 6 significant figures"
+        stem_latex += r",\ \text{correct to 6 significant figures}"
     return dict(
-        text=f"{a_disp} {sym} {b_disp}",
-        latex=f"{a_disp} {sym} {b_disp}",
+        text=stem,
+        latex=stem_latex,
         answer=ans_val,
         answer_text=answer_text,
         answer_latex=answer_text,

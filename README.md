@@ -1,16 +1,17 @@
 # maths-engine
 
 Maths question generators with verified answers, the graders that check
-replies to them, and a library of skill definitions. Pure Python, no website,
-no server, no model. The Python package and the command are called `mathgen`.
+replies to them, and a library of skill definitions. Pure Python, no website and no model. An optional
+HTTP API (`mathgen.server`) and an MCP server (`mathgen-mcp`) ship with it; neither runs unless you start it. The
+Python package and the command are called `mathgen`.
 
 Every question is built from a seed. The generator computes the answer, checks
 it a second way, and builds wrong options that the grader is guaranteed to
 reject. So you can generate as many questions as you like and trust the
 answer key.
 
-This repository contains code, skill definitions and tests only. It does not
-contain a website, curriculum framework data, rubrics or learner data.
+This repository contains code, skill definitions and tests only (the HTTP API and MCP server are code, and
+store no learner data). It does not contain a website, curriculum framework data, rubrics or learner data.
 
 ## Install
 

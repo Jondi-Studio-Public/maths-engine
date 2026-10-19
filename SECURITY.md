@@ -27,6 +27,9 @@ In scope:
   makes a grader run code, read or write files, or reach the network, whether
   it arrives through the Python API (`mathgen.engine.grade`), `python -m
   mathgen --answer`, or any other entry point.
+- The HTTP API (`mathgen.server`, `docs/server.md`) and the MCP server (`mathgen-mcp`, `docs/mcp.md`): a way
+  around the API keys or their roles, an answer or other secret leaking to a learner key, a request that reads
+  files outside the skill library, or a crafted request that hangs or exhausts a server.
 - Denial of service from a crafted answer string, for example a grader that
   hangs or exhausts memory on adversarial input.
 - Secrets or personal data accidentally committed to this repository.
@@ -39,6 +42,8 @@ Out of scope:
 - Vulnerabilities in dependencies (SymPy, NumPy, PyYAML). Report those
   upstream.
 - Anything about a website or app built on top of this package. This
-  repository contains no website, server or user data.
+  repository contains no website and no user data; the HTTP API and MCP server it ships store none.
+- A server you run with `MATHS_API_OPEN=1`, or exposed to the network without keys, against the advice in
+  `docs/server.md`.
 
 Only the latest release and the `main` branch receive fixes.
