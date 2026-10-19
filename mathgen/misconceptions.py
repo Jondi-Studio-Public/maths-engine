@@ -53159,6 +53159,586 @@ _ENTRIES = (
         "Divides the LCM by the known number to find the other number.",
         area="hcf-lcm-word-problems",
     ),
+    CatalogueEntry(
+        "w3ci-balance-for-interest",
+        "Gives the final balance where the interest earned was asked.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-simple-instead",
+        "Finds simple interest, adding the same amount every year.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-one-year",
+        "Gives one year's interest only.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-wrong-years",
+        "Compounds for one year too many or too few.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-annual-rate-each-period",
+        "Uses the annual rate in every compounding period instead of the rate for one period.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-periods-as-years",
+        "Counts the years instead of the number of compounding periods.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-annual-compounding",
+        "Compounds once a year although the interest is added more often.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-multiplies-by-amount",
+        "Multiplies the target amount by the growth factor instead of dividing.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-simple-discount",
+        "Takes the simple interest off the target amount to find the amount to invest.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-first-rate-throughout",
+        "Uses the first rate for the whole term when the rate changes.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-average-rate",
+        "Uses the average of the two rates for the whole term.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-difference-reversed",
+        "Gives one kind of interest where the difference between the two was asked.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3si-compounded",
+        "Compounds the interest every year instead of using simple interest.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-adds-principal",
+        "Adds the principal to the interest where only the interest was asked.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-off-by-one",
+        "Counts one year too many.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-forgets-principal",
+        "Gives the interest where the total amount was asked.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-months-as-years",
+        "Uses the number of months as the number of years.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-month-not-divided",
+        "Divides the months by 100 or by 10 instead of by 12.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-rate-not-percent",
+        "Leaves the rate as a whole number and does not divide it by 100.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-ignores-time",
+        "Leaves the time out of the working.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-time-for-rate",
+        "Divides the interest by the principal and by the rate but not by the time (or the reverse).",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-multiplies-for-inverse",
+        "Multiplies by the other quantities where the interest should be divided by them.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-total-for-interest",
+        "Uses the total amount as the interest when working back.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3wg-adds-instead",
+        "Adds the rate and the hours instead of multiplying them.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-misses-a-shift",
+        "Leaves one day's hours out of the total.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-first-day-repeated",
+        "Uses the first day's hours for every day.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-extra-hour",
+        "Counts one hour too many.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-only",
+        "Gives the loading alone, not the pay including it.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-as-dollars",
+        "Takes the tax rate off as a number of dollars.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-ignored",
+        "Gives the gross pay and does not take off tax.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rate-misread",
+        "Divides by a rate that is a dollar out.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rates-difference",
+        "Subtracts the two rates instead of the two pays.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-hours-difference",
+        "Multiplies the difference in hours by one rate.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-minutes-as-decimal",
+        "Writes 30 minutes as 0.30 of an hour (and 15 minutes as 0.15).",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-ignores-minutes",
+        "Leaves the minutes out of the hours worked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rounds-up-hour",
+        "Rounds the part hour up to a whole hour.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rate-inverted",
+        "Divides the hours by the pay instead of the pay by the hours.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-as-percent-only",
+        "Adds the loading as a dollar amount instead of a percentage of the rate.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-ignored",
+        "Leaves the casual loading out.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-as-pay",
+        "Gives the tax withheld where the pay after tax was asked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-added",
+        "Adds the tax to the gross pay instead of taking it off.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-floor-hours",
+        "Rounds the hours needed down, so the target is not reached.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-pay-as-hours",
+        "Divides the pay by the wrong number of hours.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-single-job",
+        "Gives the pay from one job only.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-sum-not-difference",
+        "Adds the two pays where the difference was asked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3ot-one-hour",
+        "Pays one hour of overtime only.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-extra-hour",
+        "Counts one overtime hour too many.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-wrong-multiplier",
+        "Uses double time where time and a half applies.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-all-hours-multiplied",
+        "Applies the overtime multiplier to every hour worked.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-overtime-at-ordinary",
+        "Pays the overtime hours at the ordinary rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-hours-not-subtracted",
+        "Uses all the hours worked as the overtime hours.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-ordinary-only",
+        "Leaves out the overtime pay.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-overtime-only",
+        "Gives the overtime pay where the whole week's pay was asked.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-second-rate-throughout",
+        "Pays every overtime hour at the higher rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-first-rate-throughout",
+        "Pays every overtime hour at the lower rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-pay-over-rate",
+        "Divides the pay by the ordinary rate only and does not remove the ordinary hours first.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-multiplier-forgotten-on-division",
+        "Divides by the hours worked and ignores that some are paid at a higher rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-ordinary-as-total",
+        "Treats the whole pay as overtime pay.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3up-miscounts-hundreds",
+        "Miscounts the number of 100 g lots in the packet.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-unit-price-given",
+        "Gives one of the unit prices where the difference was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-total-as-unit",
+        "Gives the price of the pack where the price of one was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-inverted",
+        "Divides the quantity by the price instead of the price by the quantity.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-adds-instead",
+        "Adds the unit price to itself instead of multiplying by the number of items.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-difference-of-totals",
+        "Subtracts the two pack prices instead of the two unit prices.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-per-gram",
+        "Gives the price per gram where the price per 100 grams was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-per-kg-as-100g",
+        "Gives the price per kilogram where the price per 100 grams was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-saving-per-item",
+        "Gives the saving on one item where the saving on all of them was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-wrong-pack",
+        "Prices all the items at the dearer pack's unit price.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-percent-of-cheaper",
+        "Finds the percentage using the cheaper unit price as the starting amount.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-percent-points",
+        "Gives the difference in cents as the percentage.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3fl-compounded",
+        "Compounds the interest instead of charging flat interest.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-off-by-one",
+        "Counts one year too many or too few.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-ignores-interest",
+        "Divides the amount borrowed alone by the number of months.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-interest-as-total",
+        "Gives the interest where the total repaid was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-one-year-interest",
+        "Finds one year's interest only.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-total-as-interest",
+        "Gives the total repaid where the interest was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-deposit-ignored",
+        "Charges interest on the price although a deposit is paid first.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-deposit-not-subtracted",
+        "Forgets to take the deposit off the price before adding interest.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-months-as-years",
+        "Divides by the number of years instead of the number of months.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-rate-without-time",
+        "Finds the rate without allowing for the number of years.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-rate-from-total",
+        "Uses the total repaid, not the interest, to find the rate.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-term-in-months",
+        "Gives the number of months where the number of years was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-term-from-total",
+        "Uses the total repaid, not the interest, to find the term.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-wrong-window",
+        "Multiplies the average by the wrong window size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-wrong-window",
+        "Averages a window of the wrong size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-shifted-window",
+        "Averages the window that starts at the stated point instead of the one centred on it.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-total-as-mean",
+        "Gives the total of the window without dividing.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-whole-series",
+        "Averages the whole series instead of one window.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-change-not-divided",
+        "Gives the change in the window total without dividing by the window size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-change-as-new-value",
+        "Gives the difference between the values leaving and entering as the change in the mean.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-not-from-total",
+        "Treats the moving average as the missing value.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-no-total",
+        "Subtracts the known values from the average without multiplying it by the window size first.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-centred-unweighted",
+        "Gives the end values of a centred 4-point mean the same weight as the others.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-centred-simple",
+        "Averages only the middle four values.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3mn-known-mean",
+        "Gives the mean of the known values as the missing value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-total-needed",
+        "Gives the total needed where the last score was asked.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-weights-swapped",
+        "Weights each mean by the other group's size.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-value-left-out",
+        "Leaves the new number out of the total.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-divides-by-wrong-count",
+        "Divides the total by the wrong number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-unweighted",
+        "Averages the scores without using the frequencies.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-divides-by-rows",
+        "Divides the weighted total by the number of rows in the table.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-sums-frequencies",
+        "Gives the total of the frequencies as the mean.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-mean-of-means",
+        "Averages the two group means without weighting them by group size.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-is-mean",
+        "Gives the target mean as the missing value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-no-total",
+        "Subtracts the known values from the mean without multiplying the mean by the number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-wrong-count",
+        "Multiplies the target mean by one value too few when finding the missing total.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-value-averaged",
+        "Averages the old mean with the new value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-count-forgotten",
+        "Divides the new total by the old number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3np-fewest-roads",
+        "Chooses the route with the fewest roads instead of the shortest total.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-greedy",
+        "Always takes the shortest road next and does not compare whole routes.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-longest",
+        "Gives the longest route instead of the shortest.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-second-shortest",
+        "Gives the second shortest route.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-skips-stop",
+        "Ignores that the route must pass through the stated town.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-two-legs-shortest-sum-error",
+        "Joins the two shortest legs even when they overlap or share a road.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-closed-ignored",
+        "Keeps using the road that has been closed.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-drops-the-detour",
+        "Takes the closed road's length off the old shortest route instead of finding a new route.",
+        area="shortest-network-path",
+    ),
     # w3 consumer block end
 )
 

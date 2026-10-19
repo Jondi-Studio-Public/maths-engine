@@ -3,14 +3,71 @@ name: Calculate a moving average
 domain: financial-discrete
 description: Calculate the arithmetic mean for a stated moving window of time-series observations.
 status: active
-prerequisites: [calculate-mean]
+prerequisites:
+- calculate-mean
 answer: number
 sources:
-- {topic: moving_average, params: {window: 3}, difficulty: easy}
+- topic: moving_average
+  params:
+    window: 3
+  difficulty: easy
+- topic: w3_movavg_tiers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_movavg_tiers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: exd_x_g5_moving_average
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
-misconceptions: [{id: divides-wrong-count, description: Divides by the full series length instead of the window size.}]
-tags: [expansion-batch-5, time-series]
+misconceptions:
+- id: divides-wrong-count
+  description: Divides by the full series length instead of the window size.
+- id: w3ma-missing-wrong-window
+  description: Multiplies the average by the wrong window size.
+- id: w3ma-wrong-window
+  description: Averages a window of the wrong size.
+- id: w3ma-shifted-window
+  description: Averages the window that starts at the stated point instead of the one centred on it.
+- id: w3ma-total-as-mean
+  description: Gives the total of the window without dividing.
+- id: w3ma-whole-series
+  description: Averages the whole series instead of one window.
+- id: w3ma-change-not-divided
+  description: Gives the change in the window total without dividing by the window size.
+- id: w3ma-change-as-new-value
+  description: Gives the difference between the values leaving and entering as the change in the mean.
+- id: w3ma-missing-not-from-total
+  description: Treats the moving average as the missing value.
+- id: w3ma-missing-no-total
+  description: Subtracts the known values from the average without multiplying it by the window size first.
+- id: w3ma-centred-unweighted
+  description: Gives the end values of a centred 4-point mean the same weight as the others.
+- id: w3ma-centred-simple
+  description: Averages only the middle four values.
+tags:
+- expansion-batch-5
+- time-series
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Average three values.
+  medium:
+    steps: 3
+    demand: Find the moving average centred on a stated period, with a 3-point or 5-point window.
+  hard:
+    steps: 5
+    demand: Find a missing value, the change in the average when the window moves, or a centred 4-point average.
+  exam:
+    steps: 7
+    demand: Chain moving averages with a trend comment.

@@ -1,19 +1,79 @@
 id: simple-interest
 name: Calculate simple interest
 domain: financial-discrete
-description: |
-  Calculate simple interest from principal, annual rate and whole years. The exam tier
+description: 'Calculate simple interest from principal, annual rate and whole years. The exam tier
+
   uses a term in whole months and asks for the interest, the final value and the annual
+
   rate that would earn the same interest over a shorter term.
+
+  '
 status: active
-prerequisites: [percentage-of-quantity]
+prerequisites:
+- percentage-of-quantity
 answer: number
 sources:
-- {topic: financial_interest, params: {kind: simple}, difficulty: easy}
+- topic: financial_interest
+  params:
+    kind: simple
+  difficulty: easy
+- topic: w3_si_tiers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_si_tiers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: exd_x_r3b_simple_interest
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
-misconceptions: [{id: omits-time, description: Calculates one year's interest and ignores the number of years.}]
-tags: [expansion-batch-5, finance]
+misconceptions:
+- id: omits-time
+  description: Calculates one year's interest and ignores the number of years.
+- id: w3si-compounded
+  description: Compounds the interest every year instead of using simple interest.
+- id: w3si-adds-principal
+  description: Adds the principal to the interest where only the interest was asked.
+- id: w3si-off-by-one
+  description: Counts one year too many.
+- id: w3si-forgets-principal
+  description: Gives the interest where the total amount was asked.
+- id: w3si-months-as-years
+  description: Uses the number of months as the number of years.
+- id: w3si-month-not-divided
+  description: Divides the months by 100 or by 10 instead of by 12.
+- id: w3si-rate-not-percent
+  description: Leaves the rate as a whole number and does not divide it by 100.
+- id: w3si-ignores-time
+  description: Leaves the time out of the working.
+- id: w3si-time-for-rate
+  description: Divides the interest by the principal and by the rate but not by the time (or the reverse).
+- id: w3si-multiplies-for-inverse
+  description: Multiplies by the other quantities where the interest should be divided by them.
+- id: w3si-total-for-interest
+  description: Uses the total amount as the interest when working back.
+tags:
+- expansion-batch-5
+- finance
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the interest for whole years.
+  medium:
+    steps: 3
+    demand: Find the total amount, or the interest for a term in months.
+  hard:
+    steps: 5
+    demand: Work back to the rate, the time or the principal from the interest.
+  exam:
+    steps: 7
+    demand: Combine interest, final value and a changed term.
