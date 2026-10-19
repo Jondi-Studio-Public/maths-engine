@@ -52118,6 +52118,346 @@ _ENTRIES = (
         "Counts the whole number where the denominator is zero as a solution, or the complement of the solution count.",
         area="rational-inequalities",
     ),
+    CatalogueEntry(
+        "w5c-centre-sign-as-written",
+        "Takes the centre with the signs as they appear inside the brackets, so (x - 3) gives a centre at x = -3.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-sign-unchanged",
+        "Writes the centre coordinates into (x + a)^2 + (y + b)^2 with their own signs instead of reversing them.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-coordinates-swapped",
+        "Swaps the x- and y-coordinates of the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-is-r-squared",
+        "Gives the number on the right of the equation, r squared, as the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-off-by-one",
+        "Gives a radius one unit away from the correct one.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-writes-radius-not-squared",
+        "Writes the radius where the radius squared belongs on the right of the equation.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-doubles-radius-not-squares",
+        "Doubles the radius where it should be squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-distance-by-adding-offsets",
+        "Finds a distance by adding the horizontal and vertical offsets instead of using Pythagoras.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-centre-sign-in-distance",
+        "Measures the distance from the point to the centre with the signs of the centre reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-sum-not-midpoint",
+        "Adds the coordinates of the two ends of a diameter to get the centre, without halving.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-squared-for-radius",
+        "Squares the diameter where the radius should be squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-endpoint-not-midpoint",
+        "Uses an end of the diameter as the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-quadrant",
+        "Gives the centre in the wrong quadrant, ignoring which quadrant the circle lies in.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-tangent-wrong-axis",
+        "Uses the distance to the wrong axis as the radius of a circle that touches an axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-distance-from-origin",
+        "Uses the distance from the centre to the origin as the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-difference",
+        "Subtracts the coordinates of the two ends of a diameter to get the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-for-radius",
+        "Gives the diameter where the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-radius-for-gap",
+        "Adds the radius to the distance to the centre where the shortest distance to the circle was needed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-distance-to-centre-not-circle",
+        "Gives the distance from the point to the centre where the distance to the circle itself was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-for-gap",
+        "Gives the radius where the distance from the point to the circle was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-squared-distances",
+        "Subtracts squared distances where the distances themselves should be subtracted.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-half-coefficient-with-its-sign",
+        "Halves the coefficient of x or y but keeps its sign, so x^2 - 6x gives a centre at x = -3.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-not-halved",
+        "Uses the whole coefficient of x or y as the coordinate of the centre, without halving it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-to-add-completed-squares",
+        "Forgets to add the squares made by completing the square to the right side, so the radius squared comes out too small.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-completed-squares-subtracted-twice",
+        "Subtracts the completed squares from the right side instead of adding them.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-expands-with-wrong-signs",
+        "Expands the squared brackets with the signs of the linear terms reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-linear-term-not-doubled",
+        "Writes the linear term as the centre coordinate alone, without doubling it when expanding.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-squared-added-not-subtracted",
+        "Adds the radius squared to the squares of the centre coordinates where it should be subtracted.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-constant-sign-reversed",
+        "Gives the constant term with its sign reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-the-common-factor",
+        "Completes the square without first dividing through by the common factor of the squared terms.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-squares-the-radius-squared",
+        "Squares r squared a second time.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-the-centre-offset",
+        "Adds the height of the centre to the radius where only the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-chord-half-for-radius",
+        "Gives half the chord where the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-x-for-y",
+        "Gives x-coordinates where the y-coordinates of the points were asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-centre-offset",
+        "Gives plus and minus the radius, forgetting that the centre is not on the axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-one-intersection-only",
+        "Gives only one of the two points where the line meets the circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-half-chord-for-chord",
+        "Gives half the chord where the whole chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-for-chord",
+        "Gives the diameter where the chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-centre-height-for-chord",
+        "Doubles the height of the centre above the axis where the chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-chord-by-subtracting",
+        "Doubles the radius less the height of the centre instead of using Pythagoras for the chord.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-sign-flipped",
+        "Uses a centre with the signs reversed when deciding where a point lies.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-centre",
+        "Measures the distance from the origin instead of from the centre of the circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-compares-squared-distance-with-radius",
+        "Compares the squared distance with the radius instead of the radius squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-offsets-without-squaring",
+        "Adds the horizontal and vertical offsets instead of finding the distance, and compares the sum with the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-near-miss-treated-as-on",
+        "Treats a point that is close to the circle as being on it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-boundary-misjudged",
+        "Misjudges which side of the circle a point close to it lies on.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-square-root",
+        "Gives the squared distance where the distance was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-subtracts-radius-for-farthest",
+        "Subtracts the radius where the farthest point needs it added.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-squared-radius",
+        "Adds the radius squared to the distance.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-doubles-the-distance",
+        "Doubles the greatest distance.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-takes-the-other-point",
+        "Chooses the other point on the circle, on the wrong side of the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-the-centre-offset",
+        "Gives the offset from the centre as the coordinate, forgetting to add the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-for-offset",
+        "Adds the radius to the centre as if the point were level with it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-constant-is-minus-r-squared",
+        "Gives minus the radius squared as the constant term.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-the-linear-terms",
+        "Substitutes the point into the squared terms only and ignores the linear terms.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-confuses-f-with-centre-form",
+        "Mixes up the constant F with the right-hand side of the centre-radius form.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-allows-zero-radius",
+        "Allows the radius squared to be zero, which describes a single point rather than a circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-wrong-direction-for-bound",
+        "Takes the bound in the wrong direction and gives a value that is too large.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-off-by-one-at-the-bound",
+        "Gives a value one below the greatest whole number allowed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-inverted",
+        "Inverts the gradient, running across over up instead of up over across.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-sign-flipped",
+        "Gives the gradient with its sign reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-from-origin",
+        "Finds the gradient from the origin to the point instead of from the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-with-centre-sign-flipped",
+        "Finds the gradient from the centre with its signs reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-tangent-parallel-to-radius",
+        "Gives the gradient of the radius as the gradient of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-is-the-y-coordinate",
+        "Gives the y-coordinate of the point of contact as the y-intercept of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-sign-error",
+        "Makes a sign error when finding where the tangent meets the axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-with-radius-gradient",
+        "Finds the intercept using the gradient of the radius instead of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-is-the-x-coordinate",
+        "Gives the x-coordinate of the point of contact as the x-intercept of the tangent.",
+        area="circle-equations",
+    ),
 )
 
 #: Every entry, by id.

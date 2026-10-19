@@ -493,7 +493,7 @@ def _quad_exam(rng):
     strict = finite_op in ("<", ">")
     count = sum(1 for x in range(p - 2, q + 3) if _holds(Fr(fn(x)), finite_op))
     check(count == (q - p - 1 if strict else q - p + 1), "integer count differs")
-    c_fields = number_fields(count)
+    c_fields = number_fields(count, fraction=True)
     c_dist = number_cands(
         count,
         [
@@ -506,7 +506,7 @@ def _quad_exam(rng):
     # (d) greatest or least value
     extreme = fn(v)
     check(extreme == -A * (v - p) ** 2, "extreme value differs")
-    d_fields = number_fields(extreme)
+    d_fields = number_fields(extreme, fraction=True)
     d_dist = number_cands(
         extreme,
         [

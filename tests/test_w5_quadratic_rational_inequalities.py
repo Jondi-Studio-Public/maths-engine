@@ -155,7 +155,10 @@ def test_pools_and_shapes():
 
 def test_quadratic_exam_chain():
     sup.check_exam_chain_kinds(
-        QSKILL, QUAD_EXAM, [1, 2, 1, 1], [{"number", "fraction"}, {"inequality"}, {"number"}, {"number", "fraction"}]
+        QSKILL,
+        QUAD_EXAM,
+        [1, 2, 1, 1],
+        [{"number", "fraction"}, {"inequality"}, {"number", "fraction"}, {"number", "fraction"}],
     )
     for seed in range(60):
         q = sup.exam(QUAD_EXAM, seed)

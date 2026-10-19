@@ -223,7 +223,7 @@ def ordered_cands(fields: dict, pairs, n: int = 3) -> list[Distractor]:
     out: list[Distractor] = []
     seen = {fields["answer_text"]}
     for values, tag in pairs:
-        if values is None:
+        if values is None or any(v is None for v in values):
             continue
         values = [rat(v) for v in values]
         text = ", ".join(rt(v) for v in values)
@@ -239,9 +239,12 @@ def ordered_cands(fields: dict, pairs, n: int = 3) -> list[Distractor]:
 # -- numbers (whole or exact fraction), with the grader kind chosen to suit the value -------------------------------
 
 
-def number_fields(value) -> dict:
+def number_fields(value, fraction: bool = False) -> dict:
+    """The answer of an exact number. The grader kind is `number` for a whole value and `fraction` otherwise; pass
+    `fraction=True` for a part that later follow-through could make fractional, so a learner's carried-forward value
+    (3/2 where the canonical answer is the whole number 3) is still stated in the part's own kind."""
     value = rat(value)
-    kind = "number" if value.denominator == 1 else "fraction"
+    kind = "number" if value.denominator == 1 and not fraction else "fraction"
     return dict(answer_kind=kind, **num_fields(value))
 
 
