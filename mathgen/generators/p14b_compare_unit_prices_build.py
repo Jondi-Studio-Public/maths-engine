@@ -116,8 +116,8 @@ def _draw_two_pack(rng, cfg: dict, target: str):
 
 def _option_texts(kind: str) -> dict:
     if kind == "two_pack":
-        return {"A": "Pack A", "B": "Pack B", "tie": "Tie -- the same price per unit"}
-    return {"A": "Pack A", "B": "Pack B", "C": "Pack C", "tie": "Tie -- two packs share the cheapest price"}
+        return {"A": "Pack A", "B": "Pack B", "tie": "Tie: the same price either way"}
+    return {"A": "Pack A", "B": "Pack B", "C": "Pack C", "tie": "Tie: two packs share the cheapest price"}
 
 
 def _cents_text(cents_per_unit: Fraction) -> str:

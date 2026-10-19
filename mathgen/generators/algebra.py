@@ -824,6 +824,20 @@ def quadratic(rng, root_hi=9, kind="factor"):
     )
 
 
+def _substituted_quadratic(a: int, b: int, c: int, n: int) -> str:
+    """``a(n)^2 + b(n) + c`` as a learner writes the substitution: a zero term is left out, a coefficient of 1 is
+    not written, and a negative term is subtracted ("- 3(2)", never "+ -3(2)")."""
+    pieces = [(a, f"({n})^2"), (b, f"({n})"), (c, "")]
+    out = ""
+    for coef, body in pieces:
+        if coef == 0:
+            continue
+        mag = "" if (body and abs(coef) == 1) else str(abs(coef))
+        term = f"{mag}{body}"
+        out += (f"-{term}" if coef < 0 else term) if not out else (f" - {term}" if coef < 0 else f" + {term}")
+    return out or "0"
+
+
 @generator(
     "function_evaluation",
     level=10,
@@ -861,8 +875,6 @@ def function_evaluation(rng, coef_hi=5, arg_hi=6, a_lo=1):
         answer_text=f"f({n}) = {ans}",
         answer_latex=f"f({n}) = {ans}",
         answer_kind="number",
-        working=[
-            f"f({n}) = {a}({n})^2 {'+' if b >= 0 else '-'} {abs(b)}({n}) {'+' if c >= 0 else '-'} {abs(c)} = {ans}"
-        ],
+        working=[f"f({n}) = {_substituted_quadratic(a, b, c, n)} = {ans}"],
         distractors=pick_distractors(f"f({n}) = {ans}", cands),
     )

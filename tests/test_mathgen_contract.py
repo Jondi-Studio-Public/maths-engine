@@ -132,14 +132,16 @@ PINNED_HASHES = {
     # Re-pinned once for the typed answer contract (engine commit aea1e1f): the
     # topic's distractors now carry misconception tags, so its output gained
     # `option_notes` and `distractor_values`.
+    # Re-pinned (bug hunt round 2): only `working` changed -- zero terms and unit coefficients are no longer
+    # written out, so no "+ -3(2)", "+ 0" or "1(3)" noise. Seeds 0, 1 and 42 were already clean.
     "function_evaluation": {
         "0": "291346ace9e7ead3",
         "1": "8898d6f7117d2d48",
-        "7": "60cfd4235d272539",
+        "7": "5fe096e5d9c0f614",
         "42": "2aa37dcce84a2627",
-        "3:easy": "78396e22cc45b18b",
-        "3:medium": "303d3277ce7c068e",
-        "3:hard": "8fad5412a6b2925a",
+        "3:easy": "3a541f5a6c0415dd",
+        "3:medium": "83d289b33bfdee6e",
+        "3:hard": "e3f3f4983e8d7f0f",
     },
     # Updated once for the medium/hard tier-collision fix in
     # mathgen/generators/geometry.py (hard's k now draws from randint(4, 6)

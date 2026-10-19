@@ -145,7 +145,7 @@ def test_every_drawn_seed_uses_a_table_triple_and_stays_exact():
 _S_RE = re.compile(r"base side length of (\d+) cm")
 _AREA_RE = re.compile(r"base area of (\d+) cm²")
 _H_RE = re.compile(r"perpendicular height of (\d+) cm")
-_ANSWER_RE = re.compile(r"^volume = (\d+), surface_area = (\d+)$")
+_ANSWER_RE = re.compile(r"^volume = (\d+), area = (\d+)$")
 
 
 def _parse_s_h(tier: str, question_text: str) -> tuple[int, int]:
@@ -177,7 +177,7 @@ def _independent_answer_text(tier: str, question_text: str) -> str:
     assert volume.denominator == 1, f"oracle: volume {volume} is not an exact integer"
     volume = int(volume)
     surface_area = s * s + 2 * s * l
-    return f"volume = {volume}, surface_area = {surface_area}"
+    return f"volume = {volume}, area = {surface_area}"
 
 
 @pytest.mark.parametrize("tier", TIERS)
@@ -353,7 +353,7 @@ def test_real_grader_accepts_reordered_labels(tier):
         m = _ANSWER_RE.match(q.answer_text)
         assert m is not None
         volume_text, sa_text = m.groups()
-        reordered = f"surface_area = {sa_text}, volume = {volume_text}"
+        reordered = f"area = {sa_text}, volume = {volume_text}"
         result = grade_pair(q, reordered)
         assert result.correct, f"{tier} seed {q.seed}: reordered labels rejected: {reordered!r}"
 
@@ -365,7 +365,7 @@ def test_real_grader_rejects_wrong_value_under_a_correct_label(tier):
         assert m is not None
         volume_text, sa_text = m.groups()
         wrong_sa = int(sa_text) + 1000  # far outside any 0.051 tolerance
-        given = f"volume = {volume_text}, surface_area = {wrong_sa}"
+        given = f"volume = {volume_text}, area = {wrong_sa}"
         result = grade_pair(q, given)
         assert not result.correct, f"{tier} seed {q.seed}: wrong surface_area value wrongly accepted: {given!r}"
 
@@ -381,7 +381,7 @@ def test_real_grader_rejects_correct_values_under_swapped_labels(tier):
         volume_text, sa_text = m.groups()
         if volume_text == sa_text:
             continue
-        swapped = f"volume = {sa_text}, surface_area = {volume_text}"
+        swapped = f"volume = {sa_text}, area = {volume_text}"
         result = grade_pair(q, swapped)
         assert not result.correct, f"{tier} seed {q.seed}: swapped volume/surface_area wrongly accepted: {swapped!r}"
 

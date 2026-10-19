@@ -26,6 +26,11 @@ def _expr(cx: int, cy: int, k: int) -> str:
     return join_terms([(cx, "x"), (cy, "y"), (k, "")])
 
 
+def _bracketed(expr: str) -> str:
+    """``expr`` in brackets, except a single bare term (``3x``), which needs none."""
+    return f"({expr})" if " " in expr or expr.startswith("-") else expr
+
+
 def _draw(rng):
     for _ in range(2000):
         x, y = rng.randint(5, 30), rng.randint(5, 30)
@@ -72,15 +77,15 @@ def exd_x_h4_cyclic_two_unknowns(rng: random.Random, tier: str = "exam") -> dict
     text = phrase(
         rng,
         (
-            "ABCD is a cyclic quadrilateral with angle A = ({a}) degrees, angle B = ({b}) degrees, "
-            "angle C = ({c}) degrees and angle D = ({d}) degrees. Find angle {asked}, in degrees.",
-            "The angles of cyclic quadrilateral ABCD are A = ({a}) degrees, B = ({b}) degrees, C = ({c}) degrees "
-            "and D = ({d}) degrees. Calculate the size of angle {asked}, in degrees.",
+            "ABCD is a cyclic quadrilateral with angle A = {a} degrees, angle B = {b} degrees, "
+            "angle C = {c} degrees and angle D = {d} degrees. Find angle {asked}, in degrees.",
+            "The angles of cyclic quadrilateral ABCD are A = {a} degrees, B = {b} degrees, C = {c} degrees "
+            "and D = {d} degrees. Calculate the size of angle {asked}, in degrees.",
         ),
-        a=_expr(*coef["A"], const["A"]),
-        b=_expr(*coef["B"], const["B"]),
-        c=_expr(*coef["C"], const["C"]),
-        d=_expr(*coef["D"], const["D"]),
+        a=_bracketed(_expr(*coef["A"], const["A"])),
+        b=_bracketed(_expr(*coef["B"], const["B"])),
+        c=_bracketed(_expr(*coef["C"], const["C"])),
+        d=_bracketed(_expr(*coef["D"], const["D"])),
         asked=asked,
     )
     other = "BD" if asked in "AC" else "AC"

@@ -378,13 +378,8 @@ def use_everyday_occurrences_to_illustrate_set_descriptions_and(rng, tier="easy"
     check(correct_notation not in distractors, "distractor equals answer")
     check(len(distractors) == len(set(distractors)), "duplicate distractors")
 
-    # Build MCQ options by shuffling answer + distractors
-    all_options = [correct_notation] + distractors
-    rng.shuffle(all_options)
-
-    # Build text without newlines
-    options_str = "; ".join(f"{chr(65 + i)}: {opt}" for i, opt in enumerate(all_options))
-    text = f"Which phrase describes the following group? {description_text[:1].upper() + description_text[1:]}. Options: {options_str}"
+    # The multiple-choice display shows the options, so the stem does not repeat them.
+    text = f"Which phrase describes the following group? {description_text[:1].upper() + description_text[1:]}."
 
     answer_text = correct_notation
 
