@@ -12,7 +12,7 @@ from fractions import Fraction
 from itertools import combinations, product
 from math import comb
 
-from ..core import GRADER_TOLERANCE, check, draw_until, generator, pick_distractors, paren_negative
+from ..core import GRADER_TOLERANCE, check, draw_until, equals_chain, generator, pick_distractors, paren_negative
 
 
 def _fraction_payload(value: Fraction) -> tuple[dict[str, int], str]:
@@ -257,14 +257,14 @@ def bernoulli_mle(rng, n_hi=25, kind=None):
         str(round(k / n, 2)),
     ]
     return dict(
-        text=f"In {n} independent Bernoulli trials there are {k} {'success' if k == 1 else 'successes'}. Find the MLE of p.",
+        text=f"In {n} independent Bernoulli trials there {'is' if k == 1 else 'are'} {k} {'success' if k == 1 else 'successes'}. Find the MLE of p.",
         latex=rf"\hat p=\arg\max_{{0<p<1}}p^{{{k}}}(1-p)^{{{n - k}}}",
         answer=answer,
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
             f"The log-likelihood score is k/p − (n−k)/(1−p).",
-            f"Setting it to zero gives p-hat = k/n = {k}/{n} = {answer_text}.",
+            f"Setting it to zero gives p-hat = k/n = {equals_chain(f'{k}/{n}', answer_text)}.",
         ],
         distractors=pick_distractors(answer_text, alternatives),
     )

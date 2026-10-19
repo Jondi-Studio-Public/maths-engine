@@ -137,7 +137,7 @@ def exd_x_m4_roots_of_unity_chain(rng: random.Random, tier: str = "exam") -> dic
                 sensible_range=(0, 180),
                 working=[
                     f"The {n} roots are equally spaced, 360° ÷ {n} apart.",
-                    f"Indices {j} and {k} are {step} steps apart the short way round, so angle POQ = {step} x 360° ÷ {n} "
+                    f"Indices {j} and {k} are {step} step{"s" if step != 1 else ""} apart the short way round, so angle POQ = {step} × 360° ÷ {n} "
                     f"= {a_text}°.",
                 ],
                 distractors=a_d,
@@ -151,7 +151,7 @@ def exd_x_m4_roots_of_unity_chain(rng: random.Random, tier: str = "exam") -> dic
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"2*{u}*sin(part_a*pi/360)",
-                working=[f"OP = OQ = {u} cm, so PQ = 2 x {u} x sin({a_text}° ÷ 2) = {d_text} cm."],
+                working=[f"OP = OQ = {u} cm, so PQ = 2 × {u} × sin({a_text}° ÷ 2) = {d_text} cm."],
                 distractors=b_d,
             ),
             dict(
@@ -163,7 +163,7 @@ def exd_x_m4_roots_of_unity_chain(rng: random.Random, tier: str = "exam") -> dic
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"{u * u}*sin(part_a*pi/180)/2",
-                working=[f"Area = 1/2 x {u} x {u} x sin({a_text}°) = {s_text} cm²."],
+                working=[f"Area = 1/2 × {u} × {u} × sin({a_text}°) = {s_text} cm²."],
                 distractors=c_d,
             ),
         ],
