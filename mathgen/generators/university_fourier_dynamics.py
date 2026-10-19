@@ -14,6 +14,7 @@ from math import pi
 
 import sympy
 
+from ..calc_cache import integrate
 from ..core import check, check_equivalent, generator, latex_answer, pick_distractors
 
 
@@ -30,11 +31,11 @@ def _fourier_coefficient_step(rng, n_hi):
         n = rng.randint(1, n_hi)
         family = rng.choice(("sine", "cosine"))
         basis = sympy.sin(n * x) if family == "sine" else sympy.cos(n * x)
-        coefficient = sympy.simplify(2 / sympy.pi * sympy.integrate(c * basis, (x, 0, sympy.pi / 2)))
+        coefficient = sympy.simplify(2 / sympy.pi * integrate(c * basis, (x, 0, sympy.pi / 2)))
         if coefficient != 0:
             break
 
-    antiderivative = sympy.integrate(c * basis, x)
+    antiderivative = integrate(c * basis, x)
     check_equivalent(sympy.diff(antiderivative, x), c * basis, "Fourier step antiderivative check failed")
     numeric = 2 / pi * float(sympy.N(sympy.Integral(c * basis, (x, 0, sympy.pi / 2)), 30))
     check(abs(numeric - float(sympy.N(coefficient, 30))) < 1e-10, "Fourier step numerical check failed")
@@ -43,8 +44,8 @@ def _fourier_coefficient_step(rng, n_hi):
     check_equivalent(by_hand, coefficient, "Fourier step endpoint evaluation check failed")
 
     other = sympy.cos(n * x) if family == "sine" else sympy.sin(n * x)
-    wrong_basis = sympy.simplify(2 / sympy.pi * sympy.integrate(c * other, (x, 0, sympy.pi / 2)))
-    whole = sympy.simplify(2 / sympy.pi * sympy.integrate(c * basis, (x, 0, sympy.pi)))
+    wrong_basis = sympy.simplify(2 / sympy.pi * integrate(c * other, (x, 0, sympy.pi / 2)))
+    whole = sympy.simplify(2 / sympy.pi * integrate(c * basis, (x, 0, sympy.pi)))
     answer_text = _expr_text(coefficient)
     candidates = [
         _expr_text(-coefficient),
@@ -99,22 +100,20 @@ def fourier_coefficient_simple(rng, n_hi=6, kind=None):
     power = rng.choice((1, 2))
     f = x**power
     basis = sympy.sin(n * x) if family == "sine" else sympy.cos(n * x)
-    coefficient = sympy.simplify(2 / sympy.pi * sympy.integrate(f * basis, (x, 0, sympy.pi)))
+    coefficient = sympy.simplify(2 / sympy.pi * integrate(f * basis, (x, 0, sympy.pi)))
 
     # Independent checks: differentiate the antiderivative and compare a
     # high-precision numerical quadrature with the exact result.
-    antiderivative = sympy.integrate(f * basis, x)
+    antiderivative = integrate(f * basis, x)
     check_equivalent(sympy.diff(antiderivative, x), f * basis, "Fourier integrand antiderivative check failed")
-    numeric = sympy.N(2 / sympy.pi * sympy.integrate(f * basis, (x, 0, sympy.pi)), 30)
+    numeric = sympy.N(2 / sympy.pi * integrate(f * basis, (x, 0, sympy.pi)), 30)
     check(abs(float(numeric) - float(sympy.N(coefficient, 30))) < 1e-10, "Fourier coefficient numerical check failed")
 
     answer_text = _expr_text(coefficient)
     wrong_sign = _expr_text(-coefficient)
     missing_factor = _expr_text(sympy.simplify(coefficient / 2))
     wrong_basis = sympy.simplify(
-        2
-        / sympy.pi
-        * sympy.integrate(f * (sympy.cos(n * x) if family == "sine" else sympy.sin(n * x)), (x, 0, sympy.pi))
+        2 / sympy.pi * integrate(f * (sympy.cos(n * x) if family == "sine" else sympy.sin(n * x)), (x, 0, sympy.pi))
     )
     candidates = [wrong_sign, missing_factor, _expr_text(wrong_basis), _expr_text(coefficient + 1)]
     return dict(

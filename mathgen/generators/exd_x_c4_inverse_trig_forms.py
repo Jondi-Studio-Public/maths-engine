@@ -13,8 +13,9 @@ from __future__ import annotations
 
 import random
 
-from sympy import Rational, Symbol, asin, atan, integrate, pi, sqrt
+from sympy import Rational, Symbol, asin, atan, pi, sqrt
 
+from ..calc_cache import integrate
 from ..core import check_equivalent, generator, join_terms, latex_answer, latex_prompt, pick_distractors
 
 _X = Symbol("x", real=True)
