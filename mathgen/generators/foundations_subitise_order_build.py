@@ -111,7 +111,7 @@ def subitise_to_5(rng, mode="canonical", count_range=(1, 5)):
         working = [
             "This is a dot pattern you may already recognise (like a dice face) -- "
             "there is no need to count one by one.",
-            f"There are {count} altogether.",
+            f"There {'is' if count == 1 else 'are'} {count} altogether.",
         ]
     elif mode == "scattered":
         fig = counters(
@@ -122,7 +122,7 @@ def subitise_to_5(rng, mode="canonical", count_range=(1, 5)):
         )
         working = [
             "These are scattered, not in a familiar pattern, so look at the whole group rather than a single shape.",
-            f"There are {count} altogether.",
+            f"There {'is' if count == 1 else 'are'} {count} altogether.",
         ]
     elif mode == "clustered":
         dots = scatter_dots(rng, count, arrangement="clusters")

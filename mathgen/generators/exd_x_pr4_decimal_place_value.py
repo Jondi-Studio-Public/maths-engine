@@ -16,6 +16,7 @@ from math import floor
 
 from mathgen.answers import Distractor
 from mathgen.core import (
+    exact_decimal_string,
     attempts,
     check,
     generator,
@@ -148,7 +149,9 @@ def exd_x_pr4_decimal_place_value(rng: random.Random, tier: str = "exam") -> dic
                 marks=1,
                 sensible_range=(0, None),
                 follow_through="floor(100*part_b)",
-                working=[f"{b_text} kg is {new_value * 100} hundredths, so {c_text} whole hundredths."],
+                working=[
+                    f"{b_text} kg is {exact_decimal_string(new_value * 100, 3)} hundredths, so {c_text} whole hundredths."
+                ],
                 distractors=c_d,
             ),
         ],

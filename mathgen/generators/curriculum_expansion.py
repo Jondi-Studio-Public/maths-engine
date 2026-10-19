@@ -477,7 +477,10 @@ def recurring_decimal_fraction(rng):
         answer,
         [Fraction(digit, 10), Fraction(digit, 99), Fraction(1, digit), Fraction(9, digit)],
         latex=rf"\text{{Write }} 0.\overline{{{digit}}} \text{{ as a fraction in lowest terms.}}",
-        working=[f"A single recurring digit gives {digit}/9 = {rational_text(answer)}."],
+        working=[
+            f"A single recurring digit gives {digit}/9"
+            + (f", which simplifies to {rational_text(answer)}." if rational_text(answer) != f"{digit}/9" else ".")
+        ],
     )
 
 
