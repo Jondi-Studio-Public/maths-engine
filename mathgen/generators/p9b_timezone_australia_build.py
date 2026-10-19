@@ -608,7 +608,7 @@ def timezone_call_window_overlap(rng, tier="easy"):
     )
     working = [
         f"Place A window (local): {a1}:00-{a2}:00; Place B window (local): {b1}:00-{b2}:00",
-        f"Offset difference d = {_h(eff_b)} - {_h(eff_a)} = {_h(d)} hours",
+        f"Offset difference d = {_h(eff_b)} - {_h(eff_a)} = {_h(d)} {_hour_word(abs(Fraction(d)))}",
         f"Place B's window in Place A's time is {_clock_h(b1 + d)} to {_clock_h(b2 + d)}. "
         f"The overlap with Place A's window runs from {_clock_h(max(a1, b1 + d))} to {_clock_h(min(a2, b2 + d))}, "
         f"which is {answer_text} {_hour_word(overlap)}.",

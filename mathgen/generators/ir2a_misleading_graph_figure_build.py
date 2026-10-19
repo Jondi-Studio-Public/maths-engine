@@ -102,8 +102,8 @@ def _flaw_part(
     else:
         wrongs.append((opts["truncated"], "ir2a-sees-a-flaw-in-an-honest-axis"))
     wrongs += [
-        # That tag's note says "the flaw is the vertical axis", which an honest graph does not have: leave it untagged.
-        (opts["uneven_x"], "ir2a-blames-the-horizontal-axis" if truncated else None),
+        # On an honest graph the uneven-axis option is an invented flaw, so it is tagged as one.
+        (opts["uneven_x"], "ir2a-blames-the-horizontal-axis" if truncated else "ir2a-sees-a-flaw-in-an-honest-axis"),
         (opts["uneven_y"], "ir2a-blames-the-vertical-steps"),
         (opts["wrong_type"], "ir2a-says-a-line-graph-is-the-wrong-display"),
         (opts["no_values"], "ir2a-says-the-graph-cannot-be-read"),
@@ -345,7 +345,7 @@ def exd_x_ir2a_misleading_graph_figure(rng: random.Random, tier: str = "exam") -
             ),
             (
                 f"The headline is misleading: the horizontal axis is unevenly spaced, and the real rise is {float(pct):.1f}%.",
-                None,
+                "ir2a-sees-a-flaw-in-an-honest-axis",
             ),
             (
                 f"The headline is fair: the value rose by {float(Fraction(last * 100, first)):.1f}%.",
