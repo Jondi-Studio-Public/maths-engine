@@ -14,7 +14,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from mathgen.core import attempts, check, generator, latex_answer, round_half_up
+from mathgen.core import attempts, check, exact_decimal_text, generator, latex_answer, round_half_up
 from mathgen.generators.exd_x_m2_support import display, keys_absent, tagged_distractors
 
 _SETTINGS = [
@@ -127,8 +127,9 @@ def exd_x_m2_area_limits(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 working=[
-                    f"Each side could be up to half a unit more: {length + half} and {width + half}.",
-                    f"({length + half}) × ({width + half}) = {texts[1]}.",
+                    f"Each side is given to the nearest {unit} {u}, so it could be up to {exact_decimal_text(half)} {u} "
+                    f"more: {exact_decimal_text(length + half)} and {exact_decimal_text(width + half)}.",
+                    f"{exact_decimal_text(length + half)} × {exact_decimal_text(width + half)} = {texts[1]}.",
                 ],
                 distractors=b_dist,
             ),

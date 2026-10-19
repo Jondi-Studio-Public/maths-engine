@@ -282,7 +282,7 @@ def _hard(rng):
         _FLAW_SENTENCE[flaw].format(pl=ctx["pl"]),
         wrongs,
         marks=2,
-        working=[f"The first survey's described feature is the source of bias: {flaw}."],
+        working=[f"{_FLAW_SENTENCE[flaw].format(pl=ctx['pl']).rstrip('.')}, so the first survey is biased."],
         keep=4,
         bare=True,
     )

@@ -560,7 +560,13 @@ def discrete_expected_value(rng, outcome_hi=9, weight_hi=5, outcomes=4):
         answer=answer,
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[f"E[X] = ({weighted})/{total} = {answer_text}."],
+        working=[
+            "E[X] = ("
+            + " + ".join(f"{paren_negative(value)} × {weight}" for value, weight in zip(values, weights))
+            + f")/{total} = {weighted}/{total}"
+            + ("" if str(Fraction(weighted, total)) == f"{weighted}/{total}" else f" = {answer_text}")
+            + "."
+        ],
         distractors=pick_distractors(answer_text, distractors),
     )
 

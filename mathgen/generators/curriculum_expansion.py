@@ -201,9 +201,11 @@ def money_change(rng, price_hi=80):
     change = round(paid_dollars - price_cents / 100, 2)
     price = price_cents / 100
     return _number(
-        f"An item costs ${price:.2f}. You pay ${paid_dollars}. How much change do you receive?",
+        f"An item costs ${price:.2f}. You pay ${paid_dollars:.2f}. How much change do you receive?",
         change,
         [paid_dollars + price, price, change + 1, max(0, change - 1)],
+        aligned=True,
+        places=2,
         working=[f"${paid_dollars:.2f} − ${price:.2f} = ${change:.2f}."],
     )
 
@@ -316,7 +318,13 @@ def simple_probability(rng):
         f"A bag has {favourable} red {'counter' if favourable == 1 else 'counters'} and "
         f"{other} blue {'counter' if other == 1 else 'counters'}. What is P(red)?",
         answer,
-        [Fraction(other, total), Fraction(favourable, other), Fraction(1, total), total],
+        [
+            Fraction(other, total),
+            Fraction(favourable, other) if favourable < other else Fraction(favourable, total + 1),
+            Fraction(1, total),
+            Fraction(favourable, total + 1),
+            Fraction(other, total + 1),
+        ],
         working=[f"P(red) = favourable ÷ total = {favourable}/{total} = {rational_text(answer)}."],
     )
 

@@ -349,7 +349,7 @@ def _hard(rng):
             options.append(_list_d(sorted(answer + [L]), p[4]))
     options = [o for o in options if o is not None]
     working = [
-        f"Pair {L}: P(second) = {rational(p[2])}, P(second after first) = {rational(p[3])}: "
+        f"Pair {L}: P(second) = {rational(p[3])}, P(second after first) = {rational(p[2])}: "
         + ("the same, so independent." if f else "different, so dependent.")
         for L, p, f in zip(letters, pairs, flags)
     ]

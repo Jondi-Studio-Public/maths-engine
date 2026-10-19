@@ -214,8 +214,16 @@ def _recognise_object(rng):
     role, shape = rng.choice(parts)
     fig = shape_scene(items=[], object=name, alt=f"a picture of {OBJECTS[name]['alt']}")
     text = phrase(rng, _OBJECT_TEXT[min(len(parts), 2)], o=name, r=role)
+    plural_role = len(parts) > 1 and role.endswith("s")
+    if plural_role:  # "the walls" takes "are"/"make", never "is"/"makes"
+        text = text.replace(f" is the {role}", f" are the {role}").replace(f" makes the {role}", f" make the {role}")
     answer = DISPLAY[shape]
-    working = f"A {name} is shaped like a {shape}." if len(parts) == 1 else f"The {role} of the {name} is a {shape}."
+    if len(parts) == 1:
+        working = f"A {name} is shaped like a {shape}."
+    elif plural_role:
+        working = f"The {role} of the {name} are {PLURAL.get(shape, shape + 's')}."
+    else:
+        working = f"The {role} of the {name} is a {shape}."
     distractors = pick_distractors(answer, [DISPLAY[s] for s in _CONFUSED[shape]])
     check(len(distractors) == 3)
     figures.assert_no_leak(fig, [answer, *distractors])

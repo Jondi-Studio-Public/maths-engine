@@ -49,6 +49,11 @@ _CLOSENESS = {
 _NEXT_BAND = {"strong": ("moderate",), "moderate": ("strong", "weak"), "weak": ("moderate",)}
 
 
+def _dec(value, places: int) -> str:
+    """An exact Fraction as plain decimal text ("-0.88", never "-22/25")."""
+    return f"{float(value):.{places}f}"
+
+
 def _band(r: float) -> str:
     a = abs(r)
     return "strong" if a >= 0.75 else "moderate" if a >= 0.5 else "weak"
@@ -137,8 +142,8 @@ def _build_k_association(rng: random.Random) -> dict | None:
         2,
         2,
         [
-            f"Sxy = {sxy} - {sx} x {sy} / {n} = {float(s_xy):.3f}; Sxx = {float(s_xx):.3f}; Syy = {float(s_yy):.3f}.",
-            f"r = Sxy / sqrt(Sxx x Syy) = {a_val}.",
+            f"Sxy = {sxy} - {sx} × {sy} ÷ {n} = {float(s_xy):.3f}; Sxx = {float(s_xx):.3f}; Syy = {float(s_yy):.3f}.",
+            f"r = Sxy ÷ √(Sxx × Syy) = {_dec(a_val, 2)}.",
         ],
         a_wrongs,
     )
@@ -152,7 +157,7 @@ def _build_k_association(rng: random.Random) -> dict | None:
         100 * a_val**2,
         1,
         1,
-        [f"r squared = {a_val}^2 = {float(a_val**2):.4f}, so {pct}% of the variation is explained."],
+        [f"r squared = ({_dec(a_val, 2)})² = {float(a_val**2):.4f}, so {_dec(pct, 1)}% of the variation is explained."],
         b_wrongs,
         follow_through="100*part_a**2",
         sensible_range=(0, 100),
@@ -191,10 +196,10 @@ def _build_k_association(rng: random.Random) -> dict | None:
         answer_latex="plain:" + key_text,
         marks=2,
         working=[
-            f"r = {a_val} is {direction}.",
+            f"r = {_dec(a_val, 2)} is {direction}.",
             "The residual plot is curved, so the form is non-linear and strength comes from the closeness to the curve."
             if curved
-            else f"The residuals are random, so the form is linear and |r| = {abs(a_val)} is {strength}.",
+            else f"The residuals are random, so the form is linear and |r| = {_dec(abs(a_val), 2)} is {strength}.",
         ],
         distractors=options[:3],
     )

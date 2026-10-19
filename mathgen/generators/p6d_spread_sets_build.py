@@ -251,20 +251,20 @@ def use_informal_ways_of_describing_spread_such_as(rng, tier="easy"):
 # Fixed translation tables: (everyday description, set-notation phrase)
 # For 2-set descriptions (easy/medium)
 TWO_SET_TABLE = [
-    ("people who like both {A} and {B}", "the intersection of {A} and {B}"),
-    ("people who like at least one of {A} or {B}", "the union of {A} and {B}"),
-    ("people who like {A} but not {B}", "{A} with {B} removed"),
-    ("people who like {B} but not {A}", "{B} with {A} removed"),
-    ("people who like neither {A} nor {B}", "everyone outside both {A} and {B}"),
-    ("people who like exactly one of {A} or {B}", "everyone in exactly one of {A} or {B}, not both"),
+    ("people who are both {A} and {B}", "the intersection of {A} and {B}"),
+    ("people who are at least one of {A} or {B}", "the union of {A} and {B}"),
+    ("people who are {A} but not {B}", "{A} with {B} removed"),
+    ("people who are {B} but not {A}", "{B} with {A} removed"),
+    ("people who are neither {A} nor {B}", "everyone outside both {A} and {B}"),
+    ("people who are exactly one of {A} or {B}", "everyone in exactly one of {A} or {B}, not both"),
 ]
 
 # For 3-set descriptions (hard)
 THREE_SET_TABLE = [
-    ("people who like {A} and {B} but not {C}", "{A} and {B}, with {C} removed"),
-    ("people who like all three of {A}, {B} and {C}", "the intersection of {A}, {B} and {C}"),
-    ("people who like exactly one of {A}, {B} or {C}", "everyone in exactly one of {A}, {B} or {C}, not more than one"),
-    ("people who like none of {A}, {B} or {C}", "everyone outside all three of {A}, {B} and {C}"),
+    ("people who are {A} and {B} but not {C}", "{A} and {B}, with {C} removed"),
+    ("people who are all three of {A}, {B} and {C}", "the intersection of {A}, {B} and {C}"),
+    ("people who are exactly one of {A}, {B} or {C}", "everyone in exactly one of {A}, {B} or {C}, not more than one"),
+    ("people who are none of {A}, {B} or {C}", "everyone outside all three of {A}, {B} and {C}"),
 ]
 
 # Context pairs for 2-set questions (A, B group names)
@@ -372,15 +372,11 @@ def use_everyday_occurrences_to_illustrate_set_descriptions_and(rng, tier="easy"
 
     # Build text without newlines
     options_str = "; ".join(f"{chr(65 + i)}: {opt}" for i, opt in enumerate(all_options))
-    text = f"Which phrase describes the following group? {description_text}. Options: {options_str}"
+    text = f"Which phrase describes the following group? {description_text[:1].upper() + description_text[1:]}. Options: {options_str}"
 
     answer_text = correct_notation
 
-    working = [
-        f"Description: {description_text}",
-        f"Tier: {tier}",
-        f"Correct notation: {answer_text}",
-    ]
+    working = [f"The group of {description_text} is described as {answer_text}."]
 
     return dict(
         text=text,

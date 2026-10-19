@@ -62,6 +62,11 @@ TEMPTING = {
 }
 
 
+def _upper_first(text: str) -> str:
+    """Capitalise the first letter only, so "brand A batteries" becomes "Brand A batteries"."""
+    return text[:1].upper() + text[1:]
+
+
 def _display_part(rng, key: str, marks: int = 1) -> dict:
     order = list(TEMPTING[key])
     chosen = order[:3] + [rng.choice(order[3:])]
@@ -70,7 +75,7 @@ def _display_part(rng, key: str, marks: int = 1) -> dict:
         key,
         [(d, WRONG_TAG[d]) for d in chosen],
         marks=marks,
-        working=[f"{key[2:].capitalize()} shows what the question asks about."],
+        working=[f"{key} {'show' if key == BOX else 'shows'} what the question asks about."],
         keep=4,
     )
 
@@ -383,9 +388,7 @@ def _groups(rng, name, level):
     a, b = _two_groups(rng, n, lo, hi)
     ma, mb = median_of(a), median_of(b)
     qa, qb = quartiles(a), quartiles(b)
-    stem = (
-        f"{name} has measured {measure} for two groups. {ga.capitalize()}: {_nums(a)}. {gb.capitalize()}: {_nums(b)}. "
-    )
+    stem = f"{name} has measured {measure} for two groups. {_upper_first(ga)}: {_nums(a)}. {_upper_first(gb)}: {_nums(b)}. "
     if level == "medium":
         stem += f"{name} wants to compare the typical value of the two groups, side by side."
         diff = abs(ma - mb)
@@ -526,7 +529,7 @@ def exd_x_ir2a_pick_display_for_question(rng: random.Random, tier: str = "exam")
         a, b = _two_groups(rng, n, lo, hi)
         ma, mb = median_of(a), median_of(b)
         stem = (
-            f"{name} has measured {measure} for two groups. {ga.capitalize()}: {_nums(a)}. {gb.capitalize()}: {_nums(b)}. "
+            f"{name} has measured {measure} for two groups. {_upper_first(ga)}: {_nums(a)}. {_upper_first(gb)}: {_nums(b)}. "
             f"{name} wants to compare the typical value of the two groups, side by side."
         )
         pa = _display_part(rng, BOX)

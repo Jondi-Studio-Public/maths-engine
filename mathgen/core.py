@@ -540,6 +540,24 @@ def rational_text(r) -> str:
     return str(r.p) if r.q == 1 else f"{r.p}/{r.q}"
 
 
+def article_for_number(value) -> str:
+    """ "a" or "an" for a number written in digits and read aloud: "an 8", "an 85", "an 800", "an 11.5",
+    "an 18", but "a 40", "a 110", "a 0.8". Only a leading 8, or exactly eleven or eighteen, starts with a vowel
+    sound."""
+    whole = str(value).lstrip("-+$").split(".")[0].replace(",", "")
+    return "an" if whole.startswith("8") or whole in ("11", "18") else "a"
+
+
+def equals_chain(*steps) -> str:
+    """Steps of a worked line joined with " = ", leaving out a step that repeats the one before it, so an
+    already-simplified fraction reads "19/35" and never "19/35 = 19/35"."""
+    kept = [str(steps[0])]
+    for step in steps[1:]:
+        if str(step) != kept[-1]:
+            kept.append(str(step))
+    return " = ".join(kept)
+
+
 def phrase(rng: random.Random, patterns, **slots) -> str:
     """Pick ONE wording from `patterns` and fill it with `slots`.
 
@@ -1259,6 +1277,17 @@ def check_pairwise_distinct(*values, msg: str = "a distractor collides with anot
 # exactly as they are, and new code should call these instead.
 
 
+def exact_decimal_text(value) -> str:
+    """An exact rational as plain decimal text with no trailing zeros ("0.12", "1.7", "12"), never as a fraction
+    such as "3/25". The value must terminate."""
+    exact = Fraction(value)
+    places = 0
+    while (exact * 10**places).denominator != 1:
+        places += 1
+        check(places <= 12, f"{value} does not terminate as a decimal")
+    return fixed_point_string(int(exact * 10**places), places)
+
+
 def fixed_point_string(scaled_int: int, places: int) -> str:
     """Sign-prefixed fixed-point string from an integer already scaled by
     ``10 ** places`` (so ``fixed_point_string(-305, 2)`` is "-3.05"). This
@@ -1746,6 +1775,44 @@ def paper_notation(text):
     return "".join(out)
 
 
+_DASH_RE = re.compile(r" -- ")
+_REPEATED_STEP_RE = re.compile(
+    r"(?P<pre>(?:^|[=:] |\) |\bso ))(?P<t>-?[\d,]*\d(?:\.\d+)?%?(?:[/:]\d+)?) = (?P=t)(?![\w/:%]|\.\d|,\d)"
+)
+
+
+_UNIT_POWER_RE = re.compile(
+    r"(?<![A-Za-z])(mm|cm|km)\^([23])\b|(?<=\d )(mm|cm|km|m)([23])\b|(?<=\d)(mm|cm|km)([23])\b|(?<=\d )(m)\^([23])\b|(?<=\()(m)([23])(?=\))"
+)
+_NUMBER_TIMES_RE = re.compile(r"(?<=[\d)]) x (?=\d)")
+
+
+def _unit_power(m):
+    groups = [g for g in m.groups() if g]
+    return groups[0] + {"2": "\u00b2", "3": "\u00b3"}[groups[1]]
+
+
+_AN_NUMBER_RE = re.compile(r"\b([Aa]) (?=(?:8\d*|11|18)(?:\.\d+)?[ -]?[A-Za-z%\u00b0$])")
+
+
+def _learner_text(text, *, working=False):
+    """`paper_notation(text)` with " -- " written as an en dash and, in working, "x = x" collapsed to "x"."""
+    text = paper_notation(text)
+    if not isinstance(text, str):
+        return text
+    if " -- " in text:
+        text = _DASH_RE.sub(" \u2013 ", text)
+    if "m" in text:
+        text = _UNIT_POWER_RE.sub(_unit_power, text)
+    if "a 8" in text.lower() or "a 11" in text.lower() or "a 18" in text.lower():
+        text = _AN_NUMBER_RE.sub(r"\1n ", text)
+    if " x " in text:
+        text = _NUMBER_TIMES_RE.sub(" \u00d7 ", text)
+    if working and " = " in text:
+        text = _REPEATED_STEP_RE.sub(r"\g<pre>\g<t>", text)
+    return text
+
+
 def display_question(question) -> dict:
     """The strings a learner reads for `question` (or a `Part`), written as on paper (`paper_notation`).
 
@@ -1757,11 +1824,11 @@ def display_question(question) -> dict:
     with its `label` added.
     """
     shown = {
-        "text": paper_notation(question.text),
-        "answer_text": paper_notation(question.answer_text),
-        "options": [paper_notation(o) for o in mcq_options(question)],
-        "distractors": [paper_notation(d) for d in question.distractors],
-        "working": [paper_notation(w) for w in (question.working or [])],
+        "text": _learner_text(question.text),
+        "answer_text": _learner_text(question.answer_text),
+        "options": [_learner_text(o) for o in mcq_options(question)],
+        "distractors": [_learner_text(d) for d in question.distractors],
+        "working": [_learner_text(w, working=True) for w in (question.working or [])],
     }
     parts = getattr(question, "parts", None)
     if parts:

@@ -119,6 +119,15 @@ def _option_texts(kind: str) -> dict:
     return {"A": "Pack A", "B": "Pack B", "C": "Pack C", "tie": "Tie -- two packs share the cheapest price"}
 
 
+def _cents_text(cents_per_unit: Fraction) -> str:
+    """A unit price already held in cents as plain decimal text (never a raw
+    Fraction): up to three decimal places, trailing zeros dropped, and
+    "about" in front when the exact value needs more places than that."""
+    rounded = round_half_up(Fraction(cents_per_unit), 3)
+    text = f"{float(rounded):.3f}".rstrip("0").rstrip(".")
+    return text if rounded == cents_per_unit else f"about {text}"
+
+
 def _mcq_dict(answer_key: str, kind: str, text: str, working: list):
     options = _option_texts(kind)
     answer_text = options[answer_key]
@@ -153,8 +162,8 @@ def _easy(rng):
         f"Which is the cheaper buy {cfg['per']}, or are the two the same price {cfg['per']}?"
     )
     working = [
-        f"Unit price A = {currency_from_cents(priceA)} / {qtyA} = {round_half_up(uA * 100, 3)} cents {cfg['per']}.",
-        f"Unit price B = {currency_from_cents(priceB)} / {qtyB} = {round_half_up(uB * 100, 3)} cents {cfg['per']}.",
+        f"Unit price A = {currency_from_cents(priceA)} / {qtyA} = {_cents_text(uA)} cents {cfg['per']}.",
+        f"Unit price B = {currency_from_cents(priceB)} / {qtyB} = {_cents_text(uB)} cents {cfg['per']}.",
     ]
     return _mcq_dict(decision, "two_pack", text, working)
 
@@ -296,8 +305,8 @@ def _build_mismatch_question(
         # itself.
         text += f" Compare the EXACT price per {small_label} -- do not round until after you have decided."
     working = [
-        f"Pack A price per {small_label} = {round_half_up(rateA_recomputed * 100, 3)} cents.",
-        f"Pack B price per {small_label} = {round_half_up(rateB_recomputed * 100, 3)} cents.",
+        f"Pack A price per {small_label} = {_cents_text(rateA_recomputed)} cents.",
+        f"Pack B price per {small_label} = {_cents_text(rateB_recomputed)} cents.",
     ]
     if working_extra:
         working.extend(working_extra)
@@ -439,7 +448,7 @@ def _hard(rng):
     )
     working = [
         f"Unit price {lab} = {currency_from_cents(prices[lab])} / {qtys[lab]} "
-        f"= {round_half_up(unit_prices_recomputed[lab] * 100, 3)} cents {cfg['per']}."
+        f"= {_cents_text(unit_prices_recomputed[lab])} cents {cfg['per']}."
         for lab in _HARD_LABELS
     ]
     return _mcq_dict(decision_final, "three_pack", text, working)

@@ -49,6 +49,7 @@ from fractions import Fraction
 
 from .r2s_scale_options import scaled_options
 from ..core import (
+    exact_decimal_text,
     check,
     check_conversion,
     check_pairwise_distinct,
@@ -253,9 +254,9 @@ def _build_area(rng, tier: str) -> dict:
     text = f"What is the best estimate for the area of {name}? Give your answer in {unit_word}."
     latex = f"plain:{text}"
     working = [
-        f"{name} has an area of about {canonical} {_AREA_UNIT_ABBR[source_unit]}.",
-        f"{canonical} {_AREA_UNIT_ABBR[source_unit]} expressed in {unit_word} is {correct_text}.",
-    ]
+        f"{name} has an area of about {exact_decimal_text(canonical)} {_AREA_UNIT_ABBR[source_unit]}.",
+        f"{exact_decimal_text(canonical)} {_AREA_UNIT_ABBR[source_unit]} expressed in {unit_word} is {correct_text}.",
+    ][: 2 if source_unit != target_unit else 1]
     return dict(
         text=text,
         latex=latex,
@@ -296,9 +297,9 @@ def _build_capacity(rng, tier: str) -> dict:
     text = f"What is the best estimate for the capacity of {name}? Give your answer in {unit_word}."
     latex = f"plain:{text}"
     working = [
-        f"{name} holds about {canonical} {_CAPACITY_UNIT_ABBR[source_unit]}.",
-        f"{canonical} {_CAPACITY_UNIT_ABBR[source_unit]} expressed in {unit_word} is {correct_text}.",
-    ]
+        f"{name} holds about {exact_decimal_text(canonical)} {_CAPACITY_UNIT_ABBR[source_unit]}.",
+        f"{exact_decimal_text(canonical)} {_CAPACITY_UNIT_ABBR[source_unit]} expressed in {unit_word} is {correct_text}.",
+    ][: 2 if source_unit != target_unit else 1]
     return dict(
         text=text,
         latex=latex,

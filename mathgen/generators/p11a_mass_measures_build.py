@@ -52,6 +52,7 @@ from fractions import Fraction
 
 from .r2s_scale_options import scaled_options
 from ..core import (
+    exact_decimal_text,
     check,
     check_conversion,
     check_pairwise_distinct,
@@ -213,9 +214,9 @@ def _build_estimate_mass(rng, tier: str) -> dict:
     text = f"What is the best estimate for the mass of {name}? Give your answer in {_UNIT_WORD_MASS[ask_unit]}."
     latex = f"plain:{text}"
     working = [
-        f"{name} has a mass of around {canonical} {base_unit}.",
-        f"{canonical} {base_unit} expressed in {_UNIT_WORD_MASS[ask_unit]} is {correct_text}.",
-    ]
+        f"{name} has a mass of around {exact_decimal_text(canonical)} {base_unit}.",
+        f"{exact_decimal_text(canonical)} {base_unit} expressed in {_UNIT_WORD_MASS[ask_unit]} is {correct_text}.",
+    ][: 2 if base_unit != ask_unit else 1]
     return dict(
         text=text,
         latex=latex,

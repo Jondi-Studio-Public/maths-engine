@@ -50,6 +50,12 @@ def _ft(v) -> str:
     return f"{v.numerator}/{v.denominator}" if v.denominator != 1 else str(v.numerator)
 
 
+def _pf(v) -> str:
+    """A value for use inside a quotient or product: a fraction is bracketed ("(1/2)"), so "1/2/8" never appears."""
+    v = Fraction(v)
+    return f"({_ft(v)})" if v.denominator != 1 else _ft(v)
+
+
 # -- easy ------------------------------------------------------------------------------------------------------
 
 
@@ -74,7 +80,7 @@ def _easy_poisson(rng):
     )
     working = [
         "ln f = -λ + k ln λ - ln k!, so the score is k/λ - 1 and I(λ) = -E(-k/λ²) = 1/λ.",
-        f"The bound is 1/(n I) = λ/n = {_ft(lam)}/{n} = {_ft(ans)}.",
+        f"The bound is 1/(n I) = λ/n = {_pf(lam)} ÷ {n} = {_ft(ans)}.",
     ]
     return dict(text=text, working=working, distractors=dist, **frac_fields(ans))
 
@@ -127,7 +133,7 @@ def _easy_bernoulli(rng):
     )
     working = [
         "ln f = x ln p + (1 - x) ln(1 - p); the score is x/p - (1 - x)/(1 - p) and I(p) = 1/(p(1 - p)).",
-        f"The bound is p(1 - p)/n = {_ft(p)}×{_ft(1 - p)}/{n} = {_ft(ans)}.",
+        f"The bound is p(1 - p)/n = {_pf(p)} × {_pf(1 - p)} ÷ {n} = {_ft(ans)}.",
     ]
     return dict(text=text, working=working, distractors=dist, **frac_fields(ans))
 
@@ -289,7 +295,7 @@ def _hard_efficiency_weights(rng):
     )
     working = [
         f"The bound is {sd2}/3, since I(μ) = 1/{sd2} per measurement.",
-        f"Var(T) = {sd2}×{_ft(sq)}, so the efficiency is {_ft(Fraction(1, 3))}/{_ft(sq)} = {_ft(ans)}.",
+        f"Var(T) = {sd2}×{_ft(sq)}, so the efficiency is {_pf(Fraction(1, 3))} ÷ {_pf(sq)} = {_ft(ans)}.",
     ]
     return dict(text=text, working=working, distractors=dist, **frac_fields(ans))
 
@@ -454,7 +460,7 @@ def exd_x_r4i_cramer_rao(rng, tier="exam"):
     )
     text = rng.choice(
         [
-            f"The number of faults X in a length of cable follows P(X = k) = e^(-λ) λ^k/k! for k = 0, 1, 2, ... , and {n} "
+            f"The number of faults X in a length of cable follows P(X = k) = e^(-λ) λ^k/k! for k = 0, 1, 2, ..., and {n} "
             f"independent lengths are inspected. In truth λ = {_ft(lam)}. Throughout, estimators are unbiased.",
             f"A sample of n = {n} independent counts is drawn from a Poisson distribution with mean λ, where in truth "
             f"λ = {_ft(lam)}. All estimators below are unbiased for the quantity they estimate.",
@@ -476,7 +482,7 @@ def exd_x_r4i_cramer_rao(rng, tier="exam"):
             marks=1,
             sensible_range=(0, None),
             follow_through=f"1/({n}*part_a)",
-            working=[f"The bound is 1/(nI) = {_ft(lam)}/{n} = {_ft(b)}."],
+            working=[f"The bound is 1/(nI) = {_pf(lam)} ÷ {n} = {_ft(b)}."],
             distractors=b_dist,
             **frac_fields(b),
         ),
@@ -488,7 +494,7 @@ def exd_x_r4i_cramer_rao(rng, tier="exam"):
             marks=2,
             sensible_range=(0, None),
             follow_through=f"exp(-2*{_ft(lam)})*part_b",
-            working=[f"g(λ) = e^(-λ) has g'(λ)² = e^(-2λ), so the bound is e^(-2λ)×{_ft(b)} = {dec(c, places)}."],
+            working=[f"g(λ) = e^(-λ) has g'(λ)² = e^(-2λ), so the bound is e^(-2λ) × {_pf(b)} = {dec(c, places)}."],
             distractors=c_dist,
             **num_fields(c, places),
         ),
@@ -502,7 +508,7 @@ def exd_x_r4i_cramer_rao(rng, tier="exam"):
             follow_through=f"part_b/({_ft(lam)}/2)",
             working=[
                 f"Var((X1 + X2)/2) = λ/2 = {_ft(lam / 2)}.",
-                f"Efficiency = {_ft(b)}/{_ft(lam / 2)} = {_ft(eff)}.",
+                f"Efficiency = {_pf(b)} ÷ {_pf(lam / 2)} = {_ft(eff)}.",
             ],
             distractors=d_dist,
             **frac_fields(eff),

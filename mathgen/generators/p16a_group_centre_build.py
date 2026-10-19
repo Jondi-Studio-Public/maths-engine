@@ -37,6 +37,7 @@ from fractions import Fraction
 
 from ..core import (
     check,
+    exact_decimal_text,
     generator,
     numeric_answer,
     paren_negative,
@@ -393,6 +394,12 @@ def _verify_trend_value(a: Fraction, b: Fraction, t: Fraction, value: Fraction) 
     check(recomputed == value, "point-slope recomputation disagrees with a + b*t construction")
 
 
+def _step(base, slope, t) -> str:
+    """ "base + 1.5×t" or "base - 0.5×t" with the slope as a plain decimal, never a fraction or a bracketed negative."""
+    sign = "+" if slope >= 0 else "-"
+    return f"{base} {sign} {exact_decimal_text(abs(slope))}×{t}"
+
+
 @generator(
     "p16a_trend_value",
     level=12,
@@ -441,7 +448,7 @@ def p16a_trend_value(rng, variant="direct"):
             f"counts each {unit} starting from t = 1. Find the trend value T({t_star}), to 1 "
             f"decimal place."
         )
-        working = [f"T({t_star}) = {a} + {b_str}×{t_star} = {answer_text}."]
+        working = [f"T({t_star}) = {_step(a, b, t_star)} = {answer_text}."]
         wrong_a = a - b * t_star  # sign error on b
         wrong_shift = a + b * (t_star + 1)  # off-by-one in t
         wrong_swap = b + a * t_star  # swapped roles of a and b
@@ -475,7 +482,7 @@ def p16a_trend_value(rng, variant="direct"):
         )
         working = [
             f"{label_word} {sub} of Year {year} is t = {(year - 1) * per_group} + {sub} = {t_star}.",
-            f"T({t_star}) = {a} + {b_str}×{t_star} = {answer_text}.",
+            f"T({t_star}) = {_step(a, b, t_star)} = {answer_text}.",
         ]
         wrong_a = a + b * (year)  # uses the year number as t
         wrong_shift = a + b * (t_star - per_group)  # off-by-one year
@@ -511,9 +518,9 @@ def p16a_trend_value(rng, variant="direct"):
         check(b_recomputed == b and a_recomputed == a, "two-point line fit did not recover the construction's own a, b")
         b_recomputed_str = paren_negative(b_recomputed)
         working = [
-            f"slope = ({y2_text} - {y1_text}) / ({t2} - {t1}) = {b_recomputed}.",
-            f"intercept = {y1_text} - {b_recomputed_str}×{t1} = {a_recomputed}.",
-            f"T({t_star}) = {a_recomputed} + {b_recomputed_str}×{t_star} = {answer_text}.",
+            f"slope = ({y2_text} - {y1_text}) ÷ ({t2} - {t1}) = {exact_decimal_text(b_recomputed)}.",
+            f"intercept = {_step(y1_text, -b_recomputed, t1)} = {a_recomputed}.",
+            f"T({t_star}) = {_step(a_recomputed, b_recomputed, t_star)} = {answer_text}.",
         ]
         wrong_a = y2 + b_recomputed * (t_star - t2)  # anchors at (t2, y2) but reuses t_star wrongly (double-shift)
         wrong_shift = a_recomputed + b_recomputed * (t_star - 1)  # off-by-one
@@ -570,10 +577,10 @@ def p16a_trend_value(rng, variant="direct"):
         y1_text_paren = f"({y1_text})" if y1 < 0 else y1_text
         working = [
             f"{label_word} {sub1} of Year {year1} is t = {t1}; {label_word} {sub2} of Year {year2} is t = {t2}.",
-            f"slope = ({y2_text} - {y1_text_paren}) / ({t2} - {t1}) = {b_recomputed}.",
-            f"intercept = {y1_text_paren} - {b_recomputed_str}×{t1} = {a_recomputed}.",
+            f"slope = ({y2_text} - {y1_text_paren}) ÷ ({t2} - {t1}) = {exact_decimal_text(b_recomputed)}.",
+            f"intercept = {_step(y1_text_paren, -b_recomputed, t1)} = {a_recomputed}.",
             f"{label_word} {sub3} of Year {year3} is t = {t_star}.",
-            f"T({t_star}) = {a_recomputed} + {b_recomputed_str}×{t_star} = {answer_text}.",
+            f"T({t_star}) = {_step(a_recomputed, b_recomputed, t_star)} = {answer_text}.",
         ]
         # forgot to convert the TARGET label to t: used the within-year
         # position alone, dropping the (year - 1) * per_group offset

@@ -250,10 +250,10 @@ _EASY_NOTES = {
     "int": "{x} is a whole number, so it sits in {chain}.",
     "int-fraction": "{x} simplifies to a whole number, so it sits in {chain}.",
     "fraction": "{x} is a fraction of whole numbers that is not a whole number, so it sits in {chain}.",
-    "terminating": "{x} ends, so it is a fraction of whole numbers and sits in {chain}.",
+    "terminating": "{x} is a terminating decimal, so it is a fraction of whole numbers and sits in {chain}.",
     "recurring": "A repeating decimal is a fraction of whole numbers, so it sits in {chain}.",
     "perfect-root": "{x} simplifies to a rational number, so it sits in {chain}.",
-    "pi-approximation": "{x} ends or is a fraction of whole numbers, so it sits in {chain}.",
+    "pi-approximation": "{x} is a decimal that stops, so it is a fraction of whole numbers and sits in {chain}.",
     "surd": "{x} is a root that never ends or repeats, so it sits in {chain}.",
     "pi": "{x} never ends or repeats, so it sits in {chain}.",
 }
