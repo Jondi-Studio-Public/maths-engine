@@ -609,7 +609,8 @@ def _quadratic_formula_rearrange(rng, root_hi):
         b_ = rng.randint(-root_hi, root_hi)
         c_ = rng.randint(-root_hi, root_hi)
         D = b_ * b_ - 4 * a_ * c_
-        if D > 0 and not _is_perfect_square(D):
+        # b = 0 would print "x(x)": keep a real bracket to expand
+        if b_ != 0 and D > 0 and not _is_perfect_square(D):
             break
     expr = a_ * x**2 + b_ * x + c_
     sqrtD = math.sqrt(D)
