@@ -1,0 +1,117 @@
+id: fair-game-expected-gain
+name: Fair games and expected gain
+domain: statistics-probability
+year_level:
+- '10'
+- '11'
+description: Find the expected prize and expected gain of a game of chance, the entry fee that makes it fair, and the organiser's
+  expected profit.
+status: active
+placement_eligible: false
+prerequisites:
+- simple-event-probability
+answer: number
+sources:
+- topic: w3_fair_game
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_fair_game
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_fair_game
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_fair_game
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fg-unweighted-average
+  description: Averages the prizes without weighting them by their probabilities.
+- id: fg-sum-of-prizes
+  description: Adds the prizes without weighting them by their probabilities.
+- id: fg-probability-only
+  description: Gives the probability of winning where the expected prize was asked.
+- id: fg-largest-prize
+  description: Gives the largest prize as the expected prize.
+- id: fg-forgets-entry
+  description: Gives the expected prize where the expected gain (after paying to play) was asked.
+- id: fg-reversed-sign
+  description: Subtracts the expected prize from the entry fee, so the sign of the gain is wrong.
+- id: fg-adds-entry
+  description: Adds the entry fee to the expected prize.
+- id: fg-sum-for-fee
+  description: Gives the total of the prizes as the fair entry fee.
+- id: fg-fee-largest-prize
+  description: Gives the largest prize as the fair entry fee.
+- id: fg-fee-prize-over-outcomes
+  description: Divides one prize by the number of outcomes and ignores the other prizes.
+- id: fg-fee-ignores-target-profit
+  description: Gives the fair entry fee, leaving out the profit the organiser wants.
+- id: fg-fee-subtracts-target-profit
+  description: Takes the profit the organiser wants off the fair entry fee instead of adding it.
+- id: fg-fee-is-target-profit
+  description: Gives the profit the organiser wants as the entry fee.
+- id: fg-profit-sign
+  description: Gives the players' expected gain over all the plays where the organiser's profit was asked.
+- id: fg-profit-prize-total
+  description: Gives the expected prize paid out over all the plays where the profit was asked.
+- id: fg-profit-per-play
+  description: Gives the profit on one play where the profit over many plays was asked.
+- id: fg-profit-fee-total
+  description: Gives the entry fees taken where the profit was asked.
+- id: fg-missing-prize-no-probability
+  description: Sets the prize equal to the entry fee without allowing for the chance of winning it.
+- id: fg-missing-prize-forgets-others
+  description: Ignores the expected value of the other prizes when finding the missing prize.
+- id: fg-missing-prize-times-probability
+  description: Multiplies by the probability instead of dividing by it when finding the missing prize.
+- id: fg-missing-prize-adds-others
+  description: Adds the expected value of the other prizes instead of subtracting it.
+- id: fg-with-replacement
+  description: Uses the same probability for the second draw, as if the first counter were put back.
+- id: fg-one-draw
+  description: Uses the chance for one draw only, ignoring the second.
+- id: fg-probability-added
+  description: Adds the two probabilities instead of multiplying them.
+- id: fg-games-per-play
+  description: Gives the profit per play where the number of plays was asked.
+- id: fg-games-multiplies
+  description: Multiplies the target profit by the profit per play instead of dividing.
+- id: fg-games-prize-based
+  description: Divides the target by the expected prize instead of the expected profit.
+- id: fg-games-fee-based
+  description: Divides the target by the entry fee instead of the expected profit.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Weight each prize by its probability and add, then subtract the entry fee.
+  medium:
+    steps: 4
+    demand: Set the entry fee equal to the expected prize, or scale the organiser's profit per play by the number of plays.
+  hard:
+    steps: 5
+    demand: Find a missing prize that makes a game fair, use two draws without replacement, or work back to the number of
+      plays.
+  exam:
+    steps: 7
+    demand: Chain the expected prize, the expected gain, the entry fee for a wanted profit and the organiser's expected profit.
+tags:
+- probability
+- expected-value
+- fair-game
+- acmem157
+- vce-general

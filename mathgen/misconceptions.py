@@ -52724,6 +52724,281 @@ _ENTRIES = (
         "Leaves the base pay out of the total.",
         area="commission-pay",
     ),
+    CatalogueEntry(
+        "sd-sign-of-slope",
+        "Adds the price term to the demand intercept instead of subtracting it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-uses-other-line",
+        "Substitutes the price into the other line (supply for demand or demand for supply).",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-forgets-intercept",
+        "Leaves the intercept out and multiplies the price by the slope only.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-adds-lines",
+        "Adds the quantity demanded and the quantity supplied instead of finding their difference.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-ignores-price-terms",
+        "Subtracts the intercepts and ignores the price terms when finding the shortage or surplus.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-gives-demand-for-gap",
+        "Gives the quantity demanded where the shortage or surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-gives-supply-for-gap",
+        "Gives the quantity supplied where the shortage or surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-price-for-quantity",
+        "Gives the price where the quantity was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-adds-intercepts",
+        "Adds the intercepts instead of subtracting them when setting demand equal to supply.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-subtracts-slopes",
+        "Subtracts the slopes instead of adding them when collecting the price terms.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-divides-by-one-slope",
+        "Divides by one slope only when solving for the price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-average-intercepts",
+        "Takes the average of the two intercepts as the equilibrium quantity.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-quantity-for-price",
+        "Gives the quantity where the price was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-wrong-line-quantity",
+        "Finds the quantity from an incorrect equilibrium price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-price-plus-quantity",
+        "Adds the price and the quantity instead of multiplying them for the revenue.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-revenue-quantity-only",
+        "Gives the quantity where the revenue was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-revenue-price-only",
+        "Gives the price where the revenue was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-slope-from-one-point",
+        "Uses a quantity as the slope instead of the change in quantity for a change in price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-slope-inverted",
+        "Divides the change in price by the change in quantity for the slope.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-subtracted-from-quantity",
+        "Subtracts the tax from the quantity instead of the price in the supply line.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-added-to-price",
+        "Adds the tax to the price in the supply line instead of subtracting it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-ignored",
+        "Ignores the tax and gives the original equilibrium quantity.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-price-for-quantity",
+        "Gives the new equilibrium price where the quantity was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-as-price",
+        "Divides the surplus by the sum of the slopes and gives that as the price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-shortage-price",
+        "Subtracts the extra price needed for the surplus instead of adding it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-equilibrium",
+        "Gives the equilibrium price where the price for a surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-one-slope",
+        "Divides the surplus by one slope only to find the extra price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "fg-unweighted-average",
+        "Averages the prizes without weighting them by their probabilities.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-sum-of-prizes",
+        "Adds the prizes without weighting them by their probabilities.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-probability-only",
+        "Gives the probability of winning where the expected prize was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-largest-prize",
+        "Gives the largest prize as the expected prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-forgets-entry",
+        "Gives the expected prize where the expected gain (after paying to play) was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-reversed-sign",
+        "Subtracts the expected prize from the entry fee, so the sign of the gain is wrong.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-adds-entry",
+        "Adds the entry fee to the expected prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-sum-for-fee",
+        "Gives the total of the prizes as the fair entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-largest-prize",
+        "Gives the largest prize as the fair entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-prize-over-outcomes",
+        "Divides one prize by the number of outcomes and ignores the other prizes.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-ignores-target-profit",
+        "Gives the fair entry fee, leaving out the profit the organiser wants.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-subtracts-target-profit",
+        "Takes the profit the organiser wants off the fair entry fee instead of adding it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-is-target-profit",
+        "Gives the profit the organiser wants as the entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-sign",
+        "Gives the players' expected gain over all the plays where the organiser's profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-prize-total",
+        "Gives the expected prize paid out over all the plays where the profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-per-play",
+        "Gives the profit on one play where the profit over many plays was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-fee-total",
+        "Gives the entry fees taken where the profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-no-probability",
+        "Sets the prize equal to the entry fee without allowing for the chance of winning it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-forgets-others",
+        "Ignores the expected value of the other prizes when finding the missing prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-times-probability",
+        "Multiplies by the probability instead of dividing by it when finding the missing prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-adds-others",
+        "Adds the expected value of the other prizes instead of subtracting it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-with-replacement",
+        "Uses the same probability for the second draw, as if the first counter were put back.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-one-draw",
+        "Uses the chance for one draw only, ignoring the second.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-probability-added",
+        "Adds the two probabilities instead of multiplying them.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-per-play",
+        "Gives the profit per play where the number of plays was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-multiplies",
+        "Multiplies the target profit by the profit per play instead of dividing.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-prize-based",
+        "Divides the target by the expected prize instead of the expected profit.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-fee-based",
+        "Divides the target by the entry fee instead of the expected profit.",
+        area="fair-game-expected-gain",
+    ),
     # w3 consumer block end
 )
 
