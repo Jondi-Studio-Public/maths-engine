@@ -6,6 +6,7 @@ exist, so every kind is known wherever ``figures`` is imported.
 
 - :mod:`.calendar`: a month calendar and a strip of daily-event picture cards.
 
+- :mod:`.canvas`: the ``canvas`` key of a coordinate plane or number line: tools and reply kind for an interactive answer.
 - :mod:`.compare`: comparing lengths, masses on a pan balance and capacities of containers.
 - :mod:`.data`: statistical displays (charts and plots).
 - :mod:`.early`: money, the hundred chart, fraction models, counters and base-ten blocks.
