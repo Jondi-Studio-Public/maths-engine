@@ -211,7 +211,7 @@ def compare_length_picture(rng, tier="easy"):
         cands = [_the(far)] if far != key else []
         cands += [_the(lbl) for lbl in labels if lbl != key]
         cands.append(_SAME)  # with three or more objects it is a fourth option; the lengths differ, so it is wrong
-    distractors = pick_distractors(answer_text, cands, n=2 if pair else min(len(labels), 4))
+    distractors = pick_distractors(answer_text, cands, n=2 if pair else 3)
     lens = ", ".join(f"{o['label']} {o['length']}" for o in objs)
     how = (
         "They all start at the same line, so the one that ends last is longest."
