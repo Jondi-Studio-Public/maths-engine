@@ -34,7 +34,15 @@ import re
 from fractions import Fraction as F
 
 from mathgen import figures
-from mathgen.core import check, check_pairwise_distinct, generator, phrase, pick_distractors, rational_text
+from mathgen.core import (
+    check,
+    check_pairwise_distinct,
+    generator,
+    paren_negative,
+    phrase,
+    pick_distractors,
+    rational_text,
+)
 from mathgen.generators.pv1a_line_figure_build import Window, lattice_points, line_figure, read_line
 
 ATT = 3000
@@ -351,7 +359,7 @@ def fg1_equation_from_graph(rng, tier="easy", notes=False):
     (x1, y1), (x2, y2) = real_pt(win, pa), real_pt(win, pb)
     working = [
         f"Read two points on the line: ({x1}, {y1}) and ({x2}, {y2}).",
-        f"gradient m = ({y2} - ({y1})) / ({x2} - ({x1})) = {rational_text(m)}.",
+        f"gradient m = ({y2} - {paren_negative(y1)}) / ({x2} - {paren_negative(x1)}) = {rational_text(m)}.",
         f"Running the line to x = 0 gives c = {rational_text(c)}, so {key_text}.",
     ]
     return mcq_result(

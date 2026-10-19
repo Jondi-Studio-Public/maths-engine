@@ -334,7 +334,7 @@ def simplify_expression(rng, kind="brackets", hi=9):
         ds = "+" if d >= 0 else "-"
         bx = fmt_signed(b, "x")
         mid = f"({bx} {ds} {abs(d)})"
-        text = join_terms([(a, "x"), (c, mid), (-e, "")])
+        text = "Simplify " + join_terms([(a, "x"), (c, mid), (-e, "")])
     ans_str = str(ans)
     return dict(
         text=text,

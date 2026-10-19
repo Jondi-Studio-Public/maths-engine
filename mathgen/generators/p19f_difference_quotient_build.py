@@ -60,11 +60,9 @@ _H_NEGATIVE = (-3, -2, -1)
 
 
 def _prose(expr) -> str:
-    """Learner-facing rendering: ``**`` -> ``^``, ``*`` -> the middle dot --
-    matches `p9c_difference_quotient_build.py`'s own `_prose` helper exactly;
-    not shared centrally because it is two lines and used by a handful of
-    single-variable-polynomial generators only."""
-    return str(expr).replace("**", "^").replace("*", "·")
+    """Learner-facing rendering: ``**`` -> ``^`` and a product written by juxtaposition ("3x^2", as on paper),
+    not with a middle dot."""
+    return str(expr).replace("**", "^").replace("*", "")
 
 
 @generator(

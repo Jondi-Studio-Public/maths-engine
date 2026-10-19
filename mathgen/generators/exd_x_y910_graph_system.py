@@ -105,7 +105,7 @@ def exd_x_y910_graph_system(rng, tier="exam"):
             [
                 ((cb + ca) / (ma - mb), "sign-error-when-setting-equal"),
                 ((ca - cb) / (ma - mb), "sign-error-when-setting-equal"),
-                ((cb - ca) / (ma + mb) if ma + mb else 99, "sign-error-when-setting-equal"),
+                ((cb - ca) / (ma + mb) if ma + mb else (cb - ca) / ma, "sign-error-when-setting-equal"),
                 (y, "x-and-y-swapped"),
             ],
             2,

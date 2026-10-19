@@ -139,7 +139,8 @@ def _build_function(kind: str, a_str: str, b_str: str, phase_frac: Fraction, d: 
     matching the "no bare multiplication signs" style already established by
     `p5e_vector_calculus_build.py::_fmt_component_medium`."""
     inner = f"({b_str})t{_phase_suffix(phase_frac)}"
-    fn = f"{a_str}{kind}({inner})"
+    lead = {"1": "", "-1": "-"}.get(a_str, a_str)  # a coefficient of 1 is not written
+    fn = f"{lead}{kind}({inner})"
     if d > 0:
         fn += f" + {d}"
     elif d < 0:

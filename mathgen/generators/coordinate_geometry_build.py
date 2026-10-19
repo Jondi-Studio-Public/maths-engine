@@ -153,8 +153,8 @@ def midpoint_two_points(rng, coord_lo=-8, coord_hi=8, kind="standard"):
         answer_latex=rf"\left(\frac{{{x1}+{x2}}}{{2}}, \frac{{{y1}+{y2}}}{{2}}\right) "
         rf"= \left({rational_text(mx)}, {rational_text(my)}\right)",
         working=[
-            f"Midpoint = ((x₁+x₂)/2, (y₁+y₂)/2) = (({join_terms([(x1, ''), (x2, '')])})/2, "
-            f"({join_terms([(y1, ''), (y2, '')])})/2).",
+            f"Midpoint = ((x₁+x₂)/2, (y₁+y₂)/2) = (({x1} + {paren_negative(x2)})/2, "
+            f"({y1} + {paren_negative(y2)})/2).",
             f"Midpoint = ({rational_text(mx)}, {rational_text(my)}).",
         ],
         distractors=pick_distractors(answer_text, candidates),

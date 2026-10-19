@@ -942,7 +942,7 @@ def _nl_hard(rng, notes):
         no_leak(fig, key, texts)
         text = f"{phrase(rng, _NL_OPEN)} {phrase(rng, _NL_ASK['hard'])}"
         working = [
-            f"Solve {key}: subtract {paren_negative(b)} from both sides to get {fmt_signed(a, 'x')} {_SYM[op]} {c - b}.",
+            f"Solve {key}: {'subtract' if b >= 0 else 'add'} {abs(b)} {'from' if b >= 0 else 'to'} both sides to get {fmt_signed(a, 'x')} {_SYM[op]} {c - b}.",
             f"Divide by {a}{', reversing the inequality sign' if a < 0 else ''}: x {_SYM[_flip(op) if a < 0 else op]} {t}.",
             "This matches the shaded part of the number line.",
         ]

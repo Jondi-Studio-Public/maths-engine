@@ -177,9 +177,14 @@ def _hard_equation(rng):
     lhs = f"{'' if a == 1 else a}x^({p}/{q})"
     stem = f"Solve the equation {lhs} = {num(c)}."
     prompt = f"Find the {which}value of x."
+    # The reciprocal index q/p, with the sign on the numerator and no "/1".
+    inv_num, inv_den = (q, p) if p > 0 else (-q, -p)
+    inv = str(inv_num) if inv_den == 1 else f"{inv_num}/{inv_den}"
+    value_text = num(value)
+    base = f"({value_text})" if "/" in value_text or value_text.startswith("-") else value_text
     working = [
-        f"Divide by {a}: x^({p}/{q}) = {num(value)}.",
-        f"Raise both sides to the power {q}/{p}: x = ({num(value)})^({q}/{p}) = {x0}.",
+        f"Divide by {a}: x^({p}/{q}) = {value_text}." if a != 1 else f"x^({p}/{q}) = {value_text}.",
+        f"Raise both sides to the power {inv}: x = {base}^{inv if inv.isdigit() else f'({inv})'} = {x0}.",
     ]
     return single(stem, fraction_part(prompt, x0, 3, working, wrong))
 
