@@ -52999,6 +52999,166 @@ _ENTRIES = (
         "Divides the target by the entry fee instead of the expected profit.",
         area="fair-game-expected-gain",
     ),
+    CatalogueEntry(
+        "hl-product",
+        "Multiplies the two numbers instead of finding their common factor or multiple.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-sum",
+        "Adds the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-smaller",
+        "Gives the smaller of the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-larger",
+        "Gives the larger of the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-difference",
+        "Gives the difference between the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-for-hcf",
+        "Finds the lowest common multiple where the highest common factor was needed.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-for-lcm",
+        "Finds the highest common factor where the lowest common multiple was needed.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-not-divided",
+        "Gives the number of items in a share as the HCF, forgetting to divide by it.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-shares-for-size",
+        "Gives the number of groups where the size of each group was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-size-for-shares",
+        "Gives the size of each group where the number of groups was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-one-dimension",
+        "Counts the tiles along one side only.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-tiles-sum",
+        "Adds the number of tiles along each side instead of multiplying them.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-not-divided",
+        "Gives the time until the buses leave together where the number of trips was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-trips-other-bus",
+        "Gives the number of trips of the other bus.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-two-numbers-only",
+        "Finds the lowest common multiple of two of the three numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-three-product",
+        "Multiplies the three numbers together.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-turns-big-gear",
+        "Gives the turns of the larger gear where the smaller gear was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-turns-lcm",
+        "Gives the number of teeth that pass instead of the number of turns.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-two-only",
+        "Finds the highest common factor of only two of the three lengths.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-side-not-area",
+        "Gives the side of the square where the number of tiles was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-tiles-one-way",
+        "Counts the tiles along one side of the square only.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-ignores-remainders",
+        "Finds the HCF of the numbers without taking the remainders off first.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-adds-remainders",
+        "Adds the remainders to the numbers instead of subtracting them.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-remainder-lcm",
+        "Finds the lowest common multiple of the reduced numbers instead of the highest common factor.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-forgets-remainder",
+        "Gives the lowest common multiple and forgets to add the remainder.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-subtracts-remainder",
+        "Subtracts the remainder from the lowest common multiple instead of adding it.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-forgets-start",
+        "Leaves out the meeting at the start when counting how many times the events coincide.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-counts-extra",
+        "Counts one meeting too many.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-time-not-meetings",
+        "Gives the time of the first meeting where the number of meetings was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-product-for-other",
+        "Multiplies the HCF and the LCM and does not divide by the known number.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-over-hcf",
+        "Divides the LCM by the HCF to find the other number.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-other-divides-lcm",
+        "Divides the LCM by the known number to find the other number.",
+        area="hcf-lcm-word-problems",
+    ),
     # w3 consumer block end
 )
 
