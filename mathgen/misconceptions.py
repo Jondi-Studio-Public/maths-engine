@@ -54094,6 +54094,316 @@ _ENTRIES = (
         "w4-bridge-removed-edge-kept",
         "Counting the cost of the removed bridge as well as the edges that are left in the piece.",
         area="networks",
+    # -- w6-calculus (limits, substitution, resisted motion, graph reading) ---------------------------------
+    CatalogueEntry(
+        "w6-proj-speed-for-component",
+        "Uses the launch speed where the horizontal or vertical component of the velocity belongs, so the angle is never resolved.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-components-swapped",
+        "Swaps the horizontal and vertical components of the launch velocity (cosine for sine).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-gravity-on-horizontal",
+        "Adds gravity to the horizontal acceleration, although gravity acts only vertically.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-speed-times-time",
+        "Multiplies the horizontal speed at time t by t to get the distance, as if the speed stayed at that value.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-sign-of-velocity",
+        "Gives the vertical velocity the wrong sign: reports the downward speed as if upward were positive, or the reverse.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-gravity-term-dropped",
+        "Leaves the g/k terminal-speed term out of the vertical velocity, so the vertical speed decays like the horizontal one.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-limit-for-height",
+        "Uses the limiting value of the formula (u over k) in place of the value at the time the projectile is at the top.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-no-drag-range-used",
+        "Multiplies the horizontal launch speed by the time to the top, ignoring the slowing of the horizontal motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-subst-x-from-u-reversed",
+        "Writes x as the constant minus u instead of u minus the constant when solving the substitution for x.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-power-of-u-dropped",
+        "Writes the factor u minus the constant but loses the power or root of u that multiplies it.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-exponent-raised-twice",
+        "Raises the power of u once for the factor of x and again when integrating, so the exponent is one too large in the integrand.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-limit-shift-sign-wrong",
+        "Converts the upper limit by subtracting the constant of the substitution instead of adding it.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-lower-limit-for-upper",
+        "Gives the value of u at the lower limit where the upper limit was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-root-dropped",
+        "Loses the square root when rewriting the integrand in u, leaving a power of u of the wrong degree.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-identity-power-not-raised",
+        "Writes sec to the sixth as sec squared times one plus tan squared, forgetting to square the bracket.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-complementary-angle",
+        "Gives the complement of the angle theta where sin theta equals x over a, by using cosine instead of sine.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-supplementary-angle",
+        "Gives 180 degrees minus the angle, the other solution of the sine equation, as the limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-double-angle-limit",
+        "Doubles the angle when converting the limit, as if the substitution used sin 2 theta.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-half-angle-limit",
+        "Halves the angle when converting the limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-double-angle-factor-doubled",
+        "Applies an extra factor of one half to the constant in front of the integral of one plus or minus cos 2 theta.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-amplitude-halved",
+        "Gives half of a, not half of a squared, as the constant in front of the integral.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-amplitude-not-squared",
+        "Takes the substitution x = a sin(theta) to give a factor of a in front of the integral instead of a squared.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-double-angle-factor-dropped",
+        "Leaves out the factor one half from the double-angle identity, so the result is twice the correct value.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-du-factor-doubled",
+        "Multiplies by the factor in du instead of dividing by it, so the result has the factor squared or doubled.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-du-factor-forgotten",
+        "Forgets to divide by the factor in du, such as 2x dx or bx dx, and so leaves the answer too large.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-power-rule-on-bracket",
+        "Applies the power rule to the bracket as if x were the variable, ignoring the inner function and the factor outside it.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-exponent-denominator-mismatch",
+        "Divides each term by the same new exponent instead of by its own new exponent after integrating the powers of u.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-exponent-not-raised",
+        "Divides by the exponent but does not raise it: writes u to the n over n, not u to the n plus one over n plus one.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-identity-sign",
+        "Uses a plus where the identity needs a minus, or the reverse, when rewriting the power of the trigonometric function in terms of u.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-identity-term-dropped",
+        "Drops one term of the identity, for example integrating only u to the n or only the first term of 1 plus u squared.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-inner-derivative-divided",
+        "Divides by the inner function instead of recognising it as the derivative that cancels with du.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-leftover-x-kept",
+        "Integrates the bracket as a power of u but leaves the outside factor of x (or of the exponential) in place, as if it were a constant.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-limit-shift-forgotten",
+        "Converts the limits with the inner function but leaves out the constant added in the substitution, such as using e^x alone for e^x plus a.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-limits-not-changed",
+        "Puts the original limits of x into the antiderivative in u instead of the limits of u.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-limits-swapped",
+        "Subtracts the value at the upper limit from the value at the lower limit, so the sign is wrong.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-log-for-power",
+        "Gives a logarithm for the integral of a power of u other than u to the minus one.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-lower-limit-dropped",
+        "Evaluates the antiderivative at the upper limit only and does not subtract its value at the lower limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-minus-from-du-dropped",
+        "Forgets the minus sign in du when the derivative of the inner function is negative, such as u = cos x.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-negative-exponent-sign",
+        "Gives the wrong sign when integrating a negative power of u: divides by n minus one instead of by one minus n.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-odd-power-not-split",
+        "Takes the odd power of x as just the single x that goes into du, leaving out the even power that must be rewritten in u.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-power-not-divided",
+        "Raises the exponent but does not divide by the new exponent.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-power-rule-on-trig",
+        "Applies the power rule to the trigonometric function as if it were the variable.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-shift-sign-wrong",
+        "Writes x as u plus a where u equals x plus a, so the constant has the wrong sign inside the rewritten integrand.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-sign-of-du-wrong",
+        "Gives the integral the wrong overall sign.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-square-binomial-expanded-wrong",
+        "Expands the square of a binomial as the difference of two squares, leaving out the middle term.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-wrong-inner-function",
+        "Substitutes a different inner function from the one in the integrand, such as u equals the root alone, not one plus the root.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-x-replaced-by-u",
+        "Replaces the leftover x by u instead of by u minus the constant added in the substitution.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-limit-equal-degree-allowed",
+        "Allows a power equal to the denominator's degree when the limit is to be 0, or to be infinite, forgetting that equal degrees give a finite non-zero limit.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-off-by-one",
+        "Is one out in the bound on the power: stops one below, or one above, the correct whole number.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-direction-reversed",
+        "Reverses the comparison of degrees: takes a larger numerator degree to give 0, or a smaller one to give an infinite limit.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-first-power-only",
+        "Gives the smallest possible power instead of the largest.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-degrees-multiplied",
+        "Multiplies the denominator's degree by two instead of going one past it.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-only-mismatched-term",
+        "Gives the limit of the mismatched fraction alone, forgetting that the other fraction tends to a non-zero value.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-infinite-term-ignored",
+        "Gives the finite limit of one fraction in a sum, ignoring a fraction that tends to infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-negative-infinity-flips-ratio",
+        "Changes the sign of a finite limit because x tends to minus infinity; equal degrees give the same ratio at either end.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-direction-sign-ignored",
+        "Gives the sign of the limit as x tends to plus infinity, ignoring that an odd power of x is negative as x tends to minus infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-of-coefficient-not-taken",
+        "Multiplies the coefficient of a factor by its exponent instead of raising the coefficient to that power.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-factor-coefficients-dropped",
+        "Ignores the coefficients of the factors and uses only the constant in the denominator.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-factors-counted-not-degrees",
+        "Counts the factors in the numerator and the denominator instead of adding their degrees.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-of-x-squared-taken-as-x",
+        "Takes the square root of x squared as x, not |x|, so the sign is wrong as x tends to minus infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-not-taken-of-coefficient",
+        "Leaves the coefficient under the square root unrooted, using s squared where s is needed.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-degree-not-halved",
+        "Compares the numerator's degree with the full degree under the square root instead of half of it.",
+        area="limits",
     ),
 )
 
