@@ -51948,6 +51948,82 @@ _ENTRIES = (
         "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
         area="quadric-surfaces",
     ),
+    # -- w6-calculus (limits, substitution, resisted motion, graph reading) ---------------------------------
+    CatalogueEntry(
+        "w6-limit-equal-degree-allowed",
+        "Allows a power equal to the denominator's degree when the limit is to be 0, or to be infinite, forgetting that equal degrees give a finite non-zero limit.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-off-by-one",
+        "Is one out in the bound on the power: stops one below, or one above, the correct whole number.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-direction-reversed",
+        "Reverses the comparison of degrees: takes a larger numerator degree to give 0, or a smaller one to give an infinite limit.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-first-power-only",
+        "Gives the smallest possible power instead of the largest.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-degrees-multiplied",
+        "Multiplies the denominator's degree by two instead of going one past it.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-only-mismatched-term",
+        "Gives the limit of the mismatched fraction alone, forgetting that the other fraction tends to a non-zero value.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-infinite-term-ignored",
+        "Gives the finite limit of one fraction in a sum, ignoring a fraction that tends to infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-negative-infinity-flips-ratio",
+        "Changes the sign of a finite limit because x tends to minus infinity; equal degrees give the same ratio at either end.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-direction-sign-ignored",
+        "Gives the sign of the limit as x tends to plus infinity, ignoring that an odd power of x is negative as x tends to minus infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-of-coefficient-not-taken",
+        "Multiplies the coefficient of a factor by its exponent instead of raising the coefficient to that power.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-factor-coefficients-dropped",
+        "Ignores the coefficients of the factors and uses only the constant in the denominator.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-factors-counted-not-degrees",
+        "Counts the factors in the numerator and the denominator instead of adding their degrees.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-of-x-squared-taken-as-x",
+        "Takes the square root of x squared as x, not |x|, so the sign is wrong as x tends to minus infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-not-taken-of-coefficient",
+        "Leaves the coefficient under the square root unrooted, using s squared where s is needed.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-degree-not-halved",
+        "Compares the numerator's degree with the full degree under the square root instead of half of it.",
+        area="limits",
+    ),
 )
 
 #: Every entry, by id.
