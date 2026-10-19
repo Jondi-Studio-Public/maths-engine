@@ -214,8 +214,8 @@ def _rbl_easy(rng):
     )
     answer_text = _money_text(repayment_exact)
     working = [
-        f"Monthly rate i = {rate_text}%/12 = {i}. n = {term_years} x 12 = {n} months.",
-        f"A = P*i / (1 - (1+i)^-n) = {answer_text}.",
+        f"Monthly rate i = {rate_text}%/12 = {i}. n = {term_years} × 12 = {n} months.",
+        f"A = P × i / (1 - (1 + i)^(-n)) = {answer_text}.",
     ]
     distractors = pick_distractors(
         answer_text,
@@ -319,7 +319,7 @@ def _rbl_medium(rng):
     )
     answer_text = _money_text(balance_exact)
     working = [
-        f"i = {rate_text}%/12 = {i}. k = {k_years} x 12 = {k} months.",
+        f"i = {rate_text}%/12 = {i}. k = {k_years} × 12 = {k} months.",
         f"Balance = P*(1+i)^k - A*((1+i)^k - 1)/i = {answer_text}.",
     ]
     distractors = pick_distractors(answer_text, [_money_text(c) for c in (fv_only, linear_balance, off_by_one)])
@@ -406,8 +406,8 @@ def _rbl_hard(rng):
     )
     answer_text = _money_text(principal_exact)
     working = [
-        f"i = {rate_text}%/12 = {i}. n = {term_years} x 12 = {n} months.",
-        f"P = A*(1-(1+i)^-n)/i = {answer_text}.",
+        f"i = {rate_text}%/12 = {i}. n = {term_years} × 12 = {n} months.",
+        f"P = A × (1 - (1 + i)^(-n)) / i = {answer_text}.",
     ]
     distractors = pick_distractors(
         answer_text,
@@ -771,8 +771,8 @@ def _ann_medium(rng):
     )
     answer_text = _money_text(pv_exact)
     working = [
-        f"i = {rate_text}%/12 = {i}. n = {term_years} x 12 = {n} months.",
-        f"PV = A*(1-(1+i)^-n)/i = {answer_text}.",
+        f"i = {rate_text}%/12 = {i}. n = {term_years} × 12 = {n} months.",
+        f"PV = A × (1 - (1 + i)^(-n)) / i = {answer_text}.",
     ]
     distractors = pick_distractors(
         answer_text, [_money_text(c) for c in (perpetuity_instead, naive_total, wrong_rate_pv)]
@@ -877,7 +877,7 @@ def _ann_hard(rng):
     )
     answer_text = str(answer)
     working = [
-        f"i = {rate_text}%/12 = {i}. Solve PV = A*(1-(1+i)^-n)/i for n, in months, then convert "
+        f"i = {rate_text}%/12 = {i}. Solve PV = A × (1 - (1 + i)^(-n)) / i for n, in months, then convert "
         f"to years: n = {n} months = {n_years} years.",
     ]
     distractors = pick_distractors(answer_text, [str(c) for c in (naive_years, n_in_months, half_years)])
@@ -989,7 +989,7 @@ def _ann_exam(rng):
     answer_text = _money_text(income_exact)
     working = [
         f"Stage 1: FV = P*(1+i)^m = {_money_text(fv_exact)} after {m_years} years.",
-        f"Stage 2: A = FV*i/(1-(1+i)^-n) = {answer_text} over {n_years} years.",
+        f"Stage 2: A = FV × i / (1 - (1 + i)^(-n)) = {answer_text} over {n_years} years.",
     ]
     distractors = pick_distractors(
         answer_text,
@@ -1018,7 +1018,7 @@ def _ann_exam(rng):
 )
 def p12b_annuity_perpetuity(rng, tier="easy"):
     """ACMGM100: annuities and perpetuities. easy: PERPETUITY (no n) --
-    PV = A/i. medium: FINITE annuity -- PV = A*(1-(1+i)^-n)/i, with the
+    PV = A/i. medium: FINITE annuity -- PV = A × (1 - (1 + i)^(-n)) / i, with the
     tie-boundary guard against the perpetuity PV enforced by construction.
     hard: INVERSE -- given PV, i and A, find how many whole years n the
     income lasts. exam: two-stage accumulation-then-annuity -- grow a lump

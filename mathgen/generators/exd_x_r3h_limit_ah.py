@@ -16,7 +16,7 @@ from __future__ import annotations
 import math
 from fractions import Fraction
 
-from ..core import attempts, generator, round_half_up
+from ..core import attempts, bracket_compound, generator, round_half_up
 from ._exd_distinct_parts import distinct_part_answers
 from ._exd_x_r3h_kit import number_part
 
@@ -132,7 +132,7 @@ def exd_x_r3h_limit_ah(rng, tier="exam"):
                     3,
                     [
                         f"The tangent at x = {c} has gradient L x {a_text}^{c} and passes through ({c}, {a_text}^{c}).",
-                        f"Setting y = 0 gives x = {c} - 1/L = {c} - 1/{limit}.",
+                        f"Setting y = 0 gives x = {c} - 1/L = {c} - 1/{bracket_compound(limit)}.",
                     ],
                     [
                         (c + 1 / limit, "sign-slip-in-formula"),

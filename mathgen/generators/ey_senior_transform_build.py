@@ -344,6 +344,8 @@ def _dil_figure(kind, m, s, c, k, point=None):
 def _dil_eq(form: str, v: F) -> str:
     """g(x) = c f(x) ('v') or f(kx) ('h') written the way the options show it."""
     if form == "v":
+        if v == 1:
+            return "g(x) = f(x)"
         if v == -1:
             return "g(x) = -f(x)"
         if v.denominator == 1:
@@ -351,6 +353,10 @@ def _dil_eq(form: str, v: F) -> str:
         if v == F(1, v.denominator):
             return f"g(x) = f(x)/{v.denominator}"
         return f"g(x) = {frac_text(v)}f(x)"
+    if v == 1:
+        return "g(x) = f(x)"
+    if v == -1:
+        return "g(x) = f(-x)"
     if v.denominator == 1:
         return f"g(x) = f({v}x)"
     return f"g(x) = f(x/{v.denominator})"

@@ -496,6 +496,14 @@ def fmt_signed(coef, var: str = "") -> str:
     return f"{coef}{var}"
 
 
+def bracket_compound(text) -> str:
+    """Bracket `text` when it cannot stand after a "/" as written: a fraction ("4/25"), a sum ("x + 1") or a
+    negative ("-4") -- so ``f"-1/{bracket_compound('4/25')}"`` reads "-1/(4/25)", never the chain "-1/4/25".
+    A plain number, letter or surd ("7", "n", "7√2") is returned unchanged."""
+    text = str(text)
+    return f"({text})" if ("/" in text or " " in text or text.startswith(("-", "−"))) else text
+
+
 def paren_negative(value) -> str:
     """Bracket a negative value so it can follow an operator: -14 -> "(-14)".
 
@@ -1729,6 +1737,26 @@ def paper_notation(text):
     return "".join(out)
 
 
+# "9/-1" and "-5/-3" read as a stray sign after the slash; the divisor takes brackets, "9/(-1)". Only a plain number
+# or one letter is rewritten, and only when nothing attaches to it ("1/-3x" is left alone).
+_NEGATIVE_DIVISOR_RE = re.compile(r"(?<=[\w)])/-(\d+(?:\.\d+)?|[A-Za-z])(?![\w(^.])")
+
+
+# "20 x 12" is a product between two plain numbers: the letter x there is the multiplication sign.
+_LETTER_X_TIMES_RE = re.compile(r"(?<=\d) x (?=\d)")
+
+
+def _display_text(text):
+    """`paper_notation(text)` with a negative divisor bracketed and a letter x between two numbers written ×."""
+    text = paper_notation(text)
+    if isinstance(text, str):
+        if "/-" in text:
+            text = _NEGATIVE_DIVISOR_RE.sub(r"/(-\1)", text)
+        if " x " in text:
+            text = _LETTER_X_TIMES_RE.sub(" × ", text)
+    return text
+
+
 def display_question(question) -> dict:
     """The strings a learner reads for `question` (or a `Part`), written as on paper (`paper_notation`).
 
@@ -1740,11 +1768,11 @@ def display_question(question) -> dict:
     with its `label` added.
     """
     shown = {
-        "text": paper_notation(question.text),
-        "answer_text": paper_notation(question.answer_text),
-        "options": [paper_notation(o) for o in mcq_options(question)],
-        "distractors": [paper_notation(d) for d in question.distractors],
-        "working": [paper_notation(w) for w in (question.working or [])],
+        "text": _display_text(question.text),
+        "answer_text": _display_text(question.answer_text),
+        "options": [_display_text(o) for o in mcq_options(question)],
+        "distractors": [_display_text(d) for d in question.distractors],
+        "working": [_display_text(w) for w in (question.working or [])],
     }
     parts = getattr(question, "parts", None)
     if parts:

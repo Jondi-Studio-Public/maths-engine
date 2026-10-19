@@ -30,7 +30,7 @@ import re
 from fractions import Fraction as F
 
 from mathgen import figures
-from mathgen.core import check, generator, phrase, rational_text
+from mathgen.core import check, fmt_signed, generator, paren_negative, phrase, rational_text
 from mathgen.generators.fg1_line_reading_build import (
     ATT,
     draw_line,
@@ -938,7 +938,7 @@ def _nl_hard(rng, notes):
         no_leak(fig, key, texts)
         text = f"{phrase(rng, _NL_OPEN)} {phrase(rng, _NL_ASK['hard'])}"
         working = [
-            f"Solve {key}: subtract {b} from both sides to get {a}x {_SYM[op]} {c - b}.",
+            f"Solve {key}: subtract {paren_negative(b)} from both sides to get {fmt_signed(a, 'x')} {_SYM[op]} {c - b}.",
             f"Divide by {a}{', reversing the inequality sign' if a < 0 else ''}: x {_SYM[_flip(op) if a < 0 else op]} {t}.",
             "This matches the shaded part of the number line.",
         ]

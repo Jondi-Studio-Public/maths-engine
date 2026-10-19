@@ -606,7 +606,7 @@ def _build_hard_hidden_quadratic(rng) -> dict:
     candidates_val = [v for v in candidates_val if abs(v - larger_x) > 0.01]
 
     working = [
-        f"Let u = e^x: {Aq}u^2 {'+' if Bq >= 0 else '-'} {abs(Bq)}u {'+' if Cq >= 0 else '-'} {abs(Cq)} = 0",
+        f"Let u = e^x: {join_terms([(Aq, 'u^2'), (Bq, 'u'), (Cq, '')])} = 0",
         f"u = {smaller_u} or u = {larger_u} (both positive, since e^x > 0 always).",
         f"x = ln({larger_u}) = {answer_text} (the larger solution).",
     ]
