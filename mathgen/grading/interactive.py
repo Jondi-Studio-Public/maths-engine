@@ -1,6 +1,6 @@
 """Answer kinds for interactive graph answers: what a front end submits when the learner works on a graph.
 
-A front end draws a canvas from the question's ``answer_canvas`` figure (`mathgen.figure_kinds.canvas`) and, when the
+A front end draws a canvas from the question's figure ``canvas`` key (`mathgen.figure_kinds.canvas`) and, when the
 learner presses "check", sends the state of the canvas back as a reply. Every reply is canonical JSON written by the
 widget, or a typed form for a platform that has no widget. The JSON is read with `json.loads` and nothing else, and
 no reply is ever evaluated. Every coordinate is an exact Fraction (an integer, a decimal such as ``0.5`` or a

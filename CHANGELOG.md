@@ -10,6 +10,15 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ## [Unreleased]
 
+### Added
+
+- Interactive graph answers. Six answer kinds (`half_planes`, `number_line_set`, `polygon`, `curve`, `bars`,
+  `edges`) read what a learner draws on a graph, as JSON a front end sends or as a typed form. Points are compared as
+  exact fractions on the figure's snap grid, with no tolerance, and unreadable or oversized replies are marked wrong.
+  A `cartesian` or `number_line` figure may carry a `canvas` key naming the reply kind, the tools and the snap step.
+  Six skills use them: plot a point, draw a line, an inequality on a number line, shade an inequality region, transform
+  a shape on a grid and draw a parabola. The schemas are in `docs/design/interactive-graph-answers.md`.
+
 ### Changed
 
 - Marking is stricter about what surrounds a number. A stray letter or operator next to the value is wrong
