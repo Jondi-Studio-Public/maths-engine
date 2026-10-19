@@ -15,12 +15,21 @@ from math import pi
 import sympy
 
 from ..calc_cache import integrate
-from ..core import check, check_equivalent, generator, latex_answer, pick_distractors
+from ..core import check, check_equivalent, generator, join_terms, latex_answer, pick_distractors
 
 
 def _expr_text(value) -> str:
     """Use a grader-friendly exact expression (``**`` and ``pi``)."""
     return str(sympy.simplify(value)).replace("**", "^")
+
+
+def _linear_rhs(rate: int, equilibrium: int) -> str:
+    """``rate (x - equilibrium)`` as written on paper: ``x - 2``, ``-x``, ``-2(x + 1)``, ``4x``."""
+    inner = join_terms([(1, "x"), (-equilibrium, "")])
+    if rate == 1:
+        return inner
+    prefix = "-" if rate == -1 else str(rate)
+    return f"{prefix}{inner}" if equilibrium == 0 else f"{prefix}({inner})"
 
 
 def _fourier_coefficient_step(rng, n_hi):
@@ -200,31 +209,31 @@ def constant_coefficient_pde_classification(rng, coefficient_hi=4, kind=None):
         check(b != 0, "rearranged PDE hard tier drew a zero mixed-term coefficient")
         return dict(
             text=(
-                f"Classify the constant-coefficient PDE {a}u_xx "
-                f"+ ({b})u_xy = ({-c})u_yy as elliptic, parabolic or hyperbolic."
+                f"Classify the constant-coefficient PDE {join_terms([(a, 'u_xx'), (b, 'u_xy')])} "
+                f"= {join_terms([(-c, 'u_yy')])} as elliptic, parabolic or hyperbolic."
             ),
-            latex=rf"{a}u_{{xx}}+({b})u_{{xy}}=({-c})u_{{yy}};\quad\text{{classify}}.",
+            latex=rf"{join_terms([(a, 'u_{xx}'), (b, 'u_{xy}')])}={join_terms([(-c, 'u_{yy}')])};\quad\text{{classify}}.",
             answer=answer_text,
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text, plain=True),
             working=[
-                f"Rearrange to standard form: {a}u_xx + ({b})u_xy + ({c})u_yy = 0.",
-                f"Compute Δ = B² − 4AC = {discriminant}.",
+                f"Rearrange to standard form: {join_terms([(a, 'u_xx'), (b, 'u_xy'), (c, 'u_yy')])} = 0.",
+                f"With A = {a}, B = {b}, C = {c}: Δ = B² − 4AC = {discriminant}.",
                 f"Since Δ is {'negative' if discriminant < 0 else 'zero' if discriminant == 0 else 'positive'}, the PDE is {target.lower()}.",
             ],
             distractors=pick_distractors(answer_text, others),
         )
     return dict(
         text=(
-            f"Classify the constant-coefficient PDE {a}u_xx "
-            f"+ ({b})u_xy + ({c})u_yy = 0 as elliptic, parabolic or hyperbolic."
+            f"Classify the constant-coefficient PDE {join_terms([(a, 'u_xx'), (b, 'u_xy'), (c, 'u_yy')])} = 0 "
+            "as elliptic, parabolic or hyperbolic."
         ),
-        latex=rf"{a}u_{{xx}}+({b})u_{{xy}}+({c})u_{{yy}}=0;\quad\text{{classify}}.",
+        latex=rf"{join_terms([(a, 'u_{xx}'), (b, 'u_{xy}'), (c, 'u_{yy}')])}=0;\quad\text{{classify}}.",
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
         working=[
-            f"Compute Δ = B² − 4AC = {discriminant}.",
+            f"With A = {a}, B = {b}, C = {c}: Δ = B² − 4AC = {discriminant}.",
             f"Since Δ is {'negative' if discriminant < 0 else 'zero' if discriminant == 0 else 'positive'}, the PDE is {target.lower()}.",
         ],
         distractors=pick_distractors(answer_text, others),
@@ -269,16 +278,16 @@ def autonomous_equilibrium_stability(rng, rate_hi=5, equilibrium_hi=5, kind=None
         candidates = [opposite, "Non-equilibrium point", "Neutral (zero derivative)"]
         return dict(
             text=(
-                f"For the autonomous equation x' = x({b} − x), "
+                f"For the autonomous equation x' = x({join_terms([(b, ''), (-1, 'x')])}), "
                 f"classify the equilibrium x* = {equilibrium} using the sign of f'(x*)."
             ),
-            latex=rf"x'=x({b}-x);\quad x_*={equilibrium};\quad\text{{classify stability}}.",
+            latex=rf"x'=x({join_terms([(b, ''), (-1, 'x')])});\quad x_*={equilibrium};\quad\text{{classify stability}}.",
             answer=answer_text,
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text, plain=True),
             working=[
-                f"f(x) = x({b} − x) = {b}x − x², so f({equilibrium}) = 0 and x* = {equilibrium} is an equilibrium.",
-                f"f'(x) = {b} − 2x, so f'(x*) = {derivative}; a negative derivative attracts and a positive derivative repels.",
+                f"f(x) = x({join_terms([(b, ''), (-1, 'x')])}) = {join_terms([(b, 'x'), (-1, 'x²')])}, so f({equilibrium}) = 0 and x* = {equilibrium} is an equilibrium.",
+                f"f'(x) = {join_terms([(b, ''), (-2, 'x')])}, so f'(x*) = {derivative}; a negative derivative attracts and a positive derivative repels.",
             ],
             distractors=pick_distractors(answer_text, candidates),
         )
@@ -293,10 +302,10 @@ def autonomous_equilibrium_stability(rng, rate_hi=5, equilibrium_hi=5, kind=None
     candidates = [opposite, "Non-equilibrium point", "Neutral (zero derivative)"]
     return dict(
         text=(
-            f"For the autonomous equation x' = {rate}(x − ({equilibrium})), "
+            f"For the autonomous equation x' = {_linear_rhs(rate, equilibrium)}, "
             f"classify the equilibrium x* = {equilibrium} using the sign of f'(x*)."
         ),
-        latex=rf"x'={rate}(x-({equilibrium}));\quad x_*={equilibrium};\quad\text{{classify stability}}.",
+        latex=rf"x'={_linear_rhs(rate, equilibrium)};\quad x_*={equilibrium};\quad\text{{classify stability}}.",
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),

@@ -101,11 +101,13 @@ def _term(coef: int, var_text: str) -> str:
         return f"-{var_text}"
     if not var_text:
         return str(coef)
-    return f"{coef}·{var_text}" if coef >= 0 else f"-{abs(coef)}·{var_text}"
+    return f"{coef}{var_text}"
 
 
 def _join_signed(terms: list[str]) -> str:
     parts = [t for t in terms if t]
+    if len(parts) > 1:
+        parts = [t for t in parts if t != "0"]  # a zero constant adds nothing ("... - x + 0")
     out = parts[0]
     for t in parts[1:]:
         if t.startswith("-"):

@@ -3,20 +3,84 @@ name: Calculate a flat-interest loan repayment
 domain: financial-discrete
 description: Calculate a monthly repayment from principal, flat annual interest and loan term.
 status: active
-prerequisites: [simple-interest, decimal-arithmetic]
+prerequisites:
+- simple-interest
+- decimal-arithmetic
 answer: number
 sources:
-- {topic: flat_loan_repayment, params: {}, difficulty: easy}
+- topic: flat_loan_repayment
+  params: {}
+  difficulty: easy
+- topic: w3_flatloan_tiers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_flatloan_tiers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: exd_x_r2d_flat_loan_term_chain
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_g5_flat_loan
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   key: exam-single
   stages:
   - exam
-misconceptions: [{id: ignores-interest, description: Divides principal alone by the number of months.}]
-tags: [expansion-batch-5, loans]
+misconceptions:
+- id: ignores-interest
+  description: Divides principal alone by the number of months.
+- id: w3fl-compounded
+  description: Compounds the interest instead of charging flat interest.
+- id: w3fl-off-by-one
+  description: Counts one year too many or too few.
+- id: w3fl-ignores-interest
+  description: Divides the amount borrowed alone by the number of months.
+- id: w3fl-interest-as-total
+  description: Gives the interest where the total repaid was asked.
+- id: w3fl-one-year-interest
+  description: Finds one year's interest only.
+- id: w3fl-total-as-interest
+  description: Gives the total repaid where the interest was asked.
+- id: w3fl-deposit-ignored
+  description: Charges interest on the price although a deposit is paid first.
+- id: w3fl-deposit-not-subtracted
+  description: Forgets to take the deposit off the price before adding interest.
+- id: w3fl-months-as-years
+  description: Divides by the number of years instead of the number of months.
+- id: w3fl-rate-without-time
+  description: Finds the rate without allowing for the number of years.
+- id: w3fl-rate-from-total
+  description: Uses the total repaid, not the interest, to find the rate.
+- id: w3fl-term-in-months
+  description: Gives the number of months where the number of years was asked.
+- id: w3fl-term-from-total
+  description: Uses the total repaid, not the interest, to find the term.
+- id: w3fl-one-year-of-payments
+  description: Counts one year of repayments only.
+tags:
+- expansion-batch-5
+- loans
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Divide the total repaid by the number of months.
+  medium:
+    steps: 3
+    demand: Find the interest charged or the total to be repaid.
+  hard:
+    steps: 5
+    demand: Allow for a deposit, or work back to the annual rate or the term from the repayments.
+  exam:
+    steps: 7
+    demand: Chain the interest, the repayments and a changed term.

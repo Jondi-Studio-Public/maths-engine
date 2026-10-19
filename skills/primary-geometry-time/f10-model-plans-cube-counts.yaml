@@ -26,6 +26,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_model_plan_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: counts-squares-not-cubes
   description: Counts the squares of the plan, one for each stack, and ignores how many cubes are in each stack.
@@ -40,3 +44,16 @@ misconceptions:
 - id: forgets-to-take-away-the-known-stacks
   description: Starts to subtract from the total but takes away the count of the stacks, not the cubes in them.
 tags: [acara-f10-v9, primary-geometry-time, grid_model_plans, ac9m3sp01, cubes, plan-view, figure]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Add the numbers on a plan with no gaps to count the cubes in a model."
+  medium:
+    steps: 2
+    demand: "Count the cubes when some squares are bare, or find how many more cubes make every stack as tall as the tallest."
+  hard:
+    steps: 3
+    demand: "Use the total and the numbers on the other stacks to find the stack marked with a question mark."
+  exam:
+    steps: 5
+    demand: "Chain the stack marked with a question mark, the cubes needed to level every stack to the tallest and the cubes in the finished model."

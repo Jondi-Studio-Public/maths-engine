@@ -110,6 +110,12 @@ def exd_x_pr7_order_to_1000_regrouped(rng: random.Random, tier: str = "exam") ->
         answer_kind="ordered_list",
         answer_text=key,
         answer_latex=key,
-        working=[*(f"{text} = {v}." for (_, text, _), v in zip(rows, values)), f"Smallest to largest: {key}."],
+        working=[
+            *(
+                (f"{text} is already a number." if text == str(v) else f"{text} = {v}.")
+                for (_, text, _), v in zip(rows, values)
+            ),
+            f"Smallest to largest: {key}.",
+        ],
         distractors=distractors,
     )

@@ -19,7 +19,7 @@ from fractions import Fraction
 
 import sympy
 
-from ..core import attempts, check, generator, join_terms, phrase
+from ..core import attempts, check, generator, join_terms, paren_negative, phrase
 from .r4e_common import Redraw, draw, fraction_part, inequality_part, num, single
 
 x, k, m = sympy.symbols("x k m")
@@ -145,7 +145,7 @@ def _medium(rng):
     )
     working = [
         f"For continuity at x = {a} the two rules must give the same value there.",
-        f"{sympy.sstr(left.subs(x, a)).replace('*', ' ')} = {sympy.sstr(right.subs(x, a)).replace('*', ' ')}, so k = {num(key)}.",
+        f"{sympy.sstr(left.subs(x, a)).replace('*', '')} = {sympy.sstr(right.subs(x, a)).replace('*', '')}, so k = {num(key)}.",
     ]
     return single(
         stem,
@@ -194,7 +194,7 @@ def _hard_both(rng):
     check(sympy.limit(left.subs(k, key), x, a, "-") == sympy.limit(right.subs(k, key), x, a, "+"), "not continuous")
     stem = f"The function f is defined by f(x) = {rule_text_k(left)} for x < {a} and f(x) = {rule_text_k(right)} for x ≥ {a}, where k is a constant."
     working = [
-        f"At x = {a} the rules give {sympy.sstr(left.subs(x, a)).replace('*', ' ')} and {sympy.sstr(right.subs(x, a)).replace('*', ' ')}.",
+        f"At x = {a} the rules give {sympy.sstr(left.subs(x, a)).replace('*', '')} and {sympy.sstr(right.subs(x, a)).replace('*', '')}.",
         f"Setting them equal gives k = {num(key)}.",
     ]
     return single(
@@ -235,7 +235,7 @@ def _hard_two_joins(rng):
         f"and f(x) = {rule_text(x**2 + q0)} for x ≥ {b}, where k and m are constants. f is continuous for all real x."
     )
     working = [
-        f"At x = {b}: m = {b}^2 + ({q0}) = {m_val}.",
+        f"At x = {b}: m = {paren_negative(b)}^2 + {paren_negative(q0)} = {m_val}.",
         f"At x = {a}: {s * a} + k = m, so k = {k_val}. Hence k + m = {key}.",
     ]
     return single(stem, fraction_part("Find the value of k + m.", key, 3, working, wrong))
@@ -276,9 +276,9 @@ def _chain(rng):
     f_c = c * c + k_val
     # range: first piece x < a gives (a^2 + k, oo) with the vertex inside when a > 0, else [k, oo)
     if a > 0:
-        range_ivs, floor, why = [(k_val, None, True, False)], k_val, "the vertex x = 0 lies in x < a"
+        range_ivs, floor, why = [(k_val, None, True, False)], k_val, f"the vertex x = 0 lies in x < {a}"
     else:
-        range_ivs, floor, why = [(a * a + k_val, None, True, False)], a * a + k_val, "x < a is left of the vertex"
+        range_ivs, floor, why = [(a * a + k_val, None, True, False)], a * a + k_val, f"x < {a} is left of the vertex"
     top_piece2 = p * b + q
     check(top_piece2 >= floor, "the second piece falls below the floor of the range")
     # independent check of the range by sampling both pieces
@@ -293,7 +293,7 @@ def _chain(rng):
         "Find the value of k.",
         fr(k_val),
         2,
-        [f"At x = {a}: {a}^2 + k = {p * a + q}, so k = {k_val}."],
+        [f"At x = {a}: {paren_negative(a)}^2 + k = {p * a + q}, so k = {k_val}."],
         [
             (fr(p * a + q + a * a), "continuity-sign-error"),
             (fr(p * a + q), "continuity-forgets-square"),
@@ -304,7 +304,7 @@ def _chain(rng):
         f"Find f({c}).",
         fr(f_c),
         1,
-        [f"{c} < {a}, so f({c}) = {c}^2 + k = {f_c}."],
+        [f"{c} < {a}, so f({c}) = {paren_negative(c)}^2 + k = {f_c}."],
         [
             (fr(p * c + q), "hybrid-wrong-rule"),
             (fr(c * c), "hybrid-forgets-parameter"),

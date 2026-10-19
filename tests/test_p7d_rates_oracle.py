@@ -121,7 +121,7 @@ _CALC_MEDIUM_PATTERNS = [
 _CALC_HARD_PATTERNS = [
     re.compile(
         r"Tap A fills a tank at (\d+) litres per minute\. Tap B fills the same tank at (\d+) litres "
-        r"per minute\. Working together, starting at the same time, they fill a (\d+) litre tank from "
+        r"per minute\. Working together, starting at the same time, they fill an? (\d+) litre tank from "
         r"empty\. How many minutes does it take to fill the tank\?"
     ),
     re.compile(
@@ -230,7 +230,7 @@ _COMPARE_MEDIUM_PATTERNS = [
 ]
 
 _COMPARE_HARD_PATTERN = re.compile(
-    r"Brand A sells a (\d+) mL bottle for \$([\d.]+)\. Brand B sells a (\d+) L bottle for \$([\d.]+)\."
+    r"Brand A sells an? (\d+) mL bottle for \$([\d.]+)\. Brand B sells an? (\d+) L bottle for \$([\d.]+)\."
 )
 
 

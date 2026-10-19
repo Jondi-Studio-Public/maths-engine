@@ -3,32 +3,45 @@
 id: senior-use-ests-and-lsts-to-locate-the-critical
 name: Use ESTs and LSTs to locate the critical path(s) for the project
 domain: financial-discrete
-year_level: ['12']
-description: 'Given bounded, fully specified inputs, use ESTs and LSTs to locate the critical path(s) for the project. Return the resulting value, expression, relation, or classification.'
+year_level:
+- '12'
+description: Given bounded, fully specified inputs, use ESTs and LSTs to locate the critical path(s) for the project. Return
+  the resulting value, expression, relation, or classification.
 status: active
 placement_eligible: false
-prerequisites: [simple-interest]
+prerequisites:
+- simple-interest
 answer: mcq
 sources:
-- topic: p10c_critical_path_locate
+- topic: w3_ests_lsts
   params: {}
   difficulty: easy
-  stages: [6]
-- topic: p10c_critical_path_locate
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_ests_lsts
   params: {}
   difficulty: medium
-  stages: [6]
-- topic: p10c_critical_path_locate
+  stages:
+  - 3
+  - 4
+- topic: w3_ests_lsts
   params: {}
   difficulty: hard
-  stages: [6, maintenance]
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: exd_x_r2e_network_crash
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_g6_critical_path_after_change
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   key: exam-single
   stages:
@@ -40,4 +53,33 @@ misconceptions:
   description: Counts the number of activities on the non-critical path instead of the critical path.
 - id: off-by-one-activity-count
   description: Miscounts the critical path's activity count by one (drops or double-counts one activity).
-tags: [acara-senior-v8-4, financial-discrete, networks, p10c_critical_path_locate, ACMGM106]
+- id: w3el-smallest-float
+  description: Chooses the activity with the smallest float that is not zero.
+- id: w3el-largest-est
+  description: Chooses the activity with the latest earliest start time.
+- id: w3el-largest-lst
+  description: Chooses the activity with the latest latest start time.
+- id: w3el-first-listed
+  description: Chooses the first activity in the table.
+- id: w3el-longest-activity
+  description: Follows the longest single activities instead of the longest path.
+- id: w3el-most-activities
+  description: Takes the path with the most activities for the critical path.
+- id: w3el-one-swap
+  description: Swaps one critical activity for a non-critical one.
+- id: w3el-est-for-lst
+  description: Gives the earliest start time where the latest start time was asked.
+- id: w3el-ignores-successors
+  description: Finds the latest start time from the project duration alone and ignores the activities that follow.
+- id: w3el-forgets-duration
+  description: Gives the latest start time of the next activity without taking off the duration.
+- id: w3el-finish-for-start
+  description: Gives the earliest finish time where the latest start time was asked.
+- id: w3el-float-for-lst
+  description: Gives the float where the latest start time was asked.
+tags:
+- acara-senior-v8-4
+- financial-discrete
+- networks
+- p10c_critical_path_locate
+- ACMGM106

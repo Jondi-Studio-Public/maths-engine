@@ -92,7 +92,7 @@ def _medium(rng):
         key,
         [
             f"gcd({a}, {n}) = {g} divides {b}, so there are {g} solutions, spaced {n} / {g} = {step} apart.",
-            f"Dividing by {g}: {a // g}x ≡ {b // g} (mod {step}) has the solution x ≡ {x0} (mod {step}).",
+            f"Dividing by {g}: {'' if a // g == 1 else a // g}x ≡ {b // g} (mod {step}) has the solution x ≡ {x0} (mod {step}).",
             f"The solutions are {', '.join(map(str, key))}.",
         ],
         [

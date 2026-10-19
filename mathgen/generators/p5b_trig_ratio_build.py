@@ -21,6 +21,10 @@ PYTHAGOREAN_TRIPLES = [
     (8, 15, 17),
     (7, 24, 25),
     (20, 21, 29),
+    (9, 40, 41),
+    (12, 35, 37),
+    (28, 45, 53),
+    (11, 60, 61),
 ]
 
 # Theta values excluding the 40..50 band (45-degree collision guard)
@@ -233,16 +237,25 @@ def sine_cosine_ratio_triangle(rng, variant="side_from_angle"):
         hyp = c
 
         # Compute the angle
-        theta_rad = math.asin(given_leg / hyp)
+        # The angle asked for: the one the given opposite leg is opposite to (sine), or the one at the end of the
+        # hypotenuse that the given adjacent leg touches (cosine).
+        if given_opposite:
+            theta_rad = math.asin(given_leg / hyp)
+        else:
+            theta_rad = math.acos(given_leg / hyp)
         theta_deg = math.degrees(theta_rad)
         answer_text = str(round(theta_deg))
         answer = int(answer_text)
 
         # Build question text
         direction = "opposite" if given_opposite else "adjacent"
+        if given_opposite:
+            which_angle = "Find the acute angle that the opposite side is opposite to"
+        else:
+            which_angle = "Find the acute angle at the vertex where the adjacent side meets the hypotenuse"
         question_text = (
             f"A right-angled triangle has an {direction} side of {given_leg} units and a hypotenuse of {hyp} units. "
-            f"Find the acute angle at the vertex where the {direction} side meets the hypotenuse, to the nearest degree."
+            f"{which_angle}, to the nearest degree."
         )
 
         # Independent check: atan2-based recomputation
@@ -252,7 +265,7 @@ def sine_cosine_ratio_triangle(rng, variant="side_from_angle"):
         candidates = []
         tol = _tolerance_integer()
 
-        # Misconception 1: swaps opposite and adjacent (uses acos instead of asin)
+        # Misconception 1: swaps opposite and adjacent (uses the other of sine and cosine)
         if given_opposite:
             swapped = math.degrees(math.acos(given_leg / hyp))
         else:
@@ -279,7 +292,13 @@ def sine_cosine_ratio_triangle(rng, variant="side_from_angle"):
         distractors = pick_distractors(answer_text, candidates)
 
         working = [
-            f"Using inverse sine (or cosine): angle = arcsin({given_leg}/{hyp}) = arcsin({given_leg / hyp:.3f}) = {answer}°",
+            (
+                f"The {direction} side is opposite the angle, so sin(angle) = {given_leg}/{hyp}: "
+                f"angle = arcsin({given_leg}/{hyp}) = arcsin({given_leg / hyp:.3f}) = {answer}°"
+                if given_opposite
+                else f"The {direction} side touches the angle, so cos(angle) = {given_leg}/{hyp}: "
+                f"angle = arccos({given_leg}/{hyp}) = arccos({given_leg / hyp:.3f}) = {answer}°"
+            ),
         ]
 
     elif variant == "chained":

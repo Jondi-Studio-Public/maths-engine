@@ -240,6 +240,9 @@ def constant(values) -> bool:
     return len(set(values)) == 1
 
 
+_MODEL_WORD = {"lin": "linear", "quad": "quadratic", "exp": "exponential"}
+
+
 def classify(ys) -> str:
     """The one model whose test the table passes, by first differences, second differences and ratios."""
     d1 = first_diffs(ys)
@@ -253,6 +256,9 @@ def classify(ys) -> str:
         passes.append("exp")
     check(len(passes) == 1, "exactly one test must pass for every table")
     return passes[0]
+
+
+_MODEL_NAMES = {"lin": "linear", "quad": "quadratic", "exp": "exponential"}
 
 
 def _times(q: Fraction) -> str:
@@ -501,7 +507,7 @@ def _hard(rng):
         wrong_text,
         1,
         [
-            f"The model is {classify(ys)} (checked using differences per row of {step} in x).",
+            f"The model is {_MODEL_NAMES[classify(ys)]} (checked using differences per row of {step} in x).",
             f"Rule: y = {rule_text(model.rule)}.",
             f"At x = {N}, y = {target}.",
         ],

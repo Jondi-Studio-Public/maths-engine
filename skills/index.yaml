@@ -36,6 +36,14 @@ accumulation-function:
     module: mathgen/generators/r4e_accumulation_function_build.py
   - topic: r4e_accumulation_function_chain
     module: mathgen/generators/r4e_accumulation_function_build.py
+acquire-and-check-data:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: w8_data_acquisition
+    module: mathgen/generators/w8_data_acquisition_build.py
+  - topic: exd_x_w8_data_acquisition
+    module: mathgen/generators/w8_data_acquisition_build.py
 add-complex-numbers:
   domain: senior-mathematics
   status: active
@@ -188,10 +196,12 @@ arithmetic-properties:
     module: mathgen/generators/foundations_algebra.py
 arithmetic-sequences:
   domain: functions-sequences
-  status: deferred
+  status: active
   sources:
-  - topic: sequence
-    module: mathgen/generators/foundations_algebra.py
+  - topic: w5_arithmetic_sequences
+    module: mathgen/generators/w5_relations_foundations_build.py
+  - topic: exd_x_w5_arithmetic_sequences
+    module: mathgen/generators/w5_relations_foundations_build.py
 australian-coin-values:
   domain: early-foundations
   status: active
@@ -340,6 +350,8 @@ calculate-mean:
   sources:
   - topic: summary_statistic
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_mean_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exam_mean_summary_statistic
     module: mathgen/generators/exd_e3_statistics_build.py
 calculate-median:
@@ -348,6 +360,8 @@ calculate-median:
   sources:
   - topic: summary_statistic
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w2_median_even
+    module: mathgen/generators/w2_early_pools.py
   - topic: exam_median_summary_statistic
     module: mathgen/generators/exd_e3_statistics_build.py
 calculate-mode:
@@ -364,6 +378,8 @@ calculate-overtime:
   sources:
   - topic: earnings
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_ot_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exd_x_r3a_overtime_week
     module: mathgen/generators/exd_x_r3a_overtime_week.py
 calculate-range:
@@ -380,6 +396,8 @@ calculate-wages:
   sources:
   - topic: earnings
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_wage_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exd_x_sc2_wages_penalty
     module: mathgen/generators/exd_x_sc2_wages_penalty.py
 cantilever-beam-reactions:
@@ -400,10 +418,18 @@ centered-difference-polynomial:
     module: mathgen/generators/exd_x_u4_richardson_difference.py
 check-solution-by-substitution:
   domain: equations
-  status: deferred
+  status: active
   sources:
-  - topic: linear_equation
-    module: mathgen/generators/algebra.py
+  - topic: w5_check_substitution
+    module: mathgen/generators/w5_equations_foundations_build.py
+  - topic: exd_x_w5_check_substitution
+    module: mathgen/generators/w5_equations_foundations_build.py
+check-solution-by-substitution-explain:
+  domain: equations
+  status: active
+  sources:
+  - topic: w10_explain_check
+    module: mathgen/generators/w10_explain_build.py
 choose-sampling-method:
   domain: statistics-probability
   status: active
@@ -420,6 +446,38 @@ circle-area-to-diameter-and-circumference:
     module: mathgen/generators/exd_e5_circle_area_to_diameter_and_circumference_build.py
   - topic: exam_parts_circle_radius_arc
     module: mathgen/generators/exam_parts_circle_radius_arc_build.py
+circle-complete-the-square:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: w5_circle_complete_square
+    module: mathgen/generators/w5_circle_equations_build.py
+  - topic: exd_x_w5_circle_complete_square
+    module: mathgen/generators/w5_circle_equations_build.py
+circle-equation-centre-radius-form:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: w5_circle_forms
+    module: mathgen/generators/w5_circle_equations_build.py
+  - topic: exd_x_w5_circle_forms
+    module: mathgen/generators/w5_circle_equations_build.py
+circle-find-unknown-constant:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: w5_circle_unknown
+    module: mathgen/generators/w5_circle_equations_build.py
+  - topic: exd_x_w5_circle_unknown
+    module: mathgen/generators/w5_circle_equations_build.py
+circle-point-position:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: w5_circle_point_position
+    module: mathgen/generators/w5_circle_equations_build.py
+  - topic: exd_x_w5_circle_point_position
+    module: mathgen/generators/w5_circle_equations_build.py
 circle-reverse-from-area:
   domain: measurement
   status: active
@@ -428,6 +486,14 @@ circle-reverse-from-area:
     module: mathgen/generators/t5_circle_cone_build.py
   - topic: exd_x_m1_circle_posts
     module: mathgen/generators/exd_x_m1_circle_posts.py
+circle-tangent-at-a-point:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: w5_circle_tangent
+    module: mathgen/generators/w5_circle_equations_build.py
+  - topic: exd_x_w5_circle_tangent
+    module: mathgen/generators/w5_circle_equations_build.py
 classify-constant-coefficient-pde:
   domain: fourier-analysis-and-pdes
   status: active
@@ -440,8 +506,8 @@ classify-data:
   domain: statistics-probability
   status: active
   sources:
-  - topic: classify_data
-    module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_classify_easy
+    module: mathgen/generators/w3_fixes_build.py
   - topic: r3j_classify_variable
     module: mathgen/generators/r3j_classify_build.py
   - topic: exd_x_r3j_classify_variables
@@ -478,6 +544,14 @@ combine-like-terms:
     module: mathgen/generators/foundations_algebra.py
   - topic: exd_x_sc1_perimeter_collect
     module: mathgen/generators/exd_x_sc1_perimeter_collect.py
+commission-pay:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w3_commission_pay
+    module: mathgen/generators/w3_retail_pay_build.py
+  - topic: exd_x_w3_commission_pay
+    module: mathgen/generators/w3_retail_pay_build.py
 common-difference:
   domain: functions-sequences
   status: active
@@ -492,6 +566,14 @@ compare-common-fractions:
   sources:
   - topic: compare_common_fractions
     module: mathgen/generators/primary_math.py
+compare-flat-and-reducing-depreciation:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w3_compare_depreciation
+    module: mathgen/generators/w3_depreciation_build.py
+  - topic: exd_x_w3_compare_depreciation
+    module: mathgen/generators/w3_depreciation_build.py
 compare-functions-representations:
   domain: functions-sequences
   status: active
@@ -634,6 +716,8 @@ compound-interest:
   sources:
   - topic: financial_interest
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_ci_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exd_x_r2d_compound_growth_chain
     module: mathgen/generators/exd_x_r2d_compound_growth_chain.py
   - topic: exd_x_g5_compound_interest
@@ -818,6 +902,14 @@ critical-path-from-a-precedence-table:
     module: mathgen/generators/w5b_precedence_table_build.py
   - topic: exd_x_w5b_precedence_table
     module: mathgen/generators/exd_x_w5b_precedence_table.py
+cumulative-frequency-ogive:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: w8_ogive_read
+    module: mathgen/generators/w8_cumulative_frequency_build.py
+  - topic: exd_x_w8_ogive_chain
+    module: mathgen/generators/w8_cumulative_frequency_build.py
 curve-features-from-derivative-signs:
   domain: differentiation
   status: active
@@ -898,6 +990,14 @@ definite-integral-properties:
     module: mathgen/generators/r3b_integral_properties_build.py
   - topic: r3b_exam_integral_properties
     module: mathgen/generators/r3b_integral_properties_build.py
+definite-integral-substitution-changed-limits:
+  domain: integration
+  status: active
+  sources:
+  - topic: w6_subst_definite
+    module: mathgen/generators/w6_substitution_build.py
+  - topic: exd_x_w6_subst_definite
+    module: mathgen/generators/w6_substitution_exams_build.py
 difference-of-squares:
   domain: expressions-equivalence
   status: active
@@ -1008,10 +1108,12 @@ divide-quantity-in-ratio:
     module: mathgen/generators/r3j_ratio_share_build.py
 domain-and-range-intro:
   domain: functions-sequences
-  status: deferred
+  status: active
   sources:
-  - topic: function_evaluation
-    module: mathgen/generators/algebra.py
+  - topic: w5_domain_range_intro
+    module: mathgen/generators/w5_functions_intro_build.py
+  - topic: exd_x_w5_domain_range_intro
+    module: mathgen/generators/w5_functions_intro_build.py
 domain-range-standard-functions:
   domain: functions-sequences
   status: active
@@ -1326,6 +1428,8 @@ f10-angle-turn-right-reference:
   sources:
   - topic: angle_turn_right_reference
     module: mathgen/generators/p4b_angle_shape_build.py
+  - topic: w7f_turn_contexts
+    module: mathgen/generators/w7f_turn_contexts.py
 f10-area-perimeter-count-squares:
   domain: measurement
   status: active
@@ -1344,6 +1448,8 @@ f10-box-nets-on-a-grid:
   sources:
   - topic: grid_prism_nets
     module: mathgen/generators/grid_shapes_y36_build.py
+  - topic: exd_x_w7f_box_net_chain
+    module: mathgen/generators/w7f_space_exams.py
 f10-boxplot-distribution:
   domain: statistics-probability
   status: active
@@ -1452,6 +1558,8 @@ f10-composite-shape-representation:
   sources:
   - topic: grid_composite_area
     module: mathgen/generators/grid_solids_build.py
+  - topic: exd_x_w7f_composite_chain
+    module: mathgen/generators/w7f_solid_exams.py
 f10-compound-event-frequencies:
   domain: statistics-probability
   status: active
@@ -1858,6 +1966,8 @@ f10-map-feature-and-landmark-representation:
   sources:
   - topic: grid_map_landmarks
     module: mathgen/generators/grid_map_symbols_build.py
+  - topic: exd_x_w7f_map_landmarks_chain
+    module: mathgen/generators/w7f_plan_exams.py
 f10-map-grid-routes-bearings:
   domain: geometry
   status: active
@@ -1926,6 +2036,8 @@ f10-model-plans-cube-counts:
   sources:
   - topic: grid_model_plans
     module: mathgen/generators/grid_shapes_y36_build.py
+  - topic: exd_x_w7f_model_plan_chain
+    module: mathgen/generators/w7f_space_exams.py
 f10-money-change-from-note:
   domain: early-foundations
   status: active
@@ -2476,6 +2588,8 @@ f10-tessellation-vertex-angles:
   sources:
   - topic: fr2a_tessellation_vertex
     module: mathgen/generators/fr2a_tessellation_vertex_build.py
+  - topic: exd_x_w7f_tessellation_chain
+    module: mathgen/generators/w7f_tessellation_exam.py
 f10-three-d-coordinates-position-distance:
   domain: geometry
   status: active
@@ -2536,6 +2650,8 @@ f10-trial-tallies-compare-outcomes:
   sources:
   - topic: fr2d_trial_tallies
     module: mathgen/generators/fr2d_trial_tallies_build.py
+  - topic: w7f_trial_variants
+    module: mathgen/generators/w7f_trial_variants.py
 f10-triangular-prism-volume:
   domain: measurement
   status: active
@@ -2558,12 +2674,16 @@ f10-turn-shapes-on-a-grid:
   sources:
   - topic: grid_shape_turns
     module: mathgen/generators/grid_shapes_y36_build.py
+  - topic: exd_x_w7f_turn_pictures_chain
+    module: mathgen/generators/w7f_space_exams.py
 f10-two-dimensional-object-representations:
   domain: primary-geometry-time
   status: deferred
   sources:
   - topic: grid_plan_views
     module: mathgen/generators/grid_shading_build.py
+  - topic: exd_x_w7f_plan_views_chain
+    module: mathgen/generators/w7f_space_exams.py
 f10-two-way-table-relationship:
   domain: statistics-probability
   status: active
@@ -2672,6 +2792,14 @@ factorise-quadratic:
     module: mathgen/generators/t2_factorise_quadratic_build.py
   - topic: exd_x_a1_factorise_quadratic
     module: mathgen/generators/exd_x_a1_factorise_quadratic.py
+fair-game-expected-gain:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: w3_fair_game
+    module: mathgen/generators/w3_models_build.py
+  - topic: exd_x_w3_fair_game
+    module: mathgen/generators/w3_models_build.py
 fair-sharing:
   domain: early-foundations
   status: active
@@ -2724,10 +2852,20 @@ flat-loan-repayment:
   sources:
   - topic: flat_loan_repayment
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_flatloan_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exd_x_r2d_flat_loan_term_chain
     module: mathgen/generators/exd_x_r2d_flat_loan_term_chain.py
   - topic: exd_x_g5_flat_loan
     module: mathgen/generators/exd_x_g5_flat_loan.py
+flat-rate-depreciation:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w3_flat_depreciation
+    module: mathgen/generators/w3_depreciation_build.py
+  - topic: exd_x_w3_flat_depreciation
+    module: mathgen/generators/w3_depreciation_build.py
 floor-ceiling-estimation:
   domain: arithmetic
   status: active
@@ -2766,6 +2904,14 @@ fraction-of-quantity:
     module: mathgen/generators/primary_math.py
   - topic: exd_x_pr5_remainder_chain
     module: mathgen/generators/exd_x_pr5_remainder_chain.py
+frequency-polygon-read:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: w8_polygon_read
+    module: mathgen/generators/w8_cumulative_frequency_build.py
+  - topic: exd_x_w8_polygon_chain
+    module: mathgen/generators/w8_cumulative_frequency_build.py
 frustum-volume:
   domain: measurement
   status: active
@@ -2776,10 +2922,12 @@ frustum-volume:
     module: mathgen/generators/exd_x_m3_frustum_slant_chain.py
 function-concept:
   domain: functions-sequences
-  status: deferred
+  status: active
   sources:
-  - topic: function_evaluation
-    module: mathgen/generators/algebra.py
+  - topic: w5_function_concept
+    module: mathgen/generators/w5_functions_intro_build.py
+  - topic: exd_x_w5_function_concept
+    module: mathgen/generators/w5_functions_intro_build.py
 function-notation:
   domain: functions-sequences
   status: active
@@ -2788,6 +2936,14 @@ function-notation:
     module: mathgen/generators/algebra.py
   - topic: exd_x_f0_function_composition
     module: mathgen/generators/exd_x_f0_function_composition.py
+future-value-annuity-table:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w3_annuity_table
+    module: mathgen/generators/w3_loans_build.py
+  - topic: exd_x_w3_annuity_table
+    module: mathgen/generators/w3_loans_build.py
 generate-sequence-from-rule:
   domain: functions-sequences
   status: active
@@ -2828,6 +2984,14 @@ graph-adjacency-matrices:
     module: mathgen/generators/snet_adjacency_build.py
   - topic: snet_adjacency_chain
     module: mathgen/generators/snet_adjacency_build.py
+graph-bridges:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w4_graph_bridges
+    module: mathgen/generators/w4_graph_bridges_build.py
+  - topic: w4_graph_bridges_chain
+    module: mathgen/generators/w4_graph_bridges_build.py
 graph-complete-bipartite-connected:
   domain: financial-discrete
   status: active
@@ -2908,6 +3072,14 @@ gst-invoice-bas:
     module: mathgen/generators/r3e_gst_invoice_bas_build.py
   - topic: exd_x_r3e_gst_invoice_bas
     module: mathgen/generators/r3e_gst_invoice_bas_build.py
+hcf-lcm-word-problems:
+  domain: secondary-number
+  status: active
+  sources:
+  - topic: w3_hcf_lcm_words
+    module: mathgen/generators/w3_hcf_lcm_build.py
+  - topic: exd_x_w3_hcf_lcm_words
+    module: mathgen/generators/w3_hcf_lcm_build.py
 hecs-help-repayment:
   domain: financial-discrete
   status: active
@@ -2964,10 +3136,18 @@ identify-like-terms:
     module: mathgen/generators/foundations_algebra.py
 identity-and-no-solution:
   domain: equations
-  status: deferred
+  status: active
   sources:
-  - topic: linear_equation
-    module: mathgen/generators/algebra.py
+  - topic: w5_identity_no_solution
+    module: mathgen/generators/w5_equations_foundations_build.py
+  - topic: exd_x_w5_identity_no_solution
+    module: mathgen/generators/w5_equations_foundations_build.py
+identity-and-no-solution-explain:
+  domain: equations
+  status: active
+  sources:
+  - topic: w10_explain_identity
+    module: mathgen/generators/w10_explain_build.py
 inclined-plane-friction:
   domain: differential-equations
   status: active
@@ -2986,10 +3166,18 @@ income-tax-bracket-calculation:
     module: mathgen/generators/r3e_income_tax_build.py
 independent-dependent-variables:
   domain: linear-relations
-  status: deferred
+  status: active
   sources:
-  - topic: function_evaluation
-    module: mathgen/generators/algebra.py
+  - topic: w5_variables_roles
+    module: mathgen/generators/w5_relations_foundations_build.py
+  - topic: exd_x_w5_variables_roles
+    module: mathgen/generators/w5_relations_foundations_build.py
+independent-dependent-variables-explain:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: w10_explain_variables
+    module: mathgen/generators/w10_explain_build.py
 inequalities-negative-mult-div:
   domain: inequalities
   status: active
@@ -2998,6 +3186,14 @@ inequalities-negative-mult-div:
     module: mathgen/generators/linear_inequalities_build.py
   - topic: exd_x_ineq_negative
     module: mathgen/generators/linear_inequalities_build.py
+inequality-on-number-line:
+  domain: inequalities
+  status: active
+  sources:
+  - topic: w9_numberline_inequality
+    module: mathgen/generators/w9_numberline_inequality_build.py
+  - topic: exd_x_w9_numberline_inequality
+    module: mathgen/generators/w9_numberline_inequality_build.py
 inequality-solutions-number-line:
   domain: inequalities
   status: active
@@ -3008,10 +3204,12 @@ inequality-solutions-number-line:
     module: mathgen/generators/exd_x_w12c_inequality_number_line.py
 inequality-symbols:
   domain: inequalities
-  status: deferred
+  status: active
   sources:
-  - topic: inequality
-    module: mathgen/generators/foundations_algebra.py
+  - topic: w5_inequality_symbols
+    module: mathgen/generators/w5_relations_foundations_build.py
+  - topic: exd_x_w5_inequality_symbols
+    module: mathgen/generators/w5_relations_foundations_build.py
 inequality-word-problems:
   domain: inequalities
   status: active
@@ -3084,6 +3282,22 @@ integrate-reciprocal-linear:
     module: mathgen/generators/r3b_integrate_reciprocal_build.py
   - topic: r3b_exam_integrate_reciprocal
     module: mathgen/generators/r3b_integrate_reciprocal_build.py
+integrate-substitution-exponential-trigonometric:
+  domain: integration
+  status: active
+  sources:
+  - topic: w6_subst_exp_trig
+    module: mathgen/generators/w6_substitution_build.py
+  - topic: exd_x_w6_subst_exp_trig
+    module: mathgen/generators/w6_substitution_exams_build.py
+integrate-substitution-rewrite-x:
+  domain: integration
+  status: active
+  sources:
+  - topic: w6_subst_rewrite_x
+    module: mathgen/generators/w6_substitution_build.py
+  - topic: exd_x_w6_subst_rewrite_x
+    module: mathgen/generators/w6_substitution_exams_build.py
 integrate-trig:
   domain: integration
   status: active
@@ -3118,6 +3332,14 @@ intercept:
     module: mathgen/generators/foundations_algebra.py
   - topic: exd_x_a4_intercept_parallel_perp
     module: mathgen/generators/exd_x_a4_intercept_parallel_perp.py
+interest-only-loan:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w3_interest_only_loan
+    module: mathgen/generators/w3_loans_build.py
+  - topic: exd_x_w3_interest_only_loan
+    module: mathgen/generators/w3_loans_build.py
 interpret-slope-in-context:
   domain: functions-sequences
   status: active
@@ -3128,10 +3350,18 @@ interpret-slope-in-context:
     module: mathgen/generators/r3j_slope_context_build.py
 inverse-operations:
   domain: equations
-  status: deferred
+  status: active
   sources:
-  - topic: linear_equation
-    module: mathgen/generators/algebra.py
+  - topic: w5_inverse_operations
+    module: mathgen/generators/w5_equations_foundations_build.py
+  - topic: exd_x_w5_inverse_operations
+    module: mathgen/generators/w5_equations_foundations_build.py
+inverse-operations-explain:
+  domain: equations
+  status: active
+  sources:
+  - topic: w10_explain_inverse
+    module: mathgen/generators/w10_explain_build.py
 investigation-step-order:
   domain: statistics-probability
   status: active
@@ -3210,8 +3440,8 @@ limit-degree-comparison:
   domain: limits
   status: active
   sources:
-  - topic: limits
-    module: mathgen/generators/calculus.py
+  - topic: w6_limit_degree
+    module: mathgen/generators/w6_limit_degree_build.py
   - topic: exd_x_r3d_limit_growth
     module: mathgen/generators/exd_x_r3d_limit_growth.py
 limit-removable:
@@ -3232,6 +3462,14 @@ limits-of-a-bivariate-claim:
     module: mathgen/generators/ir2a_limits_of_a_bivariate_claim_build.py
   - topic: exd_x_ir2a_limits_of_a_bivariate_claim
     module: mathgen/generators/ir2a_limits_of_a_bivariate_claim_build.py
+line-draw-from-gradient-and-point:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: w9_line_draw
+    module: mathgen/generators/w9_line_draw_build.py
+  - topic: exd_x_w9_line_draw
+    module: mathgen/generators/w9_line_draw_build.py
 line-meets-parabola-circle:
   domain: quadratics
   status: active
@@ -3464,10 +3702,18 @@ mean-median-mode-one-set:
     module: mathgen/generators/exd_e5_mean_median_mode_one_set_build.py
 meaning-of-equality:
   domain: equations
-  status: deferred
+  status: active
   sources:
-  - topic: linear_equation
-    module: mathgen/generators/algebra.py
+  - topic: w5_meaning_of_equality
+    module: mathgen/generators/w5_equations_foundations_build.py
+  - topic: exd_x_w5_meaning_of_equality
+    module: mathgen/generators/w5_equations_foundations_build.py
+meaning-of-equality-explain:
+  domain: equations
+  status: active
+  sources:
+  - topic: w10_explain_equality
+    module: mathgen/generators/w10_explain_build.py
 methods-optimisation-context:
   domain: differentiation
   status: active
@@ -3538,6 +3784,8 @@ moving-average:
   sources:
   - topic: moving_average
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_movavg_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exd_x_g5_moving_average
     module: mathgen/generators/exd_x_g5_moving_average.py
 moving-average-median-smoothing:
@@ -3698,6 +3946,14 @@ order-of-operations:
     module: mathgen/generators/foundations.py
   - topic: exd_x_n3_order_ops_unknown
     module: mathgen/generators/exd_x_n3_order_ops_unknown.py
+parabola-from-vertex-and-point:
+  domain: quadratics
+  status: active
+  sources:
+  - topic: w9_parabola_draw
+    module: mathgen/generators/w9_parabola_draw_build.py
+  - topic: exd_x_w9_parabola_draw
+    module: mathgen/generators/w9_parabola_draw_build.py
 parallel-box-plots-outlier-fences:
   domain: statistics-probability
   status: active
@@ -3772,8 +4028,8 @@ percentage-change:
   domain: secondary-number
   status: active
   sources:
-  - topic: percentage_change
-    module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_percentage_change
+    module: mathgen/generators/w3_fixes_build.py
   - topic: exd_x_n4_percentage_change
     module: mathgen/generators/exd_x_n4_percentage_chains.py
 percentage-discount:
@@ -3860,6 +4116,14 @@ place-value-to-20:
   sources:
   - topic: teen_place_value
     module: mathgen/generators/early_math.py
+plot-a-point-from-coordinates:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: w9_plot_points
+    module: mathgen/generators/w9_plot_points_build.py
+  - topic: exd_x_w9_plot_points
+    module: mathgen/generators/w9_plot_points_build.py
 plot-linear-points:
   domain: linear-relations
   status: active
@@ -3952,6 +4216,14 @@ product-to-sum-evaluate-solve:
     module: mathgen/generators/r3g_product_sum_build.py
   - topic: r3g_exam_product_sum
     module: mathgen/generators/r3g_product_sum_build.py
+profit-loss-and-markup:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w3_profit_markup
+    module: mathgen/generators/w3_retail_pay_build.py
+  - topic: exd_x_w3_profit_markup
+    module: mathgen/generators/w3_retail_pay_build.py
 projectile-cartesian-elimination:
   domain: differential-equations
   status: active
@@ -3960,6 +4232,22 @@ projectile-cartesian-elimination:
     module: mathgen/generators/r3d_projectile_cartesian_build.py
   - topic: r3d_projectile_cartesian_exam
     module: mathgen/generators/r3d_projectile_cartesian_build.py
+projectile-with-linear-resistance:
+  domain: differential-equations
+  status: active
+  sources:
+  - topic: w6_projectile_resistance
+    module: mathgen/generators/w6_projectile_resistance_build.py
+  - topic: w6_projectile_resistance_exam
+    module: mathgen/generators/w6_projectile_resistance_build.py
+proof-am-gm-steps:
+  domain: proof-and-foundations
+  status: active
+  sources:
+  - topic: w10_proof_am_gm
+    module: mathgen/generators/w10_chain_proofs_build.py
+  - topic: w10_proof_am_gm_exam
+    module: mathgen/generators/w10_chain_proofs_build.py
 proof-by-induction-divisibility:
   domain: senior-mathematics
   status: active
@@ -3976,12 +4264,44 @@ proof-by-induction-inequality-or-recurrence:
     module: mathgen/generators/r4f_induction_inequality_build.py
   - topic: exd_x_r4f_induction_inequality
     module: mathgen/generators/r4f_induction_inequality_build.py
+proof-irrational-surd-steps:
+  domain: proof-and-foundations
+  status: active
+  sources:
+  - topic: w10_proof_irrational_surd
+    module: mathgen/generators/w10_chain_proofs_build.py
+  - topic: w10_proof_irrational_surd_exam
+    module: mathgen/generators/w10_chain_proofs_build.py
+proof-parity-steps:
+  domain: proof-and-foundations
+  status: active
+  sources:
+  - topic: w10_proof_parity
+    module: mathgen/generators/w10_chain_proofs_build.py
+  - topic: w10_proof_parity_exam
+    module: mathgen/generators/w10_chain_proofs_build.py
+proof-triangle-inequality-steps:
+  domain: proof-and-foundations
+  status: active
+  sources:
+  - topic: w10_proof_triangle
+    module: mathgen/generators/w10_chain_proofs_build.py
+  - topic: w10_proof_triangle_exam
+    module: mathgen/generators/w10_chain_proofs_build.py
 proportional-vs-non-proportional:
   domain: linear-relations
-  status: deferred
+  status: active
   sources:
-  - topic: function_evaluation
-    module: mathgen/generators/algebra.py
+  - topic: w5_proportional_relations
+    module: mathgen/generators/w5_relations_foundations_build.py
+  - topic: exd_x_w5_proportional_relations
+    module: mathgen/generators/w5_relations_foundations_build.py
+proportional-vs-non-proportional-explain:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: w10_explain_proportional
+    module: mathgen/generators/w10_explain_build.py
 propositional-formula-equivalence:
   domain: logic-computability-and-information
   status: active
@@ -4018,6 +4338,14 @@ pythagorean-leg:
   sources:
   - topic: trigonometry
     module: mathgen/generators/geometry.py
+quadratic-inequalities:
+  domain: inequalities
+  status: active
+  sources:
+  - topic: w5_quadratic_inequality
+    module: mathgen/generators/w5_quadratic_inequalities_build.py
+  - topic: exd_x_w5_quadratic_inequality
+    module: mathgen/generators/w5_quadratic_inequalities_build.py
 quadratic-vertex:
   domain: quadratics
   status: active
@@ -4058,6 +4386,14 @@ rational-function-features:
     module: mathgen/generators/sr2b_rational_features_build.py
   - topic: sr2b_exam_rational_features
     module: mathgen/generators/sr2b_rational_features_build.py
+rational-inequalities:
+  domain: inequalities
+  status: active
+  sources:
+  - topic: w5_rational_inequality
+    module: mathgen/generators/w5_quadratic_inequalities_build.py
+  - topic: exd_x_w5_rational_inequality
+    module: mathgen/generators/w5_quadratic_inequalities_build.py
 rationalise-binomial-denominator:
   domain: secondary-number
   status: active
@@ -4080,6 +4416,8 @@ rearrange-simple-formulas:
     module: mathgen/generators/foundations_algebra.py
   - topic: rearrange_powers_roots
     module: mathgen/generators/p8b_rearrange_powers_build.py
+  - topic: w2_rearrange_roots_more
+    module: mathgen/generators/w2_rearrange_more.py
   - topic: exd_x_a3_rearrange_repeated_subject
     module: mathgen/generators/exd_x_a3_rearrange_repeated_subject.py
 reciprocal-and-trig-graph-features:
@@ -4100,10 +4438,18 @@ reciprocal-trig-identities:
     module: mathgen/generators/salg_trig_identities_build.py
 recognise-equivalent-expressions:
   domain: expressions-equivalence
-  status: deferred
+  status: active
   sources:
-  - topic: simplify_expression
-    module: mathgen/generators/foundations_algebra.py
+  - topic: w5_equivalent_expressions
+    module: mathgen/generators/w5_relations_foundations_build.py
+  - topic: exd_x_w5_equivalent_expressions
+    module: mathgen/generators/w5_relations_foundations_build.py
+recognise-equivalent-expressions-explain:
+  domain: expressions-equivalence
+  status: active
+  sources:
+  - topic: w10_explain_equivalent
+    module: mathgen/generators/w10_explain_build.py
 recognise-numerals-to-10:
   domain: early-foundations
   status: active
@@ -4168,6 +4514,14 @@ recurring-decimal-to-fraction:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_n4_recurring_mixed
     module: mathgen/generators/exd_x_n4_recurring_decimals.py
+reducing-balance-depreciation:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: w3_reducing_depreciation
+    module: mathgen/generators/w3_depreciation_build.py
+  - topic: exd_x_w3_reducing_depreciation
+    module: mathgen/generators/w3_depreciation_build.py
 reflections-compose-to-rotation:
   domain: matrices
   status: active
@@ -4564,6 +4918,8 @@ senior-construct-scale-drawings-by-hand-and-by-using:
   sources:
   - topic: grid_scale_plan
     module: mathgen/generators/grid_shading_build.py
+  - topic: exd_x_w7f_scale_plan_chain
+    module: mathgen/generators/w7f_space_exams.py
 senior-convert-between-cartesian-and-polar-form:
   domain: senior-mathematics
   status: active
@@ -4934,6 +5290,8 @@ senior-estimate-and-compare-quantities-materials-and-costs-using:
   sources:
   - topic: grid_scale_materials
     module: mathgen/generators/grid_scale_drawing_build.py
+  - topic: exd_x_w7f_scale_materials_chain
+    module: mathgen/generators/w7f_scale_exams.py
 senior-estimate-lengths:
   domain: measurement
   status: active
@@ -5202,14 +5560,16 @@ senior-find-actual-measurements-from-scale-drawings-such-as:
   sources:
   - topic: grid_scale_actual
     module: mathgen/generators/grid_scale_drawing_build.py
+  - topic: exd_x_w7f_scale_actual_chain
+    module: mathgen/generators/w7f_scale_exams.py
 senior-find-all-solutions-of-mathrm-f-left-mathrm:
   domain: trigonometry
   status: active
   sources:
-  - topic: trig_equation_all_solutions
-    module: mathgen/generators/p5f_trig_solve_build.py
-  - topic: exd_x_f5_trigquad
-    module: mathgen/generators/exd_x_f5_trigquad.py
+  - topic: w5_trig_all_solutions
+    module: mathgen/generators/w5_trig_solutions_build.py
+  - topic: exd_x_w5_trig_all_solutions
+    module: mathgen/generators/w5_trig_solutions_build.py
 senior-find-and-use-the-derivative-of-the-inverse:
   domain: differentiation
   status: active
@@ -5528,6 +5888,8 @@ senior-interpret-commonly-used-symbols-and-abbreviations-in-scale:
   sources:
   - topic: grid_plan_symbols
     module: mathgen/generators/grid_map_symbols_build.py
+  - topic: exd_x_w7f_plan_symbols_chain
+    module: mathgen/generators/w7f_plan_exams.py
 senior-interpret-complex-timetables-such-as-tide-charts-sunrise:
   domain: senior-mathematics
   status: active
@@ -5542,12 +5904,16 @@ senior-interpret-diagrams-of-three-dimensional-objects:
   sources:
   - topic: grid_cube_stack
     module: mathgen/generators/grid_solids_build.py
+  - topic: exd_x_w7f_cube_stack_chain
+    module: mathgen/generators/w7f_solid_exams.py
 senior-interpret-different-forms-of-two-dimensional-representations-of:
   domain: measurement
   status: active
   sources:
   - topic: grid_net_views
     module: mathgen/generators/grid_solids_build.py
+  - topic: exd_x_w7f_net_chain
+    module: mathgen/generators/w7f_solid_exams.py
 senior-interpret-distance-versus-time-graphs:
   domain: senior-mathematics
   status: active
@@ -5680,6 +6046,8 @@ senior-obtain-measurements-from-scale-drawings-such-as-maps:
   sources:
   - topic: grid_scale_map
     module: mathgen/generators/grid_scale_drawing_build.py
+  - topic: exd_x_w7f_scale_map_chain
+    module: mathgen/generators/w7f_scale_exams.py
 senior-position-time-tangent-velocity:
   domain: senior-mathematics
   status: active
@@ -5856,6 +6224,8 @@ senior-recognise-the-properties-of-common-two-dimensional-geometric:
   sources:
   - topic: grid_solid_properties
     module: mathgen/generators/grid_solids_build.py
+  - topic: exd_x_w7f_solid_properties_chain
+    module: mathgen/generators/w7f_solid_exams.py
 senior-recognise-the-qualitative-features-of-the-graph-of:
   domain: functions-sequences
   status: active
@@ -6008,6 +6378,8 @@ senior-sketch-elevation-views-of-different-models:
   sources:
   - topic: grid_elevation_views
     module: mathgen/generators/grid_shading_build.py
+  - topic: exd_x_w7f_elevation_chain
+    module: mathgen/generators/w7f_solid_exams.py
 senior-solve-cubic-equations-using-technology-and-algebraically-in:
   domain: functions-sequences
   status: active
@@ -6076,6 +6448,8 @@ senior-solve-problems-involving-bearings:
   sources:
   - topic: bearings_problem
     module: mathgen/generators/p7a_bearings_build.py
+  - topic: w3_bearings_general
+    module: mathgen/generators/w3_fixes_build.py
   - topic: exd_x_r3a_bearings_triangle
     module: mathgen/generators/exd_x_r3a_bearings_triangle.py
 senior-solve-problems-involving-displacement-force-and-velocity-involving:
@@ -6214,6 +6588,8 @@ senior-understand-and-apply-drawing-conventions-of-scale-drawings:
   sources:
   - topic: grid_scale_conventions
     module: mathgen/generators/grid_scale_drawing_build.py
+  - topic: exd_x_w7f_scale_conventions_chain
+    module: mathgen/generators/w7f_scale_exams.py
 senior-understand-and-use-location-of-complex-conjugates-in:
   domain: senior-mathematics
   status: active
@@ -6416,8 +6792,8 @@ senior-use-ests-and-lsts-to-locate-the-critical:
   domain: financial-discrete
   status: active
   sources:
-  - topic: p10c_critical_path_locate
-    module: mathgen/generators/p10c_critical_path_build.py
+  - topic: w3_ests_lsts
+    module: mathgen/generators/w3_fixes_build.py
   - topic: exd_x_r2e_network_crash
     module: mathgen/generators/exd_x_r2e_network_chain.py
   - topic: exd_x_g6_critical_path_after_change
@@ -6702,6 +7078,8 @@ senior-use-symbols-and-conventions-for-the-representation-of:
   sources:
   - topic: grid_plan_conventions
     module: mathgen/generators/grid_map_symbols_build.py
+  - topic: exd_x_w7f_plan_conventions_chain
+    module: mathgen/generators/w7f_plan_exams.py
 senior-use-technology-and-a-recurrence-relation-to-model:
   domain: financial-discrete
   status: active
@@ -6950,6 +7328,14 @@ separable-de-particular-solution:
     module: mathgen/generators/r3h_separable_de_build.py
   - topic: exd_x_r3h_separable_de
     module: mathgen/generators/r3h_separable_de_build.py
+shade-linear-inequality-region:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: w9_shade_region
+    module: mathgen/generators/w9_shade_region_build.py
+  - topic: exd_x_w9_shade_region
+    module: mathgen/generators/w9_shade_region_build.py
 shm-displacement-velocity-calculus:
   domain: differential-equations
   status: active
@@ -6972,6 +7358,8 @@ shortest-network-path:
   sources:
   - topic: shortest_path
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_netpath_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exd_x_sc2_network_closure
     module: mathgen/generators/exd_x_sc2_network_closure.py
 signed-area-definite-integral:
@@ -7012,6 +7400,8 @@ simple-interest:
   sources:
   - topic: financial_interest
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_si_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exd_x_r3b_simple_interest
     module: mathgen/generators/exd_x_r3b_simple_interest.py
 simplify-algebraic-fractions:
@@ -7092,10 +7482,18 @@ skip-count-2-5-10:
     module: mathgen/generators/early_math.py
 solution-and-solution-set:
   domain: equations
-  status: deferred
+  status: active
   sources:
-  - topic: linear_equation
-    module: mathgen/generators/algebra.py
+  - topic: w5_solution_set
+    module: mathgen/generators/w5_equations_foundations_build.py
+  - topic: exd_x_w5_solution_set
+    module: mathgen/generators/w5_equations_foundations_build.py
+solution-and-solution-set-explain:
+  domain: equations
+  status: active
+  sources:
+  - topic: w10_explain_solution
+    module: mathgen/generators/w10_explain_build.py
 solve-equation-word-problems:
   domain: equations
   status: active
@@ -7256,6 +7654,14 @@ superannuation-contributions:
     module: mathgen/generators/r3e_superannuation_build.py
   - topic: exd_x_r3e_superannuation
     module: mathgen/generators/r3e_superannuation_build.py
+supply-demand-equilibrium:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: w3_supply_demand
+    module: mathgen/generators/w3_models_build.py
+  - topic: exd_x_w3_supply_demand
+    module: mathgen/generators/w3_models_build.py
 t-formulae-half-angle:
   domain: trigonometry
   status: active
@@ -7306,6 +7712,14 @@ total-distance-direction-change:
     module: mathgen/generators/r3h_total_distance_build.py
   - topic: exd_x_r3h_total_distance
     module: mathgen/generators/r3h_total_distance_build.py
+transform-a-shape-on-grid:
+  domain: geometry
+  status: active
+  sources:
+  - topic: w9_transform_shape
+    module: mathgen/generators/w9_transform_shape_build.py
+  - topic: exd_x_w9_transform_shape
+    module: mathgen/generators/w9_transform_shape_build.py
 transition-matrix-states:
   domain: matrices
   status: active
@@ -9554,6 +9968,8 @@ unit-pricing:
   sources:
   - topic: unit_pricing
     module: mathgen/generators/curriculum_expansion.py
+  - topic: w3_unit_tiers
+    module: mathgen/generators/w3_consumer_tiers_build.py
   - topic: exd_x_g5_unit_pricing
     module: mathgen/generators/exd_x_g5_unit_pricing.py
 use-formulas:

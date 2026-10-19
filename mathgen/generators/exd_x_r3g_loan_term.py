@@ -26,14 +26,14 @@ _PURPOSES = ("car", "caravan", "boat", "kitchen renovation", "solar panel", "hom
 _NAMES = ("Priya", "Liam", "Mei", "Tom", "Aisha", "Callum", "Sophie", "Dean")
 _TERMS = (18, 20, 24, 30, 36, 40, 48, 50, 60, 72, 75, 80, 84, 90, 96)
 _STEMS = (
-    "{name} borrows ${P} for a {purpose}. The loan charges flat interest of {r}% per annum on the original amount "
-    "for the whole term. {name} makes repayments of ${M1} at the end of each month until the loan and all of the "
+    "{name} borrows ${P:,} for a {purpose}. The loan charges flat interest of {r}% per annum on the original amount "
+    "for the whole term. {name} makes repayments of ${M1:,} at the end of each month until the loan and all of the "
     "interest have been repaid.",
-    "A {purpose} loan of ${P} carries flat interest at {r}% per annum, calculated on the amount borrowed for the "
-    "entire term. {name} repays ${M1} each month, and keeps paying until the principal and all of the interest "
+    "A {purpose} loan of ${P:,} carries flat interest at {r}% per annum, calculated on the amount borrowed for the "
+    "entire term. {name} repays ${M1:,} each month, and keeps paying until the principal and all of the interest "
     "charged are cleared.",
-    "To pay for a {purpose}, {name} takes a ${P} loan at a flat {r}% per annum (interest is always worked out on "
-    "${P}, whatever has been repaid). The monthly repayment is ${M1}, and it continues until nothing is owing.",
+    "To pay for a {purpose}, {name} takes a ${P:,} loan at a flat {r}% per annum (interest is always worked out on "
+    "${P:,}, whatever has been repaid). The monthly repayment is ${M1:,}, and it continues until nothing is owing.",
 )
 
 
@@ -64,7 +64,7 @@ def exd_x_r3g_loan_term(rng: random.Random, tier: str = "exam") -> dict:
         saving = interest1 - interest2
         name, purpose = rng.choice(_NAMES), rng.choice(_PURPOSES)
         stem = rng.choice(_STEMS).format(name=name, purpose=purpose, P=P, r=r, M1=M1)
-        prompt_c = f"{name} instead repays ${M2} each month. How many dollars less interest is paid than in part (b)?"
+        prompt_c = f"{name} instead repays ${M2:,} each month. How many dollars less interest is paid than in part (b)?"
         if clashes((n1, interest1, saving), stem, prompt_c):
             continue
         break
@@ -85,8 +85,8 @@ def exd_x_r3g_loan_term(rng: random.Random, tier: str = "exam") -> dict:
             0,
             3,
             [
-                f"Interest is {r}% of ${P} per year, so ${I} each month.",
-                f"After n months: {M1}n = {P} + {I}n, so n = {P} / ({M1} - {I}).",
+                f"Interest is {r}% of ${P:,} per year, so ${I:,} each month.",
+                f"After n months: {M1}n = {P} + {I}n, so n = {P:,} / ({M1} - {I}).",
                 f"n = {n1} months.",
             ],
             [
@@ -102,7 +102,7 @@ def exd_x_r3g_loan_term(rng: random.Random, tier: str = "exam") -> dict:
             interest1,
             0,
             1,
-            [f"Interest = ${I} x {n1} months = ${interest1}."],
+            [f"Interest = ${I:,} × {n1} months = ${interest1:,}."],
             [
                 (M1 * n1, "loan-total-repaid-for-interest"),
                 (12 * I, "loan-interest-for-one-year-only"),
@@ -117,9 +117,9 @@ def exd_x_r3g_loan_term(rng: random.Random, tier: str = "exam") -> dict:
             0,
             2,
             [
-                f"Term at ${M2} a month: n = {P} / ({M2} - {I}) = {n2} months.",
-                f"Interest = ${I} x {n2} = ${interest2}.",
-                f"Saving = ${interest1} - ${interest2} = ${saving}.",
+                f"Term at ${M2:,} a month: n = {P:,} / ({M2} - {I}) = {n2} months.",
+                f"Interest = ${I:,} × {n2} = ${interest2:,}.",
+                f"Saving = ${interest1:,} - ${interest2:,} = ${saving:,}.",
             ],
             [
                 (n1 - n2, "loan-months-saved-for-dollars-saved"),

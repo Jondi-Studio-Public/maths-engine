@@ -21,6 +21,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_tessellation_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: fr2a-360-over-interior
   description: Dividing 360 by the interior angle to find the number of sides, where 360 is divided by the exterior angle.
@@ -49,3 +53,16 @@ misconceptions:
 - id: fr2a-straight-line-for-point
   description: Using 180 degrees, the angles on a straight line, instead of 360 degrees round a point.
 tags: [acara-f10-v9, geometry, tessellation, regular-polygons, angles, ac9m6sp03]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Find one interior angle of a regular polygon, or how many of one polygon fit round a point."
+  medium:
+    steps: 3
+    demand: "Find the number of sides of the third regular polygon that completes a corner point with two known polygons."
+  hard:
+    steps: 4
+    demand: "Find the sides of identical polygons sharing the angle left at a point, or the gap left when polygons do not tile."
+  exam:
+    steps: 5
+    demand: "Chain two interior angles, the angle left at the point for the third polygon, its number of sides and the distance round one such tile, each part using the one before."

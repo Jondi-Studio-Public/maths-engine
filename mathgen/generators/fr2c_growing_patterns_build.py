@@ -87,7 +87,7 @@ def _figure(pattern: str):
             segs.append(
                 {"from": [round(ox + x1, 4), round(1.8 + y1, 4)], "to": [round(ox + x2, 4), round(1.8 + y2, 4)]}
             )
-        labels.append({"at": [round(ox + width / 2, 4), 0.9], "label": f"Figure {n}"})
+        labels.append({"at": [round(ox + width / 2, 4), 0.9], "label": f"Figure {n}", "marker": False})
         spans.append((ox, ox + width))
         top = max(top, height)
         ox += width + _GAP

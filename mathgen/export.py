@@ -676,7 +676,7 @@ def paper_moodle_xml(paper: dict, *, version: str = "A") -> str:
     base = (
         _clean(paper["category"])
         if paper.get("category")
-        else "$course$/top/" + title + " (version " + str(version) + ")"
+        else "$course$/top/" + title.replace("/", "-") + " (version " + str(version) + ")"
     )
     sub_categories = bool(paper.get("section_categories"))
     out = ['<?xml version="1.0" encoding="UTF-8"?>\n<quiz>']

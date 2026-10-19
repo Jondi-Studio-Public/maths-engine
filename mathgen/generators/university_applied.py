@@ -91,7 +91,7 @@ def convex_quadratic_minimum(rng, coefficient_hi=8, linear_hi=12, constant_hi=12
     alternatives = [
         f"x = {wrong_x}, y = {value}",
         f"x = {x_star}, y = {wrong_value}",
-        f"x = {b}/{2 * a}, y = {value}",
+        f"x = {Fraction(b, 2 * a)}, y = {value}",
         f"x = {x_star}, y = {c}",
         f"x = {x_star + 1}, y = {value}",
         f"x = {x_star}, y = {value + 1}",
@@ -107,7 +107,7 @@ def convex_quadratic_minimum(rng, coefficient_hi=8, linear_hi=12, constant_hi=12
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"f'(x) = {2 * a}x {b:+d}, so x* = {x_star}.",
+            f"f'(x) = {join_terms([(2 * a, 'x'), (b, '')])}, so x* = {x_star}.",
             f"f(x*) = {value}; the positive leading coefficient makes this a minimum.",
         ],
         # GRADER_TOLERANCE: this is a `pair` answer, and grade_pair accepts a
@@ -115,6 +115,11 @@ def convex_quadratic_minimum(rng, coefficient_hi=8, linear_hi=12, constant_hi=12
         # wrong answer -- x = 1/14 was offered against x = 1/28.
         distractors=pick_distractors(answer_text, alternatives, tolerance=GRADER_TOLERANCE),
     )
+
+
+def _shifted(var: str, value: int) -> str:
+    """``x − 3`` or ``x + 3``: a variable minus a signed number, never ``x−-3``."""
+    return f"{var} − {value}" if value >= 0 else f"{var} + {-value}"
 
 
 @generator(
@@ -192,8 +197,8 @@ def lagrange_constrained_point(rng, coordinate_hi=7, coefficient_hi=7, kind=None
             answer_text=answer_text,
             answer_latex=answer_text,
             working=[
-                f"Convert to normal form: {p}x − {q}y = {rhs}.",
-                f"The displacement is normal to the line: (x−{target_x}, y−{target_y}) = λ({u}, {v}).",
+                f"Convert to normal form: {join_terms([(p, 'x'), (-q, 'y')]).replace('-', '−')} = {rhs}.",
+                f"The displacement is normal to the line: ({_shifted('x', target_x)}, {_shifted('y', target_y)}) = λ({u}, {v}).",
                 f"Solving the constraint gives (x, y) = ({x_star}, {y_star}).",
             ],
             # GRADER_TOLERANCE: this is a `pair` answer, and grade_pair accepts a
@@ -216,7 +221,7 @@ def lagrange_constrained_point(rng, coordinate_hi=7, coefficient_hi=7, kind=None
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"The displacement is normal to the line: (x−{target_x}, y−{target_y}) = λ({u}, {v}).",
+            f"The displacement is normal to the line: ({_shifted('x', target_x)}, {_shifted('y', target_y)}) = λ({u}, {v}).",
             f"Solving the constraint gives (x, y) = ({x_star}, {y_star}).",
         ],
         # GRADER_TOLERANCE: this is a `pair` answer, and grade_pair accepts a

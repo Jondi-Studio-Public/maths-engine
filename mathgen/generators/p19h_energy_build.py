@@ -262,7 +262,7 @@ def _kwh_result(rng, stem: str, key_raw: Fraction, candidates: list, working: li
 def _build_kwh_easy(rng) -> dict:
     """easy: power already stated in kW, duration already stated in whole
     hours -- the decision this tier adds is recognising energy_kWh =
-    power_kW x duration_h, with nothing to convert first."""
+    power_kW × duration_h, with nothing to convert first."""
     for _ in range(_MAX_ATTEMPTS):
         appliance = rng.choice(_HOURS_APPLIANCES)
         name = appliance[0]
@@ -288,7 +288,7 @@ def _build_kwh_easy(rng) -> dict:
         check_equivalent(answer, Fraction(watts, 1000) * hours, "kwh_easy independent recompute failed")
 
         stem = _kwh_single_stem(rng, name, f"{_kw_text(kw)} kW", _hours_text(hours))
-        working = [f"{_kw_text(kw)} kW x {hours} h = {_kwh_text(answer)} kWh."]
+        working = [f"{_kw_text(kw)} kW × {hours} h = {_kwh_text(answer)} kWh."]
         result = _kwh_result(rng, stem, answer, candidates, working)
         if result is not None:
             return result
@@ -322,7 +322,7 @@ def _build_kwh_medium(rng) -> dict:
         check_equivalent(answer, (Fraction(watts) * hours) / 1000, "kwh_medium independent recompute failed")
 
         stem = _kwh_single_stem(rng, name, f"{watts} W", _hours_text(hours))
-        working = [f"{watts} W = {_kw_text(kw)} kW; {_kw_text(kw)} kW x {hours} h = {_kwh_text(answer)} kWh."]
+        working = [f"{watts} W = {_kw_text(kw)} kW; {_kw_text(kw)} kW × {hours} h = {_kwh_text(answer)} kWh."]
         result = _kwh_result(rng, stem, answer, candidates, working)
         if result is not None:
             return result
@@ -373,8 +373,8 @@ def _build_kwh_hard(rng) -> dict:
 
         stem = _two_appliance_stem(a1[0], w1, _hours_text(h1), a2[0], w2, _hours_text(h2))
         working = [
-            f"{w1} W = {_kw_text(kw1)} kW; {_kw_text(kw1)} kW x {h1} h = {_kwh_text(energy1)} kWh; "
-            f"{w2} W = {_kw_text(kw2)} kW; {_kw_text(kw2)} kW x {h2} h = {_kwh_text(energy2)} kWh; "
+            f"{w1} W = {_kw_text(kw1)} kW; {_kw_text(kw1)} kW × {h1} h = {_kwh_text(energy1)} kWh; "
+            f"{w2} W = {_kw_text(kw2)} kW; {_kw_text(kw2)} kW × {h2} h = {_kwh_text(energy2)} kWh; "
             f"total = {_kwh_text(answer)} kWh."
         ]
         result = _kwh_result(rng, stem, answer, candidates, working, _KWH_COMBINED_ASK)
@@ -421,9 +421,9 @@ def _build_kwh_exam(rng) -> dict:
 
         stem = _two_appliance_stem(a1[0], w1, _hours_text(h1), a2[0], w2, f"{m2} minutes")
         working = [
-            f"{w1} W = {_kw_text(kw1)} kW; {_kw_text(kw1)} kW x {h1} h = {_kwh_text(energy1)} kWh; "
+            f"{w1} W = {_kw_text(kw1)} kW; {_kw_text(kw1)} kW × {h1} h = {_kwh_text(energy1)} kWh; "
             f"{w2} W = {_kw_text(kw2)} kW; {m2} min = {stated_precision_string(round_half_up(hours2, 2), 2)} h; "
-            f"{_kw_text(kw2)} kW x {stated_precision_string(round_half_up(hours2, 2), 2)} h = {_kwh_text(energy2)} kWh; "
+            f"{_kw_text(kw2)} kW × {stated_precision_string(round_half_up(hours2, 2), 2)} h = {_kwh_text(energy2)} kWh; "
             f"total = {_kwh_text(answer)} kWh."
         ]
         result = _kwh_result(rng, stem, answer, candidates, working, _KWH_COMBINED_ASK)
@@ -527,7 +527,7 @@ def _kj_result(rng, stem: str, key_raw: Fraction, candidates: list, working: lis
 def _build_kj_easy(rng) -> dict:
     """easy: rate already stated in kJ per minute, duration already stated
     in whole minutes -- the decision this tier adds is recognising
-    energy_kJ = rate x duration, with nothing to convert first."""
+    energy_kJ = rate × duration, with nothing to convert first."""
     for _ in range(_MAX_ATTEMPTS):
         activity = rng.choice(ACTIVITIES)
         name, source = activity[0], activity[1]
@@ -552,7 +552,7 @@ def _build_kj_easy(rng) -> dict:
             f"While {name}, {source} shows an energy-use rate of {rate} kJ per minute. "
             f"The activity lasts {duration} minutes."
         )
-        working = [f"{rate} kJ/min x {duration} min = {_kj_text(answer)} kJ."]
+        working = [f"{rate} kJ/min × {duration} min = {_kj_text(answer)} kJ."]
         result = _kj_result(rng, stem, answer, candidates, working)
         if result is not None:
             return result
@@ -592,7 +592,7 @@ def _build_kj_medium(rng) -> dict:
         )
         working = [
             f"{duration} min = {stated_precision_string(round_half_up(hours, 3), 3)} h; "
-            f"{rate_hour} kJ/h x {stated_precision_string(round_half_up(hours, 3), 3)} h = {_kj_text(answer)} kJ."
+            f"{rate_hour} kJ/h × {stated_precision_string(round_half_up(hours, 3), 3)} h = {_kj_text(answer)} kJ."
         ]
         result = _kj_result(rng, stem, answer, candidates, working)
         if result is not None:
@@ -635,7 +635,7 @@ def _build_kj_hard(rng) -> dict:
             f"While {act2[0]}, {act2[1]} shows a rate of {rate2_hour} kJ per hour for {d2} minutes."
         )
         working = [
-            f"{rate1} kJ/min x {d1} min = {_kj_text(energy1)} kJ; {d2} min = "
+            f"{rate1} kJ/min × {d1} min = {_kj_text(energy1)} kJ; {d2} min = "
             f"{stated_precision_string(round_half_up(hours2, 3), 3)} h, {rate2_hour} kJ/h x "
             f"{stated_precision_string(round_half_up(hours2, 3), 3)} h = {_kj_text(energy2)} kJ; "
             f"total = {_kj_text(answer)} kJ."
@@ -686,7 +686,7 @@ def _build_kj_exam(rng) -> dict:
         )
         working = [
             f"{hours_part} h {minutes_part} min = {total_minutes} min = {total_seconds} s; "
-            f"{rate_sec_text} kJ/s x {total_seconds} s = {_kj_text(answer)} kJ."
+            f"{rate_sec_text} kJ/s × {total_seconds} s = {_kj_text(answer)} kJ."
         ]
         result = _kj_result(rng, stem, answer, candidates, working)
         if result is not None:

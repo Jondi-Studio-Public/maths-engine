@@ -2,14 +2,14 @@ id: f10-shape-features-classification
 name: Classify shape features
 domain: primary-geometry-time
 year_level: [F, '1', '2', '3']
-description: State a named familiar shape's number of sides, or whether it is curved or straight-sided.
+description: Pick the familiar shape that has a curved side or only straight sides, state a named shape's number of sides, or name the shape with a given number of sides.
 status: active
 placement_eligible: false
 prerequisites: [name-basic-shapes]
 answer: mcq
 sources:
 - topic: shape_features_classification
-  params: {mode: curved_straight}
+  params: {mode: which_curved_straight}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: shape_features_classification

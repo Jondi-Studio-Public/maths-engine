@@ -72,6 +72,11 @@ def plain_expr(expr) -> str:
     return s.replace("*", "")
 
 
+def plain_caret(expr) -> str:
+    """``plain_expr`` with ``^`` powers, as most stems write them: ``3*x**2*y`` becomes ``3x^2y``."""
+    return plain_expr(expr).replace("²", "^2").replace("³", "^3")
+
+
 def tex_expr(expr) -> str:
     return sympy.latex(expr)
 

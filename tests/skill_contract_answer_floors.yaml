@@ -24,7 +24,6 @@ classify-constant-coefficient-pde:
   constant_coefficient_pde_classification/hard: 3
   constant_coefficient_pde_classification/medium: 3
 classify-data:
-  classify_data/easy: 3
   r3j_classify_variable/medium: 4
 classify-real-numbers:
   classify_real_number/easy: 2
@@ -64,8 +63,6 @@ critical-path-from-a-precedence-table:
   w5b_precedence_table/easy: 4
 de-moivre-multiple-angle:
   r3g_exam_multiple_angle/exam: 10
-define-variables:
-  define_variable/easy: 3
 ey-calendar-count-days:
   ey_calendar_span/easy: 4
   ey_calendar_span/medium: 3
@@ -85,6 +82,7 @@ ey-day-strip-sequence:
 f10-angle-turn-right-reference:
   angle_turn_right_reference/easy: 4
   angle_turn_right_reference/hard: 4
+  w7f_turn_contexts/easy: 4
 f10-chance-language-and-outcomes:
   chance_outcome_classify/easy: 2
 f10-clock-half-quarter-hour:
@@ -97,10 +95,6 @@ f10-data-display-selection:
   f10a_data_display_selection/hard: 4
 f10-factor-multiple-divisibility-algorithm:
   p9e_factor_multiple_divisibility_algorithm/hard: 5
-f10-factors-multiples-divisibility:
-  factors_multiples_divisibility/easy: 2
-  factors_multiples_divisibility/hard: 2
-  factors_multiples_divisibility/medium: 2
 f10-fraction-compare-models:
   fraction_compare_models/easy: 3
   fraction_compare_models/hard: 4
@@ -110,7 +104,7 @@ f10-fraction-equivalence-numberline:
 f10-fraction-shaded-name:
   fraction_shaded_name/easy: 5
 f10-fractions-half-quarter-eighth:
-  fraction_halving/easy: 2
+  fraction_halving/easy: 3
   fraction_halving/hard: 3
   fraction_halving/medium: 2
 f10-model-plans-cube-counts:
@@ -125,15 +119,9 @@ f10-nets-build-solids:
   grid_nets_build_solids/medium: 4
 f10-number-set-membership:
   y910_classify_number_sets/easy: 4
-f10-odd-even-properties:
-  odd_even_properties/easy: 2
-  odd_even_properties/hard: 2
-  odd_even_properties/medium: 2
 f10-pattern-strip-repeating-unit:
   ey_pattern_match/medium: 3
   ey_pattern_unit/easy: 2
-f10-percentage-equivalence-comparison:
-  percentage_to_fraction/easy: 5
 f10-pick-the-matching-view:
   fr2a_matching_view/easy: 4
   fr2a_matching_view/hard: 4
@@ -147,10 +135,6 @@ f10-polygon-classification:
   p14b_polygon_classification/medium: 4
 f10-powers-ten-multiply-divide:
   powers_ten_multiply_divide/hard: 3
-f10-prime-composite-square-properties:
-  prime_composite_square_properties/easy: 2
-  prime_composite_square_properties/hard: 2
-  prime_composite_square_properties/medium: 2
 f10-prism-cross-sections:
   prism_cross_sections/easy: 2
   prism_cross_sections_forced/hard: 3
@@ -166,7 +150,6 @@ f10-sequence-days-times:
   day_time_sequencing/hard: 5
   day_time_sequencing/medium: 4
 f10-shape-features-classification:
-  shape_features_classification/easy: 2
   shape_features_classification/hard: 4
   shape_features_classification/medium: 5
 f10-shape-sides-spatial-terms:
@@ -204,10 +187,6 @@ graph-planar-faces:
   sr2a_planar_faces_chain/exam: 4
 graph-walks-trails-paths-cycles:
   snet_route_types/easy: 3
-limit-degree-comparison:
-  limits/easy: 3
-  limits/hard: 3
-  limits/medium: 3
 logarithm-laws:
   logarithm_law/easy: 3
 matrix-rank-small:
@@ -220,12 +199,8 @@ name-basic-shapes:
 network-model-from-situation:
   sr2a_network_model/hard: 3
   sr2a_network_model_chain/exam: 10
-percentage-change:
-  percentage_change/easy: 4
 probability-representations:
   probability_representation/easy: 5
-product-to-sum-evaluate-solve:
-  r3g_exam_product_sum/exam: 6
 proof-by-induction-inequality-or-recurrence:
   r4f_induction_inequality/medium: 5
 propositional-formula-equivalence:
@@ -317,8 +292,8 @@ senior-graph-dilation-read-factor:
   ey_graph_dilation/easy: 3
   ey_graph_dilation/medium: 3
 senior-graph-reciprocal-abs-compare:
-  ey_graph_reciprocal_abs/easy: 2
-  ey_graph_reciprocal_abs/medium: 3
+  ey_graph_reciprocal_abs/easy: 4
+  ey_graph_reciprocal_abs/medium: 5
 senior-identify-common-usage-of-rates-for-example-km:
   p19h_rate_usage_classification/easy: 5
   p19h_rate_usage_classification/exam: 5
@@ -446,9 +421,7 @@ senior-understand-the-limiting-behaviour-as-n-rightarrow-infty:
 senior-understand-the-unit-circle-definition-of-cos-theta:
   p19g_unit_circle_coordinates/easy: 5
 senior-use-ests-and-lsts-to-locate-the-critical:
-  p10c_critical_path_locate/easy: 2
-  p10c_critical_path_locate/hard: 2
-  p10c_critical_path_locate/medium: 2
+  w3_ests_lsts/easy: 4
 senior-use-examples-and-counter-examples:
   counterexample_identify/easy: 2
   counterexample_identify/medium: 2

@@ -39,7 +39,7 @@ _CONTEXTS = (
             "having changed at a constant rate.",
         ),
         "L",
-        "Write a formula for the water level $L$ (in cm) after $t$ hours.",
+        "Write a formula for the water level L (in cm) after t hours.",
         "hour",
     ),
     (
@@ -49,7 +49,7 @@ _CONTEXTS = (
             "changing by the same amount each time period.",
         ),
         "B",
-        "Write a formula for the balance $B$ (in dollars) after $t$ weeks.",
+        "Write a formula for the balance B (in dollars) after t weeks.",
         "week",
     ),
     (
@@ -60,7 +60,7 @@ _CONTEXTS = (
             "changing at a steady rate.",
         ),
         "D",
-        "Write a formula for the depth $D$ (in cm) after $t$ days.",
+        "Write a formula for the depth D (in cm) after t days.",
         "day",
     ),
 )

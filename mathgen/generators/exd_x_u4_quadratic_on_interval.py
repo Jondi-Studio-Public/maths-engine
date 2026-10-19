@@ -133,7 +133,7 @@ def exd_x_u4_quadratic_on_interval(rng: random.Random, tier: str = "exam") -> di
                 answer_text=vt,
                 marks=2,
                 sensible_range=(0, None),
-                working=[f"x = −b/(2a) = {-b}/{2 * a} = {vt}."],
+                working=[f"x = −b/(2a) = {-b}/{2 * a}" + (f" = {vt}." if f"{-b}/{2 * a}" != vt else ".")],
                 distractors=fraction_distractors(vertex, a_candidates),
             ),
             dict(

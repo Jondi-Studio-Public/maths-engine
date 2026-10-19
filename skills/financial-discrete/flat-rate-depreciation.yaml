@@ -1,0 +1,108 @@
+id: flat-rate-depreciation
+name: Flat-rate depreciation
+domain: financial-discrete
+year_level:
+- '10'
+- '11'
+description: Depreciate an asset by the same percentage of its purchase price each year, finding the yearly amount, the value
+  after some years, and the years needed to reach a value.
+status: active
+placement_eligible: false
+prerequisites:
+- percentage-of-quantity
+answer: number
+sources:
+- topic: w3_flat_depreciation
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_flat_depreciation
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_flat_depreciation
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_flat_depreciation
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: fdep-rate-not-converted
+  description: Multiplies the price by the percentage without dividing by 100.
+- id: fdep-value-for-depreciation
+  description: Gives the value left after one year where the yearly depreciation was asked.
+- id: fdep-decimal-slip
+  description: Misplaces the decimal point when finding a percentage of the price.
+- id: fdep-divides-by-rate
+  description: Divides the price by the percentage instead of finding that percentage of it.
+- id: fdep-amount-not-value
+  description: Gives the total depreciation where the value after the years was asked.
+- id: fdep-one-year-only
+  description: Takes off only one year's depreciation however many years have passed.
+- id: fdep-adds-to-price
+  description: Adds the depreciation to the price instead of subtracting it.
+- id: fdep-uses-reducing
+  description: Takes the percentage off the new value each year when the flat rate is a percentage of the purchase price.
+- id: fdep-year-not-total
+  description: Gives one year's depreciation where the total over several years was asked.
+- id: fdep-ignores-years
+  description: Finds the percentage lost in total and does not divide by the number of years.
+- id: fdep-dollars-not-percent
+  description: Gives the depreciation per year in dollars where a percentage of the price was asked.
+- id: fdep-percent-of-value
+  description: Finds the percentage of the later value instead of the purchase price.
+- id: fdep-years-from-value
+  description: Divides the target value by the yearly depreciation instead of the amount lost.
+- id: fdep-years-from-price
+  description: Divides the purchase price by the yearly depreciation, ignoring the value to be reached.
+- id: fdep-counts-year-zero
+  description: Adds an extra year, counting the day of purchase as a year.
+- id: fdep-boundary-year
+  description: Gives the last year the value is still at or above the target, not the first year it is below it.
+- id: fdep-salvage-ignored
+  description: Divides the purchase price by the life, forgetting to take off the scrap value first.
+- id: fdep-salvage-added
+  description: Adds the scrap value to the price before dividing by the life.
+- id: fdep-adds-one-year-back
+  description: Adds back only one year of depreciation to a later value to find the price.
+- id: fdep-reading-as-price
+  description: Takes a later value as the purchase price.
+- id: fdep-years-remaining
+  description: Gives the years still to go, not the total number of years until the value is zero.
+- id: fdep-rate-from-price-only
+  description: Divides the percentage lost by the years, then forgets the value left is a share of the price.
+- id: fdep-remaining-for-lost
+  description: Uses the percentage remaining as the percentage lost.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find a percentage of the purchase price, then take it off once or several times.
+  medium:
+    steps: 3
+    demand: Work back from two values to the rate, find the years to reach a value, or find the yearly amount from a scrap
+      value.
+  hard:
+    steps: 4
+    demand: Recover the price from two readings, find the first year the value is below a target (including the boundary case),
+      or reason from a share of the price remaining.
+  exam:
+    steps: 6
+    demand: Chain the yearly amount, the value after some years, the years to a stated value and the first year below a limit.
+tags:
+- financial
+- depreciation
+- flat-rate
+- nsw-standard
+- vce-general

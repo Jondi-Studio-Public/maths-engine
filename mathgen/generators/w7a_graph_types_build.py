@@ -28,6 +28,7 @@ from math import comb
 from ..core import attempts, check, draw_until, generator, phrase
 from ._snet_kit import all_pairs, degrees, neighbours, norm, random_connected
 from ._w6a_kit import enough, num_dist as _num_dist, num_fields, part, retry_draw
+from ._network_fig import with_network_figure
 
 TOPIC = "w7a_graph_types"
 EXAM_TOPIC = "exd_x_w7a_graph_types"
@@ -721,6 +722,7 @@ _HARD = (_hard_components, _hard_force_connected, _hard_max_bipartite, _hard_add
     level=19,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@with_network_figure
 def w7a_graph_types(rng, tier="easy"):
     """Complete, connected and bipartite graphs from a description or an edge list; the tiers are described in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
@@ -733,6 +735,7 @@ def w7a_graph_types(rng, tier="easy"):
 
 
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
+@with_network_figure
 def exd_x_w7a_graph_types(rng, tier="exam"):
     """Exam chain on a connected bipartite network: degree sum, larger part, the complete bipartite graph, edges still addable."""
     if not (tier == "exam"):

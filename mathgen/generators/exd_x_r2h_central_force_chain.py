@@ -117,6 +117,7 @@ def _build(rng: random.Random) -> dict:
     )
     check(abs(v_perp * r1 * m) == abs(lz), "perpendicular speed does not rebuild L_z")
 
+    cc = "" if c == 1 else c  # a coefficient of 1 is not written
     stem = phrase(rng, _STEM, m=m, c=c, x0=x0, y0=y0, vx=vx, vy=vy)
     parts = [
         build_part(
@@ -126,7 +127,7 @@ def _build(rng: random.Random) -> dict:
             marks=2,
             working=[
                 "L_z = m (x vy - y vx) is conserved because V is unchanged by rotation about the origin.",
-                f"L_z = {m} x ({paren_negative(x0)} x {paren_negative(vy)} - {paren_negative(y0)} x {paren_negative(vx)}) = {lz}.",
+                f"L_z = {m} × ({paren_negative(x0)} × {paren_negative(vy)} - {paren_negative(y0)} × {paren_negative(vx)}) = {lz}.",
             ],
             wrong=a_wrong,
         ),
@@ -137,7 +138,7 @@ def _build(rng: random.Random) -> dict:
             marks=2,
             working=[
                 "E = kinetic + potential energy is conserved because L has no explicit time dependence.",
-                f"E = ({m}/2)({paren_negative(vx)}^2 + {paren_negative(vy)}^2) + {c}({paren_negative(x0)}^2 + {paren_negative(y0)}^2) = {energy}.",
+                f"E = ({m}/2)({paren_negative(vx)}^2 + {paren_negative(vy)}^2) + {cc}({paren_negative(x0)}^2 + {paren_negative(y0)}^2) = {energy}.",
             ],
             wrong=b_wrong,
             sensible_range=(0, None),
@@ -147,7 +148,7 @@ def _build(rng: random.Random) -> dict:
             v_perp,
             kind="fraction",
             marks=1,
-            working=[f"L_z = m r v_perp, so v_perp = {lz} / ({m} x {r1}) = {v_perp}."],
+            working=[f"L_z = m r v_perp, so v_perp = {lz} / ({m} × {r1}) = {v_perp}."],
             wrong=c_wrong,
             follow_through=f"part_a/({m}*{r1})",
         ),
@@ -157,7 +158,7 @@ def _build(rng: random.Random) -> dict:
             kind="fraction",
             marks=2,
             working=[
-                f"E = c r^2 + (m/2) v_perp^2 + radial kinetic energy, with c r^2 = {c * r1 * r1}.",
+                f"E = V + (m/2) v_perp^2 + radial kinetic energy, with V = {c * r1 * r1}.",
                 f"Radial kinetic energy = {energy} - {c * r1 * r1} - ({m}/2)({v_perp})^2 = {k_radial}.",
             ],
             wrong=d_wrong,

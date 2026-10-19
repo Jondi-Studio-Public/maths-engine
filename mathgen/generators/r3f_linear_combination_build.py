@@ -456,17 +456,27 @@ def _exam(rng: random.Random) -> dict:
         mu = rng.randint(40, 120)
         # sigma_T = root * sigma must be one leg of a triple so the second carton's sd gives a whole-number combined sd
         p, q, r = rng.choice(TRIPLES)
+        if rng.random() < 0.5:
+            p, q = q, p  # either leg can be the total's sd
         if p % root:
             continue
         sigma = p // root
         carton = rng.randint(30, 80)
         tm, tsd = n * mu + carton, p
         sd_b = q
-        mu_b = tm + rng.choice((-1, 1)) * rng.randint(1, 2) * (r // 2 or 1)
-        limit = tm + rng.choice((1, 2)) * tsd + rng.choice((0, 0, tsd // 2))
+        # Any whole offset, not a few fixed multiples of the sd, so the z-scores (and the probabilities) vary widely.
+        mu_b = tm + rng.choice((-1, 1)) * rng.randint(max(1, r // 5), (3 * r) // 2)
+        limit = tm + rng.randint(-tsd, (9 * tsd) // 5)
         p_over = prob(limit, None, tm, tsd)
         p_heavier = prob(0, None, tm - mu_b, r)
-        if ok4(p_over) and ok4(p_heavier) and 0.03 < p_over < 0.8 and 0.05 < p_heavier < 0.95 and sigma >= 2:
+        if (
+            ok4(p_over)
+            and ok4(p_heavier)
+            and 0.02 < p_over < 0.9
+            and 0.05 < p_heavier < 0.95
+            and limit != tm
+            and sigma >= 2
+        ):
             break
     stem = phrase(
         rng,

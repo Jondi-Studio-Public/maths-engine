@@ -1,37 +1,101 @@
 id: function-concept
 name: Understand the function concept
 domain: functions-sequences
-description: Understand a function as a rule assigning exactly one output to each permitted input.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '9'
+- '10'
+description: 'Decide whether a set of ordered pairs, an equation, a table or a mapping defines a function: each permitted
+  input must have exactly one output, while different inputs may share an output.'
+status: active
+placement_eligible: false
 prerequisites:
 - input-output-tables
 - independent-dependent-variables
 answer: mcq
 sources:
-- topic: function_evaluation
+- topic: w5_function_concept
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: function_evaluation
+- topic: w5_function_concept
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: function_evaluation
+- topic: w5_function_concept
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_function_concept
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Believing each output must have only one input
-- id: misconception-2
-  description: Treating any collection of points as a function
-tags: []
+- id: w5f-requires-distinct-outputs
+  description: Thinks every output in a function must be different.
+- id: w5f-any-collection-is-function
+  description: Treats any collection of ordered pairs as a function, without checking that no input has two outputs.
+- id: w5f-curve-without-vertical-line-test
+  description: Chooses a relation by its look without testing whether a vertical line meets it twice.
+- id: w5f-squared-term-means-not-function
+  description: Decides that an equation with a squared term is not a function.
+- id: w5f-absolute-value-means-not-function
+  description: Decides that a rule containing an absolute value cannot be a function.
+- id: w5f-any-equation-with-restriction-fails
+  description: Decides that an equation with a restricted set of inputs is not a function.
+- id: w5f-repeated-identical-pair-counts
+  description: Treats a pair that is written twice as two outputs for one input.
+- id: w5f-confuses-input-and-output
+  description: Looks for repeats in the outputs rather than in the inputs.
+- id: w5f-any-new-value-breaks-rule
+  description: Thinks any new output value for an input already used breaks the function rule, including a value that is
+    the same as before.
+- id: w5f-unmapped-input-allowed
+  description: Accepts a mapping that leaves an input with no output.
+- id: w5f-output-outside-codomain
+  description: Accepts a mapping that sends an input to a value outside the second set.
+- id: w5f-input-outside-domain
+  description: Accepts a mapping that uses an input that is not in the first set.
+- id: w5f-counts-pairs-not-inputs
+  description: Counts the ordered pairs rather than the different inputs.
+- id: w5f-swaps-domain-and-range
+  description: Gives the domain where the range is asked for, or the range where the domain is asked for.
+- id: w5f-miscounts-inputs
+  description: Miscounts the inputs by one.
+- id: w5f-confuses-repeated-output-with-repeated-input
+  description: Treats two inputs that share an output as an input with two outputs.
+- id: w5f-counts-inputs-kept-not-removed
+  description: Gives the number of inputs that stay, not the number that must be removed.
+- id: w5f-lists-repeated-outputs
+  description: Lists an output once for every input that gives it, instead of once.
+- id: w5f-omits-a-value
+  description: Leaves one of the values out of the list.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Scan sets of ordered pairs for an input that appears twice with different outputs.
+  medium:
+    steps: 3
+    demand: Decide from an equation or a table whether each x gives one y, telling squares of y and absolute values of y
+      from the same terms in x.
+  hard:
+    steps: 5
+    demand: 'Reason about what would break the rule: which new input value makes a relation fail, or which mapping from
+      A to B sends every input to exactly one member of B.'
+  exam:
+    steps: 6
+    demand: Chain the number of inputs, the input with two outputs, the pairs to remove and the outputs used.
+tags:
+- functions
+- relations
+- nsw-stage-5
+- vce-general

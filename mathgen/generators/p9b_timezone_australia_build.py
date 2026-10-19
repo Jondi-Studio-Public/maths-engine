@@ -81,6 +81,18 @@ def _fmt_hours(value: Fraction) -> tuple:
     return float(value), f"{float(value):.1f}"
 
 
+def _h(value) -> str:
+    """A whole- or half-hour amount as plain text: 13, 10.5, -2.5 (a Fraction never shows as 21/2)."""
+    value = Fraction(value)
+    return str(int(value)) if value.denominator == 1 else f"{float(value):.1f}"
+
+
+def _clock_h(value) -> str:
+    """A whole- or half-hour time of day as a clock reading: 9 -> "9:00", 10.5 -> "10:30"."""
+    value = Fraction(value)
+    return f"{value.numerator // value.denominator}:{'30' if value.denominator == 2 else '00'}"
+
+
 def _hour_word(value: Fraction) -> str:
     """ "hour" for a magnitude of exactly 1, else "hours" -- working text is
     prose, so it must not read "1 hours"."""
@@ -596,8 +608,10 @@ def timezone_call_window_overlap(rng, tier="easy"):
     )
     working = [
         f"Place A window (local): {a1}:00-{a2}:00; Place B window (local): {b1}:00-{b2}:00",
-        f"Offset difference d = {eff_b} - {eff_a} = {d}",
-        f"Overlap = max(0, min({a2}, {b2}+d) - max({a1}, {b1}+d)) = {answer_text} {_hour_word(overlap)}",
+        f"Offset difference d = {_h(eff_b)} - {_h(eff_a)} = {_h(d)} {_hour_word(abs(Fraction(d)))}",
+        f"Place B's window in Place A's time is {_clock_h(b1 + d)} to {_clock_h(b2 + d)}. "
+        f"The overlap with Place A's window runs from {_clock_h(max(a1, b1 + d))} to {_clock_h(min(a2, b2 + d))}, "
+        f"which is {answer_text} {_hour_word(overlap)}.",
     ]
 
     # Shape the options like the key: a half-hour key shows every option to one

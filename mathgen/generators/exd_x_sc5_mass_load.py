@@ -155,7 +155,7 @@ def exd_x_sc5_mass_load(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 working=[
                     f"{measured} g to the nearest {unit} g is {grams} g.",
-                    f"Mass in grams = {n} x {grams} = {n * grams} g.",
+                    f"Mass in grams = {n} × {grams} = {n * grams} g.",
                     f"1 kg = 1000 g, so {n * grams} g = {a_text} kg.",
                 ],
                 distractors=a_d,

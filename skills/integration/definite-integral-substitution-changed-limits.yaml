@@ -1,0 +1,102 @@
+id: definite-integral-substitution-changed-limits
+name: Evaluate definite integrals by substitution with changed limits
+domain: integration
+year_level:
+- '12'
+description: Find the exact value of a definite integral by substitution, changing the limits to match u, including a leftover
+  x, exponential and trigonometric integrands, and the trigonometric substitution x = a sin(theta).
+status: active
+placement_eligible: false
+prerequisites:
+- integration-by-substitution
+- definite-integral
+answer: expression
+sources:
+- topic: w6_subst_definite
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6_subst_definite
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6_subst_definite
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6_subst_definite
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w6-subst-limits-not-changed
+  description: Puts the original limits of x into the antiderivative in u instead of the limits of u.
+- id: w6-subst-lower-limit-dropped
+  description: Evaluates the antiderivative at the upper limit only and does not subtract its value at the lower limit.
+- id: w6-subst-du-factor-forgotten
+  description: Forgets to divide by the factor in du, such as 2x dx or bx dx, and so leaves the answer too large.
+- id: w6-subst-limits-swapped
+  description: Subtracts the value at the upper limit from the value at the lower limit, so the sign is wrong.
+- id: w6-subst-x-replaced-by-u
+  description: Replaces the leftover x by u instead of by u minus the constant added in the substitution.
+- id: w6-subst-limit-shift-forgotten
+  description: Converts the limits with the inner function but leaves out the constant added in the substitution, such as
+    using e^x alone for e^x plus a.
+- id: w6-subst-log-for-power
+  description: Gives a logarithm for the integral of a power of u other than u to the minus one.
+- id: w6-subst-power-not-divided
+  description: Raises the exponent but does not divide by the new exponent.
+- id: w6-subst-identity-term-dropped
+  description: Drops one term of the identity, for example integrating only u to the n or only the first term of 1 plus
+    u squared.
+- id: w6-subst-identity-sign
+  description: Uses a plus where the identity needs a minus, or the reverse, when rewriting the power of the trigonometric
+    function in terms of u.
+- id: w6-subst-double-angle-factor-dropped
+  description: Leaves out the factor one half from the double-angle identity, so the result is twice the correct value.
+- id: w6-subst-amplitude-not-squared
+  description: Takes the substitution x = a sin(theta) to give a factor of a in front of the integral instead of a squared.
+- id: w6-subst-complementary-angle
+  description: Gives the complement of the angle theta where sin theta equals x over a, by using cosine instead of sine.
+- id: w6-subst-supplementary-angle
+  description: Gives 180 degrees minus the angle, the other solution of the sine equation, as the limit.
+- id: w6-subst-double-angle-limit
+  description: Doubles the angle when converting the limit, as if the substitution used sin 2 theta.
+- id: w6-subst-half-angle-limit
+  description: Halves the angle when converting the limit.
+- id: w6-subst-double-angle-factor-doubled
+  description: Applies an extra factor of one half to the constant in front of the integral of one plus or minus cos 2 theta.
+- id: w6-subst-amplitude-halved
+  description: Gives half of a, not half of a squared, as the constant in front of the integral.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Convert the limits with u = x^m + k, integrate c u^n / m and evaluate between the new limits.
+  medium:
+    steps: 4
+    demand: Convert the limits, rewrite the leftover x as u - a and evaluate the sum of powers of u between the new limits.
+  hard:
+    steps: 5
+    demand: Choose and apply the substitution unprompted for an exponential or trigonometric integrand, or use x = a sin(theta)
+      with new limits in theta and the double-angle identity.
+  exam:
+    steps: 6
+    demand: Chain the upper limit of theta, the constant in front of the integral of 1 plus or minus cos 2 theta, and the
+      exact value of an integral by trigonometric substitution.
+tags:
+- senior
+- integration
+- substitution
+- definite-integral
+- specialist-unit-4
+- extension-2

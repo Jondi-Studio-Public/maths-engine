@@ -49,11 +49,13 @@ def exd_x_pr7_sale_price_estimate(rng: random.Random, tier: str = "exam") -> dic
     """Round a price, estimate a non-benchmark discount, estimate the sale price. See module docstring."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    for _ in attempts(1000, "a price that does not already sit on a multiple of 20"):
+    for _ in attempts(1000, "a price that is neither a multiple of 20 nor halfway between two"):
         price = rng.randint(150, 990)
         percent = rng.choice(_PERCENTS)
         rounded = _nearest_20(price)
-        if price % 20 != 0 and rounded != price:
+        # A price ending in 10 (mod 20) sits exactly between two multiples of 20, and the stem does not say which way
+        # a half rounds, so those prices are never drawn.
+        if price % 20 not in (0, 10) and rounded != price:
             break
     discount = Fraction(rounded * percent, 100)
     check(discount.denominator == 1, "the discount must be a whole number of dollars")

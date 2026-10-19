@@ -461,6 +461,14 @@ def _distractors(rng, answer, valid, case):
     rest = [p for p in pool if p not in chosen]
     rng.shuffle(rest)
     chosen = (chosen + rest)[:3]
+    # The long labels ("Similar by SSS (proportional sides)", "Neither can be concluded ...") would make the key
+    # the one longest option whenever the other three are "Congruent by ...". When a label as long as the key is
+    # on offer, swap it in for a free (not required) slot, so that the key's length does not give it away.
+    if all(len(c) < len(answer) for c in chosen):
+        free = [c for c in chosen if c not in _MUST.get(case, [])]
+        longer = [p for p in rest if p not in chosen and len(p) >= len(answer)]
+        if free and longer:
+            chosen[chosen.index(free[-1])] = longer[0]
     return chosen
 
 
@@ -607,11 +615,7 @@ def f10c_congruence_criteria(rng, tier="easy"):
 
     text = _render(rng, tier, t1, t2, order, names)
     notes = {d: _tag(answer, d, case) for d in distractors}
-    working = [
-        _part_summary(t1, t2),
-        _WHY[answer],
-        "Only the answer's own test is fully met by the stated facts.",
-    ]
+    working = [_WHY[answer]]
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -621,15 +625,4 @@ def f10c_congruence_criteria(rng, tier="easy"):
         working=working,
         distractors=distractors,
         option_notes=notes,
-    )
-
-
-def _part_summary(t1: Tri, t2: Tri) -> str:
-    k1, k2 = _known_angles(t1), _known_angles(t2)
-    sides = [e for e in t1.sides if e in t2.sides]
-    angs = [v for v in k1 if v in k2 and k1[v] == k2[v]]
-    ratios = sorted({str(Fraction(t2.sides[e], t1.sides[e])) for e in sides})
-    return (
-        f"Sides stated in both triangles: {len(sides)} (side ratios {', '.join(ratios) or 'none'}); "
-        f"corresponding angles known to be equal: {len(angs)}."
     )

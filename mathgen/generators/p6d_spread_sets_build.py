@@ -226,12 +226,24 @@ def use_informal_ways_of_describing_spread_such_as(rng, tier="easy"):
     options_str = "; ".join(options)
     text = f"A data set is described as '{descriptor}' if {rule}. Which of these four data sets fits that description? {options_str}"
 
-    working = [
-        f"Descriptor: {descriptor}",
-        f"Rule: {rule}",
-        f"Checking each option against the rule...",
-        f"Answer: {answer_text}",
-    ]
+    def verdict(data: list[int]) -> str:
+        vals = sorted(data)
+        if tier == "easy":
+            spread = vals[-1] - vals[0]
+            return f"largest - smallest = {vals[-1]} - {vals[0]} = {spread}, which is {'at most' if spread <= T else 'more than'} {T}"
+        if tier == "medium":
+            for i, val in enumerate(vals):
+                others = [abs(val - w) for j, w in enumerate(vals) if j != i]
+                if all(d > T for d in others):
+                    return f"{val} is more than {T} from every other value, so there is an outlier"
+            return f"no value is more than {T} from every other value, so there is no outlier"
+        gaps = [f"{b} - {a} = {b - a}" for a, b in zip(vals, vals[1:])]
+        word = "fits" if _check_gap_between_clusters(vals, T) else "does not fit"
+        return f"gaps between neighbours: {', '.join(gaps)}; {word} (more than {T} with two values on each side needed)"
+
+    working = [f"Rule: {rule}."]
+    working += [f"Data set {label}: {verdict(data)}." for label, data in zip(labels, options_data)]
+    working.append(f"Only {answer_text.split(':')[0]} fits, so the answer is {answer_text}.")
 
     return dict(
         text=text,
@@ -251,20 +263,20 @@ def use_informal_ways_of_describing_spread_such_as(rng, tier="easy"):
 # Fixed translation tables: (everyday description, set-notation phrase)
 # For 2-set descriptions (easy/medium)
 TWO_SET_TABLE = [
-    ("people who like both {A} and {B}", "the intersection of {A} and {B}"),
-    ("people who like at least one of {A} or {B}", "the union of {A} and {B}"),
-    ("people who like {A} but not {B}", "{A} with {B} removed"),
-    ("people who like {B} but not {A}", "{B} with {A} removed"),
-    ("people who like neither {A} nor {B}", "everyone outside both {A} and {B}"),
-    ("people who like exactly one of {A} or {B}", "everyone in exactly one of {A} or {B}, not both"),
+    ("people who are both {A} and {B}", "the intersection of {A} and {B}"),
+    ("people who are at least one of {A} or {B}", "the union of {A} and {B}"),
+    ("people who are {A} but not {B}", "{A} with {B} removed"),
+    ("people who are {B} but not {A}", "{B} with {A} removed"),
+    ("people who are neither {A} nor {B}", "everyone outside both {A} and {B}"),
+    ("people who are exactly one of {A} or {B}", "everyone in exactly one of {A} or {B}, not both"),
 ]
 
 # For 3-set descriptions (hard)
 THREE_SET_TABLE = [
-    ("people who like {A} and {B} but not {C}", "{A} and {B}, with {C} removed"),
-    ("people who like all three of {A}, {B} and {C}", "the intersection of {A}, {B} and {C}"),
-    ("people who like exactly one of {A}, {B} or {C}", "everyone in exactly one of {A}, {B} or {C}, not more than one"),
-    ("people who like none of {A}, {B} or {C}", "everyone outside all three of {A}, {B} and {C}"),
+    ("people who are {A} and {B} but not {C}", "{A} and {B}, with {C} removed"),
+    ("people who are all three of {A}, {B} and {C}", "the intersection of {A}, {B} and {C}"),
+    ("people who are exactly one of {A}, {B} or {C}", "everyone in exactly one of {A}, {B} or {C}, not more than one"),
+    ("people who are none of {A}, {B} or {C}", "everyone outside all three of {A}, {B} and {C}"),
 ]
 
 # Context pairs for 2-set questions (A, B group names)
@@ -274,6 +286,19 @@ TWO_SET_CONTEXTS = [
     ("dog owners", "cat owners"),
     ("math fans", "history fans"),
     ("sports players", "music lovers"),
+    ("swimmers", "runners"),
+    ("book readers", "video gamers"),
+    ("cyclists", "walkers"),
+    ("pizza fans", "pasta fans"),
+    ("movie watchers", "podcast listeners"),
+    ("gardeners", "bakers"),
+    ("guitar players", "piano players"),
+    ("early risers", "late sleepers"),
+    ("chess players", "card players"),
+    ("campers", "hikers"),
+    ("painters", "potters"),
+    ("tennis fans", "cricket fans"),
+    ("train riders", "bus riders"),
 ]
 
 # Context tuples for 3-set questions (A, B, C group names)
@@ -281,6 +306,15 @@ THREE_SET_CONTEXTS = [
     ("tea lovers", "coffee lovers", "juice lovers"),
     ("morning people", "night owls", "afternoon people"),
     ("dog owners", "cat owners", "bird owners"),
+    ("swimmers", "runners", "cyclists"),
+    ("pizza fans", "pasta fans", "salad fans"),
+    ("guitar players", "piano players", "drum players"),
+    ("chess players", "card players", "puzzle fans"),
+    ("campers", "hikers", "climbers"),
+    ("painters", "potters", "sculptors"),
+    ("tennis fans", "cricket fans", "netball fans"),
+    ("book readers", "video gamers", "movie watchers"),
+    ("gardeners", "bakers", "cooks"),
 ]
 
 
@@ -366,21 +400,12 @@ def use_everyday_occurrences_to_illustrate_set_descriptions_and(rng, tier="easy"
     check(correct_notation not in distractors, "distractor equals answer")
     check(len(distractors) == len(set(distractors)), "duplicate distractors")
 
-    # Build MCQ options by shuffling answer + distractors
-    all_options = [correct_notation] + distractors
-    rng.shuffle(all_options)
-
-    # Build text without newlines
-    options_str = "; ".join(f"{chr(65 + i)}: {opt}" for i, opt in enumerate(all_options))
-    text = f"Which phrase describes the following group? {description_text}. Options: {options_str}"
+    # The multiple-choice display shows the options, so the stem does not repeat them.
+    text = f"Which phrase describes the following group? {description_text[:1].upper() + description_text[1:]}."
 
     answer_text = correct_notation
 
-    working = [
-        f"Description: {description_text}",
-        f"Tier: {tier}",
-        f"Correct notation: {answer_text}",
-    ]
+    working = [f"The group of {description_text} is described as {answer_text}."]
 
     return dict(
         text=text,

@@ -149,9 +149,39 @@ def outcomes_sample_classify(rng, difficulty_tier="easy"):
     else:
         rule_text = ""
 
-    text = f"The sample space S = {{1, 2, ..., {n}}}. Set X = {x_display}. Which of the following best describes X?"
     if rule_text:
-        text = rule_text + " " + text
+        text = (
+            f"The sample space S = {{1, 2, ..., {n}}}. {rule_text} "
+            "Which of the following is the most specific description of X?"
+        )
+    else:
+        text = (
+            f"The sample space S = {{1, 2, ..., {n}}}. Set X = {x_display}. "
+            "Which of the following is the most specific description of X?"
+        )
+
+    n_distinct = len(set(x_list))
+    if intended_label == OPTION_INVALID:
+        bad = sorted(v for v in set(x_list) if v < 1 or v > n)
+        bad_text = ", ".join(str(v) for v in bad)
+        verb = "is" if len(bad) == 1 else "are"
+        working = [
+            f"Every member of a subset of S must be one of 1, 2, ..., {n}.",
+            f"{bad_text} {verb} not in S, so X is not a valid subset of the sample space.",
+        ]
+    elif intended_label == OPTION_SPACE:
+        working = [
+            f"X contains every outcome 1, 2, ..., {n}, so X is the whole sample space.",
+        ]
+    elif intended_label == OPTION_SINGLE:
+        working = [
+            "X has exactly one member, so X is a single outcome.",
+        ]
+    else:
+        working = [
+            f"X has {n_distinct} of the {n} outcomes in S: more than one, but not all of them.",
+            "A set of some of the outcomes is an event.",
+        ]
 
     # Distractors: pick_distractors returns exactly the three options other than the label
     candidates = [o for o in OPTIONS_A if o != intended_label]
@@ -162,7 +192,7 @@ def outcomes_sample_classify(rng, difficulty_tier="easy"):
         answer=intended_label,
         answer_text=intended_label,
         answer_latex=latex_answer(intended_label, plain=True),
-        working=[],
+        working=working,
         distractors=pick_distractors(intended_label, candidates, n=3),
     )
 

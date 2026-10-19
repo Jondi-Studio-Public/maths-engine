@@ -139,6 +139,11 @@ def _drop_if_collides(raw: Fraction, dp: int, answer_rounded: Fraction) -> str |
     return stated_precision_string(rounded, dp)
 
 
+def _unit_free(lam_s: str) -> str:
+    """The text of a multiplier in ``lam*e^(-lam*t)``: a multiplier of 1 is left out."""
+    return "" if lam_s == "1" else lam_s
+
+
 def _fmt_param(value: Fraction) -> str:
     """Shortest exact decimal display for a lambda/bound value ("0.3", not
     "0.30")."""
@@ -158,28 +163,28 @@ def _fmt_param(value: Fraction) -> str:
 
 _FACT_TEMPLATES = (
     "The exponential random variable has probability density function "
-    "f(t) = {lam}e^(-{lam}t) for t >= 0. Using technology, evaluate the "
+    "f(t) = {lam_c}e^(-{lam_c}t) for t >= 0. Using technology, evaluate the "
     "integral of f(t) from t = {a} to t = {b}, correct to {dp} decimal places.",
-    "Let f(t) = {lam}e^(-{lam}t) for t >= 0 be the probability density "
+    "Let f(t) = {lam_c}e^(-{lam_c}t) for t >= 0 be the probability density "
     "function of an exponential random variable with parameter lambda = {lam}. "
     "Use numerical integration by technology to find the value of the "
     "integral of f(t) between t = {a} and t = {b}, correct to {dp} decimal places.",
-    "For the exponential probability density function f(t) = {lam}e^(-{lam}t), "
+    "For the exponential probability density function f(t) = {lam_c}e^(-{lam_c}t), "
     "t >= 0, compute the definite integral of f(t) over the interval from "
     "t = {a} to t = {b}. Give your answer correct to {dp} decimal places.",
 )
 
 _EXAM_TEMPLATES = (
     "The exponential random variable has probability density function "
-    "f(t) = {lam}e^(-{lam}t) for t >= 0. Using technology, evaluate the "
+    "f(t) = {lam_c}e^(-{lam_c}t) for t >= 0. Using technology, evaluate the "
     "integral of f(t) over the union of the intervals from t = {a1} to "
     "t = {b1} and from t = {a2} to t = {b2}, correct to {dp} decimal places.",
-    "Let f(t) = {lam}e^(-{lam}t) for t >= 0 be the probability density "
+    "Let f(t) = {lam_c}e^(-{lam_c}t) for t >= 0 be the probability density "
     "function of an exponential random variable with parameter lambda = {lam}. "
     "Use numerical integration by technology to find the value of the "
     "integral of f(t) over [{a1}, {b1}] together with [{a2}, {b2}], correct "
     "to {dp} decimal places.",
-    "For the exponential probability density function f(t) = {lam}e^(-{lam}t), "
+    "For the exponential probability density function f(t) = {lam_c}e^(-{lam_c}t), "
     "t >= 0, use technology to compute the sum of the definite integral of "
     "f(t) from t = {a1} to t = {b1} and the definite integral of f(t) from "
     "t = {a2} to t = {b2}. Give your answer correct to {dp} decimal places.",
@@ -249,7 +254,7 @@ def _easy(rng) -> dict:
     ]
 
     lam_s, b_s = _fmt_param(lam), _fmt_param(b)
-    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, a="0", b=b_s, dp=str(dp))
+    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, lam_c=_unit_free(lam_s), a="0", b=b_s, dp=str(dp))
     return _finish(text, answer_rounded, dp, cands, n=2)
 
 
@@ -293,7 +298,7 @@ def _medium(rng) -> dict:
     ]
 
     lam_s, a_s, b_s = _fmt_param(lam), _fmt_param(a), _fmt_param(b)
-    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, a=a_s, b=b_s, dp=str(dp))
+    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, lam_c=_unit_free(lam_s), a=a_s, b=b_s, dp=str(dp))
     return _finish(text, answer_rounded, dp, cands)
 
 
@@ -347,7 +352,7 @@ def _hard(rng) -> dict:
     ]
 
     lam_s, a_s, b_s = _fmt_param(lam), _fmt_param(a), _fmt_param(b)
-    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, a=a_s, b=b_s, dp=str(dp))
+    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, lam_c=_unit_free(lam_s), a=a_s, b=b_s, dp=str(dp))
     return _finish(text, answer_rounded, dp, cands)
 
 
@@ -399,7 +404,9 @@ def _exam(rng) -> dict:
 
     lam_s = _fmt_param(lam)
     a1_s, b1_s, a2_s, b2_s = _fmt_param(a1), _fmt_param(b1), _fmt_param(a2), _fmt_param(b2)
-    text = phrase(rng, _EXAM_TEMPLATES, lam=lam_s, a1=a1_s, b1=b1_s, a2=a2_s, b2=b2_s, dp=str(dp))
+    text = phrase(
+        rng, _EXAM_TEMPLATES, lam=lam_s, lam_c=_unit_free(lam_s), a1=a1_s, b1=b1_s, a2=a2_s, b2=b2_s, dp=str(dp)
+    )
     return _finish(text, answer_rounded, dp, cands)
 
 

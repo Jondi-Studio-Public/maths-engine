@@ -40,6 +40,11 @@ def _draw_entry(rng: random.Random) -> Fraction:
     return Fraction(rng.choice((-1, 1)) * rng.randint(1, 9), rng.randint(1, 5))
 
 
+def _br(value) -> str:
+    """A fraction in brackets, so it can be divided or multiplied: ``(1/2)``; a whole number is left alone."""
+    return f"({value})" if "/" in str(value) else str(value)
+
+
 @generator("exd_x_r3g_diagonal_norms", level=12, presets={"exam": dict(tier="exam")})
 @distinct_part_answers
 def exd_x_r3g_diagonal_norms(rng: random.Random, tier: str = "exam") -> dict:
@@ -94,7 +99,7 @@ def exd_x_r3g_diagonal_norms(rng: random.Random, tier: str = "exam") -> dict:
             "Find the operator norm of the inverse map T⁻¹.",
             inverse,
             2,
-            [f"T⁻¹ = diag({1 / d1}, {1 / d2}); the largest |entry| is 1/{small} = {inverse}."],
+            [f"T⁻¹ = diag({1 / d1}, {1 / d2}); the largest |entry| is 1/{_br(small)} = {inverse}."],
             [
                 (1 / big, "operator-norm-inverse-uses-the-largest-entry"),
                 (small, "operator-norm-inverse-not-reciprocated"),

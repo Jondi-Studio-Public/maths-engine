@@ -168,7 +168,7 @@ def arithmetic_recursion_generate(rng, variant="easy"):
             answer_latex=answer_text,
             working=[
                 f"d = (t{q} - t{p}) / {gap} = ({t_q} - {paren_negative(t_p)}) / {gap} = {d}",
-                f"t1 = t{p} - {p - 1}×d = {t_p} - {paren_negative((p - 1) * d)} = {t1}",
+                f"t1 = t{p} - {'d' if p == 2 else f'{p - 1}×d'} = {t_p} - {paren_negative((p - 1) * d)} = {t1}",
                 f"Answer: {answer_text}",
             ],
             distractors=pick_distractors(answer_text, candidates, n=3),
@@ -226,9 +226,7 @@ def arithmetic_recursion_generate(rng, variant="easy"):
         working=[
             f"Start at t1 = {t1}.",
             f"Apply t(n+1) = t(n) + {d_text} repeatedly {k} times:",
-            f"t(2) = {t1} + {d_text} = {terms[0]}" if k >= 1 else "",
-            f"t(3) = {terms[0]} + {d_text} = {terms[1]}" if k >= 2 else "",
-            f"t({k + 1}) = {terms[k - 2]} + {d_text} = {terms[k - 1]}" if k >= 2 else "",
+            *[f"t({m + 2}) = {([t1] + terms)[m]} + {d_text} = {terms[m]}" for m in range(k)],
             f"Answer: {answer_text}",
         ],
         distractors=pick_distractors(answer_text, candidates, n=3),

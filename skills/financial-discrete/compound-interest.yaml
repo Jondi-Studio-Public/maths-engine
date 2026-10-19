@@ -3,20 +3,81 @@ name: Calculate compound-interest balance
 domain: financial-discrete
 description: Calculate a balance under annual compound interest and round to cents.
 status: active
-prerequisites: [simple-interest, evaluate-powers]
+prerequisites:
+- simple-interest
+- evaluate-powers
 answer: number
 sources:
-- {topic: financial_interest, params: {kind: compound}, difficulty: easy}
+- topic: financial_interest
+  params:
+    kind: compound
+  difficulty: easy
+- topic: w3_ci_tiers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_ci_tiers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: exd_x_r2d_compound_growth_chain
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_g5_compound_interest
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   key: exam-single
   stages:
   - exam
-misconceptions: [{id: uses-simple-interest, description: Adds the same interest amount each year.}]
-tags: [expansion-batch-5, finance]
+misconceptions:
+- id: uses-simple-interest
+  description: Adds the same interest amount each year.
+- id: w3ci-balance-for-interest
+  description: Gives the final balance where the interest earned was asked.
+- id: w3ci-simple-instead
+  description: Finds simple interest, adding the same amount every year.
+- id: w3ci-one-year
+  description: Gives one year's interest only.
+- id: w3ci-wrong-years
+  description: Compounds for one year too many or too few.
+- id: w3ci-annual-rate-each-period
+  description: Uses the annual rate in every compounding period instead of the rate for one period.
+- id: w3ci-periods-as-years
+  description: Counts the years instead of the number of compounding periods.
+- id: w3ci-annual-compounding
+  description: Compounds once a year although the interest is added more often.
+- id: w3ci-multiplies-by-amount
+  description: Multiplies the target amount by the growth factor instead of dividing.
+- id: w3ci-simple-discount
+  description: Takes the simple interest off the target amount to find the amount to invest.
+- id: w3ci-first-rate-throughout
+  description: Uses the first rate for the whole term when the rate changes.
+- id: w3ci-average-rate
+  description: Uses the average of the two rates for the whole term.
+- id: w3ci-difference-reversed
+  description: Gives one kind of interest where the difference between the two was asked.
+tags:
+- expansion-batch-5
+- finance
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Compound once a year over a few years for a balance.
+  medium:
+    steps: 3
+    demand: Find the interest earned, or compound half-yearly or quarterly.
+  hard:
+    steps: 5
+    demand: Work back to the amount to invest, change the rate part-way, or compare compound with simple interest.
+  exam:
+    steps: 7
+    demand: Chain several compounding steps in one context.

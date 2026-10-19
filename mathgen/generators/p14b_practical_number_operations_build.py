@@ -43,6 +43,7 @@ import math
 from fractions import Fraction
 
 from ..core import (
+    article_for_number,
     check,
     check_equivalent,
     check_pairwise_distinct,
@@ -215,11 +216,11 @@ def _build_easy(rng) -> dict:
         pct_clause = f"A {item} costs {_dollar(price_cents)}. A {pct}% discount is applied"
     else:
         context = rng.choice(_GST_CONTEXTS)
-        pct_clause = f"A {context} of {_dollar(price_cents)} has a {pct}% service charge added"
+        pct_clause = f"A {context} of {_dollar(price_cents)} has {article_for_number(pct)} {pct}% service charge added"
     if flat_op == "add":
-        flat_clause = f", then a {_dollar(flat_cents)} delivery fee is added"
+        flat_clause = f", then {article_for_number(_dollar(flat_cents))} {_dollar(flat_cents)} delivery fee is added"
     else:
-        flat_clause = f", then a {_dollar(flat_cents)} {voucher} is subtracted"
+        flat_clause = f", then {article_for_number(_dollar(flat_cents))} {_dollar(flat_cents)} {voucher} is subtracted"
     text = f"{pct_clause}{flat_clause}. What is the final amount to pay?"
 
     # Independent check: one Fraction expression from the STATED inputs,
@@ -289,12 +290,12 @@ def _build_medium_split(rng) -> dict:
     context = rng.choice(_GST_CONTEXTS)
     if pct_op == "sub":
         text = (
-            f"A {context} of {_dollar(price_cents)} has a {pct}% loyalty discount applied, then is "
+            f"A {context} of {_dollar(price_cents)} has {article_for_number(pct)} {pct}% loyalty discount applied, then is "
             f"split equally among {n} people. How much does each person pay?"
         )
     else:
         text = (
-            f"A {context} of {_dollar(price_cents)} has a {pct}% service charge added, then is "
+            f"A {context} of {_dollar(price_cents)} has {article_for_number(pct)} {pct}% service charge added, then is "
             f"split equally among {n} people. How much does each person pay?"
         )
 
@@ -356,7 +357,7 @@ def _build_medium_multiply(rng) -> dict:
         )
     else:
         text = (
-            f"A {item} costs {_dollar(unit_price_cents)} before a {pct}% import surcharge is added. "
+            f"A {item} costs {_dollar(unit_price_cents)} before {article_for_number(pct)} {pct}% import surcharge is added. "
             f"What is the total cost of buying {qty} of them, surcharge included?"
         )
 
@@ -423,13 +424,15 @@ def _build_hard(rng) -> dict:
 
     item = rng.choice(_DELIVERY_ITEMS)
     if pct_op == "sub":
-        pct_clause = f"{_article(item)} {item} totalling {_dollar(price_cents)} has a {pct}% loyalty discount applied"
+        pct_clause = f"{_article(item)} {item} totalling {_dollar(price_cents)} has {article_for_number(pct)} {pct}% loyalty discount applied"
     else:
         pct_clause = f"{_article(item)} {item} totalling {_dollar(price_cents)} has {pct}% GST added"
     if flat_op == "add":
         flat_clause = f", then a flat {_dollar(flat_cents)} delivery fee is added"
     else:
-        flat_clause = f", then a {_dollar(flat_cents)} loyalty credit is subtracted"
+        flat_clause = (
+            f", then {article_for_number(_dollar(flat_cents))} {_dollar(flat_cents)} loyalty credit is subtracted"
+        )
     text = (
         f"{pct_clause}{flat_clause}. The total is then split equally among {n} people. How much does each person pay?"
     )
@@ -518,13 +521,15 @@ def _build_exam(rng) -> dict:
     herring = herring_template.format(n2=n2)
 
     if pct_op == "sub":
-        pct_clause = f"{_article(item)} {item} totalling {_dollar(price_cents)} has a {pct}% loyalty discount applied"
+        pct_clause = f"{_article(item)} {item} totalling {_dollar(price_cents)} has {article_for_number(pct)} {pct}% loyalty discount applied"
     else:
         pct_clause = f"{_article(item)} {item} totalling {_dollar(price_cents)} has {pct}% GST added"
     if flat_op == "add":
         flat_clause = f", then a flat {_dollar(flat_cents)} delivery fee is added"
     else:
-        flat_clause = f", then a {_dollar(flat_cents)} loyalty credit is subtracted"
+        flat_clause = (
+            f", then {article_for_number(_dollar(flat_cents))} {_dollar(flat_cents)} loyalty credit is subtracted"
+        )
     text = (
         f"{pct_clause}{flat_clause} ({herring}). The total is then split equally among {n} people. "
         f"How much does each person pay?"

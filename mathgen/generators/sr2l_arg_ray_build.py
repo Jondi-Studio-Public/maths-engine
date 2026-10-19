@@ -191,7 +191,7 @@ def _medium(rng):
         **kit.prompt(rng.choice(stems)),
         figure=fig,
         working=[
-            f"The open dot is the point a = {kit.cplx(*a)}; the ray rises {d[1]} for every {d[0]} across.",
+            f"The open dot is the point a = {kit.cplx(*a)}; the ray goes {abs(d[1])} {'up' if d[1] > 0 else 'down'} for every {abs(d[0])} {'right' if d[0] > 0 else 'left'}.",
             f"So the line has gradient {kit.rt(Fraction(d[1], d[0]))} and passes through ({a[0]}, {a[1]}): {fields['answer_text']}.",
         ],
         distractors=kit.tagged_lines(_key(line), _wrong_lines(a, d, line)),

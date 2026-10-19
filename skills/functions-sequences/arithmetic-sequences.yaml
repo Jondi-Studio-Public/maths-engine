@@ -1,39 +1,86 @@
 id: arithmetic-sequences
 name: Recognise arithmetic sequences
 domain: functions-sequences
-description: Identify sequences with a constant additive difference.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '8'
+- '9'
+description: Identify sequences with a constant additive difference, describe the difference, continue the sequence and
+  find unknown terms.
+status: active
+placement_eligible: false
 prerequisites:
 - integer-arithmetic
 answer: mcq
 sources:
-- topic: sequence
-  params:
-    kind: common_diff
+- topic: w5_arithmetic_sequences
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: sequence
-  params:
-    kind: common_diff
+- topic: w5_arithmetic_sequences
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: sequence
-  params:
-    kind: common_diff
+- topic: w5_arithmetic_sequences
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_arithmetic_sequences
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Judging from only one pair of terms
-- id: misconception-2
-  description: Confusing a constant ratio with a constant difference
-tags: []
+- id: w5a-ratio-for-difference
+  description: Treats a constant ratio between terms as the constant difference of an arithmetic sequence.
+- id: w5a-increasing-pattern-is-arithmetic
+  description: Believes a sequence is arithmetic whenever the terms keep increasing in a pattern.
+- id: w5a-repeating-differences
+  description: Believes a sequence is arithmetic when its differences repeat in a pattern rather than being the same.
+- id: w5a-checks-one-pair
+  description: Compares only the first two terms and does not check the rest of the sequence.
+- id: w5a-first-term-as-difference
+  description: Uses the first term as the common difference.
+- id: w5a-difference-miscounted
+  description: Makes an error finding the difference between terms.
+- id: w5a-direction-reversed
+  description: Gets the direction of the difference wrong, adding where the sequence goes down or the reverse.
+- id: w5a-adds-previous-terms
+  description: Adds the previous two terms to find the next one.
+- id: w5a-difference-for-middle
+  description: Gives the difference between the end terms as the middle term.
+- id: w5a-decreasing-means-arithmetic
+  description: Believes a sequence that decreases by getting smaller is arithmetic.
+- id: w5a-miscounts-steps
+  description: Divides the gap between the end terms by the wrong number of steps.
+- id: w5a-off-by-one-term
+  description: Counts one term too many or too few when finding a later term.
+- id: w5a-forgets-the-first-term
+  description: Multiplies the difference by the term number but leaves out the first term.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Check the difference between every pair of neighbouring terms and pick the sequence in which it never changes.
+  medium:
+    steps: 3
+    demand: Continue an arithmetic sequence by adding the common difference, with decreasing sequences and decimals.
+  hard:
+    steps: 5
+    demand: Find the middle term of three consecutive terms, the gap terms between two ends, or the rule that makes the
+      differences constant.
+  exam:
+    steps: 6
+    demand: Chain the description of the sequence, the next term and a later term.
+tags:
+- sequences
+- arithmetic-sequences
+- nsw-stage-4
+- algebra

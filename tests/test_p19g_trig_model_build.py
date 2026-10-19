@@ -171,6 +171,11 @@ def test_amplitude_independent_check_fires_on_wrong_rounding():
 _AMP_FN_RE = re.compile(r"y = (-?\d+(?:\.\d+)?)(sin|cos)\((\d*)pi/(\d+)\)t(?: [+-] [\w/]+)?\)?")
 
 
+def _coefficient(text: str) -> str:
+    """The stem leaves a coefficient of 1 or -1 unwritten (sin(...), -cos(...))."""
+    return {"": "1", "-": "-1"}.get(text, text)
+
+
 def _oracle_amplitude_period(text: str, places: int) -> tuple[str, int]:
     """Recompute (amplitude_str, period) from the rendered `y = ...` text
     alone, via `sympy`'s own pi-cancellation on the (possibly unsimplified)
@@ -178,14 +183,14 @@ def _oracle_amplitude_period(text: str, places: int) -> tuple[str, int]:
     `m`/`n` variables."""
     from sympy import Rational, pi as spi, simplify
 
-    match = re.search(r"y = (-?\d+(?:\.\d+)?)(sin|cos)\(\((\d*)pi/(\d+)\)t", text)
+    match = re.search(r"y = (-?\d*(?:\.\d+)?)(sin|cos)\(\((\d*)pi/(\d+)\)t", text)
     assert match, text
     a_str, _kind, num_str, den_str = match.groups()
     m = int(num_str) if num_str else 1
     n = int(den_str)
     period_expr = simplify(2 * spi / (Rational(m, n) * spi))
     period = int(period_expr)
-    amplitude_exact = abs(Fraction(a_str))
+    amplitude_exact = abs(Fraction(_coefficient(a_str)))
     if places == 0:
         amplitude_str = str(int(amplitude_exact))
     else:
@@ -243,7 +248,7 @@ def test_amplitude_period_key_is_never_the_column_consensus(difficulty):
         )
 
 
-_AMP_EQ_RE = re.compile(r"y = (-?\d+(?:\.\d+)?)(?:sin|cos)\(.*?\)(?: ([+-]) (\d+))?\. State")
+_AMP_EQ_RE = re.compile(r"y = (-?\d*(?:\.\d+)?)(?:sin|cos)\(.*?\)(?: ([+-]) (\d+))?\. State")
 
 
 @pytest.mark.parametrize("difficulty", TIERS)
@@ -253,7 +258,7 @@ def test_amplitude_period_height_contexts_never_model_a_negative_height(difficul
         q = make(AMP_TOPIC, seed=seed, difficulty=difficulty)
         m = _AMP_EQ_RE.search(q.text)
         assert m, q.text
-        amp = abs(float(m.group(1)))
+        amp = abs(float(_coefficient(m.group(1))))
         d = 0 if m.group(2) is None else int(m.group(3)) * (1 if m.group(2) == "+" else -1)
         if re.search(r"height above", q.text.split(", is modelled")[0]):
             heights += 1
@@ -609,14 +614,14 @@ def test_amplitude_period_column_mode_heuristic_rarely_wins(difficulty):
     assert wins / 200 < 0.45, f"[{difficulty}] heuristic wins {wins}/200"
 
 
-_AMP2139_FN_RE = re.compile(r"y = (-?\d+(?:\.\d+)?)(?:sin|cos)\(")
+_AMP2139_FN_RE = re.compile(r"y = (-?\d*(?:\.\d+)?)(?:sin|cos)\(")
 _AMP2139_WORD_RE = re.compile(r"amplitude (\d+(?:\.\d+)?) (?:metres|centimetres)")
 
 
 def _stated_amplitude_2139(topic: str, text: str) -> str:
     m = (_AMP2139_FN_RE if topic == AMP_TOPIC else _AMP2139_WORD_RE).search(text)
     assert m, text
-    return m.group(1)
+    return _coefficient(m.group(1))
 
 
 def _scenario_2139(text: str):

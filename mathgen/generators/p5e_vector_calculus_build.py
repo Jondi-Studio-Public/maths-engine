@@ -14,7 +14,7 @@ from __future__ import annotations
 from fractions import Fraction
 from sympy import cos, diff, exp, sin, symbols
 
-from ..core import check, check_equivalent, generator, pick_distractors
+from ..core import check, check_equivalent, generator, join_terms, pick_distractors
 
 
 def _fmt_signed_term(coef: int, var: str) -> str:
@@ -396,7 +396,7 @@ def differentiate_and_integrate_a_vector_function_with_respect(rng, tier="easy")
                 f"v(t) = ({x_comp}, {y_comp})",
                 f"Integrating from 0 to {T}:",
                 f"x displacement = integral of {x_comp} from 0 to {T}",
-                f"= [{d1}t^2{_fmt_signed_term(e1, 't')}] from 0 to {T} = {x_disp}",
+                f"= [{join_terms([(d1, 't^2'), (e1, 't')])}] from 0 to {T} = {x_disp}",
                 f"y displacement = {y_disp}",
                 f"Displacement = ({x_disp}, {y_disp})",
             ],

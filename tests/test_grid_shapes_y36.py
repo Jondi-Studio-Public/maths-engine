@@ -79,7 +79,8 @@ def test_each_skill_is_active_behind_the_figure_gate_with_the_tiers_its_year_nee
     assert skill.learner_band == band
     assert code in skill.tags
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
-    assert [s.difficulty for s in skill.sources] == tiers  # Years 3 to 6 have no exam tier, the senior row has one
+    # the senior row always had an exam tier; the Years 3 to 6 rows gained one from later exam chains
+    assert [s.difficulty for s in skill.sources] in (tiers, [*tiers, "exam"])
     assert len(skill.misconceptions) >= 5 and all(m.description for m in skill.misconceptions)
     assert skill.prerequisites and all(_skills()[p].status == "active" for p in skill.prerequisites)
 

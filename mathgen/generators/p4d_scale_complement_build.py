@@ -179,8 +179,25 @@ def probability_scale_classify(rng, tier="medium"):
     answer_text = label
     distractors = pick_distractors(label, [o for o in OPTIONS_SCALE if o != label], n=2)
 
+    if not matches:
+        working = [
+            f"No outcome in S matches the rule, so X has 0 of the {n} outcomes.",
+            f"P(X) = 0/{n} = 0, so X is impossible.",
+        ]
+    elif len(matches) == n:
+        working = [
+            f"Every outcome in S matches the rule, so X has all {n} of the {n} outcomes.",
+            f"P(X) = {n}/{n} = 1, so X is certain.",
+        ]
+    else:
+        working = [
+            f"X has {len(matches)} of the {n} outcomes, so P(X) = {len(matches)}/{n}.",
+            "This is greater than 0 and less than 1, so X is possible but not certain.",
+        ]
+
     return dict(
         text=question_text,
+        working=working,
         latex=r"\text{P(X)}",
         answer=label,
         answer_text=label,
@@ -226,6 +243,11 @@ def check_inclusion_exclusion_union(a, b, c, d):
     check(actual == expected, f"union check failed: {actual} != {expected}")
 
 
+def _proper(options):
+    """Keep only options that are possible probabilities (0 to 1)."""
+    return [o for o in options if 0 <= Fraction(o) <= 1]
+
+
 @generator(
     "probability_complement_union",
     level=11,
@@ -266,7 +288,11 @@ def probability_complement_union(rng, tier="medium"):
         check(Fraction(d - a + 1, d) != answer, "off-by-one distractor equals answer")
         check(abs(Fraction(d - a + 1, d) - answer) == Fraction(1, d), "off-by-one gap proof")
 
-        distractors = pick_distractors(answer_text, [distractor_forgot, distractor_off_by_one], n=2)
+        # 3. off-by-one the other way: reports (d-a-1)/d, only when it is a real (non-zero) probability
+        cands = [distractor_forgot, distractor_off_by_one]
+        if d - a - 1 >= 1:
+            cands.append(rational_text(Fraction(d - a - 1, d)))
+        distractors = pick_distractors(answer_text, _proper(cands), n=2)
 
     elif tier == "medium":
         # Medium: mutually-exclusive union P(A union B) = P(A) + P(B)
@@ -369,10 +395,22 @@ def probability_complement_union(rng, tier="medium"):
         distractors = pick_distractors(answer_text, candidates, n=2)
         check(len(distractors) == 2, "hard: need two in-range distractors")
 
+    if tier == "easy":
+        raw = f"{d - a}/{d}"
+        step = f"P(not A) = 1 - P(A) = 1 - {a}/{d} = {raw}"
+    elif tier == "medium":
+        raw = f"{a + b}/{d}"
+        step = f"For mutually exclusive events, P(A union B) = P(A) + P(B) = {a}/{d} + {b}/{d} = {raw}"
+    else:
+        raw = f"{a + b - c}/{d}"
+        step = f"P(A union B) = P(A) + P(B) - P(A intersect B) = {a}/{d} + {b}/{d} - {c}/{d} = {raw}"
+    working = [step + ("." if raw == answer_text else f", which simplifies to {answer_text}.")]
+
     return dict(
         text=question_text,
         latex=r"\text{P}",
         answer={"p": answer.numerator, "q": answer.denominator},
         answer_text=answer_text,
         distractors=distractors,
+        working=working,
     )

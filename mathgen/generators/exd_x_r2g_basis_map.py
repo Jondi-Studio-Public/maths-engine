@@ -15,7 +15,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import check, generator, join_terms
+from ..core import check, generator, join_terms, paren_negative
 from .exd_x_r2g_support import build_part, redraws
 
 _STEMS = [
@@ -60,11 +60,13 @@ def exd_x_r2g_basis_map(rng: random.Random, tier: str = "exam") -> dict:
     num1, num2 = v1 * y2 - v2 * x2, x1 * v2 - y1 * v1
     parts = [
         build_part(
-            "Find the determinant of the 2 x 2 matrix whose columns are b1 and b2.",
+            "Find the determinant of the 2 × 2 matrix whose columns are b1 and b2.",
             det,
             kind="number",
             marks=1,
-            working=[f"det = ({x1})({y2}) - ({x2})({y1}) = {det}, which is not 0."],
+            working=[
+                f"det = {paren_negative(x1)} × {paren_negative(y2)} - {paren_negative(x2)} × {paren_negative(y1)} = {det}, which is not 0."
+            ],
             wrong=[
                 (x1 * y2 + x2 * y1, "determinant-formula-slip"),
                 (-det, "answer-sign-reversed"),
@@ -81,7 +83,7 @@ def exd_x_r2g_basis_map(rng: random.Random, tier: str = "exam") -> dict:
             kind="fraction",
             marks=2,
             follow_through=f"({num1})/part_a",
-            working=[f"By Cramer's rule c1 = det[v b2] / det[b1 b2] = ({num1}) / {det} = {c1}."],
+            working=[f"By Cramer's rule c1 = det[v b2] / det[b1 b2] = {num1} / {paren_negative(det)} = {c1}."],
             wrong=[
                 (c2, "swaps-coefficients"),
                 (Fraction(num1), "forgot-to-divide-by-determinant"),
@@ -96,7 +98,7 @@ def exd_x_r2g_basis_map(rng: random.Random, tier: str = "exam") -> dict:
             kind="fraction",
             marks=2,
             follow_through=f"({num2})/part_a",
-            working=[f"c2 = det[b1 v] / det[b1 b2] = ({num2}) / {det} = {c2}."],
+            working=[f"c2 = det[b1 v] / det[b1 b2] = {num2} / {paren_negative(det)} = {c2}."],
             wrong=[
                 (c1, "swaps-coefficients"),
                 (Fraction(num2), "forgot-to-divide-by-determinant"),

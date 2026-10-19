@@ -199,7 +199,7 @@ def _medium(rng):
                 (2 * (l + w) + 4 * k, ADDS),
             ]
             working = [
-                f"Original perimeter 2 x ({l} + {w}) = {2 * (l + w)}.",
+                f"Original perimeter 2 × ({l} + {w}) = {2 * (l + w)}.",
                 f"Perimeter is multiplied by {k}: {answer}.",
             ]
         return _finish(rng, text, answer, 0, cands, working)

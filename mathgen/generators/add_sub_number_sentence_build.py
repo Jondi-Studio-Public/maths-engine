@@ -57,12 +57,9 @@ _TIERS = ("easy", "medium", "hard")
 BLANK = "□"
 
 _INSTRUCTION = (
-    "Which number sentence matches the story? Every sentence is written as part + part = whole or "
-    "whole - part = part, and {blank} stands for the number to find.",
-    "Choose the number sentence that matches the story. Each one is written as part + part = whole or "
-    "whole - part = part, and {blank} is the number to find.",
-    "Which of these number sentences fits the story? They are all written as part + part = whole or "
-    "whole - part = part, with {blank} for the unknown number.",
+    "Which number sentence matches the story? {blank} is the number to find.",
+    "Choose the number sentence that matches the story. {blank} is the number to find.",
+    "Which of these number sentences fits the story? {blank} is the unknown number.",
 )
 
 # -- stories --------------------------------------------------------------------------------------------------
@@ -278,7 +275,7 @@ def _build(rng, tier: str = "easy") -> dict:
     check(ka != kb and answer not in (ka, kb), f"{TOPIC} {tier}: a repeated number would blur the options")
 
     name, other = rng.sample(NAMES, 2)
-    _singular, items = rng.choice(OBJECTS)
+    _singular, items = rng.choice([o for o in OBJECTS if o[1] != "boxes"])  # the story puts the items in a box
     story = phrase(rng, templates, n=name, m=other, items=items, ka=ka, kb=kb)
     text = story + " " + phrase(rng, _INSTRUCTION, blank=BLANK)
 

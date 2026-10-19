@@ -35,9 +35,9 @@ from mathgen.slots import NAMES
 
 _STEM = (
     "{name} takes out a ${p} home loan. Each month, interest of {r1}% is added to the balance and a repayment of "
-    "${rep} is made, following B(n + 1) = B(n)(1 + r) − R, where r is the monthly interest rate as a decimal. "
+    "${rep} is made, following B(n + 1) = B(n)(1 + r) - R, where r is the monthly interest rate as a decimal. "
     "After {n1} months the interest rate {dir} to {r2}% per month, and the repayment stays the same.",
-    "A ${p} home loan taken out by {name} follows B(n + 1) = B(n)(1 + r) − R, with r the monthly rate as a decimal. "
+    "A ${p} home loan taken out by {name} follows B(n + 1) = B(n)(1 + r) - R, with r the monthly rate as a decimal. "
     "The rate is {r1}% per month and the repayment is ${rep} each month. After {n1} months the rate {dir} to "
     "{r2}% per month; the repayment does not change.",
 )
@@ -45,6 +45,12 @@ _STEM = (
 
 def _fmt(v: Fraction, dp: int = 2) -> str:
     return stated_precision_string(round_half_up(v, dp), dp)
+
+
+def _cash(v: Fraction) -> str:
+    """A dollar amount to the cent with a thousands comma, matching the principal in the stem."""
+    whole, _, cents = _fmt(v).partition(".")
+    return f"{int(whole):,}" + (f".{cents}" if cents else "")
 
 
 def _dists(key: Fraction, pairs):
@@ -160,7 +166,7 @@ def exd_x_r2d_loan_recurrence_chain(rng: random.Random, tier: str = "exam") -> d
                 f"Find the balance owing after {n1} months, to the nearest cent.",
                 b1,
                 2,
-                [f"Apply B(n + 1) = B(n)(1 + {pct(r1)}%) − {int(rep)} for {n1} months.", f"B({n1}) = ${_fmt(b1)}."],
+                [f"Apply B(n + 1) = B(n)(1 + {pct(r1)}%) - {int(rep)} for {n1} months.", f"B({n1}) = ${_cash(b1)}."],
                 _dists(b1, a_pairs),
             ),
             _part(
@@ -169,8 +175,8 @@ def exd_x_r2d_loan_recurrence_chain(rng: random.Random, tier: str = "exam") -> d
                 b2,
                 3,
                 [
-                    f"Continue the recurrence from ${_fmt(b1)} with r = {pct(r2)}% for {m} months.",
-                    f"Balance = ${_fmt(b2)}.",
+                    f"Continue the recurrence from ${_cash(b1)} with r = {pct(r2)}% for {m} months.",
+                    f"Balance = ${_cash(b2)}.",
                 ],
                 _dists(b2, b_pairs),
                 ft=ft_b,
@@ -180,7 +186,7 @@ def exd_x_r2d_loan_recurrence_chain(rng: random.Random, tier: str = "exam") -> d
                 f"{k} further months at the new rate, to the nearest cent.",
                 r_new,
                 3,
-                [f"R = B r ÷ (1 − (1 + r)^−{k}) with B = {_fmt(b2)} and r = {pct(r2)}%.", f"R = ${_fmt(r_new)}."],
+                [f"R = B r ÷ (1 - (1 + r)^-{k}) with B = {_cash(b2)} and r = {pct(r2)}%.", f"R = ${_cash(r_new)}."],
                 _dists(r_new, c_pairs),
                 ft=ft_c,
             ),
@@ -190,7 +196,7 @@ def exd_x_r2d_loan_recurrence_chain(rng: random.Random, tier: str = "exam") -> d
                 interest,
                 2,
                 [
-                    f"Total repaid = {k} × {_fmt(r_new)}; interest = {k} × {_fmt(r_new)} − {_fmt(b2)} = ${_fmt(interest)}."
+                    f"Total repaid = {k} × {_cash(r_new)}; interest = {k} × {_cash(r_new)} - {_cash(b2)} = ${_cash(interest)}."
                 ],
                 _dists(interest, d_pairs),
                 ft=f"{k}*part_c - part_b",

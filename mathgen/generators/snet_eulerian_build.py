@@ -44,6 +44,7 @@ from ._snet_kit import (
     pick_context,
     cycle_edges,
 )
+from ._network_fig import with_network_figure
 
 CIRCUIT = "It has an Eulerian circuit."
 TRAIL = "It has an Eulerian trail but no Eulerian circuit."
@@ -232,6 +233,7 @@ def _hard(rng):
     level=12,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@with_network_figure
 def snet_eulerian(rng, tier="easy"):
     """Eulerian trails and circuits from the degrees; the tiers are described in the module docstring."""
     if tier == "easy":
@@ -246,6 +248,7 @@ def snet_eulerian(rng, tier="easy"):
 
 
 @generator("snet_eulerian_chain", level=12, presets={"exam": dict(tier="exam")})
+@with_network_figure
 def snet_eulerian_chain(rng, tier="exam"):
     """Exam chain on a network with 0, 2, 4 or 6 odd vertices: odd vertices, edges to add for a circuit, its length,
     and edges to add for a trail that ends somewhere else."""

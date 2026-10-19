@@ -8,28 +8,49 @@ description: Find all solutions, in a stated bounded domain, of f(a(x-b)) = c wh
 status: active
 placement_eligible: false
 prerequisites: [right-triangle-angle]
-answer: mcq
+answer: list
 sources:
-- topic: trig_equation_all_solutions
+- topic: w5_trig_all_solutions
   params: {}
   difficulty: easy
   stages: [6]
-- topic: trig_equation_all_solutions
+- topic: w5_trig_all_solutions
   params: {}
   difficulty: medium
   stages: [6]
-- topic: trig_equation_all_solutions
+- topic: w5_trig_all_solutions
   params: {}
   difficulty: hard
   stages: [6, maintenance]
-- topic: exd_x_f5_trigquad
+- topic: exd_x_w5_trig_all_solutions
   params: {tier: exam}
   difficulty: exam
   stages:
   - exam
 misconceptions:
-- id: wrong-quadrant-cast
-  description: Applies the opposite CAST-rule sign branch, selecting solutions from the wrong quadrants.
-- id: misses-solutions-from-extra-periods-or-drops-one
-  description: On easy/medium, picks only one solution; on hard, forgets that the coefficient a=2 requires checking multiple periods within the domain.
+- id: w5t-opposite-quadrants
+  description: Uses the CAST quadrants for the opposite sign of the value.
+- id: w5t-drops-solutions
+  description: Gives only some of the solutions in the window and leaves the others out.
+- id: w5t-wrong-function-quadrants
+  description: Uses the quadrant pattern of a different trigonometric function.
+- id: w5t-shift-wrong-way
+  description: Shifts the solutions the wrong way, adding the shift where it must be subtracted.
+- id: w5t-one-period-only
+  description: Stops after the first period and misses the later solutions the coefficient of x brings into the window.
+- id: w5t-forgets-the-coefficient
+  description: Solves as if the angle were x alone, ignoring the coefficient of x.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find the reference angle for an exact value and use the CAST rule to list both solutions in the window.
+  medium:
+    steps: 3
+    demand: Solve for the shifted angle x - b or x + b, then add the shift and wrap the solutions back into the window.
+  hard:
+    steps: 5
+    demand: Solve f(a(x - b)) = c with a = 2 or 3, taking solutions from several periods of the angle before dividing by a and adding the shift.
+  exam:
+    steps: 6
+    demand: Chain the solutions of f(x) = c, the smallest solution of f(2x) = c and the shifted solutions of f(2(x - b)) = c.
 tags: [acara-senior-v8-4, trigonometry, trig-equations, acmsm042]

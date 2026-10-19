@@ -323,7 +323,7 @@ class TestSkillLoads:
         assert skill.answer == "number"
         assert skill.prerequisites == ["senior-apply-the-cosine-and-sine-ratios-to-find", "f10-angle-relationships"]
         assert skill.placement_eligible is False
-        assert len(skill.sources) == 4
+        assert len(skill.sources) == 6  # w3 added medium and hard sources with non-cardinal legs
 
     def test_skill_sources_cover_all_difficulties(self):
         domains, skills = load_skills()
@@ -334,7 +334,7 @@ class TestSkillLoads:
     def test_skill_sources_cover_expected_stages(self):
         domains, skills = load_skills()
         skill = next(s for s in skills if s.id == SKILL_ID)
-        by_difficulty = {source.difficulty: source.stages for source in skill.sources}
+        by_difficulty = {s.difficulty: s.stages for s in skill.sources if s.topic == "bearings_problem"}
         assert by_difficulty["easy"] == [6]
         assert by_difficulty["medium"] == [6]
         assert by_difficulty["hard"] == [6, "maintenance"]

@@ -141,10 +141,10 @@ def exd_x_fu_pyramid_volume(rng, tier: str = "exam"):
                     (
                         f"Half of the {w} cm edge is {half} cm. The height, this half-edge and the slant height form a right triangle."
                         if d["square"]
-                        else f"The face stands on the {b} cm edge, so the run to the apex is half of the other edge: {w} / 2 = {half} cm. "
+                        else f"The face stands on the {b} cm edge, so the run to the apex is half of the other edge: {w} ÷ 2 = {half} cm. "
                         "The height, this run and the slant height form a right triangle."
                     ),
-                    f"h^2 = {slant}^2 - {half}^2 = {slant * slant - half * half}, so h = {h_text} cm.",
+                    f"h² = {slant}² − {half}² = {slant * slant - half * half}, so h = {h_text} cm.",
                 ],
                 distractors=a_d,
             ),
@@ -157,7 +157,7 @@ def exd_x_fu_pyramid_volume(rng, tier: str = "exam"):
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"part_a*{base_area}/3",
-                working=[f"V = (1/3) x {b} x {w} x {h_text} = {v_text} cm^3 (1 d.p.)."],
+                working=[f"V = ⅓ × {b} × {w} × {h_text} = {v_text} cm³ (1 d.p.)."],
                 distractors=b_d,
             ),
             dict(
@@ -170,7 +170,7 @@ def exd_x_fu_pyramid_volume(rng, tier: str = "exam"):
                 marks=1,
                 sensible_range=(0, None),
                 follow_through="part_b/1000",
-                working=[f"1 litre = 1000 cm^3, so capacity = {v_text} / 1000 = {l_text} litres (1 d.p.)."],
+                working=[f"1 litre = 1000 cm³, so capacity = {v_text} ÷ 1000 = {l_text} litres (1 d.p.)."],
                 distractors=c_d,
             ),
         ],

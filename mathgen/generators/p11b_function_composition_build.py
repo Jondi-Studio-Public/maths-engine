@@ -323,7 +323,8 @@ def _build_when_defined(a: int, k: int, is_class_b: bool, tier: str = "medium") 
         )
     if not is_class_b:
         working = [
-            f"g(x) has range y >= 0. Since k = {k} < 0, sqrt(x - {a}) can never equal {k}, "
+            f"f(x) is undefined only when its input is {k}. g(x) has range y >= 0 and {k} < 0, "
+            f"so sqrt(x - {a}) can never equal {k}, "
             f"so f(g(x)) is defined on all of g's own domain, x >= {a}."
         ]
     else:

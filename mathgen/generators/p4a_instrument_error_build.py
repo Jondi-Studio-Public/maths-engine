@@ -169,7 +169,7 @@ def metric_measure_instrument_estimate(rng, tier="easy"):
             answer_text=answer_text,
             answer_latex=answer_text,
             working=[
-                f"At {_ordinal(k)} major mark: {k} × {M} = {k * M}. Plus {n} small divisions: {n} × {minor_div_value} = {n * minor_div_value}. Total: {k * M} + {n * minor_div_value} = {answer} {unit}."
+                f"At {_ordinal(k)} major mark: {k} × {M} = {k * M}. Plus {n} small division{'s' if n > 1 else ''}: {n} × {minor_div_value} = {n * minor_div_value}. Total: {k * M} + {n * minor_div_value} = {answer} {unit}."
             ],
             distractors=distractors,
         )
@@ -202,6 +202,10 @@ def metric_measure_instrument_estimate(rng, tier="easy"):
             confuses_mm = (k + 1) * M - n * M
 
             candidates = [wrong_dir, reads_next, confuses_mm]
+            working_line = (
+                f"The {_ordinal(k + 1)} major mark is {(k + 1) * M} {unit}. The pointer is {n} small "
+                f"division{'s' if n > 1 else ''} before it: {(k + 1) * M} - {n} × {minor_div_value} = {answer} {unit}."
+            )
 
         else:  # benchmark_estimate
             # Benchmark estimate: familiar item weight and total count
@@ -230,6 +234,7 @@ def metric_measure_instrument_estimate(rng, tier="easy"):
             # Misconceptions
             # 1. off_by_one_count: count ± 1
             candidates = [count - 1, count + 1, count + 2 if count < 11 else count - 2]
+            working_line = f"{T} {unit} ÷ {B} {unit} = {count}, so it would take about {count}."
 
         answer_text = str(answer)
         distractors = pick_distractors(answer_text, [str(c) for c in candidates])
@@ -240,7 +245,7 @@ def metric_measure_instrument_estimate(rng, tier="easy"):
             answer=answer,
             answer_text=answer_text,
             answer_latex=answer_text,
-            working=[f"The measured value is {answer} {unit}."],
+            working=[working_line],
             distractors=distractors,
         )
 
@@ -406,7 +411,7 @@ def measurement_error_interpretation(rng, tier="easy"):
 
             measured_unit = _plural_unit(measured, "unit")
             true_unit = _plural_unit(T, "unit")
-            text = f"A measurement is {measured} {measured_unit}, and the true value is {T} {true_unit}. Express the error as a plain difference."
+            text = f"A measurement is {measured} {measured_unit}, and the true value is {T} {true_unit}. Express the error as a plain difference: the larger value minus the smaller, so the answer is not negative."
             request_phrase = "as a plain difference"
 
             # Generate diverse misconceptions
@@ -424,6 +429,7 @@ def measurement_error_interpretation(rng, tier="easy"):
             candidates.append(T)
             # Ensure we have at least 2 distinct non-answer values
             candidates = [str(c) for c in candidates if c != answer]
+            working_line = f"The plain difference is {max(measured, T)} - {min(measured, T)} = {answer}."
 
         elif request_type == "relative":
             T = rng.choice([20, 25, 50, 100])
@@ -465,6 +471,7 @@ def measurement_error_interpretation(rng, tier="easy"):
 
             candidates = cand_list
             answer = answer_float
+            working_line = f"Error = |{measured} - {T}| = {e}, and {e} ÷ {T} = {answer_text}."
 
         else:  # percentage
             T = rng.choice([20, 25, 50, 100])
@@ -506,6 +513,7 @@ def measurement_error_interpretation(rng, tier="easy"):
             cand_list.append(100 - pct)
 
             candidates = [str(c) for c in cand_list if str(c) != answer_text]
+            working_line = f"Error = |{measured} - {T}| = {e}, and {e} ÷ {T} × 100 = {pct}%."
 
         # Ensure candidates is a list of strings
         if not isinstance(candidates, list):
@@ -518,7 +526,7 @@ def measurement_error_interpretation(rng, tier="easy"):
             answer=answer,
             answer_text=answer_text,
             answer_latex=answer_text,
-            working=[f"Error classification and calculation: {request_phrase}."],
+            working=[working_line],
             distractors=distractors,
         )
 

@@ -380,6 +380,11 @@ def _classify(lhs, rhs):
     return "not_linear", None
 
 
+def _undo_text(k: int) -> str:
+    """The step that removes the constant k from one side: "Subtract 4" or "Add 5"."""
+    return f"Subtract {k}" if k > 0 else f"Add {-k}"
+
+
 def _iasle_easy(rng):
     stem = "Is this equation linear in x? If it is linear, also give the value of x that solves it."
     if rng.choice([True, False]):
@@ -399,6 +404,11 @@ def _iasle_easy(rng):
         wrong_value_2 = c + b  # forgot to subtract b (added instead) before dividing by a
         check_distinct(x0, wrong_value_1, msg="wrong-classification-value distractor must differ from x0")
         candidates = ["Not linear", f"Linear; x = {wrong_value_1}", f"Linear; x = {wrong_value_2}"]
+        steps = [
+            f"{_undo_text(b)} from both sides: {a}x = {c - b}.",
+            f"Divide both sides by {a}: x = {x0}.",
+            "The highest power of x is 1, so the equation is linear.",
+        ]
     else:
         # Not linear: x^2 + a = b (obvious squared term, no trap intended).
         a = rng.choice([v for v in range(-9, 10) if v != 0])
@@ -411,6 +421,7 @@ def _iasle_easy(rng):
         answer_text = "Not linear"
         naive_1, naive_2, naive_3 = b - a, a - b, b + a
         candidates = [f"Linear; x = {naive_1}", f"Linear; x = {naive_2}", f"Linear; x = {naive_3}"]
+        steps = ["The equation has an x^2 term, so the highest power of x is 2 and it is not linear."]
 
     distractors = pick_distractors(answer_text, candidates)
     return dict(
@@ -419,7 +430,7 @@ def _iasle_easy(rng):
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
-        working=[f"Independent check: {answer_text}"],
+        working=steps,
         distractors=distractors,
     )
 
@@ -445,6 +456,11 @@ def _iasle_medium(rng):
             x0, wrong_value_1, wrong_value_2, msg="wrong-classification-value distractors must differ from x0"
         )
         candidates = ["Not linear", f"Linear; x = {wrong_value_1}", f"Linear; x = {wrong_value_2}"]
+        steps = [
+            f"Multiply both sides by {p}: {join_terms([(1, 'x'), (a, '')])} = {p * c}.",
+            f"{_undo_text(a)} from both sides: x = {x0}.",
+            "The highest power of x is 1, so the equation is linear.",
+        ]
     else:
         # Not linear: a/(x + d) = c -- unknown in the denominator (reciprocal).
         a = rng.choice([v for v in range(-9, 10) if v != 0])
@@ -463,6 +479,7 @@ def _iasle_medium(rng):
         text = f"{a}/({join_terms([(1, 'x'), (d, '')])}) = {c}. {stem}"
         answer_text = "Not linear"
         candidates = [f"Linear; x = {_frac_text(real_solution)}", f"Linear; x = {_frac_text(bad_cross_multiply)}"]
+        steps = ["The unknown x is in the denominator of a fraction, so the equation is not linear in x."]
 
     distractors = pick_distractors(answer_text, candidates)
     return dict(
@@ -471,7 +488,7 @@ def _iasle_medium(rng):
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
-        working=[f"Independent check: {answer_text}"],
+        working=steps,
         distractors=distractors,
     )
 
@@ -508,6 +525,12 @@ def _iasle_hard(rng):
             msg="wrong-classification-value distractors must differ from x0",
         )
         candidates = ["Not linear", f"Linear; x = {_frac_text(wrong_side)}", f"Linear; x = {_frac_text(sign_error)}"]
+        expanded = join_terms([(1, "x^2"), (a - b, "x"), (-a * b, ""), (-1, "x^2")])
+        steps = [
+            f"Expand: {expanded} = {c}.",
+            f"The x^2 terms cancel, leaving {join_terms([(a - b, 'x'), (-a * b, '')])} = {c}, so the equation is linear.",
+            f"Solve: x = {_frac_text(x0)}.",
+        ]
     else:
         # (x+a)(x-b) + x^2 = c -- the x^2 terms add: stays genuinely quadratic.
         lhs, rhs = (x + a) * (x - b) + x**2, c
@@ -520,6 +543,11 @@ def _iasle_hard(rng):
         ignored_x2 = Fraction(c + a * b, a - b)
         sign_variant = Fraction(c - a * b, a - b)
         candidates = [f"Linear; x = {_frac_text(ignored_x2)}", f"Linear; x = {_frac_text(sign_variant)}"]
+        expanded = join_terms([(1, "x^2"), (a - b, "x"), (-a * b, ""), (1, "x^2")])
+        steps = [
+            f"Expand: {expanded} = {c}.",
+            "The x^2 terms add to 2x^2, so an x^2 term remains and the equation is not linear.",
+        ]
 
     distractors = pick_distractors(answer_text, candidates)
     return dict(
@@ -528,7 +556,7 @@ def _iasle_hard(rng):
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
-        working=[f"Independent check: {answer_text}"],
+        working=steps,
         distractors=distractors,
     )
 

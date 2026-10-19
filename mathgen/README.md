@@ -40,7 +40,7 @@ python -m mathgen --all -n 50 --difficulty easy --out bank.jsonl
 ```
 
 With `--level` or `--all`, a topic that has presets but not the one you named is skipped, and
-the command says which on stderr (four topics have no `easy`, for instance). `--topic` with a
+the command says which on stderr (as of this writing 855 of the 2,015 topics have no `easy`; `python -m mathgen --all -n 1 --difficulty easy` names them). `--topic` with a
 preset the topic lacks is an error that lists the presets it has, and a difficulty name that no
 topic has (a typo) is an error that lists the valid names.
 

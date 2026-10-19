@@ -697,7 +697,7 @@ def _h_alg_diag(rng):
         cands,
         [
             f"M is the midpoint of {a}{c}, so {p}x + {q} = {r}x - {s} and x = {x}.",
-            f"{a}{c} = 2 x ({p} x {x} + {q}) = {_fmt(2 * (p * x + q))} cm.",
+            f"{a}{c} = 2 × ({p} × {x} + {q}) = {_fmt(2 * (p * x + q))} cm.",
         ],
         2 * (p * xs + q),
     )

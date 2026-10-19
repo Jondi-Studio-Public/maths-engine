@@ -442,6 +442,12 @@ def decimal_estimate_add_subtract(rng, variant="two_place_round_whole"):
 # -- percentage_to_fraction -------------------------------------------------
 
 _EASY_PERCENTS = (10, 20, 25, 50, 75)
+_EASY_PERCENTS_WIDE = (5, 10, 20, 25, 30, 40, 50, 60, 70, 75, 80, 90)
+_ASKS = (
+    "What fraction is equivalent to {d}, using 100% as the whole?",
+    "Write {d} as a fraction in simplest form, using 100% as the whole.",
+    "{d} of a whole is what fraction of that whole?",
+)
 _MEDIUM_PERCENTS = (12, 15, 24, 35, 36, 45, 48, 55, 65, 84, 85, 95)
 _HARD_ABOVE_PERCENTS = (110, 120, 125, 150, 175, 200, 225, 250)
 _HARD_BELOW = (
@@ -474,7 +480,7 @@ def _verify_percent_fraction_via_explicit_gcd(percent_value: Fraction, answer: F
     )
 
 
-def _build_percentage_question(percent_value: Fraction, display: str, above_100: bool) -> dict:
+def _build_percentage_question(percent_value: Fraction, display: str, above_100: bool, ask: str | None = None) -> dict:
     answer = percent_value / 100
     _verify_percent_fraction_via_explicit_gcd(percent_value, answer)
 
@@ -485,7 +491,7 @@ def _build_percentage_question(percent_value: Fraction, display: str, above_100:
         candidates.append((percent_value - 100) / 100)
 
     answer_text = _fraction_text(answer)
-    text = f"What fraction is equivalent to {display}, using 100% as the whole?"
+    text = (ask or _ASKS[0]).format(d=display)
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -497,7 +503,10 @@ def _build_percentage_question(percent_value: Fraction, display: str, above_100:
     )
 
 
-def _benchmark(rng) -> dict:
+def _benchmark(rng, wide: bool = False) -> dict:
+    if wide:  # more familiar percentages and three wordings; drawn after the original draws are skipped
+        percent = rng.choice(_EASY_PERCENTS_WIDE)
+        return _build_percentage_question(Fraction(percent), f"{percent}%", above_100=False, ask=rng.choice(_ASKS))
     percent = rng.choice(_EASY_PERCENTS)
     return _build_percentage_question(Fraction(percent), f"{percent}%", above_100=False)
 
@@ -532,11 +541,13 @@ _PERCENTAGE_VARIANT_FNS = {
         "hard": dict(variant="beyond_familiar_band"),
     },
 )
-def percentage_to_fraction(rng, variant="benchmark"):
+def percentage_to_fraction(rng, variant="benchmark", wide=False):
     """Convert a percentage to its equivalent fraction, using 100% as the
     whole. See the module docstring for the full tier design, the
     three-way differentiator against fraction_decimal_percent, and the
     misconception derivations."""
     if variant not in _PERCENTAGE_VARIANT_FNS:
         raise ValueError(f"unknown variant {variant!r}; expected one of {sorted(_PERCENTAGE_VARIANT_FNS)}")
+    if wide and variant == "benchmark":
+        return _benchmark(rng, wide=True)
     return _PERCENTAGE_VARIANT_FNS[variant](rng)

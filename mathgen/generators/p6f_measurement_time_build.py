@@ -95,6 +95,10 @@ def _build_easy(rng) -> dict:
         answer = Fraction(minutes, 60)
         answer_text = exact_decimal_string(answer, max_places=3)
         text = f"Convert {minutes} minutes to hours. Give your answer as a decimal."
+        working = [
+            "There are 60 minutes in 1 hour, so divide by 60.",
+            f"{minutes} ÷ 60 = {answer_text} hours.",
+        ]
 
         # Misconceptions (as numeric values for check_distinct)
         # Only use distractors that are in decimal format to match answer shape
@@ -138,6 +142,10 @@ def _build_easy(rng) -> dict:
         hour_word = "hour" if hours_value == 1 else "hours"
         text = f"Convert {hours_display} {hour_word} to minutes."
         answer_text = str(answer)
+        working = [
+            "There are 60 minutes in 1 hour, so multiply by 60.",
+            f"{hours_display} × 60 = {answer} minutes.",
+        ]
 
         # Misconceptions as numeric values
         wrong_reads_digits = 100 * n + j
@@ -168,7 +176,7 @@ def _build_easy(rng) -> dict:
         answer=numeric_answer(answer),
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[],
+        working=working,
         distractors=_shaped_distractors(answer_text, candidates),
     )
 
@@ -186,6 +194,10 @@ def _build_medium(rng) -> dict:
         answer_text = exact_decimal_string(answer, max_places=3)
 
         text = f"A duration is {hours} {'hour' if hours == 1 else 'hours'} and {minutes} minutes. Write this as a decimal number of hours."
+        working = [
+            f"{minutes} minutes = {minutes} ÷ 60 = {exact_decimal_string(Fraction(minutes, 60), max_places=3)} hours.",
+            f"{hours} + {exact_decimal_string(Fraction(minutes, 60), max_places=3)} = {answer_text} hours.",
+        ]
 
         # Misconceptions as numeric values - only use divides_by_10 to avoid tolerance issues
         wrong_by_10 = hours + Fraction(minutes, 10)
@@ -214,6 +226,10 @@ def _build_medium(rng) -> dict:
 
         text = f"A duration is {hours_display} hours (decimal). Convert this to total minutes."
         answer_text = str(answer)
+        working = [
+            "There are 60 minutes in 1 hour, so multiply by 60.",
+            f"{hours_display} × 60 = {answer} minutes.",
+        ]
 
         # Misconceptions as numeric values
         wrong_reads_digits = 100 * n + 5 * k
@@ -244,7 +260,7 @@ def _build_medium(rng) -> dict:
         answer=numeric_answer(answer),
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[],
+        working=working,
         distractors=_shaped_distractors(answer_text, candidates),
     )
 
@@ -262,6 +278,16 @@ def _build_hard(rng) -> dict:
 
     answer = n * 60 + minutes_equiv
     answer_text = str(answer)
+    working = [
+        f"{num}/{den} of an hour = {num}/{den} × 60 = {minutes_equiv} minutes.",
+        *(
+            [
+                f"{n} {'hour' if n == 1 else 'hours'} = {n * 60} minutes, so the total is {n * 60} + {minutes_equiv} = {answer} minutes."
+            ]
+            if n
+            else []
+        ),
+    ]
 
     # Misconceptions as numeric values
     wrong_by_100_not_60 = n * 60 + (num * 100) // den
@@ -288,7 +314,7 @@ def _build_hard(rng) -> dict:
         answer=numeric_answer(answer),
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[],
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 

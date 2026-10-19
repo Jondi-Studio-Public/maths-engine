@@ -109,7 +109,7 @@ def _verify_easy(speed_kmh: Fraction, t: int, speed_ms: int, distance: int):
     from), then re-derive the distance from that."""
     recomputed_ms = speed_kmh * _KMH_TO_MS
     check_equivalent(recomputed_ms, speed_ms, "easy: km/h -> m/s conversion must match construction")
-    check_equivalent(recomputed_ms * t, distance, "easy: distance must equal converted speed x time")
+    check_equivalent(recomputed_ms * t, distance, "easy: distance must equal converted speed × time")
 
 
 def _easy(rng):
@@ -150,8 +150,8 @@ def _easy(rng):
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Convert: {_kmh_text(speed_kmh)} km/h x 5/18 = {k} m/s.",
-            f"Distance = {k} m/s x {t} s = {distance} m.",
+            f"Convert: {_kmh_text(speed_kmh)} km/h × 5/18 = {k} m/s.",
+            f"Distance = {k} m/s × {t} s = {distance} m.",
         ],
         distractors=distractors,
     )
@@ -209,7 +209,7 @@ def _medium(rng):
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Convert: {_kmh_text(speed_kmh)} km/h x 5/18 = {k} m/s.",
+            f"Convert: {_kmh_text(speed_kmh)} km/h × 5/18 = {k} m/s.",
             f"Time = {distance} m / {k} m/s = {t} s.",
         ],
         distractors=distractors,
@@ -230,7 +230,7 @@ def _verify_hard(consumption_per_100km: int, distance_m: int, distance_km: int, 
     recomputed_km = Fraction(distance_m, 1) / 1000
     check_equivalent(recomputed_km, distance_km, "hard: m -> km conversion must match construction")
     rate_per_km = Fraction(consumption_per_100km, 100)
-    check_equivalent(rate_per_km * recomputed_km, litres, "hard: total litres must equal rate-per-km x distance-in-km")
+    check_equivalent(rate_per_km * recomputed_km, litres, "hard: total litres must equal rate-per-km × distance-in-km")
 
 
 def _hard(rng):
@@ -279,7 +279,7 @@ def _hard(rng):
         working=[
             f"Reduce the compound rate: {c} L per 100 km = {c}/100 = {stated_precision_string(Fraction(c, 100), 2)} L/km.",
             f"Convert distance: {distance_m} m = {distance_m}/1000 = {distance_km} km.",
-            f"Total fuel = {stated_precision_string(Fraction(c, 100), 2)} L/km x {distance_km} km = {answer_text} L.",
+            f"Total fuel = {stated_precision_string(Fraction(c, 100), 2)} L/km × {distance_km} km = {answer_text} L.",
         ],
         distractors=distractors,
     )
@@ -314,7 +314,7 @@ def _verify_exam(
     check_equivalent(
         recomputed_price * recomputed_consumption * distance_km,
         exact_dollars,
-        "exam: total cost must equal price-per-L x consumption-per-km x distance-km",
+        "exam: total cost must equal price-per-L × consumption-per-km × distance-km",
     )
 
 
@@ -375,7 +375,7 @@ def _exam(rng):
         working=[
             f"Price: {p} cents/L = ${stated_precision_string(price_per_L, 2)}/L.",
             f"Consumption: {c} L per 100 km = {stated_precision_string(consumption_per_km, 2)} L/km.",
-            f"Total cost = ${stated_precision_string(price_per_L, 2)}/L x {stated_precision_string(consumption_per_km, 2)} L/km "
+            f"Total cost = ${stated_precision_string(price_per_L, 2)}/L × {stated_precision_string(consumption_per_km, 2)} L/km "
             f"x {distance_km} km = {answer_text}.",
         ],
         distractors=distractors,

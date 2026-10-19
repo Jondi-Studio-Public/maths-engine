@@ -250,7 +250,7 @@ def _build_easy(rng):
         f"Fx = {F1} x cos({th1}) + {F2} x cos({th2}) = {fx:.2f} N.",
         f"Fy = {F1} x sin({th1}) + {F2} x sin({th2}) = {fy:.2f} N.",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). "
-        f"Direction = atan2(Fy, Fx) = {direction} degrees (nearest degree).",
+        f"Direction = the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]
     cand_texts = [_pair_text(*c) for c in candidates]
     return dict(
@@ -316,7 +316,7 @@ def _build_medium(rng):
         f"Fx = {F1} x cos({th1}) + {F2} x cos({th2}) = {fx:.2f} N.",
         f"Fy = {F1} x sin({th1}) + {F2} x sin({th2}) = {fy:.2f} N.",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). "
-        f"Direction = atan2(Fy, Fx) = {direction} degrees (nearest degree).",
+        f"Direction = the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]
     cand_texts = [_pair_text(*c) for c in candidates]
     return dict(
@@ -530,7 +530,7 @@ def _build_exam(rng):
         f"Resolve in the 90-degree direction: {A} x sin({thA}) + X x sin({thB}) = {Ry}, so X = {X:.2f} N.",
         f"Fx = {A} x cos({thA}) + X x cos({thB}) = {Fx:.2f} N; Fy = {Ry} N (given).",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). Direction = "
-        f"atan2(Fy, Fx) = {direction} degrees (nearest degree).",
+        f"the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]
     cand_texts = [_pair_text(*c) for c in candidates]
     return dict(

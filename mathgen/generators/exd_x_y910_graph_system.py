@@ -19,7 +19,7 @@ from fractions import Fraction as F
 
 from mathgen import figures
 from mathgen.answers import Distractor
-from mathgen.core import GRADER_TOLERANCE, attempts, check, generator, latex_answer, pick_distractors
+from mathgen.core import GRADER_TOLERANCE, attempts, check, fmt_signed, generator, latex_answer, pick_distractors
 from mathgen.generators.fg1_line_reading_build import eq_text
 from mathgen.generators.pv1a_line_figure_build import line_figure, read_line
 from mathgen.generators.y910_graph_inequality_build import _ALT, _as_value, _two_lines, _two_points
@@ -105,13 +105,13 @@ def exd_x_y910_graph_system(rng, tier="exam"):
             [
                 ((cb + ca) / (ma - mb), "sign-error-when-setting-equal"),
                 ((ca - cb) / (ma - mb), "sign-error-when-setting-equal"),
-                ((cb - ca) / (ma + mb) if ma + mb else 99, "sign-error-when-setting-equal"),
+                ((cb - ca) / (ma + mb) if ma + mb else (cb - ca) / ma, "sign-error-when-setting-equal"),
                 (y, "x-and-y-swapped"),
             ],
             2,
             [
                 f"At the crossing, {eq_text(ma, ca)[4:]} = {eq_text(mb, cb)[4:]}.",
-                f"{ma - mb} x = {cb - ca}, so x = {x}.",
+                f"{fmt_signed(ma - mb, 'x')} = {cb - ca}, so x = {x}.",
             ],
             -20,
             20,

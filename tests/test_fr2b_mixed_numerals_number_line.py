@@ -107,11 +107,13 @@ def test_figure_is_valid_and_does_not_leak_the_answer(tier):
         assert grade(SKILL, q, reader(q)).correct
 
 
-def test_a_mixed_numeral_may_be_typed_as_an_improper_fraction():
+def test_a_mixed_numeral_is_not_accepted_as_an_improper_fraction():
+    # The stem says "Write it as a mixed numeral"; Jondi ruled "strict" (2026-10-19).
     for seed in range(40):
         q = _q("easy", seed)
         value = _points(q)["P"]
-        assert grade(SKILL, q, f"{value.numerator}/{value.denominator}").correct
+        assert not grade(SKILL, q, f"{value.numerator}/{value.denominator}").correct
+        assert grade(SKILL, q, q.answer_text).correct
 
 
 @pytest.mark.parametrize("tier", TIERS)

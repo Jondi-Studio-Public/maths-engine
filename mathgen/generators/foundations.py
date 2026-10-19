@@ -383,7 +383,7 @@ def _formula_rearrange(rng, hi, kind):
         T = rng.randint(1, 5)
         I = P * R * T // 100
         check(Rational(P * R * T, 100) == I)
-        text = f"Simple interest of £{I} is earned on £{P} over {T} {'year' if T == 1 else 'years'}. Use I = PRT/100 to find the annual rate R (%)."
+        text = f"Simple interest of ${I} is earned on ${P} over {T} {'year' if T == 1 else 'years'}. Use I = PRT/100 to find the annual rate R (%)."
         formula, ans = "I = PRT/100", R
         # substituted into the formula as if the unknown were the result;
         # forgot the 100; forgot to divide by the time
@@ -440,7 +440,7 @@ def formula_plugin(rng, hi=20, formulas=_FORMULAS, unknown="result"):
         R = rng.choice([2, 3, 4, 5, 10])
         T = rng.randint(1, 5)
         ans = Rational(P * R * T, 100)
-        text = f"Find the simple interest on £{P} at {R}% per year for {T} {'year' if T == 1 else 'years'}. Use I = PRT/100."
+        text = f"Find the simple interest on ${P} at {R}% per year for {T} {'year' if T == 1 else 'years'}. Use I = PRT/100."
         formula, cands = "I = PRT/100", [P * R * T, P + R + T]
     else:  # perimeter
         l, w = rng.randint(2, hi), rng.randint(2, hi)

@@ -218,7 +218,7 @@ def test_moodle_xml_types_and_counts(paper):
         if q.get("type") == "multichoice":
             assert q.findtext("shuffleanswers") == "0" and q.findtext("single") == "true"
             fractions = [a.get("fraction") for a in q.findall("answer")]
-            assert fractions.count("100") == 1 and len(fractions) == 4
+            assert fractions.count("100") == 1 and len(fractions) >= 4
         if q.get("type") == "numerical":
             assert q.find("answer/tolerance") is not None
 

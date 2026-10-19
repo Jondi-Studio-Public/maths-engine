@@ -152,8 +152,8 @@ def exd_x_sc5_tank_capacity(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 working=[
                     f"Rounded: {l} cm, {w} cm and {h} cm.",
-                    f"Volume = {l} x {w} x {h} = {l * w * h} cm³.",
-                    f"{l * w * h} cm³ / 1000 = {a_text} L.",
+                    f"Volume = {l} × {w} × {h} = {l * w * h} cm³.",
+                    f"{l * w * h} cm³ ÷ 1000 = {a_text} L.",
                 ],
                 distractors=a_d,
             ),
@@ -167,7 +167,7 @@ def exd_x_sc5_tank_capacity(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 follow_through=f"part_a*{d}/{h}",
                 working=[
-                    f"The rounded depth is {d} cm of {h} cm, which is {d}/{h} of the height, so the amount is {d}/{h} x {a_text} = {b_text} L."
+                    f"The rounded depth is {d} cm of {h} cm, which is {d}/{h} of the height, so the amount is {d}/{h} × {a_text} = {b_text} L."
                 ],
                 distractors=b_d,
             ),
@@ -180,7 +180,7 @@ def exd_x_sc5_tank_capacity(rng: random.Random, tier: str = "exam") -> dict:
                 marks=1,
                 sensible_range=(0, None),
                 follow_through=f"(part_b - {start})*1000",
-                working=[f"{b_text} - {start} = {held - start} L.", f"{held - start} L x 1000 = {c_text} mL."],
+                working=[f"{b_text} − {start} = {held - start} L.", f"{held - start} L × 1000 = {c_text} mL."],
                 distractors=c_d,
             ),
         ],

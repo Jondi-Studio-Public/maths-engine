@@ -1,0 +1,94 @@
+id: plot-a-point-from-coordinates
+name: Plot points on a coordinate grid
+domain: linear-relations
+year_level:
+- '9'
+naplan_domain: []
+description: Plot one or several points on a coordinate grid from their coordinates, a description or a context, by placing
+  them on an interactive grid or typing the coordinates.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- coordinate-plane-readiness
+answer: points
+sources:
+- topic: w9_plot_points
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w9_plot_points
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w9_plot_points
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w9_plot_points
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w9-swapped-coordinates
+  description: 'Plots the point with its coordinates the wrong way round: goes up first and across second.'
+- id: w9-x-sign-ignored
+  description: Plots a negative x-coordinate to the right of the y-axis, or a positive one to the left.
+- id: w9-y-sign-ignored
+  description: Plots a negative y-coordinate above the x-axis, or a positive one below it.
+- id: w9-both-signs-ignored
+  description: Ignores the signs of both coordinates, so the point lands in the first quadrant.
+- id: w9-counts-from-the-wrong-line
+  description: Counts one gridline too far or too few along an axis, so the point is a square out.
+- id: w9-midpoint-not-halved
+  description: Adds the coordinates of the two points to find the midpoint but does not halve the sums.
+- id: w9-midpoint-uses-difference
+  description: Subtracts the coordinates of the two points instead of adding them to find the midpoint.
+- id: w9-midpoint-on-one-axis
+  description: Finds the middle of the x-values but keeps the y-value of one of the points (or the reverse).
+- id: w9-parallelogram-wrong-pairing
+  description: Completes the parallelogram on the wrong pair of sides, so the fourth point is not opposite the middle vertex.
+- id: w9-parallelogram-adds-all-three
+  description: Adds the coordinates of all three vertices to find the fourth.
+- id: w9-parallelogram-area-half
+  description: Gives the area of triangle ABC, which is half the area of the parallelogram.
+- id: w9-parallelogram-area-sides
+  description: Multiplies the lengths of two adjacent sides, as if the parallelogram were a rectangle.
+- id: w9-parallelogram-area-bounding-box
+  description: Gives the area of the box that just contains the parallelogram.
+- id: w9-line-point-sign
+  description: Subtracts the constant instead of adding it (or the reverse) when finding the point on the line.
+- id: w9-line-point-forgets-gradient
+  description: Uses the x-value as the y-value, or adds the gradient instead of multiplying by it.
+- id: w9-half-unit-rounded
+  description: Rounds a half-unit coordinate to a whole unit.
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Locate a point from its x then y coordinate.
+  medium:
+    steps: 2
+    demand: Plot points in any quadrant, or from a short description.
+  hard:
+    steps: 4
+    demand: Find a fourth vertex, a midpoint or a point on a line and plot it on a half-unit grid.
+  exam:
+    steps: 6
+    demand: 'A multi-part question: find what the drawing needs by calculation, make the drawing, then use it for a follow-up
+      number.'
+tags:
+- graphs
+- coordinate-plane
+- interactive

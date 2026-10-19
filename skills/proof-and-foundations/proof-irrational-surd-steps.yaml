@@ -1,0 +1,76 @@
+id: proof-irrational-surd-steps
+name: Prove a surd is irrational by contradiction, step by step
+domain: proof-and-foundations
+year_level:
+- '11'
+- '12'
+description: Type the algebraic step that carries a proof by contradiction that a square root or a sum of roots is irrational;
+  every line is checked against the line before.
+status: active
+placement_eligible: false
+prerequisites:
+- simplify-surds
+- expand-binomial-trinomial
+answer: step_chain
+sources:
+- topic: w10_proof_irrational_surd
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_proof_irrational_surd
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_proof_irrational_surd
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: w10_proof_irrational_surd_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: surd-root-not-squared
+  description: Squares a product that holds a square root but leaves the root unsquared.
+- id: surd-forgot-square-on-q
+  description: Squares only part of a product.
+- id: surd-square-of-product-as-sum
+  description: Treats the square of a product as the square of a sum.
+- id: surd-cancels-factor-wrongly
+  description: Cancels a common factor incorrectly in a fraction.
+- id: surd-divides-only-the-root
+  description: Divides only one term of a sum when isolating a surd.
+- id: surd-forgot-to-divide-by-b
+  description: Isolates the surd but never divides by its coefficient.
+- id: surd-sign-of-a-flipped
+  description: Adds the rational part where it should be subtracted.
+- id: surd-sum-cross-term-forgotten
+  description: Squares a sum of surds without the cross term.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Substitute a supposed value for p and square the product.
+  medium:
+    steps: 3
+    demand: Square a product with a prime factor and cancel to express q squared in terms of k.
+  hard:
+    steps: 5
+    demand: Isolate a surd from a supposed rational sum, or expand, collect and cancel to isolate one root of a sum of two.
+  exam:
+    steps: 6
+    demand: Chain the squaring step and the cancelling step of one proof by contradiction, so the second stage starts from the learner's own first result.
+tags:
+- proof
+- typed-steps
+- irrational
+- contradiction
+- surds

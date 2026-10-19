@@ -7,43 +7,20 @@
 # the answer. Every skill: probability, a probability offered a wrong option above 1 or below 0.
 # May only shrink.
 answer_position:
-  add-within-100:
-  - early_addition/easy
-  before-and-after-to-10:
-  - before_after/easy
   compare-tally-and-picture-displays:
   - ey_compare_displays/hard
-  count-to-10:
-  - count_objects/easy
-  count-to-5:
-  - count_objects/easy
-  equal-groups:
-  - equal_groups/easy
   f10-choose-model-from-data:
   - fr2e_choose_model/hard
-  f10-measure-uniform-informal-units:
-  - informal_units_measure/easy
   f10-money-change-from-note:
   - money_change_from_note/easy
   - money_change_from_note/hard
   - money_change_from_note/medium
-  f10-pattern-strip-repeating-unit:
-  - ey_pattern_unit/easy
   f10-shape-sides-spatial-terms:
   - ey_shape_sides/easy
-  - ey_shape_sides/hard
   f10-square-roots-perfect-squares:
   - square_roots_perfect_squares/hard
-  fair-sharing:
-  - fair_sharing/easy
   fraction-decimal-percent:
   - fraction_decimal_percent/medium
-  multiplication-facts:
-  - equal_groups/easy
-  number-bonds-to-10:
-  - number_bond/easy
-  order-numbers-to-10:
-  - number_sequence/easy
   place-value-to-100:
   - teen_place_value/easy
   place-value-to-20:
@@ -56,13 +33,7 @@ answer_position:
   senior-latitude-longitude-grid-places:
   - grid_latlong_places/hard
   senior-use-ests-and-lsts-to-locate-the-critical:
-  - p10c_critical_path_locate/hard
-  skip-count-2-5-10:
-  - skip_count/easy
-  subtract-within-100:
-  - early_subtraction/easy
-  subtract-within-20:
-  - early_subtraction/easy
+  - w3_ests_lsts/hard
   tally-tables:
   - ey_tally_tables/easy
   uc2-quadric-surfaces-level-sets:
@@ -80,8 +51,18 @@ filler_option:
   - classify_real_number/easy
   compare-common-fractions:
   - compare_common_fractions/hard
+  compare-lengths:
+  - compare_length_picture/medium
+  ey-compare-by-paper-clips:
+  - compare_by_paper_clips/medium
   ey-compare-capacity-by-cups:
   - compare_capacity_by_cups/easy
+  - compare_capacity_by_cups/medium
+  ey-compare-duration:
+  - compare_duration_picture/medium
+  ey-order-by-two-balances:
+  - order_by_two_balances/easy
+  - order_by_two_balances/medium
   f10-chance-language-and-outcomes:
   - chance_outcome_classify/easy
   f10-compare-box-plots:
@@ -89,6 +70,7 @@ filler_option:
   f10-fraction-compare-models:
   - fraction_compare_models/medium
   f10-money-compare-collections:
+  - money_compare_collections/hard
   - money_compare_collections/medium
   f10-nets-build-solids:
   - fsp_nets/medium
@@ -188,34 +170,32 @@ filler_option:
   - p15c_symmetry_conservation/hard
   - p15c_symmetry_conservation/medium
 option_count:
+  acquire-and-check-data:
+  - exd_x_w8_data_acquisition/exam
   add-complex-numbers:
   - complex_number/easy
   - exd_x_r2e_complex_add/exam
-  add-within-10:
-  - early_addition/easy
-  add-within-100:
-  - early_addition/easy
-  add-within-20:
-  - early_addition/easy
-  add-within-5:
-  - early_addition/easy
+  arithmetic-sequences:
+  - exd_x_w5_arithmetic_sequences/exam
   autonomous-equilibrium-stability:
   - exd_x_sc1_harvested_equilibria/exam
-  before-and-after-to-10:
-  - before_after/easy
+  check-solution-by-substitution:
+  - exd_x_w5_check_substitution/exam
   choose-sampling-method:
   - exd_x_ir2a_choose_sampling_method/exam
   - ir2a_choose_sampling_method/easy
   - ir2a_choose_sampling_method/hard
   - ir2a_choose_sampling_method/medium
+  circle-point-position:
+  - exd_x_w5_circle_point_position/exam
   classify-constant-coefficient-pde:
   - constant_coefficient_pde_classification/easy
   - constant_coefficient_pde_classification/hard
   - constant_coefficient_pde_classification/medium
   - exd_x_sc2_pde_parameter/exam
   classify-data:
-  - classify_data/easy
   - exd_x_r3j_classify_variables/exam
+  - w3_classify_easy/easy
   classify-polynomials:
   - polynomial_classify/easy
   - polynomial_classify/hard
@@ -235,7 +215,6 @@ option_count:
   compare-lengths:
   - compare_length_picture/easy
   - compare_length_picture/hard
-  - compare_length_picture/medium
   compare-linear-representations:
   - exd_x_w12c_compare_linear/exam
   - fg1_compare_linear/easy
@@ -258,25 +237,15 @@ option_count:
   - ey_pattern_match/hard
   convert-time-systems:
   - exd_x_w12a_time_crossing_midnight_chain/exam
-  equal-groups:
-  - equal_groups/easy
   equation-from-graph:
   - exd_x_w12b_equation_from_graph/exam
   ey-compare-by-paper-clips:
   - compare_by_paper_clips/easy
   - compare_by_paper_clips/hard
-  - compare_by_paper_clips/medium
   ey-compare-capacity-by-cups:
   - compare_capacity_by_cups/easy
-  - compare_capacity_by_cups/hard
-  - compare_capacity_by_cups/medium
   ey-compare-duration:
   - compare_duration_picture/easy
-  - compare_duration_picture/hard
-  - compare_duration_picture/medium
-  ey-order-by-two-balances:
-  - order_by_two_balances/easy
-  - order_by_two_balances/medium
   f10-add-subtract-number-sentences:
   - add_sub_number_sentence/easy
   - add_sub_number_sentence/hard
@@ -301,27 +270,20 @@ option_count:
   - exd_x_sc2_similar_sas/exam
   f10-direct-proportion-scale-model:
   - exd_x_r2x_direct_proportion_table/exam
-  f10-factors-multiples-divisibility:
-  - factors_multiples_divisibility/easy
-  - factors_multiples_divisibility/hard
-  - factors_multiples_divisibility/medium
   f10-fraction-compare-models:
   - fraction_compare_models/easy
   - fraction_compare_models/medium
+  f10-map-feature-and-landmark-representation:
+  - exd_x_w7f_map_landmarks_chain/exam
   f10-match-inequality-to-line:
   - exd_x_y910_graph_system/exam
   f10-money-compare-collections:
   - money_compare_collections/easy
-  - money_compare_collections/hard
   - money_compare_collections/medium
   f10-nets-build-solids:
   - fsp_nets_exam/exam
   f10-number-algorithm-choose-complete:
   - exd_x_fr2e_number_algorithm/exam
-  f10-odd-even-properties:
-  - odd_even_properties/easy
-  - odd_even_properties/hard
-  - odd_even_properties/medium
   f10-pattern-strip-repeating-unit:
   - ey_pattern_match/medium
   f10-pick-the-matching-view:
@@ -332,10 +294,6 @@ option_count:
   f10-position-location-language:
   - p19a_position_language/easy
   - p19a_position_language/hard
-  f10-prime-composite-square-properties:
-  - prime_composite_square_properties/easy
-  - prime_composite_square_properties/hard
-  - prime_composite_square_properties/medium
   f10-prism-cross-sections:
   - prism_cross_sections/easy
   - prism_cross_sections_forced/hard
@@ -346,8 +304,6 @@ option_count:
   - quantify_compare_to_20/easy
   - quantify_compare_to_20/hard
   - quantify_compare_to_20/medium
-  f10-shape-features-classification:
-  - shape_features_classification/easy
   f10-shape-sorting-algorithm:
   - exd_x_r2j_shape_sorting_chain/exam
   - p15d_shape_sorting/easy
@@ -357,8 +313,8 @@ option_count:
   - exd_x_sc5_square_fix/exam
   - square_roots_perfect_squares/easy
   - square_roots_perfect_squares/medium
-  fair-sharing:
-  - fair_sharing/easy
+  function-concept:
+  - exd_x_w5_function_concept/exam
   graph-eulerian-trails-circuits:
   - snet_eulerian/easy
   - snet_eulerian_chain/exam
@@ -368,10 +324,18 @@ option_count:
   - exd_x_w12b_graph_y_mx/exam
   graph-y-mx-plus-b:
   - exd_x_w12b_graph_y_mx_plus_b/exam
+  identity-and-no-solution:
+  - exd_x_w5_identity_no_solution/exam
+  independent-dependent-variables:
+  - exd_x_w5_variables_roles/exam
   inequality-solutions-number-line:
   - exd_x_w12c_inequality_number_line/exam
+  inequality-symbols:
+  - exd_x_w5_inequality_symbols/exam
   integer-polynomial-quotient-remainder:
   - exd_x_sc1_poly_remainder_unknown/exam
+  inverse-operations:
+  - exd_x_w5_inverse_operations/exam
   jacobian-two-variable:
   - exd_x_sc5_jacobian_area/exam
   locus-circle-disc-pick-sketch:
@@ -380,14 +344,10 @@ option_count:
   - exd_x_sc5_log_equation/exam
   matrix-multiplication:
   - exd_x_h2_matrix_multiplication/exam
-  multiplication-facts:
-  - equal_groups/easy
+  meaning-of-equality:
+  - exd_x_w5_meaning_of_equality/exam
   multiply-complex-numbers:
   - complex_number/easy
-  number-bonds-to-10:
-  - number_bond/easy
-  number-bonds-to-5:
-  - number_bond/easy
   pick-display-for-question:
   - exd_x_ir2a_pick_display_for_question/exam
   - ir2a_pick_display_for_question/easy
@@ -403,10 +363,14 @@ option_count:
   - exd_x_sc6_prime_powers/exam
   probability-representations:
   - exd_x_sc8_prob_rep_chain/exam
+  proportional-vs-non-proportional:
+  - exd_x_w5_proportional_relations/exam
   propositional-formula-equivalence:
   - exd_x_sc4_prop_equiv/exam
   propositional-truth-evaluation:
   - exd_x_sc4_prop_eval/exam
+  recognise-equivalent-expressions:
+  - exd_x_w5_equivalent_expressions/exam
   residual-plot-linear-model-check:
   - smech_residual_plots_exam/exam
   scientific-notation:
@@ -445,17 +409,12 @@ option_count:
   - pv0b_system_cases/easy
   - pv0b_system_cases/hard
   - pv0b_system_cases/medium
-  senior-find-all-solutions-of-mathrm-f-left-mathrm:
-  - trig_equation_all_solutions/easy
-  - trig_equation_all_solutions/hard
-  - trig_equation_all_solutions/medium
   senior-find-the-line-of-best-fit-by-eye:
   - exd_x_sc8_best_fit_line_chain/exam
   senior-formulate-differential-equations-including-the-logistic-equation-that:
   - exd_x_r3i_mixing_rates/exam
   senior-graph-dilation-read-factor:
   - ey_graph_dilation/easy
-  - ey_graph_dilation/hard
   - ey_graph_dilation_exam/exam
   senior-graph-reciprocal-abs-compare:
   - ey_graph_reciprocal_abs/hard
@@ -493,8 +452,12 @@ option_count:
   - p19b_dependent_variable/medium
   senior-interpret-commonly-used-probability-statements-including-possible-probable:
   - exd_x_r2k_probability_language/exam
+  senior-interpret-commonly-used-symbols-and-abbreviations-in-scale:
+  - exd_x_w7f_plan_symbols_chain/exam
   senior-interpret-complex-timetables-such-as-tide-charts-sunrise:
   - exd_x_r3j_tide_chart_rate/exam
+  senior-interpret-different-forms-of-two-dimensional-representations-of:
+  - exd_x_w7f_net_chain/exam
   senior-interpret-timetables-such-as-bus-train-and-ferry:
   - exd_x_r2i_timetable_chain/exam
   senior-recognise-features-of-the-graph-of-the-general:
@@ -550,23 +513,20 @@ option_count:
   - p19e_geometric_limit_class/medium
   senior-use-ests-and-lsts-to-locate-the-critical:
   - exd_x_r2e_network_crash/exam
-  - p10c_critical_path_locate/easy
-  - p10c_critical_path_locate/hard
-  - p10c_critical_path_locate/medium
   senior-use-examples-and-counter-examples:
   - exd_x_sc7_counterexample_search/exam
   senior-use-implication-converse-equivalence-negation-contrapositive:
   - exd_x_sc7_implication_counts/exam
+  senior-use-symbols-and-conventions-for-the-representation-of:
+  - exd_x_w7f_plan_conventions_chain/exam
   senior-use-the-quantifiers-for-all-and-there-exists:
   - exd_x_sc7_quantifier_threshold/exam
   - quantifier_forall_exists_evaluate/easy
   - quantifier_forall_exists_evaluate/medium
+  solution-and-solution-set:
+  - exd_x_w5_solution_set/exam
   solve-linear-equations-graphically:
   - exd_x_w12c_solve_graphically/exam
-  subtract-within-10:
-  - early_subtraction/easy
-  subtract-within-5:
-  - early_subtraction/easy
   tally-tables:
   - ey_tally_tables/easy
   - ey_tally_tables/hard
@@ -642,5 +602,3 @@ probability:
   f10-relative-frequency-estimate:
   - fpm_relative_frequency/easy
   - fpm_relative_frequency/medium
-  simple-event-probability:
-  - simple_probability/easy

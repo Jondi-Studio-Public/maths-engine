@@ -490,7 +490,7 @@ _OEM_EXAM_TEMPLATES = tuple(
         "{values}. Two values here look unusual, but only {outlier} -- a negative, loss-making day "
         "-- is called the outlier. Find the mean with the outlier included, minus the mean with the "
         "outlier removed, to 1 decimal place.",
-        "This exam question gives a {n}-day profit or loss ($) record with more than one unusual "
+        "A {n}-day profit or loss ($) record has more than one unusual "
         "value: {values}. The outlier, a loss of {outlier}, pulls an otherwise positive record down "
         "-- subtract the mean without the outlier from the mean with the outlier included, to 1 "
         "decimal place.",

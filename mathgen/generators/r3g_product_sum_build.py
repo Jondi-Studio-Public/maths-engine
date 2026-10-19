@@ -272,6 +272,10 @@ def _pick_summary(sols, wrong_sets, tags, mode):
     return tail, fields, cands
 
 
+_SUM_M = (3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 18, 20)
+_DIFF_M = (2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14)
+
+
 def _term(coef, q: int) -> str:
     return f"{q}x" if q != 1 else "x"
 
@@ -398,12 +402,17 @@ def r3g_product_sum(rng, tier="easy"):
 def r3g_exam_product_sum(rng, tier="exam"):
     """Exam chain: m in sin mx = 0, the smallest positive solution, the number of solutions and their sum."""
     check(tier == "exam", f"unknown tier {tier!r}")
-    for _ in attempts(200, "p, q with a spread of solutions"):
-        p, q = rng.randint(2, 7), rng.randint(1, 4)
-        if p > q and 4 <= p + q <= 9:
+    # Two families: 2 sin px cos qx = sin (p - q)x leaves sin (p + q)x = 0, and 2 sin px cos qx = sin (p + q)x leaves
+    # sin (p - q)x = 0. Either way the equation is sin mx = 0 and m ranges widely, so the chain is not a handful of
+    # fixed answers.
+    sum_family = rng.random() < 0.5
+    for _ in attempts(400, "p, q with a spread of solutions"):
+        p, q = rng.randint(3, 16), rng.randint(1, 9)
+        m = p + q if sum_family else p - q
+        # m divides 2520, so every solution sits on the grid the independent scans use
+        if p > q and m in (_SUM_M if sum_family else _DIFF_M):
             break
-    m = p + q
-    f = lambda x: 2 * math.sin(p * x) * math.cos(q * x) - math.sin((p - q) * x)  # noqa: E731
+    f = lambda x: 2 * math.sin(p * x) * math.cos(q * x) - math.sin(((p - q) if sum_family else (p + q)) * x)  # noqa: E731
     sols = [F(k, m) for k in range(m)]
     check(_scan_solutions(f, 4 * m * 2) == sols, "scan differs from the construction")
     smallest = F(1, m)
@@ -411,7 +420,9 @@ def r3g_exam_product_sum(rng, tier="exam"):
     check(total == F(m - 1, 2), "sum of the solutions differs from the formula")
     count2 = 2 * m
     prod = f"2 sin {p}x cos {q}x" if q != 1 else f"2 sin {p}x cos x"
-    rhs = f"sin {p - q}x" if p - q != 1 else "sin x"
+    rhs_n = (p - q) if sum_family else (p + q)
+    rhs = f"sin {rhs_n}x" if rhs_n != 1 else "sin x"
+    alt = (p - q) if sum_family else (p + q)  # the multiple a learner reaches by taking the wrong sign
 
     def number_part(prompt, value, marks, working, wrongs, follow=None, rng_=None):
         d = dict(
@@ -451,9 +462,12 @@ def r3g_exam_product_sum(rng, tier="exam"):
                 "Use a product-to-sum identity to write the equation as sin mx = 0. Find m.",
                 m,
                 1,
-                [f"{prod} = sin {m}x + sin {_term(0, p - q)}, so the equation becomes sin {m}x = 0."],
                 [
-                    (p - q, "r3g-product-sum-angles-not-added"),
+                    f"{prod} = sin {_term(0, p + q)} + sin {_term(0, p - q)}, and sin {_term(0, alt)} is on both "
+                    f"sides, so the equation becomes sin {m}x = 0."
+                ],
+                [
+                    (alt, "r3g-product-sum-angles-not-added"),
                     (p * q, "r3g-product-sum-angles-not-added"),
                     (p, "r3g-product-sum-wrong-multiple"),
                     (m + 1, "r3g-product-sum-wrong-multiple"),
@@ -469,7 +483,7 @@ def r3g_exam_product_sum(rng, tier="exam"):
                     (F(1, p), "r3g-product-sum-wrong-multiple"),
                     (F(1, 2 * m), "r3g-product-sum-wrong-multiple"),
                     (F(2, m), "r3g-product-sum-zero-solution-dropped"),
-                    (F(1, p - q) if p - q > 1 else F(1, m + 1), "r3g-product-sum-wrong-multiple"),
+                    (F(1, alt) if alt > 1 else F(1, m + 1), "r3g-product-sum-wrong-multiple"),
                 ],
                 "pi/part_a",
             ),

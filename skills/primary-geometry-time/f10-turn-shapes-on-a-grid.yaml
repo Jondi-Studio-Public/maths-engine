@@ -26,6 +26,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_turn_pictures_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: turn-about-the-shapes-middle
   description: Turns the shape about its own middle or one of its own corners, so it stays near where it started, instead of about the marked point.
@@ -44,3 +48,16 @@ misconceptions:
 - id: turn-centre-off-by-one
   description: Turns about a point one line away from the marked point, so every square lands one place out.
 tags: [acara-f10-v9, primary-geometry-time, grid_shape_turns, ac9m5sp02, transformations, rotation, drawn-answer, figure]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Shade the image of a shape after a half turn about a marked point."
+  medium:
+    steps: 2
+    demand: "Shade the image after a quarter turn clockwise or anticlockwise about a marked point."
+  hard:
+    steps: 3
+    demand: "Read a slide or a quarter turn from a shape and its image, then shade the image after the same move again."
+  exam:
+    steps: 5
+    demand: "Pick, from four pictures, the image after a quarter turn, after a half turn and after two turns one after the other. The shade form is not set in the exam tier."

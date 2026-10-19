@@ -220,7 +220,7 @@ def _medium_f(rng):
         f"Find the F statistic for testing whether the group means are equal, correct to 2 decimal places."
     )
     working = [
-        f"Grand mean {_ft(grand)}; SSB = {dec(float(ssb), 2)} and SSW = {dec(float(ssw), 2)}.",
+        f"Grand mean {dec(float(grand), 2)}; SSB = {dec(float(ssb), 2)} and SSW = {dec(float(ssw), 2)}.",
         f"MSB = SSB/2 = {dec(float(msb), 2)}, MSW = SSW/{N - 3} = {dec(float(msw), 2)}, so F = {dec(float(f), 2)}.",
     ]
     return dict(text=text, working=working, distractors=dist, **num_fields(float(f), 2))
@@ -556,7 +556,7 @@ def exd_x_r4i_anova(rng, tier="exam"):
             prompt="Find the between-groups sum of squares SSB, correct to 2 decimal places.",
             marks=2,
             sensible_range=(0, None),
-            working=[f"Grand mean {_ft(grand)}; SSB = Σ nᵢ(mean - grand mean)² = {dec(a, 2)}."],
+            working=[f"Grand mean {dec(float(grand), 2)}; SSB = Σ nᵢ(mean - grand mean)² = {dec(a, 2)}."],
             distractors=a_dist,
             **num_fields(a, 2),
         ),

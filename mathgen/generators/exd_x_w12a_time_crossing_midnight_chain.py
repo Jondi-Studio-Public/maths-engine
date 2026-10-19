@@ -116,7 +116,8 @@ def exd_x_w12a_time_crossing_midnight_chain(rng, tier: str = "exam"):
             to_midnight,
             1,
             [
-                f"From {clock24(dep)} to 24:00 is {23 - hour} hours and {60 - minute} minutes.",
+                f"From {clock24(dep)} to 24:00 is {23 - hour} hour{'s' if 23 - hour != 1 else ''} "
+                f"and {60 - minute} minute{'s' if 60 - minute != 1 else ''}.",
                 f"{23 - hour} × 60 + {60 - minute} = {to_midnight} minutes.",
             ],
             [

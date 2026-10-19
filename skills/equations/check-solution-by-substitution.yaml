@@ -1,37 +1,93 @@
 id: check-solution-by-substitution
 name: Check equation solutions by substitution
 domain: equations
-description: Verify a proposed solution by substituting it into the original equation.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '7'
+- '8'
+description: Verify a proposed solution by substituting it into the original equation, working out each side correctly,
+  including negative values and brackets, and drawing the right conclusion.
+status: active
+placement_eligible: false
 prerequisites:
 - solution-and-solution-set
 - apply-a-rule-to-inputs
 answer: mcq
 sources:
-- topic: linear_equation
+- topic: w5_check_substitution
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: linear_equation
+- topic: w5_check_substitution
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: linear_equation
+- topic: w5_check_substitution
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_check_substitution
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Checking against a transformed equation only
-- id: misconception-2
-  description: Checking one side but not comparing both sides
-tags: []
+- id: w5k-wrong-verdict
+  description: Works out both sides correctly but draws the wrong conclusion about whether the value is a solution.
+- id: w5k-joins-digits
+  description: Writes the coefficient and the substituted value side by side as one number, so 3x with x = 4 becomes 34.
+- id: w5k-ignores-coefficient
+  description: Replaces the term in x by the value of x alone and leaves out the coefficient.
+- id: w5k-negative-sign-dropped
+  description: Drops the minus sign of a negative value when substituting it.
+- id: w5k-moves-the-constant-wrongly
+  description: Adds the constant to the right side when checking, instead of comparing the sides as they are.
+- id: w5k-adds-instead-of-multiplies
+  description: Adds the coefficient and the value of x instead of multiplying them.
+- id: w5k-multiplies-the-constant
+  description: Multiplies by the constant term instead of adding or subtracting it.
+- id: w5k-substitutes-the-answer
+  description: Substitutes the number on the right-hand side for x instead of the proposed value.
+- id: w5k-brackets-the-constant
+  description: Groups the constant term with x as if it were inside a bracket.
+- id: w5k-brackets-ignored
+  description: Multiplies only the first term of a bracket by the number outside it.
+- id: w5k-sign-slip-on-constant
+  description: Changes the sign of the constant term when substituting.
+- id: w5k-trusts-the-working
+  description: Accepts a worked value without recalculating it.
+- id: w5k-off-by-one
+  description: Is one or a few away from the correct value of a side.
+- id: w5k-copies-the-left-side
+  description: Gives the value of the left side as the value of the right side.
+- id: w5k-checks-one-side
+  description: Works out one side only and does not compare it with the other.
+- id: w5k-takes-the-constant
+  description: Gives a number from the equation as the solution without checking it.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Substitute a value for x into one side and work out the result, then compare the two sides.
+  medium:
+    steps: 3
+    demand: Substitute into both sides of an equation with x on both sides and draw the conclusion from the two values.
+  hard:
+    steps: 5
+    demand: Substitute a negative value, or find the error in a substitution into a bracket.
+  exam:
+    steps: 6
+    demand: Chain the value of each side, the conclusion and the value of x that does satisfy the equation.
+tags:
+- substitution
+- checking
+- equations
+- nsw-stage-4
+- algebra

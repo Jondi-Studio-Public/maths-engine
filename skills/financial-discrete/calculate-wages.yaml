@@ -3,8 +3,93 @@ name: Calculate hourly wages
 domain: financial-discrete
 description: Calculate gross wages from an hourly rate and a number of regular hours.
 status: active
-prerequisites: [decimal-arithmetic]
+prerequisites:
+- decimal-arithmetic
 answer: number
-sources: [{topic: earnings, params: {kind: wages}, difficulty: easy}, {topic: exd_x_sc2_wages_penalty, params: {tier: exam}, difficulty: exam, stages: [exam]}]
-misconceptions: [{id: adds-rate-hours, description: Adds the hourly rate and hours instead of multiplying.}]
-tags: [expansion-batch-5, consumer-arithmetic]
+sources:
+- topic: earnings
+  params:
+    kind: wages
+  difficulty: easy
+- topic: w3_wage_tiers
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_wage_tiers
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_sc2_wages_penalty
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: adds-rate-hours
+  description: Adds the hourly rate and hours instead of multiplying.
+- id: w3wg-adds-instead
+  description: Adds the rate and the hours instead of multiplying them.
+- id: w3wg-misses-a-shift
+  description: Leaves one day's hours out of the total.
+- id: w3wg-first-day-repeated
+  description: Uses the first day's hours for every day.
+- id: w3wg-extra-hour
+  description: Counts one hour too many.
+- id: w3wg-loading-only
+  description: Gives the loading alone, not the pay including it.
+- id: w3wg-tax-as-dollars
+  description: Takes the tax rate off as a number of dollars.
+- id: w3wg-tax-ignored
+  description: Gives the gross pay and does not take off tax.
+- id: w3wg-rate-misread
+  description: Divides by a rate that is a dollar out.
+- id: w3wg-rates-difference
+  description: Subtracts the two rates instead of the two pays.
+- id: w3wg-hours-difference
+  description: Multiplies the difference in hours by one rate.
+- id: w3wg-minutes-as-decimal
+  description: Writes 30 minutes as 0.30 of an hour (and 15 minutes as 0.15).
+- id: w3wg-ignores-minutes
+  description: Leaves the minutes out of the hours worked.
+- id: w3wg-rounds-up-hour
+  description: Rounds the part hour up to a whole hour.
+- id: w3wg-rate-inverted
+  description: Divides the hours by the pay instead of the pay by the hours.
+- id: w3wg-loading-as-percent-only
+  description: Adds the loading as a dollar amount instead of a percentage of the rate.
+- id: w3wg-loading-ignored
+  description: Leaves the casual loading out.
+- id: w3wg-tax-as-pay
+  description: Gives the tax withheld where the pay after tax was asked.
+- id: w3wg-tax-added
+  description: Adds the tax to the gross pay instead of taking it off.
+- id: w3wg-floor-hours
+  description: Rounds the hours needed down, so the target is not reached.
+- id: w3wg-pay-as-hours
+  description: Divides the pay by the wrong number of hours.
+- id: w3wg-single-job
+  description: Gives the pay from one job only.
+- id: w3wg-sum-not-difference
+  description: Adds the two pays where the difference was asked.
+tags:
+- expansion-batch-5
+- consumer-arithmetic
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Multiply an hourly rate by whole hours.
+  medium:
+    steps: 3
+    demand: Include part hours, work out the rate, or add up a week of shifts.
+  hard:
+    steps: 5
+    demand: Apply a casual loading or tax, find the hours needed for a target, or compare two jobs.
+  exam:
+    steps: 7
+    demand: Chain wages with deductions and penalties.

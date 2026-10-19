@@ -128,7 +128,7 @@ def exd_x_r3f_rhombus_chain(rng: random.Random, tier: str = "exam") -> dict:
                 marks=1,
                 sensible_range=(0, None),
                 follow_through=f"({a1})*part_a + ({b1})",
-                working=[f"AB = {a1}({x}) + ({b1}) = {side} cm."],
+                working=[f"AB = {join_terms([(a1, f'({x})'), (b1, '')])} = {side} cm."],
             ),
             number_part(
                 "Find the length of the diagonal BD, correct to 1 decimal place.",

@@ -24,7 +24,7 @@ import math
 from fractions import Fraction
 
 from ..answers import Distractor, exact_value
-from ..core import attempts, check, generator, pick_distractors, rational_text
+from ..core import attempts, check, generator, join_terms, pick_distractors, rational_text
 from ._ucv1_multiint import Poly, gauss_nested
 from ._ucv1_texsay import say_marked, tex
 
@@ -402,6 +402,11 @@ def _lone_shape(answer_text: str, distractors) -> bool:
     return all(("fraction" if "/" in d.text else "integer") != shape for d in distractors)
 
 
+def _bracket_fraction(text: str) -> str:
+    """A fraction in brackets so it can be divided: ``(17/5)``; a whole number is left alone."""
+    return f"({text})" if "/" in text else text
+
+
 @generator(
     "triple_integral",
     level=20,
@@ -600,7 +605,9 @@ def _exam_once(rng):
                 marks=3,
                 follow_through=ft_b,
                 sensible_range=(0, None),
-                working=[f"The mass is ∭ ρ dV = {k}V + {p}∭ {_WORD[w]} dV = {rational_text(M)}."],
+                working=[
+                    f"The mass is ∭ ρ dV = {join_terms([(k, 'V'), (p, f'∭ {_WORD[w]} dV')])} = {rational_text(M)}."
+                ],
                 distractors=parts_dist[1],
             ),
             dict(
@@ -611,7 +618,9 @@ def _exam_once(rng):
                 marks=3,
                 follow_through=ft_c,
                 sensible_range=(0, extents[u]),
-                working=[f"{_WORD[u]}-bar = (∭ {_WORD[u]}ρ dV)/mass = {rational_text(Mu)}/{rational_text(M)}."],
+                working=[
+                    f"{_WORD[u]}-bar = (∭ {_WORD[u]}ρ dV)/mass = {_bracket_fraction(rational_text(Mu))} ÷ {_bracket_fraction(rational_text(M))}."
+                ],
                 distractors=parts_dist[2],
             ),
             dict(

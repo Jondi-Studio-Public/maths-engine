@@ -532,12 +532,15 @@ _EXAM_STEMS = (
 )
 
 
+_EXAM_SHIFTS = sorted({Fraction(n, m) for m in (2, 3, 4, 5, 6, 8, 10, 12) for n in range(1, m) if Fraction(n, m) < 1})
+
+
 def _exam(rng):
     fn = rng.choice(["sin", "cos"])
-    a = rng.choice([-5, -4, -3, -2, 2, 3, 4, 5])
-    b = Fraction(rng.choice([2, 3, 4]))
-    c = rng.choice(_SHIFTS) * rng.choice([-1, 1])
-    d = rng.choice([-3, -2, -1, 1, 2, 3, 4])
+    a = rng.choice([-9, -8, -7, -6, -5, -4, -3, -2, 2, 3, 4, 5, 6, 7, 8, 9])
+    b = Fraction(rng.choice([2, 3, 4, 5, 6, 8]))
+    c = rng.choice(_EXAM_SHIFTS) * rng.choice([-1, 1])
+    d = rng.choice([-5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6])
     want(abs(a) != abs(d), "amplitude and shift coincide")
     want(abs(c) * b < 1, "shift larger than half a period")
     hi, lo = _scan_extremes(fn, a, b, c, d)

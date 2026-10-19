@@ -599,7 +599,7 @@ def _build_percentage_fee(rng) -> dict:
         answer_latex=answer_text,
         working=[
             f"The fee is {r}% of the selling price, so the margin per unit is "
-            f"{p} x (1 - {r}/100) - {v} = {margin.numerator}/{margin.denominator}. "
+            f"{p} × (1 - {r}/100) - {v} = {margin.numerator}/{margin.denominator}. "
             f"Exact break-even q = {F} / margin = {q_exact.numerator}/{q_exact.denominator}, "
             f"not a whole number, so round UP: {answer} units."
         ],

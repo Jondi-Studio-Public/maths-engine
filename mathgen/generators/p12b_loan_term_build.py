@@ -164,7 +164,7 @@ def _build_years(rng) -> dict:
     check_equivalent(n_check, nf, "years-tier: forward solve must reproduce the constructed term")
 
     template = _YEARS_TEMPLATES[rng.randrange(len(_YEARS_TEMPLATES))]
-    text = template.format(P=P, r=r, M=M)
+    text = template.format(P=f"{P:,}", r=r, M=f"{M:,}")
     latex = text
     answer_text = str(n)
 
@@ -249,7 +249,7 @@ def _build_months(rng) -> dict:
     check_equivalent(n_years_check * 12, mf, "months-tier: forward solve (x12) must reproduce the constructed term")
 
     template = _MONTHS_TEMPLATES[rng.randrange(len(_MONTHS_TEMPLATES))]
-    text = template.format(P=P, r=r, M=M)
+    text = template.format(P=f"{P:,}", r=r, M=f"{M:,}")
     latex = text
     answer_text = str(m)
 
@@ -355,7 +355,7 @@ def _build_term_difference(rng) -> dict:
 
     higher_M, lower_M = (M1, M2) if M1 > M2 else (M2, M1)
     template = _DIFF_TEMPLATES[rng.randrange(len(_DIFF_TEMPLATES))]
-    text = template.format(P=P, r=r, M1=lower_M, M2=higher_M)
+    text = template.format(P=f"{P:,}", r=r, M1=f"{lower_M:,}", M2=f"{higher_M:,}")
     latex = text
     answer_text = str(answer)
 
@@ -374,8 +374,8 @@ def _build_term_difference(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"Solve n for each plan via n = P / (12M - Pr/100): the ${lower_M}/month plan takes "
-            f"{n_lower_M} {_year_noun(n_lower_M)}, the ${higher_M}/month plan takes {n_higher_M} "
+            f"Solve n for each plan via n = P / (12M - Pr/100): the ${lower_M:,}/month plan takes "
+            f"{n_lower_M} {_year_noun(n_lower_M)}, the ${higher_M:,}/month plan takes {n_higher_M} "
             f"{_year_noun(n_higher_M)}. Difference = {max(n_lower_M, n_higher_M)} - "
             f"{min(n_lower_M, n_higher_M)} = {answer} {_year_noun(answer)}."
         ],
@@ -451,7 +451,7 @@ def _build_max_rate(rng) -> dict:
     check_equivalent(r_check, Fraction(r), "max_rate: forward solve for r must reproduce the constructed rate")
 
     template = _MAX_RATE_TEMPLATES[rng.randrange(len(_MAX_RATE_TEMPLATES))]
-    text = template.format(P=P, n=n, M=M)
+    text = template.format(P=f"{P:,}", n=n, M=f"{M:,}")
     latex = text
     answer_text = str(r)
 

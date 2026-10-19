@@ -24,6 +24,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_plan_symbols_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: reads-the-neighbouring-room
   description: Gives the room next to the one that holds the symbol or label, because the symbol sits near a wall.
@@ -38,3 +42,16 @@ misconceptions:
 - id: shared-room-counted-twice
   description: Counts a room once for the toilets symbol and again for the hot water system when both are in the same room.
 tags: [acara-senior-v8-4, measurement, grid_plan_symbols, acmem108, scale-drawings, symbols, abbreviations, floor-plans]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Find the room that has one symbol, or the one room without a window symbol, and name it in full."
+  medium:
+    steps: 2
+    demand: "Decode a fixture abbreviation and name the room that holds it."
+  hard:
+    steps: 3
+    demand: "Count rooms that need decoded rooms and symbols together, such as wet areas with a window."
+  exam:
+    steps: 6
+    demand: "Chain a room found from two symbol conditions, a fixture room, a count of windows, a plumber's rooms from three fixtures and the charge for them."

@@ -210,9 +210,8 @@ def compare_length_picture(rng, tier="easy"):
         far = _extreme(ends, more)
         cands = [_the(far)] if far != key else []
         cands += [_the(lbl) for lbl in labels if lbl != key]
-        if pair:
-            cands.append(_SAME)
-    distractors = pick_distractors(answer_text, cands, n=2 if pair else len(labels) - 1)
+        cands.append(_SAME)  # with three or more objects it is a fourth option; the lengths differ, so it is wrong
+    distractors = pick_distractors(answer_text, cands, n=2 if pair else min(len(labels), 4))
     lens = ", ".join(f"{o['label']} {o['length']}" for o in objs)
     how = (
         "They all start at the same line, so the one that ends last is longest."
@@ -573,9 +572,8 @@ def compare_by_paper_clips(rng, tier="easy"):
         answer_text = _the(key)
         ends = {o["label"]: o["start"] + o["length"] for o in objs}
         cands = [_the(_extreme(ends, more))] + [_the(lbl) for lbl in labels if lbl != key]
-        if pair_q:
-            cands.append(_SAME)
-    distractors = pick_distractors(answer_text, cands, n=2 if pair_q else len(labels) - 1)
+        cands.append(_SAME)  # a fourth option when three or more objects are shown; the counts differ
+    distractors = pick_distractors(answer_text, cands, n=2 if pair_q else min(len(labels), 4))
     working = [f"Count the {uname}s under each. " + ", ".join(f"{o['label']} {o['units']}" for o in objs) + "."]
     return _finish(fig, text, answer_text, distractors, working, _read_clips)
 
@@ -659,7 +657,7 @@ def order_by_two_balances(rng, tier="easy"):
         cands = [", ".join(order[::-1]), f"{m}, {l}, {h}", f"{l}, {h}, {m}"]
         distractors = pick_distractors(answer_text, cands, n=3)
     else:
-        distractors = pick_distractors(answer_text, [_the(n) for n in order], n=2)
+        distractors = pick_distractors(answer_text, [*(_the(n) for n in order), _SAME], n=3)
     working = [f"Lightest to heaviest: {', '.join(order)}. The lower side of each balance is heavier."]
     return _finish(fig, text, answer_text, distractors, working, _read_order)
 
@@ -776,8 +774,8 @@ def compare_capacity_by_cups(rng, tier="easy"):
 
         answer_text = pair(key)
         others = [p for p in itertools.combinations(labels, 2) if set(p) not in (set(key), set(trap))]
-        cands = [pair(trap), pair(rng.choice(others)), pair(rng.choice(others))]
-        distractors = pick_distractors(answer_text, cands, n=2)
+        cands = [pair(trap), *(pair(p) for p in rng.sample(others, 2))]  # three different wrong pairs
+        distractors = pick_distractors(answer_text, cands, n=3)
         working = [
             "Count the cups under each. Two have the same number of cups. Standing equally tall is not the same."
         ]
@@ -786,9 +784,8 @@ def compare_capacity_by_cups(rng, tier="easy"):
     answer_text = _the(key)
     heights = {c["label"]: _height(c) for c in cs}
     cands = [_the(_extreme(heights, more))] + [_the(lbl) for lbl in labels if lbl != key]
-    if len(cs) == 2:
-        cands.append(_SAME_HOLD)
-    distractors = pick_distractors(answer_text, cands, n=2)
+    cands.append(_SAME_HOLD)  # a third wrong answer when three containers are shown
+    distractors = pick_distractors(answer_text, cands, n=2 if len(cs) == 2 else len(cs))
     working = ["Count the cups poured out: " + ", ".join(f"{c['label']} {c['cups']}" for c in cs) + "."]
     return _finish(fig, text, answer_text, distractors, working, _read_cups)
 

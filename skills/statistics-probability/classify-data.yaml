@@ -7,9 +7,13 @@ status: active
 prerequisites: []
 answer: mcq
 sources:
-- topic: classify_data
+- topic: w3_classify_easy
   params: {}
   difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
 - topic: r3j_classify_variable
   params: {}
   difficulty: medium
@@ -24,7 +28,8 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r3j_classify_variables
-  params: {tier: exam}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
@@ -64,6 +69,8 @@ misconceptions:
   description: Treating categories that have a natural order as unordered labels.
 - id: r3j-classify-ranks-as-counts
   description: Treating ranks or rating numbers as counts or measurements rather than as ordered categories.
+- id: w3cd-category-as-number
+  description: Treats a variable recorded in words or labels as numerical.
 tags:
 - expansion-batch-3
 - statistics

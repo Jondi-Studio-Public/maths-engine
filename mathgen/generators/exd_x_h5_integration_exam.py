@@ -19,7 +19,16 @@ from __future__ import annotations
 
 from sympy import Rational, diff, expand, symbols
 
-from ..core import check, check_distinct, check_equivalent, generator, latex_answer, phrase, pick_distractors
+from ..core import (
+    check,
+    check_distinct,
+    check_equivalent,
+    generator,
+    latex_answer,
+    paren_negative,
+    phrase,
+    pick_distractors,
+)
 
 _t, _x = symbols("t x")
 
@@ -34,11 +43,16 @@ def _prose(expr) -> str:
     return str(expr).replace("**", "^").replace("*", "·")
 
 
+def _w(expr) -> str:
+    """Working rendering: ``**`` becomes ``^`` and the implied product sign is dropped (3t^2, not 3·t^2)."""
+    return str(expr).replace("**", "^").replace("*", "")
+
+
 def _signed(value) -> str:
     return f" + {value}" if value > 0 else f" - {-value}"
 
 
-def _finish(text, answer_expr, candidates, tolerance_msg):
+def _finish(text, answer_expr, candidates, tolerance_msg, working=None):
     answer_text = _typed(answer_expr)
     cands = []
     for cand in candidates:
@@ -53,6 +67,7 @@ def _finish(text, answer_expr, candidates, tolerance_msg):
         "answer_text": answer_text,
         "answer_latex": latex_answer(answer_text),
         "distractors": distractors,
+        "working": list(working or []),
     }
 
 
@@ -129,7 +144,15 @@ def exd_x_h5_velocity_two_positions(rng, tier="exam"):
             phrase(rng, _VEL_ASKS),
         ]
     )
-    return _finish(text, expand(s_expr), ok, "a distractor equals the answer")
+    working = [
+        f"Integrate: s(t) = {_w(m * _t**3)} + (k/2)t^2{_signed(d)}t + C.",
+        f"s({t2}) - s({t1}) = {p2} - {paren_negative(p1)} = {p2 - p1}, so "
+        f"{'' if m == 1 else paren_negative(m)}({t2**3} - {t1**3}) + (k/2)({t2**2} - {t1**2}) + {paren_negative(d)}({t2} - {t1}) = {p2 - p1}, "
+        f"giving k/2 = {half_k}.",
+        f"s({t1}) = {p1} then gives C = {c}.",
+        f"s(t) = {_w(expand(s_expr))}.",
+    ]
+    return _finish(text, expand(s_expr), ok, "a distractor equals the answer", working)
 
 
 # --------------------------------------------------------------------------------------------------
@@ -191,7 +214,14 @@ def exd_x_h5_antiderivative_linear_power(rng, tier="exam"):
     text = phrase(rng, _ANTIDERIV_PROMPTS, fp=fprime_text, a=a, b=b)
     answer_expr = f_expr
     # Keep the key in the compact form  lead*(p x + q)^(n+1) + C  (equivalent forms are accepted).
-    out = _finish(text, answer_expr, ok, "a distractor equals the answer")
+    lead_text = "" if lead == 1 else ("-" if lead == -1 else str(lead))
+    lead_times = {1: "", -1: "-"}.get(lead, f"{lead} × ")
+    working = [
+        f"Reverse the chain rule: f(x) = {lead_text}{lin_text}^{n + 1} + C, since {lead} × {p} × {n + 1} = {coeff}.",
+        f"f({a}) = {b}: {lead_times}{paren_negative(lin.subs(_x, a))}^{n + 1} + C = {b}, so C = {cst}.",
+        f"f(x) = {lead_text}{lin_text}^{n + 1}{_signed(cst)}.",
+    ]
+    out = _finish(text, answer_expr, ok, "a distractor equals the answer", working)
     compact = f"{_typed(lead * lin ** (n + 1))}{_signed(cst)}"
     out["answer"] = str(answer_expr)
     out["answer_text"] = compact
@@ -278,4 +308,17 @@ def exd_x_h5_acceleration_rest_or_positions(rng, tier="exam"):
     else:
         cond = f"Its position is {p1} m when t = {t1} and {pos_at} m when t = {t_pos}."
     text = " ".join([phrase(rng, _ACC_OPENERS, a=a_text), cond, phrase(rng, _ACC_ASKS)])
-    return _finish(text, expand(s_expr), ok, "a distractor equals the answer")
+    v_part = Rational(a_coef, 2) * _t**2 + b_coef * _t
+    working = [
+        f"Integrate: v(t) = {_w(v_part)} + C₁ and s(t) = {_w(g_s)} + C₁t + C₂.",
+    ]
+    if variant == "rest":
+        working.append(f"At rest when t = {rest_t}: {_w(v_part.subs(_t, rest_t))} + C₁ = 0, so C₁ = {c1}.")
+    else:
+        working.append(
+            f"s({t_pos}) - s({t1}) = {pos_at - p1}: {_w(g_s.subs(_t, t_pos) - g_s.subs(_t, t1))} "
+            f"+ C₁({t_pos} - {t1}) = {pos_at - p1}, so C₁ = {c1}."
+        )
+    working.append(f"s({t_pos}) = {pos_at}: {_w(g_s.subs(_t, t_pos) + c1 * t_pos)} + C₂ = {pos_at}, so C₂ = {c2}.")
+    working.append(f"s(t) = {_w(expand(s_expr))}.")
+    return _finish(text, expand(s_expr), ok, "a distractor equals the answer", working)

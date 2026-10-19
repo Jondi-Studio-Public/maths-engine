@@ -125,7 +125,7 @@ _END = {
 
 _OPEN = [
     "The graph below is the curve {fam} for one value of n, where {nset}.",
-    "A graph of {fam} is drawn on the grid, for one value of n with {nset}.",
+    "A graph of {fam} is drawn on the grid, for one value of n, where {nset}.",
     "The grid shows the curve {fam} for one value of n, where {nset}.",
     "Here is the graph of {fam} for a single value of n ({nset}).",
 ]
@@ -400,7 +400,7 @@ def _working(n, ask: str, cls: str) -> list[str]:
     elif n == _HALF:
         why = "the square root of x keeps growing as x grows, though more and more slowly"
     else:
-        why = f"{short} keeps growing as x grows"
+        why = f"as x grows, {short} keeps growing"
     return [first, f"{why[0].upper()}{why[1:]}.", "So y increases without bound."]
 
 

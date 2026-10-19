@@ -281,7 +281,7 @@ def pythagoras_truss_chain(rng, length=2, target_mode="final"):
     if length == 3:
         working.append(f"Triangle 2: h1^2 + h2^2 = {c2}^2, so h2 = {h2}.")
     working.append(f"Triangle {length}: {a_last}^2 + {shared_prev}^2 = c{length}^2, so c{length} = {c_last}.")
-    working.append(f"Answer: {final_sentence.rstrip('.')} = {answer_val}.")
+    working.append(f"Answer: {answer_val} m.")
 
     return {
         "text": text,

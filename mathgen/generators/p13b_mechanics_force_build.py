@@ -67,7 +67,7 @@ from math import gcd
 
 from sympy import Derivative, Function, Rational, solve, symbols
 
-from ..core import check, check_equivalent, generator, latex_answer, phrase, pick_distractors
+from ..core import check, check_equivalent, generator, latex_answer, paren_negative, phrase, pick_distractors
 
 x_sym, v_sym, k_sym, m_sym, u_sym = symbols("x v k m u")
 mA_sym, mB_sym, vA_sym, vB_sym, vf_sym = symbols("mA mB vA vB vf")
@@ -144,6 +144,9 @@ def p13b_momentum_force_reaction(rng, tier="easy"):
             Fraction(v) * Fraction(m) * sign, answer, f"easy momentum mismatch: m={m}, v={v}, dir={direction}"
         )
 
+        working = [
+            f"Taking right as positive, v = {sign * v} m/s, so p = mv = {m} × {paren_negative(sign * v)} = {answer} kg·m/s."
+        ]
         unsigned = m * v  # forgot the direction sign entirely
         added = m + v  # adds instead of multiplies
         cands = _keep_distinct(answer, unsigned, -unsigned, added)
@@ -175,6 +178,7 @@ def p13b_momentum_force_reaction(rng, tier="easy"):
         check_equivalent(Fraction(F1) + (-Fraction(F2)), answer, f"medium resultant mismatch: F1={F1}, F2={F2}")
 
         added = F1 + F2  # forgets a force's sign, adds instead
+        working = [f"Resultant = {F1} - {F2} = {answer} N (right is positive, left is negative)."]
         only_F1 = F1  # ignores F2 entirely
         only_F2 = F2  # ignores F1 entirely (uses F2's magnitude)
         cands = _keep_distinct(answer, added, only_F1, only_F2)
@@ -234,6 +238,12 @@ def p13b_momentum_force_reaction(rng, tier="easy"):
             net_force_fr / Fraction(m), answer, f"hard acceleration mismatch: F1={F1}, F2={F2}, f={friction}, m={m}"
         )
 
+        fric_dir = "left" if net_applied > 0 else "right"
+        working = [
+            f"Applied force = {F1} - {F2} = {net_applied} N.",
+            f"Friction opposes the motion, so it acts {fric_dir}: net force = {net_applied} {'-' if net_applied > 0 else '+'} {friction} = {net_applied - (1 if net_applied > 0 else -1) * friction} N.",
+            f"a = {net_applied - (1 if net_applied > 0 else -1) * friction} / {m} = {answer} m/s².",
+        ]
         forgot_friction = k1  # ignores friction entirely
         sign_error_friction = k1 + (1 if k1 > 0 else -1) * k2  # adds friction the wrong way
         forgot_divide_by_mass = net_applied - (1 if k1 > 0 else -1) * friction  # net FORCE, not a
@@ -305,6 +315,10 @@ def p13b_momentum_force_reaction(rng, tier="easy"):
         check_equivalent(solved_val, v_final, f"exam conservation mismatch: mA={mA}, mB={mB}, vA={vA}, vB={vB}")
 
         answer = v_final
+        working = [
+            f"Momentum before = {mA} × {vA} + {mB} × ({vB}) = {mA * vA + mB * vB} kg·m/s.",
+            f"Momentum after = ({mA} + {mB}) v = {mA + mB}v, so v = {mA * vA + mB * vB} / {mA + mB} = {v_final} m/s.",
+        ]
         total_p = mA * vA + mB * vB
         wrong_denominator = None
         if mA != mB and total_p % (mA - mB) == 0:
@@ -361,6 +375,7 @@ def p13b_momentum_force_reaction(rng, tier="easy"):
         answer=answer,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
+        working=working,
         distractors=distractors,
     )
 
@@ -415,6 +430,10 @@ def p13b_constant_nonconstant_force(rng, tier="easy"):
         check_equivalent(a_check, a, f"easy a mismatch: F={F}, m={m}")
         check(v * v == 2 * a * s, f"easy v**2 mismatch: v={v}, a={a}, s={s}")
 
+        working = [
+            f"a = F/m = {F}/{m} = {a} m/s².",
+            f"v² = u² + 2as = 0 + 2 × {a} × {s} = {2 * a * s}, so v = {v} m/s.",
+        ]
         forgot_sqrt = 2 * a * s  # confuses v with v**2 = 2*a*s
         sign_flip = -v
         cands = _keep_distinct(v, forgot_sqrt, sign_flip)
@@ -456,6 +475,10 @@ def p13b_constant_nonconstant_force(rng, tier="easy"):
         check_equivalent(a_check, a, f"medium a mismatch: F={F}, m={m}")
         check(u * u + 2 * a * s == v * v, f"medium v**2 mismatch: u={u}, a={a}, s={s}, v={v}")
 
+        working = [
+            f"a = F/m = {F}/{m} = {a} m/s².",
+            f"v² = u² + 2as = {u}² + 2 × {a} × {s} = {u * u} + {2 * a * s} = {v * v}, so v = {v} m/s.",
+        ]
         forgot_u = w  # sqrt(2*a*s) alone, drops the u**2 term
         forgot_sqrt = v * v  # confuses v with v**2
         sign_flip = -v
@@ -501,6 +524,10 @@ def p13b_constant_nonconstant_force(rng, tier="easy"):
             f"hard: v=c*x does not satisfy v*dv/dx=(k/m)*x for k={k}, m={m}",
         )
 
+        working = [
+            f"Work done = integral of {k}x from 0 to {s} = {k}/2 × {s}² = {k * s * s / 2:g} J.",
+            f"This equals the gain in kinetic energy: (1/2) × {m} × v² = {k * s * s / 2:g}, so v² = {c * c * s * s} and v = {v} m/s.",
+        ]
         forgot_sqrt = v * v  # v**2 instead of v
         sign_flip = -v
         force_at_rest = 0  # treats F(0)=0 as the constant force throughout
@@ -568,6 +595,11 @@ def p13b_constant_nonconstant_force(rng, tier="easy"):
         # Treats a as constant (a = c**2), the WRONG SUVAT form:
         # x = (v_target**2 - u**2) / (2*c**2). Integer since even_leg is
         # divisible by 4.
+        working = [
+            f"Work done = integral of {k}x from 0 to x = {k}x²/2 and equals the change in kinetic energy: {k}x²/2 = (1/2) × {m} × ({v_target}² - {u}²).",
+            f"{k}x² = {m} × {v_target**2 - u**2}, so x² = {m * (v_target**2 - u**2) // k}.",
+            f"x = {answer} m.",
+        ]
         wrong_suvat = (v_target**2 - u**2) // (2 * c * c)
         forgot_u = v_target // c  # ignores the initial-speed term entirely
         sign_flip = -answer
@@ -605,5 +637,6 @@ def p13b_constant_nonconstant_force(rng, tier="easy"):
         answer=answer,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
+        working=working,
         distractors=distractors,
     )

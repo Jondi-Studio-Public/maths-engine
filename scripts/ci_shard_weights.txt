@@ -1035,7 +1035,6 @@
 1.9 tests/test_smech_newton_second_law.py
 1.8 tests/test_exd_e6_division_two_step.py
 1.8 tests/test_exd_x_f0_exponential_matching.py
-1.8 tests/test_exd_x_f5_trigquad.py
 1.8 tests/test_exd_x_pr4_decimal_place_value.py
 1.8 tests/test_exd_x_pr5_season_rates.py
 1.8 tests/test_exd_x_pr6_pairs_bundles.py

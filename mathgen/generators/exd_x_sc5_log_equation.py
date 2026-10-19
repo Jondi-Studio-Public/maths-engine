@@ -115,7 +115,7 @@ def exd_x_sc5_log_equation(rng: random.Random, tier: str = "exam") -> dict:
     ft_b = f"((({q} - {p}) + sqrt(({p} + {q})**2 + 4*part_a))/2)"
     lead, tail = rng.choice(_STEMS)
     return dict(
-        text=f"{lead} log_{{{b}}}(x + {p}) + log_{{{b}}}(x - {q}) = {n}{tail}",
+        text=f"{lead} log_{b}(x + {p}) + log_{b}(x - {q}) = {n}{tail}",
         latex=(rf"\text{{{lead} }}\log_{{{b}}}(x+{p})+\log_{{{b}}}(x-{q})={n}\text{{{tail}}}"),
         parts=[
             dict(
@@ -153,7 +153,7 @@ def exd_x_sc5_log_equation(rng: random.Random, tier: str = "exam") -> dict:
                 distractors=b_d,
             ),
             dict(
-                prompt=f"Hence find the value of log_{{{b}}}(x + {p}), to the nearest whole number.",
+                prompt=f"Hence find the value of log_{b}(x + {p}), to the nearest whole number.",
                 prompt_latex=rf"\text{{Hence find the value of }}\log_{{{b}}}(x+{p})\text{{, to the nearest whole number.}}",
                 answer_kind="number",
                 answer=i,

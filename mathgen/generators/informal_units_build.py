@@ -25,6 +25,7 @@ from fractions import Fraction
 from mathgen import figures
 from mathgen.core import check, generator, pick_distractors
 from mathgen.figure_kinds import measure
+from mathgen.generators.early_math import _balanced
 
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
@@ -32,10 +33,10 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 # unit name -> (figure style, plural, objects it is sensibly used on)
 _UNITS = {
     "paper clip": ("paper_clip", "paper clips", ("pencil", "crayon", "ribbon", "stick", "key")),
-    "cube": ("cube", "cubes", ("pencil", "strip of card", "book", "toy car")),
-    "block": ("block", "blocks", ("ribbon", "book", "shelf", "strip of card")),
+    "cube": ("cube", "cubes", ("pencil", "card strip", "book", "toy car")),
+    "block": ("block", "blocks", ("ribbon", "book", "shelf", "card strip")),
     "footprint": ("footprint", "footprints", ("rug", "path", "bench", "mat")),
-    "counter": ("counter", "counters", ("ribbon", "strip of card", "pencil", "book")),
+    "counter": ("counter", "counters", ("ribbon", "card strip", "pencil", "book")),
 }
 _NAMES = ("Priya", "Sam", "Mia", "Leo", "Zoe", "Jack", "Amira", "Ben")
 
@@ -43,55 +44,41 @@ _POOLS = {
     "easy": (
         (
             "The {obj} is measured with {units}.",
-            "{Units} are laid along the {obj}.",
-            "A row of {units} lies along the {obj}.",
-            "The {obj} is measured using {units}, one after the other.",
-            "Look at the {obj} and the {units} beside it.",
-            "{Units} are placed along the length of the {obj}.",
+            "{Units} lie along the {obj}.",
+            "Look at the {obj}.",
         ),
         (
-            "How many {units} long is the {obj}?",
-            "How long is the {obj}, in {units}?",
-            "Count the {units}: how long is the {obj}?",
+            "How many {units} long is it?",
+            "How long is it, in {units}?",
+            "Count the {units}. How long is it?",
         ),
     ),
     "medium_half": (
         (
-            "The {obj} is measured with {units}, and its end falls in the middle of the last {unit}.",
-            "A row of {units} runs along the {obj}. The {obj} stops halfway along the last {unit}.",
-            "The last {unit} is only half covered by the {obj}.",
             "The {obj} ends halfway along a {unit}.",
+            "The {obj} stops in the middle of a {unit}.",
         ),
         (
-            "How long is the {obj}, in {units}?",
-            "Find the length of the {obj} in {units}.",
-            "What is the length of the {obj} measured in {units}?",
+            "How long is it?",
+            "What is its length?",
         ),
     ),
     "medium_compare": (
         (
-            "The {a} and the {b} are each measured with {units}.",
-            "Two objects, the {a} and the {b}, are measured with the same {units}.",
-            "{Units} are used to measure a {a} and a {b}.",
-            "A {a} and a {b} are measured with {units} laid end to end.",
-        ),
-        (
             "How many more {units} long is the {a} than the {b}?",
-            "The {a} is longer than the {b}. By how many {units}?",
             "How many {units} longer is the {a} than the {b}?",
+            "The {a} is longer than the {b}. By how many {units}?",
         ),
     ),
     "hard": (
         (
-            "{name} measures the {obj} with {units} and says it is {n} {units} long.",
-            "{name} lays {units} along the {obj}. {name} says the {obj} is {n} {units} long.",
-            "To find the length of the {obj}, {name} uses {units}. {name} says the answer is {n} {units}.",
-            "{name} claims the {obj} is {n} {units} long, measured with {units}.",
+            "{name} says the {obj} is {n} {units} long.",
+            "{name} claims the {obj} is {n} {units} long.",
+            "{name} measures the {obj}: {n} {units}.",
         ),
         (
             "Is the measurement fair?",
-            "Which statement about {name}'s measurement is true?",
-            "Look at how the {units} are laid. Which statement is true?",
+            "Which statement is true?",
         ),
     ),
 }
@@ -146,7 +133,8 @@ def _build_easy(rng):
     fig = _strip(unit, [_units_row(obj, n, _even(n))], f"a {obj} with {plural} laid along it")
     text = _fill(rng, _POOLS["easy"], obj=obj, units=plural, unit=unit)
     answer = str(n)
-    cands = [str(n + 1), str(n - 1), str(n + 2), str(n - 2)]
+    # three wrong counts with the key's rank among the options drawn at random (never always in the middle)
+    cands = _balanced(rng, n, [v for v in range(max(1, n - 3), n + 4) if v != n], (n - 1, n + 1))
     note = f"Count the {plural} from one end of the {obj} to the other: {n}."
     return fig, text, answer, cands, note
 
@@ -176,7 +164,10 @@ def _build_medium(rng):
     )
     text = _fill(rng, _POOLS["medium_compare"], a=a_obj, b=b_obj, units=plural, unit=unit)
     answer = str(a - b)
-    cands = [str(a + b), str(b), str(a), str(a - b + 1), str(a - b - 1)]
+    d = a - b
+    cands = _balanced(
+        rng, d, [v for v in {a + b, b, a, d + 1, d - 1, d + 2} if v >= 1 and v != d], (d + 1, d - 1, b, a, a + b)
+    )
     note = f"The {a_obj} is {a} {plural} long and the {b_obj} is {b}: {a} - {b} = {a - b}."
     return fig, text, answer, cands, note
 

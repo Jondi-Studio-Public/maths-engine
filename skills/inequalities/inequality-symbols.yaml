@@ -1,39 +1,90 @@
 id: inequality-symbols
 name: Interpret inequality symbols
 domain: inequalities
-description: Interpret <, >, ≤ and ≥ as relationships between quantities.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '7'
+- '8'
+description: 'Interpret <, >, ≤ and ≥ as relationships between quantities: which statement is true, which statement holds
+  for a value, how words translate to symbols, and ordering with negative numbers.'
+status: active
+placement_eligible: false
 prerequisites:
 - integer-arithmetic
 answer: mcq
 sources:
-- topic: inequality
-  params:
-    kind: one_step
+- topic: w5_inequality_symbols
+  params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: inequality
-  params:
-    kind: one_step
+- topic: w5_inequality_symbols
+  params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: inequality
-  params:
-    kind: one_step
+- topic: w5_inequality_symbols
+  params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_inequality_symbols
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Reading the symbol from the wrong direction
-- id: misconception-2
-  description: Treating strict and inclusive inequalities as interchangeable
-tags: []
+- id: w5g-strict-includes-equal
+  description: Believes a strict inequality such as 5 > 5 is true when the two numbers are equal.
+- id: w5g-symbol-direction-reversed
+  description: Reads the inequality symbol the wrong way round.
+- id: w5g-negative-larger-magnitude-bigger
+  description: Treats a negative number with a larger digit as the larger number.
+- id: w5g-strict-includes-boundary
+  description: Includes the boundary value in a strict inequality.
+- id: w5g-increasing-decreasing-confused
+  description: Orders the numbers from greatest to least where least to greatest is asked, or the reverse.
+- id: w5g-neighbours-swapped
+  description: Swaps two neighbouring numbers when ordering a list.
+- id: w5g-strict-for-inclusive
+  description: Uses a strict symbol where the words allow the boundary value.
+- id: w5g-inclusive-for-strict
+  description: Uses an inclusive symbol where the words exclude the boundary value.
+- id: w5g-equals-for-inequality
+  description: Uses an equals sign where the words describe a range of values.
+- id: w5g-reads-only-one-bound
+  description: Checks only one part of a double inequality.
+- id: w5g-adding-a-negative-increases
+  description: Believes adding a negative number makes a number larger.
+- id: w5g-sign-of-product
+  description: Believes the product of two negative numbers is negative.
+- id: w5g-squaring-keeps-order
+  description: Believes squaring negative numbers keeps their order.
+- id: w5g-off-by-one
+  description: Is one away from the greatest or least whole number allowed.
+- id: w5g-picks-the-lowest
+  description: Gives an unrelated extreme value instead of the one the inequality allows.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Judge whether statements with <, >, ≤ and ≥ are true for given numbers, including negatives and decimals.
+  medium:
+    steps: 3
+    demand: Translate words such as 'at most' and 'fewer than' into the right symbol, telling strict from inclusive.
+  hard:
+    steps: 5
+    demand: Use double inequalities, order lists of negatives and decimals, and test statements about negative numbers.
+  exam:
+    steps: 6
+    demand: Chain the inequality for a situation, the greatest or least whole number it allows and a true statement for
+      one value.
+tags:
+- inequalities
+- symbols
+- nsw-stage-4
+- algebra

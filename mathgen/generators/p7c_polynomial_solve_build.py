@@ -89,7 +89,7 @@ def simple_polynomial_equation(rng, tier="medium"):
         latex = rf"z^2 + {k} = 0 \ \text{{State the root with positive imaginary part, in the form }} a + bi"
         working = [
             f"z² = -{k}",
-            f"z = ±√(-{k}) = ±{m}i",
+            f"z = ±√(-{k}) = ±{'' if m == 1 else m}i",
             f"The root with positive imaginary part is {answer_text}.",
         ]
 
@@ -130,8 +130,8 @@ def simple_polynomial_equation(rng, tier="medium"):
             latex = rf"({lin})^2 + {k} = 0 \ \text{{State the root with positive imaginary part, in the form }} a + bi"
             working = [
                 f"({lin})² = -{k}",
-                f"{lin} = ±{m}i",
-                f"z = {p} ± {m}i",
+                f"{lin} = ±{'' if m == 1 else m}i",
+                f"z = {p} ± {'' if m == 1 else m}i",
                 f"The root with positive imaginary part is {answer_text}.",
             ]
         else:  # hard: same p, m pair, equation already expanded
@@ -141,7 +141,7 @@ def simple_polynomial_equation(rng, tier="medium"):
             working = [
                 f"Complete the square: {expanded} = ({lin})² + {k}",
                 f"({lin})² = -{k}",
-                f"z = {p} ± {m}i",
+                f"z = {p} ± {'' if m == 1 else m}i",
                 f"The root with positive imaginary part is {answer_text}.",
             ]
     else:

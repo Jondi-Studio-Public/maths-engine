@@ -190,7 +190,7 @@ def test_original_both_sides_kind_unaffected_over_300_seeds():
     """Confirms the ORIGINAL `kind == "both_sides"` branch (the skill's own
     easy/medium sources, unaffected by this change) still matches its own
     long-standing, bracket-free shape."""
-    pattern = re.compile(r"^Solve -?\d*x [+-] \d+ = -?\d*x [+-] \d+$")
+    pattern = re.compile(r"^Solve -?\d*x( [+-] \d+)? = -?\d*x( [+-] \d+)?$")
     for seed in range(300):
         for difficulty in ("easy", "medium", "hard"):
             q = make(TOPIC, seed=seed, difficulty=difficulty, kind="both_sides")

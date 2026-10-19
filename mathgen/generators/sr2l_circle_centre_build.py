@@ -215,8 +215,8 @@ def _hard_conjugate(rng):
         c,
         wrong,
         [
-            "Compare with |z - c|^2 = (z - c)(z-bar - c-bar) = z z-bar - c-bar z - c z-bar + |c|^2.",
-            f"The coefficient of z-bar is {kit.cplx(*w)}, which is -c, so c = {kit.cplx(*c)}.",
+            "Compare with |z - c|^2 = (z - c)(z̄ - c̄) = z z̄ - c̄ z - c z̄ + |c|^2.",
+            f"The coefficient of z̄ is {kit.cplx(*w)}, which is -c, so c = {kit.cplx(*c)}.",
         ],
     )
 

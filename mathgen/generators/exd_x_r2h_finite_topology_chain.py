@@ -186,7 +186,9 @@ def _build(rng: random.Random) -> dict:
             n_int,
             kind="number",
             marks=1,
-            working=[f"The interior of A is the union of the members of B inside A: {_fmt(interior)}, {n_int} points."],
+            working=[
+                f"The interior of A is the union of the members of B inside A: {_fmt(interior)}, {n_int} point{'s' if n_int != 1 else ''}."
+            ],
             wrong=b_wrong,
         ),
         build_part(

@@ -34,6 +34,11 @@ def _expr(cx: int, cy: int, k: int) -> str:
     return join_terms([(cx, "x"), (cy, "y"), (k, "")])
 
 
+def _bracketed(expr: str) -> str:
+    """``expr`` in brackets, except a single bare term (``3x``), which needs none."""
+    return f"({expr})" if " " in expr or expr.startswith("-") else expr
+
+
 def _draw(rng):
     for _ in attempts(3000, "a cyclic quadrilateral with distinct keys"):
         x, y = rng.randint(5, 30), rng.randint(5, 30)
@@ -149,9 +154,9 @@ def exd_x_r3a_cyclic_chain(rng, tier: str = "exam"):
         if min(len(a_d), len(b_d), len(c_d), len(d_d)) >= 2:
             break
 
-    shown = ", ".join(f"angle {n} = ({_expr(*coef[n], const[n])}) degrees" for n in "ABC")
+    shown = ", ".join(f"angle {n} = {_bracketed(_expr(*coef[n], const[n]))} degrees" for n in "ABC")
     stem = (
-        f"ABCD is a cyclic quadrilateral with {shown} and angle D = ({_expr(*coef['D'], const['D'])}) degrees, "
+        f"ABCD is a cyclic quadrilateral with {shown} and angle D = {_bracketed(_expr(*coef['D'], const['D']))} degrees, "
         "where x and y are constants."
     )
     prev, nxt = _PREV[vertex], _NEXT[vertex]

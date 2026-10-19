@@ -19,9 +19,15 @@ import random
 
 from sympy import Rational, exp, pi
 
-from ..core import attempts, check, generator, join_terms, phrase, rational_text
+from ..core import attempts, check, generator, join_terms, paren_negative, phrase, rational_text
 from ._exd_distinct_parts import distinct_part_answers
 from .exd_x_r2f_common import expr_part, frac_part
+
+
+def _pi_multiple(value: Rational) -> str:
+    """``5π/6``, ``-π/6``, ``2π``: a rational multiple of pi written on paper (not ``5/6π``)."""
+    top = "π" if abs(value.p) == 1 else f"{abs(value.p)}π"
+    return ("-" if value < 0 else "") + top + ("" if value.q == 1 else f"/{value.q}")
 
 
 @generator(
@@ -75,7 +81,7 @@ def exd_x_r2f_damped_oscillation(rng: random.Random, tier: str = "exam") -> dict
         "The characteristic equation has roots α ± ki with k > 0. Find α.",
         alpha,
         1,
-        [f"r² + ({b})r + {c} = 0 has real part α = −b/2 = {alpha}."],
+        [f"{join_terms([(1, 'r²'), (b, 'r'), (c, '')])} = 0 has real part α = −b/2 with b = {b}, so α = {alpha}."],
         [("sign-flip-on-b", -alpha), ("forgets-to-halve", b), ("forgets-to-halve", -b)],
     )
     b_part = frac_part(
@@ -99,7 +105,7 @@ def exd_x_r2f_damped_oscillation(rng: random.Random, tier: str = "exam") -> dict
         2,
         [
             f"y(0) = C = {y0}.",
-            f"y'(0) = αC + kD = {v0}, so D = ({v0} − ({alpha})({y0})) ÷ {k} = {rational_text(d_val)}.",
+            f"y'(0) = αC + kD = {v0}, so D = ({v0} − {paren_negative(alpha)}·{paren_negative(y0)}) ÷ {k} = {rational_text(d_val)}.",
         ],
         [
             ("ignores-real-part-in-derivative", Rational(v0, k)),
@@ -116,7 +122,7 @@ def exd_x_r2f_damped_oscillation(rng: random.Random, tier: str = "exam") -> dict
         2,
         [
             "At x = π/(2k), cos kx = 0 and sin kx = 1.",
-            f"y = D e^(απ/(2k)) = ({rational_text(d_val)}) e^({rational_text(Rational(alpha, 2 * k))}π).",
+            f"y = D e^(απ/(2k)) = ({rational_text(d_val)}) e^({_pi_multiple(Rational(alpha, 2 * k))}).",
         ],
         [
             ("drops-exponential-factor", d_val),

@@ -19,7 +19,16 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import GRADER_TOLERANCE, check, check_distinct, generator, join_terms, pick_distractors, rational_text
+from ..core import (
+    GRADER_TOLERANCE,
+    check,
+    check_distinct,
+    fmt_signed,
+    generator,
+    join_terms,
+    pick_distractors,
+    rational_text,
+)
 
 
 def _ordinal(n: int) -> str:
@@ -131,8 +140,9 @@ def _term_relation(rng: random.Random) -> dict:
     solved_d = Fraction(sum_pq - 2 * t_r, p + q - 2 * r)
     check(solved_d == d, "term relation does not return the chosen common difference")
     working = [
-        f"2a + {p + q - 2}d = {sum_pq} and a + {r - 1}d = {t_r}.",
-        f"Eliminate a: {p + q - 2 * r}d = {sum_pq - 2 * t_r}, so d = {d}.",
+        f"{join_terms([(2, 'a'), (p + q - 2, 'd')])} = {sum_pq} and {join_terms([(1, 'a'), (r - 1, 'd')])} = {t_r}.",
+        f"Eliminate a: {fmt_signed(p + q - 2 * r, 'd')} = {sum_pq - 2 * t_r}"
+        + ("." if p + q - 2 * r == 1 else f", so d = {d}."),
     ]
     cands = [a1, -d, t_r, sum_pq - 2 * t_r]
     return _finish(d, text, working, cands)

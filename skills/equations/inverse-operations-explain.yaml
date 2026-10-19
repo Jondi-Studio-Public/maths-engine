@@ -1,0 +1,59 @@
+id: inverse-operations-explain
+name: Explain how inverse operations undo each other
+domain: equations
+year_level:
+- '7'
+- '8'
+description: Explain which operation undoes another, why it is applied to both sides, and why the order of undoing matters;
+  marked against a rubric.
+status: active
+placement_eligible: false
+prerequisites:
+- variable-concept
+answer: open_response
+sources:
+- topic: w10_explain_inverse
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w10_explain_inverse
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w10_explain_inverse
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+misconceptions:
+- id: undoes-in-written-order
+  description: Undoes the operations in the order they are written instead of reverse order.
+- id: operation-on-one-term-only
+  description: Divides or multiplies only one term when an operation should apply to every term.
+- id: moves-number-without-inverse
+  description: Moves a number across the equals sign without changing the operation to its inverse.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Name what was done to x, its inverse, and apply it to both sides.
+  medium:
+    steps: 4
+    demand: Order the undoing steps of a two-step equation and justify the order.
+  hard:
+    steps: 5
+    demand: Find and explain an error in a worked solution, then solve correctly.
+tags:
+- explain
+- open-response
+- rubric
+- year-7
+- year-8
+- inverse-operations
+- solving-equations

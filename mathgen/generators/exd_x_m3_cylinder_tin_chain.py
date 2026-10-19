@@ -58,7 +58,7 @@ def exd_x_m3_cylinder_tin_chain(rng: random.Random, tier: str = "exam") -> dict:
                 vol,
                 1,
                 2,
-                [f"Radius = {D} ÷ 2 = {r} cm.", f"V = πr²h = 3.14 × {r}² × {H}."],
+                [f"Radius = {D} ÷ 2 = {r} cm.", f"V = πr²h = 3.14 × {r}² × {H} = {display(vol, 1)} cm³."],
                 [
                     (vol / PI, "pi-left-out"),
                     (PI * D * D * H, "diameter-for-radius"),
@@ -71,7 +71,10 @@ def exd_x_m3_cylinder_tin_chain(rng: random.Random, tier: str = "exam") -> dict:
                 litres,
                 2,
                 1,
-                ["1 L = 1000 cm³, so divide the volume by 1000."],
+                [
+                    "1 L = 1000 cm³, so divide the volume by 1000.",
+                    f"{display(vol, 1)} ÷ 1000 = {display(litres, 2)} L.",
+                ],
                 [
                     (vol / 100, "unit-factor-wrong-power"),
                     (round_half_up(vol, 1), "unit-not-converted"),
@@ -85,7 +88,7 @@ def exd_x_m3_cylinder_tin_chain(rng: random.Random, tier: str = "exam") -> dict:
                 curved,
                 1,
                 1,
-                [f"Curved area = 2πrh = 2 × 3.14 × {r} × {H}."],
+                [f"Curved area = 2πrh = 2 × 3.14 × {r} × {H} = {display(curved, 1)} cm²."],
                 [
                     (2 * PI * r, None),
                     (curved / 2, None),
@@ -98,7 +101,10 @@ def exd_x_m3_cylinder_tin_chain(rng: random.Random, tier: str = "exam") -> dict:
                 total,
                 1,
                 2,
-                [f"Each end has area πr² = 3.14 × {r}²; add the two ends to the curved area."],
+                [
+                    f"Each end has area πr² = 3.14 × {r}² = {display(PI * r * r, 2)} cm², so the two ends are {display(ends, 2)} cm².",
+                    f"Total = {display(curved, 1)} + {display(ends, 2)} = {display(total, 1)} cm².",
+                ],
                 [
                     (curved, "surface-area-omits-ends"),
                     (curved + PI * r * r, None),
