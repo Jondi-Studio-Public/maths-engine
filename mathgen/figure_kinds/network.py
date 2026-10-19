@@ -31,6 +31,7 @@ MIN_LABEL_GAP = 7.0  # between the centres of two edge labels, and of a label an
 MAX_VERTICES = 12
 MAX_EDGES = 30
 MAX_LABEL = 8
+MAX_SIDE_NAME = 12  # a vertex drawn as a small dot with its name beside it
 LABEL_STEPS = (0.5, 0.4, 0.6, 0.32, 0.68, 0.25, 0.75, 0.2, 0.8)
 
 
@@ -62,14 +63,17 @@ def _point_at(a, b, t: float) -> tuple[float, float]:
     return (a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t)
 
 
-def crossing_count(positions: dict, edges: Iterable) -> int:
-    """How many pairs of edges cross. ``edges`` are ``(u, v)`` pairs of keys of ``positions``."""
+def crossing_count(positions: dict, edges: Iterable, stop_at: int | None = None) -> int:
+    """How many pairs of edges cross. ``edges`` are ``(u, v)`` pairs of keys of ``positions``. With ``stop_at`` the
+    count stops as soon as it reaches that number (the exact count is then not needed)."""
     es = [tuple(e) for e in edges]
     total = 0
     for i, (a, b) in enumerate(es):
         for c, d in es[i + 1 :]:
             if len({a, b, c, d}) == 4 and segments_cross(positions[a], positions[b], positions[c], positions[d]):
                 total += 1
+                if stop_at is not None and total >= stop_at:
+                    return total
     return total
 
 
@@ -117,7 +121,7 @@ def _best_order(n: int, edges: tuple) -> tuple[int, ...]:
             continue
         order = (0, *rest)
         pos = {v: slots[i] for i, v in enumerate(order)}
-        cost = crossing_count(pos, edges)
+        cost = crossing_count(pos, edges, stop_at=best_cost)
         if best_cost is None or cost < best_cost:
             best, best_cost = order, cost
             if cost == 0:
@@ -151,7 +155,9 @@ def network(
 ) -> dict:
     """A network drawing.
 
-    - ``vertices``: ``(id, x, y)`` triples in the 100 by 100 frame. ``id`` is the printed name, 1 to 8 characters.
+    - ``vertices``: ``(id, x, y)`` triples in the 100 by 100 frame, or ``(id, x, y, side)`` with ``side`` ``"left"`` or
+      ``"right"`` to draw a small dot with the name printed beside it (for a named person or place of up to 12
+      characters; a plain vertex is a circle holding an id of up to 8). The name is the vertex's id.
     - ``edges``: ``(from, to)`` pairs or dicts ``{"from", "to", "label"?, "directed"?, "highlight"?, "label_t"?}``.
       ``directed`` draws an arrowhead at ``to``; ``highlight`` draws the edge thick; ``label_t`` (0.2 to 0.8, default
       0.5) is how far along the edge, from ``from``, its label sits (see :func:`place_labels`). No loops, and at most
@@ -165,7 +171,10 @@ def network(
     spec: dict = {
         "kind": "network",
         "alt": alt,
-        "vertices": [{"id": vid, "at": [round(float(x), 2), round(float(y), 2)]} for vid, x, y in vertices],
+        "vertices": [
+            {"id": v[0], "at": [round(float(v[1]), 2), round(float(v[2]), 2)], **({"side": v[3]} if len(v) > 3 else {})}
+            for v in vertices
+        ],
         "edges": es,
         "highlight_vertices": list(highlight_vertices),
         "plane": bool(plane),
@@ -214,8 +223,12 @@ def _validate_network(spec: dict) -> list[str]:
     pos: dict = {}
     for i, v in enumerate(verts):
         vid = v.get("id") if isinstance(v, dict) else None
-        if not isinstance(vid, str) or not 1 <= len(vid) <= MAX_LABEL:
-            problems.append(f"vertices[{i}].id must be a string of 1 to {MAX_LABEL} characters")
+        side = v.get("side") if isinstance(v, dict) else None
+        if side not in (None, "left", "right"):
+            problems.append(f"vertices[{i}].side must be 'left' or 'right'")
+        limit = MAX_SIDE_NAME if side else MAX_LABEL
+        if not isinstance(vid, str) or not 1 <= len(vid) <= limit:
+            problems.append(f"vertices[{i}].id must be a string of 1 to {limit} characters")
             continue
         if vid in pos:
             problems.append(f"vertex id {vid!r} is repeated")

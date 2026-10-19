@@ -3153,21 +3153,24 @@ def _grid_drawing(s: dict, ids: _Ids) -> Body:
 _NET_SCALE = 3.0
 _NET_X0, _NET_Y0 = 50.0, 15.0
 _NET_R = 14.0
+_NET_DOT = 6.0
 
 
 def _network(s: dict, ids: _Ids) -> Body:
     """Vertices as labelled circles at their fixed positions, straight edges (arrowheads when directed), labels
     on a paper-coloured halo at ``label_t`` along their edge, highlighted edges thick."""
     pos = {v["id"]: (_NET_X0 + _NET_SCALE * v["at"][0], _NET_Y0 + _NET_SCALE * v["at"][1]) for v in s["vertices"]}
+    radius = {v["id"]: (_NET_DOT if v.get("side") else _NET_R) for v in s["vertices"]}
     lines, arrows, labels, nodes = [], [], [], []
     for e in s["edges"]:
         (x1, y1), (x2, y2) = pos[e["from"]], pos[e["to"]]
         d = math.hypot(x2 - x1, y2 - y1)
         ux, uy = (x2 - x1) / d, (y2 - y1) / d
+        r1, r2 = radius[e["from"]], radius[e["to"]]
         hot = bool(e.get("highlight"))
         width = 4.5 if hot else 1.6
-        sx, sy = x1 + ux * _NET_R, y1 + uy * _NET_R
-        ex, ey = x2 - ux * _NET_R, y2 - uy * _NET_R
+        sx, sy = x1 + ux * r1, y1 + uy * r1
+        ex, ey = x2 - ux * r2, y2 - uy * r2
         lines.append(_line(sx, sy, ex, ey, stroke=INK, stroke_width=width, stroke_linecap="round"))
         if e.get("directed"):
             head = 11.0 if hot else 9.0
@@ -3191,6 +3194,20 @@ def _network(s: dict, ids: _Ids) -> Body:
     marked = set(s.get("highlight_vertices", ()))
     for v in s["vertices"]:
         x, y = pos[v["id"]]
+        if v.get("side"):
+            nodes.append(_circle(x, y, _NET_DOT, fill=INK, stroke=INK, stroke_width=1))
+            gap = _NET_DOT + 6
+            nodes.append(
+                _text(
+                    x - gap if v["side"] == "left" else x + gap,
+                    y,
+                    v["id"],
+                    size=13,
+                    anchor="end" if v["side"] == "left" else "start",
+                    weight="bold",
+                )
+            )
+            continue
         nodes.append(_circle(x, y, _NET_R, fill=PAPER, stroke=INK, stroke_width=2))
         if v["id"] in marked:
             nodes.append(_circle(x, y, _NET_R + 4, fill="none", stroke=INK, stroke_width=1.5))

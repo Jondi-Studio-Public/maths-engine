@@ -21,6 +21,7 @@ import math
 import re
 from itertools import permutations, product
 
+from .. import figures
 from ..figure_kinds import network as net
 
 LETTERS = "ABCDEFGHIJKL"
@@ -37,12 +38,13 @@ def graph_figure(
     highlight_edges=(),
     highlight_vertices=(),
     plane=False,
+    sides=None,
     alt=None,
 ):
     """A ``network`` figure of vertices ``0..n-1`` and ``edges`` (pairs of vertex numbers).
 
     ``weights`` maps an edge ``(u, v)`` to its label text; ``highlight_edges`` is a set of edges drawn thick;
-    ``names`` overrides the vertex names; ``positions`` is a list of ``[x, y]`` per vertex (default: the circle layout
+    ``names`` overrides the vertex names; ``sides`` maps a vertex number to ``"left"``/``"right"`` to draw it as a dot with its name beside it; ``positions`` is a list of ``[x, y]`` per vertex (default: the circle layout
     with the fewest crossings). ``alt`` names what is drawn and never the answer.
     """
     names = list(names) if names else list(LETTERS[:n])
@@ -60,10 +62,11 @@ def graph_figure(
         if tuple(sorted((u, v))) in hot:
             d["highlight"] = True
         es.append(d)
-    verts = [(names[i], pos[i][0], pos[i][1]) for i in range(n)]
-    net.place_labels({vid: (x, y) for vid, x, y in verts}, es)
+    sides = sides or {}
+    verts = [(names[i], pos[i][0], pos[i][1], *([sides[i]] if i in sides else [])) for i in range(n)]
+    net.place_labels({v[0]: (v[1], v[2]) for v in verts}, es)
     if alt is None:
-        alt = f"A {'directed ' if directed else ''}network of {n} vertices and {len(es)} edges."
+        alt = f"A {'directed ' if directed else ''}network drawn as labelled vertices joined by straight edges."
     return net.network(
         alt=alt,
         vertices=verts,
@@ -202,24 +205,46 @@ def figure_from_text(text):
         positions=pos,
         weights=weights or None,
         directed=directed,
-        alt=f"{kind} of {len(names)} vertices and {len(edges)} edges, drawn with its "
-        + ("capacities on the arrows." if directed else "weights on the edges." if weights else "edges."),
+        alt=f"{kind} drawn as labelled vertices joined by "
+        + (
+            "arrows, each labelled with its capacity."
+            if directed
+            else "edges, each labelled with its weight."
+            if weights
+            else "edges."
+        ),
     )
 
 
+def _answers(d):
+    """Every answer text a question asks for (a single answer, or one per part)."""
+    out = [d.get("answer_text")] + [p.get("answer_text") for p in d.get("parts") or ()]
+    return [str(a) for a in out if a]
+
+
 def with_network_figure(fn):
-    """Decorator: attach the figure of the network the returned question's text prints (see the module docstring)."""
+    """Decorator: attach the figure of the network the returned question's text prints (see the module docstring).
+
+    A figure is kept only if no label or alt text gives away an answer (``figures.assert_no_leak``), which is the
+    rule every figure question is swept against. An answer that equals a weight printed on the picture would trip it,
+    so such a question goes without a figure; its text is complete. The question itself is never redrawn, so the
+    decorator changes nothing about the distribution of questions a generator makes."""
 
     @functools.wraps(fn)
     def wrapper(*args, **kwargs):
         d = fn(*args, **kwargs)
-        if isinstance(d, dict) and d.get("figure") is None and isinstance(d.get("text"), str):
+        if not (isinstance(d, dict) and d.get("figure") is None and isinstance(d.get("text"), str)):
+            return d
+        try:
+            found = figure_from_text(d["text"])
+        except ValueError:  # a layout that cannot be drawn legibly: the text alone is complete, so go without
+            return d
+        if found is not None:
             try:
-                fig = figure_from_text(d["text"])
-            except ValueError:  # a layout that cannot be drawn legibly: the text alone is complete, so go without
-                fig = None
-            if fig is not None:
-                d["figure"] = fig
+                figures.assert_no_leak(found, _answers(d))
+            except AssertionError:
+                return d
+            d["figure"] = found
         return d
 
     return wrapper

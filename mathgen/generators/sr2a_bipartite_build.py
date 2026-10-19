@@ -24,6 +24,8 @@ are found by exhaustive search over assignments (at most five workers); the forc
 from __future__ import annotations
 
 from ..core import attempts, check, generator
+from ..figure_kinds import network as net
+from ._network_fig import graph_figure
 from ._sr2a_kit import matrix_part, matrix_single, number_part
 
 _PEOPLE = ("Ana", "Ben", "Cara", "Dev", "Ella", "Finn", "Grace", "Hugo")
@@ -81,6 +83,24 @@ def _names(items) -> str:
 def _lists_by_worker(people, jobs, m, ctx) -> str:
     return " ".join(
         f"{p} {ctx['can']} {_names(jobs[j] for j in range(len(jobs)) if m[i][j])}." for i, p in enumerate(people)
+    )
+
+
+def _figure(people, jobs, m, ctx):
+    """The allocation as a bipartite drawing: the workers down the left, the jobs down the right, a line for every
+    1 in the matrix. Drawn from the same matrix the question's text lists."""
+    left, right = net.two_row_layout(len(people), len(jobs))
+    n = len(people)
+    edges = [(i, n + j) for i, row in enumerate(m) for j, v in enumerate(row) if v]
+    return graph_figure(
+        n + len(jobs),
+        edges,
+        names=[*people, *jobs],
+        positions=[*left, *right],
+        sides={**{i: "left" for i in range(n)}, **{n + j: "right" for j in range(len(jobs))}},
+        plane=False,
+        alt=f"A drawing with {len(people)} {ctx['who']} down the left and {len(jobs)} {ctx['tasks']} down the right, "
+        f"with a line joining each {ctx['one']} to each {ctx['task']} they can take.",
     )
 
 
@@ -160,6 +180,7 @@ def _easy(rng):
         ]
         q = matrix_single(text, m, working, _slips(m, rng))
         if q:
+            q["figure"] = _figure(people, jobs, m, ctx)
             return q
     raise AssertionError  # pragma: no cover
 
@@ -289,6 +310,7 @@ def _hard(rng):
         ]
         q = matrix_single(text, reduced, working, wrong)
         if q:
+            q["figure"] = _figure(people, jobs, m, ctx)
             return q
     raise AssertionError  # pragma: no cover
 
@@ -432,5 +454,5 @@ def sr2a_bipartite_chain(rng, tier="exam"):
         )
         if None in (part_a, part_b, part_c, part_d):
             continue
-        return dict(text=stem, parts=[part_a, part_b, part_c, part_d])
+        return dict(text=stem, figure=_figure(people, jobs, m, ctx), parts=[part_a, part_b, part_c, part_d])
     raise AssertionError  # pragma: no cover
