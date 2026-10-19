@@ -52458,6 +52458,196 @@ _ENTRIES = (
         "Gives the x-coordinate of the point of contact as the x-intercept of the tangent.",
         area="circle-equations",
     ),
+    CatalogueEntry(
+        "w5f-absolute-value-means-not-function",
+        "Decides that a rule containing an absolute value cannot be a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-adds-an-extra-value",
+        "Lists one more value than the rule produces.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-any-collection-is-function",
+        "Treats any collection of ordered pairs as a function, without checking that no input has two outputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-any-equation-with-restriction-fails",
+        "Decides that an equation with a restricted set of inputs is not a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-any-new-value-breaks-rule",
+        "Thinks any new output value for an input already used breaks the function rule, including a value that is the same as before.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-confuses-input-and-output",
+        "Looks for repeats in the outputs rather than in the inputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-confuses-repeated-output-with-repeated-input",
+        "Treats two inputs that share an output as an input with two outputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-counts-inputs-kept-not-removed",
+        "Gives the number of inputs that stay, not the number that must be removed.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-counts-inputs-not-outputs",
+        "Counts the inputs where the question asks for the number of different outputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-counts-pairs-not-inputs",
+        "Counts the ordered pairs rather than the different inputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-curve-without-vertical-line-test",
+        "Chooses a relation by its look without testing whether a vertical line meets it twice.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-excludes-the-boundary",
+        "Leaves out the boundary value when the restriction allows it.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-count",
+        "Gives how many values there are instead of the value asked for.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-input",
+        "Gives the input where the question asks for the output.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-least",
+        "Gives the least value where the question asks for the greatest.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-output",
+        "Gives the output where the question asks for the input.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-spread",
+        "Gives the difference between the greatest and least values instead of a count of values.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-ignores-the-restriction",
+        "Lists every value in the window and ignores the restriction on the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-ignores-the-restriction-from-context",
+        "Lists every whole number between the extremes, ignoring that only some are possible in the situation.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-input-outside-domain",
+        "Accepts a mapping that uses an input that is not in the first set.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-lists-repeated-outputs",
+        "Lists an output once for every input that gives it, instead of once.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-miscounts-inputs",
+        "Miscounts the inputs by one.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-negative-squared-as-negative",
+        "Squares a negative input and keeps the minus sign.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-omits-a-value",
+        "Leaves one of the values out of the list.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-one-input-only",
+        "Gives only one input where the rule has more than one.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-output-outside-codomain",
+        "Accepts a mapping that sends an input to a value outside the second set.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-repeated-identical-pair-counts",
+        "Treats a pair that is written twice as two outputs for one input.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-requires-distinct-outputs",
+        "Thinks every output in a function must be different.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-restriction-reversed",
+        "Reads the restriction the wrong way round and takes the inputs it excludes.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-restriction-sign-slip",
+        "Reverses the sign of the number in the restriction when solving for the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-rule-applied-with-sign-slip",
+        "Makes a sign slip when applying the rule to an input.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-shifts-the-values",
+        "Shifts every value in the list by one.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-sign-slip-on-inputs",
+        "Reverses the sign of the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-squared-term-means-not-function",
+        "Decides that an equation with a squared term is not a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-swaps-domain-and-range",
+        "Gives the domain where the range is asked for, or the range where the domain is asked for.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-takes-the-last-output",
+        "Gives the last output on the list instead of the greatest.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-unmapped-input-allowed",
+        "Accepts a mapping that leaves an input with no output.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-uses-half-the-domain",
+        "Uses only the inputs on one side of the turning point.",
+        area="domain-and-range-intro",
+    ),
 )
 
 #: Every entry, by id.
