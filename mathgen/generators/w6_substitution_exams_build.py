@@ -103,7 +103,8 @@ _REWRITE_STEMS = (
 @retry
 def exd_x_w6_subst_rewrite_x(rng, tier="exam"):
     """x in terms of u, the integrand in u, the new upper limit and the exact value."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     kind = _pick(rng, ("sqrt", "invsqrt", "linear", "inverse"))
     c = _pick(rng, (1, 1, 2, 3, 4))
     cf = "" if c == 1 else str(c)
@@ -130,7 +131,7 @@ def exd_x_w6_subst_rewrite_x(rng, tier="exam"):
     f = Itg(c * x * (x + a) ** p, text=text)
     g = sympy.expand(c * (u - a) * u**p)
     G = lambda t: sympy.integrate(g, u).subs(u, t)  # noqa: E731
-    value = sympy.nsimplify(G(upper_u) - G(lower_u))
+    value = sympy.simplify(G(upper_u) - G(lower_u))
     check_definite(value, f.value, lo, hi)
     stem, stem_latex = _stem(rng, _REWRITE_STEMS, f, lo, hi, _u_hint(x + a))
     wrong_x = lambda t: sympy.integrate(sympy.expand(c * u * u**p), u).subs(u, t)  # noqa: E731
@@ -188,7 +189,7 @@ def exd_x_w6_subst_rewrite_x(rng, tier="exam"):
         "Hence find the exact value of I.",
         "Hence find the exact value of \\(I\\).",
         3,
-        [f"I is the integral of g(u) from u = {lower_u} to u = {upper_u}, which is {value}."],
+        [f"I is the integral of g(u) from u = {lower_u} to u = {upper_u}, which is {shown(value)}."],
         exact_fields(value),
         pick_expr(
             value,
@@ -218,10 +219,10 @@ _ET_STEMS = (
 
 
 def _exp_chain(rng):
-    c = _pick(rng, (1, 2, 3, 4))
+    c = _pick(rng, (1, 2, 3, 4, 5, 6))
     cf = "" if c == 1 else str(c)
     for _ in attempts(100, "perfect-square limits"):
-        s1, s2 = _pick(rng, (2, 3)), _pick(rng, (3, 4, 5))
+        s1, s2 = _pick(rng, (2, 3, 4)), _pick(rng, (3, 4, 5, 6, 7))
         if s2 > s1:
             break
     a = s1 * s1 - 1
@@ -230,7 +231,7 @@ def _exp_chain(rng):
     g = sympy.expand(c * (u - a) * sqrt(u))
     G = lambda t: sympy.integrate(g, u).subs(u, t)  # noqa: E731
     u1, u2 = s1 * s1, s2 * s2
-    value = sympy.nsimplify(G(u2) - G(u1))
+    value = sympy.simplify(G(u2) - G(u1))
     hi = sympy.log(b)
     check_definite(value, f.value, 0, hi)
     stem, stem_latex = _stem(rng, _ET_STEMS, f, 0, hi, _u_hint(exp(x) + a))
@@ -272,7 +273,7 @@ def _exp_chain(rng):
         "Hence find the exact value of I.",
         "Hence find the exact value of \\(I\\).",
         3,
-        [f"I is the integral of g(u) from u = {u1} to u = {u2}, which is {value}."],
+        [f"I is the integral of g(u) from u = {u1} to u = {u2}, which is {shown(value)}."],
         exact_fields(value),
         pick_expr(
             value,
@@ -296,10 +297,10 @@ def _exp_chain(rng):
 
 
 def _tan_chain(rng):
-    c = _pick(rng, (1, 1, 2, 3, 4))
+    c = _pick(rng, (1, 2, 3, 4, 5, 6))
     cf = "" if c == 1 else str(c)
     k = _pick(rng, (4, 6))
-    n = _pick(rng, (1, 2, 3))
+    n = _pick(rng, (1, 2, 3, 4))
     alpha, u_hi = _pick(rng, ((pi / 4, sympy.Integer(1)), (pi / 3, sqrt(3)), (pi / 6, sqrt(3) / 3)))
     tail = "tan(x)" if n == 1 else f"tan^{n}(x)"
     f = Itg(c * sec(x) ** k * tan(x) ** n, text=f"{cf}sec^{k}(x){tail}")
@@ -375,7 +376,8 @@ def _tan_chain(rng):
 @retry
 def exd_x_w6_subst_exp_trig(rng, tier="exam"):
     """The new upper limit, the integrand in u and the exact value, for an exponential or a trigonometric integral."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     return _pick(rng, (_exp_chain, _tan_chain, _tan_chain))(rng)
 
 
@@ -393,20 +395,23 @@ _TRIG_STEMS = (
 @retry
 def exd_x_w6_subst_definite(rng, tier="exam"):
     """The upper limit of θ, the constant in front of the integral of 1 ± cos 2θ, and the exact value."""
-    check(tier == "exam", f"unknown tier {tier!r}")
-    a = _pick(rng, (2, 4, 6, 8))
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
+    a = _pick(rng, (2, 4, 6, 8, 10, 12))
+    c = _pick(rng, (1, 2, 3, 4, 5))
+    cf = "" if c == 1 else str(c)
     degrees = _pick(rng, (30, 45, 60))
     alpha = pi * degrees / 180
     hi = sympy.simplify(a * sin(alpha))
     even_root = rng.random() < 0.5
     root = sqrt(a * a - x * x)
     if even_root:
-        f = Itg(root, text=f"√({a * a} - x^2)")
+        f = Itg(c * root, text=f"{cf}√({a * a} - x^2)")
         sign = 1
     else:
-        f = Itg(x**2 / root, text=f"x^2/√({a * a} - x^2)")
+        f = Itg(c * x**2 / root, text=f"{cf}x^2/√({a * a} - x^2)")
         sign = -1
-    k = R(a * a, 2)
+    k = R(c * a * a, 2)
     value = sympy.simplify(k * (alpha + sign * sin(alpha) * cos(alpha)))
     check_definite(value, f.value, 0, hi)
     hint = (f"x = {a}sin(θ)", rf"\(x = {a}\sin\theta\)")
@@ -435,17 +440,17 @@ def exd_x_w6_subst_definite(rng, tier="exam"):
         f"Show that \\(I\\) can be written as \\(k\\) times the integral of \\(1 {'+' if sign == 1 else '-'} \\cos 2\\theta\\) with respect to \\(\\theta\\) from \\(0\\) to the upper limit, and find \\(k\\).",
         2,
         [
-            f"dx = {a} cos θ dθ and √({a * a} - x^2) = {a} cos θ, so the integrand becomes {a * a} {'cos' if sign == 1 else 'sin'}^2 θ.",
-            f"Using {'cos' if sign == 1 else 'sin'}^2 θ = (1 {'+' if sign == 1 else '-'} cos 2θ)/2 gives k = {a * a}/2 = {k}.",
+            f"dx = {a} cos θ dθ and √({a * a} - x^2) = {a} cos θ, so the integrand becomes {c * a * a} {'cos' if sign == 1 else 'sin'}^2 θ.",
+            f"Using {'cos' if sign == 1 else 'sin'}^2 θ = (1 {'+' if sign == 1 else '-'} cos 2θ)/2 gives k = {c * a * a}/2 = {k}.",
         ],
         int_fields(k),
         pick_ints(
             k,
             [
-                (a * a, "w6-subst-double-angle-factor-dropped"),
-                (a, "w6-subst-amplitude-not-squared"),
-                (a * a // 4, "w6-subst-double-angle-factor-doubled"),
-                (a // 2, "w6-subst-amplitude-halved"),
+                (c * a * a, "w6-subst-double-angle-factor-dropped"),
+                (c * a, "w6-subst-amplitude-not-squared"),
+                (c * a * a // 4, "w6-subst-double-angle-factor-doubled"),
+                (c * a // 2, "w6-subst-amplitude-halved"),
             ],
             rng=rng,
         ),

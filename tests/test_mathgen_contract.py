@@ -786,6 +786,11 @@ OPTION_NOTES_TOPICS = frozenset(
         "w5_circle_point_position",
         "w5_circle_tangent",
         "w5_circle_unknown",
+        "w6_limit_degree",
+        "w6_subst_rewrite_x",
+        "w6_subst_exp_trig",
+        "w6_subst_definite",
+        "w6_projectile_resistance",
     }
 )
 

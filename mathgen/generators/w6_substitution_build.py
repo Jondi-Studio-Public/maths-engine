@@ -67,6 +67,19 @@ _EXACT_HINT = (
 # -- small helpers -------------------------------------------------------------------------------------------------
 
 
+def _xp(p: int) -> str:
+    """``x``, ``x^2``, ... (``1`` for a zero power) as a factor after a coefficient."""
+    return "" if p == 0 else "x" if p == 1 else f"x^{p}"
+
+
+def _ratio_times(c: int, m: int) -> str:
+    """``(3/2) times `` for c/m, ``3 times `` for a whole ratio and nothing for 1."""
+    r = sympy.Rational(c, m)
+    if r == 1:
+        return ""
+    return f"{r} times " if r.q == 1 else f"({r.p}/{r.q}) times "
+
+
 def _cf(c) -> str:
     return "" if c == 1 else str(c)
 
@@ -99,6 +112,25 @@ def _hint(u_expr, name: str = "u"):
     return f"{name} = {shown(u_expr)}", rf"\({name} = {tex(u_expr)}\)"
 
 
+def _power_base(F):
+    """The one expression b (not x itself) such that the antiderivative F is a sum of numeric multiples of powers of b,
+    else None. Two antiderivatives that differ by a constant are both right but the grader compares them exactly, so a
+    stem names this form (a sum of powers of b, not expanded) to make the expected answer the only natural one."""
+    base = None
+    for term in sympy.Add.make_args(sympy.sympify(F)):
+        rest = term.as_independent(x)[1]
+        if rest == 1:
+            continue
+        b, e = rest.as_base_exp()
+        if not e.is_Rational or b == x or b.is_number:
+            return None
+        if base is None:
+            base = b
+        elif base != b:
+            return None
+    return base
+
+
 def _indef(rng, f: Itg, F, cands, working, hint=None):
     check_antiderivative(F, f.value)
     ts = dict(I=integral_text(f))
@@ -108,6 +140,12 @@ def _indef(rng, f: Itg, F, cands, working, hint=None):
     else:
         ts["H"], ms["H"] = hint
         text, latex = say(rng, _FIND_HINT, ts, ms)
+    base = _power_base(F)
+    if base is not None:
+        name = shown(base).replace("sqrt(x)", "√x")
+        name = f"({name})" if base.is_Add else name
+        text += f" Give your answer as a sum of powers of {name}, not expanded, plus C."
+        latex += rf" Give your answer as a sum of powers of \({tex(base)}\), not expanded, plus \(C\)."
     return dict(
         text=text, latex=latex, working=working, distractors=pick_expr(F, True, cands, rng=rng), **key_fields(F)
     )
@@ -289,7 +327,8 @@ def w6_subst_rewrite_x(rng, tier="easy"):
         return _rx_easy(rng)
     if tier == "medium":
         return _rx_medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return _rx_hard(rng)
 
 
@@ -528,7 +567,8 @@ def w6_subst_exp_trig(rng, tier="easy"):
         return _et_easy(rng)
     if tier == "medium":
         return _et_medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return _et_hard(rng)
 
 
@@ -561,8 +601,8 @@ def _sd_easy(rng):
         Cand(-value, "w6-subst-limits-swapped"),
     ]
     working = [
-        f"Let u = x^{m} + {k}, so du = {m}x^{m - 1} dx. When x = {lo}, u = {u1}; when x = {hi}, u = {u2}.",
-        f"The integral becomes ({c}/{m}) times the integral of u^{n} du from {u1} to {u2}, which is {sympy.nsimplify(value)}.",
+        f"Let u = x^{m} + {k}, so du = {m}{_xp(m - 1)} dx. When x = {lo}, u = {u1}; when x = {hi}, u = {u2}.",
+        f"The integral becomes {_ratio_times(c, m)}the integral of u^{n} du from {u1} to {u2}, which is {shown(value)}.",
     ]
     return _definite(rng, f, value, lo, hi, cands, working, _hint(v))
 
@@ -609,7 +649,7 @@ def _sd_medium(rng):
         u1, u2 = lo + a, hi + a
         G = lambda t: sympy.integrate(c * (u - a) * u ** (-n), u).subs(u, t)  # noqa: E731
         wrong_x = lambda t: sympy.integrate(c * u * u ** (-n), u).subs(u, t)  # noqa: E731
-    value = sympy.nsimplify(G(u2) - G(u1))
+    value = sympy.simplify(G(u2) - G(u1))
     cands = [
         Cand(G(hi) - G(lo), "w6-subst-limits-not-changed"),
         Cand(wrong_x(u2) - wrong_x(u1), "w6-subst-x-replaced-by-u"),
@@ -618,7 +658,7 @@ def _sd_medium(rng):
     ]
     working = [
         f"Let u = {_sh(a)}, so x = u - {a}. When x = {lo}, u = {u1}; when x = {hi}, u = {u2}.",
-        f"Write the integrand as {_cf(c)}(u - {a}) times a power of u, integrate term by term and evaluate from u = {u1} to u = {u2}: {value}.",
+        f"Write the integrand as {_cf(c)}(u - {a}) times a power of u, integrate term by term and evaluate from u = {u1} to u = {u2}: {shown(value)}.",
     ]
     return _definite(rng, f, value, lo, hi, cands, working, _hint(v))
 
@@ -656,7 +696,7 @@ def _sd_hard(rng):
         G = lambda t: sympy.integrate(c * (u - a) * sqrt(u), u).subs(u, t)  # noqa: E731
         u1, u2 = s1 * s1, s2 * s2
         lo, hi = 0, sympy.log(b)
-        value = sympy.nsimplify(G(u2) - G(u1))
+        value = sympy.simplify(G(u2) - G(u1))
         cands = [
             Cand(G(b) - G(1), "w6-subst-limit-shift-forgotten"),
             Cand(G(u2), "w6-subst-lower-limit-dropped"),
@@ -730,12 +770,15 @@ def _sd_hard(rng):
     ]
     coef = "" if a == 1 else str(a)
     hint = (f"x = {coef}sin(θ)", rf"\(x = {coef}\sin\theta\)")
+    fn = "cos" if kind == "trig_sub" else "sin"
+    sq = "1 + cos 2θ" if kind == "trig_sub" else "1 - cos 2θ"
+    lead = "" if a == 1 else f"{a * a} times "
     working = [
-        f"Let x = {a} sin θ, so dx = {a} cos θ dθ and √({a * a} - x^2) = {a} cos θ. When x = 0, θ = 0; when x = {_limit_text(hi)}, θ = {_limit_text(alpha)}.",
-        (
-            f"The integral is {a * a} times the integral of cos^2 θ, which is ({a * a}/2) times the integral of (1 + cos 2θ)."
-            if kind == "trig_sub"
-            else f"The integral is {a * a} times the integral of sin^2 θ, which is ({a * a}/2) times the integral of (1 - cos 2θ)."
+        f"Let x = {coef} sin θ, so dx = {coef} cos θ dθ and √({a * a} - x^2) = {coef} cos θ. When x = 0, θ = 0; when x = {_limit_text(hi)}, θ = {_limit_text(alpha)}.".replace(
+            "= sin", "= sin"
+        ).replace("  ", " "),
+        f"The integral is {lead}the integral of {fn}^2 θ, which is ({a * a}/2) times the integral of ({sq}).".replace(
+            "is the", "is the"
         ),
     ]
     return _definite(rng, f, value, 0, hi, cands, working, hint)
@@ -753,5 +796,6 @@ def w6_subst_definite(rng, tier="easy"):
         return _sd_easy(rng)
     if tier == "medium":
         return _sd_medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if not (tier == "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return _sd_hard(rng)

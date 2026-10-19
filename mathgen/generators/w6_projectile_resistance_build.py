@@ -27,6 +27,7 @@ formulae. The horizontal distance and speed at the top also have a second closed
 
 from __future__ import annotations
 
+import math
 from fractions import Fraction
 
 import sympy
@@ -37,26 +38,25 @@ from ._r3d_kit import G, G_NOTE, clear_of_boundary, dec, exact, fit_dp, number_f
 F = Fraction
 _g = sympy.Rational(98, 10)
 
-#: (horizontal component, vertical component, speed, tan α as printed)
-_LAUNCHES = (
-    (16, 12, 20, "3/4"),
-    (12, 16, 20, "4/3"),
-    (20, 15, 25, "3/4"),
-    (15, 20, 25, "4/3"),
-    (24, 18, 30, "3/4"),
-    (18, 24, 30, "4/3"),
-    (32, 24, 40, "3/4"),
-    (24, 10, 26, "5/12"),
-    (10, 24, 26, "12/5"),
-    (36, 15, 39, "5/12"),
-    (30, 16, 34, "8/15"),
-    (21, 20, 29, "20/21"),
-    (48, 14, 50, "7/24"),
-    (14, 48, 50, "24/7"),
-    (40, 30, 50, "3/4"),
-    (30, 40, 50, "4/3"),
-)
-_KS = (F(1, 10), F(1, 5), F(1, 4), F(3, 10), F(2, 5), F(1, 2))
+
+def _launches():
+    """Every (horizontal, vertical, speed, tan α) with whole components, a whole speed from 20 to 50 m/s and an angle
+    between 20 and 70 degrees, so the learner has to find both components from V and tan α."""
+    out = []
+    for ux in range(6, 49):
+        for uy in range(6, 49):
+            speed = math.isqrt(ux * ux + uy * uy)
+            if speed * speed != ux * ux + uy * uy or not 20 <= speed <= 50:
+                continue
+            g = math.gcd(ux, uy)
+            if not 0.35 <= uy / ux <= 2.8:
+                continue
+            out.append((ux, uy, speed, f"{uy // g}/{ux // g}"))
+    return tuple(out)
+
+
+_LAUNCHES = _launches()
+_KS = (F(1, 20), F(1, 10), F(3, 20), F(1, 5), F(1, 4), F(3, 10), F(7, 20), F(2, 5), F(9, 20), F(1, 2))
 _BODIES = (
     "A ball",
     "A cricket ball",
