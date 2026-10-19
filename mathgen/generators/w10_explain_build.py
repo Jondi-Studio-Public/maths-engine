@@ -45,6 +45,8 @@ def item(text, reference, criteria, partial, weak, *, partial_marks=None):
     rubric = {
         "reference": reference,
         "criteria": rows,
+        # the plain-language checks a marker applies (the `checks` marking-block convention of skills/README.md)
+        "checks": [r["description"] for r in rows],
         "exemplars": [
             {"label": "full marks", "marks": total, "answer": reference},
             {"label": "partly correct", "marks": first, "answer": partial},
@@ -93,7 +95,14 @@ def equality_statement(rng):
             f"Concludes that the statement is false because the sides have different values ({left} and {right})."
         )
     return item(
-        f"Is the statement {a} + {b} = {c} + {d} true or false? Explain, using what the equals sign tells you.",
+        pick(
+            rng,
+            (
+                f"Is the statement {a} + {b} = {c} + {d} true or false? Explain, using what the equals sign tells you.",
+                f"A worksheet has the line {a} + {b} = {c} + {d}. Decide whether it is correct, and explain what the equals sign means here.",
+                f"Jo writes {a} + {b} = {c} + {d}. Using the meaning of the equals sign, explain whether Jo has written something true.",
+            ),
+        ),
         ref,
         [
             ("left-side", f"Works out the left side: {a} + {b} = {left}.", 1),
@@ -111,8 +120,17 @@ def equality_misreading(rng):
     total = a + b
     d = pick(rng, (2, 3, 4, 5, 6, 7))
     return item(
-        f"Sam says that {a} + {b} = {total} + {d} is true, because {a} + {b} makes {total}. Say what Sam has "
-        f"misunderstood about the equals sign, and say whether the statement is true.",
+        pick(
+            rng,
+            (
+                f"Sam says that {a} + {b} = {total} + {d} is true, because {a} + {b} makes {total}. Say what Sam has "
+                f"misunderstood about the equals sign, and say whether the statement is true.",
+                f"Sam reads {a} + {b} = {total} + {d} as 'the answer is {total}' and calls it correct. What is wrong with "
+                f"the way Sam reads the equals sign? Is the statement true?",
+                f"Is Sam right that {a} + {b} = {total} + {d} is a true statement because {a} + {b} is {total}? Explain "
+                f"Sam's mistake about the equals sign.",
+            ),
+        ),
         f"Sam read the equals sign as 'the answer comes next' and looked only at the left side. The equals sign means "
         f"that both sides have the same value. The left side {a} + {b} is {total}, but the right side {total} + {d} is "
         f"{total + d}. These are not the same value, so the statement is false.",
@@ -133,7 +151,15 @@ def equality_missing_number(rng):
     c = rng.randint(2, total - 3)
     n = total - c
     return item(
-        f"What number goes in the box to make {a} + {b} = □ + {c} true? Explain how the equals sign tells you.",
+        pick(
+            rng,
+            (
+                f"What number goes in the box to make {a} + {b} = □ + {c} true? Explain how the equals sign tells you.",
+                f"Find the missing number in {a} + {b} = □ + {c}. Explain how you know, using the meaning of the equals sign.",
+                f"The box in {a} + {b} = □ + {c} must hold a number that keeps the statement true. Say which number, and "
+                f"explain why the equals sign makes it that number.",
+            ),
+        ),
         f"The equals sign means both sides must have the same value. The left side {a} + {b} is {total}, so the right "
         f"side □ + {c} must also be {total}. The box must be {total} - {c} = {n}. Check: {n} + {c} = {total}, the same as "
         f"the left side.",
@@ -154,8 +180,17 @@ def equality_one_side(rng):
     b = rng.randint(2, 9)
     t = x + a
     return item(
-        f"Mia has the equation x + {a} = {t}. She adds {b} to the left side only and writes x + {a} + {b} = {t}. "
-        f"Explain why this is no longer a true equation for the same x, and say how to keep the equation balanced.",
+        pick(
+            rng,
+            (
+                f"Mia has the equation x + {a} = {t}. She adds {b} to the left side only and writes x + {a} + {b} = {t}. "
+                f"Explain why this is no longer a true equation for the same x, and say how to keep the equation balanced.",
+                f"Start with x + {a} = {t}. Mia adds {b} to one side only, giving x + {a} + {b} = {t}. Why has she broken "
+                f"the equation, and what should she do instead?",
+                f"Explain what goes wrong when {b} is added to the left side of x + {a} = {t} but not the right, and "
+                f"describe the change that keeps both sides equal.",
+            ),
+        ),
         f"The equation x + {a} = {t} says both sides have the same value. Adding {b} to the left side only makes the "
         f"left side {b} bigger than the right side, so the two sides are no longer equal. To keep it balanced, add {b} "
         f"to both sides: x + {a} + {b} = {t} + {b}, which is {t + b}.",
@@ -180,8 +215,17 @@ def equality_keeps_true(rng):
     b = rng.randint(1, 9)
     t = m * x + b
     return item(
-        f"The equation {m}x + {b} = {t} is true when x = {x}. Using what the equals sign means, explain why "
-        f"{m}x = {t - b} is also true when x = {x}.",
+        pick(
+            rng,
+            (
+                f"The equation {m}x + {b} = {t} is true when x = {x}. Using what the equals sign means, explain why "
+                f"{m}x = {t - b} is also true when x = {x}.",
+                f"When x = {x}, the equation {m}x + {b} = {t} holds. Explain why taking {b} from both sides gives "
+                f"{m}x = {t - b}, which holds for the same x.",
+                f"Explain, using the idea of equal values on both sides, why subtracting {b} from each side of "
+                f"{m}x + {b} = {t} leaves a true statement when x = {x}.",
+            ),
+        ),
         f"When x = {x}, the left side {m}x + {b} is {m * x + b}, which is the same value as the right side {t}. If "
         f"{b} is taken away from both sides, both sides change by the same amount so they are still equal. That gives "
         f"{m}x = {t - b}, and {m} × {x} = {m * x} = {t - b}.",
@@ -238,7 +282,7 @@ def inverse_one_step(rng):
             ("both-sides", "Says the inverse operation is done to both sides to keep the equation balanced.", 1),
             ("value", f"Gives x = {x}.", 1),
         ],
-        partial=f"{did[0].upper()}{did[1:]}.",
+        partial=f"The equation tells us that {did}.",
         weak=f"Move the number across and change it, so x is {r}.",
     )
 
@@ -255,8 +299,16 @@ def inverse_two_step(rng):
         eq, c = f"{a}x - {b} = {a * x - b}", a * x - b
         first, mid = f"add {b}", f"{c} + {b} = {a * x}"
     return item(
-        f"List, in order, the steps that undo the operations in {eq}, and explain why the steps go in that order. "
-        f"Then give x.",
+        pick(
+            rng,
+            (
+                f"List, in order, the steps that undo the operations in {eq}, and explain why the steps go in that order. "
+                f"Then give x.",
+                f"To solve {eq}, which inverse step comes first and which comes second? Explain the order, then give x.",
+                f"Describe how to undo what has been done to x in {eq}, step by step, say why the order matters, and "
+                f"find x.",
+            ),
+        ),
         f"In {eq}, x is first multiplied by {a} and then {b} is {'added' if plus else 'subtracted'}. The steps are "
         f"undone in the reverse order: first {first} on both sides ({mid}), then divide both sides by {a} "
         f"({a * x} ÷ {a} = {x}). The last operation done must be the first one undone. x = {x}.",
@@ -278,8 +330,17 @@ def inverse_wrong_order(rng):
     c = a * x - b
     check(c > 0, "inverse: c must be positive")
     return item(
-        f"Leo solves {a}x - {b} = {c} by dividing both sides by {a} first, and writes x - {b} = {c} ÷ {a}. Explain "
-        f"what is wrong with Leo's step, and show a correct way to solve the equation.",
+        pick(
+            rng,
+            (
+                f"Leo solves {a}x - {b} = {c} by dividing both sides by {a} first, and writes x - {b} = {c} ÷ {a}. Explain "
+                f"what is wrong with Leo's step, and show a correct way to solve the equation.",
+                f"To solve {a}x - {b} = {c}, Leo divides only the {a}x by {a} and gets x - {b} = {c} ÷ {a}. Why is that "
+                f"not allowed? Show how to solve it correctly.",
+                f"Which step in Leo's working of {a}x - {b} = {c} is wrong, and why? Leo's first line is x - {b} = "
+                f"{c} ÷ {a}. Give a correct solution.",
+            ),
+        ),
         f"Dividing both sides by {a} divides every term, so the {b} must be divided too: the left side becomes "
         f"x - {b} ÷ {a}, not x - {b}. Leo divided only the {a}x term. It is simpler to undo the subtraction first: "
         f"add {b} to both sides to get {a}x = {c + b}, then divide both sides by {a} to get x = {x}.",
@@ -314,7 +375,15 @@ def solution_test(rng):
     ok = left == c
     word = "is" if ok else "is not"
     return item(
-        f"Is x = {claimed} a solution of {a}x + {b} = {c}? Explain how you can tell.",
+        pick(
+            rng,
+            (
+                f"Is x = {claimed} a solution of {a}x + {b} = {c}? Explain how you can tell.",
+                f"Does x = {claimed} make {a}x + {b} = {c} true? Show how you decide whether it is a solution.",
+                f"Kim thinks {claimed} is a solution of the equation {a}x + {b} = {c}. Test Kim's idea and explain what "
+                f"your test shows.",
+            ),
+        ),
         f"A solution is a value of x that makes the equation true. Substitute x = {claimed}: the left side is "
         f"{a} × {claimed} + {b} = {left}, and the right side is {c}. "
         + ("They are equal" if ok else f"{left} and {c} are not equal")
@@ -337,8 +406,17 @@ def solution_pick(rng):
     others = rng.sample([n for n in range(1, 16) if n != v], 2)
     cands = sorted([v, *others])
     return item(
-        f"Which of the numbers {cands[0]}, {cands[1]} and {cands[2]} is a solution of x + {a} = {c}? Explain how you "
-        f"decided, and say why the others are not solutions.",
+        pick(
+            rng,
+            (
+                f"Which of the numbers {cands[0]}, {cands[1]} and {cands[2]} is a solution of x + {a} = {c}? Explain how you "
+                f"decided, and say why the others are not solutions.",
+                f"One of {cands[0]}, {cands[1]} and {cands[2]} satisfies x + {a} = {c}. Find it by testing, and explain "
+                f"why each of the other two fails.",
+                f"Test {cands[0]}, {cands[1]} and {cands[2]} in the equation x + {a} = {c}. Say which is the solution and "
+                f"what the tests show about the rest.",
+            ),
+        ),
         f"Substitute each number for x. For x = {v}: {v} + {a} = {c}, which matches the right side, so {v} is a "
         + "solution. "
         + " ".join(f"For x = {o}: {o} + {a} = {o + a}, which is not {c}, so {o} is not a solution." for o in others)
@@ -365,8 +443,17 @@ def solution_set_inequality(rng):
     inside = edge + rng.randint(1, 5)
     outside = edge - rng.randint(0, 2)
     return item(
-        f"Explain why x = {inside} is a solution of x + {a} > {c} but x = {outside} is not, and describe the whole "
-        f"solution set.",
+        pick(
+            rng,
+            (
+                f"Explain why x = {inside} is a solution of x + {a} > {c} but x = {outside} is not, and describe the "
+                f"whole solution set.",
+                f"Describe every value of x that satisfies x + {a} > {c}. Use x = {inside} and x = {outside} to explain "
+                f"what separates solutions from non-solutions.",
+                f"Substitute {inside} and {outside} for x in x + {a} > {c}. What do you find, and what does the full "
+                f"solution set look like?",
+            ),
+        ),
         f"Substitute: {inside} + {a} = {inside + a}, which is greater than {c}, so {inside} is a solution. "
         f"{outside} + {a} = {outside + a}, which is not greater than {c}, so {outside} is not. The solution set is "
         f"every number greater than {edge}. There are infinitely many solutions, and {edge} itself is not one, "
@@ -418,6 +505,11 @@ def _lin(coef, const):
     return f"{head} + {const}" if const > 0 else f"{head} - {-const}"
 
 
+def _xt(n) -> str:
+    """``n`` copies of x as written: x, 2x, 3x (never 1x)."""
+    return "x" if n == 1 else f"{n}x"
+
+
 def _plain(expr) -> str:
     """A sympy expression as a student writes it: 3x + 15, not 3*x + 15."""
     return str(expr).replace("*", "")
@@ -445,8 +537,16 @@ def identity_simple(rng):
     else:
         tail = f"This leaves {n * a} = {c}, which is never true, so no number is a solution."
     return item(
-        f"Does {eq} have no solution, exactly one solution, or every number as a solution? Explain how you can tell "
-        f"without trying lots of numbers.",
+        pick(
+            rng,
+            (
+                f"Does {eq} have no solution, exactly one solution, or every number as a solution? Explain how you can tell "
+                f"without trying lots of numbers.",
+                f"Without testing many values, say how many solutions {eq} has (none, one or every number), and explain.",
+                f"Lee claims {eq} is true for some numbers only. Is that right, or does it have no solution or every "
+                f"number as a solution? Explain.",
+            ),
+        ),
         f"Expand the left side: {n}(x + {a}) = {n}x + {n * a}. The equation becomes {n}x + {n * a} = {n}x + {c}. "
         f"Take away {n}x from both sides. {tail}",
         [
@@ -480,8 +580,8 @@ def identity_three_way(rng):
         check(sp.solve(sp.Eq(p * x_free + q + r * x_free, c * x_free + s), x_free) == [x0], "identity: one")
         reasoning = (
             f"Collect the x-terms on the left: {left} = {_lin(total, q)}. The coefficients of x are different "
-            f"({total} and {c}), so the equation can be solved to one value: take {min(total, c)}x from both sides to "
-            f"get {abs(total - c)}x = {abs(s - q)}, so x = {x0}."
+            f"({total} and {c}), so the equation can be solved to one value: take {_xt(min(total, c))} from both sides to "
+            f"get {_xt(abs(total - c))} = {abs(s - q)}, so x = {x0}."
         )
         crit = (
             "coefficients",
@@ -525,7 +625,7 @@ def identity_collect(rng):
     a = rng.randint(1, 5)
     q = rng.randint(1, 4)
     x_free = sp.Symbol("x")
-    left_text = f"{p}(x + {a}) + {q}x"
+    left_text = f"{p}(x + {a}) + {_xt(q)}"
     left_expr = p * (x_free + a) + q * x_free
     total_coef = p + q
     base = p * a
@@ -537,7 +637,7 @@ def identity_collect(rng):
         sol = sp.solve(sp.Eq(left_expr, r * x_free + c), x_free)
         check(sol == [x0], "identity: collect one")
         reasoning = (
-            f"Expand and collect: {p}(x + {a}) + {q}x = {total_coef}x + {base}. The coefficients of x are different "
+            f"Expand and collect: {p}(x + {a}) + {_xt(q)} = {total_coef}x + {base}. The coefficients of x are different "
             f"({total_coef} and {r}), so the equation can be solved to one value: x = {x0}."
         )
         crit = ("coefficients", f"Compares the coefficients of x ({total_coef} and {r}) and sees they differ.", 1)
@@ -547,7 +647,7 @@ def identity_collect(rng):
         right_text = _lin(total_coef, c)
         check((sp.expand(left_expr - (total_coef * x_free + c)) == 0) == (kind == "all"), "identity: collect kind")
         reasoning = (
-            f"Expand and collect: {p}(x + {a}) + {q}x = {total_coef}x + {base}. The equation is "
+            f"Expand and collect: {p}(x + {a}) + {_xt(q)} = {total_coef}x + {base}. The equation is "
             f"{total_coef}x + {base} = {total_coef}x + {c}. Take {total_coef}x from both sides to leave {base} = {c}, "
             f"which is {'always' if kind == 'all' else 'never'} true."
         )
@@ -591,8 +691,17 @@ def check_one_side(rng):
     left = a * claimed + b
     ok = left == c
     return item(
-        f"Zoe solved {a}x + {b} = {c} and got x = {claimed}. Show how to check her answer by substitution, and say "
-        f"whether it is correct.",
+        pick(
+            rng,
+            (
+                f"Zoe solved {a}x + {b} = {c} and got x = {claimed}. Show how to check her answer by substitution, and say "
+                f"whether it is correct.",
+                f"Check by substitution whether x = {claimed} is the right answer to {a}x + {b} = {c}, and explain what "
+                f"the check tells you.",
+                f"Zoe's answer to {a}x + {b} = {c} is x = {claimed}. Put her value back into the equation. Is she "
+                f"correct? Explain.",
+            ),
+        ),
         f"Put x = {claimed} into the left side: {a} × {claimed} + {b} = {a * claimed} + {b} = {left}. The right side is {c}. "
         + (
             f"The two sides are equal, so x = {claimed} is correct."
@@ -621,8 +730,16 @@ def check_both_sides(rng):
     ok = left == right
     check(ok == (claimed == x0), "check: both sides")
     return item(
-        f"Ben says the solution of {a}x + {b} = {c}x + {d} is x = {claimed}. Explain how to check this by "
-        f"substitution and say whether Ben is right.",
+        pick(
+            rng,
+            (
+                f"Ben says the solution of {a}x + {b} = {c}x + {d} is x = {claimed}. Explain how to check this by "
+                f"substitution and say whether Ben is right.",
+                f"Substitute x = {claimed} into both sides of {a}x + {b} = {c}x + {d}. What do the two sides show about "
+                f"Ben's claim that it is the solution?",
+                f"Is x = {claimed} the solution of {a}x + {b} = {c}x + {d}, as Ben says? Check each side and explain.",
+            ),
+        ),
         f"Substitute x = {claimed} into both sides. Left side: {a} × {claimed} + {b} = {left}. Right side: "
         f"{c} × {claimed} + {d} = {right}. "
         + (
@@ -653,8 +770,17 @@ def check_find_slip(rng):
     w = int(wrong)
     left = a * w - b
     return item(
-        f"Ari solved {a}x - {b} = {c} and got x = {w}. Check Ari's answer by substitution. Explain what the check "
-        f"shows and what mistake Ari probably made.",
+        pick(
+            rng,
+            (
+                f"Ari solved {a}x - {b} = {c} and got x = {w}. Check Ari's answer by substitution. Explain what the check "
+                f"shows and what mistake Ari probably made.",
+                f"Ari's answer to {a}x - {b} = {c} is x = {w}. Substitute it, say what happens, and suggest the slip Ari "
+                f"most likely made.",
+                f"Something is wrong with x = {w} as the solution of {a}x - {b} = {c}. Use substitution to show it, and "
+                f"explain the likely error.",
+            ),
+        ),
         f"Substitute x = {w}: the left side is {a} × {w} - {b} = {left}, but the right side is {c}. {left} is not "
         f"equal to {c}, so x = {w} is not a solution. Ari subtracted {b} from both sides instead of adding it. The "
         f"correct working is {a}x = {c} + {b} = {c + b}, so x = {x}. Check: {a} × {x} - {b} = {a * x - b} = {c}.",
@@ -718,6 +844,14 @@ def _parse(text, x):
     return parse_expr(text, local_dict={"x": x}, transformations=_TRANSFORMS)
 
 
+def _simplifies_to(e1, e2, s1):
+    """Sentence saying what `e1` simplifies to, without claiming that an expression matches itself."""
+    plain = _plain(sp.expand(s1))
+    if plain == e2:
+        return f"expanding and collecting like terms in {e1} gives {e2}, the second expression exactly."
+    return f"simplifying {e1} gives {plain}, which is the same as {e2}."
+
+
 def equivalent_item(rng, tier):
     x = sp.Symbol("x")
     for _ in range(200):
@@ -734,7 +868,7 @@ def equivalent_item(rng, tier):
     if equivalent:
         ref = (
             f"Try x = {t}: {e1} gives {v1} and {e2} gives {v2}, which match. One matching value is not enough on its "
-            f"own, so use algebra: simplifying {e1} gives {_plain(sp.expand(s1))}, which is the same as {e2}. The expressions "
+            f"own, so use algebra: {_simplifies_to(e1, e2, s1)} The expressions "
             f"are equivalent because they have the same value for every x."
         )
         crit_alg = (
@@ -760,8 +894,24 @@ def equivalent_item(rng, tier):
             1,
         )
     prompt = {
-        "easy": f"Are {e1} and {e2} equivalent expressions? Test a value of x, then explain your decision.",
-        "medium": f"Are {e1} and {e2} equivalent? Test x = {t} in both, then explain what your test shows and does not show.",
+        "easy": pick(
+            rng,
+            (
+                f"Are {e1} and {e2} equivalent expressions? Test a value of x, then explain your decision.",
+                f"Pick a value for x and use it to compare {e1} with {e2}. Are the two expressions equivalent? Explain.",
+                f"Mei says {e1} and {e2} are the same expression written two ways. Is she right? Test a value and explain.",
+            ),
+        ),
+        "medium": pick(
+            rng,
+            (
+                f"Are {e1} and {e2} equivalent? Test x = {t} in both, then explain what your test shows and does not show.",
+                f"Put x = {t} into {e1} and into {e2}. What does the result tell you about whether they are equivalent, "
+                f"and what can it not tell you?",
+                f"A student tests x = {t} on {e1} and {e2} to decide if they are equivalent. Do the test, then say how "
+                f"much it proves.",
+            ),
+        ),
         "hard": f"Decide whether {e1} and {e2} are equivalent. Explain why testing one value of x cannot prove they "
         f"are equivalent, and show the algebra that settles it.",
     }[tier]
@@ -808,56 +958,71 @@ _CONTEXTS = (
         "the number of hours worked",
         "the total charge",
         "hour",
+        (50, 60, 80, 90, 100),
+        (70, 80, 90, 100, 110),
     ),
     (
         lambda f, r: f"A taxi charges ${f} flag-fall plus ${r} for each kilometre",
         "the distance travelled",
         "the fare",
         "kilometre",
+        (3, 4, 5, 6),
+        (2, 3),
     ),
     (
         lambda f, r: f"A gym charges a ${f} joining fee plus ${r} for each week",
         "the number of weeks",
         "the total cost",
         "week",
+        (20, 30, 40, 50, 60),
+        (10, 12, 15, 18, 20),
     ),
     (
         lambda f, r: f"A phone plan costs ${f} a month plus ${r} for each gigabyte of data",
         "the gigabytes used",
         "the monthly bill",
         "gigabyte",
+        (20, 30, 40, 50),
+        (5, 8, 10, 12),
     ),
     (
         lambda f, r: f"A candle starts {f} cm tall and burns down {r % 5 + 1} cm each hour",
         "the time it has burned",
         "the height of the candle",
         "hour",
+        (20, 24, 30, 36, 40),
+        (1, 2, 3, 4, 5),
     ),
     (
         lambda f, r: f"A tank already holds {f} litres and a hose adds {r} litres each minute",
         "the time the hose has run",
         "the volume of water in the tank",
         "minute",
+        (20, 50, 80, 100, 150),
+        (5, 8, 10, 12, 15),
     ),
     (
         lambda f, r: f"A hire company charges a ${f} booking fee plus ${r} for each day of a bike hire",
         "the number of days",
         "the hire cost",
         "day",
+        (10, 15, 20, 25),
+        (15, 20, 25, 30),
     ),
     (
         lambda f, r: f"A baker sells muffins for ${r} each, and a customer also pays a ${f} delivery fee",
         "the number of muffins bought",
         "the total cost",
         "muffin",
+        (3, 4, 5, 6, 8),
+        (2, 3, 4, 5),
     ),
 )
 
 
 def _context(rng):
-    sentence, ind, dep, per = pick(rng, _CONTEXTS)
-    fee, rate = rng.randrange(5, 55, 5), rng.randint(2, 9)
-    return sentence(fee, rate), ind, dep, per
+    sentence, ind, dep, per, fees, rates = pick(rng, _CONTEXTS)
+    return sentence(pick(rng, fees), pick(rng, rates)), ind, dep, per
 
 
 def variables_name(rng):
@@ -878,14 +1043,23 @@ def variables_name(rng):
 
 
 def variables_formula(rng):
-    fee = rng.randint(2, 9) * 5
-    rate = rng.randint(2, 9)
+    fee = pick(rng, (10, 15, 20, 25))
+    rate = pick(rng, (12, 15, 18, 20, 25))
     t1, t2 = sorted(rng.sample(range(1, 9), 2))
     v1, v2 = fee + rate * t1, fee + rate * t2
     return item(
-        f"The cost C dollars of hiring a bike for d days is C = {fee} + {rate}d. Say which letter is the independent "
-        f"variable and which is the dependent variable. Use the values d = {t1} and d = {t2} to explain what it means "
-        f"for one variable to depend on the other.",
+        pick(
+            rng,
+            (
+                f"The cost C dollars of hiring a bike for d days is C = {fee} + {rate}d. Say which letter is the independent "
+                f"variable and which is the dependent variable. Use the values d = {t1} and d = {t2} to explain what it means "
+                f"for one variable to depend on the other.",
+                f"A bike hire shop uses C = {fee} + {rate}d, where d is the number of days and C the cost in dollars. "
+                f"Which letter is independent and which is dependent? Work out C for d = {t1} and d = {t2} to explain.",
+                f"In the rule C = {fee} + {rate}d for the cost of hiring a bike, explain which variable depends on the "
+                f"other, using the cases d = {t1} and d = {t2}.",
+            ),
+        ),
         f"d is the independent variable and C is the dependent variable. When d = {t1}, C = {fee} + {rate} × {t1} = {v1}. "
         f"When d = {t2}, C = {fee} + {rate} × {t2} = {v2}. Choosing a different d gives a different C, so C depends on d. "
         f"The value of d is chosen first and C is worked out from it.",
@@ -945,7 +1119,14 @@ def proportional_table(rng):
     row = ", ".join(f"x = {x}, y = {y}" for x, y in zip(xs, ys))
     show = " and ".join(f"{y} ÷ {x} = {_frac(r)}" for x, y, r in zip(xs, ys, ratios))
     return item(
-        f"A table gives these pairs of values: {row}. Is y proportional to x? Explain, using the values.",
+        pick(
+            rng,
+            (
+                f"A table gives these pairs of values: {row}. Is y proportional to x? Explain, using the values.",
+                f"Look at the pairs {row}. Decide whether y is proportional to x, and justify your answer with the numbers.",
+                f"Is the relationship in this table a proportional one? The pairs are {row}. Explain how you can tell.",
+            ),
+        ),
         f"Work out y ÷ x for each pair: {show}. "
         + (
             f"The ratio is always {k}, so y is proportional to x."
@@ -1016,10 +1197,12 @@ def proportional_context(rng):
     rate = rng.randint(2, 9)
     fee = rng.randint(2, 9)
     d1, d2 = sorted(rng.sample((2, 4, 5, 10), 2))
-    a_name, b_name = pick(rng, (("Plan A", "Plan B"), ("Shop A", "Shop B"), ("Cab A", "Cab B")))
+    a_name, b_name, noun = pick(
+        rng, (("Plan A", "Plan B", "plan"), ("Taxi A", "Taxi B", "taxi"), ("Cab A", "Cab B", "cab company"))
+    )
     return item(
         f"{a_name} charges ${rate} for each kilometre. {b_name} charges a ${fee} fee plus ${rate} for each kilometre. "
-        f"For which plan is the cost proportional to the distance? Compare the costs for {d1} km and {d2} km, and "
+        f"For which {noun} is the cost proportional to the distance? Compare the costs for {d1} km and {d2} km, and "
         f"explain.",
         f"{a_name}: {d1} km costs ${rate * d1} and {d2} km costs ${rate * d2}; cost ÷ distance is ${rate} per km each time, "
         f"and 0 km costs $0. {b_name}: {d1} km costs ${rate * d1 + fee} and {d2} km costs ${rate * d2 + fee}; cost ÷ "

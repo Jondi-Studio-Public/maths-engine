@@ -137,14 +137,16 @@ def test_equality_medium_and_hard_numbers():
             n = a + b - c
             assert f"The box must be {a + b} - {c} = {n}." in q.answer_text and n > 0
         else:
-            a, b, t, d = map(int, re.search(r"(\d+) \+ (\d+) = (\d+) \+ (\d+) is true", q.text).groups())
+            a, b, t, d = map(int, re.search(r"(\d+) \+ (\d+) = (\d+) \+ (\d+)", q.text).groups())
             assert a + b == t and f"{t} + {d} is {t + d}" in q.answer_text
         q = make("w10_explain_equality", seed=seed, difficulty="hard")
-        if q.text.startswith("Mia"):
-            a, t, b = map(int, re.search(r"x \+ (\d+) = (\d+)\. She adds (\d+)", q.text).groups())
+        if not re.search(r"\d+x \+ \d+ = \d+", q.text):
+            a, t = map(int, re.search(r"x \+ (\d+) = (\d+)", q.text).groups())
+            b = int(re.search(r"(?:adds|when) (\d+)", q.text).group(1))
             assert f"x + {a} + {b} = {t} + {b}, which is {t + b}" in q.answer_text
         else:
-            m, b, t, x = map(int, re.search(r"(\d+)x \+ (\d+) = (\d+) is true when x = (\d+)", q.text).groups())
+            m, b, t = map(int, re.search(r"(\d+)x \+ (\d+) = (\d+)", q.text).groups())
+            x = int(re.search(r"[xX] = (\d+)", q.text.replace(f"{m}x + {b} = {t}", "")).group(1))
             assert m * x + b == t and f"{m}x = {t - b}" in q.answer_text and m * x == t - b
 
 
@@ -156,12 +158,12 @@ def test_inverse_answers_solve_the_equation():
         x = sp.solve(sp.Eq(parse(left.replace("÷", "/")), int(right)), X)[0]
         assert f"Gives x = {x}." in [c["description"] for c in q.answer["criteria"]], eq
         q = make("w10_explain_inverse", seed=seed, difficulty="medium")
-        eq = re.search(r"operations in (.+?), and explain", q.text).group(1)
+        eq = re.search(r"(\d+x [+-] \d+ = \d+)", q.text).group(1)
         left, right = eq.split(" = ")
         x = sp.solve(sp.Eq(parse(left), int(right)), X)[0]
         assert q.answer_text.endswith(f"x = {x}."), eq
         q = make("w10_explain_inverse", seed=seed, difficulty="hard")
-        a, b, c = map(int, re.search(r"solves (\d+)x - (\d+) = (\d+) by", q.text).groups())
+        a, b, c = map(int, re.search(r"(\d+)x - (\d+) = (\d+)", q.text).groups())
         x = sp.solve(sp.Eq(a * X - b, c), X)[0]
         assert x.is_integer and f"x = {x}." in q.answer_text and f"{a}x = {c + b}" in q.answer_text
 
@@ -169,19 +171,19 @@ def test_inverse_answers_solve_the_equation():
 def test_solution_answers():
     for seed in range(SEEDS):
         q = make("w10_explain_solution", seed=seed, difficulty="easy")
-        v, a, b, c = map(int, re.search(r"x = (\d+) a solution of (\d+)x \+ (\d+) = (\d+)", q.text).groups())
+        a, b, c = map(int, re.search(r"(\d+)x \+ (\d+) = (\d+)", q.text).groups())
+        v = int(re.search(r"(?:x = |thinks )(\d+)", q.text).group(1))
         assert (f"x = {v} is a solution." in q.answer_text) == (a * v + b == c)
         assert f"{a} × {v} + {b} = {a * v + b}" in q.answer_text
         q = make("w10_explain_solution", seed=seed, difficulty="medium")
-        nums = list(
-            map(int, re.search(r"numbers (\d+), (\d+) and (\d+) is a solution of x \+ (\d+) = (\d+)", q.text).groups())
-        )
-        cands, a, c = nums[:3], nums[3], nums[4]
+        cands = list(map(int, re.search(r"(\d+), (\d+) and (\d+)", q.text).groups()))
+        a, c = map(int, re.search(r"x \+ (\d+) = (\d+)", q.text).groups())
         assert [n for n in cands if n + a == c] == [c - a] and f"so {c - a} is a solution" in q.answer_text
         q = make("w10_explain_solution", seed=seed, difficulty="hard")
-        m = re.search(r"x = (\d+) is a solution of x \+ (\d+) > (\d+) but x = (\d+) is not", q.text)
+        m = re.search(r"x \+ (\d+) > (\d+)", q.text)
         if m:
-            inside, a, c, outside = map(int, m.groups())
+            a, c = map(int, m.groups())
+            inside, outside = map(int, re.findall(r"\d+", q.text.replace(m.group(0), ""))[:2])
             assert inside + a > c and not outside + a > c and f"greater than {c - a}." in q.answer_text
         else:
             s = int(re.search(r"x² = (\d+)", q.text).group(1))
@@ -202,7 +204,10 @@ def test_identity_kinds_match_the_algebra():
         seen = Counter()
         for seed in range(SEEDS):
             q = make("w10_explain_identity", seed=seed, difficulty=tier)
-            eq = re.search(r"(?:Does|whether) (.+?) (?:have no solution|has no solution)", q.text).group(1)
+            eq = re.search(
+                r"(?:Does|whether|solutions|claims) (.+?) (?:have no solution|has no solution|has \(none|is true for)",
+                q.text,
+            ).group(1)
             left, right = eq.split(" = ")
             kind = _kind(parse(left), parse(right))
             assert phrase[kind] in " ".join(c["description"] for c in q.answer["criteria"]), (tier, eq, kind)
@@ -216,13 +221,16 @@ def test_identity_kinds_match_the_algebra():
 def test_check_questions_match_the_algebra():
     for seed in range(SEEDS):
         q = make("w10_explain_check", seed=seed, difficulty="easy")
-        a, b, c, v = map(int, re.search(r"solved (\d+)x \+ (\d+) = (\d+) and got x = (\d+)", q.text).groups())
+        a, b, c = map(int, re.search(r"(\d+)x \+ (\d+) = (\d+)", q.text).groups())
+        v = int(re.search(r"x = (\d+)", q.text).group(1))
         assert ("is correct" in q.answer_text) == (a * v + b == c)
         q = make("w10_explain_check", seed=seed, difficulty="medium")
-        a, b, c, d, v = map(int, re.search(r"of (\d+)x \+ (\d+) = (\d+)x \+ (\d+) is x = (\d+)", q.text).groups())
+        a, b, c, d = map(int, re.search(r"(\d+)x \+ (\d+) = (\d+)x \+ (\d+)", q.text).groups())
+        v = int(re.search(r"x = (\d+)", q.text).group(1))
         assert ("Ben is right." in q.answer_text) == (a * v + b == c * v + d)
         q = make("w10_explain_check", seed=seed, difficulty="hard")
-        a, b, c, w = map(int, re.search(r"solved (\d+)x - (\d+) = (\d+) and got x = (\d+)", q.text).groups())
+        a, b, c = map(int, re.search(r"(\d+)x - (\d+) = (\d+)", q.text).groups())
+        w = int(re.search(r"x = (\d+)", q.text).group(1))
         x = sp.solve(sp.Eq(a * X - b, c), X)[0]
         assert a * w - b != c and f"so x = {x}." in q.answer_text and x.is_integer
 
@@ -232,7 +240,8 @@ def test_equivalence_verdicts_match_the_algebra():
         seen = Counter()
         for seed in range(SEEDS):
             q = make("w10_explain_equivalent", seed=seed, difficulty=tier)
-            m = re.search(r"(?:Are|whether) (.+?) and (.+?) (?:equivalent|are equivalent)", q.text)
+            m = re.search(r"Try x = \d+: (.+?) gives -?\d+ (?:and|but) (.+?) gives", q.answer_text)
+            assert m.group(1) in q.text and m.group(2) in q.text
             e1, e2 = parse(m.group(1)), parse(m.group(2))
             equivalent = sp.expand(e1 - e2) == 0
             assert ("The expressions are equivalent" in q.answer_text) == equivalent, (tier, seed)
