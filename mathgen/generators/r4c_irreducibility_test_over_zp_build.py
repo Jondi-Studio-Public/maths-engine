@@ -88,7 +88,7 @@ def _question(rng, p, pattern, note):
             stem,
             list(pattern),
             [
-                f"Substitute x = 0, 1, ..., {p - 1}: f has {len(roots)} root{'s' if len(roots) != 1 else ''} in Z_{p}"
+                f"Substitute x = {', '.join(str(v) for v in range(p))}: f has {len(roots)} root{'s' if len(roots) != 1 else ''} in Z_{p}"
                 + (f" ({', '.join(map(str, roots))})" if roots else "")
                 + ", each giving a linear factor.",
                 note,

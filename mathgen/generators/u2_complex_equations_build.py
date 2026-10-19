@@ -91,6 +91,26 @@ def _answer(re, im):
     )
 
 
+def _signed_term(re, im, var: str = "") -> str:
+    """`` + 2z`` / `` - iz`` / `` + (3 - i)``: a complex coefficient added to an expression, as written on paper."""
+    re, im = Fraction(re), Fraction(im)
+    if im == 0:
+        sign, body = ("-" if re < 0 else "+"), _coef(abs(re), "") if var else rational_text(abs(re))
+    elif re == 0:
+        sign, body = ("-" if im < 0 else "+"), _coef(abs(im), "i")
+    else:
+        # A bracketed complex coefficient: subtract (3 + i)z rather than add (-3 - i)z.
+        if re < 0 and im < 0:
+            return f" - ({cx_text(-re, -im)}){var}"
+        return f" + ({cx_text(re, im)}){var}"
+    return f" {sign} {body}{var}"
+
+
+def _bi(b) -> str:
+    """The imaginary part's size followed by i, leaving out a coefficient of 1: ``i``, ``3i``."""
+    return "i" if b == 1 else f"{b}i"
+
+
 def _lit(re, im):
     """A complex number written in a stem, in brackets: (3 + 4i)."""
     return f"({cx_text(re, im)})"
@@ -253,14 +273,13 @@ def _hard_quadratic(rng):
     mid = sympy.nsimplify(prod)
     mid_re, mid_im = int(sympy.re(mid)), int(sympy.im(mid))
     text = (
-        f"The equation z² - {_lit(*s)}z + {_lit(mid_re, mid_im)} = 0 has two distinct roots. "
+        f"The equation z²{_signed_term(-s[0], -s[1], 'z')}{_signed_term(mid_re, mid_im)} = 0 has two distinct roots. "
         "Find the root with the larger imaginary part."
     )
     disc = cx(*s) ** 2 - 4 * prod
     working = [
-        f"The discriminant is {_lit(*s)}² - 4{_lit(mid_re, mid_im)} = {sympy.expand(disc)}, which equals ({cx_text(hi[0] - lo[0], hi[1] - lo[1])})².".replace(
-            "*I", "i"
-        ),
+        f"The discriminant is {_lit(*s)}² - 4{_lit(mid_re, mid_im)} = {cx_text(sympy.re(sympy.expand(disc)), sympy.im(sympy.expand(disc)))}, "
+        f"which equals ({cx_text(hi[0] - lo[0], hi[1] - lo[1])})².",
         f"So z = ({_lit(*s)} ± ({cx_text(hi[0] - lo[0], hi[1] - lo[1])}))/2, and the root with the larger imaginary part is {cx_text(*hi)}.",
     ]
     return dict(text=text, working=working, distractors=keep(cx_text(*hi), cands, 4), **_answer(*hi))
@@ -359,7 +378,7 @@ def exd_x_u2_complex_equations(rng, tier="exam"):
     ft_b = f"(part_a*{c} + {b * d})/{den} + I*({b * c} - part_a*{d})/{den}".replace("+ -", "- ")
     ft_c = f"{u}*part_a/{a_ + b_} + I*({v} + part_a)/{a_ - b_}"
     return dict(
-        text=f"Let k be a real number and let w = (k {'+' if b > 0 else '-'} {abs(b)}i) ÷ {_lit(c, d)}.",
+        text=f"Let k be a real number and let w = (k {'+' if b > 0 else '-'} {_bi(abs(b))}) ÷ {_lit(c, d)}.",
         parts=[
             dict(
                 prompt="Find the value of k for which the real part of w equals its imaginary part.",
@@ -368,7 +387,7 @@ def exd_x_u2_complex_equations(rng, tier="exam"):
                 answer_text=str(k),
                 marks=3,
                 working=[
-                    f"Multiplying by the conjugate: w = ((k {'+' if b > 0 else '-'} {abs(b)}i){_lit(c, -d)})/{den}.",
+                    f"Multiplying by the conjugate: w = ((k {'+' if b > 0 else '-'} {_bi(abs(b))}){_lit(c, -d)})/{den}.",
                     f"Re w = ({lin(c, b * d)})/{den} and Im w = ({lin(-d, b * c)})/{den}; equating them gives k = {k}.",
                 ],
                 distractors=keep(str(k), ka_cands),
@@ -377,7 +396,7 @@ def exd_x_u2_complex_equations(rng, tier="exam"):
                 prompt="Write w in the form x + yi for this value of k.",
                 marks=3,
                 working=[
-                    f"With k = {k}, w = ({k} {'+' if b > 0 else '-'} {abs(b)}i)({cx_text(c, -d)})/{den} = {cx_text(w_re, w_im)}."
+                    f"With k = {k}, w = ({k} {'+' if b > 0 else '-'} {_bi(abs(b))})({cx_text(c, -d)})/{den} = {cx_text(w_re, w_im)}."
                 ],
                 distractors=keep(cx_text(w_re, w_im), kb_cands),
                 follow_through=ft_b,

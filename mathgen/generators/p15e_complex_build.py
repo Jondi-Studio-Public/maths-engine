@@ -30,6 +30,8 @@ Brand new module; no existing generator is edited.
 
 from __future__ import annotations
 
+import re as _re
+
 import sympy
 from sympy import I, diff, im, re, sin, symbols
 
@@ -54,11 +56,16 @@ def _fmt(expr) -> str:
     display benefit: `expand` is idempotent on an already-expanded
     expression, so the string is unchanged for every non-trig value this
     module ever formats, and for the trig ones it is dramatically cheaper."""
-    return str(sympy.expand(expr)).replace("**", "^")
+    return _imaginary_i(str(sympy.expand(expr)).replace("**", "^"))
 
 
 def _text_fmt(expr) -> str:
-    return str(sympy.expand(expr)).replace("**", "^").replace("*", "·")
+    return _imaginary_i(str(sympy.expand(expr)).replace("**", "^").replace("*", "·"))
+
+
+def _imaginary_i(text: str) -> str:
+    """SymPy writes the imaginary unit as `I`; the stems (and a learner) write `i`."""
+    return _re.sub(r"\bI\b", "i", text)
 
 
 def _eq(a, b) -> bool:
@@ -118,6 +125,8 @@ def _quad_text(b_coef, c_coef) -> str:
 
 
 def _offer(answer, value, offered, formatted, label):
+    if _fmt(value).lstrip("-") == "i":
+        return  # a bare "i" is not a sensible value for an integral, and reads as the unit rather than a number
     if _eq(value, answer) or any(_eq(value, v) for v in offered):
         return
     offered.append(value)
@@ -130,7 +139,7 @@ _EASY_PATTERNS = [
     "Evaluate the contour integral of f(z) around C using the residue "
     "theorem, integral = 2·pi·i·Res(f, {k}).",
     "The function f(z) = {c} / (z^2 + {kk}) has simple poles at z = "
-    "+/-{kbare}. C is a positively oriented simple closed contour enclosing "
+    "±{kbare}. C is a positively oriented simple closed contour enclosing "
     "z = {k} only. Find the contour integral of f(z) around C via "
     "integral = 2·pi·i·Res(f, {k}).",
     "Given f(z) = {c} / (z^2 + {kk}), and a positively oriented simple "
@@ -144,7 +153,7 @@ _MEDIUM_PATTERNS = [
     "but not z = {conj}. Evaluate the contour integral of f(z) around "
     "C using the residue theorem.",
     "The function f(z) = {c} / ({shift}^2 + {kk}) has simple poles at "
-    "z = {p} +/- {kbare}. C is a positively oriented simple closed contour "
+    "z = {p} ± {kbare}. C is a positively oriented simple closed contour "
     "enclosing z = {pole} only. Find the contour integral of f(z) "
     "around C.",
     "Given f(z) = {c} / ({shift}^2 + {kk}), and a positively oriented "
@@ -303,7 +312,7 @@ def _p15e_contour_hard(rng):
         pole = _full_pole_text(p, k)
         text = phrase(rng, _HARD_PATTERNS, c=c, quad=quad, pole=pole)
         working = [
-            f"({pole})^2 + ({b_coef})({pole}) + ({c_coef}) = 0, confirmed by substitution.",
+            f"Substituting z = {pole} into {quad} gives 0, so it is a pole.",
             f"Res(f, {pole}) = {_text_fmt(residue)}; integral = 2πi × Res = {_text_fmt(answer)}.",
         ]
         return dict(

@@ -61,6 +61,11 @@ _T = symbols("t", real=True)
 _XI = symbols("xi", real=True)
 
 
+def _n_pi(n: int) -> str:
+    """``pi`` for n = 1, ``3pi`` for n = 3 (never ``1pi``)."""
+    return "pi" if n == 1 else f"{n}pi"
+
+
 def _fmt(expr) -> str:
     """Display only -- every caller already passes a fully `sympy.expand`-ed
     value, so this stringifies rather than re-simplifies it (see
@@ -448,7 +453,7 @@ def _p15e_wave_easy(rng):
             continue
 
         text = phrase(rng, _EASY_WAVE_PATTERNS, c=c, n=n, ic_words=ic_words)
-        working = [f"u_n(x,t) = 1 x sin({fmt_signed(n, 'x')}) cos({n}x{c}xt) = {_text_fmt(answer)}."]
+        working = [f"u_n(x,t) = sin({fmt_signed(n, 'x')}) cos({n} × {c} × t) = {_text_fmt(answer)}."]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
         )
@@ -485,7 +490,7 @@ def _p15e_wave_medium(rng):
             continue
 
         text = phrase(rng, _MEDIUM_WAVE_PATTERNS, c=c, n=n, L=L, coeff=coeff, ic_words=ic_words)
-        working = [f"u_n(x,t) = {coeff} x sin({n}pi x/{L}) cos({n}pi x{c}xt/{L}) = {_text_fmt(answer)}."]
+        working = [f"u_n(x,t) = {coeff} × sin({_n_pi(n)} x/{L}) cos({_n_pi(n)} × {c} × t/{L}) = {_text_fmt(answer)}."]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
         )
@@ -522,7 +527,7 @@ def _p15e_wave_hard(rng):
             continue
 
         text = phrase(rng, _HARD_WAVE_PATTERNS, c=c, n=n, L=L, coeff=coeff, ic_words=ic_words)
-        working = [f"u_n(x,t) = {coeff} x cos({n}pi x/{L}) sin({n}pi x{c}xt/{L}) = {_text_fmt(answer)}."]
+        working = [f"u_n(x,t) = {coeff} × cos({_n_pi(n)} x/{L}) sin({_n_pi(n)} × {c} × t/{L}) = {_text_fmt(answer)}."]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
         )

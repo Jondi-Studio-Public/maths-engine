@@ -24,6 +24,7 @@ the separated mode).
 from __future__ import annotations
 
 import functools
+import re
 
 import sympy as sp
 from sympy import I, cos, exp, pi, sin, symbols
@@ -91,6 +92,7 @@ def _same_value(left, right) -> bool:
 from ..core import (
     check,
     fmt_signed,
+    join_terms,
     generator,
     phrase,
     pick_distractors,
@@ -130,6 +132,21 @@ def _text_fmt(value) -> str:
     and a bare "*" -> "·" so neither the `double_star` nor the
     `star_operator` pattern fires."""
     return str(simplify(value)).replace("**", "^").replace("*", "·")
+
+
+def _work_fmt(value) -> str:
+    """`_text_fmt` for a worked line: the imaginary unit is written `i`, as in the stem a learner reads."""
+    return _imaginary_i(_text_fmt(value))
+
+
+def _im(k: int) -> str:
+    """``i`` for 1, ``3i`` for 3: an imaginary number written the way a learner writes it, never ``1i``."""
+    return "i" if k == 1 else f"{k}i"
+
+
+def _imaginary_i(text: str) -> str:
+    """SymPy writes the imaginary unit as `I`; the stems (and a learner) write `i`."""
+    return re.sub(r"\bI\b", "i", text)
 
 
 def _check_collisions(answer, value, offered, label):
@@ -232,7 +249,7 @@ def _p13e_residue_easy(rng):
             continue
 
         text = phrase(rng, _EASY_PATTERNS, a=a, b=b, c=c)
-        working = [f"Res(f, {a}) = lim_(z->{a}) (z - ({a})) f(z) = {c} / (({a}) - ({b})) = {_text_fmt(answer)}."]
+        working = [f"Res(f, {a}) = lim_(z->{a}) (z - ({a})) f(z) = {c} / (({a}) - ({b})) = {_work_fmt(answer)}."]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
         )
@@ -265,7 +282,7 @@ def _p13e_residue_medium(rng):
 
         text = phrase(rng, _MEDIUM_PATTERNS, a=a, b=b, r=r)
         working = [
-            f"Res(f, {a}) = lim_(z->{a}) (z - ({a})) f(z) = (({a}) - ({r})) / (({a}) - ({b})) = {_text_fmt(answer)}."
+            f"Res(f, {a}) = lim_(z->{a}) (z - ({a})) f(z) = (({a}) - ({r})) / (({a}) - ({b})) = {_work_fmt(answer)}."
         ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
@@ -298,7 +315,9 @@ def _p13e_residue_hard(rng):
             continue
 
         text = phrase(rng, _HARD_PATTERNS, c=c, k=k)
-        working = [f"z^2 + {k}^2 = (z - {k}i)(z + {k}i), so Res(f, {k}i) = {c} / (2 x {k}i) = {_text_fmt(answer)}."]
+        working = [
+            f"z^2 + {k * k} = (z - {_im(k)})(z + {_im(k)}), so Res(f, {_im(k)}) = {c} / ({_im(2 * k)}) = {_work_fmt(answer)}."
+        ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
         )
@@ -365,9 +384,9 @@ def _p13e_residue_exam(rng):
 
         text = phrase(rng, _EXAM_PATTERNS, r=r, b_coef=b_coef, c_coef=c_coef, w1=w1_text, w2=w2_text)
         working = [
-            f"Substitute each candidate into z^2 + ({b_coef})z + ({c_coef}): only "
-            f"z = {_text_fmt(w_true)} satisfies it (its conjugate is {_text_fmt(w_conj)}).",
-            f"Res(f, {_text_fmt(w_true)}) = (({_text_fmt(w_true)}) - ({r})) / (2i x {q}) = {_text_fmt(answer)}.",
+            f"Substitute each candidate into {join_terms([(1, 'z^2'), (b_coef, 'z'), (c_coef, '')])}: only "
+            f"z = {_work_fmt(w_true)} satisfies it (its conjugate is {_work_fmt(w_conj)}).",
+            f"Res(f, {_work_fmt(w_true)}) = (({_work_fmt(w_true)}) - ({r})) / (2i × {q}) = {_work_fmt(answer)}.",
         ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
@@ -568,7 +587,7 @@ def _p13e_heat_easy(rng):
             continue
 
         text = phrase(rng, _EASY_HEAT_PATTERNS, alpha=alpha, n=n)
-        working = [f"u_n(x,t) = 1 x sin({fmt_signed(n, 'x')}) exp(-{alpha} x {n}^2 x t) = {_heat_text_fmt(answer)}."]
+        working = [f"u_n(x,t) = 1 × sin({fmt_signed(n, 'x')}) exp(-{alpha} × {n}^2 × t) = {_heat_text_fmt(answer)}."]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
         )
@@ -600,7 +619,7 @@ def _p13e_heat_medium(rng):
 
         text = phrase(rng, _MEDIUM_HEAT_PATTERNS, alpha=alpha, n=n, L=L, coeff=coeff)
         working = [
-            f"u_n(x,t) = {coeff} x sin({n} pi x / {L}) exp(-{alpha} x {n}^2 pi^2 t / {L}^2) = {_heat_text_fmt(answer)}."
+            f"u_n(x,t) = {coeff} × sin({n} pi x / {L}) exp(-{alpha} × {n}^2 pi^2 t / {L}^2) = {_heat_text_fmt(answer)}."
         ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors
@@ -633,7 +652,7 @@ def _p13e_heat_hard(rng):
 
         text = phrase(rng, _HARD_HEAT_PATTERNS, alpha=alpha, n=n, L=L, coeff=coeff)
         working = [
-            f"u_n(x,t) = {coeff} x cos({n} pi x / {L}) exp(-{alpha} x {n}^2 pi^2 t / {L}^2) = {_heat_text_fmt(answer)}."
+            f"u_n(x,t) = {coeff} × cos({n} pi x / {L}) exp(-{alpha} × {n}^2 pi^2 t / {L}^2) = {_heat_text_fmt(answer)}."
         ]
         return dict(
             text=text, latex=text, answer=answer_text, answer_text=answer_text, working=working, distractors=distractors

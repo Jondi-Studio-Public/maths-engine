@@ -28,6 +28,7 @@ from ..core import (
     check_pairwise_distinct,
     generator,
     join_terms,
+    paren_negative,
     phrase,
     pick_distractors,
 )
@@ -186,12 +187,14 @@ def _p12e_recurrence_forward(rng, *, target_index):
     text = phrase(rng, _FORWARD_PATTERNS, expr=expr, a1=a1, a2=a2, target=target_index)
 
     if target_index == 3:
-        working = [f"a_3 = ({p}) × ({a2}) + ({q}) × ({a1}) = {answer}."]
+        working = [
+            f"a_3 = {paren_negative(p)} × {paren_negative(a2)} + {paren_negative(q)} × {paren_negative(a1)} = {answer}."
+        ]
     else:
         a3_value = _independent_forward_term(p, q, a1, a2, 3)
         working = [
-            f"a_3 = ({p}) × ({a2}) + ({q}) × ({a1}) = {a3_value}.",
-            f"a_4 = ({p}) × ({a3_value}) + ({q}) × ({a2}) = {answer}.",
+            f"a_3 = {paren_negative(p)} × {paren_negative(a2)} + {paren_negative(q)} × {paren_negative(a1)} = {a3_value}.",
+            f"a_4 = {paren_negative(p)} × {paren_negative(a3_value)} + {paren_negative(q)} × {paren_negative(a2)} = {answer}.",
         ]
 
     return dict(
@@ -249,8 +252,8 @@ def _p12e_recurrence_inverse(rng, *, q_pool=_Q_RANGE, three_terms=False):
 
             text = phrase(rng, _INVERSE_PATTERNS, expr=_recurrence_expr(p, q), a2=a2, a3=a3)
             working = [
-                f"a_3 = ({p}) × a_2 + ({q}) × a_1, so ({a3}) = ({p}) × ({a2}) + ({q}) × a_1.",
-                f"a_1 = (({a3}) - ({p}) × ({a2})) / ({q}) = {answer}.",
+                f"a_3 = {paren_negative(p)} × a_2 + {paren_negative(q)} × a_1, so {a3} = {paren_negative(p)} × {paren_negative(a2)} + {paren_negative(q)} × a_1.",
+                f"a_1 = ({paren_negative(a3)} - {paren_negative(p)} × {paren_negative(a2)}) / {paren_negative(q)} = {answer}.",
             ]
             return dict(
                 text=text,
@@ -314,7 +317,7 @@ def _p12e_recurrence_inverse(rng, *, q_pool=_Q_RANGE, three_terms=False):
         )
         working = [
             f"Check each pair against a_3 = p × a_2 + q × a_1: only p = {p}, q = {q} reproduces a_3 = {a3}.",
-            f"a_4 = ({p}) × ({a3}) + ({q}) × ({a2}) = {answer}.",
+            f"a_4 = {paren_negative(p)} × {paren_negative(a3)} + {paren_negative(q)} × {paren_negative(a2)} = {answer}.",
         ]
         return dict(
             text=text,
@@ -417,13 +420,13 @@ _MEDIUM_ROOTS_PATTERNS = [
 
 _HARD_ROOTS_PATTERNS = [
     "{ode} = 0. The characteristic equation {char} = 0 has complex conjugate "
-    "roots a + k*i and a - k*i, where k is the coefficient of i in the root "
+    "roots a + ki and a - ki, where k is the coefficient of i in the root "
     "with the POSITIVE imaginary part. Find a (real_part) and k (imaginary_part).",
     "The characteristic equation {char} = 0 of {ode} = 0 has complex conjugate "
-    "roots. Writing them as a + k*i and a - k*i with k > 0, find the real part a "
+    "roots. Writing them as a + ki and a - ki with k > 0, find the real part a "
     "and the imaginary part k.",
     "Solve {char} = 0 (the characteristic equation of {ode} = 0) for its complex "
-    "conjugate roots a +/- k*i, taking k to be positive, and report a (real_part) "
+    "conjugate roots a ± ki, taking k to be positive, and report a (real_part) "
     "and k (imaginary_part).",
 ]
 
@@ -487,7 +490,7 @@ def _p12e_characteristic_roots_easy(rng):
         char = _char_expr(b, c)
         text = phrase(rng, _EASY_ROOTS_PATTERNS, ode=ode, char=char)
         working = [
-            f"r^2 + ({b})r + ({c}) = 0 factors as (r - ({r1}))(r - ({r2})) = 0.",
+            f"{char} = 0 factors as ({join_terms([(1, 'r'), (-r1, '')])})({join_terms([(1, 'r'), (-r2, '')])}) = 0.",
             f"r1 = {r1}, r2 = {r2}.",
         ]
         return dict(
@@ -540,8 +543,8 @@ def _p12e_characteristic_roots_medium(rng):
         char = _char_expr(b, c)
         text = phrase(rng, _MEDIUM_ROOTS_PATTERNS, ode=ode, char=char)
         working = [
-            f"Discriminant = ({b})^2 - 4 × ({c}) = 0, so the root is repeated.",
-            f"r1 = r2 = -({b})/2 = {r}.",
+            f"Discriminant = {paren_negative(b)}^2 - 4 × {paren_negative(c)} = 0, so the root is repeated.",
+            f"r1 = r2 = -{paren_negative(b)}/2 = {r}.",
         ]
         return dict(
             text=text,
@@ -596,8 +599,8 @@ def _p12e_characteristic_roots_hard(rng):
         char = _char_expr(b, c)
         text = phrase(rng, _HARD_ROOTS_PATTERNS, ode=ode, char=char)
         working = [
-            f"Discriminant = ({b})^2 - 4 × ({c}) = {b * b - 4 * c} < 0.",
-            f"Roots = (-({b}) +/- sqrt({b * b - 4 * c})) / 2 = {a} +/- {k}i.",
+            f"Discriminant = {paren_negative(b)}^2 - 4 × {paren_negative(c)} = {b * b - 4 * c} < 0.",
+            f"Roots = (-{paren_negative(b)} ± √({b * b - 4 * c})) / 2 = {a} ± {'i' if k == 1 else f'{k}i'}.",
         ]
         return dict(
             text=text,
@@ -659,8 +662,8 @@ def _p12e_characteristic_roots_exam(rng):
 
         text = phrase(rng, _EXAM_ROOTS_PATTERNS, r1=r1, r2=r2)
         working = [
-            f"b = -(r1 + r2) = -(({r1}) + ({r2})) = {b}.",
-            f"c = r1 × r2 = ({r1}) × ({r2}) = {c}.",
+            f"b = -(r1 + r2) = -({r1} + {paren_negative(r2)}) = {b}.",
+            f"c = r1 × r2 = {paren_negative(r1)} × {paren_negative(r2)} = {c}.",
         ]
         return dict(
             text=text,

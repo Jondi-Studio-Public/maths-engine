@@ -105,7 +105,7 @@ def exd_x_r3h_force_work(rng, tier="exam"):
                     1,
                     3,
                     [
-                        f"The resistance does {resist} x {big_x} = {resist * big_x} J of negative work.",
+                        f"The resistance does {resist} × {big_x} = {resist * big_x} J of negative work.",
                         f"v^2 = {v}^2 - 2({resist * big_x})/{m} = {w * w}, so v = {w}.",
                     ],
                     [

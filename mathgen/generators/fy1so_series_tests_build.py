@@ -39,6 +39,11 @@ TOPIC = "fy1so_series_tests"
 EXAM_TOPIC = "fy1so_exd_series_tests"
 
 
+def _coef(k: int) -> str:
+    """A coefficient written before a variable: nothing for 1, ``-`` for -1."""
+    return "" if k == 1 else "-" if k == -1 else str(k)
+
+
 def _slope(term, ns=(10**5, 10**6)) -> float:
     """-d log a_n / d log n between two large n: the exponent p a term behaves like."""
     a, b = (math.log(abs(term(n))) for n in ns)
@@ -125,16 +130,15 @@ def _medium_rational(rng: random.Random):
 
     check(abs(_slope(a) - p) < 1e-4, "the comparison series has the wrong exponent")
     check(abs(a(10**7) * 10**14 - float(limit)) < 1e-5, "the limit disagrees with a_n n^2")
-    top = f"{u}n^{{{numerator_degree}}}" if numerator_degree > 1 else f"{u}n"
-    top = top.replace("1n", "n")
+    top = f"{_coef(u)}n^{{{numerator_degree}}}" if numerator_degree > 1 else f"{_coef(u)}n"
     lower = (
-        f"{v}n^{{{numerator_degree - 1}}}"
+        f"{_coef(v)}n^{{{numerator_degree - 1}}}"
         if numerator_degree - 1 > 1
-        else f"{v}n"
+        else f"{_coef(v)}n"
         if numerator_degree - 1 == 1
         else str(v)
     )
-    bottom = f"{s}n^{{{denominator_degree}}} + {w}"
+    bottom = f"{_coef(s)}n^{{{denominator_degree}}} + {w}"
     wrongs = [
         (Fraction(s, u), "series-limit-inverted"),
         (Fraction(u), "series-denominator-coefficient-dropped"),

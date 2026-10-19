@@ -27,6 +27,22 @@ from ._exd_x_r3h_kit import number_part
 X = sympy.Symbol("x")
 
 
+def _value_line(n: int, coeffs: list[int]) -> str:
+    """``n^4 - 3 × n^3 + 7 × n^2 ...`` for the polynomial with these coefficients, high power first, zeros dropped."""
+    top = len(coeffs) - 1
+    out = ""
+    for i, coef in enumerate(coeffs):
+        power = top - i
+        if coef == 0:
+            continue
+        base = pn(n)
+        factor = "" if power == 0 else (base if power == 1 else f"{base}^{power}")
+        mag = abs(coef)
+        body = str(mag) if not factor else (factor if mag == 1 else f"{mag} × {factor}")
+        out += (body if coef > 0 else f"-{body}") if not out else f" {'+' if coef > 0 else '-'} {body}"
+    return out
+
+
 @generator("exd_x_r3h_ideal_unknown_coefficients", level=18, presets={"exam": dict(tier="exam")})
 @distinct_part_answers
 def exd_x_r3h_ideal_unknown_coefficients(rng, tier="exam"):
@@ -75,8 +91,8 @@ def exd_x_r3h_ideal_unknown_coefficients(rng, tier="exam"):
                     0,
                     3,
                     [
-                        f"Since f is in I, f = g(x)(x^2 + q1 x + q0). Comparing constant terms, {t} q0 = {c}, so q0 = {q0}.",
-                        f"Comparing x^3 terms gives q1 = {a} - ({s}) = {q1}; the x^2 term gives h = q0 + ({s})q1 + {pn(t)} = {h}.",
+                        f"Since f is in I, f = g(x)(x^2 + q1 x + q0). Comparing constant terms, {join_terms([(t, 'q0')])} = {c}{'' if t == 1 else f', so q0 = {q0}'}.",
+                        f"Comparing x^3 terms gives q1 = {a} - {pn(s)} = {q1}; the x^2 term gives h = {join_terms([(1, 'q0'), (s, 'q1'), (t, '')])} = {h}.",
                     ],
                     [
                         (wrong_h, "sign-slip-in-formula"),
@@ -92,7 +108,9 @@ def exd_x_r3h_ideal_unknown_coefficients(rng, tier="exam"):
                     ff(k),
                     0,
                     3,
-                    [f"The x term gives k = ({s})q0 + ({t})q1 = {join_terms([(s * q0, ''), (t * q1, '')])} = {k}."],
+                    [
+                        f"The x term gives k = {join_terms([(s, 'q0'), (t, 'q1')])} = {join_terms([(s * q0, ''), (t * q1, '')])} = {k}."
+                    ],
                     [
                         (wrong_k, "sign-slip-in-formula"),
                         (s * q0 - t * q1, "sign-error-moving-term"),
@@ -108,7 +126,7 @@ def exd_x_r3h_ideal_unknown_coefficients(rng, tier="exam"):
                     ff(value),
                     0,
                     2,
-                    [f"f({n}) = ({n})^4 + ({a})({n})^3 + ({h})({n})^2 + ({k})({n}) + ({c}) = {value}."],
+                    [f"f({n}) = {_value_line(n, [1, a, h, k, c])} = {value}."],
                     [
                         (int(q.subs(X, n)), "gave-factor-value-for-product-value"),
                         (value - k * n, "omitted-entry-in-total"),

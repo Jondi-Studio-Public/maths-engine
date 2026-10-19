@@ -7,7 +7,7 @@ that skill takes one (or two) exact, purely DETERMINISTIC explicit-Euler
 step(s) for ``y' = lambda*y + forcing``: ``y1 = y0 + h*(lambda*y0 +
 forcing)``. This skill supplies the SAME deterministic quantities plus a
 diffusion term built from a supplied, stated noise value ``dW`` (never
-sampled/simulated -- the "Brownian-path generation" exclusion) and asks for
+sampled/simulated — the "Brownian-path generation" exclusion) and asks for
 one Euler-Maruyama update of ``dY = (lambda*Y + forcing) dt + sigma dW``:
 
     Y1 = Y0 + h*(lambda*Y0 + forcing) + sigma*dW
@@ -91,8 +91,8 @@ _EXAM_TEMPLATES = (
     "Y(2h).",
     "For dY = ({lam})Y dt + ({forcing}) dt + σ(Y) dW with σ(Y) = ({k})Y "
     "(diffusion scales with the current value), starting at Y(0) = {y0}, "
-    "chain two Euler-Maruyama steps of size h = {h} -- re-evaluating drift "
-    "and diffusion at Y1 for the second step -- with stated noise values "
+    "chain two Euler-Maruyama steps of size h = {h} — re-evaluating drift "
+    "and diffusion at Y1 for the second step — with stated noise values "
     "ΔW1 = {dW1} and ΔW2 = {dW2}. Give Y(2h).",
 )
 
@@ -240,7 +240,7 @@ def _build_easy(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Deterministic part: Y0 + h*(λY0+c) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
+            f"Deterministic part: Y0 + h × (drift evaluated at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
             f"Diffusion part: σ·ΔW = ({rational_text(sigma)})·({rational_text(dw)}) = {rational_text(sigma * dw)}.",
             f"Y1 = {join_terms([(det, ''), (sigma * dw, '')])} = {answer_text}.",
         ],
@@ -278,7 +278,7 @@ def _build_medium(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Deterministic part: Y0 + h*(λY0+c) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
+            f"Deterministic part: Y0 + h × (drift evaluated at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
             f"Diffusion part: σ·ΔW = ({rational_text(sigma)})·({rational_text(dw)}) = {rational_text(sigma * dw)}.",
             f"Y1 = {join_terms([(det, ''), (sigma * dw, '')])} = {answer_text}.",
         ],
@@ -310,7 +310,7 @@ def _build_hard(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Deterministic part: Y0 + h*(λY0+c) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
+            f"Deterministic part: Y0 + h × (drift evaluated at Y0) = {y0} + ({rational_text(h)})({lam * y0 + forcing}) = {rational_text(det)}.",
             f"σ(Y0) = ({k})·{y0} = {rational_text(sigma_val)}; diffusion part = ({rational_text(sigma_val)})·({rational_text(dw)}) = {rational_text(sigma_val * dw)}.",
             f"Y1 = {join_terms([(det, ''), (sigma_val * dw, '')])} = {answer_text}.",
         ],

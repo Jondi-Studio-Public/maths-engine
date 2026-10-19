@@ -25,6 +25,25 @@ from sympy import symbols, simplify
 from ..core import check, check_distinct, check_equivalent, generator, pick_distractors
 
 
+def _substituted(terms) -> str:
+    """The working line for ``sum(c * factor)`` once t is replaced: ``3 × 2 + 7``, ``2 × 3^2 - 5 × 3 - 4``.
+
+    `terms` is ``[(coefficient, factor_or_None), ...]``; a zero coefficient is dropped and a coefficient of 1 is
+    not written, so a power or a product never glues onto a digit (``4t`` at t = 4 is ``4 × 4``, never ``44``).
+    """
+    out = ""
+    for coef, factor in terms:
+        if coef == 0:
+            continue
+        mag = abs(coef)
+        body = str(mag) if factor is None else (factor if mag == 1 else f"{mag} × {factor}")
+        if not out:
+            out = body if coef > 0 else f"-{body}"
+        else:
+            out += f" {'+' if coef > 0 else '-'} {body}"
+    return out or "0"
+
+
 def _fmt_signed_term(coef: int, var: str) -> str:
     """Format a single term with its sign word.
 
@@ -372,8 +391,6 @@ def consider_position_of_vectors_as_a_function_of(rng, tier="easy"):
             f"x = {sign_error_x}, y = {sign_error_y}",
         ]
 
-        p_signed = _fmt_signed_term(p, "")
-        q_signed = _fmt_signed_term(q, "")
         time_unit = "second" if t0 == 1 else "seconds"
 
         x_comp = _fmt_component_linear(a, p)
@@ -391,7 +408,7 @@ def consider_position_of_vectors_as_a_function_of(rng, tier="easy"):
             answer_text=answer_text,
             working=[
                 f"r(t) = ({x_comp}, {y_comp})",
-                f"At t = {t0}: r({t0}) = ({a} × {t0} {p_signed}, {c} × {t0} {q_signed})",
+                f"At t = {t0}: r({t0}) = ({_substituted([(a, str(t0)), (p, None)])}, {_substituted([(c, str(t0)), (q, None)])})",
                 f"= ({x0}, {y0})",
             ],
             distractors=pick_distractors(answer_text, distractor_strs),
@@ -462,8 +479,8 @@ def consider_position_of_vectors_as_a_function_of(rng, tier="easy"):
             answer_text=answer_text,
             working=[
                 f"r(t) = ({x_comp}, {y_comp})",
-                f"At t = {t0}: r({t0}) = ({a} × {t0}^2 {_fmt_signed_term(b, str(t0))} {_fmt_signed_term(p, '')}, "
-                f"{c} × {t0}^2 {_fmt_signed_term(d, str(t0))} {_fmt_signed_term(q, '')})",
+                f"At t = {t0}: r({t0}) = ({_substituted([(a, f'{t0}^2'), (b, str(t0)), (p, None)])}, "
+                f"{_substituted([(c, f'{t0}^2'), (d, str(t0)), (q, None)])})",
                 f"= ({x0}, {y0})",
             ],
             distractors=pick_distractors(answer_text, distractor_strs),

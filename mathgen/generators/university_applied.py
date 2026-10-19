@@ -89,6 +89,11 @@ def convex_quadratic_minimum(rng, coefficient_hi=8, linear_hi=12, constant_hi=12
     )
 
 
+def _shifted(var: str, value: int) -> str:
+    """``x − 3`` or ``x + 3``: a variable minus a signed number, never ``x−-3``."""
+    return f"{var} − {value}" if value >= 0 else f"{var} + {-value}"
+
+
 @generator(
     "lagrange_constrained_point",
     level=17,
@@ -165,7 +170,7 @@ def lagrange_constrained_point(rng, coordinate_hi=7, coefficient_hi=7, kind=None
             answer_latex=answer_text,
             working=[
                 f"Convert to normal form: {join_terms([(p, 'x'), (-q, 'y')]).replace('-', '−')} = {rhs}.",
-                f"The displacement is normal to the line: (x−{target_x}, y−{target_y}) = λ({u}, {v}).",
+                f"The displacement is normal to the line: ({_shifted('x', target_x)}, {_shifted('y', target_y)}) = λ({u}, {v}).",
                 f"Solving the constraint gives (x, y) = ({x_star}, {y_star}).",
             ],
             # GRADER_TOLERANCE: this is a `pair` answer, and grade_pair accepts a
@@ -188,7 +193,7 @@ def lagrange_constrained_point(rng, coordinate_hi=7, coefficient_hi=7, kind=None
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"The displacement is normal to the line: (x−{target_x}, y−{target_y}) = λ({u}, {v}).",
+            f"The displacement is normal to the line: ({_shifted('x', target_x)}, {_shifted('y', target_y)}) = λ({u}, {v}).",
             f"Solving the constraint gives (x, y) = ({x_star}, {y_star}).",
         ],
         # GRADER_TOLERANCE: this is a `pair` answer, and grade_pair accepts a

@@ -55,6 +55,17 @@ _STEMS = (
 _THINGS = ("drones", "boats", "jet skis", "go-karts")
 
 
+def _root_factor(r: int) -> str:
+    """The factor of a quadratic with root r: ``(t - 2)``, ``(t + 3)`` or ``t`` for a root at 0."""
+    return "t" if r == 0 else f"(t {'-' if r > 0 else '+'} {abs(r)})"
+
+
+def _linear_at(m: int, t: int, c: int) -> str:
+    """``m t + c`` evaluated at t, as working: ``4 × 2 - 5``, ``-3 × 2``."""
+    out = f"{m} × {t}"
+    return out if c == 0 else f"{out} {'+' if c > 0 else '-'} {abs(c)}"
+
+
 def _whole(prompt, value, kind, marks, working, wrong, follow=None, places=None, sensible=False):
     """A whole-number part (`fraction` kind, so a follow-through value stays exact) or a 1 d.p. `number` part."""
     if places is None:
@@ -152,7 +163,8 @@ def exd_x_r2c_collision(rng, tier: str = "exam"):
         "number",
         2,
         [
-            f"Equate the x-components: {e}t² + ({f})t + ({g}) = {u}t + ({p}), so {e}(t - {t_star})(t - ({t_other})) = 0.",
+            f"Equate the x-components: {join_terms([(e, 't²'), (f, 't'), (g, '')])} = {join_terms([(u, 't'), (p, '')])}, "
+            f"so {'' if e == 1 else e}{_root_factor(t_star)}{_root_factor(t_other)} = 0.",
             f"Only t = {t_star} gives t > 0, and the y-components also agree there.",
         ],
         [
@@ -167,7 +179,7 @@ def exd_x_r2c_collision(rng, tier: str = "exam"):
         cx,
         "fraction",
         1,
-        [f"x = {u}·{t_star} + ({p}) = {cx}."],
+        [f"x = {_linear_at(u, t_star, p)} = {cx}."],
         [
             (ax(t_other), "wrong-root-chosen"),
             (f * t_star + g, "dropped-the-squared-term"),
@@ -181,7 +193,7 @@ def exd_x_r2c_collision(rng, tier: str = "exam"):
         cy,
         "fraction",
         1,
-        [f"y = {v}·{t_star} + ({q}) = {cy}."],
+        [f"y = {_linear_at(v, t_star, q)} = {cy}."],
         [
             (ay(t_other), "wrong-root-chosen"),
             (v * t_star, "dropped-constant-term"),
@@ -196,7 +208,7 @@ def exd_x_r2c_collision(rng, tier: str = "exam"):
         "number",
         2,
         [
-            f"v_B(t) = ({2 * e}t + ({f}), {w}); at t = {t_star} this is ({vb_x}, {w}).",
+            f"v_B(t) = ({join_terms([(2 * e, 't'), (f, '')])}, {w}); at t = {t_star} this is ({vb_x}, {w}).",
             f"Speed = √({paren_negative(vb_x)}² + {paren_negative(w)}²) = {int(speed_b)} m/s.",
         ],
         [

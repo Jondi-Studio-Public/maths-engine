@@ -28,6 +28,11 @@ from ..core import check, check_equivalent, generator, rational_text
 # gamma(t) = e^{2 pi i t}.
 
 
+def _exp(n: int) -> str:
+    """An exponent written as plain text: ``4``, or ``(-4)`` for a negative power."""
+    return f"({n})" if n < 0 else str(n)
+
+
 def _zero_map_text() -> str:
     return "the zero map"
 
@@ -191,7 +196,7 @@ def p15b_fundamental_group_map(rng, m_lo=1, m_hi=2, allow_zero=False, allow_inte
             "and the induced map on pi_1(S^1) must be the zero map."
         ]
     else:
-        working = [f"f(z) = z^{{{true_n}}} has degree {true_n}, so f induces {answer_text} on pi_1(S^1) = Z."]
+        working = [f"f(z) = z^{_exp(true_n)} has degree {true_n}, so f induces {answer_text} on pi_1(S^1) = Z."]
 
     return dict(
         text=text,

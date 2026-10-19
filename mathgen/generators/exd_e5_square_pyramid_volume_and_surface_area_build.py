@@ -136,7 +136,7 @@ _MEDIUM_TEMPLATES = (
     "cm², showing the slant height as a separate step in your working.",
     "A pyramid with a square base has a base side length of {s} cm and a perpendicular "
     "height of {h} cm. Work out the pyramid's volume, in cm³, and its total surface "
-    "area, in cm² -- show the slant height as a separate working step.",
+    "area, in cm² — show the slant height as a separate working step.",
     "A square-based pyramid has a base side length of {s} cm and a perpendicular height "
     "of {h} cm. Calculate the pyramid's volume, in cm³, and its total surface area, "
     "in cm², showing the slant height as its own separate step.",
@@ -148,7 +148,7 @@ _HARD_TEMPLATES = (
     "steps.",
     "A pyramid with a square base has a base area of {area} cm² and a perpendicular "
     "height of {h} cm. Work out the pyramid's volume, in cm³, and its total surface "
-    "area, in cm² -- first find the base side length, then the slant height, showing "
+    "area, in cm² — first find the base side length, then the slant height, showing "
     "both as separate steps.",
     "A square-based pyramid has a base area of {area} cm² and a perpendicular "
     "height of {h} cm. Calculate the pyramid's volume, in cm³, and its total surface "

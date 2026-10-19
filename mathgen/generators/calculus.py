@@ -359,7 +359,10 @@ def integration(rng, kinds=("polynomial", "trig"), max_pow=5):
             answer=ans_out,
             answer_text=ans_text,
             answer_latex=ans_text,
-            working=[f"F(x) = {_poly([(Rational(c, p + 1), p + 1) for c, p in ts])}", f"F({b_}) - F({a_}) = {ans_out}"],
+            working=[
+                f"F(x) = {_poly([(Rational(c, p + 1), p + 1) for c, p in ts])}",
+                f"F({b_}) - F({a_}) = {ans_text}",
+            ],
             distractors=pick_distractors(ans_text, cands),
         )
     if kind == "substitution":
