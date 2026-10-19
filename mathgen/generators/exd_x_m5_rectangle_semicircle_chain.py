@@ -56,6 +56,8 @@ def exd_x_m5_rectangle_semicircle_chain(rng, tier: str = "exam") -> dict:
     for _ in attempts(1000, "a shape whose answers agree along every rounding route"):
         w = rng.randint(4, 16)
         h = Fraction(rng.randint(20, 120), 10)
+        if 2 * h < w:  # a rectangle much shorter than half its width makes an implausible pool, stage or bed
+            continue
         semi = PI * w * w / 8
         total = rounded(w * h + semi, 1)
         semi1 = rounded(semi, 1)

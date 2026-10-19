@@ -40,7 +40,7 @@ _END = {2: "C", 3: "D", 4: "E"}
 _STEMS = (
     "In a circle with centre O and radius {r} {u}, the chords {names} are equal in length, each {c} {u} long.",
     "O is the centre of a circle of radius {r} {u}. The chords {names} each have length {c} {u}.",
-    "A circular lookout platform has centre O and radius {r} {u}. Rails {names} are chords of the circle, each "
+    "A circular metal disc has centre O and radius {r} {u}. Grooves {names} are chords of the circle, each "
     "{c} {u} long.",
 )
 _UNITS = ("cm", "m", "cm")

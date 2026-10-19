@@ -120,6 +120,7 @@ from ..core import (
     numeric_answer,
     phrase,
     pick_distractors,
+    exact_decimal_string,
     rational_text,
     round_half_up,
     rounds_unambiguously,
@@ -328,6 +329,28 @@ def _drop_if_collides1(raw: Fraction, dp: int, answer_rounded: Fraction) -> str 
     return stated_precision_string(rounded, dp)
 
 
+def _prob_working(shape: str, k: Fraction, c: int, d: int, p: int, q: int, raw: Fraction, dp: int) -> str:
+    """The line that evaluates P(p < X < q) by integrating the density, with the exact value then the rounded one."""
+    u, v = q - c, p - c
+    answer_text = stated_precision_string(round_half_up(raw, dp), dp)
+    if shape == "uniform":
+        return (
+            f"P({p} < X < {q}) = ({q} − {p}) × {rational_text(k)} = {rational_text(raw)} = {answer_text} "
+            f"(to {dp} decimal place{'s' if dp != 1 else ''})."
+        )
+    power = 2 if shape == "linear" else 3
+    top = u**power - v**power
+    return (
+        (
+            f"P({p} < X < {q}) = k × [({q} − {c})^{power} − ({p} − {c})^{power}] ÷ {power} = "
+            f"{rational_text(k)} × {top} ÷ {power} = {rational_text(raw)} = {answer_text} "
+            f"(to {dp} decimal place{'s' if dp != 1 else ''})."
+        )
+        .replace("^2", "²")
+        .replace("^3", "³")
+    )
+
+
 def _pd_easy(rng) -> dict:
     dp = _DP1
     for _attempt in range(_MAX_ATTEMPTS):
@@ -369,7 +392,11 @@ def _pd_easy(rng) -> dict:
 
     fexpr = _density_str("uniform", k, c)
     text = phrase(rng, _FACT_TEMPLATES, fexpr=fexpr, c=str(c), d=str(d), p=str(p), q=str(q), dp=str(dp))
-    return _finish1(text, answer_rounded, dp, cands)
+    working = [
+        f"The density is the constant {rational_text(k)} on [{c}, {d}], so the probability is the width times the height.",
+        _prob_working("uniform", k, c, d, p, q, raw, dp),
+    ]
+    return _finish1(text, answer_rounded, dp, cands, working)
 
 
 def _pd_medium(rng) -> dict:
@@ -410,8 +437,9 @@ def _pd_medium(rng) -> dict:
     fexpr = _density_str("linear", k, c, show_k=False)
     text = phrase(rng, _FACT_TEMPLATES_SYMBOLIC_K, fexpr=fexpr, c=str(c), d=str(d), p=str(p), q=str(q), dp=str(dp))
     working = [
-        f"Solve for k: the integral of f(x) = k(x - {c}) over [{c}, {d}] must equal 1, so "
-        f"k*{L}^2/2 = 1, giving k = {rational_text(k)}.",
+        f"Solve for k: the area under f(x) = k(x − {c}) over [{c}, {d}] must equal 1, so "
+        f"k × {L}² ÷ 2 = 1, giving k = {rational_text(k)}.",
+        _prob_working("linear", k, c, d, p, q, raw, dp),
     ]
     return _finish1(text, answer_rounded, dp, cands, working)
 
@@ -455,8 +483,9 @@ def _pd_hard(rng) -> dict:
     fexpr = _density_str("quadratic", k, c, show_k=False)
     text = phrase(rng, _FACT_TEMPLATES_SYMBOLIC_K, fexpr=fexpr, c=str(c), d=str(d), p=str(p), q=str(q), dp=str(dp))
     working = [
-        f"Solve for k: the integral of f(x) = k(x - {c})^2 over [{c}, {d}] must equal 1, so "
-        f"k*{L}^3/3 = 1, giving k = {rational_text(k)}.",
+        f"Solve for k: the area under f(x) = k(x − {c})² over [{c}, {d}] must equal 1, so "
+        f"k × {L}³ ÷ 3 = 1, giving k = {rational_text(k)}.",
+        _prob_working("quadratic", k, c, d, p, q, raw, dp),
     ]
     return _finish1(text, answer_rounded, dp, cands, working)
 
@@ -525,8 +554,9 @@ def _pd_exam(rng) -> dict:
     fexpr = _density_str("quadratic", k, c, show_k=False)
     text = phrase(rng, _EXAM_TEMPLATES_SYMBOLIC_K, fexpr=fexpr, c=str(c), d=str(d), p=str(p), q=str(q), dp=str(dp))
     working = [
-        f"Solve for k: the integral of f(x) = k(x - {c})^2 over [{c}, {d}] must equal 1, so "
-        f"k*{L}^3/3 = 1, giving k = {rational_text(k)}.",
+        f"Solve for k: the area under f(x) = k(x − {c})² over [{c}, {d}] must equal 1, so "
+        f"k × {L}³ ÷ 3 = 1, giving k = {rational_text(k)}.",
+        _prob_working("quadratic", k, c, d, p, q, raw, dp),
     ]
     return _finish1(text, answer_rounded, dp, cands, working)
 
@@ -701,7 +731,40 @@ _EXAM_UNIFORM_TEMPLATES = (
 )
 
 
-def _cum_finish(text: str, e: Fraction, var: Fraction, sd: Fraction, dp: int, distractor_triples: list) -> dict:
+def _cum_working(a: int, b: int, e: Fraction, var: Fraction, sd: Fraction, dp: int) -> list[str]:
+    """Worked solution for a uniform distribution on [a, b]: the three formulas, then the rounded values."""
+
+    def num(v: int) -> str:
+        return f"({v})".replace("-", "−") if v < 0 else str(v)
+
+    def exact(v: Fraction) -> str:
+        if v.denominator == 1:
+            return str(v.numerator).replace("-", "−")
+        d = v.denominator
+        while d % 2 == 0:
+            d //= 2
+        while d % 5 == 0:
+            d //= 5
+        if d == 1:
+            return exact_decimal_string(v, 6).replace("-", "−")
+        return rational_text(v).replace("-", "−")
+
+    gap = b - a
+    places = f"{dp} decimal places"
+    var_line = f"Var(X) = (b − a)² ÷ 12 = ({num(b)} − {num(a)})² ÷ 12 = {gap * gap} ÷ 12"
+    var_line += f" = {exact(var)}." if exact(var) != f"{gap * gap}/12" else "."
+    sd_arg = exact(var) if var.denominator == 1 else f"({exact(var)})"
+    return [
+        f"E(X) = (a + b) ÷ 2 = ({a} + {num(b)}) ÷ 2 = {exact(e)}.".replace("(-", "(−"),
+        var_line,
+        f"SD(X) = √Var(X) = √{sd_arg} = {stated_precision_string(round_half_up(sd, dp), dp)} (to {places}).",
+        f"So (E(X), Var(X), SD(X)) = {_fmt_triple(e, var, sd, dp)} to {places}.",
+    ]
+
+
+def _cum_finish(
+    text: str, e: Fraction, var: Fraction, sd: Fraction, dp: int, distractor_triples: list, working: list | None = None
+) -> dict:
     answer_text = _fmt_triple(e, var, sd, dp)
     answer = [
         numeric_answer(round_half_up(e, dp)),
@@ -717,7 +780,7 @@ def _cum_finish(text: str, e: Fraction, var: Fraction, sd: Fraction, dp: int, di
             continue
         survivors.append(s)
     distractors = pick_distractors(answer_text, survivors, unordered=False)
-    return dict(
+    out = dict(
         text=text,
         latex=text,
         answer=answer,
@@ -725,6 +788,9 @@ def _cum_finish(text: str, e: Fraction, var: Fraction, sd: Fraction, dp: int, di
         answer_latex=answer_text,
         distractors=distractors,
     )
+    if working:
+        out["working"] = working
+    return out
 
 
 def _cum_easy(rng) -> dict:
@@ -758,7 +824,7 @@ def _cum_easy(rng) -> dict:
     _assert_uniform_columns_distinct(dp, e, var, sd, cands)
 
     text = phrase(rng, _UNIFORM_TEMPLATES, a=str(a), b=str(b), dp=str(dp))
-    return _cum_finish(text, e, var, sd, dp, cands)
+    return _cum_finish(text, e, var, sd, dp, cands, _cum_working(a, b, e, var, sd, dp))
 
 
 def _cum_medium(rng) -> dict:
@@ -789,7 +855,7 @@ def _cum_medium(rng) -> dict:
     _assert_uniform_columns_distinct(dp, e, var, sd, cands)
 
     text = phrase(rng, _UNIFORM_TEMPLATES, a=str(a), b=str(b), dp=str(dp))
-    return _cum_finish(text, e, var, sd, dp, cands)
+    return _cum_finish(text, e, var, sd, dp, cands, _cum_working(a, b, e, var, sd, dp))
 
 
 def _cum_hard(rng) -> dict:
@@ -816,7 +882,7 @@ def _cum_hard(rng) -> dict:
     _assert_uniform_columns_distinct(dp, e, var, sd, cands)
 
     text = phrase(rng, _UNIFORM_TEMPLATES, a=str(a), b=str(b), dp=str(dp))
-    return _cum_finish(text, e, var, sd, dp, cands)
+    return _cum_finish(text, e, var, sd, dp, cands, _cum_working(a, b, e, var, sd, dp))
 
 
 def _cum_exam(rng) -> dict:
@@ -848,7 +914,7 @@ def _cum_exam(rng) -> dict:
     _assert_uniform_columns_distinct(dp, e, var, sd, cands)
 
     text = phrase(rng, _EXAM_UNIFORM_TEMPLATES, a=str(a), b=str(b), dp=str(dp))
-    return _cum_finish(text, e, var, sd, dp, cands)
+    return _cum_finish(text, e, var, sd, dp, cands, _cum_working(a, b, e, var, sd, dp))
 
 
 @generator(

@@ -51,8 +51,8 @@ _B_PROMPT = (
     "correct to 1 decimal place.",
 )
 _C_PROMPT = (
-    "Using your angle from (b), find the area of the parallelogram in square {u}, to the nearest whole number.",
-    "Hence find the area of ABCD in square {u}, correct to the nearest whole number. Use your angle from (b).",
+    "Using your angle from (b), find the area of the parallelogram in {u}², to the nearest whole number.",
+    "Hence find the area of ABCD in {u}², correct to the nearest whole number. Use your angle from (b).",
 )
 
 
@@ -169,7 +169,7 @@ def exd_x_m5_parallelogram_diagonal_chain(rng, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"{a}*{b}*sin(part_b*pi/180)",
-                working=[f"Area = ab sin A = {a} × {b} × sin {b_text}° = {c_text} square {unit}."],
+                working=[f"Area = ab sin A = {a} × {b} × sin {b_text}° = {c_text} {unit}²."],
                 distractors=c_dis,
             ),
         ],

@@ -88,7 +88,7 @@ def exd_x_r2j_tangent_secant_chain(rng: random.Random, tier: str = "exam") -> di
             exact=am,
             places=0,
             marks=2,
-            working=[f"AM x BM = TM², so AM = {t}² / {m} = {am} cm."],
+            working=[f"AM × BM = TM², so AM = {t}² / {m} = {am} cm."],
             wrong=[
                 (t * t, "power-of-point-not-divided"),
                 (ab, "chord-for-secant"),

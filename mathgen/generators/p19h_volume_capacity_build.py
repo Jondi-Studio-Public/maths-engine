@@ -278,7 +278,7 @@ def _build_vc1_medium(rng) -> dict:
         text,
         answer,
         [
-            f"1 m³ = 1,000,000 cm³ = 1,000,000 mL = 1000 L, so {volume_m3} m³ = {answer} L.",
+            f"1 m³ = 1000000 cm³ = 1000000 mL = 1000 L, so {volume_m3} m³ = {answer} L.",
         ],
         options,
     )
@@ -356,7 +356,7 @@ def _build_vc1_exam(rng) -> dict:
         text,
         answer,
         [
-            f"Volume = {l} x {w} x {h} = {volume_m3} m³; 1 m³ = 1,000,000 cm³ = 1,000,000 mL = 1000 L, "
+            f"Volume = {l} × {w} × {h} = {volume_m3} m³; 1 m³ = 1000000 cm³ = 1000000 mL = 1000 L, "
             f"so capacity = {answer} L.",
         ],
         options,
@@ -579,7 +579,7 @@ def _build_vc2_hard(rng) -> dict:
         )
         text = phrase(rng, _VC2_HARD_FORWARD_TEMPLATES, Container=_cap(container), v=cm3_value)
         working = [
-            f"1 cm³ = 1 mL, so {cm3_value} cm³ = {mL_value} mL; 1 kL = 1,000,000 mL, so {mL_value} mL = {answer} kL.",
+            f"1 cm³ = 1 mL, so {cm3_value} cm³ = {mL_value} mL; 1 kL = 1000000 mL, so {mL_value} mL = {answer} kL.",
         ]
     elif form < 0.625:
         m3_value = k  # 1 m3 = 1 kL, given
@@ -595,7 +595,7 @@ def _build_vc2_hard(rng) -> dict:
         )
         text = phrase(rng, _VC2_HARD_REVERSE_TEMPLATES, Container=_cap(container), v=k)
         working = [
-            f"1 m³ = 1 kL, so {k} kL = {m3_value} m³; 1 m³ = 1,000,000 cm³, so {m3_value} m³ = {answer} cm³.",
+            f"1 m³ = 1 kL, so {k} kL = {m3_value} m³; 1 m³ = 1000000 cm³, so {m3_value} m³ = {answer} cm³.",
         ]
     else:
         answer = k * _ML_PER_KL  # 1 m3 = 1 kL = 1,000,000 mL
@@ -610,7 +610,7 @@ def _build_vc2_hard(rng) -> dict:
         )
         text = phrase(rng, _VC2_HARD_TO_ML_TEMPLATES, Container=_cap(container), v=k)
         working = [
-            f"1 m³ = 1 kL, and 1 kL = 1,000,000 mL (1 cm³ = 1 mL, 1 m³ = 1,000,000 cm³), so {k} m³ = {answer} mL.",
+            f"1 m³ = 1 kL, and 1 kL = 1000000 mL (1 cm³ = 1 mL, 1 m³ = 1000000 cm³), so {k} m³ = {answer} mL.",
         ]
     return _pack(text, answer, working, options)
 
@@ -639,7 +639,7 @@ def _build_vc2_exam(rng) -> dict:
         text = phrase(rng, _VC2_EXAM_TEMPLATES_ML, a=a, b=b)
         working = [
             f"Container A: 1 cm³ = 1 mL, so {a} cm³ = {contribution_a} mL. "
-            f"Container B: 1 m³ = 1 kL = 1,000,000 mL, so {b} m³ = {contribution_b} mL. "
+            f"Container B: 1 m³ = 1 kL = 1000000 mL, so {b} m³ = {contribution_b} mL. "
             f"Total = {answer} mL.",
         ]
     else:

@@ -448,8 +448,26 @@ def independence_verdict(rng, tier="easy"):
 
     question_text = f"{stimulus} Are events A and B independent?"
 
+    working = []
+    if tier == "medium":
+        working.append(f"P(A and B) = P(A|B) × P(B) = {_f2(cond)} × {_f2(pb)} = {_f2(and_value)}.")
+    elif tier == "hard":
+        working.append(
+            f"P(A) = {count_a}/{n} = {_f2(pa)}, P(B) = {count_b}/{n} = {_f2(pb)}, "
+            f"and P(A and B) = {count_ab}/{n} = {_f2(and_value)}."
+        )
+    working.append("A and B are independent exactly when P(A and B) = P(A) × P(B).")
+    working.append(
+        f"P(A) × P(B) = {_f2(pa)} × {_f2(pb)} = {_fmt_fixed(true_product, max(2, _dp_needed(true_product)))}."
+    )
+    if verdict == OPT_INDEPENDENT:
+        working.append(f"This equals P(A and B) = {_f2(and_value)}, so A and B are independent.")
+    else:
+        working.append(f"This is not equal to P(A and B) = {_f2(and_value)}, so A and B are not independent.")
+
     return dict(
         text=question_text,
+        working=working,
         latex=r"\text{P(A and B)} \text{ vs } \text{P(A)} \times \text{P(B)}",
         answer=answer_text,
         answer_text=answer_text,
@@ -634,8 +652,27 @@ def probability_language_classify(rng, tier="easy"):
         "mandatory range-convention boundaries missing from rendered prompt",
     )
 
+    if tier == "hard":
+        first = f"P(the event occurs) = 1 − {_fmt(complement)} = {_fmt(value)}."
+    elif tier == "medium" and medium_variant == "count":
+        first = f"P = {k}/{denom} = {_fmt(value)}."
+    elif tier == "medium":
+        first = f"P = {percent}% = {_fmt(value)}."
+    else:
+        first = f"P = {_fmt(value)}."
+    if answer_text == "possible":
+        range_line = "The stated range for 'possible' is 0 < P ≤ 0.3."
+    elif answer_text == "probable":
+        range_line = "The stated range for 'probable' is 0.3 < P ≤ 0.55."
+    elif answer_text == "likely":
+        range_line = "The stated range for 'likely' is 0.55 < P < 0.9."
+    else:
+        range_line = "The stated range for 'certain' is P ≥ 0.9."
+    working = [first, range_line, f"{_fmt(value)} lies in this range, so the term is '{answer_text}'."]
+
     return dict(
         text=question_text,
+        working=working,
         latex=r"\text{P}",
         answer=answer_text,
         answer_text=answer_text,

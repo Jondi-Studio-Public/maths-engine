@@ -45,7 +45,7 @@ _STEMS = [
     "A circular rug has an area of {area} cm².",
     "A round clock face has an area of {area} cm².",
     "A circular coaster has an area of {area} cm².",
-    "A circular pond cover has an area of {area} cm².",
+    "A circular badge has an area of {area} cm².",
 ]
 _SECTORS = [
     "A sector with an angle of {theta}° at the centre is cut from the circle.",

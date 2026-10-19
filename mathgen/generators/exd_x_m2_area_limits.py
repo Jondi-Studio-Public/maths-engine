@@ -45,9 +45,9 @@ def exd_x_m2_area_limits(rng: random.Random, tier: str = "exam") -> dict:
         thing, u, phrase_ = rng.choice(_SETTINGS)
         stem = f"{thing} has a length of {length} {u} and a width of {width} {u}, each {phrase_} {unit} {u}."
         prompts = [
-            f"Calculate the area using these measurements, in square {u}.",
-            f"Find the greatest area the {thing.split()[-1]} could actually have, in square {u}, correct to 2 decimal places.",
-            f"Hence find the greatest possible error in the calculated area, in square {u}, correct to 2 decimal places.",
+            f"Calculate the area using these measurements, in {u}².",
+            f"Find the greatest area the {thing.split()[-1]} could actually have, in {u}², correct to 2 decimal places.",
+            f"Hence find the greatest possible error in the calculated area, in {u}², correct to 2 decimal places.",
             "Express this error as a percentage of the calculated area, correct to 1 decimal place.",
         ]
         texts = [str(area), display(upper, 2), display(err, 2), display(pct, 1)]

@@ -120,8 +120,8 @@ def exd_x_m4_composite_figure_chain(rng: random.Random, tier: str = "exam") -> d
                 marks=2,
                 sensible_range=(0, None),
                 working=[
-                    f"Area = rectangle + triangle = {w} x {h} + 1/2 x {h} x x = {a_text}.",
-                    f"{h}x/2 = {a_text} - {w * h}, so x = {x_text}.",
+                    f"Area = rectangle + triangle = {w} × {h} + ½ × {h} × x = {a_text}.",
+                    f"{h}x ÷ 2 = {a_text} − {w * h}, so x = {x_text}.",
                 ],
                 distractors=a_d,
             ),

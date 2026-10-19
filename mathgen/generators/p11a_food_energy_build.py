@@ -142,7 +142,7 @@ def _build_cal_to_kj(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"{cal_int} Calories x 4.2 = {answer_text} kilojoules.",
+            f"{cal_int} Calories × 4.2 = {answer_text} kilojoules.",
         ],
         distractors=pick_distractors(
             answer_text,

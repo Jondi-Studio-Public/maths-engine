@@ -326,9 +326,9 @@ _EXAM = (
         "mL",
         1000,
         250,
-        "fruit punch",
+        ("preparing fruit punch", "The recipe uses"),
         "cup",
-        "the soda in one glass of punch",
+        "the amount of punch in one cup",
         "juice",
         "lemonade",
         "soda",
@@ -339,9 +339,9 @@ _EXAM = (
         "g",
         1000,
         500,
-        "a batch of trail mix",
+        ("preparing a batch of trail mix", "The recipe uses"),
         "bag",
-        "the salt in one bag of trail mix",
+        "the amount of trail mix in one bag",
         "nuts",
         "dried fruit",
         "seeds",
@@ -352,9 +352,9 @@ _EXAM = (
         "cm",
         100,
         50,
-        "streamers",
+        ("making ribbon bows for a party", "The ribbon available is"),
         "bow",
-        "the width of one bow",
+        "the length of ribbon in one bow",
         "red ribbon",
         "blue ribbon",
         "gold ribbon",
@@ -369,7 +369,7 @@ def fr2c_choose_unit_convert_exam(rng):
 
 
 def _build_fr2c_choose_unit_convert_exam(rng):
-    attr, big, small, f, portion, thing, pname, small_thing, n1, n2, n3 = rng.choice(_EXAM)
+    attr, big, small, f, portion, (thing, uses), pname, small_thing, n1, n2, n3 = rng.choice(_EXAM)
     name = rng.choice(_NAMES)
     for _ in attempts(500, "three amounts whose total makes a whole number of portions"):
         x1 = Fraction(rng.randint(15, 49), 10)  # in big units, 1.5 .. 4.9
@@ -388,10 +388,7 @@ def _build_fr2c_choose_unit_convert_exam(rng):
         break
     left = total - used * portion
     big_name, small_name = _NAMES_OF[big], _NAMES_OF[small]
-    stem = (
-        f"{name} is preparing {thing}. The recipe uses {_fmt(x1)} {big} of {n1}, {q2} {small} of {n2} and {_fmt(x3)} {big} "
-        f"of {n3}."
-    )
+    stem = f"{name} is {thing}. {uses} {_fmt(x1)} {big} of {n1}, {q2} {small} of {n2} and {_fmt(x3)} {big} of {n3}."
     best = {"capacity": "mL", "mass": "g", "length": "cm"}[attr]
     wrong_units = [
         ("fr2c-unit-too-large", _NAMES_OF[big]),
@@ -404,7 +401,9 @@ def _build_fr2c_choose_unit_convert_exam(rng):
             f"Which unit is the most sensible for measuring {small_thing}?",
             _NAMES_OF[best],
             1,
-            [f"A small amount like this is best measured in {_NAMES_OF[best]}."],
+            [
+                f"{small_thing[0].upper()}{small_thing[1:]} is only {portion} {small}, a small amount, so {_NAMES_OF[best]} is the sensible unit."
+            ],
             wrong_units,
         ),
         kit.num_part(
@@ -427,7 +426,7 @@ def _build_fr2c_choose_unit_convert_exam(rng):
             f"Each {pname} uses {portion} {small}. Using your total, how many {pname}s can be made with none left over?",
             count,
             2,
-            [f"{_fmt(total)} / {portion} = {count}."],
+            [f"{_fmt(total)} ÷ {portion} = {count}."],
             [
                 ("fr2c-divided-the-wrong-way", Fraction(portion, 1) * 0 + total * portion),
                 ("fr2c-chose-the-wrong-power-of-ten", count * 10),
@@ -442,8 +441,8 @@ def _build_fr2c_choose_unit_convert_exam(rng):
             left,
             2,
             [
-                f"{used} x {portion} = {used * portion} {small} is used.",
-                f"{_fmt(total)} - {used * portion} = {_fmt(left)} {small}.",
+                f"{used} × {portion} = {used * portion} {small} is used.",
+                f"{_fmt(total)} − {used * portion} = {_fmt(left)} {small}.",
             ],
             [
                 ("fr2c-reports-the-amount-poured", used * portion),

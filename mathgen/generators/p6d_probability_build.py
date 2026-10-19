@@ -173,8 +173,17 @@ def probability_complements_compounds(rng, tier="easy"):
     # Independent check: sum to 1 (different route from 1 - p computation)
     check_equivalent(c + p_reduced, Fraction(1, 1), msg="complement should sum to 1 with the original event")
 
+    comp_den = d0 * k if tier == "medium" else d0
+    comp_num = comp_den - (n0 * k if tier == "medium" else n0)
+    working = [
+        "The two events cannot both happen and one of them must happen, so their probabilities add to 1.",
+        f"1 − {p_display} = {comp_den}/{comp_den} − {p_display} = {comp_num}/{comp_den}"
+        + (f", which simplifies to {answer_text}." if f"{comp_num}/{comp_den}" != answer_text else "."),
+    ]
+
     return dict(
         text=question_text,
+        working=working,
         latex=f"plain:{question_text}",
         answer={"p": int(c.numerator), "q": int(c.denominator)},
         answer_text=answer_text,
@@ -405,8 +414,17 @@ def random_equal_likelihood_outcomes(rng, tier="easy"):
         else:
             check(not is_balanced, f"distractor option (index {i}) should not be balanced")
 
+    working = ["Equally likely outcomes means every colour appears the same number of times. Count each colour."]
+    for i, spinner in enumerate(shuffled_spinners):
+        tally = Counter(spinner["labels"])
+        tally_text = ", ".join(f"{colour} {count}" for colour, count in tally.items())
+        verdict = "equal" if i == answer_index else "not equal"
+        working.append(f"Spinner {chr(65 + i)}: {tally_text} ({verdict}).")
+    working.append(f"Only Spinner {chr(65 + answer_index)} has the same count for every colour.")
+
     return dict(
         text=question_text,
+        working=working,
         latex=f"plain:{question_text}",
         answer=answer_text,
         answer_text=answer_text,

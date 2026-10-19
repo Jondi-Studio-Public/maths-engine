@@ -108,6 +108,11 @@ def scale_factor_similar_areas(rng, mode: str = "direct_ratio") -> dict:
 
         candidates = [uses_linear, confuses_ratio_term, forgets_to_scale]
 
+        working = [
+            f"Scale factor = {p}/{q}, so areas are multiplied by ({p}/{q})² = {p * p}/{q * q}.",
+            f"Area of B = {area_a} × {p * p}/{q * q} = {answer} cm².",
+        ]
+
     elif mode == "derive_from_lengths":
         # Medium: ratio derived from raw lengths
         t = rng.randint(2, 4)
@@ -135,6 +140,12 @@ def scale_factor_similar_areas(rng, mode: str = "direct_ratio") -> dict:
         check_distinct(answer, uses_linear, confuses_ratio_term, forgets_to_scale)
 
         candidates = [uses_linear, confuses_ratio_term, forgets_to_scale]
+
+        working = [
+            f"Scale factor = {length_b}/{length_a} = {p}/{q}.",
+            f"Areas are multiplied by ({p}/{q})² = {p * p}/{q * q}.",
+            f"Area of B = {area_a} × {p * p}/{q * q} = {answer} cm².",
+        ]
 
     else:  # mode == "derive_length_from_areas"
         # Hard: derive linear ratio from area ratio, apply to length
@@ -166,12 +177,18 @@ def scale_factor_similar_areas(rng, mode: str = "direct_ratio") -> dict:
 
         candidates = [swaps_p_and_q, forgets_to_scale, confuses_area_for_length]
 
+        working = [
+            f"Area scale factor = {area_b}/{area_a} = {p * p}/{q * q}, so the length scale factor is {p}/{q}.",
+            f"Side of B = {length_a} × {p}/{q} = {answer} cm.",
+        ]
+
     answer_text = str(answer)
     return {
         "text": text,
         "latex": text,  # For now, plain text suffices
         "answer": answer,
         "answer_text": answer_text,
+        "working": working,
         "distractors": pick_distractors(answer_text, candidates),
     }
 
@@ -219,6 +236,12 @@ def scale_factor_similar_solids(rng, mode: str = "direct_ratio") -> dict:
 
         candidates = [uses_wrong_exponent_val, forgets_to_scale, uses_linear_only]
 
+        working = [
+            f"Scale factor = {p}/{q}, so the {kind_label} is multiplied by ({p}/{q}){'³' if exponent == 3 else '²'} "
+            f"= {p**exponent}/{q**exponent}.",
+            f"{kind_label.capitalize()} of B = {base} × {p**exponent}/{q**exponent} = {answer} {unit}.",
+        ]
+
     elif mode == "derive_from_lengths":
         # Medium: ratio derived from raw lengths
         t = rng.randint(2, 4)
@@ -247,6 +270,12 @@ def scale_factor_similar_solids(rng, mode: str = "direct_ratio") -> dict:
         check_distinct(answer, uses_wrong_exponent_val, forgets_to_scale, uses_linear_only)
 
         candidates = [uses_wrong_exponent_val, forgets_to_scale, uses_linear_only]
+
+        working = [
+            f"Scale factor = {length_b}/{length_a} = {p}/{q}.",
+            f"The {kind_label} is multiplied by ({p}/{q}){'³' if exponent == 3 else '²'} = {p**exponent}/{q**exponent}.",
+            f"{kind_label.capitalize()} of B = {base} × {p**exponent}/{q**exponent} = {answer} {unit}.",
+        ]
 
     else:  # mode == "cross_exponent"
         # Hard: given one quantity pair, derive linear ratio, apply other exponent
@@ -283,6 +312,12 @@ def scale_factor_similar_solids(rng, mode: str = "direct_ratio") -> dict:
 
             candidates = [uses_area_exponent, forgets_to_scale, confuses_area_for_volume]
 
+            working = [
+                f"Surface area ratio = {area_b}/{area_a} = {p * p}/{q * q}, so the scale factor is {p}/{q}.",
+                f"Volumes are multiplied by ({p}/{q})³ = {p**3}/{q**3}.",
+                f"Volume of B = {volume_a} × {p**3}/{q**3} = {answer} cm³.",
+            ]
+
         else:  # direction == "volumes_to_area"
             answer = area_b
             text = (
@@ -304,11 +339,18 @@ def scale_factor_similar_solids(rng, mode: str = "direct_ratio") -> dict:
 
             candidates = [uses_volume_exponent, forgets_to_scale, confuses_volume_for_area]
 
+            working = [
+                f"Volume ratio = {volume_b}/{volume_a} = {p**3}/{q**3}, so the scale factor is {p}/{q}.",
+                f"Surface areas are multiplied by ({p}/{q})² = {p * p}/{q * q}.",
+                f"Surface area of B = {area_a} × {p * p}/{q * q} = {answer} cm².",
+            ]
+
     answer_text = str(answer)
     return {
         "text": text,
         "latex": text,  # For now, plain text suffices
         "answer": answer,
         "answer_text": answer_text,
+        "working": working,
         "distractors": pick_distractors(answer_text, candidates),
     }

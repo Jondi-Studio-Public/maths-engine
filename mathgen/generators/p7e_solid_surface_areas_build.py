@@ -120,11 +120,17 @@ def _build_sphere(rng) -> dict:
         msg="sphere distractor collides with the answer",
     )
 
+    working = [
+        f"Surface area of a sphere = 4πr² = 4π × {r}² = 4π × {r * r}.",
+        f"= {_format_pi(k).replace('pi', 'π')} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -163,11 +169,18 @@ def _build_cone(rng) -> dict:
         msg="cone distractor collides with the answer",
     )
 
+    working = [
+        f"Base circle: πr² = π × {r}² = {r * r}π cm².",
+        f"Curved surface: πrl = π × {r} × {l} = {r * l}π cm².",
+        f"Total = {r * r}π + {r * l}π = {_format_pi(k).replace('pi', 'π')} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -215,11 +228,19 @@ def _build_composite(rng) -> dict:
         msg="composite distractor collides with the answer",
     )
 
+    working = [
+        "The shared circle is inside the solid, so it is not part of the surface.",
+        f"Cone curved surface: πrl = π × {r} × {l} = {r * l}π cm².",
+        f"Hemisphere curved surface: 2πr² = 2π × {r}² = {2 * r * r}π cm².",
+        f"Total = {r * l}π + {2 * r * r}π = {_format_pi(k).replace('pi', 'π')} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -293,11 +314,17 @@ def _build_cube(rng) -> dict:
 
     candidates = [str(omits_face), str(uses_volume), str(uses_perimeter)]
 
+    working = [
+        f"A cube has 6 equal square faces, each {s} × {s} = {s * s} cm².",
+        f"Total = 6 × {s * s} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -324,11 +351,17 @@ def _build_rect_prism(rng) -> dict:
 
     candidates = [str(omits_pair), str(forgets_factor2), str(wrong_shape)]
 
+    working = [
+        f"Surface area = 2 × (lw + lh + wh) = 2 × ({l} × {w} + {l} × {h} + {w} × {h}).",
+        f"= 2 × ({l * w} + {l * h} + {w * h}) = 2 × {l * w + l * h + w * h} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -385,11 +418,19 @@ def _build_tri_prism(rng) -> dict:
 
     candidates = [str(forgets_half), str(omits_one_end), str(wrong_shape)]
 
+    working = [
+        f"Each triangular end: ½ × {a} × {b} = {triangle_area} cm², so the two ends give {2 * triangle_area} cm².",
+        f"The three rectangles together have width {a} + {b} + {c} = {perimeter} cm and length {length} cm: "
+        f"{perimeter} × {length} = {perimeter * length} cm².",
+        f"Total = {2 * triangle_area} + {perimeter * length} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
