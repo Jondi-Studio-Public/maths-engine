@@ -225,11 +225,12 @@ def test_sum_of_fractions_accepted_unless_a_single_fraction_is_asked(source, see
     assert not _ok(skill, question, _stem_expression(question))
 
 
-def test_split_fraction_accepted_and_refused_by_the_stem():
+def test_split_fraction_refused_whatever_the_stem_says():
+    # Jondi ruled "strict" (2026-10-19): a "Simplify" stem wants the one combined fraction.
     skill, question = _question("algebraic-fraction-add-subtract", 0, 0)
     assert question.answer_text == "(61x + 72)/35"
-    assert _ok(skill, question, "61x/35 + 72/35")
-    assert _ok(skill, question, "(61/35)x + 72/35")
+    assert not _ok(skill, question, "61x/35 + 72/35")
+    assert not _ok(skill, question, "(61/35)x + 72/35")
     assert not _ok(skill, question, "8x/5 + 6/5 + x/7 + 6/7")
     skill, question = _question("algebraic-fraction-add-subtract", 3, 0)
     assert "single fraction" in question.text

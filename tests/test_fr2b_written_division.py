@@ -60,9 +60,11 @@ def test_medium_key_is_the_remainder_over_the_divisor():
         whole, _, frac = q.answer_text.partition(" ")
         assert int(whole) == quotient and Fraction(frac) == Fraction(remainder, d), (seed, q.answer_text)
         assert q.answer_kind == "fraction"
-        # An unreduced remainder is the same number and is accepted; a swapped one is not.
-        assert grade(SKILL, q, f"{quotient} {remainder * 2}/{d * 2}").correct
-        assert grade(SKILL, q, f"{n}/{d}").correct and value == Fraction(n, d)
+        # The stem asks for a mixed number (Jondi ruled "strict", 2026-10-19): an unreduced remainder, an
+        # improper fraction and a swapped remainder are all refused.
+        assert grade(SKILL, q, q.answer_text).correct
+        assert not grade(SKILL, q, f"{quotient} {remainder * 2}/{d * 2}").correct
+        assert not grade(SKILL, q, f"{n}/{d}").correct and value == Fraction(n, d)
         assert not grade(SKILL, q, f"{quotient} {d}/{remainder}").correct
 
 

@@ -2704,9 +2704,7 @@ def grade_expression(question, given: str) -> GradeResult:
         # whose rationalised denominator is a single sqrt term.
         if _rationalised_denominator_flagged_raw(stripped) or _rationalised_denominator_flagged_parsed(given_expr):
             return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
-    elif answer_form == "single_fraction" and re.search(
-        r"\b(?:single|one)\s+(?:algebraic\s+)?fraction", str(getattr(question, "text", "") or ""), re.I
-    ):
+    elif answer_form == "single_fraction":
         # A RAW-TEXT-ONLY check -- see `_single_fraction_flagged_
         # raw`'s docstring for why no parsed-expression companion check is
         # possible here (sympy collapses an unmerged sum and its single-

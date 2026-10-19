@@ -764,7 +764,7 @@ def test_a_step_segment_draws_a_filled_dot_at_its_closed_end():
 def test_axis_numerals_are_drawn_over_the_plot_with_a_paper_halo():
     spec = figures.cartesian(x_range=(-2, 2), y_range=(-2, 2), curves=[{"pieces": [[[-2, -2], [2, 2]]]}], alt="a curve")
     out = svg.figure_svg(spec)
-    assert out.rindex('paint-order="stroke"') > out.index("<polyline")  # numerals come after the curve
+    assert out.rindex('paint-order="stroke"') < out.index("<polyline")  # numerals sit under the curve
     assert 'stroke="#ffffff"' in out
 
 

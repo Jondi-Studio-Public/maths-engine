@@ -415,7 +415,6 @@ option_count:
   - exd_x_r3i_mixing_rates/exam
   senior-graph-dilation-read-factor:
   - ey_graph_dilation/easy
-  - ey_graph_dilation/hard
   - ey_graph_dilation_exam/exam
   senior-graph-reciprocal-abs-compare:
   - ey_graph_reciprocal_abs/hard
@@ -603,5 +602,3 @@ probability:
   f10-relative-frequency-estimate:
   - fpm_relative_frequency/easy
   - fpm_relative_frequency/medium
-  simple-event-probability:
-  - simple_probability/easy

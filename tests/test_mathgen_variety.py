@@ -1454,10 +1454,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
         None,
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
-        "p7d_complete_rate_calculations",
-        "hard",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
         "p7d_examine_direct_proportion",
         "easy",
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
