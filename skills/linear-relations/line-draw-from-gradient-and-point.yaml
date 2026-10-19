@@ -1,0 +1,101 @@
+id: line-draw-from-gradient-and-point
+name: Draw a line from its equation, gradient or points
+domain: linear-relations
+year_level:
+- '9'
+- '10'
+naplan_domain: []
+description: Draw a straight line on a grid from its equation, its gradient and intercept, a point and gradient, or a parallel
+  or perpendicular condition, by marking two points on it or typing its equation.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- graph-y-mx-plus-b
+answer: line
+sources:
+- topic: w9_line_draw
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w9_line_draw
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w9_line_draw
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w9_line_draw
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w9-line-gradient-sign
+  description: 'Draws a line as steep as the gradient says but sloping the wrong way: the sign of the gradient is flipped.'
+- id: w9-line-intercept-sign
+  description: Starts the line at the opposite end of the y-axis, at minus the intercept.
+- id: w9-line-gradient-inverted
+  description: Moves across by the rise and up by the run, so the line has the reciprocal of the gradient.
+- id: w9-line-axes-swapped
+  description: Plots the points of the line with x and y the wrong way round, which reflects the line in y = x.
+- id: w9-line-starts-off-the-intercept
+  description: Starts the line one square above or below the intercept.
+- id: w9-line-ignores-the-point
+  description: Draws a line with the right gradient but through the origin instead of through the given point.
+- id: w9-line-through-swapped-point
+  description: Draws the line through the given point with its coordinates the wrong way round.
+- id: w9-line-parallel-reflected
+  description: Draws the line through the point with the opposite gradient, instead of the same gradient.
+- id: w9-line-perpendicular-parallel
+  description: Draws a parallel line through the point when a perpendicular one was asked for.
+- id: w9-line-perpendicular-no-flip
+  description: Takes the reciprocal of the gradient but keeps its sign, so the line is not perpendicular.
+- id: w9-line-perpendicular-negated-only
+  description: Negates the gradient but forgets to take the reciprocal, so the line is not perpendicular.
+- id: w9-line-intercepts-swapped
+  description: Swaps the x- and y-intercepts of the line, which gives a line with the wrong slope.
+- id: w9-line-standard-form-sign
+  description: Takes the gradient of ax + by = c as a/b instead of -a/b.
+- id: w9-line-intercept-from-coefficient
+  description: Reads the y-intercept off the constant on the right of the equation without dividing by the y-coefficient.
+- id: w9-line-x-intercept-sign
+  description: Finds the x-intercept as c/m instead of -c/m.
+- id: w9-line-x-intercept-is-y-intercept
+  description: Gives the y-intercept where the x-intercept was asked.
+- id: w9-line-x-intercept-inverted
+  description: Finds the x-intercept as -m/c, dividing the wrong way round.
+- id: w9-line-intercept-uses-gradient
+  description: Finds the y-intercept of the parallel line by using the gradient of the first line as the intercept.
+- id: w9-line-intercept-point-sign
+  description: Subtracts the gradient times x from y but adds it, or the reverse, when finding the intercept through the point.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Draw y = mx + c, or a line from a stated gradient and y-intercept.
+  medium:
+    steps: 3
+    demand: Draw a line through a point with a fractional gradient, or from an x-intercept and gradient.
+  hard:
+    steps: 5
+    demand: Draw a line from standard form, or the parallel or perpendicular through a point.
+  exam:
+    steps: 6
+    demand: 'A multi-part question: find what the drawing needs by calculation, make the drawing, then use it for a follow-up
+      number.'
+tags:
+- graphs
+- linear-relations
+- interactive

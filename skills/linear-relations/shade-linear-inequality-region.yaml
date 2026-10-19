@@ -1,0 +1,104 @@
+id: shade-linear-inequality-region
+name: Shade the region of a linear inequality
+domain: linear-relations
+year_level:
+- '10'
+naplan_domain: []
+description: Shade the region of the plane that satisfies one or more linear inequalities, with a solid or dashed boundary,
+  on an interactive grid or by typing the inequalities.
+status: active
+capability_gates:
+- figure_stimulus
+needs_figure: true
+placement_eligible: false
+prerequisites:
+- f10-graphical-inequality-regions
+answer: half_planes
+sources:
+- topic: w9_shade_region
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w9_shade_region
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w9_shade_region
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w9_shade_region
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w9-region-wrong-side
+  description: Shades the side of the boundary line that does not satisfy the inequality.
+- id: w9-region-boundary-style
+  description: Draws a solid boundary for a strict inequality, or a dashed boundary for one that includes the line.
+- id: w9-region-intercept-sign
+  description: 'Puts the boundary line through the y-axis at the opposite end: the sign of the constant is wrong.'
+- id: w9-region-gradient-sign
+  description: 'Draws the boundary sloping the wrong way: the sign of the gradient is wrong.'
+- id: w9-region-gradient-inverted
+  description: Draws a boundary with the reciprocal of the gradient, going across by the rise and up by the run.
+- id: w9-region-axes-swapped
+  description: Swaps x and y when drawing the boundary, which reflects it in the line y = x.
+- id: w9-region-sign-not-flipped
+  description: Rearranges to make y positive by dividing by a negative number without reversing the inequality sign, so the
+    shading is on the wrong side.
+- id: w9-region-intercepts-swapped
+  description: Swaps the x- and y-intercepts of the boundary when the equation is in standard form.
+- id: w9-region-intercept-not-divided
+  description: Uses the right-hand constant as an intercept without dividing by the coefficient of the variable.
+- id: w9-region-one-condition-only
+  description: Shades the region for one of the inequalities in a system and ignores the others.
+- id: w9-region-union-for-intersection
+  description: Shades everywhere that satisfies at least one inequality, when the system needs all of them at once.
+- id: w9-region-strip-one-side
+  description: Shades one side of only one of the two parallel boundaries instead of the strip between them.
+- id: w9-region-strip-outside
+  description: Shades outside the two parallel boundaries instead of between them.
+- id: w9-region-quadrant-ignored
+  description: Leaves out the conditions x ≥ 0 and y ≥ 0, so the region extends beyond the first quadrant.
+- id: w9-region-gradient-from-coefficients
+  description: Reads the gradient of ax + by = c as a/b, forgetting the minus sign.
+- id: w9-region-gradient-as-intercept
+  description: Gives the y-intercept c/b where the gradient was asked.
+- id: w9-region-gradient-inverted-number
+  description: Gives -b/a, the reciprocal of the gradient.
+- id: w9-region-count-boundary-strict
+  description: Counts a point on a dashed boundary as inside the region.
+- id: w9-region-count-boundary-missed
+  description: Leaves out a point on a solid boundary, which is part of the region.
+- id: w9-region-count-complement
+  description: Counts the points outside the region instead of inside it.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Shade y compared with mx + c, or one side of a vertical or horizontal line.
+  medium:
+    steps: 3
+    demand: Shade from standard form or an inequality written with y second.
+  hard:
+    steps: 5
+    demand: Shade the overlap of two sloping lines, a triangle cut off by the axes or a parallel strip.
+  exam:
+    steps: 6
+    demand: 'A multi-part question: find what the drawing needs by calculation, make the drawing, then use it for a follow-up
+      number.'
+tags:
+- graphs
+- inequalities
+- regions
+- interactive
