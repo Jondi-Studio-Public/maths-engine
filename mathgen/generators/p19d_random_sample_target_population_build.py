@@ -1119,7 +1119,7 @@ def _frame_surveyed_option(ctx, n) -> str:
     length-tell fix, since a fixed-full-echoing distractor shape would always be longer than the bare "all
     {full}" key by a constant margin."""
     if n is not None:
-        return _wrap(f"the {n} people who were actually surveyed")
+        return _wrap(f"only the {n} respondents in the sample")
     # The stem gives no sample size, so none may be invented; the wording varies by context instead, so this
     # distractor is not one fixed string shown in nearly every draw.
     wordings = (
