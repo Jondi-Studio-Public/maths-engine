@@ -33,7 +33,6 @@ def test_catalogue_has_every_module_misconception():
 CASES = [
     ("percentage-change", "w3_percentage_change", ("easy", "medium", "hard")),
     ("classify-data", "w3_classify_easy", ("easy",)),
-    ("arithmetic-sequences", "w3_arith_recognise", ("easy", "medium", "hard")),
     ("senior-use-ests-and-lsts-to-locate-the-critical", "w3_ests_lsts", ("easy", "medium", "hard")),
     ("senior-solve-problems-involving-bearings", "w3_bearings_general", ("medium", "hard")),
 ]
@@ -151,55 +150,6 @@ def test_classify_keys():
             seen.add("classify")
         assert not any(twist for p, c, twist in POOL if p in t)
     assert seen == {"which", "classify"}
-
-
-# -- arithmetic sequences ---------------------------------------------------------------------------------------------
-
-
-def seq(text):
-    return [int(x) for x in text.split(", ")]
-
-
-def diffs(terms):
-    return [terms[i + 1] - terms[i] for i in range(len(terms) - 1)]
-
-
-def test_arithmetic_easy_keys():
-    seen = set()
-    for seed in range(200):
-        q = sup.single("w3_arith_recognise", "easy", seed)
-        if "is arithmetic" in q.text:
-            shown = seq(re.search(r"The sequence ([-\d, ]+), \.\.\. is arithmetic", q.text).group(1))
-            assert len(set(diffs(shown))) == 1 and len(shown) == 4
-            assert int(q.answer_text) == shown[-1] + (shown[-1] - shown[-2]), (seed, q.text)
-            seen.add("next")
-        else:
-            options = [seq(o) for o in (q.answer_text, *q.distractors)]
-            flags = [len(set(diffs(o))) == 1 for o in options]
-            assert flags == [True, False, False, False], (seed, options)
-            seen.add("which")
-    assert seen == {"next", "which"}
-
-
-def test_arithmetic_medium_statements():
-    for seed in range(200):
-        q = sup.single("w3_arith_recognise", "medium", seed)
-        terms = seq(re.search(r"sequence ([-\d, ]+?)(?:\. Which|\?)", q.text).group(1))
-        d = diffs(terms)
-        if len(set(d)) == 1:
-            assert q.answer_text == f"It is arithmetic, with a common difference of {d[0]}.", (seed, q.text)
-        else:
-            brk = next(i for i in range(1, len(d)) if d[i] != d[0]) + 1
-            assert q.answer_text == f"It is not arithmetic: the difference changes after term {brk}.", (seed, q.text)
-        assert len(set(diffs(terms))) >= 1
-
-
-def test_arithmetic_hard_solves_for_k():
-    for seed in range(200):
-        q = sup.single("w3_arith_recognise", "hard", seed)
-        a, b, c = (int(x) for x in re.search(r"k \+ (\d+), 2k \+ (\d+) and k \+ (\d+)", q.text).groups())
-        solutions = [k for k in range(-100, 101) if 2 * (2 * k + b) == (k + a) + (k + c)]
-        assert solutions == [int(q.answer_text)], (seed, q.text)
 
 
 # -- activity networks ------------------------------------------------------------------------------------------------

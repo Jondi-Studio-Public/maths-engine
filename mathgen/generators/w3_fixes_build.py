@@ -7,8 +7,6 @@ Topics:
                              the fall that undoes a rise, the change in a rate itself).
 * ``w3_classify_easy``       classify-data easy: variables in many settings, either classified into three types or picked
                              out of four, so the answer cannot be guessed from a three-line pool.
-* ``w3_arith_recognise``     arithmetic-sequences: pick the arithmetic sequence out of four, judge a sequence whose first
-                             pair of terms is misleading, find the value that makes three terms arithmetic.
 * ``w3_ests_lsts``           senior-use-ests-and-lsts-to-locate-the-critical: four-option questions on a small activity
                              network (the critical activity from a table of ESTs and LSTs, the critical path, a latest
                              start time) instead of a yes/no.
@@ -33,7 +31,6 @@ from .r3j_classify_build import CONTINUOUS, DISCRETE, NOMINAL, ORDINAL, POOL
 
 _PC = "percentage-change"
 _CD = "classify-data"
-_AS = "arithmetic-sequences"
 _EL = "senior-use-ests-and-lsts-to-locate-the-critical"
 _BR = "senior-solve-problems-involving-bearings"
 
@@ -59,17 +56,6 @@ MISCONCEPTIONS = [
     ("w3pc-wrong-direction", "Gives a percentage increase where a decrease was asked, or the reverse.", _PC),
     # classify data
     ("w3cd-category-as-number", "Treats a variable recorded in words or labels as numerical.", _CD),
-    # arithmetic sequences
-    ("w3as-geometric-as-arithmetic", "Takes a constant ratio for a constant difference.", _AS),
-    ("w3as-one-pair", "Judges the sequence from its first two terms only.", _AS),
-    ("w3as-first-term", "Gives the first term as the common difference.", _AS),
-    ("w3as-growing-gaps", "Takes terms that grow by a growing amount for an arithmetic sequence.", _AS),
-    ("w3as-repeating-gaps", "Takes gaps that repeat in a pattern for a constant difference.", _AS),
-    ("w3as-sign", "Gives the common difference, or the next term, with the wrong sign.", _AS),
-    ("w3as-skips-a-term", "Adds the common difference twice to get the next term.", _AS),
-    ("w3as-wrong-break", "Names the wrong place where the difference changes.", _AS),
-    ("w3as-halving-forgotten", "Stops at 2k = n and gives 2k as the value of k.", _AS),
-    ("w3as-arithmetic-slip", "Makes an arithmetic slip, so the answer is out by a small amount.", _AS),
     # critical path
     ("w3el-smallest-float", "Chooses the activity with the smallest float that is not zero.", _EL),
     ("w3el-largest-est", "Chooses the activity with the latest earliest start time.", _EL),
@@ -337,174 +323,6 @@ def w3_classify_easy(rng, tier="easy"):
     if tier != "easy":
         raise ValueError(f"unknown tier {tier!r}")
     return _draw(rng, (_classify_one, _classify_which))
-
-
-# -- arithmetic sequences ---------------------------------------------------------------------------------------------
-
-
-def _seq_text(terms):
-    return ", ".join(str(t) for t in terms)
-
-
-def _arith(rng, n=5):
-    a = rng.randint(-12, 30)
-    d = rng.choice([x for x in range(-9, 10) if x not in (0,)])
-    return [a + d * i for i in range(n)], d
-
-
-def _is_arithmetic(terms):
-    return len({terms[i + 1] - terms[i] for i in range(len(terms) - 1)}) == 1
-
-
-def _geometric(rng, n=5):
-    a = rng.randint(1, 6)
-    r = rng.choice((2, 3, -2, 5))
-    return [a * r**i for i in range(n)]
-
-
-def _growing(rng, n=5):
-    a = rng.randint(0, 9)
-    step = rng.randint(1, 3)
-    out = [a]
-    gap = step
-    for _ in range(n - 1):
-        out.append(out[-1] + gap)
-        gap += rng.choice((1, 2))
-    return out
-
-
-def _repeating(rng, n=5):
-    a = rng.randint(0, 20)
-    g1, g2 = rng.sample(range(1, 8), 2)
-    out = [a]
-    for i in range(n - 1):
-        out.append(out[-1] + (g1 if i % 2 == 0 else g2))
-    return out
-
-
-def _one_pair(rng, n=5):
-    """The first difference repeats once, then changes."""
-    terms, d = _arith(rng, 3)
-    nxt = terms[-1] + d + rng.choice((-3, -2, -1, 1, 2, 3))
-    out = terms + [nxt]
-    while len(out) < n:
-        out.append(out[-1] + (out[-1] - out[-2]))
-    return out
-
-
-def _next_term(rng):
-    terms, d = _arith(rng, 5)
-    shown, nxt = terms[:4], terms[4]
-    last = shown[-1]
-    slips = [
-        (last - d, "w3as-sign"),
-        (last + 2 * d, "w3as-skips-a-term"),
-        (last + d + (1 if d > 0 else -1) * rng.choice((1, 2)), "w3as-arithmetic-slip"),
-        (last * 2 - shown[-2], "w3as-arithmetic-slip"),
-    ]
-    options, seen = [], {nxt}
-    for value, tag in slips:
-        if value not in seen:
-            seen.add(value)
-            options.append((str(value), tag))
-    lead = rng.choice(("What is the next term?", "Find the term that comes next."))
-    text = f"The sequence {_seq_text(shown)}, ... is arithmetic. {lead}"
-    return choice_question(
-        text, str(nxt), [f"The common difference is {d}, so the next term is {last} + ({d}) = {nxt}."], options[:3]
-    )
-
-
-def _which_arithmetic(rng):
-    key, d = _arith(rng, 5)
-    decoys = [
-        (_geometric(rng), "w3as-geometric-as-arithmetic"),
-        (_growing(rng), "w3as-growing-gaps"),
-        (_repeating(rng), "w3as-repeating-gaps"),
-    ]
-    check(not any(_is_arithmetic(t) for t, _ in decoys), "a decoy is arithmetic")
-    check(len({tuple(t) for t, _ in decoys} | {tuple(key)}) == 4, "duplicate sequences")
-    text = rng.choice(
-        (
-            "Which of these sequences is an arithmetic sequence?",
-            "Only one of these sequences goes up or down by the same amount each time. Which one is it?",
-        )
-    )
-    slips = [(_seq_text(t), tag) for t, tag in decoys]
-    working = [f"{_seq_text(key)} goes up by {d} each time, so the difference is constant."]
-    return choice_question(text, _seq_text(key), working, slips)
-
-
-def _statement(rng):
-    terms_arith = rng.random() < 0.5
-    if terms_arith:
-        terms, d = _arith(rng, 5)
-        key = f"It is arithmetic, with a common difference of {d}."
-        slips = [
-            (f"It is arithmetic, with a common difference of {-d}.", "w3as-sign"),
-            (f"It is not arithmetic: the difference changes after term {rng.randint(2, 4)}.", "w3as-wrong-break"),
-            (f"It is arithmetic, with a common difference of {terms[0]}.", "w3as-first-term"),
-        ]
-        working = [f"Every term is {d} more than the one before, so the common difference is {d}."]
-    else:
-        terms = _one_pair(rng, 5)
-        diffs = [terms[i + 1] - terms[i] for i in range(4)]
-        brk = next(i for i in range(1, 4) if diffs[i] != diffs[0]) + 1  # the term after which the difference changes
-        check(brk <= 3, "the break should be early")
-        key = f"It is not arithmetic: the difference changes after term {brk}."
-        other = next(j for j in (2, 3, 4) if j != brk)
-        slips = [
-            (f"It is arithmetic, with a common difference of {diffs[0]}.", "w3as-one-pair"),
-            (f"It is arithmetic, with a common difference of {diffs[-1]}.", "w3as-one-pair"),
-            (f"It is not arithmetic: the difference changes after term {other}.", "w3as-wrong-break"),
-        ]
-        working = [f"The differences are {', '.join(str(x) for x in diffs)}, so they are not all equal."]
-    shown = _seq_text(terms)
-    text = rng.choice(
-        (
-            f"Look at the sequence {shown}. Which statement is correct?",
-            f"A student examines the sequence {shown}. Which statement about it is correct?",
-            f"Which of these statements is true of the sequence {shown}?",
-        )
-    )
-    return choice_question(text, key, working, slips)
-
-
-def _solve_k(rng):
-    k0 = rng.randint(2, 20)
-    a, b = rng.randint(1, 9), rng.randint(1, 9)
-    c = 2 * k0 + 2 * b - a
-    check(c > 0, "c must be positive")
-    t1, t2, t3 = f"k + {a}", f"2k + {b}", f"k + {c}"
-    slips = [
-        (str(k0 * 2), "w3as-halving-forgotten"),
-        (str(k0 + 1), "w3as-arithmetic-slip"),
-        (str(max(1, k0 - 1)), "w3as-arithmetic-slip"),
-    ]
-    text = rng.choice(
-        (
-            f"The expressions {t1}, {t2} and {t3} are three consecutive terms of an arithmetic sequence. What is the value of k?",
-            f"If {t1}, {t2} and {t3} form an arithmetic sequence in that order, find k.",
-            f"Three numbers in arithmetic sequence are {t1}, {t2} and {t3}. Which value of k makes this true?",
-        )
-    )
-    working = [
-        f"For an arithmetic sequence the middle term is the mean of its neighbours: 2({t2}) = ({t1}) + ({t3}).",
-        f"4k + {2 * b} = 2k + {a + c}, so 2k = {a + c - 2 * b} and k = {k0}.",
-    ]
-    return choice_question(text, str(k0), working, slips)
-
-
-@generator(
-    "w3_arith_recognise",
-    level=9,
-    presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
-)
-def w3_arith_recognise(rng, tier="easy"):
-    """Recognise an arithmetic sequence: pick one, judge one, or solve for a missing value."""
-    pool = {"easy": (_next_term, _next_term, _which_arithmetic), "medium": (_statement,), "hard": (_solve_k,)}.get(tier)
-    if pool is None:
-        raise ValueError(f"unknown tier {tier!r}")
-    return _draw(rng, pool)
 
 
 # -- activity networks: ESTs and LSTs ---------------------------------------------------------------------------------

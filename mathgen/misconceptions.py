@@ -57544,56 +57544,6 @@ _ENTRIES = (
         area="classify-data",
     ),
     CatalogueEntry(
-        "w3as-geometric-as-arithmetic",
-        "Takes a constant ratio for a constant difference.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-one-pair",
-        "Judges the sequence from its first two terms only.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-first-term",
-        "Gives the first term as the common difference.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-growing-gaps",
-        "Takes terms that grow by a growing amount for an arithmetic sequence.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-repeating-gaps",
-        "Takes gaps that repeat in a pattern for a constant difference.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-sign",
-        "Gives the common difference, or the next term, with the wrong sign.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-skips-a-term",
-        "Adds the common difference twice to get the next term.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-wrong-break",
-        "Names the wrong place where the difference changes.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-halving-forgotten",
-        "Stops at 2k = n and gives 2k as the value of k.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
-        "w3as-arithmetic-slip",
-        "Makes an arithmetic slip, so the answer is out by a small amount.",
-        area="arithmetic-sequences",
-    ),
-    CatalogueEntry(
         "w3el-smallest-float",
         "Chooses the activity with the smallest float that is not zero.",
         area="senior-use-ests-and-lsts-to-locate-the-critical",
