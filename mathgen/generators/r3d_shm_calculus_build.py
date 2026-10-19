@@ -461,8 +461,8 @@ _EXAM_CONTEXTS = (
             "A float on a lake moves up and down with the waves. Its height above the still-water level is "
             "x = {A} cos({n}t{eps}) metres at time t seconds, with upward positive.",
         ),
-        (F(2, 5), F(3, 5), F(4, 5), F(6, 5)),
-        (2, 3),
+        (F(2, 5), F(3, 5), F(4, 5), F(6, 5), F(3, 2), F(2)),
+        (2, 3, 4, 5),
     ),
     (
         (
@@ -472,7 +472,7 @@ _EXAM_CONTEXTS = (
             "x = {A} cos({n}t{eps}) metres at time t seconds. Upward is the positive direction.",
         ),
         (F(1, 20), F(2, 25), F(1, 10), F(3, 20), F(1, 5)),
-        (4, 5, 6, 8),
+        (4, 5, 6, 7, 8, 9, 10, 12),
     ),
 )
 
