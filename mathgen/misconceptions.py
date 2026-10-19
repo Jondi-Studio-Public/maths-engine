@@ -54094,6 +54094,7 @@ _ENTRIES = (
         "w4-bridge-removed-edge-kept",
         "Counting the cost of the removed bridge as well as the edges that are left in the piece.",
         area="networks",
+    ),
     # -- w6-calculus (limits, substitution, resisted motion, graph reading) ---------------------------------
     CatalogueEntry(
         "w6-proj-speed-for-component",
@@ -54404,6 +54405,7 @@ _ENTRIES = (
         "w6-limit-root-degree-not-halved",
         "Compares the numerator's degree with the full degree under the square root instead of half of it.",
         area="limits",
+    ),
     # -- w7 figures (scale drawing, views, space strand) --
     CatalogueEntry(
         "plan-ignores-the-window-condition",
@@ -55294,6 +55296,7 @@ _ENTRIES = (
         "turn-gives-a-whole-turn",
         "Says four right angles, a whole extra turn, where only the rest of the current turn was needed.",
         area="figure-views",
+    ),
     CatalogueEntry(
         "ogive-boundary-for-count",
         "Gives the boundary from the horizontal axis where a number of values was asked.",
