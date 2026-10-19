@@ -89,8 +89,8 @@ _HARD_TEMPLATES = (
     "(x2, y2).",
     "Starting from (x0, y0) = ({x0}, {y0}) for the system {a11}x + "
     "({a12})y = {b1}, ({a21})x + {a22}y = {b2}, apply TWO Gauss-Seidel "
-    "updates -- in each, solve for the new x from the current y first, "
-    "then for the new y from that just-computed x -- and report the "
+    "updates — in each, solve for the new x from the current y first, "
+    "then for the new y from that just-computed x — and report the "
     "pair (x2, y2) reached after the second update.",
 )
 

@@ -541,7 +541,9 @@ def exd_x_r4j_forced_recurrence(rng, tier="exam"):
             answer=roots,
             answer_text=roots_text,
             marks=2,
-            working=[f"The roots are {roots[0]} and {roots[1]}, since r² − ({p})r − ({q}) = 0."],
+            working=[
+                f"The roots are {roots[0]} and {roots[1]}, since {join_terms([(1, 'r²'), (-p, 'r'), (-q, '')])} = 0."
+            ],
             distractors=root_dist,
         ),
         dict(

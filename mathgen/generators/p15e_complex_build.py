@@ -312,7 +312,7 @@ def _p15e_contour_hard(rng):
         pole = _full_pole_text(p, k)
         text = phrase(rng, _HARD_PATTERNS, c=c, quad=quad, pole=pole)
         working = [
-            f"({pole})^2 + ({b_coef})({pole}) + ({c_coef}) = 0, confirmed by substitution.",
+            f"Substituting z = {pole} into {quad} gives 0, so it is a pole.",
             f"Res(f, {pole}) = {_text_fmt(residue)}; integral = 2πi × Res = {_text_fmt(answer)}.",
         ]
         return dict(

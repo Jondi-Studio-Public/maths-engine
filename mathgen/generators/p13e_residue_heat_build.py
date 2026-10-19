@@ -92,6 +92,7 @@ def _same_value(left, right) -> bool:
 from ..core import (
     check,
     fmt_signed,
+    join_terms,
     generator,
     phrase,
     pick_distractors,
@@ -378,7 +379,7 @@ def _p13e_residue_exam(rng):
 
         text = phrase(rng, _EXAM_PATTERNS, r=r, b_coef=b_coef, c_coef=c_coef, w1=w1_text, w2=w2_text)
         working = [
-            f"Substitute each candidate into z^2 + ({b_coef})z + ({c_coef}): only "
+            f"Substitute each candidate into {join_terms([(1, 'z^2'), (b_coef, 'z'), (c_coef, '')])}: only "
             f"z = {_text_fmt(w_true)} satisfies it (its conjugate is {_text_fmt(w_conj)}).",
             f"Res(f, {_text_fmt(w_true)}) = (({_text_fmt(w_true)}) - ({r})) / (2i × {q}) = {_text_fmt(answer)}.",
         ]

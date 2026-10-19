@@ -152,9 +152,9 @@ def _candidates_2x2(a, lam, vec, other_vec):
 def _working_2x2(a, lam, vec):
     m = _shift(a, lam)
     return [
-        f"A - {lam}I = {mat_str(m)}." if lam >= 0 else f"A + {-lam}I = {mat_str(m)}.",
+        f"{_shift_text('A', lam)} = {mat_str(m)}.",
         f"Solving (A - λI)v = 0 gives v = {vec_str(vec)}.",
-        f"Check: Av = {vec_str(apply(a, vec))} = {lam}v.",
+        f"Check: Av = {vec_str(apply(a, vec))} = {_times_v(lam)}.",
     ]
 
 
@@ -223,9 +223,9 @@ def _medium_triangular(rng):
         (other_vecs[1], "eigvec-other-eigenvalue"),
     ]
     working = [
-        f"A - {lam}I = {mat_str(_shift(a, lam))}." if lam >= 0 else f"A + {-lam}I = {mat_str(_shift(a, lam))}.",
+        f"{_shift_text('A', lam)} = {mat_str(_shift(a, lam))}.",
         *_triangular_solution_lines(vec, k),
-        f"Check: Av = {vec_str(apply(a, vec))} = {lam}v.",
+        f"Check: Av = {vec_str(apply(a, vec))} = {_times_v(lam)}.",
     ]
     text = phrase(rng, _TRIANGULAR_STEMS, a=mat_str(a), lam=lam)
     return _finish(rng, text, a, lam, vec, candidates, working)
@@ -260,7 +260,7 @@ def _medium_block(rng):
     ]
     working = [
         f"The matrix is block diagonal, so an eigenvector for λ = {lam} comes from the 2×2 block {mat_str(b)}.",
-        f"For that block, (B {'-' if lam >= 0 else '+'} {abs(lam)}I)u = 0 gives u = {vec_str(block_vec)}.",
+        f"For that block, ({_shift_text('B', lam)})u = 0 gives u = {vec_str(block_vec)}.",
         f"Padding with 0 for the other block gives v = {vec_str(vec)}.",
     ]
     text = phrase(rng, _BLOCK_STEMS, a=mat_str(a), lam=lam)
@@ -317,9 +317,9 @@ def _hard_dense(rng):
         (others[1], "eigvec-other-eigenvalue"),
     ]
     working = [
-        f"A - {lam}I = {mat_str(m)}." if lam >= 0 else f"A + {-lam}I = {mat_str(m)}.",
+        f"{_shift_text('A', lam)} = {mat_str(m)}.",
         f"Row-reducing, the system (A - λI)v = 0 has a one-parameter family of solutions, v = {vec_str(vec)}.",
-        f"Check: Av = {vec_str(apply(a, vec))} = {lam}v.",
+        f"Check: Av = {vec_str(apply(a, vec))} = {_times_v(lam)}.",
     ]
     text = phrase(rng, _DENSE_STEMS, a=mat_str(a), lams=_list_text(sorted(lams)), lam=lam)
     return _finish(rng, text, a, lam, vec, candidates, working)
@@ -350,9 +350,9 @@ def _hard_defective(rng):
     ]
     charpoly = f"{_factor_text(lam)}²{_factor_text(mu)}"
     working = [
-        f"A - {lam}I = {mat_str(m)}." if lam >= 0 else f"A + {-lam}I = {mat_str(m)}.",
+        f"{_shift_text('A', lam)} = {mat_str(m)}.",
         f"This has rank 2, so the null space is a line: v = {vec_str(vec)}.",
-        f"Check: Av = {vec_str(apply(a, vec))} = {lam}v.",
+        f"Check: Av = {vec_str(apply(a, vec))} = {_times_v(lam)}.",
     ]
     text = phrase(rng, _DEFECTIVE_STEMS, a=mat_str(a), charpoly=charpoly, lam=lam)
     return _finish(rng, text, a, lam, vec, candidates, working)
@@ -376,9 +376,26 @@ def ucv1_eigenvectors(rng, tier="easy"):
 # -- exam -------------------------------------------------------------------------------------------------------
 
 
+def _shift_text(name: str, lam: int) -> str:
+    """``A - 2I``, ``A + 3I`` or ``A - I``: the matrix shifted by the eigenvalue, with no coefficient of 1."""
+    if lam == 0:
+        return name
+    size = abs(lam)
+    return f"{name} {'-' if lam >= 0 else '+'} {'' if size == 1 else size}I"
+
+
+def _times_v(lam: int) -> str:
+    """``λv`` for a numeric eigenvalue: ``-v``, ``v``, ``3v``."""
+    return {0: "0", 1: "v", -1: "-v"}.get(lam, f"{lam}v")
+
+
 def _signed_quadratic(trace, determinant):
     """λ² - tλ + d as text."""
-    t = f" - {trace}λ" if trace > 0 else (f" + {-trace}λ" if trace < 0 else "")
+    t = (
+        (" - λ" if trace == 1 else f" - {trace}λ")
+        if trace > 0
+        else ((" + λ" if trace == -1 else f" + {-trace}λ") if trace < 0 else "")
+    )
     d = f" + {determinant}" if determinant > 0 else (f" - {-determinant}" if determinant < 0 else "")
     return f"λ²{t}{d}"
 
