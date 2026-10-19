@@ -107,27 +107,27 @@ _OTHER_RANGE = range(2, 11)  # 2..10
 _FORMAT_NOTE = "Give your answer as product = ..., quotient = ..."
 
 _EASY_TEMPLATES = (
-    "{first} × {second} = ?. Use it to find ? ÷ {second}. " + _FORMAT_NOTE,
-    "{first} × {second} = ?. What is ? ÷ {second}? " + _FORMAT_NOTE,
+    "{first} × {second} = ? Use it to find ? ÷ {second}. " + _FORMAT_NOTE,
+    "{first} × {second} = ? What is ? ÷ {second}? " + _FORMAT_NOTE,
     "Given {first} × {second} = ?, find the value of ? ÷ {second}. " + _FORMAT_NOTE,
 )
 _MEDIUM_SAME_AS_EASY = (
-    "{first} × {second} = ?. Use it to find ? ÷ {second}. " + _FORMAT_NOTE,
-    "{first} × {second} = ?. What is ? ÷ {second}? " + _FORMAT_NOTE,
+    "{first} × {second} = ? Use it to find ? ÷ {second}. " + _FORMAT_NOTE,
+    "{first} × {second} = ? What is ? ÷ {second}? " + _FORMAT_NOTE,
     "Given {first} × {second} = ?, find the value of ? ÷ {second}. " + _FORMAT_NOTE,
 )
 _MEDIUM_TURNAROUND = (
-    "{first} × {second} = ?. Use it to find ? ÷ {first}. " + _FORMAT_NOTE,
-    "{first} × {second} = ?. What is ? ÷ {first}? " + _FORMAT_NOTE,
+    "{first} × {second} = ? Use it to find ? ÷ {first}. " + _FORMAT_NOTE,
+    "{first} × {second} = ? What is ? ÷ {first}? " + _FORMAT_NOTE,
     "Given {first} × {second} = ?, find the value of ? ÷ {first}. " + _FORMAT_NOTE,
 )
 _HARD_QUOTITIVE = (
-    "{first} × {second} = ?. How many groups of {divisor} make this product? " + _FORMAT_NOTE,
-    "{first} × {second} = ?. How many groups of {divisor} does the product split into? " + _FORMAT_NOTE,
+    "{first} × {second} = ? How many groups of {divisor} make this product? " + _FORMAT_NOTE,
+    "{first} × {second} = ? How many groups of {divisor} does the product split into? " + _FORMAT_NOTE,
 )
 _HARD_PARTITIVE = (
-    "{first} × {second} = ?. Share this product equally into {divisor} groups. How many in each group? " + _FORMAT_NOTE,
-    "{first} × {second} = ?. Split this product equally between {divisor} groups. How many in each group? "
+    "{first} × {second} = ? Share this product equally into {divisor} groups. How many in each group? " + _FORMAT_NOTE,
+    "{first} × {second} = ? Split this product equally between {divisor} groups. How many in each group? "
     + _FORMAT_NOTE,
 )
 

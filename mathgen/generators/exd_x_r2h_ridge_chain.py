@@ -20,7 +20,7 @@ from fractions import Fraction
 
 import sympy
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, paren_negative as pn, phrase
 from .exd_x_r2h_support import build_part
 
 
@@ -165,7 +165,7 @@ def _build(rng: random.Random) -> dict:
             marks=2,
             working=[
                 f"A^T A = [[{g11}, {g12}], [{g12}, {g22}]], so M = [[{g11 + lam}, {g12}], [{g12}, {g22 + lam}]].",
-                f"det(M) = {g11 + lam} x {g22 + lam} - ({g12})^2 = {det}.",
+                f"det(M) = {g11 + lam} × {g22 + lam} - {pn(g12)}^2 = {det}.",
             ],
             wrong=det_wrong,
         ),
@@ -175,7 +175,7 @@ def _build(rng: random.Random) -> dict:
             kind="fraction",
             marks=2,
             working=[
-                f"A^T b = ({c1}, {c2}). M^(-1) = adj(M)/det(M), so x1 = ({g22 + lam} x {c1} - ({g12}) x {c2})/{det}.",
+                f"A^T b = ({c1}, {c2}). M^(-1) = adj(M)/det(M), so x1 = ({g22 + lam} × {pn(c1)} - {pn(g12)} × {pn(c2)})/{det}.",
                 f"x1 = {x1}.",
             ],
             wrong=x1_wrong,
@@ -186,7 +186,7 @@ def _build(rng: random.Random) -> dict:
             x2,
             kind="fraction",
             marks=2,
-            working=[f"x2 = ({g11 + lam} x {c2} - ({g12}) x {c1})/{det} = {x2}."],
+            working=[f"x2 = ({g11 + lam} × {pn(c2)} - {pn(g12)} × {pn(c1)})/{det} = {x2}."],
             wrong=x2_wrong,
             follow_through=ft_c,
         ),
@@ -195,7 +195,7 @@ def _build(rng: random.Random) -> dict:
             pred,
             kind="fraction",
             marks=1,
-            working=[f"{u1} x ({x1}) + {u2} x ({x2}) = {pred}."],
+            working=[f"{u1} × ({x1}) + {u2} × ({x2}) = {pred}."],
             wrong=pred_wrong,
             follow_through=ft_d,
         ),

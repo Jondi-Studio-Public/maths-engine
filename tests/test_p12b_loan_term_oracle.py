@@ -106,8 +106,9 @@ _MAX_RATE_PATTERNS = [
 
 
 def _parse(text: str, patterns: list[re.Pattern]) -> dict:
+    plain = re.sub(r"(?<=\d),(?=\d{3})", "", text)  # the stem writes $20,000; the templates here have bare digits
     for pattern in patterns:
-        m = pattern.match(text)
+        m = pattern.match(plain)
         if m:
             return {k: Fraction(v) for k, v in m.groupdict().items()}
     raise AssertionError(f"unparseable question against all {len(patterns)} known templates: {text!r}")

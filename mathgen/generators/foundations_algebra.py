@@ -430,7 +430,7 @@ def simplify_expression(rng, kind="brackets", hi=9):
         ds = "+" if d >= 0 else "-"
         bx = fmt_signed(b, "x")
         mid = f"({bx} {ds} {abs(d)})"
-        text = join_terms([(a, "x"), (c, mid), (-e, "")])
+        text = "Simplify " + join_terms([(a, "x"), (c, mid), (-e, "")])
     ans_str = str(ans)
     return dict(
         text=text,
@@ -809,7 +809,11 @@ def _linear_from_table_equation_context(rng, hi):
         answer={"m": m, "b": b},
         answer_text=ans_text,
         answer_latex=ans_text,
-        working=[f"Rate: ${m} per day, so m = {m}", f"Flat fee: ${b}, so b = {b}", f"y = mx + b = {ans_text}"],
+        working=[
+            f"Rate: ${m} per day, so m = {m}",
+            f"Flat fee: ${b}, so b = {b}",
+            f"y = mx + b = {ans_text.removeprefix('y = ')}",
+        ],
         distractors=pick_distractors(ans_text, cands),
     )
 
@@ -921,7 +925,7 @@ def sequence(rng, kind="common_diff", hi=9, n_terms=4):
             answer_text=ans_str,
             answer_latex=latex(rule),
             working=[
-                f"Difference: ({t2} - {paren_negative(t1)}) / {gap} = {d}. First term: {t1} - {paren_negative(d)}({p1} - 1) = {a1}. a_x = {a1} + ({d})(x - 1) = {rule}."
+                f"Difference: ({t2} - {paren_negative(t1)}) / {gap} = {d}. First term: {t1} - {'' if d == 1 else paren_negative(d)}({p1} - 1) = {a1}. a_x = {a1} + {'' if d == 1 else f'({d})'}(x - 1) = {rule}."
             ],
             distractors=pick_distractors(ans_str, cands),
         )
@@ -1009,7 +1013,9 @@ def word_problem(rng, kind="linear_eq", coef_hi=9, sol_hi=15):
         return _word_problem_linear_eq_reverse(rng, coef_hi, sol_hi)
     x0 = rng.randint(1, sol_hi)
     a = rng.randint(2, coef_hi)
-    b = rng.randint(-20, 20)
+    b = draw_until(
+        rng, lambda r: r.randint(-20, 20), lambda v: v != 0, what='a nonzero constant ("then add 0" is not a step)'
+    )
     c = a * x0 + b
     check(solve(Eq(a * x + b, c), x) == [x0])
     b_phrase = f"add {b}" if b >= 0 else f"subtract {abs(b)}"

@@ -19,7 +19,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import attempts, check, generator, phrase, rational_text
+from ..core import attempts, check, generator, paren_negative, phrase, rational_text
 from .exd_x_r3b_common import number_part
 from ._exd_distinct_parts import distinct_part_answers
 
@@ -152,7 +152,7 @@ def _build(rng: random.Random) -> dict:
         Fraction(t1),
         0,
         2,
-        [f"First value = {a_val} - ({p} - 1) × ({d}) = {t1}."],
+        [f"First value = {a_val} - ({p} - 1) × {paren_negative(d)} = {t1}."],
         [
             ("stated-term-taken-as-first-term", Fraction(a_val)),
             ("off-by-one-nth-term", Fraction(a_val - p * d)),
@@ -168,7 +168,7 @@ def _build(rng: random.Random) -> dict:
         0,
         2,
         [
-            f"Sum = {n_total}/2 × (2 × {t1} + {n_total - 1} × ({d})) = {total}.",
+            f"Sum = ({n_total} ÷ 2) × (2 × {t1} + {n_total - 1} × {paren_negative(d)}) = {total}.",
         ],
         [
             ("sum-formula-not-halved", Fraction(n_total * (2 * t1 + (n_total - 1) * d))),
@@ -185,7 +185,7 @@ def _build(rng: random.Random) -> dict:
         0,
         2,
         [
-            f"{t1} + (n - 1) × ({d}) {'>' if d > 0 else '<'} {threshold}, so n - 1 > {rational_text(Fraction(threshold - t1, d))}.",
+            f"{t1} + (n - 1) × {paren_negative(d)} {'>' if d > 0 else '<'} {threshold}, so n - 1 > {rational_text(Fraction(threshold - t1, d))}.",
             f"The first whole number is n = {n_th}.",
         ],
         [

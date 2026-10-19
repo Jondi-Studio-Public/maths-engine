@@ -283,12 +283,34 @@ def _build_length_hard(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"Convert whichever value is not already in {target_label}, then "
-            f"{'add' if operation == 'sum' else 'subtract'} the two amounts: "
-            f"{answer_text} {target_label}.",
+            f"{exact_decimal_string(values[other_unit], 3)} {_UNIT_LABELS_LENGTH[other_unit]} = "
+            f"{exact_decimal_string(converted_other, 3)} {target_label}.",
+            (
+                f"{exact_decimal_string(same_value, 3)} + {exact_decimal_string(converted_other, 3)} = "
+                f"{answer_text} {target_label}."
+                if operation == "sum"
+                else f"{exact_decimal_string(max(same_value, converted_other), 3)} - "
+                f"{exact_decimal_string(min(same_value, converted_other), 3)} = {answer_text} {target_label}."
+            ),
         ],
         distractors=_shaped_distractors(answer_text, candidates),
     )
+
+
+def combine_working(values, other_unit, labels, target_label, same_value, converted_other, operation, answer_text):
+    """Two working lines for a "combine two amounts in different units" question: the conversion, then the sum or
+    the difference (larger minus smaller)."""
+
+    def num(v):
+        return exact_decimal_string(v, 3)
+
+    first = f"{num(values[other_unit])} {labels[other_unit]} = {num(converted_other)} {target_label}."
+    if operation == "sum":
+        second = f"{num(same_value)} + {num(converted_other)} = {answer_text} {target_label}."
+    else:
+        big, small = max(same_value, converted_other), min(same_value, converted_other)
+        second = f"{num(big)} - {num(small)} = {answer_text} {target_label}."
+    return [first, second]
 
 
 @generator(
@@ -542,11 +564,9 @@ def _build_area_hard(rng) -> dict:
         answer=numeric_answer(answer),
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[
-            f"Convert whichever value is not already in {target_label}, then "
-            f"{'add' if operation == 'sum' else 'subtract'} the two amounts: "
-            f"{answer_text} {target_label}.",
-        ],
+        working=combine_working(
+            values, other_unit, _UNIT_LABELS_AREA, target_label, same_value, converted_other, operation, answer_text
+        ),
         distractors=_shaped_distractors(answer_text, candidates),
     )
 

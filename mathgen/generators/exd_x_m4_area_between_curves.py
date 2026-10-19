@@ -54,7 +54,7 @@ _SETTINGS = (
 
 
 def _poly(c2: int, c1: int, c0: int) -> str:
-    return join_terms([(c2, "x^2"), (c1, "x"), (c0, "")])
+    return join_terms([(c2, "x²"), (c1, "x"), (c0, "")])
 
 
 def _fmt_root(value: Fraction) -> str:
@@ -85,6 +85,8 @@ def _draw(rng: random.Random):
         if u != 0 and (f2, f1, f0) == (u, v, w):
             continue
         area = _area_from_limits(a * c, p, q)
+        if area < 3:  # a slab, pond liner or garden bed is not a fraction of a square metre
+            continue
         shown = round_half_up(area, 2)
         scaled = area * 100
         if abs((scaled % 1) - Fraction(1, 2)) <= _MARGIN * 100:
@@ -178,7 +180,10 @@ def exd_x_m4_area_between_curves(rng: random.Random, tier: str = "exam") -> dict
                 answer_text=p_text,
                 answer_latex=latex_answer(p_text),
                 marks=1,
-                working=[f"Equate the curves: {f_text} = {g_text}.", f"The x-coordinate of A is {p_text}."],
+                working=[
+                    f"Equate the curves: {f_text} = {g_text}, so the difference is zero at the two crossing points.",
+                    f"The x-coordinate of A (the smaller root) is {p_text}.",
+                ],
                 distractors=a_distractors,
             ),
             dict(
@@ -188,7 +193,7 @@ def exd_x_m4_area_between_curves(rng: random.Random, tier: str = "exam") -> dict
                 answer_text=q_text,
                 answer_latex=latex_answer(q_text),
                 marks=1,
-                working=[f"The x-coordinate of B is {q_text}."],
+                working=[f"The x-coordinate of B (the larger root) is {q_text}."],
                 distractors=b_distractors,
             ),
             dict(
@@ -202,8 +207,8 @@ def exd_x_m4_area_between_curves(rng: random.Random, tier: str = "exam") -> dict
                 sensible_range=(0, None),
                 follow_through=f"{abs(scale)}*Abs(part_b-part_a)**3/6",
                 working=[
-                    "Area = integral of (upper curve - lower curve) from A to B.",
-                    f"= {abs(scale)} x ({q_text} - ({p_text}))^3 / 6 = {area_text} (2 d.p.).",
+                    "The area is the integral of (upper curve − lower curve) from A to B.",
+                    f"The difference of the curves is a quadratic whose x² term has size {abs(scale)} and whose roots are {p_text} and {q_text}, so area = {abs(scale)} × ({q_text} − ({p_text}))³ ÷ 6 = {area_text} (2 d.p.).",
                 ],
                 distractors=c_distractors,
             ),
@@ -216,7 +221,7 @@ def exd_x_m4_area_between_curves(rng: random.Random, tier: str = "exam") -> dict
                 marks=1,
                 sensible_range=(0, None),
                 follow_through=f"{price}*part_c",
-                working=[f"Cost = {area_text} x {price} = ${cost_text}."],
+                working=[f"Cost = {area_text} × {price} = ${cost_text}."],
                 distractors=pick_distractors(
                     cost_text,
                     [

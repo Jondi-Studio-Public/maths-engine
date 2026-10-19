@@ -30,6 +30,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..core import (
+    article_for_number,
     check,
     draw_until,
     exact_decimal_string,
@@ -86,7 +87,7 @@ def _verify_trapezium(a: Fraction, b: Fraction, height: Fraction, expected: Frac
 
 
 def _build_easy_rectangle_square(rng, side_hi: int) -> dict:
-    """Easy: rectangle or square area (l x w or s x s) -- the single most
+    """Easy: rectangle or square area (l × w or s × s) -- the single most
     familiar formula."""
     shape = rng.choice(["rectangle", "square"])
     if shape == "square":
@@ -135,7 +136,7 @@ def _build_easy_rectangle_square(rng, side_hi: int) -> dict:
 
 
 def _build_medium_triangle_parallelogram(rng, dim_hi: int) -> dict:
-    """Medium: triangle or parallelogram area (1/2 x b x h or b x h) -- a
+    """Medium: triangle or parallelogram area (1/2 × b × h or b × h) -- a
     genuinely different formula the learner must select based on the shape named
     in the question, and, for the triangle case, apply the 1/2 factor."""
     shape = rng.choice(["triangle", "parallelogram"])
@@ -185,13 +186,13 @@ def _build_medium_triangle_parallelogram(rng, dim_hi: int) -> dict:
         answer=numeric_answer(answer),
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[f"Area = base × height {'÷ 2' if shape == 'triangle' else ''} = {answer_text} cm²."],
+        working=[f"Area = base × height{' ÷ 2' if shape == 'triangle' else ''} = {answer_text} cm²."],
         distractors=_shaped_distractors(answer_text, candidates),
     )
 
 
 def _build_hard_trapezium(rng, side_hi: int) -> dict:
-    """Hard: trapezium area (1/2 x (a + b) x h) -- two independently stated
+    """Hard: trapezium area (1/2 × (a + b) × h) -- two independently stated
     parallel side lengths plus a height. This requires the learner to combine
     two side lengths before applying the height and the 1/2 factor, a genuine
     extra reasoning step over medium."""
@@ -424,7 +425,7 @@ def _build_hard_subtractive_notch(rng, big_w_hi: int, big_h_hi: int, cut_w_hi: i
     answer_text = exact_decimal_string(answer, 1)
 
     text = (
-        f"An irregular figure is a {int(big_w)} cm by {int(big_h)} cm rectangle "
+        f"An irregular figure is {article_for_number(int(big_w))} {int(big_w)} cm by {int(big_h)} cm rectangle "
         f"with {cut_description} removed from one corner. "
         f"What is the remaining area, in cm²?"
     )

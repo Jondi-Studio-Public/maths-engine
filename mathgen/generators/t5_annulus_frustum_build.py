@@ -216,14 +216,14 @@ def annulus_cross_section_area(rng, variant="direct"):
 
         question_text = (
             f"A hollow cylindrical shaft has an outer radius of {R} cm and an "
-            f"inner radius of {r} cm. Using pi (roughly) 3.14159, what is the "
+            f"inner radius of {r} cm. Taking π as 3.14159, what is the "
             f"area of its annular cross-section, in square centimetres, to 1 "
             f"decimal place?"
         )
         working = [
-            "Area of an annulus = pi x (R^2 - r^2), where R is the outer radius and r is the inner radius.",
-            f"Area = 3.14159 x ({R}^2 - {r}^2) = 3.14159 x {R * R - r * r} = {float(raw):.5f} cm^2.",
-            f"To 1 decimal place: {answer_text} cm^2.",
+            "Area of an annulus = π × (R² − r²), where R is the outer radius and r is the inner radius.",
+            f"Area = 3.14159 × ({R}² − {r}²) = 3.14159 × {R * R - r * r} = {float(raw):.5f} cm².",
+            f"To 1 decimal place: {answer_text} cm².",
         ]
         distractors = _annulus_distractors(R, r, raw, answer_text)
 
@@ -261,28 +261,28 @@ def annulus_cross_section_area(rng, variant="direct"):
         if outer_as_diameter:
             question_text = (
                 f"A hollow cylindrical shaft has an outer diameter of {2 * R} cm "
-                f"and an inner radius of {r} cm. Using pi (roughly) 3.14159, "
+                f"and an inner radius of {r} cm. Taking π as 3.14159, "
                 f"what is the area of its annular cross-section, in square "
                 f"centimetres, to 1 decimal place?"
             )
             working = [
                 f"Outer radius R = {2 * R} / 2 = {R} cm. Inner radius r = {r} cm (given directly).",
-                "Area of an annulus = pi x (R^2 - r^2).",
-                f"Area = 3.14159 x ({R}^2 - {r}^2) = 3.14159 x {R * R - r * r} = {float(raw):.5f} cm^2.",
-                f"To 1 decimal place: {answer_text} cm^2.",
+                "Area of an annulus = π × (R² − r²).",
+                f"Area = 3.14159 × ({R}² − {r}²) = 3.14159 × {R * R - r * r} = {float(raw):.5f} cm².",
+                f"To 1 decimal place: {answer_text} cm².",
             ]
         else:
             question_text = (
                 f"A hollow cylindrical shaft has an outer radius of {R} cm and an "
-                f"inner diameter of {2 * r} cm. Using pi (roughly) 3.14159, what "
+                f"inner diameter of {2 * r} cm. Taking π as 3.14159, what "
                 f"is the area of its annular cross-section, in square "
                 f"centimetres, to 1 decimal place?"
             )
             working = [
                 f"Outer radius R = {R} cm (given directly). Inner radius r = {2 * r} / 2 = {r} cm.",
-                "Area of an annulus = pi x (R^2 - r^2).",
-                f"Area = 3.14159 x ({R}^2 - {r}^2) = 3.14159 x {R * R - r * r} = {float(raw):.5f} cm^2.",
-                f"To 1 decimal place: {answer_text} cm^2.",
+                "Area of an annulus = π × (R² − r²).",
+                f"Area = 3.14159 × ({R}² − {r}²) = 3.14159 × {R * R - r * r} = {float(raw):.5f} cm².",
+                f"To 1 decimal place: {answer_text} cm².",
             ]
         distractors = _annulus_distractors(R, r, raw, answer_text)
 
@@ -323,16 +323,16 @@ def annulus_cross_section_area(rng, variant="direct"):
 
         question_text = (
             f"A hollow shaft has an outer diameter of {outer_diameter_mm} mm and "
-            f"a wall thickness of {t_display} cm. Using pi (roughly) 3.14159, "
+            f"a wall thickness of {t_display} cm. Taking π as 3.14159, "
             f"what is the area of its annular cross-section, in square "
             f"millimetres, to 1 decimal place?"
         )
         working = [
             f"Outer radius R = {outer_diameter_mm} / 2 = {R} mm. Wall thickness t = {t_display} cm = {t_mm} mm.",
             f"Inner radius r = R - t = {R} - {t_mm} = {r} mm.",
-            "Area of an annulus = pi x (R^2 - r^2).",
-            f"Area = 3.14159 x ({R}^2 - {r}^2) = 3.14159 x {R * R - r * r} = {float(raw):.5f} mm^2.",
-            f"To 1 decimal place: {answer_text} mm^2.",
+            "Area of an annulus = π × (R² − r²).",
+            f"Area = 3.14159 × ({R}² − {r}²) = 3.14159 × {R * R - r * r} = {float(raw):.5f} mm².",
+            f"To 1 decimal place: {answer_text} mm².",
         ]
         distractors = _annulus_distractors(R, r, raw, answer_text)
 
@@ -406,7 +406,7 @@ def _frustum_distractors(R: int, r: int, h, raw: Fraction, answer_text: str) -> 
     },
 )
 def frustum_volume(rng, variant="direct"):
-    """Volume of a frustum of a cone: (1/3) * pi * h * (R^2 + R*r + r^2)."""
+    """Volume of a frustum of a cone: (1/3) * π * h * (R² + R*r + r²)."""
 
     if variant == "direct":
         # Easy: R, r, h all given directly, same unit (cm).
@@ -445,15 +445,15 @@ def frustum_volume(rng, variant="direct"):
 
         question_text = (
             f"A frustum of a cone has a base radius of {R} cm, a top radius of "
-            f"{r} cm and a height of {h} cm. Using pi (roughly) 3.14159, what "
+            f"{r} cm and a height of {h} cm. Taking π as 3.14159, what "
             f"is its volume, in cubic centimetres, to 1 decimal place?"
         )
         working = [
-            "Volume of a frustum = (1/3) x pi x h x (R^2 + R x r + r^2), where R "
+            "Volume of a frustum = (1/3) × π × h × (R² + R × r + r²), where R "
             "is the base radius, r is the top radius and h is the height.",
-            f"Volume = (1/3) x 3.14159 x {h} x ({R}^2 + {R} x {r} + {r}^2) "
-            f"= (1/3) x 3.14159 x {h} x {R * R + R * r + r * r} = {float(raw):.5f} cm^3.",
-            f"To 1 decimal place: {answer_text} cm^3.",
+            f"Volume = (1/3) × 3.14159 × {h} × ({R}² + {R} × {r} + {r}²) "
+            f"= (1/3) × 3.14159 × {h} × {R * R + R * r + r * r} = {float(raw):.5f} cm³.",
+            f"To 1 decimal place: {answer_text} cm³.",
         ]
         distractors = _frustum_distractors(R, r, h, raw, answer_text)
 
@@ -495,16 +495,16 @@ def frustum_volume(rng, variant="direct"):
 
         question_text = (
             f"A frustum of a cone has a base diameter of {2 * R} cm, a top "
-            f"diameter of {2 * r} cm and a height of {h} cm. Using pi "
-            f"(roughly) 3.14159, what is its volume, in cubic centimetres, to "
+            f"diameter of {2 * r} cm and a height of {h} cm. Taking π "
+            f"as 3.14159, what is its volume, in cubic centimetres, to "
             f"1 decimal place?"
         )
         working = [
             f"Base radius R = {2 * R} / 2 = {R} cm. Top radius r = {2 * r} / 2 = {r} cm.",
-            "Volume of a frustum = (1/3) x pi x h x (R^2 + R x r + r^2).",
-            f"Volume = (1/3) x 3.14159 x {h} x ({R}^2 + {R} x {r} + {r}^2) "
-            f"= (1/3) x 3.14159 x {h} x {R * R + R * r + r * r} = {float(raw):.5f} cm^3.",
-            f"To 1 decimal place: {answer_text} cm^3.",
+            "Volume of a frustum = (1/3) × π × h × (R² + R × r + r²).",
+            f"Volume = (1/3) × 3.14159 × {h} × ({R}² + {R} × {r} + {r}²) "
+            f"= (1/3) × 3.14159 × {h} × {R * R + R * r + r * r} = {float(raw):.5f} cm³.",
+            f"To 1 decimal place: {answer_text} cm³.",
         ]
         distractors = _frustum_distractors(R, r, h, raw, answer_text)
 
@@ -572,16 +572,15 @@ def frustum_volume(rng, variant="direct"):
 
         question_text = (
             f"A frustum of a cone has a base radius of {R} cm, a top radius of "
-            f"{r} cm and a slant height of {l} cm. Using pi (roughly) 3.14159, "
+            f"{r} cm and a slant height of {l} cm. Taking π as 3.14159, "
             f"what is its volume, in cubic centimetres, to 1 decimal place?"
         )
         working = [
-            f"Height h: l^2 = h^2 + (R - r)^2, so h = sqrt({l}^2 - ({R} - {r})^2) "
-            f"= sqrt({l * l} - {diff * diff}) = {h} cm.",
-            "Volume of a frustum = (1/3) x pi x h x (R^2 + R x r + r^2).",
-            f"Volume = (1/3) x 3.14159 x {h} x ({R}^2 + {R} x {r} + {r}^2) "
-            f"= (1/3) x 3.14159 x {h} x {R * R + R * r + r * r} = {float(raw):.5f} cm^3.",
-            f"To 1 decimal place: {answer_text} cm^3.",
+            f"Height h: l² = h² + (R − r)², so h = √({l}² − ({R} − {r})²) = √({l * l} − {diff * diff}) = {h} cm.",
+            "Volume of a frustum = (1/3) × π × h × (R² + R × r + r²).",
+            f"Volume = (1/3) × 3.14159 × {h} × ({R}² + {R} × {r} + {r}²) "
+            f"= (1/3) × 3.14159 × {h} × {R * R + R * r + r * r} = {float(raw):.5f} cm³.",
+            f"To 1 decimal place: {answer_text} cm³.",
         ]
         distractors = _frustum_distractors(R, r, h, raw, answer_text)
 

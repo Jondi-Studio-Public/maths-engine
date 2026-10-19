@@ -27,8 +27,10 @@ from ..core import (
     check,
     check_distinct,
     check_equivalent,
+    bracket_compound,
     generator,
     join_terms,
+    paren_negative,
     latex_answer,
     phrase,
     pick_distractors,
@@ -108,6 +110,22 @@ def exd_x_h5_increments_unknown_coefficient(rng, tier="exam"):
     check(len(distractors) >= 2, "expected at least two distractors")
     lin = f"{'+' if b > 0 else '-'} {abs(b) if abs(b) != 1 else ''}x"
     text = phrase(rng, _INC_PROMPTS, lin=lin, u1=u1, u2=u2, first=first, w1=w1, w2=w2)
+    pn = paren_negative
+
+    def sc(c, body):
+        """A coefficient written before a bracket: 1 and -1 are not written out."""
+        return f"({body})" if c == 1 else (f"-({body})" if c == -1 else f"{pn(c)}({body})")
+
+    def add(c, body):
+        """A coefficient-times-bracket term appended after a leading term: '+ 3(..)' or '- (..)'."""
+        return f"{'-' if c < 0 else '+'} {sc(abs(c), body)}"
+
+    working = [
+        f"From x = {u1} to x = {u2}: δy = k({pn(u2)}² - {pn(u1)}²) {add(b, f'{u2} - {pn(u1)}')} = {first}.",
+        f"So {join_terms([(u2**2 - u1**2, 'k'), (b * (u2 - u1), '')])} = {first}, giving k = {k}.",
+        f"δx = {w2} - {pn(w1)} = {dx}.",
+        f"δy = {sc(k, f'{pn(w2)}² - {pn(w1)}²')} {add(b, f'{w2} - {pn(w1)}')} = {dy}.",
+    ]
     return {
         "text": text,
         "latex": text,
@@ -115,6 +133,7 @@ def exd_x_h5_increments_unknown_coefficient(rng, tier="exam"):
         "answer_text": answer_text,
         "answer_latex": rf"\delta x = {dx},\; \delta y = {dy}",
         "distractors": distractors,
+        "working": working,
     }
 
 
@@ -180,6 +199,13 @@ def exd_x_h5_quotient_reciprocal_or_cubic(rng, tier="exam"):
     distractors = pick_distractors(answer_text, [rational_text(c) for c in keep], n=3)
     check(len(distractors) >= 3, "expected three distractors")
     text = phrase(rng, _QUOT_PROMPTS, f=f_text, p=p, dx=rational_text(dx))
+    new_x = f"{p} {'+' if dx > 0 else '-'} {rational_text(abs(dx))}"
+    working = [
+        f"f({p}) = {rational_text(func(pf))}.",
+        f"f({new_x}) = f({rational_text(q)}) = {rational_text(func(q))}.",
+        f"δy = {rational_text(func(q))} - {paren_negative(func(pf)) if func(pf).denominator == 1 else '(' + rational_text(func(pf)) + ')'} = {rational_text(delta_y)}.",
+        f"δy/δx = {bracket_compound(rational_text(delta_y))} ÷ {bracket_compound(rational_text(dx))} = {answer_text}.",
+    ]
     return {
         "text": text,
         "latex": text,
@@ -187,6 +213,7 @@ def exd_x_h5_quotient_reciprocal_or_cubic(rng, tier="exam"):
         "answer_text": answer_text,
         "answer_latex": latex_answer(answer),
         "distractors": distractors,
+        "working": working,
     }
 
 

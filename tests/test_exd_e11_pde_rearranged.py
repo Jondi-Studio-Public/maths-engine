@@ -12,7 +12,7 @@ def test_rearranged_hard_tier_moves_the_c_term_across_equals_over_many_seeds():
     for seed in range(60):
         question = make("constant_coefficient_pde_classification", seed=seed, difficulty="hard", kind="rearranged")
         assert "u_yy = 0" not in question.text
-        assert ")u_yy as elliptic" in question.text
+        assert "u_yy as elliptic" in question.text
 
 
 def test_rearranged_hard_tier_prompt_shape_differs_from_standard_default():

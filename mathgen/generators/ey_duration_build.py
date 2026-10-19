@@ -30,13 +30,14 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 
 _SAME = "They take the same time"
 
-#: Events from the shortest kind to the longest. Two events of one group can take equally long.
+#: Events from the shortest kind to the longest. Each name is a noun, because it is shown as "The ..." in an
+#: answer. Two events of one group can take equally long.
 _GROUPS = (
     ("blink", "sneeze", "nod"),
     ("clap", "hop", "wave", "jump"),
-    ("sing", "wash hands", "tidy up", "count"),
-    ("eat lunch", "bath", "draw", "read"),
-    ("play", "swim", "film"),
+    ("song", "hand wash", "tidy-up", "count"),
+    ("lunch", "bath", "drawing", "reading"),
+    ("playtime", "swim", "film"),
     ("sleep",),
 )
 _UNITS = ("sand", "tick", "dot")

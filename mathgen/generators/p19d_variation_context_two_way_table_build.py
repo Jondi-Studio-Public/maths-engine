@@ -272,7 +272,7 @@ def _variation_question(stem: str, correct_option: str, distractors: list[str], 
     """`display_order` is the (already-shuffled) full option list from construction -- unrelated to
     `grading.mcq_options`'s own independent grade-time shuffle, so listing it in the PROMPT is purely
     presentational and never leaks the answer's identity via position. Enumerating the contexts in `text`."""
-    opts_text = "  ".join(f"{_OPTION_TAGS[i]}) {opt}" for i, opt in enumerate(display_order))
+    opts_text = " ".join(f"{_OPTION_TAGS[i]}) {opt}" for i, opt in enumerate(display_order))
     text = f"{stem} {opts_text}"
     return dict(
         text=text,

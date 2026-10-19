@@ -156,7 +156,7 @@ def _build_d2c(rng, tier: str) -> dict:
         answer_latex=answer_text,
         working=[
             f"{display_amt} = {dollars} {'dollar' if dollars == 1 else 'dollars'} and {frac:02d} cents "
-            f"= {dollars} x 100 + {frac} = {answer_text} cents."
+            f"= {dollars} × 100{f' + {frac}' if frac else ''} = {answer_text} cents."
             + (
                 " (dollars-to-cents regrouping trap: naive digit concatenation drops the tens-of-cents zero.)"
                 if tier == "hard"
@@ -700,7 +700,7 @@ def _finish_multiply(rng, text, name, n, p, answer, tier, trap=None) -> dict:
         misconception_extra_item,
         msg="multiply misconception collides with the answer or another option",
     )
-    working = [f"{n} x ${p} = ${answer}." + (f" Trap: {trap}" if trap else "")]
+    working = [f"{n} × ${p} = ${answer}." + (f" Trap: {trap}" if trap else "")]
     return dict(
         text=text,
         latex=text,

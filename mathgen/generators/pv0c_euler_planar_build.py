@@ -53,12 +53,11 @@ _FACE_NAME = {3: "triangle", 4: "quadrilateral", 5: "pentagon", 6: "hexagon", 7:
 
 
 def _has_edge(face: tuple, u, v) -> bool:
-    n = len(face)
-    for i in range(n):
-        a, b = face[i], face[(i + 1) % n]
-        if {a, b} == {u, v}:
-            return True
-    return False
+    """True when u and v are neighbours around the cycle `face` (a simple cycle: each vertex appears once)."""
+    if u not in face:
+        return False
+    i = face.index(u)
+    return face[(i + 1) % len(face)] == v or face[i - 1] == v
 
 
 def _rotate_to_edge(face: tuple, a, b):

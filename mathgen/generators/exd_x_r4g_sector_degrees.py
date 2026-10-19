@@ -73,7 +73,7 @@ def _build(rng):
             a_,
             1,
             2,
-            [f"Area = {theta}/360 x π x {int(r)}² = {number_text(a_, 1)} {unit}²."],
+            [f"Area = {theta}/360 × π × {int(r)}² = {number_text(a_, 1)} {unit}²."],
             [
                 (Fraction(theta, 360) * PI * r, "r4g-radius-not-squared"),
                 (arc(r, theta), "r4g-arc-formula-for-area"),
@@ -86,7 +86,7 @@ def _build(rng):
             l_,
             1,
             2,
-            [f"Arc = {theta}/360 x 2 x π x {int(r)} = {number_text(l_, 1)} {unit}."],
+            [f"Arc = {theta}/360 × 2 × π × {int(r)} = {number_text(l_, 1)} {unit}."],
             [
                 (a_, "r4g-area-formula-for-arc"),
                 (2 * PI * r, "r4g-whole-circumference"),

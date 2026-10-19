@@ -31,6 +31,7 @@ from math import isqrt
 from ..core import (
     GRADER_TOLERANCE,
     check,
+    fmt_signed,
     generator,
     join_terms,
     latex_answer,
@@ -548,7 +549,7 @@ def exd_x_g2_complex_vector_system(rng, tier: str = "exam"):
         f"Find {ask}, as a coordinate pair."
     )
     working = [
-        f"Subtract {m1} times the first equation from the second: {m2 - m1}z2 = {_cx(S[0] - m1 * R[0], S[1] - m1 * R[1])}.",
+        f"Subtract {'the first equation' if m1 == 1 else f'{m1} times the first equation'} from the second: {fmt_signed(m2 - m1, 'z2')} = {_cx(S[0] - m1 * R[0], S[1] - m1 * R[1])}.",
         f"z2 = {_pair(*z2)}, then z1 = R - z2 = {_pair(*z1)}.",
     ]
     return _pair_result(target[0], target[1], cands, text, working)

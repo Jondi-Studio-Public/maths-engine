@@ -193,7 +193,7 @@ def test_gmt_routes_are_realistic_and_actually_cross():
     two_leg_re = re.compile(
         r"departs (.+?) \(GMT([+-][\d:]+)\) at \d{2}:\d{2} on \w+ and flies (\d+) hours to "
         r"(.+?) \(GMT([+-][\d:]+)\), crossing the International Date Line\. After a (\d+)-hour "
-        r"layover in .+?'s local time, a connecting flight takes (\d+) hours to (.+?) \(GMT([+-][\d:]+)\)"
+        r"layover in .+?, a connecting flight takes (\d+) hours to (.+?) \(GMT([+-][\d:]+)\)"
     )
 
     def _parse_offset(s):

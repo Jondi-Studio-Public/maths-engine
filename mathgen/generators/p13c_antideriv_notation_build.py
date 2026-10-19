@@ -250,7 +250,11 @@ def _easy(rng):
 
     Fstr, fstr = _disp(F), _disp(f)
     text = phrase(rng, _FACT_TEMPLATES, Fstr=Fstr, fstr=fstr)
-    return _finish(F, cands, text)
+    working = [
+        f"The fact d/dx({Fstr}) = {fstr} says {Fstr} is an antiderivative of {fstr}.",
+        f"So ∫({fstr}) dx = {Fstr} + C.",
+    ]
+    return _finish(F, cands, text, working)
 
 
 def _medium(rng):
@@ -272,7 +276,11 @@ def _medium(rng):
 
     Fstr, fstr = _disp(F), _disp(f)
     text = phrase(rng, _FACT_TEMPLATES, Fstr=Fstr, fstr=fstr)
-    return _finish(F, cands, text)
+    working = [
+        f"The fact d/dx({Fstr}) = {fstr} says {Fstr} is an antiderivative of {fstr}.",
+        f"So ∫({fstr}) dx = {Fstr} + C.",
+    ]
+    return _finish(F, cands, text, working)
 
 
 def _draw_exp(rng):
@@ -336,7 +344,11 @@ def _hard(rng):
 
     Fstr, fstr = _disp(F), _disp(f)
     text = phrase(rng, templates, Fstr=Fstr, fstr=fstr)
-    return _finish(F, cands, text)
+    working = [
+        f"The fact d/dx({Fstr}) = {fstr} says {Fstr} is an antiderivative of {fstr}.",
+        f"So ∫({fstr}) dx = {Fstr} + C.",
+    ]
+    return _finish(F, cands, text, working)
 
 
 def _exam(rng):
@@ -390,10 +402,15 @@ def _exam(rng):
         gstr=gstr,
         combined=combined_str,
     )
-    return _finish(full_F, cands, text)
+    working = [
+        f"Split the integrand: {combined_str} = {p}({f1str}) + {q}({gstr}).",
+        f"By linearity, ∫({combined_str}) dx = {p}∫({f1str}) dx + {q}∫({gstr}) dx = {p}({F1str}) + {q}({Gstr}) + C.",
+        f"So ∫({combined_str}) dx = {_disp(full_F)} + C.",
+    ]
+    return _finish(full_F, cands, text, working)
 
 
-def _finish(F, cands, text):
+def _finish(F, cands, text, working=None):
     answer_text = f"{_value(F)} + C"
     distractor_strs = pick_distractors(answer_text, [_display(e, hc) for e, hc in cands])
     # `sympy.latex(exp(2*x))` already renders "e^{2 x}" (no fix needed), but
@@ -408,6 +425,7 @@ def _finish(F, cands, text):
         answer_text=answer_text,
         answer_latex=answer_latex,
         distractors=distractor_strs,
+        working=list(working or []),
     )
 
 

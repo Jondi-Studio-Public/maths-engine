@@ -67,7 +67,7 @@ def _polygon(rng):
         interior,  # the degree value left unconverted
         _rad(Fraction(180 * (n - 1), n)),  # (n - 1) in place of (n - 2)
     ]
-    return phrase(rng, _POLYGON, n=n), interior, cands, f"Interior angle = 180 x ({n} - 2) / {n} degrees."
+    return phrase(rng, _POLYGON, n=n), interior, cands, f"Interior angle = 180 × ({n} - 2) / {n} degrees."
 
 
 def _clock(rng):
@@ -128,7 +128,7 @@ def exd_x_f4_deg_to_rad(rng, tier: str = "exam"):
             answer=numeric_answer(key),
             answer_text=answer_text,
             answer_latex=answer_text,
-            working=[step, f"Convert: degrees x pi / 180 = {answer_text} rad (rounded once, at the end)."],
+            working=[step, f"Convert: degrees × π / 180 = {answer_text} rad (rounded once, at the end)."],
             distractors=distractors,
         )
     check(False, "exd_x_f4_deg_to_rad: no unambiguous draw in 200 attempts")

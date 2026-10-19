@@ -20,12 +20,12 @@ X = sympy.Symbol("x")
 
 
 def _poly(text: str):
-    return sympy.sympify(re.sub(r"(\d)x", r"\1*x", text.replace("^", "**")), locals={"x": X})
+    return sympy.sympify(re.sub(r"(\d)x", r"\1*x", text.replace("²", "**2")), locals={"x": X})
 
 
 def derive(q) -> dict[str, str]:
     stem = q.stem
-    pieces = re.findall(r"y = ([-+x^0-9 ]+?)(?= and| intersect| cross|,| which|\. | \()", stem)
+    pieces = re.findall(r"y = ([-+x²0-9 ]+?)(?= and| intersect| cross|,| which|\. | \()", stem)
     f, g = _poly(pieces[0]), _poly(pieces[1])
     price = int(re.search(r"\$(\d+) per", stem).group(1))
     roots = sorted(sympy.solve(sympy.Eq(f, g), X))

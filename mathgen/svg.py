@@ -30,6 +30,7 @@ from typing import Any, Callable
 from xml.sax.saxutils import escape, quoteattr
 
 from mathgen import figures
+from mathgen.figure_kinds import placement
 from mathgen.figure_kinds.data import _key_text
 from mathgen.figure_kinds.tally import picture_key_text
 
@@ -240,10 +241,12 @@ def _clip_line(p0, p1, box) -> tuple[tuple[float, float], tuple[float, float]] |
     return (p0[0] + lo * dx, p0[1] + lo * dy), (p0[0] + hi * dx, p0[1] + hi * dy)
 
 
-def _cartesian(s: dict, ids: _Ids) -> Body:
+def _cartesian_frame(s: dict) -> tuple[float, float, float, float, Callable[[float], float], Callable[[float], float]]:
+    """``(left, top, plot_width, plot_height, X, Y)``: the plot box of a cartesian spec and the maps from
+    graph units to drawing units."""
     x0, x1 = s["x_range"]
     y0, y1 = s["y_range"]
-    left, top, bottom = 46, 14, 40
+    left, top = 46, 14
     max_w, max_h = 336.0, 300.0
     dx, dy = x1 - x0, y1 - y0
     if s["equal_scale"]:
@@ -259,6 +262,30 @@ def _cartesian(s: dict, ids: _Ids) -> Body:
     def Y(y: float) -> float:
         return top + ph - (y - y0) * sy
 
+    return left, top, pw, ph, X, Y
+
+
+def _caption_size(s: dict, p: dict, X: Callable[[float], float], Y: Callable[[float], float]) -> float:
+    """Font size of a marker-less label: its own, shrunk (with every caption in its row, so they match) when a
+    neighbouring caption would otherwise run into it."""
+    py = Y(p["at"][1])
+    row = [q for q in s["points"] if q.get("label") and not q.get("marker", True) and abs(Y(q["at"][1]) - py) < 8]
+    size = float(p.get("size", 13))
+    for q in row:
+        gaps = [abs(X(r["at"][0]) - X(q["at"][0])) for r in row if r is not q]
+        if gaps:
+            fit = (min(gaps) - 8) * 12 / (len(str(q["label"])) * 6.4)
+            size = min(size, max(8.0, fit))
+    return size
+
+
+def _cartesian(s: dict, ids: _Ids) -> Body:
+    x0, x1 = s["x_range"]
+    y0, y1 = s["y_range"]
+    bottom = 40
+    left, top, pw, ph, X, Y = _cartesian_frame(s)
+    sx, sy = pw / (x1 - x0), ph / (y1 - y0)
+
     out = [_rect(left, top, pw, ph, stroke=MID, stroke_width=1)]
     xg, yg = s["x_grid"], s["y_grid"]
     nx0, nx1 = math.ceil(x0 / xg - 1e-9), math.floor(x1 / xg + 1e-9)
@@ -270,90 +297,201 @@ def _cartesian(s: dict, ids: _Ids) -> Body:
 
     ax = X(0) if x0 <= 0 <= x1 else left
     ay = Y(0) if y0 <= 0 <= y1 else top + ph
-    out.append(_line(left, ay, left + pw, ay, stroke=INK, stroke_width=1.5))
-    out.append(_line(ax, top, ax, top + ph, stroke=INK, stroke_width=1.5))
+    # A drawing board (no numerals, no axis names) keeps its frame faint so the axes are not mistaken for part of a shape.
+    board = not s.get("tick_labels", True) and not s.get("x_label") and not s.get("y_label")
+    axis_kw = {"stroke": MID, "stroke_width": 1} if board else {"stroke": INK, "stroke_width": 1.5}
+    out.append(_line(left, ay, left + pw, ay, **axis_kw))
+    out.append(_line(ax, top, ax, top + ph, **axis_kw))
 
+    obstacles: list[placement.Box] = []
     ticks_text = []
-    if s.get("tick_labels", True):
+    origin = x0 <= 0 <= x1 and y0 <= 0 <= y1
+    # The origin's "0" sits beside its tick when the y axis is the plot's left edge (nothing there to dodge), and
+    # tucks below-left of the crossing otherwise, clear of the axis lines.
+    zero_at = (ax - 7, ay if ax <= left + 1 else ay + 12)
+    zero_box = placement.text_box(*zero_at, _text_w("0", 11), "end", 12) if origin else None
+    if zero_box is not None:
+        obstacles.append(zero_box)
+
+    def tick(
+        x: float, y: float, label: str, anchor: str, alts: tuple[tuple[float, float, str], ...], blockers: Any
+    ) -> None:
+        """Print a numeral at its tick, or at the first of ``alts`` that keeps it off the curves and lines, so the
+        numeral stays beside its tick and never has a curve running through it."""
+        fallback = None
+        for cx, cy, ca in ((x, y, anchor), *alts):
+            box = placement.text_box(cx, cy, _text_w(label, 11), ca, 12)
+            if any(placement._overlap(box, o, 0.0) for o in obstacles):
+                continue  # would print over a numeral already there (the origin's "0", or the other axis's end label)
+            if fallback is None:
+                fallback = (cx, cy, ca, box)
+            if blockers.distance(box) >= 2.0:
+                fallback = (cx, cy, ca, box)
+                break
+        if fallback is None:
+            return
+        obstacles.append(fallback[3])
+        ticks_text.append(_text(fallback[0], fallback[1], label, size=11, anchor=fallback[2], halo=True))
+
+    def draw_ticks(blockers: Any) -> None:
+        if not s.get("tick_labels", True):
+            return
         kx = max(1, math.ceil(30 / (xg * sx)))
         ky = max(1, math.ceil(18 / (yg * sy)))
         fmt_x = _pi_text if s["x_tick_format"] == "pi" else _num_text
         for n in range(nx0, nx1 + 1):
             v = n * xg
             out.append(_line(X(v), ay - 3, X(v), ay + 3, stroke=INK, stroke_width=1))
-            if n % kx == 0 and not (abs(v) < 1e-9 and y0 <= 0 <= y1 and x0 <= 0 <= x1):
-                ticks_text.append(_text(X(v), ay + 14, fmt_x(v), size=11, halo=True))
+            if n % kx == 0 and not (abs(v) < 1e-9 and origin):
+                alts = ((X(v), ay + 24, "middle"), (X(v), ay - 14, "middle"), (X(v), ay - 24, "middle"))
+                tick(X(v), ay + 14, fmt_x(v), "middle", alts, blockers)
         for n in range(ny0, ny1 + 1):
             v = n * yg
             out.append(_line(ax - 3, Y(v), ax + 3, Y(v), stroke=INK, stroke_width=1))
-            if n % ky == 0 and not (abs(v) < 1e-9 and y0 <= 0 <= y1 and x0 <= 0 <= x1):
-                ticks_text.append(_text(ax - 7, Y(v), _num_text(v), size=11, anchor="end", halo=True))
-        if y0 <= 0 <= y1 and x0 <= 0 <= x1:
-            ticks_text.append(_text(ax - 7, ay + 12, "0", size=11, anchor="end", halo=True))
-    if s.get("x_label"):
-        out.append(_text(left + pw - 2, ay - 11, s["x_label"], size=12, anchor="end", weight="bold", halo=True))
-    if s.get("y_label"):
-        out.append(_text(ax + 8, top + 9, s["y_label"], size=12, anchor="start", weight="bold", halo=True))
+            if n % ky == 0 and not (abs(v) < 1e-9 and origin):
+                tick(ax - 7, Y(v), _num_text(v), "end", ((ax + 7, Y(v), "start"),), blockers)
+        if origin:
+            ticks_text.append(_text(*zero_at, "0", size=11, anchor="end", halo=True))
 
     clip = ids("plot")
     inner = []
-    for c in s.get("curves", ()):
-        for piece in c["pieces"]:
-            inner.append(_poly([(X(a), Y(b)) for a, b in piece], stroke=INK, stroke_width=2, stroke_linejoin="round"))
+    markers = []  # dots and open ends: drawn whole even on the frame, so not clipped with the curves
+    plot_box = (left, top, left + pw, top + ph)
+    bounds = (left + 1, top + 1, left + pw - 1, top + ph - 1)
+    # Everything a label has to keep clear of or stay nearest to, as samples along it: [(kind, index, samples)].
+    items: list[list[placement.Pt]] = []
+    curve_item: dict[int, int] = {}
+    for ci, c in enumerate(s.get("curves", ())):
+        px_pieces = [[(X(a), Y(b)) for a, b in piece] for piece in c["pieces"]]
+        for piece in px_pieces:
+            inner.append(_poly(piece, stroke=INK, stroke_width=2, stroke_linejoin="round"))
+        curve_item[ci] = len(items)
+        items.append(placement.visible_samples(px_pieces, plot_box))
     box = (x0, x1, y0, y1)
     labels = []
-    for ln in s.get("lines", ()):
+    line_item: dict[int, tuple[int, float, float]] = {}
+    for li, ln in enumerate(s.get("lines", ())):
         seg = _clip_line(ln["through"][0], ln["through"][1], box)
         if seg is None:
             continue
         (ax_, ay_), (bx_, by_) = seg
         inner.append(_line(X(ax_), Y(ay_), X(bx_), Y(by_), stroke=INK, stroke_width=2))
-        if ln.get("label"):
-            labels.append(_text(X(bx_) - 4, Y(by_) - 9, ln["label"], size=12, anchor="end", halo=True))
+        line_item[li] = (len(items), X(bx_), Y(by_))
+        items.append(placement.visible_samples([[(X(ax_), Y(ay_)), (X(bx_), Y(by_))]], plot_box))
+    seg_samples = [
+        placement.visible_samples([[(X(sg["from"][0]), Y(sg["from"][1])), (X(sg["to"][0]), Y(sg["to"][1]))]], plot_box)
+        for sg in s.get("segments", ())
+    ]
+    draw_ticks(placement.SampleIndex(items + seg_samples))
     for sg in s.get("segments", ()):
         (a, b), (c, d) = sg["from"], sg["to"]
         inner.append(_line(X(a), Y(b), X(c), Y(d), stroke=INK, stroke_width=2))
+        items.append(placement.visible_samples([[(X(a), Y(b)), (X(c), Y(d))]], plot_box))
         for flag, (px, py) in (("open_start", (a, b)), ("open_end", (c, d))):
             if sg.get(flag):
-                inner.append(_circle(X(px), Y(py), 4, fill=PAPER, stroke=INK, stroke_width=1.8))
+                markers.append(_circle(X(px), Y(py), 4, fill=PAPER, stroke=INK, stroke_width=1.8))
         if bool(sg.get("open_start")) != bool(sg.get("open_end")):  # a step: the other end is the closed (filled) one
             px, py = (c, d) if sg.get("open_start") else (a, b)
-            inner.append(_circle(X(px), Y(py), 4, fill=INK, stroke="none"))
+            markers.append(_circle(X(px), Y(py), 4, fill=INK, stroke="none"))
         if sg.get("label"):
-            labels.append(_text((X(a) + X(c)) / 2, (Y(b) + Y(d)) / 2 - 10, sg["label"], size=12, halo=True))
-    clamped = 0
-    for c in s.get("curves", ()):
-        if c.get("label") and c["pieces"]:
-            ex, ey = c["pieces"][-1][-1]
-            ly = Y(ey) - 9
-            if ly < top + 8:  # the curve leaves through the top edge: keep the label inside, below any earlier one
-                ly = top + 8 + 14 * clamped
-                clamped += 1
-                labels.append(_text(min(X(ex) + 8, left + pw - 4), ly, c["label"], size=12, anchor="start", halo=True))
-            else:
-                labels.append(_text(min(X(ex) + 4, left + pw - 4), ly, c["label"], size=12, anchor="end", halo=True))
+            lx, ly = (X(a) + X(c)) / 2, (Y(b) + Y(d)) / 2 - 10
+            labels.append(_text(lx, ly, sg["label"], size=12, halo=True))
+            obstacles.append(placement.text_box(lx, ly, _text_w(sg["label"]), "middle"))
+    axes_samples = [
+        placement.visible_samples([[(left, ay), (left + pw, ay)]], plot_box),
+        placement.visible_samples([[(ax, top), (ax, top + ph)]], plot_box),
+    ]
+    point_boxes = []
     for p in s.get("points", ()):
         px, py = X(p["at"][0]), Y(p["at"][1])
-        if p.get("open"):
-            inner.append(_circle(px, py, 4.2, fill=PAPER, stroke=INK, stroke_width=1.8))
-        else:
-            inner.append(_circle(px, py, 4.2, fill=INK, stroke="none"))
-        if p.get("label"):
-            right = px > left + pw - 50
-            labels.append(
-                _text(
-                    px + (-7 if right else 7),
-                    py - 9,
-                    p["label"],
-                    size=12,
-                    anchor="end" if right else "start",
-                    halo=True,
-                )
-            )
+        if p.get("marker", True):
+            point_boxes.append((px, py))
+            if p.get("open"):
+                markers.append(_circle(px, py, 4.2, fill=PAPER, stroke=INK, stroke_width=1.8))
+            else:
+                markers.append(_circle(px, py, 4.2, fill=INK, stroke="none"))
+
+    several = len(s.get("curves", ())) > 1
+
+    def put(label: Any, own: list[placement.Pt], own_idx: int | None, **kw: Any) -> None:
+        width = _text_w(label)
+        others = [it for i, it in enumerate(items) if i != own_idx]
+        b, _ = placement.place(width, own, others, axes_samples, obstacles, bounds, **kw)
+        obstacles.append(b)
+        labels.append(_text((b[0] + b[2]) / 2, (b[1] + b[3]) / 2, label, size=12, halo=True))
+
+    for li, ln in enumerate(s.get("lines", ())):
+        if ln.get("label") and li in line_item:
+            idx = line_item[li][0]
+            put(ln["label"], items[idx], idx)
+    for ci, c in enumerate(s.get("curves", ())):
+        if c.get("label") and c["pieces"] and items[curve_item[ci]]:
+            put(c["label"], items[curve_item[ci]], curve_item[ci], same_end=several)
+    point_order = [(1, -1), (-1, -1), (1, 1), (-1, 1), (1, 0), (-1, 0), (0, -1), (0, 1)]
+    for p in s.get("points", ()):
+        px, py = X(p["at"][0]), Y(p["at"][1])
+        if not p.get("label"):
+            continue
+        if not p.get("marker", True):  # text only: centred where it was put, no dot
+            size = _caption_size(s, p, X, Y)
+            labels.append(_text(px, py, p["label"], size=size, halo=True))
+            continue
+        dots = [[(qx, qy)] for qx, qy in point_boxes if (qx, qy) != (px, py)]
+        width = _text_w(p["label"])
+        b, _ = placement.place(
+            width, [(px, py)], dots, axes_samples, obstacles, bounds, order=point_order, gap=5.0, clear=items
+        )
+        obstacles.append(b)
+        labels.append(_text((b[0] + b[2]) / 2, (b[1] + b[3]) / 2, p["label"], size=12, halo=True))
+    # The axis names sit at the end of their axes, shifted along it when a curve or line passes through. An axis
+    # that runs along the plot's edge (no negative values) has its name outside the frame, clear of the data; the y name sits above the frame, beside the top of its axis.
+    dot_samples = [[(X(p["at"][0]), Y(p["at"][1]))] for p in s.get("points", ()) if p.get("marker", True)]
+    all_items = placement.SampleIndex(items + dot_samples)
+    axis_boxes = [(left, ay - 1.5, left + pw, ay + 1.5), (ax - 1.5, top, ax + 1.5, top + ph)]
+    x_rows = [(left + pw - 2, ay - 11 - 14 * row, "end") for row in range(3)] + [(left + pw - 2, ay + 28, "end")]
+    if ay >= top + ph - 1:
+        x_rows = [(left + pw - 2, ay + 31, "end")] + x_rows[:3]
+    y_rows = [(ax + 8, top + 9, "start"), (ax - 24, top + 9, "end")]
+    y_rows = [(left if ax <= left + 1 else ax + 6, top - 7, "start")] + y_rows
+    for key, bases, step in (("x_label", x_rows, (-18, 0)), ("y_label", y_rows, (0, 14))):
+        name = s.get(key)
+        if not name:
+            continue
+        width = _text_w(name) * 1.1
+        spot = None
+        below = (left + 1, top + ph, left + pw + 2, top + ph + bottom)
+        above = (0.0, 0.0, 400.0, top)
+        for phase in (0, 1, 2):
+            pad = (4.0, 1.0, 0.0)[phase]
+            for k in range(8):
+                for bx_, by_, anchor_ in bases:
+                    x, y = bx_ + step[0] * k, by_ + step[1] * k
+                    b = placement.text_box(x, y, width, anchor_)
+                    if not (placement._inside(b, bounds) or placement._inside(b, below) or placement._inside(b, above)):
+                        continue
+                    if phase == 0 and all_items.distance(b) < 2.5:
+                        continue
+                    if phase < 2 and (
+                        any(placement._overlap(b, o, pad) for o in obstacles)
+                        or any(placement._overlap(b, o, 0.0) for o in axis_boxes)
+                    ):
+                        continue
+                    spot = (x, y, b, anchor_)
+                    break
+                if spot:
+                    break
+            if spot:
+                break
+        if spot is None:
+            x, y, anchor_ = bases[0]
+            spot = (x, y, placement.text_box(x, y, width, anchor_), anchor_)
+        out.append(_text(spot[0], spot[1], name, size=12, anchor=spot[3], weight="bold", halo=True))
+        obstacles.append(spot[2])
     out.append(
-        _el("clipPath", _rect(left - 4, top - 4, pw + 8, ph + 8), id=clip)
+        _el("clipPath", _rect(left - 1, top - 1, pw + 2, ph + 2), id=clip)
+        + _g(*ticks_text)  # under the curves: a numeral's halo must never cut a gap in a curve
         + _g(*inner, clip_path=f"url(#{clip})")
-        + _g(*ticks_text)
+        + _g(*markers)
         + _g(*labels)
     )
     return "".join(out), top + ph + bottom
@@ -687,15 +825,17 @@ def _clock_face(cx: float, cy: float, r: float, s: dict) -> list[str]:
         p1, p2 = _clock_pt(cx, cy, r * (1 - long_), a), _clock_pt(cx, cy, r - 1, a)
         out.append(_line(*p1, *p2, stroke=INK, stroke_width=2 if major else 0.9))
     numerals = s["numerals"]
-    for h in range(1, 13):
-        if numerals == "none" or (numerals == "quarters" and h % 3):
-            continue
-        x, y = _clock_pt(cx, cy, r * 0.72, h * 30)
-        out.append(_text(x, y, h, size=r * 0.2, weight="bold"))
     hx, hy = _clock_pt(cx, cy, r * 0.5, s["hour_angle"])
     mx, my = _clock_pt(cx, cy, r * 0.88, s["minute_angle"])
     out.append(_line(cx, cy, hx, hy, stroke=INK, stroke_width=5, stroke_linecap="round"))
     out.append(_line(cx, cy, mx, my, stroke=INK, stroke_width=3, stroke_linecap="round"))
+    # Numerals go over the hands, each in a paper halo, so a hand pointing at a numeral reads as passing behind it
+    # and the numeral stays whole.
+    for h in range(1, 13):
+        if numerals == "none" or (numerals == "quarters" and h % 3):
+            continue
+        x, y = _clock_pt(cx, cy, r * 0.72, h * 30)
+        out.append(_text(x, y, h, size=r * 0.2, weight="bold", halo=True))
     out.append(_circle(cx, cy, 4, fill=INK, stroke="none"))
     return out
 
@@ -755,11 +895,12 @@ def _protractor(s: dict, ids: _Ids) -> Body:
         p1, p2 = _pt(cx, cy, R - (11 if long_ else 6), t), _pt(cx, cy, R, t)
         local.append(_line(*p1, *p2, stroke=INK, stroke_width=1 if long_ else 0.6))
         if long_:
-            ox, oy = _pt(cx, cy, R - 23, t)
-            ix, iy = _pt(cx, cy, R - 47, t)
+            ox, oy = _pt(cx, cy, R - 22, t)
+            ix, iy = _pt(cx, cy, R - 46, t)
             local.append(_line(*_pt(cx, cy, R - 35, t), *_pt(cx, cy, R - 39, t), stroke=INK, stroke_width=0.8))
             local.append(_text(ox, oy, t, size=8))
-            local.append(_text(ix, iy, 180 - t, size=8))
+            # the inner ring is the tighter: 6.5pt on a 72-unit radius keeps three-digit numerals 10 degrees apart clear
+            local.append(_text(ix, iy, 180 - t, size=6.5))
     # rays, in the protractor's own frame
     base = (s["base_direction"] - rot) % 360
     second = (s["second_direction"] - rot) % 360
@@ -892,7 +1033,10 @@ def _scale(s: dict, ids: _Ids) -> Body:
                 _line(X(v), bot, X(v), bot - _TICK_LEN[kind], stroke=INK, stroke_width=1.4 if kind == "major" else 0.9)
             )
             if kind == "major":
-                out.append(_text(X(v), bot - 26, _num_text(float(v)), size=12))
+                num = _num_text(float(v))
+                half = _text_w(num, 12) / 2
+                nx = min(max(X(v), left + 4 + half), right - 4 - half)  # an end numeral stays inside the ruler's edge
+                out.append(_text(nx, bot - 26, num, size=12))
         out.append(_text(right, bot + 12, unit, size=12, anchor="end", weight="bold"))
         obj = s.get("object")
         if obj:
@@ -1040,6 +1184,16 @@ def _diagram(s: dict, ids: _Ids) -> Body:
             if frozenset((a, b)) not in seg_pairs:
                 out.append(_line(*pos[a], *pos[b], stroke=INK, stroke_width=2, stroke_linecap="round"))
     marks = []
+    edge_pairs = set(seg_pairs)
+    for poly in s.get("polygons", ()):
+        pts = poly["points"]
+        edge_pairs.update(frozenset((a, pts[(i + 1) % len(pts)])) for i, a in enumerate(pts))
+    edge_samples = {
+        e: placement.visible_samples([[pos[v] for v in sorted(e)]], (-1e6, -1e6, 1e6, 1e6))
+        for e in edge_pairs
+        if len(e) == 2
+    }
+    label_boxes: list[placement.Box] = []
     for sg in s.get("segments", ()):
         a, b = pos[sg["from"]], pos[sg["to"]]
         out.append(
@@ -1079,8 +1233,25 @@ def _diagram(s: dict, ids: _Ids) -> Body:
             )
         if sg.get("label"):
             # clear the edge: the label's half-width along the normal, plus a margin
-            gap = abs(nx) * _text_w(sg["label"], 13) / 2 + abs(ny) * 7.5 + 5
-            marks.append(_text(mid[0] + nx * gap, mid[1] + ny * gap, sg["label"], size=13, halo=True))
+            width = _text_w(sg["label"], 13)
+            gap = abs(nx) * width / 2 + abs(ny) * 7.5 + 5
+            own_edge = frozenset((sg["from"], sg["to"]))
+            rest = placement.SampleIndex([v for e, v in edge_samples.items() if e != own_edge])
+            spots = [(mid[0] + sign * nx * gap * m, mid[1] + sign * ny * gap * m) for m in (1, 1.5) for sign in (1, -1)]
+            chosen = spots[0]
+            for lx, ly in spots:  # the outer side first; the other side when that one is taken
+                box = placement.text_box(lx, ly, width, "middle", 15)
+                if (
+                    rest.distance(box) >= 2.5
+                    and not any(placement._overlap(box, o) for o in label_boxes)
+                    and box[0] >= 0
+                    and box[2] <= CANVAS
+                    and box[1] >= 0
+                ):
+                    chosen = (lx, ly)
+                    break
+            label_boxes.append(placement.text_box(*chosen, width, "middle", 15))
+            marks.append(_text(*chosen, sg["label"], size=13, halo=True))
     out.extend(marks)
 
     for a in s.get("angles", ()):
@@ -1106,8 +1277,23 @@ def _diagram(s: dict, ids: _Ids) -> Body:
         ra = 24.0
         out.append(_path(_arc(at[0], at[1], ra, t1, t2), stroke=INK, stroke_width=1.5))
         if a.get("label"):
+            # Along the bisector, as far out as it takes for the whole label to clear every line of the figure.
+            width = _text_w(a["label"], 13)
+            every = placement.SampleIndex(list(edge_samples.values()))
             lx, ly = _pt(at[0], at[1], ra + 15, t1 + sweep / 2)
-            out.append(_text(lx, ly, a["label"], size=13))
+            best = -1.0
+            for reach in range(0, 100, 3):
+                cx_, cy_ = _pt(at[0], at[1], ra + 15 + reach, t1 + sweep / 2)
+                box = placement.text_box(cx_, cy_, width, "middle", 15)
+                if box[0] < 0 or box[2] > CANVAS or box[1] < 0 or any(placement._overlap(box, o) for o in label_boxes):
+                    continue
+                gap = every.distance(box)
+                if gap > best:
+                    best, lx, ly = gap, cx_, cy_
+                if gap >= 2.0:
+                    break
+            label_boxes.append(placement.text_box(lx, ly, width, "middle", 15))
+            out.append(_text(lx, ly, a["label"], size=13, halo=True))
 
     for p in s["points"]:
         if not p.get("label"):
@@ -2076,7 +2262,7 @@ def _tally(s: dict, ids: _Ids) -> Body:
             cx, cy = x0 + it["at"][0] * w, y0 + it["at"][1] * h
             out.append(_icon(it["label"], cx, cy))
             out.append(_text(cx, cy + 22, it["label"], size=11))
-        y = y0 + h + 36
+        y = y0 + h + 48
         if rows:
             out.append(_line(16, y - 12, CANVAS - 16, y - 12, stroke=GRID, stroke_width=1))
     if rows:
@@ -3040,13 +3226,20 @@ def _gd_square(s: dict, ids: _Ids) -> Body:
         centres = [(X(x + 0.5), Y(y + 0.5)) for x, y in s["path"]["cells"]]
         r0 = min(7.0, c * 0.3)
         bits = []
+        symbol_at = {(round(X(sy_["at"][0])), round(Y(sy_["at"][1]))) for sy_ in s.get("symbols", [])}
+        r_hide = max(7.0, min(14.0, c * 0.42)) * 1.1 + 3  # a landmark's symbol covers this far from its centre
         for k, ((x0, y0), (x1, y1)) in enumerate(zip(centres, centres[1:])):
             ux, uy = (x1 - x0) / math.hypot(x1 - x0, y1 - y0), (y1 - y0) / math.hypot(x1 - x0, y1 - y0)
             a = r0 if k == 0 else 0.0
-            ex, ey = x1 - ux * c * 0.2, y1 - uy * c * 0.2
-            bits.append(
-                _line(x0 + ux * a, y0 + uy * a, ex - ux * 5, ey - uy * 5, stroke_width=2.6, stroke_linecap="round")
-            )
+            # the arrowhead stops at the edge of a landmark symbol on the target cell, so it is not hidden under it
+            stop = max(c * 0.2, r_hide) if (round(x1), round(y1)) in symbol_at else c * 0.2
+            ex, ey = x1 - ux * stop, y1 - uy * stop
+            if math.hypot(ex - ux * 5 - x0 - ux * a, ey - uy * 5 - y0 - uy * a) > 1 and (
+                (ex - ux * 5 - x0 - ux * a) * ux + (ey - uy * 5 - y0 - uy * a) * uy > 0
+            ):
+                bits.append(
+                    _line(x0 + ux * a, y0 + uy * a, ex - ux * 5, ey - uy * 5, stroke_width=2.6, stroke_linecap="round")
+                )
             bx, by = ex - ux * 7, ey - uy * 7
             bits.append(
                 _poly(
@@ -3065,7 +3258,35 @@ def _gd_square(s: dict, ids: _Ids) -> Body:
         if sym["symbol"] not in used:
             used.append(sym["symbol"])
     for lab in s.get("labels", []):
-        out.append(_gd_note(X(lab["at"][0]), Y(lab["at"][1]), lab["text"]))
+        # Labels in one row (longitude marks along a grid edge) are drawn smaller when they would touch.
+        # A place letter (A, B) is not one of the row: it neither shrinks the marks beside it nor is shrunk by them.
+        def mark(o: dict) -> bool:
+            return not (str(o["text"]).isalpha() and len(str(o["text"])) <= 2)
+
+        room = [
+            abs(o["at"][0] - lab["at"][0]) * c
+            for o in s["labels"]
+            if o is not lab and o["at"][1] == lab["at"][1] and mark(o)
+        ]
+        fs = float(_GD_FS)
+        if room and min(room) > 0 and mark(lab):
+            fs = max(8.0, min(fs, (min(room) - 9) * 12 / (len(str(lab["text"])) * 7.4)))
+        lx, ly = X(lab["at"][0]), Y(lab["at"][1])
+        text = str(lab["text"])
+        space = min([*room, 2 * (lx - gx), 2 * (gx + gw - lx)])  # the width it has before its neighbour or the frame
+        if mark(lab) and " " in text and 0 < space < _text_w(text, _GD_FS) + 4:
+            # A two-word label that does not fit (a one-square face of a net): stack its words so it stays inside.
+            head, tail = text.rsplit(" ", 1)
+            fs2 = max(8.0, min(float(_GD_FS), (space - 6) * 12 / (max(len(head), len(tail)) * _CHAR_W)))
+            out.append(_gd_note(lx, ly - fs2 / 2 - 1, head, size=fs2))
+            out.append(_gd_note(lx, ly + fs2 / 2 + 1, tail, size=fs2))
+            continue
+        wide = _text_w(text, fs)
+        if mark(lab) and abs(lab["at"][0] % 1 - 0.5) < 1e-6 and wide > c - 8:
+            fs = max(8.0, fs * (c - 8) / wide)  # a word naming one cell (Start) is drawn to fit that cell
+            half = _text_w(text, fs) / 2 + 3
+            lx = min(max(lx, gx + half), gx + gw - half)  # and never over the frame, which its backing would hide
+        out.append(_gd_note(lx, ly, lab["text"], size=fs))
     y = gy + gh
     if cols:
         fs = max(7.0, min(float(_GD_FS), _GD_FS * (c - 1) / max(_text_w(t, _GD_FS) for t in cols)))
@@ -3255,6 +3476,18 @@ def rendered_kinds() -> tuple[str, ...]:
     return tuple(sorted(_RENDERERS))
 
 
+def _wrap_title(title: str, size: float, width: float) -> list[str]:
+    """``title`` broken at spaces into lines that fit ``width`` (bold text runs about 0.5 em a character)."""
+    limit = max(8, int(width / (size * 0.5)))
+    lines: list[str] = []
+    for word in title.split():
+        if lines and len(lines[-1]) + 1 + len(word) <= limit:
+            lines[-1] += " " + word
+        else:
+            lines.append(word)
+    return lines or [title]
+
+
 def figure_svg(spec: dict, *, width: int = 400) -> str:
     """Render ``spec`` (a figure from :mod:`mathgen.figures`) as a standalone SVG document.
 
@@ -3272,9 +3505,11 @@ def figure_svg(spec: dict, *, width: int = 400) -> str:
     body, height = _RENDERERS[spec["kind"]](spec, ids)
     heading = ""
     if spec.get("title"):
-        heading = _text(CANVAS / 2, 14, spec["title"], size=15, weight="bold")
-        body = _g(body, transform="translate(0 22)")
-        height += 22
+        lines = _wrap_title(str(spec["title"]), 15, CANVAS - 24)
+        heading = "".join(_text(CANVAS / 2, 14 + 19 * i, ln, size=15, weight="bold") for i, ln in enumerate(lines))
+        drop = 22 + 19 * (len(lines) - 1)
+        body = _g(body, transform=f"translate(0 {drop})")
+        height += drop
     height = math.ceil(height)
     title_id = ids("title")
     return _Ids.finish(

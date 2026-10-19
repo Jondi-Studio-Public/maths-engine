@@ -14,7 +14,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from mathgen.core import attempts, check, generator, latex_answer, round_half_up
+from mathgen.core import attempts, check, exact_decimal_text, generator, latex_answer, round_half_up
 from mathgen.generators.exd_x_m2_support import display, keys_absent, tagged_distractors
 
 _SETTINGS = [
@@ -45,9 +45,9 @@ def exd_x_m2_area_limits(rng: random.Random, tier: str = "exam") -> dict:
         thing, u, phrase_ = rng.choice(_SETTINGS)
         stem = f"{thing} has a length of {length} {u} and a width of {width} {u}, each {phrase_} {unit} {u}."
         prompts = [
-            f"Calculate the area using these measurements, in square {u}.",
-            f"Find the greatest area the {thing.split()[-1]} could actually have, in square {u}, correct to 2 decimal places.",
-            f"Hence find the greatest possible error in the calculated area, in square {u}, correct to 2 decimal places.",
+            f"Calculate the area using these measurements, in {u}².",
+            f"Find the greatest area the {thing.split()[-1]} could actually have, in {u}², correct to 2 decimal places.",
+            f"Hence find the greatest possible error in the calculated area, in {u}², correct to 2 decimal places.",
             "Express this error as a percentage of the calculated area, correct to 1 decimal place.",
         ]
         texts = [str(area), display(upper, 2), display(err, 2), display(pct, 1)]
@@ -127,8 +127,9 @@ def exd_x_m2_area_limits(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 working=[
-                    f"Each side could be up to half a unit more: {length + half} and {width + half}.",
-                    f"({length + half}) × ({width + half}) = {texts[1]}.",
+                    f"Each side is given to the nearest {unit} {u}, so it could be up to {exact_decimal_text(half)} {u} "
+                    f"more: {exact_decimal_text(length + half)} and {exact_decimal_text(width + half)}.",
+                    f"{exact_decimal_text(length + half)} × {exact_decimal_text(width + half)} = {texts[1]}.",
                 ],
                 distractors=b_dist,
             ),

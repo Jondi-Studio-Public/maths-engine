@@ -208,7 +208,11 @@ def _finish(value: Decimal, sf: int, correct: Decimal, wrong: dict) -> dict:
     places = _decimal_places(correct)
     answer_text = _fmt_at_places(correct, places)
     tolerance = _local_number_tolerance(places)
-    candidates = [_fmt_at_places(v, places) for v in wrong.values()]
+    # A candidate that rounds to zero is dismissed at a glance, so it is not offered.
+    candidates = [_fmt_at_places(v, places) for v in wrong.values() if v != 0]
+    # Neighbouring values one unit in the last kept place away from the answer stand in for any dismissed zero.
+    step = Decimal(1).scaleb(-places)
+    candidates += [_fmt_at_places(v, places) for v in (correct + step, correct - step) if v > 0]
     figure_word = "significant figure" if sf == 1 else "significant figures"
     text = f"Round {_fmt_decimal(value)} to {sf} {figure_word}."
     return dict(

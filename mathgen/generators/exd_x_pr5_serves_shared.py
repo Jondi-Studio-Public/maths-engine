@@ -18,7 +18,7 @@ import random
 from fractions import Fraction
 
 from mathgen.answers import Distractor
-from mathgen.core import attempts, check, generator, latex_answer, pick_distractors, rational_text
+from mathgen.core import attempts, check, equals_chain, generator, latex_answer, pick_distractors, rational_text
 
 # (whole, piece singular, piece plural, first person, second person, the group sharing the rest, range of pieces)
 _SETTINGS = [
@@ -130,7 +130,7 @@ def _attempt(rng: random.Random) -> dict:
                 answer_latex=latex_answer(_text(taken)),
                 marks=2,
                 sensible_range=(0, 1),
-                working=[f"{s1}/{pieces} + {s2}/{pieces} = {s1 + s2}/{pieces} = {_text(taken)}."],
+                working=[f"{s1}/{pieces} + {s2}/{pieces} = {equals_chain(f'{s1 + s2}/{pieces}', _text(taken))}."],
                 distractors=d_a,
             ),
             dict(

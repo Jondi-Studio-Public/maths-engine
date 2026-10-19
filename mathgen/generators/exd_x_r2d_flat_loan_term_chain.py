@@ -52,6 +52,12 @@ def _fmt(v: Fraction, dp: int) -> str:
     return stated_precision_string(round_half_up(v, dp), dp)
 
 
+def _fmtc(v: Fraction, dp: int) -> str:
+    """`_fmt` with thousands commas, for dollar amounts in the working (the stem writes ``$20,000``)."""
+    whole, _, frac = _fmt(v, dp).partition(".")
+    return f"{int(whole):,}" + (f".{frac}" if frac else "")
+
+
 def _dists(key: Fraction, pairs, dp: int, minimum: int = 2):
     """Each wrong value written to the key's own places, so the format never gives the key away."""
     cands = [Distractor(_fmt(v, dp), tag, exact_value(round_half_up(v, dp))) for tag, v in pairs]
@@ -126,7 +132,7 @@ def exd_x_r2d_flat_loan_term_chain(rng: random.Random, tier: str = "exam") -> di
         ("gave-total-not-interest", b + total_interest),
     ]
     stem = rng.choice(_STEM).format(
-        name=rng.choice(NAMES), b=f"{int(b):,}", item=rng.choice(_ITEMS), r=r, rep=f"{_fmt(rep, 2)}"
+        name=rng.choice(NAMES), b=f"{int(b):,}", item=rng.choice(_ITEMS), r=r, rep=_fmtc(rep, 2)
     )
     return dict(
         text=stem,
@@ -136,7 +142,7 @@ def exd_x_r2d_flat_loan_term_chain(rng: random.Random, tier: str = "exam") -> di
                 interest_year,
                 2,
                 1,
-                [f"Interest per year = {r}% of {int(b)} = ${_fmt(interest_year, 2)}."],
+                [f"Interest per year = {r}% of {int(b)} = ${_fmtc(interest_year, 2)}."],
                 _dists(interest_year, a_pairs, 2),
             ),
             _part(
@@ -146,8 +152,8 @@ def exd_x_r2d_flat_loan_term_chain(rng: random.Random, tier: str = "exam") -> di
                 2,
                 2,
                 [
-                    f"Repaid per year = 12 × {_fmt(rep, 2)} = ${_fmt(12 * rep, 2)}.",
-                    f"Less interest: ${_fmt(principal_year, 2)}.",
+                    f"Repaid per year = 12 × {_fmt(rep, 2)} = ${_fmtc(12 * rep, 2)}.",
+                    f"Less interest: ${_fmtc(principal_year, 2)}.",
                 ],
                 _dists(principal_year, b_pairs, 2),
                 ft=f"12*{_fmt(rep, 2)} - part_a",
@@ -166,7 +172,7 @@ def exd_x_r2d_flat_loan_term_chain(rng: random.Random, tier: str = "exam") -> di
                 total_interest,
                 2,
                 1,
-                [f"Total interest = {_fmt(interest_year, 2)} × {t} = ${_fmt(total_interest, 2)}."],
+                [f"Total interest = {_fmt(interest_year, 2)} × {t} = ${_fmtc(total_interest, 2)}."],
                 _dists(total_interest, d_pairs, 2),
                 ft="part_a*part_c",
             ),

@@ -43,7 +43,8 @@ from mathgen.grading.safe_parse import (
     too_costly,
 )
 from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, spoken_to_expr
-from mathgen.grading.units import split_unit, unit_is_acceptable
+from mathgen.grading import stem_checks
+from mathgen.grading.units import split_unit, strip_asked_unit, unit_is_acceptable
 from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
 from mathgen.misconceptions import describe as describe_misconception
 from mathgen.text_quality import requested_rounding, requested_significant_figures, significant_figure_count
@@ -847,6 +848,13 @@ def grade_fraction(question, given: str) -> GradeResult:
             and not _states_an_unasked_percent(question, given_with_unit)
         )
         return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
+    if isinstance(answer, int) and not isinstance(answer, bool):
+        # A whole-number key on a fraction skill is a typed number like any other. The spoken reading's +/-0.05
+        # slack would take "-2.04" for -2, and its value reader "8!" for 8.
+        result = grade_number(question, given)
+        # ... but never wider than the spoken reading that graded it before: a unit it refused stays refused.
+        result.correct = result.correct and _check_answer_kind(question, given).correct
+        return result
     return _check_answer_kind(question, given)
 
 
@@ -1693,6 +1701,25 @@ def _strip_redundant_enclosing_brackets(text: str) -> str:
         if unwrapped == candidate:
             return candidate
         candidate = unwrapped
+
+
+# A bracket round a single term -- "(2/3)x", "(2x)/3", "-(8/3)x" -- holds no sum, so it distributes over nothing and
+# an expanded reply may keep it. Not one that follows a letter, digit or bracket ("sin(x)", "2(3x)": a product or
+# a call), not one raised to a power ("(2x)^2"), not one holding a sum or a bracket of its own, and not one that
+# is itself divided or divides ("(20x/12)/(6x/3)" is an uncancelled quotient, not a coefficient).
+_TERM_BRACKET_RE = re.compile(
+    r"(?<![\w)/*])\(\s*([+\-\u2212]?[^()+\-\u2212]*[^()+\-\u2212\s])\s*\)(?!\s*(?:\^|\*\*|\())"
+)
+
+
+def _without_term_brackets(text: str) -> str:
+    """`text` with the brackets of `_TERM_BRACKET_RE` taken off, for the expanded-form bracket check only."""
+
+    def peel(match: re.Match) -> str:
+        divided = "/" in match.group(1) and text[match.end() :].lstrip().startswith("/")
+        return match.group(0) if divided else match.group(1)
+
+    return _TERM_BRACKET_RE.sub(peel, text)
 
 
 # -- expression: learner notation ------------------------------------------
@@ -2598,6 +2625,9 @@ def grade_expression(question, given: str) -> GradeResult:
         expected = _expected_expression(question)
     except (sympy.SympifyError, TypeError, ValueError):
         expected = None
+    if getattr(expected, "is_number", False):
+        # "360 cm³" for a volume asked "in cm³", "π/4 rad" for "convert to radians": the unit the question asks for.
+        stripped = strip_asked_unit(question, stripped)
     if getattr(expected, "is_number", False) and not expected.has(sympy.pi):
         # An angle typed with its unit: "30°", "30 degrees". Only when the answer is a plain number, so
         # nothing else a learner writes is read differently, and never for an answer in radians ("9π/4°").
@@ -2654,7 +2684,7 @@ def grade_expression(question, given: str) -> GradeResult:
         # the raw "(" check -- see `_strip_redundant_enclosing_brackets` above. A bracket that is
         # NOT fully-enclosing (mid-expression, or closes before the string ends) survives this and
         # still trips the check below, unchanged from before this fix.
-        unwrapped = _strip_redundant_enclosing_brackets(stripped)
+        unwrapped = _without_term_brackets(_strip_redundant_enclosing_brackets(stripped))
         rejected = "(" in unwrapped
         if not rejected:
             try:
@@ -2819,6 +2849,8 @@ def table_prompt(answer: dict) -> dict:
 def _table_given_cells(answer: dict, given: str) -> dict[str, str] | None:
     """The learner's text for each blank, or None if it cannot be read."""
     keys = sorted(answer["blanks"], key=_table_key)
+    if isinstance(given, dict):
+        given = json.dumps(given)  # the blanks as a dict, as the client posts them once parsed
     text = (given or "").strip()
     if text.startswith("{"):
         try:
@@ -3573,6 +3605,19 @@ def normalise_reply(kind: str, given: str) -> str:
     return _attach_spaced_sign(kind, _spell_minus_as_ascii(kind, given))
 
 
+_CENTS_WITH_C_RE = re.compile(r"(\d+(?:\.\d+)?)[ \t]?c")
+
+
+def _cents_written_with_c(kind: str, question, given: str) -> str:
+    """ "15c" as "15 cents", when the question is about cents: coins are labelled "5c" on the page, so a learner
+    types the same. Any other question reads "15c" as it always has."""
+    if kind not in ("number", "fraction") or not _CENTS_WITH_C_RE.fullmatch(given):
+        return given
+    if re.search(r"\bcents?\b", getattr(question, "text", "") or "", re.IGNORECASE) is None:
+        return given
+    return _CENTS_WITH_C_RE.fullmatch(given).group(1) + " cents"
+
+
 def grade(kind: str, question, given, *, skill=None) -> GradeResult:
     """`skill` is optional and keyword-only: every pre-existing
     call site is unaffected. A wrong reply that matches a tagged distractor
@@ -3594,6 +3639,10 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if isinstance(given, str):
         given = normalise_reply(kind, given)
+        given = _cents_written_with_c(kind, question, given)
+        given = stem_checks.rewrite_reply(kind, question, given)
+    if isinstance(given, str) and stem_checks.refuses(kind, question, given):
+        return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if isinstance(given, str) and kind in _DOUBLE_SIGN_KINDS and _DOUBLE_SIGN_RE.search(given):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if (

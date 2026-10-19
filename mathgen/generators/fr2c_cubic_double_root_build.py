@@ -22,7 +22,7 @@ import sympy
 from sympy import Symbol
 
 from mathgen import figures
-from mathgen.core import attempts, check, check_equivalent, generator, phrase
+from mathgen.core import attempts, check, check_equivalent, generator, paren_negative, phrase
 
 from . import _fr2c_kit as kit
 
@@ -181,9 +181,9 @@ def fr2c_cubic_equation(rng, tier="easy"):
     working = [
         f"The graph crosses the x-axis at x = {a} and touches it at x = {b}, so the factor for {b} is squared.",
         (
-            f"The graph rises to the right, so k is positive."
+            f"The graph rises to the right, so there is no minus sign in front of the factors."
             if tier == "easy"
-            else f"Using P({p[0]}, {p[1]}): {p[1]} = k x ({_sub(p[0], a)})({_sub(p[0], b)})^2, so k = {_frac(k)}."
+            else f"Using P({p[0]}, {p[1]}): {p[1]} = k × ({_sub(p[0], a)})({_sub(p[0], b)})^2, so k = {_frac(k)}."
             if p
             else f"The graph {'rises' if k > 0 else 'falls'} to the right, so k = {int(k)}."
         ),
@@ -268,7 +268,9 @@ def _build_features(rng):
             "Find the y-intercept of the graph.",
             y0,
             1,
-            [f"Put x = 0: y = {k} x ({-a}) x ({-b})^2 = {y0}."],
+            [
+                f"Put x = 0: y = {'' if k == 1 else f'{paren_negative(k)} × '}{paren_negative(-a)} × {paren_negative(-b)}^2 = {y0}."
+            ],
             [
                 ("fr2c-intercept-sign-slip", -y0),
                 ("fr2c-intercept-brackets-not-squared", k * (-a) * (-b)),

@@ -23,6 +23,7 @@ from ..core import (
     check_distinct,
     check_equivalent,
     generator,
+    join_terms,
     latex_answer,
     phrase,
     pick_distractors,
@@ -133,8 +134,9 @@ def _build(rng: random.Random) -> dict | None:
         answer_text=ans_str,
         answer_latex=latex_answer(rule),
         working=[
-            f"Let the first term be a and the common difference d. Term {r} = {k} x term {s} gives "
-            f"a + {r - 1}d = {k}(a + {s - 1}d). The other statement gives a second linear equation. "
+            f"Let the first term be a and the common difference d. Term {r} = {k} × term {s} gives "
+            f"{join_terms([(1, 'a'), (r - 1, 'd')])} = {k}({join_terms([(1, 'a'), (s - 1, 'd')])}). "
+            f"The other statement gives a second linear equation. "
             f"Solving gives a = {a} and d = {d}, so the rule is {ans_str}."
         ],
         distractors=pick_distractors(ans_str, [str(w) for w in wrong]),

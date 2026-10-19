@@ -181,12 +181,12 @@ _MEDIUM_TEMPLATES = [
     "sides -- as an exact value (you may leave a surd in your answer), "
     "in m.",
     "Fencing is needed along the diagonal of a rectangular block {p} m by "
-    "{q} m, plus its two sides adjacent to that diagonal. State the EXACT "
+    "{q} m, plus its {p} m side and its {q} m side. State the EXACT "
     "total length of fencing as an exact value (you may leave a surd in "
     "your answer), in metres.",
     "A cable runs along the diagonal of a rectangular field {p} m by {q} m, "
-    "then two more cables run along the field's two sides adjacent to that "
-    "diagonal. Give the EXACT total cable length as an exact value (you "
+    "then two more cables run along the field's {p} m side and its {q} m "
+    "side. Give the EXACT total cable length as an exact value (you "
     "may leave a surd in your answer), in m.",
 ]
 

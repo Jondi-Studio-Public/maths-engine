@@ -275,7 +275,7 @@ def _build(rng, tier: str = "easy") -> dict:
     check(ka != kb and answer not in (ka, kb), f"{TOPIC} {tier}: a repeated number would blur the options")
 
     name, other = rng.sample(NAMES, 2)
-    _singular, items = rng.choice(OBJECTS)
+    _singular, items = rng.choice([o for o in OBJECTS if o[1] != "boxes"])  # the story puts the items in a box
     story = phrase(rng, templates, n=name, m=other, items=items, ka=ka, kb=kb)
     text = story + " " + phrase(rng, _INSTRUCTION, blank=BLANK)
 

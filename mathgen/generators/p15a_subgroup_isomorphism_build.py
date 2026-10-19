@@ -448,7 +448,7 @@ def p15a_isomorphism_invariant(rng, tier="easy"):
     working = [
         f"|G| = {order_g}, profile {dict(sorted(profile_g.items()))}.",
         f"|H| = {order_h}, profile {dict(sorted(profile_h.items()))}.",
-        f"Decision: {target}.",
+        f"Decision: {_ISO_LABEL[target]}.",
     ]
 
     distractors = [_ISO_LABEL[c] for c in _ISO_CLASSES if c != target]

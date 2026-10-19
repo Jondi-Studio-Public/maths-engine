@@ -24,7 +24,7 @@ The spec is a JSON object passed to `build_paper`. This describes exactly what t
 | Field | Type | Required | Notes |
 |---|---|---|---|
 | `sections` | list of sections | yes | At least one. |
-| `title` | string | no | Truncated to 200 characters. Defaults to "Worksheet". |
+| `title` | string | no | At most 200 characters (a longer title is rejected). Defaults to "Worksheet". |
 | `seed` | integer, 0 to 2^63 - 1 | no | A whole number (not true/false). If left out, a random seed is chosen and returned in the built paper; note it down to rebuild the same paper. The same spec, seed and library give the same paper. |
 | `versions` | integer, 1 to 10 | no | Default 1. Versions are labelled A, B, C ... and have different numbers. |
 | `shuffle` | boolean | no | Default false. Shuffles question order within each section, per version. Questions are numbered after shuffling. |
@@ -49,7 +49,7 @@ The engine tries a few times to avoid repeating the same wording within one item
 ## Limits
 
 - At most 400 questions in total across all versions (`total count x versions`).
-- Unknown skills or sources are rejected with an error that names the options.
+- An unknown skill is rejected with an error naming the id (find the right id with `find_skills`). An unknown source is rejected with an error that lists the skill's difficulties and source keys.
 
 ## What comes back (format "json")
 

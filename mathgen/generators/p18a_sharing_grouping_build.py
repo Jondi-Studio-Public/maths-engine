@@ -116,6 +116,13 @@ def _count_text(q: int, container_sg: str, container_pl: str, item_sg: str, item
     return f"{q} {_unit_word(q, container_sg, container_pl)}"
 
 
+def _division_working(total: int, divisor: int, q: int, remainder: int) -> list[str]:
+    line = f"{total} \u00f7 {divisor} = {q}"
+    if remainder:
+        line += f" remainder {remainder}"
+    return [line + ".", f"Check: {divisor} \u00d7 {q}" + (f" + {remainder}" if remainder else "") + f" = {total}."]
+
+
 def _check_division(total: int, divisor: int, quotient: int, remainder: int, msg: str) -> None:
     """Independent route: multiply divisor * quotient + remainder back and
     confirm it reconstructs the dividend -- never re-using `divmod`'s own
@@ -163,7 +170,7 @@ def _candidates_for_group(total, divisor, q, remainder, item_sg, item_pl, contai
     return answer_sig, answer_text, raw
 
 
-def _finalise(text, answer_sig, answer_text, raw_candidates):
+def _finalise(text, answer_sig, answer_text, raw_candidates, working):
     sigs = [answer_sig]
     texts_seen = {answer_text}
     distractors = []
@@ -183,7 +190,7 @@ def _finalise(text, answer_sig, answer_text, raw_candidates):
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
         distractors=distractors,
-        working=[f"answer: {answer_text}"],
+        working=working,
     )
 
 
@@ -336,7 +343,7 @@ def _build(rng, tier: str = "easy"):
             answer_sig, answer_text, raw = _candidates_for_group(
                 total, divisor, q, 0, item_sg, item_pl, container_sg, container_pl
             )
-        return _finalise(text, answer_sig, answer_text, raw)
+        return _finalise(text, answer_sig, answer_text, raw, _division_working(total, divisor, q, 0))
 
     if tier == "medium":
         item_sg, item_pl, container_sg, container_pl, name = _draw_vocab(rng)
@@ -363,7 +370,7 @@ def _build(rng, tier: str = "easy"):
             answer_sig, answer_text, raw = _candidates_for_group(
                 total, divisor, q, 0, item_sg, item_pl, container_sg, container_pl
             )
-        return _finalise(text, answer_sig, answer_text, raw)
+        return _finalise(text, answer_sig, answer_text, raw, _division_working(total, divisor, q, 0))
 
     if tier == "hard":
         item_sg, item_pl, container_sg, container_pl, name = _draw_vocab(rng)
@@ -390,7 +397,7 @@ def _build(rng, tier: str = "easy"):
             answer_sig, answer_text, raw = _candidates_for_group(
                 total, divisor, q, remainder, item_sg, item_pl, container_sg, container_pl
             )
-        return _finalise(text, answer_sig, answer_text, raw)
+        return _finalise(text, answer_sig, answer_text, raw, _division_working(total, divisor, q, remainder))
 
     # exam: two-step. Step 1 (partitive scene-setter) is always "shares ...
     # equally between g containers"; step 2 applies the share/group decision
@@ -455,7 +462,13 @@ def _build(rng, tier: str = "easy"):
             (("total", total, 0), f"{total} {item_pl}"),
             (("group", c + 1, 0), _count_text(c + 1, container2_sg, container2_pl, item_sg, item_pl)),
         ]
-    return _finalise(text, answer_sig, answer_text, raw)
+    return _finalise(
+        text,
+        answer_sig,
+        answer_text,
+        raw,
+        _division_working(total, g, e, 0) + _division_working(e, s2, c, 0),
+    )
 
 
 @generator(

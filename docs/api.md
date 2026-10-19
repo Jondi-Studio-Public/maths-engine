@@ -174,8 +174,8 @@ Entry points only; the individual `grade_*` functions are internal.
 
 | Signature | Description |
 |---|---|
-| `grade(kind, question, given, *, skill=None) -> GradeResult` | Grades a reply with the grader named by `kind`. If the question has `parts`, grades part by part whatever `kind` is. A reply over 100,000 characters is wrong. If a grader raises, the error is logged and the reply is graded incorrect. A wrong reply that matches a tagged distractor sets `misconception`; `skill` adds that skill's own notes. Raises `KeyError` for an unknown `kind`. |
-| `GRADERS` | `dict` of answer kind to grader. Kinds: `expression`, `fraction`, `inequality`, `line`, `list`, `matrix`, `mcq`, `number`, `ordered_list`, `pair`, `points`, `polyline`, `set`, `table`, plus `open_response` (never marked: returns a pending result for hand-off) and `step_chain` (typed proof lines). |
+| `grade(kind, question, given, *, skill=None) -> GradeResult` | Grades a reply with the grader named by `kind`. If the question has `parts`, grades part by part whatever `kind` is. A reply over 100,000 characters is wrong (the HTTP server and MCP tool refuse one over 2,000 characters before it gets here). If a grader raises, the error is logged and the reply is graded incorrect. A wrong reply that matches a tagged distractor sets `misconception`; `skill` adds that skill's own notes. Raises `KeyError` for an unknown `kind`. |
+| `GRADERS` | `dict` of answer kind to grader. Kinds: `expression`, `fraction`, `grid_cells`, `inequality`, `line`, `list`, `matrix`, `mcq`, `number`, `ordered_list`, `pair`, `points`, `polyline`, `set`, `table`, plus `open_response` (never marked: returns a pending result for hand-off) and `step_chain` (typed proof lines). |
 | `GradeResult` | See `mathgen.engine`. |
 | `mcq_options(question)` | Same function as `mathgen.core.mcq_options`. |
 | `spoken.check_answer(question, transcript, fallback=None) -> bool` | Checks a transcript of a spoken answer ("one hundred and eighteen") against `question.answer`. `fallback` is a second transcript tried only if the first fails. A single-number answer must be stated once, not negated or hedged ("not twelve", "twelve or thirteen" are wrong for 12); numbers match within ±0.051. |
@@ -221,7 +221,7 @@ The FSRS-5 memory model, matching py-fsrs 5.1.3: elapsed time counts in whole da
 | Signature | Description |
 |---|---|
 | `Memory(stability, difficulty)` | Frozen dataclass. Store the one `step` returns. |
-| `step(memory, rating, elapsed_days, w=DEFAULT_WEIGHTS) -> (Memory, retrievability \| None)` | Applies one rated review. `memory=None` is a first review; its retrievability is `None`. Raises `ValueError` for a rating outside 1..4. |
+| `step(memory, rating, elapsed_days, w=DEFAULT_WEIGHTS) -> (Memory, retrievability \| None)` | Applies one rated review. `memory=None` is a first review; its retrievability is `None`. Raises `ValueError` for a rating outside 1..4 (a bool is not a rating). |
 | `retrievability(elapsed_days, stability) -> float` | Predicted probability of recall. Raises `ValueError` if `stability <= 0`. |
 | `interval_days(stability, desired_retention) -> float` | Days until recall falls to `desired_retention` (unrounded). Raises `ValueError` unless `0 < desired_retention < 1`. |
 | `initial_stability(rating, w=...)`, `initial_difficulty(rating, w=...)`, `next_difficulty(d, rating, w=...)` | The model's building blocks. |
@@ -234,7 +234,7 @@ Turns a finished review into an outcome, an FSRS rating, memory and a due date. 
 | Signature | Description |
 |---|---|
 | `outcome_from_marks(results, *, maintenance=False, reset_misses=2) -> str` | Full marks is no miss, at least half the marks half a miss, less a whole miss. No misses advances (`maintenance_pass` if `maintenance`); misses of `reset_misses` or more reset; otherwise hold. `results` are `GradeResult`s or `(earned, available)` pairs. Raises `ValueError` if empty, if `reset_misses < 1`, or for impossible marks. |
-| `score(outcome, memory, last_review_at, now, *, desired_retention=0.9, maximum_interval_days=365, reset_gap_days=1.0) -> dict` | Returns `memory`, `rating`, `retrievability`, `elapsed_days`, `interval_days`, `due_at`. A reset is due after `reset_gap_days`; others when recall falls to `desired_retention`, in whole days from 1 to the maximum. A hold is never due later than the whole days since the last review. Raises `ValueError` if `reset_gap_days < 0`. |
+| `score(outcome, memory, last_review_at, now, *, desired_retention=0.9, maximum_interval_days=365, reset_gap_days=1.0) -> dict` | Returns `memory`, `rating`, `retrievability`, `elapsed_days`, `interval_days`, `due_at`. A reset is due after `reset_gap_days`; others when recall falls to `desired_retention`, in whole days from 1 to the maximum. A hold is never due later than the whole days since the last review. Raises `ValueError` if `reset_gap_days < 0`, `maximum_interval_days < 1` or `outcome` is not one of `OUTCOME_RATING`'s keys. A `last_review_at` after `now` counts as no time elapsed. |
 | `memory_from_history(log_rows, stage, stage_delays) -> (Memory \| None, datetime \| None)` | Rebuilds memory by replaying rows with `outcome` and `created_at` (oldest first). With no usable history and `stage > 0`, seeds stability from `stage_delays[stage - 1]`. |
 
 Also `OUTCOME_RATING` and the `DEFAULT_*` constants (`DEFAULT_DESIRED_RETENTION`, `DEFAULT_MAXIMUM_INTERVAL_DAYS`,
@@ -247,7 +247,7 @@ Two read-only measurements over plain row dicts you supply.
 | Signature | Description |
 |---|---|
 | `item_difficulty(attempt_rows, skills, min_attempts=20) -> dict` | Rasch difficulty per `(skill, tier)` from rows with `user_id`, `skill_id`, `difficulty`, `correct`. `skills` maps id to `Skill`. Returns `skills`, `items`, `inversions` (tiers answered right more often than an earlier tier), `learners`, `attempts`. |
-| `fsrs_calibration(log_rows, bins=10) -> dict` | Predicted against observed recall from rows with `retrievability` (`None` is skipped) and `rating` (1 means forgot). Returns `reviews`, `log_loss`, `rmse_bins`, `mean_predicted`, `observed`, `bins`. |
+| `fsrs_calibration(log_rows, bins=10) -> dict` | Predicted against observed recall from rows with `retrievability` (`None` is skipped; otherwise 0 to 1, or `ValueError`) and `rating` (1 means forgot). `bins` is a whole number, 1 or more. Returns `reviews`, `log_loss`, `rmse_bins`, `mean_predicted`, `observed`, `bins`. |
 
 ## Services, exports and figures
 

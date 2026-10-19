@@ -192,7 +192,11 @@ def _build(rng, tier: str) -> dict:
         working = [
             f"LCD of {', '.join(str(d) for d in denoms)} is {lcd}.",
             "Convert each fraction to that denominator: "
-            + ", ".join(f"{n}/{d} = {n * (lcd // d)}/{lcd}" for n, d in zip(numerators, denoms)),
+            + "; ".join(
+                f"{n}/{d} = {n * (lcd // d)}/{lcd}" if d != lcd else f"{n}/{d} already has denominator {lcd}"
+                for n, d in zip(numerators, denoms)
+            )
+            + ".",
             f"Combine the numerators: {answer_text}.",
         ]
         return dict(

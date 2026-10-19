@@ -110,8 +110,8 @@ def test_real_grader_rejects_an_out_of_range_index(skills_dict, difficulty):
 
 # --- Answer-kind discipline: the answer is always one of the fixed labels --
 
-_TWO_PACK_OPTIONS = {"Pack A", "Pack B", "Tie -- the same price per unit"}
-_THREE_PACK_OPTIONS = {"Pack A", "Pack B", "Pack C", "Tie -- two packs share the cheapest price"}
+_TWO_PACK_OPTIONS = {"Pack A", "Pack B", "Tie: the same price either way"}
+_THREE_PACK_OPTIONS = {"Pack A", "Pack B", "Pack C", "Tie: two packs share the cheapest price"}
 
 
 @pytest.mark.parametrize("difficulty", ["easy", "medium", "exam"])

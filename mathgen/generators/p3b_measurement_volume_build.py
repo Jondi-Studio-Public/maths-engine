@@ -37,6 +37,7 @@ from __future__ import annotations
 import re
 from fractions import Fraction
 
+from .p3b_measurement_units_a_build import combine_working
 from ..core import (
     check,
     check_combine,
@@ -284,11 +285,9 @@ def _build_volume_combine(
         answer=numeric_answer(answer),
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[
-            f"Convert whichever value is not already in {target_label}, then "
-            f"{'add' if operation == 'sum' else 'subtract'} the two amounts: "
-            f"{answer_text} {target_label}.",
-        ],
+        working=combine_working(
+            values, other_unit, _UNIT_LABELS, target_label, same_value, converted_other, operation, answer_text
+        ),
         distractors=_shaped_distractors(answer_text, candidates),
     )
 

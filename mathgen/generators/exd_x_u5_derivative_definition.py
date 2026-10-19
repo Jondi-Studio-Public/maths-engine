@@ -109,7 +109,7 @@ def _draw(rng: random.Random) -> dict | None:
         k,
         2,
         [
-            f"The difference quotient simplifies to 3x² + 2kx + r + h(3x + k) + h², so f'(x) = 3x² + 2kx + {paren_negative(r)}.",
+            f"The difference quotient simplifies to 3x² + 2kx + {paren_negative(r)} + h(3x + k) + h², so f'(x) = 3x² + 2kx + {paren_negative(r)}.",
             f"f'({a}) = {join_terms([(3 * a * a, ''), (2 * a, 'k'), (r, '')])} = {gradient_a}, so k = {rational_text(k)}.",
         ],
         [

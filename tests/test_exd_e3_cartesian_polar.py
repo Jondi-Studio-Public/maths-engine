@@ -173,7 +173,7 @@ def test_four_quadrants_theta_cross_checked_against_cmath():
 
         # Independent cross-check via cmath.polar against the unrounded
         # theta printed in the working line.
-        working_line = next(w for w in q.working if "atan2" in w)
+        working_line = next(w for w in q.working if w.startswith("θ ="))
         wm = _SURD_WORKING_THETA_RE.search(working_line)
         assert wm, working_line
         theta_exact_rendered = float(wm.group(1))

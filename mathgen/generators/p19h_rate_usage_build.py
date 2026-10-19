@@ -286,9 +286,13 @@ _EASY_SPEED_HEADS = ("the speed of {S}", "the top speed reached by {S}")
 _EASY_RADAR_HEAD = "the speed a radar gun records for {S}"
 _MEDIUM_SPEED_HEADS = (
     "the figure quoted for how fast {S} was moving",
-    "the number given for the speed of {S} at its fastest",
+    "the number given for the top speed of {S}",
 )
 _MEDIUM_RADAR_HEAD = "the value a radar gun logs for {S}"
+
+
+# A figure "recorded by a radar gun" cannot also be read off the vehicle's own display or a posted sign.
+_NOT_WITH_RADAR = ("speedometer", "dashboard", "bike computer", "console", "display panel", "speed-limit sign")
 
 
 def _speed_phrases(key: str, heads: tuple[str, ...], radar_head: str) -> list[str]:
@@ -298,6 +302,8 @@ def _speed_phrases(key: str, heads: tuple[str, ...], radar_head: str) -> list[st
         head_list = list(heads) + ([radar_head] if subj["radar"] else [])
         for head in head_list:
             for ctx in subj[field]:
+                if head == radar_head and any(word in ctx for word in _NOT_WITH_RADAR):
+                    continue
                 out.append(f"{head.format(S=subj['S'])} {ctx}")
     return out
 

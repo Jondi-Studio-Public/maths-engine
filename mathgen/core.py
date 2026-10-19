@@ -520,6 +520,14 @@ def fmt_signed(coef, var: str = "") -> str:
     return f"{coef}{var}"
 
 
+def bracket_compound(text) -> str:
+    """Bracket `text` when it cannot stand after a "/" as written: a fraction ("4/25"), a sum ("x + 1") or a
+    negative ("-4") -- so ``f"-1/{bracket_compound('4/25')}"`` reads "-1/(4/25)", never the chain "-1/4/25".
+    A plain number, letter or surd ("7", "n", "7√2") is returned unchanged."""
+    text = str(text)
+    return f"({text})" if ("/" in text or " " in text or text.startswith(("-", "−"))) else text
+
+
 def paren_negative(value) -> str:
     """Bracket a negative value so it can follow an operator: -14 -> "(-14)".
 
@@ -562,6 +570,24 @@ def rational_text(r) -> str:
     "-1/2". Shared by every generator whose answer is an exact fraction."""
     r = Rational(r)
     return str(r.p) if r.q == 1 else f"{r.p}/{r.q}"
+
+
+def article_for_number(value) -> str:
+    """ "a" or "an" for a number written in digits and read aloud: "an 8", "an 85", "an 800", "an 11.5",
+    "an 18", but "a 40", "a 110", "a 0.8". Only a leading 8, or exactly eleven or eighteen, starts with a vowel
+    sound."""
+    whole = str(value).lstrip("-+$").split(".")[0].replace(",", "")
+    return "an" if whole.startswith("8") or whole in ("11", "18") else "a"
+
+
+def equals_chain(*steps) -> str:
+    """Steps of a worked line joined with " = ", leaving out a step that repeats the one before it, so an
+    already-simplified fraction reads "19/35" and never "19/35 = 19/35"."""
+    kept = [str(steps[0])]
+    for step in steps[1:]:
+        if str(step) != kept[-1]:
+            kept.append(str(step))
+    return " = ".join(kept)
 
 
 def phrase(rng: random.Random, patterns, **slots) -> str:
@@ -1340,6 +1366,17 @@ def check_pairwise_distinct(*values, msg: str = "a distractor collides with anot
 # exactly as they are, and new code should call these instead.
 
 
+def exact_decimal_text(value) -> str:
+    """An exact rational as plain decimal text with no trailing zeros ("0.12", "1.7", "12"), never as a fraction
+    such as "3/25". The value must terminate."""
+    exact = Fraction(value)
+    places = 0
+    while (exact * 10**places).denominator != 1:
+        places += 1
+        check(places <= 12, f"{value} does not terminate as a decimal")
+    return fixed_point_string(int(exact * 10**places), places)
+
+
 def fixed_point_string(scaled_int: int, places: int) -> str:
     """Sign-prefixed fixed-point string from an integer already scaled by
     ``10 ** places`` (so ``fixed_point_string(-305, 2)`` is "-3.05"). This
@@ -1733,10 +1770,27 @@ def _paper_right_class(text: str) -> tuple[str, int]:
         if text[j : j + 1] == "(":
             close = _paper_matching_close(text, j)
             return "FUNC", (close + 1 if close >= 0 else j + 1)
+        if run in ("ln", "log") and text[j : j + 1] == "|" and text.find("|", j + 1) > 0:
+            return "FUNC", text.find("|", j + 1) + 1  # ln|x + 1| is a function call, like ln(x + 1)
         if len(run) == 1 and text[j : j + 1] != "_":
             return "VAR1", j
         return "WORD", j
     return "OTHER", i
+
+
+def _paper_left_operand_follows_slash(text: str) -> bool:
+    """True when the operand ending ``text`` is the denominator of a ``/`` (``1/2``, ``x/y``, ``a/(b + 1)``)."""
+    if not text:
+        return False
+    if text[-1] == ")":
+        start = _paper_matching_open(text, len(text) - 1)
+    elif text[-1].isdigit() or text[-1] == ".":
+        start = len(text)
+        while start > 0 and (text[start - 1].isdigit() or text[start - 1] == "."):
+            start -= 1
+    else:
+        start = len(text) - 1
+    return start > 0 and text[start - 1] == "/"
 
 
 def _paper_star_separator(left: str, right: str) -> str:
@@ -1798,6 +1852,8 @@ def paper_notation(text):
             continue  # a star with no operand on one side is left as written
         negative = s[m.end() : m.end() + 1] in ("-", "−")
         separator = _paper_star_separator(left, right)
+        if separator != _PAPER_TIMES and _paper_left_operand_follows_slash(s[: m.start()]):
+            separator = _PAPER_TIMES  # ``1/2*x`` is (1/2) × x; ``1/2x`` would read as 1/(2x)
         out.append(s[pos : m.start()])
         out.append(separator)
         operand_end = m.end() + end
@@ -1810,6 +1866,380 @@ def paper_notation(text):
     return "".join(out)
 
 
+# "5/9 = 5/9" restated: the second copy is dropped. Conservative: the repeat must end the clause (not feed a longer
+# expression "-10 = -10 x (1) + c", a power "10 = 10^1" or a chain "3 = 3 = 4").
+_REPEATED_STEP_RE = re.compile(
+    r"(?P<pre>(?:^|[=:] |\) |\bso |\bgives ))(?P<t>-?[\d,]*\d(?:\.\d+)?%?(?:[/:]\d+)?) = (?P=t)"
+    r"(?![\w/:%^]|\.\d|,\d|\s*[=+\u00d7\u00f7*\u2212(^-]|\s[xX]\s)"
+)
+# A working line that is only a restated value ("764 = 764." or "(c) 764 = 764."): nothing is left once the repeat goes.
+_RESTATED_LINE_RE = re.compile(r"^(?:\([a-z]\) )?(-?[\d,]*\d(?:\.\d+)?%?(?:[/:]\d+)?) = \1\.?$")
+
+
+def _collapse_repeat(m):
+    return m.group("pre") + m.group("t")
+
+
+_UNIT_POWER_RE = re.compile(
+    r"(?<![A-Za-z])(mm|cm|km)\^([23])\b|(?<=\d )(?<!\^\d )(?<!\^\d\d )(mm|cm|km|m)([23])\b|(?<=\d)(mm|cm|km)([23])\b|(?<=\d )(?<!\^\d )(?<!\^\d\d )(m)\^([23])\b|(?<=\()(m)([23])(?=\))|(?<![A-Za-z\d])(mm|cm|km|m)([23])(?= = \d)"
+)
+
+
+def _unit_power(m):
+    groups = [g for g in m.groups() if g]
+    return groups[0] + {"2": "\u00b2", "3": "\u00b3"}[groups[1]]
+
+
+_AN_NUMBER_RE = re.compile(
+    r"\b([Aa]) (?=(?:8\d*|11|18)(?:\.\d+)?[ -]?[A-Za-z%\u00b0$]"
+    r"|\$(?:8[\d,]*|11(?:,?000)?|18(?:,?000)?)(?![\d,]\d)(?:\.\d+)?\b"
+    r"|(?:octag\w+|age\b|equilateral|orange|ice\b|egg|elephant|apple|umbrella|isosceles|obtuse|acute|ellipse|ounce|"
+    r"engine|exam\b|angle|arc\b|area|oval|item|ice-)\w*)"
+)
+# A capital "A" is often a label ("A 85c, B 90c"): it takes no "n" when the quantity ends the clause or a list item.
+_LABEL_QUANTITY_RE = re.compile(r"\$?(?:8\d*|11|18)(?:\.\d+)?[ -]?[A-Za-z%\u00b0$]?\w*\s*(?:[,;:.]|$)")
+
+
+_AN_TRIGGER_RE = re.compile(
+    r"\b[Aa] (?:\$?(?:8|11|18)|(?:octag|age\b|equilateral|orange|ice|egg|elephant|apple|umbrella|isosceles|obtuse|acute|ellipse|ounce|engine|exam\b|angle|arc\b|area|oval|item))"
+)
+
+
+def _an_number(m):
+    if m.group(1) == "A" and _LABEL_QUANTITY_RE.match(m.string, m.end()):
+        return m.group(0)
+    return m.group(1) + "n "
+
+
+# "9/-1" and "-5/-3" read as a stray sign after the slash; the divisor takes brackets, "9/(-1)". Only a plain number
+# or one letter is rewritten, and only when nothing attaches to it ("1/-3x" is left alone).
+_NEGATIVE_DIVISOR_RE = re.compile(r"(?<=[\w)])/-(\d+(?:\.\d+)?|[A-Za-z])(?![\w(^.])")
+
+
+# "20 x 12" is a product between two plain numbers: the letter x there is the multiplication sign.
+_LETTER_X_TIMES_RE = re.compile(r"(?<=[\d)|]) x (?=\d)")
+# A coefficient of 1 written out ("1x", "-1n", "3 - 1i", "1 cos(4x)", "1f(x)"): only a letter that is a variable.
+_COEFFICIENT_ONE_RE = re.compile(
+    r"(?<![\w.^/])1(?=[xyztnui](?![A-Za-z0-9_])|[ab](?=\s[+=\u2212-])|[fgh]\(|e\^|\s(?:sin|cos|tan|ln)\()\s?"
+)
+# A coefficient of 1 before a bracket ("-1(x - 3)", "1(15/2)²"): the bracket stands alone. A bracket that is only a
+# label ("1(a)") or a lone letter is left alone.
+_COEFFICIENT_ONE_BRACKET_RE = re.compile(
+    r"(?<![\w.^/)\]\u00b2\u00b3])(?<!\d,)([-\u2212]?)1\((?=[^()]*(?:[\d+\u2212/^\u00b2]|\s-\s))"
+)
+# "+ 0x" and "- 0t" add nothing; "y = 0x" is "y = 0".
+_ZERO_TERM_RE = re.compile(r"\s[+\u2212-]\s0[xyztnu](?![A-Za-z0-9_(])")
+_ZERO_LEADING_RE = re.compile(r"(?<![\w.^/])0[xyztnu](?=\s[+\u2212-]\s)\s[+\u2212-]\s")
+_ZERO_ONLY_RE = re.compile(r"(?<==\s)0[xyztnu]$")
+# "1 days", "1 parts": a count of one takes the singular noun (not after an operator, where "n - 1 edges" is right).
+_PLURALS = {
+    "days": "day",
+    "hours": "hour",
+    "minutes": "minute",
+    "parts": "part",
+    "additions": "addition",
+    "steps": "step",
+    "points": "point",
+    "palings": "paling",
+    "multiples": "multiple",
+    "tenths": "tenth",
+    "hundredths": "hundredth",
+    "weeks": "week",
+    "years": "year",
+    "months": "month",
+    "terms": "term",
+    "items": "item",
+    "cents": "cent",
+    "leaves": "leaf",
+}
+_ONE_PLURAL_RE = re.compile(r"(?<![\w.^/])(?<!- )(?<!\+ )(?<!\u2212 )(?<!\u00d7 )1 (" + "|".join(_PLURALS) + r")\b")
+# A signed number straight after an operator: "x - -23" is "x - (-23)", "2 × -5" is "2 × (-5)".
+_SIGNED_OPERAND_RE = re.compile(r"(?<=[\w)\]]) ([+\u00d7\u00f7\u2212-]) ([-\u2212]\d+(?:\.\d+)?)(?!\d|\.\d)")
+
+
+# --- Round-2 tidy-ups: typography the generators leave in Python/ASCII spelling -------------------------------------
+# Each rule below is a plain regex over the one string, applied by `_learner_text`; none of them reads a number's value,
+# and `tests/test_bh2_disp.py` pins that the digits a rule keeps are the digits it was given.
+
+# "20 x (8-3)", "7 symbols x 5", "L x 9.8^x", "y = k x x": the letter x between two operands is the times sign. A
+# bracket that holds a letter ("2 x (x+1)") is left as written: there the x may be a variable.
+_LETTER_X_WORD_TIMES_RE = re.compile(r"(?<=[A-Za-z]{2}) x (?=\d)|(?<=\b[A-Z]) x (?=\d)")
+_LETTER_X_BRACKET_TIMES_RE = re.compile(r"(?<=[\d)]) x (?=\([^A-Za-z]*\))")
+_LETTER_X_SIGNED_TIMES_RE = re.compile(r"(?<=\d) x (?=-\d)")
+_LETTER_X_VARIABLE_TIMES_RE = re.compile(r"(?<=[\d)]) x (?=x(?![A-Za-z0-9_(]))|(?<=\b[a-z]) x (?=x(?![A-Za-z0-9_(]))")
+# "1 x t" and "1 \u00d7 t": a coefficient of one before a lone variable.
+_ONE_TIMES_VARIABLE_RE = re.compile(r"(?<![\w.^/])(?<!\d )1 [x\u00d7] (?=[xyztnuk](?![A-Za-z0-9_]))")
+# "<=", ">=", "->" as the signs a learner reads.
+_ASCII_RELATION_RE = re.compile(r"<=|>=|(?<![-<])->")
+_RELATION_SIGNS = {"<=": "\u2264", ">=": "\u2265", "->": "\u2192"}
+# "15\u00b7x^2" and "5\u00b7x": a number times a letter is written together, as everywhere else in the library.
+_DIGIT_DOT_LETTER_RE = re.compile(
+    r"(?<=\d)(?<![A-Za-z_]\d)(?<![A-Za-z_]\d\d)(?<!\^)(?<!\^\d)(?<!\^\d\d)\u00b7(?=[A-Za-z(])"
+)
+# "log_{6}" and "u_{n}" read "log_6" and "u_n": the braces are LaTeX.
+_BRACED_SUBSCRIPT_RE = re.compile(r"(?<=[A-Za-z\)])_\{(\w{1,3})\}")
+# "perimeter_mm = 5" and "surface_area = 3": a name with an underscore is a code identifier; a unit suffix goes in brackets.
+_UNIT_SUFFIXES = {
+    "mm": "mm", "cm": "cm", "m": "m", "km": "km", "mm2": "mm\u00b2", "cm2": "cm\u00b2", "m2": "m\u00b2", "km2": "km\u00b2",
+    "mm3": "mm\u00b3", "cm3": "cm\u00b3", "m3": "m\u00b3", "ml": "mL", "l": "L", "g": "g", "kg": "kg",
+}  # fmt: skip
+_IDENTIFIER_RE = re.compile(r"(?<![\w.])([a-z]{3,})_([a-z]{1,3}\d?|[a-z]{3,})(?![\w])")
+# "z-bar" and "c-bar": the conjugate written as its stem writes it.
+_BAR_RE = re.compile(r"\b([A-Za-z])-bar\b")
+# Greek letters spelled out ("alpha = 28.1", "30 deg").
+_GREEK_NAMES = "alpha|beta|gamma|theta|phi|omega|eta|mu|sigma|delta|epsilon|lambda"
+_GREEK_RE = re.compile(r"\b(" + _GREEK_NAMES + r")\b(?=\s*(?:=|\)|,|[+\u2212*\u00d7/-]|$))")
+_GREEK = {
+    "alpha": "\u03b1", "beta": "\u03b2", "gamma": "\u03b3", "theta": "\u03b8", "phi": "\u03c6", "omega": "\u03c9",
+    "eta": "\u03b7", "mu": "\u03bc", "sigma": "\u03c3", "delta": "\u03b4", "epsilon": "\u03b5", "lambda": "\u03bb",
+}  # fmt: skip
+_GREEK_HINT_RE = re.compile(r"\b(?:" + _GREEK_NAMES + r")\b")
+_DEGREE_WORD_RE = re.compile(r"(?<=\d) ?\bdeg\b")
+# Two spaces between words are one.
+_DOUBLE_SPACE_RE = re.compile(r"(?<=\S)  +(?=\S)")
+# "$21426.12" and "$11000" take the thousands comma "$21,426.12", so one question does not mix "$18,000" with "$21426.12".
+_MONEY_RE = re.compile(r"(?<![\w,.])\$(\d{4,})(?![\d,]\d)")
+
+
+def _money_commas(m):
+    return "$" + f"{int(m.group(1)):,}" if not m.group(1).startswith("0") else m.group(0)
+
+
+# A bracket round a bare positive number is noise after an operator: "12 \u00d7 (7)", "5 - (6)", "+ (2)x", "\u221a(3)".
+_BRACKETED_AFTER_ADD_RE = re.compile(r"(?<= [+\u2212-] )\((\d+(?:\.\d+)?)\)(?![\d.^(\u00b2\u00b3/]|[A-Za-z]{2})")
+_BRACKETED_AFTER_TIMES_RE = re.compile(r"(?<= [\u00d7\u00f7] )\((\d+(?:\.\d+)?)\)(?![\w.^(\u00b2\u00b3/])")
+_BRACKETED_BEFORE_TIMES_RE = re.compile(r"(?<![\w)\]])\((\d+(?:\.\d+)?)\)(?= [\u00d7\u00f7] )")
+_BRACKETED_ROOT_RE = re.compile(r"([\u221a\u221b])\((\d+(?:\.\d+)?)\)(?![\w^.(\u00b2\u00b3])")
+# "(x - 0)(x - 5)": a root of zero is "x".
+_ZERO_ROOT_RE = re.compile(r"\(([A-Za-z]) [+\u2212-] 0\)")
+# A "+ 0" or "- 0" closing a polynomial or recurrence: "f(x) = -x^3 + 15x^2 - x + 0".
+_ZERO_CONSTANT_RE = re.compile(
+    r"(?<=[A-Za-z)\u00b2\u00b3]) [+\u2212-] 0(?![\d.\w%(])|(?<=\^\d) [+\u2212-] 0(?![\d.\w%(])"
+)
+# In working: "x = 8/1 = 8" -> "x = 8 = 8" (then the repeat goes); a division by one is not a step.
+_DIVIDE_BY_ONE_RE = re.compile(r"(?<=[A-Za-z] = )(\d+)/1(?![\w./^(\d%])")
+# "4.0" in working is "4" unless the line is about precision.
+_TRAILING_POINT_ZERO_RE = re.compile(r"(?<![\w.,])(\d+)\.0(?![\d\w.])")
+_PRECISION_WORDS_RE = re.compile(
+    r"d\.p\b|decimal place|significant|sig\.? fig|s\.f\b|nearest|round|precision|\btenth", re.I
+)
+# "y = mx + b = y = 2x + 12" and "alpha = atan2(b, a) = alpha = 28.1": the repeated "name =" goes.
+_REPEATED_LHS_RE = re.compile(r"^(?P<v>[A-Za-z\u03b1-\u03c9][\w\u03b1-\u03c9]{0,10}) = (?P<mid>.+?) = (?P=v) = ")
+# A fraction beside another in a product ("1/2 \u00d7 16/9") or the divisor of one ("63 \u00f7 1/567") is bracketed.
+_FRACTION_TOKEN_RE = re.compile(r"(?<![\w/.^(])((?:\(-?\d+\)|\d+)/\d+)(?![\w/.^(])")
+# "5.5/4%" reads as 5.5 divided by 4%; "(5.5/4)%" says what is meant.
+_FRACTION_PERCENT_RE = re.compile(r"(?<![\w/.^(])(\d+(?:\.\d+)?/\d+)%")
+# U+2212 beside an ASCII minus in one line: the line takes the ASCII one.
+_ASCII_MINUS_USE_RE = re.compile(r"(?<=[\w)\]]) - |(?<![\w)\]])-\d|\(-")
+
+
+_FRACTION_BEFORE_RE = re.compile(r"(?<![\w/.^])(?:\(-?\d+\)|\d+)/\d+\)? [\u00d7\u00f7] $")
+_FRACTION_AFTER_RE = re.compile(r" [\u00d7\u00f7] \(?(?:\(-?\d+\)|\d+)/\d+(?![\w/.^(])")
+
+
+# "-(-4 - 2)" after a plus is a minus: "+ -(" -> "- (", "- -(" -> "+ (".
+_SIGN_BEFORE_BRACKET_RE = re.compile(r"(?<=[\w)\]]) ([+\u2212-]) -(?=\()")
+# Money in working is shown to the cent: "$1740.0" -> "$1740.00" (a figure of "$1.5 million" stays).
+_MONEY_ONE_DECIMAL_RE = re.compile(
+    r"(?<![\w,.])\$(\d[\d,]*\.\d)(?!\d|\.\d|\s*(?:million|billion|thousand|trillion|[kKMB]\b))"
+)
+# "n = 8 \u00f7 1 = 8", "x = 4 / 1 = 4": dividing by one is not a step.
+_DIVIDE_BY_ONE_SPACED_RE = re.compile(
+    r"(?<=[A-Za-z] = \d) [\u00f7/] 1(?= = )|(?<=[A-Za-z] = \d\d) [\u00f7/] 1(?= = )|(?<=[A-Za-z] = \d\d\d) [\u00f7/] 1(?= = )"
+)
+# "-1d m/s", "-1a^9": a unit coefficient before a variable. "(1)x" is handled by the bracket rules first.
+_NEGATIVE_ONE_COEFFICIENT_RE = re.compile(
+    r"(?<![\w.^/)])(-|\u2212)1(?=[a-fi-kn-rt-zA-Z](?![A-Za-z0-9_(]|\^0)|[a-fi-lnp-zA-Z]\^)"
+)
+# "0m + 3k", "0i + 23j": a zero multiple of a variable heading a sum with another variable term.
+_ZERO_MULTIPLE_HEAD_RE = re.compile(r"(?<![\w.^/])0[ijkm](?=\s[+\u2212-]\s\d*[a-zA-Z](?![A-Za-z]))\s[+\u2212-]\s")
+_ZERO_PLUS_HEAD_RE = re.compile(r"(?<== )0 \+ (?=\(?\d+\)?[a-z])")
+# Brackets round a bare positive in more places: "(16) + (21)", "/ (120) + 1", "4^(1)", "\u221b(27)".
+_BRACKETED_HEAD_RE = re.compile(r"(?<![\w)\]/^.])\((\d+(?:\.\d+)?)\)(?= [+\u2212-] \(?\d)")
+_BRACKETED_DIVISOR_RE = re.compile(r"(?<= / )\((\d+(?:\.\d+)?)\)(?= [+\u2212\u00d7\u00f7-]|\)|$)")
+_BRACKETED_EXPONENT_RE = re.compile(r"(?<=[\d)]\^)\((\d+)\)(?![\d.\w])")
+# "2/3x" and "5/2x" read as 2/(3x): the fraction is bracketed when a variable or a bracket follows it directly.
+_FRACTION_COEFFICIENT_RE = re.compile(
+    r"(?<![\w/.^(])(\d+/\d+)(?=[xyztnuvwabk](?![A-Za-z0-9_])|[xyztnuvwab]\^|\(|(?:sin|cos|tan|ln|log)\()"
+)
+# "AM x BM", "1.5 x IQR", "28 x cos(210)": a number or bracket, x, then a function or quantity name.
+_LETTER_X_NAME_TIMES_RE = re.compile(
+    r"(?<=[\d)]) x (?=(?:sin|cos|tan|cot|sec|csc|ln|log|exp|IQR|SD|side|length|width|height|base|radius|rate|price|cost|speed)\b)"
+    r"|(?<=\b[A-Z]{2}) x (?=[A-Z]{2}\b)|(?<=\b[a-z]) x (?=\(-?\d+\))"
+)
+# "1/2 \u00d7 base x height": the chain carries on.
+_LETTER_X_CHAIN_RE = re.compile(r"( \u00d7 [a-z]{3,}) x (?=[a-z]{3})")
+# "2\u00d73" run together.
+_TIMES_NO_SPACE_RE = re.compile(r"(?<=\d)\u00d7(?=\d)")
+
+
+def _bracket_fractions(text):
+    """Bracket a numeric fraction that sits beside another in a product or quotient, or is a divisor."""
+    pieces = []
+    pos = 0
+    for m in _FRACTION_TOKEN_RE.finditer(text):
+        before, after = text[: m.start()], text[m.end() :]
+        if before.endswith("(") and after.startswith(")"):
+            continue  # already bracketed
+        if before.endswith(" \u00f7 ") or _FRACTION_BEFORE_RE.search(before) or _FRACTION_AFTER_RE.match(after):
+            pieces.append(text[pos : m.start()])
+            pieces.append("(" + m.group(1) + ")")
+            pos = m.end()
+    pieces.append(text[pos:])
+    return "".join(pieces)
+
+
+def _drop_point_zero(m, keep):
+    return m.group(0) if m.group(0) in keep else m.group(1)
+
+
+def _learner_text(text, *, working=False, keep=()):
+    """`paper_notation(text)` made fit for a learner: a negative divisor bracketed ("9/(-1)"), a letter x between
+    two operands written \u00d7, a spaced double hyphen written as an en dash, "+-" as \u00b1, "<=" ">=" "->" as signs,
+    a coefficient of 1 or a zero term not written out ("1x" -> "x", "+ 0x" dropped, "f(x) + 0" -> "f(x)"), "1 days" ->
+    "1 day", a signed number after an operator bracketed ("x - -23" -> "x - (-23)"), a bracket round a bare positive
+    number dropped ("12 \u00d7 (7)"), fractions beside fractions bracketed, unit powers as \u00b2, \u00b3, "a 8" as "an 8",
+    thousands commas on dollar amounts, one minus glyph per line, and, in working, "x = x" collapsed to "x", "4.0" as "4"
+    (unless `keep` has "4.0", the question's own spelling, or the line is about precision). Idempotent; the one
+    display pass for every learner-visible string."""
+    text = paper_notation(text)
+    if not isinstance(text, str):
+        return text
+    if "<=" in text or ">=" in text or "->" in text:
+        text = _ASCII_RELATION_RE.sub(lambda m: _RELATION_SIGNS[m.group()], text)
+    if "_{" in text:
+        text = _BRACED_SUBSCRIPT_RE.sub(r"_\1", text)
+    if "_" in text:
+        text = _IDENTIFIER_RE.sub(_identifier_text, text)
+    if "-bar" in text:
+        text = _BAR_RE.sub("\\1\u0304", text)
+    if _GREEK_HINT_RE.search(text):
+        spelled = {m.group(1) for m in _GREEK_RE.finditer(text)}
+        for name in spelled:
+            text = re.sub(r"\b" + name + r"\b", _GREEK[name], text)
+    if "deg" in text:
+        text = _DEGREE_WORD_RE.sub("\u00b0", text)
+    if "  " in text:
+        text = _DOUBLE_SPACE_RE.sub(" ", text)
+    if "$" in text:
+        text = _MONEY_RE.sub(_money_commas, text)
+    if "/-" in text:
+        text = _NEGATIVE_DIVISOR_RE.sub(r"/(-\1)", text)
+    if " x " in text:
+        text = _LETTER_X_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_WORD_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_BRACKET_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_SIGNED_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_VARIABLE_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_NAME_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_CHAIN_RE.sub("\\1 \u00d7 ", text)
+    if "\u00b7" in text:
+        text = _DIGIT_DOT_LETTER_RE.sub("", text)
+    if " -- " in text:
+        text = text.replace(" -- ", " \u2013 ")
+    if "+/-" in text:
+        text = text.replace("+/-", "\u00b1")
+    if "+-" in text:
+        text = re.sub(r"(?<![\w)])\+-(?=\d)", "\u00b1", text)
+    if "m" in text:
+        text = _UNIT_POWER_RE.sub(_unit_power, text)
+    if _AN_TRIGGER_RE.search(text):
+        text = _AN_NUMBER_RE.sub(_an_number, text)
+    if "(" in text:
+        text = _BRACKETED_AFTER_ADD_RE.sub(r"\1", text)
+        text = _BRACKETED_AFTER_TIMES_RE.sub(r"\1", text)
+        text = _BRACKETED_BEFORE_TIMES_RE.sub(r"\1", text)
+        text = _BRACKETED_HEAD_RE.sub(r"\1", text)
+        text = _BRACKETED_DIVISOR_RE.sub(r"\1", text)
+        if "^(" in text:
+            text = _BRACKETED_EXPONENT_RE.sub(r"\1", text)
+        if "\u221a(" in text or "\u221b(" in text:
+            text = _BRACKETED_ROOT_RE.sub(lambda m: m.group(1) + m.group(2), text)
+    if "1" in text:
+        text = _ONE_TIMES_VARIABLE_RE.sub("", text)
+        text = _COEFFICIENT_ONE_RE.sub("", text)
+        text = _NEGATIVE_ONE_COEFFICIENT_RE.sub(r"\1", text)
+        if "1(" in text:
+            text = _COEFFICIENT_ONE_BRACKET_RE.sub(r"\1(", text)
+        text = _ONE_PLURAL_RE.sub(lambda m: "1 " + _PLURALS[m.group(1)], text)
+    if "0" in text:
+        text = _ZERO_LEADING_RE.sub("", text)
+        text = _ZERO_MULTIPLE_HEAD_RE.sub("", text)
+        text = _ZERO_PLUS_HEAD_RE.sub("", text)
+        text = _ZERO_TERM_RE.sub("", text)
+        text = _ZERO_ONLY_RE.sub("0", text)
+        text = _ZERO_ROOT_RE.sub(r"\1", text)
+        text = _ZERO_CONSTANT_RE.sub("", text)
+    if " -" in text or " \u2212" in text:
+        text = _SIGNED_OPERAND_RE.sub(lambda m: f" {m.group(1)} ({m.group(2)})", text)
+    if "-(" in text:
+        text = _SIGN_BEFORE_BRACKET_RE.sub(lambda m: " + " if m.group(1) in "-\u2212" else " - ", text)
+    if "\u00d7" in text:
+        text = _TIMES_NO_SPACE_RE.sub(" \u00d7 ", text)
+    if "/" in text:
+        text = _FRACTION_COEFFICIENT_RE.sub(r"(\1)", text)
+        if "\u00d7" in text or "\u00f7" in text:
+            text = _bracket_fractions(text)
+        if "%" in text:
+            text = _FRACTION_PERCENT_RE.sub(r"(\1)%", text)
+    if "\u2212" in text and _ASCII_MINUS_USE_RE.search(text):
+        text = text.replace("\u2212", "-")
+    if working:
+        text = text.lstrip(" ") if text.strip() else text
+        if "$" in text:
+            text = _MONEY_ONE_DECIMAL_RE.sub(lambda m: "$" + _money_one_decimal(m.group(1)), text)
+        if " \u00f7 1" in text or " / 1" in text:
+            text = _DIVIDE_BY_ONE_SPACED_RE.sub("", text)
+        if "/1" in text:
+            text = _DIVIDE_BY_ONE_RE.sub(r"\1", text)
+        if ".0" in text and not _PRECISION_WORDS_RE.search(text):
+            text = _TRAILING_POINT_ZERO_RE.sub(lambda m: _drop_point_zero(m, keep), text)
+        if " = " in text:
+            text = _REPEATED_LHS_RE.sub(
+                lambda m: m.group(0)[: m.start("v") - m.start()] + m.group("v") + " = " + m.group("mid") + " = ", text
+            )
+            text = _REPEATED_STEP_RE.sub(_collapse_repeat, text)
+    return text
+
+
+def _money_one_decimal(figure):
+    whole, _, tenth = figure.partition(".")
+    whole = f"{int(whole.replace(',', '')):,}"
+    return f"{whole}.{tenth}0"
+
+
+def _identifier_text(m):
+    name, suffix = m.group(1), m.group(2)
+    if suffix in _UNIT_SUFFIXES:
+        return f"{name} ({_UNIT_SUFFIXES[suffix]})"
+    if len(suffix) >= 3 and suffix.isalpha():
+        return f"{name} {suffix}"
+    return m.group(0)
+
+
+_display_text = _learner_text
+
+
+_POINT_ZERO_RE = re.compile(r"(?<![\w.,])\d+\.0(?![\d\w.])")
+
+
+def _precision_spellings(question):
+    """The "4.0"-style numbers the question itself writes: working keeps them, since the zero is a stated precision."""
+    found = set()
+    for field in (question.text, question.answer_text, *question.distractors):
+        if isinstance(field, str):
+            found.update(_POINT_ZERO_RE.findall(field))
+    return found
+
+
+def _working_lines(working, keep):
+    """The working a learner reads. A line that only restates a value ("764 = 764.") is dropped, unless it is all there is."""
+    lines = list(working or [])
+    shown = [_learner_text(w, working=True, keep=keep) for w in lines]
+    kept = [t for w, t in zip(lines, shown) if not (isinstance(w, str) and _RESTATED_LINE_RE.match(w))]
+    return kept or shown
+
+
 def display_question(question) -> dict:
     """The strings a learner reads for `question` (or a `Part`), written as on paper (`paper_notation`).
 
@@ -1820,12 +2250,13 @@ def display_question(question) -> dict:
     wrong options in their stored order. A multi-part question also has `parts`, the same dictionary for each part
     with its `label` added.
     """
+    keep = _precision_spellings(question)
     shown = {
-        "text": paper_notation(question.text),
-        "answer_text": paper_notation(question.answer_text),
-        "options": [paper_notation(o) for o in mcq_options(question)],
-        "distractors": [paper_notation(d) for d in question.distractors],
-        "working": [paper_notation(w) for w in (question.working or [])],
+        "text": _learner_text(question.text),
+        "answer_text": _learner_text(question.answer_text),
+        "options": [_learner_text(o) for o in mcq_options(question)],
+        "distractors": [_learner_text(d) for d in question.distractors],
+        "working": _working_lines(question.working, keep),
     }
     parts = getattr(question, "parts", None)
     if parts:

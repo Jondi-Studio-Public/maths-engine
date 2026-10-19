@@ -288,6 +288,7 @@ _REVIEWED = {
     # the step-chain grader canonicalises SymPy objects that `parse_expression_safely` returned; neither call is given text
     ("grading/chain.py", "_tree", "expand"): "the argument of an Abs node of a tree from `parse_expression_safely`",
     ("grading/chain.py", "_value", "N"): "a SymPy tree with its symbols replaced by numbers, never text",
+    ("grading/stem_checks.py", "_key_is_expanded_polynomial", "expand"): "the key, read by `_expected_expression`",
     ("grading/typed.py", "_expected_expression", "simplify"): "two expressions from `_parse_expression`",
     ("grading/values.py", "same_number", "simplify"): "two numbers from `read_value` or a generator's answer",
     ("grading/typed.py", "_line_standard_form_coeffs", "expand"): "the two sides of an equation, parsed",

@@ -277,7 +277,7 @@ def _easy(rng):
         )
         working = [
             f"The x-coordinates are {r1} and {r2}; the left-hand point has x = {r1}.",
-            f"y = {m}({r1}) {'+' if c >= 0 else '-'} {abs(c)} = {y1}.",
+            f"y = {join_terms([(m, f'({r1})'), (c, '')])} = {y1}.",
         ]
     else:
         value = r1 + r2

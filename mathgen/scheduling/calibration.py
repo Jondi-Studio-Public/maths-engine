@@ -197,8 +197,13 @@ def fsrs_calibration(log_rows: list[dict], bins: int = 10) -> dict:
 
     `log_rows`: dicts with retrievability (None for first reviews, skipped)
     and rating (1 = forgot). Returns counts, log loss, binned RMSE and the bins."""
+    if isinstance(bins, bool) or not isinstance(bins, int) or bins < 1:
+        raise ValueError(f"bins must be a whole number, 1 or more, got {bins!r}")
     pairs = [(row["retrievability"], 0 if row["rating"] == 1 else 1) for row in log_rows]
     pairs = [(r, y) for r, y in pairs if r is not None]
+    for r, _ in pairs:
+        if not 0 <= r <= 1:
+            raise ValueError(f"retrievability must be from 0 to 1 (or None), got {r!r}")
     if not pairs:
         return {"reviews": 0, "log_loss": None, "rmse_bins": None, "mean_predicted": None, "observed": None, "bins": []}
     eps = 1e-6

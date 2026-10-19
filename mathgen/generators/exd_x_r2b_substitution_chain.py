@@ -135,7 +135,9 @@ def _build(rng):
         value,
         2,
         2,
-        [f"I = {coefficient} × [u^{n + 1}/{n + 1}] from {k} to {u2} = {value}."],
+        [
+            f"I = {f'({coefficient})' if coefficient.denominator != 1 else coefficient} × [u^{n + 1}/{n + 1}] from {k} to {u2} = {value}."
+        ],
         c_wrong,
         follow_through=f"Subs(part_b, (u,), (1,))*(part_a**({n + 1}) - {k}**({n + 1}))/({n + 1})",
     )

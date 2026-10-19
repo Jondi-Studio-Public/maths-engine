@@ -304,7 +304,15 @@ def _medium(rng: random.Random):
             ("Write down the coefficient of ", " in the Taylor series of "),
         ]
     )
-    prompt = say(ask[0], M(rf"(x - {a})^{{{k}}}"), ask[1], M(rf"f(x) = {tex}"), " about ", M(rf"x = {a}"), ".")
+    prompt = say(
+        ask[0],
+        M(rf"(x - {a})^{{{k}}}"),
+        ask[1],
+        M(rf"f(x) = {tex}"),
+        " about ",
+        M(rf"x = {a}"),
+        "?" if ask[0].startswith("What") else ".",
+    )
     working = [
         f"The coefficient is f^({k})({a})/{k}!.",
         f"f^({k})({a}) = {raw}, so the coefficient is {raw}/{fact} = {value}.",

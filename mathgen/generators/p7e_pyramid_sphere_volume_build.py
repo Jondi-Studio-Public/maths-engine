@@ -157,11 +157,17 @@ def _build_square_pyramid(rng) -> dict:
         msg="square pyramid distractor collides with the answer",
     )
 
+    working = [
+        f"Base area = {s} × {s} = {s * s} cm².",
+        f"Volume = ⅓ × base area × height = ⅓ × {s * s} × {h} = {answer} cm³.",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer_text,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -200,11 +206,17 @@ def _build_rect_pyramid(rng) -> dict:
         msg="rectangular pyramid distractor collides with the answer",
     )
 
+    working = [
+        f"Base area = {l} × {w} = {l * w} cm².",
+        f"Volume = ⅓ × base area × height = ⅓ × {l * w} × {h} = {answer} cm³.",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer_text,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -250,11 +262,17 @@ def _build_sphere(rng) -> dict:
         msg="sphere distractor collides with the answer",
     )
 
+    working = [
+        f"Radius = {d} ÷ 2 = {r} cm.",
+        f"Volume = (4/3)πr³ = (4/3) × π × {r}³ = (4/3) × {r**3}π = {k}π cm³.",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -373,11 +391,19 @@ def _build_sphere_decimal(rng) -> dict:
         tolerance=stated_precision_tolerance(2),
     )
 
+    r_text = f"{float(r):g}"
+    radius_line = f"Radius = {given_value} ÷ 2 = {r_text} cm." if given_kind == "diameter" else f"Radius = {r_text} cm."
+    working = [
+        radius_line,
+        f"Volume = (4/3)πr³ = (4/3) × π × {r_text}³ = {answer_text} cm³ (2 d.p.).",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=distractors,
     )
 

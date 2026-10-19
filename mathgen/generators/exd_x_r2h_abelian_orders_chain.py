@@ -147,7 +147,7 @@ def _build(rng: random.Random) -> dict:
             kind="number",
             marks=2,
             working=[
-                f"Elements with {d}x = 0 number gcd({d}, {m}) x gcd({d}, {n}) = {dividing}; "
+                f"Elements with {d}x = 0 number gcd({d}, {m}) × gcd({d}, {n}) = {dividing}; "
                 "subtract those of smaller order by inclusion-exclusion over the divisors of "
                 f"{d}.",
                 f"This leaves {count} elements of order exactly {d}.",

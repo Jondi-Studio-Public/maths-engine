@@ -165,6 +165,13 @@ _PLAN_RIGHT = (
     "Which option gives the column heights of the view from the right side, from left to right (the front of the "
     "stack is on your left)?"
 )
+
+
+def _count(n: int, noun: str) -> str:
+    """``n`` with its noun, singular for exactly one."""
+    return f"{n} {noun}" if n == 1 else f"{n} {noun}s"
+
+
 _PLAN_FRONT_SQUARES = "How many squares make up the view from the front?"
 _PLAN_ALT = (
     "A plan of a stack of cubes on a square grid: each shaded square has the number of cubes in its column written on "
@@ -521,7 +528,7 @@ def _box_net_chain(rng):
         _NET_TOP,
         top_squares,
         1,
-        [f"The top is {a} squares by {b} squares: {a} x {b} = {top_squares}."],
+        [f"The top is {_count(a, 'square')} by {_count(b, 'square')}: {a} x {b} = {top_squares}."],
         [
             (a + b, "net-adds-the-edges"),
             (2 * (a + b), "net-gives-the-perimeter-of-the-top"),
@@ -534,7 +541,7 @@ def _box_net_chain(rng):
         _NET_HEIGHT,
         h,
         1,
-        [f"Each side face in the row is {h} squares tall, so the box is {h} squares tall."],
+        [f"Each side face in the row is {_count(h, 'square')} tall, so the box is {_count(h, 'square')} tall."],
         [
             (a, "net-gives-another-edge"),
             (b, "net-gives-another-edge"),
@@ -547,7 +554,9 @@ def _box_net_chain(rng):
         _NET_VOLUME,
         volume,
         2,
-        [f"The base has {top_squares} squares and the box is {h} squares tall: {top_squares} x {h} = {volume}."],
+        [
+            f"The base has {_count(top_squares, 'square')} and the box is {_count(h, 'square')} tall: {top_squares} x {h} = {volume}."
+        ],
         [
             (top_squares + h, "net-adds-a-face-to-the-volume"),
             (area, "net-gives-the-surface-for-the-volume"),
@@ -660,8 +669,8 @@ def _scale_plan_chain(rng):
         covered,
         2,
         [
-            f"The rectangle round the plan is {a} by {b} = {a * b} cells.",
-            f"The missing corner is {c} by {d} = {c * d} cells, so the plan covers {a * b} - {c * d} = {covered} cells.",
+            f"The rectangle round the plan is {a} by {b} = {_count(a * b, 'cell')}.",
+            f"The missing corner is {c} by {d} = {_count(c * d, 'cell')}, so the plan covers {a * b} - {c * d} = {_count(covered, 'cell')}.",
         ],
         [
             (a * b, "plan-forgets-the-missing-corner"),

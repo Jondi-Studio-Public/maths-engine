@@ -239,6 +239,10 @@ def _directional_options(rng, axis, order, listed_forward, target, ref, include_
     return options
 
 
+def _capitalise(sentence: str) -> str:
+    return sentence[:1].upper() + sentence[1:]
+
+
 def _finalise_directional(rng, text, disp_target, disp_ref, options, msg):
     true_count = sum(1 for _t, truth in options if truth)
     check(true_count == 1, f"{msg}: expected exactly one true option, got {true_count}")
@@ -253,7 +257,7 @@ def _finalise_directional(rng, text, disp_target, disp_ref, options, msg):
         answer_text=key_text,
         answer_latex=f"plain:{key_text}",
         distractors=distractors,
-        working=[f"answer: {key_text}"],
+        working=[_capitalise(f"{disp_target} is {key_text} {disp_ref}.")],
     )
 
 
@@ -366,7 +370,7 @@ def _draw_hard_between(rng):
         answer_text=key_text,
         answer_latex=f"plain:{key_text}",
         distractors=distractors,
-        working=[f"answer: {key_text}"],
+        working=[_capitalise(f"{disp(target)} is {key_text}.")],
     )
 
 

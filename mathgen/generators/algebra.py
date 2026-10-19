@@ -188,11 +188,8 @@ def _linear_equation_both_sides(rng, coef_hi, sol_hi, allow_negative):
         a2 = rng.randint(1, coef_hi)
     b1 = rng.randint(-20, 20)
     b2 = (a1 - a2) * x0 + b1
-    sign1 = "+" if b1 >= 0 else "-"
-    sign2 = "+" if b2 >= 0 else "-"
-    a1x, a2x = fmt_signed(a1, "x"), fmt_signed(a2, "x")
-    lhs = f"{a1x} {sign1} {abs(b1)}"
-    rhs = f"{a2x} {sign2} {abs(b2)}"
+    lhs = join_terms([(a1, "x"), (b1, "")])
+    rhs = join_terms([(a2, "x"), (b2, "")])
     check(solve(Eq(a1 * x + b1, a2 * x + b2), x) == [x0])
     # Misconceptions: added the x-terms instead of subtracting; moved only the
     # constant and left both x-terms in; subtracted in the wrong direction.
@@ -207,7 +204,10 @@ def _linear_equation_both_sides(rng, coef_hi, sol_hi, allow_negative):
         answer=x0,
         answer_text=f"x = {x0}",
         answer_latex=f"x = {x0}",
-        working=[f"({a1} - {a2})x = {b2} - ({b1}) = {b2 - b1}", f"x = {b2 - b1}/{a1 - a2} = {x0}"],
+        working=[
+            f"({a1} - {a2})x = {b2} - {paren_negative(b1)} = {b2 - b1}" if b1 else f"({a1} - {a2})x = {b2}",
+            f"x = {b2 - b1}/{paren_negative(a1 - a2)} = {x0}",
+        ],
         distractors=pick_distractors(f"x = {x0}", cands),
     )
 
@@ -468,7 +468,12 @@ def linear_equation(
         answer_text=f"x = {x0}",
         answer_latex=f"x = {x0}",
         answer_kind="number",
-        working=[f"{coef_str}x = {c} {'-' if b >= 0 else '+'} {abs(b)} = {c - b}", f"x = {c - b}/{a} = {x0}"],
+        working=(
+            [f"x = {c}/{a} = {x0}"]
+            if b == 0
+            else [f"{coef_str}x = {c} {'-' if b >= 0 else '+'} {abs(b)} = {c - b}"]
+            + ([] if a == 1 else [f"x = {c - b}/{a} = {x0}"])
+        ),
         distractors=pick_distractors(f"x = {x0}", cands),
     )
 
@@ -509,6 +514,22 @@ def simultaneous(rng, sol_hi=8, coef_hi=5):
     return dict(
         text=f"Solve the simultaneous equations: {e1} and {e2}",
         latex=rf"\begin{{cases}} {latex(eqs[0])} \ {latex(eqs[1])} \end{{cases}}",
+        working=[
+            (
+                "Subtract the second equation from the first to eliminate y."
+                if b1 == b2
+                else f"Eliminate y: multiply the first equation by {paren_negative(b2)} and the second by "
+                f"{paren_negative(b1)}, then subtract."
+            ),
+            (
+                f"{fmt_signed(a1 - a2, 'x')} = {c1 - c2}, so x = {x0}."
+                if b1 == b2
+                else f"{fmt_signed(a1 * b2 - a2 * b1, 'x')} = {c1 * b2 - c2 * b1}, so x = {x0}."
+            ),
+            f"Substitute x = {x0} into the first equation: {join_terms([(a1 * x0, ''), (b1, 'y')])} = {c1}"
+            + (f", so {join_terms([(b1, 'y')])} = {c1 - a1 * x0}" if a1 * x0 else "")
+            + f" and y = {y0}.",
+        ],
         **xy_solution(x0, y0),
     )
 
@@ -589,7 +610,8 @@ def _quadratic_formula_rearrange(rng, root_hi):
         b_ = rng.randint(-root_hi, root_hi)
         c_ = rng.randint(-root_hi, root_hi)
         D = b_ * b_ - 4 * a_ * c_
-        if D > 0 and not _is_perfect_square(D):
+        # b = 0 would print "x(x)": keep a real bracket to expand
+        if b_ != 0 and D > 0 and not _is_perfect_square(D):
             break
     expr = a_ * x**2 + b_ * x + c_
     sqrtD = math.sqrt(D)
@@ -599,8 +621,8 @@ def _quadratic_formula_rearrange(rng, root_hi):
     check(all(abs(ex - ap) < 0.01 for ex, ap in zip(exact_roots, ans)))
     ans_text = f"x = {ans[0]:.2f} or x = {ans[1]:.2f}"
     answer_latex = rf"x = {ans[0]:.2f} \text{{ or }} x = {ans[1]:.2f}"
-    b_sign = "+" if b_ >= 0 else "-"
-    lhs = f"x({fmt_signed(a_, 'x')} {b_sign} {abs(b_)})"
+    lhs = f"x({join_terms([(a_, 'x'), (b_, '')])})"
+    quad_terms = join_terms([(a_, "x^2"), (b_, "x")])
     rhs = -c_
     sign_b = sorted([(b_ - sqrtD) / (2 * a_), (b_ + sqrtD) / (2 * a_)])
     no_double_a = sorted([(-b_ - sqrtD) / a_, (-b_ + sqrtD) / a_])
@@ -612,11 +634,11 @@ def _quadratic_formula_rearrange(rng, root_hi):
         cands.append(f"x = {wrong_disc[0]:.2f} or x = {wrong_disc[1]:.2f}")
     return dict(
         text=f"Solve {lhs} = {rhs} using the quadratic formula (2 d.p.)",
-        latex=rf"\text{{Solve }} {a_}x^2 {b_sign} {abs(b_)}x = {rhs} \ \text{{using the quadratic formula (2 d.p.)}}",
+        latex=rf"\text{{Solve }} {quad_terms} = {rhs} \ \text{{using the quadratic formula (2 d.p.)}}",
         answer=ans,
         answer_text=ans_text,
         answer_latex=answer_latex,
-        working=[f"Expand: {a_}x^2 {b_sign} {abs(b_)}x = {rhs} → {expr} = 0", f"x = (-({b_}) ± √({D})) / (2×{a_})"],
+        working=[f"Expand: {quad_terms} = {rhs} → {expr} = 0", f"x = (-({b_}) ± √({D})) / (2×{a_})"],
         distractors=pick_distractors(ans_text, cands, tolerance=GRADER_TOLERANCE),
     )
 
@@ -747,6 +769,17 @@ def _quadratic_factor_nonmonic(rng, root_hi):
     )
 
 
+def _factors_text(r1: int, r2: int) -> str:
+    """(x - r1)(x - r2) as written on paper: a root of 0 is the factor x, not (x - 0)."""
+    if r1 == r2 == 0:
+        return "x^2"
+
+    def one(r):
+        return "x" if r == 0 else f"(x {'-' if r > 0 else '+'} {abs(r)})"
+
+    return one(r1) + one(r2)
+
+
 @generator(
     "quadratic",
     level=9,
@@ -799,9 +832,23 @@ def quadratic(rng, root_hi=9, kind="factor"):
         answer_text=ans_text,
         answer_kind="list",
         answer_latex="x = " + (str(roots[0]) if len(roots) == 1 else rf"{roots[0]},\; x = {roots[1]}"),
-        working=[f"Factorise: (x {'-' if r1 >= 0 else '+'} {abs(r1)})(x {'-' if r2 >= 0 else '+'} {abs(r2)}) = 0"],
+        working=[f"Factorise: {_factors_text(r1, r2)} = 0"],
         distractors=pick_distractors(ans_text, cands),
     )
+
+
+def _substituted_quadratic(a: int, b: int, c: int, n: int) -> str:
+    """``a(n)^2 + b(n) + c`` as a learner writes the substitution: a zero term is left out, a coefficient of 1 is
+    not written, and a negative term is subtracted ("- 3(2)", never "+ -3(2)")."""
+    pieces = [(a, f"({n})^2"), (b, f"({n})"), (c, "")]
+    out = ""
+    for coef, body in pieces:
+        if coef == 0:
+            continue
+        mag = "" if (body and abs(coef) == 1) else str(abs(coef))
+        term = f"{mag}{body}"
+        out += (f"-{term}" if coef < 0 else term) if not out else (f" - {term}" if coef < 0 else f" + {term}")
+    return out or "0"
 
 
 @generator(
@@ -841,8 +888,6 @@ def function_evaluation(rng, coef_hi=5, arg_hi=6, a_lo=1):
         answer_text=f"f({n}) = {ans}",
         answer_latex=f"f({n}) = {ans}",
         answer_kind="number",
-        working=[
-            f"f({n}) = {a}({n})^2 {'+' if b >= 0 else '-'} {abs(b)}({n}) {'+' if c >= 0 else '-'} {abs(c)} = {ans}"
-        ],
+        working=[f"f({n}) = {_substituted_quadratic(a, b, c, n)} = {ans}"],
         distractors=pick_distractors(f"f({n}) = {ans}", cands),
     )

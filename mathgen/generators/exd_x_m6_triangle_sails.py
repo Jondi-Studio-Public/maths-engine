@@ -111,7 +111,10 @@ def _attempt(rng: random.Random) -> dict | None:
                 c_cands,
                 marks=1,
                 follow_through=f"2*part_a*{price}",
-                working=[f"Both sails: 2 × {area} = {2 * area} m².", f"{2 * area} × ${price} = ${cost}."],
+                working=[
+                    f"The two pieces have equal area, so the total is 2 × {area} = {2 * area} m².",
+                    f"{2 * area} × ${price} = ${cost}.",
+                ],
             ),
         ],
     )

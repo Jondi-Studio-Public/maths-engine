@@ -225,6 +225,16 @@ def _build_question(rng, *, a, b, f_terms, g_terms, f_display_terms, g_display_t
     text = prompt_text_fn(f_display_terms, g_display_terms, a, b)
     distractors = pick_distractors(answer_text, candidates_text)
 
+    def _scaled(c, body):
+        return f"({body})" if c == 1 else (f"-({body})" if c == -1 else f"{c}({body})")
+
+    sign = "+" if b > 0 else "-"
+    working = [f"By linearity, h'(x) = {join_terms([(a, "f'(x)"), (b, "g'(x)")])}."]
+    if f_display_terms != f_terms or g_display_terms != g_terms:
+        working.append(f"Simplify first: f'(x) = {_term_text(f_terms)} and g'(x) = {_term_text(g_terms)}.")
+    working.append(
+        f"h'(x) = {_scaled(a, _term_text(f_terms))} {sign} {_scaled(abs(b), _term_text(g_terms))} = {answer_text}."
+    )
     return dict(
         text=text,
         latex=text,
@@ -232,6 +242,7 @@ def _build_question(rng, *, a, b, f_terms, g_terms, f_display_terms, g_display_t
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         distractors=distractors,
+        working=working,
     )
 
 
@@ -244,7 +255,7 @@ def _easy(rng):
     def prompt(f_disp, g_disp, a, b):
         return (
             f"f'(x) = {_term_text(f_disp)} and g'(x) = {_term_text(g_disp)}. "
-            f"h(x) = {fmt_signed(a, 'f(x)')} + {b}g(x). Find h'(x)."
+            f"h(x) = {join_terms([(a, 'f(x)'), (b, 'g(x)')])}. Find h'(x)."
         )
 
     return _build_question(

@@ -30,7 +30,7 @@ import re
 from fractions import Fraction as F
 
 from mathgen import figures
-from mathgen.core import check, generator, phrase, rational_text
+from mathgen.core import check, fmt_signed, generator, paren_negative, phrase, rational_text
 from mathgen.generators.fg1_line_reading_build import (
     ATT,
     draw_line,
@@ -582,7 +582,11 @@ def _cf_easy(rng, notes):
         rng.shuffle(distractors)
         no_leak(fig, key, distractors)
         text = f"{phrase(rng, _CF_OPEN_LINE)} {rule} Which function gives the greater output when the input is {x0}?"
-        working = [f"f({x0}) = {v} from the graph.", f"g({x0}) = {a} x {x0} + ({b}) = {a * x0 + b}.", f"So {key}."]
+        working = [
+            f"f({x0}) = {v} from the graph.",
+            f"g({x0}) = {a} × {paren_negative(x0)}{f' {chr(43) if b > 0 else chr(45)} {abs(b)}' if b else ''} = {a * x0 + b}.",
+            f"So {key}.",
+        ]
         return mcq_result(
             text=text, key_text=key, texts=distractors, notes=note_of, working=working, fig=fig, option_notes=notes
         )
@@ -938,7 +942,7 @@ def _nl_hard(rng, notes):
         no_leak(fig, key, texts)
         text = f"{phrase(rng, _NL_OPEN)} {phrase(rng, _NL_ASK['hard'])}"
         working = [
-            f"Solve {key}: subtract {b} from both sides to get {a}x {_SYM[op]} {c - b}.",
+            f"Solve {key}: {'subtract' if b >= 0 else 'add'} {abs(b)} {'from' if b >= 0 else 'to'} both sides to get {fmt_signed(a, 'x')} {_SYM[op]} {c - b}.",
             f"Divide by {a}{', reversing the inequality sign' if a < 0 else ''}: x {_SYM[_flip(op) if a < 0 else op]} {t}.",
             "This matches the shaded part of the number line.",
         ]

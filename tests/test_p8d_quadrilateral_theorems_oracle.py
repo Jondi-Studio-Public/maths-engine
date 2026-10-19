@@ -47,7 +47,7 @@ def oracle_cyclic_easy(text: str) -> int:
 
 
 def oracle_cyclic_medium(text: str) -> int:
-    m = re.search(r"Angle A = \(([^)]+)\) degrees and angle C = \(([^)]+)\) degrees", text)
+    m = re.search(r"Angle A = \(?([^()]+?)\)? degrees and angle C = \(?([^()]+?)\)? degrees", text)
     a1, a2 = parse_linear(m.group(1))
     c1, c2 = parse_linear(m.group(2))
     ask = re.search(r"Find angle ([AC]), in degrees", text).group(1)
@@ -62,7 +62,7 @@ def oracle_cyclic_medium(text: str) -> int:
 
 
 def oracle_cyclic_hard(text: str) -> int:
-    m = re.search(r"Angle A = \(([^)]+)\) degrees and angle B = \(([^)]+)\) degrees", text)
+    m = re.search(r"Angle A = \(?([^()]+?)\)? degrees and angle B = \(?([^()]+?)\)? degrees", text)
     a1, a2 = parse_linear(m.group(1))
     b1, b2 = parse_linear(m.group(2))
     k_match = re.search(r"Angle C exceeds angle D by (\d+) degrees?", text)
@@ -128,7 +128,7 @@ def oracle_rhombus_medium(text: str) -> int:
 
 
 def oracle_rhombus_hard(text: str) -> int:
-    m = re.search(r"AB = \(([^)]+)\) cm and BC = \(([^)]+)\) cm", text)
+    m = re.search(r"AB = \(?([^()]+?)\)? cm and BC = \(?([^()]+?)\)? cm", text)
     a1, a2 = parse_linear(m.group(1))
     b1, b2 = parse_linear(m.group(2))
     x = (b2 - a2) / (a1 - b1)

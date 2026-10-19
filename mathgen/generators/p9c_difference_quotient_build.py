@@ -35,6 +35,7 @@ from fractions import Fraction
 from sympy import Rational, diff, expand, symbols
 
 from ..core import (
+    bracket_compound,
     check,
     check_distinct,
     check_equivalent,
@@ -317,6 +318,20 @@ def p9c_delta_y_delta_x_notation(rng, tier="easy"):
 
     distractors = pick_distractors(answer_text, candidates_text)
 
+    def _rt(v):
+        return rational_text(Fraction(v))
+
+    def _neg(v):
+        return f"({_rt(v)})" if v < 0 else _rt(v)
+
+    new_x = f"{p} {'+' if dx > 0 else '-'} {_rt(abs(dx))}"
+    working = [
+        f"f({p}) = {_rt(f_p)}.",
+        f"f({new_x}) = f({_rt(p_val + dx)}) = {_rt(f_p_dx)}.",
+        f"δy = {_rt(f_p_dx)} - {_neg(f_p)} = {_rt(delta_y)}.",
+        f"δy/δx = {bracket_compound(_rt(delta_y))} ÷ {bracket_compound(dx_text)} = {answer_text}.",
+    ]
+
     return {
         "text": question_text,
         "latex": question_text,
@@ -324,4 +339,5 @@ def p9c_delta_y_delta_x_notation(rng, tier="easy"):
         "answer_text": answer_text,
         "answer_latex": latex_answer(answer),
         "distractors": distractors,
+        "working": working,
     }

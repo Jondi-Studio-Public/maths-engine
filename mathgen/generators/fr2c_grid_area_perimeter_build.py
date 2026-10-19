@@ -240,7 +240,7 @@ def _build(rng, kind, side, with_cuts):
         working = [
             f"There are {st['full']} whole squares"
             + (f" and {cuts} half squares, which make {cuts // 2} more." if cuts else "."),
-            f"{area_units} squares x {side * side} = {value}." if side > 1 else f"The area is {value} cm2.",
+            f"{area_units} squares × {side * side} = {value}." if side > 1 else f"The area is {value} cm².",
         ]
     else:
         value = st["perimeter"] * side

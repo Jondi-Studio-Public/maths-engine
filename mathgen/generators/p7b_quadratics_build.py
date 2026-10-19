@@ -512,7 +512,7 @@ def _complex_medium(rng):
         answer=answer_expr,
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[f"x = (-b +/- sqrt(b^2 - 4ac)) / (2a) = ({-b} +/- sqrt({m * m})) / {2 * a}", f"= {answer_text}"],
+        working=[f"x = (-b +/- sqrt(b^2 - 4ac)) / (2a) = ({-b} +/- sqrt(-{m * m})) / {2 * a}", f"= {answer_text}"],
         distractors=distractors,
     )
 

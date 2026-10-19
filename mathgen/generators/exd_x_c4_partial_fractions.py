@@ -23,7 +23,7 @@ _X = Symbol("x", real=True)
 
 
 def _fmt(expr) -> str:
-    return str(expr).replace("**", "^")
+    return str(expr).replace("**", "^").replace("log(", "ln(")
 
 
 def _poly_text(coeffs: list[int]) -> str:

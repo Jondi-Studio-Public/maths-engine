@@ -71,6 +71,11 @@ def _trapezoid(func, a_width: int) -> float:
     return h * sum(func(i * h) for i in range(-n, n + 1))
 
 
+def _dec(value) -> str:
+    """A rounded key as the decimal it is, not as the fraction of its digits (these values are irrational)."""
+    return f"{float(value):.{_DP}f}"
+
+
 def _quadrature_check(amp: int, wid: int, w0: int, key_f, key_b: Fraction, key_c: Fraction) -> None:
     """The defining integrals, by quadrature, against the closed forms (f is even, so F is real)."""
 
@@ -183,7 +188,9 @@ def _build(rng: random.Random) -> dict:
             kind="number",
             marks=2,
             dp=_DP,
-            working=[f"The integral of f(x) cos({wx}) dx is the real part of F({w0}), which is F({w0}) = {key_b}."],
+            working=[
+                f"The integral of f(x) cos({wx}) dx is the real part of F({w0}), which is F({w0}) ≈ {_dec(key_b)}."
+            ],
             wrong=_usable(exact_b, b_wrong),
             follow_through=f"Subs(part_a, (w, z), ({w0}, 0))",
         ),
@@ -195,7 +202,7 @@ def _build(rng: random.Random) -> dict:
             dp=_DP,
             working=[
                 "cos(w0 x) = (e^(i w0 x) + e^(-i w0 x))/2, so G(w) = (F(w - w0) + F(w + w0))/2.",
-                f"G({w0}) = (F(0) + F({2 * w0}))/2 = {key_c}.",
+                f"G({w0}) = (F(0) + F({2 * w0}))/2 ≈ {_dec(key_c)}.",
             ],
             wrong=_usable(exact_c, c_wrong),
             follow_through=f"(Subs(part_a, (w, z), (0, 0)) + Subs(part_a, (w, z), ({2 * w0}, 0)))/2",
@@ -206,7 +213,7 @@ def _build(rng: random.Random) -> dict:
             kind="number",
             marks=1,
             dp=_DP,
-            working=[f"G({w0}) / G(0) = ({key_c}) / ({key_b}) = {key_d}."],
+            working=[f"G({w0}) / G(0) ≈ ({_dec(key_c)}) / ({_dec(key_b)}) ≈ {_dec(key_d)}."],
             wrong=_usable(ratio, d_wrong),
             follow_through="part_c/part_b",
             sensible_range=(0, None),

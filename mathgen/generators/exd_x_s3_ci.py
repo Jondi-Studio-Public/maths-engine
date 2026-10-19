@@ -117,7 +117,7 @@ def exd_x_s3_ci(rng: random.Random, tier: str = "exam"):
     )
     working = [
         f"The interval is centred on the sample mean {float(centre):.1f}, and its half-width {float(half):.1f} is z times s/sqrt(n).",
-        f"At the {new} level the half-width is {float(half):.1f} times {Z[new]} divided by {Z[old]}.",
+        f"At the {new} level the half-width is {float(half):.1f} times {float(Z[new])} divided by {float(Z[old])}.",
         answer_text + ".",
     ]
     return dict(

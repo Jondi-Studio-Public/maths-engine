@@ -206,7 +206,7 @@ def _build(rng: random.Random) -> dict:
             b0,
             kind="number",
             marks=1,
-            working=[f"Joining vertices along edges gives {b0} connected piece(s)."],
+            working=[f"Joining vertices along edges gives {b0} connected piece{'s' if b0 != 1 else ''}."],
             wrong=c_wrong,
             sensible_range=(0, None),
         ),

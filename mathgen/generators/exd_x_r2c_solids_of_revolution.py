@@ -47,6 +47,15 @@ _STEMS = (
 )
 
 
+def _factored(c, u, v) -> str:
+    """c(x - u)(x - v) as it is written on paper: no leading 1, and x rather than (x - 0)."""
+
+    def factor(r):
+        return "x" if r == 0 else f"(x - {r})"
+
+    return f"{'' if c == 1 else c}{factor(u)}{factor(v)}"
+
+
 def _typed(expr) -> str:
     return str(expr).replace("**", "^")
 
@@ -114,7 +123,7 @@ def exd_x_r2c_solids_of_revolution(rng, tier: str = "exam"):
         "Find the x-coordinate of the point where the line meets the curve on the left.",
         u,
         1,
-        [f"{curve_text} = {line_text} gives {c}(x - {u})(x - {v}) = 0 after collecting terms, so x = {u} or x = {v}."],
+        [f"{curve_text} = {line_text} gives {_factored(c, u, v)} = 0 after collecting terms, so x = {u} or x = {v}."],
         [
             (-u, "sign-flip-both-roots"),
             (-v, "sign-flip-both-roots"),
@@ -127,7 +136,7 @@ def exd_x_r2c_solids_of_revolution(rng, tier: str = "exam"):
         "Find the x-coordinate of the point where the line meets the curve on the right.",
         v,
         1,
-        [f"The other root of {c}(x - {u})(x - {v}) = 0 is x = {v}."],
+        [f"The other root of {_factored(c, u, v)} = 0 is x = {v}."],
         [
             (-v, "sign-flip-both-roots"),
             (-u, "sign-flip-both-roots"),

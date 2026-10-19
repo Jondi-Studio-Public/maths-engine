@@ -68,7 +68,7 @@ In the learner role no tool takes an `answers` or `reveal` flag, so nothing the 
   question the spec is the answer). **With `include_figures=true` the drawing's coordinates can still reveal a
   read-the-picture answer to a model that parses the SVG.** Tutors should use the alt text unless the client really
   displays the image to the learner;
-- a marked reply carries no `canonical`;
+- a marked reply carries no `canonical`, and a note that states the right answer is left out (`note` is null);
 - an error from inside the engine comes back as a fixed "the engine failed on this request; try another seed or
   skill", because the engine's own messages can name an answer.
 
@@ -86,11 +86,11 @@ Both roles have these. Replies are JSON.
 | Tool | Parameters | Returns |
 |---|---|---|
 | `engine_info` | none | engine and library versions, the role, the paper formats allowed, and attribution text |
-| `find_skills` | `text`, `year` (`F`, `1` ... `10`, `10A`), `code` (an ACARA code or prefix, such as `AC9M8`), `domain`, `framework` (`acara-f10-v9`, `acara-senior-v8-4`, `university-core-v1`), `answer_kind`, `difficulty`, `tag`, `gradeable` (default false), `limit` (1 to 100, default 25) | `{"count", "skills"}`, with `count` the number matched; every filter given must match. Names match the HTTP API's `GET /v1/skills` |
+| `find_skills` | `text`, `year` (`F`, `1` ... `12`, `university`), `code` (an ACARA code or prefix, such as `AC9M8`), `domain`, `framework` (`acara-f10-v9`, `acara-senior-v8-4`, `university-core-v1`), `answer_kind`, `difficulty`, `tag`, `gradeable` (default false), `limit` (1 to 100, default 25) | `{"count", "skills"}`, with `count` the number matched; every filter given must match. Names match the HTTP API's `GET /v1/skills` |
 | `get_skill` | `skill_id` | one skill in full: description, sources, prerequisites, tags, misconceptions |
 | `make_questions` | `skill_id`, `count` (1 to 30, default 1), `seed`, `source`, `include_figures` (default false) | `{"questions": [...]}`; each has an `id` |
 | `get_question` | `question_id`, `include_figures` | one question, rebuilt from its id |
-| `grade_answer` | `question_id`, `reply` | whether the reply is right, a note, any misconception it shows, marks and per-part results |
+| `grade_answer` | `question_id`, `reply` | whether the reply is right (a reply is at most 2000 characters), a note, any misconception it shows, marks and per-part results |
 | `build_paper` | `spec`, `format`, `version`, `include_figures` (default false) | JSON, or the path of a file written; see below |
 
 `reply` is the learner's text. For multiple choice it is the option's text as a string (`"8"` picks the option 8), or

@@ -14,26 +14,29 @@ from mathgen import make
 SEEDS = range(80)
 TOPIC = "p14c_iterative_linear_solver_step"
 
-_EQ1_RE = re.compile(r"(-?\d+)x \+ \((-?\d+)\)y = (-?\d+)")
-_EQ2_RE = re.compile(r"\((-?\d+)\)x \+ (-?\d+)y = (-?\d+)")
+# Equations are written as on paper: "2x - y = 6", "-x + 2y = -6" (a coefficient of 1 is not written).
+_EQ_RE = re.compile(r"(-?\d*)x ([+-]) (\d*)y = (-?\d+)")
 _START_RE = re.compile(r"\(x0, y0\) = \((-?\d+(?:/\d+)?), ?(-?\d+(?:/\d+)?)\)")
 
-# The exam tier renders BOTH equations in this uniform "both terms
-# parenthesised" style (mathgen/generators/p14c_iterative_linear_solver_step_build.py's
-# `_exam_eq_text`), regardless of which one is x-dominant -- unlike the
-# easy/medium/hard positional format above, which always prints the
-# x-dominant equation bare-coefficient-first. The exam prompt names its own
-# comparison explicitly ("an x-coefficient LARGER IN MAGNITUDE than its own
-# y-coefficient"), so this oracle branch reproduces exactly that: pick,
-# from the two equations parsed in DISPLAY order, whichever one has
-# |x-coefficient| > |y-coefficient| WITHIN itself, and use it to solve x1;
-# use the other equation for y1.
-_EXAM_EQ_RE = re.compile(r"\((-?\d+)\)x \+ \((-?\d+)\)y = (-?\d+)")
+# The exam prompt names its own comparison explicitly ("an x-coefficient LARGER IN MAGNITUDE than its own
+# y-coefficient"), so the exam branch reproduces exactly that: pick, from the two equations parsed in DISPLAY
+# order, whichever one has |x-coefficient| > |y-coefficient| WITHIN itself, and use it to solve x1; use the
+# other equation for y1.
+
+
+def _coef(text: str) -> int:
+    return {"": 1, "-": -1}.get(text) or int(text)
+
+
+def _parse_equations(text: str):
+    """Both equations in display order, as (x-coefficient, y-coefficient, right-hand side)."""
+    found = _EQ_RE.findall(text)
+    assert len(found) == 2, f"expected 2 equations, found {len(found)}: {text!r}"
+    return [(_coef(cx), (-1 if sign == "-" else 1) * _coef(cy), int(rhs)) for cx, sign, cy, rhs in found]
 
 
 def _parse_system(text: str):
-    a11, a12, b1 = (int(g) for g in _EQ1_RE.search(text).groups())
-    a21, a22, b2 = (int(g) for g in _EQ2_RE.search(text).groups())
+    (a11, a12, b1), (a21, a22, b2) = _parse_equations(text)
     x0_s, y0_s = _START_RE.search(text).groups()
     return a11, a12, b1, a21, a22, b2, Fraction(x0_s), Fraction(y0_s)
 
@@ -41,9 +44,7 @@ def _parse_system(text: str):
 def _parse_exam_equations(text: str):
     """Parses BOTH equations in display order, without assuming which is
     x-dominant from position -- the exam tier's order is randomised."""
-    matches = _EXAM_EQ_RE.findall(text)
-    assert len(matches) == 2, f"expected 2 exam-tier equations, found {len(matches)}: {text!r}"
-    (cx1, cy1, rhs1), (cx2, cy2, rhs2) = ((int(a), int(b), int(c)) for a, b, c in matches)
+    (cx1, cy1, rhs1), (cx2, cy2, rhs2) = _parse_equations(text)
     x0_s, y0_s = _START_RE.search(text).groups()
     return cx1, cy1, rhs1, cx2, cy2, rhs2, Fraction(x0_s), Fraction(y0_s)
 

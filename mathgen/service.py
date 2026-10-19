@@ -372,12 +372,14 @@ def _make_with_id(lib: Library, skill: Skill, nonce: int, src):
     return question, engine.question_id(skill, src, nonce, question)
 
 
-def _check_count(count: int, limit: int = MAX_COUNT) -> None:
+def _check_count(count: int, limit: int = MAX_COUNT, name: str = "count") -> None:
     if not isinstance(count, int) or isinstance(count, bool) or not 1 <= count <= limit:
-        raise BadRequest(f"count must be a whole number from 1 to {limit}, got {count!r}")
+        raise BadRequest(f"{name} must be a whole number from 1 to {limit}, got {count!r}")
 
 
 def _pick(skill: Skill, source):
+    if isinstance(source, bool) or (isinstance(source, int) and source < 0):
+        raise BadRequest(f"a source is a key, a difficulty or a 0-based index, got {source!r}")
     try:
         return engine.pick_source(skill, source)
     except IndexError:
@@ -488,7 +490,7 @@ def build_paper(lib: Library, spec: dict, *, answers: bool = True) -> dict:
     if not isinstance(sections, list) or not sections:
         raise BadRequest("a paper needs at least one section")
     versions = spec.get("versions", 1)
-    _check_count(versions, MAX_VERSIONS)
+    _check_count(versions, MAX_VERSIONS, "versions")
     paper_seed = spec.get("seed")
     if paper_seed is not None and (isinstance(paper_seed, bool) or not isinstance(paper_seed, int)):
         raise BadRequest("a paper's seed is a whole number")
@@ -574,7 +576,26 @@ def result_view(result, *, reveal: bool = False) -> dict:
                 if key in part:
                     part[key] = _number(part[key])
     data = _plain(raw)
-    return data if reveal else _strip_canonical(data)
+    if reveal:
+        return data
+    _drop_notes_naming_the_key(data)
+    return _strip_canonical(data)
+
+
+def _drop_notes_naming_the_key(data) -> None:
+    """Without `reveal`, a note that states the right answer ("Turns only a quarter turn when told a half turn")
+    is left out: the learner may try again, and a note must not hand over what the key is. Each part of a
+    multi-part result is checked against its own key."""
+    if not isinstance(data, dict):
+        return
+    note, key = data.get("note"), data.get("canonical")
+    if isinstance(note, str) and isinstance(key, str):
+        needle = " ".join(key.split()).casefold()
+        if needle and re.search(r"(?<!\w)" + re.escape(needle) + r"(?!\w)", " ".join(note.split()).casefold()):
+            data["note"] = None
+            data["note_kind"] = None
+    for part in (data.get("parts") or {}).values():
+        _drop_notes_naming_the_key(part)
 
 
 def _strip_canonical(data):
@@ -620,6 +641,12 @@ def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:
             raise BadRequest("each part's reply is text or an option index")
         if not question.parts:
             raise BadRequest("this question has one answer; send its reply as text, not an object of parts")
+        labels = [part.label for part in question.parts]
+        unknown = [str(k) for k in reply if str(k) not in labels]
+        if unknown:
+            raise BadRequest(
+                f"no such part {', '.join(map(repr, unknown))}; this question's parts are {', '.join(labels)}"
+            )
         mcq_parts = {part.label: part for part in question.parts if part.answer_kind == "mcq"}
         reply = {
             str(k): (_option_reply(mcq_parts[str(k)], v) if str(k) in mcq_parts else str(v)) for k, v in reply.items()

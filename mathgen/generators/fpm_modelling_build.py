@@ -879,7 +879,7 @@ def fpm_linear_model_exam(rng):
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"{y1} - part_a*{x1}",
-                working=[f"{y1} - ({m}) × {x1} = {c}."],
+                working=[f"{y1} - {paren_negative(m)} × {x1} = {c}."],
                 distractors=b_d,
             ),
             dict(
@@ -891,7 +891,7 @@ def fpm_linear_model_exam(rng):
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"part_b + part_a*{x0}",
-                working=[f"{c} + ({m}) × {x0} = {y0}."],
+                working=[f"{c} + {paren_negative(m)} × {x0} = {y0}."],
                 distractors=c_d,
             ),
             dict(
@@ -903,7 +903,7 @@ def fpm_linear_model_exam(rng):
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"({target} - part_b)/part_a",
-                working=[f"{c} + ({m}){ctx['var']} = {target}, so {ctx['var']} = {x_t}."],
+                working=[f"{join_terms([(c, ''), (m, ctx['var'])])} = {target}, so {ctx['var']} = {x_t}."],
                 distractors=d_d,
             ),
         ],

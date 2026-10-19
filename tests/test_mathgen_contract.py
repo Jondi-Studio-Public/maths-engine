@@ -109,13 +109,13 @@ PINNED_HASHES = {
     # (simultaneous's `side()` no longer prints "1x"/"-1x" for a unit x/y
     # coefficient).
     "simultaneous": {
-        "0": "cbd3c1d0db77d679",
-        "1": "514da05cb3868200",
-        "7": "93669ca9c354f517",
-        "42": "3e42398c4c861e3f",
-        "3:easy": "1db261745fe8ee93",
-        "3:medium": "a8253da0e8427160",
-        "3:hard": "feb600d46c2968e2",
+        "0": "eb24cfee1e0d5fb1",
+        "1": "9c4e42537dbd746b",
+        "7": "0e57702cb5431eda",
+        "42": "8098cf1d09894e4a",
+        "3:easy": "b3309f2691e12bf0",
+        "3:medium": "9c269736a454fa72",
+        "3:hard": "455d312fb0243ba9",
     },
     # Re-pinned once for the typed answer contract (engine commit aea1e1f): the
     # topic's distractors now carry misconception tags, so its output gained
@@ -132,14 +132,16 @@ PINNED_HASHES = {
     # Re-pinned once for the typed answer contract (engine commit aea1e1f): the
     # topic's distractors now carry misconception tags, so its output gained
     # `option_notes` and `distractor_values`.
+    # Re-pinned (bug hunt round 2): only `working` changed -- zero terms and unit coefficients are no longer
+    # written out, so no "+ -3(2)", "+ 0" or "1(3)" noise. Seeds 0, 1 and 42 were already clean.
     "function_evaluation": {
         "0": "291346ace9e7ead3",
         "1": "8898d6f7117d2d48",
-        "7": "60cfd4235d272539",
+        "7": "5fe096e5d9c0f614",
         "42": "2aa37dcce84a2627",
-        "3:easy": "78396e22cc45b18b",
-        "3:medium": "303d3277ce7c068e",
-        "3:hard": "8fad5412a6b2925a",
+        "3:easy": "3a541f5a6c0415dd",
+        "3:medium": "83d289b33bfdee6e",
+        "3:hard": "e3f3f4983e8d7f0f",
     },
     # Updated once for the medium/hard tier-collision fix in
     # mathgen/generators/geometry.py (hard's k now draws from randint(4, 6)
@@ -160,22 +162,22 @@ PINNED_HASHES = {
     # Updated once for the new `answer_alt` field on vector-magnitude
     # questions.
     "vectors": {
-        "0": "c3ec145fdc73d43c",
-        "1": "43b71edfd33e0922",
-        "7": "84c6d89648f4a605",
-        "42": "cb4260e68d6362e2",
-        "3:easy": "fb6dffba16dd9d6e",
-        "3:medium": "1c5644d0d87c236b",
-        "3:hard": "176bfcc47128adb0",
+        "0": "7198d95700295c41",
+        "1": "eeaa585bc5df4b6c",
+        "7": "f4bba27512f24967",
+        "42": "8e99eb4bd6bf8d99",
+        "3:easy": "01b210be42e74e9d",
+        "3:medium": "c5c9a4578a2b2d17",
+        "3:hard": "905249c232f57057",
     },
     "matrices": {
-        "0": "82dcc2af9a9888cf",
-        "1": "96ee1159385a1e4e",
-        "7": "f69f5d15c5685d61",
-        "42": "abcce17b29bd045c",
-        "3:easy": "384b56d1da91faa9",
+        "0": "ff52a569ad6652ff",
+        "1": "b115b23a732c214b",
+        "7": "f476a9682f58c1d6",
+        "42": "a37f0c1058f61bea",
+        "3:easy": "3de32027efd2d01f",
         "3:medium": "8cca35f953cbecae",
-        "3:hard": "628f1936076e49e9",
+        "3:hard": "f14d2e1cd1300424",
     },
     "differentiation": {
         "0": "103b01f2568dc46a",
@@ -219,31 +221,31 @@ PINNED_HASHES = {
     # confirmed by printing each draw's `q.text` before editing
     # the entry, not just trusting the hash diff.
     "differential_equation": {
-        "0": "e6be8390c8ba7585",
-        "1": "2a7db65cc392b5fe",
-        "7": "f574f7a2eb299d5f",
-        "42": "924c263bf1cbeb92",
-        "3:easy": "539b81c097e0646c",
-        "3:medium": "b1c92ece93b6d96f",
-        "3:hard": "f1c22badf361509b",
+        "0": "24bb3f0d61865018",
+        "1": "dfb1b7120968fba4",
+        "7": "0a3b83ebe4cc0a37",
+        "42": "ade5bff6cd53b983",
+        "3:easy": "b1347a950725a075",
+        "3:medium": "93b7fde8738b045a",
+        "3:hard": "30d9f2e73465eb71",
     },
     "partial_derivatives": {
-        "0": "24a77851b3c971e7",
-        "1": "24945ce54fbb04a4",
-        "7": "e2df11f4f400cad7",
-        "42": "506c870b173f4748",
-        "3:easy": "2a1f8d7b798d82b7",
-        "3:medium": "6731c98d971920cc",
-        "3:hard": "4afde351c282c8a3",
+        "0": "fb8b810e5cedf8a2",
+        "1": "9aa2261e25ca4bbc",
+        "7": "c8dfe801a8ce8d98",
+        "42": "6070312b8441ec9c",
+        "3:easy": "5f6842365f79bcc7",
+        "3:medium": "f4d9e432ebc54add",
+        "3:hard": "0cb37bd73e07e5b2",
     },
     "engineering": {
         "0": "f7fc59a9a3f52c28",
         "1": "0701d34b4bafcfcc",
         "7": "e5d9f34fb904c7ed",
-        "42": "0da7c896be8559e7",
+        "42": "122277b5c17cdecb",
         "3:easy": "031c4ff4a8dd7a3e",
-        "3:medium": "46f4eb46ed3acc57",
-        "3:hard": "199b6eee1beb1329",
+        "3:medium": "82345d8813f66647",
+        "3:hard": "8b6e13b09b543846",
     },
     "structural": {
         "0": "146b442c682902b9",

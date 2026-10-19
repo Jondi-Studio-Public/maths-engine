@@ -155,9 +155,9 @@ def _boundary_margin(value: Fraction, places: int) -> Fraction:
 _NOT_ON_BOUNDARY = Fraction(1, 10**6)
 
 _EASY_TEMPLATES = (
-    "A circle has an area of {A} cm². Find its diameter and its circumference.",
-    "A circular plate has an area of {A} cm². Work out its diameter and its circumference.",
-    "The area of a circle is {A} cm². Calculate the diameter and the circumference.",
+    "A circle has an area of {A} cm². Find its diameter and its circumference. Give each answer to 1 decimal place.",
+    "A circular plate has an area of {A} cm². Work out its diameter and its circumference. Round each answer to 1 decimal place.",
+    "The area of a circle is {A} cm². Calculate the diameter and the circumference. Write each to 1 decimal place.",
 )
 _MEDIUM_TEMPLATES = (
     "A circle has an area of {A} cm². Find its diameter and its circumference, each correct to 1 decimal place.",
@@ -179,9 +179,9 @@ _EXAM_TEMPLATES = (
     "A circle has an area of {A} cm². Calculate (a) the "
     "diameter and (b) the circumference of the circle, each correct to 1 decimal "
     "place, showing your working.",
-    "This exam question gives a circle of area {A} cm². Find, with full working, "
+    "A circle has an area of {A} cm². Find, with full working, "
     "(a) the diameter and (b) the circumference, each correct to 1 decimal place.",
-    "Exam question: a circle has an area of {A} cm². Show your working to find "
+    "A circle has an area of {A} cm². Show your working to find "
     "(a) the diameter and (b) the circumference, each correct to 1 decimal place.",
 )
 _TEMPLATE_BANKS = {

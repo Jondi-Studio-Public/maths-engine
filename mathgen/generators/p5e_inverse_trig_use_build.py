@@ -10,6 +10,8 @@
 
 from __future__ import annotations
 
+import re
+
 from sympy import sqrt, Rational, pi, asin, acos, atan, sin, cos, tan, sympify
 
 from ..core import check, check_distinct, check_equivalent, generator, latex_answer, pick_distractors
@@ -100,13 +102,22 @@ def _lookup_question(fn, display, input_expr, answer_str, distractors_list):
     candidates = distractors_list  # Already in correct format (asin/acos/atan)
     distractors = pick_distractors(answer_str, candidates)
 
+    base_fn = {"asin": "sin", "acos": "cos", "atan": "tan"}[fn]
+    value_range = {"asin": "[-π/2, π/2]", "acos": "[0, π]", "atan": "(-π/2, π/2)"}[fn]
+    answer_shown = _typed(answer_parsed).replace("*pi", "\u03c0").replace("pi", "\u03c0")
+    display = re.sub(r"sqrt\((\d+)\)", "\u221a\\1", display)
     return {
         "text": question_text,
         "latex": question_text,
         "answer": answer_str,
-        "answer_text": _typed(answer_parsed),
+        "answer_text": answer_shown,
         "answer_latex": latex_answer(answer_parsed),
         "distractors": [_typed(sympify(d)) for d in distractors],
+        "working": [
+            f"{display_fn}({display}) is the angle in {value_range} whose {base_fn} is {display}.",
+            f"{base_fn}({answer_shown}) = {display} and {answer_shown} lies in {value_range}, so "
+            f"{display_fn}({display}) = {answer_shown}.",
+        ],
     }
 
 
@@ -170,6 +181,23 @@ def _composition_question(a, b, c, kind):
     candidates_str = [str(c) for c in candidates]
     distractors = pick_distractors(answer_str, candidates_str)
 
+    if kind in ("sin_acos", "tan_acos"):
+        setup = f"Let theta = arccos({a}/{c}), so cos(theta) = {a}/{c} and theta lies in [0, π], where sine is not negative."
+        other = "sin(theta)"
+    else:
+        setup = (
+            f"Let theta = arcsin({a}/{c}), so sin(theta) = {a}/{c} and theta lies in [-π/2, π/2], "
+            "where cosine is not negative."
+        )
+        other = "cos(theta)"
+    if kind == "sin_acos":
+        steps = f"sin(theta) = √(1 - ({a}/{c})²) = √({b**2}/{c**2}) = {b}/{c}."
+    elif kind == "cos_asin":
+        steps = f"cos(theta) = √(1 - ({a}/{c})²) = √({b**2}/{c**2}) = {b}/{c}."
+    elif kind == "tan_acos":
+        steps = f"sin(theta) = √(1 - ({a}/{c})²) = {b}/{c}, so tan(theta) = ({b}/{c}) / ({a}/{c}) = {b}/{a}."
+    else:
+        steps = f"cos(theta) = √(1 - ({a}/{c})²) = {b}/{c}, so tan(theta) = ({a}/{c}) / ({b}/{c}) = {a}/{b}."
     return {
         "text": question_text,
         "latex": question_text,
@@ -177,6 +205,7 @@ def _composition_question(a, b, c, kind):
         "answer_text": _typed(answer),
         "answer_latex": latex_answer(answer),
         "distractors": [_typed(sympify(d)) for d in distractors],
+        "working": [setup, steps],
     }
 
 

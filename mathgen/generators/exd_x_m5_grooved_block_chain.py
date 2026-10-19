@@ -150,7 +150,9 @@ def exd_x_m5_grooved_block_chain(rng, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"part_b*{rate_text}/10000",
-                working=[f"{b_text} cm² = {display(Fraction(total, 10_000), 4)} m²; cost = × {rate_text} = ${c_text}."],
+                working=[
+                    f"{b_text} cm² = {display(Fraction(total, 10_000), 4)} m²; cost = {display(Fraction(total, 10_000), 4)} × {rate_text} = ${c_text}."
+                ],
                 distractors=c_dis,
             ),
         ],

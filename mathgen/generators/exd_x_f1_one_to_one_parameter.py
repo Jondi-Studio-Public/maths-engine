@@ -85,7 +85,7 @@ def _endpoint(rng: random.Random) -> dict:
         latex=latex,
         answer=h,
         wrong=wrong,
-        working=[f"The vertex is at x = -({p})/(2 x {a}) = {h}, so the {extreme} value of k is {h}."],
+        working=[f"The vertex is at x = -({p})/(2 × {a}) = {h}, so the {extreme} value of k is {h}."],
     )
 
 

@@ -53,6 +53,11 @@ _SCALE = ("Each grid square is 1 unit on both axes.", "Both axes have 1 unit per
 _LABELS_TEXT = "The two graphs are labelled f and g."
 
 
+def _bt(text: str) -> str:
+    """Bracket a rendered number that is negative or a fraction, so it can follow an operator."""
+    return f"({text})" if text.startswith("-") or "/" in text else text
+
+
 def _plane(curves, points=(), alt=_ALT):
     return figures.cartesian(
         x_range=(LO, HI), y_range=(LO, HI), alt=alt, grid=1, equal_scale=True, points=list(points), curves=curves
@@ -344,6 +349,8 @@ def _dil_figure(kind, m, s, c, k, point=None):
 def _dil_eq(form: str, v: F) -> str:
     """g(x) = c f(x) ('v') or f(kx) ('h') written the way the options show it."""
     if form == "v":
+        if v == 1:
+            return "g(x) = f(x)"
         if v == -1:
             return "g(x) = -f(x)"
         if v.denominator == 1:
@@ -351,6 +358,10 @@ def _dil_eq(form: str, v: F) -> str:
         if v == F(1, v.denominator):
             return f"g(x) = f(x)/{v.denominator}"
         return f"g(x) = {frac_text(v)}f(x)"
+    if v == 1:
+        return "g(x) = f(x)"
+    if v == -1:
+        return "g(x) = f(-x)"
     if v.denominator == 1:
         return f"g(x) = f({v}x)"
     return f"g(x) = f(x/{v.denominator})"
@@ -408,7 +419,7 @@ def ey_graph_dilation(rng, tier="easy"):
         root = F(m) / k
         wrong = [1 / k, k * k, root, m - root, F(m) * k]
         working = [
-            f"The x-intercepts of f are +-{m} and the x-intercepts of g are +-{frac_text(root)}.",
+            f"The x-intercepts of f are ±{m} and the x-intercepts of g are ±{frac_text(root)}.",
             f"f(kx) = 0 when kx = {m}, so x = {m}/k: k = {m} / {frac_text(root)} = {frac_text(k)}.",
         ]
     else:
@@ -434,7 +445,7 @@ def ey_graph_dilation(rng, tier="easy"):
         else:
             working = [
                 "The y-intercepts of f and g are the same, so the dilation is horizontal.",
-                f"The x-intercepts go from +-{m} to +-{frac_text(F(m) / k)}, divided by {frac_text(k)}: {key}.",
+                f"The x-intercepts go from ±{m} to ±{frac_text(F(m) / k)}, divided by {frac_text(k)}: {key}.",
             ]
     fig = _dil_figure(kind, m, s, c, k)
     distractors = mcq(key, [str(w) if isinstance(w, str) else frac_text(w) for w in wrong])
@@ -516,7 +527,7 @@ def ey_graph_dilation_exam(rng, tier="exam"):
             [p * k, p, F(p) / c],
             places=2,
             follow=f"{p}/part_a",
-            working=[f"The x-coordinate is divided by k: {p} / {frac_text(k)} = {frac_text(F(p) / k)}."],
+            working=[f"The x-coordinate is divided by k: {p} ÷ {_bt(frac_text(k))} = {frac_text(F(p) / k)}."],
         ),
         num_part(
             "Hence find the y-coordinate of the point on g that P moves to.",
@@ -524,7 +535,7 @@ def ey_graph_dilation_exam(rng, tier="exam"):
             [q / c, q, q * k],
             places=2,
             follow=f"{q}*part_b",
-            working=[f"The y-coordinate is multiplied by c: {q} x {frac_text(c)} = {frac_text(c * q)}."],
+            working=[f"The y-coordinate is multiplied by c: {pn(q)} × {_bt(frac_text(c))} = {frac_text(c * q)}."],
         ),
     ]
     figures.assert_no_leak(fig, [frac_text(k), frac_text(c)])

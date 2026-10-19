@@ -202,9 +202,11 @@ def money_change(rng, price_hi=80):
     change = round(paid_dollars - price_cents / 100, 2)
     price = price_cents / 100
     return _number(
-        f"An item costs ${price:.2f}. You pay ${paid_dollars}. How much change do you receive?",
+        f"An item costs ${price:.2f}. You pay ${paid_dollars:.2f}. How much change do you receive?",
         change,
         [paid_dollars + price, price, change + 1, max(0, change - 1)],
+        aligned=True,
+        places=2,
         working=[f"${paid_dollars:.2f} − ${price:.2f} = ${change:.2f}."],
     )
 
@@ -317,7 +319,13 @@ def simple_probability(rng):
         f"A bag has {favourable} red {'counter' if favourable == 1 else 'counters'} and "
         f"{other} blue {'counter' if other == 1 else 'counters'}. What is P(red)?",
         answer,
-        [Fraction(other, total), Fraction(favourable, other), Fraction(1, total), total],
+        [
+            Fraction(other, total),
+            Fraction(favourable, other) if favourable < other else Fraction(favourable, total + 1),
+            Fraction(1, total),
+            Fraction(favourable, total + 1),
+            Fraction(other, total + 1),
+        ],
         working=[f"P(red) = favourable ÷ total = {favourable}/{total} = {rational_text(answer)}."],
     )
 
@@ -470,7 +478,10 @@ def recurring_decimal_fraction(rng):
         answer,
         [Fraction(digit, 10), Fraction(digit, 99), Fraction(1, digit), Fraction(9, digit)],
         latex=rf"\text{{Write }} 0.\overline{{{digit}}} \text{{ as a fraction in lowest terms.}}",
-        working=[f"A single recurring digit gives {digit}/9 = {rational_text(answer)}."],
+        working=[
+            f"A single recurring digit gives {digit}/9"
+            + (f", which simplifies to {rational_text(answer)}." if rational_text(answer) != f"{digit}/9" else ".")
+        ],
     )
 
 
@@ -576,14 +587,14 @@ def earnings(rng, kind="wages"):
     if kind == "wages":
         answer = rate * hours
         text = f"A worker earns ${rate} per hour for {hours} hours. Find the gross wage."
-        working = [f"Gross wage = {rate} × {hours} = ${answer}."]
+        working = [f"Gross wage = {rate} × {hours} = ${answer:,}."]
     else:
         overtime = rng.randint(2, 10)
         multiplier = rng.choice((1.5, 2))
         answer = rate * hours + rate * multiplier * overtime
         text = f"A worker earns ${rate}/h for {hours} regular hours plus {overtime} hours at {multiplier:g}× rates. Find gross pay."
         working = [
-            f"Regular pay plus overtime pay = ${rate * hours} + ${rate * multiplier * overtime:g} = ${answer:g}."
+            f"Regular pay plus overtime pay = ${rate * hours:,} + ${rate * multiplier * overtime:,g} = ${answer:,g}."
         ]
     return _number(
         text,
@@ -601,12 +612,12 @@ def financial_interest(rng, kind="simple"):
     years = rng.randint(2, 5)
     if kind == "simple":
         answer = principal * rate * years / 100
-        text = f"Find the simple interest on ${principal} at {rate}% p.a. for {years} years."
-        working = [f"I = Prt = {principal} × {rate / 100:g} × {years} = ${answer:g}."]
+        text = f"Find the simple interest on ${principal:,} at {rate}% p.a. for {years} years."
+        working = [f"I = Prt = {principal:,} × {rate / 100:g} × {years} = ${answer:,g}."]
     else:
         answer = round(principal * (1 + rate / 100) ** years, 2)
-        text = f"Find the balance of ${principal} invested at {rate}% p.a., compounded annually for {years} years. Give your answer to the nearest cent."
-        working = [f"A = P(1+r)^n = {principal}(1+{rate / 100:g})^{years} = ${answer:.2f}."]
+        text = f"Find the balance of ${principal:,} invested at {rate}% p.a., compounded annually for {years} years. Give your answer to the nearest cent."
+        working = [f"A = P(1+r)^n = {principal:,}(1+{rate / 100:g})^{years} = ${answer:,.2f}."]
     return _number(
         text,
         answer,
@@ -641,12 +652,12 @@ def flat_loan_repayment(rng):
     total = principal * (1 + annual_rate * years / 100)
     answer = round(total / months, 2)
     return _number(
-        f"A ${principal} flat-interest loan charges {annual_rate}% of principal per year for {years} years. Find the monthly repayment to the nearest cent.",
+        f"A ${principal:,} flat-interest loan charges {annual_rate}% of principal per year for {years} years. Find the monthly repayment to the nearest cent.",
         answer,
         [round(principal / months, 2), round(total / years, 2), round(answer * 12, 2), round(answer * 1.1, 2)],
         aligned=True,
         places=2,
-        working=[f"Total repayable is ${total:.2f}; divide by {months} months to get ${answer:.2f}."],
+        working=[f"Total repayable is ${total:,.2f}; divide by {months} months to get ${answer:,.2f}."],
     )
 
 
@@ -708,10 +719,20 @@ def combinatorics(rng, kind="multiplication"):
     return _number(text, answer, [n * r, factorial(r), answer + r, max(1, answer - r)], working=working)
 
 
+def _cx(re: int, im: int) -> str:
+    """re + im i as a student writes it: 3 + i, 4 − 5i, −5i, 7 (no 1i, no 0i, no "0 + ")."""
+    imag = "i" if abs(im) == 1 else f"{abs(im)}i"
+    if im == 0:
+        return str(re).replace("-", "−")
+    if re == 0:
+        return ("−" if im < 0 else "") + imag
+    return f"{re} {'+' if im > 0 else '−'} {imag}".replace("-", "−")
+
+
 @generator("complex_number", level=12)
 def complex_number(rng, kind="real_part"):
     a, b, c, d = (rng.randint(-8, 8) for _ in range(4))
-    z = f"{a} {'+' if b >= 0 else '−'} {abs(b)}i"
+    z = _cx(a, b)
     if kind == "real_part":
         return _number(
             f"Find the real part of z = {z}.",
@@ -729,35 +750,35 @@ def complex_number(rng, kind="real_part"):
             working=[f"The coefficient of i is {b}."],
         )
     if kind == "conjugate":
-        answer = f"{a} {'−' if b >= 0 else '+'} {abs(b)}i"
+        answer = _cx(a, -b)
         return _mcq(
             f"Find the conjugate of {z}.",
             answer,
-            [z, f"{-a} {'+' if b >= 0 else '−'} {abs(b)}i", f"{-a} {'−' if b >= 0 else '+'} {abs(b)}i"],
+            [z, _cx(-a, b), _cx(-a, -b)],
             working=["Keep the real part and reverse the sign of the imaginary part."],
         )
     if kind == "add":
-        answer = f"{a + c} {'+' if b + d >= 0 else '−'} {abs(b + d)}i"
-        other = f"{c} {'+' if d >= 0 else '−'} {abs(d)}i"
+        answer = _cx(a + c, b + d)
+        other = _cx(c, d)
         return _mcq(
             f"Calculate ({z}) + ({other}).",
             answer,
-            [f"{a + c} + {abs(b - d)}i", f"{a * c} + {abs(b * d)}i", f"{a - c} + {abs(b - d)}i"],
+            [_cx(a + c, abs(b - d)), _cx(a * c, abs(b * d)), _cx(a - c, abs(b - d))],
             working=["Add real parts together and imaginary coefficients together."],
         )
     if kind == "multiply":
         real, imag = a * c - b * d, a * d + b * c
-        answer = f"{real} {'+' if imag >= 0 else '−'} {abs(imag)}i"
-        other = f"{c} {'+' if d >= 0 else '−'} {abs(d)}i"
+        answer = _cx(real, imag)
+        other = _cx(c, d)
         return _mcq(
             f"Calculate ({z})({other}).",
             answer,
             [
-                f"{a * c} + {abs(b * d)}i",
-                f"{a * c + b * d} + {abs(imag)}i",
-                f"{real} + {abs(a * d - b * c)}i",
-                f"{real + 1} {'+' if imag >= 0 else '−'} {abs(imag)}i",
-                f"{real} {'+' if imag >= 0 else '−'} {abs(imag) + 1}i",
+                _cx(a * c, abs(b * d)),
+                _cx(a * c + b * d, abs(imag)),
+                _cx(real, abs(a * d - b * c)),
+                _cx(real + 1, imag),
+                _cx(real, imag + (1 if imag >= 0 else -1)),
             ],
             working=["Expand and use i² = −1, then collect real and imaginary parts."],
         )

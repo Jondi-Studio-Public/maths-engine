@@ -276,6 +276,11 @@ def _draw_rectangle_integral(rng, tier: str):
     return gp, gq, gr, h_const, a1, a2, w1, w2
 
 
+def _bracket(text: str) -> str:
+    """``(x - 2)``; a bare variable is not bracketed."""
+    return text if text in ("x", "y") else f"({text})"
+
+
 _DOUBLE_INTEGRAL_TEMPLATES = (
     "f(x, y) = ({g})({h}) over the rectangle {a1} ≤ x ≤ {x_hi}, {a2} ≤ y ≤ {y_hi}. Evaluate "
     "the double integral of f over this rectangle using iterated integration.",
@@ -415,8 +420,10 @@ def double_integral_rectangle(rng, tier="easy"):
         answer_text=answer_text,
         answer_latex=latex_answer(answer),
         working=[
-            f"Ix = ∫ g(x) dx from {a1} to {a1 + w1} = {ix}; Iy = ∫ h(y) dy from "
-            f"{a2} to {a2 + w2} = {iy}; the double integral is Ix × Iy = {answer_text}.",
+            f"The integrand separates, so the double integral is Ix × Iy.",
+            f"Ix = ∫ {_bracket(g_text)} dx from {a1} to {a1 + w1} = {ix}.",
+            f"Iy = ∫ {_bracket(h_text)} dy from {a2} to {a2 + w2} = {iy}.",
+            f"The double integral is Ix × Iy = {answer_text}.",
         ],
         distractors=distractors,
     )

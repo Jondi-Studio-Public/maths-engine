@@ -124,16 +124,16 @@ def inverse_one_to_one_function(rng, tier="medium"):
         answer_text = _format_rational(b, a)
         _verify_answer_text(answer_text, g_expr)
 
-        # Format working steps (using × for products, − for subtraction)
+        # Format working steps (using × for products, - for subtraction)
         if b >= 0:
-            b_sign = "−"
+            b_sign = "-"
             b_val = b
         else:
             b_sign = "+"
             b_val = -b
 
         # b_sign/b_val are the INVERSE step (subtract b); f itself carries the opposite sign.
-        f_sign, f_val = ("+", b) if b >= 0 else ("−", -b)
+        f_sign, f_val = ("+", b) if b >= 0 else ("-", -b)
         working = [
             f"Let y = {a}×x {f_sign} {f_val}. To find f⁻¹(x), solve for x:",
             f"y = {a}×x {f_sign} {f_val}",
@@ -213,25 +213,25 @@ def inverse_one_to_one_function(rng, tier="medium"):
         answer_text = _format_answer_with_shift(frac_str, c)
         _verify_answer_text(answer_text, g_expr)
 
-        # Format working (using × and −)
+        # Format working (using × and -)
         if b >= 0:
-            b_sign, b_val = "−", b
+            b_sign, b_val = "-", b
         else:
             b_sign, b_val = "+", -b
 
         if c >= 0:
             c_sign, c_val = "+", c
         else:
-            c_sign, c_val = "−", -c
+            c_sign, c_val = "-", -c
 
         # b_sign/b_val are the INVERSE step (subtract b); f itself carries the opposite sign.
-        f_sign, f_val = ("+", b) if b >= 0 else ("−", -b)
+        f_sign, f_val = ("+", b) if b >= 0 else ("-", -b)
         working = [
             f"Let y = {a}×(x {c_sign} {c_val}) {f_sign} {f_val}. To find f⁻¹(x), solve for x:",
             f"y = {a}×(x {c_sign} {c_val}) {f_sign} {f_val}",
             f"y {b_sign} {b_val} = {a}×(x {c_sign} {c_val})",
             f"(y {b_sign} {b_val})/{a} = x {c_sign} {c_val}",
-            f"x = (y {b_sign} {b_val})/{a} {f'−' if c >= 0 else '+'} {c if c >= 0 else -c}",
+            f"x = (y {b_sign} {b_val})/{a} {f'-' if c >= 0 else '+'} {c if c >= 0 else -c}",
             f"f⁻¹(x) = {answer_text}",
         ]
 
@@ -328,23 +328,25 @@ def inverse_one_to_one_function(rng, tier="medium"):
         answer_text = f"{h} + 1/({x_k_str_ascii})"
         _verify_answer_text(answer_text, g_expr)
 
-        # Format working (using − for subtraction, ÷ for division in prose)
+        # Format working (using - for subtraction, ÷ for division in prose)
         if h >= 0:
-            h_sign, h_val = "−", h
+            h_sign, h_val = "-", h
         else:
             h_sign, h_val = "+", -h
 
         if k >= 0:
-            k_sign, k_val = "−", k
+            k_sign, k_val = "-", k
         else:
             k_sign, k_val = "+", -k
 
+        # k_sign/k_val are the INVERSE step (subtract k); f itself carries the opposite sign.
+        f_k_sign = "+" if k >= 0 else "-"
         working = [
-            f"Let y = 1/(x {h_sign} {h_val}) {k_sign} {k_val}. To find f⁻¹(x), solve for x:",
-            f"y = 1/(x {h_sign} {h_val}) {k_sign} {k_val}",
-            f"y {f'−' if k >= 0 else '+'} {k if k >= 0 else -k} = 1/(x {h_sign} {h_val})",
-            f"x {h_sign} {h_val} = 1/(y {f'−' if k >= 0 else '+'} {k if k >= 0 else -k})",
-            f"x = {h} + 1/(y {f'−' if k >= 0 else '+'} {k if k >= 0 else -k})",
+            f"Let y = 1/(x {h_sign} {h_val}) {f_k_sign} {k_val}. To find f⁻¹(x), solve for x:",
+            f"y = 1/(x {h_sign} {h_val}) {f_k_sign} {k_val}",
+            f"y {f'-' if k >= 0 else '+'} {k if k >= 0 else -k} = 1/(x {h_sign} {h_val})",
+            f"x {h_sign} {h_val} = 1/(y {f'-' if k >= 0 else '+'} {k if k >= 0 else -k})",
+            f"x = {h} + 1/(y {f'-' if k >= 0 else '+'} {k if k >= 0 else -k})",
             f"f⁻¹(x) = {answer_text}",
         ]
 

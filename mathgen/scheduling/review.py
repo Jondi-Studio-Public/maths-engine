@@ -139,8 +139,13 @@ def score(
     push the skill further away than a clean one before it did."""
     if reset_gap_days < 0:
         raise ValueError(f"reset_gap_days must not be negative, got {reset_gap_days}")
+    if outcome not in OUTCOME_RATING:
+        raise ValueError(f"outcome must be one of {sorted(OUTCOME_RATING)}, got {outcome!r}")
+    if maximum_interval_days < 1:
+        raise ValueError(f"maximum_interval_days must be at least 1, got {maximum_interval_days}")
     rating = OUTCOME_RATING[outcome]
-    elapsed = days_between(last_review_at, now) if last_review_at else 0.0
+    # A last review stamped after `now` (clock skew) counts as no time passed, never negative time.
+    elapsed = max(0.0, days_between(last_review_at, now)) if last_review_at else 0.0
     new_memory, r = fsrs.step(memory, rating, elapsed)
     if rating == fsrs.AGAIN:
         days = float(reset_gap_days)

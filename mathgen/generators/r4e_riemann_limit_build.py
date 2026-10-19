@@ -156,7 +156,7 @@ def _medium(rng):
         )
     )
     working = [
-        f"The sample points are {a} + {c}i/n and the width is {c}/n, so the interval is [{a}, {b}] and f(x) = {p}x{power}{'' if r == 0 else ' ' + join_terms([(r, '')])}.",
+        f"The sample points are {a} + {c}i/n and the width is {c}/n, so the interval is [{a}, {b}] and f(x) = {join_terms([(p, f'x{power}'), (r, '')])}.",
         f"The limit is the integral from {a} to {b} of f(x) dx = {key}.",
     ]
     return single(stem, fraction_part("", key, 2, working, wrong))

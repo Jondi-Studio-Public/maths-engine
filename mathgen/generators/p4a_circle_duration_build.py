@@ -68,7 +68,7 @@ def circle_measures(rng, mode="circumference_radius", r_hi=15):
         text = f"A circle has a radius of {r} cm. Using π ≈ 3.14, what is its circumference, in centimetres, to 1 decimal place?"
         answer_text = f"{float(rounded):.1f}"
         working = [
-            f"Circumference = 2 × π × radius",
+            "Circumference = 2 × π × radius",
             f"Circumference = 2 × 3.14 × {r} = {float(raw):.2f}",
             f"To 1 decimal place: {answer_text} cm",
         ]
@@ -101,7 +101,7 @@ def circle_measures(rng, mode="circumference_radius", r_hi=15):
         text = f"A circle has a radius of {r} cm. Using π ≈ 3.14, what is its area, in square centimetres, to 1 decimal place?"
         answer_text = f"{float(rounded):.1f}"
         working = [
-            f"Area = π × radius²",
+            "Area = π × radius²",
             f"Area = 3.14 × {r}² = 3.14 × {r * r} = {float(raw):.2f}",
             f"To 1 decimal place: {answer_text} cm²",
         ]
@@ -145,9 +145,14 @@ def circle_measures(rng, mode="circumference_radius", r_hi=15):
 
         text = f"A circle has a diameter of {d} cm. Using π ≈ 3.14, what is its {measure}, in {sq_or_plain}, to 1 decimal place?"
         answer_text = f"{float(rounded):.1f}"
+        if measure == "circumference":
+            calc = f"Circumference = 2 × 3.14 × {r} = {float(raw):.2f}"
+        else:
+            calc = f"Area = 3.14 × {r}² = 3.14 × {r * r} = {float(raw):.2f}"
         working = [
             f"{measure.capitalize()} = {('2 × π × radius' if measure == 'circumference' else 'π × radius²')}",
             f"Radius = {d} ÷ 2 = {r} cm",
+            calc,
             f"To 1 decimal place: {answer_text} {sq_or_plain}",
         ]
         _verify_circle_measures(r, measure, rounded)
@@ -194,6 +199,14 @@ def circle_measures(rng, mode="circumference_radius", r_hi=15):
 # ============================================================================
 # Skill 2: f10-circle-and-prism-duration-rates
 # ============================================================================
+
+
+def _hm(minutes: int) -> str:
+    """Minutes as hours and minutes, e.g. 270 -> '4 h 30 min'."""
+    h, m = divmod(minutes, 60)
+    if h and m:
+        return f"{h} h {m} min"
+    return f"{h} h" if h else f"{m} min"
 
 
 def _clock(m: int) -> str:
@@ -257,8 +270,8 @@ def circle_and_prism_duration_rates(rng, mode="no_layover"):
         answer = flight_duration
         answer_text = str(answer)
         working = [
-            f"Arrival time (Zone A frame) = {_clock(arr_in_A_frame_clock)}",
-            f"Flight duration = {_clock(arr_in_A_frame_clock)} − {_clock(dep_A)} = {answer} minutes",
+            f"Zone B is {hour_word} behind Zone A, so {_clock(arr_B)} in Zone B is {_clock(arr_in_A_frame_clock)} in Zone A's time.",
+            f"Flight duration = {_clock(arr_in_A_frame_clock)} − {_clock(dep_A)} = {_hm(answer)} = {answer} minutes.",
         ]
         _verify_duration_via_inverse(dep_A, arr_B, offset_minutes, layover, wrapped, answer)
 
@@ -282,13 +295,17 @@ def circle_and_prism_duration_rates(rng, mode="no_layover"):
         check(arr_in_A_frame_clock >= offset_minutes, f"arrival time {arr_in_A_frame_clock} < offset {offset_minutes}")
         arr_B = arr_in_A_frame_clock - offset_minutes
 
-        text = f"A flight departs Zone A at {_clock(dep_A)}, arrives Zone B at {_clock(arr_B)}, with a {layover}-minute layover, on the same day. Zone B is {hour_word} behind Zone A. What is the total elapsed time (flight + layover), in minutes?"
+        text = (
+            f"A flight departs Zone A at {_clock(dep_A)} and lands in Zone B at {_clock(arr_B)} on the same day "
+            f"(both times are local). Zone B is {hour_word} behind Zone A. After landing, the passenger waits a "
+            f"{layover}-minute layover. What is the total time from departure to the end of the layover, in minutes?"
+        )
         answer = flight_duration + layover
         answer_text = str(answer)
         working = [
-            f"Arrival time (Zone A frame) = {_clock(arr_in_A_frame_clock)}",
-            f"Flight duration = {_clock(arr_in_A_frame_clock)} − {_clock(dep_A)} = {flight_duration} minutes",
-            f"Total elapsed time = {flight_duration} + {layover} = {answer} minutes",
+            f"Zone B is {hour_word} behind Zone A, so {_clock(arr_B)} in Zone B is {_clock(arr_in_A_frame_clock)} in Zone A's time.",
+            f"Flight duration = {_clock(arr_in_A_frame_clock)} − {_clock(dep_A)} = {_hm(flight_duration)} = {flight_duration} minutes.",
+            f"Total time = {flight_duration} + {layover} = {answer} minutes.",
         ]
         _verify_duration_via_inverse(dep_A, arr_B, offset_minutes, layover, wrapped, answer)
 
@@ -322,14 +339,21 @@ def circle_and_prism_duration_rates(rng, mode="no_layover"):
         check(arr_in_A_frame_clock >= offset_minutes, f"arrival time {arr_in_A_frame_clock} < offset {offset_minutes}")
         arr_B = arr_in_A_frame_clock - offset_minutes
 
-        text = f"A flight departs Zone A at {_clock(dep_A)} on Day 1, arrives Zone B at {_clock(arr_B)} the next day, with a {layover}-minute layover. Zone B is {hour_word} behind Zone A. What is the total elapsed time (flight + layover), in minutes?"
+        text = (
+            f"A flight departs Zone A at {_clock(dep_A)} on Day 1 and lands in Zone B at {_clock(arr_B)} the next day "
+            f"(both times are local). Zone B is {hour_word} behind Zone A. After landing, the passenger waits a "
+            f"{layover}-minute layover. What is the total time from departure to the end of the layover, in minutes?"
+        )
         answer = flight_duration + layover
         answer_text = str(answer)
+        until_midnight = 1440 - dep_A
         working = [
-            f"Arrival time (Zone A frame, next day) = {_clock(arr_in_A_frame_clock)} on Day 2",
-            f"True arrival in Day 1 frame = {arr_in_A_frame_clock + 1440} minutes",
-            f"Flight duration = {arr_in_A_frame_clock + 1440} − {dep_A} = {flight_duration} minutes",
-            f"Total elapsed time = {flight_duration} + {layover} = {answer} minutes",
+            f"Zone B is {hour_word} behind Zone A, so {_clock(arr_B)} in Zone B is {_clock(arr_in_A_frame_clock)} "
+            f"on Day 2 in Zone A's time.",
+            f"From {_clock(dep_A)} to midnight is {_hm(until_midnight)}, and from midnight to "
+            f"{_clock(arr_in_A_frame_clock)} is {_hm(arr_in_A_frame_clock)}.",
+            f"Flight duration = {until_midnight} + {arr_in_A_frame_clock} = {flight_duration} minutes.",
+            f"Total time = {flight_duration} + {layover} = {answer} minutes.",
         ]
         _verify_duration_via_inverse(dep_A, arr_B, offset_minutes, layover, wrapped, answer)
 

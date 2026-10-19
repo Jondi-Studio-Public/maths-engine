@@ -23,6 +23,7 @@ import random
 from ..core import (
     GRADER_TOLERANCE,
     check,
+    fmt_signed,
     generator,
     join_terms,
     paren_negative,
@@ -58,8 +59,8 @@ def _two_terms(rng: random.Random):
         (t1 + d, d),
     ]
     working = [
-        f"t{q} - t{p} = {q - p}d, so d = ({tq} - {paren_negative(tp)}) / {q - p} = {d}",
-        f"t1 = t{p} - {p - 1}d = {tp} - {p - 1}({d}) = {t1}",
+        f"t{q} - t{p} = {fmt_signed(q - p, 'd')}, so d = ({tq} - {paren_negative(tp)}) / {q - p} = {d}",
+        f"t1 = t{p} - {fmt_signed(p - 1, 'd')} = {tp} - {paren_negative(d) if p == 2 else f'{p - 1}({d})'} = {t1}",
     ]
     return t1, d, text, wrong, working
 
@@ -89,9 +90,10 @@ def _term_sum(rng: random.Random):
         (t1 - d, d),  # reports the term before the first
     ]
     working = [
-        f"t{p} + t{q} = 2t1 + {p + q - 2}d = {s} and t{r} = t1 + {r - 1}d = {tr}",
-        f"Eliminate t1: 2({tr}) - ({s}) = {det}d, so d = {d}",
-        f"t1 = {tr} - {r - 1}({d}) = {t1}",
+        f"t{p} + t{q} = {join_terms([(2, 't1'), (p + q - 2, 'd')])} = {s} and "
+        f"t{r} = {join_terms([(1, 't1'), (r - 1, 'd')])} = {tr}",
+        f"Eliminate t1: 2({tr}) - ({s}) = {fmt_signed(det, 'd')}, so d = {d}",
+        f"t1 = {tr} - {paren_negative(d) if r == 2 else f'{r - 1}({d})'} = {t1}",
     ]
     return t1, d, text, wrong, working
 

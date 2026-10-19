@@ -175,8 +175,7 @@ def _build_easy(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"P(reach t within 2) = 1 - P(s→s→s) = 1 - {rational_text((1 - p) * (1 - p))} "
-            f"= {answer_text} (note: q is not needed for this event).",
+            f"P(reach t within 2) = 1 - P(s→s→s) = 1 - {rational_text((1 - p) * (1 - p))} = {answer_text}.",
         ],
         distractors=distractors,
     )
@@ -221,8 +220,7 @@ def _build_medium(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"P(never reach t in 2) = P(s→s→s) = (1-{rational_text(p)})² = {answer_text} "
-            "(note: q is not needed for this event).",
+            f"P(never reach t in 2) = P(s→s→s) = (1-{rational_text(p)})² = {answer_text}.",
         ],
         distractors=distractors,
     )
@@ -267,8 +265,7 @@ def _build_hard(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"P(first reach t at 2) = P(s→s→t) = (1-{rational_text(p)})×{rational_text(p)} "
-            f"= {answer_text} (note: q is not needed for this event).",
+            f"P(first reach t at 2) = P(s→s→t) = (1-{rational_text(p)})×{rational_text(p)} = {answer_text}.",
         ],
         distractors=distractors,
     )

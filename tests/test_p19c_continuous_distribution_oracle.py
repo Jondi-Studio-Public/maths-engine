@@ -170,8 +170,8 @@ def test_density_exam_tier_touches_a_support_endpoint():
 _BRACKET_INTERVAL_RE = re.compile(r"\[(-?\d+), (-?\d+)\]")
 _FROM_TO_INTERVAL_RE = re.compile(r"from (-?\d+) to (-?\d+)")
 _SCENARIO_PATTERNS = (
-    re.compile(r"at least (-?\d+) hours and never exceeds (-?\d+) hours"),
-    re.compile(r"minimum of (-?\d+) kilograms and a maximum that never exceeds (-?\d+) kilograms"),
+    re.compile(r"at least (-?\d+) hours and at most (-?\d+) hours"),
+    re.compile(r"minimum of (-?\d+) kilograms and a maximum of (-?\d+) kilograms"),
     re.compile(r"never less than (-?\d+) minutes and never more than (-?\d+) minutes"),
 )
 

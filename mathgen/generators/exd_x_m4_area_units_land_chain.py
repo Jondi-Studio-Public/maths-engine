@@ -33,15 +33,15 @@ from mathgen.core import (
 )
 
 _STEMS = (
-    "A rectangular paddock measures {l} km by {w} m. It is part of a farm with a total area of {s} km².",
+    "A rectangular block of paddock land measures {l} km by {w} m. It is part of a farm with a total area of {s} km².",
     "A rectangular vineyard block is {l} km long and {w} m wide, on a property of total area {s} km².",
-    "A solar-panel field is a rectangle {l} km by {w} m, built on a station covering {s} km² altogether.",
-    "A rectangular conservation reserve measures {w} m by {l} km. It lies inside a park of {s} km² in all.",
+    "A block of land for a solar-panel field is a rectangle {l} km by {w} m, on a station covering {s} km² altogether.",
+    "A rectangular block of conservation reserve measures {w} m by {l} km. It lies inside a park of {s} km² in all.",
 )
 _TREATMENTS = (
-    "Fertiliser for the paddock costs ${p} per hectare.",
-    "Weed control costs ${p} per hectare.",
-    "Fencing the area off for revegetation costs ${p} per hectare.",
+    "Fertiliser for the whole block costs ${p} per hectare.",
+    "Weed control across the whole block costs ${p} per hectare.",
+    "Revegetation work across the whole block costs ${p} per hectare.",
 )
 
 
@@ -111,7 +111,7 @@ def exd_x_m4_area_units_land_chain(rng: random.Random, tier: str = "exam") -> di
                 sensible_range=(0, None),
                 working=[
                     f"{l_text} km = {l10 * 100} m, so the area is {l10 * 100} × {w} = {area_m2} m².",
-                    f"1 ha = 10 000 m², so the area is {ha_text} ha.",
+                    f"1 ha = 10000 m², so the area is {ha_text} ha.",
                 ],
                 distractors=a_d,
             ),

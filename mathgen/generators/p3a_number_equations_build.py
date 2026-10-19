@@ -402,6 +402,7 @@ def unit_fractions_combine_whole(rng, shape="multiple", wide=False):
         _verify_fraction_multiple(k, d, answer)
 
         text = f"What fraction is {k} copies of 1/{d}?"
+        raw_working, raw_fraction = f"{k} copies of 1/{d} is {k} × 1/{d} = {k}/{d}", f"{k}/{d}"
         # Misconceptions
         denom_inflation = Fraction(k, d * k)  # reduces to 1/d if k != 1
         # off-by-one-part: ±1 from numerator, clamped to stay in [0, d]
@@ -415,7 +416,12 @@ def unit_fractions_combine_whole(rng, shape="multiple", wide=False):
         answer = Fraction(d - n, d)
         _verify_fraction_complete_whole(d, n, answer)
 
-        text = f"{d} equal parts make one whole. {n} of the {d} parts are already used. What fraction is still needed to complete the whole?"
+        raw_fraction = f"{d - n}/{d}"
+        raw_working = (
+            f"{d} - {n} = {d - n} {'part is' if d - n == 1 else 'parts are'} still needed, "
+            f"so the fraction is {raw_fraction}"
+        )
+        text = f"{d} equal parts make one whole. {n} of the {d} parts {'is' if n == 1 else 'are'} already used. What fraction is still needed to complete the whole?"
         # Misconceptions
         reports_used = Fraction(n, d)
         # off-by-one-part: remaining ± 1 part, clamped to stay in [0, d]
@@ -434,6 +440,11 @@ def unit_fractions_combine_whole(rng, shape="multiple", wide=False):
         answer = Fraction(d - n_total, d)
         _verify_fraction_complete_whole(d, n_total, answer)
 
+        raw_fraction = f"{d - n_total}/{d}"
+        raw_working = (
+            f"{n1} + {n2} = {n_total} parts are used, so {d} - {n_total} = {d - n_total} "
+            f"{'part is' if d - n_total == 1 else 'parts are'} still needed, which is {raw_fraction}"
+        )
         text = f"{d} equal parts make a whole. {n1} {'part is' if n1 == 1 else 'parts are'} used, then {n2} more {'part is' if n2 == 1 else 'parts are'} used. What fraction is still needed to complete the whole?"
         # Misconceptions
         reports_used = Fraction(n_total, d)
@@ -449,6 +460,8 @@ def unit_fractions_combine_whole(rng, shape="multiple", wide=False):
     # Format answer as fraction text
     answer_text = f"{answer.numerator}/{answer.denominator}"
 
+    working_text = raw_working + (f" = {answer_text}." if raw_fraction != answer_text else ".")
+
     # Convert candidates to text; pick_distractors will handle deduplication
     distractor_texts = [f"{c.numerator}/{c.denominator}" for c in candidates]
     distractors = pick_distractors(answer_text, distractor_texts)
@@ -459,6 +472,6 @@ def unit_fractions_combine_whole(rng, shape="multiple", wide=False):
         answer={"p": answer.numerator, "q": answer.denominator},
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[f"The remaining fraction is {answer_text}."],
+        working=[working_text],
         distractors=distractors,
     )

@@ -182,7 +182,7 @@ def p15a_ideal_membership(rng, tier="easy"):
         g_text = _poly_str(g_coeffs)
         text = (
             f"Let g(x) = {g_text} and let (g(x)) be the principal ideal it generates in "
-            f"Z[x]. Exactly one of the following four polynomials belongs to (g(x)) -- "
+            f"Z[x]. Exactly one of the following four polynomials belongs to (g(x)) — "
             f"that is, has remainder 0 on division by g(x). Which one? "
             f"A: {cand_texts[0]}   B: {cand_texts[1]}   C: {cand_texts[2]}   D: {cand_texts[3]}"
         )
@@ -194,7 +194,7 @@ def p15a_ideal_membership(rng, tier="easy"):
         g_text = _poly_str(g_coeffs)
         text = (
             f"Let g(x) = {g_text} and let (g(x)) be the principal ideal it generates in "
-            f"Z[x]. Exactly one of the following four polynomials belongs to (g(x)) -- "
+            f"Z[x]. Exactly one of the following four polynomials belongs to (g(x)) — "
             f"that is, has remainder 0 on division by g(x). Which one? "
             f"A: {cand_texts[0]}   B: {cand_texts[1]}   C: {cand_texts[2]}   D: {cand_texts[3]}"
         )
@@ -215,7 +215,7 @@ def p15a_ideal_membership(rng, tier="easy"):
             f"Let g(x) = {g_text} and let (g(x)) be the principal ideal it generates in "
             f"Z[x]. Each candidate below is written as a product plus a remainder-shaped "
             f"term; expand it first. Exactly one of the following four polynomials belongs "
-            f"to (g(x)) -- that is, has remainder 0 on division by g(x). Which one? "
+            f"to (g(x)) — that is, has remainder 0 on division by g(x). Which one? "
             f"A: {factored_texts[0]}   B: {factored_texts[1]}   C: {factored_texts[2]}   "
             f"D: {factored_texts[3]}"
         )
@@ -261,7 +261,7 @@ def p15a_ideal_membership(rng, tier="easy"):
             f"Working in the polynomial ring (Z/{prime}Z)[x] (all coefficients reduced "
             f"modulo {prime}), let g(x) = {g_text} and let (g(x)) be the principal ideal "
             f"it generates. Exactly one of the following four polynomials, with "
-            f"coefficients already reduced mod {prime}, belongs to (g(x)) -- that is, has "
+            f"coefficients already reduced mod {prime}, belongs to (g(x)) — that is, has "
             f"remainder 0 on division by g(x) in this ring. Which one? "
             f"A: {cand_texts[0]}   B: {cand_texts[1]}   C: {cand_texts[2]}   D: {cand_texts[3]}"
         )

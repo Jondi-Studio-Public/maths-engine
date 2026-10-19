@@ -49,6 +49,10 @@ _SETTINGS = (
 )
 
 
+def _count_word(n: int, singular: str) -> str:
+    return singular if n == 1 else singular + "s"
+
+
 def _decimal(tenths: int, hundredths: int) -> Fraction:
     return Fraction(tenths, 10) + Fraction(hundredths, 100)
 
@@ -126,7 +130,7 @@ def exd_x_pr4_decimal_notation_lengths(rng: random.Random, tier: str = "exam") -
                 marks=1,
                 sensible_range=(0, None),
                 working=[
-                    f"{t1} tenths = {Fraction(t1, 10)} and {h1} hundredths = {Fraction(h1, 100)}.",
+                    f"{t1} {_count_word(t1, 'tenth')} = {t1 / 10:.1f} and {h1} {_count_word(h1, 'hundredth')} = {h1 / 100:.2f}.",
                     f"Total = {a_text} {unit}.",
                 ],
                 distractors=a_d,
@@ -138,7 +142,10 @@ def exd_x_pr4_decimal_notation_lengths(rng: random.Random, tier: str = "exam") -
                 answer_text=b_text,
                 marks=1,
                 sensible_range=(0, None),
-                working=[f"{h2} hundredths + {t2} tenths = {b_text} {unit}."],
+                working=[
+                    f"{h2} {_count_word(h2, 'hundredth')} + {t2} {_count_word(t2, 'tenth')} "
+                    f"= {h2 / 100:.2f} + {t2 / 10:.1f} = {b_text} {unit}."
+                ],
                 distractors=b_d,
             ),
             dict(

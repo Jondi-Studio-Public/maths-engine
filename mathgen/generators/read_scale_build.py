@@ -321,11 +321,15 @@ def _build_read(rng, tier: str):
     else:
         answer_v = v
         cands = _read_misreads(v, lo, hi, major, minor, dp)
-    note = (
-        f"Each small step is {_num(minor, _dp(minor))} {unit}; the reading is {_num(answer_v, dp)}"
-        if kind != "mm"
-        else f"The ruler reads {_num(v, _dp(minor))} cm, which is {_num(answer_v, 0)} mm"
-    )
+    if kind == "mm":
+        note = f"The ruler reads {_num(v, _dp(minor))} cm, which is {_num(answer_v, 0)} mm"
+    elif kind == "half":
+        note = (
+            f"Each small step is {_num(minor, _dp(minor))} {unit}. The level is halfway between two small marks, "
+            f"so the reading is {_num(answer_v, dp)} {unit}"
+        )
+    else:
+        note = f"Each small step is {_num(minor, _dp(minor))} {unit}; the reading is {_num(answer_v, dp)} {unit}"
     return fig, text, _num(answer_v, dp), [_num(c, dp) for c in cands], note
 
 

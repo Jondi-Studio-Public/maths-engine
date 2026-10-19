@@ -158,7 +158,8 @@ def _attempt(rng: random.Random) -> dict:
                 sensible_range=(0, 1),
                 follow_through=f"(part_a - part_b)/{length}" if swapped else f"(part_b - part_a)/{length}",
                 working=[
-                    f"{int(max(m1, m2))} - {int(min(m1, m2))} = {int(span)} km, so {int(span)}/{length} = {_text(between)}."
+                    f"{int(max(m1, m2))} - {int(min(m1, m2))} = {int(span)} km, so {int(span)}/{length}"
+                    + (f", which simplifies to {_text(between)}." if _text(between) != f"{int(span)}/{length}" else ".")
                 ],
                 distractors=d_c,
             ),

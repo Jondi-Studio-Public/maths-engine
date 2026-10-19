@@ -49,6 +49,7 @@ from ..core import (
     check_pairwise_distinct,
     generator,
     latex_answer,
+    paren_negative,
     phrase,
     pick_distractors,
     rational_text,
@@ -187,8 +188,8 @@ def _build_solve(rng, *, basis_lo, basis_hi, vec_lo, vec_hi, basis_kwargs) -> di
 
         text = phrase(rng, _SOLVE_TEMPLATES, b1x=b1[0], b1y=b1[1], b2x=b2[0], b2y=b2[1], vx=vx, vy=vy)
         working = [
-            f"c1 = (({vx})×({b2[1]}) - ({vy})×({b2[0]})) / {d} = {rational_text(c1)}.",
-            f"c2 = (({b1[0]})×({vy}) - ({b1[1]})×({vx})) / {d} = {rational_text(c2)}.",
+            f"c1 = ({paren_negative(vx)} × {paren_negative(b2[1])} - {paren_negative(vy)} × {paren_negative(b2[0])}) / {paren_negative(d)} = {rational_text(c1)}.",
+            f"c2 = ({paren_negative(b1[0])} × {paren_negative(vy)} - {paren_negative(b1[1])} × {paren_negative(vx)}) / {paren_negative(d)} = {rational_text(c2)}.",
         ]
         return dict(
             text=text,

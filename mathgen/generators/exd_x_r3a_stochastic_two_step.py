@@ -169,7 +169,7 @@ def exd_x_r3a_stochastic_two_step(rng, tier: str = "exam"):
                 2,
                 a_d,
                 [
-                    f"Y1 = {y0} + {_t(h)}({join_terms([(1, f'{pn(lam)}·{pn(y0)}'), (forcing, '')])}) + {pn(k)}·{pn(y0)}·({_t(dw1)}) = {_t(y1)}."
+                    f"Y1 = {y0} + ({_t(h)})({join_terms([(1, f'{pn(lam)}·{pn(y0)}'), (forcing, '')])}) + {pn(k)}·{pn(y0)}·({_t(dw1)}) = {_t(y1)}."
                 ],
             ),
             _part(
@@ -177,7 +177,10 @@ def exd_x_r3a_stochastic_two_step(rng, tier: str = "exam"):
                 y2,
                 3,
                 b_d,
-                [f"Y2 = Y1 + h(λY1 + f) + kY1ΔW2 = {_t(y2)}."],
+                [
+                    f"Y2 = {_t(y1)} + ({_t(h)})({join_terms([(1, f'{pn(lam)}·({_t(y1)})'), (forcing, '')])}) "
+                    f"+ {pn(k)}·({_t(y1)})·({_t(dw2)}) = {_t(y2)}."
+                ],
                 ft_b,
             ),
             _part(

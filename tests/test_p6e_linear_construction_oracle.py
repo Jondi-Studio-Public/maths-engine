@@ -354,7 +354,9 @@ class TestWordDescriptionFormula:
                     # Extract the variable letters and formula structure
                     # Look for patterns like: "Write a formula for the volume $V$ (in litres) after $t$ minutes"
                     # or "Write a formula for the total cost $C$ (in dollars) after $w$ weeks"
-                    var_match = re.search(r"formula for the ([\w\s]+?)\s+\$(\w)\$.*after\s+\$(\w)\$\s+(\w+)", text)
+                    var_match = re.search(
+                        r"formula for the ([\w\s]+?)\s+\$?(\w)\$?\s+\(.*after\s+\$?(\w)\$?\s+(\w+)", text
+                    )
                     if not var_match:
                         challenged.append(
                             {
@@ -406,7 +408,7 @@ class TestWordDescriptionFormula:
                             if starts_match:
                                 initial = int(starts_match.group(1))
                             # For gym: "charges a $X joining fee, then $Y per week"
-                            gym_match = re.search(r"charges a \$(\d+).*then \$(\d+) per", text)
+                            gym_match = re.search(r"charges an? \$(\d+).*then \$(\d+) per", text)
                             if gym_match:
                                 initial = int(gym_match.group(1))
                                 rate = int(gym_match.group(2))

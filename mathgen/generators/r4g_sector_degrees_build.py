@@ -75,7 +75,7 @@ def _easy(rng):
     ]
     working = [
         f"The sector is {theta}/360 of a circle.",
-        f"Area = {theta}/360 x π x {int(r)}² = {number_text(a, 1)} {unit}².",
+        f"Area = {theta}/360 × π × {int(r)}² = {number_text(a, 1)} {unit}².",
     ]
     return single_number(text, a, 1, working, slips)
 
@@ -95,7 +95,7 @@ def _medium_arc(rng):
         (Fraction(theta, 180) * PI * r * 2, "r4g-angle-fraction-over-180"),
         (Fraction(theta) * r / 180 * 1, "r4g-angle-used-as-radians"),
     ]
-    working = [f"Arc = {theta}/360 x 2 x π x {int(r)} = {number_text(l_, 1)} {unit}."]
+    working = [f"Arc = {theta}/360 × 2 × π × {int(r)} = {number_text(l_, 1)} {unit}."]
     return single_number(text, l_, 1, working, slips)
 
 
@@ -115,7 +115,7 @@ def _medium_perimeter(rng):
         (arc(r, theta) + 4 * r, "r4g-diameter-added-twice"),
     ]
     working = [
-        f"Arc = {theta}/360 x 2 x π x {int(r)} = {number_text(arc(r, theta), 1)} {unit}.",
+        f"Arc = {theta}/360 × 2 × π × {int(r)} = {number_text(arc(r, theta), 1)} {unit}.",
         f"Perimeter = arc + 2 radii = {number_text(arc(r, theta), 1)} + {2 * int(r)} = {number_text(p, 1)} {unit}.",
     ]
     return single_number(text, p, 1, working, slips)
@@ -146,7 +146,7 @@ def _hard_radius(rng):
         (2 * r, "r4g-diameter-for-radius"),
     ]
     working = [
-        f"Area = {theta}/360 x π x r², so r² = {a2} x 360 / ({theta} π).",
+        f"Area = {theta}/360 × π × r², so r² = {a2} × 360 ÷ ({theta} π).",
         f"r = √({number_text(k * 360 / (PI * theta), 1)}) = {number_text(r, 1)} {unit}.",
     ]
     check(abs(float(area(r, theta)) - float(k)) < 0.0051, "area does not match radius")
@@ -175,7 +175,7 @@ def _hard_angle(rng):
         (k * 180 / (PI * r), "r4g-angle-halved"),
         (k * 360 / (2 * PI), "r4g-radius-left-out"),
     ]
-    working = [f"Arc = θ/360 x 2π x {int(r)}, so θ = {l2} x 360 / (2π x {int(r)}) = {theta}°."]
+    working = [f"Arc = θ/360 × 2π × {int(r)}, so θ = {l2} × 360 ÷ (2π × {int(r)}) = {theta}°."]
     return single_number(text, theta, 0, working, [(v, t) for v, t in slips if Fraction(v) <= 720])
 
 
@@ -202,7 +202,7 @@ def _hard_path(rng):
         (Fraction(theta, 360) * 2 * PI * (big - r), "r4g-arc-formula-for-area"),
     ]
     working = [
-        f"Path = outer sector - inner sector = {theta}/360 x π x ({int(big)}² - {int(r)}²).",
+        f"Path = outer sector − inner sector = {theta}/360 × π × ({int(big)}² − {int(r)}²).",
         f"= {number_text(a, 1)} {unit}².",
     ]
     return single_number(text, a, 1, working, slips)

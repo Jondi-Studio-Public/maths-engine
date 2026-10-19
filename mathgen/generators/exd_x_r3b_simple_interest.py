@@ -63,17 +63,20 @@ def _build(rng: random.Random) -> dict:
 
     total = p + interest
     name = rng.choice(_NAMES)
-    stem = phrase(rng, _STEMS, name=name, p=p, rate=_rate_text(r2), m=m, product=rng.choice(_PRODUCTS))
+    stem = phrase(rng, _STEMS, name=name, p=f"{p:,}", rate=_rate_text(r2), m=m, product=rng.choice(_PRODUCTS))
     one_year = Fraction(p) * rate / 100
     growth = (1 + float(rate) / 100) ** (m / 12)
     compound = Fraction(round(p * (growth - 1) * 100), 100)
     int_fmt = _money(interest)
+    pt = f"{p:,}"
+    int_c = f"{int(round_half_up(interest, 2)):,}" + _money(interest)[len(str(int(round_half_up(interest, 2)))) :]
+    total_c = f"{int(round_half_up(total, 2)):,}" + _money(total)[len(str(int(round_half_up(total, 2)))) :]
     part_a = number_part(
         "Find the interest earned over the term, in dollars, correct to 2 decimal places.",
         interest,
         2,
         2,
-        [f"{m} months = {m}/12 years.", f"I = PRT = {p} × {_rate_text(r2)}/100 × {m}/12 = ${int_fmt}."],
+        [f"{m} months = {m}/12 years.", f"I = PRT = {pt} × {_rate_text(r2)}/100 × {m}/12 = ${int_c}."],
         [
             ("months-used-as-years", Fraction(p) * rate / 100 * m),
             ("omitted-time-in-interest", one_year),
@@ -87,7 +90,7 @@ def _build(rng: random.Random) -> dict:
         total,
         2,
         1,
-        [f"Total value = ${p} + ${int_fmt} = ${_money(total)}."],
+        [f"Total value = ${pt} + ${int_c} = ${total_c}."],
         [
             ("reported-interest-not-total-value", interest),
             ("subtracted-interest-from-principal", p - interest),
@@ -98,14 +101,14 @@ def _build(rng: random.Random) -> dict:
         sensible_range=(0, None),
     )
     part_c = number_part(
-        f"Find the annual simple-interest rate that would earn the same interest on ${p} in {m2} months "
+        f"Find the annual simple-interest rate that would earn the same interest on ${pt} in {m2} months "
         "instead, as a percentage correct to 2 decimal places.",
         rate2,
         2,
         2,
         [
             f"{m2} months = {m2}/12 years.",
-            f"r = I / (P × T) = {int_fmt} / ({p} × {m2}/12) = {_money(round_half_up(rate2, 2))}%.",
+            f"r = I / (P × T) = {int_fmt} / ({pt} × {m2}/12) = {_money(round_half_up(rate2, 2))}%.",
         ],
         [
             ("time-ratio-inverted", Fraction(r2, 2) * Fraction(m2, m)),
