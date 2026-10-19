@@ -165,17 +165,29 @@ def define_variable(rng):
         (
             "A cinema ticket costs $14. You want to represent the number of tickets bought.",
             "Let t be the number of tickets bought.",
-            ["Let t be $14.", "Let tickets be the total cost.", "Let t be the cinema."],
+            [
+                "Let t be the $14 price of one ticket.",
+                "Let tickets be the total cost in dollars.",
+                "Let t be the cinema where they are bought.",
+            ],
         ),
         (
             "A tank contains some litres of water and loses 5 litres each hour.",
             "Let w be the starting litres of water.",
-            ["Let w be 5 hours.", "Let w be the tank.", "Let 5 be the unknown water."],
+            [
+                "Let w be the 5 hours the tank drains for.",
+                "Let w be the tank that holds the water.",
+                "Let 5 be the unknown amount of water.",
+            ],
         ),
         (
             "A rectangle has an unknown width and a known length of 8 cm.",
             "Let w be the width in centimetres.",
-            ["Let w be 8 cm.", "Let w be the rectangle.", "Let length be the unknown width."],
+            [
+                "Let w be the 8 cm length of the shape.",
+                "Let w be the rectangle that is drawn.",
+                "Let length be the unknown width here.",
+            ],
         ),
     ]
     situation, answer, distractors = rng.choice(contexts)
