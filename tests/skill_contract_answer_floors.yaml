@@ -26,7 +26,7 @@ classify-constant-coefficient-pde:
 classify-data:
   r3j_classify_variable/medium: 4
 classify-real-numbers:
-  classify_real_number/easy: 2
+  classify_real_number/easy: 4
 compare-common-fractions:
   compare_common_fractions/easy: 3
   compare_common_fractions/medium: 3
@@ -157,7 +157,7 @@ f10-shape-sides-spatial-terms:
   ey_shape_sides/hard: 4
   ey_shape_sides/medium: 4
 f10-shape-sorting-algorithm:
-  p15d_shape_sorting/easy: 3
+  p15d_shape_sorting/easy: 4
 f10-solid-faces-edges-vertices:
   fsp_solids/easy: 5
   fsp_solids/hard: 5

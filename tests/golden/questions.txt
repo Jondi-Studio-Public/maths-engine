@@ -60,7 +60,7 @@
 {"answer": "How many brothers and sisters do you have?", "id": "acquire-and-check-data/medium/2/e5821b218c4d", "text": "A group wants to find out how many brothers and sisters the students in the cla…"}
 {"answer": "−9 + 4i", "id": "add-complex-numbers/easy/0/6c57f76ec085", "text": "Calculate (−5 − 4i) + (−4 + 8i)."}
 {"answer": "11 − 3i", "id": "add-complex-numbers/easy/1/9793a4a73615", "text": "Calculate (4 − 5i) + (7 + 2i)."}
-{"answer": "4 + i", "id": "add-complex-numbers/easy/2/b451eaa6b081", "text": "Calculate (4 + 6i) + (−5i)."}
+{"answer": "4 + i", "id": "add-complex-numbers/easy/2/513d7bf682a5", "text": "Calculate (4 + 6i) + (−5i)."}
 {"answer": "-5 + 3i", "id": "add-complex-numbers/exam-single/0/6549e5210c4c", "text": "Let q = 6 + 6i. The complex number p satisfies p - 3 times the conjugate of q =…"}
 {"answer": "-1 - 5i", "id": "add-complex-numbers/exam-single/1/875585439c98", "text": "Given q = 6 + 3i, p - (3 times the conjugate of q) = -19 + 4i. Determine p."}
 {"answer": "-2 - 4i", "id": "add-complex-numbers/exam-single/2/300db2f80c92", "text": "The complex number p is such that p - 2 times the conjugate of q = -4 + 6i, whe…"}
@@ -682,9 +682,9 @@
 {"answer": "Degree 4, binomial", "id": "classify-polynomials/medium/0/345c49acfe4b", "text": "Classify this polynomial by degree and number of terms: x^4 - 4x^2"}
 {"answer": "No - it has a negative exponent", "id": "classify-polynomials/medium/1/8d30da32961d", "text": "Is this a polynomial? If not, why not: -2x^-3"}
 {"answer": "No - it has a fractional exponent", "id": "classify-polynomials/medium/2/3202f82294da", "text": "Is this a polynomial? If not, why not: 5x^(1/4)"}
-{"answer": "Rational", "id": "classify-real-numbers/easy/0/472c1a8ca423", "text": "Is -7/9 rational or irrational?"}
-{"answer": "Rational", "id": "classify-real-numbers/easy/1/286b84109319", "text": "Is -7/9 rational or irrational?"}
-{"answer": "Irrational", "id": "classify-real-numbers/easy/2/bdcd382cc2c1", "text": "Is π rational or irrational?"}
+{"answer": "Rational, because it is a fraction of two whole numbers", "id": "classify-real-numbers/easy/0/80086fb0f5b4", "text": "Is -7/9 rational or irrational?"}
+{"answer": "Rational, because it is a fraction of two whole numbers", "id": "classify-real-numbers/easy/1/efe649ba05e2", "text": "Is -7/9 rational or irrational?"}
+{"answer": "Irrational, because its decimal never ends and never repeats", "id": "classify-real-numbers/easy/2/7170e08469d4", "text": "Is π rational or irrational?"}
 {"answer": "(a) 6; (b) 86; (c) 24", "id": "classify-real-numbers/exam/0/c418164ad9da", "text": "A list is made of √(8k) for every whole number k from 1 to 92. (a) How many of …"}
 {"answer": "(a) 4; (b) 205; (c) 8", "id": "classify-real-numbers/exam/1/eafd4661e0ea", "text": "A list is made of the cube roots of 4k for every whole number k from 1 to 209. …"}
 {"answer": "(a) 4; (b) 248; (c) 12", "id": "classify-real-numbers/exam/2/e0a239391cf0", "text": "A list is made of the cube roots of 9k for every whole number k from 1 to 252. …"}
@@ -808,15 +808,15 @@
 {"answer": "Left", "id": "compare-quantities-to-10/easy/0/68f8555d9106", "text": "Which side has more? ● ● ● ● ● ● ● ● | ● ● ● ● ●"}
 {"answer": "Same", "id": "compare-quantities-to-10/easy/1/ccb7b16b44b2", "text": "Which side has more? ● ● ● ● ● ● ● ● ● ● | ● ● ● ● ● ● ● ● ● ●"}
 {"answer": "Same", "id": "compare-quantities-to-10/easy/2/a997756f804c", "text": "Which side has more? ● ● ● ● ● | ● ● ● ● ●"}
-{"answer": "The balls row", "id": "compare-tally-and-picture-displays/easy/0/d11221d2cd2f", "text": "Kenji checks the tally and the pictures. Which row is wrong?"}
-{"answer": "The balls row", "id": "compare-tally-and-picture-displays/easy/1/d8d88efe2fe7", "text": "Freya checks the tally and the pictures. Which row is wrong?"}
-{"answer": "The fish row", "id": "compare-tally-and-picture-displays/easy/2/792566d4fb43", "text": "The tally and the pictures disagree in one row. Which row is it?"}
-{"answer": "2", "id": "compare-tally-and-picture-displays/hard/0/39ae3d346a3d", "text": "Priyanka checks the cats row. How many more pictures does it need?"}
-{"answer": "1", "id": "compare-tally-and-picture-displays/hard/1/d58dbda251df", "text": "Diego checks the fish row. How many more pictures does it need?"}
-{"answer": "3", "id": "compare-tally-and-picture-displays/hard/2/551bf855ea4d", "text": "Beatrice checks the stars row. How many more pictures does it need?"}
-{"answer": "The apples row", "id": "compare-tally-and-picture-displays/medium/0/24e05baa646d", "text": "The tally and the pictures disagree in one row. Which row is it?"}
-{"answer": "The cats row", "id": "compare-tally-and-picture-displays/medium/1/a5daca6d18ce", "text": "One row does not match. Which row is it?"}
-{"answer": "The cats row", "id": "compare-tally-and-picture-displays/medium/2/d6e43e4ef4d3", "text": "The tally and the pictures disagree in one row. Which row is it?"}
+{"answer": "The apples row", "id": "compare-tally-and-picture-displays/easy/0/8365051e12d3", "text": "Kenji checks the tally and the pictures. Which row is wrong?"}
+{"answer": "The cats row", "id": "compare-tally-and-picture-displays/easy/1/7c9814b7c34f", "text": "One row does not match. Which row is it?"}
+{"answer": "The balls row", "id": "compare-tally-and-picture-displays/easy/2/fc12bdff53cb", "text": "Chloe checks the tally and the pictures. Which row is wrong?"}
+{"answer": "1", "id": "compare-tally-and-picture-displays/hard/0/e24903a6b094", "text": "Priyanka checks the stars row. How many more pictures does it need?"}
+{"answer": "1", "id": "compare-tally-and-picture-displays/hard/1/9ac32ed31ce2", "text": "The stars row has too few pictures. How many more should it have?"}
+{"answer": "3", "id": "compare-tally-and-picture-displays/hard/2/91d653f793ec", "text": "Beatrice checks the apples row. How many more pictures does it need?"}
+{"answer": "The cats row", "id": "compare-tally-and-picture-displays/medium/0/def5e839420b", "text": "The tally and the pictures disagree in one row. Which row is it?"}
+{"answer": "The flowers row", "id": "compare-tally-and-picture-displays/medium/1/809591e1d266", "text": "The tally and the pictures disagree in one row. Which row is it?"}
+{"answer": "The apples row", "id": "compare-tally-and-picture-displays/medium/2/3cce269c4363", "text": "The tally and the pictures disagree in one row. Which row is it?"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/0/c95fc8d15d5b", "text": "Pack A: 368 grams for $12.29. Pack B: 485 grams for $28.65. Which is the cheape…"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/1/943da520c9f4", "text": "Pack A: 946 grams for $17.49. Pack B: 347 grams for $29.16. Which is the cheape…"}
 {"answer": "Tie: the same price either way", "id": "compare-unit-prices/easy/2/c05b4c2a0509", "text": "Pack A: 717 grams for $28.19. Pack B: 2868 grams for $112.76. Which is the chea…"}
@@ -1750,9 +1750,9 @@
 {"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/0/39c7129984d8", "text": "Is one longer, or are they the same? Count the paper clips."}
 {"answer": "They are the same", "id": "ey-compare-by-paper-clips/easy/1/930b41815123", "text": "Is one longer, or are they the same? Count the blocks."}
 {"answer": "The rope", "id": "ey-compare-by-paper-clips/easy/2/76ff7c84254c", "text": "Count the blocks. Which one is shorter?"}
-{"answer": "The ribbon and the rope", "id": "ey-compare-by-paper-clips/hard/0/9cb300f93af8", "text": "Which two are the same length?"}
-{"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/1/0180122def19", "text": "Which two are as long as each other?"}
-{"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/2/3dbaded65f28", "text": "Which two have the same length?"}
+{"answer": "The ribbon and the rope", "id": "ey-compare-by-paper-clips/hard/0/d255e75adab4", "text": "Which two are the same length?"}
+{"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/1/dba496294c45", "text": "Which two are as long as each other?"}
+{"answer": "The snake and the pencil", "id": "ey-compare-by-paper-clips/hard/2/5589f4091a83", "text": "Which two have the same length?"}
 {"answer": "The rope", "id": "ey-compare-by-paper-clips/medium/0/a9adc029d1d8", "text": "Count the blocks. Which one is longest?"}
 {"answer": "The ribbon", "id": "ey-compare-by-paper-clips/medium/1/a7e2d595a671", "text": "Which is the shortest? Count the paper clips."}
 {"answer": "The ribbon", "id": "ey-compare-by-paper-clips/medium/2/33b31b261bdc", "text": "Which is the longest? Count the blocks."}
@@ -2041,7 +2041,7 @@
 {"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/0/a786adb80d34", "text": "The table shows the number y of bacteria in a dish x hours after it is prepared…"}
 {"answer": "(a) Exponential: each y-value is 3 times the one before; (b…", "id": "f10-choose-model-from-data/exam/1/667ec92b1c76", "text": "The table shows the number y of followers of a community page x weeks after it …"}
 {"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/2/e7cfa3d3752d", "text": "The table shows the number y of followers of a community page x weeks after it …"}
-{"answer": "70", "id": "f10-choose-model-from-data/hard/0/f1cc43c92622", "text": "The table shows the data y megabytes used on a phone plan x days after it start…"}
+{"answer": "138", "id": "f10-choose-model-from-data/hard/0/c5198180da74", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
 {"answer": "378", "id": "f10-choose-model-from-data/hard/1/fc934d16fa30", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
 {"answer": "269", "id": "f10-choose-model-from-data/hard/2/6f00dc35b763", "text": "The table shows the number y of tiles in stage x of a square tile pattern. x: 0…"}
 {"answer": "y = 3x^2 + x + 1", "id": "f10-choose-model-from-data/medium/0/de19702ccb78", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
@@ -3238,11 +3238,11 @@
 {"answer": "isosceles, not right-angled", "id": "f10-polygon-classification/medium/0/a589d8aed9f4", "text": "A triangle's angles measure 66, 48 and 66 degrees, and two of its sides are eac…"}
 {"answer": "scalene right-angled", "id": "f10-polygon-classification/medium/1/7b16c286334a", "text": "The angles of a triangle are 67, 23 and 90 degrees, and its three sides all hav…"}
 {"answer": "isosceles right-angled", "id": "f10-polygon-classification/medium/2/555f9e885d5b", "text": "The angles of a triangle are 45, 45 and 90 degrees, and two of its sides are ea…"}
-{"answer": "to the right of", "id": "f10-position-location-language/easy/0/e1b03e810372", "text": "Items are arranged on a shelf, listed from left to right: the book, the lamp, t…"}
-{"answer": "below", "id": "f10-position-location-language/easy/1/a1cae42e52be", "text": "Boxes are stacked in this order, from top to bottom: the red box, the blue box,…"}
-{"answer": "above", "id": "f10-position-location-language/easy/2/de99f04f4feb", "text": "Boxes are stacked. Listed from top to bottom, they are: the red box, the yellow…"}
-{"answer": "between the blue box and the green box", "id": "f10-position-location-language/hard/0/d39d81404f7c", "text": "Boxes are stacked in this order, from top to bottom: the blue box, the yellow b…"}
-{"answer": "between the blue box and the purple box", "id": "f10-position-location-language/hard/1/13ec70ee8b0b", "text": "Boxes are stacked in this order, from top to bottom: the yellow box, the green …"}
+{"answer": "to the left of", "id": "f10-position-location-language/easy/0/6355e8393dbd", "text": "Items are arranged on a shelf, listed from left to right: the book, the lamp, t…"}
+{"answer": "above", "id": "f10-position-location-language/easy/1/7262fa964c82", "text": "Boxes are stacked in this order, from top to bottom: the red box, the blue box,…"}
+{"answer": "below", "id": "f10-position-location-language/easy/2/9a5b3f887f3a", "text": "Boxes are stacked, listed from top to bottom: the red box, the yellow box, the …"}
+{"answer": "between the blue box and the green box", "id": "f10-position-location-language/hard/0/15d2831b2f12", "text": "Boxes are stacked in this order, from top to bottom: the blue box, the yellow b…"}
+{"answer": "between the green box and the purple box", "id": "f10-position-location-language/hard/1/611a5a36d276", "text": "Boxes are stacked. Listed from top to bottom, they are: the yellow box, the gre…"}
 {"answer": "to the left of", "id": "f10-position-location-language/hard/2/ff1d3365e170", "text": "Items are arranged on a shelf in this order, from right to left: the ball, the …"}
 {"answer": "to the right of", "id": "f10-position-location-language/medium/0/89165c4083f6", "text": "Items are arranged on a shelf, listed from left to right: the hat, the book, th…"}
 {"answer": "to the right of", "id": "f10-position-location-language/medium/1/27ef9d5f0a51", "text": "Items are arranged on a shelf. Listed from left to right, they are: the ball, t…"}
@@ -3586,9 +3586,9 @@
 {"answer": "Shape D", "id": "f10-shape-sides-spatial-terms/medium/0/76f487c86950", "text": "Which shape has only curved sides?"}
 {"answer": "Shape B", "id": "f10-shape-sides-spatial-terms/medium/1/42fbb3141a71", "text": "Which shape has one or more pairs of parallel sides?"}
 {"answer": "Shape D", "id": "f10-shape-sides-spatial-terms/medium/2/cdc0b989bc16", "text": "Which shape has no curved sides?"}
-{"answer": "Bin B", "id": "f10-shape-sorting-algorithm/easy/0/531a4c6cb7fa", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
-{"answer": "Bin B", "id": "f10-shape-sorting-algorithm/easy/1/ca485617a703", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
-{"answer": "Bin A", "id": "f10-shape-sorting-algorithm/easy/2/ca8f0b02a90d", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Is the nu…"}
+{"answer": "Bin D", "id": "f10-shape-sorting-algorithm/easy/0/1a15672ea12c", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
+{"answer": "Bin D", "id": "f10-shape-sorting-algorithm/easy/1/327a7a10ddb7", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
+{"answer": "Bin A", "id": "f10-shape-sorting-algorithm/easy/2/e0d0e5e474c4", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Is the nu…"}
 {"answer": "(a) 3; (b) 100; (c) 33.3; (d) 30.0", "id": "f10-shape-sorting-algorithm/exam/0/d5edf926add4", "text": "A shape-sorting procedure is defined by these numbered tests: Test 1: Does the …"}
 {"answer": "(a) 2; (b) 68; (c) 34.0; (d) 28.0", "id": "f10-shape-sorting-algorithm/exam/1/b60576609bdb", "text": "Shapes are sorted into bins by a procedure with these numbered tests: Test 1: D…"}
 {"answer": "(a) 4; (b) 96; (c) 24.0; (d) 26.0", "id": "f10-shape-sorting-algorithm/exam/2/6a02533cae38", "text": "Shapes are sorted into bins by a procedure with these numbered tests: Test 1: D…"}
@@ -3640,7 +3640,7 @@
 {"answer": "C, D, A, B, E", "id": "f10-spatial-algorithm-choose-test/medium/0/7b530b2802d1", "text": "These steps to construct the perpendicular bisector of a segment have been shuf…"}
 {"answer": "A, B, D, C, E", "id": "f10-spatial-algorithm-choose-test/medium/1/6fb29d7341c6", "text": "These steps to bisect an angle have been shuffled: A. Draw rays QP and QR so th…"}
 {"answer": "A, B, E, C, D", "id": "f10-spatial-algorithm-choose-test/medium/2/bb00b88cf0d2", "text": "These steps to construct the perpendicular bisector of a segment have been shuf…"}
-{"answer": "1", "id": "f10-square-roots-perfect-squares/easy/0/7579e75fa997", "text": "Is 1 a perfect square? If yes, what is its square root?"}
+{"answer": "1", "id": "f10-square-roots-perfect-squares/easy/0/01764c7ec264", "text": "Is 1 a perfect square? If yes, what is its square root?"}
 {"answer": "2", "id": "f10-square-roots-perfect-squares/easy/1/92f928907044", "text": "Is 4 a perfect square? If yes, what is its square root?"}
 {"answer": "11", "id": "f10-square-roots-perfect-squares/easy/2/8e0c2f749d3f", "text": "Is 121 a perfect square? If yes, what is its square root?"}
 {"answer": "(a) 24; (b) 324; (c) 18", "id": "f10-square-roots-perfect-squares/exam/0/eda80687662d", "text": "300 students are to stand in a square formation, with the same number of rows a…"}
@@ -3649,8 +3649,8 @@
 {"answer": "1029", "id": "f10-square-roots-perfect-squares/hard/0/dc0fd78e0b09", "text": "Is 3² × 7⁶ a perfect square? If yes, what is its square root?"}
 {"answer": "6", "id": "f10-square-roots-perfect-squares/hard/1/3bf87bd449fb", "text": "Is 2² × 3² a perfect square? If yes, what is its square root?"}
 {"answer": "30", "id": "f10-square-roots-perfect-squares/hard/2/0c55a5c3f010", "text": "Is 2² × 3² × 5² a perfect square? If yes, what is its square root?"}
-{"answer": "not a perfect square", "id": "f10-square-roots-perfect-squares/medium/0/d7a909027665", "text": "Is 61 a perfect square? If yes, what is its square root?"}
-{"answer": "not a perfect square", "id": "f10-square-roots-perfect-squares/medium/1/1fd08c11b873", "text": "Is 23 a perfect square? If yes, what is its square root?"}
+{"answer": "not a perfect square", "id": "f10-square-roots-perfect-squares/medium/0/1f32a2b96fb5", "text": "Is 61 a perfect square? If yes, what is its square root?"}
+{"answer": "not a perfect square", "id": "f10-square-roots-perfect-squares/medium/1/a91dd4ddc988", "text": "Is 23 a perfect square? If yes, what is its square root?"}
 {"answer": "11", "id": "f10-square-roots-perfect-squares/medium/2/518fd8af7ae1", "text": "Is 121 a perfect square? If yes, what is its square root?"}
 {"answer": "10", "id": "f10-stem-and-leaf-plots/easy/0/6fa389439e34", "text": "The stem-and-leaf plot shows how many minutes some customers waited in a queue.…"}
 {"answer": "9", "id": "f10-stem-and-leaf-plots/easy/1/d12dde26c067", "text": "The stem-and-leaf plot shows the ages in years of the members of a club. Key: 6…"}
@@ -6605,17 +6605,17 @@
 {"answer": "22", "id": "scatterplot-fit-line-read-predict/medium/1/88b73fe8a8ac", "text": "The scatterplot shows the solar power generated by a household on each of 10 da…"}
 {"answer": "9", "id": "scatterplot-fit-line-read-predict/medium/2/66f244f39e1f", "text": "The scatterplot shows the exam mark of each of 10 pianists against the hours th…"}
 {"answer": "163.4556 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/0/1bc6d238942d", "text": "Calculate (5.124 × 10^-5) × (3.19 × 10^-6), then write the result in engineerin…"}
-{"answer": "4.945584 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/1/bd12a1ad84af", "text": "(1.148 × 10^-6) × (4.308 × 10^-6) -- write your answer in engineering notation."}
+{"answer": "4.945584 × 10^-12", "id": "scientific-notation-ops-to-engineering/easy/1/03d6e54d7262", "text": "(1.148 × 10^-6) × (4.308 × 10^-6) -- write your answer in engineering notation."}
 {"answer": "14.544996 × 10^-3", "id": "scientific-notation-ops-to-engineering/easy/2/6154072cfbf9", "text": "Calculate (1.927 × 10^1) × (7.548 × 10^-4), then write the result in engineerin…"}
 {"answer": "46.34854 × 10^3", "id": "scientific-notation-ops-to-engineering/exam/0/37d990f1f790", "text": "Find (6.826 × 10^1) × (6.79 × 10^2) and give the result in engineering notation…"}
 {"answer": "-521.856 × 10^-3", "id": "scientific-notation-ops-to-engineering/exam/1/ec7c5f0137b9", "text": "Find (-4.832 × 10^2) × (1.08 × 10^-3) and give the result in engineering notati…"}
-{"answer": "1.23376 × 10^-3", "id": "scientific-notation-ops-to-engineering/exam/2/bf1418c83530", "text": "Find (7.711 × 10^-2) ÷ (6.25 × 10^1) and give the result in engineering notatio…"}
+{"answer": "1.23376 × 10^-3", "id": "scientific-notation-ops-to-engineering/exam/2/f8b6c710cbd9", "text": "Find (7.711 × 10^-2) ÷ (6.25 × 10^1) and give the result in engineering notatio…"}
 {"answer": "-45.026331 × 10^9", "id": "scientific-notation-ops-to-engineering/hard/0/fa99239521b0", "text": "Evaluate (4.651 × 10^4) × (-9.681 × 10^5), bearing in mind that one of the two …"}
 {"answer": "-56.829527 × 10^-9", "id": "scientific-notation-ops-to-engineering/hard/1/263d97914181", "text": "Calculate (-5.869 × 10^-3) × (9.683 × 10^-6). One of the two given values may b…"}
-{"answer": "-7.579442 × 10^6", "id": "scientific-notation-ops-to-engineering/hard/2/06fd402927d3", "text": "Evaluate (8.71 × 10^6) × (-8.702 × 10^-1), bearing in mind that one of the two …"}
-{"answer": "3.65125 × 10^-6", "id": "scientific-notation-ops-to-engineering/medium/0/ee0b5b92639e", "text": "Calculate (5.842 × 10^-4) ÷ (1.6 × 10^2), then write the result in engineering …"}
+{"answer": "-7.579442 × 10^6", "id": "scientific-notation-ops-to-engineering/hard/2/d852c426dac4", "text": "Evaluate (8.71 × 10^6) × (-8.702 × 10^-1), bearing in mind that one of the two …"}
+{"answer": "3.65125 × 10^-6", "id": "scientific-notation-ops-to-engineering/medium/0/7a4dcf5ad957", "text": "Calculate (5.842 × 10^-4) ÷ (1.6 × 10^2), then write the result in engineering …"}
 {"answer": "137 × 10^-3", "id": "scientific-notation-ops-to-engineering/medium/1/501566b1f2ba", "text": "(2.192 × 10^-3) ÷ (1.6 × 10^-2) -- write your answer in engineering notation."}
-{"answer": "3.2984 × 10^0", "id": "scientific-notation-ops-to-engineering/medium/2/5751aa4938e2", "text": "Evaluate (4.123 × 10^-4) ÷ (1.25 × 10^-4) and express your answer in engineerin…"}
+{"answer": "3.2984 × 10^0", "id": "scientific-notation-ops-to-engineering/medium/2/37401640b055", "text": "Evaluate (4.123 × 10^-4) ÷ (1.25 × 10^-4) and express your answer in engineerin…"}
 {"answer": "6 × 10^-3", "id": "scientific-notation/easy/0/449bf679cbac", "text": "Write 0.006 in scientific notation."}
 {"answer": "6.5 × 10^5", "id": "scientific-notation/easy/1/a5026411a206", "text": "Write 650000 in scientific notation."}
 {"answer": "8.9 × 10^5", "id": "scientific-notation/easy/2/8c9f6603e26b", "text": "Write 890000 in scientific notation."}
@@ -7588,15 +7588,15 @@
 {"answer": "x = 2, y = 9", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/medium/0/3a2161517a99", "text": "A particle's position vector is r(t) = (exp(2t), 3sin(3t)), in metres, t in sec…"}
 {"answer": "x = 4, y = 3", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/medium/1/bbb5e49357ab", "text": "A particle's position vector is r(t) = (exp(4t), sin(3t)), in metres, t in seco…"}
 {"answer": "x = 12, y = 3", "id": "senior-differentiate-and-integrate-a-vector-function-with-respect/medium/2/43976ca0d84a", "text": "A particle's position vector is r(t) = (3exp(4t), sin(3t)), in metres, t in sec…"}
-{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/easy/0/ebf4bd704b64", "text": "Researchers randomly assigned participants to different levels of hours of stud…"}
-{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/easy/1/615594edc238", "text": "Researchers randomly assigned participants to different levels of class size, t…"}
-{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/easy/2/3c871b7855ec", "text": "Researchers randomly assigned participants to different levels of hours of stud…"}
-{"answer": "Correlation only (an observational study; a named third var…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/hard/0/44c08c967b27", "text": "Study 1: Researchers observed ice-cream sales and the number of people who go s…"}
-{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/hard/1/76fad06963b4", "text": "Study 1: Researchers randomly assigned participants to different levels of dosa…"}
-{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/hard/2/7e7a3ef68a29", "text": "Study 1: Researchers randomly assigned participants to different levels of dosa…"}
-{"answer": "Correlation only (an observational study; a named third var…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/medium/0/000a27787cce", "text": "Researchers observed shoe size and reading ability in a sample without controll…"}
-{"answer": "Correlation only (an observational study; a named third var…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/medium/1/ec1e19fc0579", "text": "Researchers observed ice-cream sales and the number of people who go swimming i…"}
-{"answer": "Correlation only (an observational study; a named third var…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/medium/2/d671bfd4e780", "text": "Researchers observed household heater use and the number of colds reported in a…"}
+{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/easy/0/ef7f4efe49cb", "text": "Researchers randomly assigned participants to different levels of hours of stud…"}
+{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/easy/1/f37b24068ca3", "text": "Researchers randomly assigned participants to different levels of class size, t…"}
+{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/easy/2/9f04d50d8ced", "text": "Researchers randomly assigned participants to different levels of hours of stud…"}
+{"answer": "Correlation only (an observational study; a named third var…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/hard/0/1e187c340c3c", "text": "Study 1: Researchers observed ice-cream sales and the number of people who go s…"}
+{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/hard/1/65c7308278f6", "text": "Study 1: Researchers randomly assigned participants to different levels of dosa…"}
+{"answer": "Causation is supported (a controlled experiment with random…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/hard/2/c15582887b69", "text": "Study 1: Researchers randomly assigned participants to different levels of dosa…"}
+{"answer": "Correlation only (an observational study; a named third var…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/medium/0/57f51221c192", "text": "Researchers observed shoe size and reading ability in a sample without controll…"}
+{"answer": "Correlation only (an observational study; a named third var…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/medium/1/f1597836330a", "text": "Researchers observed ice-cream sales and the number of people who go swimming i…"}
+{"answer": "Correlation only (an observational study; a named third var…", "id": "senior-distinguish-between-causality-and-correlation-through-examples/medium/2/25853c867791", "text": "Researchers observed household heater use and the number of colds reported in a…"}
 {"answer": "Interpolation (the prediction lies within the range of the …", "id": "senior-distinguish-between-interpolation-and-extrapolation-when-using-the/easy/0/e5bbfae73cbd", "text": "A fitted line models data collected for x from 4 to 27. A prediction is made at…"}
 {"answer": "Interpolation (the prediction lies within the range of the …", "id": "senior-distinguish-between-interpolation-and-extrapolation-when-using-the/easy/1/f50d4ec1f0fb", "text": "A fitted line models data collected for x from 9 to 23. A prediction is made at…"}
 {"answer": "Extrapolation (the prediction lies outside the range of the…", "id": "senior-distinguish-between-interpolation-and-extrapolation-when-using-the/easy/2/6409dfe5228f", "text": "A fitted line models data collected for x from 5 to 22. A prediction is made at…"}
@@ -8272,9 +8272,9 @@
 {"answer": "(a) -2; (b) 0; (c) 2; (d) -1; (e) 3", "id": "senior-graph-reciprocal-abs-compare/exam/0/c52f771c9979", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
 {"answer": "(a) -6; (b) -4; (c) 2; (d) -5; (e) 3", "id": "senior-graph-reciprocal-abs-compare/exam/1/c0eff1729a4e", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
 {"answer": "(a) -2; (b) 0; (c) 2; (d) -1; (e) -4", "id": "senior-graph-reciprocal-abs-compare/exam/2/821ba4bfa371", "text": "The graph of f is drawn, a parabola that crosses the x-axis twice. The graph of…"}
-{"answer": "-1", "id": "senior-graph-reciprocal-abs-compare/hard/0/2c8ad3864361", "text": "Here g(x) = f(|x|), and the graph of f is drawn. Each grid square is 1 unit on …"}
-{"answer": "1/2", "id": "senior-graph-reciprocal-abs-compare/hard/1/3066d58eb382", "text": "Here g(x) = 1/f(x), and the graph of f is drawn. Both axes have 1 unit per grid…"}
-{"answer": "3", "id": "senior-graph-reciprocal-abs-compare/hard/2/1fe028ce547b", "text": "The graph of f is drawn. Let g(x) = |f(x)|. Both axes have 1 unit per grid squa…"}
+{"answer": "-1", "id": "senior-graph-reciprocal-abs-compare/hard/0/226ce623a2a6", "text": "Here g(x) = f(|x|), and the graph of f is drawn. Each grid square is 1 unit on …"}
+{"answer": "1/2", "id": "senior-graph-reciprocal-abs-compare/hard/1/cef79149146b", "text": "Here g(x) = 1/f(x), and the graph of f is drawn. Both axes have 1 unit per grid…"}
+{"answer": "3", "id": "senior-graph-reciprocal-abs-compare/hard/2/d6e3d6b6e142", "text": "The graph of f is drawn. Let g(x) = |f(x)|. Both axes have 1 unit per grid squa…"}
 {"answer": "g(x) = -|f(x)|", "id": "senior-graph-reciprocal-abs-compare/medium/0/fdf59e21b631", "text": "g is drawn from f by one of the transformations below. Both axes have 1 unit pe…"}
 {"answer": "g(x) = |f(x)|", "id": "senior-graph-reciprocal-abs-compare/medium/1/4ba817fac1aa", "text": "g is drawn from f by one of the transformations below. Both axes have 1 unit pe…"}
 {"answer": "g(x) = f(-x)", "id": "senior-graph-reciprocal-abs-compare/medium/2/ebf0d69d5932", "text": "The graph of g is a transformation of the graph of f. Both axes have 1 unit per…"}
@@ -8292,7 +8292,7 @@
 {"answer": "The charge at the start is 100%", "id": "senior-graph-slope-intercept-meaning/medium/2/e38ea2acb805", "text": "A phone battery drains at a steady rate. The graph shows the charge left agains…"}
 {"answer": "-3", "id": "senior-graph-translation-read-shift/easy/0/7c14d0e48df4", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
 {"answer": "-2", "id": "senior-graph-translation-read-shift/easy/1/d5db7742ac1f", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
-{"answer": "1", "id": "senior-graph-translation-read-shift/easy/2/fdfedfe91655", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
+{"answer": "1", "id": "senior-graph-translation-read-shift/easy/2/9984ed5b4669", "text": "The graph of g is the graph of f moved up or down, so g(x) = f(x) + a. Both axe…"}
 {"answer": "(a) -3; (b) -4; (c) 2; (d) -6", "id": "senior-graph-translation-read-shift/exam/0/91a0d0e97bc5", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
 {"answer": "(a) 2; (b) -3; (c) 2; (d) -1", "id": "senior-graph-translation-read-shift/exam/1/0eb115e25699", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
 {"answer": "(a) 4; (b) 2; (c) -4; (d) -2", "id": "senior-graph-translation-read-shift/exam/2/d546cbb4f7c5", "text": "The graph of g is the graph of f moved horizontally and vertically, so g(x) = f…"}
@@ -8303,17 +8303,17 @@
 {"answer": "1", "id": "senior-graph-translation-read-shift/medium/1/397116a87725", "text": "g is a horizontal translation of f, with g(x) = f(x + b). Each grid square is 1…"}
 {"answer": "1", "id": "senior-graph-translation-read-shift/medium/2/e09fda30244f", "text": "g is a horizontal translation of f, with g(x) = f(x + b). Each grid square is 1…"}
 {"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/easy/0/0c9b76023b75", "text": "x^2 - 1 = -2. Is this equation linear in x? If it is linear, also give the valu…"}
-{"answer": "Linear; x = -3", "id": "senior-identify-and-solve-linear-equations/easy/1/eb41b700c09a", "text": "5x + 9 = -6. Is this equation linear in x? If it is linear, also give the value…"}
+{"answer": "Linear; x = -3", "id": "senior-identify-and-solve-linear-equations/easy/1/5cda4cf58d76", "text": "5x + 9 = -6. Is this equation linear in x? If it is linear, also give the value…"}
 {"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/easy/2/bf9c33b6275b", "text": "x^2 - 1 = -8. Is this equation linear in x? If it is linear, also give the valu…"}
 {"answer": "No value of k makes the equation linear", "id": "senior-identify-and-solve-linear-equations/exam/0/a29ddb46f98d", "text": "The equation (kx + 1)(kx - 4) = -4x^2 + 6x + 5 contains a constant k. Find the …"}
 {"answer": "k = 6; x = -7", "id": "senior-identify-and-solve-linear-equations/exam/1/8f3569676440", "text": "The equation (kx + 4)(x + 6) = (6x + 6)(x + 4) + 5x - 35 contains a constant k.…"}
 {"answer": "k = 2; x = 2", "id": "senior-identify-and-solve-linear-equations/exam/2/9eb6d56e476c", "text": "The equation (kx + 2)(x + 5) = (2x + 3)(x + 4) - 2x + 4 contains a constant k. …"}
 {"answer": "Linear; x = 14", "id": "senior-identify-and-solve-linear-equations/hard/0/4a47967c643d", "text": "(x + 3)(x - 2) - x^2 = 8. Is this equation linear in x? If it is linear, also g…"}
-{"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/hard/1/3fe26921a8d2", "text": "(x + 1)(x - 6) + x^2 = -9. Is this equation linear in x? If it is linear, also …"}
-{"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/hard/2/25c9df3fbeb9", "text": "(x + 3)(x - 2) + x^2 = 1. Is this equation linear in x? If it is linear, also g…"}
+{"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/hard/1/ac2d971572f5", "text": "(x + 1)(x - 6) + x^2 = -9. Is this equation linear in x? If it is linear, also …"}
+{"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/hard/2/91c0a6587062", "text": "(x + 3)(x - 2) + x^2 = 1. Is this equation linear in x? If it is linear, also g…"}
 {"answer": "Linear; x = -37", "id": "senior-identify-and-solve-linear-equations/medium/0/b306f658dd23", "text": "(x + 1)/4 = -9. Is this equation linear in x? If it is linear, also give the va…"}
 {"answer": "Linear; x = -22", "id": "senior-identify-and-solve-linear-equations/medium/1/9a465477bd09", "text": "(x + 4)/3 = -6. Is this equation linear in x? If it is linear, also give the va…"}
-{"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/medium/2/717569cfcc32", "text": "-5/(x + 2) = 3. Is this equation linear in x? If it is linear, also give the va…"}
+{"answer": "Not linear", "id": "senior-identify-and-solve-linear-equations/medium/2/c3a980fc75d9", "text": "-5/(x + 2) = 3. Is this equation linear in x? If it is linear, also give the va…"}
 {"answer": "km/h", "id": "senior-identify-common-usage-of-rates-for-example-km/easy/0/cdf4d8507a31", "text": "Which unit is conventionally used to report the speed of a racehorse in a sprin…"}
 {"answer": "L/minute", "id": "senior-identify-common-usage-of-rates-for-example-km/easy/1/597fb0b811f7", "text": "Which unit is conventionally used to report the flow rate a WELS water-efficien…"}
 {"answer": "L/minute", "id": "senior-identify-common-usage-of-rates-for-example-km/easy/2/5be0694ecfc4", "text": "Which unit is conventionally used to report how quickly water flows from a bath…"}
@@ -8326,12 +8326,12 @@
 {"answer": "km/h", "id": "senior-identify-common-usage-of-rates-for-example-km/medium/0/c863f0b5a4e0", "text": "Which unit is conventionally used to report the value a radar gun logs for a ch…"}
 {"answer": "km/h", "id": "senior-identify-common-usage-of-rates-for-example-km/medium/1/cd614b596e73", "text": "Which unit is conventionally used to report the figure quoted for how fast a gu…"}
 {"answer": "L/minute", "id": "senior-identify-common-usage-of-rates-for-example-km/medium/2/91eb1ffd9dbf", "text": "Which unit is conventionally used to report the number found by timing how fast…"}
-{"answer": "The heights, in cm, of adult male students at a large high …", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/easy/0/194cee6f9f74", "text": "Which of the following is best modelled by a normal random variable? 1) The mas…"}
-{"answer": "The body temperatures, in degrees Celsius, of healthy adult…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/easy/1/c69a28ea75d1", "text": "Which of the following is best modelled by a normal random variable? 1) The num…"}
-{"answer": "The masses, in grams, of apples picked from a single orchar…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/easy/2/59a8f694e3c9", "text": "Which of the following is best modelled by a normal random variable? 1) The num…"}
-{"answer": "The wingspans, in mm, of a particular species of moth, but …", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/exam/0/18fa08c7080d", "text": "Each context below includes an extra detail about how the data were collected. …"}
+{"answer": "The heights, in cm, of adult male students at a large high …", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/easy/0/39bbd587e66b", "text": "Which of the following is best modelled by a normal random variable? 1) The mas…"}
+{"answer": "The body temperatures, in degrees Celsius, of healthy adult…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/easy/1/454369dba2d1", "text": "Which of the following is best modelled by a normal random variable? 1) The dis…"}
+{"answer": "The masses, in grams, of apples picked from a single orchar…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/easy/2/9978ede33cef", "text": "Which of the following is best modelled by a normal random variable? 1) The num…"}
+{"answer": "The wingspans, in mm, of a particular species of moth, reco…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/exam/0/119b8ad2be59", "text": "Each context below includes an extra detail about how the data were collected. …"}
 {"answer": "The birth weights, in grams, of full-term babies at a large…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/exam/1/0f6efc44e649", "text": "Each context below includes an extra detail about how the data were collected. …"}
-{"answer": "The grip strengths, in kg, of adult female patients measure…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/exam/2/b7ece5f5244c", "text": "Each context below includes an extra detail about how the data were collected. …"}
+{"answer": "The grip strengths, in kg, of adult female patients measure…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/exam/2/552500092619", "text": "Each context below includes an extra detail about how the data were collected. …"}
 {"answer": "The masses, in grams, of apples picked from a single orchar…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/hard/0/aaa1cd53c691", "text": "Which of the following is best modelled by a normal random variable? 1) The num…"}
 {"answer": "The resting heart rates, in beats per minute, of healthy ad…", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/hard/1/ea25dda2a717", "text": "Which of the following is best modelled by a normal random variable? 1) The res…"}
 {"answer": "The wingspans, in mm, of a particular species of moth.", "id": "senior-identify-contexts-such-as-naturally-occurring-variation-that/hard/2/956b956f45a8", "text": "Which of the following is best modelled by a normal random variable? 1) The win…"}
@@ -10731,7 +10731,7 @@
 {"answer": "2/7", "id": "senior-use-the-notation-p-a-vert-b/medium/2/01e115c4d8d1", "text": "In a group of 53 people: 2 people like both Sport and Music; 5 people like Spor…"}
 {"answer": "False, because no value in the set satisfies it", "id": "senior-use-the-quantifiers-for-all-and-there-exists/easy/0/b6b787ad31ef", "text": "There exists n in {40, 48, 52, 80, 90} such that n is odd. Is this True or Fals…"}
 {"answer": "False, because no value in the set satisfies it", "id": "senior-use-the-quantifiers-for-all-and-there-exists/easy/1/0a19f8cf8712", "text": "There exists n in {51, 55, 79, 80, 98} such that n is a perfect square. Is this…"}
-{"answer": "True, because at least one value in the set satisfies it", "id": "senior-use-the-quantifiers-for-all-and-there-exists/easy/2/b8765dbe6a5a", "text": "There exists n in {10, 15, 25, 69, 81} such that n is a perfect square. Is this…"}
+{"answer": "True, because at least one value in the set satisfies it", "id": "senior-use-the-quantifiers-for-all-and-there-exists/easy/2/8a8bb16b5804", "text": "There exists n in {10, 15, 25, 69, 81} such that n is a perfect square. Is this…"}
 {"answer": "(a) -2; (b) -24; (c) 24", "id": "senior-use-the-quantifiers-for-all-and-there-exists/exam/0/e701f0a665da", "text": "Let g(x) = 6x^2 + 24x, and let k be an integer. Consider the statement S: “For …"}
 {"answer": "(a) -2; (b) -24; (c) 24", "id": "senior-use-the-quantifiers-for-all-and-there-exists/exam/1/5a7896177848", "text": "Let g(x) = 6x^2 + 24x, and let k be an integer. Consider the statement S: “For …"}
 {"answer": "(a) 3; (b) -18; (c) 19", "id": "senior-use-the-quantifiers-for-all-and-there-exists/exam/2/28f3696f115c", "text": "Let g(x) = 2x^2 - 12x, and let k be an integer. Consider the statement S: “For …"}
@@ -10739,7 +10739,7 @@
 {"answer": "Neither", "id": "senior-use-the-quantifiers-for-all-and-there-exists/hard/1/cce1337848ca", "text": "Which quantifier makes the following statement TRUE for the set {18, 60, 64, 66…"}
 {"answer": "Both 'for all' and 'there exists'", "id": "senior-use-the-quantifiers-for-all-and-there-exists/hard/2/464b981416cf", "text": "Which quantifier makes the following statement TRUE for the set {10, 20, 25, 55…"}
 {"answer": "True, because every value in the set satisfies it", "id": "senior-use-the-quantifiers-for-all-and-there-exists/medium/0/f5ed604c4924", "text": "For ALL n in {4, 9, 25, 36, 64, 81}, n is a perfect square. Is this True or Fal…"}
-{"answer": "False, because at least one value in the set fails it", "id": "senior-use-the-quantifiers-for-all-and-there-exists/medium/1/4659c2bba4ff", "text": "For ALL n in {11, 29, 51, 63, 79, 97}, n is even. Is this True or False?"}
+{"answer": "False, because at least one value in the set fails it", "id": "senior-use-the-quantifiers-for-all-and-there-exists/medium/1/a97960b13321", "text": "For ALL n in {11, 29, 51, 63, 79, 97}, n is even. Is this True or False?"}
 {"answer": "False, because at least one value in the set fails it", "id": "senior-use-the-quantifiers-for-all-and-there-exists/medium/2/76afe79a5ba7", "text": "For ALL n in {15, 51, 55, 87, 89, 98}, n is a multiple of 5. Is this True or Fa…"}
 {"answer": "36", "id": "senior-use-the-scale-factor-for-two-similar-figures/easy/0/84715eb39c23", "text": "Figure A and Figure B are similar. The scale factor from Figure A to Figure B i…"}
 {"answer": "144", "id": "senior-use-the-scale-factor-for-two-similar-figures/easy/1/9630ff5a014c", "text": "Figure A and Figure B are similar. The scale factor from Figure A to Figure B i…"}
@@ -11380,12 +11380,12 @@
 {"answer": "5/6", "id": "t-formulae-half-angle/medium/0/cae3f17d1ffa", "text": "Given that cos φ = 11/61 and 0 < φ < π, find the exact value of tan(φ/2)."}
 {"answer": "sqrt(3)", "id": "t-formulae-half-angle/medium/1/b0a9313c829e", "text": "Use the substitution t = tan(θ/2) with tan 120° = -sqrt(3) to find the exact va…"}
 {"answer": "5/4", "id": "t-formulae-half-angle/medium/2/182d75deddb5", "text": "Given that cos θ = -9/41 and 0 < θ < π, find the exact value of tan(θ/2)."}
-{"answer": "8", "id": "tally-tables/easy/0/9a1f30f4e078", "text": "Mateo reads the tally. How many fish?"}
+{"answer": "8", "id": "tally-tables/easy/0/9a39a2547c44", "text": "Mateo reads the tally. How many fish?"}
 {"answer": "3", "id": "tally-tables/easy/1/86f322f5b887", "text": "How many cars are there?"}
 {"answer": "3", "id": "tally-tables/easy/2/269256a24e1f", "text": "How many cars are there?"}
-{"answer": "The apples row", "id": "tally-tables/hard/0/94f84082e261", "text": "One row of the tally is wrong. Which row is it?"}
-{"answer": "The flowers row", "id": "tally-tables/hard/1/b9e1918c756e", "text": "Diego made a tally of the things. Which row is wrong?"}
-{"answer": "The apples row", "id": "tally-tables/hard/2/c4730c55fe09", "text": "Count the things and read the tally. Which row is wrong?"}
+{"answer": "The cats row", "id": "tally-tables/hard/0/f9a8b15fb3a5", "text": "One row of the tally is wrong. Which row is it?"}
+{"answer": "The balls row", "id": "tally-tables/hard/1/19d6680244a4", "text": "Diego made a tally of the things. Which row is wrong?"}
+{"answer": "The cats row", "id": "tally-tables/hard/2/cc2c928c2f0c", "text": "One row of the tally is wrong. Which row is it?"}
 {"answer": "The fish row", "id": "tally-tables/medium/0/d1e3dc291280", "text": "Look at the tally. Which row shows 26?"}
 {"answer": "The flowers row", "id": "tally-tables/medium/1/5b4ff860d0f5", "text": "Yuki looks for the row that shows 22. Which row is it?"}
 {"answer": "The cats row", "id": "tally-tables/medium/2/a204327277ff", "text": "Which row shows 8?"}

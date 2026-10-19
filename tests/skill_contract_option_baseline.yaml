@@ -34,8 +34,6 @@ answer_position:
   - grid_latlong_places/hard
   senior-use-ests-and-lsts-to-locate-the-critical:
   - w3_ests_lsts/hard
-  tally-tables:
-  - ey_tally_tables/easy
   uc2-quadric-surfaces-level-sets:
   - w7c_quadric/hard
 filler_option:
@@ -47,8 +45,6 @@ filler_option:
   - autonomous_equilibrium_stability/easy
   - autonomous_equilibrium_stability/hard
   - autonomous_equilibrium_stability/medium
-  classify-real-numbers:
-  - classify_real_number/easy
   compare-common-fractions:
   - compare_common_fractions/hard
   compare-lengths:
@@ -77,7 +73,6 @@ filler_option:
   f10-number-algorithm-choose-complete:
   - fr2e_number_algorithm/medium
   f10-position-location-language:
-  - p19a_position_language/easy
   - p19a_position_language/medium
   f10-prism-cross-sections:
   - prism_cross_sections/easy
@@ -173,7 +168,6 @@ option_count:
   acquire-and-check-data:
   - exd_x_w8_data_acquisition/exam
   add-complex-numbers:
-  - complex_number/easy
   - exd_x_r2e_complex_add/exam
   arithmetic-sequences:
   - exd_x_w5_arithmetic_sequences/exam
@@ -201,7 +195,6 @@ option_count:
   - polynomial_classify/hard
   - polynomial_classify/medium
   classify-real-numbers:
-  - classify_real_number/easy
   - exd_x_sc5_rational_count/exam
   compare-common-fractions:
   - compare_common_fractions/easy
@@ -214,7 +207,6 @@ option_count:
   - fg1_compare_functions/medium
   compare-lengths:
   - compare_length_picture/easy
-  - compare_length_picture/hard
   compare-linear-representations:
   - exd_x_w12c_compare_linear/exam
   - fg1_compare_linear/easy
@@ -222,10 +214,6 @@ option_count:
   - fg1_compare_linear/medium
   compare-quantities-to-10:
   - compare_quantities/easy
-  compare-tally-and-picture-displays:
-  - ey_compare_displays/easy
-  - ey_compare_displays/hard
-  - ey_compare_displays/medium
   compare-unit-prices:
   - exd_x_r3i_unit_price_saving/exam
   - p14b_compare_unit_prices/easy
@@ -241,7 +229,6 @@ option_count:
   - exd_x_w12b_equation_from_graph/exam
   ey-compare-by-paper-clips:
   - compare_by_paper_clips/easy
-  - compare_by_paper_clips/hard
   ey-compare-capacity-by-cups:
   - compare_capacity_by_cups/easy
   ey-compare-duration:
@@ -252,8 +239,6 @@ option_count:
   - add_sub_number_sentence/medium
   f10-choose-model-from-data:
   - exd_x_fr2e_choose_model/exam
-  - fr2e_choose_model/hard
-  - fr2e_choose_model/medium
   f10-choose-unit-and-convert:
   - fr2c_choose_unit_convert_exam/exam
   f10-compare-box-plots:
@@ -291,9 +276,6 @@ option_count:
   f10-polygon-classification:
   - p14b_polygon_classification/easy
   - p14b_polygon_classification/hard
-  f10-position-location-language:
-  - p19a_position_language/easy
-  - p19a_position_language/hard
   f10-prism-cross-sections:
   - prism_cross_sections/easy
   - prism_cross_sections_forced/hard
@@ -306,13 +288,10 @@ option_count:
   - quantify_compare_to_20/medium
   f10-shape-sorting-algorithm:
   - exd_x_r2j_shape_sorting_chain/exam
-  - p15d_shape_sorting/easy
   f10-spatial-algorithm-choose-test:
   - exd_x_fr2e_spatial_algorithm/exam
   f10-square-roots-perfect-squares:
   - exd_x_sc5_square_fix/exam
-  - square_roots_perfect_squares/easy
-  - square_roots_perfect_squares/medium
   function-concept:
   - exd_x_w5_function_concept/exam
   graph-eulerian-trails-circuits:
@@ -342,8 +321,6 @@ option_count:
   - sr2l_circle_pick_exam/exam
   logarithm-laws:
   - exd_x_sc5_log_equation/exam
-  matrix-multiplication:
-  - exd_x_h2_matrix_multiplication/exam
   meaning-of-equality:
   - exd_x_w5_meaning_of_equality/exam
   multiply-complex-numbers:
@@ -353,8 +330,6 @@ option_count:
   - ir2a_pick_display_for_question/easy
   - ir2a_pick_display_for_question/hard
   - ir2a_pick_display_for_question/medium
-  place-value-to-20:
-  - teen_place_value/easy
   plot-linear-points:
   - exd_x_w12b_plot_linear_points/exam
   prime-factorisation:
@@ -375,19 +350,12 @@ option_count:
   - smech_residual_plots_exam/exam
   scientific-notation:
   - exd_x_sc6_sci_notation/exam
-  scientific-notation-ops-to-engineering:
-  - exd_e5_scientific_notation_ops_to_engineering/easy
-  - exd_e5_scientific_notation_ops_to_engineering/medium
   senior-check-results-of-calculations-for-accuracy:
   - exd_x_sc1_check_calculation/exam
   senior-compare-the-characteristics-of-the-shape-of-histograms:
   - exd_x_r2k_histogram/exam
   senior-describe-spread-from-a-dot-plot:
   - ey_dot_plot_spread_exam/exam
-  senior-distinguish-between-causality-and-correlation-through-examples:
-  - causality_correlation_classify/easy
-  - causality_correlation_classify/hard
-  - causality_correlation_classify/medium
   senior-estimate-lengths:
   - exd_x_sc4_est_length/exam
   senior-estimate-the-areas-of-different-shapes:
@@ -414,29 +382,18 @@ option_count:
   senior-formulate-differential-equations-including-the-logistic-equation-that:
   - exd_x_r3i_mixing_rates/exam
   senior-graph-dilation-read-factor:
-  - ey_graph_dilation/easy
   - ey_graph_dilation_exam/exam
   senior-graph-reciprocal-abs-compare:
-  - ey_graph_reciprocal_abs/hard
   - ey_graph_reciprocal_abs_exam/exam
   senior-graph-slope-intercept-meaning:
   - ey_context_line_exam/exam
   senior-graph-translation-read-shift:
-  - ey_graph_translation/easy
-  - ey_graph_translation/medium
   - ey_graph_translation_exam/exam
-  senior-identify-and-solve-linear-equations:
-  - identify_and_solve_linear_equation/easy
-  - identify_and_solve_linear_equation/hard
-  - identify_and_solve_linear_equation/medium
   senior-identify-common-usage-of-rates-for-example-km:
   - p19h_rate_usage_classification/easy
   - p19h_rate_usage_classification/exam
   - p19h_rate_usage_classification/hard
   - p19h_rate_usage_classification/medium
-  senior-identify-contexts-such-as-naturally-occurring-variation-that:
-  - p19d_variation_context/easy
-  - p19d_variation_context/exam
   senior-identify-contexts-suitable-for-modelling-by-bernoulli-random:
   - exd_x_r2k_bernoulli_suitability/exam
   senior-identify-contexts-suitable-for-modelling-by-binomial-random:
@@ -521,19 +478,12 @@ option_count:
   - exd_x_w7f_plan_conventions_chain/exam
   senior-use-the-quantifiers-for-all-and-there-exists:
   - exd_x_sc7_quantifier_threshold/exam
-  - quantifier_forall_exists_evaluate/easy
-  - quantifier_forall_exists_evaluate/medium
   solution-and-solution-set:
   - exd_x_w5_solution_set/exam
   solve-linear-equations-graphically:
   - exd_x_w12c_solve_graphically/exam
-  tally-tables:
-  - ey_tally_tables/easy
-  - ey_tally_tables/hard
   uc2-quadric-surfaces-level-sets:
   - exd_x_w7c_quadric/exam
-  - w7c_quadric/hard
-  - w7c_quadric/medium
   ucv1-compactness-finite-check:
   - exd_x_r2g_subcover_count/exam
   ucv1-completeness-cauchy-check:
