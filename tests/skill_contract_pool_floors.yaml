@@ -34,8 +34,6 @@ f10-circle-measures:
 f10-decimal-notation-tenths-hundredths:
   decimal_tenths_hundredths_compose/easy: 17
 f10-fractions-half-quarter-eighth:
-  fraction_halving/hard: 4
-  fraction_halving/medium: 2
 f10-logarithmic-scales:
   p10e_logarithmic_scales/easy: 10
 f10-odd-even-properties:
