@@ -56226,6 +56226,111 @@ _ENTRIES = (
         area="parabola-from-vertex-and-point",
     ),
     # -- end w9
+    CatalogueEntry(
+        "surd-root-not-squared",
+        "Squaring a product that holds a square root but leaving the root unsquared, so (q√n)^2 becomes q^2√n.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-forgot-square-on-q",
+        "Squaring only part of a product: (q√n)^2 or (nk)^2 written with one factor left unsquared.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-square-of-product-as-sum",
+        "Treating the square of a product as the square of a sum, or replacing a product by a sum before squaring.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-cancels-factor-wrongly",
+        "Cancelling a common factor incorrectly in a fraction: dividing only part of the numerator, or losing a power of the letter.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-divides-only-the-root",
+        "Dividing only one term of a sum by b when isolating a surd, so (a + b√n - a)/b becomes √n - a/b.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-forgot-to-divide-by-b",
+        "Subtracting the rational part to isolate the surd but never dividing by its coefficient.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-sign-of-a-flipped",
+        "Adding the rational part where it should be subtracted, or subtracting a cross term that should be added.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-sum-cross-term-forgotten",
+        "Squaring a sum of two surds without the cross term: (√m + √n)^2 written as m + n.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-odd-square-forgets-cross-term",
+        "Squaring an odd number 2k + c without the middle term 4ck.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-square-of-sum-termwise",
+        "Squaring or cubing a sum or product term by term: (2k + 1)^2 as 2k^2 + 1, or (2k)^2 as 2k^2.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-odd-form-off-by-one",
+        "Writing the final line as an even number plus the wrong leftover, so it no longer equals the expression it should show is odd or even.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-factor-not-taken-out-fully",
+        "Taking a factor of 2 (or 4) out of some terms of a sum but not all of them, or not halving the last term.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-product-misses-cross-term",
+        "Multiplying two brackets with fewer than four products, or leaving the factor 2 off a cross term.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "amgm-cross-term-sign",
+        "Writing the square of a sum where the square of a difference is needed, or the reverse.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "amgm-difference-of-squares",
+        "Writing a difference of squares (a - b)(a + b) where a perfect square (a - b)^2 is needed.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "amgm-cross-term-halved",
+        "Expanding or factorising a square with the cross term -ab instead of -2ab.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "amgm-drops-denominator",
+        "Combining fractions but putting only part of the expression over the common denominator, or using the wrong one.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "tri-abs-squared-not-squared",
+        "Treating |a|^2 as |a| (or the cross term 2|a||b| as 2ab) when squaring an absolute value.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "tri-cross-term-sign",
+        "Adding the cross term 2ab where it should be subtracted when finding the difference of two squares.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "tri-cross-term-dropped",
+        "Dropping the cross term, or its factor 2, when expanding the square of a sum of absolute values.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-quotient-inverted",
+        "Turning p over q into q over p when squaring both sides of a quotient involving a surd.",
+        area="proof-steps",
+    ),
 )
 
 #: Every entry, by id.

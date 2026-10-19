@@ -31,6 +31,7 @@ import os
 from functools import lru_cache
 from pathlib import Path
 
+from mathgen.grading.open_response import UNMARKED_KINDS
 from mathgen.grading.typed import GRADERS
 from mathgen.skills import Skill, load_skills
 from mathgen import make
@@ -96,6 +97,8 @@ def check_determinism(skill_id: str) -> None:
 
 
 def check_distractors(skill_id: str) -> None:
+    if skill(skill_id).answer in UNMARKED_KINDS:
+        return  # an open response has a rubric, not options
     for src, difficulty, qs in draws(skill_id):
         for seed, q in enumerate(qs):
             # A multi-part question carries its distractors on each part, not on the whole.

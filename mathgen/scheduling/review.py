@@ -69,6 +69,11 @@ def outcome_from_marks(results, *, maintenance: bool = False, reset_misses: int 
     results = list(results)
     if not results:
         raise ValueError("a review needs at least one graded answer")
+    # An open-response answer still waiting for its marker (`pending`) is neither a hit nor a miss: it is left out
+    # until a marking result arrives. See docs/design/open-response-handoff.md.
+    results = [r for r in results if not getattr(r, "pending", False)]
+    if not results:
+        raise ValueError("every answer in this review is still waiting to be marked")
     if reset_misses < 1:
         raise ValueError(f"reset_misses must be at least 1, got {reset_misses}")
     misses = sum((_miss(r) for r in results), Fraction(0))

@@ -46,6 +46,8 @@ ANSWER_KINDS = frozenset(
         "curve",
         "bars",
         "edges",
+        "open_response",
+        "step_chain",
     }
 )
 

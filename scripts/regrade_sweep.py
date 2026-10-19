@@ -39,6 +39,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
+from mathgen.grading.open_response import UNMARKED_KINDS, rubric_of  # noqa: E402
 from mathgen.grading.typed import GRADERS, mcq_options  # noqa: E402
 from mathgen.skills import Skill, load_skills  # noqa: E402
 from mathgen import figures, make  # noqa: E402
@@ -290,6 +291,28 @@ class SkillSweepResult:
         return not (self.false_rejects or self.false_accepts or self.exceptions or self.figure_failures)
 
 
+def _sweep_unmarked(skill: Skill, seeds: int, grader, result: SkillSweepResult) -> SkillSweepResult:
+    """An open-response skill has no canonical answer to accept: the grader must hold the model answer back as
+    pending (never right, never wrong) and the question's rubric must be well formed."""
+    for src in skill.sources:
+        params = _tuplify(src.params)
+        for difficulty in _difficulties_for(src.topic, src.difficulty):
+            for seed in range(seeds):
+                try:
+                    question = make(src.topic, seed=seed, difficulty=difficulty, **params)
+                    rubric_of(question.answer)
+                except Exception as exc:  # noqa: BLE001 - a generator or rubric exception is itself a failure
+                    result.exceptions.append((src.topic, difficulty, seed, str(exc)))
+                    continue
+                result.questions += 1
+                graded = grader(question, question.answer_text)
+                if getattr(graded, "pending", False) and not graded.correct:
+                    result.accepts += 1
+                else:
+                    result.false_rejects.append((src.topic, difficulty, seed, question.answer_text, "not pending"))
+    return result
+
+
 def sweep_skill(skill: Skill, seeds: int = DEFAULT_SEEDS, graders: dict | None = None) -> SkillSweepResult:
     """Run the full positive+negative sweep for one skill's every source and
     every difficulty it declares, across `seeds` seeds each."""
@@ -298,6 +321,8 @@ def sweep_skill(skill: Skill, seeds: int = DEFAULT_SEEDS, graders: dict | None =
     grader = graders.get(skill.answer)
     if grader is None:
         return result  # unregistered answer kind: nothing this tool can grade
+    if skill.answer in UNMARKED_KINDS:
+        return _sweep_unmarked(skill, seeds, grader, result)
 
     for src in skill.sources:
         params = _tuplify(src.params)
