@@ -371,7 +371,7 @@ def _materials_chain(rng):
         "Find the cost of the rolls, in dollars.",
         cost,
         1,
-        [f"{rolls} x ${price} = ${cost}."],
+        [f"{rolls} × ${price} = ${cost}."],
         [
             (area * price // cover if (area * price) % cover == 0 else None, "scd-cost-of-fractional-rolls"),
             ((rolls - 1) * price, "scd-rounds-down"),

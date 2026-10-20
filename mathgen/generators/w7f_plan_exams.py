@@ -169,7 +169,7 @@ def _symbols_chain(rng):
         _CHARGE_ASK.format(price=price),
         count * price,
         1,
-        [f"{count} x ${price} = ${count * price}."],
+        [f"{count} × ${price} = ${count * price}."],
         [
             ((count - 1) * price, "plan-omits-the-dishwasher"),
             ((count + 1) * price, "plan-count-off-by-one"),

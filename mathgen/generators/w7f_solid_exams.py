@@ -250,7 +250,7 @@ def _properties_chain(rng):
         f"Painting the whole outside, bottom included, costs ${price} for each unit square. Find the cost, in dollars.",
         area * price,
         2,
-        [f"{area} x ${price} = ${area * price}."],
+        [f"{area} × ${price} = ${area * price}."],
         [
             (sum(faces) * price, "cub-counts-one-of-each-pair-of-faces"),
             (volume * price, "cub-prices-the-volume"),
@@ -565,7 +565,7 @@ def _outline_chain(rng):
         f"Tiling the shape costs ${price} for each square. Find the cost of tiling the shape, in dollars.",
         area * price,
         1,
-        [f"{area} x ${price} = ${area * price}."],
+        [f"{area} × ${price} = ${area * price}."],
         [
             (box * price, "comp-gives-the-bounding-rectangle"),
             (perimeter * price, "comp-gives-the-perimeter-for-the-area"),

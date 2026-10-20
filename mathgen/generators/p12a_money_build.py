@@ -156,12 +156,7 @@ def _build_d2c(rng, tier: str) -> dict:
         answer_latex=answer_text,
         working=[
             f"{display_amt} = {dollars} {'dollar' if dollars == 1 else 'dollars'} and {frac:02d} cents "
-            f"= {dollars} × 100{f' + {frac}' if frac else ''} = {answer_text} cents."
-            + (
-                " (dollars-to-cents regrouping trap: naive digit concatenation drops the tens-of-cents zero.)"
-                if tier == "hard"
-                else ""
-            ),
+            f"= {dollars} × 100{f' + {frac}' if frac else ''} = {answer_text} cents.",
         ],
         distractors=pick_distractors(
             answer_text,
@@ -221,13 +216,7 @@ def _build_c2d(rng, tier: str) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"{cents} {unit} = {cents} / 100 = ${answer_text}."
-            + (
-                " (leading-zero-in-cents trap: the result is under one dollar, "
-                "a naive answer drops the required tenths-place zero.)"
-                if tier == "hard"
-                else ""
-            ),
+            f"{cents} {unit} = {cents} ÷ 100 = ${answer_text}.",
         ],
         distractors=pick_distractors(
             answer_text,

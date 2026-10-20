@@ -154,7 +154,8 @@ def _easy(rng):
             int_d(total, "fr2d-reports-the-total"),
             int_d(key - 1, "fr2d-tally-off-by-one"),
         ]
-        working = [f"{x}: {_tally(key)} is {key // 5} group(s) of 5 and {key % 5} more, so {key}."]
+        gate_word = "group" if key // 5 == 1 else "groups"
+        working = [f"{x}: {_tally(key)} is {key // 5} {gate_word} of 5 and {key % 5} more, so {key}."]
         ask = phrase(rng, _EASY_ASK["read"], x=x)
     elif kind == "more":
         i, j = rng.sample(range(k), 2)

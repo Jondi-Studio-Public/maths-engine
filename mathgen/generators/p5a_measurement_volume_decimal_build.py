@@ -269,7 +269,7 @@ def decimal_metric_representation(rng, mode="single_step"):
     """Convert metric measurements to larger units with decimal precision."""
     if mode == "single_step":
         # Easy: mm to cm (factor 10), 1 decimal place
-        v = rng.randint(11, 999)
+        v = rng.randint(90, 200)  # a pencil is 9 to 20 cm long
         factor = 10
         places = 1
 
@@ -308,7 +308,8 @@ def decimal_metric_representation(rng, mode="single_step"):
         places = 2
 
         # Construct v as multiple of 10 so division terminates at 2 places
-        v = 10 * rng.randint(101, 9999)
+        # A bag of sugar is 500 g to 5 kg and a bottle of juice 200 mL to 3 L.
+        v = 10 * (rng.randint(50, 500) if family == "g_to_kg" else rng.randint(20, 300))
 
         frac = Fraction(v, factor)
         answer_text = _format_fixed(frac, places)

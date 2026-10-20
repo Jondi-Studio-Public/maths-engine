@@ -766,7 +766,7 @@ def _ss_pool(rng, ctx, rate, names, two):
     reports = " ".join(_report(nm, ctx, n, s) for nm, n, s in zip(names, sizes, successes))
     joint = "Their" if two else "All three"
     stem = (
-        f"{reports} {joint} results are combined, as if the {total} {ctx['unit']}s were one experiment. "
+        f"{reports} {joint} results are combined, as if the {total} {ctx['unit']}{'es' if ctx['unit'].endswith(('s', 'ch', 'sh', 'x')) else 's'} were one experiment. "
         f"Use the combined results to estimate {ctx['thing']}. Give your answer as a percentage, correct to 1 decimal place."
     )
     candidates = [_pct_d(percents[j], "uses-one-experiment-only") for j in range(groups)]

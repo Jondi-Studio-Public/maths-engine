@@ -56,6 +56,7 @@ TIERS = ("easy", "medium", "hard", "exam")
 # never needs to clamp (see `_monotonic_series`).
 # ---------------------------------------------------------------------------
 
+#   `periods` (optional): the recording intervals that fit the quantity; the default is every period kind.
 #   `first`: the indefinite/generic form used once, to introduce the subject.
 #   `later`: the definite form used in every claim and working line after
 #     that first mention, so the noun the subject names (museum/company/
@@ -86,10 +87,11 @@ _QUANTITIES = [
         first="the average daily temperature",
         later="the average daily temperature",
         unit="°C",
-        lo=2,
-        hi=40,
-        g=2,
+        lo=16,
+        hi=32,
+        g=1,
         axis="Temperature (°C)",
+        periods=("week",),
     ),
     dict(
         first="the population of a small town",
@@ -99,6 +101,7 @@ _QUANTITIES = [
         hi=10000,
         g=500,
         axis="Population",
+        periods=("year",),
     ),
     dict(
         first="the amount of rainfall",
@@ -119,13 +122,14 @@ _QUANTITIES = [
         axis="Members",
     ),
     dict(
-        first="a household's monthly power bill",
-        later="the household's monthly power bill",
+        first="a household's weekly power bill",
+        later="the household's weekly power bill",
         unit="$",
-        lo=60,
-        hi=400,
-        g=20,
+        lo=20,
+        hi=105,
+        g=5,
         axis="Bill ($)",
+        periods=("week",),
     ),
 ]
 
@@ -301,12 +305,17 @@ def _delta_fact(delta: int, unit: str) -> str:
     return f"it {_delta_action(delta, unit)}"
 
 
-def _decoy_deltas(rng: random.Random, actual_delta: int, count: int, g: int) -> list[int]:
+def _decoy_deltas(rng: random.Random, actual_delta: int, count: int, g: int, bound: int | None = None) -> list[int]:
     candidates: set[int] = {0, -actual_delta}
     for d in (3, 5, 7, 10, 15, 20, -3, -5, -7, -10, -15, -20):
         candidates.add(actual_delta + d * g)
         candidates.add(actual_delta - d * g)
     candidates.discard(actual_delta)
+    if bound is not None:
+        # A change bigger than the quantity's whole range could never be drawn; keep to believable decoys when enough remain.
+        near = {c for c in candidates if abs(c) <= bound}
+        if len(near) >= count:
+            candidates = near
     ordered = sorted(candidates)
     rng.shuffle(ordered)
     chosen = ordered[:count]
@@ -352,10 +361,10 @@ def _change_claim(
     if want_supported:
         claim_delta = actual_delta
         key = "Supported"
-        decoy_deltas = _decoy_deltas(rng, actual_delta, 3, q["g"])
+        decoy_deltas = _decoy_deltas(rng, actual_delta, 3, q["g"], q["hi"] - q["lo"])
         distractors = [f"Not supported: {_delta_fact(d, q['unit'])}" for d in decoy_deltas]
     else:
-        decoy_deltas = _decoy_deltas(rng, actual_delta, 3, q["g"])
+        decoy_deltas = _decoy_deltas(rng, actual_delta, 3, q["g"], q["hi"] - q["lo"])
         claim_delta = decoy_deltas[0]
         key = f"Not supported: {true_fact}"
         distractors = ["Supported"] + [f"Not supported: {_delta_fact(d, q['unit'])}" for d in decoy_deltas[1:3]]
@@ -530,7 +539,7 @@ def p18a_line_graph_claims(rng: random.Random, tier: str = "easy") -> dict:
         raise ValueError(f"unknown tier {tier!r}")
 
     q = rng.choice(_QUANTITIES)
-    period_kind = rng.choice(_PERIOD_KINDS)
+    period_kind = rng.choice(q.get("periods", _PERIOD_KINDS))
 
     if tier == "easy":
         n = rng.randint(4, 5)
