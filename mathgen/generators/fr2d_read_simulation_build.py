@@ -333,7 +333,7 @@ def _hard(rng):
     )
     working = [
         f"Keep only the results where {clause(pos, which_given)}: {n_cond} of the {n}.",
-        f"Of those, {n_hit} have {clause(side, which_target)}.",
+        f"Of those {n_cond}, the number where {clause(side, which_target)} is {n_hit}.",
         f"{n_hit}/{n_cond} = {rational_text(p)}.",
     ]
     return _fraction_dict(stem, p, working, opts)

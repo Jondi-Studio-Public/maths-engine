@@ -302,7 +302,8 @@ def _finish(rounded, dist, dp, angle, known_role, unknown_role, known, text, *, 
     defn = {"sin": "opposite / hypotenuse", "cos": "adjacent / hypotenuse", "tan": "opposite / adjacent"}[ratio]
     denominator_role = {"sin": "hypotenuse", "cos": "hypotenuse", "tan": "adjacent"}[ratio]
     printed = stated_precision_string(_ratio_table(angle)[ratio], 4)
-    operation = f"{known} / {printed}" if unknown_role == denominator_role else f"{known} x {printed}"
+    known_text = str(known) if known.denominator == 1 else stated_precision_string(known, 1)
+    operation = f"{known_text} / {printed}" if unknown_role == denominator_role else f"{known_text} x {printed}"
     working = [
         *lead,
         f"The sides involved are the {known_role} and the {unknown_role}, so use {ratio} {angle} = {defn}.",

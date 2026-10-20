@@ -580,9 +580,9 @@
 {"answer": "(a) 3, -8; (b) 10; (c) -18, 2; (d) 12", "id": "circle-complete-the-square/exam/0/967c811dc818", "text": "A circle has the equation x^2 + y^2 - 6x + 16y - 27 = 0. (a) Find the centre of…"}
 {"answer": "(a) 7, 9; (b) 15; (c) -6, 24; (d) 24", "id": "circle-complete-the-square/exam/1/23eb4de5edea", "text": "A circle has the equation x^2 + y^2 - 14x - 18y - 95 = 0. (a) Find the centre o…"}
 {"answer": "(a) -6, -8; (b) 10; (c) -18, 2; (d) 12", "id": "circle-complete-the-square/exam/2/231216a71cec", "text": "A circle has the equation x^2 + y^2 + 12x + 16y = 0. (a) Find the centre of the…"}
-{"answer": "5, -5, 2", "id": "circle-complete-the-square/hard/0/12f93a1e11c1", "text": "A circle has the equation 2x^2 + 2y^2 - 20x + 20y + 96 = 0. Enter the x-coordin…"}
-{"answer": "2, 2, 21", "id": "circle-complete-the-square/hard/1/8066813b46bb", "text": "A circle has the equation 4x^2 + 4y^2 - 16x - 16y - 52 = 0. Enter the x-coordin…"}
-{"answer": "-4, -2, 34", "id": "circle-complete-the-square/hard/2/f0c0952a1c07", "text": "A circle has the equation 3x^2 + 3y^2 + 24x + 12y - 42 = 0. Enter the x-coordin…"}
+{"answer": "5, -5, 2", "id": "circle-complete-the-square/hard/0/eb5baebe7d15", "text": "A circle has the equation 2x^2 + 2y^2 - 20x + 20y + 96 = 0. Enter the x-coordin…"}
+{"answer": "2, 2, 21", "id": "circle-complete-the-square/hard/1/71aff8480f3b", "text": "A circle has the equation 4x^2 + 4y^2 - 16x - 16y - 52 = 0. Enter the x-coordin…"}
+{"answer": "-4, -2, 34", "id": "circle-complete-the-square/hard/2/366fad1b82aa", "text": "A circle has the equation 3x^2 + 3y^2 + 24x + 12y - 42 = 0. Enter the x-coordin…"}
 {"answer": "-4, 5, 3", "id": "circle-complete-the-square/medium/0/85dbca93c8a6", "text": "A circle has the equation x^2 + y^2 + 8x - 10y = -32. Complete the square. Ente…"}
 {"answer": "10, 4, 4", "id": "circle-complete-the-square/medium/1/2ce1b84299d7", "text": "The circle (x + 5)^2 + (y + 2)^2 = 25 is written as x^2 + y^2 + Dx + Ey + F = 0…"}
 {"answer": "-3, 3, 10", "id": "circle-complete-the-square/medium/2/6e1982c74020", "text": "A circle has the equation x^2 + y^2 + 6x - 6y = 82. Complete the square. Enter …"}
@@ -2629,9 +2629,9 @@
 {"answer": "{Q, S}", "id": "f10-graphical-inequality-regions/easy/0/5e769056ef97", "text": "The line L is the graph of y = -3x + 2. The five points P, Q, R, S and T are ma…"}
 {"answer": "{Q}", "id": "f10-graphical-inequality-regions/easy/1/911950b5aa5a", "text": "The line L is the graph of y = 2x - 4. The five points P, Q, R, S and T are mar…"}
 {"answer": "{Q, R, S}", "id": "f10-graphical-inequality-regions/easy/2/077ee87f4fb9", "text": "The line L is the graph of y = -2x + 1. The five points P, Q, R, S and T are ma…"}
-{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-graphical-inequality-regions/exam/0/104c36de52d4", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
-{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-graphical-inequality-regions/exam/1/ea57663ac9df", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
-{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-graphical-inequality-regions/exam/2/c8f07d02eb46", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
+{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-graphical-inequality-regions/exam/0/51e7c8171370", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
+{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-graphical-inequality-regions/exam/1/3af0e77739e2", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
+{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-graphical-inequality-regions/exam/2/2889643feac1", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
 {"answer": "{U}", "id": "f10-graphical-inequality-regions/hard/0/379dfa638f1f", "text": "The lines A and B are drawn on the grid and continue in both directions. A regi…"}
 {"answer": "{P}", "id": "f10-graphical-inequality-regions/hard/1/c23ab1f5cbdd", "text": "The lines A and B are drawn on the grid and continue in both directions. A regi…"}
 {"answer": "{R, U}", "id": "f10-graphical-inequality-regions/hard/2/546655137552", "text": "The lines A and B are drawn on the grid and continue in both directions. A regi…"}
@@ -2641,9 +2641,9 @@
 {"answer": "(-2, 3)", "id": "f10-graphical-systems-of-lines/easy/0/b0b70b4bff80", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
 {"answer": "(-1, -2)", "id": "f10-graphical-systems-of-lines/easy/1/ee8c4f1bce6f", "text": "Find the point where the lines A and B cross, as (x, y)."}
 {"answer": "(3, 4)", "id": "f10-graphical-systems-of-lines/easy/2/a889785290fa", "text": "The lines A and B are drawn on the grid. What is the solution of the simultaneo…"}
-{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-graphical-systems-of-lines/exam/0/104c36de52d4", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
-{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-graphical-systems-of-lines/exam/1/ea57663ac9df", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
-{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-graphical-systems-of-lines/exam/2/c8f07d02eb46", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
+{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-graphical-systems-of-lines/exam/0/51e7c8171370", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
+{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-graphical-systems-of-lines/exam/1/3af0e77739e2", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
+{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-graphical-systems-of-lines/exam/2/2889643feac1", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
 {"answer": "(12, -34)", "id": "f10-graphical-systems-of-lines/hard/0/18babb170609", "text": "Line A is drawn on the grid and extends in both directions. Line B has gradient…"}
 {"answer": "(-7, -5)", "id": "f10-graphical-systems-of-lines/hard/1/f8746dc28b68", "text": "The line A is drawn on the grid and continues in both directions. The line B ha…"}
 {"answer": "(11, 32)", "id": "f10-graphical-systems-of-lines/hard/2/bac0889b5199", "text": "On the grid, the line A continues in both directions. A second line, B, has gra…"}
@@ -2791,9 +2791,9 @@
 {"answer": "y ≤ -2x - 4", "id": "f10-match-inequality-to-line/easy/0/f54648e6530d", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
 {"answer": "y > x + 2", "id": "f10-match-inequality-to-line/easy/1/482b37449dc9", "text": "The line L is drawn on the grid. A region lies on the same side of L as the poi…"}
 {"answer": "y > -3x - 3", "id": "f10-match-inequality-to-line/easy/2/a46aaf95b279", "text": "The grid shows the line L. A region is bounded by L and contains the point (-4,…"}
-{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-match-inequality-to-line/exam/0/104c36de52d4", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
-{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-match-inequality-to-line/exam/1/ea57663ac9df", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
-{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-match-inequality-to-line/exam/2/c8f07d02eb46", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
+{"answer": "(a) -2; (b) -4; (c) -1.5; (d) -1", "id": "f10-match-inequality-to-line/exam/0/51e7c8171370", "text": "The lines A and B are drawn on the grid. The equation of line B is y = 2x + 2. …"}
+{"answer": "(a) -1; (b) 5; (c) 4.5; (d) 0.5", "id": "f10-match-inequality-to-line/exam/1/3af0e77739e2", "text": "The lines A and B are drawn on the grid. The equation of line B is y = x - 4. L…"}
+{"answer": "(a) -3; (b) -4; (c) -1.5; (d) 0.5", "id": "f10-match-inequality-to-line/exam/2/2889643feac1", "text": "The lines A and B are drawn on the grid. The equation of line B is y = -x - 1. …"}
 {"answer": "y ≥ 2x + 1", "id": "f10-match-inequality-to-line/hard/0/226408602848", "text": "The grid shows the line L. A region is bounded by L and contains the point (12,…"}
 {"answer": "y ≤ x/2 + 2", "id": "f10-match-inequality-to-line/hard/1/1e387c59669b", "text": "Look at the line L on the grid. Take the region on the same side of L as the po…"}
 {"answer": "y > 3x + 1", "id": "f10-match-inequality-to-line/hard/2/06d133153b63", "text": "Look at the line L on the grid. Take the region on the same side of L as the po…"}
@@ -3439,9 +3439,9 @@
 {"answer": "(a) 20; (b) 4/5; (c) 16/25; (d) 4", "id": "f10-read-a-simulation/exam/0/90323aeb9cb1", "text": "Here is a weather simulation. Each digit stands for one day. The digits 3 to 6 …"}
 {"answer": "(a) 10; (b) 2/5; (c) 12/25; (d) -2", "id": "f10-read-a-simulation/exam/1/7760dda59c91", "text": "Here is a planting simulation. Each digit stands for one seed. The digits 3 to …"}
 {"answer": "(a) 7; (b) 7/25; (c) 9/25; (d) -2", "id": "f10-read-a-simulation/exam/2/465027d15a47", "text": "Here is a basketball simulation. Each digit stands for one free throw. The digi…"}
-{"answer": "1/9", "id": "f10-read-a-simulation/hard/0/fa6fb84fc7c4", "text": "A group has 3 girls and 5 boys. A captain and then a vice-captain are chosen at…"}
-{"answer": "1/3", "id": "f10-read-a-simulation/hard/1/0d6aa412eee1", "text": "A bag holds 3 red and 3 blue counters. Two counters are drawn one after the oth…"}
-{"answer": "8/13", "id": "f10-read-a-simulation/hard/2/f12eafa17c51", "text": "A bag holds 6 red and 4 blue counters. Two counters are drawn one after the oth…"}
+{"answer": "1/9", "id": "f10-read-a-simulation/hard/0/a7c2e467e319", "text": "A group has 3 girls and 5 boys. A captain and then a vice-captain are chosen at…"}
+{"answer": "1/3", "id": "f10-read-a-simulation/hard/1/4445cc98c189", "text": "A bag holds 3 red and 3 blue counters. Two counters are drawn one after the oth…"}
+{"answer": "8/13", "id": "f10-read-a-simulation/hard/2/82196fa8f119", "text": "A bag holds 6 red and 4 blue counters. Two counters are drawn one after the oth…"}
 {"answer": "2/5", "id": "f10-read-a-simulation/medium/0/5972b649a202", "text": "Here is a planting simulation. Each digit stands for one seed. The digits 1 to …"}
 {"answer": "22/25", "id": "f10-read-a-simulation/medium/1/8ad7d1f0a5d2", "text": "Here is a bus simulation. Each digit stands for one morning. The digits 1 to 6 …"}
 {"answer": "7/10", "id": "f10-read-a-simulation/medium/2/055ed9e4ff60", "text": "Here is a weather simulation. Each digit stands for one day. The digits 0 to 2 …"}
@@ -3826,9 +3826,9 @@
 {"answer": "(a) 6.1; (b) 11.5; (c) 15.7", "id": "f10-trig-ratios-similarity/exam/0/c57f3b4cceed", "text": "A loading platform is raised above level ground. The first ramp is 8.5 m long a…"}
 {"answer": "(a) 5.0; (b) 12.8; (c) 4.9", "id": "f10-trig-ratios-similarity/exam/1/368d6d14c339", "text": "A verandah floor stands above the garden. One ramp, 8.5 m long, climbs to the t…"}
 {"answer": "(a) 4.0; (b) 9.1; (c) 3.1", "id": "f10-trig-ratios-similarity/exam/2/56bed67fc6ce", "text": "A loading platform is raised above level ground. The first ramp is 6.5 m long a…"}
-{"answer": "37.32", "id": "f10-trig-ratios-similarity/hard/0/47f4cf9ef6cf", "text": "Triangle DEF has a right angle at F, and the angle at D is 35 degrees. Side DF …"}
+{"answer": "37.32", "id": "f10-trig-ratios-similarity/hard/0/0d4ccad97511", "text": "Triangle DEF has a right angle at F, and the angle at D is 35 degrees. Side DF …"}
 {"answer": "30.60", "id": "f10-trig-ratios-similarity/hard/1/6daca585c19e", "text": "Triangle KLM has a right angle at M, and the angle at K is 60 degrees. Side LM …"}
-{"answer": "62.23", "id": "f10-trig-ratios-similarity/hard/2/ad45ecf21af4", "text": "Triangle XYZ has a right angle at Z, and the angle at X is 34 degrees. Side YZ …"}
+{"answer": "62.23", "id": "f10-trig-ratios-similarity/hard/2/9705e34484f0", "text": "Triangle XYZ has a right angle at Z, and the angle at X is 34 degrees. Side YZ …"}
 {"answer": "34.4", "id": "f10-trig-ratios-similarity/medium/0/954961bf29fc", "text": "In a right-angled triangle, one acute angle is 40 degrees. The leg adjacent to …"}
 {"answer": "10.2", "id": "f10-trig-ratios-similarity/medium/1/5a086204f4ef", "text": "In a right-angled triangle, one acute angle is 75 degrees. The side opposite th…"}
 {"answer": "40.6", "id": "f10-trig-ratios-similarity/medium/2/41d41c475dff", "text": "In a right-angled triangle, one acute angle is 52 degrees. The leg adjacent to …"}
@@ -4585,7 +4585,7 @@
 {"answer": "x > 6", "id": "inequality-on-number-line/easy/0/e0f77811ca8f", "text": "Mark the solutions of x > 6 on a number line."}
 {"answer": "x > 5", "id": "inequality-on-number-line/easy/1/21cd3f4c59e6", "text": "Show all the numbers x that are greater than 5 on the number line."}
 {"answer": "x > -2", "id": "inequality-on-number-line/easy/2/2f4b83470de5", "text": "Mark the solutions of x > -2 on a number line."}
-{"answer": "(a) x < 3; (b) x < 3; (c) 0 ≤ x < 3; (d) 3", "id": "inequality-on-number-line/exam/0/38926727cea1", "text": "Here is an inequality in x: -6 - 3x > -15. Work out which values of x make it t…"}
+{"answer": "(a) x < 3; (b) x < 3; (c) 0 ≤ x < 3; (d) 3", "id": "inequality-on-number-line/exam/0/963010632393", "text": "Here is an inequality in x: -6 - 3x > -15. Work out which values of x make it t…"}
 {"answer": "(a) x < 5; (b) x < 5; (c) -2 < x < 5; (d) 6", "id": "inequality-on-number-line/exam/1/78198738ddf7", "text": "Solve the inequality 5 - 3x > -10. (a) Write the solution as an inequality. (b)…"}
 {"answer": "(a) x < 6; (b) x < 6; (c) 1 ≤ x < 6; (d) 5", "id": "inequality-on-number-line/exam/2/93de113e7ffc", "text": "Solve the inequality 5 - 4x > -19. (a) Write the solution as an inequality. (b)…"}
 {"answer": "-1 < x ≤ 6", "id": "inequality-on-number-line/hard/0/fce0d833d984", "text": "Solve 2x - 1 > -3 and 4x + 4 ≤ 28. Show the solution on a number line."}
@@ -5371,7 +5371,7 @@
 {"answer": "(a) 240; (b) The vertical axis starts at 180, not at 0, so …", "id": "misleading-graph-figure/easy/0/81f9e40e52e9", "text": "A company prints the line graph shown, with the headline “Sales have rocketed!”…"}
 {"answer": "(a) 160; (b) Nothing is misleading: the vertical axis start…", "id": "misleading-graph-figure/easy/1/db84e64a4a56", "text": "A school prints the line graph shown, with the headline “Maths awards shoot up!…"}
 {"answer": "(a) 200; (b) The vertical axis starts at 140, not at 0, so …", "id": "misleading-graph-figure/easy/2/70923f0e2b70", "text": "A school prints the line graph shown, with the headline “Maths awards shoot up!…"}
-{"answer": "(a) 40; (b) 90; (c) 125.0; (d) The headline is fair: the ax…", "id": "misleading-graph-figure/exam/0/06347488297a", "text": "A sports club prints the line graph shown, with the headline “Membership soars …"}
+{"answer": "(a) 40; (b) 90; (c) 125.0; (d) The headline is fair: the ax…", "id": "misleading-graph-figure/exam/0/7314964e6155", "text": "A sports club prints the line graph shown, with the headline “Membership soars …"}
 {"answer": "(a) 400; (b) 430; (c) 7.5; (d) The headline is misleading: …", "id": "misleading-graph-figure/exam/1/d686ea849bac", "text": "A museum prints the line graph shown, with the headline “Visitors flood in!”. T…"}
 {"answer": "(a) 320; (b) 360; (c) 12.5; (d) The headline is misleading:…", "id": "misleading-graph-figure/exam/2/89e599ed45ea", "text": "A company prints the line graph shown, with the headline “Sales have rocketed!”…"}
 {"answer": "(a) 16.0; (b) 3.0; (c) The vertical axis starts at 115, not…", "id": "misleading-graph-figure/hard/0/95abc91f163e", "text": "A school prints the line graph shown, with the headline “Maths awards shoot up!…"}
@@ -6112,7 +6112,7 @@
 {"answer": "(2u + 1)^2 = 4u^2 + 4u + 1 = 2(2u^2 + 2u) + 1", "id": "proof-parity-steps/easy/0/abc116cf18f2", "text": "To prove by contradiction that if n^2 is even then n is even, suppose n is odd,…"}
 {"answer": "(2k + 3) + 2m = 2k + 2m + 3 = 2(k + m + 1) + 1", "id": "proof-parity-steps/easy/1/187773d0bb26", "text": "Show that the sum of an odd number 2k + 3 and an even number 2m is odd, by writ…"}
 {"answer": "(2u + 3)^2 = 4u^2 + 12u + 9 = 2(2u^2 + 6u + 4) + 1", "id": "proof-parity-steps/easy/2/bce42ecb9f44", "text": "To prove by contradiction that if n^2 is even then n is even, suppose n is odd,…"}
-{"answer": "(a) (2m + 7)^2 = 4m^2 + 28m + 49 = 2(2m^2 + 14m + 24) + 1; …", "id": "proof-parity-steps/exam/0/9ae1734990fd", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
+{"answer": "(a) (2m + 7)^2 = 4m^2 + 28m + 49 = 2(2m^2 + 14m + 24) + 1; …", "id": "proof-parity-steps/exam/0/d433de096eb4", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
 {"answer": "(a) (2v + 3)^2 - 1 = 4v^2 + 12v + 8 = 4(v + 1)(v + 2); (b) …", "id": "proof-parity-steps/exam/1/c4078679f141", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
 {"answer": "(a) (2w + 3)^2 - 1 = 4w^2 + 12w + 8 = 4(w + 1)(w + 2); (b) …", "id": "proof-parity-steps/exam/2/83c21a2cb8dc", "text": "A proof by contradiction about odd and even whole numbers n takes the odd case …"}
 {"answer": "(2t + 1)^3 + (2t + 1) = 8t^3 + 12t^2 + 8t + 2 = 2(4t^3 + 6t…", "id": "proof-parity-steps/hard/0/91733bee8854", "text": "Show that n^3 + n is even when n is odd, by putting n = 2t + 1 and writing the …"}
@@ -6221,7 +6221,7 @@
 {"answer": "(a) -9/2; (b) -7 ≤ x ≤ -2; (c) 6; (d) -25/4", "id": "quadratic-inequalities/exam/1/16da05fd4ceb", "text": "Let f(x) = x^2 + 9x + 14, which has two real roots. (a) Find the x-coordinate o…"}
 {"answer": "(a) -9/2; (b) -9 < x < 0; (c) 10; (d) -81/4", "id": "quadratic-inequalities/exam/2/aea36ee35310", "text": "Let f(x) = x^2 + 9x, which has two real roots. (a) Find the x-coordinate of the…"}
 {"answer": "0 ≤ n < 3 or n > 7", "id": "quadratic-inequalities/hard/0/4b4442fd7182", "text": "A small business sells n items (n ≥ 0). Its profit in dollars is P = -5n^2 + 50…"}
-{"answer": "no solution", "id": "quadratic-inequalities/hard/1/41d0b6e3f448", "text": "Solve the inequality -3x^2 - 18x - 48 > 0. If every real number works write 'al…"}
+{"answer": "no solution", "id": "quadratic-inequalities/hard/1/e9dd105f0c7a", "text": "Solve the inequality -3x^2 - 18x - 48 > 0. If every real number works write 'al…"}
 {"answer": "x < 7 or x > 7", "id": "quadratic-inequalities/hard/2/76b1e03f1614", "text": "Solve x^2 - 14x + 49 > 0. Give the solution set as inequalities (join separate …"}
 {"answer": "x ≤ -5 or x ≥ 5", "id": "quadratic-inequalities/medium/0/221f195d8e9c", "text": "Solve the inequality x^2 ≥ 25. State the solution using inequalities (use 'or' …"}
 {"answer": "-1/2 ≤ x ≤ 1/3", "id": "quadratic-inequalities/medium/1/c3c19d4117b9", "text": "Find all values for which -12x^2 - 2x + 2 ≥ 0. Write your answer as inequalitie…"}
@@ -10918,9 +10918,9 @@
 {"answer": "2e^(e^(2x) - 1)", "id": "separable-de-particular-solution/medium/0/47d2ecdd54fa", "text": "A curve satisfies dy/dx = 2e^(2x) y and passes through the point (0, 2). Find y…"}
 {"answer": "sqrt(6ln(x) + 4)", "id": "separable-de-particular-solution/medium/1/1b4177b9fdb8", "text": "A curve satisfies dy/dx = 3/(xy) and passes through the point (1, 2). Find y as…"}
 {"answer": "ln(3e^(2x)/2 - 1/2)", "id": "separable-de-particular-solution/medium/2/e3c0ee9d1cce", "text": "A curve satisfies dy/dx = 3e^(2x) e^(-y) and passes through the point (0, 0). F…"}
-{"answer": "y ≤ -2x - 4", "id": "shade-linear-inequality-region/easy/0/6ce1710d0f41", "text": "Draw the boundary line and shade the region y ≤ -2x - 4. A strict inequality ha…"}
-{"answer": "y ≤ 2x + 1", "id": "shade-linear-inequality-region/easy/1/6455cd3249ac", "text": "Shade the region of the grid where y ≤ 2x + 1. Use a dashed boundary for < and …"}
-{"answer": "y < 6", "id": "shade-linear-inequality-region/easy/2/36deeaea4cea", "text": "Draw the boundary line and shade the region y < 6. A strict inequality has a da…"}
+{"answer": "y ≤ -2x - 4", "id": "shade-linear-inequality-region/easy/0/982df1f87b20", "text": "Draw the boundary line and shade the region y ≤ -2x - 4. A strict inequality ha…"}
+{"answer": "y ≤ 2x + 1", "id": "shade-linear-inequality-region/easy/1/20d1fa6ed7bd", "text": "Shade the region of the grid where y ≤ 2x + 1. Use a dashed boundary for < and …"}
+{"answer": "y < 6", "id": "shade-linear-inequality-region/easy/2/e1cf63964da1", "text": "Draw the boundary line and shade the region y < 6. A strict inequality has a da…"}
 {"answer": "(a) -1/2; (b) x + 2y ≤ 4; (c) 1; (d) x ≥ 0 and y ≥ 0 and x …", "id": "shade-linear-inequality-region/exam/0/893bb393cabf", "text": "The inequality x + 2y ≤ 4 is given. (a) Find the gradient of the boundary line.…"}
 {"answer": "(a) -7/5; (b) 7x + 5y > 35; (c) 3; (d) x ≥ 0 and y ≥ 0 and …", "id": "shade-linear-inequality-region/exam/1/e17032f77539", "text": "The inequality 7x + 5y > 35 is given. (a) Find the gradient of the boundary lin…"}
 {"answer": "(a) -3/7; (b) 3x + 7y > 21; (c) 2; (d) x ≥ 0 and y ≥ 0 and …", "id": "shade-linear-inequality-region/exam/2/41067e3e0df3", "text": "The inequality 3x + 7y > 21 is given. (a) Find the gradient of the boundary lin…"}

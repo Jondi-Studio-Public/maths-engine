@@ -396,7 +396,7 @@ def _hard_negative(rng):
     d_ = _dist(fields, [(p, t) for p, t in cands if p])
     enough(d_, 3)
     working = [
-        f"{'Subtract' if d > 0 else 'Add'} {abs(d)} from both sides: -{k}x {op} {rhs - d}.",
+        f"{'Subtract ' if d > 0 else 'Add '}{abs(d)}{' from' if d > 0 else ' to'} both sides: -{k}x {op} {rhs - d}.",
         f"Divide both sides by -{k}. Dividing by a negative number reverses the sign: x {final} {a}.",
     ]
     return dict(text=text, figure=_figure(), working=working, distractors=d_, **fields)
@@ -637,7 +637,7 @@ def _exam(rng):
                 fa,
                 2,
                 [
-                    f"{'Subtract' if d > 0 else 'Add'} {abs(d)} from both sides: -{k}x > {rhs - d}. Divide by -{k} and reverse the sign: x < {a}."
+                    f"{'Subtract ' if d > 0 else 'Add '}{abs(d)}{' from' if d > 0 else ' to'} both sides: -{k}x > {rhs - d}. Divide by -{k} and reverse the sign: x < {a}."
                 ],
                 da,
             ),
