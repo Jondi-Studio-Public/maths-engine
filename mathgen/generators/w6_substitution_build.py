@@ -72,6 +72,11 @@ def _xp(p: int) -> str:
     return "" if p == 0 else "x" if p == 1 else f"x^{p}"
 
 
+def _up(n: int) -> str:
+    """``u`` for the first power, ``u^3`` otherwise."""
+    return "u" if n == 1 else f"u^{n}"
+
+
 def _ratio_times(c: int, m: int) -> str:
     """``(3/2) times `` for c/m, ``3 times `` for a whole ratio and nothing for 1."""
     r = sympy.Rational(c, m)
@@ -198,7 +203,7 @@ def _rx_easy(rng):
     ]
     working = [
         f"Let u = {_sh(a)}, so x = u {'-' if a > 0 else '+'} {abs(a)} and du = dx.",
-        f"The integrand becomes {_cf(c)}(u {'-' if a > 0 else '+'} {abs(a)})u^{n}, which expands and integrates term by term. Replace u by {_sh(a)}.",
+        f"The integrand becomes {_cf(c)}(u {'-' if a > 0 else '+'} {abs(a)}){_up(n)}, which expands and integrates term by term. Replace u by {_sh(a)}.",
     ]
     return _indef(rng, f, F, cands, working, _hint(v))
 
@@ -604,7 +609,7 @@ def _sd_easy(rng):
     ]
     working = [
         f"Let u = x^{m} + {k}, so du = {m}{_xp(m - 1)} dx. When x = {lo}, u = {u1}; when x = {hi}, u = {u2}.",
-        f"The integral becomes {_ratio_times(c, m)}the integral of u^{n} du from {u1} to {u2}, which is {shown(value)}.",
+        f"The integral becomes {_ratio_times(c, m)}the integral of {_up(n)} du from {u1} to {u2}, which is {shown(value)}.",
     ]
     return _definite(rng, f, value, lo, hi, cands, working, _hint(v))
 
@@ -748,7 +753,7 @@ def _sd_hard(rng):
         ]
         working = [
             "Write sec^4 x = sec^2 x (1 + tan^2 x) and let u = tan x, du = sec^2 x dx. When x = 0, u = 0; when x = pi/4, u = 1.",
-            f"Evaluate the integral of {_cf(c)}u^{n}(1 + u^2) du from 0 to 1.",
+            f"Evaluate the integral of {_cf(c)}{_up(n)}(1 + u^2) du from 0 to 1.",
         ]
         return _definite(rng, f, value, lo, hi, cands, working)
     # trigonometric substitution x = a sin(theta)

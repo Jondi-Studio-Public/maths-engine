@@ -109,7 +109,7 @@ def _build(rng: random.Random) -> dict | None:
         "Find the value of k.",
         k,
         2,
-        [f"The total probability is 1, so k x (integral of the shape from {lo} to {hi}) = 1.", f"k = {k}."],
+        [f"The total probability is 1, so k × (integral of the shape from {lo} to {hi}) = 1.", f"k = {k}."],
         [
             (Fraction(1, hi - lo), "assumed-uniform-density"),
             (Fraction(n + 1, hi) if shape == "power" else None, "forgot-to-raise-the-power-in-k"),
@@ -121,7 +121,7 @@ def _build(rng: random.Random) -> dict | None:
         f"Hence find P({c1} < X < {c2}).",
         prob,
         2,
-        [f"P = k x (integral of the shape from {c1} to {c2}) = {prob}."],
+        [f"P = k × (integral of the shape from {c1} to {c2}) = {prob}."],
         [
             (1 - prob, "gave-complement-for-event"),
             (_integral(coeffs, c1, c2), "forgot-normalising-constant"),

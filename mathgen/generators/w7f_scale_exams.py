@@ -146,7 +146,7 @@ def _actual_chain(rng):
         ),
         d_key,
         2,
-        [f"Cost = area x price = {c_key} x {price} = ${d_key}."],
+        [f"Cost = area × price = {c_key} × {price} = ${d_key}."],
         [
             (b_key * price, "scd-price-on-perimeter"),
             (cells * price, "scd-price-on-drawn-area"),

@@ -430,7 +430,7 @@ def _easy_tier_elevation(rng) -> dict:
         f"tower, to 1 decimal place."
     )
     working = [
-        f"height = distance x tan(angle) = {d} x tan({theta} degrees)",
+        f"height = distance × tan(angle) = {d} × tan({theta} degrees)",
         f"height = {answer_text} m (to 1 decimal place).",
     ]
     candidates = [

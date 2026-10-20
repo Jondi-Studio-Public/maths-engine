@@ -1654,6 +1654,8 @@ _PAPER_TRIGGER_RE = re.compile(r"\*|(?<![A-Za-z])(?:sqrt|exp)\(|(?<![A-Za-z])pi(
 _PAPER_PI_RE = re.compile(r"(?<![A-Za-z])pi(?![A-Za-z])")
 _PAPER_SQRT_RE = re.compile(r"(?<![A-Za-z])sqrt\(")
 _PAPER_EXP_RE = re.compile(r"(?<![A-Za-z])exp\(")
+# exp(1) is e: "e^1" is never how it is written.
+_PAPER_EXP_ONE_RE = re.compile(r"(?<![A-Za-z])exp\(1\)(?![\d.]|\s*\*\s*[A-Za-z])")
 # "4*I" is a complex number, written 4i; "lambda*I" is a matrix, so only a number may stand to its left.
 _PAPER_IMAGINARY_RE = re.compile(r"(?<=\d)(\s*\*\s*)I(?![A-Za-z0-9_(])")
 # A root or a power of e whose argument is one number or one letter needs no brackets ("√21", "e^x"), unless
@@ -1830,6 +1832,7 @@ def paper_notation(text):
     s = text.replace("**", "^")
     s = _PAPER_PI_RE.sub("π", s)
     s = _PAPER_SQRT_RE.sub("√(", s)
+    s = _PAPER_EXP_ONE_RE.sub("e", s)
     s = _PAPER_EXP_RE.sub("e^(", s)
     s = _PAPER_SIMPLE_ROOT_RE.sub(
         lambda m: (
@@ -1920,7 +1923,7 @@ _NEGATIVE_DIVISOR_RE = re.compile(r"(?<=[\w)])/-(\d+(?:\.\d+)?|[A-Za-z])(?![\w(^
 _LETTER_X_TIMES_RE = re.compile(r"(?<=[\d)|]) x (?=\d)")
 # A coefficient of 1 written out ("1x", "-1n", "3 - 1i", "1 cos(4x)", "1f(x)"): only a letter that is a variable.
 _COEFFICIENT_ONE_RE = re.compile(
-    r"(?<![\w.^/])1(?=[xyztnui](?![A-Za-z0-9_])|[ab](?=\s[+=\u2212-])|[fgh]\(|e\^|\s(?:sin|cos|tan|ln)\()\s?"
+    r"(?<![\w.^/])1(?=[xyztnui](?![A-Za-z0-9_])|[ab](?=\s[+=\u2212-])|[fgh]\(|e\^|\s(?:sin|cos|tan|ln)\(|(?:sin|cos|tan|sec|ln|log)(?=[\s(|]))\s?"
 )
 # A coefficient of 1 before a bracket ("-1(x - 3)", "1(15/2)²"): the bracket stands alone. A bracket that is only a
 # label ("1(a)") or a lone letter is left alone.
@@ -2049,7 +2052,7 @@ _DIVIDE_BY_ONE_SPACED_RE = re.compile(
 )
 # "-1d m/s", "-1a^9": a unit coefficient before a variable. "(1)x" is handled by the bracket rules first.
 _NEGATIVE_ONE_COEFFICIENT_RE = re.compile(
-    r"(?<![\w.^/)])(-|\u2212)1(?=[a-fi-kn-rt-zA-Z](?![A-Za-z0-9_(]|\^0)|[a-fi-lnp-zA-Z]\^)"
+    r"(?<![\w.^/)])(-|\u2212)1(?=[a-fi-kn-rt-zA-Z](?![A-Za-z0-9_(]|\^0)|[a-fi-lnp-zA-Z]\^|(?:sin|cos|tan|sec|ln|log)(?=[\s(|]))"
 )
 # "0m + 3k", "0i + 23j": a zero multiple of a variable heading a sum with another variable term.
 _ZERO_MULTIPLE_HEAD_RE = re.compile(r"(?<![\w.^/])0[ijkm](?=\s[+\u2212-]\s\d*[a-zA-Z](?![A-Za-z]))\s[+\u2212-]\s")
@@ -2063,6 +2066,13 @@ _FRACTION_COEFFICIENT_RE = re.compile(
     r"(?<![\w/.^(])(\d+/\d+)(?=[xyztnuvwabk](?![A-Za-z0-9_])|[xyztnuvwab]\^|\(|(?:sin|cos|tan|ln|log)\()"
 )
 # "AM x BM", "1.5 x IQR", "28 x cos(210)": a number or bracket, x, then a function or quantity name.
+# A number or bracket, the letter x, then a function-like name, a bracket or a lone letter that starts a term:
+# "1.007 x A(n)", "P(A) x P(B)", "400 x ((1 + i)^n - 1) / i", "(1/2) x d x k", "9 x days". Prose such as "for x in"
+# or "the value of x is" has a word, not a number or bracket, before the x.
+_LETTER_X_TERM_TIMES_RE = re.compile(
+    r"(?<=[\d)]) x (?=\$\d|[A-Za-z]\w*\(|\(\(|[a-z]\b(?= [x=/+\-\u00d7\u00f7)]| ?$)|(?!(?:and|the|for|are|was|has|can|must|with|then|that|such|where|when|than|not|but)\b)[a-z]{3,}\b)"
+)
+_LETTER_X_CHAIN_LETTER_RE = re.compile(r"(?<=\u00d7 [a-z]) x (?=[a-z]\b)")
 _LETTER_X_NAME_TIMES_RE = re.compile(
     r"(?<=[\d)]) x (?=(?:sin|cos|tan|cot|sec|csc|ln|log|exp|IQR|SD|side|length|width|height|base|radius|rate|price|cost|speed)\b)"
     r"|(?<=\b[A-Z]{2}) x (?=[A-Z]{2}\b)|(?<=\b[a-z]) x (?=\(-?\d+\))"
@@ -2128,7 +2138,10 @@ def _learner_text(text, *, working=False, keep=()):
     if " x " in text:
         text = _LETTER_X_TIMES_RE.sub(" \u00d7 ", text)
         text = _LETTER_X_WORD_TIMES_RE.sub(" \u00d7 ", text)
-        text = _LETTER_X_BRACKET_TIMES_RE.sub(" \u00d7 ", text)
+        for _ in range(3):  # a bracket that held an x only reads as a plain bracket once the inner x is a times sign
+            text = _LETTER_X_BRACKET_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_TERM_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_CHAIN_LETTER_RE.sub(" \u00d7 ", text)
         text = _LETTER_X_SIGNED_TIMES_RE.sub(" \u00d7 ", text)
         text = _LETTER_X_VARIABLE_TIMES_RE.sub(" \u00d7 ", text)
         text = _LETTER_X_NAME_TIMES_RE.sub(" \u00d7 ", text)

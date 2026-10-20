@@ -103,6 +103,15 @@ def _periodic_rate(rate_tenths: int, periods_per_year: int) -> Fraction:
     return Fraction(rate_tenths, 10 * 100 * periods_per_year)
 
 
+def _rate_value(i: Fraction) -> str:
+    """The periodic rate as a decimal (4.8%/12 = 0.004); a repeating one is shown to 6 places."""
+    exact = Fraction(i)
+    for places in range(1, 7):
+        if (exact * 10**places).denominator == 1:
+            return stated_precision_string(exact, places)
+    return f"{stated_precision_string(round_half_up(exact, 6), 6)} (to 6 d.p.)"
+
+
 def _repayment(principal, i: Fraction, n: int) -> Fraction:
     """A = P*i / (1 - (1+i)**-n): the periodic payment that exactly
     amortises `principal` over `n` periods at periodic rate `i`."""
@@ -214,7 +223,7 @@ def _rbl_easy(rng):
     )
     answer_text = _money_text(repayment_exact)
     working = [
-        f"Monthly rate i = {rate_text}%/12 = {i}. n = {term_years} × 12 = {n} months.",
+        f"Monthly rate i = {rate_text}%/12 = {_rate_value(i)}. n = {term_years} × 12 = {n} months.",
         f"A = P × i / (1 - (1 + i)^(-n)) = {answer_text}.",
     ]
     distractors = pick_distractors(
@@ -319,7 +328,7 @@ def _rbl_medium(rng):
     )
     answer_text = _money_text(balance_exact)
     working = [
-        f"i = {rate_text}%/12 = {i}. k = {k_years} × 12 = {k} months.",
+        f"i = {rate_text}%/12 = {_rate_value(i)}. k = {k_years} × 12 = {k} months.",
         f"Balance = P*(1+i)^k - A*((1+i)^k - 1)/i = {answer_text}.",
     ]
     distractors = pick_distractors(answer_text, [_money_text(c) for c in (fv_only, linear_balance, off_by_one)])
@@ -406,7 +415,7 @@ def _rbl_hard(rng):
     )
     answer_text = _money_text(principal_exact)
     working = [
-        f"i = {rate_text}%/12 = {i}. n = {term_years} × 12 = {n} months.",
+        f"i = {rate_text}%/12 = {_rate_value(i)}. n = {term_years} × 12 = {n} months.",
         f"P = A × (1 - (1 + i)^(-n)) / i = {answer_text}.",
     ]
     distractors = pick_distractors(
@@ -669,7 +678,7 @@ def _ann_easy(rng):
     )
     answer_text = _money_text(pv_exact)
     working = [
-        f"i = {rate_text}%/12 = {i}.",
+        f"i = {rate_text}%/12 = {_rate_value(i)}.",
         f"Perpetuity: PV = A/i = {answer_text}.",
     ]
     distractors = pick_distractors(
@@ -771,7 +780,7 @@ def _ann_medium(rng):
     )
     answer_text = _money_text(pv_exact)
     working = [
-        f"i = {rate_text}%/12 = {i}. n = {term_years} × 12 = {n} months.",
+        f"i = {rate_text}%/12 = {_rate_value(i)}. n = {term_years} × 12 = {n} months.",
         f"PV = A × (1 - (1 + i)^(-n)) / i = {answer_text}.",
     ]
     distractors = pick_distractors(
@@ -877,7 +886,7 @@ def _ann_hard(rng):
     )
     answer_text = str(answer)
     working = [
-        f"i = {rate_text}%/12 = {i}. Solve PV = A × (1 - (1 + i)^(-n)) / i for n, in months, then convert "
+        f"i = {rate_text}%/12 = {_rate_value(i)}. Solve PV = A × (1 - (1 + i)^(-n)) / i for n, in months, then convert "
         f"to years: n = {n} months = {n_years} years.",
     ]
     distractors = pick_distractors(answer_text, [str(c) for c in (naive_years, n_in_months, half_years)])

@@ -17,7 +17,7 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-from mathgen.core import attempts, check, generator, round_half_up
+from mathgen.core import attempts, check, generator, round_half_up, stated_precision_string
 
 from .exd_x_r3c_parts import number_part
 from ._exd_distinct_parts import distinct_part_answers
@@ -85,7 +85,7 @@ def exd_x_r3c_annuity_payout(rng, tier="exam"):
 
     pct = f"{tenths / 10:.1f}"
     stem = rng.choice(_STEMS).format(amount=_money(principal), pct=pct, word=word, unit=unit, w=_money(withdrawal))
-    first, last_bal, final = round_half_up(a1, 2), round_half_up(a_n, 2), round_half_up(last, 2)
+    first, last_bal, final = (stated_precision_string(round_half_up(v, 2), 2) for v in (a1, a_n, last))
     part_a = number_part(
         "Find the balance of the annuity immediately after the first withdrawal, to the nearest cent.",
         a1,

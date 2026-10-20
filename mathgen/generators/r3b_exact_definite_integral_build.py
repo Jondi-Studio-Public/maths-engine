@@ -52,6 +52,28 @@ _FIND = (
 )
 
 
+def _lead(r) -> str:
+    """A coefficient written in front of a function: nothing for 1, a bare minus for -1, a fraction bracketed."""
+    r = Rational(r)
+    if r == 1:
+        return ""
+    if r == -1:
+        return "-"
+    return f"({r})" if r.q != 1 else str(r)
+
+
+def _exp_x(k) -> str:
+    return "e^x" if k == 1 else f"e^({fmt_signed(k, 'x')})"
+
+
+def _exp_ln(k) -> str:
+    return "e^(ln q)" if k == 1 else f"e^({k} ln q)"
+
+
+def _pow(base: str, k) -> str:
+    return base if k == 1 else f"{base}^{k}"
+
+
 def _nonzero(rng, lo=-9, hi=9):
     return rng.choice([v for v in range(lo, hi + 1) if v])
 
@@ -87,7 +109,7 @@ def _easy_exp(rng):
         Cand(Rational(a, k) * (1 - exp(k * n)), "r3b-def-limits-reversed", const=False),
         Cand(Rational(a, k) * exp(k * n) - 1, "r3b-def-lower-term-not-scaled", const=False),
     ]
-    working = [f"The antiderivative is {Rational(a, k)}e^({fmt_signed(k, 'x')}). Evaluate at {n} and at 0: e^0 = 1."]
+    working = [f"The antiderivative is {_lead(Rational(a, k))}{_exp_x(k)}. Evaluate at {n} and at 0: e^0 = 1."]
     return _result(rng, f, 0, n, value, cands, working)
 
 
@@ -102,7 +124,15 @@ def _easy_log(rng):
         Cand(log(n), "r3b-recip-coefficient-dropped", const=False),
         Cand(-a * log(n), "r3b-def-limits-reversed", const=False),
     ]
-    return _result(rng, f, 1, n, value, cands, [f"{a}ln|x| from 1 to {n} is {a}ln {n} - ({a})ln 1, and ln 1 = 0."])
+    return _result(
+        rng,
+        f,
+        1,
+        n,
+        value,
+        cands,
+        [f"{_lead(a)}ln|x| from 1 to {n} is {_lead(a)}ln {n} - ({_lead(a)}ln 1), and ln 1 = 0."],
+    )
 
 
 def _easy(rng):
@@ -126,7 +156,7 @@ def _medium_exp(rng):
     ]
     cands = [Cand(cd.expr, cd.tag, False) for cd in cands]
     return _result(
-        rng, f, a, b, value, cands, [f"Antiderivative {Rational(c, k)}e^({k}x); evaluate at {b} and at {a}."]
+        rng, f, a, b, value, cands, [f"Antiderivative {_lead(Rational(c, k))}{_exp_x(k)}; evaluate at {b} and at {a}."]
     )
 
 
@@ -158,7 +188,7 @@ def _medium_log(rng):
         b,
         value,
         cands,
-        [f"Antiderivative ({Rational(c, p)})ln|{ltxt}|; the values of {ltxt} at the limits are {lo} and {hi}."],
+        [f"Antiderivative {_lead(Rational(c, p))}ln|{ltxt}|; the values of {ltxt} at the limits are {lo} and {hi}."],
     )
 
 
@@ -176,7 +206,7 @@ def _medium_mixed(rng):
     ]
     cands = [Cand(cd.expr, cd.tag, False) for cd in cands]
     return _result(
-        rng, f, 1, n, value, cands, [f"Antiderivative {a}ln|x| {_sgn(b)} {abs(b)}x; evaluate between 1 and {n}."]
+        rng, f, 1, n, value, cands, [f"Antiderivative {_lead(a)}ln|x| {_sgn(b)} {abs(b)}x; evaluate between 1 and {n}."]
     )
 
 
@@ -202,7 +232,13 @@ def _hard_collapse(rng):
         Cand(Rational(a, k) * (k * log(q) - k * log(p)), "r3b-def-logs-not-collapsed"),
     ]
     return _result(
-        rng, f, lo, hi, value, cands, [f"Antiderivative {Rational(a, k)}e^({k}x). Use e^({k} ln q) = q^{k}."]
+        rng,
+        f,
+        lo,
+        hi,
+        value,
+        cands,
+        [f"Antiderivative {_lead(Rational(a, k))}{_exp_x(k)}. Use {_exp_ln(k)} = {_pow('q', k)}."],
     )
 
 
@@ -225,7 +261,7 @@ def _hard_two_terms(rng):
         log(n),
         value,
         cands,
-        [f"Antiderivative {Rational(a, 2)}e^(2x) {_sgn(b)} {abs(b)}e^x; e^(2 ln {n}) = {n**2}."],
+        [f"Antiderivative {_lead(Rational(a, 2))}e^(2x) {_sgn(b)} {abs(b)}e^x; e^(2 ln {n}) = {n**2}."],
     )
 
 
@@ -244,7 +280,7 @@ def _hard_average(rng):
             Cand(Rational(a, k) * (n**k - 1) / (n - 1), "r3b-avg-width-taken-as-exponential-width"),
         ]
         lo, hi = 0, log(n)
-        fx = f"{a}e^({k}x)" if a != 1 else f"e^({k}x)"
+        fx = f"{_lead(a)}{_exp_x(k)}"
     else:
         c = _nonzero(rng, -8, 8)
         a = rng.choice([1, 2])

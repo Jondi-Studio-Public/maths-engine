@@ -233,7 +233,7 @@ def _hard_scale(rng):
     working = [
         f"({t_text})^h = ({a}^{k if isinstance(k, int) else '(1/2)'})^h = {a}^(kh) with k = "
         f"{k if isinstance(k, int) else '1/2'}.",
-        f"So ({t_text}^h - 1)/h = k x ({a}^(kh) - 1)/(kh), and the limit is k times the limit for a = {a}.",
+        f"So ({t_text}^h - 1)/h = k × ({a}^(kh) - 1)/(kh), and the limit is k times the limit for a = {a}.",
         f"The limit for a = {a} is about {float(last):.4f}, so the answer is {float(value):.2f}.",
     ]
     kf = float(k)

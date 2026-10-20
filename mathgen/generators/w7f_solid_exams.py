@@ -208,7 +208,9 @@ def _properties_chain(rng):
         f"How many of its edges are exactly {k} {unit} long?",
         edges,
         1,
-        [f"The cuboid is {a} by {b} by {c}. There are 4 edges of each length, and {same} of the 3 lengths is {k}."],
+        [
+            f"The cuboid is {a} by {b} by {c}. Each of the 3 dimensions has 4 edges, and {same} of the 3 dimensions {'is' if same == 1 else 'are'} {k}."
+        ],
         [
             (same, "cub-counts-lengths-not-edges"),
             (12, "cub-counts-every-edge"),

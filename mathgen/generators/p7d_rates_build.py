@@ -139,16 +139,16 @@ def _calc_easy(rng):
     fmt = _currency if context == "pay" else _plain
     if context == "speed":
         text = f"A car travels at {r} km/h. How far does it travel in {n} hours?"
-        working = [f"Total distance = rate x time = {r} x {n} = {total} km."]
+        working = [f"Total distance = rate × time = {r} × {n} = {total} km."]
     elif context == "flow":
         text = f"Water flows from a tap at {r} litres per minute. How many litres flow in {n} minutes?"
-        working = [f"Total volume = rate x time = {r} x {n} = {total} litres."]
+        working = [f"Total volume = rate × time = {r} × {n} = {total} litres."]
     elif context == "pay":
         text = f"A tool-hire company charges {_currency(r)} per hour. How much does {n} hours of hire cost?"
-        working = [f"Total cost = rate x time = {_currency(r)} x {n} = {_currency(total)}."]
+        working = [f"Total cost = rate × time = {_currency(r)} × {n} = {_currency(total)}."]
     else:  # production
         text = f"A machine produces {r} items per hour. How many items does it produce in {n} hours?"
-        working = [f"Total produced = rate x time = {r} x {n} = {total} items."]
+        working = [f"Total produced = rate × time = {r} × {n} = {total} items."]
 
     answer_text = fmt(total)
     candidates = [fmt(cand_sum), fmt(cand_extra), fmt(cand_rate_only)]

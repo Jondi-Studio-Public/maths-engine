@@ -440,13 +440,13 @@ def p19e_recurrence_long_term_class(rng, tier="easy"):
         text = phrase(
             rng,
             [
-                "A sequence is defined by {formula}, with u(0) = {u0} (a > 1). Compare "
+                "A sequence is defined by {formula}, with u(0) = {u0} (the multiplier is greater than 1). Compare "
                 "u(0) to the recurrence's fixed point to decide: what happens to u(n) as "
                 "n → ∞? {opts}",
-                "Consider the recurrence {formula} (with a > 1), starting from u(0) = "
+                "Consider the recurrence {formula} (the multiplier is greater than 1), starting from u(0) = "
                 "{u0}. By finding the fixed point and comparing it with u(0), classify "
                 "the long-term behaviour of u(n). {opts}",
-                "A quantity u(n) obeys {formula} where a > 1, with initial value u(0) = "
+                "A quantity u(n) obeys {formula}, where the multiplier is greater than 1, with initial value u(0) = "
                 "{u0}. Find the recurrence's fixed point and compare it to u(0) to "
                 "determine what happens to u(n) as n → ∞. {opts}",
             ],
@@ -489,7 +489,7 @@ def p19e_recurrence_long_term_class(rng, tier="easy"):
     check(sim_class == target, "recurrence long-term class: simulation route disagrees with the drawn target")
 
     working = [
-        f"a = {_a_display(a)}, b = {b}, u(0) = {u0}.",
+        f"Multiplier a = {_a_display(a)}, constant b = {b}, u(0) = {u0}.",
         f"Long-term behaviour: {REC_OPTION_TEXT[target]}.",
         f"Option {answer_letter} is the only one consistent with this.",
     ]

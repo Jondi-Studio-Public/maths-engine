@@ -317,8 +317,7 @@ def _build(rng, tier):
             noun=ctx["noun"],
         )
     working = [
-        f"{row_cats[i]}: " + ", ".join(one_dp(right_pct(i, j)) for j in range(n_cols)) + " (% of its "
-        f"{exp_name} group total)"
+        f"{row_cats[i]}: " + ", ".join(one_dp(right_pct(i, j)) for j in range(n_cols)) + f" (% of its {exp_name} total)"
         for i in range(n_rows)
     ]
     return answer, stem, wrong, working, whole

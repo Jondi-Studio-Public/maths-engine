@@ -118,7 +118,7 @@ def exd_x_r3h_system_parameters(rng, tier="exam"):
                     0,
                     3,
                     [
-                        f"At k = {k_star} the left side of the third equation is ({l1}) x equation 1 + ({l2}) x equation 2.",
+                        f"At k = {k_star} the left side of the third equation is ({l1}) × equation 1 + ({l2}) × equation 2.",
                         f"So m = ({l1})({b1}) + ({l2})({b2 + p * k_star}) = {m_star}.",
                     ],
                     [

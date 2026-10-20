@@ -559,6 +559,8 @@ def _flat_hard_first_below(rng):
     annual = price * r / 100
     n = rng.randint(3, min(9, 92 // r)) if 92 // r >= 3 else 3
     exact = rng.random() < 0.4  # the target is met exactly at the end of year n: the first year BELOW it is n + 1
+    if (n + 1) * r > 100:
+        exact = False  # year n + 1 would show a negative value for the asset
     value_n = price - annual * n
     if exact:
         target, first = value_n, n + 1

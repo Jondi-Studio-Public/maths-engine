@@ -80,9 +80,10 @@ def journey_time_or_cost(rng, variant="time"):
 
         answer = minutes
         text = f"A journey of {d} km at an average speed of {s} km/h takes how many minutes?"
+        hours_unit = "hour" if d == s else "hours"
         working = [
-            f"Time = distance / speed = {d} / {s} = {d / s} hours.",
-            f"Convert to minutes: {d / s} × 60 = {minutes} minutes.",
+            f"Time = distance / speed = {d} / {s} = {d / s:g} {hours_unit}.",
+            f"Convert to minutes: {d / s:g} × 60 = {minutes} minutes.",
         ]
 
         # Misconceptions:
@@ -282,7 +283,10 @@ def grams_milligrams_convert(rng, variant="g_to_mg"):
             answer = float(answer_frac) if answer_frac.denominator != 1 else int(answer_frac)
             text = f"What is the total mass in grams of {G} {g_unit} and {M} {mg_unit}?"
 
-        working = [text.replace("What is", "Total is")]
+        if target_unit == "mg":
+            working = [f"{G} g = {G * 1000} mg, so the total is {G * 1000} + {M} = {answer} mg."]
+        else:
+            working = [f"{M} mg = {M / 1000:g} g, so the total is {G} + {M / 1000:g} = {answer} g."]
 
         # Misconceptions:
         # 1. forgets-to-convert-the-grams-component: G + M (adds raw digits)

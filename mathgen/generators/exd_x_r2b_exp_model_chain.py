@@ -25,7 +25,7 @@ from fractions import Fraction
 
 from sympy import Rational, log
 
-from ..core import check, generator, phrase, round_half_up
+from ..core import check, generator, phrase, round_half_up, stated_precision_string
 from .exd_x_r2b_support import Redraw, clear_of_boundary, draw, number_part, real
 
 _A = (100, 200, 400, 500)
@@ -56,6 +56,10 @@ def _dec(value: Fraction) -> str:
         if scaled.denominator == 1:
             return f"{scaled.numerator / 10**places:.{places}f}"
     raise Redraw("not a terminating decimal")
+
+
+def _2dp(value: Fraction) -> str:
+    return stated_precision_string(round_half_up(Fraction(value), 2), 2)
 
 
 def _build(rng):
@@ -105,7 +109,7 @@ def _build(rng):
         k,
         2,
         2,
-        ["N'(t) = kAe^(kt), so N'(0) = kA.", f"k = {_dec(r0)} / {A} = {k}."],
+        ["N'(t) = kAe^(kt), so N'(0) = kA.", f"k = {_dec(r0)} / {A} = {_2dp(k)}."],
         a_wrong,
     )
 
@@ -121,7 +125,7 @@ def _build(rng):
         rM,
         2,
         1,
-        [f"N'(t) = kN, so N' = {k} × {M} = {rM}."],
+        [f"N'(t) = kN, so N' = {_2dp(k)} × {M} = {_2dp(rM)}."],
         b_wrong,
         follow_through=f"part_a*{M}",
     )
@@ -138,7 +142,10 @@ def _build(rng):
         T,
         2,
         2,
-        [f"{A}e^({k}t) = {M}, so e^({k}t) = {_dec(Fraction(M, A))}.", f"t = ln({_dec(Fraction(M, A))}) / {k} = {Tr}."],
+        [
+            f"{A}e^({_2dp(k)}t) = {M}, so e^({_2dp(k)}t) = {_dec(Fraction(M, A))}.",
+            f"t = ln({_dec(Fraction(M, A))}) ÷ ({_2dp(k)}) = {_2dp(Tr)}.",
+        ],
         c_wrong,
         follow_through=f"log(Rational({ratio_s.p}, {ratio_s.q}))/part_a",
         sensible_range=(0, None),
@@ -155,7 +162,7 @@ def _build(rng):
         avg,
         2,
         2,
-        [f"Average rate = (N(T) - N(0)) / T = ({M} - {A}) / {Tr} = {round_half_up(avg, 2)}."],
+        [f"Average rate = (N(T) - N(0)) / T = ({M} - {A}) / {_2dp(Tr)} = {_2dp(avg)}."],
         d_wrong,
         follow_through=f"({M} - {A})/part_c",
     )

@@ -60,7 +60,7 @@ def _exam(rng: random.Random) -> dict:
             mean,
             2,
             1,
-            [f"E(X) = np = {n} x {dec(p)} = {mean}."],
+            [f"E(X) = np = {n} x {dec(p)} = {dec(mean)}."],
             [
                 (n * q, "r3a-mean-uses-failure-probability"),
                 (var, "r3a-mean-reported-as-variance"),
@@ -73,7 +73,7 @@ def _exam(rng: random.Random) -> dict:
             sd,
             2,
             1,
-            [f"SD(X) = sqrt(npq) = sqrt({mean} x {dec(q)})."],
+            [f"SD(X) = sqrt(npq) = sqrt({dec(mean)} x {dec(q)})."],
             [
                 (var, "r3a-sd-omits-square-root"),
                 (sqrt_fraction(mean), "r3a-sd-omits-failure-probability"),
