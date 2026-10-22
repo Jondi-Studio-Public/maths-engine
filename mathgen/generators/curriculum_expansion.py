@@ -451,19 +451,61 @@ def scientific_notation(rng):
 
 @generator("classify_real_number", level=9)
 def classify_real_number(rng):
+    # Each option names a verdict and a reason, so the wrong ones are the slips a learner makes
+    # (a root sign means irrational, a long decimal means irrational, a rounded value is exact).
     cases = (
-        ("√2", "Irrational"),
-        ("π", "Irrational"),
-        ("0.375", "Rational"),
-        ("-7/9", "Rational"),
-        ("√49", "Rational"),
+        (
+            "√2",
+            "Irrational, because its decimal never ends and never repeats",
+            [
+                "Rational, because it can be written as a fraction",
+                "Rational, because a calculator shows it as a decimal that ends",
+                "Rational, because 1.414 × 1.414 equals 2",
+            ],
+        ),
+        (
+            "π",
+            "Irrational, because its decimal never ends and never repeats",
+            [
+                "Rational, because 22/7 is exactly equal to π",
+                "Rational, because it is the ratio of a circle's circumference to its diameter",
+                "Rational, because 3.14 is its exact value",
+            ],
+        ),
+        (
+            "0.375",
+            "Rational, because it is a decimal that ends, so it equals 375/1000",
+            [
+                "Irrational, because it is a decimal and not a whole number",
+                "Irrational, because it has more than two decimal places",
+                "Irrational, because 0.375 is not written as a fraction",
+            ],
+        ),
+        (
+            "-7/9",
+            "Rational, because it is a fraction of two whole numbers",
+            [
+                "Irrational, because 7 ÷ 9 gives a decimal that goes on forever",
+                "Irrational, because it is negative",
+                "Irrational, because 7 and 9 have no common factor",
+            ],
+        ),
+        (
+            "√49",
+            "Rational, because √49 = 7, which is a whole number",
+            [
+                "Irrational, because it has a square root sign",
+                "Rational, because √49 = 24.5, which is half of 49",
+                "Irrational, because the square root of an odd number is irrational",
+            ],
+        ),
     )
-    shown, answer = rng.choice(cases)
+    shown, answer, wrong = rng.choice(cases)
     d = _mcq(
         f"Is {shown} rational or irrational?",
         answer,
-        ["Irrational" if answer == "Rational" else "Rational", "Not a real number"],
-        working=[f"{shown} is {answer.lower()}."],
+        wrong,
+        working=[f"{shown}: {answer[0].lower()}{answer[1:]}."],
     )
     d["answer_latex"] = latex_answer(answer, plain=True)
     return d
@@ -732,6 +774,16 @@ def _cx(re: int, im: int) -> str:
 @generator("complex_number", level=12)
 def complex_number(rng, kind="real_part"):
     a, b, c, d = (rng.randint(-8, 8) for _ in range(4))
+    if kind == "conjugate" and b == 0:
+        b = 1  # a real number is its own conjugate, so there would be no question to ask
+    if kind == "conjugate" and a == 0:
+        a = rng.choice((-3, -2, -1, 1, 2, 3))  # a pure imaginary number leaves fewer than three wrong options
+    if kind == "multiply":
+        # a real factor (or a zero one) makes most wrong products collapse onto the answer or each other
+        b = b or rng.choice((-3, -2, -1, 1, 2, 3))
+        d = d or rng.choice((-3, -2, -1, 1, 2, 3))
+        a = a or rng.choice((-3, -2, -1, 1, 2, 3))
+        c = c or rng.choice((-3, -2, -1, 1, 2, 3))
     z = _cx(a, b)
     if kind == "real_part":
         return _number(
@@ -754,16 +806,32 @@ def complex_number(rng, kind="real_part"):
         return _mcq(
             f"Find the conjugate of {z}.",
             answer,
-            [z, _cx(-a, b), _cx(-a, -b)],
+            [
+                z,
+                _cx(-a, b),
+                _cx(-a, -b),
+                # The parts swapped over, with the imaginary sign kept and then flipped.
+                _cx(b, a),
+                _cx(b, -a),
+            ],
             working=["Keep the real part and reverse the sign of the imaginary part."],
         )
     if kind == "add":
+        if c == 0 and d == 0:  # adding 0 + 0i makes most wrong sums collapse onto the answer
+            c, d = rng.randint(1, 8), rng.randint(-8, 8)
         answer = _cx(a + c, b + d)
         other = _cx(c, d)
         return _mcq(
             f"Calculate ({z}) + ({other}).",
             answer,
-            [_cx(a + c, abs(b - d)), _cx(a * c, abs(b * d)), _cx(a - c, abs(b - d))],
+            [
+                _cx(a + c, abs(b - d)),
+                _cx(a * c, abs(b * d)),
+                _cx(a - c, abs(b - d)),
+                # imaginary part's sign flipped, then the real part of one number added to the other's coefficient
+                _cx(a + c, -(b + d)),
+                _cx(a + d, b + c),
+            ],
             working=["Add real parts together and imaginary coefficients together."],
         )
     if kind == "multiply":
@@ -779,6 +847,8 @@ def complex_number(rng, kind="real_part"):
                 _cx(real, abs(a * d - b * c)),
                 _cx(real + 1, imag),
                 _cx(real, imag + (1 if imag >= 0 else -1)),
+                _cx(real, -imag),
+                _cx(a * c + b * d, imag),
             ],
             working=["Expand and use i² = −1, then collect real and imaginary parts."],
         )

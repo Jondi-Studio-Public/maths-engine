@@ -709,7 +709,7 @@ def parity_even_plus_one(rng, k=None, c=None) -> dict:
         note=NOTE_PLAIN,
         ref=ref,
         symbols={k: "integer"},
-        reasons=["square 2k and multiply out.", "take a factor of 2 out of the terms that have one."],
+        reasons=[f"square 2{k} and multiply out.", "take a factor of 2 out of the terms that have one."],
         wrongs=[
             (
                 "parity-square-of-sum-termwise",

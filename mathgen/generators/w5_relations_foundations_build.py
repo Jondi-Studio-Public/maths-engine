@@ -272,8 +272,9 @@ def _eq_exam(rng):
     odd, odd_tag = near[0]
     fc = mcq_fields(odd)
     dc = mcq_cands(odd, [(g, "w5q-appearance-differs") for g in good], 4)
-    for xx in (da, db, dc):
-        enough(xx, 2)
+    enough(da, 4)
+    enough(dc, 4)  # both choice parts always show five options
+    enough(db, 2)
     return dict(
         text=f"Consider the expression {text}.",
         parts=[
@@ -1537,7 +1538,7 @@ def _seq_next(rng):
         rng,
         (
             "The first three terms of an arithmetic sequence are {s}. Which is the next term?",
-            "An arithmetic sequence begins {s}. What is the fourth term?",
+            "An arithmetic sequence begins {s}. What is the next term?",
             "Three consecutive terms of an arithmetic sequence are {s}. What comes straight after them?",
         ),
         key,
@@ -1705,7 +1706,8 @@ def _seq_exam(rng):
             (nxt + 4 * d, "w5a-off-by-one-term"),
         ],
     )
-    for xx in (da, db, dc):
+    enough(da, 4)  # the statement part always shows five options
+    for xx in (db, dc):
         enough(xx, 2)
     check(_is_arithmetic(terms), "the sequence is not arithmetic")
     return dict(

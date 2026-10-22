@@ -287,7 +287,7 @@ def _variation_question(stem: str, correct_option: str, distractors: list[str], 
 
 def _vc_easy(rng):
     correct, distractors, order = _draw_option_set(
-        rng, FAMILIAR_NORMAL, ["count", "skewed"], allow_near_miss=False, extra_clause=False
+        rng, FAMILIAR_NORMAL, ["count", "skewed", "bounded"], allow_near_miss=False, extra_clause=False
     )
     return _variation_question(STEM, correct, distractors, order)
 
@@ -331,8 +331,9 @@ def _vc_exam(rng):
     for _attempt in range(30):
         correct_phrase = rng.choice(ALL_NORMAL)
         wrong_entries = [(cls, rng.choice(WRONG_POOLS[cls])) for cls in ("count", "skewed")]
-        if rng.random() < 0.5:
-            wrong_entries.append(("near_miss", rng.choice(WRONG_POOLS["near_miss"])))
+        # Always a fifth option: a near miss half the time, otherwise a bounded count, so the tier shows 5 options.
+        extra_class = "near_miss" if rng.random() < 0.5 else "bounded"
+        wrong_entries.append((extra_class, rng.choice(WRONG_POOLS[extra_class])))
         trunc_base, trunc_full = rng.choice(TRUNCATED_NORMAL)
 
         raw_phrases = [correct_phrase] + [p for _, p in wrong_entries]

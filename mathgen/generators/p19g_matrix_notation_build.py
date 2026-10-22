@@ -398,7 +398,7 @@ def _reasoning_steps(label: str, rows: int, cols: int, expanded: str | None = No
                 steps.append(f"{c.capitalize()}: yes -- classification stops here.")
                 break
             steps.append(f"{c.capitalize()}: no.")
-    steps.append(f"A has {rows} row(s) and {cols} column(s).")
+    steps.append(f"A has {rows} {'row' if rows == 1 else 'rows'} and {cols} {'column' if cols == 1 else 'columns'}.")
     return steps
 
 

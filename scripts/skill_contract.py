@@ -275,6 +275,20 @@ _PROBABILITY_RE = re.compile(r"probab|markov|binomial|poisson|relative.freq|dete
 _OPTION_RE = re.compile(r"^\s*(\$?)\s*([-+]?\d[\d,]*(?:\.\d+)?(?:/\d+)?|[-+]?\.\d+)\s*([^\d\s][^\d]*?(?:\^[23])?)?\s*$")
 
 
+# Tiers that honestly have three options (A, B or the same; impossible, possible, certain), reviewed by hand.
+THREE_WAY_PATH = Path(__file__).resolve().parents[1] / "tests" / "skill_contract_three_way.yaml"
+
+
+@lru_cache(maxsize=1)
+def three_way_tiers() -> dict[str, list[str]]:
+    """skill id -> ["topic/difficulty", ...]: the tiers allowed exactly three options."""
+    import yaml
+
+    if not THREE_WAY_PATH.exists():
+        return {}
+    return yaml.safe_load(THREE_WAY_PATH.read_text(encoding="utf-8")) or {}
+
+
 @lru_cache(maxsize=1)
 def option_baseline() -> dict[str, dict[str, list[str]]]:
     """family -> skill id -> ["topic/difficulty", ...]: the tiers that failed `option_faults` when its checks
@@ -308,12 +322,33 @@ def option_values(texts) -> list[Fraction] | None:
     return [value for value, _ in parsed]
 
 
+def _tier_option_counts(sk, qs) -> dict[str, set[int]]:
+    """Part label (or "" for a whole question) -> the option counts a tier shows for it across its draws.
+    A multi-part question shows options per multiple-choice part; any other question, only when the skill is mcq."""
+    counts: dict[str, set[int]] = {}
+    for q in qs:
+        parts = getattr(q, "parts", None)
+        if parts:
+            for p in parts:
+                if p.answer_kind == "mcq":
+                    counts.setdefault(str(p.label), set()).add(1 + len(p.distractors))
+        elif sk.answer == "mcq":
+            counts.setdefault("", set()).add(1 + len(q.distractors))
+    return counts
+
+
+def _counts_ok(counts: dict[str, set[int]], three_way: bool) -> bool:
+    """Every unit shows one constant number of options, at least `MIN_OPTIONS` (exactly 3 on a reviewed three-way tier)."""
+    return all(len(c) == 1 and (min(c) >= MIN_OPTIONS or (three_way and c == {3})) for c in counts.values())
+
+
 def option_faults(skill_id: str) -> dict[str, set[str]]:
     """family -> {"topic/difficulty"} for `OPTION_FAMILIES`. The first three hold only for multiple-choice skills,
     the only ones whose options a learner sees; `probability` holds for every skill, because a typed skill's
     distractors are the wrong answers its grader recognises.
 
-    - option_count: the tier does not always show the same number of options, at least `MIN_OPTIONS`.
+    - option_count: the tier does not always show the same number of options, at least `MIN_OPTIONS` (exactly
+      three for a tier listed in `THREE_WAY_PATH`). A multi-part question is read part by part, by part label.
     - answer_position: in most draws every option is a number in one unit, and the answer sits at a predictable
       rank of the sorted options: at an end in under `MIN_EXTREME_SHARE` of draws, or at one rank in over
       `MAX_SAME_RANK_SHARE`.
@@ -324,10 +359,10 @@ def option_faults(skill_id: str) -> dict[str, set[str]]:
     faults: dict[str, set[str]] = {family: set() for family in OPTION_FAMILIES}
     for src, difficulty, qs in draws(skill_id):
         key = f"{src.topic}/{difficulty}"
+        counts = _tier_option_counts(sk, qs)
+        if counts and not _counts_ok(counts, key in three_way_tiers().get(skill_id, ())):
+            faults["option_count"].add(key)
         if sk.answer == "mcq":
-            counts = {1 + len(q.distractors) for q in qs}
-            if len(counts) > 1 or min(counts) < MIN_OPTIONS:
-                faults["option_count"].add(key)
             ranks = []
             for q in qs:
                 values = option_values([q.answer_text, *q.distractors])

@@ -151,7 +151,7 @@ def ey_graph_translation(rng, tier="easy"):
                 f"g is a vertical translation of f, with g(x) = f(x) + a. {scale} What is the value of a?",
             )
         )
-        key, wrong = str(a), [-a, k + a, k, -(k + a)]
+        key, wrong = str(a), [-a, k + a, k, -(k + a), a + 1, a - 1]
         working = [
             f"The vertex of f is at ({h}, {k}) and the vertex of g is at ({h}, {k + a}).",
             f"a = {k + a} - {pn(k)} = {a}.",
@@ -163,7 +163,7 @@ def ey_graph_translation(rng, tier="easy"):
                 f"g is a horizontal translation of f, with g(x) = f(x + b). {scale} What is the value of b?",
             )
         )
-        key, wrong = str(b), [-b, h - b, h, -(h - b)]
+        key, wrong = str(b), [-b, h - b, h, -(h - b), b + 1, b - 1]
         working = [
             f"The vertex of f is at x = {h} and the vertex of g is at x = {h - b}.",
             f"g(x) = f(x + b) moves the graph by -b, so -b = {h - b} - {pn(h)} = {-b} and b = {b}.",
@@ -182,7 +182,7 @@ def ey_graph_translation(rng, tier="easy"):
             f"A move of {-b} in x is f({arg('x', b)}) and a move of {a} in y adds {pn(a)}, so {key}.",
         ]
         wrong = [w for w in wrong if w != key]
-    distractors = mcq(key, [str(w) for w in wrong])
+    distractors = mcq(key, [str(w) for w in wrong], minimum=3)
     check(
         _read_translation(type("Q", (), {"figure": fig, "text": text})) == key,
         "the translation reader disagrees with the key",
@@ -400,7 +400,7 @@ def ey_graph_dilation(rng, tier="easy"):
         )
         f0 = _f0(kind, m, s)
         key = frac_text(c)
-        wrong = [1 / c, c - 1, c * f0, f0 * c - f0]
+        wrong = [1 / c, c - 1, c * f0, f0 * c - f0, -c, c + 1, 1 / (c + 1)]
         working = [
             f"The y-intercept of f is {f0} and the y-intercept of g is {c * f0}.",
             f"c = {c * f0} / {f0} = {frac_text(c)}.",
@@ -716,15 +716,19 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
     t = rng.choice(ts)
     if mode == "abs":
         gname, at, ans = "|f(x)|", t, abs(F(fn(t)))
-        wrong = [fn(t), abs(t), -abs(fn(t))]
+        wrong = [fn(t), abs(t), -abs(fn(t)), fn(-t), abs(fn(t)) + 1, abs(fn(t)) - 1]  # f(-t): read at -t
         working = [f"From the graph, f({t}) = {fn(t)}.", f"|f({t})| = |{fn(t)}| = {abs(fn(t))}."]
     elif mode == "fabs":
         at = -t
-        gname, ans, wrong = "f(|x|)", F(fn(t)), [fn(-t), -fn(t), abs(fn(t))]
+        gname, ans, wrong = "f(|x|)", F(fn(t)), [fn(-t), -fn(t), abs(fn(t)), -fn(-t), fn(t) + 1, fn(t) - 1]
         working = [f"|{at}| = {t}, so g({at}) = f({t}).", f"From the graph, f({t}) = {fn(t)}."]
     else:
         at = t
-        gname, ans, wrong = "1/f(x)", 1 / F(fn(t)), [-1 / F(fn(t)), F(fn(t)), F(1, t)]
+        gname, ans, wrong = (
+            "1/f(x)",
+            1 / F(fn(t)),
+            [-1 / F(fn(t)), F(fn(t)), F(1, t), F(1, fn(t) ** 2), -F(1, t), F(1, 2 * fn(t)), F(2, fn(t))],
+        )
         working = [f"From the graph, f({t}) = {fn(t)}.", f"1/f({t}) = 1/{fn(t)} = {frac_text(ans)}."]
     fig = _plane([sample(fn, label="f")], alt="the graph of f on a coordinate grid, one unit per grid square")
     text = rng.choice(
@@ -734,7 +738,7 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
         )
     )
     key = frac_text(ans)
-    distractors = mcq(key, [frac_text(F(w)) for w in wrong])
+    distractors = mcq(key, [frac_text(F(w)) for w in wrong], minimum=3)
     q = type("Q", (), {"figure": fig, "text": text})
     check(_read_recip(q) == key, "the reciprocal reader disagrees with the key")
     figures.assert_no_leak(fig, [key])

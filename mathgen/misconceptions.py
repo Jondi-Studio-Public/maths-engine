@@ -21283,6 +21283,12 @@ _ENTRIES = (
         area="linear-algebra",
     ),
     CatalogueEntry(
+        "linear-system-exactly-two-solutions",
+        "Saying a linear system has exactly two solutions, as a quadratic equation can: a linear system has none, one "
+        "or infinitely many.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
         "dependence-relation-sign-slip",
         "Giving a coefficient of the wrong sign in a dependence relation: reading w = a·u + b·v as c1·u + c2·v + w = 0 "
         "with c1 = a, when c1 = -a.",

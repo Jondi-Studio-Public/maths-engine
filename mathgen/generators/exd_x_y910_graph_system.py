@@ -82,7 +82,7 @@ def exd_x_y910_graph_system(rng, tier="exam"):
                 (ma + 1, "misread-the-crossing-by-one-square"),
             ],
             1,
-            [f"Line A rises {ma} for each 1 across, so the gradient is {ma}."],
+            [f"Line A {'rises' if ma > 0 else 'falls'} {abs(ma)} for each 1 across, so the gradient is {ma}."],
             -10,
             10,
         ),

@@ -132,9 +132,9 @@ def exd_x_sc2_wages_penalty(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 working=[
-                    f"Ordinary pay: {ordinary} x ${_money(rate)} = ${_money(rate * ordinary)}.",
-                    f"Loaded rate: {loading_text} = {loading} x ${_money(rate)} = ${_money(rate * loading)} per hour.",
-                    f"Loaded pay: {extra} x ${_money(rate * loading)} = ${_money(rate * loading * extra)}.",
+                    f"Ordinary pay: {ordinary} × ${_money(rate)} = ${_money(rate * ordinary)}.",
+                    f"Loaded rate: {loading_text} = {loading} × ${_money(rate)} = ${_money(rate * loading)} per hour.",
+                    f"Loaded pay: {extra} × ${_money(rate * loading)} = ${_money(rate * loading * extra)}.",
                     f"Gross pay = ${_money(rate * ordinary)} + ${_money(rate * loading * extra)} = ${gross_text}.",
                 ],
                 distractors=a_dis,

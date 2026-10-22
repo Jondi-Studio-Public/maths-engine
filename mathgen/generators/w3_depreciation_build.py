@@ -559,6 +559,8 @@ def _flat_hard_first_below(rng):
     annual = price * r / 100
     n = rng.randint(3, min(9, 92 // r)) if 92 // r >= 3 else 3
     exact = rng.random() < 0.4  # the target is met exactly at the end of year n: the first year BELOW it is n + 1
+    if (n + 1) * r > 100:
+        exact = False  # year n + 1 would show a negative value for the asset
     value_n = price - annual * n
     if exact:
         target, first = value_n, n + 1
@@ -568,6 +570,8 @@ def _flat_hard_first_below(rng):
     check(target > 0, "target")
     sched = _flat_schedule(price, annual, first + 1)
     check(sched[first] < target <= sched[first - 1], "first year below")
+    if sched[first] <= 0:
+        raise_retry()
     d = WHOLE.dist(
         first,
         [
@@ -685,6 +689,8 @@ def exd_x_w3_flat_depreciation(rng, tier="exam"):
         sched = _flat_schedule(price, annual, lim_years + 1)
         limit = sched[lim_years] + annual * Fraction(rng.choice((1, 2, 3)), 4)
         first = next(i for i, v in enumerate(sched) if v < limit)
+        if sched[first] <= 0:
+            raise_retry()
         value_n = price - annual * n
         a_d = MONEY.dist(
             annual,

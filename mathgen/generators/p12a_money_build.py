@@ -156,12 +156,7 @@ def _build_d2c(rng, tier: str) -> dict:
         answer_latex=answer_text,
         working=[
             f"{display_amt} = {dollars} {'dollar' if dollars == 1 else 'dollars'} and {frac:02d} cents "
-            f"= {dollars} × 100{f' + {frac}' if frac else ''} = {answer_text} cents."
-            + (
-                " (dollars-to-cents regrouping trap: naive digit concatenation drops the tens-of-cents zero.)"
-                if tier == "hard"
-                else ""
-            ),
+            f"= {dollars} × 100{f' + {frac}' if frac else ''} = {answer_text} cents.",
         ],
         distractors=pick_distractors(
             answer_text,
@@ -221,13 +216,7 @@ def _build_c2d(rng, tier: str) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"{cents} {unit} = {cents} / 100 = ${answer_text}."
-            + (
-                " (leading-zero-in-cents trap: the result is under one dollar, "
-                "a naive answer drops the required tenths-place zero.)"
-                if tier == "hard"
-                else ""
-            ),
+            f"{cents} {unit} = {cents} ÷ 100 = ${answer_text}.",
         ],
         distractors=pick_distractors(
             answer_text,
@@ -564,7 +553,7 @@ def _build_multiply_hard(rng) -> dict:
         per_ticket,
         answer,
         trap=f"'more' cues addition; the final decisive operation is "
-        f"multiplication ({n} x ${per_ticket}) once the per-ticket price is found.",
+        f"multiplication ({n} × ${per_ticket}) once the per-ticket price is found.",
     )
 
 
@@ -584,7 +573,7 @@ def _build_divide_hard(rng) -> dict:
         price,
         answer,
         tier="hard",
-        trap=f"'each' cues multiplication; the actual operation is division (${total} / ${price}).",
+        trap=f"'each' cues multiplication; the actual operation is division (${total} ÷ ${price}).",
     )
 
 
@@ -729,7 +718,7 @@ def _finish_multiply_two_step(rng, text, name, n, p, bonus, answer, tier, trap=N
         misconception_multiply_bonus,
         msg="multiply (two-step) misconception collides with the answer or another option",
     )
-    working = [f"({n} x ${p}) + ${bonus} = ${answer}." + (f" Trap: {trap}" if trap else "")]
+    working = [f"({n} × ${p}) + ${bonus} = ${answer}." + (f" Trap: {trap}" if trap else "")]
     return dict(
         text=text,
         latex=text,
@@ -763,7 +752,7 @@ def _finish_multiply_hard(rng, text, name, n, base, extra, per_ticket, answer, t
         msg="multiply (hard) misconception collides with the answer or another option",
     )
     working = [
-        f"Per-ticket price = ${base} + ${extra} = ${per_ticket}; {n} x ${per_ticket} = ${answer}."
+        f"Per-ticket price = ${base} + ${extra} = ${per_ticket}; {n} × ${per_ticket} = ${answer}."
         + (f" Trap: {trap}" if trap else "")
     ]
     return dict(
@@ -799,7 +788,7 @@ def _finish_divide(rng, text, name, total, n, answer, tier, trap=None) -> dict:
         misconception_reversed,
         msg="divide misconception collides with the answer or another option",
     )
-    working = [f"${total} / {n} = ${answer}." + (f" Trap: {trap}" if trap else "")]
+    working = [f"${total} ÷ {n} = ${answer}." + (f" Trap: {trap}" if trap else "")]
     return dict(
         text=text,
         latex=text,
@@ -839,7 +828,7 @@ def _finish_divide_two_step(rng, text, total, n, c, answer, tier, trap=None) -> 
         misconception_reported_total,
         msg="divide (two-step) misconception collides with the answer or another option",
     )
-    working = [f"${total} / {n} = ${each}; ${each} - ${c} = ${answer}." + (f" Trap: {trap}" if trap else "")]
+    working = [f"${total} ÷ {n} = ${each}; ${each} - ${c} = ${answer}." + (f" Trap: {trap}" if trap else "")]
     return dict(
         text=text,
         latex=text,

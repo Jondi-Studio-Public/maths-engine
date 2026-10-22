@@ -336,6 +336,7 @@ def time_units_and_nearest_minute(rng, tier="easy"):
         # Always convert to the smaller (finer) unit.
         mins = secs = hours = mins_val = days = 0  # Initialize all variables
         hard_variant = None  # Track which variant we use
+        hard_working = ""
 
         if rng.choice((True, False)):
             if rng.choice((True, False)):
@@ -347,6 +348,7 @@ def time_units_and_nearest_minute(rng, tier="easy"):
                 mins_str = "minute" if mins == 1 else "minutes"
                 secs_str = "second" if secs == 1 else "seconds"
                 text = f"Convert {mins} {mins_str} and {secs} {secs_str} to seconds."
+                hard_working = f"{mins} × 60 = {mins * 60}, {mins * 60} + {secs} = {answer}."
             else:
                 # hours and minutes: convert to minutes
                 hard_variant = "hours_mins"
@@ -356,6 +358,7 @@ def time_units_and_nearest_minute(rng, tier="easy"):
                 hours_str = "hour" if hours == 1 else "hours"
                 mins_str = "minute" if mins_val == 1 else "minutes"
                 text = f"Convert {hours} {hours_str} and {mins_val} {mins_str} to minutes."
+                hard_working = f"{hours} × 60 = {hours * 60}, {hours * 60} + {mins_val} = {answer}."
         else:
             # days and hours: convert to hours
             hard_variant = "days_hours"
@@ -365,6 +368,7 @@ def time_units_and_nearest_minute(rng, tier="easy"):
             days_str = "day" if days == 1 else "days"
             hours_str = "hour" if hours == 1 else "hours"
             text = f"Convert {days} {days_str} and {hours} {hours_str} to hours."
+            hard_working = f"{days} × 24 = {days * 24}, {days * 24} + {hours} = {answer}."
 
     # For easy and medium, construct text differently
     if tier in ("easy", "medium"):
@@ -379,7 +383,7 @@ def time_units_and_nearest_minute(rng, tier="easy"):
         working = [f"Convert {value} {unit_from_str} to {unit_to_str}: {answer_text} {unit_to_str}."]
     else:
         # For hard, text was already constructed above
-        working = [text]
+        working = [f"{text} {hard_working}"]
 
     # Verify the conversion
     if tier in ("easy", "medium"):

@@ -259,7 +259,7 @@ def _easy(rng):
     solid = op in ("≤", "≥")
     working = [
         f"The boundary line is {text_ineq.replace(op, '=', 1)}. It is {'solid, because the line is included' if solid else 'dashed, because the line is not included'}.",
-        "Test a point not on the line, such as (0, 0) if it is clear of the line, and shade the side where the inequality is true.",
+        "Test a point not on the line, such as (0, 0) when the line does not pass through it, and shade the side where the inequality is true.",
     ]
     return dict(text=text, figure=_figure(), working=working, distractors=d, **fields)
 

@@ -192,7 +192,7 @@ def _medium(rng):
     ]
     sticks = stick + "es" if stick.endswith("h") else stick + "s"
     text = f"{_stem(rng, pattern, stick)} How many {sticks} are in Figure {n}?"
-    working = [f"The rule is {d} x n + {k}.", f"For n = {n}: {d} x {n} + {k} = {value}."]
+    working = [f"The rule is {d} × n + {k}.", f"For n = {n}: {d} x {n} + {k} = {value}."]
     return pattern, text, value, wrong, working
 
 
@@ -221,7 +221,7 @@ def _hard(rng):
         ("fr2c-rule-constant-taken-as-first-figure", (stock - c1) // d),
     ]
     working = [
-        f"The number of {sticks} in Figure n is {d} x n + {k}.",
+        f"The number of {sticks} in Figure n is {d} × n + {k}.",
         f"{stock} - {k} = {stock - k}, and {stock - k} / {d} = {n} with {left} left over.",
         f"So the largest figure is Figure {n}.",
     ]

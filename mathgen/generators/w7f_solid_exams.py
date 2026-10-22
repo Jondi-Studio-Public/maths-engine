@@ -208,7 +208,9 @@ def _properties_chain(rng):
         f"How many of its edges are exactly {k} {unit} long?",
         edges,
         1,
-        [f"The cuboid is {a} by {b} by {c}. There are 4 edges of each length, and {same} of the 3 lengths is {k}."],
+        [
+            f"The cuboid is {a} by {b} by {c}. Each of the 3 dimensions has 4 edges, and {same} of the 3 dimensions {'is' if same == 1 else 'are'} {k}."
+        ],
         [
             (same, "cub-counts-lengths-not-edges"),
             (12, "cub-counts-every-edge"),
@@ -250,7 +252,7 @@ def _properties_chain(rng):
         f"Painting the whole outside, bottom included, costs ${price} for each unit square. Find the cost, in dollars.",
         area * price,
         2,
-        [f"{area} x ${price} = ${area * price}."],
+        [f"{area} × ${price} = ${area * price}."],
         [
             (sum(faces) * price, "cub-counts-one-of-each-pair-of-faces"),
             (volume * price, "cub-prices-the-volume"),
@@ -565,7 +567,7 @@ def _outline_chain(rng):
         f"Tiling the shape costs ${price} for each square. Find the cost of tiling the shape, in dollars.",
         area * price,
         1,
-        [f"{area} x ${price} = ${area * price}."],
+        [f"{area} × ${price} = ${area * price}."],
         [
             (box * price, "comp-gives-the-bounding-rectangle"),
             (perimeter * price, "comp-gives-the-perimeter-for-the-area"),

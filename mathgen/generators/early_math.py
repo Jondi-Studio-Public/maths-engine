@@ -239,7 +239,8 @@ def teen_place_value(rng, hi=99):
     else:
         answer = ones
         text = f"How many ones are in {number}?"
-        cands = [tens, (ones + 1) % 10, max(0, ones - 1), number]
+        # A multiple of ten has no ones, so the first four collapse to three; the last two keep four options.
+        cands = [tens, (ones + 1) % 10, max(0, ones - 1), number, (ones + 2) % 10, (ones + 9) % 10]
     return _number_question(text, answer, cands, latex=rf"{number}= {tens}\text{{ tens}}+{ones}\text{{ ones}}")
 
 

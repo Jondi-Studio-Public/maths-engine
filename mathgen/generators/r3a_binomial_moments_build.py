@@ -78,7 +78,7 @@ def _easy(rng: random.Random) -> dict:
             mean,
             2,
             1,
-            [f"E(X) = np = {n} x {dec(p)} = {mean}."],
+            [f"E(X) = np = {n} x {dec(p)} = {dec(mean)}."],
             [
                 (n * q, "r3a-mean-uses-failure-probability"),
                 (var, "r3a-mean-reported-as-variance"),
@@ -140,7 +140,7 @@ def _medium(rng: random.Random) -> dict:
             value,
             2,
             1,
-            [f"mean = {mean}, SD = {float(sd):.4f}, so {end} end = {mean} {sign} 2 x {float(sd):.4f}."],
+            [f"mean = {dec(mean)}, SD = {float(sd):.4f}, so {end} end = {dec(mean)} {sign} 2 x {float(sd):.4f}."],
             [
                 (wrong_end, "r3a-interval-wrong-end"),
                 (mean + (2 * var if end == "upper" else -2 * var), "r3a-interval-uses-variance-for-sd"),
@@ -170,7 +170,7 @@ def _medium(rng: random.Random) -> dict:
                 sd,
                 2,
                 1,
-                [f"Y = {n} - X, so Var(Y) = Var(X) = npq = {var} and SD(Y) = sqrt({var})."],
+                [f"Y = {n} - X, so Var(Y) = Var(X) = npq = {dec(var)} and SD(Y) = sqrt({dec(var)})."],
                 [
                     (sqrt_fraction(n * q), "r3a-sd-omits-failure-probability"),
                     (var, "r3a-sd-omits-square-root"),
@@ -184,7 +184,7 @@ def _medium(rng: random.Random) -> dict:
             second,
             2,
             1,
-            [f"E(X^2) = Var(X) + (E(X))^2 = {var} + {mean}^2."],
+            [f"E(X^2) = Var(X) + (E(X))^2 = {dec(var)} + {dec(mean)}^2."],
             [
                 (mean * mean, "r3a-second-moment-squares-the-mean"),
                 (var, "r3a-second-moment-is-the-variance"),
@@ -284,7 +284,7 @@ def _hard(rng: random.Random) -> dict:
                 total_sd,
                 2,
                 1,
-                [f"Var(T) = {v1} + {v2} = {total_var}, so SD(T) = sqrt({total_var})."],
+                [f"Var(T) = {dec(v1)} + {dec(v2)} = {dec(total_var)}, so SD(T) = sqrt({dec(total_var)})."],
                 [
                     (s1 + s2, "r3a-adds-standard-deviations"),
                     (total_var, "r3a-sd-omits-square-root"),
@@ -301,7 +301,9 @@ def _hard(rng: random.Random) -> dict:
                 total_sd,
                 2,
                 1,
-                [f"Var(D) = Var(A) + Var(B) = {v1} + {v2} = {total_var}, so SD(D) = sqrt({total_var})."],
+                [
+                    f"Var(D) = Var(A) + Var(B) = {dec(v1)} + {dec(v2)} = {dec(total_var)}, so SD(D) = sqrt({dec(total_var)})."
+                ],
                 [
                     (sqrt_fraction(abs(v1 - v2)), "r3a-subtracts-variances"),
                     (abs(s1 - s2), "r3a-subtracts-standard-deviations"),
@@ -360,7 +362,7 @@ def _exam(rng: random.Random) -> dict:
             mean,
             2,
             1,
-            [f"E(X) = np = {n} x {dec(p)} = {mean}."],
+            [f"E(X) = np = {n} x {dec(p)} = {dec(mean)}."],
             [
                 (n * q, "r3a-mean-uses-failure-probability"),
                 (var, "r3a-mean-reported-as-variance"),
@@ -373,7 +375,7 @@ def _exam(rng: random.Random) -> dict:
             var,
             2,
             1,
-            [f"Var(X) = npq = {mean} x {dec(q)} = {var}."],
+            [f"Var(X) = npq = {dec(mean)} x {dec(q)} = {dec(var)}."],
             [
                 (mean, "r3a-variance-omits-failure-probability"),
                 (n * p * p, "r3a-variance-squares-p"),
@@ -387,7 +389,7 @@ def _exam(rng: random.Random) -> dict:
             sd,
             2,
             1,
-            [f"SD(X) = sqrt(Var(X)) = sqrt({var})."],
+            [f"SD(X) = sqrt(Var(X)) = sqrt({dec(var)})."],
             [
                 (var, "r3a-sd-omits-square-root"),
                 (sqrt_fraction(mean), "r3a-sd-omits-failure-probability"),

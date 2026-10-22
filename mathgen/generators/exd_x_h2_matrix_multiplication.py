@@ -143,6 +143,16 @@ def _unknowns(rng: random.Random) -> dict:
     if x_entrywise == int(x_entrywise) and x_entrywise != 0 and product[0][1] % int(x_entrywise) == 0:
         x_wrong = int(x_entrywise)
         cands.append(f"x = {x_wrong}, y = {product[0][1] // x_wrong}")
+    cands.append(f"x = {-x0}, y = {-y0}")  # sign lost on both
+    # y read from entry (1,2) with the (b)(h) term dropped, or added with the wrong sign.
+    for dropped in (product[0][1], product[0][1] + 2 * b * h):
+        if dropped % x0 == 0 and dropped // x0 != y0:
+            cands.append(f"x = {x0}, y = {dropped // x0}")
+    # x read from entry (1,1) with the (b)(g) term dropped or added with the wrong sign.
+    for dropped in (product[0][0], product[0][0] + 2 * b * g):
+        if dropped % e == 0 and dropped // e != x0:
+            cands.append(f"x = {dropped // e}, y = {y0}")
+    cands.extend(f"x = {x0}, y = {y0 + step}" for step in (1, -1, 2))
     working = [
         f"Entry (1,1): {fmt_signed(e, 'x')} + {paren_negative(b)} × {paren_negative(g)} = {product[0][0]}, so x = {x0}. "
         f"Entry (1,2): xy + {paren_negative(b)} × {paren_negative(h)} = {product[0][1]}, so y = {y0}."

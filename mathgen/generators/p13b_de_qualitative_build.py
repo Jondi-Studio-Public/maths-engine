@@ -373,10 +373,10 @@ EASY_CONTEXTS = [
 
 def _draw_distinct(rng, *pools):
     """One letter from each pool, retrying whenever two pools would draw the
-    same letter (small pools, so a handful of retries always succeeds)."""
+    same letter, in either case (S and s read as one symbol; small pools, so a handful of retries always succeeds)."""
     for _ in range(50):
         chosen = [rng.choice(pool) for pool in pools]
-        if len(set(chosen)) == len(chosen):
+        if len({c.lower() for c in chosen}) == len(chosen):
             return chosen
     raise AssertionError("could not draw distinct symbols")
 

@@ -595,7 +595,7 @@ def _cs_hard(rng):
         enough(cands)
         stem = f"A circle has the equation {left} = 0. {_ENTER_HKRR}"
         work = [
-            f"Divide every term by {m}: x^2 + y^2 {join_terms([(D, 'x'), (E, 'y'), (F, '')])} = 0, then complete the square."
+            f"Divide every term by {m}: {join_terms([(1, 'x^2'), (1, 'y^2'), (D, 'x'), (E, 'y'), (F, '')])} = 0, then complete the square."
         ]
         if kind == "both_sides_factor":
             stem = (

@@ -445,7 +445,7 @@ def _build(rng: random.Random, method: str, level: str) -> tuple[str, dict]:
                 exact=(N - n) * cost,
                 places=0,
                 marks=3,
-                working=[f"Extra forms = {N} - {n} = {N - n}.", f"Extra cost = {N - n} x ${cost} = ${(N - n) * cost}."],
+                working=[f"Extra forms = {N} - {n} = {N - n}.", f"Extra cost = {N - n} × ${cost} = ${(N - n) * cost}."],
                 wrong=[
                     (N * cost, "ir2a-reports-the-whole-not-the-extra"),
                     (n * cost, "ir2a-reports-the-sample-size"),

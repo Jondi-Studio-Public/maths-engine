@@ -182,6 +182,10 @@ def _whole_estimate_easy(rng) -> dict:
         answer=estimate,
         answer_text=str(estimate),
         answer_latex=str(estimate),
+        working=[
+            f"{a} rounds to {round_a} and {b} rounds to {round_b}.",
+            f"{round_a} {_display_op(op)} {round_b} = {estimate}.",
+        ],
         distractors=pick_distractors(str(estimate), [str(c) for c in candidates]),
     )
 
@@ -235,6 +239,10 @@ def _whole_estimate_medium(rng) -> dict:
         answer=estimate,
         answer_text=str(estimate),
         answer_latex=str(estimate),
+        working=[
+            f"{a} rounds to {round_a} and {b} rounds to {round_b}.",
+            f"{round_a} {_display_op(op)} {round_b} = {estimate}.",
+        ],
         distractors=pick_distractors(str(estimate), [str(c) for c in candidates]),
     )
 
@@ -321,6 +329,10 @@ def _whole_estimate_hard(rng) -> dict:
         answer=estimate,
         answer_text=str(estimate),
         answer_latex=str(estimate),
+        working=[
+            f"{a} rounds to {round_a} (nearest {place_a_text}) and {b} rounds to {round_b} (nearest {place_b_text}).",
+            f"{round_a} {_display_op(op_sym)} {round_b} = {estimate}.",
+        ],
         distractors=pick_distractors(str(estimate), [str(c) for c in candidates]),
     )
 
@@ -376,6 +388,11 @@ def _get_benchmark_quantities(benchmark: int, rng) -> tuple[int, int]:
         raise ValueError(f"unknown benchmark {benchmark}")
 
 
+def _decimal_text(value: Fraction) -> str:
+    """Exact decimal text of a Fraction whose denominator divides 100."""
+    return f"{float(value):.2f}".rstrip("0").rstrip(".")
+
+
 def _percentage_estimate_easy(rng) -> dict:
     """Easy tier: benchmark 10%, two-digit quantity."""
     benchmark = 10
@@ -414,6 +431,7 @@ def _percentage_estimate_easy(rng) -> dict:
         answer=estimate,
         answer_text=str(estimate),
         answer_latex=str(estimate),
+        working=[f"{benchmark}% of {quantity} = {_decimal_text(exact_frac)}, which rounds to {estimate}."],
         distractors=pick_distractors(str(estimate), [str(c) for c in candidates]),
     )
 
@@ -451,6 +469,7 @@ def _percentage_estimate_medium(rng) -> dict:
         answer=estimate,
         answer_text=str(estimate),
         answer_latex=str(estimate),
+        working=[f"{benchmark}% of {quantity} = {_decimal_text(exact_frac)}, which rounds to {estimate}."],
         distractors=pick_distractors(str(estimate), [str(c) for c in candidates]),
     )
 
@@ -504,6 +523,7 @@ def _percentage_estimate_hard(rng) -> dict:
         answer=estimate,
         answer_text=str(estimate),
         answer_latex=str(estimate),
+        working=[f"{benchmark}% of {quantity} = {_decimal_text(exact_frac)}, which rounds to {estimate}."],
         distractors=pick_distractors(str(estimate), [str(c) for c in candidates]),
     )
 

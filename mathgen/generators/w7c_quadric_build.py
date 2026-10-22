@@ -373,13 +373,13 @@ def _choice(text, key, wrong, working) -> dict:
     )
 
 
-def _conic_wrong(rng, key, *, n=4):
+def _conic_wrong(rng, key, *, n=4, minimum=3):
     forbid = {ELLIPSE} if key == CIRCLE else set()
-    return _options(rng, key, _CONIC_WRONG[key], forbid=forbid, n=n)
+    return _options(rng, key, _CONIC_WRONG[key], forbid=forbid, n=n, minimum=minimum)
 
 
-def _confusion_wrong(rng, key, *, extra=(), n=4):
-    return _options(rng, key, _CONFUSIONS[key], extra=extra, n=n)
+def _confusion_wrong(rng, key, *, extra=(), n=4, minimum=3):
+    return _options(rng, key, _CONFUSIONS[key], extra=extra, n=n, minimum=minimum)
 
 
 # -- planes and traces ------------------------------------------------------------------------------------------
@@ -511,10 +511,10 @@ def _plane_value(rng, s: Surface, var):
     raise Redraw("no proper conic for this plane")
 
 
-def _trace_question(rng, s: Surface, var, k, *, allow=None):
+def _trace_question(rng, s: Surface, var, k, *, allow=None, minimum=3):
     expr, a, b, label = _trace(s.f, var, k)
     check(allow is None or label in allow, f"trace {label} not allowed")
-    wrong = _conic_wrong(rng, label)
+    wrong = _conic_wrong(rng, label, minimum=minimum)
     plane = f"{var} = {k}"
     working = [
         f"Put {plane} in the equation: {show(expr)} = 0 in the {a}{b}-plane.",
@@ -603,7 +603,9 @@ def _medium_name(rng):
             CONE: "The signs are mixed and the right side is 0: a cone.",
         }[key],
     ]
-    return _choice(phrase(rng, _SQUARE_STEMS, eq=text), key, _confusion_wrong(rng, key, extra=extra), working)
+    return _choice(
+        phrase(rng, _SQUARE_STEMS, eq=text), key, _confusion_wrong(rng, key, extra=extra, minimum=4), working
+    )
 
 
 def _medium_paraboloid(rng):
@@ -629,7 +631,7 @@ def _medium_paraboloid(rng):
             else "with opposite signs: a hyperbolic paraboloid."
         ),
     ]
-    return _choice(phrase(rng, _SQUARE_STEMS, eq=text), key, _confusion_wrong(rng, key), working)
+    return _choice(phrase(rng, _SQUARE_STEMS, eq=text), key, _confusion_wrong(rng, key, minimum=4), working)
 
 
 _CENTRE_STEMS = (
@@ -664,7 +666,7 @@ def _medium_centre(rng):
         f"Completing the square in {var}: the {var} terms become {a}({_minus(var, h)})² plus a constant.",
         f"The centre has {var}-coordinate {h}.",
     ]
-    return dict(text=phrase(rng, _CENTRE_STEMS, eq=text, var=var), working=working, **value_fields(h, wrong))
+    return dict(text=phrase(rng, _CENTRE_STEMS, eq=text, var=var), working=working, **value_fields(h, wrong, minimum=4))
 
 
 # -- medium / exam: semi-axes of a horizontal trace -------------------------------------------------------------
@@ -770,7 +772,7 @@ def _medium_axis(rng):
     return dict(
         text=phrase(rng, _AXIS_STEMS, eq=s.text, plane=plane, var=ask),
         working=working,
-        **value_fields(value, wrong),
+        **value_fields(value, wrong, minimum=4),
     )
 
 
@@ -812,7 +814,7 @@ def _hard_oblique(rng):
     label = conic_type(expr, u, v)
     expected = {"ellipse": ELLIPSE, "parabola": PARABOLA, "hyperbola": HYPERBOLA}[cls]
     check(label == expected, f"the slope rule says {expected} but the determinant test says {label}")
-    wrong = _conic_wrong(rng, expected)
+    wrong = _conic_wrong(rng, expected, minimum=4)
     eq = f"{show(u**2 + v**2 - w**2)} = {d}"
     reading = {
         "ellipse": "the plane is flatter than the generators of the surface (|slope| < 1), so it cuts every generator: an ellipse.",
@@ -870,7 +872,7 @@ def _hard_radius(rng):
     return dict(
         text=phrase(rng, _RADIUS_STEMS, plane=plane, para=f"{w} = {show(para)}"),
         working=working,
-        **value_fields(r, wrong),
+        **value_fields(r, wrong, minimum=4),
     )
 
 
@@ -932,7 +934,7 @@ def _hard_intercept(rng):
             rng, _INTERCEPT_STEMS, f=show(f), p=", ".join(str(p).replace("-", "−") for p in point), axis=axis, at=at
         ),
         working=working,
-        **value_fields(s_val, wrong),
+        **value_fields(s_val, wrong, minimum=4),
     )
 
 
@@ -971,7 +973,7 @@ def _hard_cross(rng):
     return _choice(
         phrase(rng, _CROSS_STEMS, eq=text),
         key,
-        _confusion_wrong(rng, key, extra=[("quad-cross-term-ignored", naive)]),
+        _confusion_wrong(rng, key, extra=[("quad-cross-term-ignored", naive)], minimum=4),
         working,
     )
 
@@ -1007,7 +1009,7 @@ def _hard_cross_paraboloid(rng):
     return _choice(
         phrase(rng, _CROSS_STEMS, eq=text),
         key,
-        _confusion_wrong(rng, key, extra=[("quad-cross-term-ignored", naive)]),
+        _confusion_wrong(rng, key, extra=[("quad-cross-term-ignored", naive)], minimum=4),
         working,
     )
 
@@ -1041,7 +1043,7 @@ def _medium_degenerate(rng):
         k = rng.choice([0, 0, 1, -1, 2, -2, 4, 5, -5, 7])
         _expr, _a, _b, label = _trace(s.f, var, k)
         if label in (POINT, EMPTY, LINES):
-            return _trace_question(rng, s, var, k)
+            return _trace_question(rng, s, var, k, minimum=4)
     raise Redraw("no degenerate trace")
 
 

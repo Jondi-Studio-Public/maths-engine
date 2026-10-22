@@ -135,9 +135,9 @@ def inverse_one_to_one_function(rng, tier="medium"):
         # b_sign/b_val are the INVERSE step (subtract b); f itself carries the opposite sign.
         f_sign, f_val = ("+", b) if b >= 0 else ("-", -b)
         working = [
-            f"Let y = {a}×x {f_sign} {f_val}. To find f⁻¹(x), solve for x:",
-            f"y = {a}×x {f_sign} {f_val}",
-            f"y {b_sign} {b_val} = {a}×x",
+            f"Let y = {a}x {f_sign} {f_val}. To find f⁻¹(x), solve for x:",
+            f"y = {a}x {f_sign} {f_val}",
+            f"y {b_sign} {b_val} = {a}x",
             f"(y {b_sign} {b_val})/{a} = x",
             f"f⁻¹(x) = {answer_text}",
         ]
@@ -174,12 +174,12 @@ def inverse_one_to_one_function(rng, tier="medium"):
         else:
             prompt_b = f"- {-b}"
 
-        # Apply display transformation to replace * with × in distractors
+        # Apply display transformation to drop the * in distractors (a coefficient beside x or a bracket is written without a sign)
         distractors_raw = pick_distractors(answer_text, candidates)
-        distractors = [d.replace("*", "×") if isinstance(d, str) else d for d in distractors_raw]
+        distractors = [d.replace("*", "") if isinstance(d, str) else d for d in distractors_raw]
 
         return dict(
-            text=f"Find the inverse function f⁻¹(x) for f(x) = {a}×x {prompt_b}.",
+            text=f"Find the inverse function f⁻¹(x) for f(x) = {a}x {prompt_b}.",
             latex=rf"f(x) = {a}x {f_sign} {f_val}",
             answer=answer_text,
             answer_text=answer_text,
@@ -227,9 +227,9 @@ def inverse_one_to_one_function(rng, tier="medium"):
         # b_sign/b_val are the INVERSE step (subtract b); f itself carries the opposite sign.
         f_sign, f_val = ("+", b) if b >= 0 else ("-", -b)
         working = [
-            f"Let y = {a}×(x {c_sign} {c_val}) {f_sign} {f_val}. To find f⁻¹(x), solve for x:",
-            f"y = {a}×(x {c_sign} {c_val}) {f_sign} {f_val}",
-            f"y {b_sign} {b_val} = {a}×(x {c_sign} {c_val})",
+            f"Let y = {a}(x {c_sign} {c_val}) {f_sign} {f_val}. To find f⁻¹(x), solve for x:",
+            f"y = {a}(x {c_sign} {c_val}) {f_sign} {f_val}",
+            f"y {b_sign} {b_val} = {a}(x {c_sign} {c_val})",
             f"(y {b_sign} {b_val})/{a} = x {c_sign} {c_val}",
             f"x = (y {b_sign} {b_val})/{a} {f'-' if c >= 0 else '+'} {c if c >= 0 else -c}",
             f"f⁻¹(x) = {answer_text}",
@@ -281,12 +281,12 @@ def inverse_one_to_one_function(rng, tier="medium"):
         else:
             prompt_b = f"- {-b}"
 
-        # Apply display transformation to replace * with × in distractors
+        # Apply display transformation to drop the * in distractors (a coefficient beside x or a bracket is written without a sign)
         distractors_raw = pick_distractors(answer_text, candidates)
-        distractors = [d.replace("*", "×") if isinstance(d, str) else d for d in distractors_raw]
+        distractors = [d.replace("*", "") if isinstance(d, str) else d for d in distractors_raw]
 
         return dict(
-            text=f"Find the inverse function f⁻¹(x) for f(x) = {a}×(x {prompt_c}) {prompt_b}.",
+            text=f"Find the inverse function f⁻¹(x) for f(x) = {a}(x {prompt_c}) {prompt_b}.",
             latex=rf"f(x) = {a}(x {c_sign} {c_val}) {f_sign} {f_val}",
             answer=answer_text,
             answer_text=answer_text,

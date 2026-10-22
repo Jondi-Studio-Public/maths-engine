@@ -146,7 +146,7 @@ def _actual_chain(rng):
         ),
         d_key,
         2,
-        [f"Cost = area x price = {c_key} x {price} = ${d_key}."],
+        [f"Cost = area × price = {c_key} × {price} = ${d_key}."],
         [
             (b_key * price, "scd-price-on-perimeter"),
             (cells * price, "scd-price-on-drawn-area"),
@@ -371,7 +371,7 @@ def _materials_chain(rng):
         "Find the cost of the rolls, in dollars.",
         cost,
         1,
-        [f"{rolls} x ${price} = ${cost}."],
+        [f"{rolls} × ${price} = ${cost}."],
         [
             (area * price // cover if (area * price) % cover == 0 else None, "scd-cost-of-fractional-rolls"),
             ((rolls - 1) * price, "scd-rounds-down"),

@@ -202,7 +202,7 @@ def _draw(rng, tier):
         cand = [syms[i] if each > 1 else None, key + each, key - each, *others, key + 1]
         working = [
             f"The {cats[i]} row has {_fmt(syms[i])} {noun(syms[i], 'symbol')} and each symbol is {each}.",
-            f"{_fmt(syms[i])} × {each} = {key}.",
+            f"{_fmt(syms[i])} × {each} = {_fmt(key)}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
     if tier == "medium":
@@ -235,7 +235,7 @@ def _draw(rng, tier):
         working = [
             f"{cats[a]}: {_fmt(syms[a])} {noun(syms[a], 'symbol')} × {each} = {_fmt(syms[a] * each)}. "
             f"{cats[b]}: {_fmt(syms[b])} {noun(syms[b], 'symbol')} × {each} = {_fmt(syms[b] * each)}.",
-            f"{_fmt(syms[a] * each)} - {_fmt(syms[b] * each)} = {key}.",
+            f"{_fmt(syms[a] * each)} - {_fmt(syms[b] * each)} = {_fmt(key)}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
     # hard
@@ -258,7 +258,7 @@ def _draw(rng, tier):
         ]
         working = [
             f"Symbols: {', '.join(_fmt(s) for s in syms)}. Total symbols = {_fmt(sum(syms))}.",
-            f"{_fmt(sum(syms))} x {each} = {key}.",
+            f"{_fmt(sum(syms))} × {each} = {_fmt(key)}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
     if variant == "extreme":
@@ -276,7 +276,7 @@ def _draw(rng, tier):
         ]
         working = [
             f"Most: {_fmt(hi)} {noun(hi, 'symbol')}. Least: {_fmt(lo)} {noun(lo, 'symbol')}.",
-            f"({_fmt(hi)} - {_fmt(lo)}) x {each} = {key}.",
+            f"({_fmt(hi)} - {_fmt(lo)}) × {each} = {_fmt(key)}.",
         ]
         return fig, f"{lead} {ask}", key, cand, working
     # inverse

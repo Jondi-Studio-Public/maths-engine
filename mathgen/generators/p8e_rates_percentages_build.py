@@ -301,7 +301,7 @@ def _build(rng, mode):
     elif mode == "medium":
         text = (
             f"A {prof} charges {rate_text}/hour. A job takes {hours_text} hours, plus a "
-            f"{p}% GST charge on the labour cost. What is the total cost?"
+            f"{p}% {'GST' if p == 10 else 'surcharge'} on the labour cost. What is the total cost?"
         )
         working = [
             f"Subtotal = {rate_text} x {hours_text} = {currency_from_cents(subtotal_cents)}.",

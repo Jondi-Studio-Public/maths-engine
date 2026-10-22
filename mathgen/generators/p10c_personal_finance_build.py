@@ -383,7 +383,7 @@ def _allowance_easy(rng):
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
         working=[
-            f"Payment = base rate + (rate per child x children) = {_currency(B)} + "
+            f"Payment = base rate + (rate per child × children) = {_currency(B)} + "
             f"({_currency(C)} x {n}) = {answer_text}."
         ],
         distractors=distractors,

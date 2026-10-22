@@ -322,7 +322,7 @@ def _hard_no_roots(rng):
     enough(cands)
     expr = f"{join_terms([(A, 'x^2'), (B, 'x'), (C, '')])} {op} 0"
     work = [
-        f"Discriminant = {B}^2 - 4({A})({C}) = {disc}, which is negative, so the parabola never reaches the x-axis.",
+        f"Discriminant = {paren_negative(B)}^2 - 4({A})({C}) = {disc}, which is negative, so the parabola never reaches the x-axis.",
         f"It opens {'upward' if A > 0 else 'downward'}, so the expression is {'positive' if A > 0 else 'negative'} for every x.",
         f"The relation {op} 0 therefore holds for {'every x' if solution == _R else 'no x'}.",
     ]

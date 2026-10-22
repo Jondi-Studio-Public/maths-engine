@@ -140,7 +140,7 @@ def exd_x_m5_tank_capacity_chain(rng, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 follow_through=f"{p}/100*part_a/{rate}",
                 working=[
-                    f"{p}% of {a_text} L = {display(Fraction(p, 100) * cap, 1)} L; ÷ {rate} L/min = {b_text} min."
+                    f"{p}% of {a_text} L = {display(Fraction(p, 100) * cap, 1)} L; {display(Fraction(p, 100) * cap, 1)} L ÷ {rate} L/min = {b_text} min."
                 ],
                 distractors=b_dis,
             ),
@@ -154,7 +154,7 @@ def exd_x_m5_tank_capacity_chain(rng, tier: str = "exam") -> dict:
                 sensible_range=(0, None),
                 follow_through=f"part_a/1000/({display(s, 1)}**2)",
                 working=[
-                    f"{a_text} L = {display(cap / 1000, 3)} m³; height = volume ÷ base area = ÷ {display(s * s, 2)} = {c_text} m."
+                    f"{a_text} L = {display(cap / 1000, 3)} m³; height = volume ÷ base area = {display(cap / 1000, 3)} m³ ÷ {display(s * s, 2)} m² = {c_text} m."
                 ],
                 distractors=c_dis,
             ),

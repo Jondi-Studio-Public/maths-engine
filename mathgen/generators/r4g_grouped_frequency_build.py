@@ -241,7 +241,7 @@ def _missing_frequency(rng):
         slips.insert(1, ((mean * known_n - known_low_s) / (low_h - mean), "r4g-lower-limits-used-as-midpoints"))
     slips = [s for s in slips if Fraction(s[0]) >= 1]
     working = [
-        f"Let x be the frequency. The sum of frequency x midpoint is {number_text(known_s, 1)} + {number_text(mid_h, 1)}x.",
+        f"Let x be the frequency. The sum of frequency × midpoint is {number_text(known_s, 1)} + {number_text(mid_h, 1)}x.",
         f"The total frequency is {known_n} + x, so ({number_text(known_s, 1)} + {number_text(mid_h, 1)}x) / ({known_n} + x) = {mean_text}.",
         f"Solving gives x = {freqs[hidden]}.",
     ]

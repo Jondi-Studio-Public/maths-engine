@@ -90,18 +90,33 @@ def _bisection_solve(f, lo: float, hi: float, iters: int = 200) -> float:
 _GROWTH_CONTEXTS = [
     # Population/cell counts stay plausible only in the thousands -- a real
     # town or colony is never "112 people"/"112 cells".
-    ("The population of a small town", "thousand people", "population"),
-    ("A bacteria colony's cell count", "thousand cells", "cell count"),
-    ("The number of devices infected by a computer virus", "devices", "infected device count"),
-    ("A wildlife park's deer population", "deer", "deer population"),
+    ("The population of a small town", "thousand people", "population", ("year",)),
+    ("A bacteria colony's cell count", "thousand cells", "cell count", ("day", "hour")),
+    ("The number of devices infected by a computer virus", "devices", "infected device count", ("day", "week")),
+    ("A wildlife park's deer population", "deer", "deer population", ("year",)),
 ]
 _DECAY_CONTEXTS = [
-    ("The mass of a radioactive sample", "mg", "mass"),
-    ("The volume of water in a leaking tank", "litres", "volume"),
-    ("The energy stored in a large battery bank", "kWh", "stored energy"),
-    ("The concentration of a drug in a patient's bloodstream", "mg/L", "concentration"),
+    ("The mass of a radioactive sample", "mg", "mass", ("year", "day", "hour")),
+    ("The volume of water in a leaking tank", "litres", "volume", ("day", "hour")),
+    ("The energy stored in a large battery bank", "kWh", "stored energy", ("year", "month")),
+    ("The concentration of a drug in a patient's bloodstream", "mg/L", "concentration", ("hour",)),
 ]
 _PERIODS = ("year", "month", "week", "day", "hour")
+
+
+def _period_for(allowed: tuple[str, ...], drawn: str) -> str:
+    """The drawn period when the context can honestly use it, else a fixed stand-in from the context's own units
+    (no extra random draw, so contexts that already suited their period keep their questions)."""
+    return drawn if drawn in allowed else allowed[_PERIODS.index(drawn) % len(allowed)]
+
+
+# Contexts whose quantity is quoted per year, for the question that gives a yearly rate and a time in months.
+_YEARLY_STAND_IN = {
+    "A bacteria colony's cell count": "A wildlife park's deer population",
+    "The number of devices infected by a computer virus": "The population of a small town",
+    "The volume of water in a leaking tank": "The mass of a radioactive sample",
+    "The concentration of a drug in a patient's bloodstream": "The mass of a radioactive sample",
+}
 
 _EASY_TEMPLATES = (
     "{noun} starts at {A0} {unit} and grows by {r}% every {period}. "
@@ -124,8 +139,8 @@ def _build_exp_easy(rng) -> dict:
     for _ in range(400):
         direction = rng.choice(("growth", "decay"))
         contexts = _GROWTH_CONTEXTS if direction == "growth" else _DECAY_CONTEXTS
-        noun, unit, short = rng.choice(contexts)
-        period = rng.choice(_PERIODS)
+        noun, unit, short, periods = rng.choice(contexts)
+        period = _period_for(periods, rng.choice(_PERIODS))
         A0 = rng.randint(20, 150)
         r = rng.randint(2, 25)
         t = rng.randint(2, 8)
@@ -206,8 +221,8 @@ def _build_exp_medium_keyword(rng) -> dict:
     for _ in range(400):
         direction = rng.choice(("growth", "decay"))
         contexts = _GROWTH_CONTEXTS if direction == "growth" else _DECAY_CONTEXTS
-        noun, unit, short = rng.choice(contexts)
-        period = rng.choice(_PERIODS)
+        noun, unit, short, periods = rng.choice(contexts)
+        period = _period_for(periods, rng.choice(_PERIODS))
         A0 = rng.randint(20, 150)
         r = rng.randint(2, 25)
         t = rng.randint(2, 10)
@@ -267,7 +282,10 @@ def _build_exp_medium_fraction(rng) -> dict:
     for _ in range(400):
         direction = rng.choice(("growth", "decay"))
         contexts = _GROWTH_CONTEXTS if direction == "growth" else _DECAY_CONTEXTS
-        noun, unit, short = rng.choice(contexts)
+        noun, unit, short, periods = rng.choice(contexts)
+        if "year" not in periods:
+            noun = _YEARLY_STAND_IN[noun]
+            unit, short = next((u, sh) for n, u, sh, _p in contexts if n == noun)
         A0 = rng.randint(20, 150)
         r = rng.randint(2, 25)
         months = rng.choice(_SUB_MONTHS)
@@ -326,7 +344,7 @@ def _build_exp_hard_continuous(rng) -> dict:
     for _ in range(400):
         direction = rng.choice(("growth", "decay"))
         contexts = _GROWTH_CONTEXTS if direction == "growth" else _DECAY_CONTEXTS
-        noun, unit, short = rng.choice(contexts)
+        noun, unit, short, periods = rng.choice(contexts)
         A0 = rng.randint(20, 150)
         k = rng.choice([v for v in _HARD_K if (v > 0) == (direction == "growth")])
         t = rng.randint(2, 10)
@@ -344,9 +362,9 @@ def _build_exp_hard_continuous(rng) -> dict:
 
     k_text = f"{k:.2f}"
     templates = (
-        "{noun} is modelled by Q = {A0} e^({k}t), where t is measured in periods and Q is the {short}. "
+        "{noun} is modelled by Q = {A0} e^({k}t), where t is measured in {period}s and Q is the {short}. "
         "Find Q when t = {t}, to 1 decimal place.",
-        "The {short2} follows the model Q = {A0} e^({k}t). Find Q when t = {t}, to 1 decimal place.",
+        "The {short2} follows the model Q = {A0} e^({k}t), with t in {period}s. Find Q when t = {t}, to 1 decimal place.",
     )
     text = phrase(
         rng,
@@ -357,6 +375,7 @@ def _build_exp_hard_continuous(rng) -> dict:
         t=t,
         short=short,
         short2=short,
+        period=periods[0],
     )
 
     dp = 1
@@ -381,7 +400,7 @@ def _build_exp_hard_half_life(rng) -> dict:
     direction = "decay" if mode == "half_life" else "growth"
     contexts = _GROWTH_CONTEXTS if direction == "growth" else _DECAY_CONTEXTS
     for _ in range(400):
-        noun, unit, short = rng.choice(contexts)
+        noun, unit, short, periods = rng.choice(contexts)
         A0 = rng.randint(20, 150)
         h = rng.choice(_HALF_LIFE_H)
         t = rng.randint(1, 24)
@@ -401,11 +420,13 @@ def _build_exp_hard_half_life(rng) -> dict:
     word = "half-life" if mode == "half_life" else "doubling time"
     verb = "decays" if mode == "half_life" else "grows"
     templates = (
-        "{noun} starts at {A0} {unit} and {verb} with a {word} of {h} (in the same units as t). "
+        "{noun} starts at {A0} {unit} and {verb} with a {word} of {h} {period}s (t is also in {period}s). "
         "Find the {short} when t = {t}, to 1 decimal place.",
-        "{noun} starts at {A0} {unit}. Its {word} is {h}. Find the value after t = {t}, to 1 decimal place.",
+        "{noun} starts at {A0} {unit}. Its {word} is {h} {period}s. Find the value after t = {t} {period}s, to 1 decimal place.",
     )
-    text = phrase(rng, templates, noun=noun, A0=A0, unit=unit, word=word, h=h, t=t, short=short, verb=verb)
+    text = phrase(
+        rng, templates, noun=noun, A0=A0, unit=unit, word=word, h=h, t=t, short=short, verb=verb, period=periods[0]
+    )
 
     dp = 1
     answer_text = _display(value, dp)
@@ -435,8 +456,8 @@ def _build_exp_exam_two_phase(rng) -> dict:
         direction1 = rng.choice(("growth", "decay"))
         direction2 = rng.choice(("growth", "decay"))
         contexts = _GROWTH_CONTEXTS if direction1 == "growth" else _DECAY_CONTEXTS
-        noun, unit, short = rng.choice(contexts)
-        period = rng.choice(_PERIODS)
+        noun, unit, short, periods = rng.choice(contexts)
+        period = _period_for(periods, rng.choice(_PERIODS))
         A0 = rng.randint(20, 150)
         r1 = rng.randint(2, 20)
         t1 = rng.randint(2, 5)
@@ -511,8 +532,8 @@ def _build_exp_exam_two_time_gap(rng) -> dict:
     for _ in range(400):
         direction = rng.choice(("growth", "decay"))
         contexts = _GROWTH_CONTEXTS if direction == "growth" else _DECAY_CONTEXTS
-        noun, unit, short = rng.choice(contexts)
-        period = rng.choice(_PERIODS)
+        noun, unit, short, periods = rng.choice(contexts)
+        period = _period_for(periods, rng.choice(_PERIODS))
         A0 = rng.randint(20, 150)
         r = rng.randint(2, 25)
         t1 = rng.randint(2, 6)

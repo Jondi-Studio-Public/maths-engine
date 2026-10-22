@@ -172,7 +172,8 @@ def _pw_easy(rng):
     fig = _figure(w, h, things, alt="a row of small pictures" if horizontal else "a column of small pictures")
     word = [WORD[k] for k in keys]
     before, after = ("left", "right") if horizontal else ("above", "below")
-    kind = rng.choice(("between", "next", "side"))
+    # "beside"/"next to" means side by side, so a column is asked with above/below wording instead
+    kind = rng.choice(("between", "next", "side") if horizontal else ("between", "side"))
     if kind == "between":
         i = rng.randint(1, n - 2)
         a, b = (word[i - 1], word[i + 1]) if rng.random() < 0.5 else (word[i + 1], word[i - 1])

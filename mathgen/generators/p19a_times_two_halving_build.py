@@ -124,7 +124,7 @@ def _finalise(text, half, raw_candidates):
         answer_text=str(half),
         answer_latex=latex_answer(str(half)),
         distractors=pick_distractors(str(half), formatted, n=3),
-        working=[f"double = {2 * half}", f"half = {half}"],
+        working=[f"Double {half} is {2 * half}.", f"Half of {2 * half} is {half}."],
     )
 
 

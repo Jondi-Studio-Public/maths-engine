@@ -2452,23 +2452,27 @@ def _expected_expression(question):
     return internal
 
 
-# The constant of integration is written "+ C" in every canonical, and on paper as often "+ c" or "+ K". Read as a
-# different symbol, every such reply was marked wrong. When the expected answer ends in a lone "+ C" and the reply
-# has no C but one of these letters, unknown to the expected answer, the letter is read as C.
+# The constant of integration is written "+ C" in every canonical, and on paper as often "+ c", "+ K" or "+ D". Read as
+# a different symbol, every such reply was marked wrong. When the expected answer ends in a lone "+ C" and the reply
+# has no C but one constant-looking symbol, unknown to the expected answer, the symbol is read as C. Constant-looking
+# is one letter A-D, k or K (either case), with an optional _digit subscript ("C_1"); x, y, z, t and the like are
+# variables and stay wrong. A number is never a constant of integration.
 _CONSTANT_SYMBOL = sympy.Symbol("C")
-_CONSTANT_SPELLINGS = frozenset(sympy.Symbol(name) for name in ("c", "k", "K"))
+_CONSTANT_SPELLING_RE = re.compile(r"[A-Da-dkK](?:_\d)?")
 
 
 def _match_constant_of_integration(given_expr, expected):
     try:
         if _CONSTANT_SYMBOL not in sympy.Add.make_args(expected) or _CONSTANT_SYMBOL in given_expr.free_symbols:
             return given_expr
-        stand_ins = (given_expr.free_symbols - expected.free_symbols) & _CONSTANT_SPELLINGS
+        stand_ins = [
+            s for s in given_expr.free_symbols - expected.free_symbols if _CONSTANT_SPELLING_RE.fullmatch(s.name)
+        ]
     except (AttributeError, TypeError):
         return given_expr
     if len(stand_ins) != 1:
         return given_expr
-    return given_expr.xreplace({stand_ins.pop(): _CONSTANT_SYMBOL})
+    return given_expr.xreplace({stand_ins[0]: _CONSTANT_SYMBOL})
 
 
 _DECIMAL_LITERAL_RE = re.compile(r"(?<![\w.])(\d+)?\.(\d+)?(?![\d.])")

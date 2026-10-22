@@ -1,0 +1,110 @@
+# Reviewed by hand: tiers whose options are an honest closed set of exactly three (A, B or the same;
+# impossible, possible, certain; sin, cos, tan). option_faults lets these show exactly 3 options.
+# skill: [topic/difficulty]. Add a tier only after reading its options; remove it if it changes.
+classify-constant-coefficient-pde:
+  - constant_coefficient_pde_classification/easy
+  - constant_coefficient_pde_classification/hard
+  - constant_coefficient_pde_classification/medium
+compare-common-fractions:
+  - compare_common_fractions/easy
+  - compare_common_fractions/hard
+  - compare_common_fractions/medium
+compare-functions-representations:
+  - fg1_compare_functions/easy
+  - fg1_compare_functions/hard
+  - fg1_compare_functions/medium
+compare-lengths:
+  - compare_length_picture/easy
+compare-linear-representations:
+  - fg1_compare_linear/easy
+  - fg1_compare_linear/hard
+  - fg1_compare_linear/medium
+compare-quantities-to-10:
+  - compare_quantities/easy
+compare-unit-prices:
+  - p14b_compare_unit_prices/easy
+  - p14b_compare_unit_prices/medium
+ey-compare-by-paper-clips:
+  - compare_by_paper_clips/easy
+ey-compare-capacity-by-cups:
+  - compare_capacity_by_cups/easy
+ey-compare-duration:
+  - compare_duration_picture/easy
+f10-compare-box-plots:
+  - stat5_box_plot_compare/easy
+  - stat5_box_plot_compare/medium
+f10-compare-measurement-attributes:
+  - compare_mass_capacity_picture/easy
+  - compare_mass_capacity_picture/hard
+  - compare_mass_capacity_picture/medium
+f10-fraction-compare-models:
+  - fraction_compare_models/easy
+  - fraction_compare_models/medium
+f10-money-compare-collections:
+  - money_compare_collections/easy
+  - money_compare_collections/medium
+f10-polygon-classification:
+  - p14b_polygon_classification/easy
+  - p14b_polygon_classification/hard
+f10-prism-cross-sections:
+  - prism_cross_sections/easy
+  - prism_cross_sections_forced/hard
+  - prism_cross_sections_forced/medium
+f10-quantify-compare-collections-to-20:
+  - quantify_compare_to_20/easy
+  - quantify_compare_to_20/hard
+  - quantify_compare_to_20/medium
+graph-eulerian-trails-circuits:
+  - snet_eulerian/easy
+senior-examine-the-three-cases-for-solutions-of-systems:
+  - pv0b_system_cases/easy
+  - pv0b_system_cases/hard
+  - pv0b_system_cases/medium
+senior-recognise-features-of-the-graph-of-the-general:
+  - pv1d_quadratic_root_count/easy
+  - pv1d_quadratic_root_count/exam
+  - pv1d_quadratic_root_count/hard
+  - pv1d_quadratic_root_count/medium
+senior-recognise-features-of-the-graph-of-y-mx:
+  - pv1a_gradient_sign/easy
+  - pv1a_gradient_sign/exam
+  - pv1a_gradient_sign/hard
+  - pv1a_gradient_sign/medium
+senior-recognise-features-of-the-graphs-of-y-x-acmmm014:
+  - pv1e_power_end_behaviour/easy
+  - pv1e_power_end_behaviour/exam
+  - pv1e_power_end_behaviour/hard
+  - pv1e_power_end_behaviour/medium
+senior-recognise-the-graphs-of-y-sin-x-y:
+  - pv1f_trig_graph_id/easy
+  - pv1f_trig_graph_id/exam
+  - pv1f_trig_graph_id/hard
+  - pv1f_trig_graph_id/medium
+senior-review-probability-as-a-measure-of-the-likelihood:
+  - exd_x_s3_likelihood/exam
+  - probability_likelihood_compare/easy
+  - probability_likelihood_compare/hard
+  - probability_likelihood_compare/medium
+senior-review-the-probability-scale-0-leq-p-a:
+  - probability_scale_classify/easy
+  - probability_scale_classify/hard
+  - probability_scale_classify/medium
+senior-simulated-samples-variability:
+  - ey_sample_variability/easy
+  - ey_sample_variability/medium
+ucv1-convexity-hessian-sign:
+  - p14d_convexity_hessian_sign/easy
+  - p14d_convexity_hessian_sign/hard
+  - p14d_convexity_hessian_sign/medium
+ucv1-isomorphism-invariant:
+  - p15a_isomorphism_invariant/easy
+  - p15a_isomorphism_invariant/hard
+  - p15a_isomorphism_invariant/medium
+ucv1-linear-oscillator-classification:
+  - p14f_linear_oscillator_classification/easy
+  - p14f_linear_oscillator_classification/hard
+  - p14f_linear_oscillator_classification/medium
+ucv1-regression-residual-diagnostic:
+  - p14e_residual_diagnostic/easy
+  - p14e_residual_diagnostic/hard
+  - p14e_residual_diagnostic/medium

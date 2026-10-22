@@ -77,6 +77,16 @@ def _two_names(rng):
     return a, b
 
 
+#: Plausible things to spend a share of an allowance, or of a household's monthly budget, on.
+_ALLOWANCE_ITEMS = ("book", "movie ticket", "board game", "hoodie", "cap", "poster", "headset", "sketchbook")
+_BUDGET_ITEMS = ("power bill", "water bill", "phone plan", "internet plan", "insurance premium", "gym membership")
+
+
+def _pm_item(rng, context: str) -> str:
+    """A spending item that makes sense for the context (allowance, earnings or household budget)."""
+    return rng.choice(_BUDGET_ITEMS if context == "budget" else _ALLOWANCE_ITEMS)
+
+
 def _a(item: str) -> str:
     """ "a"/"an" article agreement for an `OBJECTS` singular noun (only
     "apple" among the bank starts with a vowel sound today, but this is
@@ -199,7 +209,7 @@ def _pm_single_step_question(rng, *, m_lo: int, m_hi: int) -> dict:
 
         context = rng.choice(_PM_CONTEXTS)
         name, other = _two_names(rng)
-        item = rng.choice(OBJECTS)[0]
+        item = _pm_item(rng, context)
         frac_text = frac_key
         pct_text = f"{pct}%"
         text = _pm_context_text(context, name, other, item, M, frac_text, pct_text, asked)
@@ -286,7 +296,7 @@ def _pm_chain_question(rng, *, m_lo: int, m_hi: int) -> dict:
 
         context = rng.choice(_PM_CONTEXTS)
         name, other = _two_names(rng)
-        item = rng.choice(OBJECTS)[0]
+        item = _pm_item(rng, context)
         first_text = frac_key if order == "fraction_first" else f"{pct}%"
         second_text = f"{pct}%" if order == "fraction_first" else frac_key
         if context == "allowance":
