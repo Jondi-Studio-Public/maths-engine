@@ -130,12 +130,39 @@ def test_surd_and_its_decimal_still_accepted(given):
 _INTEGRAL = _q("x**3/3 + C", "x^3/3 + C")
 
 
-@pytest.mark.parametrize("given", ["x^3/3 + C", "x^3/3 + c", "x^3/3 + K", "x^3/3 + k", "(1/3)x^3 + c"])
+@pytest.mark.parametrize(
+    "given",
+    [
+        "x^3/3 + C",
+        "x^3/3 + c",
+        "x^3/3 + K",
+        "x^3/3 + k",
+        "(1/3)x^3 + c",
+        "x^3/3 + d",
+        "x^3/3 + D",
+        "x^3/3 + A",
+        "x^3/3 + C_1",
+    ],
+)
 def test_constant_of_integration_in_any_usual_letter(given):
     assert _correct("expression", _INTEGRAL, given)
 
 
-@pytest.mark.parametrize("given", ["x^3/3", "x^3/3 + d", "x^3/3 + c + k", "x^3/3 + cx", "x^3/3 + 5"])
+@pytest.mark.parametrize(
+    "given",
+    [
+        "x^3/3",
+        "x^3/3 + 0",
+        "x^3/3 - C",
+        "x^3/3 + 2C",
+        "x^3/3 + y",
+        "x^3/3 + c + k",
+        "x^3/3 + cx",
+        "x^3/3 + 5",
+        "x^2 + 5",
+        "x^2 + C",
+    ],
+)
 def test_wrong_or_missing_constant_still_wrong(given):
     assert not _correct("expression", _INTEGRAL, given)
 
