@@ -202,7 +202,7 @@ def _rings_question(rng, name: str, shape: str) -> dict:
             (answer - 1, "ey2a-count-one-short"),
             (answer + 2, "ey2a-count-one-over"),
         ]
-        working = [f"{total} counters in {rings} equal rings: {total} shared in {rings} is {each}."]
+        working = [f"{total} {word} in {rings} equal rings: {total} shared in {rings} is {each}."]
         reads = ("rings-each", total)
     return dict(fig=fig, answer=answer, text=text, cands=cands, working=working, reads=reads)
 

@@ -267,6 +267,11 @@ def _compare_triple(rng):
     raise AssertionError("unreachable")
 
 
+def _what(cols) -> str:
+    """Name what the collections hold, from the items actually drawn."""
+    return "coins and notes" if any(d in _NOTES for c in cols for d in c) else "coins"
+
+
 @generator("money_compare_collections", level=3, presets=_PRESETS)
 def money_compare_collections(rng, tier="easy"):
     if tier not in _TIERS:
@@ -277,13 +282,13 @@ def money_compare_collections(rng, tier="easy"):
         answer_text = f"Collection {'ABC'[k]}"
         options = ["Collection A", "Collection B", "Collection C", _SAME]
         text = rng.choice(_COMPARE_TEXT[tier]).format(n=name, w="most" if most else "least")
-        alt = "three collections of Australian coins and notes"
+        alt = f"three collections of Australian {_what(cols)}"
     else:
         a, b, answer_text = _compare_pair(rng, tier)
         cols = [a, b]
         options = ["Collection A", "Collection B", _SAME]
         text = rng.choice(_COMPARE_TEXT[tier]).format(n=name)
-        alt = "two collections of Australian coins and notes"
+        alt = f"two collections of Australian {_what(cols)}"
     fig = money(collections=cols, alt=alt)
     n_wrong = 3 if tier == "hard" else 2
     distractors = pick_distractors(answer_text, options, n=n_wrong)

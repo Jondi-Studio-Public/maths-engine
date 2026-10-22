@@ -59,6 +59,23 @@ _MASS_OBJECTS = (
     "lunch box",
     "torch",
 )
+# Rough real weights in grams. The order-by-balances question only pairs objects whose real weights differ by at
+# least a factor of 1.8, so the drawn order always agrees with what a child knows (a brick is never lighter
+# than a banana).
+_REAL_GRAMS = {
+    "hat": 80,
+    "banana": 130,
+    "apple": 200,
+    "teddy": 250,
+    "torch": 300,
+    "shoe": 400,
+    "ball": 450,
+    "book": 600,
+    "lunch box": 800,
+    "jar": 900,
+    "drum": 1500,
+    "brick": 2500,
+}
 _SHAPES = ("jug", "cup", "bowl", "bottle")
 _UNITS = (("paper clip", "paper_clip"), ("block", "block"))
 
@@ -426,7 +443,8 @@ def compare_mass_capacity_picture(rng, tier="easy"):
     working = [
         "The two sides are level, so they are the same."
         if tilt == "level"
-        else f"The lower side is heavier. {answer_text} is on the {'lower' if more else 'higher'} side."
+        else f"The lower side is heavier. {answer_text} {'are' if answer_text.endswith('blocks') else 'is'} on the "
+        f"{'lower' if more else 'higher'} side."
     ]
     return _finish(fig, text, answer_text, distractors, working, _read_mass_capacity)
 
@@ -633,7 +651,10 @@ def _read_order(fig: dict, text: str) -> str:
 def order_by_two_balances(rng, tier="easy"):
     if tier not in _TIERS:
         raise ValueError(f"unknown tier {tier!r}")
-    names = rng.sample(_MASS_OBJECTS, 3)
+    for _ in attempts(500, "three objects with clearly different real weights"):
+        names = sorted(rng.sample(sorted(_REAL_GRAMS), 3), key=_REAL_GRAMS.get)
+        if all(_REAL_GRAMS[y] >= 1.8 * _REAL_GRAMS[x] for x, y in zip(names, names[1:])):
+            break
     masses = sorted(rng.sample(range(2, 15), 3))
     for _ in attempts(500, "three objects with distinct drawn sizes"):
         sizes = [rng.randint(1, 3) for _ in range(3)]
