@@ -94,7 +94,7 @@ MISCONCEPTIONS = [
     ),
     (
         "lcv-count-misses-end",
-        "Leaves out one end of the range, or counts both ends, when counting whole-number values.",
+        "Leaves out one end of the range, or counts both ends, when counting integer values.",
         AREA,
     ),
     ("lcv-gradient-inverted", "Gives the reciprocal of the tangent gradient, run over rise.", AREA),
@@ -409,7 +409,7 @@ def _medium_midpoint(rng):
     )
     working = [
         f"Equating gives {a}x² + ({b - m})x + ({d - c}) = 0, whose roots are the x-coordinates of A and B.",
-        f"The roots are not whole numbers, but their sum is {-Fraction(b - m, a)}, so the midpoint has x = {mid}.",
+        f"The roots are not integers, but their sum is {-Fraction(b - m, a)}, so the midpoint has x = {mid}.",
     ]
     return dict(text=stem, working=working, distractors=dist, answer_kind="number", **num_fields(mid))
 
@@ -504,14 +504,14 @@ def _hard_count(rng):
     stem = phrase(
         rng,
         (
-            f"The line {line} and {target} are drawn together. For how many whole-number values of k from {lo} to {hi} inclusive does the line meet it at two different points?",
+            f"The line {line} and {target} are drawn together. For how many integers k from {lo} to {hi} inclusive does the line meet it at two different points?",
             f"How many integers k with {lo} <= k <= {hi} make the line {line} cross {target} twice?",
-            f"Consider the line {line} and {target}. Count the whole numbers k, from {lo} to {hi} inclusive, for which the line has two intersection points with it.",
+            f"Consider the line {line} and {target}. Count the integers k, from {lo} to {hi} inclusive, for which the line has two intersection points with it.",
         ),
     )
     working = [
         "Substitute the line into the equation and write the discriminant of the resulting quadratic in x.",
-        f"Two intersection points need a positive discriminant; that holds for {count} of the {len(ks)} whole numbers from {lo} to {hi}.",
+        f"Two intersection points need a positive discriminant; that holds for {count} of the {len(ks)} integers from {lo} to {hi}.",
     ]
     return dict(text=stem, working=working, distractors=dist, answer_kind="number", **num_fields(count))
 

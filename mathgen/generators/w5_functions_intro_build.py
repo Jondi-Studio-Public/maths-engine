@@ -740,10 +740,10 @@ def _dr_hard_sqrt(rng):
     )
     enough(cands)
     inner = join_terms([(sgn, "x"), (-sgn * a, "")])
-    stem = f"The function f(x) = sqrt({inner}) is only defined when {inner} is zero or positive. List the whole numbers from {lo} to {hi} that are in its domain."
+    stem = f"The function f(x) = sqrt({inner}) is only defined when {inner} is zero or positive. List the integers from {lo} to {hi} that are in its domain."
     work = [
         f"Solve {inner} ≥ 0: x {'≥' if sgn == 1 else '≤'} {a}.",
-        f"The whole numbers from {lo} to {hi} with x {'≥' if sgn == 1 else '≤'} {a} are {', '.join(map(str, ints))}.",
+        f"The integers from {lo} to {hi} with x {'≥' if sgn == 1 else '≤'} {a} are {', '.join(map(str, ints))}.",
     ]
     return dict(text=stem, working=work, distractors=cands, **fields)
 
@@ -764,7 +764,7 @@ def _dr_hard_excluded(rng):
     )
     enough(cands)
     den = f"({join_terms([(1, 'x'), (-r1, '')])})({join_terms([(1, 'x'), (-r2, '')])})"
-    stem = f"The function f(x) = 1/({den}) cannot take an input that makes the denominator zero. List the whole numbers from {lo} to {hi} that are NOT in its domain."
+    stem = f"The function f(x) = 1/({den}) cannot take an input that makes the denominator zero. List the integers from {lo} to {hi} that are NOT in its domain."
     work = [
         f"The denominator is zero when x = {r1} or x = {r2}.",
         "Those two values are excluded; every other input is allowed.",
@@ -793,7 +793,7 @@ def _dr_hard_range(rng):
             (sorted(set(f(x) for x in xs if x >= h)) if h > lo else None, "w5f-uses-half-the-domain"),
         ]
         work = [
-            f"Substitute each whole number from {lo} to {hi}: {', '.join(map(str, outs))}.",
+            f"Substitute each integer from {lo} to {hi}: {', '.join(map(str, outs))}.",
             "Inputs on either side of the turning point give the same output, so each value is listed once.",
         ]
     else:
@@ -941,7 +941,7 @@ def _dr_exam(rng):
                 "list",
                 _sub(d),
                 2,
-                [f"Solve {body} = {target} and keep the whole numbers in the domain."],
+                [f"Solve {body} = {target} and keep the integers in the domain."],
                 d_d,
             ),
         ],
