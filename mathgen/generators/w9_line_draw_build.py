@@ -401,6 +401,12 @@ def _hard_standard(rng):
     )
 
 
+def _step_text(start, end):
+    """The move from start to end, with left/right and up/down taken from the signs."""
+    dx, dy = end[0] - start[0], end[1] - start[1]
+    return f"go {abs(dx)} across to the {'right' if dx > 0 else 'left'} and {abs(dy)} {'up' if dy > 0 else 'down'}"
+
+
 def _hard_parallel(rng):
     for _ in attempts(500, "a parallel line that fits the grid"):
         a, b, c, p, q = _std_line(rng)
@@ -426,7 +432,7 @@ def _hard_parallel(rng):
     enough(d, 3)
     working = [
         f"Parallel lines have the same gradient. Writing {_std_text(a, b, c)} as y = ..., the gradient is {frac_text(m)}.",
-        f"From P{point_text(pt)}, go {abs(b)} across and {abs(a)} {'down' if (b > 0) == (a > 0) else 'up'} to reach {point_text(pts[1])}.",
+        f"From P{point_text(pt)}, {_step_text(pt, pts[1])} to reach {point_text(pts[1])}.",
     ]
     fig = _figure(
         "A coordinate grid with the point P plotted, for drawing a straight line through it.", given=[("P", pt)]
@@ -473,7 +479,7 @@ def _hard_perpendicular(rng):
     enough(d, 3)
     working = [
         f"The gradient of the given line is {frac_text(m)}. A perpendicular line has gradient {frac_text(-1 / m)} (the negative reciprocal).",
-        f"From P{point_text(pt)}, go {abs(d2[0])} across and {abs(d2[1])} {'up' if d2[1] > 0 else 'down'} (or the reverse) to reach {point_text(pts[1])}.",
+        f"From P{point_text(pt)}, {_step_text(pt, pts[1])} to reach {point_text(pts[1])}.",
     ]
     fig = _figure(
         "A coordinate grid with the point P plotted, for drawing a straight line through it.", given=[("P", pt)]

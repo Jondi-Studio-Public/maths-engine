@@ -203,7 +203,7 @@ def _function_equations(rng):
         (f"y = |x - {b}| + {a}", "absolute"),
         (f"y = {a}/(x - {b})", "reciprocal"),
         (f"y = x^3 + {a}", "cubic"),
-        (f"y = sqrt(x + {b})", "root"),
+        (f"y = √(x + {b})", "root"),
         (f"y = {b} - x^2", "squared"),
         (f"y = {a}x^2 - {b}x", "squared"),
     ]
@@ -219,7 +219,7 @@ def _relation_equations(rng):
         (f"x = |y| - {a}", "sideways"),
         (f"(y - {a})^2 = x", "sideways"),
         (f"x^2 - y^2 = {a * a}", "circle"),
-        (f"x^2 + {a}y^2 = {r * r * a}", "circle"),
+        (f"x^2 + {a + 1}y^2 = {r * r * (a + 1)}", "circle"),
     ]
 
 
