@@ -516,7 +516,7 @@ def _fc_exam(rng):
     )
     for dd in (a_d, b_d, c_d, d_d):
         enough(dd)
-    enough(b_d, 3)
+    enough(b_d, 4)  # the choice part always shows five options
     return dict(
         text=phrase(
             rng,

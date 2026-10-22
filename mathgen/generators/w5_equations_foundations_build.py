@@ -1258,8 +1258,9 @@ def _ss_exam(rng):
     wc = [(f"{_lin_text(aa, bb)} = {dd}", t) for (aa, bb, dd), t in cwr if not _holds(aa, bb, dd, Fr(s))]
     fc = mcq_fields(key_c)
     dc = mcq_cands(key_c, wc, 4)
-    for dd in (da, db, dc):
-        enough(dd, 2)
+    enough(da, 4)
+    enough(dc, 4)  # both choice parts always show five options
+    enough(db, 2)
     return dict(
         text=f"Consider the equation {eq}.",
         parts=[
@@ -1808,6 +1809,7 @@ def _check_exam(rng):
             (f"Yes: both sides equal {L}", "w5k-copies-the-left-side"),
             (f"Yes: x = {v} gives a left side of {L}, so it works", "w5k-checks-one-side"),
             (f"No: x = {v} makes the right side larger than {R}", "w5k-wrong-verdict"),
+            (f"Yes: both sides equal {R}", "w5k-checks-one-side"),
         ]
         key_d = f"x = {s}"
         wd = [
@@ -1823,8 +1825,10 @@ def _check_exam(rng):
     fd = mcq_fields(key_d)
     dd = mcq_cands(key_d, [(t, g) for t, g in wd if t != key_d], 4)
     check(_lhs(a, b, s) == _rhs(c, d, s), "the true solution fails the check")
-    for xx in (da, db, dc, dd):
-        enough(xx, 2)
+    enough(dc, 4)
+    enough(dd, 4)  # both choice parts always show five options
+    enough(da, 2)
+    enough(db, 2)
     return dict(
         text=f"{rng.choice(NAMES)} wants to check whether x = {v} is a solution of {eq}.",
         parts=[

@@ -776,6 +776,14 @@ def complex_number(rng, kind="real_part"):
     a, b, c, d = (rng.randint(-8, 8) for _ in range(4))
     if kind == "conjugate" and b == 0:
         b = 1  # a real number is its own conjugate, so there would be no question to ask
+    if kind == "conjugate" and a == 0:
+        a = rng.choice((-3, -2, -1, 1, 2, 3))  # a pure imaginary number leaves fewer than three wrong options
+    if kind == "multiply":
+        # a real factor (or a zero one) makes most wrong products collapse onto the answer or each other
+        b = b or rng.choice((-3, -2, -1, 1, 2, 3))
+        d = d or rng.choice((-3, -2, -1, 1, 2, 3))
+        a = a or rng.choice((-3, -2, -1, 1, 2, 3))
+        c = c or rng.choice((-3, -2, -1, 1, 2, 3))
     z = _cx(a, b)
     if kind == "real_part":
         return _number(

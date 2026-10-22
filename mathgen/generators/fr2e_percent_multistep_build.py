@@ -276,6 +276,7 @@ def _exam(rng):
         wrong,
         2,
         [f"Shop A: {dollars(sale_a)}. Shop B: {dollars(paid_b)}.", f"The difference is {dollars(gap)}."],
+        wanted=4,  # all four honest slips, so the part always shows five options
     )
     part_d = exact_number_part(
         f"Find the total cost of the {k} {plural} at the cheaper shop.",

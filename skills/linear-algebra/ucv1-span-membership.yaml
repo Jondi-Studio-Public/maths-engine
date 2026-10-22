@@ -38,6 +38,8 @@ misconceptions:
 - {id: forgot-to-divide-by-coefficient, description: 'Stopping once the x term is alone, without dividing by its coefficient.'}
 - {id: span-membership-assumed, description: 'Assuming a vector is in a span without checking: saying a combination exists
     after the condition has failed.'}
+- {id: linear-system-exactly-two-solutions, description: 'Saying a linear system has exactly two solutions, as a quadratic
+    equation can: a linear system has none, one or infinitely many.'}
 - {id: span-dependence-means-infinite, description: 'Saying there are infinitely many combinations because the three vectors
     are dependent, when the first two vectors are independent and so any combination that exists is unique.'}
 difficulty_progression: 'Easy uses two vectors with a 1 and a 0 in shared coordinates, so the coefficients can be read off

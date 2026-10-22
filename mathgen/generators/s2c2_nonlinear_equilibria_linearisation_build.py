@@ -409,18 +409,27 @@ def _classification_distractors(label):
         "unstable spiral": "unstable node",
         "saddle": "unstable node",
     }
+    both = {
+        "stable node": "unstable spiral",
+        "unstable node": "stable spiral",
+        "stable spiral": "unstable node",
+        "unstable spiral": "stable node",
+        "saddle": "unstable spiral",
+    }
     ordered = [
         ("ode2-classification-stability-flip", flip[label]),
         ("ode2-classification-node-spiral-swapped", swap[label]),
         ("ode2-classification-saddle-misjudged", "saddle" if label != "saddle" else "stable spiral"),
         ("ode2-classification-stability-flip", "unstable spiral" if "spiral" not in label else "stable node"),
+        # both slips at once: the stability and the node/spiral shape each read the wrong way round
+        ("ode2-classification-stability-flip", both[label]),
     ]
     seen, out = {label}, []
     for tag, text in ordered:
         if text not in seen:
             seen.add(text)
             out.append(Distractor(text, tag, text))
-    return out
+    return out[:4]  # always four wrong options, so the part always shows five
 
 
 def _exam_once(rng):
@@ -484,7 +493,7 @@ def _exam_once(rng):
 
     x_dist, y_dist, det_dist = fraction_dist(xs, wrong_x), fraction_dist(ys, wrong_y), fraction_dist(det, wrong_det)
     class_dist = _classification_distractors(label)
-    if min(len(x_dist), len(y_dist), len(det_dist)) < 2 or len(class_dist) < 3:
+    if min(len(x_dist), len(y_dist), len(det_dist)) < 2 or len(class_dist) < 4:
         raise _Redraw
 
     stem, stem_latex = _stem(

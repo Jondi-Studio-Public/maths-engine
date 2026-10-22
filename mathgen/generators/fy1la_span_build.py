@@ -228,7 +228,12 @@ def exd_x_fy1la_span(rng, tier="exam"):
         if None in (dist_a, dist_b, dist_c):
             continue
         v_text = "(" + ", ".join("k" if x == "k" else str(x) for x in shape) + ")"
-        options = ("No pair (a, b)", "Exactly one pair (a, b)", "Infinitely many pairs (a, b)")
+        options = (
+            "No pair (a, b)",
+            "Exactly one pair (a, b)",
+            "Infinitely many pairs (a, b)",
+            "Exactly two pairs (a, b)",
+        )
         return dict(
             text=f"Let u = {vec_str(u)}, w = {vec_str(w)} and v = {v_text} in ℝ³, where k is a constant.",
             parts=[
@@ -263,6 +268,7 @@ def exd_x_fy1la_span(rng, tier="exam"):
                     [
                         Distractor(options[1], "span-membership-assumed"),
                         Distractor(options[2], "span-dependence-means-infinite"),
+                        Distractor(options[3], "linear-system-exactly-two-solutions"),
                     ],
                     marks=2,
                     working=[f"{k1} is not {k0}, so det[u w v] is not zero and v is outside the span: no pair works."],
