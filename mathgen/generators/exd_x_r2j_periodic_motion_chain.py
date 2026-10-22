@@ -122,7 +122,7 @@ def exd_x_r2j_periodic_motion_chain(rng: random.Random, tier: str = "exam") -> d
             sensible_range=(0, None),
         ),
         number_part(
-            prompt=f"Using your values of A and T, find the height of the point after {t0_text} {tunit}s, in metres, "
+            prompt=f"Using your values of A and T, find the height of the point after {t0_text} {tunit}{'' if t0_text == '1' else 's'}, in metres, "
             "correct to 1 decimal place.",
             exact=Fraction(height),
             places=1,

@@ -471,7 +471,7 @@ def _et_medium(rng):
         ]
         working = [
             f"Let u = {shown(v)}, so du = e^x dx and e^x = u {'-' if a > 0 else '+'} {abs(a)}.",
-            "Write e^(2x) dx = e^x . e^x dx = (u - a) du, integrate term by term and replace u.",
+            f"Write e^(2x) dx = e^x · e^x dx = (u {'-' if a > 0 else '+'} {abs(a)}) du, integrate term by term and replace u.",
         ]
     else:
         a, n = _pick(rng, (1, 2, 3, 4)), _pick(rng, (2, 3))

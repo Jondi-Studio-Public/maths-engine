@@ -653,7 +653,11 @@ def sr2b_exam_counting_restrictions(rng, tier="exam"):
                 answer_latex=str(total),
                 marks=1,
                 sensible_range=(0, None),
-                working=[f"{n}! ÷ " + " × ".join(f"{c}!" for c in counts) + f" = {total}."],
+                working=[
+                    f"{n}! ÷ "
+                    + ("(" + " × ".join(f"{c}!" for c in counts) + ")" if len(counts) > 1 else f"{counts[0]}!")
+                    + f" = {total}."
+                ],
                 distractors=pick(str(total), [c for c in a_d if int(c.text) != total]),
             ),
             dict(

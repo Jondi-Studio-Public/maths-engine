@@ -112,7 +112,7 @@ def _easy(rng: random.Random) -> dict:
             value,
             2,
             1,
-            [f"E(Y) = a E(X) + b = {a} x {float(mean):g} {_sign_b(b)}."],
+            [f"E(Y) = a E(X) + b = {a} × {float(mean):g} {_sign_b(b)}."],
             [
                 (a * mean, "r3a-linear-mean-omits-the-shift"),
                 (mean + b, "r3a-linear-mean-omits-the-multiplier"),
@@ -126,7 +126,7 @@ def _easy(rng: random.Random) -> dict:
             value,
             2,
             1,
-            [f"Var(Y) = a^2 Var(X) = {a}^2 x {float(var_x):g}; the shift {b} does not change the spread."],
+            [f"Var(Y) = a^2 Var(X) = {a}^2 × {float(var_x):g}; the shift {b} does not change the spread."],
             [
                 (a * var_x, "r3a-linear-variance-omits-the-square"),
                 (a * a * var_x + b, "r3a-linear-variance-adds-the-shift"),
@@ -200,7 +200,7 @@ def _medium(rng: random.Random) -> dict:
             (mean + shift, "r3a-linear-mean-omits-the-multiplier"),
             (a * (mean + shift), "r3a-linear-mean-multiplies-the-shift"),
         ]
-        working = [f"The mean converts like a single value: {float(a):g} x {float(mean):g} + {float(shift):g}."]
+        working = [f"The mean converts like a single value: {float(a):g} × {float(mean):g} + {float(shift):g}."]
     elif ask == "sd":
         value, label = abs(a) * sd, "standard deviation"
         slips = [
@@ -209,7 +209,7 @@ def _medium(rng: random.Random) -> dict:
             (sd, "r3a-linear-sd-unchanged-by-scaling"),
             (a * a * sd * sd, "r3a-linear-sd-reports-the-variance"),
         ]
-        working = [f"SD(aX + b) = |a| SD(X) = {float(a):g} x {float(sd):g}; the shift does not change the spread."]
+        working = [f"SD(aX + b) = |a| SD(X) = {float(a):g} × {float(sd):g}; the shift does not change the spread."]
     else:
         value, label = a * a * sd * sd, "variance"
         slips = [
@@ -217,7 +217,7 @@ def _medium(rng: random.Random) -> dict:
             (a * sd * sd + shift, "r3a-linear-variance-adds-the-shift"),
             (a * sd, "r3a-linear-variance-scales-the-sd-only"),
         ]
-        working = [f"Var(aX + b) = a^2 Var(X) = {float(a):g}^2 x {float(sd * sd):g}."]
+        working = [f"Var(aX + b) = a^2 Var(X) = {float(a):g}^2 × {float(sd * sd):g}."]
     # the transformed distribution itself: two equally likely points one standard deviation either side of the mean
     points = [mean - sd, mean + sd]
     half = [Fraction(1, 2)] * 2
@@ -278,7 +278,7 @@ def _hard(rng: random.Random) -> dict:
             3,
             [
                 f"E(X) = {float(mean):.2f}, E(X^2) = {float(second):.2f}, so Var(X) = {float(var):.4f}.",
-                f"SD(Y) = |{a}| x sqrt({float(var):.4f}).",
+                f"SD(Y) = |{a}| × sqrt({float(var):.4f}).",
             ],
             [
                 (sqrt_fraction(abs(a) * var), "r3a-linear-sd-omits-the-square-in-the-variance"),
@@ -296,7 +296,7 @@ def _hard(rng: random.Random) -> dict:
             2,
             3,
             [
-                f"E(X) = {float(mean):.2f}, E(X^2) = {float(second):.2f}, so E = {a} x {float(second):.2f} {_sign_b(b)} x {float(mean):.2f} {_sign_b(c)}."
+                f"E(X) = {float(mean):.2f}, E(X^2) = {float(second):.2f}, so E = {a} × {float(second):.2f} {_sign_b(b)} × {float(mean):.2f} {_sign_b(c)}."
             ],
             [
                 (a * mean * mean + b * mean + c, "r3a-second-moment-squares-the-mean"),
@@ -416,7 +416,7 @@ def _exam(rng: random.Random) -> dict:
             sd_y,
             2,
             2,
-            [f"SD(Y) = {a} x SD(X) = {a} x sqrt({float(var):.4f}) = {float(sd_y):.2f}."],
+            [f"SD(Y) = {a} × SD(X) = {a} × sqrt({float(var):.4f}) = {float(sd_y):.2f}."],
             [
                 (sqrt_fraction(a * var), "r3a-linear-sd-omits-the-square-in-the-variance"),
                 (a * a * var, "r3a-linear-sd-squares-the-multiplier"),

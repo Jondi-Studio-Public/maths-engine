@@ -261,7 +261,7 @@ def _medium(rng):
         ]
         text = f"{ctx['lead']} " + phrase(rng, _MEDIUM_ASK, note=_WORDS_NOTE)
         working = [
-            f"The values of {ctx['y'].split(' (')[0].lower()} {'rise' if d == 'positive' else 'fall'} as {ctx['x'].split(' (')[0].lower()} increases: {d}.",
+            f"As the {ctx['x'].split(' (')[0].lower()} increases, the {ctx['y'].split(' (')[0].lower()} tends to {'rise' if d == 'positive' else 'fall'}: {d}.",
             f"The points follow {'a straight line' if f == 'linear' else 'a curve, not a straight line'}: {f}.",
             f"They follow it {'very closely' if s == 'strong' else 'fairly closely' if s == 'moderate' else 'only loosely'}: {s}.",
         ]

@@ -279,7 +279,7 @@ def _hard_log_log(rng):
     F = a * _ln(log(x))
     cands = [
         Cand(a * log(log(x)), "r3b-recip-abs-dropped"),
-        Cand(a * _ln(x) * _ln(log(x)), "r3b-fprime-log-of-product"),
+        Cand(a * _ln(x) + a * _ln(log(x)), "r3b-fprime-log-of-product"),
         Cand(a * _ln(x), "r3b-fprime-inner-function-ignored"),
         Cand(-a / (x * log(x)) ** 2, "r3b-fprime-differentiated"),
     ]

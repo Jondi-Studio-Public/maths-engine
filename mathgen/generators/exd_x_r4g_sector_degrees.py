@@ -114,7 +114,7 @@ def _build(rng):
             1,
             2,
             [
-                f"Whole circle = π x {int(r)}² = {number_text(whole, 1)} {unit}²; minus the sector gives {number_text(remaining, 1)} {unit}²."
+                f"Whole circle = π × {int(r)}² = {number_text(whole, 1)} {unit}²; minus the sector gives {number_text(remaining, 1)} {unit}²."
             ],
             [
                 (whole + a_, "r4g-sectors-added-not-subtracted"),

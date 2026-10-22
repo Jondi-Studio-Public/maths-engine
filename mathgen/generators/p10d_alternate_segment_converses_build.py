@@ -301,7 +301,7 @@ def alternate_segment_theorem(rng, variant="direct"):
         working = [
             f"Setting the two expressions equal: {expr1} = {expr2}.",
             f"Solving gives x = {x_true}.",
-            f"Substituting back: angle = {join_terms([(p1, f'({x_true})' if x_true < 0 else str(x_true)), (q1, '')])} = {angle_value} degrees.",
+            f"Substituting back: angle = {join_terms([(p1, f'({x_true})'), (q1, '')])} = {angle_value} degrees.",
         ]
         answer = angle_value
 
