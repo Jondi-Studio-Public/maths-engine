@@ -496,7 +496,7 @@ def fr2d_read_simulation_exam(rng, tier: str = "exam"):
             marks=2,
             sensible_range=(-n, n),
             follow_through=f"part_a-{n}*part_c",
-            working=[f"Expected: {n} x {pt} = {int(expected)}.", f"{wins} - {int(expected)} = {diff}."],
+            working=[f"Expected: {n} × {pt} = {int(expected)}.", f"{wins} - {int(expected)} = {diff}."],
             distractors=d_opts,
         ),
     ]

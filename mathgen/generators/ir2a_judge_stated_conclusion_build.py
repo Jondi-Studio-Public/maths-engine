@@ -275,7 +275,7 @@ def _extrap(rng, level):
         exact=y,
         places=0,
         marks=2,
-        working=[f"y = {sc['a']} + {sc['b']} x {x} = {y}."],
+        working=[f"y = {sc['a']} + {sc['b']} × {x} = {y}."],
         wrong=[
             (sc["b"] * x, "ir2a-forgets-the-intercept"),
             (sc["a"] - sc["b"] * x, "ir2a-flips-the-sign-of-the-slope-term"),
@@ -378,7 +378,7 @@ def exd_x_ir2a_judge_stated_conclusion(rng: random.Random, tier: str = "exam") -
             exact=pa,
             places=0,
             marks=1,
-            working=[f"{ka}/{na} x 100 = {pa}%."],
+            working=[f"{ka}/{na} × 100 = {pa}%."],
             wrong=[
                 (ka, "ir2a-reports-the-count-as-a-percentage"),
                 (100 - pa, "ir2a-gives-the-rest-of-the-whole"),
@@ -392,7 +392,7 @@ def exd_x_ir2a_judge_stated_conclusion(rng: random.Random, tier: str = "exam") -
             exact=pb,
             places=0,
             marks=1,
-            working=[f"{kb}/{nb} x 100 = {pb}%."],
+            working=[f"{kb}/{nb} × 100 = {pb}%."],
             wrong=[
                 (kb, "ir2a-reports-the-count-as-a-percentage"),
                 (100 - pb, "ir2a-gives-the-rest-of-the-whole"),

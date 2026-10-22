@@ -1285,7 +1285,7 @@ def _ss_exam(rng):
                 "mcq",
                 _sub(fc),
                 2,
-                [f"Subtract {c}n from both sides: {key_c}. It is true when n = {s}."],
+                [f"Subtract {c if c != 1 else ''}n from both sides: {key_c}. It is true when n = {s}."],
                 dc,
             ),
         ],

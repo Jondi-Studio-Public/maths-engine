@@ -221,7 +221,7 @@ def _build(rng: random.Random, method: str, level: str) -> tuple[str, dict]:
                 exact=s + (j - 1) * k,
                 places=0,
                 marks=2,
-                working=[f"Gap = {N} / {n} = {k}.", f"Number {j} chosen = {s} + {j - 1} x {k} = {s + (j - 1) * k}."],
+                working=[f"Gap = {N} / {n} = {k}.", f"Number {j} chosen = {s} + {j - 1} × {k} = {s + (j - 1) * k}."],
                 wrong=[
                     (s + j * k, "ir2a-counts-one-gap-too-many"),
                     (j * k, "ir2a-forgets-the-random-start"),
@@ -242,7 +242,7 @@ def _build(rng: random.Random, method: str, level: str) -> tuple[str, dict]:
                 marks=3,
                 working=[
                     f"Number surveyed = {N} / {k} = {N // k}.",
-                    f"Last number = {s} + ({N // k} - 1) x {k} = {last}.",
+                    f"Last number = {s} + ({N // k} - 1) × {k} = {last}.",
                 ],
                 wrong=[
                     (s + (N // k) * k, "ir2a-counts-one-gap-too-many"),
@@ -307,13 +307,13 @@ def _build(rng: random.Random, method: str, level: str) -> tuple[str, dict]:
             prompt = f"How many {pl} should be taken from {gname}?"
             working = [
                 f"Sampling fraction = {n} / {N} = {frac.numerator}/{frac.denominator}.",
-                f"{frac.numerator}/{frac.denominator} x {sizes[gi]} = {takes[gi]}.",
+                f"{frac.numerator}/{frac.denominator} × {sizes[gi]} = {takes[gi]}.",
             ]
         else:
             prompt = f"How many {pl} are taken from the smallest group, {gname}?"
             working = [
                 f"Every group supplies the same fraction of its {pl}: {n} / {N} = {frac.numerator}/{frac.denominator}.",
-                f"{frac.numerator}/{frac.denominator} x {sizes[gi]} = {takes[gi]}.",
+                f"{frac.numerator}/{frac.denominator} × {sizes[gi]} = {takes[gi]}.",
             ]
         part = number_part(
             prompt=prompt,
@@ -363,7 +363,7 @@ def _build(rng: random.Random, method: str, level: str) -> tuple[str, dict]:
                 exact=e,
                 places=0,
                 marks=2,
-                working=[f"The youngest group is {g}/{N} of the {pl}, so expect {g}/{N} x {n} = {e}."],
+                working=[f"The youngest group is {g}/{N} of the {pl}, so expect {g}/{N} × {n} = {e}."],
                 wrong=[
                     (g, "ir2a-reports-the-group-size-not-its-share"),
                     (n // 2, "ir2a-equal-allocation-ignores-size"),
@@ -424,7 +424,7 @@ def _build(rng: random.Random, method: str, level: str) -> tuple[str, dict]:
                 exact=hrs,
                 places=0,
                 marks=2,
-                working=[f"{N} x {t} = {N * t} minutes = {hrs} hours."],
+                working=[f"{N} × {t} = {N * t} minutes = {hrs} hours."],
                 wrong=[
                     (N * t, "ir2a-leaves-minutes-unconverted"),
                     (Fraction(N * t, 100), "ir2a-converts-minutes-by-100"),
@@ -473,7 +473,7 @@ def _build(rng: random.Random, method: str, level: str) -> tuple[str, dict]:
         exact=pctv,
         places=1,
         marks=2,
-        working=[f"{m} / {N} x 100 = {float(pctv):.1f}%."],
+        working=[f"{m} / {N} × 100 = {float(pctv):.1f}%."],
         wrong=[
             (Fraction(n * 100, N), "ir2a-uses-the-sample-not-the-reachable-group"),
             (Fraction(m * 100, n), "ir2a-reachable-over-sample"),
@@ -547,7 +547,7 @@ def _exam_systematic(rng: random.Random) -> dict:
         exact=s + (j - 1) * k,
         places=0,
         marks=2,
-        working=[f"{s} + {j - 1} x {k} = {s + (j - 1) * k}."],
+        working=[f"{s} + {j - 1} × {k} = {s + (j - 1) * k}."],
         wrong=[
             (s + j * k, "ir2a-counts-one-gap-too-many"),
             (j * k, "ir2a-forgets-the-random-start"),
@@ -561,7 +561,7 @@ def _exam_systematic(rng: random.Random) -> dict:
         exact=last,
         places=0,
         marks=2,
-        working=[f"{s} + ({n} - 1) x {k} = {last}."],
+        working=[f"{s} + ({n} - 1) × {k} = {last}."],
         wrong=[
             (s + n * k, "ir2a-counts-one-gap-too-many"),
             (N, "ir2a-takes-the-end-of-the-list"),
