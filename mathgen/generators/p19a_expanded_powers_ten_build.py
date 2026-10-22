@@ -170,7 +170,7 @@ def _finalise(text: str, N: int, terms: list[tuple[int, int]], candidates: list[
         answer=N,
         answer_text=str(N),
         distractors=distractors,
-        working=[f"{' + '.join(f'{c} × 10^{p}' for c, p in terms)} = {N}."],
+        working=[f"{' + '.join(f'{c} x 10^{p}' for c, p in terms)} = {N}."],
     )
 
 
