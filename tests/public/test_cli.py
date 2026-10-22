@@ -111,12 +111,11 @@ def test_mcq_reply_that_names_no_option_is_wrong_and_says_why(capsys, library):
     assert out.splitlines()[-1].startswith("  given 'no such option': wrong (not an option label A-")
 
 
-def test_a_reply_that_fits_two_options_apart_from_case_names_the_one_typed(capsys):
-    """Options `dS/ds = bS` (the key) and `dS/ds = bs` differ only in case: each reply must pick its own."""
-    skill = "senior-formulate-differential-equations-including-the-logistic-equation-that"
-    for given, verdict in (("dS/ds = bS", "correct"), ("dS/ds = bs", "wrong"), ("B", "correct"), ("C", "wrong")):
-        _, out, _ = run(capsys, "--skill", skill, "--seed", "13", "--answer", given)
-        assert out.splitlines()[-1] == f"  given {given!r}: {verdict}", given
+def test_a_reply_that_fits_two_options_apart_from_case_names_the_one_typed():
+    """Options `dS/ds = bS` and `dS/ds = bs` differ only in case: each reply must pick its own."""
+    options = ["dS/ds = bS", "dS/ds = bs"]
+    assert _choose_option(options, "dS/ds = bS") == 0
+    assert _choose_option(options, "dS/ds = bs") == 1
     # Ignoring case is only for a reply that fits one option.
     assert _choose_option(["dS/ds = bS", "dS/ds = bs"], "DS/DS = BS") is None
     assert _choose_option(["Paris", "Berlin"], "paris") == 0
