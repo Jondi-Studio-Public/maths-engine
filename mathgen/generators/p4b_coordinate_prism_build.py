@@ -27,6 +27,15 @@ def _signed_paren(n: int) -> str:
     return f"({n})" if n < 0 else str(n)
 
 
+def _change_line(axis: str, end: int, start: int, change: int) -> str:
+    """One worked line for a change in a coordinate. A start of 0 is worded out: a written "- 0" is dropped
+    by the learner-text tidy-up, which would leave a line that skips its subtraction."""
+    head = f"Change in {axis}: \u0394{axis} = {axis}_end - {axis}_start"
+    if start == 0:
+        return f"{head}; {axis}_start is 0, so \u0394{axis} = {change}"
+    return f"{head} = {_signed_paren(end)} - {_signed_paren(start)} = {change}"
+
+
 # -- Skill 1: coordinate_movement (pair answer) ----------------------------------
 
 
@@ -137,8 +146,8 @@ def coordinate_movement(rng, coord_lo=-10, coord_hi=10, sequence_length=2):
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"Change in x: Δx = x_end - x_start = {_signed_paren(x2 if sequence_length == 2 else x3)} - {_signed_paren(x1)} = {dx}",
-            f"Change in y: Δy = y_end - y_start = {_signed_paren(y2 if sequence_length == 2 else y3)} - {_signed_paren(y1)} = {dy}",
+            _change_line("x", x2 if sequence_length == 2 else x3, x1, dx),
+            _change_line("y", y2 if sequence_length == 2 else y3, y1, dy),
             f"Therefore: dx = {dx}, dy = {dy}",
         ],
         distractors=pick_distractors(answer_text, candidates),
