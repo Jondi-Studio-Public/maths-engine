@@ -384,7 +384,7 @@ def _allowance_easy(rng):
         answer_latex=latex_answer(answer_text, plain=True),
         working=[
             f"Payment = base rate + (rate per child × children) = {_currency(B)} + "
-            f"({_currency(C)} x {n}) = {answer_text}."
+            f"({_currency(C)} × {n}) = {answer_text}."
         ],
         distractors=distractors,
     )
@@ -430,7 +430,7 @@ def _allowance_medium(rng):
         answer_latex=latex_answer(answer_text, plain=True),
         working=[
             f"Fortnightly supplement = 2 x {_currency(W)} = {_currency(2 * W)}. Payment = "
-            f"{_currency(B)} + ({_currency(C)} x {n}) + {_currency(2 * W)} = {answer_text}."
+            f"{_currency(B)} + ({_currency(C)} × {n}) + {_currency(2 * W)} = {answer_text}."
         ],
         distractors=distractors,
     )
@@ -515,9 +515,9 @@ def _allowance_hard(rng):
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
         working=[
-            f"Base payment = {_currency(B)} + ({_currency(C)} x {n}) = {_currency(base_payment)}. "
+            f"Base payment = {_currency(B)} + ({_currency(C)} × {n}) = {_currency(base_payment)}. "
             f"Excess over threshold = {_currency(E)} - {_currency(T)} = {_currency(E - T)}, which "
-            f"is {k} complete {_currency(s)} increments; reduction = {k} x {_currency(r)} = "
+            f"is {k} complete {_currency(s)} {'increment' if k == 1 else 'increments'}; reduction = {k} × {_currency(r)} = "
             f"{_currency(reduction)}. Payment = {_currency(base_payment)} - {_currency(reduction)} "
             f"= {answer_text}."
         ],

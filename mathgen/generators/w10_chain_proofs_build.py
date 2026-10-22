@@ -46,7 +46,7 @@ _SECOND_POINTS = {
 }
 
 NOTE_PLAIN = "Use ^ for powers and write products side by side, as in 2xy."
-NOTE_ROOT = "Use ^ for powers, write a square root as √2 or sqrt(2), and products side by side, as in 2xy."
+NOTE_ROOT = "Use ^ for powers, write a square root with the √ sign, as in √2, and products side by side, as in 2xy."
 NOTE_ABS = "Use ^ for powers, write an absolute value as |x| or abs(x), and products side by side, as in 2xy."
 
 

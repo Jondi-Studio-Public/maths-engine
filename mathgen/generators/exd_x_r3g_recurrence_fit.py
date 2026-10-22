@@ -117,7 +117,7 @@ def exd_x_r3g_recurrence_fit(rng: random.Random, tier: str = "exam") -> dict:
             limit,
             0,
             2,
-            [f"L = b / (1 - a) = {_dec(b, 1)} / {1 - a} = {limit}."],
+            [f"L = b / (1 - a) = {_dec(b, 1)} / ({1 - a}) = {limit}."],
             [
                 (b / a, "divides-by-retained-fraction"),
                 (b, "reports-added-amount"),

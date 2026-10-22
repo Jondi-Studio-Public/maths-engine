@@ -61,7 +61,7 @@ def _build_k_probability_language(rng: random.Random) -> dict | None:
         both,
         2,
         1,
-        [f"P(both) = {p}% x {q}% = {float(both):.2f}%."],
+        [f"P(both) = {p}% × {q}% = {float(both):.2f}%."],
         [
             (Fraction(p + q), "adds-instead-of-multiplies") if p + q < 100 else (None, ""),
             (Fraction(p + q, 2), "averaged-instead-of-multiplied"),

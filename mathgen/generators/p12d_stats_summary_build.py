@@ -652,8 +652,7 @@ def _build_outlier_effect(rng, tier: str = "easy"):
         working=[
             f"Mean with outlier: ({' + '.join(paren_negative(v) for v in data)}) / {n} = "
             f"{stated_precision_string(mean_with, _OEM_DP)}.",
-            f"Mean without outlier ({paren_negative(x)}): sum / {n - 1} = "
-            f"{stated_precision_string(mean_without, _OEM_DP)}.",
+            f"Mean without outlier ({x}): sum / {n - 1} = {stated_precision_string(mean_without, _OEM_DP)}.",
             f"Difference: {stated_precision_string(mean_with, _OEM_DP)} - "
             f"{('(' + stated_precision_string(mean_without, _OEM_DP) + ')') if mean_without < 0 else stated_precision_string(mean_without, _OEM_DP)} "
             f"= {diff_text}.",

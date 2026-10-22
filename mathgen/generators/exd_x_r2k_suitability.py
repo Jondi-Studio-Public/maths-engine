@@ -185,7 +185,7 @@ def _build_k_bernoulli_suitability(rng: random.Random) -> dict | None:
         fall,
         1,
         2,
-        [f"Fall = ({rational_text(a)} - {rational_text(b)}) / {rational_text(a)} x 100 = {tx(fall, 1)}%."],
+        [f"Fall = ({rational_text(a)} - {rational_text(b)}) / {_br(rational_text(a))} × 100 = {tx(fall, 1)}%."],
         [
             ((a - b) / b * 100, "divides-by-final"),
             (b / a * 100, "new-as-percent-of-original"),
@@ -279,7 +279,9 @@ def _build_k_binomial_suitability(rng: random.Random) -> dict | None:
         over,
         1,
         2,
-        [f"Overstatement = ({rational_text(a)} - {rational_text(b)}) / {rational_text(b)} x 100 = {tx(over, 1)}%."],
+        [
+            f"Overstatement = ({rational_text(a)} - {rational_text(b)}) / {_br(rational_text(b))} × 100 = {tx(over, 1)}%."
+        ],
         [
             ((a - b) / a * 100, "percent-of-wrong-base"),
             (a / b * 100, "new-as-percent-of-original"),
@@ -340,6 +342,11 @@ def _prod(K: int, N: int, n: int, shrink_successes: bool = True, shrink_total: b
     for i in range(n):
         out *= Fraction(K - (i if shrink_successes else 0), N - (i if shrink_total else 0))
     return out
+
+
+def _br(text: str) -> str:
+    """Bracket a fraction used as a divisor so the line never reads x / 1/5 × 100."""
+    return f"({text})" if "/" in text else text
 
 
 @generator("exd_x_r2k_bernoulli_suitability", level=12, presets={"exam": dict(tier="exam")})

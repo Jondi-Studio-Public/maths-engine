@@ -469,7 +469,7 @@ def w4_graph_bridges_chain(rng, tier="exam"):
             3,
             [
                 f"Joining the ends of the tree of pieces pairs up its {leaf_blocks} end pieces, "
-                f"so ({leaf_blocks} + 1) / 2 rounded down = {fewest} new {ctx['es']} are needed."
+                f"so the number of new {ctx['es']} needed is ({leaf_blocks} + 1) / 2 rounded down = {fewest}."
             ],
             [
                 (leaf_blocks, "w4-bridge-repair-leaves"),

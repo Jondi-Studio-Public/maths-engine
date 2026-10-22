@@ -50,7 +50,7 @@ def _nested(rng: random.Random) -> dict:
     ]
     text = phrase(rng, _NESTED_WORDINGS, a=a, b=b, c=c)
     latex = rf"\log_{{{a}}}\left(\log_{{{b}}}(x)\right) = {c}"
-    working = [f"log_{b}(x) = {a}^{c} = {inner}, so x = {b}^{inner} = {answer}."]
+    working = [f"log_{b}(x) = {a if c == 1 else f'{a}^{c}'} = {inner}, so x = {b}^{inner} = {answer}."]
     return dict(text=text, latex=latex, answer=answer, wrong=wrong, working=working)
 
 

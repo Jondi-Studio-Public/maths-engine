@@ -325,7 +325,9 @@ def salg_exam_binomial_coefficient(rng, tier="exam"):
                 answer_text=str(c),
                 answer_latex=str(c),
                 marks=2,
-                working=[f"The x{sup(r + 1)} term is C({n}, {r + 1}) × {p}^{r + 1} × ({q})^{n - r - 1} = {c}."],
+                working=[
+                    f"The x{sup(r + 1)} term is C({n}, {r + 1}) × {p}^{r + 1} × {paren_negative(q)}^{n - r - 1} = {c}."
+                ],
                 distractors=c_dist,
             ),
             dict(

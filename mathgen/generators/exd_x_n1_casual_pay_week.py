@@ -36,6 +36,14 @@ def _cents_exact(value: Fraction) -> bool:
     return (value * 100).denominator == 1
 
 
+def _exact_money(value: Fraction) -> str:
+    """The value to as many decimal places (2 to 4) as it needs to be exact, so a shown rate times the hours matches the key."""
+    for places in (2, 3, 4):
+        if (value * 10**places).denominator == 1:
+            return show(value, places)
+    return show(value, 4)
+
+
 @generator("exd_x_n1_casual_pay_week", level=11, presets={"exam": dict(tier="exam")})
 def exd_x_n1_casual_pay_week(rng, tier="exam"):
     for _ in attempts(1000, "a pay draw with exact cents and a stable rounding"):
@@ -76,7 +84,7 @@ def exd_x_n1_casual_pay_week(rng, tier="exam"):
         3,
         [
             f"Weekdays: {h1} × {show(casual, 2)} = ${show(casual * h1, 2)}.",
-            f"Saturday rate = {pen}% × {show(casual, 2)} = ${show(casual * pen / 100, 2)}; {h2} hours = ${show(casual * h2 * pen / 100, 2)}.",
+            f"Saturday rate = {pen}% × {show(casual, 2)} = ${_exact_money(casual * pen / 100)}; {h2} hours = ${show(casual * h2 * pen / 100, 2)}.",
             f"Gross = ${show(gross, 2)}.",
         ],
         [
