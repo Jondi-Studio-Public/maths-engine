@@ -22,6 +22,10 @@ from ..core import check, generator, join_terms, pick_distractors
 _K = 4  # terms asked for
 
 
+def _rpow(k: int) -> str:
+    return "r" if k == 1 else f"r^{k}"
+
+
 def _terms_after_first(t1: int, r: int) -> list[int]:
     out, cur = [], t1
     for _ in range(_K):
@@ -63,8 +67,8 @@ def _two_terms(rng: random.Random):
         _terms_after_first(t1, whole) if abs(whole) ** _K * abs(t1) < 10**6 else None,  # ratio not rooted
     ]
     working = [
-        f"t{q} = t{p} × r^{gap}, so r^{gap} = {tq}/{tp} = {r**gap}, and r is {sign}, so r = {r}",
-        f"t1 = t{p} / r^{p - 1} = {t1}",
+        f"t{q} = t{p} × {_rpow(gap)}, so {_rpow(gap)} = {tq}/{tp} = {r**gap}, and r is {sign}, so r = {r}",
+        f"t1 = t{p} / {_rpow(p - 1)} = {t1}",
         f"The next {_K} terms: {_fmt(correct)}",
     ]
     return correct, text, wrong, working

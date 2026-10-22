@@ -78,7 +78,7 @@ def _mixed(rng: random.Random):
     # Independent check: compute with Fraction arithmetic on the exact integer roots.
     check(round(b1 ** (1 / n1)) ** n1 == b1 and round(b2 ** (1 / n2)) ** n2 == b2, "bases are not perfect powers")
     working = [
-        f"{b1}^({m1}/{n1}) = ({b1}^(1/{n1}))^{m1} = {c1}^{m1} = {c1**m1}",
+        (f"{b1}^({m1}/{n1}) = ({b1}^(1/{n1}))^{m1} = {c1}^{m1} = {c1**m1}" if m1 != 1 else f"{b1}^(1/{n1}) = {c1}"),
         f"{b2}^({m2}/{n2}) = {c2**m2}"
         + (f", so dividing by {b2}^(-{m2}/{n2}) multiplies by {c2**m2}" if divide else ""),
         f"Result: {c1**m1} × {c2**m2} = {key}",

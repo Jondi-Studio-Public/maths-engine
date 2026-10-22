@@ -233,12 +233,12 @@ def _medium(rng):
     stem = phrase(
         rng,
         [
-            "{who}'s {purpose} is modelled by the recurrence relation A(n+1) = {m} × A(n) - {R}, with A(0) = {p}, "
+            "{who}'s {purpose} is modelled by the recurrence relation A(n+1) = {m} x A(n) - {R}, with A(0) = {p}, "
             "where A(n) is the balance in dollars after n monthly repayments. The table shows the schedule, with "
             "interest rounded to the nearest cent each month. Complete the blank cells, with each amount in dollars "
             "to the cent. Fill in each ? with a number.",
             "The balance of {who}'s {purpose} after n monthly repayments is A(n), where A(0) = {p} and "
-            "A(n+1) = {m} × A(n) - {R}. The table shows the schedule, with interest rounded to the nearest cent "
+            "A(n+1) = {m} x A(n) - {R}. The table shows the schedule, with interest rounded to the nearest cent "
             "each month. Complete the blank cells, with each amount in dollars to the cent. Fill in each ? with a "
             "number.",
         ],

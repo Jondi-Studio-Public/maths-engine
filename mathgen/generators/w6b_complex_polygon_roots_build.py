@@ -196,7 +196,7 @@ def _medium_sum(rng):
             _num_dist(-1, "roots-of-unity-sum-drops-the-one"),
         ]
     elif kind == "tail":
-        terms = "ω + ω² + … + ω^" + str(n - 1)
+        terms = "ω + ω² + … + ω^" + str(n - 1) if n > 3 else "ω + ω²"
         value = -1
         working = [f"1 + ω + … + ω^{n - 1} = 0, so leaving out the 1 gives -1."]
         candidates = [

@@ -318,7 +318,7 @@ def _hard_once(rng):
     candidates.append(took_first_as_h)
     working = (
         f"r = {stated_precision_string(h2, 2)}/{stated_precision_string(h1, 2)} = "
-        f"{_fmt_r_pct(r)}%; h = {stated_precision_string(h1, 2)}/r^{start} = {_fmt_h(h)} m; "
+        f"{_fmt_r_pct(r)}%; h = {stated_precision_string(h1, 2)}/{'r' if start == 1 else f'r^{start}'} = {_fmt_h(h)} m; "
         f"summing to the stated endpoint gives "
         f"{stated_precision_string(round_half_up(total, 2), 2)} m."
     )

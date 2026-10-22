@@ -451,7 +451,7 @@ def w4_graph_bridges_chain(rng, tier="exam"):
             2,
             [
                 f"{new_name} makes a new cycle with the path between its ends, and every bridge on that path stops "
-                f"being a bridge. {after} of the {k} bridges are left."
+                f"being a bridge. {after} of the {k} bridges {'is' if after == 1 else 'are'} left."
             ],
             [
                 (k, "w4-bridge-new-road-ignored"),

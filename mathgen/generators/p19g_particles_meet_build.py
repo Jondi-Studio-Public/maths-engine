@@ -552,17 +552,8 @@ def _build(
         answer=answer,
         answer_text=answer,
         distractors=distractors,
-        working=[_WHY[flavour]],
+        working=[f"verdict={verdict} flavour={flavour}"],
     )
-
-
-_WHY = {
-    "meet": "Solve r_A(t) = r_B(t) for each component: the same value of t works in both, so the particles meet.",
-    "cross_different_times": "The paths cross, but the particles reach the crossing point at different times, so they never meet.",
-    "never_intersect": "The velocity vectors are parallel and the two paths are different lines, so the paths never meet.",
-    "meet_in_window": "The same value of t satisfies r_A(t) = r_B(t) in both components, and it lies inside the time window, so the particles meet during it.",
-    "meet_outside_window": "The same value of t satisfies r_A(t) = r_B(t) in both components, but it lies outside the time window, so the particles do not meet during it.",
-}
 
 
 def _build_easy(rng):
@@ -686,7 +677,7 @@ def _build_exam(rng):
         answer=answer,
         answer_text=answer,
         distractors=distractors,
-        working=[_WHY[flavour]],
+        working=[f"verdict={verdict} flavour={flavour} window=[0,{_fmt_t(T)}]"],
     )
 
 
