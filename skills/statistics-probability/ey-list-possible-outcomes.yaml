@@ -1,0 +1,50 @@
+id: ey-list-possible-outcomes
+name: List the possible outcomes of a chance event
+domain: statistics-probability
+year_level: ['3']
+naplan_domain: [probability]
+learner_band: early
+description: "Type every possible outcome of a simple chance event: a coin, a die, a spinner or a bag of counters, the outcomes that fit a condition, and the outcomes from a word or number with repeated letters or digits."
+status: active
+placement_eligible: false
+prerequisites: [sort-and-count-objects]
+answer: set
+sources:
+- topic: eyz_list_outcomes
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_list_outcomes
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_list_outcomes
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Name every way a coin, die, spinner or bag of counters can come out, each outcome once."}
+  medium: {steps: 2, demand: "Find which of the outcomes of a die or numbered cards fit a condition such as even, more than 3 or a multiple of 3."}
+  hard: {steps: 3, demand: "List each different letter or digit only once, or take stated outcomes away from all the outcomes of a die."}
+misconceptions:
+- id: eyz-misses-an-outcome
+  description: "Leaves out one of the possible outcomes."
+- id: eyz-adds-an-impossible-outcome
+  description: "Adds an outcome that cannot happen."
+- id: eyz-lists-repeats-as-outcomes
+  description: "Lists the same outcome more than once."
+- id: eyz-lists-every-counter
+  description: "Lists every counter in the bag instead of each colour once."
+- id: eyz-lists-the-other-group
+  description: "Lists the outcomes that do not fit the condition."
+- id: eyz-lists-every-outcome
+  description: "Lists every outcome, ignoring the condition."
+- id: eyz-adds-a-number-that-does-not-fit
+  description: "Adds a number that does not fit the condition."
+- id: eyz-includes-the-boundary-number
+  description: "Includes the number the condition is measured from."
+- id: eyz-lists-the-factor-not-the-multiples
+  description: "Lists the number itself and not its multiples."
+- id: eyz-reads-part-of-the-word
+  description: "Lists the outcomes from only part of the word."
+tags: [acara-f10-v9, early, probability, chance, outcomes, ac9m3p01]

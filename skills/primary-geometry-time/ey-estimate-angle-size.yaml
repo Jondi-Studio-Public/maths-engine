@@ -1,0 +1,43 @@
+id: ey-estimate-angle-size
+name: Estimate the size of a drawn angle
+domain: primary-geometry-time
+year_level: ['4']
+naplan_domain: [measurement]
+learner_band: early
+description: "Estimate a drawn angle to the nearest 10 degrees by reading between the benchmark rays of a fan, first with every ray labelled, then with only the right angle and straight angle labelled, then for reflex angles."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [ey-name-angle-by-size]
+answer: number
+sources:
+- topic: eyz_angle_estimate
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_angle_estimate
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_angle_estimate
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 2, demand: "Find the labelled ray just below the arm, then judge a third or two thirds of the way to the next ray."}
+  medium: {steps: 3, demand: "Count the unlabelled 30 degree rays from the labelled right angle or straight angle, then judge the part past the last one."}
+  hard: {steps: 4, demand: "Count rays past 180 degrees from the labelled right, straight and three-quarter-turn rays, then judge the part past the last one."}
+misconceptions:
+- id: eyz-off-by-ten-degrees
+  description: "Reads the angle 10 degrees too big or too small."
+- id: eyz-misjudges-how-far-past-the-ray
+  description: "Misjudges how far the arm is past a benchmark ray, so the estimate is 20 or 30 degrees out."
+- id: eyz-reads-from-the-wrong-arm
+  description: "Measures from the wrong arm, so gives 180 degrees less the angle."
+- id: eyz-gives-the-angle-not-the-reflex
+  description: "Gives the smaller angle between the arms, 360 degrees less the reflex angle."
+- id: eyz-forgets-the-straight-angle
+  description: "Gives only the part of a reflex angle past a straight line."
+tags: [acara-f10-v9, early, measurement, angles, estimation, ac9m4m04, figure]
