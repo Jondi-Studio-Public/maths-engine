@@ -1,6 +1,7 @@
 id: construct-stem-and-leaf-plots
 name: Construct a stem-and-leaf plot from a list of values
 domain: statistics-probability
+naplan_domain: [statistics]
 year_level: ['7']
 description: >-
   Build an ordered stem-and-leaf plot from a jumbled list of values, filling in the leaves of every row in increasing

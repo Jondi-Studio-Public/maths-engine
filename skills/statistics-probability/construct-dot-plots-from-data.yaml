@@ -1,6 +1,7 @@
 id: construct-dot-plots-from-data
 name: Construct a dot plot from a list of values
 domain: statistics-probability
+naplan_domain: [statistics]
 year_level: ['7']
 description: >-
   Build a dot plot of a numerical variable from a list of values and give the number of dots above every value on the
