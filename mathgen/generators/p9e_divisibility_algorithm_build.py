@@ -172,6 +172,8 @@ def _build_compound_range(rng, d_pool, r_range):
         single_condition = d1_count
         if other_gate_count == correct or single_condition == correct:
             continue
+        if gate == "AND" and and_count == 0:
+            continue  # a key of 0 is a constant guess that wins whenever the range ends below the lcm
         break
     else:
         check(False, f"could not draw a coherent medium (d1, d2, R, gate) combination after {_MAX_ATTEMPTS} attempts")

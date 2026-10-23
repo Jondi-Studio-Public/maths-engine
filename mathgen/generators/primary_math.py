@@ -122,7 +122,9 @@ def compare_common_fractions(rng, max_den=12, include_equal=True, benchmark=Fals
     left, right = Fraction(n1, d1), Fraction(n2, d2)
     answer = "=" if left == right else ("<" if left < right else ">")
     common = d1 * d2 // math.gcd(d1, d2)
-    if d1 == d2:
+    if d1 == d2 and left == right:
+        working = [f"The denominators are the same and the numerators are both {n1}, so the fractions are equal (=)."]
+    elif d1 == d2:
         working = [
             f"The denominators are the same, so compare the numerators: {n1} and {n2}, so {n1}/{d1} {answer} {n2}/{d2}."
         ]

@@ -235,7 +235,7 @@ def _pm_single_step_question(rng, *, m_lo: int, m_hi: int) -> dict:
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text),
             working=[
-                f"{frac_text} of ${M} is {_money(frac_cents)}; {pct_text} of ${M} is {_money(pct_cents)}; the question asks for the {asked} amount, {answer_text}."
+                f"{frac_text} of ${M} is ${_money(frac_cents)}; {pct_text} of ${M} is ${_money(pct_cents)}; the question asks for the {asked} amount, ${answer_text}."
             ],
             distractors=distractors,
         )
@@ -338,7 +338,7 @@ def _pm_chain_question(rng, *, m_lo: int, m_hi: int) -> dict:
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text),
             working=[
-                f"Step 1: {first_text} of ${M} is {_money(step1_cents)}. Step 2: {second_text} of {_money(step1_cents)} is {answer_text}."
+                f"Step 1: {first_text} of ${M} is ${_money(step1_cents)}. Step 2: {second_text} of ${_money(step1_cents)} is ${answer_text}."
             ],
             distractors=distractors,
         )
@@ -451,7 +451,7 @@ def _pm_reverse_question(rng, *, f_lo: int, f_hi: int) -> dict:
             answer=numeric_answer(answer_cents / 100),
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text),
-            working=[f"Working backwards through both steps from the final ${F_text}: start amount is {answer_text}."],
+            working=[f"Working backwards through both steps from the final ${F_text}: start amount is ${answer_text}."],
             distractors=distractors,
         )
     raise ValueError("rational_percentage_financial_model/hard: no valid draw found")
@@ -563,7 +563,7 @@ def _pm_exam_question(rng, *, f_lo: int, f_hi: int) -> dict:
             answer_latex=latex_answer(answer_text),
             working=[
                 f"Two deductions cascade off the running remainder; the {pct3}% fee is taken off the ORIGINAL amount "
-                f"separately. Start amount: {answer_text}."
+                f"separately. Start amount: ${answer_text}."
             ],
             distractors=distractors,
         )
