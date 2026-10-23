@@ -1,0 +1,69 @@
+id: graph-f-squared-features
+name: Find the turning point and meeting points of y = f(x)^2 from the graph or rule of f
+domain: functions-sequences
+year_level: ['12']
+description: State, as typed coordinates, the turning point of y = (f(x))^2 from a drawn straight line (at the zero of f)
+  or a drawn parabola (the local maximum between two zeros, or the single turning point of a parabola that misses the
+  axis, with the height squared), from an expanded quadratic, or the point where the square meets a line away from the
+  axis; the exam chain follows the least value of f through to the local maximum of the square and counts the turning
+  points and the solutions of (f(x))^2 = c.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [function-notation, senior-graph-reciprocal-abs-compare]
+answer: pair
+sources:
+- topic: gt_f_squared
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: gt_f_squared
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: gt_f_squared
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: gt_f_squared_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: gtf-absolute-value-for-square, description: 'Taking the absolute value of the y-coordinate where it should be squared, as if the graph were of y = |f(x)|.'}
+- {id: gtf-completing-square-drops-constant, description: 'Completing the square on the x terms and leaving out the original constant, so the least value is minus the square of the shift.'}
+- {id: gtf-count-as-f, description: 'Giving the number of turning points of f as the number for the squared function.'}
+- {id: gtf-count-extra, description: 'Counting a turning point on each side of every zero, or counting the zeros as well as the turning points.'}
+- {id: gtf-count-ignores-max, description: 'Counting only the minimums at the zeros of f as turning points of the squared function, and leaving out the local maximum between them.'}
+- {id: gtf-doubles-instead-of-squares, description: 'Doubling a value where it should be squared.'}
+- {id: gtf-forgets-to-divide-by-gradient, description: 'Solving m(x - r) = 1 as x - r = 1, leaving out the division by the gradient.'}
+- {id: gtf-four-solutions-for-line-above-the-peak, description: 'Giving four solutions for a horizontal line above the local maximum of the squared graph, where it cuts the graph only twice.'}
+- {id: gtf-four-solutions-for-line-at-the-peak, description: 'Giving four solutions for a horizontal line through the local maximum of the squared graph, counting the touch point twice.'}
+- {id: gtf-gives-the-zero, description: 'Giving the zero of the function, where the function and its square both equal 0, as the point where the graphs meet away from the axis.'}
+- {id: gtf-invariant-point-as-turning-point, description: 'Taking the point where the function equals 1, where the function and its square meet, as the turning point of the squared function.'}
+- {id: gtf-minimum-sign, description: 'Giving the least value of the quadratic with the wrong sign.'}
+- {id: gtf-one-solution-for-line-above-the-peak, description: 'Giving one solution for a horizontal line above the local maximum of the squared graph, counting only one of its two outer sections.'}
+- {id: gtf-reads-constant-as-minimum, description: 'Giving the constant term of the quadratic as its least value, which is the y-intercept and not the lowest point.'}
+- {id: gtf-reads-linear-coefficient-as-minimum, description: 'Giving the coefficient of x as the least value of the quadratic.'}
+- {id: gtf-solutions-above-the-peak, description: 'Giving two solutions for a horizontal line that cuts the squared graph below its local maximum, where it meets the graph four times.'}
+- {id: gtf-solutions-at-the-peak, description: 'Giving three solutions, as for a line through the local maximum, for a line that cuts below it.'}
+- {id: gtf-solutions-both-branches-doubled, description: 'Counting two solutions for each of the three turning-point regions, giving six.'}
+- {id: gtf-square-keeps-sign, description: 'Squaring a negative value but keeping the negative sign, so (-4) squared is given as -16.'}
+- {id: gtf-three-solutions-for-line-above-the-peak, description: 'Giving three solutions for a horizontal line above the local maximum of the squared graph, as for a line through the peak.'}
+- {id: gtf-turning-point-at-y-intercept, description: 'Giving the y-intercept of the line (or its square) as the turning point of the squared function, instead of the point on the x-axis where the line is zero.'}
+- {id: gtf-turning-point-at-zero, description: 'Giving a zero of f as the local maximum of the squared function, where the squared graph has a minimum on the axis.'}
+- {id: gtf-turning-point-unsquared, description: 'Keeping the turning point of f as the turning point of the squared function, without squaring its y-coordinate.'}
+- {id: gtf-two-solutions-for-line-at-the-peak, description: 'Giving two solutions for a horizontal line through the local maximum of the squared graph, forgetting the touch point.'}
+- {id: gtf-uses-f-equals-minus-one, description: 'Solving f(x) = -1 instead of f(x) = 1 to find where a function meets its square, although the square of -1 is 1 and not -1.'}
+- {id: gtf-zero-sign, description: 'Reading a zero of the function with the wrong sign, so a graph that crosses the axis at x = 3 is taken to cross at x = -3.'}
+difficulty_progression:
+  easy: {steps: 2, demand: 'Read the zero of a drawn line, then use that squaring never goes below the axis to place the
+      turning point on it.'}
+  medium: {steps: 3, demand: 'Read the vertex of a drawn parabola, decide whether the square has a local maximum or a single
+      minimum, and square the vertex height, including a negative one.'}
+  hard: {steps: 4, demand: 'From an expanded quadratic complete the square and square the least value, or from a line
+      set f(x) = 1 and solve with a fractional gradient.'}
+  exam: {steps: 6, demand: 'Complete the square for the least value, follow it through to the local maximum of the square,
+      count the turning points, and count the solutions of (f(x))^2 = c by comparing c with the maximum.'}
+tags: [acara-senior-v8-4, functions, transformations, square-of-a-function, turning-points, figure]

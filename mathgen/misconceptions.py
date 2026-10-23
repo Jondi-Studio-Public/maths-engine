@@ -57704,6 +57704,507 @@ _ENTRIES = (
         area="senior-solve-problems-involving-bearings",
     ),
     # w3 consumer block end
+    # -- graph transformations and inverse trigonometric graphs (gt block) ------------------------------------------
+    CatalogueEntry(
+        "gt-horizontal-shift-sign",
+        "Moving the graph the wrong way along the x-axis: writing f(x + h) for a shift to the right, or f(x - h) for a "
+        "shift to the left.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-vertical-shift-sign",
+        "Moving the graph the wrong way along the y-axis: adding the shift for a move down, or subtracting it for a "
+        "move up.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-order-swapped",
+        "Applying the transformations in a different order from the one given, so a dilation or reflection acts on a "
+        "translation it should have come before, or the reverse.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-dilation-factor-inverted",
+        "Using the reciprocal of the dilation factor: multiplying x by k for a dilation by a factor of k from the "
+        "y-axis (which divides x by k), or the same slip for a dilation from the x-axis.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-reflection-wrong-axis",
+        "Reflecting in the other axis: replacing x by -x where the graph is reflected in the x-axis, or negating the "
+        "whole function where it is reflected in the y-axis.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-period-unchanged",
+        "Giving the period of the original trigonometric graph and ignoring the dilation from the y-axis.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gtf-turning-point-at-y-intercept",
+        "Giving the y-intercept of the line (or its square) as the turning point of the squared function, instead of the point on the x-axis where the line is zero.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-zero-sign",
+        "Reading a zero of the function with the wrong sign, so a graph that crosses the axis at x = 3 is taken to cross at x = -3.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-invariant-point-as-turning-point",
+        "Taking the point where the function equals 1, where the function and its square meet, as the turning point of the squared function.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-domain-wrong-side",
+        "Giving the part of the x-axis where f is negative as the domain of the square root of f, instead of where f is not negative.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-domain-excludes-zeros",
+        "Leaving out the zeros of f from the domain of the square root of f, using a strict inequality where the square root of 0 is defined.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-domain-all-reals",
+        "Giving all real numbers as the domain of the square root of f, as if the root of a negative value existed.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-turning-point-unsquared",
+        "Keeping the turning point of f as the turning point of the squared function, without squaring its y-coordinate.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-square-keeps-sign",
+        "Squaring a negative value but keeping the negative sign, so (-4) squared is given as -16.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-absolute-value-for-square",
+        "Taking the absolute value of the y-coordinate where it should be squared, as if the graph were of y = |f(x)|.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-turning-point-at-zero",
+        "Giving a zero of f as the local maximum of the squared function, where the squared graph has a minimum on the axis.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-count-ignores-max",
+        "Counting only the minimums at the zeros of f as turning points of the squared function, and leaving out the local maximum between them.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-count-as-f",
+        "Giving the number of turning points of f as the number for the squared function.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-count-extra",
+        "Counting a turning point on each side of every zero, or counting the zeros as well as the turning points.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-root-not-taken",
+        "Giving the value inside the square root as the answer, without taking the root.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-root-as-half",
+        "Halving the value inside the square root instead of taking its square root.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-root-negative-branch",
+        "Giving the negative square root, as if the square root function had two outputs.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-root-squared-instead",
+        "Squaring the value inside the square root instead of taking its square root.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-reads-constant-as-minimum",
+        "Giving the constant term of the quadratic as its least value, which is the y-intercept and not the lowest point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-reads-linear-coefficient-as-minimum",
+        "Giving the coefficient of x as the least value of the quadratic.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-completing-square-drops-constant",
+        "Completing the square on the x terms and leaving out the original constant, so the least value is minus the square of the shift.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-minimum-sign",
+        "Giving the least value of the quadratic with the wrong sign.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-doubles-instead-of-squares",
+        "Doubling a value where it should be squared.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-gives-the-zero",
+        "Giving the zero of the function, where the function and its square both equal 0, as the point where the graphs meet away from the axis.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-uses-f-equals-minus-one",
+        "Solving f(x) = -1 instead of f(x) = 1 to find where a function meets its square, although the square of -1 is 1 and not -1.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-forgets-to-divide-by-gradient",
+        "Solving m(x - r) = 1 as x - r = 1, leaving out the division by the gradient.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-solutions-above-the-peak",
+        "Giving two solutions for a horizontal line that cuts the squared graph below its local maximum, where it meets the graph four times.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-solutions-at-the-peak",
+        "Giving three solutions, as for a line through the local maximum, for a line that cuts below it.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-solutions-both-branches-doubled",
+        "Counting two solutions for each of the three turning-point regions, giving six.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-no-zeros-no-domain",
+        "Saying the square root of f has no domain because f has no zeros, although f is positive everywhere and the root is defined for every x.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-domain-from-vertex",
+        "Using the x-coordinate of the vertex of f as the end point of the domain of the square root of f.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-range-of-f-not-root",
+        "Giving the range of f where the range of the square root of f is asked, without taking the square root of the end points.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-range-forgets-upper-bound",
+        "Giving a range with no upper bound for a root of a function that has a greatest value, or a range with an upper bound that does not exist.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-range-doubled",
+        "Doubling the greatest value of the root, as if the root took values from minus to plus.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-range-starts-at-zero",
+        "Starting the range of the square root of f at 0 although f never gets below a positive value.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-reads-constant-as-greatest-value",
+        "Giving the constant term of the quadratic as its greatest value, which is the y-intercept and not the highest point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-reads-linear-coefficient-as-greatest-value",
+        "Giving the coefficient of x as the greatest value of the quadratic.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-greatest-value-of-root-for-f",
+        "Giving the greatest value of the square root of f as the greatest value of f, or the reverse.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-completing-square-adds-instead-of-subtracts",
+        "Completing the square with the wrong sign, so the shift squared is added to the constant instead of taken from it.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-ignores-the-shift",
+        "Evaluating the square root of f at x = 0 as if f had no horizontal shift, using only the greatest value of f.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reflection-skipped",
+        "Leaving the vertex below the axis where it is, instead of reflecting the part of the graph below the x-axis above it for the modulus of the function.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-negates-x-instead-of-y",
+        "Reflecting in the wrong axis for the modulus of a function: changing the sign of the x-coordinate of the point instead of the y-coordinate.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-negates-both-coordinates",
+        "Changing the sign of both coordinates of the turning point, as if the graph had been turned half a turn.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-y-intercept-as-turning-point",
+        "Giving the y-intercept of the graph as its turning point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-intercept-keeps-sign",
+        "Giving the y-intercept of the modulus graph with the sign it has on the graph of f, when the modulus makes it positive.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reads-linear-coefficient-as-intercept",
+        "Giving the coefficient of x as the y-intercept of the quadratic.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-gives-an-x-intercept",
+        "Giving a point on the x-axis where the y-intercept was asked for.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-confuses-absolute-forms",
+        "Treating y = f(|x|), where the modulus acts on x, as y = |f(x)|, where it acts on the whole function, or the reverse.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-sum-of-zeros-as-vertex",
+        "Using the sum of the zeros as the x-coordinate of the vertex, instead of half the sum.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-uses-a-zero-as-the-minimum",
+        "Giving a zero of the function as its minimum point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-mirrors-the-negative-zero",
+        "Taking the negative zero of f as giving an x-intercept at its opposite, when |x| can never equal a negative number.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-uses-the-negative-zero",
+        "Giving the negative zero of f as an x-intercept of f(|x|) with positive x, ignoring that |x| is never negative.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-forgets-leading-coefficient",
+        "Finding the height of the vertex of a parabola as if its leading coefficient were 1.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reflects-when-already-positive",
+        "Reflecting a vertex that is already above the axis, so the height of the local maximum of the modulus graph is given as negative.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-misses-the-mirror-image",
+        "Listing only the positive x-intercepts of f(|x|) and leaving out their mirror images in the y-axis.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-keeps-only-the-mirror-image",
+        "Listing only the negative x-intercepts of f(|x|).",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-uses-one-zero",
+        "Giving the mirror pair of only one zero as the x-intercepts of f(|x|).",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-minimum-sign",
+        "Giving the least value of the quadratic with the wrong sign.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reads-constant-as-minimum",
+        "Giving the constant term of the quadratic as its least value, which is the y-intercept and not the lowest point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reads-linear-coefficient-as-minimum",
+        "Giving the coefficient of x as the least value of the quadratic.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-completing-square-drops-constant",
+        "Completing the square on the x terms and leaving out the original constant, so the least value is minus the square of the shift.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-gives-the-x-coordinate",
+        "Giving the x-coordinate of the vertex where its height was asked for.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-counts-only-outer-sections",
+        "Counting only the two outer sections of the modulus graph, leaving out the two sections that meet at the local maximum.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-counts-the-peak-as-a-solution",
+        "Counting the local maximum as a third solution for a horizontal line that does not pass through it.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-treats-the-line-as-below-the-peak",
+        "Giving four solutions for a horizontal line that is at or above the local maximum, where some of the four sections are not reached.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-counts-every-section-twice",
+        "Counting two solutions on each of the three sections around the turning points, giving six.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gti-sign-dropped",
+        "Dropping the sign of the argument: giving arcsin(1/2) for arcsin(-1/2), or the positive angle where the answer is negative.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-second-quadrant-angle",
+        "Giving the second-quadrant angle for an arcsin or arctan value, which lies outside the range of the function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-angle-outside-range",
+        "Giving an angle outside the principal range of the inverse function, such as the 330 degree or 11 pi over 6 angle.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-arcsin-arccos-swapped",
+        "Using the arcsin range for arccos, or the arccos range for arcsin.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-negative-angle-for-arccos",
+        "Giving a negative angle for arccos of a negative number, where arccos has range 0 to pi.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-range-ignores-shift",
+        "Giving the range of a shifted or scaled inverse trig function without applying the vertical shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-arcsin-range-and-arccos-range-swapped",
+        "Giving the range of arccos where the range of arcsin is asked, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-least-for-greatest",
+        "Giving the least value of an inverse trig function where its greatest value is asked.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-shift-sign",
+        "Applying a vertical shift with the wrong sign when finding an extreme value of an inverse trig function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-asymptote-uses-pi",
+        "Giving the arctan asymptote as y = pi or y = pi over 4 instead of y = pi over 2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-domain-ignores-shift",
+        "Giving the domain of an inverse trig function without allowing for a horizontal shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-multiplies-by-b",
+        "Multiplying the end points of the domain by b instead of dividing, for arcsin(bx).",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-forgets-the-shift",
+        "Evaluating an inverse trig function at a point without adding its vertical shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-returns-the-argument",
+        "Giving the argument back as the value of an inverse trig function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-sign-of-root",
+        "Giving the wrong sign when solving for the x-intercept of a shifted inverse trig function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-reciprocal",
+        "Giving the reciprocal of the ratio when solving for the x-intercept.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-wrong-ratio",
+        "Using the wrong exact ratio for the angle, such as the sine of pi over 6 taken as root 3 over 2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-doubles-the-sine-only",
+        "Multiplying only the sine by the factor and not the whole function when evaluating a scaled inverse trig function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-forgets-the-factor-two",
+        "Forgetting the vertical dilation factor when finding the greatest value or an intercept.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-composite-cancels",
+        "Cancelling an inverse trig function with its partner for an angle outside the principal range, such as arcsin(sin(5 pi over 6)) = 5 pi over 6.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-negative-angle",
+        "Giving a negative angle where the inverse function has only non-negative values, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-angle-reduced-not-principal",
+        "Reducing the angle to the first quadrant instead of finding the principal value.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-domain-ignores-b",
+        "Giving the domain -1 to 1 for arcsin(bx) without dividing by b.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gtf-four-solutions-for-line-above-the-peak",
+        "Giving four solutions for a horizontal line above the local maximum of the squared graph, where it cuts the graph only twice.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-three-solutions-for-line-above-the-peak",
+        "Giving three solutions for a horizontal line above the local maximum of the squared graph, as for a line through the peak.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-one-solution-for-line-above-the-peak",
+        "Giving one solution for a horizontal line above the local maximum of the squared graph, counting only one of its two outer sections.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-four-solutions-for-line-at-the-peak",
+        "Giving four solutions for a horizontal line through the local maximum of the squared graph, counting the touch point twice.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-two-solutions-for-line-at-the-peak",
+        "Giving two solutions for a horizontal line through the local maximum of the squared graph, forgetting the touch point.",
+        area="graph-features",
+    ),
 )
 
 #: Every entry, by id.

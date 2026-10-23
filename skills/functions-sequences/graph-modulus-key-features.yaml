@@ -1,0 +1,66 @@
+id: graph-modulus-key-features
+name: Find key points of y = |f(x)| and y = f(|x|) for a quadratic f, as typed coordinates
+domain: functions-sequences
+year_level: ['12']
+description: Given the rule of a quadratic f, state typed coordinates of a key point of y = |f(x)| (its local maximum, with
+  the vertex flipped above the axis, or its y-intercept) or of y = f(|x|) (the minimum or the x-intercept with positive
+  x, remembering that |x| is never negative); the exam chain lists the four x-intercepts of f(|x|), finds the least value
+  of f, follows it through to the local maximum of |f|, and counts the solutions of |f(x)| = c.
+status: active
+placement_eligible: false
+prerequisites: [function-notation, senior-graph-reciprocal-abs-compare]
+answer: pair
+sources:
+- topic: gt_modulus
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: gt_modulus
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: gt_modulus
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: gt_modulus_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: gtm-completing-square-drops-constant, description: 'Completing the square on the x terms and leaving out the original constant, so the least value is minus the square of the shift.'}
+- {id: gtm-confuses-absolute-forms, description: 'Treating y = f(|x|), where the modulus acts on x, as y = |f(x)|, where it acts on the whole function, or the reverse.'}
+- {id: gtm-counts-every-section-twice, description: 'Counting two solutions on each of the three sections around the turning points, giving six.'}
+- {id: gtm-counts-only-outer-sections, description: 'Counting only the two outer sections of the modulus graph, leaving out the two sections that meet at the local maximum.'}
+- {id: gtm-counts-the-peak-as-a-solution, description: 'Counting the local maximum as a third solution for a horizontal line that does not pass through it.'}
+- {id: gtm-forgets-leading-coefficient, description: 'Finding the height of the vertex of a parabola as if its leading coefficient were 1.'}
+- {id: gtm-gives-an-x-intercept, description: 'Giving a point on the x-axis where the y-intercept was asked for.'}
+- {id: gtm-gives-the-x-coordinate, description: 'Giving the x-coordinate of the vertex where its height was asked for.'}
+- {id: gtm-intercept-keeps-sign, description: 'Giving the y-intercept of the modulus graph with the sign it has on the graph of f, when the modulus makes it positive.'}
+- {id: gtm-keeps-only-the-mirror-image, description: 'Listing only the negative x-intercepts of f(|x|).'}
+- {id: gtm-minimum-sign, description: 'Giving the least value of the quadratic with the wrong sign.'}
+- {id: gtm-mirrors-the-negative-zero, description: 'Taking the negative zero of f as giving an x-intercept at its opposite, when |x| can never equal a negative number.'}
+- {id: gtm-misses-the-mirror-image, description: 'Listing only the positive x-intercepts of f(|x|) and leaving out their mirror images in the y-axis.'}
+- {id: gtm-negates-both-coordinates, description: 'Changing the sign of both coordinates of the turning point, as if the graph had been turned half a turn.'}
+- {id: gtm-negates-x-instead-of-y, description: 'Reflecting in the wrong axis for the modulus of a function: changing the sign of the x-coordinate of the point instead of the y-coordinate.'}
+- {id: gtm-reads-constant-as-minimum, description: 'Giving the constant term of the quadratic as its least value, which is the y-intercept and not the lowest point.'}
+- {id: gtm-reads-linear-coefficient-as-intercept, description: 'Giving the coefficient of x as the y-intercept of the quadratic.'}
+- {id: gtm-reads-linear-coefficient-as-minimum, description: 'Giving the coefficient of x as the least value of the quadratic.'}
+- {id: gtm-reflection-skipped, description: 'Leaving the vertex below the axis where it is, instead of reflecting the part of the graph below the x-axis above it for the modulus of the function.'}
+- {id: gtm-reflects-when-already-positive, description: 'Reflecting a vertex that is already above the axis, so the height of the local maximum of the modulus graph is given as negative.'}
+- {id: gtm-sum-of-zeros-as-vertex, description: 'Using the sum of the zeros as the x-coordinate of the vertex, instead of half the sum.'}
+- {id: gtm-treats-the-line-as-below-the-peak, description: 'Giving four solutions for a horizontal line that is at or above the local maximum, where some of the four sections are not reached.'}
+- {id: gtm-uses-a-zero-as-the-minimum, description: 'Giving a zero of the function as its minimum point.'}
+- {id: gtm-uses-one-zero, description: 'Giving the mirror pair of only one zero as the x-intercepts of f(|x|).'}
+- {id: gtm-uses-the-negative-zero, description: 'Giving the negative zero of f as an x-intercept of f(|x|) with positive x, ignoring that |x| is never negative.'}
+- {id: gtm-y-intercept-as-turning-point, description: 'Giving the y-intercept of the graph as its turning point.'}
+difficulty_progression:
+  easy: {steps: 3, demand: 'Factorise to find the vertex, then flip a vertex below the axis for |f|, or take |f(0)| for
+      the y-intercept.'}
+  medium: {steps: 4, demand: 'Use that f(|x|) is the graph of f for x at least 0 and its mirror image after that: find the
+      mirrored minimum, or decide which zeros of f can give an x-intercept.'}
+  hard: {steps: 5, demand: 'Find the vertex of a quadratic with a leading coefficient other than 1, then decide whether the
+      modulus flips it (opens up) or leaves it (opens down).'}
+  exam: {steps: 7, demand: 'List the four x-intercepts of f(|x|), complete the square for the least value, follow it to the
+      local maximum of |f|, then count the solutions of |f(x)| = c by comparing c with that maximum.'}
+tags: [acara-senior-v8-4, functions, absolute-value, transformations, acmsm099]
