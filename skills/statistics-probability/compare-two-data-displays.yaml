@@ -1,0 +1,73 @@
+id: compare-two-data-displays
+name: Compare two data displays
+domain: statistics-probability
+year_level: ['6']
+naplan_domain: [statistics]
+description: >-
+  Compare two groups measured on one variable when one group is shown in a drawn dot plot and the other in a
+  stem-and-leaf plot printed in the question, so both displays have to be read before the centre (mode, median) and
+  spread (range) are compared. easy finds how much greater one group's mode, range or number of values is than the
+  other's; medium compares the two medians (a half when a group has an even number of values); hard uses one group's
+  median to count values in the other group, or finds the range of the two groups together; exam is a chain from each
+  group's median to the gap between them (following through from the two medians) and the gap between the ranges.
+  Every answer is a number.
+status: active
+needs_figure: true
+capability_gates: [figure_stimulus]
+placement_eligible: false
+prerequisites: [f6-read-a-dot-plot]
+answer: number
+sources:
+- topic: dg_compare_displays
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dg_compare_displays
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: dg_compare_displays
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: dg_compare_displays_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dg-cd-mode-as-frequency
+  description: "Gives how many times the mode occurs (the height of the tallest stack or the number of leaves) instead of the mode itself."
+- id: dg-cd-difference-reversed
+  description: "Subtracts the larger measure from the smaller, so the difference has the wrong sign."
+- id: dg-cd-difference-added
+  description: "Adds the two measures instead of finding how much greater one is than the other."
+- id: dg-cd-range-as-highest
+  description: "Gives the highest value as the range instead of taking the lowest away from it."
+- id: dg-cd-leaf-as-value
+  description: "Reads a leaf as the whole value, ignoring its stem, when reading the stem-and-leaf plot."
+- id: dg-cd-median-axis-middle
+  description: "Takes the middle of the axis (or of the stems) as the median instead of the middle of the ordered values."
+- id: dg-cd-median-even-lower
+  description: "Takes the lower of the two middle values as the median when there is an even number of values."
+- id: dg-cd-median-halfway-extremes
+  description: "Takes the value halfway between the lowest and highest values as the median."
+- id: dg-cd-count-total
+  description: "Adds the two numbers of values when how many more one group has than the other was asked."
+- id: dg-cd-count-off-one
+  description: "Miscounts the values by one when reading a display."
+- id: dg-cd-ticks-not-dots
+  description: "Counts the ticks on the dot plot's axis where the number of values (dots) was needed."
+- id: dg-cd-above-includes-equal
+  description: "Counts values equal to the median as well as the values above it when only values above were asked."
+- id: dg-cd-below-includes-equal
+  description: "Counts values equal to the median as well as the values below it when only values below were asked."
+- id: dg-cd-combined-range-of-one
+  description: "Gives the larger of the two groups' ranges as the range of the combined data."
+- id: dg-cd-combined-range-added
+  description: "Adds the two groups' ranges to get the range of the combined data."
+difficulty_progression:
+  easy: {steps: 3, demand: "Read one measure (mode, range or number of values) from the dot plot and again from the stem-and-leaf plot, then find how much greater one is."}
+  medium: {steps: 4, demand: "Find the median of each group from its own display, using the position (n + 1) / 2 and a half step for an even count, then compare them."}
+  hard: {steps: 4, demand: "Find one group's median, then count the values of the other group above or below it, or take the range of the two groups combined."}
+  exam: {steps: 4, demand: "Chain the two medians, the gap between them using both, and the gap between the two ranges."}
+tags: [acara-f10-v9, statistics-probability, ac9m6st01, dot-plot, stem-and-leaf, compare-displays, figure]

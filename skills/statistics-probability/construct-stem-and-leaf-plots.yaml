@@ -1,0 +1,66 @@
+id: construct-stem-and-leaf-plots
+name: Construct a stem-and-leaf plot from a list of values
+domain: statistics-probability
+year_level: ['7']
+description: >-
+  Build an ordered stem-and-leaf plot from a jumbled list of values, filling in the leaves of every row in increasing
+  order with a repeated value's leaf written as often as it occurs. easy uses two-digit whole numbers without repeats;
+  medium has more values with repeats; hard uses values to one decimal place (stem the whole number, leaf the tenth) or
+  three-digit values (stem all but the units digit); exam is a chain from the whole plot to the number of values, the
+  position of the median (following through from the count) and the median itself.
+status: active
+placement_eligible: false
+prerequisites: [f10-stem-and-leaf-plots]
+answer: table
+sources:
+- topic: dg_construct_stem
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dg_construct_stem
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: dg_construct_stem
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: dg_construct_stem_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dg-sl-leaves-unordered
+  description: "Writes the leaves of a row in the order the values were listed instead of in increasing order."
+- id: dg-sl-leaves-descending
+  description: "Writes the leaves of a row from largest to smallest instead of smallest to largest."
+- id: dg-sl-repeat-written-once
+  description: "Writes a repeated value's leaf only once, so the row is one leaf short."
+- id: dg-sl-leaf-dropped
+  description: "Leaves one value out of the plot, so a row has a leaf missing."
+- id: dg-sl-whole-value-as-leaf
+  description: "Writes the whole value as the leaf instead of only its last digit."
+- id: dg-sl-leaf-in-wrong-stem
+  description: "Puts a value in the row of the next stem, for example a number in the twenties in the thirties row."
+- id: dg-sl-count-stems
+  description: "Gives the number of stems as the number of values."
+- id: dg-sl-count-off-one
+  description: "Miscounts the leaves by one when finding how many values there are."
+- id: dg-sl-position-half-n
+  description: "Halves the number of values to find the position of the median, forgetting to add 1 first."
+- id: dg-sl-position-not-halved
+  description: "Gives n + 1 as the position of the median without halving it."
+- id: dg-sl-median-position-as-value
+  description: "Gives the position of the median as if it were the median itself."
+- id: dg-sl-median-of-leaves-only
+  description: "Finds the middle leaf and forgets to put its stem in front of it."
+- id: dg-sl-median-middle-stem
+  description: "Takes the middle of the stems (or the middle row's first value) as the median."
+- id: dg-sl-median-even-lower
+  description: "Takes the lower of the two middle values as the median when the number of values is even."
+difficulty_progression:
+  easy: {steps: 2, demand: "Split each two-digit value into stem and leaf and write each row's leaves in increasing order."}
+  medium: {steps: 3, demand: "Sort a longer list into rows, keeping a repeated value's leaf as many times as it occurs."}
+  hard: {steps: 3, demand: "Read the stem and leaf from a decimal or a three-digit value, where the stem is no longer simply the tens digit."}
+  exam: {steps: 4, demand: "Construct the plot, count its values, find the median's position from the count and read the median off the plot."}
+tags: [acara-f10-v9, statistics-probability, ac9m7st02, stem-and-leaf, construct, drawn-answer]
