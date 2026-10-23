@@ -1,0 +1,141 @@
+id: simulated-sample-proportion-calculations
+name: Calculate with simulated sample proportions and their spread
+domain: statistics-probability
+year_level:
+- '12'
+description: Work out sample proportions from simulated counts, the mean and standard deviation of simulated proportions,
+  the standard deviation sqrt(p(1-p)/n) of the sample proportion and how it shrinks as the sample size grows, typing each
+  number to 3 decimal places.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-understand-the-concept-of-the-sample-proportion-widehat
+- senior-simulated-samples-variability
+answer: number
+sources:
+- topic: sc_simulated_proportions
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sc_simulated_proportions
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sc_simulated_proportions
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sc_simulated_proportions_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sc-complement-for-proportion
+  description: Gives the proportion without the trait (the complement) instead of the proportion with it.
+- id: sc-count-over-hundred
+  description: Divides the count by 100 instead of by the sample size, treating it as a percentage.
+- id: sc-divides-by-one-fewer
+  description: Divides the total by one fewer than the number of samples when finding a mean.
+- id: sc-gap-as-fraction-of-p
+  description: Reports the gap between the mean of the simulated proportions and p as a fraction of p instead of as a difference.
+- id: sc-gap-sign-reversed
+  description: Subtracts the mean from the population proportion, so the gap has the wrong sign.
+- id: sc-interval-one-sd
+  description: Uses one standard deviation from the population proportion for the interval that holds about 95% of sample
+    proportions, where 2 are needed.
+- id: sc-interval-three-sd
+  description: Uses three standard deviations from the population proportion for an interval described as holding about
+    95% of sample proportions.
+- id: sc-interval-uses-variance
+  description: Adds twice the variance (the standard deviation not square-rooted) to the population proportion to find the
+    upper end of the interval.
+- id: sc-interval-width-not-endpoint
+  description: Gives the distance 2 sd from p, not the endpoint p + 2 sd.
+- id: sc-lower-limit-for-upper
+  description: Gives the lower end of the interval (p - 2 sd) where the upper end was asked for.
+- id: sc-mean-count-not-proportion
+  description: Averages the counts and leaves the result as a count, without dividing by the sample size to get a proportion.
+- id: sc-mean-deviation-for-sd
+  description: Averages the absolute deviations from the mean instead of squaring them and taking a root.
+- id: sc-mean-not-divided-by-samples
+  description: Adds the sample proportions and does not divide by the number of samples.
+- id: sc-mean-reported-as-gap
+  description: Gives the mean of the simulated proportions where the difference from the population proportion was asked
+    for.
+- id: sc-median-for-mean
+  description: Reports the middle sample proportion where the mean was asked for.
+- id: sc-n-forgets-one-minus-p
+  description: Finds the sample size from p over the squared standard deviation, leaving out the factor 1 - p.
+- id: sc-n-forgets-to-square-sd
+  description: Finds the sample size as p(1 - p) over the standard deviation, without squaring the standard deviation.
+- id: sc-n-increase-not-total
+  description: Gives how many more are needed than in the original samples, not the new sample size.
+- id: sc-n-proportional-to-sd-ratio
+  description: Takes the sample size to change by the same factor as the standard deviation, not by its square.
+- id: sc-n-ratio-inverted
+  description: 'Divides the sample size by the square of the ratio when it must be multiplied: a smaller spread needs larger
+    samples.'
+- id: sc-n-root-not-squared
+  description: Divides the square root of p(1 - p) by the standard deviation to get n, so it is the square root of the sample
+    size.
+- id: sc-odds-for-proportion
+  description: Divides the count by the number without the trait (odds) instead of by the whole sample.
+- id: sc-sd-forgets-one-minus-p
+  description: Finds the standard deviation of the sample proportion from p over n, leaving out the factor 1 - p.
+- id: sc-sd-forgets-square-root
+  description: Gives the variance p(1 - p)/n as the standard deviation, without the square root.
+- id: sc-sd-grows-with-n
+  description: Thinks the spread of sample proportions grows when the samples get larger.
+- id: sc-sd-of-count-for-proportion
+  description: Gives the standard deviation of the count, the square root of np(1 - p), as that of the sample proportion.
+- id: sc-sd-root-of-numerator-only
+  description: Takes the square root of p(1 - p) but divides by n, not by the square root of n.
+- id: sc-sd-scales-with-n
+  description: Divides the standard deviation by the full factor the sample size grew by, where it divides by the square
+    root of that factor.
+- id: sc-spread-divides-by-one-fewer
+  description: Divides the sum of squared deviations by one fewer than the number of samples, when the question says to
+    divide by the number of samples.
+- id: sc-spread-variance-for-sd
+  description: Gives the variance of the simulated proportions where their standard deviation was asked for, leaving out
+    the square root.
+- id: sc-theory-for-data
+  description: Substitutes into the formula for the spread of a sample proportion when the spread of the listed simulated
+    values was asked for.
+- id: sc-uses-one-sample
+  description: Reports a single sample's proportion where the mean of all the simulated proportions was asked for.
+- id: sc-uses-population-proportion
+  description: Gives the population proportion p where the proportion in the sample was asked for.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Turn a simulated count into a sample proportion, or add several simulated counts and average the proportions.
+  medium:
+    steps: 3
+    demand: Use p, n and the formula for the standard deviation of a sample proportion, or compare the mean of simulated
+      proportions with p.
+  hard:
+    steps: 4
+    demand: 'Reason backwards or across sample sizes: find the n that gives a stated spread, how the spread changes when
+      n is multiplied, the upper end of p plus two standard deviations, or the spread of the listed simulated values themselves.'
+  exam:
+    steps: 7
+    demand: Chain a sample proportion, the mean of simulated proportions, the standard deviation of the sample proportion,
+      the upper end of p plus two standard deviations and the spread for samples four times as large, using the spread from
+      the earlier part.
+tags:
+- acara-senior-v8-4
+- statistics-probability
+- simulation
+- sampling-variability
+- sample-proportion
+- acmmm173

@@ -1,0 +1,124 @@
+id: implication-converse-contrapositive-counts
+name: Converse, contrapositive, negation and equivalence of a conditional, by counting counterexamples
+domain: senior-mathematics
+year_level:
+- '11'
+description: For an if-then statement about whole numbers or finite sets, find how many values (or which smallest value)
+  make its converse, contrapositive, inverse, negation or biconditional fail, typing the count rather than choosing a wording.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-use-implication-converse-equivalence-negation-contrapositive
+- senior-use-examples-and-counter-examples
+answer: number
+sources:
+- topic: sc_conditional_counts
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sc_conditional_counts
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sc_conditional_counts
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sc_conditional_counts_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sc-biconditional-counts-both-directions
+  description: Counts the values where either direction of the implication fails, as the values where the biconditional
+    holds, so the failures are reported instead of the values that satisfy it.
+- id: sc-biconditional-counts-both-true
+  description: Counts only the values where both clauses are true, forgetting that 'P if and only if Q' is also true where
+    both are false.
+- id: sc-biconditional-counts-one-direction
+  description: Counts the failures of only one direction of 'P if and only if Q', so the other direction's failures are
+    missed.
+- id: sc-contrapositive-counts-converse-failures
+  description: Takes the contrapositive to fail where the converse fails (Q true and P false), instead of where the original
+    statement fails.
+- id: sc-converse-counts-statement-failures
+  description: Counts the failures of the original statement when the converse (or inverse) was asked about, as if swapping
+    the clauses changed nothing.
+- id: sc-converse-ignores-overlap
+  description: Finds the failures of the converse as the number of values with Q minus the number with P, without allowing
+    for the values that have both.
+- id: sc-counterexample-both-true
+  description: Counts values where both clauses hold as counterexamples, although a counterexample needs the conclusion
+    to be false.
+- id: sc-counterexample-conclusion-false
+  description: Counts every value where the conclusion is false as a counterexample, without requiring the hypothesis to
+    be true.
+- id: sc-counterexample-conclusion-true-only
+  description: Takes the first value where the hypothesis of the converse holds as a counterexample, without checking that
+    its conclusion fails.
+- id: sc-counterexample-hypothesis-only
+  description: Counts every value where the hypothesis is true as a counterexample, without checking whether the conclusion
+    fails.
+- id: sc-counterexample-of-converse
+  description: Gives a counterexample to the converse when a counterexample to the statement itself was asked for.
+- id: sc-counts-hypothesis-of-contrapositive
+  description: Counts the values where the contrapositive's hypothesis (not Q) is true, instead of those where it is true
+    and its conclusion false.
+- id: sc-counts-the-wrong-set
+  description: Counts the values for a different clause, or for its negation, than the one the question names.
+- id: sc-counts-true-instances-not-failures
+  description: Gives the number of values where the statement is true when the number where it fails was asked for, or the
+    reverse.
+- id: sc-negation-as-converse-failure
+  description: Takes the negation of 'if P then Q' to be true where the converse fails (Q and not P), instead of where P
+    and not Q.
+- id: sc-negation-as-if-p-then-not-q
+  description: Negates 'if P then Q' as 'if P then not Q', which is a different implication and is true in many places the
+    negation is false.
+- id: sc-negation-counts-both-true
+  description: Counts the values where P and Q are both true as satisfying the negation, instead of P true and Q false.
+- id: sc-negation-of-converse-as-negation
+  description: Counts where the negation of the original statement is true when the negation of the converse was asked for.
+- id: sc-off-by-one-in-count
+  description: Miscounts by one when listing the values that satisfy a clause, usually including or leaving out an end value.
+- id: sc-vacuous-truth-ignored
+  description: Counts only the values where both P and Q hold as making the implication true, forgetting that it is also
+    true wherever the hypothesis is false.
+- id: sc-vacuous-truth-only
+  description: Counts only the values where the hypothesis is false as making the implication true, leaving out those where
+    both clauses hold.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Recognise that a counterexample has the hypothesis true and the conclusion false, then count or find the first
+      one for the converse of a true statement, or for a false statement itself.
+  medium:
+    steps: 3
+    demand: For a statement with counterexamples in both directions, decide which set of values the contrapositive, the
+      negation or the converse fails on, then count where the statement or its converse is true, including where the hypothesis
+      is false.
+  hard:
+    steps: 4
+    demand: Combine the failures of both directions to count where an inverse, a negation of a converse or a biconditional
+      holds, on number statements or on explicit sets.
+  exam:
+    steps: 6
+    demand: Count the values of each clause, count the contrapositive's counterexamples, then use those three counts to
+      find the converse's counterexamples and the failures of the biconditional.
+tags:
+- acara-senior-v8-4
+- senior-mathematics
+- propositional-logic
+- converse
+- contrapositive
+- counterexample
+- acmsm026
