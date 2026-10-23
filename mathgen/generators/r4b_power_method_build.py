@@ -349,7 +349,8 @@ def _exam(rng):
         k1 = top(y1)
         k2 = top(y2)
         err = abs(lam1 - m2)
-        if err != 0 and m1 != m2 and err < abs(lam1 - m1):
+        # part c follows through from parts a and b, so row k2 must use at least one of the entries they feed
+        if err != 0 and m1 != m2 and err < abs(lam1 - m1) and any(a[k2][t] != 0 for t in ((k1 + 1) % 3, (k1 + 2) % 3)):
             break
     q = (k1 + 1) % 3
     r = (k1 + 2) % 3
