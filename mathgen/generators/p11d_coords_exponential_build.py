@@ -136,9 +136,9 @@ def three_dimensional_coordinates(rng, coord_lo=-10, coord_hi=10, sequence_lengt
         end_text = f"{end[0]}, {end[1]}, {end[2]}"
         text = template.format(start=start_text, end=end_text)
         working = [
-            f"Change in x: dx = x_end - x_start = {paren_negative(end[0])} - {paren_negative(start[0])} = {dx}",
-            f"Change in y: dy = y_end - y_start = {paren_negative(end[1])} - {paren_negative(start[1])} = {dy}",
-            f"Change in z: dz = z_end - z_start = {paren_negative(end[2])} - {paren_negative(start[2])} = {dz}",
+            f"Change in x: dx = (end x) - (start x) = {paren_negative(end[0])} - {paren_negative(start[0])} = {dx}",
+            f"Change in y: dy = (end y) - (start y) = {paren_negative(end[1])} - {paren_negative(start[1])} = {dy}",
+            f"Change in z: dz = (end z) - (start z) = {paren_negative(end[2])} - {paren_negative(start[2])} = {dz}",
         ]
         candidates = [
             f"dx = {swapped[0]}, dy = {swapped[1]}, dz = {swapped[2]}",

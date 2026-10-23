@@ -182,8 +182,8 @@ def _build_years(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"Total repayable = P(1 + rn/100). Solve M x 12n = P(1 + rn/100) for n: "
-            f"n = P / (12M - Pr/100) = {P} / (12 x {M} - {P} x {r}/100) = {n} years."
+            f"Total repayable = P(1 + rn/100). Solve M × 12n = P(1 + rn/100) for n: "
+            f"n = P / (12M - Pr/100) = {P} / (12 × {M} - {P} × {r}/100) = {n} years."
         ],
         distractors=distractors,
     )
@@ -267,7 +267,7 @@ def _build_months(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"Total repayable = P(1 + r(m/12)/100). Solve M x m = P(1 + r(m/12)/100) for m "
+            f"Total repayable = P(1 + r(m/12)/100). Solve M × m = P(1 + r(m/12)/100) for m "
             f"(equivalently, n = P/(12M - Pr/100) years, then m = 12n): m = {m} months."
         ],
         distractors=distractors,
@@ -472,8 +472,8 @@ def _build_max_rate(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"Solve M x 12n = P(1 + rn/100) for r: r = 100(12Mn - P) / (Pn) = "
-            f"100(12 x {M} x {n} - {P}) / ({P} x {n}) = {r}%."
+            f"Solve M × 12n = P(1 + rn/100) for r: r = 100(12Mn - P) / (Pn) = "
+            f"100(12 × {M} × {n} - {P}) / ({P} × {n}) = {r}%."
         ],
         distractors=distractors,
     )

@@ -466,8 +466,8 @@ def _build_hard(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"z = InvNorm({q_eff:.4f}) = {z:.4f}. x = mu + z x sigma = {mu} + "
-            f"{paren_negative(round(z, 4))} x {sigma} = {answer_text}."
+            f"z = InvNorm({q_eff:.4f}) = {z:.4f}. x = mu + z × sigma = {mu} + "
+            f"{paren_negative(round(z, 4))} × {sigma} = {answer_text}."
         ],
         distractors=distractors,
     )
@@ -578,7 +578,7 @@ def _build_exam(rng) -> dict:
     formula = (
         f"sigma = (a - mu) / z = ({a} - {mu}) / {z:.4f} = {answer_text}."
         if solve_for == "sigma"
-        else f"mu = a - sigma x z = {a} - {sigma} x {z:.4f} = {answer_text}."
+        else f"mu = a - sigma × z = {a} - {sigma} × {z:.4f} = {answer_text}."
     )
     return dict(
         text=text,

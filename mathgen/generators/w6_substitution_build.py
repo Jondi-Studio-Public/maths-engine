@@ -401,7 +401,9 @@ def _et_easy(rng):
             Cand(c * _SIN * v ** (1 - n) / (1 - n), "w6-subst-leftover-x-kept"),
         ]
         hint = _hint(v)
-        wk = ["du = -sin x dx, so sin x dx = -du and the integral is -c times the integral of u^(-n) du."]
+        wk = [
+            f"du = -sin x dx, so sin x dx = -du and the integral is {'minus ' if c == 1 else f'-{c} times '}the integral of u^(-{n}) du."
+        ]
     elif kind == "sec_tan":
         n = _pick(rng, (2, 3, 4, 5))
         f = Itg(c * sec(x) ** 2 * _TAN**n, text=f"{_cf(c)}sec^2(x)tan^{n}(x)")
@@ -426,7 +428,7 @@ def _et_easy(rng):
                 Cand(c * exp(_COS), "w6-subst-wrong-inner-function"),
             ]
             hint = _hint(_SIN)
-            wk = ["du = cos x dx, so the integral is c times the integral of e^u du."]
+            wk = [f"du = cos x dx, so the integral is {f'{c} times ' if c != 1 else ''}the integral of e^u du."]
         else:
             f = Itg(c * _SIN * exp(_COS), text=f"{_cf(c)}sin(x)e^(cos(x))")
             F = -c * exp(_COS)
@@ -471,7 +473,7 @@ def _et_medium(rng):
         ]
         working = [
             f"Let u = {shown(v)}, so du = e^x dx and e^x = u {'-' if a > 0 else '+'} {abs(a)}.",
-            "Write e^(2x) dx = e^x . e^x dx = (u - a) du, integrate term by term and replace u.",
+            f"Write e^(2x) dx = e^x · e^x dx = (u {'-' if a > 0 else '+'} {abs(a)}) du, integrate term by term and replace u.",
         ]
     else:
         a, n = _pick(rng, (1, 2, 3, 4)), _pick(rng, (2, 3))
@@ -689,7 +691,7 @@ def _sd_hard(rng):
         ]
         working = [
             f"Let u = e^x + {a}, so du = e^x dx. When x = 0, u = {u1}; when x = ln {b}, u = {u2}.",
-            f"The integral is {c} times the integral of u^(-{n}) du from {u1} to {u2}.",
+            f"The integral is {f'{c} times ' if c != 1 else ''}the integral of u^(-{n}) du from {u1} to {u2}.",
         ]
         return _definite(rng, f, value, lo, hi, cands, working)
     if kind == "exp_sqrt":
@@ -733,7 +735,7 @@ def _sd_hard(rng):
         ]
         working = [
             f"Let u = {a} + sin x, so du = cos x dx. When x = 0, u = {u1}; when x = pi/2, u = {u2}.",
-            f"The integral is {c} times the integral of u^(-{n}) du from {u1} to {u2}.",
+            f"The integral is {f'{c} times ' if c != 1 else ''}the integral of u^(-{n}) du from {u1} to {u2}.",
         ]
         return _definite(rng, f, value, lo, hi, cands, working)
     if kind == "sec4":

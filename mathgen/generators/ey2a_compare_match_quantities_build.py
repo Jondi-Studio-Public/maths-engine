@@ -72,7 +72,7 @@ def ey2a_compare_match_quantities(rng, tier="easy"):
                 (big + small, "ey2a-adds-groups"),
                 (diff + 2, "ey2a-count-one-over"),
             ]
-            working = [f"{small} pairs are made. {big} - {small} = {diff} have no partner."]
+            working = [f"{small} pairs are made. {big} - {small} = {diff} {'has' if diff == 1 else 'have'} no partner."]
     elif tier == "hard":
         sizes = rng.sample(range(2, 10), 3)
         lo, mid, hi = sorted(sizes)

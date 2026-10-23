@@ -40,6 +40,11 @@ _MEDIUM = ("storage shed", "greenhouse", "shipping container", "water tank", "gr
 _LARGE = ("warehouse", "aircraft hangar", "indoor sports hall", "cold store", "packing shed")
 
 
+def _wk(v: float) -> str:
+    """Working text: a whole length prints without the spurious decimal."""
+    return str(round(v)) if abs(v - round(v)) < 1e-9 else f"{v:.1f}"
+
+
 def _thing(rng, dims) -> str:
     """A structure that is plausible at this size (the longest edge in metres)."""
     longest = max(dims)
@@ -405,7 +410,7 @@ def _fr2a_box_chain(rng):
         fl,
         1,
         2,
-        [f"OQ = √({a}² + {b}²) = √{a * a + b * b} = {floor_r:.1f} m."],
+        [f"OQ = √({a}² + {b}²) = √{a * a + b * b} = {_wk(floor_r)} m."],
         tagged(fl, f_cands, 1, lo=0),
         sensible_range=(0, None),
     )
@@ -421,7 +426,7 @@ def _fr2a_box_chain(rng):
         sp,
         1,
         2,
-        [f"OU = √(OQ² + {c}²) = √({floor_r:.1f}² + {c}²) = {space_r:.1f} m (or √({a}² + {b}² + {c}²))."],
+        [f"OU = √(OQ² + {c}²) = √({_wk(floor_r)}² + {c}²) = {_wk(space_r)} m (or √({a}² + {b}² + {c}²))."],
         tagged(sp, kit.far_from(sp, s_cands, Fraction(1, 10)), 1, lo=0),
         follow_through=f"sqrt(part_c**2+{c}**2)",
         sensible_range=(0, None),

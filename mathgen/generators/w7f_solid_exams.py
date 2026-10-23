@@ -553,7 +553,10 @@ def _outline_chain(rng):
         f"rectangle are not covered by the shape?",
         bare,
         2,
-        [f"The rectangle has {box_w} x {box_h} = {box} squares.", f"{box} - {area} = {bare} squares are bare."],
+        [
+            f"The rectangle has {box_w} x {box_h} = {box} squares.",
+            f"{box} - {area} = {bare} {'square is' if bare == 1 else 'squares are'} bare.",
+        ],
         [
             (box, "comp-gives-the-bounding-rectangle"),
             (area, "comp-counts-the-covered-squares"),

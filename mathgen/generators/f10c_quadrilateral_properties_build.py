@@ -136,6 +136,11 @@ def _fmt(v: float) -> str:
     return f"{v:.1f}"
 
 
+def _wk(v: float) -> str:
+    """Working text: a whole value prints without the spurious decimal."""
+    return str(round(v)) if abs(v - round(v)) < 1e-9 else _fmt(v)
+
+
 def _is_half(v: float) -> bool:
     return abs(v * 2 - round(v * 2)) < 1e-9
 
@@ -169,7 +174,7 @@ def _e_diag_half(rng):
         ac / 2,
         "cm",
         [(ac, M_DIAG), (bd / 2, M_OTHER_DIAG), (ac / 4, M_HALVE_TWICE), (bd, M_OTHER_DIAG)],
-        [f"The diagonals bisect each other, so M is the midpoint of {a}{c}.", f"{a}M = {ac} / 2 = {_fmt(ac / 2)} cm."],
+        [f"The diagonals bisect each other, so M is the midpoint of {a}{c}.", f"{a}M = {ac} / 2 = {_wk(ac / 2)} cm."],
         _dist(pa, m),
     )
 
@@ -199,7 +204,7 @@ def _e_diag_double(rng):
         2 * bm,
         "cm",
         [(bm, M_DIAG), (2 * am, M_OTHER_DIAG), (am + bm, M_OMITS), (4 * bm, M_HALVE_TWICE)],
-        [f"M is the midpoint of {b}{d}, so {b}{d} = 2 x {b}M.", f"{b}{d} = 2 x {bm} = {_fmt(2 * bm)} cm."],
+        [f"M is the midpoint of {b}{d}, so {b}{d} = 2 × {b}M.", f"{b}{d} = 2 × {bm} = {_wk(2 * bm)} cm."],
         _dist(pb, pd),
     )
 
@@ -218,14 +223,14 @@ def _e_rhombus_perim(rng):
             f"Find the length of side {a}{b} in cm."
         )
         value, cands = s, [(2 * s, M_PERIM), (4 * s / 3, M_PERIM), (4 * s, M_PERIM), (s / 2, M_PERIM)]
-        wk = [f"All four sides are equal, so each is {4 * s} / 4.", f"{a}{b} = {_fmt(s)} cm."]
+        wk = [f"All four sides are equal, so each is {4 * s} / 4.", f"{a}{b} = {_wk(s)} cm."]
     else:
         text = (
             f"All four sides of a rhombus are equal. In rhombus {nm}, the side {a}{b} is {s} cm long. "
             f"Find the perimeter of the rhombus in cm."
         )
         value, cands = 4 * s, [(2 * s, M_PERIM), (3 * s, M_PERIM), (s * s, M_PERIM), (s, M_PERIM)]
-        wk = ["All four sides are equal to " + str(s) + " cm.", f"Perimeter = 4 x {s} = {_fmt(4 * s)} cm."]
+        wk = ["All four sides are equal to " + str(s) + " cm.", f"Perimeter = 4 × {s} = {_wk(4 * s)} cm."]
     pa, pb, pc, pd = _rhombus_from_side_angle(float(s), 70)
     perimeter = _dist(pa, pb) + _dist(pb, pc) + _dist(pc, pd) + _dist(pd, pa)
     if value == s:  # asked for the side: find the s whose rhombus has the stated perimeter
@@ -264,7 +269,7 @@ def _e_rect_perim(rng):
         [(p - length, M_PERIM), (p / 2, M_PERIM), (p / 4, M_PERIM), (p / 2 - 2 * length, M_PERIM)],
         [
             f"{a}{b} + {b}{c} is half the perimeter: {p} / 2 = {p // 2} cm.",
-            f"{b}{c} = {p // 2} - {length} = {_fmt(width)} cm.",
+            f"{b}{c} = {p // 2} - {length} = {_wk(width)} cm.",
         ],
         next(w for w in range(1, 200) if abs(_rect_perimeter(length, w) - p) < 1e-9),
     )
@@ -293,7 +298,7 @@ def _e_kite_perim(rng):
         2 * x + 2 * y,
         "cm",
         [(x + y, M_PAIR_ONCE), (2 * x + y, M_PAIR_ONCE), (x + 2 * y, M_PAIR_ONCE), (4 * max(x, y), M_PERIM)],
-        [f"Each pair of equal sides is counted twice: 2 x {x} + 2 x {y}.", f"Perimeter = {_fmt(2 * x + 2 * y)} cm."],
+        [f"Each pair of equal sides is counted twice: 2 × {x} + 2 × {y}.", f"Perimeter = {_wk(2 * x + 2 * y)} cm."],
         _kite_perimeter(x, y),
     )
 
@@ -324,7 +329,7 @@ def _m_cointerior(rng):
         [(t, M_CONSEC_EQ), (360 - t, M_TOTAL_360), (t / 2, M_HALVE_ANGLE), (90 - t / 2, M_HALVE_ANGLE)],
         [
             f"{b}{c} is a transversal between parallel sides, so the angles at {b} and {c} add to 180.",
-            f"180 - {t} = {_fmt(180 - t)}.",
+            f"180 - {t} = {_wk(180 - t)}.",
         ],
         _angle_at(pb, pc, pd),
         lo=0,
@@ -347,7 +352,7 @@ def _m_rhombus_base(rng):
         [(t / 2, M_HALVE_ANGLE), (180 - t, M_NO_HALF), (90 - t, M_RIGHT_ANGLE), (t, M_COPY)],
         [
             f"{b}{a} = {b}{c}, so triangle {a}{b}{c} is isosceles and angles {b}{a}{c} and {b}{c}{a} are equal.",
-            f"(180 - {t}) / 2 = {_fmt((180 - t) / 2)}.",
+            f"(180 - {t}) / 2 = {_wk((180 - t) / 2)}.",
         ],
         _angle_at(pb, pa, pc),
         lo=0,
@@ -371,7 +376,7 @@ def _m_rhombus_perp(rng):
         [(u, M_COPY), (180 - u, M_RIGHT_ANGLE), (90 + u, M_RIGHT_ANGLE), (u / 2, M_HALVE_ANGLE)],
         [
             f"Triangle {a}M{b} has a right angle at M and angle {u} degrees at {a}.",
-            f"Angle {a}{b}{d} = 90 - {u} = {_fmt(90 - u)}.",
+            f"Angle {a}{b}{d} = 90 - {u} = {_wk(90 - u)}.",
         ],
         _angle_at(pa, pb, pd),
         lo=0,
@@ -400,7 +405,7 @@ def _m_rect_isosceles(rng):
             [(t / 2, M_HALVE_ANGLE), (180 - t, M_NO_HALF), (90 - t, M_RIGHT_ANGLE), (t, M_COPY)],
             [
                 f"M{a} = M{b}, so triangle {a}M{b} is isosceles.",
-                f"Angle M{a}{b} = (180 - {t}) / 2 = {_fmt((180 - t) / 2)}.",
+                f"Angle M{a}{b} = (180 - {t}) / 2 = {_wk((180 - t) / 2)}.",
             ],
             _angle_at(pm, pa, pb),
             lo=0,
@@ -413,7 +418,7 @@ def _m_rect_isosceles(rng):
         [((180 - t) / 2, M_OTHER_SIDE), (180 - t, M_NO_HALF), (t, M_COPY), (90 - t, M_RIGHT_ANGLE)],
         [
             f"Angle M{a}{b} = (180 - {t}) / 2 and angle {d}{a}{b} = 90 degrees (rectangle).",
-            f"Angle M{a}{d} = 90 - (180 - {t}) / 2 = {_fmt(t / 2)}.",
+            f"Angle M{a}{d} = 90 - (180 - {t}) / 2 = {_wk(t / 2)}.",
         ],
         _angle_at(pm, pa, pd),
         lo=0,
@@ -444,7 +449,7 @@ def _m_kite_angle(rng):
         [(360 - alpha - beta, M_KITE), (360 - 2 * alpha - beta, M_KITE), (180 - alpha, M_RIGHT_ANGLE), (beta, M_COPY)],
         [
             f"Angle {a}{d}{c} = angle {a}{b}{c} = {beta} degrees (the equal kite angles).",
-            f"The four angles add to 360: {alpha} + 2 x {beta} + angle {b}{c}{d} = 360, so {b}{c}{d} = {gamma}.",
+            f"The four angles add to 360: {alpha} + 2 × {beta} + angle {b}{c}{d} = 360, so {b}{c}{d} = {gamma}.",
         ],
         _angle_at(pb, pc, pd),
         lo=0,
@@ -473,7 +478,7 @@ def _m_para_two_angles(rng):
         ],
         [
             f"Angle {b}{a}{d} = 180 - {t} and angle {b}{c}{d} = 180 - {t} (both are next to angle {a}{b}{c}).",
-            f"Sum = 2 x {180 - t} = {_fmt(360 - 2 * t)}.",
+            f"Sum = 2 × {180 - t} = {_wk(360 - 2 * t)}.",
         ],
         _angle_at(pb, pa, pd) + _angle_at(pb, pc, pd),
         lo=0,
@@ -508,7 +513,7 @@ def _m_triangle_perim(rng):
         [(ab + ac + bd, M_WHOLE_DIAG), (ab + m_half, M_OMITS), (m_half + n_half, M_OMITS), (ab + m_half + bd, M_DIAG)],
         [
             f"{a}M = {ac} / 2 and {b}M = {bd} / 2.",
-            f"Perimeter = {ab} + {m_half} + {n_half} = {_fmt(ab + m_half + n_half)} cm.",
+            f"Perimeter = {ab} + {m_half} + {n_half} = {_wk(ab + m_half + n_half)} cm.",
         ],
         _dist(pa, pb) + _dist(pa, m) + _dist(pb, m),
     )
@@ -551,7 +556,7 @@ def _h_alg_sides(rng):
         cands,
         [
             f"{a}{b} = {d}{c}, so {p}x + {q} = {r}x - {s}, giving x = {x}.",
-            f"{a}{b} = {p} x {x} + {q} = {_fmt(p * x + q)} cm.",
+            f"{a}{b} = {p} × {x} + {q} = {_wk(p * x + q)} cm.",
         ],
         p * xs + q,
     )
@@ -611,7 +616,7 @@ def _h_rhombus_side(rng):
         [(x + y, M_PYTH_ADD), (math.hypot(d1, d2), M_WHOLE_DIAG), (abs(y - x), M_PYTH_SUB), (z + x, M_OMITS)],
         [
             f"The diagonals bisect each other: half-diagonals {x} cm and {y} cm, at a right angle.",
-            f"{a}{b} = sqrt({x}^2 + {y}^2) = {_fmt(z)} cm.",
+            f"{a}{b} = sqrt({x}^2 + {y}^2) = {_wk(z)} cm.",
         ],
         _dist(pa, pb),
     )
@@ -633,7 +638,7 @@ def _h_rect_centre(rng):
         z / 2,
         "cm",
         [(z, M_DIAG), (x + y, M_PYTH_ADD), ((x + y) / 2, M_AVG), (abs(y - x), M_PYTH_SUB)],
-        [f"{a}{c} = sqrt({x}^2 + {y}^2) = {z} cm (right angle at {b}).", f"{a}M is half of {a}{c}: {_fmt(z / 2)} cm."],
+        [f"{a}{c} = sqrt({x}^2 + {y}^2) = {z} cm (right angle at {b}).", f"{a}M is half of {a}{c}: {_wk(z / 2)} cm."],
         _dist(pa, m),
     )
 
@@ -668,7 +673,7 @@ def _h_kite_axis(rng):
         [(leg, M_PYTH_ADD), (ab - leg, M_PYTH_SUB), (ab + leg, M_PYTH_ADD), (2 * leg, M_WHOLE_DIAG)],
         [
             f"{b}M = {2 * leg} / 2 = {leg} cm and angle {a}M{b} is a right angle.",
-            f"{a}M = sqrt({ab}^2 - {leg}^2) = {_fmt(am)} cm.",
+            f"{a}M = sqrt({ab}^2 - {leg}^2) = {_wk(am)} cm.",
         ],
         float(ax),
     )
@@ -697,7 +702,7 @@ def _h_alg_diag(rng):
         cands,
         [
             f"M is the midpoint of {a}{c}, so {p}x + {q} = {r}x - {s} and x = {x}.",
-            f"{a}{c} = 2 × ({p} × {x} + {q}) = {_fmt(2 * (p * x + q))} cm.",
+            f"{a}{c} = 2 × ({p} × {x} + {q}) = {_wk(2 * (p * x + q))} cm.",
         ],
         2 * (p * xs + q),
     )

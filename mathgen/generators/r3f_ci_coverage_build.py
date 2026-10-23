@@ -82,7 +82,7 @@ def _easy(rng: random.Random) -> dict:
             2,
             [
                 f"p-hat = {x}/{n} = {float(p):g}.",
-                f"Margin of error = {zt(level)} x √(p-hat(1 - p-hat)/n) x 100 = {float(value):.1f}.",
+                f"Margin of error = {zt(level)} × √(p-hat(1 - p-hat)/n) × 100 = {float(value):.1f}.",
             ],
             [
                 (100 * sqrt_fraction(p * (1 - p) / n), "r3f-ci-margin-omits-the-critical-value"),
@@ -214,7 +214,7 @@ def _expected(rng):
         2,
         [
             f"Each interval misses μ with probability {(100 - level) / 100:g}.",
-            f"Expected number = {count} x {(100 - level) / 100:g} = {float(exp):g}.",
+            f"Expected number = {count} × {(100 - level) / 100:g} = {float(exp):g}.",
         ],
         [
             (Fraction(count * level, 100), "r3f-ci-reports-the-count-that-contain"),
@@ -300,8 +300,8 @@ def _too_wide(rng):
         2,
         3,
         [
-            f"The correct interval has half-width 1.96 x {s}/√{n} = {float(Z[95] * s / root):.3f}; the student's has half-width 1.96 x {s} = {float(Z[95] * s):.3f}.",
-            f"The difference in width is 2 x ({float(Z[95] * s):.3f} - {float(Z[95] * s / root):.3f}) = {float(diff):.2f}.",
+            f"The correct interval has half-width 1.96 × {s}/√{n} = {float(Z[95] * s / root):.3f}; the student's has half-width 1.96 × {s} = {float(Z[95] * s):.3f}.",
+            f"The difference in width is 2 × ({float(Z[95] * s):.3f} - {float(Z[95] * s / root):.3f}) = {float(diff):.2f}.",
         ],
         [
             (Z[95] * s * (1 - Fraction(1, root)), "r3f-ci-width-difference-uses-half-widths"),
@@ -375,7 +375,7 @@ def _exam(rng: random.Random) -> dict:
             me,
             2,
             2,
-            [f"Margin of error = 1.96 x {sigma}/√{n} = {float(me):.2f}."],
+            [f"Margin of error = 1.96 × {sigma}/√{n} = {float(me):.2f}."],
             [
                 (Z[95] * sigma, "r3f-ci-margin-omits-the-square-root-of-n"),
                 (Z[95] * Fraction(sigma, n), "r3f-ci-divides-by-n-not-root-n"),

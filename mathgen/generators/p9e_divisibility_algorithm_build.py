@@ -143,6 +143,10 @@ def _build_single_range(rng, d_range, r_range):
 # -- medium: compound AND/OR test over a range --------------------------------
 
 
+# Share of AND questions left on the short range, where no number passes (answer 0).
+_NONE_CASE_SHARE = 0.12
+
+
 def _build_compound_range(rng, d_pool, r_range):
     r_lo, r_hi = r_range
     d1 = d2 = R = gate = correct = other_gate_count = single_condition = None
@@ -154,6 +158,11 @@ def _build_compound_range(rng, d_pool, r_range):
             continue
         R = rng.randint(r_lo, r_hi)
         gate = rng.choice(["AND", "OR"])
+        if gate == "AND" and rng.random() >= _NONE_CASE_SHARE:
+            # Run the range past a couple of multiples of lcm so the count is 1 or more (capped
+            # at 300); the occasional short range keeps an honest "none pass" case.
+            lcm = d1 * d2
+            R = rng.randint(2 * lcm, min(4 * lcm, 300))
         d1_count = R // d1
         d2_count = R // d2
         and_count = R // (d1 * d2)  # valid because d1, d2 are coprime by the guard above

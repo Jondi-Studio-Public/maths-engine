@@ -19,6 +19,10 @@ import random
 from ..core import check, generator, pick_distractors
 
 
+def _rpow(k: int) -> str:
+    return "r" if k == 1 else f"r^{k}"
+
+
 def _setup(rng: random.Random):
     while True:
         r = rng.choice([-4, -3, -2, 2, 3, 4])
@@ -60,9 +64,9 @@ def _find_term(rng: random.Random):
     check(via_tp == key, "scaling from t_p disagrees with the closed form")
     gap = q - p
     working = [
-        f"t{q}/t{p} = r^{gap} = {r**gap}, and r is {sign}, so r = {r}",
-        f"t1 = t{p} / r^{p - 1} = {t1}",
-        f"t{m} = {t1} × ({r})^{m - 1} = {key}",
+        f"t{q}/t{p} = {_rpow(gap)} = {r**gap}, and r is {sign}, so r = {r}",
+        f"t1 = t{p} / {_rpow(p - 1)} = {t1}",
+        f"t{m} = {t1} × ({r}){'' if m - 1 == 1 else f'^{m - 1}'} = {key}",
     ]
     return key, text, wrong, working
 

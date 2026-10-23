@@ -155,11 +155,15 @@ def _medium(rng):
         (sum(f * (lo + t.width) for f, lo in zip(t.freqs, t.lows)) / t.n, "r4g-upper-limits-used-as-midpoints"),
         (Fraction(t.n, len(t.freqs)), "r4g-mean-of-the-frequencies"),
     ]
+
+    def plain(v):
+        return str(int(v)) if v == int(v) else number_text(v, 1)
+
     working = [
         "Multiply each midpoint by its frequency and add: "
-        + " + ".join(f"{number_text(m, 1)} x {f}" for m, f in zip(t.mids, t.freqs))
-        + f" = {number_text(t.total, 1)}.",
-        f"Total frequency = {t.n}, so the estimated mean = {number_text(t.total, 1)} / {t.n} = {number_text(mean, 1)}.",
+        + " + ".join(f"{plain(m)} × {f}" for m, f in zip(t.mids, t.freqs))
+        + f" = {plain(t.total)}.",
+        f"Total frequency = {t.n}, so the estimated mean = {plain(t.total)} / {t.n} = {number_text(mean, 1)}.",
     ]
     return single_number(text, mean, 1, working, slips)
 

@@ -636,7 +636,7 @@ def _build_kj_hard(rng) -> dict:
         )
         working = [
             f"{rate1} kJ/min × {d1} min = {_kj_text(energy1)} kJ; {d2} min = "
-            f"{stated_precision_string(round_half_up(hours2, 3), 3)} h, {rate2_hour} kJ/h x "
+            f"{stated_precision_string(round_half_up(hours2, 3), 3)} h, {rate2_hour} kJ/h × "
             f"{stated_precision_string(round_half_up(hours2, 3), 3)} h = {_kj_text(energy2)} kJ; "
             f"total = {_kj_text(answer)} kJ."
         ]

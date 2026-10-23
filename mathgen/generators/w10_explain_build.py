@@ -1077,7 +1077,8 @@ def variables_formula(rng):
 def variables_axes(rng):
     sit, ind, dep, per = _context(rng)
     k = rng.randint(2, 9)
-    t1, t2 = sorted(rng.sample(range(1, 9), 2))
+    # A candle (at most 5 cm an hour from at least 20 cm) must not burn below zero in the example times.
+    t1, t2 = sorted(rng.sample(range(1, 4 if "candle" in sit else 9), 2))
     return item(
         f"{sit}. A student wants to draw a graph of this situation. Which variable goes on the horizontal axis and "
         f"which on the vertical axis? Explain why, and say what would be strange about swapping them.",

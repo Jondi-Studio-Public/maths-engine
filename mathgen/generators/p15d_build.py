@@ -1170,7 +1170,7 @@ def p15d_shape_sorting(rng, tier="easy"):
             if attrs["right_angle"]
             else "None of its interior angles is a right angle."
         )
-    if "has_parallel_pair" in tests_used or "has_second_parallel_pair" in tests_used:
+    if shape != "triangle" and ("has_parallel_pair" in tests_used or "has_second_parallel_pair" in tests_used):
         parallel = attrs.get("parallel", "none")
         facts.append(
             {

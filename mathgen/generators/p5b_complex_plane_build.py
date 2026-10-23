@@ -671,7 +671,7 @@ def _polar_exam_surd(rng):
         answer_text=answer_text,
         answer_latex=rf"r = {r_rounded:.2f}, \theta = {theta_rounded:.1f}°",
         working=[
-            f"r = √(x² + y²) = √({x_display}² + {y_display}²) = √{s} = {surd_display} ≈ {r_rounded:.2f}",
+            f"r = √(x² + y²) = √({x_display}² + {y_display}²) = {f'√{s} = ' if str(r_exact_sym) != f'sqrt({s})' else ''}{surd_display} ≈ {r_rounded:.2f}",
             f"θ = the angle of ({x}, {y}) from the positive x-axis ≈ {theta_exact:.4f}° "
             f"≈ {theta_rounded:.1f}° (measured from 0° to 360°)",
         ],

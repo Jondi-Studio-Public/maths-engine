@@ -172,7 +172,7 @@ def _easy(rng):
         other[1] * q2,
     ]
     working = [
-        f"Multiply along the branches: {rational_text(q1)} x {rational_text(q2)} = {rational_text(answer)}.",
+        f"Multiply along the branches: {rational_text(q1)} × {rational_text(q2)} = {rational_text(answer)}.",
     ]
     return fig, text, answer, cands, working
 

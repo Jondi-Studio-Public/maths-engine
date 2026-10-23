@@ -363,14 +363,14 @@ def ey_context_line_exam(rng, tier="exam"):
             value,
             [m * n_pred, c * n_pred, c + m * (n_pred + 1)],
             follow=f"part_b+part_a*{n_pred}",
-            working=[f"{word} = {c} + ({m}) x {n_pred} = {value}."],
+            working=[f"{word} = {c} + ({m}) × {n_pred} = {value}."],
         ),
         num_part(
             f"After how many {ctx['xp']} is the {word} {target} {_unit_of(ctx)}?",
             n_goal,
             [F(target, m) if m else 0, F(target - c, abs(m)) + 1, n_goal - 1],
             follow=f"({target}-part_b)/part_a",
-            working=[f"{target} = {c} + ({m}) x n, so n = ({target} - {c}) / {m} = {n_goal}."],
+            working=[f"{target} = {c} + ({m}) × n, so n = ({target} - {c}) / {m} = {n_goal}."],
         ),
     ]
     figures.assert_no_leak(fig, [str(m), str(c)])
@@ -585,7 +585,7 @@ def ey_position_tangent(rng, tier="easy"):
         key, wrong = str(back), [T - back, t2, t1, t2 - t1 + 1]
         working = [
             f"The cart turns at t = {t1} and t = {t2}.",
-            f"s is getting smaller {'between' if a > 0 else 'before the first turn and after the second turn, '}"
+            f"s is getting smaller {'between ' if a > 0 else 'before the first turn and after the second turn, '}"
             + (f"t = {t1} and t = {t2}: {back} seconds." if a > 0 else f"so {t1} + {T - t2} = {back} seconds."),
         ]
     distractors = mcq_number(key, wrong)

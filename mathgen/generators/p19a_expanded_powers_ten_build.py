@@ -77,7 +77,7 @@ _HARD_PATTERNS = (
     "{expr} is the expanded form of what number? (The terms are listed out of order.)" + _FORMAT_NOTE,
 )
 _EXAM_PATTERNS = (
-    "{expr} is a non-standard expanded form -- one coefficient is 10 or more. "
+    "{expr} is a non-standard expanded form: one coefficient is 10 or more. "
     "Regroup it and write the number it represents." + _FORMAT_NOTE,
     "What number is {expr}? (One term needs to be regrouped before you can write the numeral.)" + _FORMAT_NOTE,
     "Regroup {expr} into a single number." + _FORMAT_NOTE,

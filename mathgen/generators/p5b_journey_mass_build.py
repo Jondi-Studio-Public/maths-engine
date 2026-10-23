@@ -8,6 +8,7 @@ Skill 2: senior-convert-between-grams-and-milligrams (ACMEM100)
   - grams_milligrams_convert: variants g_to_mg, mg_to_g, mixed_unit_total
 """
 
+from decimal import ROUND_HALF_UP, Decimal
 from fractions import Fraction
 
 from mathgen.core import fixed_point_string, generator, pick_distractors, rational_text
@@ -24,14 +25,15 @@ def _shown(value, places: int):
     return fixed_point_string(scaled.numerator, places)
 
 
-def _number_question(text, answer, candidates, *, latex=None, working=None):
+def _number_question(text, answer, candidates, *, latex=None, working=None, answer_text=None):
     """Create a number-answer question with distractors.
 
     Every distractor is shown with the key's own number of decimal places
     (none for a whole-number key), so a learner cannot spot the key by its
     shape; a misconception value that cannot be shown that way is dropped and
     plain nearby values fill in behind the misconceptions."""
-    answer_text = rational_text(answer) if isinstance(answer, Fraction) else str(answer)
+    if answer_text is None:
+        answer_text = rational_text(answer) if isinstance(answer, Fraction) else str(answer)
     places = len(answer_text.partition(".")[2])
     step = Fraction(1, 10**places)
     fillers = [answer + 1, answer - 1, answer + 2, answer - 2, float(answer + 5 * step), float(answer - 5 * step)]
@@ -69,6 +71,7 @@ def journey_time_or_cost(rng, variant="time"):
     - round_trip_cost: two-step doubling then multiplying
     - fuel_cost: three-step chained calculation through intermediate unit
     """
+    money_text = None
     if variant == "time":
         # Easy: time in minutes given distance (km) and speed (km/h)
         # d / s * 60 = minutes. Derive d from s and target minutes to ensure exact result.
@@ -131,15 +134,21 @@ def journey_time_or_cost(rng, variant="time"):
         k = rng.choice([6, 7.5, 8, 9, 10, 12])
         p = rng.choice([1.50, 1.80, 2.00])
 
-        # Compute exactly via Fraction
+        # Compute exactly via Fraction, then round the money to the cent (half up) as the stem says
         fuel_used = Fraction(d, 100) * Fraction(k).limit_denominator()
         cost_fraction = fuel_used * Fraction(p).limit_denominator()
-        answer = float(cost_fraction)
+        cost = Decimal(cost_fraction.numerator) / Decimal(cost_fraction.denominator)
+        cents = cost.quantize(Decimal("0.01"), rounding=ROUND_HALF_UP)
+        answer = float(cents)
+        money_text = f"{cents:.2f}"
 
-        text = f"A car uses {k} litres per 100 km and fuel costs ${p:.2f} per litre. What is the total fuel cost for a {d} km journey?"
+        text = (
+            f"A car uses {k} litres per 100 km and fuel costs ${p:.2f} per litre. "
+            f"What is the total fuel cost for a {d} km journey, to the nearest cent?"
+        )
         working = [
             f"Litres used: {d} / 100 × {k} = {float(fuel_used):.2f} litres.",
-            f"Cost: {float(fuel_used):.2f} × ${p:.2f} = ${answer:.2f}",
+            f"Cost: {float(fuel_used):.2f} × ${p:.2f} = ${money_text}",
         ]
 
         # Misconceptions:
@@ -158,7 +167,7 @@ def journey_time_or_cost(rng, variant="time"):
     else:
         raise ValueError(f"Unknown variant: {variant}")
 
-    return _number_question(text, answer, candidates, working=working)
+    return _number_question(text, answer, candidates, working=working, answer_text=money_text)
 
 
 @generator(

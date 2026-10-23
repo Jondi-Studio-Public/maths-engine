@@ -19,12 +19,21 @@ from mathgen.core import attempts, check, generator, phrase
 from .exd_x_m6_support import TooFewDistractors, number_part, shows_no_key, tagged
 
 _STEMS = (
-    "A sailmaker in Port Lincoln cuts a triangular sail with a base of {b} m, a perpendicular height of {h} m "
-    "and a slanting side of {s} m. A second triangular sail is to have the same area on a base of {b2} m.",
-    "A triangular pennant for a surf club at Noosa has a slanting side of {s} m, a base of {b} m and a "
-    "perpendicular height of {h} m. A second pennant with the same area is to have a base of {b2} m.",
-    "A shade sail over a playground in Mackay is a triangle with a base of {b} m and a slanting side of {s} m. "
-    "Its perpendicular height is {h} m. A second sail of the same area is to be made with a base of {b2} m.",
+    (
+        "sail",
+        "A sailmaker in Port Lincoln cuts a triangular sail with a base of {b} m, a perpendicular height of {h} m "
+        "and a slanting side of {s} m. A second triangular sail is to have the same area on a base of {b2} m.",
+    ),
+    (
+        "pennant",
+        "A triangular pennant for a surf club at Noosa has a slanting side of {s} m, a base of {b} m and a "
+        "perpendicular height of {h} m. A second pennant with the same area is to have a base of {b2} m.",
+    ),
+    (
+        "sail",
+        "A shade sail over a playground in Mackay is a triangle with a base of {b} m and a slanting side of {s} m. "
+        "Its perpendicular height is {h} m. A second sail of the same area is to be made with a base of {b2} m.",
+    ),
 )
 
 
@@ -52,12 +61,15 @@ def _attempt(rng: random.Random) -> dict | None:
         return None
     b2 = rng.choice(bases)
     h2 = 2 * area // b2
+    if not (h <= 3 * h2 and h2 <= 3 * h):  # keep the second sail's height in a sensible range
+        return None
     price = rng.randint(4, 25)
     cost = 2 * area * price
-    stem = phrase(rng, _STEMS, b=b, h=h, s=s, b2=b2)
+    noun, pattern = rng.choice(_STEMS)
+    stem = pattern.format(b=b, h=h, s=s, b2=b2)
     prompts = (
         "Find the area of the first piece of cloth, in square metres.",
-        "Find the perpendicular height of the second sail, in metres.",
+        f"Find the perpendicular height of the second {noun}, in metres.",
         phrase(
             rng,
             (

@@ -45,6 +45,11 @@ def index_text(p: int, q: int) -> str:
     return f"{p}/{q}" if q != 1 else str(p)
 
 
+def _pw(base, e) -> str:
+    """base^e written on paper: a power of 1 is just the base."""
+    return str(base) if e == 1 else f"{base}^{e}"
+
+
 def power_text(p: int, q: int, base: str = "x") -> str:
     return f"{base}^({p}/{q})"
 
@@ -93,7 +98,7 @@ def _easy(rng):
     stem = phrase(rng, _EASY_STEMS, f=power_text(p, q))
     working = [
         f"x^({p}/{q}) means the {_root_name(q)} of x, raised to the power {p}.",
-        f"The {_root_name(q)} of {c} is {r}, and {r}^{p} = {num(key)}.",
+        f"The {_root_name(q)} of {c} is {r}, and {_pw(r, p)} = {num(key)}.",
     ]
     return single(stem, fraction_part(f"Find f({c}).", fr(key), 2, working, wrong))
 
@@ -214,8 +219,8 @@ def _hard_intersection(rng):
     check(xs ** sympy.Rational(u_num, n) == kk * xs**v, "the stated solution does not satisfy the equation")
     stem = f"Solve x^({u_num}/{n}) = {kk}{'x' if v == 1 else f'x^{v}'} for x > 0."
     working = [
-        f"Divide both sides by x^{v} (x > 0): x^(1/{n}) = {kk}.",
-        f"Raise both sides to the power {n}: x = {kk}^{n} = {x0}.",
+        f"Divide both sides by {_pw('x', v)} (x > 0): x^(1/{n}) = {kk}.",
+        f"Raise both sides to the power {n}: x = {_pw(kk, n)} = {x0}.",
     ]
     return single(stem, fraction_part("Find the value of x.", x0, 3, working, wrong))
 
@@ -274,7 +279,7 @@ def _chain(rng):
         "Find the value of a.",
         a,
         2,
-        [f"{x0}^({p}/{q}) = {s}^{p} = {s**p}, so a = {y0}/{s**p} = {a}."],
+        [f"{x0}^({p}/{q}) = {_pw(s, p)} = {s**p}, so a = {y0}/{s**p} = {a}."],
         [
             (fr(sympy.Rational(y0, x0)), "rational-index-ignores-the-index"),
             (fr(sympy.Rational(y0, s)), "rational-index-ignores-power"),
@@ -296,7 +301,7 @@ def _chain(rng):
         f"Find the value of y when x = {c}.",
         f_c,
         2,
-        [f"{c}^({p}/{q}) = ({r})^{p} = {r**p}, so y = {a} × {r**p} = {f_c}."],
+        [f"{c}^({p}/{q}) = {_pw(f'({r})', p)} = {r**p}, so y = {a} × {r**p} = {f_c}."],
         [
             (fr(a * c), "rational-index-ignores-the-index"),
             (fr(a * c**p) if abs(c) ** p < 10**6 else None, "rational-index-ignores-root"),
@@ -308,7 +313,9 @@ def _chain(rng):
         f"Find the positive value of x for which y = {t_val}.",
         sol,
         3,
-        [f"{a}x^({p}/{q}) = {t_val} gives x^({p}/{q}) = {u**p}, so x = ({u**p})^({q}/{p}) = {sol}."],
+        [
+            f"{a}x^({p}/{q}) = {t_val} gives x^({p}/{q}) = {u**p}, so x = ({u**p})^{f'({q}/{p})' if p != 1 else q} = {sol}."
+        ],
         [
             (fr(sympy.Rational(t_val, a)), "rational-index-solves-for-the-value"),
             (fr(t_val), "rational-index-multiplier-not-divided"),

@@ -247,8 +247,8 @@ def _build_easy(rng):
     text = phrase(rng, _EASY_PATTERNS, F1=F1, F2=F2, th1=th1, th2=th2, dir_note=_DIR_NOTE)
     answer_text = _pair_text(mag, direction)
     working = [
-        f"Fx = {F1} x cos({th1}) + {F2} x cos({th2}) = {fx:.2f} N.",
-        f"Fy = {F1} x sin({th1}) + {F2} x sin({th2}) = {fy:.2f} N.",
+        f"Fx = {F1} × cos({th1}) + {F2} × cos({th2}) = {fx:.2f} N.",
+        f"Fy = {F1} × sin({th1}) + {F2} × sin({th2}) = {fy:.2f} N.",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). "
         f"Direction = the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]
@@ -313,8 +313,8 @@ def _build_medium(rng):
     text = phrase(rng, _MEDIUM_PATTERNS, F1=F1, F2=F2, th1=th1, th2=th2, dir_note=_DIR_NOTE)
     answer_text = _pair_text(mag, direction)
     working = [
-        f"Fx = {F1} x cos({th1}) + {F2} x cos({th2}) = {fx:.2f} N.",
-        f"Fy = {F1} x sin({th1}) + {F2} x sin({th2}) = {fy:.2f} N.",
+        f"Fx = {F1} × cos({th1}) + {F2} × cos({th2}) = {fx:.2f} N.",
+        f"Fy = {F1} × sin({th1}) + {F2} × sin({th2}) = {fy:.2f} N.",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). "
         f"Direction = the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]
@@ -415,8 +415,8 @@ def _build_hard(rng):
     )
     answer_text = _pair_text(mag, direction)
     working = [
-        f"Fx = {F1} x cos({th1}) + {F2} x cos({th2}) + {F3} x cos({th3}) = {fx:.2f} N.",
-        f"Fy = {F1} x sin({th1}) + {F2} x sin({th2}) + {F3} x sin({th3}) = {fy:.2f} N.",
+        f"Fx = {F1} × cos({th1}) + {F2} × cos({th2}) + {F3} × cos({th3}) = {fx:.2f} N.",
+        f"Fy = {F1} × sin({th1}) + {F2} × sin({th2}) + {F3} × sin({th3}) = {fy:.2f} N.",
         f"Acceleration = resultant force / mass = ({fx:.2f}, {fy:.2f}) / {m} "
         f"m/s^2. Magnitude = {mag} m/s^2 (nearest whole), direction = "
         f"{direction} degrees (nearest degree).",
@@ -527,8 +527,8 @@ def _build_exam(rng):
     text = phrase(rng, _EXAM_PATTERNS, A=A, thA=thA, thB=thB, Ry=Ry, dir_note=_DIR_NOTE)
     answer_text = _pair_text(mag, direction)
     working = [
-        f"Resolve in the 90-degree direction: {A} x sin({thA}) + X x sin({thB}) = {Ry}, so X = {X:.2f} N.",
-        f"Fx = {A} x cos({thA}) + X x cos({thB}) = {Fx:.2f} N; Fy = {Ry} N (given).",
+        f"Resolve in the 90-degree direction: {A} × sin({thA}) + X × sin({thB}) = {Ry}, so X = {X:.2f} N.",
+        f"Fx = {A} × cos({thA}) + X × cos({thB}) = {Fx:.2f} N; Fy = {Ry} N (given).",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). Direction = "
         f"the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]

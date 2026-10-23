@@ -132,7 +132,9 @@ def _easy(rng):
             Cand(n * x ** (n - 1), "r3b-lnd-derivative-of-inside-only", False),
             Cand(x / n, "r3b-lnd-quotient-inverted", False),
         ]
-        working = [f"ln(x^{n}) = {n}ln x, so the derivative is {n}/x. (Or f'/f = {n}x^{n - 1}/x^{n}.)"]
+        working = [
+            f"ln(x^{n}) = {n}ln x, so the derivative is {n}/x. (Or f'/f = {n}{'x' if n == 2 else f'x^{n - 1}'}/x^{n}.)"
+        ]
     return _build(rng, f_, text, latex, key, cands, working)
 
 

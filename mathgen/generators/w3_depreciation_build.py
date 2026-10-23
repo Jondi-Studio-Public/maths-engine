@@ -1372,7 +1372,7 @@ def _cmp_hard_equivalent(rng):
         f"What flat annual rate (as a percentage of the purchase price) would give the same value after {n} years? Give the answer to 1 decimal place."
     )
     working = [
-        f"Value after {n} years = {dollars(price)} × {float(1 - Fraction(r, 100)):g}^{n}, which is {float(drop * 100):.2f}% less than the price... lost = {float(drop * 100):.2f}% of the price.",
+        f"Value after {n} years = {dollars(price)} × {float(1 - Fraction(r, 100)):g}^{n}, so the value lost is {float(drop * 100):.2f}% of the price.",
         f"Flat rate = {float(drop * 100):.2f} / {n} = {float(flat_rate):.1f}% per year.",
     ]
     return dict(text=text, working=working, distractors=d, **DP1.fields(flat_rate), answer_kind="number")

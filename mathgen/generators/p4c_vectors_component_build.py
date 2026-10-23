@@ -295,11 +295,9 @@ def express_a_vector_in_component_form_using_the(rng, variant="single_leg_positi
     # Format the vector representation for working
     if variant == "two_leg":
         if asked_axis == "i":
-            x_expr = join_terms([(x1, ""), (x2, "")])
-            working_line = f"Net i-coefficient = {x1} + {paren_negative(x2)} = {x_expr}."
+            working_line = f"Net i-coefficient = {x1} + {paren_negative(x2)} = {answer_text}."
         else:
-            y_expr = join_terms([(y1, ""), (y2, "")])
-            working_line = f"Net j-coefficient = {y1} + {paren_negative(y2)} = {y_expr}."
+            working_line = f"Net j-coefficient = {y1} + {paren_negative(y2)} = {answer_text}."
     else:
         working_line = f"Coefficient of {asked_axis} = {answer_text}."
 

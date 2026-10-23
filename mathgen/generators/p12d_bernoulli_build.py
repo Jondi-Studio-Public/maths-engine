@@ -619,7 +619,7 @@ def _seq_easy(rng):
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"P = {' x '.join(_frac(_factor(f, p_a))[1] for f in flags)} = {answer_text}.",
+            f"P = {' × '.join(_frac(_factor(f, p_a))[1] for f in flags)} = {answer_text}.",
         ],
         distractors=pick_distractors(answer_text, [_frac(treats_as_unordered)[1], _frac(drops_one_factor)[1]]),
     )
@@ -662,7 +662,7 @@ def _seq_medium(rng):
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"P = {' x '.join(_frac(_factor(f, p_a))[1] for f in flags)} = {answer_text}.",
+            f"P = {' × '.join(_frac(_factor(f, p_a))[1] for f in flags)} = {answer_text}.",
         ],
         distractors=pick_distractors(answer_text, [_frac(treats_as_unordered)[1], _frac(drops_one_factor)[1]]),
     )
@@ -710,7 +710,7 @@ def _seq_hard(rng):
         answer_latex=answer_text,
         working=[
             f"P({ctx['label_a']}) = 1 - {q_text} = {_frac(p_a)[1]}; P({ctx['label_b']}) = {q_text}.",
-            f"P = {' x '.join(_frac(_factor(f, p_a))[1] for f in flags)} = {answer_text}.",
+            f"P = {' × '.join(_frac(_factor(f, p_a))[1] for f in flags)} = {answer_text}.",
         ],
         distractors=pick_distractors(
             answer_text, [_frac(treats_as_unordered)[1], _frac(drops_one_factor)[1], _frac(swap_value)[1]]
@@ -762,7 +762,7 @@ def _seq_exam(rng):
         answer_latex=answer_text,
         working=[
             f"P({ctx['label_a']}) = 1 - {q_text} = {_frac(p_a)[1]}; P({ctx['label_b']}) = {q_text}.",
-            f"P = {' x '.join(_frac(_factor(f, p_a))[1] for f in flags)} = {answer_text}.",
+            f"P = {' × '.join(_frac(_factor(f, p_a))[1] for f in flags)} = {answer_text}.",
         ],
         distractors=pick_distractors(
             answer_text, [_frac(treats_as_unordered)[1], _frac(drops_one_factor)[1], _frac(swap_value)[1]]

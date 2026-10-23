@@ -287,7 +287,7 @@ def _draw(rng, tier):
     ask = phrase(rng, _INVERSE_ASK, c=new_c, n=n, unit=unit)
     key = m
     cand = [n, m + 1, m - 1, n * each, n // each + each, m * 2]
-    working = [f"One symbol is {each}, so {n} needs {n} / {each} = {m} {noun(m, 'symbol')}."]
+    working = [f"One symbol is {each}, so {n} needs {n} ÷ {each} = {m} {noun(m, 'symbol')}."]
     return fig, f"{lead} {ask}", key, cand, working
 
 

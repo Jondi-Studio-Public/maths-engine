@@ -137,7 +137,7 @@ def _easy(rng):
         _list_dist([e - 1 if e > 0 else e for e in exps], "fr2b-exponent-counts-digits-not-zeros"),
     ]
     working = [
-        f"The digits of {spaced(numeral)} from the left are worth {', '.join(f'{d} x 10{sup(e)}' for d, e in terms)}."
+        f"The digits of {spaced(numeral)} from the left are worth {', '.join(f'{d} × 10{sup(e)}' for d, e in terms)}."
     ]
     working.append("A zero digit has no term, but it still takes up a place, so the exponents skip over it.")
     return _ordered(text, exps, tagged(list_text(exps), cands), working)

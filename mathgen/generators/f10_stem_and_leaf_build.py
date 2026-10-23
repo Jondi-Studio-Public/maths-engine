@@ -529,7 +529,7 @@ def _hidden(rng: random.Random) -> dict:
             (2 * med - wrong_neighbour if wrong_neighbour is not None else None, "pairs-with-the-wrong-neighbour"),
             (int(med), "gives-the-median-as-the-missing-value"),
         ]
-        working = [f"The two middle values add to 2 x {_fmt(med)} = {_fmt(2 * med)}", f"{_fmt(2 * med)} - {values[j]}"]
+        working = [f"The two middle values add to 2 × {_fmt(med)} = {_fmt(2 * med)}", f"{_fmt(2 * med)} - {values[j]}"]
     else:
         rng_ = max(values) - min(values)
         if rng_ < 12 or values.count(max(values)) != 1 or values.count(min(values)) != 1:
