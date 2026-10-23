@@ -612,6 +612,15 @@ _RATIO_PAIRS = ((1, 3), (1, 4), (2, 3), (2, 5), (3, 4), (3, 5), (1, 2), (3, 7), 
 _RATIO_TRIPLES = ((1, 2, 3), (1, 1, 2), (2, 3, 5), (1, 2, 4), (1, 3, 4), (2, 2, 3))
 _RATES_CENTS = (150, 180, 200, 250, 300, 350, 400, 450, 500, 120, 175, 225)
 _RR_CONTEXTS = ("prize", "bill", "market")
+# A tradesperson ("bill" context) charges by the hour at a realistic hourly rate.
+_TRADE_RATES_CENTS = (2500, 2800, 3000, 3500, 4000, 4500, 5000, 6000)
+
+
+def _rr_rate(rng, unit):
+    """A rate in cents that is plausible per `unit`: hourly services cost tens of dollars, not $1.20."""
+    return rng.choice(_TRADE_RATES_CENTS if unit == "hour" else _RATES_CENTS)
+
+
 _RR_UNIT_WORDS = (("kg", "kg"), ("litre", "litres"), ("hour", "hours"), ("metre", "metres"))
 
 # (item_singular, item_plural, unit, unit_plural) -- a curated, hand-vetted set
@@ -712,7 +721,9 @@ def _rr_single_step_question(rng, *, t_lo: int, t_hi: int, qty_lo: int, qty_hi: 
             )
         else:
             item, item_plural, unit, unit_plural = rng.choice(_RR_ITEM_UNIT_PAIRS)
-            rate_cents = rng.choice(_RATES_CENTS)
+            if context == "bill":
+                unit, unit_plural = "hour", "hours"
+            rate_cents = _rr_rate(rng, unit)
             qty = rng.randrange(qty_lo, qty_hi + 1)
             total_cents = Fraction(rate_cents * qty)
             answer_cents = total_cents
@@ -822,7 +833,9 @@ def _rr_composed_question(rng, *, t_lo: int, t_hi: int, qty_lo: int, qty_hi: int
             )
         else:
             item, item_plural, unit, unit_plural = rng.choice(_RR_ITEM_UNIT_PAIRS)
-            rate_cents = rng.choice(_RATES_CENTS)
+            if context == "bill":
+                unit, unit_plural = "hour", "hours"
+            rate_cents = _rr_rate(rng, unit)
             qty = rng.randrange(qty_lo, qty_hi + 1)
             if qty <= 1:
                 continue
@@ -942,7 +955,7 @@ def _rr_trap_question(rng, *, t_lo: int, t_hi: int) -> dict:
             )
         else:
             item, item_plural, unit, unit_plural = rng.choice(_RR_ITEM_UNIT_PAIRS)
-            rate_cents = rng.choice(_RATES_CENTS)
+            rate_cents = _rr_rate(rng, unit)
             free_qty = rng.randint(2, 5)
             qty = rng.randint(free_qty + 3, free_qty + 20)
             paid_qty = qty - free_qty

@@ -317,7 +317,7 @@ def _eq_not_equal_expression(rng):
         f"{v - 3} + 4",
         f"{v + 5} - 6",
         f"{a + 1} × {b} + {b}",
-        f"{v} - 0 + 2",
+        f"{v + 3} - 2",
         f"{a} × {b + 1}",
     ]
     key = rng.choice(bad_options)
@@ -1846,7 +1846,7 @@ def _check_exam(rng):
                 fb["answer_kind"],
                 _sub(fb),
                 1,
-                [f"{c} × {v} {'+' if d > 0 else '-'} {abs(d)} = {R}."],
+                [f"{c} × {v} {'+' if d > 0 else '-'} {abs(d)} = {R}." if d else f"{c} × {v} = {R}."],
                 db,
                 sensible_range=(None, None),
             ),
