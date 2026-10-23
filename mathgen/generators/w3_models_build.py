@@ -891,12 +891,12 @@ def exd_x_w3_fair_game(rng, tier="exam"):
                     sensible_range=(0, None),
                 ),
                 part(
-                    f"The game is played {plays} times. What profit does the organiser expect, in dollars? (A loss is a negative profit.)",
+                    f"The game is played {plays} times at the original entry fee of {dollars(fee)}. What profit does the organiser expect, in dollars? (A loss is a negative profit.)",
                     "number",
                     MONEY.fields(profit),
                     2,
                     [
-                        f"Organiser's expected profit per play = {dollars(-gain)}; over {plays} plays = {dollars(profit)}."
+                        f"At the original fee of {dollars(fee)}, the organiser's expected profit per play = {dollars(-gain)}; over {plays} plays = {dollars(profit)}."
                     ],
                     d_d,
                     follow_through=f"-part_b*{plays}",

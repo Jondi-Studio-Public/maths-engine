@@ -228,7 +228,7 @@ def _medium_cost(rng):
         mine = _reach(n, rest)
         inside = [e for e in rest if e[0] in mine]
         check(all(e[1] in mine for e in inside), "an edge of the rest crosses the split")
-        if len(inside) == 1:
+        if len(inside) <= 1:
             continue  # the total would be that one printed cost, so no draw of costs can hide it
         weight, total = _costs_avoiding(rng, edges, lambda w: sum(w[e] for e in inside))
         far = [e for e in rest if e[0] not in mine]

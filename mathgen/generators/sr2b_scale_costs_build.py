@@ -202,7 +202,7 @@ def _hard_boxes(rng):
     cover_t, price_t = _txt(cover), _txt(box_price)
     stem = (
         _intro(rng, room, s, plan_l, plan_w)
-        + f" The {product} is sold in boxes that each cover {cover_t} m² and cost ${price_t} a box. {waste}% more than the floor area is ordered to allow for waste, and only whole boxes can be bought. What is the total cost, in dollars?"
+        + f" The {product} {'are' if verb == 'cost' else 'is'} sold in boxes that each cover {cover_t} m² and cost ${price_t} a box. {waste}% more than the floor area is ordered to allow for waste, and only whole boxes can be bought. What is the total cost, in dollars?"
     )
     return dict(
         text=stem,
@@ -332,7 +332,7 @@ def sr2b_exam_scale_costs(rng, tier="exam"):
     cover_t, price_t = _txt(cover), _txt(box_price)
     stem = (
         f"A plan of {room} is drawn to a scale of 1 : {s}. On the plan the floor is {_fmt_plan(plan_l)} cm long and {_fmt_plan(plan_w)} cm wide. "
-        f"The {product} is sold in boxes that each cover {cover_t} m² and cost ${price_t} a box."
+        f"The {product} {'are' if verb == 'cost' else 'is'} sold in boxes that each cover {cover_t} m² and cost ${price_t} a box."
     )
     wtxt = f"{waste}% more than the floor area is ordered to allow for waste"
     return dict(
