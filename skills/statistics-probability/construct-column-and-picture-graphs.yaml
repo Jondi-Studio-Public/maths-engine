@@ -1,0 +1,68 @@
+id: construct-column-and-picture-graphs
+name: Construct a column graph or picture graph from data
+domain: statistics-probability
+year_level: ['5']
+naplan_domain: [statistics]
+description: >-
+  Build a column graph or a picture graph from data and state what is drawn, as the height of every column or the
+  number of symbols in every row. easy sorts a list of survey responses into categories and gives the column heights;
+  medium turns a frequency table into a picture graph where one symbol stands for 2, 4 or 10 and half a symbol for half
+  of that, so an odd count needs a half symbol; hard builds the column graph of a number (pets per family) with a value
+  that never occurs, or finds a missing count from the total first; exam is a chain from one list of responses to the
+  column heights, the gap between the tallest and shortest column, the picture graph's rows and the symbol gap that
+  follows from it. Replies are typed as Name = height, in the order asked.
+status: active
+placement_eligible: false
+learner_band: primary
+prerequisites: [f3-read-a-column-graph]
+answer: bars
+sources:
+- topic: dg_construct_columns
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dg_construct_columns
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: dg_construct_columns
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: dg_construct_columns_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dg-cc-tally-miscount
+  description: "Miscounts one category when sorting the responses, so one column is a unit too tall or too short."
+- id: dg-cc-categories-swapped
+  description: "Gives two categories each other's heights, matching a count to the wrong label."
+- id: dg-cc-value-as-height
+  description: "Uses the data value itself as the height of its column instead of counting how many times it occurs."
+- id: dg-cc-zero-column-skipped
+  description: "Gives a value that never occurs the height of the next value, skipping the column that should be zero."
+- id: dg-cc-key-ignored
+  description: "Draws one symbol for every item and ignores the key that says a symbol stands for more than one."
+- id: dg-cc-key-multiplied
+  description: "Multiplies the count by the key instead of dividing, so the rows are far too long."
+- id: dg-cc-half-symbol-dropped
+  description: "Drops the half symbol for an odd count, so the row is half a symbol too short."
+- id: dg-cc-half-symbol-whole
+  description: "Draws a whole symbol where a half symbol is needed, so the row is half a symbol too long."
+- id: dg-cc-missing-total-as-count
+  description: "Gives the total as the missing count, forgetting to take away the counts already known."
+- id: dg-cc-missing-one-category-left-out
+  description: "Leaves one known count out of the subtraction when finding the missing count."
+- id: dg-cc-range-added
+  description: "Adds the tallest and shortest column instead of finding how much taller one is."
+- id: dg-cc-second-tallest
+  description: "Compares the tallest column with the second shortest, or the second tallest with the shortest."
+- id: dg-cc-difference-in-items-not-symbols
+  description: "Gives the difference in items when the difference in symbols was asked for, forgetting to divide by the key."
+difficulty_progression:
+  easy: {steps: 2, demand: "Sort a list of responses into categories and count each one to get the height of its column."}
+  medium: {steps: 2, demand: "Divide each count by the key of a picture graph, using a half symbol where the count is an odd number of halves."}
+  hard: {steps: 3, demand: "Count how often each value of a number occurs (including a value that never occurs), or find the missing count from the total before drawing the columns."}
+  exam: {steps: 5, demand: "Chain the column heights, the gap between the tallest and shortest column, the picture graph's rows and the same gap measured in symbols."}
+tags: [acara-f10-v9, statistics-probability, ac9m5st01, column-graph, picture-graph, construct, drawn-answer]

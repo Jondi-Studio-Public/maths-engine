@@ -1,0 +1,91 @@
+id: read-values-and-rates-from-real-data-graphs
+name: Read values and rates from graphs of real data
+domain: linear-relations
+year_level: ['7']
+naplan_domain: [algebra]
+description: >-
+  Read values, rates and predictions from a drawn graph of real data whose axes are scaled in steps that are not 1: a cost
+  graph, a conversion graph, a fuel graph or a distance-time graph. easy reads the value for a stated amount (or the amount
+  for a stated value) from a line through the origin; medium finds a rate from such a line, or the starting value, a value,
+  a rate or an amount from a line that does not start at zero (a taxi fare, a bike hire, a falling fuel tank); hard carries
+  a line past the edge of the graph at its rate with its starting value, or works on a distance-time journey with a stop
+  (the speed of a stage, the time stopped, the average speed including the stop); exam is a four-part fare or hire chain
+  from the starting charge and rate to a prediction and the largest trip a budget allows, the last two following through.
+status: active
+needs_figure: true
+capability_gates: [figure_stimulus]
+placement_eligible: false
+prerequisites: [f10-line-graph-change-over-time]
+answer: number
+sources:
+- topic: dg_real_data_graphs
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dg_real_data_graphs
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: dg_real_data_graphs
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: dg_real_data_graphs_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dg-rd-gridlines-not-scaled
+  description: "Counts the gridlines up to the line and gives that count, forgetting that each gridline stands for more than 1."
+- id: dg-rd-off-one-gridline
+  description: "Reads the value one gridline too high or too low."
+- id: dg-rd-axes-swapped
+  description: "Gives the amount that was stated in the question, reading the wrong axis instead of the one asked for."
+- id: dg-rd-intercept-at-first-unit
+  description: "Reads the starting value at the first unit of the horizontal axis instead of at zero."
+- id: dg-rd-intercept-zero
+  description: "Says the starting value is 0, as if the line began at the origin, when it starts higher up the vertical axis."
+- id: dg-rd-rate-ignores-intercept
+  description: "Divides a reading by its horizontal amount to find the rate, which only works for a line through the origin and includes the starting value."
+- id: dg-rd-rate-as-rise
+  description: "Gives the whole rise between two readings as the rate instead of dividing by the run."
+- id: dg-rd-rate-inverted
+  description: "Divides the run by the rise, finding the units of one thing per unit of the other, upside down."
+- id: dg-rd-rate-as-value
+  description: "Gives a reading on the line (including the starting value) where the rate of change was asked."
+- id: dg-rd-rate-gridlines
+  description: "Finds the rise per gridline across, forgetting that a step on each axis stands for more than 1."
+- id: dg-rd-rate-sign
+  description: "Gives the rate of a falling line as a negative amount (or a rising one as a loss) when the amount used or added each unit was asked."
+- id: dg-rd-extrapolate-ignores-intercept
+  description: "Multiplies the rate by the new amount and leaves out the starting value."
+- id: dg-rd-extrapolate-adds-units
+  description: "Carries on the line by adding 1 for each extra unit instead of adding the rate."
+- id: dg-rd-extrapolate-ratio
+  description: "Scales the last reading up in proportion to the amount, which is wrong when the line does not start at zero."
+- id: dg-rd-extrapolate-intercept-twice
+  description: "Adds the starting value on twice when carrying the line past the edge of the graph."
+- id: dg-rd-far-ignores-intercept
+  description: "Divides the whole budget by the rate without taking away the starting charge first."
+- id: dg-rd-far-adds-intercept
+  description: "Adds the starting charge to the budget instead of taking it away before dividing by the rate."
+- id: dg-rd-stop-as-distance
+  description: "Gives the distance at the stop instead of the time it lasted."
+- id: dg-rd-stop-as-end-time
+  description: "Gives the time the stop ended instead of how long it lasted."
+- id: dg-rd-average-of-speeds
+  description: "Averages the speeds of the stages (with 0 for the stop) instead of dividing the total distance by the total time."
+- id: dg-rd-average-excludes-stop
+  description: "Divides the total distance by the time spent moving only, leaving out the stop."
+- id: dg-rd-average-as-distance
+  description: "Gives the total distance where the average speed was asked."
+- id: dg-rd-stage-reads-end
+  description: "Gives the distance at the end of the stage as its speed, forgetting to subtract the start and divide by the time."
+- id: dg-rd-stage-distance-not-speed
+  description: "Gives the distance travelled in the stage without dividing by the hours it took."
+difficulty_progression:
+  easy: {steps: 1, demand: "Read one value from a line through the origin, counting gridlines whose step is not 1."}
+  medium: {steps: 2, demand: "Separate the starting value from the rate, finding the rate as change in value over change in amount rather than value over amount."}
+  hard: {steps: 3, demand: "Use the rate and the starting value to go beyond the graph, or combine the stages of a journey (including a stop) into an average speed."}
+  exam: {steps: 4, demand: "Chain the starting charge, the rate, a prediction beyond the graph and the largest trip a budget allows, with the last two using the first two."}
+tags: [acara-f10-v9, linear-relations, ac9m7a04, real-data-graphs, conversion-graph, distance-time, rates, figure]

@@ -1,0 +1,62 @@
+id: construct-dot-plots-from-data
+name: Construct a dot plot from a list of values
+domain: statistics-probability
+year_level: ['7']
+description: >-
+  Build a dot plot of a numerical variable from a list of values and give the number of dots above every value on the
+  axis, in order, as Value = dots. easy uses whole-number data on an axis from the lowest to the highest value; medium
+  uses data to one decimal place on an axis that steps by 0.1; hard has a gap and a far-out value so several ticks have
+  no dots and must be given as 0; exam is a chain from the dots above each value to the mode, the median (a half when the
+  number of values is even) and the median minus the mode, which follows through from the two before it.
+status: active
+placement_eligible: false
+prerequisites: [f6-read-a-dot-plot]
+answer: bars
+sources:
+- topic: dg_construct_dotplot
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dg_construct_dotplot
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: dg_construct_dotplot
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: dg_construct_dotplot_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dg-dp-one-dot-per-value
+  description: "Draws one dot above each different value, so a repeated value is not stacked."
+- id: dg-dp-dots-shifted
+  description: "Puts the dots one tick to the side of the value they belong to, so every stack is on the wrong value."
+- id: dg-dp-value-as-dots
+  description: "Uses the value itself as the number of dots above it instead of counting how many times it occurs."
+- id: dg-dp-gap-closed
+  description: "Squeezes the empty ticks out of the axis, so the stacks after a gap sit one value too low."
+- id: dg-dp-miscount-one
+  description: "Miscounts one stack by one dot when tallying the list."
+- id: dg-dp-mode-as-count
+  description: "Gives the number of dots in the tallest stack where the value of the mode was asked for."
+- id: dg-dp-mode-second
+  description: "Picks the second tallest stack, or the highest value, as the mode."
+- id: dg-dp-median-as-middle-value
+  description: "Takes the middle value of the axis, not the middle of the ordered data, as the median."
+- id: dg-dp-median-as-mean-of-extremes
+  description: "Takes the halfway point between the lowest and highest value as the median."
+- id: dg-dp-median-even-lower
+  description: "Takes the lower of the two middle values as the median when the number of values is even."
+- id: dg-dp-difference-reversed
+  description: "Subtracts the median from the mode when the median minus the mode was asked for."
+- id: dg-dp-difference-uses-count
+  description: "Uses the number of dots at the mode instead of the mode itself in the difference."
+difficulty_progression:
+  easy: {steps: 2, demand: "Tally a list of whole numbers and give one stack of dots for each value on the axis."}
+  medium: {steps: 2, demand: "Tally data to one decimal place, matching the whole number and the tenth together so 6.2 and 6.3 stay on different ticks."}
+  hard: {steps: 3, demand: "Tally data with a gap and a far-out value, giving the empty ticks between them a stack of 0 instead of closing the gap."}
+  exam: {steps: 5, demand: "Chain the dots above each value, the mode, the median of an even or odd count, and the median minus the mode using the earlier answers."}
+tags: [acara-f10-v9, statistics-probability, ac9m7st02, dot-plot, construct, drawn-answer]

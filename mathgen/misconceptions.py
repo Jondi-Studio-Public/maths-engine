@@ -57704,6 +57704,578 @@ _ENTRIES = (
         area="senior-solve-problems-involving-bearings",
     ),
     # w3 consumer block end
+    # dg block begin
+    CatalogueEntry(
+        "dg-gt-adjacent-counts-itself",
+        "Counts the vertex itself as one of its own adjacent vertices.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-adjacent-all-others",
+        "Takes every other vertex as adjacent, ignoring which are actually joined by an edge.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-adjacent-for-nonadjacent",
+        "Counts the adjacent vertices when the vertices NOT adjacent were asked for.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-degree-of-wrong-vertex",
+        "Reads the degree of a different vertex, or the second greatest degree, not the greatest.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-edges-as-degree-sum",
+        "Gives the sum of the degrees as the number of edges, so every edge is counted twice.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-edges-miscount",
+        "Miscounts the edges by one, usually missing one that is hidden behind a crossing or counted from both ends.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-vertices-as-edges",
+        "Gives the number of vertices where the number of edges was asked for.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-components-isolated-only",
+        "Counts only the isolated vertices as separate pieces and treats every larger piece as part of one.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-components-as-edges-needed",
+        "Gives the number of components as the number of edges to add, forgetting that joining c pieces takes c - 1 edges.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-components-edges-per-vertex",
+        "Adds one edge for every vertex that is not in the largest piece, instead of one edge per piece.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-components-miscount",
+        "Miscounts the separate pieces of the network by one.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-subgraph-all-vertices",
+        "Counts every vertex of the network in the subgraph, not only the ends of the thick edges.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-subgraph-counts-its-own-edges",
+        "Gives the edges of the subgraph when the edges of the network that it leaves out were asked for.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-subgraph-vertices-of-network",
+        "Gives the number of vertices of the whole network where the subgraph's vertices were asked for.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-loop-counted-once",
+        "Counts a loop once towards the degree of its vertex; a loop leaves the vertex at both of its ends, so it adds 2.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-loop-not-counted",
+        "Ignores the loop when finding the degree of its vertex.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-multiple-all-copies",
+        "Counts every copy of a repeated edge as a multiple edge, instead of only the extra copies.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-loops-as-multiple",
+        "Counts the loops as multiple edges, or the multiple edges as loops.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-simple-keeps-repeats",
+        "Removes the loops but leaves the repeated edges when making the graph simple.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-simple-keeps-loops",
+        "Removes the repeated edges but leaves the loops when making the graph simple.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-delete-vertex-keeps-edges",
+        "Deletes a vertex but keeps the edges that were at it.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-delete-vertex-uses-sum",
+        "Takes away the number of vertices adjacent to the deleted vertex twice, once for each end of its edges.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-cc-tally-miscount",
+        "Miscounts one category when sorting the responses, so one column is a unit too tall or too short.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-categories-swapped",
+        "Gives two categories each other's heights, matching a count to the wrong label.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-value-as-height",
+        "Uses the data value itself as the height of its column instead of counting how many times it occurs.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-zero-column-skipped",
+        "Gives a value that never occurs the height of the next value, skipping the column that should be zero.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-key-ignored",
+        "Draws one symbol for every item and ignores the key that says a symbol stands for more than one.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-key-multiplied",
+        "Multiplies the count by the key instead of dividing, so the rows are far too long.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-half-symbol-dropped",
+        "Drops the half symbol for an odd count, so the row is half a symbol too short.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-half-symbol-whole",
+        "Draws a whole symbol where a half symbol is needed, so the row is half a symbol too long.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-missing-total-as-count",
+        "Gives the total as the missing count, forgetting to take away the counts already known.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-missing-one-category-left-out",
+        "Leaves one known count out of the subtraction when finding the missing count.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-range-added",
+        "Adds the tallest and shortest column instead of finding how much taller one is.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-second-tallest",
+        "Compares the tallest column with the second shortest, or the second tallest with the shortest.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-difference-in-items-not-symbols",
+        "Gives the difference in items when the difference in symbols was asked for, forgetting to divide by the key.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-dp-one-dot-per-value",
+        "Draws one dot above each different value, so a repeated value is not stacked.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-dots-shifted",
+        "Puts the dots one tick to the side of the value they belong to, so every stack is on the wrong value.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-value-as-dots",
+        "Uses the value itself as the number of dots above it instead of counting how many times it occurs.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-gap-closed",
+        "Squeezes the empty ticks out of the axis, so the stacks after a gap sit one value too low.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-miscount-one",
+        "Miscounts one stack by one dot when tallying the list.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-mode-as-count",
+        "Gives the number of dots in the tallest stack where the value of the mode was asked for.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-mode-second",
+        "Picks the second tallest stack, or the highest value, as the mode.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-median-as-middle-value",
+        "Takes the middle value of the axis, not the middle of the ordered data, as the median.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-median-as-mean-of-extremes",
+        "Takes the halfway point between the lowest and highest value as the median.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-median-even-lower",
+        "Takes the lower of the two middle values as the median when the number of values is even.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-difference-reversed",
+        "Subtracts the median from the mode when the median minus the mode was asked for.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-difference-uses-count",
+        "Uses the number of dots at the mode instead of the mode itself in the difference.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-sl-leaves-unordered",
+        "Writes the leaves of a row in the order the values were listed instead of in increasing order.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-leaves-descending",
+        "Writes the leaves of a row from largest to smallest instead of smallest to largest.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-repeat-written-once",
+        "Writes a repeated value's leaf only once, so the row is one leaf short.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-leaf-dropped",
+        "Leaves one value out of the plot, so a row has a leaf missing.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-whole-value-as-leaf",
+        "Writes the whole value as the leaf instead of only its last digit.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-leaf-in-wrong-stem",
+        "Puts a value in the row of the next stem, for example a number in the twenties in the thirties row.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-count-stems",
+        "Gives the number of stems as the number of values.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-count-off-one",
+        "Miscounts the leaves by one when finding how many values there are.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-position-half-n",
+        "Halves the number of values to find the position of the median, forgetting to add 1 first.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-position-not-halved",
+        "Gives n + 1 as the position of the median without halving it.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-median-position-as-value",
+        "Gives the position of the median as if it were the median itself.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-median-of-leaves-only",
+        "Finds the middle leaf and forgets to put its stem in front of it.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-median-middle-stem",
+        "Takes the middle of the stems (or the middle row's first value) as the median.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-median-even-lower",
+        "Takes the lower of the two middle values as the median when the number of values is even.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-cd-mode-as-frequency",
+        "Gives how many times the mode occurs (the height of the tallest stack or the number of leaves) instead of the mode itself.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-difference-reversed",
+        "Subtracts the larger measure from the smaller, so the difference has the wrong sign.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-difference-added",
+        "Adds the two measures instead of finding how much greater one is than the other.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-range-as-highest",
+        "Gives the highest value as the range instead of taking the lowest away from it.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-leaf-as-value",
+        "Reads a leaf as the whole value, ignoring its stem, when reading the stem-and-leaf plot.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-median-axis-middle",
+        "Takes the middle of the axis (or of the stems) as the median instead of the middle of the ordered values.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-median-even-lower",
+        "Takes the lower of the two middle values as the median when there is an even number of values.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-median-halfway-extremes",
+        "Takes the value halfway between the lowest and highest values as the median.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-count-total",
+        "Adds the two numbers of values when how many more one group has than the other was asked.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-count-off-one",
+        "Miscounts the values by one when reading a display.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-ticks-not-dots",
+        "Counts the ticks on the dot plot's axis where the number of values (dots) was needed.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-above-includes-equal",
+        "Counts values equal to the median as well as the values above it when only values above were asked.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-below-includes-equal",
+        "Counts values equal to the median as well as the values below it when only values below were asked.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-combined-range-of-one",
+        "Gives the larger of the two groups' ranges as the range of the combined data.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-combined-range-added",
+        "Adds the two groups' ranges to get the range of the combined data.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-rd-gridlines-not-scaled",
+        "Counts the gridlines up to the line and gives that count, forgetting that each gridline stands for more than 1.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-off-one-gridline",
+        "Reads the value one gridline too high or too low.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-axes-swapped",
+        "Gives the amount that was stated in the question, reading the wrong axis instead of the one asked for.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-intercept-at-first-unit",
+        "Reads the starting value at the first unit of the horizontal axis instead of at zero.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-intercept-zero",
+        "Says the starting value is 0, as if the line began at the origin, when it starts higher up the vertical axis.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-ignores-intercept",
+        "Divides a reading by its horizontal amount to find the rate, which only works for a line through the origin and includes the starting value.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-as-rise",
+        "Gives the whole rise between two readings as the rate instead of dividing by the run.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-inverted",
+        "Divides the run by the rise, finding the units of one thing per unit of the other, upside down.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-as-value",
+        "Gives a reading on the line (including the starting value) where the rate of change was asked.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-gridlines",
+        "Finds the rise per gridline across, forgetting that a step on each axis stands for more than 1.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-sign",
+        "Gives the rate of a falling line as a negative amount (or a rising one as a loss) when the amount used or added each unit was asked.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-extrapolate-ignores-intercept",
+        "Multiplies the rate by the new amount and leaves out the starting value.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-extrapolate-adds-units",
+        "Carries on the line by adding 1 for each extra unit instead of adding the rate.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-extrapolate-ratio",
+        "Scales the last reading up in proportion to the amount, which is wrong when the line does not start at zero.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-extrapolate-intercept-twice",
+        "Adds the starting value on twice when carrying the line past the edge of the graph.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-far-ignores-intercept",
+        "Divides the whole budget by the rate without taking away the starting charge first.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-far-adds-intercept",
+        "Adds the starting charge to the budget instead of taking it away before dividing by the rate.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-stop-as-distance",
+        "Gives the distance at the stop instead of the time it lasted.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-stop-as-end-time",
+        "Gives the time the stop ended instead of how long it lasted.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-average-of-speeds",
+        "Averages the speeds of the stages (with 0 for the stop) instead of dividing the total distance by the total time.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-average-excludes-stop",
+        "Divides the total distance by the time spent moving only, leaving out the stop.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-average-as-distance",
+        "Gives the total distance where the average speed was asked.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-stage-reads-end",
+        "Gives the distance at the end of the stage as its speed, forgetting to subtract the start and divide by the time.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-stage-distance-not-speed",
+        "Gives the distance travelled in the stage without dividing by the hours it took.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-gm-reference-reversed",
+        "Reads the grid reference the wrong way round, taking the number as the column and the letter as the row.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-row-from-top",
+        "Counts the rows from the top of the map instead of from the bottom.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-counts-start-square",
+        "Counts the square the move starts from as the first square of the move, ending one square short.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-one-square-too-far",
+        "Moves one square too far along the row or column.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-direction-reversed",
+        "Moves west when east was asked, or south when north was asked.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-moves-swapped",
+        "Swaps the two moves, going the east-west number of squares up and the north-south number across.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-region-corners-only",
+        "Shades only the corner squares of the region instead of every square inside the rectangle.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-region-edge-left-out",
+        "Shades a rectangle one row or column short, leaving out the squares on the far edge.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-between-includes-ends",
+        "Shades the squares of the two landmarks as well as the squares between them.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-between-one-short",
+        "Shades one square fewer than lie between the landmarks.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-count-includes-start",
+        "Counts the starting square as well as the squares moved, giving one too many.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-count-reference-difference",
+        "Subtracts the letters' places and the numbers the wrong way round, mixing up which is the east-west distance.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-walk-as-diagonal",
+        "Gives the larger of the two moves as the length of the walk instead of adding them.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-walk-product",
+        "Multiplies the east-west and north-south moves instead of adding them.",
+        area="place-features-on-a-grid-map",
+    ),
+    # dg block end
 )
 
 #: Every entry, by id.
