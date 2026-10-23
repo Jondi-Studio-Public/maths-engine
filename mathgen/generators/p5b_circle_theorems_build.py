@@ -403,7 +403,8 @@ def angles_same_arc(rng, variant="direct"):
         # p, q from 20..70, with p + q < 170 so angle ACB > 10
         # Also exclude p + q = 90 (collision guard for supplementary distractor)
 
-        for _ in attempts(200, "angles_same_arc/triangle_sum angles"):
+        # 2p + q = 180 would make "reports angle CAB" equal the answer, so redraw on that too.
+        for _ in attempts(1000, "angles p, q that keep both distractors apart from the answer"):
             p = rng.randint(20, 70)
             q = rng.randint(20, 70)
             if p + q < 170 and p + q != 90 and 2 * p + q != 180:

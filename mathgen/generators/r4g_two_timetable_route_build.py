@@ -105,6 +105,9 @@ def _draw(rng, *, quick_later=False):
         trap = any(next_first[1] <= s[0] < next_first[1] + transfer for s in second)
         if not trap:
             continue
+        # the traveller catches next_first, so a connection must still be possible from it
+        if not any(s[0] >= next_first[1] + transfer for s in second):
+            continue
         if quick_later and best[0] == next_first[0]:
             continue
         return dict(places=(o, c, d), modes=(m1, m2), transfer=transfer, first=first, second=second, ready=ready)
