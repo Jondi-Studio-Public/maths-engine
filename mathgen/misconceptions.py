@@ -57704,6 +57704,623 @@ _ENTRIES = (
         area="senior-solve-problems-involving-bearings",
     ),
     # w3 consumer block end
+    # sc consumer block start
+    CatalogueEntry(
+        "sc-biconditional-counts-both-directions",
+        "Counts the values where either direction of the implication fails, as the values where the biconditional holds, so the failures are reported instead of the values that satisfy it.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-biconditional-counts-both-true",
+        "Counts only the values where both clauses are true, forgetting that 'P if and only if Q' is also true where both are false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-biconditional-counts-one-direction",
+        "Counts the failures of only one direction of 'P if and only if Q', so the other direction's failures are missed.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-contrapositive-counts-converse-failures",
+        "Takes the contrapositive to fail where the converse fails (Q true and P false), instead of where the original statement fails.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-converse-counts-statement-failures",
+        "Counts the failures of the original statement when the converse (or inverse) was asked about, as if swapping the clauses changed nothing.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-converse-ignores-overlap",
+        "Finds the failures of the converse as the number of values with Q minus the number with P, without allowing for the values that have both.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-both-true",
+        "Counts values where both clauses hold as counterexamples, although a counterexample needs the conclusion to be false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-conclusion-false",
+        "Counts every value where the conclusion is false as a counterexample, without requiring the hypothesis to be true.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-conclusion-true-only",
+        "Takes the first value where the hypothesis of the converse holds as a counterexample, without checking that its conclusion fails.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-hypothesis-only",
+        "Counts every value where the hypothesis is true as a counterexample, without checking whether the conclusion fails.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-of-converse",
+        "Gives a counterexample to the converse when a counterexample to the statement itself was asked for.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counts-hypothesis-of-contrapositive",
+        "Counts the values where the contrapositive's hypothesis (not Q) is true, instead of those where it is true and its conclusion false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counts-the-wrong-set",
+        "Counts the values for a different clause, or for its negation, than the one the question names.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counts-true-instances-not-failures",
+        "Gives the number of values where the statement is true when the number where it fails was asked for, or the reverse.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-negation-as-converse-failure",
+        "Takes the negation of 'if P then Q' to be true where the converse fails (Q and not P), instead of where P and not Q.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-negation-as-if-p-then-not-q",
+        "Negates 'if P then Q' as 'if P then not Q', which is a different implication and is true in many places the negation is false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-negation-counts-both-true",
+        "Counts the values where P and Q are both true as satisfying the negation, instead of P true and Q false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-negation-of-converse-as-negation",
+        "Counts where the negation of the original statement is true when the negation of the converse was asked for.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-off-by-one-in-count",
+        "Miscounts by one when listing the values that satisfy a clause, usually including or leaving out an end value.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-vacuous-truth-ignored",
+        "Counts only the values where both P and Q hold as making the implication true, forgetting that it is also true wherever the hypothesis is false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-vacuous-truth-only",
+        "Counts only the values where the hypothesis is false as making the implication true, leaving out those where both clauses hold.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-complement-for-proportion",
+        "Gives the proportion without the trait (the complement) instead of the proportion with it.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-count-over-hundred",
+        "Divides the count by 100 instead of by the sample size, treating it as a percentage.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-divides-by-one-fewer",
+        "Divides the total by one fewer than the number of samples when finding a mean.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-gap-as-fraction-of-p",
+        "Reports the gap between the mean of the simulated proportions and p as a fraction of p instead of as a difference.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-gap-sign-reversed",
+        "Subtracts the mean from the population proportion, so the gap has the wrong sign.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-interval-one-sd",
+        "Uses one standard deviation from the population proportion for the interval that holds about 95% of sample proportions, where 2 are needed.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-interval-three-sd",
+        "Uses three standard deviations from the population proportion for an interval described as holding about 95% of sample proportions.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-interval-uses-variance",
+        "Adds twice the variance (the standard deviation not square-rooted) to the population proportion to find the upper end of the interval.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-interval-width-not-endpoint",
+        "Gives the distance 2 sd from p, not the endpoint p + 2 sd.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-lower-limit-for-upper",
+        "Gives the lower end of the interval (p - 2 sd) where the upper end was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-mean-count-not-proportion",
+        "Averages the counts and leaves the result as a count, without dividing by the sample size to get a proportion.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-mean-not-divided-by-samples",
+        "Adds the sample proportions and does not divide by the number of samples.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-mean-reported-as-gap",
+        "Gives the mean of the simulated proportions where the difference from the population proportion was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-median-for-mean",
+        "Reports the middle sample proportion where the mean was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-forgets-one-minus-p",
+        "Finds the sample size from p over the squared standard deviation, leaving out the factor 1 - p.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-forgets-to-square-sd",
+        "Finds the sample size as p(1 - p) over the standard deviation, without squaring the standard deviation.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-increase-not-total",
+        "Gives how many more are needed than in the original samples, not the new sample size.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-proportional-to-sd-ratio",
+        "Takes the sample size to change by the same factor as the standard deviation, not by its square.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-ratio-inverted",
+        "Divides the sample size by the square of the ratio when it must be multiplied: a smaller spread needs larger samples.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-root-not-squared",
+        "Divides the square root of p(1 - p) by the standard deviation to get n, so it is the square root of the sample size.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-odds-for-proportion",
+        "Divides the count by the number without the trait (odds) instead of by the whole sample.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-forgets-one-minus-p",
+        "Finds the standard deviation of the sample proportion from p over n, leaving out the factor 1 - p.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-forgets-square-root",
+        "Gives the variance p(1 - p)/n as the standard deviation, without the square root.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-grows-with-n",
+        "Thinks the spread of sample proportions grows when the samples get larger.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-of-count-for-proportion",
+        "Gives the standard deviation of the count, the square root of np(1 - p), as that of the sample proportion.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-root-of-numerator-only",
+        "Takes the square root of p(1 - p) but divides by n, not by the square root of n.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-scales-with-n",
+        "Divides the standard deviation by the full factor the sample size grew by, where it divides by the square root of that factor.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-uses-one-sample",
+        "Reports a single sample's proportion where the mean of all the simulated proportions was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-uses-population-proportion",
+        "Gives the population proportion p where the proportion in the sample was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-spread-divides-by-one-fewer",
+        "Divides the sum of squared deviations by one fewer than the number of samples, when the question says to divide by the number of samples.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-spread-variance-for-sd",
+        "Gives the variance of the simulated proportions where their standard deviation was asked for, leaving out the square root.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-mean-deviation-for-sd",
+        "Averages the absolute deviations from the mean instead of squaring them and taking a root.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-theory-for-data",
+        "Substitutes into the formula for the spread of a sample proportion when the spread of the listed simulated values was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-coefficients-ignored",
+        "Adds the integrals of the separate terms without multiplying each by its coefficient.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-coefficients-swapped",
+        "Pairs each coefficient with the integral of the other term.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-limits-added",
+        "Adds the values at the two limits instead of subtracting the lower from the upper.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only, forgetting to subtract its value at the lower limit.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-sec-value-for-tan",
+        "Uses sec of the upper limit where tan of it belongs, for example 2 in place of the square root of 3 at pi/3.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-sign-slip",
+        "Gives the right size of a definite integral with the wrong sign.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-tan-term-dropped",
+        "Evaluates only the x term of tan x - x, leaving out the tan term.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-reduction-sign",
+        "Adds the previous integral where it should be subtracted when reducing tan^n to tan^(n-2) sec^2 minus tan^(n-2).",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-reduction-term-dropped",
+        "Leaves out the integral of the lower power, keeping only the integral of tan^(n-2) sec^2.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-reduction-wrong-denominator",
+        "Uses 1 over the wrong odd number for the integral of tan^(n-2) sec^2 when reducing tan^n.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-power-lowered",
+        "Integrates sec^n x tan x to sec^(n-1) x/(n-1), lowering the power instead of keeping it.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-power-rule-on-trig",
+        "Applies the power rule to sec^4 x, giving sec^5 x/5 as if sec x were the variable.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-power-rule-wrong-exponent",
+        "Integrates sec^n x tan x to sec^(n+1) x/(n+1) by applying the power rule to sec x alone.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-substituted-power-not-divided",
+        "After substituting u = sec x, integrates u^(n-1) without dividing by the new exponent n.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-inner-derivative-ignored",
+        "Integrates a function of kx without dividing by k, the coefficient of x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-integrated-as-tan-squared",
+        "Integrates sec x tan x to tan^2 x/2 (or the same at the limits), as if it were tan x times its own derivative.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-power-rule",
+        "Integrates sec x tan x to sec^2 x/2, treating the product as a power of sec x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-sec-dropped",
+        "Integrates sec x tan x to tan x, dropping the sec x factor.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-sign-slip",
+        "Gets the sign wrong when integrating a product of sec and tan, for example giving -sec x as the integral of sec x tan x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan3-denominators-swapped",
+        "Divides each power of sec x by the exponent of the other in the antiderivative of sec^m x tan^3 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan3-exponents-off-by-one",
+        "Writes the powers of sec x in the antiderivative of sec^m x tan^3 x one lower than they should be.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan3-identity-sign",
+        "Uses tan^2 x = sec^2 x + 1, so the two terms of the antiderivative are added instead of subtracted.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan3-term-dropped",
+        "Leaves out one of the two terms of the antiderivative of sec^m x tan^3 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec4-cube-not-divided",
+        "Integrates (1 + tan^2 x) sec^2 x to tan x + tan^3 x, without dividing the cube term by 3.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec4-identity-sign",
+        "Uses sec^2 x = tan^2 x - 1, so the cube term is subtracted instead of added.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec4-term-dropped",
+        "Leaves out one of the two terms of tan x + tan^3 x/3 when integrating sec^4 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-substituted-power-not-divided",
+        "After substituting u = tan x, integrates the power of u without dividing by the new exponent.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-substituted-power-not-divided-by-own-exponent",
+        "Divides every term of the integral of u^2(1 + u^2) by 3 instead of by its own new exponent.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-inner-derivative-ignored",
+        "Integrates a tan or sec function of kx without dividing by k.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-integrated-as-sec",
+        "Integrates tan x to sec x, confusing an integral with a derivative.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-power-rule-on-trig",
+        "Applies the power rule to tan^n x, giving tan^(n+1) x/(n+1) as if tan x were the variable.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-reduction-sign",
+        "Gets a sign wrong when splitting tan^4 x as tan^2 x sec^2 x - tan^2 x, so a term of the antiderivative carries the wrong sign.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-reduction-term-dropped",
+        "Leaves the x term out of tan^3 x/3 - tan x + x, forgetting the constant that tan^2 = sec^2 - 1 leaves behind.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sec-divides-by-old-exponent",
+        "After substituting u = tan x, divides u^(m+1) by the old exponent m instead of the new exponent m + 1.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sec-exponent-not-raised",
+        "Divides by m + 1 but leaves the power of tan x unchanged instead of raising it by one.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sec-inner-derivative-ignored",
+        "Integrates tan^m(kx) sec^2(kx) with u = tan(kx) but does not divide by k.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sec-sign-slip",
+        "Puts a negative sign on the integral of tan^m x sec^2 x, as if a cosine were being integrated.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sq-constant-not-integrated",
+        "Writes tan^2 x = sec^2 x - 1 but integrates the 1 to 1 instead of to x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sq-identity-sign",
+        "Uses tan^2 x = sec^2 x + 1, so the x term has the wrong sign.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sq-taken-as-sec-sq",
+        "Integrates tan^2 x as if it were sec^2 x, giving tan x with no x term.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan1-log-of-sec-value-not-halved",
+        "Gives ln 2 for the integral of tan x from 0 to pi/4, using sec(pi/4) squared (2) inside the logarithm instead of its value, the square root of 2.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan3-log-sign",
+        "Gets the sign of the logarithm term wrong in the antiderivative tan^2 x/2 + ln|cos x| of tan^3 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan3-log-term-dropped",
+        "Leaves out the logarithm term of the antiderivative of tan^3 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan3-power-term-dropped",
+        "Leaves out the tan^2 x/2 term of the antiderivative of tan^3 x, keeping only the logarithm.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-wrong-earlier-part-used",
+        "Combines the wrong earlier results, using the integral of the lowest power where a higher one belongs.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-cx-angle-ignored",
+        "Replaces cos θ or sin θ by 1 and keeps only the coefficient, as if the angle made no difference.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-binomial-coefficient-dropped",
+        "Expands (a + bi)^3 with the cross terms lacking their binomial coefficient 3.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-conjugate-terms-cancel",
+        "Takes e^(iθ) + e^(-iθ), or the same with a minus, to be 0 because the two terms look like opposites.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-cos-sin-swapped",
+        "Swaps the roles of cosine and sine, giving the imaginary part where the real part was asked for or the reverse.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-cross-term-not-doubled",
+        "Expands (a + bi)^2 with a middle term ab instead of 2ab.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-constant-dropped",
+        "Evaluates the exponential terms correctly but leaves out the constant added to them.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-factor-two-dropped",
+        "Takes e^(iθ) + e^(-iθ) (or the difference over i) to be cos θ (or sin θ), forgetting that it is twice that.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-pi-as-one",
+        "Takes e^(iπ) to be 1 rather than -1.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-two-pi-as-minus-one",
+        "Takes e^(2iπ) to be -1, as if a full turn were a half turn.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-values-swapped",
+        "Swaps the values of e^(iπ) and e^(2iπ), using 1 for the half turn and -1 for the full turn.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-i-cubed-as-i",
+        "Takes i^3 to be i rather than -i, so the sign of a term in (a + bi)^3 is wrong.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-i-squared-as-one",
+        "Takes i^2 to be 1 instead of -1, so a product of imaginary parts is added where it should be subtracted.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-imaginary-part-dropped",
+        "Expands (a + bi)^n as a^n, ignoring every term that contains b.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-moduli-added",
+        "Adds the moduli when multiplying two complex numbers, where they multiply.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-moduli-not-divided",
+        "Multiplies the moduli when dividing two complex numbers, where they divide.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-modulus-added",
+        "Adds r to cos θ or sin θ instead of multiplying, so r(cos θ + i sin θ) is read with the modulus added on.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-modulus-dropped",
+        "Gives cos θ or sin θ alone, leaving out the modulus r as a factor.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-modulus-not-raised",
+        "Raises the argument to the power but leaves the modulus as r, instead of r^n.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-modulus-sum-not-root",
+        "Adds the sizes of the real and imaginary parts to find the modulus instead of using the square root of the sum of squares.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-parts-swapped-in-expansion",
+        "Gives the imaginary part of (a + bi)^n where the real part was asked for, or the reverse.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-quadrant-sign-lost",
+        "Uses the first-quadrant value of cos θ or sin θ and loses its sign in the quadrant the angle is in.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-quotient-arguments-reversed",
+        "Subtracts the arguments in the wrong order when dividing, so the angle has the wrong sign.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-second-argument-ignored",
+        "Uses only the argument of the first number when combining two numbers in exponential form.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-sign-reversed",
+        "Gives the right size with the wrong sign.",
+        area="complex-exponential-form-conversions",
+    ),
+    # sc consumer block end
 )
 
 #: Every entry, by id.

@@ -1,0 +1,157 @@
+id: integrate-tan-sec-powers
+name: Integrate powers and products of tan and sec
+domain: integration
+year_level:
+- '12'
+description: Integrate tan^n and sec^n of a linear argument and the products sec^n tan and tan^m sec^2 by the identity tan^2
+  = sec^2 - 1 and by substitution, including exact definite integrals.
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-trig-powers
+- integration-by-substitution
+answer: expression
+sources:
+- topic: sc_integrate_tan_sec
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sc_integrate_tan_sec
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sc_integrate_tan_sec
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sc_integrate_tan_sec_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: sc-coefficients-ignored
+  description: Adds the integrals of the separate terms without multiplying each by its coefficient.
+- id: sc-coefficients-swapped
+  description: Pairs each coefficient with the integral of the other term.
+- id: sc-definite-limits-added
+  description: Adds the values at the two limits instead of subtracting the lower from the upper.
+- id: sc-definite-lower-limit-ignored
+  description: Evaluates the antiderivative at the upper limit only, forgetting to subtract its value at the lower limit.
+- id: sc-definite-sec-value-for-tan
+  description: Uses sec of the upper limit where tan of it belongs, for example 2 in place of the square root of 3 at pi/3.
+- id: sc-definite-sign-slip
+  description: Gives the right size of a definite integral with the wrong sign.
+- id: sc-definite-tan-term-dropped
+  description: Evaluates only the x term of tan x - x, leaving out the tan term.
+- id: sc-reduction-sign
+  description: Adds the previous integral where it should be subtracted when reducing tan^n to tan^(n-2) sec^2 minus tan^(n-2).
+- id: sc-reduction-term-dropped
+  description: Leaves out the integral of the lower power, keeping only the integral of tan^(n-2) sec^2.
+- id: sc-reduction-wrong-denominator
+  description: Uses 1 over the wrong odd number for the integral of tan^(n-2) sec^2 when reducing tan^n.
+- id: sc-sec-power-lowered
+  description: Integrates sec^n x tan x to sec^(n-1) x/(n-1), lowering the power instead of keeping it.
+- id: sc-sec-power-rule-on-trig
+  description: Applies the power rule to sec^4 x, giving sec^5 x/5 as if sec x were the variable.
+- id: sc-sec-power-rule-wrong-exponent
+  description: Integrates sec^n x tan x to sec^(n+1) x/(n+1) by applying the power rule to sec x alone.
+- id: sc-sec-substituted-power-not-divided
+  description: After substituting u = sec x, integrates u^(n-1) without dividing by the new exponent n.
+- id: sc-sec-tan-inner-derivative-ignored
+  description: Integrates a function of kx without dividing by k, the coefficient of x.
+- id: sc-sec-tan-integrated-as-tan-squared
+  description: Integrates sec x tan x to tan^2 x/2 (or the same at the limits), as if it were tan x times its own derivative.
+- id: sc-sec-tan-power-rule
+  description: Integrates sec x tan x to sec^2 x/2, treating the product as a power of sec x.
+- id: sc-sec-tan-sec-dropped
+  description: Integrates sec x tan x to tan x, dropping the sec x factor.
+- id: sc-sec-tan-sign-slip
+  description: Gets the sign wrong when integrating a product of sec and tan, for example giving -sec x as the integral
+    of sec x tan x.
+- id: sc-sec-tan3-denominators-swapped
+  description: Divides each power of sec x by the exponent of the other in the antiderivative of sec^m x tan^3 x.
+- id: sc-sec-tan3-exponents-off-by-one
+  description: Writes the powers of sec x in the antiderivative of sec^m x tan^3 x one lower than they should be.
+- id: sc-sec-tan3-identity-sign
+  description: Uses tan^2 x = sec^2 x + 1, so the two terms of the antiderivative are added instead of subtracted.
+- id: sc-sec-tan3-term-dropped
+  description: Leaves out one of the two terms of the antiderivative of sec^m x tan^3 x.
+- id: sc-sec4-cube-not-divided
+  description: Integrates (1 + tan^2 x) sec^2 x to tan x + tan^3 x, without dividing the cube term by 3.
+- id: sc-sec4-identity-sign
+  description: Uses sec^2 x = tan^2 x - 1, so the cube term is subtracted instead of added.
+- id: sc-sec4-term-dropped
+  description: Leaves out one of the two terms of tan x + tan^3 x/3 when integrating sec^4 x.
+- id: sc-substituted-power-not-divided
+  description: After substituting u = tan x, integrates the power of u without dividing by the new exponent.
+- id: sc-substituted-power-not-divided-by-own-exponent
+  description: Divides every term of the integral of u^2(1 + u^2) by 3 instead of by its own new exponent.
+- id: sc-tan-inner-derivative-ignored
+  description: Integrates a tan or sec function of kx without dividing by k.
+- id: sc-tan-integrated-as-sec
+  description: Integrates tan x to sec x, confusing an integral with a derivative.
+- id: sc-tan-power-rule-on-trig
+  description: Applies the power rule to tan^n x, giving tan^(n+1) x/(n+1) as if tan x were the variable.
+- id: sc-tan-reduction-sign
+  description: Gets a sign wrong when splitting tan^4 x as tan^2 x sec^2 x - tan^2 x, so a term of the antiderivative carries
+    the wrong sign.
+- id: sc-tan-reduction-term-dropped
+  description: Leaves the x term out of tan^3 x/3 - tan x + x, forgetting the constant that tan^2 = sec^2 - 1 leaves behind.
+- id: sc-tan-sec-divides-by-old-exponent
+  description: After substituting u = tan x, divides u^(m+1) by the old exponent m instead of the new exponent m + 1.
+- id: sc-tan-sec-exponent-not-raised
+  description: Divides by m + 1 but leaves the power of tan x unchanged instead of raising it by one.
+- id: sc-tan-sec-inner-derivative-ignored
+  description: Integrates tan^m(kx) sec^2(kx) with u = tan(kx) but does not divide by k.
+- id: sc-tan-sec-sign-slip
+  description: Puts a negative sign on the integral of tan^m x sec^2 x, as if a cosine were being integrated.
+- id: sc-tan-sq-constant-not-integrated
+  description: Writes tan^2 x = sec^2 x - 1 but integrates the 1 to 1 instead of to x.
+- id: sc-tan-sq-identity-sign
+  description: Uses tan^2 x = sec^2 x + 1, so the x term has the wrong sign.
+- id: sc-tan-sq-taken-as-sec-sq
+  description: Integrates tan^2 x as if it were sec^2 x, giving tan x with no x term.
+- id: sc-tan1-log-of-sec-value-not-halved
+  description: Gives ln 2 for the integral of tan x from 0 to pi/4, using sec(pi/4) squared (2) inside the logarithm instead
+    of its value, the square root of 2.
+- id: sc-tan3-log-sign
+  description: Gets the sign of the logarithm term wrong in the antiderivative tan^2 x/2 + ln|cos x| of tan^3 x.
+- id: sc-tan3-log-term-dropped
+  description: Leaves out the logarithm term of the antiderivative of tan^3 x.
+- id: sc-tan3-power-term-dropped
+  description: Leaves out the tan^2 x/2 term of the antiderivative of tan^3 x, keeping only the logarithm.
+- id: sc-wrong-earlier-part-used
+  description: Combines the wrong earlier results, using the integral of the lowest power where a higher one belongs.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Write tan^2 as sec^2 minus 1 and integrate, or recognise sec tan as the derivative of sec, dividing by the inner
+      coefficient.
+  medium:
+    steps: 3
+    demand: Choose the substitution u = sec for sec^n tan or u = tan for tan^m sec^2, integrate the power of u and return
+      to the original function.
+  hard:
+    steps: 4
+    demand: Split tan^4, sec^4 or tan^2 sec^4 or sec^m tan^3 into a substitution and an identity, or evaluate an exact definite
+      integral between 0 and pi/4, pi/3 or pi/6.
+  exam:
+    steps: 6
+    demand: Use the reduction I(n) = 1/(n - 1) - I(n - 2) three times over 0 to pi/4, each result building on the last,
+      then combine two of them.
+tags:
+- acara-senior-v8-4
+- integration
+- trigonometric-integrals
+- tan
+- sec
+- nsw-extension-2
