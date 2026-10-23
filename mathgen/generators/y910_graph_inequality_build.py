@@ -418,7 +418,15 @@ def _hard_region(rng):
                 "region-on-the-wrong-side-of-the-line",
             ),
         ]
+        # Sets that are smaller than the key, or the same size, so the key is not always the smallest set.
+        outside = [lab for lab in pts if lab not in key]
+        if len(key) >= 2:
+            cands.append((key[:-1], None))
+            cands.append((key[1:], None))
+        if outside:
+            cands.append((sorted(key[:-1] + [outside[0]], key=_POINT_LABELS.index), None))
         cands = [(letters, note) for letters, note in cands if letters and letters != key]
+        rng.shuffle(cands)
         answer_text, distractors = _set_distractors(key, cands, _POINT_LABELS)
         if len(distractors) < 3:
             continue

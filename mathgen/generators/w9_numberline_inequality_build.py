@@ -104,20 +104,20 @@ MISCONCEPTIONS = [
         AREA,
     ),
     ("w9-and-drawn-as-or", "Shades everywhere either inequality holds when the word was 'and'.", AREA),
-    ("w9-integer-count-includes-open-bound", "Counts the whole number at an open circle as a solution.", AREA),
+    ("w9-integer-count-includes-open-bound", "Counts the integer at an open circle as a solution.", AREA),
     (
         "w9-integer-count-misses-closed-bound",
-        "Leaves out the whole number at a closed circle when counting solutions.",
+        "Leaves out the integer at a closed circle when counting solutions.",
         AREA,
     ),
     (
         "w9-integer-count-fencepost",
-        "Counts the gaps between the bounds instead of the whole numbers, so is one out.",
+        "Counts the gaps between the bounds instead of the integers, so is one out.",
         AREA,
     ),
     (
         "w9-integer-greatest-open-bound",
-        "Gives the bound itself as the greatest whole number even though the inequality is strict.",
+        "Gives the bound itself as the greatest integer even though the inequality is strict.",
         AREA,
     ),
 ]
@@ -658,11 +658,11 @@ def _exam(rng):
                 dc,
             ),
             part(
-                "How many whole numbers satisfy the combined solution?",
+                "How many integers satisfy the combined solution?",
                 "number",
                 num_fields(count),
                 1,
-                [f"The whole numbers from {lower if lower_closed else lower + 1} to {a - 1} are {count} numbers."],
+                [f"The integers from {lower if lower_closed else lower + 1} to {a - 1} are {count} numbers."],
                 dd,
                 sensible_range=(0, None),
             ),

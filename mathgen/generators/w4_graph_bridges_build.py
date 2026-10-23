@@ -228,6 +228,8 @@ def _medium_cost(rng):
         mine = _reach(n, rest)
         inside = [e for e in rest if e[0] in mine]
         check(all(e[1] in mine for e in inside), "an edge of the rest crosses the split")
+        if len(inside) == 1:
+            continue  # the total would be that one printed cost, so no draw of costs can hide it
         weight, total = _costs_avoiding(rng, edges, lambda w: sum(w[e] for e in inside))
         far = [e for e in rest if e[0] not in mine]
         wrong = [
@@ -469,7 +471,7 @@ def w4_graph_bridges_chain(rng, tier="exam"):
             3,
             [
                 f"Joining the ends of the tree of pieces pairs up its {leaf_blocks} end pieces, "
-                f"so ({leaf_blocks} + 1) / 2 rounded down = {fewest} new {ctx['es']} are needed."
+                f"so the number of new {ctx['es']} needed is ({leaf_blocks} + 1) / 2 rounded down = {fewest}."
             ],
             [
                 (leaf_blocks, "w4-bridge-repair-leaves"),

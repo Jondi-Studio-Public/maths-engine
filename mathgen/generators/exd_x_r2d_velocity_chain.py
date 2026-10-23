@@ -27,6 +27,7 @@ from mathgen.core import (
     join_terms,
     latex_answer,
     numeric_answer,
+    paren_negative,
     pick_distractors,
     round_half_up,
     stated_precision_string,
@@ -156,7 +157,7 @@ def exd_x_r2d_velocity_chain(rng: random.Random, tier: str = "exam") -> dict:
                 3,
                 [
                     f"Ground velocity = air velocity + wind = {join_terms([(p, 'i'), (q, 'j')])} km/h.",
-                    f"Speed = √({p}² + {q}²) = {s} km/h.",
+                    f"Speed = √({paren_negative(p)}² + {paren_negative(q)}²) = {s} km/h.",
                 ],
                 _dists(Fraction(s), a_pairs, 0),
             ),

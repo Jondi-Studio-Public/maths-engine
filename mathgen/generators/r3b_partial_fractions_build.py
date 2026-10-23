@@ -204,7 +204,7 @@ def _medium(rng):
     working = [
         f"Multiply through by ({lin})({quad}): {shown(num)} = A({quad}) + (Bx + C)({lin}).",
         f"At x = {a}: {num.subs(x, a)} = {a * a + b}A, so A = {A}.",
-        f"The x^2 terms give {n2} = A + B, so B = {B}. The x terms give {n1} = C {'-' if a > 0 else '+'} {abs(a)}B, so C = {C}.",
+        f"The x^2 terms give {n2} = A + B, so B = {B}. The x terms give {n1} = C {'-' if a > 0 else '+'} {'' if abs(a) == 1 else abs(a)}B, so C = {C}.",
     ]
     slots = dict(
         F=_ratio(num, f"(({lin})({quad}))", rf"({lin})({quad})"),
@@ -282,7 +282,7 @@ def _hard_integral(rng):
     ]
     working = [
         f"Decompose: {shown(num)} over ({lin})({quad}) = A/({lin}) + (Bx + C)/({quad}) with A = {A}, B = {B}, C = {C}.",
-        f"Integrate: A ln|{lin}| + (B/2) ln({quad}) + (C/{s}) arctan(x/{s}), so P = {P}, Q = {Q}, R = {R}.",
+        f"Integrate: A ln|{lin}| + (B/2) ln({quad}) + {'C arctan(x)' if s == 1 else f'(C/{s}) arctan(x/{s})'}, so P = {P}, Q = {Q}, R = {R}.",
     ]
     integrand = _ratio(num, f"(({lin})({quad}))", rf"({lin})({quad})")
     text, latex = say(
@@ -387,7 +387,7 @@ def r3b_exam_partial_fractions(rng, tier="exam"):
         "Find the value of C.",
         "Find the value of \\(C\\).",
         1,
-        [f"Comparing the x terms: {n1} = C {'-' if a > 0 else '+'} {abs(a)}B, so C = {C}."],
+        [f"Comparing the x terms: {n1} = C {'-' if a > 0 else '+'} {'' if abs(a) == 1 else abs(a)}B, so C = {C}."],
         frac_fields(C),
         pick_fractions(
             C,
@@ -406,7 +406,7 @@ def r3b_exam_partial_fractions(rng, tier="exam"):
         rf"Find the exact value of \(\int_0^{{{s}}} \frac{{{tex(num)}}}{{({lin})({quad})}}\,\mathrm{{d}}x\).",
         4,
         [
-            f"Integrate: A ln|{lin}| + (B/2) ln({quad}) + (C/{s}) arctan(x/{s}).",
+            f"Integrate: A ln|{lin}| + (B/2) ln({quad}) + {'C arctan(x)' if s == 1 else f'(C/{s}) arctan(x/{s})'}.",
             f"Substitute the limits 0 and {s}: A ln({Rational(s - a, -a)}) + (B/2) ln 2 + C pi/{4 * s}.",
         ],
         exact_fields(value),

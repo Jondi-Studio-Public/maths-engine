@@ -136,7 +136,7 @@ def _build(rng):
         v1,
         2,
         2,
-        [f"V({x1}) = {a} ln({x1}) {'+' if b >= 0 else '-'} {abs(b)} = {v1r}."],
+        [f"V({x1}) = {a} ln({x1}) {'+' if b >= 0 else '-'} {abs(b)} ≈ {float(v1r):.2f}."],
         c_wrong,
         follow_through=f"part_a*log(part_b) + {b if b >= 0 else f'({b})'}",
     )
@@ -153,8 +153,8 @@ def _build(rng):
         3,
         2,
         [
-            f"V({x0}) = {a} ln({x0}) {'+' if b >= 0 else '-'} {abs(b)} = {round_half_up(v0, 2)}.",
-            f"Average rate = (V({x1}) - V({x0})) / ({x1} - {x0}) = {key_d}.",
+            f"V({x0}) = {a} ln({x0}) {'+' if b >= 0 else '-'} {abs(b)} ≈ {float(round_half_up(v0, 2)):.2f}.",
+            f"Average rate = (V({x1}) - V({x0})) / ({x1} - {x0}) ≈ {float(key_d):.3f}.",
         ],
         d_wrong,
         follow_through=f"(part_c - (part_a*log({x0}) + {b if b >= 0 else f'({b})'}))/(part_b - {x0})",

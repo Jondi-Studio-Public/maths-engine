@@ -1981,6 +1981,8 @@ _DIGIT_DOT_LETTER_RE = re.compile(
 )
 # "log_{6}" and "u_{n}" read "log_6" and "u_n": the braces are LaTeX.
 _BRACED_SUBSCRIPT_RE = re.compile(r"(?<=[A-Za-z\)])_\{(\w{1,3})\}")
+# "a_{1,2}" and "a_{i,j}" read "a(1,2)" and "a(i,j)": a two-index entry is not a LaTeX subscript to the learner.
+_ENTRY_SUBSCRIPT_RE = re.compile(r"(?<=[A-Za-z])_\{(\w{1,3}),(\w{1,3})\}")
 # "perimeter_mm = 5" and "surface_area = 3": a name with an underscore is a code identifier; a unit suffix goes in brackets.
 _UNIT_SUFFIXES = {
     "mm": "mm", "cm": "cm", "m": "m", "km": "km", "mm2": "mm\u00b2", "cm2": "cm\u00b2", "m2": "m\u00b2", "km2": "km\u00b2",
@@ -2118,6 +2120,7 @@ def _learner_text(text, *, working=False, keep=()):
     if "<=" in text or ">=" in text or "->" in text:
         text = _ASCII_RELATION_RE.sub(lambda m: _RELATION_SIGNS[m.group()], text)
     if "_{" in text:
+        text = _ENTRY_SUBSCRIPT_RE.sub(r"(\1,\2)", text)
         text = _BRACED_SUBSCRIPT_RE.sub(r"_\1", text)
     if "_" in text:
         text = _IDENTIFIER_RE.sub(_identifier_text, text)

@@ -231,7 +231,9 @@ def compare_length_picture(rng, tier="easy"):
     distractors = pick_distractors(answer_text, cands, n=2 if pair else 3)
     lens = ", ".join(f"{o['label']} {o['length']}" for o in objs)
     how = (
-        "They all start at the same line, so the one that ends last is longest."
+        "They all start at the same line and end at the same place, so they are the same length."
+        if lined and key is None
+        else f"They all start at the same line, so the one that ends {'last is longest' if more else 'first is shortest'}."
         if lined
         else "They do not start together, so compare how long each is, not where it ends."
     )
@@ -268,11 +270,17 @@ def _sizes(rng, masses: list[int]) -> list[int]:
 
 def _mass_pair(rng):
     """(a, b, more) for a balance of one object each: distinct masses."""
-    names = rng.sample(_MASS_OBJECTS, 2)
+    for _ in attempts(500, "two objects with clearly different real weights"):
+        names = rng.sample(sorted(_REAL_GRAMS), 2)
+        lo, hi = sorted(names, key=_REAL_GRAMS.get)
+        if _REAL_GRAMS[hi] >= 1.8 * _REAL_GRAMS[lo]:
+            break
     for _ in attempts(200, "two distinct masses"):
-        ma, mb = rng.randint(1, 12), rng.randint(1, 12)
+        ma, mb = sorted((rng.randint(1, 12), rng.randint(1, 12)))
         if abs(ma - mb) >= 2:
             break
+    if _REAL_GRAMS[names[0]] > _REAL_GRAMS[names[1]]:
+        ma, mb = mb, ma  # the drawn masses agree with what each object really weighs
     sizes = _sizes(rng, [ma, mb])
     return [{"label": n, "mass": m, "size": s} for n, m, s in zip(names, (ma, mb), sizes)]
 

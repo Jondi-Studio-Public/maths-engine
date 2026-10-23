@@ -19,8 +19,6 @@ answer_position:
   - ey_shape_sides/easy
   f10-square-roots-perfect-squares:
   - square_roots_perfect_squares/hard
-  fraction-decimal-percent:
-  - fraction_decimal_percent/medium
   place-value-to-100:
   - teen_place_value/easy
   place-value-to-20:

@@ -291,7 +291,10 @@ def fraction_decimal_percent(rng, denominators=(2, 4, 5, 10, 20, 25), reverse_di
     if reverse_directions:
         modes = modes + ("percent_from_decimal", "decimal_from_percent")
     mode = rng.choice(modes)
-    stem = rng.choice(_FDP_STEMS[mode])
+    # The scene stems (a tank, a ribbon, a battery) are parts of a whole, so an value of 1 or more only gets the bare
+    # "write it as" stems, the first two of each mode.
+    stems = _FDP_STEMS[mode][:2] if value >= 1 else _FDP_STEMS[mode]
+    stem = rng.choice(stems)
     if mode in ("percent", "percent_from_decimal"):
         render, answer = _fdp_pct, percent_text
     elif mode in ("decimal", "decimal_from_percent"):
@@ -341,6 +344,8 @@ def fraction_decimal_percent(rng, denominators=(2, 4, 5, 10, 20, 25), reverse_di
     def take(candidate):
         if candidate in seen or candidate <= 0:
             return False
+        if render is _fdp_dec and candidate.denominator == 1 and value.denominator != 1:
+            return False  # a "12.0" beside "1.2" reads oddly
         q = candidate.denominator
         while q % 2 == 0:
             q //= 2

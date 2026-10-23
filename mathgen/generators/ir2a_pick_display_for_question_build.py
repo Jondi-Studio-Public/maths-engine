@@ -62,6 +62,11 @@ TEMPTING = {
 }
 
 
+def _the(group: str) -> str:
+    """The group name after "the": some names already begin with "the"."""
+    return group if group.startswith("the ") else f"the {group}"
+
+
 def _upper_first(text: str) -> str:
     """Capitalise the first letter only, so "brand A batteries" becomes "Brand A batteries"."""
     return text[:1].upper() + text[1:]
@@ -534,7 +539,7 @@ def exd_x_ir2a_pick_display_for_question(rng: random.Random, tier: str = "exam")
         )
         pa = _display_part(rng, BOX)
         pb = number_part(
-            prompt=f"What is the median of the {ga}?",
+            prompt=f"What is the median of {_the(ga)}?",
             exact=ma,
             places=0,
             marks=1,
@@ -549,7 +554,7 @@ def exd_x_ir2a_pick_display_for_question(rng: random.Random, tier: str = "exam")
             sensible_range=(0, None),
         )
         pc = number_part(
-            prompt=f"What is the median of the {gb}?",
+            prompt=f"What is the median of {_the(gb)}?",
             exact=mb,
             places=0,
             marks=1,

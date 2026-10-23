@@ -176,7 +176,7 @@ def fr2c_cubic_equation(rng, tier="easy"):
         ),
         pt="" if not p else ", with the point P marked on it",
         form=form,
-        k=" p and q are whole numbers" if tier == "easy" else " p and q are whole numbers and k is a number",
+        k=" p and q are integers" if tier == "easy" else " p and q are integers and k is a number",
     )
     working = [
         f"The graph crosses the x-axis at x = {a} and touches it at x = {b}, so the factor for {b} is squared.",

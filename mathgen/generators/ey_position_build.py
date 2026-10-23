@@ -306,7 +306,8 @@ def _pw_where(rng):
     opposite = {"above": "below", "below": "above", "left": "right", "right": "left"}[rel]
     cands = [Distractor(_PLACES[opposite], "eyp-opposite-direction")]
     cands += [Distractor(_PLACES[r], "eyp-wrong-axis") for r in _PLACES if r not in (rel, opposite)]
-    working = [f"The {x} is {_PLACES[rel]} the {y}."]
+    of = " of" if rel in ("left", "right") else ""
+    working = [f"The {x} is {_PLACES[rel]}{of} the {y}."]
     return _mcq(text, _PLACES[rel], cands, fig, working)
 
 

@@ -402,13 +402,15 @@ def _build_pyramid_right_triangle_base(rng) -> dict:
 
     candidates = [str(int(omits_base)), str(int(no_half_all)), str(int(omits_hyp))]
 
-    base_area = a * b // 2
+    def half(n: int) -> str:
+        return str(n // 2) if n % 2 == 0 else f"{n // 2}.5"
+
     working = [
-        f"Base: ½ × {a} × {b} = {base_area} cm².",
-        f"Face on the {a} cm edge: ½ × {a} × {s_a} = {a * s_a // 2} cm².",
-        f"Face on the {b} cm edge: ½ × {b} × {s_b} = {b * s_b // 2} cm².",
-        f"Face on the {c} cm edge: ½ × {c} × {s_c} = {c * s_c // 2} cm².",
-        f"Total = {base_area} + {a * s_a // 2} + {b * s_b // 2} + {c * s_c // 2} = {answer} cm².",
+        f"Base: ½ × {a} × {b} = {half(a * b)} cm².",
+        f"Face on the {a} cm edge: ½ × {a} × {s_a} = {half(a * s_a)} cm².",
+        f"Face on the {b} cm edge: ½ × {b} × {s_b} = {half(b * s_b)} cm².",
+        f"Face on the {c} cm edge: ½ × {c} × {s_c} = {half(c * s_c)} cm².",
+        f"Total = {half(a * b)} + {half(a * s_a)} + {half(b * s_b)} + {half(c * s_c)} = {answer} cm².",
     ]
 
     return dict(

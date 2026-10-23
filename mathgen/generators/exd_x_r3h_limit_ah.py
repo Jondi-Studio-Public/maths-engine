@@ -117,7 +117,7 @@ def exd_x_r3h_limit_ah(rng, tier="exam"):
                     2,
                     2,
                     [
-                        f"f'(x) = L × {a_text}^x, where L is the limit from (a), so f'({c}) = {limit_bracketed} × {a_text}^{c}."
+                        f"f'(x) = L × {a_text}^x, where L is the limit from (a), so f'({c}) = {limit_bracketed} × {a_text if c == 1 else f'{a_text}^{c}'}."
                     ],
                     [
                         (a**c, "exponential-derivative-missing-ln-factor"),
@@ -135,7 +135,7 @@ def exd_x_r3h_limit_ah(rng, tier="exam"):
                     1,
                     3,
                     [
-                        f"The tangent at x = {c} has gradient L × {a_text}^{c} and passes through ({c}, {a_text}^{c}).",
+                        f"The tangent at x = {c} has gradient L × {a_text if c == 1 else f'{a_text}^{c}'} and passes through ({c}, {a_text if c == 1 else f'{a_text}^{c}'}).",
                         f"Setting y = 0 gives x = {c} - 1/L = {c} - 1/{limit_bracketed}.",
                     ],
                     [

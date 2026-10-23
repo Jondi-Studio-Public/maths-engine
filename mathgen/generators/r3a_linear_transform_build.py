@@ -24,7 +24,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import attempts, check, generator, round_half_up
+from ..core import attempts, check, generator, paren_negative, round_half_up
 from ._r3a_kit import build_until, clear_of_boundary, number_part, single, sqrt_fraction
 
 
@@ -126,7 +126,9 @@ def _easy(rng: random.Random) -> dict:
             value,
             2,
             1,
-            [f"Var(Y) = a^2 Var(X) = {a}^2 × {float(var_x):g}; the shift {b} does not change the spread."],
+            [
+                f"Var(Y) = a^2 Var(X) = {paren_negative(a)}^2 × {float(var_x):g}; the shift {b} does not change the spread."
+            ],
             [
                 (a * var_x, "r3a-linear-variance-omits-the-square"),
                 (a * a * var_x + b, "r3a-linear-variance-adds-the-shift"),
@@ -217,7 +219,7 @@ def _medium(rng: random.Random) -> dict:
             (a * sd * sd + shift, "r3a-linear-variance-adds-the-shift"),
             (a * sd, "r3a-linear-variance-scales-the-sd-only"),
         ]
-        working = [f"Var(aX + b) = a^2 Var(X) = {float(a):g}^2 × {float(sd * sd):g}."]
+        working = [f"Var(aX + b) = a^2 Var(X) = {paren_negative(float(a))}^2 × {float(sd * sd):g}."]
     # the transformed distribution itself: two equally likely points one standard deviation either side of the mean
     points = [mean - sd, mean + sd]
     half = [Fraction(1, 2)] * 2

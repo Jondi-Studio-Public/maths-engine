@@ -204,7 +204,7 @@ def _build(rng: random.Random) -> dict:
                 f"From {lo_i} to {start + (i + 1) * width} is {frac(1 - u)} of the class with frequency {freqs[i]}.",
                 f"From {start + j * width} to {hi_i} is {frac(v)} of the class with frequency {freqs[j]}.",
                 f"Count = {freqs[i]} x {frac(1 - u)} + (whole classes in between) + {freqs[j]} x {frac(v)} "
-                f"= {rational_text(prob_b * n)}, so the probability is {rational_text(prob_b * n)}/{n} = {b_text}.",
+                f"= {rational_text(prob_b * n)}, so the probability is {_over(rational_text(prob_b * n), n)} = {b_text}.",
             ],
             distractors=b_d,
         ),
@@ -221,14 +221,20 @@ def _build(rng: random.Random) -> dict:
             sensible_range=(0, 1),
             follow_through=ft_c,
             working=[
-                f"P(at least {lo_i}) = {rational_text(tail_count)}/{n}.",
+                f"P(at least {lo_i}) = {_over(rational_text(tail_count), n)}.",
                 f"P(less than {hi_i} | at least {lo_i}) = P({lo_i} to {hi_i}) / P(at least {lo_i}) "
-                f"= {rational_text(prob_b * n)}/{rational_text(tail_count)} = {c_text}.",
+                f"= {_over(rational_text(prob_b * n), rational_text(tail_count))} = {c_text}.",
             ],
             distractors=c_d,
         ),
     ]
     return dict(text=stem, parts=parts)
+
+
+def _over(top, bottom) -> str:
+    """top/bottom, bracketing either side that is itself a fraction so the line never reads 394/5/94."""
+    top, bottom = str(top), str(bottom)
+    return f"{'(' + top + ')' if '/' in top else top}/{'(' + bottom + ')' if '/' in bottom else bottom}"
 
 
 @generator("exd_x_r2l_histogram_chain", level=12, presets={"exam": dict(tier="exam")})
