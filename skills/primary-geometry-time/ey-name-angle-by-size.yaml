@@ -1,0 +1,45 @@
+id: ey-name-angle-by-size
+name: Name drawn angles by their size
+domain: primary-geometry-time
+year_level: ['4']
+naplan_domain: [measurement]
+learner_band: early
+description: "List, by letter, which of four drawn angles are acute, right, obtuse, straight or reflex, and then which are two kinds together or every kind but one."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [ey-compare-with-right-angle]
+answer: set
+sources:
+- topic: eyz_angle_kind
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_angle_kind
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_angle_kind
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 4, demand: "Compare each of four angles with a right angle and name it acute, right or obtuse, then list the letters of the kind asked."}
+  medium: {steps: 5, demand: "Name each of four angles from five kinds, including straight and reflex, then list the letters of the kind asked."}
+  hard: {steps: 6, demand: "Name each of four angles from five kinds, then list the letters of two kinds together or of every kind but one."}
+misconceptions:
+- id: eyz-includes-the-neighbouring-kind
+  description: "Adds the angles of a neighbouring kind, such as the right angles with the acute ones."
+- id: eyz-lists-the-neighbouring-kind
+  description: "Lists the angles of a neighbouring kind instead of the kind asked."
+- id: eyz-lists-the-other-kinds
+  description: "Lists the angles that are not of the kind asked."
+- id: eyz-leaves-out-an-angle
+  description: "Leaves one of the angles that fit out of the list."
+- id: eyz-adds-an-extra-angle
+  description: "Adds an angle that does not fit to the list."
+- id: eyz-counts-every-angle
+  description: "Lists every angle shown."
+tags: [acara-f10-v9, early, measurement, angles, acute, obtuse, reflex, ac9m4m04, figure]

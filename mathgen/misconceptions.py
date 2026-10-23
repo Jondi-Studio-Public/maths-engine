@@ -154,6 +154,531 @@ _ENTRIES = (
         "Counting the straight way between two places instead of the steps along the path.",
         area="early-years",
     ),
+    # -- early years: twos facts and doubles (eyz) ------------------------------------------------------------------
+    CatalogueEntry(
+        "eyz-adds-two-for-double",
+        "Adds 2 to the number instead of doubling it (reads 2 groups as 'plus 2').",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-number-again",
+        "Gives the number itself, as if there were only one group of it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-squares-the-number",
+        "Multiplies the number by itself (7 × 7) instead of by 2.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-one-too-many-in-double",
+        "Reaches a double that is one too big, by counting on one extra.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-one-too-few-in-double",
+        "Reaches a double that is one too small, by missing one when counting on.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-product",
+        "Gives the product again where the missing factor was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-names-the-given-factor",
+        "Gives the 2 that is already in the fact instead of the unknown number.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-off-by-one-half",
+        "Gives a number one more or one less than the half.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-changes-by-the-step-once",
+        "Moves from the known twos fact by the number of steps, not by 2 for each step.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-changes-by-one-group-only",
+        "Moves from the known twos fact by only one group of 2, however many groups the new fact is away.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-keeps-the-known-fact",
+        "Gives the known fact again instead of building the new one from it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-doubles-the-tens-only",
+        "Doubles the tens and leaves the ones as they were.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-doubles-the-ones-only",
+        "Doubles the ones and leaves the tens as they were.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-extra-ten-when-regrouping",
+        "Gains a ten when regrouping, so the answer is 10 too big.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lost-ten-when-regrouping",
+        "Loses a ten when regrouping, so the answer is 10 too small.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-doubles-digits-side-by-side",
+        "Doubles each digit and writes the results side by side, without regrouping the ones into tens.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-the-extra-one",
+        "Gives the double of the smaller number and forgets the extra one.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-the-larger-double",
+        "Gives the double of the larger number instead of the double of the smaller plus one.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-the-units-not-the-twos",
+        "Adds the number of extra units, forgetting that each one brings 2.",
+        area="early-years",
+    ),
+    # -- early years: estimating a collection (eyz) -----------------------------------------------------------------
+    CatalogueEntry(
+        "eyz-does-not-round-the-estimate",
+        "Gives the exact count, or the exact total of the counts, without rounding to the nearest 10 as asked.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-rounds-to-the-wrong-ten",
+        "Rounds to the wrong multiple of 10: the one above when the number is close to the one below, or the reverse.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-box-count",
+        "Gives the number of objects in the box as if it were the number in the whole picture.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-wrong-share-of-the-whole",
+        "Scales the box by the wrong share, as though it were one quarter or one sixth of the picture and not one fifth.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-one-part-only",
+        "Estimates from only part of the picture.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-instead-of-subtracts",
+        "Adds the two sides where how many more was asked.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-reports-one-side-only",
+        "Gives the estimate for one side only, where both sides were asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-subtracts-instead-of-adds",
+        "Finds the difference between the two sides where the total was asked.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-other-side",
+        "Estimates the other side of the wall from the one asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-to-multiply",
+        "Gives the number of objects where the amount for all of them was asked.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-faces-for-edges-in-the-total",
+        "Multiplies the length by the number of faces or corners where the edges were needed.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-the-length-instead-of-multiplying",
+        "Adds the length of one straw to the number of edges, or gives one length, instead of multiplying.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-one-turn-for-several",
+        "Gives the size of one smallest turn where several turns were asked.",
+        area="early-years",
+    ),
+    # -- early years: comparing, naming and estimating angles (eyz) -------------------------------------------------
+    CatalogueEntry(
+        "eyz-counts-right-angles-as-bigger",
+        "Counts the angles that are exactly a right angle as bigger than a right angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-right-angles-as-smaller",
+        "Counts the angles that are exactly a right angle as smaller than a right angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-bigger-angles-as-right",
+        "Counts the bigger angles as well as the right angles when asked which are the same as a right angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-every-angle",
+        "Counts every angle shown instead of the ones that fit the comparison.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-off-by-ten-degrees",
+        "Reads the angle 10 or 20 degrees too big or too small, a ray out when judging how far past a benchmark the arm is.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-reads-from-the-wrong-arm",
+        "Measures the angle from the wrong arm, so gives 180 degrees less the angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-angle-not-the-reflex",
+        "Gives the smaller angle between the arms, 360 degrees less the reflex angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-the-straight-angle",
+        "Gives only the part of a reflex angle past a straight line, forgetting the 180 degrees before it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-other-comparison",
+        "Lists the angles that are smaller, the same or bigger than a right angle, but not the kind the question asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-leaves-out-an-angle",
+        "Leaves one of the angles that fit out of the list.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-an-extra-angle",
+        "Adds an angle that does not fit to the list.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-misjudges-how-far-past-the-ray",
+        "Misjudges how far the arm is past a benchmark ray, so the estimate is 20 or 30 degrees out.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-misses-an-outcome",
+        "Leaves out one of the possible outcomes.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-an-impossible-outcome",
+        "Adds an outcome that cannot happen, such as a coin landing on its edge or a letter that is not there.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-repeats-as-outcomes",
+        "Lists the same outcome more than once, as if each repeat were a different outcome.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-every-counter",
+        "Lists every counter in the bag, repeats and all, instead of each colour once.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-other-group",
+        "Lists the outcomes that do not fit the condition instead of the ones that do.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-every-outcome",
+        "Lists every outcome of the event, ignoring the condition.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-a-number-that-does-not-fit",
+        "Adds a number that does not fit the condition to the list.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-includes-the-boundary-number",
+        "Includes the number the condition is measured from, though more than or less than leaves it out.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-factor-not-the-multiples",
+        "Lists the number itself and not the multiples of it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-reads-part-of-the-word",
+        "Lists the outcomes from only the first part of the word.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-rates-the-chance-too-high",
+        "Chooses the word one step more likely than the counts support.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-rates-the-chance-too-low",
+        "Chooses the word one step less likely than the counts support.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-opposite-chance",
+        "Chooses the word for the opposite chance, such as unlikely for likely.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-ignores-the-counts",
+        "Chooses a word without using how many counters or times there were.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-one-colour-not-the-total",
+        "Gives the number of counters of one colour where the total was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-the-colour-not-the-rest",
+        "Gives the number of counters of the named colour where the number that are not that colour was asked for.",
+        area="early-years",
+    ),
+    # -- early years: features of solids (eyz) ----------------------------------------------------------------------
+    CatalogueEntry(
+        "eyz-counts-the-curved-surface-as-a-face",
+        "Counts the curved surface as one of the flat faces.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-edges-for-faces",
+        "Gives the number of edges where the faces were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-corners-for-faces",
+        "Gives the number of corners where the faces were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-only-the-faces-you-can-see",
+        "Counts only the faces that show in the picture, missing the ones behind and underneath.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-flat-faces-for-curved",
+        "Gives the number of flat faces where the curved surfaces were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-faces-for-edges",
+        "Gives the number of faces where the edges were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-corners-for-edges",
+        "Gives the number of corners where the edges were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-misses-the-hidden-edges",
+        "Counts only the edges that show in the picture, missing the hidden ones.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-faces-for-corners",
+        "Gives the number of faces where the corners were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-edges-for-corners",
+        "Gives the number of edges where the corners were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-misses-a-hidden-corner",
+        "Counts only the corners that show in the picture, missing one at the back.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-leaves-out-a-solid",
+        "Leaves one of the solids out of the total.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-one-solid-only",
+        "Gives the count for one solid where the total for all of them was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-the-same-count-for-every-solid",
+        "Uses the count of one solid for every solid, though the solids are different.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-every-solid-in-the-picture",
+        "Adds in the solids of other names as well as the ones asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-the-solids-not-their-features",
+        "Gives the number of solids of that name instead of their faces, edges or corners.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-miscounts-the-solids",
+        "Is one solid out in counting how many there are of that name.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-only-the-sides",
+        "Counts the side faces of a prism and leaves out its two ends.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-the-other-solids-count",
+        "Uses the count for a prism where a pyramid was named, or the reverse.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-the-base-edges-twice",
+        "Counts the edges of the base twice.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-only-the-base-edges",
+        "Gives the edges of the base only.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-only-the-base-corners",
+        "Gives the corners of the base only.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-the-corners-of-the-flat-pieces",
+        "Adds up the corners of every piece of the net, though pieces share corners when it folds.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-leaves-out-a-piece-of-the-net",
+        "Leaves one of the pieces of the net out, or counts only the pieces of one kind.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-the-other-solids-rule",
+        "Works out the base from the given count with the rule for a prism where a pyramid is meant, or the reverse.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-repeats-the-given-count",
+        "Gives the count already stated in the question.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-base-sides-not-the-count",
+        "Gives the number of sides of the base instead of the count asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-instead-of-using-eulers-formula",
+        "Adds the faces and edges instead of using V - E + F = 2.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-the-two-in-eulers-formula",
+        "Subtracts the faces from the edges and leaves out the 2 in V - E + F = 2.",
+        area="early-years",
+    ),
+    # -- early years: symmetry in drawn shapes (eyz) ----------------------------------------------------------------
+    CatalogueEntry(
+        "eyz-counts-diagonals-as-lines",
+        "Counts the diagonals of a rectangle or parallelogram as lines of symmetry.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-number-of-sides",
+        "Gives the number of sides of the shape where its symmetry was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-order-for-the-lines",
+        "Gives the order of rotational symmetry where the lines of symmetry were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-each-line-twice",
+        "Counts each line of symmetry twice, once for each half.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-lines-for-the-order",
+        "Gives the number of lines of symmetry where the order of rotational symmetry was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-the-turn-back-to-the-start",
+        "Leaves out the full turn that returns the shape to where it started, so is one short.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-says-no-rotational-symmetry",
+        "Says a shape that fits onto itself only after a full turn has no rotational symmetry (order 0).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-twice-round",
+        "Counts a second full turn as well as the first, so doubles the order.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-a-full-turn",
+        "Gives 360 degrees, a full turn, as the smallest turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-always-gives-a-half-turn",
+        "Gives 180 degrees as the smallest turn whatever the shape.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-order-not-the-angle",
+        "Gives the order of rotational symmetry where the angle of the turn was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-rest-of-the-turn",
+        "Gives 360 degrees less the smallest turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-includes-the-neighbouring-kind",
+        "Adds the angles of a neighbouring kind, such as the right angles with the acute ones, to the list.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-neighbouring-kind",
+        "Lists the angles of a neighbouring kind, such as the right angles for the acute ones.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-other-kinds",
+        "Lists the angles that are not of the kind asked for.",
+        area="early-years",
+    ),
     # -- early years: sorting, tally tables and picture displays ----------------------------------------------------
     CatalogueEntry(
         "eyt-counts-all-kinds",

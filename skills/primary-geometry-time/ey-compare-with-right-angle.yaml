@@ -1,0 +1,47 @@
+id: ey-compare-with-right-angle
+name: Compare drawn angles with a right angle
+domain: primary-geometry-time
+year_level: ['3']
+naplan_domain: [measurement]
+learner_band: early
+description: "Name, by letter, which of four drawn angles are smaller than, the same as or bigger than a right angle, judging each against a dashed square corner, then against a drawn right angle, then including angles close to a right angle, straight angles and reflex angles."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [f10-angle-turn-right-reference]
+answer: set
+sources:
+- topic: eyz_right_angle_compare
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_right_angle_compare
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_right_angle_compare
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 4, demand: "Compare each of four angles with the dashed square corner drawn on it, then list the letters that fit."}
+  medium: {steps: 5, demand: "Turn a right angle R, drawn apart from the angles, over each of the four angles in the mind, then list the letters that fit."}
+  hard: {steps: 6, demand: "Judge angles drawn at any turn, some only 12 degrees from a right angle, a straight angle or a reflex angle, against the right angle R."}
+misconceptions:
+- id: eyz-lists-the-other-comparison
+  description: "Lists the angles of a different comparison from the one asked."
+- id: eyz-counts-right-angles-as-bigger
+  description: "Treats an angle that is a right angle as bigger than a right angle."
+- id: eyz-counts-right-angles-as-smaller
+  description: "Treats an angle that is a right angle as smaller than a right angle."
+- id: eyz-counts-bigger-angles-as-right
+  description: "Lists the bigger angles as well as the right angles."
+- id: eyz-leaves-out-an-angle
+  description: "Leaves one of the angles that fit out of the list."
+- id: eyz-adds-an-extra-angle
+  description: "Adds an angle that does not fit to the list."
+- id: eyz-counts-every-angle
+  description: "Lists every angle shown."
+tags: [acara-f10-v9, early, measurement, angles, right-angle, ac9m3m05, figure]

@@ -1,0 +1,64 @@
+id: ey-symmetry-from-drawn-shapes
+name: Count the symmetry of a drawn shape
+domain: primary-geometry-time
+year_level: ['4']
+naplan_domain: [space]
+learner_band: early
+description: "Count the lines of symmetry of a drawn shape and its order of rotational symmetry, from common shapes up to outlines with turning symmetry but no lines, then give the smallest turn that fits a shape onto itself."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [f10-shape-features-classification]
+answer: number
+sources:
+- topic: eyz_symmetry_count
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_symmetry_count
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_symmetry_count
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: eyz_symmetry_count_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Imagine folding a common shape so the halves match, and count every fold that works."}
+  medium: {steps: 3, demand: "Imagine turning a shape a full turn about its middle, and count how many times it fits onto itself, including the start."}
+  hard: {steps: 4, demand: "Test an outline for folds and for turns separately, telling shapes with turns but no lines, or lines but no turns, from the plain cases."}
+  exam: {steps: 6, demand: "Count the lines, then the order of rotation, then divide 360 degrees by the order to find the smallest turn, then find the angle of several of those turns."}
+misconceptions:
+- id: eyz-counts-diagonals-as-lines
+  description: "Counts the diagonals of a rectangle or parallelogram as lines of symmetry."
+- id: eyz-gives-the-number-of-sides
+  description: "Gives the number of sides where the symmetry was asked for."
+- id: eyz-gives-the-order-for-the-lines
+  description: "Gives the order of rotation where the lines were asked for."
+- id: eyz-counts-each-line-twice
+  description: "Counts each line of symmetry twice."
+- id: eyz-gives-the-lines-for-the-order
+  description: "Gives the lines of symmetry where the order of rotation was asked for."
+- id: eyz-forgets-the-turn-back-to-the-start
+  description: "Leaves out the full turn back to the start, so is one short."
+- id: eyz-says-no-rotational-symmetry
+  description: "Says a shape that fits onto itself only after a full turn has order 0."
+- id: eyz-counts-twice-round
+  description: "Counts a second full turn as well as the first."
+- id: eyz-gives-a-full-turn
+  description: "Gives 360 degrees as the smallest turn."
+- id: eyz-always-gives-a-half-turn
+  description: "Gives 180 degrees whatever the shape."
+- id: eyz-gives-the-order-not-the-angle
+  description: "Gives the order where the angle of the turn was asked for."
+- id: eyz-gives-one-turn-for-several
+  description: "Gives the size of one smallest turn where several turns were asked."
+- id: eyz-gives-the-rest-of-the-turn
+  description: "Gives 360 degrees less the smallest turn."
+tags: [acara-f10-v9, early, space, symmetry, rotational-symmetry, ac9m4sp03, figure]
