@@ -276,7 +276,7 @@ def rvec(S):
     return V.cat(V.R_OF_UV, V.mv(S.r))
 
 
-def numeric_area(surf, u_range=None, v_range=None, n=10, integrand=None):
+def numeric_area(surf, u_range=None, v_range=None, n=24, integrand=None):
     """The area of the surface by Gauss-Legendre quadrature of |r_u x r_v|, with r differentiated by SymPy and every
     function lambdified: independent of the closed-form normal, its length and the exact integral. With an `integrand` g(x, y, z)
     the result is the surface integral of g, g being evaluated at r(u, v)."""

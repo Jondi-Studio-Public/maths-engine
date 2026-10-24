@@ -292,12 +292,14 @@ def regular_irregular_area_perimeter(rng, mode="rectangle"):
     else:  # mode == "lshape_perimeter"
         # Hard: L-shape (same construction), ask for perimeter
         # Guard against uses_area_formula collision
-        for attempt in range(20):
+        for attempt in range(200):
             L = rng.randint(6, 20)
             W = rng.randint(6, 20)
             a = rng.randint(2, L - 2)
             b = rng.randint(2, W - 2)
 
+            if a >= W or b >= L:
+                continue  # a notch side as long as a sheet side would turn the L into a rectangle
             area_value = L * W - a * b
             perimeter_value = 2 * (L + W)
 

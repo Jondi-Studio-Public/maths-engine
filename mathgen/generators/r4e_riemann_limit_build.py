@@ -95,7 +95,7 @@ def _easy(rng):
     ]
     working = [
         f"As n grows, {n1}n/(6n^2) and {n0}/(6n^2) tend to 0.",
-        f"R_n tends to {n2}/6 = {a_}, the area under the curve.",
+        f"R_n tends to {n2}/6{'' if f'{n2}/6' == str(a_) else f' = {a_}'}, the area under the curve.",
     ]
     part = fraction_part("Find the value that R_n approaches as n increases without bound.", a_, 2, working, wrong)
     return single(stem, part)

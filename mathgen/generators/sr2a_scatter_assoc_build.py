@@ -285,7 +285,7 @@ _HARD_ASK = (
 
 def _vertical_outlier(rng, direction, ctx):
     """A tight line plus one point far off it: removing P strengthens the association."""
-    for _ in attempts(5000, "a tight line with one outlier"):
+    for _ in attempts(60000, "a tight line with one outlier"):
         xs = sorted(rng.sample(range(1, 14), 12))
         slope = rng.uniform(1.2, 1.7)
         base = rng.uniform(2, 5)

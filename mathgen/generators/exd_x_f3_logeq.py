@@ -112,7 +112,7 @@ def _hidden_quadratic(rng: random.Random):
         math.log(abs(mid)) / math.log(p),  # takes the middle coefficient as the value of p^x
     ]
     working = [
-        f"Let y = {p}^x: y^2 + ({mid})y - {u * v} = 0, so (y - {u})(y + {v}) = 0",
+        f"Let y = {p}^x: y^2{f' + {mid}y' if mid > 0 else (f' - {-mid}y' if mid < 0 else '')} - {u * v} = 0, so (y - {u})(y + {v}) = 0",
         f"y = {p}^x is positive, so y = {u} (y = -{v} is impossible)",
         f"x = ln {u} / ln {p} = {x:.3f}",
     ]

@@ -18,6 +18,7 @@ remainder) and, for the mixed numeral and the decimal, by an exact Fraction.
 from __future__ import annotations
 
 from fractions import Fraction
+from math import gcd
 
 from ..answers import Distractor, exact_value
 from ..core import attempts, check, generator, phrase, round_half_up, stated_precision_string
@@ -124,7 +125,8 @@ def _medium(rng):
     cands = [c for c in cands if _as_fraction(c.value) != value]
     working = [
         f"{grouped(n)} / {d} = {q} remainder {r}, because {q} x {d} + {r} = {grouped(n)}.",
-        f"The {r} left over is shared into {d} parts, so it is {r}/{d} of a share.",
+        f"The {r} left over is shared into {d} parts, so it is {r}/{d} of a share"
+        + (f", which simplifies to {r // gcd(r, d)}/{d // gcd(r, d)}." if gcd(r, d) > 1 else "."),
         f"Each share is {answer_text} {unit}.",
     ]
     return dict(

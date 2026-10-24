@@ -123,7 +123,7 @@ def _medium(rng):
             ("flux-piece-unnormalised-normal", answer * a),
             (
                 "flux-piece-wrong-component",
-                vc.integrate(F[0].xreplace({x: a * C, y: a * S, z: w}) * C * a, side.dom, False),
+                vc.integrate(sp.sympify(F[0]).xreplace({x: a * C, y: a * S, z: w}) * C * a, side.dom, False),
             ),
         ]
         template = rng.choice(_SIDE)
@@ -137,7 +137,7 @@ def _medium(rng):
     cap = vc.disc_cap(a, level)
     answer = _pc(cap, F, inside)
     sign = 1 if top else -1
-    R_here = F[2].xreplace({z: level})
+    R_here = sp.sympify(sp.sympify(F[2]).xreplace({z: level}))
     plain = vc.integrate(R_here.xreplace({x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False)
     check(sp.expand(sign * plain - answer) == 0, "cap flux disagrees with the formula")
     cands = [
@@ -145,11 +145,12 @@ def _medium(rng):
         ("flux-piece-forgot-polar-r", sign * vc.integrate(R_here.xreplace({x: vc.u * C, y: vc.u * S}), cap.dom, False)),
         (
             "flux-piece-cap-at-wrong-height",
-            sign * vc.integrate(F[2].xreplace({z: h - level, x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False),
+            sign
+            * vc.integrate(sp.sympify(F[2]).xreplace({z: h - level, x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False),
         ),
         (
             "flux-piece-wrong-component",
-            sign * vc.integrate(F[0].xreplace({z: level, x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False),
+            sign * vc.integrate(sp.sympify(F[0]).xreplace({z: level, x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False),
         ),
     ]
     where = "top" if top else "base"
@@ -330,7 +331,10 @@ def _exam_once(rng):
                 ("flux-piece-inward-normal", -side),
                 ("flux-piece-forgot-radius-factor", side / a),
                 ("flux-piece-unnormalised-normal", side * a),
-                ("flux-piece-wrong-component", vc.integrate(F[0].xreplace(sub_side) * C * a, side_surf.dom, False)),
+                (
+                    "flux-piece-wrong-component",
+                    vc.integrate(sp.sympify(F[0]).xreplace(sub_side) * C * a, side_surf.dom, False),
+                ),
             ],
             3,
             ["Parametrise by (a cos θ, a sin θ, z); the outward normal is a(cos θ, sin θ, 0) dθ dz."],
@@ -342,11 +346,11 @@ def _exam_once(rng):
                 ("flux-piece-inward-normal", -top),
                 (
                     "flux-piece-forgot-polar-r",
-                    vc.integrate(F[2].xreplace({z: h, x: vc.u * C, y: vc.u * S}), cap.dom, False),
+                    vc.integrate(sp.sympify(F[2]).xreplace({z: h, x: vc.u * C, y: vc.u * S}), cap.dom, False),
                 ),
                 (
                     "flux-piece-cap-at-wrong-height",
-                    vc.integrate(F[2].xreplace({z: 0, x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False),
+                    vc.integrate(sp.sympify(F[2]).xreplace({z: 0, x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False),
                 ),
             ],
             2,
@@ -359,11 +363,11 @@ def _exam_once(rng):
                 ("flux-piece-base-sign", -base),
                 (
                     "flux-piece-forgot-polar-r",
-                    -vc.integrate(F[2].xreplace({z: 0, x: vc.u * C, y: vc.u * S}), cap.dom, False),
+                    -vc.integrate(sp.sympify(F[2]).xreplace({z: 0, x: vc.u * C, y: vc.u * S}), cap.dom, False),
                 ),
                 (
                     "flux-piece-cap-at-wrong-height",
-                    -vc.integrate(F[2].xreplace({z: h, x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False),
+                    -vc.integrate(sp.sympify(F[2]).xreplace({z: h, x: vc.u * C, y: vc.u * S}) * vc.u, cap.dom, False),
                 ),
             ],
             2,

@@ -417,7 +417,7 @@ def _groups(rng, name, level):
     iqa, iqb = qa[2] - qa[0], qb[2] - qb[0]
     if iqa == iqb:
         raise AssertionError("retry")
-    stem += f"{name} wants to know which group is more consistent, that is, which has the smaller spread in the middle half of its values."
+    stem += f"{name} wants to know which group is more consistent, that is, which has the smaller spread in the middle half of its values. Find quartiles by splitting the ordered data into a lower half and an upper half; when there is an odd number of values, leave the median out of both halves."
     part = number_part(
         prompt="What is the difference between the interquartile ranges of the two groups?",
         exact=abs(iqa - iqb),
