@@ -519,7 +519,8 @@ def gt_inverse_trig(rng, tier="easy"):
         return _easy(rng)
     if tier == "medium":
         return rng.choice([_medium_greatest, _medium_asymptote, _medium_domain, _medium_value])(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if tier != "hard":
+        raise ValueError(f"unknown tier {tier!r}")
     return rng.choice([_hard_ratio, _hard_composite])(rng)
 
 
@@ -530,9 +531,10 @@ def gt_inverse_trig(rng, tier="easy"):
 @retry_short
 def gt_inverse_trig_exam(rng, tier="exam"):
     """Exam chain on f(x) = a arcsin(bx) + c: largest x in the domain, greatest value, f at a given x, the x-intercept."""
-    check(tier == "exam", f"unknown tier {tier!r}")
-    a = rng.choice((2, 3, 4, 6))
-    b = rng.choice((2, 3, 4))
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
+    a = rng.choice((2, 3, 4, 5, 6, 8))
+    b = rng.choice((2, 3, 4, 5))
     s = rng.choice((Frac(1, 2), Frac(-1, 2), Frac(1)))  # f has its zero where b x = s
     c = -a * _arcsin(float(s))  # in units of pi
     check(abs(a * math.asin(float(s)) + float(c) * math.pi) < 1e-12, "f does not vanish at the chosen point")

@@ -279,7 +279,8 @@ def gt_modulus(rng, tier="easy"):
         return rng.choice([_easy_max, _easy_max, _easy_intercept])(rng)
     if tier == "medium":
         return rng.choice([_medium_min, _medium_intercept])(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if tier != "hard":
+        raise ValueError(f"unknown tier {tier!r}")
     return _hard(rng)
 
 
@@ -309,8 +310,9 @@ def _list_dist(values, tag) -> Distractor:
 @retry_short
 def gt_modulus_exam(rng, tier="exam"):
     """Exam chain on a quadratic with both zeros positive: intercepts of f(|x|), least value, peak of |f|, solutions of |f| = c."""
-    check(tier == "exam", f"unknown tier {tier!r}")
-    p, q = _draw_same_parity(rng, 1, 9, gap=4, positive=True)
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
+    p, q = _draw_same_parity(rng, 1, 20, gap=4, positive=True)
     h, m = (p + q) // 2, (q - p) // 2
     peak = m * m
     kind = rng.choice(("below", "at", "above"))
@@ -406,7 +408,12 @@ def gt_modulus_exam(rng, tier="exam"):
     ]
     stem = phrase(
         rng,
-        ("The function f is given by f(x) = {f}.", "Consider the function f(x) = {f}."),
+        (
+            "The function f is given by f(x) = {f}.",
+            "Consider the function f(x) = {f}.",
+            "Let f be the quadratic function with rule f(x) = {f}.",
+            "A quadratic function is defined by f(x) = {f}.",
+        ),
         f=quad_text(1, -(p + q), p * q),
     )
     return dict(text=stem, parts=parts)

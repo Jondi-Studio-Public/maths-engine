@@ -340,7 +340,8 @@ def gt_sqrt_function(rng, tier="easy"):
         return _easy(rng)
     if tier == "medium":
         return _medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if tier != "hard":
+        raise ValueError(f"unknown tier {tier!r}")
     return rng.choice([_hard_domain, _hard_range])(rng)
 
 
@@ -351,17 +352,18 @@ def gt_sqrt_function(rng, tier="easy"):
 @retry_short
 def gt_sqrt_function_exam(rng, tier="exam"):
     """Exam chain on f(x) = s^2 - (x - h)^2: greatest value of f and of sqrt(f), the domain, the exact y-intercept."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(200, "a chain with a surd y-intercept"):
-        s_ = rng.choice((2, 3, 4, 5, 6, 7))
-        h = rng.choice((-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6))
+        s_ = rng.choice(range(2, 16))
+        h = rng.choice([v for v in range(-s_ + 1, s_) if v])
         t = s_ * s_
         c0 = t - h * h
         if c0 > 0 and math.isqrt(c0) ** 2 != c0:
             break
     f = lambda x: t - (x - h) ** 2  # noqa: E731
     dom_set = interval_set(("between", h - s_, h + s_))
-    verify_domain(f, dom_set, -20.0, 20.0)
+    verify_domain(f, dom_set, -40.0, 40.0)
     dom = ineq_text(dom_set)
     ys = np.sqrt(np.maximum(f(np.linspace(h - s_, h + s_, 40001)), 0))
     check(abs(ys.max() - s_) < 1e-9, "greatest value of the root differs")
@@ -401,7 +403,7 @@ def gt_sqrt_function_exam(rng, tier="exam"):
         dict(
             prompt="Find the greatest value of f.",
             marks=2,
-            sensible_range=(-100, 100),
+            sensible_range=(-1000, 1000),
             working=[f"f(x) = {t} - ({_shifted(h)})^2, so its greatest value is {t}, at x = {h}."],
             distractors=pick(a_fields["answer_text"], a_wrong),
             **a_fields,

@@ -289,7 +289,8 @@ def gt_f_squared(rng, tier="easy"):
         return _easy(rng)
     if tier == "medium":
         return _medium(rng)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if tier != "hard":
+        raise ValueError(f"unknown tier {tier!r}")
     return rng.choice([_hard_max, _hard_max, _hard_meet])(rng)
 
 
@@ -307,9 +308,10 @@ def _count_solutions(fn, c: float, lo: float, hi: float) -> int:
 @retry_short
 def gt_f_squared_exam(rng, tier="exam"):
     """Exam chain on f(x) = x^2 - 2hx + h^2 - m^2: least value, local maximum of f^2, turning points, solutions of f^2 = c."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     h = rng.choice((-3, -2, -1, 1, 2, 3, 4))
-    n = rng.choice((2, 3, 4, 5, 6, 7, 8, 9, 10, 12))  # f(x) = (x - h)^2 - n, so f has two zeros
+    n = rng.choice(range(2, 51))  # f(x) = (x - h)^2 - n, so f has two zeros
     k = -n
     f = para(1, h, k)
     verify_square(f, _square_points(h, math.sqrt(n), k))
