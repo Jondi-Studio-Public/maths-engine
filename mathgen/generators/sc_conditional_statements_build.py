@@ -193,6 +193,22 @@ def _draw_pair(rng, relation):
     raise Redraw("no pair")
 
 
+def _nested_remainders(rng):
+    """(P, Q, A, B, N) for "if n leaves remainder r when divided by k, then n leaves remainder r when divided by j"
+    with j a factor of k and r below j. The first value of Q is r, which satisfies P too, so the smallest counterexample
+    to the converse is r + j, never the first value of Q."""
+    for _ in attempts(200, "nested remainders"):
+        j = rng.choice((2, 3, 4, 5, 6))
+        k = j * rng.choice((2, 3))
+        r = rng.randint(1, j - 1)
+        universe = rng.choice(_UNIVERSES)
+        p, q = _remainder(k, r), _remainder(j, r)
+        a, b = _sets(p, q, universe)
+        if a <= b and len(b - a) >= 3 and len(a) >= 4:
+            return p, q, a, b, universe
+    raise Redraw("no nested pair")
+
+
 def _vals(k):
     """ "1 value" or "5 values"."""
     return f"{k} value" if k == 1 else f"{k} values"
@@ -248,11 +264,15 @@ def _easy(rng):
             f"The values of n that satisfy the hypothesis start {_numbers(a, 6)}; the first of them that fails the conclusion is {ans}.",
         ]
         return dict(text=text, working=working, distractors=_dist(rng, ans, cands), **int_fields(ans))
-    for _ in attempts(200, "a counterexample that is not the first value satisfying Q"):
-        p, q, a, b, universe = _draw_pair(rng, "true")
-        # The converse's hypothesis is Q; for "smallest" the first n satisfying Q must not simply be the answer.
-        if variant != "smallest-converse" or min(b - a) != min(b):
-            break
+    if variant == "smallest-converse" and rng.random() < 0.7:
+        p, q, a, b, universe = _nested_remainders(rng)
+    else:
+        for _ in attempts(200, "a counterexample that is not the first value satisfying Q"):
+            p, q, a, b, universe = _draw_pair(rng, "true")
+            # The converse's hypothesis is Q; for "smallest" the first n satisfying Q is usually not the answer. A few
+            # draws that are (1 in 5) stay in: the ordinary pairs where it is not are few and fix the key to 3 values.
+            if variant != "smallest-converse" or min(b - a) != min(b) or rng.random() < 0.2:
+                break
     only_a, only_b = _counts(a, b, universe)
     check(only_a == 0, "S should be true")
     converse = f"“if {q.text}, then {p.text}”"

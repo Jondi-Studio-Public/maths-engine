@@ -191,3 +191,13 @@ def test_easy_smallest_counterexample_is_not_just_the_first_value_satisfying_the
         first = int(re.search(r"start ([\d, .]+); the first", q.working[1])[1].split(",")[0])
         hits += first == int(q.answer)
     assert total >= 50 and hits / total < 0.25, (hits, total)
+
+
+def test_easy_smallest_counterexample_to_the_converse_has_a_varied_key():
+    keys = {}
+    for seed in range(1500):
+        q = make("sc_conditional_counts", seed=seed, difficulty="easy")
+        if "smallest value" in q.text and "converse" in q.text:
+            keys[q.answer] = keys.get(q.answer, 0) + 1
+    total = sum(keys.values())
+    assert len(keys) >= 8 and max(keys.values()) / total <= 0.3, keys

@@ -146,15 +146,21 @@ def test_exam_part_b_follows_through_from_a():
 
 
 def test_exam_half_distractor_is_only_offered_for_a_whole_half():
+    odd = even_offered = 0
     for seed in range(300):
         q = sup.exam_question("gt_sqrt_function_exam", seed)
         part_b = q.parts[1]
         t = int(part_b.answer_text) ** 2
+        notes = part_b.option_notes
+        assert notes, seed  # the tags are on the part, so the checks below can see them
+        halves = [text for text, tag in notes.items() if tag == "gtf-root-as-half"]
         if t % 2:
-            assert not any(
-                getattr(d, "misconception", None) == "gtf-root-as-half" or getattr(d, "tag", None) == "gtf-root-as-half"
-                for d in part_b.distractors
-            ), seed
+            odd += 1
+            assert not halves, (seed, halves)
+        elif halves:
+            even_offered += 1
+            assert halves == [str(t // 2)], (seed, halves)
+    assert odd >= 20 and even_offered >= 20, (odd, even_offered)
 
 
 def test_skill_declares_every_misconception_the_generator_emits():
@@ -166,10 +172,9 @@ def test_skill_declares_every_misconception_the_generator_emits():
     emitted = set()
     for tier in ("easy", "medium", "hard"):
         for seed in range(150):
-            q = sup.tier_question("gt_sqrt_function", tier, seed)
-            emitted |= {getattr(d, "tag", None) or getattr(d, "misconception", None) for d in q.distractors}
+            emitted |= set(sup.tier_question("gt_sqrt_function", tier, seed).option_notes.values())
     for seed in range(150):
-        q = sup.exam_question("gt_sqrt_function_exam", seed)
-        for p in q.parts:
-            emitted |= {getattr(d, "tag", None) or getattr(d, "misconception", None) for d in p.distractors}
-    assert (emitted - {None}) <= declared, emitted - declared
+        for p in sup.exam_question("gt_sqrt_function_exam", seed).parts:
+            emitted |= set(p.option_notes.values())
+    assert {"gtf-root-as-half", "gtf-domain-wrong-side", "gtf-root-not-taken"} <= emitted, emitted
+    assert emitted <= declared, emitted - declared

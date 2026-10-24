@@ -557,16 +557,24 @@ def _journey_q(rng, shape=None):
     elif shape == "stopped":
         ans = Fraction(t2 - t1)
         text = _JOURNEY_Q["stopped"]
-        # One option below the key, always (the stop lasts at least 2 hours); the rest in a seeded order, so the
-        # key is neither always the smallest nor always beside the same wrong values.
-        rest = [
+        # Three wrong values, how many of them fall below the key drawn at random, so the key has no fixed rank.
+        wrong = {}
+        for v, tag in (
+            (ans - 1, "dg-rd-off-one-gridline"),
+            (ans - 2, "dg-rd-off-one-gridline"),
+            (ans + 1, "dg-rd-off-one-gridline"),
+            (ans + 2, "dg-rd-off-one-gridline"),
             (Fraction(y1), "dg-rd-stop-as-distance"),
             (Fraction(t2), "dg-rd-stop-as-end-time"),
             (Fraction(t1), "dg-rd-stop-as-end-time"),
-            (ans + 1, "dg-rd-off-one-gridline"),
-        ]
-        rng.shuffle(rest)
-        cands = [(ans - 1, "dg-rd-off-one-gridline"), *rest]
+        ):
+            if v > 0 and v != ans:
+                wrong.setdefault(v, tag)
+        below = [(v, t) for v, t in wrong.items() if v < ans]
+        above = [(v, t) for v, t in wrong.items() if v > ans]
+        k = rng.randint(0, min(3, len(below)))
+        cands = rng.sample(below, k) + rng.sample(above, 3 - k)
+        rng.shuffle(cands)
         work = [
             f"The flat part of the graph runs from {t1} to {t2} hours.",
             f"It lasted {t2} - {t1} = {t2 - t1} hour{'' if t2 - t1 == 1 else 's'}.",
@@ -629,7 +637,7 @@ def dg_real_data_graphs_chain(rng, tier="exam"):
         r = Fraction(g["step"], ctx["gx"])
         edge = ctx["gx"] * g["j"]
         X = edge + ctx["gx"] * rng.randint(1, 3)
-        if re.match(r"(?:8|11$|18$)", str(X)):
+        if ctx["key"] == "taxi" and re.match(r"(?:8|11$|18$)", str(X)):
             continue  # "an 8 km trip": the chain keeps to "a N km trip", the form its follow-through test reads
         cost = c + r * X
         far_x = edge + ctx["gx"] * rng.randint(1, 3)

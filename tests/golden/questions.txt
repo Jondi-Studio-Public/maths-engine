@@ -4750,7 +4750,7 @@
 {"answer": "No solution", "id": "identity-and-no-solution/medium/0/8dd23a64a279", "text": "Solve 8(x + 1) = 8x + 10. Which description of its solutions is correct?"}
 {"answer": "Every number is a solution", "id": "identity-and-no-solution/medium/1/3fc7ea6e5a28", "text": "How many solutions does 2(x + 1) = 2(x - 2) + 6 have?"}
 {"answer": "Every number is a solution", "id": "identity-and-no-solution/medium/2/367266ff0d19", "text": "How many solutions does 7x - 5 = 7(x + 4) - 33 have?"}
-{"answer": "3", "id": "implication-converse-contrapositive-counts/easy/0/522b0e798cc5", "text": "Let n be a whole number from 1 to 48. Consider the statement S: “if n is a perf…"}
+{"answer": "6", "id": "implication-converse-contrapositive-counts/easy/0/0782c4a2d796", "text": "Let n be a whole number from 1 to 64. Consider the statement S: “if n leaves a …"}
 {"answer": "3", "id": "implication-converse-contrapositive-counts/easy/1/66c4d58bb430", "text": "Let n be a whole number from 1 to 64. Consider the statement S: “if n is prime,…"}
 {"answer": "10", "id": "implication-converse-contrapositive-counts/easy/2/826178bd3689", "text": "Let n be a whole number from 1 to 48. Consider the statement S: “if n is a mult…"}
 {"answer": "(a) 36; (b) 43; (c) 14; (d) 21; (e) 35", "id": "implication-converse-contrapositive-counts/exam/0/b53df0d6ba16", "text": "Let n be a whole number from 1 to 72. Consider the statement S: “if n is odd, t…"}
@@ -6593,7 +6593,7 @@
 {"answer": "(a) 6; (b) 2; (c) 20; (d) 7", "id": "read-values-and-rates-from-real-data-graphs/exam/1/87b8536c36ca", "text": "The graph shows the fare for a taxi trip against the distance travelled. (a) Wh…"}
 {"answer": "(a) 5; (b) 10; (c) 65; (d) 7", "id": "read-values-and-rates-from-real-data-graphs/exam/2/f7be68c37ee8", "text": "The graph shows the cost of hiring a bike against the number of hours. (a) What…"}
 {"answer": "28", "id": "read-values-and-rates-from-real-data-graphs/hard/0/063c4e79eb3f", "text": "The graph stops at 8 km. At the same rates, what would the fare be for an 11 km…"}
-{"answer": "4", "id": "read-values-and-rates-from-real-data-graphs/hard/1/3790e5e33bf8", "text": "For how many hours did the cyclist stop?"}
+{"answer": "4", "id": "read-values-and-rates-from-real-data-graphs/hard/1/c0eef1099f07", "text": "For how many hours did the cyclist stop?"}
 {"answer": "40", "id": "read-values-and-rates-from-real-data-graphs/hard/2/0c53568b569e", "text": "The graph stops at 4 hours. At the same rates, what would it cost to hire the b…"}
 {"answer": "3", "id": "read-values-and-rates-from-real-data-graphs/medium/0/3030e860c299", "text": "For how many hours of work does the plumber charge $70?"}
 {"answer": "40", "id": "read-values-and-rates-from-real-data-graphs/medium/1/021049da43d4", "text": "What does the plumber charge for a job of 2 hours, in dollars?"}

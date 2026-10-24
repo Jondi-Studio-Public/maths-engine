@@ -770,13 +770,14 @@ def test_prompts_use_a_and_an_correctly_in_the_grid_map_and_real_data_graphs():
                     assert not an_before_consonant.search(t), (topic, tier, seed, t)
 
 
-def test_the_journey_stop_is_not_always_one_or_two_hours_or_the_smallest_option():
-    keys, smallest = Counter(), 0
-    for seed in range(600):
+def test_the_journey_stop_key_has_no_fixed_rank_among_the_options():
+    keys, ranks = Counter(), Counter()
+    for seed in range(1500):
         q = make("dg_real_data_graphs", seed=seed, difficulty="hard")
         if "For how many hours did the cyclist stop" not in q.text:
             continue
         keys[float(q.answer)] += 1
-        if all(float(q.answer) < float(d) for d in q.distractors):
-            smallest += 1
-    assert len(keys) >= 4 and smallest == 0, (keys, smallest)
+        ranks[sum(float(d) < float(q.answer) for d in q.distractors)] += 1
+    total = sum(ranks.values())
+    assert set(keys) >= {2.0, 3.0, 4.0, 5.0}, keys
+    assert set(ranks) >= {0, 1, 2} and max(ranks.values()) / total <= 0.5, ranks
