@@ -1873,7 +1873,7 @@
 {"answer": "Picking a blue counter is unlikely.", "id": "ey-describe-chance-from-counts/medium/0/9a6c48f1ffce", "text": "A bag has 2 yellow, 1 blue and 6 purple counters. Which sentence about picking …"}
 {"answer": "The bus being late tomorrow is an even chance.", "id": "ey-describe-chance-from-counts/medium/1/fbf3efccabdb", "text": "The bus was late on 5 of the last 10 days. Which sentence about tomorrow is tru…"}
 {"answer": "Rain tomorrow is unlikely.", "id": "ey-describe-chance-from-counts/medium/2/1c7155b8d341", "text": "It rained on 2 of the last 10 days. Which sentence about rain tomorrow is true?"}
-{"answer": "70", "id": "ey-estimate-angle-size/easy/0/f26f19ed66b6", "text": "Use the labelled rays. About how big is the angle, in degrees? Nearest 10."}
+{"answer": "70", "id": "ey-estimate-angle-size/easy/0/7a712fd75c82", "text": "The rays are 30 degrees apart. Estimate the drawn angle to the nearest 10."}
 {"answer": "140", "id": "ey-estimate-angle-size/easy/1/0315439b8aad", "text": "Use the labelled rays. About how big is the angle, in degrees? Nearest 10."}
 {"answer": "170", "id": "ey-estimate-angle-size/easy/2/d23bee45b6c6", "text": "Read between the labelled rays. Estimate the angle in degrees, to the nearest 1…"}
 {"answer": "240", "id": "ey-estimate-angle-size/hard/0/a0155f5c16fd", "text": "The angle is past a straight line. About how big is it? Nearest 10 degrees."}
@@ -1986,7 +1986,7 @@
 {"answer": "(a) 3; (b) 3; (c) 120; (d) 1920", "id": "ey-symmetry-from-drawn-shapes/exam/2/3bceabdf012f", "text": "Look at this shape. (a) How many lines of symmetry does the shape have? (b) Wha…"}
 {"answer": "4", "id": "ey-symmetry-from-drawn-shapes/hard/0/9416a5857169", "text": "Count the lines of symmetry of this shape."}
 {"answer": "1", "id": "ey-symmetry-from-drawn-shapes/hard/1/5c3fb6b840bd", "text": "How many lines of symmetry does this shape have?"}
-{"answer": "0", "id": "ey-symmetry-from-drawn-shapes/hard/2/6cadaa24f3b0", "text": "How many lines of symmetry does this shape have?"}
+{"answer": "0", "id": "ey-symmetry-from-drawn-shapes/hard/2/ad5430763a0c", "text": "A mirror line makes both halves match. How many does the shape have?"}
 {"answer": "2", "id": "ey-symmetry-from-drawn-shapes/medium/0/e7f0b02d0e39", "text": "How many times does this shape fit onto itself in one full turn?"}
 {"answer": "4", "id": "ey-symmetry-from-drawn-shapes/medium/1/c79a245fd7ba", "text": "How many times does this shape fit onto itself in one full turn?"}
 {"answer": "2", "id": "ey-symmetry-from-drawn-shapes/medium/2/57ea9659f58a", "text": "How many times does this shape fit onto itself in one full turn?"}
@@ -4534,8 +4534,8 @@
 {"answer": "10", "id": "graph-planar-faces/medium/0/e8ddbe1e86cf", "text": "8 suburbs are to be joined so that every suburb has its own direct bike path to…"}
 {"answer": "6", "id": "graph-planar-faces/medium/1/6f9225bde434", "text": "7 stations are to be joined so that every station has its own direct rail link …"}
 {"answer": "4", "id": "graph-planar-faces/medium/2/455c52495c56", "text": "A council plans a separate cable from each of 4 houses to each of 4 depots, 16 …"}
-{"answer": "x ≤ -3", "id": "graph-sqrt-of-function-domain-range/easy/0/e1e58ebc740f", "text": "The graph of the straight line y = f(x) is shown. Find the domain of the functi…"}
-{"answer": "x ≤ 2", "id": "graph-sqrt-of-function-domain-range/easy/1/062387212a60", "text": "The graph of y = f(x) is a straight line, as drawn. State the largest domain of…"}
+{"answer": "x ≤ -3", "id": "graph-sqrt-of-function-domain-range/easy/0/0e9eb19f1752", "text": "A straight line is drawn as the graph of y = f(x). For which values of x is the…"}
+{"answer": "x ≤ 2", "id": "graph-sqrt-of-function-domain-range/easy/1/488839037bad", "text": "A straight line is drawn as the graph of y = f(x). For which values of x is the…"}
 {"answer": "x ≥ -4", "id": "graph-sqrt-of-function-domain-range/easy/2/9d28f1c7b25f", "text": "The graph of y = f(x) is a straight line, as drawn. State the largest domain of…"}
 {"answer": "(a) 81; (b) 9; (c) -6 ≤ x ≤ 12; (d) 6*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/0/c2bc74208714", "text": "Consider the function f(x) = -x^2 + 6x + 72. (a) Find the greatest value of f. …"}
 {"answer": "(a) 4; (b) 2; (c) -1 ≤ x ≤ 3; (d) sqrt(3)", "id": "graph-sqrt-of-function-domain-range/exam/1/72ffbe4a771d", "text": "Consider the function f(x) = -x^2 + 2x + 3. (a) Find the greatest value of f. (…"}
@@ -4543,9 +4543,9 @@
 {"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/0/73864e693237", "text": "For f(x) = -x^2 + 4x + 12, state the range of y = sqrt(f(x))."}
 {"answer": "x ≤ 0 or x ≥ 3", "id": "graph-sqrt-of-function-domain-range/hard/1/3aef37fcf15d", "text": "Let f(x) = 2x^2 - 6x. Find the largest domain of the function y = sqrt(f(x)), a…"}
 {"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/2/f1709b8924ae", "text": "Let f(x) = -x^2 + 2x + 15. Find the range of the function y = sqrt(f(x)), as an…"}
-{"answer": "no solution", "id": "graph-sqrt-of-function-domain-range/medium/0/445941b9292c", "text": "The graph of the parabola y = f(x) is shown. Find the domain of the function y …"}
+{"answer": "no solution", "id": "graph-sqrt-of-function-domain-range/medium/0/2afc8449f1dd", "text": "Part of the graph of y = f(x) is drawn. For which values of x is the function y…"}
 {"answer": "x ≤ 1 or x ≥ 5", "id": "graph-sqrt-of-function-domain-range/medium/1/cba4674976bc", "text": "The graph of y = f(x) is drawn. State the largest domain of the function y = sq…"}
-{"answer": "x ≤ -2 or x ≥ 2", "id": "graph-sqrt-of-function-domain-range/medium/2/e7c619653026", "text": "The graph of the parabola y = f(x) is shown. Find the domain of the function y …"}
+{"answer": "x ≤ -2 or x ≥ 2", "id": "graph-sqrt-of-function-domain-range/medium/2/afd9a5c7d2d9", "text": "Part of the graph of y = f(x) is drawn. For which values of x is the function y…"}
 {"answer": "8", "id": "graph-terms-from-a-network/easy/0/1ceef73dde8e", "text": "Count the edges of the network drawn."}
 {"answer": "8", "id": "graph-terms-from-a-network/easy/1/7e36e7f2a0c2", "text": "Count the edges of the network drawn."}
 {"answer": "4", "id": "graph-terms-from-a-network/easy/2/e95d13682a36", "text": "In the network drawn, how many vertices are adjacent to vertex A? (Two vertices…"}
