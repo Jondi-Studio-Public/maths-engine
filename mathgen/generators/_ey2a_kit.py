@@ -56,6 +56,9 @@ def ten_frame_boxes(count: int, *, rng=None, colours: list[int] | None = None, b
     return boxes
 
 
+_ONE_OFF = {"ey2a-count-one-over": 1, "ey2a-count-one-short": -1, "eyt-count-one-over": 1, "eyt-count-one-short": -1}
+
+
 def tagged_numbers(
     answer: int, candidates: list[tuple[int, str | None]], *, low: int = 0, high: int = 40
 ) -> list[Distractor]:
@@ -68,12 +71,15 @@ def tagged_numbers(
     seen = {answer}
     out: list[Distractor] = []
     fillers = [(answer + k, None) for k in range(1, 7)] + [(answer - k, None) for k in range(1, 7)]
-    for value, tag in [*candidates, *fillers]:
+    given = len(candidates)
+    for i, (value, tag) in enumerate([*candidates, *fillers]):
         if value in seen or not low <= value <= high:
             continue
-        if tag is None and len(out) >= 3:
+        if tag is None and i >= given and len(out) >= 3:
             break
         seen.add(value)
+        if tag in _ONE_OFF and value - answer != _ONE_OFF[tag]:
+            tag = None  # "one too many/few" is only true one away; a 2 or 3 away option carries no note
         out.append(Distractor(str(value), tag, value))
     check(len(out) >= 3, f"only {len(out)} distractors survive for the answer {answer}")
     return out[:5]

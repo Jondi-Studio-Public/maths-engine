@@ -217,7 +217,7 @@ def _hard(rng):
         ]
         working = [f"The {a_thing} is {b} x {k} = {b * k} {_plural(small_u, 2)}.", f"{m} - {b * k} = {value}."]
     else:
-        r = rng.randint(2, k + 2)
+        r = rng.randint(1, k - 1)  # a leftover smaller than the unit
         value = b * k + r
         text = (
             f"One {big_u} {s_verb} {k} {_plural(small_u, k)}. {fill} {b} full {_plural(big_u, b)} and then {r} "
