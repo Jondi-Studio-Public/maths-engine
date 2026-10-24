@@ -454,8 +454,8 @@ def fg1_proportional_graph(rng, tier="easy", notes=False):
         f"The line passes through the origin and ({x2}, {y2}).",
         (
             f"y is {rational_text(m)} times x, so the gradient is {rational_text(m)} and {key_text}."
-            if m != 1
-            else f"y equals x, so the gradient is 1 and {key_text}."
+            if m not in (1, -1)
+            else f"y equals {'' if m == 1 else '-'}x, so the gradient is {m} and {key_text}."
         ),
     ]
     return mcq_result(
