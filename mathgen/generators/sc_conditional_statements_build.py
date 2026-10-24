@@ -209,6 +209,12 @@ def _nested_remainders(rng):
     raise Redraw("no nested pair")
 
 
+def _nth(values, i):
+    """The i-th smallest of the values (counting from 0), or None when there are not that many."""
+    vals = sorted(values)
+    return vals[i] if len(vals) > i else None
+
+
 def _vals(k):
     """ "1 value" or "5 values"."""
     return f"{k} value" if k == 1 else f"{k} values"
@@ -239,6 +245,22 @@ def _numbers(values, limit=14):
 def _dist(rng, key, cands):
     """Wrong counts: a count is a positive whole number no bigger than the number of values in play."""
     return pick_ints(key, [(v, t) for v, t in cands if v is not None and v > 0], count=3, rng=rng)
+
+
+def _dist_spread(rng, key, cands):
+    """Three wrong counts, how many of them are below the key drawn at random, so the key has no fixed rank."""
+    wrong = {}
+    for v, t in cands:
+        if v is not None and v > 0 and v != key:
+            wrong.setdefault(v, t)
+    if len(wrong) < 3:
+        raise Redraw("fewer than three distinct wrong counts")
+    below = [(v, t) for v, t in wrong.items() if v < key]
+    above = [(v, t) for v, t in wrong.items() if v > key]
+    k = rng.randint(max(0, 3 - len(above)), min(3, len(below)))
+    chosen = rng.sample(below, k) + rng.sample(above, 3 - k)
+    rng.shuffle(chosen)
+    return [int_dist(v, t) for v, t in chosen]
 
 
 # ------------------------------------------------------------------------------------------------ easy
@@ -287,12 +309,20 @@ def _easy(rng):
             (min(b), "sc-counterexample-conclusion-true-only"),
             (min(set(range(1, universe + 1)) - a), "sc-counterexample-conclusion-false"),
             (min(a & b) if a & b else None, "sc-counterexample-both-true"),
+            # the same slips made on a later value, so the key is not always the largest option
+            (_nth(b, 1), "sc-counterexample-conclusion-true-only"),
+            (_nth(b, 2), "sc-counterexample-conclusion-true-only"),
+            (_nth(a, 1), "sc-counterexample-hypothesis-only"),
+            (_nth(a & b, 1), "sc-counterexample-both-true"),
+            (_nth(b, 3), "sc-counterexample-conclusion-true-only"),
+            (_nth(a, 2), "sc-counterexample-hypothesis-only"),
+            (_nth(a & b, 2), "sc-counterexample-both-true"),
         ]
         working = [
             f"A counterexample to the converse has its hypothesis ({_c(q, 'text')}) true and its conclusion ({_c(p, 'text')}) false.",
             f"The values of n that satisfy {_c(q, 'text')} start {_numbers(b, 6)}; the first of them that fails {_c(p, 'text')} is {ans}.",
         ]
-        return dict(text=text, working=working, distractors=_dist(rng, ans, cands), **int_fields(ans))
+        return dict(text=text, working=working, distractors=_dist_spread(rng, ans, cands), **int_fields(ans))
     ans = only_b
     text = (
         _intro(p, q, universe)

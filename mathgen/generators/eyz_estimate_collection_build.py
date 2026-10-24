@@ -89,7 +89,7 @@ def _question(text: str, ans: int, cands, working, fig) -> dict:
         answer_latex=str(ans),
         answer_kind="number",
         working=working,
-        distractors=tagged_numbers(ans, cands, low=0, high=150),
+        distractors=tagged_numbers(ans, cands, low=1, high=150),
         figure=fig,
     )
 

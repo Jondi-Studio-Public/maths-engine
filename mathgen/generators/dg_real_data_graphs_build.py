@@ -344,7 +344,8 @@ def _text(ctx, key, **kw):
 
 
 def _num_dist(answer, cands, lo=0):
-    return numd(answer, [c for c in cands if c[0] is not None], lo=lo)
+    # Never offer 0 as a wrong value: it is no reading of any of these graphs and is easy to rule out.
+    return numd(answer, [c for c in cands if c[0] is not None and c[0] != 0], lo=lo)
 
 
 def _wrap(text, fig, ans, working, ds):
@@ -641,6 +642,8 @@ def dg_real_data_graphs_chain(rng, tier="exam"):
             continue  # "an 8 km trip": the chain keeps to "a N km trip", the form its follow-through test reads
         cost = c + r * X
         far_x = edge + ctx["gx"] * rng.randint(1, 3)
+        if far_x == X:
+            continue  # else the budget in (d) is the answer to (c)
         budget = c + r * far_x
         if cost.denominator != 1 or budget.denominator != 1 or r.denominator != 1:
             continue

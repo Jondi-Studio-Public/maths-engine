@@ -201,3 +201,15 @@ def test_easy_smallest_counterexample_to_the_converse_has_a_varied_key():
             keys[q.answer] = keys.get(q.answer, 0) + 1
     total = sum(keys.values())
     assert len(keys) >= 8 and max(keys.values()) / total <= 0.3, keys
+
+
+def test_easy_smallest_counterexample_to_the_converse_key_has_no_fixed_rank():
+    ranks = {}
+    for seed in range(1500):
+        q = make("sc_conditional_counts", seed=seed, difficulty="easy")
+        if "smallest value" in q.text and "converse" in q.text:
+            assert len(q.distractors) == 3
+            below = sum(int(d) < int(q.answer) for d in q.distractors)
+            ranks[below] = ranks.get(below, 0) + 1
+    total = sum(ranks.values())
+    assert set(ranks) >= {0, 1, 2} and max(ranks.values()) / total <= 0.45, ranks
