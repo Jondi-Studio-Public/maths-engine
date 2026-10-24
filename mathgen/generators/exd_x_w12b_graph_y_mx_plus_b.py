@@ -131,7 +131,7 @@ def _build(rng):
             f"Use your equation to find the value of y when x = {x_far}.",
             y_far,
             2,
-            [f"y = {frac_text(m)} × {x_far} + ({frac_text(c)}) = {frac_text(y_far)}."],
+            [f"y = {'' if m == 1 else frac_text(m) + ' × '}{x_far} + ({frac_text(c)}) = {frac_text(y_far)}."],
             [
                 (m * x_far, "dropped-intercept-in-prediction"),
                 (m * x_far - c, "line-intercept-sign-reversed"),

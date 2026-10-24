@@ -570,6 +570,11 @@ def _pm_exam_question(rng, *, f_lo: int, f_hi: int) -> dict:
     raise ValueError("rational_percentage_financial_model/exam: no valid draw found")
 
 
+def _count_text(text: str) -> str:
+    """A quantity (litres, kilograms) in working text: a whole amount loses its money-style ``.00`` tail."""
+    return text[:-3] if text.endswith(".00") else text
+
+
 @generator(
     "rational_percentage_financial_model",
     level=8,
@@ -1086,7 +1091,7 @@ def _rr_exam_question(rng, *, t_lo: int, t_hi: int) -> dict:
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text),
             working=[
-                f"Larger share: ${_money(larger_share_cents)}; at ${_money(rate_cents)} per {unit} that buys {answer_text} {unit_plural}."
+                f"Larger share: ${_money(larger_share_cents)}; at ${_money(rate_cents)} per {unit} that buys {_count_text(answer_text)} {unit_plural}."
             ],
             distractors=distractors,
         )

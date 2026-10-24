@@ -173,7 +173,13 @@ def _build(rng):
         1,
         [
             f"At {xi} {plural} the two costs are equal, so {plan[cheaper_first]} is not cheaper then.",
-            (f"It is cheaper for 1 {unit}." if xi == 2 else f"It is cheaper for 1, 2, ... {xi - 1} {plural}."),
+            (
+                f"It is cheaper for 1 {unit}."
+                if xi == 2
+                else f"It is cheaper for 1 and 2 {plural}."
+                if xi == 3
+                else f"It is cheaper for every whole number of {plural} from 1 to {xi - 1}."
+            ),
         ],
         [
             (xi, "strict-bound-taken-as-value"),

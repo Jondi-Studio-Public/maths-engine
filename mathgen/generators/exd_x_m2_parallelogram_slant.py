@@ -19,13 +19,11 @@ from mathgen.generators.exd_x_m2_support import keys_absent, tagged_distractors
 
 _TRIPLES = [(3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (6, 8, 10), (9, 12, 15), (12, 16, 20), (15, 20, 25)]
 _OBJECTS = [
-    "A paving slab",
     "A garden bed",
     "A section of decking",
     "A sail panel",
     "A car park",
     "A veggie patch",
-    "A shade-cloth panel",
     "A concrete pad",
 ]
 
@@ -38,7 +36,9 @@ def exd_x_m2_parallelogram_slant(rng: random.Random, tier: str = "exam") -> dict
         d, h, s = rng.choice(_TRIPLES)
         k = 2 if s <= 13 and rng.random() < 0.4 else 1
         d, h, s = d * k, h * k, s * k
-        b = rng.randint(8, 40)
+        b = rng.randint(8, 25)
+        if b > 3 * s:
+            continue
         price = rng.choice([12, 15, 18, 22, 25, 28, 35, 42, 55])
         check(d * d + h * h == s * s, "triple is not Pythagorean")
         area = b * h

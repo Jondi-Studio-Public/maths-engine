@@ -165,8 +165,8 @@ def _build(rng):
         gap,
         2,
         [
-            f"A: y = {_bracketed(rational_text(mA))} × {paren_negative(X)} {'+' if cA > 0 else '-'} {abs(int(cA))} = {rational_text(a_far)}.",
-            f"B: y = {paren_negative(mB)} × {paren_negative(X)} {'+' if cB > 0 else '-'} {abs(cB)} = {b_far}.",
+            f"A: y = {'' if mA == 1 else _bracketed(rational_text(mA)) + ' × '}{paren_negative(X)} {'+' if cA > 0 else '-'} {abs(int(cA))} = {rational_text(a_far)}.",
+            f"B: y = {'' if mB == 1 else paren_negative(mB) + ' × '}{paren_negative(X)} {'+' if cB > 0 else '-'} {abs(cB)} = {b_far}.",
             f"The difference is {gap}.",
         ],
         [

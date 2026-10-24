@@ -17,7 +17,13 @@ from mathgen.core import attempts, check, generator, latex_answer
 from mathgen.generators.exd_x_m2_support import display, keys_absent, tagged_distractors
 
 _COVERAGE = [4, 5, 8, 10]
-_WALLS = ["end wall of a shed", "front wall of a cottage", "end wall of a barn", "wall of a beach hut"]
+# (description, widths in m, wall heights in m): each building keeps to sizes that fit it
+_WALLS = [
+    ("end wall of a shed", [6, 8], (2, 3)),
+    ("front wall of a cottage", [8, 10, 12], (3, 5)),
+    ("end wall of a barn", [10, 12, 14, 16], (4, 5)),
+    ("wall of a beach hut", [4, 6], (2, 3)),
+]
 
 
 @generator("exd_x_m2_wall_paint", level=8, presets={"exam": dict(tier="exam")})
@@ -25,9 +31,10 @@ def exd_x_m2_wall_paint(rng: random.Random, tier: str = "exam") -> dict:
     """Exam tier: rectangle plus gable, minus windows, then litres of paint."""
     check(tier == "exam", f"unknown tier {tier!r}")
     for _ in attempts(1000, "a draw whose answers are not already in the text"):
-        w = rng.choice([6, 8, 10, 12, 14, 16])
-        ht = rng.randint(2, 5)
-        gable = rng.randint(1, 4)
+        wall, widths, (ht_lo, ht_hi) = rng.choice(_WALLS)
+        w = rng.choice(widths)
+        ht = rng.randint(ht_lo, ht_hi)
+        gable = rng.randint(1, min(4, ht - 1))
         n_win = rng.randint(1, 3)
         wp, wq = rng.choice([(1, 1), (1, 2), (2, 1), (2, 2)])
         cover = rng.choice(_COVERAGE)
@@ -39,7 +46,7 @@ def exd_x_m2_wall_paint(rng: random.Random, tier: str = "exam") -> dict:
         each = "" if n_win == 1 else "each "
         are = "is" if n_win == 1 else "are"
         stem = (
-            f"The {rng.choice(_WALLS)} is a rectangle {w} m wide and {ht} m high, with a triangular gable on top. "
+            f"The {wall} is a rectangle {w} m wide and {ht} m high, with a triangular gable on top. "
             f"The gable has the same {w} m base and a height of {gable} m. "
             f"It has {n_win} rectangular {win_word}, {each}{wp} m by {wq} m, that {are} not painted. "
             f"One litre of paint covers {cover} m² and the wall needs {coats} coats."
@@ -50,42 +57,42 @@ def exd_x_m2_wall_paint(rng: random.Random, tier: str = "exam") -> dict:
             "Find the litres of paint needed, correct to 2 decimal places.",
         ]
         a_text, b_text, c_text = str(outline), str(paintable), display(litres, 2)
-        if keys_absent(stem, prompts, [a_text, b_text, c_text]):
-            break
-    check(outline == w * ht + Fraction(w * gable, 2), "outline disagrees with rectangle plus triangle")
+        if not keys_absent(stem, prompts, [a_text, b_text, c_text]):
+            continue
+        check(outline == w * ht + Fraction(w * gable, 2), "outline disagrees with rectangle plus triangle")
 
-    a_dist = tagged_distractors(
-        a_text,
-        0,
-        [
-            (w * ht, None),
-            (w * ht + w * gable, None),
-            (w * (ht + gable), None),
-            (w * ht + gable, None),
-        ],
-    )
-    b_dist = tagged_distractors(
-        b_text,
-        0,
-        [
-            (outline, None),
-            (outline + n_win * wp * wq, None),
-            (w * ht - n_win * wp * wq, None),
-            (outline - wp * wq, None),
-        ],
-    )
-    c_dist = tagged_distractors(
-        c_text,
-        2,
-        [
-            (Fraction(paintable, cover), None),
-            (Fraction(coats * outline, cover), None),
-            (coats * paintable * cover, None),
-            (Fraction(paintable * cover, coats), None),
-        ],
-    )
-    for dist in (a_dist, b_dist, c_dist):
-        check(len(dist) >= 3, "not enough distractors")
+        a_dist = tagged_distractors(
+            a_text,
+            0,
+            [
+                (w * ht, None),
+                (w * ht + w * gable, None),
+                (w * (ht + gable), None),
+                (w * ht + gable, None),
+            ],
+        )
+        b_dist = tagged_distractors(
+            b_text,
+            0,
+            [
+                (outline, None),
+                (outline + n_win * wp * wq, None),
+                (w * ht - n_win * wp * wq, None),
+                (outline - wp * wq, None),
+            ],
+        )
+        c_dist = tagged_distractors(
+            c_text,
+            2,
+            [
+                (Fraction(paintable, cover), None),
+                (Fraction(coats * outline, cover), None),
+                (coats * paintable * cover, None),
+                (Fraction(paintable * cover, coats), None),
+            ],
+        )
+        if all(len(dist) >= 3 for dist in (a_dist, b_dist, c_dist)):
+            break
 
     return dict(
         text=stem,

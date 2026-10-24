@@ -40,7 +40,7 @@ from __future__ import annotations
 
 import math
 
-from ..core import check, generator, phrase, pick_distractors
+from ..core import attempts, check, generator, phrase, pick_distractors
 
 # -- Answer-space vocabulary (construction side) -----------------------------
 
@@ -112,7 +112,10 @@ _EASY_TEMPLATES = [
 
 
 def _build_easy(rng):
-    cls, sides = _draw_easy(rng)
+    for _ in attempts(1000, "a triangle that exists"):
+        cls, sides = _draw_easy(rng)
+        if max(sides) < sum(sides) - max(sides):
+            break
     check(
         _classify_by_sides_independent(sides) == cls,
         f"p14b_polygon_classification: easy-tier independent check disagrees ({sides} -> "
@@ -313,9 +316,9 @@ def _build_hard(rng):
         parallel_pairs = 2
         sides_desc = f"its opposite sides are equal in pairs: {a} units and {a} units, {b} units and {b} units"
     else:  # trapezium
-        while True:
+        for _ in attempts(1000, "a quadrilateral that exists"):
             sides = [rng.randint(_SIDE_LO, _SIDE_HI) for _ in range(4)]
-            if len(set(sides)) >= 3:
+            if len(set(sides)) >= 3 and max(sides) < sum(sides) - max(sides):
                 break
         parallel_pairs = 1
         sides_desc = f"its side lengths are {_format_list4(sides)} units, with no two pairs of opposite sides equal"
