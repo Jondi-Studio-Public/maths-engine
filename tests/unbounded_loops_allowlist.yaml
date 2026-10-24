@@ -192,7 +192,6 @@ loops:
   - {module: p14b_number_theory_computation_build, function: _euler_two_factor, index: 0, kind: while_true}
   - {module: p14b_polygon_classification_build, function: _build_exam, index: 0, kind: rng_redraw}
   - {module: p14b_polygon_classification_build, function: _build_hard, index: 0, kind: rng_redraw}
-  - {module: p14b_polygon_classification_build, function: _build_hard, index: 1, kind: while_true}
   - {module: p14b_polygon_classification_build, function: _draw_easy, index: 0, kind: rng_redraw}
   - {module: p14b_polygon_classification_build, function: _draw_easy, index: 1, kind: while_true}
   - {module: p14b_polygon_classification_build, function: _draw_medium, index: 0, kind: while_true}
