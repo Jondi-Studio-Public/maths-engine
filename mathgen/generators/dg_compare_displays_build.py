@@ -174,7 +174,7 @@ def _figure(counts, low, names, var):
 
 def _stem_sentence(names, b):
     first = sorted(b)[0]
-    return f"The values for {names[1]} are in this stem-and-leaf plot, where {first // 10} | {first % 10} means {first}: {_stem_text(b)}."
+    return f"The values for {names[1]} are in this stem-and-leaf plot. Key: {first // 10} | {first % 10} means {first}. {_stem_text(b)}."
 
 
 def _setup(rng, higher_b=False):
@@ -493,7 +493,7 @@ _ROW = re.compile(r"(\d+) \|((?: \d+)*)")
 
 
 def _read_b(text):
-    body = text.split("means", 1)[1].split(": ", 1)[1]
+    body = text.split("means", 1)[1].split(". ", 1)[1]
     values = []
     for stem, leaves in _ROW.findall(body):
         values += [int(stem) * 10 + int(x) for x in leaves.split()]

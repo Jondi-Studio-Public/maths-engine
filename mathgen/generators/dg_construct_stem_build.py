@@ -2,7 +2,7 @@
 
 ``construct-stem-and-leaf-plots`` (``statistics-probability``, answer ``table``): the learner builds an ordered
 stem-and-leaf plot from a jumbled list of values. The plot is a two-column table, one row for each stem, and the learner
-fills the Leaves cell of every row with that stem's leaves in increasing order, a repeated value written as often as it
+fills the Leaf cell of every row with that stem's leaves in increasing order, a repeated value written as often as it
 occurs. The `table` grader compares each cell as a label ignoring spaces, so ``2 5 8`` and ``258`` are the same reply but
 ``5 2 8`` is wrong.
 
@@ -100,7 +100,7 @@ def _leaves(row):
 def _table(rows):
     stems = list(rows)
     return {
-        "columns": ["Stem", "Leaves"],
+        "columns": ["Stem", "Leaf"],
         "rows": [[s, None] for s in stems],
         "blanks": {f"{i},1": _leaves(rows[s]) for i, s in enumerate(stems)},
     }
@@ -220,8 +220,8 @@ def _plot_ok(values, mode, lo, hi, need_repeat):
 
 def _key_line(mode, stem, leaf):
     if mode == "decimal":
-        return f"{stem} | {leaf} means {stem}.{leaf}"
-    return f"{stem} | {leaf} means {stem}{leaf}"
+        return f"Key: {stem} | {leaf} means {stem}.{leaf}"
+    return f"Key: {stem} | {leaf} means {stem}{leaf}"
 
 
 def _question(rng, values, mode, theme, tail):
@@ -232,7 +232,7 @@ def _question(rng, values, mode, theme, tail):
     text = theme.format(data=_data(values, rng, (lambda v: f"{v:.1f}") if mode == "decimal" else str))
     text += (
         f" Make a stem-and-leaf plot with the stems {stem_words}. Write the leaves of each row in increasing order, "
-        f"repeating a leaf as often as its value occurs, so {_key_line(mode, a, leaf)}. {tail}"
+        f"repeating a leaf as often as its value occurs. {_key_line(mode, a, leaf)}. {tail}"
     )
     answer = _table(rows)
     edits = _edits(rng, rows)
@@ -255,7 +255,7 @@ def _question(rng, values, mode, theme, tail):
 
 
 def _ask_tail(first):
-    return f"Give the leaves of each row, written like {first} Leaves = x y z (one row for each stem)."
+    return f"Give the leaves of each row, written like ({first} Leaf = x y z), with one row for each stem."
 
 
 def _build(rng, values, mode, theme, working_note):
@@ -361,8 +361,8 @@ def dg_construct_stem_chain(rng, tier="exam"):
         text = theme.format(data=_data(values, rng))
         a = next(iter(rows))
         text += (
-            f" A stem-and-leaf plot is made with the stems {', '.join(rows)}, the leaves of each row in increasing order, "
-            f"so {_key_line('tens', a, rows[a][0])}."
+            f" A stem-and-leaf plot is made with the stems {', '.join(rows)}, the leaves of each row in increasing order. "
+            f"{_key_line('tens', a, rows[a][0])}."
         )
         answer = _table(rows)
         ds_a = _dists(rows, _edits(rng, rows))
@@ -404,7 +404,7 @@ def dg_construct_stem_chain(rng, tier="exam"):
             continue
         ans_text = table_answer_text(answer)
         part_a = dict(
-            prompt=f"Give the leaves of each row of the plot, written like {a} Leaves = x y z.",
+            prompt=f"Give the leaves of each row of the plot, written like ({a} Leaf = x y z).",
             answer_kind="table",
             answer=answer,
             answer_text=ans_text,
