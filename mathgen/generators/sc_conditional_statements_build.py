@@ -486,7 +486,8 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 @retry
 def sc_conditional_counts(rng, tier: str = "easy"):
     """Counts and smallest counterexamples that separate a conditional from its converse, contrapositive and negation."""
-    check(tier in _TIERS, f"unknown tier {tier!r}")
+    if tier not in _TIERS:
+        raise ValueError(f"unknown tier {tier!r}")
     return _TIERS[tier](rng)
 
 

@@ -425,7 +425,8 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 @retry
 def sc_complex_euler(rng, tier: str = "easy"):
     """Cartesian, polar and exponential form of a complex number: converting, multiplying, dividing and powers."""
-    check(tier in _TIERS, f"unknown tier {tier!r}")
+    if tier not in _TIERS:
+        raise ValueError(f"unknown tier {tier!r}")
     question = _TIERS[tier](rng)
     question["working"] = [_tidy(w) for w in question["working"]]
     return question
@@ -440,7 +441,7 @@ def sc_complex_euler_exam(rng):
     """Exam chain: Re z and Im z from r e^(iθ), then Re, Im and the modulus of z^n from them by following through."""
     for _ in attempts(1000, "a clear chain"):
         p = rng.choice([q for q in _ANGLES if q.denominator > 1 and (q.denominator != 2)])
-        r = rng.choice((2, 3, 4, 5))
+        r = rng.choice((2, 3, 4, 5, 6, 7, 8, 9, 10, 12))
         n = rng.choice((2, 3))
         c, s = _unit(p)
         a, b = sympy.nsimplify(r * c), sympy.nsimplify(r * s)

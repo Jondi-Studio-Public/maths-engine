@@ -455,7 +455,8 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 @retry
 def sc_integrate_tan_sec(rng, tier: str = "easy"):
     """Integrals of tan and sec powers and products; the tiers are described in the module docstring."""
-    check(tier in _TIERS, f"unknown tier {tier!r}")
+    if tier not in _TIERS:
+        raise ValueError(f"unknown tier {tier!r}")
     return _TIERS[tier](rng)
 
 
@@ -485,7 +486,7 @@ def sc_integrate_tan_sec_exam(rng):
         check(_reduce(n) == _I[n], f"I({n}) differs from the reduction")
     for n in (s, s + 2, s + 4):
         check_definite(_I[n], tan(x) ** n, 0, pi / 4)
-    p, q = rng.choice([2, 3, 4, 5, 6, 7, 8]), rng.choice([2, 3, 4, 5, 6, 7, 9])
+    p, q = rng.choice([2, 3, 4, 5, 6, 7, 8, 9, 10]), rng.choice([2, 3, 4, 5, 6, 7, 9, 10, 11, 12])
     a, b, c = _I[s], _I[s + 2], _I[s + 4]
     combo = p * c + q * b
     check_definite(combo, p * tan(x) ** (s + 4) + q * tan(x) ** (s + 2), 0, pi / 4)
