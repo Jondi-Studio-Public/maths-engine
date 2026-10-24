@@ -426,8 +426,8 @@ def _medium_perpendicular(rng):
         stem = phrase(
             rng,
             (
-                "A swimmer heads straight across a river at {u} m/s relative to the water. The river flows at {v} m/s "
-                "parallel to its banks. What is the swimmer's speed relative to the bank, in m/s?",
+                "A speedboat heads straight across a river at {u} m/s relative to the water. The river flows at {v} m/s "
+                "parallel to its banks. What is the speedboat's speed relative to the bank, in m/s?",
                 "A boat points directly across a river and moves at {u} m/s through the water. The current runs at {v} m/s "
                 "along the banks. Find the boat's speed relative to the bank, in m/s.",
             ),

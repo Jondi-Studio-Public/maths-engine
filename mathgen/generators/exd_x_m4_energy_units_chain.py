@@ -128,7 +128,7 @@ def exd_x_m4_energy_units_chain(rng: random.Random, tier: str = "exam") -> dict:
                 marks=1,
                 sensible_range=(0, None),
                 follow_through="3600*part_a",
-                working=[f"1 kWh = 1 kW x 3600 s = 3600 kJ, so {e_text} x 3600 = {kj_text} kJ."],
+                working=[f"1 kWh = 1 kW × 3600 s = 3600 kJ, so {e_text} × 3600 = {kj_text} kJ."],
                 distractors=b_d,
             ),
             dict(
@@ -140,7 +140,7 @@ def exd_x_m4_energy_units_chain(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=f"part_a*{rate}/100",
-                working=[f"Cost = {e_text} x {rate} cents = {c_text} dollars (nearest cent)."],
+                working=[f"Cost = {e_text} × {rate} cents = {c_text} dollars (nearest cent)."],
                 distractors=c_d,
             ),
         ],

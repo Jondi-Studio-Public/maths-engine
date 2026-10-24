@@ -95,10 +95,12 @@ def _format_network_text(activities):
         duration = a["duration"]
         preds = a["predecessors"]
         if not preds:
-            line = f"Activity {label}: duration {duration} days, no predecessors."
+            line = f"Activity {label}: duration {duration} {'day' if duration == 1 else 'days'}, no predecessors."
         else:
             pred_str = ", ".join(preds)
-            line = f"Activity {label}: duration {duration} days, predecessors: {pred_str}."
+            line = (
+                f"Activity {label}: duration {duration} {'day' if duration == 1 else 'days'}, predecessors: {pred_str}."
+            )
         lines.append(line)
     return " ".join(lines)
 

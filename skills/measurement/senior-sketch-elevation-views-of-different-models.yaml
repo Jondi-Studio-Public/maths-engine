@@ -25,6 +25,10 @@ sources:
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_w7f_elevation_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: mirrored-view
   description: Draws the view reversed left to right, for example by reading the columns from the wrong end when standing at the back or at a side.
@@ -39,3 +43,16 @@ misconceptions:
 - id: upside-down-view
   description: Draws the columns hanging from the top row instead of standing on the ground row.
 tags: [acara-senior-v8-4, measurement, grid_elevation_views, acmem114, elevation-views, cube-stacks, drawn-answer]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Draw the front view of a stack of unit cubes from its isometric picture."
+  medium:
+    steps: 3
+    demand: "Draw the right or left view of a stack."
+  hard:
+    steps: 4
+    demand: "Draw the back view, or work back from one view to the view from the opposite side."
+  exam:
+    steps: 5
+    demand: "Read the column heights of the front and right-side views of a stack from its picture, then count the squares in the front view and the view from above. The draw form is not set in the exam tier."

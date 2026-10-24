@@ -77,6 +77,16 @@ def _two_names(rng):
     return a, b
 
 
+#: Plausible things to spend a share of an allowance, or of a household's monthly budget, on.
+_ALLOWANCE_ITEMS = ("book", "movie ticket", "board game", "hoodie", "cap", "poster", "headset", "sketchbook")
+_BUDGET_ITEMS = ("power bill", "water bill", "phone plan", "internet plan", "insurance premium", "gym membership")
+
+
+def _pm_item(rng, context: str) -> str:
+    """A spending item that makes sense for the context (allowance, earnings or household budget)."""
+    return rng.choice(_BUDGET_ITEMS if context == "budget" else _ALLOWANCE_ITEMS)
+
+
 def _a(item: str) -> str:
     """ "a"/"an" article agreement for an `OBJECTS` singular noun (only
     "apple" among the bank starts with a vowel sound today, but this is
@@ -199,7 +209,7 @@ def _pm_single_step_question(rng, *, m_lo: int, m_hi: int) -> dict:
 
         context = rng.choice(_PM_CONTEXTS)
         name, other = _two_names(rng)
-        item = rng.choice(OBJECTS)[0]
+        item = _pm_item(rng, context)
         frac_text = frac_key
         pct_text = f"{pct}%"
         text = _pm_context_text(context, name, other, item, M, frac_text, pct_text, asked)
@@ -286,7 +296,7 @@ def _pm_chain_question(rng, *, m_lo: int, m_hi: int) -> dict:
 
         context = rng.choice(_PM_CONTEXTS)
         name, other = _two_names(rng)
-        item = rng.choice(OBJECTS)[0]
+        item = _pm_item(rng, context)
         first_text = frac_key if order == "fraction_first" else f"{pct}%"
         second_text = f"{pct}%" if order == "fraction_first" else frac_key
         if context == "allowance":
@@ -696,6 +706,10 @@ def _rr_single_step_question(rng, *, t_lo: int, t_hi: int, qty_lo: int, qty_hi: 
                 "ratio-share re-derivation must match",
             )
             candidates = [_money(other_share_cents), _money_rounded(swap_cents), _money(shift_cents)]
+            working_line = (
+                f"The ratio {p}:{q} makes {total_parts} equal parts, so {who} gets "
+                f"{p if asked_p else q}/{total_parts} of ${T}, which is ${_money(answer_cents)}."
+            )
         else:
             item, item_plural, unit, unit_plural = rng.choice(_RR_ITEM_UNIT_PAIRS)
             rate_cents = rng.choice(_RATES_CENTS)
@@ -728,6 +742,7 @@ def _rr_single_step_question(rng, *, t_lo: int, t_hi: int, qty_lo: int, qty_hi: 
                 text = f"At the market, {item_plural} {verb} ${_money(rate_cents)} per {unit}. {name1} buys {qty} {unit_plural}. What is the total cost?"
             check_equivalent(Fraction(rate_cents) * qty, answer_cents, "rate re-derivation must match")
             candidates = [_money(ignore_qty_cents), _money_rounded(inversion_cents), _money(shift_cents)]
+            working_line = f"{qty} × ${_money(rate_cents)} = ${_money(answer_cents)}."
 
         answer_text = _money(answer_cents)
         distractors = pick_distractors(answer_text, candidates, n=3, tolerance=_TOL)
@@ -737,7 +752,7 @@ def _rr_single_step_question(rng, *, t_lo: int, t_hi: int, qty_lo: int, qty_hi: 
             answer=numeric_answer(answer_cents / 100),
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text),
-            working=[f"{branch} representation: the total is {answer_text}."],
+            working=[working_line],
             distractors=distractors,
         )
     raise ValueError("ratio_rate_financial_model/easy: no valid draw found")
@@ -801,6 +816,10 @@ def _rr_composed_question(rng, *, t_lo: int, t_hi: int, qty_lo: int, qty_hi: int
                 T_cents * Fraction(p + q, total_parts), answer_cents, "combined-share re-derivation must match"
             )
             candidates = [_money(odd_one_out_cents), _money_rounded(wrong_denominator_cents), _money(shift_cents)]
+            working_line = (
+                f"The ratio {p}:{q}:{r} makes {total_parts} equal parts, so {name1} and {name2} together get "
+                f"{p + q}/{total_parts} of ${T}, which is ${_money(answer_cents)}."
+            )
         else:
             item, item_plural, unit, unit_plural = rng.choice(_RR_ITEM_UNIT_PAIRS)
             rate_cents = rng.choice(_RATES_CENTS)
@@ -849,6 +868,10 @@ def _rr_composed_question(rng, *, t_lo: int, t_hi: int, qty_lo: int, qty_hi: int
                 "adjusted-total re-derivation must match",
             )
             candidates = [_money(forgets_adjustment_cents), _money(wrong_sign_cents), _money(shift_cents)]
+            working_line = (
+                f"{qty} × ${_money(rate_cents)} = ${_money(base_cents)}, then "
+                f"{'subtract' if direction == 'discount' else 'add'} ${_money(adjust_cents)} to get ${_money(answer_cents)}."
+            )
 
         answer_text = _money(answer_cents)
         distractors = pick_distractors(answer_text, candidates, n=3, tolerance=_TOL)
@@ -858,7 +881,7 @@ def _rr_composed_question(rng, *, t_lo: int, t_hi: int, qty_lo: int, qty_hi: int
             answer=numeric_answer(answer_cents / 100),
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text),
-            working=[f"{branch} composition: the final amount is {answer_text}."],
+            working=[working_line],
             distractors=distractors,
         )
     raise ValueError("ratio_rate_financial_model/medium: no valid draw found")
@@ -913,6 +936,10 @@ def _rr_trap_question(rng, *, t_lo: int, t_hi: int) -> dict:
                 (T_cents - flat) * Fraction(p, total_parts), answer_cents, "fee-then-split re-derivation must match"
             )
             candidates = [_money(naive_full_split_cents), _money(shift_cents)]
+            working_line = (
+                f"Take off the fee first: ${T} - ${_money(flat)} = ${_money(remainder_cents)}. "
+                f"Then {p}/{total_parts} of that is ${_money(answer_cents)}."
+            )
         else:
             item, item_plural, unit, unit_plural = rng.choice(_RR_ITEM_UNIT_PAIRS)
             rate_cents = rng.choice(_RATES_CENTS)
@@ -942,6 +969,10 @@ def _rr_trap_question(rng, *, t_lo: int, t_hi: int) -> dict:
                 Fraction(rate_cents) * (qty - free_qty), answer_cents, "paid-units re-derivation must match"
             )
             candidates = [_money(naive_full_rate_cents), _money(shift_cents)]
+            working_line = (
+                f"Only {paid_qty} {unit_plural if paid_qty != 1 else unit} are paid for ({qty} - {free_qty}), "
+                f"so {paid_qty} × ${_money(rate_cents)} = ${_money(answer_cents)}."
+            )
 
         answer_text = _money(answer_cents)
         distractors = pick_distractors(answer_text, candidates, n=len(candidates), tolerance=_TOL)
@@ -951,7 +982,7 @@ def _rr_trap_question(rng, *, t_lo: int, t_hi: int) -> dict:
             answer=numeric_answer(answer_cents / 100),
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text),
-            working=[f"{scenario}: correctly identifying which figure the representation governs gives {answer_text}."],
+            working=[working_line],
             distractors=distractors,
         )
     raise ValueError("ratio_rate_financial_model/hard: no valid draw found")
@@ -1042,7 +1073,7 @@ def _rr_exam_question(rng, *, t_lo: int, t_hi: int) -> dict:
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text),
             working=[
-                f"Larger share: {_money(larger_share_cents)}; at ${_money(rate_cents)} per {unit} that buys {answer_text} {unit_plural}."
+                f"Larger share: ${_money(larger_share_cents)}; at ${_money(rate_cents)} per {unit} that buys {answer_text} {unit_plural}."
             ],
             distractors=distractors,
         )

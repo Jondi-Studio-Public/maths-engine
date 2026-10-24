@@ -1,0 +1,91 @@
+id: projectile-with-linear-resistance
+name: "Analyse projectile motion with resistance proportional to velocity"
+domain: differential-equations
+year_level:
+- '12'
+description: "Model a projectile launched at an angle against resistance kv: resolve the launch velocity, solve the horizontal and vertical motions separately, and find the time to the top, the greatest height and the horizontal distance and speed there, with g stated."
+status: active
+placement_eligible: false
+prerequisites:
+- vertical-motion-with-resistance
+- projectile-cartesian-elimination
+answer: number
+sources:
+- topic: w6_projectile_resistance
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w6_projectile_resistance
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w6_projectile_resistance
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: w6_projectile_resistance_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: r3d-constant-deceleration-assumed
+  description: "Treating a resistance that depends on speed as a constant deceleration equal to its initial value."
+- id: r3d-decay-for-growth
+  description: "Using V e^(-kt) (a decay from the terminal speed) where the speed grows towards it as V(1 - e^(-kt))."
+- id: r3d-exponent-sign
+  description: "Getting the sign of the exponent wrong: growth e^(kt) where decay e^(-kt) belongs, or the reverse."
+- id: r3d-factor-g-over-k-dropped
+  description: "Leaving the factor g/k out of the logarithmic term in the greatest height."
+- id: r3d-gravity-dropped
+  description: "Leaving g out of the logarithm, so ln(1 + ku) replaces ln(1 + ku/g)."
+- id: r3d-log-term-sign
+  description: "Adding the logarithmic term where it should be subtracted in the greatest height."
+- id: r3d-mean-speed-used
+  description: "Using the average of the initial and final speeds times the time as if the speed changed uniformly."
+- id: r3d-rate-dropped
+  description: "Dropping the rate constant k from the exponent or the logarithm."
+- id: r3d-ratio-inverted
+  description: "Inverting the ratio, giving c/(mg) where mg/c belongs."
+- id: r3d-resistance-added
+  description: "Adding the resistance where it should be subtracted from the weight (or the reverse)."
+- id: r3d-resistance-ignored
+  description: "Ignoring the air resistance and using the free-fall result."
+- id: r3d-resistance-only
+  description: "Reporting only the resistance term kv, leaving out the weight term g."
+- id: r3d-resistance-subtracted
+  description: "Subtracting the resistance from g for an object moving upwards, where both act downward and add."
+- id: w6-proj-components-swapped
+  description: "Swaps the horizontal and vertical components of the launch velocity (cosine for sine)."
+- id: w6-proj-gravity-on-horizontal
+  description: "Adds gravity to the horizontal acceleration, although gravity acts only vertically."
+- id: w6-proj-gravity-term-dropped
+  description: "Leaves the g/k terminal-speed term out of the vertical velocity, so the vertical speed decays like the horizontal one."
+- id: w6-proj-limit-for-height
+  description: "Uses the limiting value of the formula (u over k) in place of the value at the time the projectile is at the top."
+- id: w6-proj-no-drag-range-used
+  description: "Multiplies the horizontal launch speed by the time to the top, ignoring the slowing of the horizontal motion."
+- id: w6-proj-sign-of-velocity
+  description: "Gives the vertical velocity the wrong sign: reports the downward speed as if upward were positive, or the reverse."
+- id: w6-proj-speed-for-component
+  description: "Uses the launch speed where the horizontal or vertical component of the velocity belongs, so the angle is never resolved."
+- id: w6-proj-speed-times-time
+  description: "Multiplies the horizontal speed at time t by t to get the distance, as if the speed stayed at that value."
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Resolve the launch velocity into components and write down the horizontal or vertical acceleration at an instant, with resistance acting against each component.
+  medium:
+    steps: 3
+    demand: Integrate one component's equation of motion (horizontal speed or distance, vertical velocity, or the time to the top) with the constants fixed by the launch components.
+  hard:
+    steps: 5
+    demand: Combine both components at the top, using v dv/dy for the greatest height and the exponential at the top time for the horizontal distance and speed.
+  exam:
+    steps: 7
+    demand: Chain the launch deceleration, time to the top, greatest height and horizontal distance, each reusing the earlier result.
+tags:
+- mechanics
+- resisted-motion
+- projectile
+- specialist-unit-4
+- extension-2

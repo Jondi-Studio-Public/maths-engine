@@ -228,10 +228,17 @@ def test_three_skills_each_gained_exactly_one_new_exam_source():
         # other skills declare explicitly.
         assert skill.placement_eligible is True
         assert skill.status == "active"
-        assert len(skill.sources) == 2
-        assert [s.topic for s in skill.sources] == [easy_topic, exam_topic]
-        assert [s.difficulty for s in skill.sources] == ["easy", "exam"]
-        assert skill.sources[1].stages == ["exam"]
+        # The median also gained an even-count medium source (w2_median_even) between the easy and exam ones.
+        # The mean gained medium and hard tiers (w3_mean_tiers) in the same way.
+        middle = [("w2_median_even", "medium")] if skill is median else []
+        if skill is mean:
+            middle = [("w3_mean_tiers", "medium"), ("w3_mean_tiers", "hard")]
+        assert [(s.topic, s.difficulty) for s in skill.sources] == [
+            (easy_topic, "easy"),
+            *middle,
+            (exam_topic, "exam"),
+        ]
+        assert skill.sources[-1].stages == ["exam"]
 
     assert median.prerequisites == ["order-numbers-to-10"]
     assert mean.prerequisites == ["whole-number-division-facts"]

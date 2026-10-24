@@ -61,6 +61,15 @@ _HARD_MOVE_TEMPLATES = (
 )
 
 
+def _change_line(axis, rule, end, start, delta, start_name):
+    """One working line for a change in a coordinate. A zero start is said in words: a written "(-5) - 0" would have
+    its " - 0" stripped by the zero-term clean-up, leaving a step that reads "(-5) = -5"."""
+    head = f"Change in {axis}: d{axis} = {rule} = "
+    if start == 0:
+        return f"{head}{paren_negative(end)} minus 0, which is {delta}  ({start_name} is 0)"
+    return f"{head}{paren_negative(end)} - {paren_negative(start)} = {delta}"
+
+
 def _draw_point(rng, lo: int, hi: int) -> tuple[int, int, int]:
     return (rng.randint(lo, hi), rng.randint(lo, hi), rng.randint(lo, hi))
 
@@ -136,9 +145,9 @@ def three_dimensional_coordinates(rng, coord_lo=-10, coord_hi=10, sequence_lengt
         end_text = f"{end[0]}, {end[1]}, {end[2]}"
         text = template.format(start=start_text, end=end_text)
         working = [
-            f"Change in x: dx = x_end - x_start = {paren_negative(end[0])} - {paren_negative(start[0])} = {dx}",
-            f"Change in y: dy = y_end - y_start = {paren_negative(end[1])} - {paren_negative(start[1])} = {dy}",
-            f"Change in z: dz = z_end - z_start = {paren_negative(end[2])} - {paren_negative(start[2])} = {dz}",
+            _change_line("x", "(end x) - (start x)", end[0], start[0], dx, "the start x"),
+            _change_line("y", "(end y) - (start y)", end[1], start[1], dy, "the start y"),
+            _change_line("z", "(end z) - (start z)", end[2], start[2], dz, "the start z"),
         ]
         candidates = [
             f"dx = {swapped[0]}, dy = {swapped[1]}, dz = {swapped[2]}",
@@ -183,9 +192,9 @@ def three_dimensional_coordinates(rng, coord_lo=-10, coord_hi=10, sequence_lengt
         c_text = f"{c_pt[0]}, {c_pt[1]}, {c_pt[2]}"
         text = template.format(a=a_text, b=b_text, c=c_text)
         working = [
-            f"Change in x: dx = x_C - x_A = {paren_negative(c_pt[0])} - {paren_negative(a_pt[0])} = {dx}",
-            f"Change in y: dy = y_C - y_A = {paren_negative(c_pt[1])} - {paren_negative(a_pt[1])} = {dy}",
-            f"Change in z: dz = z_C - z_A = {paren_negative(c_pt[2])} - {paren_negative(a_pt[2])} = {dz}",
+            _change_line("x", "x_C - x_A", c_pt[0], a_pt[0], dx, "x_A"),
+            _change_line("y", "y_C - y_A", c_pt[1], a_pt[1], dy, "y_A"),
+            _change_line("z", "z_C - z_A", c_pt[2], a_pt[2], dz, "z_A"),
         ]
         candidates = [
             f"dx = {swapped[0]}, dy = {swapped[1]}, dz = {swapped[2]}",

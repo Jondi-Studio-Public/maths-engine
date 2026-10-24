@@ -254,7 +254,17 @@ def _build_compare_magnitude(rng) -> dict:
         f"How many times as massive as the lighter object is the heavier object? "
         f"Give your answer as a whole number."
     )
-    candidates = [str(int(invert_ratio)), str(int(order_of_magnitude_only)), str(int(off_by_one))]
+    # Distractors on both sides of the key, so the smallest option is not always right:
+    # a power of ten too small (one order below the exponent gap, or the ratio / 10 when that
+    # is a whole number) and the three larger misconceptions above.
+    below = [10 ** (diff - 1)]
+    if (ratio / 10).denominator == 1:
+        below.append(int(ratio / 10))
+    above = [int(invert_ratio), int(order_of_magnitude_only), int(off_by_one)]
+    n_below = rng.randint(1, len(below))
+    chosen = rng.sample(below, n_below) + rng.sample(above, 3 - n_below)
+    check(all(c != answer for c in chosen), "compare_magnitude: a distractor equals the answer")
+    candidates = [str(c) for c in chosen]
     return dict(
         text=text,
         latex=text,

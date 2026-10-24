@@ -6,7 +6,9 @@ removed afterwards, so no library-wide sweep ever sees them.
 
 from __future__ import annotations
 
+import dataclasses
 import json
+import time
 from fractions import Fraction
 
 import pytest
@@ -14,7 +16,7 @@ import pytest
 from mathgen import engine, make
 from mathgen.answers import Distractor
 from mathgen.core import PRESETS, REGISTRY, Part, VerificationError, generator
-from mathgen.grading import GRADERS, grade
+from mathgen.grading import GRADERS, deadline, grade
 from mathgen.grading.parts import follow_through_target, reply_value, split_reply
 
 TOPIC = "test_multi_part_circle"
@@ -384,3 +386,61 @@ def test_a_chain_carried_from_a_wrong_first_part_is_follow_through_all_the_way(r
     result = grade("number", q, {"a": "7", "b": "44.0", "c": "22.0"})
     assert [result.parts[k].follow_through for k in "abc"] == [False, True, True]
     assert result.marks == 2
+
+
+def _tail_probability(rng):
+    # z = 2.41; P(Z > z) = erfc(z/sqrt(2))/2 = 0.0080 (4 dp).
+    return dict(
+        text="A test statistic is standardised.",
+        parts=[
+            dict(prompt="Find z, correct to 2 decimal places.", answer_kind="number", answer=2.41, answer_text="2.41"),
+            dict(
+                prompt="Hence find P(Z > z), correct to 4 decimal places.",
+                answer_kind="number",
+                answer=0.008,
+                answer_text="0.0080",
+                follow_through="erfc(part_a/sqrt(2))/2",
+            ),
+            dict(
+                prompt="Hence find e to the power of z, to 1 decimal place.",
+                answer_kind="number",
+                answer=11.1,
+                answer_text="11.1",
+                follow_through="exp(part_a)",
+            ),
+        ],
+    )
+
+
+@pytest.mark.parametrize("z", ["40", "4000", "999999", "-999999", "1e300"])
+def test_a_huge_earlier_answer_cannot_stall_follow_through(register, z):
+    # Writing erfc(999999/sqrt(2)), near 10**-217000000000, out as an exact fraction took minutes per reply.
+    register(_tail_probability)
+    q = make(TOPIC, seed=1)
+    result = deadline.grade_with_deadline("number", q, f"(a) {z} (b) 0.0000 (c) 0.0", timeout=10)
+    assert not result.timed_out
+    assert result.marks == 0  # a zero tail and a value too large to state follow through to nothing
+
+
+def test_follow_through_states_a_tiny_value_as_zero_and_refuses_a_huge_one(register):
+    register(_tail_probability)
+    q = make(TOPIC, seed=1)
+    b, c = q.parts[1:]
+    assert follow_through_target(b, {"a": reply_value("number", "999999")}).answer_text == "0.0000"
+    assert follow_through_target(b, {"a": reply_value("number", "3")}).answer_text == "0.0013"
+    assert follow_through_target(c, {"a": reply_value("number", "999999")}) is None
+    assert follow_through_target(c, {"a": reply_value("number", "3")}).answer_text == "20.1"
+
+
+def test_follow_through_to_significant_figures_states_a_tiny_value_and_refuses_one_too_small_to_write(register):
+    """A part fixed to significant figures states any size of value to that many, so a small carried value is not
+    rounded away to zero as a part fixed to decimal places would. A value too small to write out has no answer, as
+    one too big has none, and is refused at once rather than built digit by digit."""
+    register(_tail_probability)
+    q = make(TOPIC, seed=1)
+    b = dataclasses.replace(q.parts[1], sig_figs=2)
+    assert follow_through_target(b, {"a": reply_value("number", "3")}).answer_text == "0.0013"
+    assert follow_through_target(b, {"a": reply_value("number", "6")}).answer_text == "0.00000000099"
+    started = time.monotonic()
+    assert follow_through_target(b, {"a": reply_value("number", "999999")}) is None
+    assert time.monotonic() - started < 2.0

@@ -90,8 +90,16 @@ def test_hard_keys():
             assert sympy.expand(z**2 - target) == 0 and sympy.re(z) > 0, (seed, q.text)
             seen.add("sqrt")
         else:
-            s, p = (_c(m) for m in re.findall(_COMPLEX, q.text)[:2])
-            roots = sympy.solve(sympy.Symbol("z") ** 2 - s * sympy.Symbol("z") + p, sympy.Symbol("z"))
+            lhs, rhs = re.search(r"The equation (.*?) = (-?\d+) has", q.text).groups()
+            zz = sympy.Symbol("z")
+            lhs = re.sub(r"(?<=[\d)])i", "*I", lhs.replace("z²", "z**2"))
+            lhs = re.sub(r"(?<![\w*])i(?=z|\b)", "I", lhs)
+            expr = parse_expr(
+                lhs,
+                local_dict={"z": zz},
+                transformations=standard_transformations + (implicit_multiplication_application,),
+            )
+            roots = sympy.solve(expr - int(rhs), zz)
             assert len(roots) == 2 and z in roots
             assert sympy.im(z) == max(sympy.im(r) for r in roots), (seed, q.text)
             seen.add("quadratic")
@@ -102,8 +110,8 @@ def test_exam_chain():
     su.check_exam(SK, EXAM, "abc", (3, 3, 3), (False, True, True), seeds=15)
     for seed in range(40):
         q = make(EXAM, seed=seed, difficulty="exam")
-        b, c, d = re.search(r"w = \(k ([+-]) (\d+)i\) ÷ \((.*?)\)", q.stem).groups()
-        b = int(c) * (1 if b == "+" else -1)
+        b, c, d = re.search(r"w = \(k ([+-]) (\d*)i\) ÷ \((.*?)\)", q.stem).groups()
+        b = int(c or 1) * (1 if b == "+" else -1)
         w_den = _c(re.search(r"÷ \((.*?)\)", q.stem).group(1))
         k = sympy.Integer(int(q.parts[0].answer))
         w = (k + b * sympy.I) / w_den
@@ -119,7 +127,7 @@ def test_exam_chain():
 
 def test_exam_follow_through_from_a_wrong_k():
     def w_for(q, k):
-        b = int(re.search(r"w = \(k ([+-]) (\d+)i\)", q.stem).group(2)) * (1 if "k +" in q.stem else -1)
+        b = int(re.search(r"w = \(k ([+-]) (\d*)i\)", q.stem).group(2) or 1) * (1 if "k +" in q.stem else -1)
         den = _c(re.search(r"÷ \((.*?)\)", q.stem).group(1))
         w = sympy.expand((k + b * sympy.I) * sympy.conjugate(den) / (den * sympy.conjugate(den)))
         x, y = sympy.nsimplify(sympy.re(w)), sympy.nsimplify(sympy.im(w))

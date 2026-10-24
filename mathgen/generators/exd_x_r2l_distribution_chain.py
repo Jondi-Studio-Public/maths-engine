@@ -21,7 +21,16 @@ from fractions import Fraction
 import sympy
 
 from ..answers import Distractor, exact_value
-from ..core import GRADER_TOLERANCE, attempts, check, generator, latex_answer, pick_distractors, rational_text
+from ..core import (
+    GRADER_TOLERANCE,
+    attempts,
+    check,
+    generator,
+    join_terms,
+    latex_answer,
+    pick_distractors,
+    rational_text,
+)
 
 # (what X counts, what is surveyed with {n})
 _CONTEXTS = (
@@ -179,8 +188,8 @@ def _build(rng: random.Random) -> dict:
             sensible_range=(0, None),
             follow_through=ft_b,
             working=[
-                f"Sum of x f = {n} x {_decimal_text(mean)} = {int(n * mean)}, so {xs[i]}m + {xs[j]}k = {int(r)}.",
-                f"With k = {s_total} - m: {xs[i]}m + {xs[j]}({s_total} - m) = {int(r)}, so m = {m}.",
+                f"Sum of x f = {n} × {_decimal_text(mean)} = {int(n * mean)}, so {join_terms([(xs[i], 'm'), (xs[j], 'k')])} = {int(r)}.",
+                f"With k = {s_total} - m: {join_terms([(xs[i], 'm'), (xs[j], f'({s_total} - m)')])} = {int(r)}, so m = {m}.",
             ],
             distractors=b_d,
         ),

@@ -10,18 +10,16 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ## [Unreleased]
 
-### Changed
+### Added
 
-- Marking is stricter about what surrounds a number. A stray letter or operator next to the value is wrong
-  (`7x`, `7/x`, `x7` for 7), and so is a minus that belongs to nothing: `-(-6, 4)`, `-A$352.50`, `-F = 10.0 N`
-  and `-x = 7` no longer lose their minus and pass. Labels (`x = 7`, `P(2, 3)`), unit symbols (`7 m`, `20 J`),
-  dotted abbreviations (`3 p.m.`) and unit words (`7 dogs`, `0.064 cm`) are still read as before. An SI prefix on
-  the unit a question asks for is a different unit (`10 mN`, `10 MN` for 10 N). Every canonical answer in the
-  library is still accepted.
-- `ucv1-definition-quantifier-check` no longer prints `None` in two of its answer options, and the text-quality
-  check flags a Python `None` or `NaN` printed into learner text.
+- Interactive graph answers. Seven answer kinds (`half_planes`, `line_graph`, `number_line_set`, `polygon`, `curve`, `bars`,
+  `edges`) read what a learner draws on a graph, as JSON a front end sends or as a typed form. Points are compared as
+  exact fractions on the figure's snap grid, with no tolerance, and unreadable or oversized replies are marked wrong.
+  A `cartesian` or `number_line` figure may carry a `canvas` key naming the reply kind, the tools and the snap step.
+  Six skills use them: plot a point, draw a line, an inequality on a number line, shade an inequality region, transform
+  a shape on a grid and draw a parabola. The schemas are in `docs/design/interactive-graph-answers.md`.
 
-## [0.2.0] - 2026-10-14
+## [0.2.0] - 2026-10-19
 
 ### Upgrading from 0.1.0
 
@@ -43,6 +41,12 @@ Each question's id (below) tells you when the question behind it has changed.
 - Unit prefixes are read case-sensitively where it matters (#111): `2000 ML` (megalitres) no longer passes for
   `2000 mL`, and `mPa` or `mHz` (milli spelled with a small m on a mega unit) no longer pass for `MPa` or `MHz`.
   `2000 ml`, `5 KM` and all-capital `MM` are still read as before.
+- Marking is stricter about what surrounds a number (#117). A stray letter or operator next to the value is wrong
+  (`7x`, `7/x`, `x7` for 7), and so is a minus that belongs to nothing: `-(-6, 4)`, `-A$352.50`, `-F = 10.0 N` and
+  `-x = 7` no longer lose their minus and pass. Labels (`x = 7`, `P(2, 3)`), unit symbols (`7 m`, `20 J`), dotted
+  abbreviations (`3 p.m.`) and unit words (`7 dogs`, `0.064 cm`) are still read as before. An SI prefix on the
+  unit a question asks for is a different unit (`10 mN`, `10 MN` for 10 N). Every canonical answer in the library
+  is still accepted.
 - Some questions changed text for the same seed, so their ids change: 11 worked solutions that printed `-3² - 4(6)`
   where `(-3)²` was meant (#104), and the early-years skills rebuilt in #103 (below). `compare-lengths` is now
   picture-based, `f10-compare-measurement-attributes` is renamed "Compare mass and capacity directly" and no longer
@@ -82,6 +86,17 @@ Each question's id (below) tells you when the question behind it has changed.
     (#77), and linear algebra, Taylor polynomials, series tests and ODEs (#79).
   - Second-year university: abstract algebra, numerical methods, probability and statistics, and discrete
     mathematics (#93).
+- **174 more skills** (#115, #118), so the library now has about 1,250 active skills.
+  - A second build train (155 skills, #115): round 3 (87 skills across probability, calculus, matrices, mechanics,
+    finance, trigonometry, differential equations and discrete mathematics), second-year university (58), complex
+    analysis (7), and z-tests, gradient vectors, e as a limit, critical path and more early-years variety. 47
+    single-part exam generators gain a second exam source.
+  - 19 skills for rows that had none (#118), each with easy, medium, hard and exam tiers: Boolean algebra and logic
+    gates, a line meeting a parabola or circle, the auxiliary angle, complex polygon vertices and roots of unity,
+    complex rotation, sinusoid features, 4x4 cofactor expansion, Hermitian and unitary matrices, SVD of small
+    matrices, multivariable Taylor with the Hessian, complete bipartite and connected graphs, minimum cut and
+    maximum flow, dynamic-programming tables, relative velocity, unit-cost depreciation, number bases, primes and
+    divisors, floor and ceiling estimation, quadric surfaces and error-correcting codes.
 - **Grid figures and shaded-cell answers.** A `grid_drawing` figure kind draws scale drawings, maps with grid
   references, stacks of cubes, nets and plan or elevation views. A `grid_cells` answer kind lets a learner answer by
   shading cells, with four match modes (exact, translate, congruent and cube net). 17 skills use them: 13 are
@@ -121,6 +136,15 @@ Each question's id (below) tells you when the question behind it has changed.
   topic. (#86)
 - `import mathgen` is about twice as fast: the Euler's-formula generator builds its pool of graphs on its first
   hard or exam question instead of at import. (#86)
+- Stricter marking of stray letters, a dropped minus and SI prefixes: see "Upgrading from 0.1.0". (#117)
+- `ucv1-definition-quantifier-check` no longer prints `None` in two of its answer options, and the text-quality
+  check flags a Python `None` or `NaN` printed into learner text. (#117)
+- Displayed notation (#116): `x*` and `z*` (conjugates and starred variables) now stay as written instead of
+  turning into `x ×`, and the natural log shows as `ln` instead of sympy's `log` in integration by parts, partial
+  fractions and the heat-rod answers. Division of decimals and the directional derivative now say "correct to 6
+  significant figures" where the key is rounded.
+- `README.md` and `SECURITY.md` described the engine as having no server; they now describe the optional HTTP API
+  and MCP server, and `SECURITY.md` says what is in scope for them. (#116)
 
 ### Fixed
 

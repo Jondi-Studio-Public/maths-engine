@@ -78,6 +78,7 @@ _MONEY_RE = re.compile(r"\$(\d+)")
 
 
 def _easy_oracle(text: str):
+    text = re.sub(r"(?<=\d),(?=\d{3})", "", text)  # stems write $20,000
     gf_s, d_s = _EASY_FORMULA_RE.search(text).groups()
     r = Fraction(gf_s) - 1
     d = Fraction(int(d_s))
@@ -99,6 +100,7 @@ _MEDIUM_RE = re.compile(
 
 
 def _medium_oracle(text: str):
+    text = re.sub(r"(?<=\d),(?=\d{3})", "", text)  # stems write $20,000
     a0_s, annual_s, freq_word, d_s = _MEDIUM_RE.search(text).groups()
     freq = 12 if freq_word == "monthly" else 4
     r = (Fraction(annual_s) / 100) / freq
@@ -113,6 +115,7 @@ _HARD_PCT_RE = re.compile(r"([\d.]+)% per annum")
 
 
 def _hard_oracle(text: str):
+    text = re.sub(r"(?<=\d),(?=\d{3})", "", text)  # stems write $20,000
     freq = 12 if "monthly" in text else 4
     percents = _HARD_PCT_RE.findall(text)
     moneys = [int(m) for m in _MONEY_RE.findall(text)]
@@ -150,6 +153,7 @@ _K_RE = re.compile(r"(\d+)(?:st|nd|rd|th) withdrawal")
 
 
 def _exam_oracle(text: str):
+    text = re.sub(r"(?<=\d),(?=\d{3})", "", text)  # stems write $20,000
     freq = 12 if "monthly" in text else 4
     percents = _HARD_PCT_RE.findall(text)
     moneys = [int(m) for m in _MONEY_RE.findall(text)]

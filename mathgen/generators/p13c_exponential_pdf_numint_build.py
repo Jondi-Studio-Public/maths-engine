@@ -127,11 +127,21 @@ def _verify_independent(raw: Fraction, lam: Fraction, a: Fraction, b: Fraction, 
 
 def _drop_if_collides(raw: Fraction, dp: int, answer_rounded: Fraction) -> str | None:
     """Round a candidate distractor's raw value to the answer's own stated precision and return its display
-    string -- or ``None`` if it collides with the answer at that precision."""
+    string -- or ``None`` if it collides with the answer at that precision, or is not a probability.
+
+    The answer is a probability, so a candidate outside [0, 1] (a negated value, an exponent with the wrong
+    sign) is dropped: a learner eliminates an impossible probability at sight."""
     rounded = round_half_up(raw, dp)
+    if not (0 <= rounded <= 1):
+        return None
     if rounded == answer_rounded:
         return None
     return stated_precision_string(rounded, dp)
+
+
+def _unit_free(lam_s: str) -> str:
+    """The text of a multiplier in ``lam*e^(-lam*t)``: a multiplier of 1 is left out."""
+    return "" if lam_s == "1" else lam_s
 
 
 def _fmt_param(value: Fraction) -> str:
@@ -153,38 +163,46 @@ def _fmt_param(value: Fraction) -> str:
 
 _FACT_TEMPLATES = (
     "The exponential random variable has probability density function "
-    "f(t) = {lam}e^(-{lam}t) for t >= 0. Using technology, evaluate the "
+    "f(t) = {lam_c}e^(-{lam_c}t) for t >= 0. Using technology, evaluate the "
     "integral of f(t) from t = {a} to t = {b}, correct to {dp} decimal places.",
-    "Let f(t) = {lam}e^(-{lam}t) for t >= 0 be the probability density "
+    "Let f(t) = {lam_c}e^(-{lam_c}t) for t >= 0 be the probability density "
     "function of an exponential random variable with parameter lambda = {lam}. "
     "Use numerical integration by technology to find the value of the "
     "integral of f(t) between t = {a} and t = {b}, correct to {dp} decimal places.",
-    "For the exponential probability density function f(t) = {lam}e^(-{lam}t), "
+    "For the exponential probability density function f(t) = {lam_c}e^(-{lam_c}t), "
     "t >= 0, compute the definite integral of f(t) over the interval from "
     "t = {a} to t = {b}. Give your answer correct to {dp} decimal places.",
 )
 
 _EXAM_TEMPLATES = (
     "The exponential random variable has probability density function "
-    "f(t) = {lam}e^(-{lam}t) for t >= 0. Using technology, evaluate the "
+    "f(t) = {lam_c}e^(-{lam_c}t) for t >= 0. Using technology, evaluate the "
     "integral of f(t) over the union of the intervals from t = {a1} to "
     "t = {b1} and from t = {a2} to t = {b2}, correct to {dp} decimal places.",
-    "Let f(t) = {lam}e^(-{lam}t) for t >= 0 be the probability density "
+    "Let f(t) = {lam_c}e^(-{lam_c}t) for t >= 0 be the probability density "
     "function of an exponential random variable with parameter lambda = {lam}. "
     "Use numerical integration by technology to find the value of the "
     "integral of f(t) over [{a1}, {b1}] together with [{a2}, {b2}], correct "
     "to {dp} decimal places.",
-    "For the exponential probability density function f(t) = {lam}e^(-{lam}t), "
+    "For the exponential probability density function f(t) = {lam_c}e^(-{lam_c}t), "
     "t >= 0, use technology to compute the sum of the definite integral of "
     "f(t) from t = {a1} to t = {b1} and the definite integral of f(t) from "
     "t = {a2} to t = {b2}. Give your answer correct to {dp} decimal places.",
 )
 
 
-def _finish(text: str, answer_rounded: Fraction, dp: int, distractor_candidates: list) -> dict:
+def _finish(text: str, answer_rounded: Fraction, dp: int, distractor_candidates: list, n: int = 3) -> dict:
     answer_text = stated_precision_string(answer_rounded, dp)
     survivors = [d for d in distractor_candidates if d is not None]
-    distractors = pick_distractors(answer_text, survivors)
+    # Top-up, used only when the misconceptions above fall short: the complement of the answer (the
+    # opposite tail) and values a few units in the last place away, all inside [0, 1].
+    unit = Fraction(1, 10**dp)
+    for extra in (1 - answer_rounded, *(answer_rounded + j * unit for j in (-10, 10, -20, 20, -30, 30))):
+        extra_text = _drop_if_collides(extra, dp, answer_rounded)
+        if extra_text is not None:
+            survivors.append(extra_text)
+    distractors = pick_distractors(answer_text, survivors, n=n)
+    check(len(distractors) == n, "need a full set of in-range distractors")
     return dict(
         text=text,
         latex=text,
@@ -221,14 +239,23 @@ def _easy(rng) -> dict:
     sign_swap_raw = -raw
     wrong_exponent_raw = Fraction(math.exp(float(lam) * float(b))) - Fraction(1)
 
+    # In-range misconceptions: the survival probability e^(-lambda*b) (forgets "1 -"), the rate left out of
+    # the exponent, and the density value at b (reads f(b) as the area).
+    survival_raw = Fraction(math.exp(-float(lam) * float(b)))
+    no_rate_raw = Fraction(1) - Fraction(math.exp(-float(b)))
+    density_raw = lam * survival_raw
     cands = [
         _drop_if_collides(sign_swap_raw, dp, answer_rounded),
         _drop_if_collides(wrong_exponent_raw, dp, answer_rounded),
+        _drop_if_collides(survival_raw, dp, answer_rounded),
+        _drop_if_collides(no_rate_raw, dp, answer_rounded),
+        _drop_if_collides(density_raw, dp, answer_rounded),
+        _drop_if_collides(Fraction(1) - Fraction(math.exp(-float(b) / float(lam))), dp, answer_rounded),
     ]
 
     lam_s, b_s = _fmt_param(lam), _fmt_param(b)
-    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, a="0", b=b_s, dp=str(dp))
-    return _finish(text, answer_rounded, dp, cands)
+    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, lam_c=_unit_free(lam_s), a="0", b=b_s, dp=str(dp))
+    return _finish(text, answer_rounded, dp, cands, n=2)
 
 
 def _medium(rng) -> dict:
@@ -254,14 +281,24 @@ def _medium(rng) -> dict:
     forgot_lower_raw = Fraction(1) - Fraction(math.exp(-float(lam) * float(b)))
     wrong_exponent_raw = Fraction(math.exp(float(lam) * float(b))) - Fraction(math.exp(float(lam) * float(a)))
 
+    # In-range misconceptions after the two above that leave [0, 1]: only the upper term, only the lower
+    # term, and a one-rectangle estimate (density at a times the width).
+    upper_only_raw = Fraction(math.exp(-float(lam) * float(b)))
+    lower_only_raw = Fraction(math.exp(-float(lam) * float(a)))
+    rectangle_raw = lam * lower_only_raw * (b - a)
     cands = [
         _drop_if_collides(sign_swap_raw, dp, answer_rounded),
         _drop_if_collides(forgot_lower_raw, dp, answer_rounded),
         _drop_if_collides(wrong_exponent_raw, dp, answer_rounded),
+        _drop_if_collides(upper_only_raw, dp, answer_rounded),
+        _drop_if_collides(lower_only_raw, dp, answer_rounded),
+        _drop_if_collides(rectangle_raw, dp, answer_rounded),
+        # treats the interval as [0, b - a]: the width alone, not where it sits
+        _drop_if_collides(Fraction(1) - Fraction(math.exp(-float(lam) * float(b - a))), dp, answer_rounded),
     ]
 
     lam_s, a_s, b_s = _fmt_param(lam), _fmt_param(a), _fmt_param(b)
-    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, a=a_s, b=b_s, dp=str(dp))
+    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, lam_c=_unit_free(lam_s), a=a_s, b=b_s, dp=str(dp))
     return _finish(text, answer_rounded, dp, cands)
 
 
@@ -298,14 +335,24 @@ def _hard(rng) -> dict:
     forgot_lower_raw = Fraction(1) - Fraction(math.exp(-float(lam) * float(b)))
     wrong_exponent_raw = Fraction(math.exp(float(lam) * float(b))) - Fraction(math.exp(float(lam) * float(a)))
 
+    # In-range misconceptions after the two above that leave [0, 1]: only the upper term, only the lower
+    # term, and a one-rectangle estimate (density at a times the width).
+    upper_only_raw = Fraction(math.exp(-float(lam) * float(b)))
+    lower_only_raw = Fraction(math.exp(-float(lam) * float(a)))
+    rectangle_raw = lam * lower_only_raw * (b - a)
     cands = [
         _drop_if_collides(sign_swap_raw, dp, answer_rounded),
         _drop_if_collides(forgot_lower_raw, dp, answer_rounded),
         _drop_if_collides(wrong_exponent_raw, dp, answer_rounded),
+        _drop_if_collides(upper_only_raw, dp, answer_rounded),
+        _drop_if_collides(lower_only_raw, dp, answer_rounded),
+        _drop_if_collides(rectangle_raw, dp, answer_rounded),
+        # treats the interval as [0, b - a]: the width alone, not where it sits
+        _drop_if_collides(Fraction(1) - Fraction(math.exp(-float(lam) * float(b - a))), dp, answer_rounded),
     ]
 
     lam_s, a_s, b_s = _fmt_param(lam), _fmt_param(a), _fmt_param(b)
-    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, a=a_s, b=b_s, dp=str(dp))
+    text = phrase(rng, _FACT_TEMPLATES, lam=lam_s, lam_c=_unit_free(lam_s), a=a_s, b=b_s, dp=str(dp))
     return _finish(text, answer_rounded, dp, cands)
 
 
@@ -345,15 +392,21 @@ def _exam(rng) -> dict:
     second_only_raw = raw2
     sign_swap_raw = -raw
 
+    # In-range stand-ins for the sign swap: integrating the whole hull [a1, b2] (the gap counted too), and
+    # only the upper terms.
+    hull_raw = _raw_integral(lam, a1, b2)
     cands = [
         _drop_if_collides(first_only_raw, dp, answer_rounded),
         _drop_if_collides(second_only_raw, dp, answer_rounded),
         _drop_if_collides(sign_swap_raw, dp, answer_rounded),
+        _drop_if_collides(hull_raw, dp, answer_rounded),
     ]
 
     lam_s = _fmt_param(lam)
     a1_s, b1_s, a2_s, b2_s = _fmt_param(a1), _fmt_param(b1), _fmt_param(a2), _fmt_param(b2)
-    text = phrase(rng, _EXAM_TEMPLATES, lam=lam_s, a1=a1_s, b1=b1_s, a2=a2_s, b2=b2_s, dp=str(dp))
+    text = phrase(
+        rng, _EXAM_TEMPLATES, lam=lam_s, lam_c=_unit_free(lam_s), a1=a1_s, b1=b1_s, a2=a2_s, b2=b2_s, dp=str(dp)
+    )
     return _finish(text, answer_rounded, dp, cands)
 
 

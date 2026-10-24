@@ -81,7 +81,9 @@ def exd_x_pr3_straight_line_angles(rng, tier="exam"):
             marks=1,
             follow_through=f"{a}*part_a+({b})",
             sensible_range=(0, 180),
-            working=[f"∠AOC = {a} × {x} {'+' if b > 0 else '-'} {abs(b)} = {aoc}°."],
+            working=[
+                f"∠AOC = {a if a != 1 else ''}{' × ' if a != 1 else ''}{x} {'+' if b > 0 else '-'} {abs(b)} = {aoc}°."
+            ],
             candidates=[
                 (a * x, "dropped-constant-term"),
                 (dob, "used-other-angle-expression"),

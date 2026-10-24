@@ -29,6 +29,7 @@ from mathgen.core import (
     attempts,
     check,
     check_equivalent,
+    equals_chain,
     generator,
     latex_answer,
     pick_distractors,
@@ -187,14 +188,17 @@ def exd_x_n4_decimal_sum(rng, tier: str = "exam"):
                 terminating,
                 marks=1,
                 distractors=d_a,
-                working=[f"{shown_t} = {numerator}/{10**places} = {a_text}."],
+                working=[f"{equals_chain(shown_t, f'{numerator}/{10**places}', a_text)}."],
             ),
             _fraction_part(
                 prompts[1],
                 recurring,
                 marks=2,
                 distractors=d_b,
-                working=[f"The block repeats every {width} digit(s), so r = {block}/{10**width - 1} = {b_text}."],
+                working=[
+                    f"The repeating block has {width} digit{'s' if width != 1 else ''}, "
+                    f"so {equals_chain('r', f'{block}/{10**width - 1}', b_text)}."
+                ],
             ),
             _fraction_part(
                 prompts[2],
@@ -281,7 +285,7 @@ def exd_x_n4_recurring_mixed(rng, tier: str = "exam"):
                 y,
                 marks=2,
                 distractors=d_a,
-                working=[f"y = {block}/{10**width - 1} = {a_text}."],
+                working=[f"{equals_chain('y', f'{block}/{10**width - 1}', a_text)}."],
             ),
             _fraction_part(
                 prompts[1],

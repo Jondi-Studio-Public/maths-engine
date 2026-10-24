@@ -490,7 +490,7 @@ _OEM_EXAM_TEMPLATES = tuple(
         "{values}. Two values here look unusual, but only {outlier} -- a negative, loss-making day "
         "-- is called the outlier. Find the mean with the outlier included, minus the mean with the "
         "outlier removed, to 1 decimal place.",
-        "This exam question gives a {n}-day profit or loss ($) record with more than one unusual "
+        "A {n}-day profit or loss ($) record has more than one unusual "
         "value: {values}. The outlier, a loss of {outlier}, pulls an otherwise positive record down "
         "-- subtract the mean without the outlier from the mean with the outlier included, to 1 "
         "decimal place.",
@@ -652,8 +652,7 @@ def _build_outlier_effect(rng, tier: str = "easy"):
         working=[
             f"Mean with outlier: ({' + '.join(paren_negative(v) for v in data)}) / {n} = "
             f"{stated_precision_string(mean_with, _OEM_DP)}.",
-            f"Mean without outlier ({paren_negative(x)}): sum / {n - 1} = "
-            f"{stated_precision_string(mean_without, _OEM_DP)}.",
+            f"Mean without outlier ({x}): sum / {n - 1} = {stated_precision_string(mean_without, _OEM_DP)}.",
             f"Difference: {stated_precision_string(mean_with, _OEM_DP)} - "
             f"{('(' + stated_precision_string(mean_without, _OEM_DP) + ')') if mean_without < 0 else stated_precision_string(mean_without, _OEM_DP)} "
             f"= {diff_text}.",

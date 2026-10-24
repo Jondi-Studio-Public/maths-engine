@@ -111,7 +111,7 @@ def define_and_use_unit_vectors_and_the_perpendicular(
             answer_text=answer_text,
             answer_latex=answer_text,
             working=[
-                f"Unit vector: ({a}/{m}, {b}/{m}) = ({answer_frac if ask_i else Fraction(b, m)}, {Fraction(b, m) if ask_i else answer_frac}). Coefficient of {axis_name}: {answer_frac}."
+                f"Unit vector: ({a}/{m}, {b}/{m}) = ({Fraction(a, m)}, {Fraction(b, m)}). Coefficient of {axis_name}: {answer_frac}."
             ],
             distractors=pick_distractors(answer_text, candidates),
         )

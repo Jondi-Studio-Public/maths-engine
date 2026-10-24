@@ -475,7 +475,7 @@ def _exam(rng: random.Random) -> dict:
             "Find the value of k.",
             k,
             2,
-            [f"The total area is 1, so k x (integral of the shape from {a} to {b}) = 1.", f"k = {k}."],
+            [f"The total area is 1, so k × (integral of the shape from {a} to {b}) = 1.", f"k = {k}."],
             [
                 (Fraction(1, b - a), "r3f-cdf-assumes-uniform"),
                 (Fraction(n + 1, b ** (n + 1)) if a else Fraction(n, w**n), "r3f-k-power-not-raised"),

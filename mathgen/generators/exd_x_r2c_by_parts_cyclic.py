@@ -31,7 +31,16 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-import numpy as np
+from functools import cache
+
+
+@cache
+def _np():
+    import numpy
+
+    return numpy
+
+
 from sympy import Integer, Rational, cos, exp, pi, sin
 
 from mathgen.answers import Distractor, exact_value
@@ -45,20 +54,29 @@ _STEMS = (
 )
 
 
-_NODES, _WEIGHTS = np.polynomial.legendre.leggauss(24)
+@cache
+def _gl():
+    return _np().polynomial.legendre.leggauss(24)
 
 
 def _quadrature(fun, upper: float, panels: int) -> float:
     """Integral of `fun` over [0, upper] by 24-point Gauss-Legendre on equal panels."""
-    edges = np.linspace(0.0, upper, panels + 1)
+    _NODES, _WEIGHTS = _gl()
+    edges = _np().linspace(0.0, upper, panels + 1)
     total = 0.0
     for lo, hi in zip(edges[:-1], edges[1:]):
-        total += float(np.sum(_WEIGHTS * fun((hi - lo) / 2 * _NODES + (hi + lo) / 2)) * (hi - lo) / 2)
+        total += float(_np().sum(_WEIGHTS * fun((hi - lo) / 2 * _NODES + (hi + lo) / 2)) * (hi - lo) / 2)
     return total
 
 
 def _typed(expr) -> str:
     return str(expr).replace("**", "^")
+
+
+def _with_term(edge, k, name) -> str:
+    """ "edge + (k)name", or just "(k)name" when the boundary value is zero."""
+    tail = f"({rational_text(k)}){name}"
+    return tail if edge == 0 else f"{_typed(edge)} + {tail}"
 
 
 def _fraction_part(prompt, value, marks, working, wrong, follow=None):
@@ -127,11 +145,18 @@ def exd_x_r2c_by_parts_cyclic(rng, tier: str = "exam"):
         return (exp_end * (f_end + kk * g_end) - lo_part) / a if g_term else (exp_end * f_end - lo_part) / a
 
     i_value = boundary(k1) / c
+    # The by-parts boundary values, as numbers: I = I_edge + k1 J and J = J_edge + k2 I, so cI = I_edge + k1 J_edge.
+    i_edge = (exp_end * f_end - f_start) / a
+    j_edge = (exp_end * g_end - g_start) / a
+    q_text = _typed(boundary(k1))
     j_value = (exp_end * g_end - g_start) / a + k2 * i_value
 
     # Independent check: Gauss-Legendre quadrature of the integrands themselves, one panel per quarter period.
-    for value, fun in ((i_value, np.sin if f_is_sin else np.cos), (j_value, np.cos if f_is_sin else np.sin)):
-        target = _quadrature(lambda t, fun=fun: np.exp(a * t) * fun(b * t), float(limit), m)
+    for value, fun in (
+        (i_value, _np().sin if f_is_sin else _np().cos),
+        (j_value, _np().cos if f_is_sin else _np().sin),
+    ):
+        target = _quadrature(lambda t, fun=fun: _np().exp(a * t) * fun(b * t), float(limit), m)
         check(abs(float(value.evalf(20)) - target) < 1e-9 * (1 + abs(target)), "a value disagrees with quadrature")
 
     def exp_text(coefficient):
@@ -150,7 +175,7 @@ def exd_x_r2c_by_parts_cyclic(rng, tier: str = "exam"):
         f"x = {lim_text}, plus kJ. Find the value of k.",
         k1,
         2,
-        [f"With u = {trig_text(fn)} and dv = {exp_text(a)} dx, the remaining integral is {rational_text(k1)}J."],
+        [f"With u = {trig_text(fn)} and dv = {exp_text(a)} dx, the remaining integral is ({rational_text(k1)})J."],
         [
             (-k1, "sign-reversed-result"),
             (1 / abs(k1), "inverted-ratio") if k1 > 0 else (-1 / abs(k1), "inverted-ratio"),
@@ -164,7 +189,8 @@ def exd_x_r2c_by_parts_cyclic(rng, tier: str = "exam"):
         c,
         2,
         [
-            f"J = (1/{a})·(boundary) {'+' if k2 >= 0 else '-'} ({rational_text(abs(k2))})I, so I = (boundary) + k·({rational_text(k2)})I and c = {rational_text(c)}."
+            f"I = {_with_term(i_edge, k1, 'J')} and J = {_with_term(j_edge, k2, 'I')}, "
+            f"so cI = {q_text} with c = 1 - ({rational_text(k1)})({rational_text(k2)}) = {rational_text(c)}."
         ],
         [
             (1 - Rational(b * b, a * a), "sign-reversed-result"),
@@ -182,7 +208,7 @@ def exd_x_r2c_by_parts_cyclic(rng, tier: str = "exam"):
         "Hence find the exact value of I.",
         i_value,
         3,
-        [f"I = (boundary term) ÷ {rational_text(c)} = {{value}}."],
+        [f"I = ({q_text}) ÷ {rational_text(c)} = {{value}}."],
         [
             (boundary(k1), "forgot-to-divide-by-coefficient"),
             (boundary(-k1) / c, "sign-reversed-result"),
@@ -194,7 +220,7 @@ def exd_x_r2c_by_parts_cyclic(rng, tier: str = "exam"):
         "Hence find the exact value of J.",
         j_value,
         2,
-        [f"J = (1/{a})·(boundary) + ({rational_text(k2)})I = {{value}}."],
+        [f"J = {_with_term(j_edge, k2, 'I')} = {{value}}."],
         [
             ((exp_end * g_end - g_start) / a, "cyclic-forgot-original-integral"),
             ((exp_end * g_end - g_start) / a - k2 * i_value, "sign-reversed-result"),

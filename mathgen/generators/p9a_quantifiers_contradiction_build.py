@@ -145,6 +145,14 @@ def quantifier_forall_exists_evaluate(rng, variant="exists"):
                 (len(D) > satisfying, "False, because not every value in the set satisfies it"),  # exists read as all
                 (satisfying >= 2, "False, because more than one value in the set satisfies it"),  # exists read as one
                 (not p_fn(D[0]), "False, because the first value listed does not satisfy it"),  # only looked at one
+                (
+                    satisfying == 1,
+                    "False, because only one value in the set satisfies it",
+                ),  # exists read as two or more
+                (
+                    True,
+                    "False, because the statement is not true for every whole number",
+                ),  # exists read over all integers
                 (True, "False, because no value in the set satisfies it"),
             ]
         else:
@@ -196,6 +204,7 @@ def quantifier_forall_exists_evaluate(rng, variant="exists"):
                 (satisfying * 2 > len(D), "True, because most of the values in the set satisfy it"),
                 (p_fn(D[0]), "True, because the first value listed satisfies it"),  # only looked at one
                 (True, "True, because the statement has not been disproved"),  # burden of proof reversed
+                (True, "True, because some whole numbers outside the set satisfy it"),  # strays outside the set
             ]
         distractors = _pick_slips(rng, slips)
         working = [

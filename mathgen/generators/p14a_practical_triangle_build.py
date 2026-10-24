@@ -476,9 +476,8 @@ def _easy_tier(rng) -> dict:
     question_text = phrase(rng, _EASY_TEMPLATES, d=d, phi=phi, psi=psi, theta=theta)
     working = [
         f"Ground triangle PQT: angle T = 180 - {phi} - {psi} = {angle_t} degrees.",
-        f"Sine rule: PT = PQ x sin(angle PQT) / sin(angle T) = {d} x sin({psi} deg) / "
-        f"sin({angle_t} deg) = {round(pt, 4)} m.",
-        f"Elevation from P: height = PT x tan({theta} deg) = {draw['answer_text']} m (to 1 decimal place).",
+        f"Sine rule: PT = PQ × sin(angle PQT) / sin(angle T) = {d} × sin({psi}°) / sin({angle_t}°) = {round(pt, 4)} m.",
+        f"Elevation from P: height = PT × tan({theta}°) = {draw['answer_text']} m (to 1 decimal place).",
     ]
     return _build_result(question_text, working, draw)
 
@@ -492,9 +491,8 @@ def _medium_tier(rng) -> dict:
     question_text = phrase(rng, _MEDIUM_TEMPLATES, d=d, phi=phi, psi=psi, theta=theta)
     working = [
         f"Ground triangle PQT: angle T = 180 - {phi} - {psi} = {angle_t} degrees.",
-        f"Sine rule: QT = PQ x sin(angle QPT) / sin(angle T) = {d} x sin({phi} deg) / "
-        f"sin({angle_t} deg) = {round(qt, 4)} m.",
-        f"Elevation from Q: height = QT x tan({theta} deg) = {draw['answer_text']} m (to 1 decimal place).",
+        f"Sine rule: QT = PQ × sin(angle QPT) / sin(angle T) = {d} × sin({phi}°) / sin({angle_t}°) = {round(qt, 4)} m.",
+        f"Elevation from Q: height = QT × tan({theta}°) = {draw['answer_text']} m (to 1 decimal place).",
     ]
     return _build_result(question_text, working, draw)
 
@@ -507,10 +505,10 @@ def _hard_tier(rng) -> dict:
 
     question_text = phrase(rng, _HARD_TEMPLATES, d=d, e=e, psi=psi, theta=theta)
     working = [
-        f"Cosine rule (SAS): PT^2 = PQ^2 + QT^2 - 2 x PQ x QT x cos(angle PQT) "
-        f"= {d}^2 + {e}^2 - 2x{d}x{e}xcos({psi} deg).",
+        f"Cosine rule (SAS): PT^2 = PQ^2 + QT^2 - 2 × PQ × QT × cos(angle PQT) "
+        f"= {d}^2 + {e}^2 - 2 × {d} × {e} × cos({psi}°).",
         f"PT = {round(pt, 4)} m.",
-        f"Elevation from P: height = PT x tan({theta} deg) = {draw['answer_text']} m (to 1 decimal place).",
+        f"Elevation from P: height = PT × tan({theta}°) = {draw['answer_text']} m (to 1 decimal place).",
     ]
     return _build_result(question_text, working, draw)
 
@@ -537,9 +535,8 @@ def _exam_tier(rng) -> dict:
         f"Interior angle at P: the bearing difference between T and Q from P, adjusted for "
         f"wraparound, gives angle QPT = {phi} degrees.",
         f"Ground triangle PQT: angle T = 180 - {phi} - {psi} = {angle_t} degrees.",
-        f"Sine rule: PT = PQ x sin(angle PQT) / sin(angle T) = {d} x sin({psi} deg) / "
-        f"sin({angle_t} deg) = {round(pt, 4)} m.",
-        f"Elevation from P: height = PT x tan({theta} deg) = {draw['answer_text']} m (to 1 decimal place).",
+        f"Sine rule: PT = PQ × sin(angle PQT) / sin(angle T) = {d} × sin({psi}°) / sin({angle_t}°) = {round(pt, 4)} m.",
+        f"Elevation from P: height = PT × tan({theta}°) = {draw['answer_text']} m (to 1 decimal place).",
     ]
     return _build_result(question_text, working, draw)
 

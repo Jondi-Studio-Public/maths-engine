@@ -1,6 +1,7 @@
 """Levels 11-12: trigonometry (Pythagoras, angles, sine rule), vectors."""
 
 import math
+import re
 
 from sympy import (
     Matrix,
@@ -744,6 +745,34 @@ def _side_word_problem(rng, kind, a, b, c):
     )
 
 
+def _pn(v) -> str:
+    """A component as a factor: a negative value is bracketed."""
+    return f"({v})" if v < 0 else str(v)
+
+
+def _cross_working(a, b, na, nb, result):
+    """Working for the cross product a x b of two integer 3-vectors (named na, nb)."""
+    return [
+        f"Use a × b = (a₂b₃ - a₃b₂, a₃b₁ - a₁b₃, a₁b₂ - a₂b₁) with a = {na} and b = {nb}.",
+        f"x: {_pn(a[1])} × {_pn(b[2])} - {_pn(a[2])} × {_pn(b[1])} = {result[0]}; "
+        f"y: {_pn(a[2])} × {_pn(b[0])} - {_pn(a[0])} × {_pn(b[2])} = {result[1]}; "
+        f"z: {_pn(a[0])} × {_pn(b[1])} - {_pn(a[1])} × {_pn(b[0])} = {result[2]}.",
+        f"{na} × {nb} = ({result[0]}, {result[1]}, {result[2]}).",
+    ]
+
+
+def _simplified(m, ssq) -> str:
+    """ " = 3√5" when √ssq simplifies, else nothing."""
+    if str(m) == f"sqrt({ssq})":
+        return ""
+    return " = " + re.sub(r"sqrt\((\d+)\)", "\u221a\\1", str(m).replace("*", ""))
+
+
+def _dot_working(a, b, result, label="u · v"):
+    terms = " + ".join(f"{_pn(x)} × {_pn(y)}" for x, y in zip(a, b))
+    return [f"{label} = {terms} = {result}."]
+
+
 @generator(
     "vectors",
     level=12,
@@ -775,6 +804,7 @@ def vectors(rng, hi=9, kinds=("dot", "cross", "magnitude")):
             answer_text=str(ans),
             answer_latex=str(ans),
             distractors=pick_distractors(str(ans), [str(c) for c in cands]),
+            working=_dot_working(u, v, ans),
         )
     if kind == "cross":
         w = Matrix(u).cross(Matrix(v))
@@ -795,6 +825,7 @@ def vectors(rng, hi=9, kinds=("dot", "cross", "magnitude")):
             answer_text=f"({ans[0]}, {ans[1]}, {ans[2]})",
             answer_latex=rf"({ans[0]},\ {ans[1]},\ {ans[2]})",
             distractors=pick_distractors(f"({ans[0]}, {ans[1]}, {ans[2]})", cands, unordered=True),
+            working=_cross_working(u, v, "u", "v", ans),
         )
     if kind == "add":
         ans = [u[0] + v[0], u[1] + v[1], u[2] + v[2]]
@@ -822,6 +853,10 @@ def vectors(rng, hi=9, kinds=("dot", "cross", "magnitude")):
             # the easy source, 2/5000 on medium (the hard source uses kind "subtract", already
             # unaffected at 0/5000); this fix brings all sources to 0/5000.
             distractors=pick_distractors(f"({ans[0]}, {ans[1]}, {ans[2]})", cands, unordered=True),
+            working=[
+                f"Add the matching components: ({u[0]} + {_pn(v[0])}, {u[1]} + {_pn(v[1])}, {u[2]} + {_pn(v[2])}) "
+                f"= ({ans[0]}, {ans[1]}, {ans[2]})."
+            ],
         )
     if kind == "subtract":
         ans = [u[0] - v[0], u[1] - v[1], u[2] - v[2]]
@@ -853,6 +888,10 @@ def vectors(rng, hi=9, kinds=("dot", "cross", "magnitude")):
             # the grader marks it correct despite `pick_distractors`' ordered
             # comparison offering it as wrong.
             distractors=pick_distractors(f"({ans[0]}, {ans[1]}, {ans[2]})", cands, unordered=True),
+            working=[
+                f"Subtract the matching components: ({u[0]} - {_pn(v[0])}, {u[1]} - {_pn(v[1])}, {u[2]} - {_pn(v[2])}) "
+                f"= ({ans[0]}, {ans[1]}, {ans[2]})."
+            ],
         )
     if kind == "cross_sum":
         # p is the function's own `u` (reused, not a rename); q is a THIRD
@@ -886,6 +925,10 @@ def vectors(rng, hi=9, kinds=("dot", "cross", "magnitude")):
             answer_text=f"({ans[0]}, {ans[1]}, {ans[2]})",
             answer_latex=rf"({ans[0]},\ {ans[1]},\ {ans[2]})",
             distractors=pick_distractors(f"({ans[0]}, {ans[1]}, {ans[2]})", cands, unordered=True),
+            working=[
+                f"p + q = ({usum[0]}, {usum[1]}, {usum[2]}).",
+                *_cross_working(usum, v, "(p + q)", "v", ans),
+            ],
         )
     if kind == "dot_sum":
         # p is the function's own `u` (reused, not a rename); q is a THIRD
@@ -917,6 +960,10 @@ def vectors(rng, hi=9, kinds=("dot", "cross", "magnitude")):
             answer_text=str(ans),
             answer_latex=str(ans),
             distractors=pick_distractors(str(ans), [str(c) for c in cands]),
+            working=[
+                f"p + q = ({usum[0]}, {usum[1]}, {usum[2]}).",
+                *_dot_working(usum, v, ans, "(p + q) · v"),
+            ],
         )
     if kind == "magnitude_sum":
         # Addition step before the magnitude computation: w = u + v, then
@@ -970,6 +1017,10 @@ def vectors(rng, hi=9, kinds=("dot", "cross", "magnitude")):
             answer_latex=r"|\mathbf{u} + \mathbf{v}| = " + str(m).replace("sqrt", r"\sqrt"),
             answer_alt=answer_alt,
             distractors=distractors,
+            working=[
+                f"u + v = ({w[0]}, {w[1]}, {w[2]}).",
+                f"|u + v| = √({' + '.join(f'{_pn(x)}²' for x in w)}) = √{ssq}" + _simplified(m, ssq) + ".",
+            ],
         )
     # Magnitude, exact (may be a surd).
     ssq = sum(ui * ui for ui in u)
@@ -990,4 +1041,5 @@ def vectors(rng, hi=9, kinds=("dot", "cross", "magnitude")):
         answer_latex=r"|\mathbf{u}| = " + str(m).replace("sqrt", r"\sqrt"),
         answer_alt=round(float(m), 2),
         distractors=pick_distractors(str(m), cands),
+        working=[f"|u| = √({' + '.join(f'{_pn(x)}²' for x in u)}) = √{ssq}" + _simplified(m, ssq) + "."],
     )

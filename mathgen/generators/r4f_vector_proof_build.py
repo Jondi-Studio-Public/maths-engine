@@ -88,6 +88,14 @@ def _frac_text(k) -> str:
     return str(k.numerator) if k.denominator == 1 else f"{k.numerator}/{k.denominator}"
 
 
+def _lam_text(k) -> str:
+    """The term kλ as it reads on paper: λ, 4λ, (5/2)λ."""
+    k = Fraction(k)
+    if k == 1:
+        return "λ"
+    return f"{_frac_text(k)}λ" if k.denominator == 1 else f"({_frac_text(k)})λ"
+
+
 def _times_a(k) -> str:
     """'ka' as the stem writes it: 2a, a/2, 3a/2."""
     return _vec_text((Fraction(k), Fraction(0)))
@@ -305,8 +313,9 @@ def _medium(rng):
         "",
         lam,
         working=[
-            f"OX = λ({_vec_text((k, Fraction(1)))}) and OX = a + μ(b - a) = (1 - μ)a + μb. "
-            f"Comparing b: λ = μ. Comparing a: {_frac_text(k)}λ = 1 - μ. So ({_frac_text(k)} + 1)λ = 1 and λ = {lam}."
+            f"{o}X = λ({_vec_text((k, Fraction(1)))}) and {o}X = a + μ(b - a) = (1 - μ)a + μb. "
+            f"Comparing b: λ = μ. Comparing a: {_lam_text(k)} = 1 - μ. "
+            f"So {_lam_text(k)} + λ = 1, that is {_lam_text(k + 1)} = 1, and λ = {lam}."
         ],
         wrongs=[w for w in _lambda_wrongs(k) if w[0] != lam],
     )

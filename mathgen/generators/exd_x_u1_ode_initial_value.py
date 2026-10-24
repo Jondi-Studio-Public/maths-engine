@@ -22,6 +22,7 @@ import sympy
 from sympy import Rational, symbols
 
 from ..answers import Distractor, exact_value
+from ._fy1ms_common import plain_caret
 from ..core import check, check_equivalent, generator, pick_distractors, rational_text, value_safe_str
 
 x = symbols("x")
@@ -43,6 +44,12 @@ def _signed(n: int) -> str:
 
 def _factor(root: int) -> str:
     return f"x {_signed(-root)}" if root != 0 else "x"
+
+
+def _product(p: int, q: int) -> str:
+    """The gradient's two factors, ``(x + 3)(x - 2)``; a bare ``x`` factor is not bracketed."""
+    fp, fq = _factor(p), _factor(q)
+    return (fp if fp == "x" else f"({fp})") + (fq if fq == "x" else f"({fq})")
 
 
 def _draw(rng: random.Random):
@@ -138,8 +145,8 @@ def exd_x_u1_ode_initial_value(rng: random.Random, tier: str = "exam") -> dict:
                 answer_text=answer_text,
                 marks=3,
                 working=[
-                    f"dy/dx = ({_factor(p)})({_factor(q)}) = {value_safe_str(expanded_gradient)}.",
-                    f"Integrating, y = {value_safe_str(sympy.expand(antiderivative))} + C.",
+                    f"dy/dx = {_product(p, q)} = {plain_caret(expanded_gradient)}.",
+                    f"Integrating, y = {plain_caret(sympy.expand(antiderivative))} + C.",
                     f"At ({x0}, {y0}): C = {y0} - ({antiderivative.subs(x, x0)}) = {constant}.",
                 ],
                 distractors=a_dist,

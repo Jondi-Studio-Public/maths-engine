@@ -17,7 +17,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import check, generator, join_terms, pick_distractors
+from ..core import check, generator, join_terms, paren_negative, pick_distractors
 
 
 def _part(value: Fraction, unit: str = "") -> str:
@@ -77,7 +77,7 @@ def _build(rng: random.Random, form: str) -> dict:
         eq = f"{left} = {right}"
         working = [f"Collect on the left: {lhs} = 0", f"a = {a}, b = {b}, c = {c}"]
     working += [
-        f"z = ({-b} ± √({b}² - 4({a})({c}))) / {2 * a}",
+        f"z = ({-b} ± √({paren_negative(b)}² - 4({a})({c}))) / {2 * a}",
         f"= ({big_p} ± {big_m}i) / {a}",
     ]
     answer_text = _complex_text(p, m)

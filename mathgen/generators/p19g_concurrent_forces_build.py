@@ -71,6 +71,8 @@ of the above.
 
 from __future__ import annotations
 
+from functools import cache
+
 import cmath
 import math
 from fractions import Fraction
@@ -245,10 +247,10 @@ def _build_easy(rng):
     text = phrase(rng, _EASY_PATTERNS, F1=F1, F2=F2, th1=th1, th2=th2, dir_note=_DIR_NOTE)
     answer_text = _pair_text(mag, direction)
     working = [
-        f"Fx = {F1} x cos({th1}) + {F2} x cos({th2}) = {fx:.2f} N.",
-        f"Fy = {F1} x sin({th1}) + {F2} x sin({th2}) = {fy:.2f} N.",
+        f"Fx = {F1} × cos({th1}) + {F2} × cos({th2}) = {fx:.2f} N.",
+        f"Fy = {F1} × sin({th1}) + {F2} × sin({th2}) = {fy:.2f} N.",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). "
-        f"Direction = atan2(Fy, Fx) = {direction} degrees (nearest degree).",
+        f"Direction = the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]
     cand_texts = [_pair_text(*c) for c in candidates]
     return dict(
@@ -311,10 +313,10 @@ def _build_medium(rng):
     text = phrase(rng, _MEDIUM_PATTERNS, F1=F1, F2=F2, th1=th1, th2=th2, dir_note=_DIR_NOTE)
     answer_text = _pair_text(mag, direction)
     working = [
-        f"Fx = {F1} x cos({th1}) + {F2} x cos({th2}) = {fx:.2f} N.",
-        f"Fy = {F1} x sin({th1}) + {F2} x sin({th2}) = {fy:.2f} N.",
+        f"Fx = {F1} × cos({th1}) + {F2} × cos({th2}) = {fx:.2f} N.",
+        f"Fy = {F1} × sin({th1}) + {F2} × sin({th2}) = {fy:.2f} N.",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). "
-        f"Direction = atan2(Fy, Fx) = {direction} degrees (nearest degree).",
+        f"Direction = the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]
     cand_texts = [_pair_text(*c) for c in candidates]
     return dict(
@@ -413,8 +415,8 @@ def _build_hard(rng):
     )
     answer_text = _pair_text(mag, direction)
     working = [
-        f"Fx = {F1} x cos({th1}) + {F2} x cos({th2}) + {F3} x cos({th3}) = {fx:.2f} N.",
-        f"Fy = {F1} x sin({th1}) + {F2} x sin({th2}) + {F3} x sin({th3}) = {fy:.2f} N.",
+        f"Fx = {F1} × cos({th1}) + {F2} × cos({th2}) + {F3} × cos({th3}) = {fx:.2f} N.",
+        f"Fy = {F1} × sin({th1}) + {F2} × sin({th2}) + {F3} × sin({th3}) = {fy:.2f} N.",
         f"Acceleration = resultant force / mass = ({fx:.2f}, {fy:.2f}) / {m} "
         f"m/s^2. Magnitude = {mag} m/s^2 (nearest whole), direction = "
         f"{direction} degrees (nearest degree).",
@@ -436,7 +438,12 @@ def _build_hard(rng):
 # for a per-question `sympy` check (`scripts/check_generator_speed.py` flags
 # a fresh `solve()` call per draw).
 _A_sym, _sinA_sym, _sinB_sym, _Ry_sym, _X_sym = symbols("A sinA sinB Ry X")
-_EXAM_X_SOLUTION = solve(Eq(_A_sym * _sinA_sym + _X_sym * _sinB_sym, _Ry_sym), _X_sym)[0]
+
+
+@cache
+def _exam_x_solution():
+    return solve(Eq(_A_sym * _sinA_sym + _X_sym * _sinB_sym, _Ry_sym), _X_sym)[0]
+
 
 _EXAM_PATTERNS = (
     "Two forces act at the same point on a body. The first, {A} N, acts at "
@@ -480,7 +487,7 @@ def _build_exam(rng):
         # Independent re-derivation of X: the pre-solved symbolic expression,
         # substituted -- a genuinely different route from the plain-algebra
         # division line directly above.
-        solved_X = float(_EXAM_X_SOLUTION.subs({_A_sym: A, _sinA_sym: sinA, _sinB_sym: sinB, _Ry_sym: Ry}))
+        solved_X = float(_exam_x_solution().subs({_A_sym: A, _sinA_sym: sinA, _sinB_sym: sinB, _Ry_sym: Ry}))
         check(abs(solved_X - X) < 1e-6, f"exam: X mismatch, {solved_X} vs {X}")
 
         cosA, cosB = math.cos(math.radians(thA)), math.cos(math.radians(thB))
@@ -520,10 +527,10 @@ def _build_exam(rng):
     text = phrase(rng, _EXAM_PATTERNS, A=A, thA=thA, thB=thB, Ry=Ry, dir_note=_DIR_NOTE)
     answer_text = _pair_text(mag, direction)
     working = [
-        f"Resolve in the 90-degree direction: {A} x sin({thA}) + X x sin({thB}) = {Ry}, so X = {X:.2f} N.",
-        f"Fx = {A} x cos({thA}) + X x cos({thB}) = {Fx:.2f} N; Fy = {Ry} N (given).",
+        f"Resolve in the 90-degree direction: {A} × sin({thA}) + X × sin({thB}) = {Ry}, so X = {X:.2f} N.",
+        f"Fx = {A} × cos({thA}) + X × cos({thB}) = {Fx:.2f} N; Fy = {Ry} N (given).",
         f"Magnitude = sqrt(Fx^2 + Fy^2) = {mag} N (nearest N). Direction = "
-        f"atan2(Fy, Fx) = {direction} degrees (nearest degree).",
+        f"the angle of (Fx, Fy) from the positive x-axis = {direction} degrees (nearest degree).",
     ]
     cand_texts = [_pair_text(*c) for c in candidates]
     return dict(

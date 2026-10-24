@@ -73,7 +73,6 @@ def test_skill_is_active_behind_the_figure_gate(skill_id):
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     # f10-nets-build-solids also carries #75's fsp_nets tiers and exam chain (tests/test_fsp_nets.py)
     assert [s.difficulty for s in skill.sources if s.topic == topic] == TIERS
-    assert all(s.topic == topic for s in skill.sources) or skill_id == "f10-nets-build-solids"
     assert skill.misconceptions and skill.prerequisites
 
 

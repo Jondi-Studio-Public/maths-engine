@@ -43,6 +43,13 @@ VERDICT = {
     OUTLIER: "The data do not support the claim: one unusual value pulls the mean away from a typical value.",
     EXTRAP: "The data do not support the claim: it is about a value well outside the range the data cover.",
 }
+_REASON = {
+    WRONG: "the figure in the claim does not match the data",
+    FEW: "too few cases were recorded to say anything about everyone",
+    CAUSE: "the groups chose themselves, so the study shows a link but not a cause",
+    OUTLIER: "one unusual value pulls the mean away from a typical value",
+    EXTRAP: "it is about a value well outside the range the data cover",
+}
 _ORDER = (SOUND, WRONG, FEW, CAUSE, OUTLIER, EXTRAP)
 
 
@@ -63,7 +70,9 @@ def _verdict_part(flaw: str, others: tuple[str, ...], marks: int = 1) -> dict:
         wrongs,
         marks=marks,
         working=[
-            f"The claim fails for one reason only: {flaw}." if flaw != SOUND else "Nothing is wrong with the claim."
+            f"The claim fails for one reason only: {_REASON[flaw]}."
+            if flaw != SOUND
+            else "Nothing is wrong with the claim."
         ],
         keep=4,
     )
@@ -190,7 +199,7 @@ def _one_group(rng, flaw: str):
         exact=actual,
         places=0,
         marks=2,
-        working=[f"{k} / {n} x 100 = {int(actual)}%."],
+        working=[f"{k} / {n} × 100 = {int(actual)}%."],
         wrong=[
             (k, "ir2a-reports-the-count-as-a-percentage"),
             (100 - actual, "ir2a-gives-the-rest-of-the-whole"),
@@ -266,7 +275,7 @@ def _extrap(rng, level):
         exact=y,
         places=0,
         marks=2,
-        working=[f"y = {sc['a']} + {sc['b']} x {x} = {y}."],
+        working=[f"y = {sc['a']} + {sc['b']} × {x} = {y}."],
         wrong=[
             (sc["b"] * x, "ir2a-forgets-the-intercept"),
             (sc["a"] - sc["b"] * x, "ir2a-flips-the-sign-of-the-slope-term"),
@@ -369,7 +378,7 @@ def exd_x_ir2a_judge_stated_conclusion(rng: random.Random, tier: str = "exam") -
             exact=pa,
             places=0,
             marks=1,
-            working=[f"{ka}/{na} x 100 = {pa}%."],
+            working=[f"{ka}/{na} × 100 = {pa}%."],
             wrong=[
                 (ka, "ir2a-reports-the-count-as-a-percentage"),
                 (100 - pa, "ir2a-gives-the-rest-of-the-whole"),
@@ -383,7 +392,7 @@ def exd_x_ir2a_judge_stated_conclusion(rng: random.Random, tier: str = "exam") -
             exact=pb,
             places=0,
             marks=1,
-            working=[f"{kb}/{nb} x 100 = {pb}%."],
+            working=[f"{kb}/{nb} × 100 = {pb}%."],
             wrong=[
                 (kb, "ir2a-reports-the-count-as-a-percentage"),
                 (100 - pb, "ir2a-gives-the-rest-of-the-whole"),

@@ -95,8 +95,8 @@ def _medium(rng):
     if kind == "fill":
         unit = rng.choice(_CAP_UNITS)
         thing = rng.choice(_CONTAINERS)
-        full = rng.randint(14, 30)
         first, second = rng.randint(3, 8), rng.randint(3, 8)
+        full = rng.randint(max(14, first + second + 1), 30)
         value = full - first - second
         check(value > 0, "the container is already full")
         text = (

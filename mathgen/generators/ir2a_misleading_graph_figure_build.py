@@ -28,7 +28,7 @@ from fractions import Fraction
 from mathgen import figures
 from mathgen.core import attempts, check, generator
 
-from ._ir2a_kit import NAMES, chain, mcq_part, number_part
+from ._ir2a_kit import NAMES, chain, mcq_part, number_part, text_of
 
 TOPIC = "ir2a_misleading_graph_figure"
 EXAM_TOPIC = "exd_x_ir2a_misleading_graph_figure"
@@ -57,10 +57,10 @@ _CONTEXTS = (
         body="A cafe",
     ),
     dict(
-        what="average maths mark",
-        axis="Average maths mark (%)",
-        headline="Maths marks shoot up!",
-        noun="the school's average maths mark",
+        what="number of maths awards",
+        axis="Maths awards given",
+        headline="Maths awards shoot up!",
+        noun="the school's number of maths awards",
         body="A school",
     ),
     dict(
@@ -102,7 +102,8 @@ def _flaw_part(
     else:
         wrongs.append((opts["truncated"], "ir2a-sees-a-flaw-in-an-honest-axis"))
     wrongs += [
-        (opts["uneven_x"], "ir2a-blames-the-horizontal-axis"),
+        # On an honest graph the uneven-axis option is an invented flaw, so it is tagged as one.
+        (opts["uneven_x"], "ir2a-blames-the-horizontal-axis" if truncated else "ir2a-sees-a-flaw-in-an-honest-axis"),
         (opts["uneven_y"], "ir2a-blames-the-vertical-steps"),
         (opts["wrong_type"], "ir2a-says-a-line-graph-is-the-wrong-display"),
         (opts["no_values"], "ir2a-says-the-graph-cannot-be-read"),
@@ -190,7 +191,7 @@ def _pct_part(first, last, y_first, y_last, marks=2, follow=None):
         exact=pct,
         places=1,
         marks=marks,
-        working=[f"({last} - {first}) / {first} x 100 = {float(pct):.1f}%."],
+        working=[f"({last} - {first}) / {first} x 100 = {text_of(pct, 1)}%."],
         wrong=[
             (last - first, "ir2a-gives-the-rise-as-a-percentage"),
             (Fraction(last * 100, first), "ir2a-gives-the-final-value-as-a-percentage-of-the-first"),
@@ -210,7 +211,7 @@ def _ratio_part(first, last, y0, marks=2):
         marks=marks,
         working=[
             f"Heights above the bottom of the graph: {last} - {y0} = {last - y0} and {first} - {y0} = {first - y0}.",
-            f"{last - y0} / {first - y0} = {float(ratio):.1f}.",
+            f"{last - y0} / {first - y0} = {text_of(ratio, 1)}.",
         ],
         wrong=[
             (Fraction(last, first), "ir2a-measures-heights-from-zero-not-from-the-axis"),
@@ -316,42 +317,42 @@ def exd_x_ir2a_misleading_graph_figure(rng: random.Random, tier: str = "exam") -
     pct = Fraction((last - first) * 100, first)
     ratio = Fraction(last - y0, first - y0)
     if truncated:
-        key = f"The headline is misleading: the axis starts at {y0}, so the last point looks {float(ratio):.1f} times as high as the first, but the real rise is only {float(pct):.1f}%."
+        key = f"The headline is misleading: the axis starts at {y0}, so the last point looks {text_of(ratio, 1)} times as high as the first, but the real rise is only {text_of(pct, 1)}%."
         wrongs = [
             (
-                f"The headline is fair: the graph shows the last point {float(ratio):.1f} times as high as the first.",
+                f"The headline is fair: the graph shows the last point {text_of(ratio, 1)} times as high as the first.",
                 "ir2a-trusts-a-graph-that-does-not-start-at-zero",
             ),
             (
-                f"The headline is misleading: the horizontal axis is unevenly spaced, and the real rise is {float(pct):.1f}%.",
+                f"The headline is misleading: the horizontal axis is unevenly spaced, and the real rise is {text_of(pct, 1)}%.",
                 "ir2a-blames-the-horizontal-axis",
             ),
             (
-                f"The headline is fair: the value rose by {float(pct):.1f}%, which is large.",
+                f"The headline is fair: the value rose by {text_of(pct, 1)}%, which is large.",
                 "ir2a-calls-a-small-rise-large",
             ),
             (
-                f"The headline is misleading: the real rise is {float(Fraction(last * 100, first)):.1f}%, not what the graph shows.",
+                f"The headline is misleading: the real rise is {text_of(Fraction(last * 100, first), 1)}%, not what the graph shows.",
                 "ir2a-gives-the-final-value-as-a-percentage-of-the-first",
             ),
         ]
     else:
-        key = f"The headline is fair: the axis starts at 0, so the last point is {float(ratio):.1f} times as high as the first, a rise of {float(pct):.1f}%."
+        key = f"The headline is fair: the axis starts at 0, so the last point is {text_of(ratio, 1)} times as high as the first, a rise of {text_of(pct, 1)}%."
         wrongs = [
             (
-                f"The headline is misleading: the axis starts at {y0}, so the rise looks larger than the real {float(pct):.1f}%.",
+                f"The headline is misleading: the axis starts at {y0}, so the rise looks larger than the real {text_of(pct, 1)}%.",
                 "ir2a-sees-a-flaw-in-an-honest-axis",
             ),
             (
-                f"The headline is misleading: the horizontal axis is unevenly spaced, and the real rise is {float(pct):.1f}%.",
-                "ir2a-blames-the-horizontal-axis",
+                f"The headline is misleading: the horizontal axis is unevenly spaced, and the real rise is {text_of(pct, 1)}%.",
+                "ir2a-sees-a-flaw-in-an-honest-axis",
             ),
             (
-                f"The headline is fair: the value rose by {float(Fraction(last * 100, first)):.1f}%.",
+                f"The headline is fair: the value rose by {text_of(Fraction(last * 100, first), 1)}%.",
                 "ir2a-gives-the-final-value-as-a-percentage-of-the-first",
             ),
             (
-                f"The headline is fair: the last point is {float(Fraction(first, last)):.1f} times as high as the first.",
+                f"The headline is fair: the last point is {text_of(Fraction(first, last), 1)} times as high as the first.",
                 "inverted-ratio",
             ),
         ]
@@ -389,17 +390,17 @@ def _read(question) -> str:
             year = int(re.search(r"for (\d{4})", prompt).group(1))
             out.append(f"({label}) {values[year]}")
         elif prompt.startswith("By what percentage"):
-            out.append(f"({label}) {float(pct):.1f}")
+            out.append(f"({label}) {text_of(pct, 1)}")
         elif prompt.startswith("On the graph as drawn"):
-            out.append(f"({label}) {float(ratio):.1f}")
+            out.append(f"({label}) {text_of(ratio, 1)}")
         elif prompt.startswith("What, if anything"):
             opts = flaw_options(y0)
             out.append(f"({label}) {opts['truncated'] if truncated else opts['honest']}")
         else:
             if truncated:
-                text = f"The headline is misleading: the axis starts at {y0}, so the last point looks {float(ratio):.1f} times as high as the first, but the real rise is only {float(pct):.1f}%."
+                text = f"The headline is misleading: the axis starts at {y0}, so the last point looks {text_of(ratio, 1)} times as high as the first, but the real rise is only {text_of(pct, 1)}%."
             else:
-                text = f"The headline is fair: the axis starts at 0, so the last point is {float(ratio):.1f} times as high as the first, a rise of {float(pct):.1f}%."
+                text = f"The headline is fair: the axis starts at 0, so the last point is {text_of(ratio, 1)} times as high as the first, a rise of {text_of(pct, 1)}%."
             out.append(f"({label}) {text}")
     return "; ".join(out)
 

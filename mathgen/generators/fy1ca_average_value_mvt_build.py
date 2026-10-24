@@ -529,7 +529,7 @@ def _exam_build(rng: random.Random) -> dict:
             1,
             2,
             [
-                f"The greatest rate is f({b}) = {_show(peak)} kL/h, so the excess is ({_show(peak)} - {_show(avg)})/{_show(avg)} × 100 = {over_f:.1f}%."
+                f"The greatest rate is f({b}) = {_show(peak)} kL/h, so the excess is ({_show(peak)} - {_show(avg)}) ÷ ({_show(avg)}) × 100 = {over_f:.1f}%."
             ],
             d_dist,
             follow_through=f"({peak} - part_b)/part_b*100",

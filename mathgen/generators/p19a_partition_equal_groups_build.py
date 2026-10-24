@@ -197,7 +197,7 @@ _HARD_TEMPLATES = (
 )
 
 
-def _finalise(text, group_size, raw_distractor_values):
+def _finalise(text, group_size, raw_distractor_values, working):
     answer_text = str(group_size)
     seen = {group_size}
     values = [group_size]
@@ -218,7 +218,7 @@ def _finalise(text, group_size, raw_distractor_values):
         answer_text=answer_text,
         answer_latex=f"plain:{answer_text}",
         distractors=distractors,
-        working=[f"answer: {answer_text}"],
+        working=working,
     )
 
 
@@ -234,7 +234,7 @@ def _build(rng, tier: str = "easy"):
         _check_partition(total, groups, group_size, "p19a_partition_equal_groups easy: partition check failed")
         text = phrase(rng, _EASY_TEMPLATES, total=total, groups=groups, item_pl=item_pl, name=name)
         raw = [groups, total - groups, group_size + groups, group_size - groups]
-        return _finalise(text, group_size, raw)
+        return _finalise(text, group_size, raw, [f"{total} \u00f7 {groups} = {group_size}."])
 
     if tier == "medium":
         groups, bundles, loose, tens_per_group, ones_per_group = _draw_medium(rng)
@@ -243,7 +243,15 @@ def _build(rng, tier: str = "easy"):
         _check_partition(total, groups, group_size, "p19a_partition_equal_groups medium: partition check failed")
         text = phrase(rng, _MEDIUM_TEMPLATES, bundles=bundles, loose=loose, groups=groups, item_pl=item_pl, name=name)
         raw = [groups, total - groups, tens_per_group * 10, group_size + groups, group_size - groups]
-        return _finalise(text, group_size, raw)
+        return _finalise(
+            text,
+            group_size,
+            raw,
+            [
+                f"{bundles} bundles of ten and {loose} loose make {total}.",
+                f"{total} \u00f7 {groups} = {group_size}.",
+            ],
+        )
 
     # hard
     groups, bundles, loose, tens_per_group, ones_per_group, group_size, leftover = _draw_hard(rng)
@@ -260,7 +268,16 @@ def _build(rng, tier: str = "easy"):
         # when there IS a leftover bundle to drop.
         dropped = tens_per_group * 10 + (loose // groups)
         raw.append(dropped)
-    return _finalise(text, group_size, raw)
+    return _finalise(
+        text,
+        group_size,
+        raw,
+        [
+            f"{bundles} bundles of ten and {loose} loose make {total}"
+            + (", so one bundle has to be opened." if leftover else "."),
+            f"{total} \u00f7 {groups} = {group_size}.",
+        ],
+    )
 
 
 @generator(

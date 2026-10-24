@@ -142,7 +142,9 @@ def fraction_shaded_name(rng, tier="easy"):
         answer_text=answer_text,
         answer_latex=answer_text,
         distractors=distractors,
-        working=[f"The {_WORD[kind]} has {parts} equal parts. {asked} of them are {what}: {answer_text}."],
+        working=[
+            f"The {_WORD[kind]} has {parts} equal parts. {asked} of them {'is' if asked == 1 else 'are'} {what}: {answer_text}."
+        ],
         figure=fig,
     )
 

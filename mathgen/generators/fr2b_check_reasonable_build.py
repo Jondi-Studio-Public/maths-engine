@@ -117,7 +117,7 @@ def _whole_number_tier(rng, unit, low, high, slip, tolerance, contexts, ask):
         stated = exact if shape == "right" else exact + (slip if shape == "high" else -slip)
         ra, rb = _round_to(a, unit), _round_to(b, unit)
         estimate = ra - rb if subtract else ra + rb
-        if estimate <= 0 or stated <= 0:
+        if estimate <= 0 or stated <= 1:  # a claim of 1 would pair a singular count with a plural noun
             continue
         key = _verdict(Fraction(stated), Fraction(estimate), Fraction(tolerance))
         reasonable = key == "ok"

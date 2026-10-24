@@ -114,7 +114,9 @@ def _share_question(rng, name: str, tier: str, shape: str) -> dict:
                 (total, "ey2a-reports-the-whole"),
                 (each + 2, "ey2a-count-one-over"),
             ]
-            working = [f"{children} x {each} = {children * each}. Each child gets {each} and {left} are left."]
+            working = [
+                f"{children} x {each} = {children * each}. Each child gets {each} and {left} {'is' if left == 1 else 'are'} left over."
+            ]
         else:
             answer = left
             text = rng.choice(
@@ -200,7 +202,7 @@ def _rings_question(rng, name: str, shape: str) -> dict:
             (answer - 1, "ey2a-count-one-short"),
             (answer + 2, "ey2a-count-one-over"),
         ]
-        working = [f"{total} counters in {rings} equal rings: {total} shared in {rings} is {each}."]
+        working = [f"{total} {word} in {rings} equal rings: {total} shared in {rings} is {each}."]
         reads = ("rings-each", total)
     return dict(fig=fig, answer=answer, text=text, cands=cands, working=working, reads=reads)
 

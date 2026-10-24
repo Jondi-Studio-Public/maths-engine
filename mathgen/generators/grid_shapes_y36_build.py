@@ -572,7 +572,7 @@ def _net_distractors(rng, a, b, h, top_on, bottom_on, strip, top, bottom):
 
 def _net_layout_text(a, b, h, top_on, bottom_on) -> str:
     where = (
-        f"both joined to the {_ORDINAL[top_on]} face"
+        f"the top and the bottom both joined to the {_ORDINAL[top_on]} face"
         if top_on == bottom_on
         else f"the top joined above the {_ORDINAL[top_on]} face and the bottom joined below the {_ORDINAL[bottom_on]} face"
     )

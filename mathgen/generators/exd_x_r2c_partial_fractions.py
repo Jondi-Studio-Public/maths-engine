@@ -70,6 +70,18 @@ def _linear(r: int) -> str:
     return "x" if r == 0 else f"(x {'-' if r > 0 else '+'} {abs(r)})"
 
 
+def _split_form(k, a_c, b_c, p, q, repeated):
+    """The partial-fraction form with the found constants, e.g. 3 + 2/(x - 1) - 5/(x + 4)."""
+    second = f"{_linear(p)}^2" if repeated else _linear(q)
+    out = [str(k)] if k else []
+    for c, den in ((a_c, _linear(p)), (b_c, second)):
+        if not out:
+            out.append(f"{c}/{den}" if c > 0 else f"-{-c}/{den}")
+        else:
+            out.append(f"{'+' if c > 0 else '-'} {abs(c)}/{den}")
+    return " ".join(out)
+
+
 def _number_part(prompt, value, marks, working, wrong, follow=None):
     """A part whose answer is the exact rational `value`; `wrong` lists (value, misconception id)."""
     value = Fraction(value)
@@ -178,7 +190,9 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of A.",
             a_c,
             2,
-            [f"Matching the x terms of the numerator: {n1} = -2·{paren_negative(k)}·({p}) + A, so A = {a_c}."],
+            [
+                f"Matching the x terms of the numerator: {n1} = {paren_negative(-2 * k)} × {paren_negative(p)} + A, so A = {a_c}."
+            ],
             [
                 (b_c, "swapped-partial-fraction-coefficients"),
                 (n1, "read-coefficient-without-expanding"),
@@ -191,7 +205,9 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of B.",
             b_c,
             2,
-            [f"Matching the constant terms: B = {n0} - {paren_negative(k)}·({p})² + A·({p}) = {b_c}."],
+            [
+                f"Matching the constant terms: B = {n0} - {paren_negative(k)} × {paren_negative(p)}² + A × {paren_negative(p)} = {b_c}."
+            ],
             [
                 (a_c, "swapped-partial-fraction-coefficients"),
                 (n0, "read-coefficient-without-expanding"),
@@ -212,7 +228,7 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of A.",
             a_c,
             2,
-            [f"Cover-up: A = N({p}) / ({p} - ({q})) = {a_c}."],
+            [f"Cover-up: A = N({p}) / ({p} - {paren_negative(q)}) = {a_c}."],
             [
                 (b_c, "swapped-partial-fraction-coefficients"),
                 (-a_c, "sign-reversed-result"),
@@ -224,7 +240,7 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
             "Find the value of B.",
             b_c,
             2,
-            [f"Matching the x terms: {n1} = -{paren_negative(k)}·({p} + ({q})) + A + B, so B = {b_c}."],
+            [f"Matching the x terms: {n1} = {paren_negative(-k)} × ({p} + {paren_negative(q)}) + A + B, so B = {b_c}."],
             [
                 (a_c, "swapped-partial-fraction-coefficients"),
                 (-b_c, "sign-reversed-result"),
@@ -249,7 +265,7 @@ def exd_x_r2c_partial_fractions(rng, tier: str = "exam"):
         answer_latex=latex_answer(value),
         marks=3,
         working=[
-            f"f(x) = {k} + ({a_c})/(x - ({p})) + ({b_c})/(…); integrate each term and substitute the limits.",
+            f"f(x) = {_split_form(k, a_c, b_c, p, q, repeated)}; integrate each term and substitute the limits.",
             f"The integral is {value_text}.",
         ],
         distractors=pick_distractors(value_text, d_cands),

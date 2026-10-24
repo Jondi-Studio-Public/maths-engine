@@ -28,7 +28,7 @@ from fractions import Fraction
 from sympy import Eq, Rational, Symbol, latex, solve
 from sympy.parsing.sympy_parser import implicit_multiplication_application, parse_expr, standard_transformations
 
-from ..core import check, generator, join_terms, phrase, pick_distractors, rational_text
+from ..core import check, fmt_signed, generator, join_terms, paren_negative, phrase, pick_distractors, rational_text
 
 _X, _Y = Symbol("x"), Symbol("y")
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application,)
@@ -50,6 +50,12 @@ _MIDPOINT = (
 )
 
 
+def _br(value: Fraction | int) -> str:
+    """A number as written after an operator: negatives and fractions in brackets."""
+    t = rational_text(value)
+    return f"({t})" if t.startswith("-") or "/" in t else t
+
+
 def _frac(num: int, den: int) -> Fraction:
     return Fraction(num, den)
 
@@ -62,7 +68,7 @@ def _texts(values: list[Fraction | None]) -> list[str]:
     return [rational_text(v) for v in values if v is not None]
 
 
-def _standard(rng: random.Random) -> tuple[str, Fraction, list[str]]:
+def _standard(rng: random.Random) -> tuple[str, Fraction, list[str], list[str]]:
     while True:
         a = rng.choice([-1, 1]) * rng.randint(1, 9)
         b = rng.choice([-1, 1]) * rng.randint(2, 9)
@@ -80,10 +86,16 @@ def _standard(rng: random.Random) -> tuple[str, Fraction, list[str]]:
     key = Fraction(int(slope.p), int(slope.q))
     check(key == _frac(-a, b), "re-derived gradient disagrees with the construction")
     wrong = [_frac(a, b), _frac(-b, a), _frac(c, b), _frac(-a, 1)]
-    return text, key, _texts(wrong)
+    answer_text = rational_text(key)
+    working = [
+        f"Make y the subject: {fmt_signed(b, 'y')} = {join_terms([(-a, 'x'), (c, '')])}.",
+        f"Divide by {b}: the coefficient of x is {paren_negative(-a)} ÷ {paren_negative(b)} = {answer_text}, "
+        f"so the gradient is {answer_text}.",
+    ]
+    return text, key, _texts(wrong), working
 
 
-def _perpendicular(rng: random.Random) -> tuple[str, Fraction, list[str]]:
+def _perpendicular(rng: random.Random) -> tuple[str, Fraction, list[str], list[str]]:
     while True:
         dx = rng.choice([-1, 1]) * rng.randint(1, 8)
         dy = rng.choice([-1, 1]) * rng.randint(1, 8)
@@ -98,10 +110,15 @@ def _perpendicular(rng: random.Random) -> tuple[str, Fraction, list[str]]:
     key = -1 / m_ref
     check(key == _frac(-dx, dy), "re-derived gradient disagrees with the construction")
     wrong = [m_ref, -m_ref, 1 / m_ref]
-    return text, key, _texts(wrong)
+    working = [
+        f"Gradient of the line through the two points = ({nums[3]} - {paren_negative(nums[1])}) ÷ "
+        f"({nums[2]} - {paren_negative(nums[0])}) = {rational_text(m_ref)}.",
+        f"A perpendicular line has gradient -1 ÷ {_br(m_ref)} = {rational_text(key)}.",
+    ]
+    return text, key, _texts(wrong), working
 
 
-def _midpoint(rng: random.Random) -> tuple[str, Fraction, list[str]]:
+def _midpoint(rng: random.Random) -> tuple[str, Fraction, list[str], list[str]]:
     while True:
         mx, my = rng.randint(-6, 6), rng.randint(-6, 6)
         px, py = rng.randint(1, 5), rng.randint(-5, 5)
@@ -124,7 +141,13 @@ def _midpoint(rng: random.Random) -> tuple[str, Fraction, list[str]]:
         _frac(dx, dy),  # rise and run reversed
         -key,  # points taken in the opposite order for one coordinate
     ]
-    return text, key, _texts(wrong)
+    working = [
+        f"M = (({qbx} + {paren_negative(qcx)}) ÷ 2, ({qby} + {paren_negative(qcy)}) ÷ 2) = "
+        f"({rational_text(mid[0])}, {rational_text(mid[1])}).",
+        f"Gradient of AM = ({rational_text(mid[1])} - {paren_negative(qay)}) ÷ "
+        f"({rational_text(mid[0])} - {paren_negative(qax)}) = {rational_text(key)}.",
+    ]
+    return text, key, _texts(wrong), working
 
 
 @generator(
@@ -138,7 +161,7 @@ def exd_x_a4_gradient_composite(rng: random.Random, tier: str = "exam") -> dict:
         raise ValueError(f"unknown tier {tier!r}")
     kind = rng.choice(["standard", "perpendicular", "midpoint"])
     build = {"standard": _standard, "perpendicular": _perpendicular, "midpoint": _midpoint}[kind]
-    text, key, wrong = build(rng)
+    text, key, wrong, working = build(rng)
     answer_text = rational_text(key)
     return dict(
         text=text,
@@ -146,6 +169,6 @@ def exd_x_a4_gradient_composite(rng: random.Random, tier: str = "exam") -> dict:
         answer=_pair(key),
         answer_text=answer_text,
         answer_latex=latex(Rational(key.numerator, key.denominator)),
-        working=[f"Working by the method the prompt calls for gives a gradient of {answer_text}."],
+        working=working,
         distractors=pick_distractors(answer_text, wrong),
     )

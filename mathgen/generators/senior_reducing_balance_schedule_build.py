@@ -360,8 +360,9 @@ def senior_reducing_balance_schedule(rng: random.Random, tier: str = "easy") -> 
     answer, stem, options, sched, rate = _BUILDERS[tier](rng)
     _recheck(answer, sched, rate)
     answer_text, distractors, notes = finish_wrong(rng, answer, options)
+    period = answer["columns"][0]
     working = [
-        f"Month {k + 1}: interest {money(_dollars(s[1]))}, closing balance {money(_dollars(s[3]))}"
+        f"{period} {k + 1}: interest {money(_dollars(s[1]))}, closing balance {money(_dollars(s[3]))}"
         for k, s in enumerate(sched)
     ]
     return dict(

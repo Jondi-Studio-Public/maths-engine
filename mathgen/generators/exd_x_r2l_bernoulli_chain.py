@@ -220,7 +220,7 @@ def _build(rng: random.Random) -> dict | None:
             follow_through=ft_b,
             working=[
                 f"The trials are independent, so multiply along the sequence {pattern}: "
-                f"p^{s} x q^{f} where p = {a_text} and q = {rational_text(q)}.",
+                f"{' × '.join(t if e == 1 else f'{t}^{e}' for t, e in (('p', s), ('q', f)) if e)} where p = {a_text} and q = {rational_text(q)}.",
                 f"= {b_text}.",
             ],
             distractors=b_d,

@@ -35,12 +35,21 @@ from . import smech_residuals_build as _res
 from ._smech_kit import dec, number_fields, number_part
 
 _N = 9
+# Part (c) of the exam question keeps the long statements; the plot tiers use options of near-equal length, so that
+# the length of an option says nothing about which one is the key.
 _RANDOM = "Appropriate: the residuals are scattered at random about zero, with no pattern"
 _CURVED = "Not appropriate: the residuals form a curved pattern"
 _FAN = "Not appropriate: the residuals fan out as x increases"
 _PATTERN_GOOD = "Appropriate: the residuals follow a clear pattern"
 _NONZERO = "Not appropriate: some of the residuals are not zero"
-_OPTIONS = {"random": _RANDOM, "curved": _CURVED, "fan": _FAN}
+_SUM_ZERO = "Appropriate: the residuals add to about zero"
+_RANDOM_P = "Appropriate: the residuals are scattered at random about zero"
+_CURVED_P = "Not appropriate: the residuals form a curved pattern overall"
+_FAN_P = "Not appropriate: the residuals fan out as x gets much larger"
+_PATTERN_GOOD_P = "Appropriate: the residuals follow a clear pattern, as expected"
+_NONZERO_P = "Not appropriate: some of the residuals are not exactly zero"
+_SUM_ZERO_P = "Appropriate: the residuals add to about zero, which is good"
+_OPTIONS = {"random": _RANDOM_P, "curved": _CURVED_P, "fan": _FAN_P}
 
 
 def _tenths(x: float) -> Fraction:
@@ -182,11 +191,11 @@ def _plot_question(rng, patterns, tier):
     fig = _figure(res, x_name)
     key = _OPTIONS[truth]
     wrong = [Distractor(_OPTIONS[p], _MISREAD[(truth, p)]) for p in patterns if p != truth]
-    wrong.append(Distractor(_PATTERN_GOOD, "mech-pattern-taken-as-good-fit"))
+    wrong.append(Distractor(_PATTERN_GOOD_P, "mech-pattern-taken-as-good-fit"))
     if truth == "random":
-        wrong.append(Distractor(_NONZERO, "mech-nonzero-residuals-mean-poor-fit"))
+        wrong.append(Distractor(_NONZERO_P, "mech-nonzero-residuals-mean-poor-fit"))
     else:
-        wrong.append(Distractor("Appropriate: the residuals add to about zero", "mech-sum-zero-taken-as-linear"))
+        wrong.append(Distractor(_SUM_ZERO_P, "mech-sum-zero-taken-as-linear"))
     wrong = wrong[:3]
     text = phrase(rng, _STEMS[tier], x=x_name, y=y_name)
     check(_read_figure(type("Q", (), {"figure": fig})) == key, "the figure does not show the keyed pattern")
@@ -219,17 +228,33 @@ def _table_question(rng):
     if truth == "curved":
         key = f"Not appropriate: the residuals form a curved pattern, even though r² = {dec(r2)} is high"
         wrong = [
-            Distractor(f"Appropriate: r² = {dec(r2)} is high, so the line fits well", "mech-r-squared-trusted"),
-            Distractor("Appropriate: the residuals add to about zero", "mech-sum-zero-taken-as-linear"),
-            Distractor("Not appropriate: some of the residuals are large", "mech-large-residuals-mean-poor-fit"),
+            Distractor(
+                f"Appropriate: r² = {dec(r2)} is high, so the line must fit the data very well overall",
+                "mech-r-squared-trusted",
+            ),
+            Distractor(
+                "Appropriate: the residuals add to about zero, so a straight line fits the data well",
+                "mech-sum-zero-taken-as-linear",
+            ),
+            Distractor(
+                "Not appropriate: some of the residuals are quite large, so the line is useless",
+                "mech-large-residuals-mean-poor-fit",
+            ),
         ]
     else:
-        key = f"Appropriate: the residuals show no pattern; r² = {dec(r2)} only means the predictions are less precise"
+        key = f"Appropriate: the residuals show no pattern; r² = {dec(r2)} just means less precise predictions"
         wrong = [
-            Distractor(f"Not appropriate: r² = {dec(r2)} is low", "mech-low-r-squared-rejects"),
-            Distractor("Not appropriate: the residuals form a curved pattern", "mech-pattern-seen-in-random-scatter"),
             Distractor(
-                "Not appropriate: some residuals are positive and some are negative", "mech-sign-mix-taken-as-pattern"
+                f"Not appropriate: r² = {dec(r2)} is low, so the line is a poor model for these data",
+                "mech-low-r-squared-rejects",
+            ),
+            Distractor(
+                "Not appropriate: the residuals form a curved pattern, so a line does not suit them",
+                "mech-pattern-seen-in-random-scatter",
+            ),
+            Distractor(
+                "Not appropriate: some residuals are positive and some are negative, so it is not linear at all",
+                "mech-sign-mix-taken-as-pattern",
             ),
         ]
     text = phrase(rng, _TABLE_STEMS, r2=dec(r2), listed=listed)
@@ -322,7 +347,8 @@ def smech_residual_plots_exam(rng):
             Distractor(_CURVED, "mech-pattern-seen-in-random-scatter"),
             Distractor(_NONZERO, "mech-nonzero-residuals-mean-poor-fit"),
             Distractor(
-                "Not appropriate: some residuals are positive and some are negative", "mech-sign-mix-taken-as-pattern"
+                "Not appropriate: some residuals are positive and some are negative, so it is not linear at all",
+                "mech-sign-mix-taken-as-pattern",
             ),
         ]
     ordered = ", ".join(dec(r) for r in res)

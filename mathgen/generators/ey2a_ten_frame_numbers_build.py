@@ -60,7 +60,10 @@ def ey2a_ten_frame_numbers(rng, tier="easy"):
                 (10, "ey2a-says-the-full-frame"),
                 (answer + 2, "ey2a-count-one-over"),
             ]
-            working = [f"The frame has 10 boxes and {n} are full. 10 - {n} = {answer} are empty."]
+            working = [
+                f"The frame has 10 boxes and {n} {'is' if n == 1 else 'are'} full. "
+                f"10 - {n} = {answer} {'is' if answer == 1 else 'are'} empty."
+            ]
     elif tier == "medium":
         k = rng.randint(1, 9)
         if rng.random() < 0.5:

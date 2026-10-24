@@ -313,8 +313,8 @@ def _build_same_principal(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"Compare balances year by year: Account B's balance is P x (1 + {c_disp}/100)^n, "
-            f"Account A's is P x (1 + {s_disp} x n / 100). The first whole year n at which "
+            f"Compare balances year by year: Account B's balance is P × (1 + {c_disp}/100)^n, "
+            f"Account A's is P × (1 + {s_disp} × n / 100). The first whole year n at which "
             f"Account B's balance exceeds Account A's is n = {m}."
         ],
         distractors=distractors,
@@ -422,7 +422,7 @@ def _build_nominal_compounding(rng) -> dict:
         answer_latex=answer_text,
         working=[
             f"The nominal {c_disp}% p.a. compounded {_FREQ_WORDS[freq]} gives a per-period rate of "
-            f"{c_disp}/{freq}%, applied {freq} times a year. Comparing balances year by year, the "
+            f"({c_disp}% ÷ {freq}), applied {freq} times a year. Comparing balances year by year, the "
             f"first whole year n at which Account B's balance exceeds Account A's is n = {m}."
         ],
         distractors=distractors,

@@ -17,7 +17,7 @@ from fractions import Fraction
 
 from sympy import Rational
 
-from ..core import check, draw_until, generator, latex_answer, pick_distractors, rational_text
+from ..core import check, draw_until, equals_chain, generator, latex_answer, pick_distractors, rational_text
 
 _ACTORS = ["A computer program", "A school timetable program", "A raffle machine", "A sorting program"]
 _THINGS = ["ticket", "locker", "seat", "entry"]
@@ -101,7 +101,7 @@ def exd_x_n3_divisibility_count_chance(rng: random.Random, tier: str = "exam") -
                 marks=1,
                 sensible_range=(0, 1),
                 follow_through=f"part_a/{R}",
-                working=[f"{count}/{R} = {b_text}."],
+                working=[f"{equals_chain(f'{count}/{R}', b_text)}."],
                 distractors=b_dist,
             ),
         ],

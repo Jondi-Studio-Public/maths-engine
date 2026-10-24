@@ -263,7 +263,7 @@ def _sample_parts(rng, sc, n_label="b", marks_b=2, marks_c=2):
         exact=2 * n,
         places=0,
         marks=marks_c,
-        working=[f"{n} x 2 = {2 * n}."],
+        working=[f"{n} × 2 = {2 * n}."],
         wrong=[
             (n, "ir2a-counts-one-variable-only"),
             (n + 2, "ir2a-adds-the-variable-count"),

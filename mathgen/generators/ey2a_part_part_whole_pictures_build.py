@@ -84,7 +84,7 @@ def ey2a_part_part_whole_pictures(rng, tier="easy"):
             (answer - 1, "ey2a-count-one-short"),
             (10 - shown, "ey2a-counts-empty-boxes"),
         ]
-        working = [f"The picture shows {shown}. {whole} - {shown} = {answer} are plain."]
+        working = [f"The picture shows {shown}. {whole} - {shown} = {answer} {'is' if answer == 1 else 'are'} plain."]
     elif tier == "hard":
         ringed = rng.randint(3, 9)
         plain = rng.randint(max(1, 11 - ringed), min(9, 20 - ringed))
@@ -130,7 +130,9 @@ def ey2a_part_part_whole_pictures(rng, tier="easy"):
                 (20 - ringed, "ey2a-counts-empty-boxes"),
                 (answer + 2, "ey2a-count-one-over"),
             ]
-            working = [f"The picture shows {ringed}. {whole} - {ringed} = {answer} are plain."]
+            working = [
+                f"The picture shows {ringed}. {whole} - {ringed} = {answer} {'is' if answer == 1 else 'are'} plain."
+            ]
     else:
         raise ValueError(f"unknown tier {tier!r}")
     figures.assert_no_leak(fig, [str(answer)])

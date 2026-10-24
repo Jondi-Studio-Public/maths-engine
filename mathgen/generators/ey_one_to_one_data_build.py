@@ -103,7 +103,7 @@ def ey_one_to_one_data(rng, tier="easy"):
             (answer - 1, "eyt-count-one-short"),
             (answer + 2, "eyt-count-one-over"),
         ]
-        working = [f"Read the {a} row. There are {answer}."]
+        working = [f"Read the {a} row. There {'is' if answer == 1 else 'are'} {answer}."]
     elif tier == "medium":
         a, b, c = rng.sample(labels, 3)
         if rng.random() < 0.5:

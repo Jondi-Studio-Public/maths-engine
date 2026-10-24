@@ -27,7 +27,7 @@ picture.
 above/below (or in front of/behind, or left/right) of one another, so this
 generator never offers ``next to`` alongside a directional term for an
 ADJACENT pair: easy always asks an adjacent pair and offers only
-{forward_term, backward_term, "between"} (no ``next to``); medium and the
+{forward_term, backward_term, two false "between X and Y" pairs} (no ``next to``); medium and the
 hard reversed-listing variant always ask a NON-adjacent pair, so ``next to``
 is safely false and offered alongside the two directional terms and
 ``between``. The hard `between`-referent-pair variant offers ONLY
@@ -46,8 +46,9 @@ entities listed, no false parameterized pair exists to fall back on when the tar
 
 ## Difficulty progression (genuine reasoning escalation)
 
-- easy: three entities, an ADJACENT target/reference pair, listed in the
-  axis's own natural direction. DECISION: read which of the two
+- easy: four entities, an ADJACENT target/reference pair with the target at an end, listed in the
+  axis's own natural direction. The options are the two directional terms and two false
+  ``between <X> and <Y>`` pairs. DECISION: read which of the two
   axis-specific directional terms applies from the stated listing order.
 - medium: four or five entities, a NON-adjacent target/reference pair (so
   ``next to`` is a genuine false distractor), and the asked pair's roles
@@ -239,6 +240,10 @@ def _directional_options(rng, axis, order, listed_forward, target, ref, include_
     return options
 
 
+def _capitalise(sentence: str) -> str:
+    return sentence[:1].upper() + sentence[1:]
+
+
 def _finalise_directional(rng, text, disp_target, disp_ref, options, msg):
     true_count = sum(1 for _t, truth in options if truth)
     check(true_count == 1, f"{msg}: expected exactly one true option, got {true_count}")
@@ -253,27 +258,33 @@ def _finalise_directional(rng, text, disp_target, disp_ref, options, msg):
         answer_text=key_text,
         answer_latex=f"plain:{key_text}",
         distractors=distractors,
-        working=[f"answer: {key_text}"],
+        working=[_capitalise(f"{disp_target} is {key_text} {disp_ref}.")],
     )
 
 
 def _draw_easy(rng):
     axis_key = rng.choice(list(_AXES))
     axis = _AXES[axis_key]
-    order = list(rng.sample(axis["entities"], 3))
+    order = list(rng.sample(axis["entities"], 4))
     listed_forward = True
-    i = rng.randint(0, 1)
-    a, b = order[i], order[i + 1]
-    # target is always the END entity of this adjacent pair (rank 0 or 2), never the middle one --
-    # with only three entities listed, an interior target would make the bare word "between" true
-    # and there is no false parameterized referent pair to fall back on (the only other pair IS the
-    # true bracketing pair), so easy avoids the case structurally rather than by a runtime fallback.
-    target, ref = (a, b) if order.index(a) in (0, 2) else (b, a)
+    # The target is the first or last entity and the reference is its neighbour. At an end the target has nothing
+    # on one side, so no "between" option can be true of it, and the other three entities give three referent
+    # pairs that do not bracket it.
+    target, ref = rng.choice(((order[0], order[1]), (order[3], order[2])))
     text = _statement(rng, axis, order, listed_forward)
-    options = _directional_options(
-        rng, axis, order, listed_forward, target, ref, include_next_to=False, include_between=True
-    )
     disp = axis["display"]
+    options = _directional_options(
+        rng, axis, order, listed_forward, target, ref, include_next_to=False, include_between=False
+    )
+    ranks = _build_ranks(order, listed_forward)
+    ti = order.index(target)
+    pairs = [(a, b) for x, a in enumerate(order) for b in order[x + 1 :] if target not in (a, b)]
+    pairs = [(a, b) for a, b in pairs if not order.index(a) < ti < order.index(b)]
+    check(len(pairs) == 3, "p19a_position_language easy: expected three non-bracketing referent pairs")
+    for a, b in rng.sample(pairs, 2):
+        truth = _independent_between_truth(ranks, target, a, b)
+        check(not truth, "p19a_position_language easy: between pair is unexpectedly true")
+        options.append((f"between {disp(a)} and {disp(b)}", truth))
     return _finalise_directional(rng, text, disp(target), disp(ref), options, "p19a_position_language easy")
 
 
@@ -326,7 +337,9 @@ def _draw_hard_between(rng):
     order = list(rng.sample(axis["entities"], k))
     listed_forward = True
     ranks = _build_ranks(order, listed_forward)
-    r = rng.randint(1, k - 2)  # target's rank -- never an extreme (min/max) rank
+    # The target's rank: next to an end but never at one. Only there are at least three referent pairs that do not
+    # bracket it (from the middle rank only two), which the four options need.
+    r = rng.choice((1, k - 2))
     target = order[r]
     disp = axis["display"]
 
@@ -337,10 +350,10 @@ def _draw_hard_between(rng):
                 continue
             (true_pairs if i < r < j else false_pairs).append((i, j))
     check(len(true_pairs) >= 1, "p19a_position_language hard-between: no true pair")
-    check(len(false_pairs) >= 2, "p19a_position_language hard-between: not enough false pairs")
+    check(len(false_pairs) >= 3, "p19a_position_language hard-between: not enough false pairs")
     rng.shuffle(true_pairs)
     rng.shuffle(false_pairs)
-    chosen = [true_pairs[0]] + false_pairs[:2]
+    chosen = [true_pairs[0]] + false_pairs[:3]
     rng.shuffle(chosen)
 
     def pair_text(pair):
@@ -366,7 +379,7 @@ def _draw_hard_between(rng):
         answer_text=key_text,
         answer_latex=f"plain:{key_text}",
         distractors=distractors,
-        working=[f"answer: {key_text}"],
+        working=[_capitalise(f"{disp(target)} is {key_text}.")],
     )
 
 

@@ -356,7 +356,7 @@ def _medium_sin(rng):
         4,
         3,
         [
-            f"P(X < {a}) = k x (the integral of sin(πx/{length}) from 0 to {a}) with k = π/{2 * length}.",
+            f"P(X < {a}) = k × (the integral of sin(πx/{length}) from 0 to {a}) with k = π/{2 * length}.",
             f"= (1 - cos(π/{length // a}))/2 = {p:.4f}.",
         ],
         [
@@ -414,7 +414,7 @@ def _hard_exp_prob(rng):
         4,
         [
             f"k = {lam:g}/(1 - e^(-{lam:g}x{b})) = {k:.4f}.",
-            f"P(X < {a}) = k x (1 - e^(-{lam:g}x{a}))/{lam:g} = {p:.4f}.",
+            f"P(X < {a}) = k × (1 - e^(-{lam:g}x{a}))/{lam:g} = {p:.4f}.",
         ],
         [
             (fx(1 - math.exp(-lam * a)), "r3f-truncated-uses-untruncated-cdf"),
@@ -460,7 +460,7 @@ def _hard_exp_mean(rng):
         fx(mean),
         2,
         4,
-        ["E(X) = k x (integral of x e^(-λx) from 0 to b), by parts.", f"E(X) = {mean:.2f}."],
+        ["E(X) = k × (integral of x e^(-λx) from 0 to b), by parts.", f"E(X) = {mean:.2f}."],
         [
             (fx(1 / lam), "r3f-truncated-uses-untruncated-mean"),
             (fx(b / 2), "r3f-mean-taken-as-midpoint"),
@@ -588,7 +588,7 @@ def _exam(rng: random.Random) -> dict:
             4,
             2,
             [
-                f"On the rising piece the area up to x = {t1} is (1/2) x {t1} x f({t1}) = k x {t1}^2/(2 x {c}).",
+                f"On the rising piece the area up to x = {t1} is (1/2) × {t1} × f({t1}) = k × {t1}^2/(2 × {c}).",
                 f"P = {float(pb):.4f}.",
             ],
             [

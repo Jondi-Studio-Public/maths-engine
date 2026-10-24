@@ -14,6 +14,7 @@ found from the two chord lengths; C is checked to lie on the circle.
 from __future__ import annotations
 
 import math
+from functools import cache
 from fractions import Fraction
 
 from mathgen.core import attempts, check, generator
@@ -21,8 +22,12 @@ from mathgen.core import attempts, check, generator
 from .exd_x_r3c_parts import number_part
 from ._exd_distinct_parts import distinct_part_answers
 
+
 #: Every integer right triangle (leg, leg, hypotenuse) with a hypotenuse from 10 to 150.
-_TRIPLES = tuple((a, b, c) for c in range(10, 151) for a in range(3, c) for b in range(a, c) if a * a + b * b == c * c)
+@cache
+def _triples():
+    return tuple((a, b, c) for c in range(10, 151) for a in range(3, c) for b in range(a, c) if a * a + b * b == c * c)
+
 
 _CM_STEMS = (
     "Triangle ABC is drawn inside a circle so that AB is a diameter of length {d} cm and C lies on the circle. "
@@ -45,7 +50,7 @@ def exd_x_r3c_semicircle_triangle(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(200, "a triangle whose height is clear of a rounding boundary"):
-        x, y, d = rng.choice(_TRIPLES)
+        x, y, d = rng.choice(_triples())
         a, b = (x, y) if rng.random() < 0.5 else (y, x)
         height = Fraction(a * b, d)
         if abs((height * 10) % 1 - Fraction(1, 2)) > Fraction(1, 100):

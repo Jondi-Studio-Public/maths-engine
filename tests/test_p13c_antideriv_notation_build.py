@@ -74,10 +74,13 @@ def test_plus_c_grading_finding_direct(tier):
         assert not _grade_expression(q, q.answer).correct, (
             f"{tier} seed={seed}: bare answer (missing +C) was wrongly accepted"
         )
-        # A different constant LETTER ("D") is a DIFFERENT free symbol to the
-        # grader and must not be treated as equivalent to the canonical "+ C".
+        # Any single constant-looking letter ("D") stands for the constant when the answer has one;
+        # a number or a second term in its place is still wrong.
         wrong_letter = f"{q.answer} + D"
-        assert not _grade_expression(q, wrong_letter).correct, f"{tier} seed={seed}: +D accepted as if it were +C"
+        assert _grade_expression(q, wrong_letter).correct == q.answer_text.rstrip().endswith("+ C"), (
+            f"{tier} seed={seed}: +D graded wrongly"
+        )
+        assert not _grade_expression(q, f"{q.answer} + 5").correct, f"{tier} seed={seed}: +5 accepted as the constant"
         checked += 1
     assert checked == len(SEEDS)
 

@@ -80,7 +80,7 @@ at every tier. Every tier therefore draws sides from the SAME range
 (the design fixed for this skill):
 
 - **easy**: a plain single-sentence template naming only the perimeter and
-  the two area conversions in one breath, no rounding instruction stated.
+  the two area conversions in one breath, only a plain "round to a whole number" instruction.
 - **medium**: adds an explicit clause -- "Give each area to the nearest
   whole number in its stated unit" (or an equivalent phrasing) -- the
   `_NEAREST_RE` trigger described above.
@@ -144,9 +144,12 @@ _SIDE_LO = 1200
 _SIDE_HI = 9000
 
 _EASY_TEMPLATES = (
-    "A rectangular sheet measures {L} mm by {W} mm. Find its perimeter in mm, its area in cm², and its area in m².",
-    "A rectangular panel measures {L} mm by {W} mm. Work out the perimeter in mm and the area in both cm² and m².",
-    "A rectangle measures {L} mm by {W} mm. Calculate the perimeter in mm, the area in cm², and the area in m².",
+    "A rectangular sheet measures {L} mm by {W} mm. Find its perimeter in mm, its area in cm², and its area in m². "
+    "Round each area to a whole number.",
+    "A rectangular panel measures {L} mm by {W} mm. Work out the perimeter in mm and the area in both cm² and m², "
+    "rounding each area to a whole number.",
+    "A rectangle measures {L} mm by {W} mm. Calculate the perimeter in mm, the area in cm², and the area in m². "
+    "Give each area as a whole number.",
 )
 _MEDIUM_TEMPLATES = (
     "A rectangular sheet measures {L} mm by {W} mm. Find its perimeter in mm, its area in "
@@ -172,10 +175,10 @@ _EXAM_TEMPLATES = (
     "A rectangular sheet metal panel measures {L} mm by {W} mm. Determine "
     "(a) the perimeter in mm, (b) the area in cm², and (c) the area in m², each area "
     "to the nearest whole number, showing your working for each part.",
-    "This exam question gives a rectangular panel {L} mm by {W} mm. Find, with full working, "
+    "A rectangular panel is {L} mm by {W} mm. Find, with full working, "
     "(a) the perimeter in mm, (b) the area in cm², and (c) the area in m², each area "
     "to the nearest whole number.",
-    "Exam question: a rectangular sheet is {L} mm by {W} mm. Show your working to find the "
+    "A rectangular sheet is {L} mm by {W} mm. Show your working to find the "
     "perimeter in mm and the area in cm² and m², each area rounded to the nearest "
     "whole number.",
 )

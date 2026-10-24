@@ -48,7 +48,7 @@ def test_default_paths_unchanged():
         1: "A triangle has base 20 and height 22. Use A = ½bh to find its area.",
         3: "A rectangle has length 15 and width 20. Use P = 2(l + w) to find its perimeter.",
         4: "A car travels 27 km in 9 hours. Use speed = distance / time to find its speed (km/h).",
-        5: "Find the simple interest on £1000 at 3% per year for 3 years. Use I = PRT/100.",
+        5: "Find the simple interest on $1000 at 3% per year for 3 years. Use I = PRT/100.",
     }
     for seed, text in expected.items():
         assert make("formula_plugin", seed=seed, difficulty="hard").text == text

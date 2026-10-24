@@ -44,6 +44,7 @@ from mathgen.core import (
     check_distinct,
     check_equivalent,
     generator,
+    ordinal,
     pick_distractors,
     round_half_up,
 )
@@ -246,19 +247,19 @@ def _scan_rate_for_target(a0: Fraction, d: Fraction, n_target: int, lo: int, hi:
 # =============================================================================
 
 _EASY_TEMPLATES = (
-    "An annuity begins with ${a0} invested. Each period, interest of {r}% is added to the "
-    "balance and then a fixed ${d} is withdrawn -- the recurrence relation "
-    "A(n+1) = A(n)({gf}) - {d}. A withdrawal counts as full only when the whole ${d} can be "
+    "An annuity begins with ${a0c} invested. Each period, interest of {r}% is added to the "
+    "balance and then a fixed ${dc} is withdrawn -- the recurrence relation "
+    "A(n+1) = A(n)({gf}) - {d}. A withdrawal counts as full only when the whole ${dc} can be "
     "paid; the fund stops once it can no longer pay a full withdrawal. How many full "
     "withdrawals does the annuity pay? Give your answer as a whole number of withdrawals.",
-    "A retirement fund of ${a0} earns {r}% interest every period, following "
-    "A(n+1) = A(n)({gf}) - {d}: interest is added first, then the fixed ${d} withdrawal is "
-    "taken. The fund stops once it can no longer pay a full ${d} withdrawal. Find the total "
+    "A retirement fund of ${a0c} earns {r}% interest every period, following "
+    "A(n+1) = A(n)({gf}) - {d}: interest is added first, then the fixed ${dc} withdrawal is "
+    "taken. The fund stops once it can no longer pay a full ${dc} withdrawal. Find the total "
     "number of full withdrawals the fund makes. Give your answer as a whole number of "
     "withdrawals.",
-    "Using the recurrence relation A(n+1) = A(n)({gf}) - {d}, an annuity starts at ${a0}: {r}% "
-    "interest is credited each period before the ${d} withdrawal is taken. A full withdrawal is "
-    "one where the whole ${d} is paid. Find how many full withdrawals the annuity pays in "
+    "Using the recurrence relation A(n+1) = A(n)({gf}) - {d}, an annuity starts at ${a0c}: {r}% "
+    "interest is credited each period before the ${dc} withdrawal is taken. A full withdrawal is "
+    "one where the whole ${dc} is paid. Find how many full withdrawals the annuity pays in "
     "total. Give your answer as a whole number of withdrawals.",
 )
 
@@ -280,7 +281,9 @@ def _annuity_easy(rng):
     check_equivalent(n, n_check, "annuity duration: readings (a) and (b) disagree (easy)")
 
     template = rng.choice(_EASY_TEMPLATES)
-    text = template.format(a0=int(a0), r=_fmt_pct(r_pct), gf=_fmt_exact(1 + r, 4), d=int(d))
+    text = template.format(
+        a0=int(a0), a0c=f"{int(a0):,}", r=_fmt_pct(r_pct), gf=_fmt_exact(1 + r, 4), d=int(d), dc=f"{int(d):,}"
+    )
 
     answer_text = str(n)
     d_over = n + 1
@@ -296,8 +299,8 @@ def _annuity_easy(rng):
         answer_latex=answer_text,
         distractors=distractors,
         working=[
-            f"Iterating A(n+1) = A(n)({_fmt_exact(1 + r, 4)}) - {int(d)} from ${int(a0)}, "
-            f"the fund pays {n} full ${int(d)} withdrawals before it can no longer pay a "
+            f"Iterating A(n+1) = A(n)({_fmt_exact(1 + r, 4)}) - {int(d)} from ${int(a0):,}, "
+            f"the fund pays {n} full ${int(d):,} withdrawals before it can no longer pay a "
             f"full withdrawal."
         ],
     )
@@ -308,18 +311,18 @@ def _annuity_easy(rng):
 # =============================================================================
 
 _MEDIUM_TEMPLATES = (
-    "A retirement fund starts with ${a0}, earning {annual}% per annum compounded {freq_adv} "
-    "(interest is credited before each withdrawal). A fixed ${d} is withdrawn at the end of "
-    "each {period}; a withdrawal counts as full only when the whole ${d} can be paid. Find the "
+    "A retirement fund starts with ${a0c}, earning {annual}% per annum compounded {freq_adv} "
+    "(interest is credited before each withdrawal). A fixed ${dc} is withdrawn at the end of "
+    "each {period}; a withdrawal counts as full only when the whole ${dc} can be paid. Find the "
     "total number of full withdrawals the fund makes. Give your answer as a whole number of "
     "withdrawals.",
-    "An annuity of ${a0} earns {annual}% per annum, compounded {freq_adv}, interest being added "
-    "before the withdrawal each {period}. A fixed ${d} is withdrawn at the end of every "
+    "An annuity of ${a0c} earns {annual}% per annum, compounded {freq_adv}, interest being added "
+    "before the withdrawal each {period}. A fixed ${dc} is withdrawn at the end of every "
     "{period} until a full withdrawal can no longer be paid. How many full withdrawals does the "
     "annuity make in total? Give your answer as a whole number of withdrawals.",
-    "${a0} is invested in an annuity earning {annual}% per annum compounded {freq_adv}. At the "
-    "end of each {period}, interest is credited and then a fixed ${d} is withdrawn. Find the "
-    "number of full ${d} withdrawals the annuity can make before it can no longer pay a full "
+    "${a0c} is invested in an annuity earning {annual}% per annum compounded {freq_adv}. At the "
+    "end of each {period}, interest is credited and then a fixed ${dc} is withdrawn. Find the "
+    "number of full ${dc} withdrawals the annuity can make before it can no longer pay a full "
     "withdrawal. Give your answer as a whole number of withdrawals.",
 )
 
@@ -341,7 +344,15 @@ def _annuity_medium(rng):
     annual_pct = r_pct * freq
     freq_adv, period = _freq_words(freq)
     template = rng.choice(_MEDIUM_TEMPLATES)
-    text = template.format(a0=int(a0), annual=_fmt_pct(annual_pct), freq_adv=freq_adv, d=int(d), period=period)
+    text = template.format(
+        a0=int(a0),
+        a0c=f"{int(a0):,}",
+        annual=_fmt_pct(annual_pct),
+        freq_adv=freq_adv,
+        d=int(d),
+        dc=f"{int(d):,}",
+        period=period,
+    )
 
     answer_text = str(n)
     candidates_int = [n + 1, max(0, n - 1), int(a0 // d)]
@@ -359,8 +370,8 @@ def _annuity_medium(rng):
         distractors=distractors,
         working=[
             f"The per-{period} rate is {_fmt_pct(annual_pct)}%/{freq} = {_fmt_exact(r, 4)}; "
-            f"iterating A(n+1) = A(n)(1 + {_fmt_exact(r, 4)}) - {int(d)} from ${int(a0)} "
-            f"gives {n} full ${int(d)} withdrawals."
+            f"iterating A(n+1) = A(n)(1 + {_fmt_exact(r, 4)}) - {int(d)} from ${int(a0):,} "
+            f"gives {n} full ${int(d):,} withdrawals."
         ],
     )
 
@@ -372,36 +383,36 @@ def _annuity_medium(rng):
 _HARD_TEMPLATES = {
     "amount": (
         "An annuity earning {annual}% per annum compounded {freq_adv} (interest credited before "
-        "each withdrawal) pays a fixed ${d} at the end of every {period}, until a full "
-        "withdrawal can no longer be paid. One version starts with ${a0_1} invested; another, "
-        "otherwise identical, starts with ${a0_2}. By how many full withdrawals do the two "
+        "each withdrawal) pays a fixed ${dc} at the end of every {period}, until a full "
+        "withdrawal can no longer be paid. One version starts with ${a0_1c} invested; another, "
+        "otherwise identical, starts with ${a0_2c}. By how many full withdrawals do the two "
         "versions' durations differ? Give your answer as a whole number of withdrawals.",
-        "Two annuities earn {annual}% per annum compounded {freq_adv} and both pay a fixed ${d} "
+        "Two annuities earn {annual}% per annum compounded {freq_adv} and both pay a fixed ${dc} "
         "at the end of every {period} until a full withdrawal can no longer be paid: one starts "
-        "with ${a0_1} invested, the other with ${a0_2}. Find the difference between the two "
+        "with ${a0_1c} invested, the other with ${a0_2c}. Find the difference between the two "
         "annuities' total numbers of full withdrawals. Give your answer as a whole number of "
         "withdrawals.",
     ),
     "rate": (
-        "An annuity of ${a0} pays a fixed ${d} at the end of every {period} (interest credited "
+        "An annuity of ${a0c} pays a fixed ${dc} at the end of every {period} (interest credited "
         "before each withdrawal), until a full withdrawal can no longer be paid. Compare "
         "compounding at {annual1}% per annum against {annual2}% per annum, both compounded "
         "{freq_adv}. By how many full withdrawals do the two rates' durations differ? Give your "
         "answer as a whole number of withdrawals.",
-        "Two versions of the same ${a0} annuity, each paying a fixed ${d} at the end of every "
+        "Two versions of the same ${a0c} annuity, each paying a fixed ${dc} at the end of every "
         "{period}, are compounded {freq_adv}: one at {annual1}% per annum, the other at "
         "{annual2}% per annum. Find the difference between the two versions' total numbers of "
         "full withdrawals. Give your answer as a whole number of withdrawals.",
     ),
     "withdrawal": (
-        "An annuity of ${a0}, earning {annual}% per annum compounded {freq_adv} (interest "
+        "An annuity of ${a0c}, earning {annual}% per annum compounded {freq_adv} (interest "
         "credited before each withdrawal), withdraws a fixed amount at the end of every "
-        "{period} until a full withdrawal can no longer be paid. Compare withdrawing ${d1} each "
-        "{period} against withdrawing ${d2} each {period}. By how many full withdrawals do the "
+        "{period} until a full withdrawal can no longer be paid. Compare withdrawing ${d1c} each "
+        "{period} against withdrawing ${d2c} each {period}. By how many full withdrawals do the "
         "two withdrawal amounts' durations differ? Give your answer as a whole number of "
         "withdrawals.",
-        "The same ${a0} annuity, earning {annual}% per annum compounded {freq_adv}, is compared "
-        "under two fixed withdrawal amounts, ${d1} and ${d2}, each paid at the end of every "
+        "The same ${a0c} annuity, earning {annual}% per annum compounded {freq_adv}, is compared "
+        "under two fixed withdrawal amounts, ${d1c} and ${d2c}, each paid at the end of every "
         "{period}. Find the difference between the two withdrawal amounts' total numbers of "
         "full withdrawals. Give your answer as a whole number of withdrawals.",
     ),
@@ -467,8 +478,11 @@ def _annuity_hard(rng):
             annual=_fmt_pct(annual),
             freq_adv=freq_adv,
             d=int(scenario["d"]),
+            dc=f"{int(scenario['d']):,}",
             a0_1=int(scenario["a0_1"]),
+            a0_1c=f"{int(scenario['a0_1']):,}",
             a0_2=int(scenario["a0_2"]),
+            a0_2c=f"{int(scenario['a0_2']):,}",
             period=period,
         )
     elif which == "rate":
@@ -477,7 +491,9 @@ def _annuity_hard(rng):
         lo_annual, hi_annual = sorted((annual1, annual2))
         text = template.format(
             a0=int(scenario["a0"]),
+            a0c=f"{int(scenario['a0']):,}",
             d=int(scenario["d"]),
+            dc=f"{int(scenario['d']):,}",
             freq_adv=freq_adv,
             annual1=_fmt_pct(lo_annual),
             annual2=_fmt_pct(hi_annual),
@@ -488,10 +504,13 @@ def _annuity_hard(rng):
         d_lo, d_hi = sorted((scenario["d1"], scenario["d2"]))
         text = template.format(
             a0=int(scenario["a0"]),
+            a0c=f"{int(scenario['a0']):,}",
             annual=_fmt_pct(annual),
             freq_adv=freq_adv,
             d1=int(d_lo),
+            d1c=f"{int(d_lo):,}",
             d2=int(d_hi),
+            d2c=f"{int(d_hi):,}",
             period=period,
         )
 
@@ -518,32 +537,32 @@ def _annuity_hard(rng):
 
 _EXAM_TEMPLATES = {
     "withdrawal": (
-        "An annuity begins with ${a0}, earning {annual}% per annum compounded {freq_adv} "
-        "(interest credited before each withdrawal). A fixed ${d1} is withdrawn at the end of "
-        "each {period}. After the {k}th withdrawal, the withdrawal amount changes to ${d2} for "
+        "An annuity begins with ${a0c}, earning {annual}% per annum compounded {freq_adv} "
+        "(interest credited before each withdrawal). A fixed ${d1c} is withdrawn at the end of "
+        "each {period}. After the {k_ord} withdrawal, the withdrawal amount changes to ${d2c} for "
         "every {period} after that (the rate stays the same); a withdrawal counts as full only "
-        "when the full amount can be paid. Carrying the balance forward from the {k}th "
+        "when the full amount can be paid. Carrying the balance forward from the {k_ord} "
         "withdrawal, find the TOTAL number of full withdrawals the annuity makes. Give your "
         "answer as a whole number of withdrawals.",
-        "${a0} is invested in an annuity earning {annual}% per annum compounded {freq_adv}, "
-        "withdrawing a fixed ${d1} at the end of each {period} for the first {k} withdrawals; "
-        "every withdrawal after the {k}th is ${d2} instead (the rate is unchanged). Using the "
-        "balance carried forward after the {k}th withdrawal, find the total number of full "
+        "${a0c} is invested in an annuity earning {annual}% per annum compounded {freq_adv}, "
+        "withdrawing a fixed ${d1c} at the end of each {period} for the first {k} withdrawals; "
+        "every withdrawal after the {k_ord} is ${d2c} instead (the rate is unchanged). Using the "
+        "balance carried forward after the {k_ord} withdrawal, find the total number of full "
         "withdrawals the annuity makes in all. Give your answer as a whole number of "
         "withdrawals.",
     ),
     "rate": (
-        "An annuity begins with ${a0}, earning {annual1}% per annum compounded {freq_adv} "
-        "(interest credited before each withdrawal), withdrawing a fixed ${d} at the end of "
-        "each {period}. After the {k}th withdrawal, the rate changes to {annual2}% per annum "
+        "An annuity begins with ${a0c}, earning {annual1}% per annum compounded {freq_adv} "
+        "(interest credited before each withdrawal), withdrawing a fixed ${dc} at the end of "
+        "each {period}. After the {k_ord} withdrawal, the rate changes to {annual2}% per annum "
         "compounded {freq_adv} for every {period} after that (the withdrawal stays the same); a "
         "withdrawal counts as full only when the full amount can be paid. Carrying the balance "
-        "forward from the {k}th withdrawal, find the TOTAL number of full withdrawals the "
+        "forward from the {k_ord} withdrawal, find the TOTAL number of full withdrawals the "
         "annuity makes. Give your answer as a whole number of withdrawals.",
-        "${a0} is invested in an annuity, initially earning {annual1}% per annum compounded "
-        "{freq_adv}, withdrawing a fixed ${d} at the end of each {period} for the first {k} "
-        "withdrawals; every withdrawal after the {k}th earns {annual2}% per annum instead (the "
-        "withdrawal is unchanged). Using the balance carried forward after the {k}th "
+        "${a0c} is invested in an annuity, initially earning {annual1}% per annum compounded "
+        "{freq_adv}, withdrawing a fixed ${dc} at the end of each {period} for the first {k} "
+        "withdrawals; every withdrawal after the {k_ord} earns {annual2}% per annum instead (the "
+        "withdrawal is unchanged). Using the balance carried forward after the {k_ord} "
         "withdrawal, find the total number of full withdrawals the annuity makes in all. Give "
         "your answer as a whole number of withdrawals.",
     ),
@@ -590,6 +609,7 @@ def _exam_scenario(rng):
                 d1=d1,
                 d2=d2,
                 k=k,
+                k_ord=ordinal(k),
                 n2=n2,
                 n1_virtual=n1_virtual_actual,
             )
@@ -610,6 +630,7 @@ def _exam_scenario(rng):
                 r2=r2,
                 r2_pct=r2_pct,
                 k=k,
+                k_ord=ordinal(k),
                 n2=n2,
                 n1_virtual=n1_virtual_actual,
             )
@@ -634,11 +655,15 @@ def _annuity_exam(rng):
         annual = scenario["r_pct"] * scenario["freq"]
         text = template.format(
             a0=int(scenario["a0"]),
+            a0c=f"{int(scenario['a0']):,}",
             annual=_fmt_pct(annual),
             freq_adv=freq_adv,
             d1=int(scenario["d1"]),
+            d1c=f"{int(scenario['d1']):,}",
             d2=int(scenario["d2"]),
+            d2c=f"{int(scenario['d2']):,}",
             k=k,
+            k_ord=ordinal(k),
             period=period,
         )
         no_change = scenario["n1_virtual"]
@@ -648,10 +673,13 @@ def _annuity_exam(rng):
         annual2 = scenario["r2_pct"] * scenario["freq"]
         text = template.format(
             a0=int(scenario["a0"]),
+            a0c=f"{int(scenario['a0']):,}",
             annual1=_fmt_pct(annual1),
             annual2=_fmt_pct(annual2),
             d=int(scenario["d"]),
+            dc=f"{int(scenario['d']):,}",
             k=k,
+            k_ord=ordinal(k),
             period=period,
             freq_adv=freq_adv,
         )

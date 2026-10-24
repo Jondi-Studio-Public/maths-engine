@@ -102,7 +102,7 @@ def _build(rng: random.Random) -> dict:
         answer_latex=f"plain:{answer_text}",
         working=[
             "Expand each term with the compound-angle identities and collect: f(x) = a cos x + b sin x.",
-            f"a = {a:.3f}, b = {b:.3f}, so R = sqrt(a^2 + b^2) = {r_val:.1f} and alpha = atan2(b, a) = {alpha_val:.1f}.",
+            f"a = {a:.3f}, b = {b:.3f}, so R = sqrt(a^2 + b^2) = {r_val:.1f} and alpha = the angle of (a, b) = {alpha_val:.1f}.",
         ],
         distractors=distractors,
     )

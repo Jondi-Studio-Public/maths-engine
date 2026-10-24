@@ -86,6 +86,8 @@ def exd_x_r3h_limit_ah(rng, tier="exam"):
         raise ValueError("the last table row does not round to the limit")
     first_row = round_half_up(Fraction((af**0.1 - 1) / 0.1), 2)
     a_frac = f"({a.numerator}/{a.denominator})"
+    limit_text = f"{float(limit):.2f}"  # the estimate as stated to its 2 d.p., never a fraction
+    limit_bracketed = f"({limit_text})" if limit < 0 else limit_text
 
     stem = rng.choice(_STEMS).format(a=a_text, rows=", ".join(rows))
     gradient_prompt = rng.choice(_GRADIENT_PROMPTS).format(a=a_text, c=c)
@@ -95,11 +97,11 @@ def exd_x_r3h_limit_ah(rng, tier="exam"):
         parts=[
             dict(
                 **number_part(
-                    "Estimate the limit of (a^h - 1)/h as h -> 0, correct to 2 decimal places.",
+                    "Estimate the limit of (a^h - 1)/h as h → 0, correct to 2 decimal places.",
                     limit,
                     2,
                     2,
-                    ["The values settle towards one number as h decreases.", f"The limit is about {limit}."],
+                    ["The values settle towards one number as h decreases.", f"The limit is about {limit_text}."],
                     [
                         (first_row, "reads-coarsest-table-row-as-limit"),
                         (a - 1, "difference-quotient-taken-at-h-equals-1"),
@@ -114,7 +116,9 @@ def exd_x_r3h_limit_ah(rng, tier="exam"):
                     gradient,
                     2,
                     2,
-                    [f"f'(x) = L x {a_text}^x, so f'({c}) = {limit} x {a_text}^{c}."],
+                    [
+                        f"f'(x) = L × {a_text}^x, where L is the limit from (a), so f'({c}) = {limit_bracketed} × {a_text if c == 1 else f'{a_text}^{c}'}."
+                    ],
                     [
                         (a**c, "exponential-derivative-missing-ln-factor"),
                         (limit * c * a ** (c - 1), "power-rule-applied-to-exponential"),
@@ -131,8 +135,8 @@ def exd_x_r3h_limit_ah(rng, tier="exam"):
                     1,
                     3,
                     [
-                        f"The tangent at x = {c} has gradient L x {a_text}^{c} and passes through ({c}, {a_text}^{c}).",
-                        f"Setting y = 0 gives x = {c} - 1/L = {c} - 1/{limit}.",
+                        f"The tangent at x = {c} has gradient L × {a_text if c == 1 else f'{a_text}^{c}'} and passes through ({c}, {a_text if c == 1 else f'{a_text}^{c}'}).",
+                        f"Setting y = 0 gives x = {c} - 1/L = {c} - 1/{limit_bracketed}.",
                     ],
                     [
                         (c + 1 / limit, "sign-slip-in-formula"),

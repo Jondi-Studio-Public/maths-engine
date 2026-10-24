@@ -41,6 +41,7 @@ from mathgen.core import (
     check,
     check_pairwise_distinct,
     generator,
+    paren_negative,
     phrase,
     pick_distractors,
     rational_text,
@@ -241,7 +242,7 @@ def pv1a_slope_intercept(rng, tier="easy", notes=False):
     (x1, y1), (x2, y2) = [(u * win.xs, v * win.ys) for (u, v) in (pa, pb)]
     working = [
         f"Read two points on the line: ({x1}, {y1}) and ({x2}, {y2}).",
-        f"m = ({y2} - ({y1})) / ({x2} - ({x1})) = {rational_text(m)}.",
+        f"m = ({y2} - {paren_negative(y1)}) / ({x2} - {paren_negative(x1)}) = {rational_text(m)}.",
         f"Running the line to x = 0 (or substituting ({x1}, {y1})) gives c = {c}.",
     ]
     return dict(

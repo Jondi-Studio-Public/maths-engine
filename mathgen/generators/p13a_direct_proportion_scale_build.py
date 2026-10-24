@@ -655,12 +655,12 @@ def _hard_question(rng) -> dict:
 
         if kind == "rate_plus_fixed":
             working = [
-                f"Fixed ${fixed_text} + {quantity} x ${rate_text} = ${_money(total_cents)}. "
+                f"Fixed ${fixed_text} + {quantity} × ${rate_text} = ${_money(total_cents)}. "
                 f"Not directly proportional (a fixed fee applies)."
             ]
         else:
             working = [
-                f"{quantity} x ${rate_text} = ${_money(total_cents)}. Directly proportional (a pure per-unit rate)."
+                f"{quantity} × ${rate_text} = ${_money(total_cents)}. Directly proportional (a pure per-unit rate)."
             ]
 
         return dict(

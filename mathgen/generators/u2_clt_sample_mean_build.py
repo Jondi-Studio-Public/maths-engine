@@ -120,6 +120,11 @@ def _plain(value) -> str:
     return str(int(value)) if value.denominator == 1 else f"{float(value):.2f}".rstrip("0").rstrip(".")
 
 
+def _z(value) -> str:
+    """A z value as the decimal in the table ("1.645"), never as a fraction."""
+    return f"{float(Fraction(value)):.3f}".rstrip("0").rstrip(".")
+
+
 def _amt(value, unit) -> str:
     """'1 minute' but '2 minutes', '1.5 minutes'."""
     return f"{_plain(value)} {unit[:-1] if unit.endswith('s') and Fraction(value) == 1 else unit}"
@@ -311,7 +316,7 @@ def _hard(rng):
             f"population mean by more than {_amt(d, unit)} is at most {level}."
         )
         other = Fraction({"up05": "1.96", "up01": "2.576", "up10": "1.645"}[key])
-        z_text = f"P(Z > {z}) = {level}"
+        z_text = f"P(Z > {_z(z)}) = {level}"
     else:
         level = Z_TABLE[key][0]
         ask = (
@@ -319,7 +324,7 @@ def _hard(rng):
             f"{_amt(d, unit)} of the population mean is at least {level}."
         )
         other = Fraction({"95": "1.645", "99": "1.96", "90": "1.282", "98": "2.576"}[key])
-        z_text = f"P(|Z| < {z}) = {level}"
+        z_text = f"P(|Z| < {_z(z)}) = {level}"
     cands = [
         (math.floor(exact), "clt-n-not-rounded-up"),
         (math.ceil(z * sigma / d), "clt-n-forgot-square"),
@@ -328,8 +333,8 @@ def _hard(rng):
     ]
     text = f"{_describe(population, mu, sigma, unit)} Use the central limit theorem. {ask}"
     working = [
-        f"We need {z_text}, so the standard error σ/√n = {sigma}/√n must satisfy {_plain(d)} ≥ {z}×{sigma}/√n.",
-        f"Then √n ≥ {z}×{sigma}/{_plain(d)}, so n ≥ {float(exact):.3f}.",
+        f"We need {z_text}, so the standard error σ/√n = {sigma}/√n must satisfy {_plain(d)} ≥ {_z(z)}×{sigma}/√n.",
+        f"Then √n ≥ {_z(z)}×{sigma}/{_plain(d)}, so n ≥ {float(exact):.3f}.",
         f"Rounding up, n = {n} (n = {n - 1} is too small).",
     ]
     part = count_part("", n, 1, working, [(w, m) for w, m in cands if w >= 1], lo=1)

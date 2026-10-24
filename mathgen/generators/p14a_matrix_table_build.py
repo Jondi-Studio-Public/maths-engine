@@ -485,8 +485,6 @@ def _adjacency_tier(rng, n_choices, hi, labels_pool, header, from_templates, to_
     line = matrix[node] if direction == "from" else [row[node] for row in matrix]
     working = [
         f"Direct routes {verb} {node_label}: " + " + ".join(str(v) for v in line) + f" = {answer}.",
-        f"(For reference, the opposite-direction total at {node_label} is "
-        f"{col_sum if direction == 'from' else row_sum}, a genuinely different value.)",
     ]
     return dict(
         text=question_text,

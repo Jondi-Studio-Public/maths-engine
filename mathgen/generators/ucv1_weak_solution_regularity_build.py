@@ -273,7 +273,7 @@ def _build(rng, kind: str, *, explicit: bool):
     key, distractors, notes = _options(rng, m, a, b, gain=gain)
     if explicit:
         working = [
-            f"The label of {fname}: |x - x₀|^α is in Hᵏ exactly when α > k - 1/2, and α = {_alpha_text(alpha)}, "
+            f"The function {fname}: |x - x₀|^α is in Hᵏ exactly when α > k - 1/2, and α = {_alpha_text(alpha)}, "
             f"so {fname} is in {_h(k)} but not in {_h(k + 1)}.",
         ]
     else:

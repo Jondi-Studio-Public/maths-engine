@@ -137,7 +137,7 @@ def _build(rng: random.Random, ctx: dict) -> dict:
         "Using your answers to (b) and (c), find the number above which a value is an outlier.",
         fence,
         2,
-        [f"Boundary = Q3 + 1.5 x IQR = {q3} + 1.5 x {iqr} = {q3} + {3 * iqr // 2} = {fence}."],
+        [f"Boundary = Q3 + 1.5 × IQR = {q3} + 1.5 × {iqr} = {q3} + {3 * iqr // 2} = {fence}."],
         [
             (q3 + iqr, "uses-one-times-the-iqr"),
             (3 * iqr // 2, "leaves-out-q3-from-the-boundary"),

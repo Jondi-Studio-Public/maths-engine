@@ -25,7 +25,15 @@ from __future__ import annotations
 import math
 from fractions import Fraction
 
-import numpy as np
+from functools import cache
+
+
+@cache
+def _np():
+    import numpy
+
+    return numpy
+
 
 from ..core import (
     check,
@@ -83,7 +91,7 @@ def _verify_largest_real_root(coeffs, claimed_root, tol=1e-4) -> None:
     x = float(claimed_root)
     residual = a * x**3 + b * x**2 + c * x + d
     check(abs(residual) < 1e-6, f"cubic residual {residual} not near zero for claimed root {x}")
-    roots = np.roots([a, b, c, d])
+    roots = _np().roots([a, b, c, d])
     real_roots = [r.real for r in roots if abs(r.imag) < 1e-6]
     check(len(real_roots) >= 1, "numpy.roots found no real root")
     largest = max(real_roots)
@@ -99,7 +107,7 @@ def _verify_domain_root(coeffs, claimed_root, lo, hi, tol=1e-4) -> None:
     x = float(claimed_root)
     residual = a * x**3 + b * x**2 + c * x + d
     check(abs(residual) < 1e-6, f"cubic residual {residual} not near zero for claimed root {x}")
-    roots = np.roots([a, b, c, d])
+    roots = _np().roots([a, b, c, d])
     real_roots = [r.real for r in roots if abs(r.imag) < 1e-6]
     in_domain = [r for r in real_roots if lo < r < hi]
     check(len(in_domain) == 1, f"expected exactly one root in ({lo}, {hi}), got {in_domain}")
@@ -178,7 +186,7 @@ def _build_medium_rational_root_theorem(rng) -> dict:
         if discriminant >= 0:
             resamples += 1
             continue
-        roots = np.roots([float(A), float(B), float(C), float(D)])
+        roots = _np().roots([float(A), float(B), float(C), float(D)])
         real_roots = [r.real for r in roots if abs(r.imag) < 1e-6]
         if len(real_roots) != 1:
             resamples += 1
@@ -243,7 +251,7 @@ def _build_hard_technology_irrational(rng) -> dict:
             resamples += 1
             continue
         coeffs = (1.0, float(b), float(c), float(d))
-        roots = np.roots(coeffs)
+        roots = _np().roots(coeffs)
         real_roots = [r.real for r in roots if abs(r.imag) < 1e-6]
         if len(real_roots) < 1:
             resamples += 1
@@ -261,8 +269,8 @@ def _build_hard_technology_irrational(rng) -> dict:
             # each re-computed via the SAME numeric route (numpy.roots) on a
             # cubic with one transcribed sign error -- a genuinely different
             # construction from the real one, confirmed distinct below.
-            sign_error_c = np.roots([1.0, float(b), float(-c), float(d)])
-            sign_error_b = np.roots([1.0, float(-b), float(c), float(d)])
+            sign_error_c = _np().roots([1.0, float(b), float(-c), float(d)])
+            sign_error_b = _np().roots([1.0, float(-b), float(c), float(d)])
             cand1_roots = [r.real for r in sign_error_c if abs(r.imag) < 1e-6]
             cand2_roots = [r.real for r in sign_error_b if abs(r.imag) < 1e-6]
             candidates_val = [max(cand1_roots), max(cand2_roots)]
@@ -331,7 +339,7 @@ def _build_exam_physical_domain(rng) -> dict:
             continue
         # 4x^3 - 2(p+q)x^2 + pq x - v0 = 0
         coeffs = (4.0, -2.0 * S, float(P), -float(v0))
-        roots = np.roots(coeffs)
+        roots = _np().roots(coeffs)
         real_roots = [r.real for r in roots if abs(r.imag) < 1e-6]
         in_domain = [r for r in real_roots if 0 < r < c]
         if len(in_domain) != 1:
@@ -574,7 +582,7 @@ def _build_hard_hidden_quadratic(rng) -> dict:
             continue
         break
 
-    roots_u = np.roots([float(Aq), float(Bq), float(Cq)])
+    roots_u = _np().roots([float(Aq), float(Bq), float(Cq)])
     positive_u = [r.real for r in roots_u if abs(r.imag) < 1e-6 and r.real > 0]
     check(len(positive_u) == 2, f"expected exactly two positive u-roots, got {positive_u}")
     check(abs(max(positive_u) - larger_u) < 1e-4, "numpy's larger positive u-root disagrees with construction")
@@ -606,7 +614,7 @@ def _build_hard_hidden_quadratic(rng) -> dict:
     candidates_val = [v for v in candidates_val if abs(v - larger_x) > 0.01]
 
     working = [
-        f"Let u = e^x: {Aq}u^2 {'+' if Bq >= 0 else '-'} {abs(Bq)}u {'+' if Cq >= 0 else '-'} {abs(Cq)} = 0",
+        f"Let u = e^x: {join_terms([(Aq, 'u^2'), (Bq, 'u'), (Cq, '')])} = 0",
         f"u = {smaller_u} or u = {larger_u} (both positive, since e^x > 0 always).",
         f"x = ln({larger_u}) = {answer_text} (the larger solution).",
     ]

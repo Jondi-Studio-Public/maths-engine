@@ -97,10 +97,6 @@ SMALL_QUESTION_POOL = {
 # empty, which is where
 # this one is headed.
 OPTION_SHAPE_BACKLOG = {
-    ("finite_sample_space_probability", "easy"): 28,
-    ("finite_sample_space_probability", "hard"): 14,
-    ("finite_sample_space_probability", "medium"): 7,
-    ("finite_sample_space_probability", None): 2,
     ("fraction_halving", "hard"): 15,
     ("non_uniform_discrete_random_variable", "hard"): 1,
     ("non_uniform_discrete_random_variable", "medium"): 4,

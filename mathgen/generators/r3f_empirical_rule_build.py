@@ -171,8 +171,20 @@ def _dp(places: int) -> str:
     return f"{places} decimal place{'s' if places > 1 else ''}"
 
 
-def _shown(end: int | None) -> str:
-    return "unbounded" if end is None else f"{end}"
+def _sd_from_mean(k: int) -> str:
+    """A whole number of standard deviations from the mean, as a phrase ("1 standard deviation above the mean")."""
+    if k == 0:
+        return "the mean"
+    unit = "standard deviation" if abs(k) == 1 else "standard deviations"
+    return f"{abs(k)} {unit} {'above' if k > 0 else 'below'} the mean"
+
+
+def _ends_line(lo: int | None, hi: int | None) -> str:
+    if lo is None:
+        return f"The region ends at {_sd_from_mean(hi)} and has no lower end."
+    if hi is None:
+        return f"The region starts at {_sd_from_mean(lo)} and has no upper end."
+    return f"The ends are {_sd_from_mean(lo)} and {_sd_from_mean(hi)}."
 
 
 # -- easy ------------------------------------------------------------------------------------------------------
@@ -191,7 +203,7 @@ def _easy(rng: random.Random) -> dict:
         places,
         1,
         [
-            f"The ends are {_shown(lo)} and {_shown(hi)} standard deviations from the mean.",
+            _ends_line(lo, hi),
             f"Adding the band shares gives {dec(p)}%.",
         ],
         _region_slips(lo, hi, p),
@@ -462,7 +474,7 @@ def _exam(rng: random.Random) -> dict:
             p,
             places,
             2,
-            [f"The ends are {lo} and {hi} standard deviations from the mean.", f"The share between them is {dec(p)}%."],
+            [_ends_line(lo, hi), f"The share between them is {dec(p)}%."],
             _region_slips(lo, hi, p),
             sensible_range=(0, 100),
             within=(0, 100),

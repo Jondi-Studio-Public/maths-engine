@@ -6,6 +6,7 @@ domain: financial-discrete
 year_level: ['12']
 description: 'Given bounded, fully specified inputs, use minimal spanning trees to solve minimal connector problems; for example, minimising the length of cable needed to provide power from a single power station to substations in several towns. Return the resulting value, expression, relation, or classification.'
 status: active
+needs_figure: true
 placement_eligible: false
 prerequisites: [simple-interest]
 answer: number

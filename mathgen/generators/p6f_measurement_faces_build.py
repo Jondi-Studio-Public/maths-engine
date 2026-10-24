@@ -148,11 +148,19 @@ def _build_pyramid_square_base(rng) -> dict:
 
     candidates = [str(omits_base), str(treats_triangle_as_full), str(counts_two_laterals)]
 
+    working = [
+        f"Base: {s} × {s} = {s * s} cm².",
+        f"Each triangular face: ½ × {s} × {l} = {s * l // 2} cm².",
+        f"Four triangular faces: 4 × {s * l // 2} = {2 * s * l} cm².",
+        f"Total = {s * s} + {2 * s * l} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -235,11 +243,19 @@ def _build_pyramid_square_base_from_height(rng) -> dict:
         str(counts_two_laterals),
     ]
 
+    working = [
+        f"The slant height l of a face satisfies l² = {h}² + ({s} ÷ 2)² = {h * h} + {(s // 2) ** 2} = {l * l}, so l = {l} cm.",
+        f"Base: {s} × {s} = {s * s} cm².",
+        f"Each triangular face: ½ × {s} × {l} = {s * l // 2} cm²; four faces make {2 * s * l} cm².",
+        f"Total = {s * s} + {2 * s * l} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -301,11 +317,19 @@ def _build_pyramid_rectangular_base(rng) -> dict:
 
     candidates = [str(omits_base), str(no_half), str(swaps)]
 
+    working = [
+        f"Base: {l_base} × {w} = {l_base * w} cm².",
+        f"Two faces on the longer sides: 2 × (½ × {l_base} × {s_l}) = {l_base * s_l} cm².",
+        f"Two faces on the shorter sides: 2 × (½ × {w} × {s_w}) = {w * s_w} cm².",
+        f"Total = {l_base * w} + {l_base * s_l} + {w * s_w} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -378,11 +402,23 @@ def _build_pyramid_right_triangle_base(rng) -> dict:
 
     candidates = [str(int(omits_base)), str(int(no_half_all)), str(int(omits_hyp))]
 
+    def half(n: int) -> str:
+        return str(n // 2) if n % 2 == 0 else f"{n // 2}.5"
+
+    working = [
+        f"Base: ½ × {a} × {b} = {half(a * b)} cm².",
+        f"Face on the {a} cm edge: ½ × {a} × {s_a} = {half(a * s_a)} cm².",
+        f"Face on the {b} cm edge: ½ × {b} × {s_b} = {half(b * s_b)} cm².",
+        f"Face on the {c} cm edge: ½ × {c} × {s_c} = {half(c * s_c)} cm².",
+        f"Total = {half(a * b)} + {half(a * s_a)} + {half(b * s_b)} + {half(c * s_c)} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -485,11 +521,21 @@ def _build_faces_easy(rng) -> dict:
 
     candidates = [str(omits_last), str(double_first), str(confuses_square)]
 
+    working = [
+        f"Face 1: {a1} × {b1} = {a1 * b1} cm².",
+        f"Face 2: {a2} × {b2} = {a2 * b2} cm².",
+        f"Face 3: {a3} × {b3} = {a3 * b3} cm².",
+        f"Face 4: {s4} × {s4} = {s4 * s4} cm².",
+        f"Face 5: {s5} × {s5} = {s5 * s5} cm².",
+        f"Total = {a1 * b1} + {a2 * b2} + {a3 * b3} + {s4 * s4} + {s5 * s5} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -538,11 +584,22 @@ def _build_faces_medium(rng) -> dict:
 
     candidates = [str(omits_last), str(double_first), str(forgets_half_tri)]
 
+    t3, t4 = base3 * height3 // 2, base4 * height4 // 2
+    working = [
+        f"Face 1: {a1} × {b1} = {a1 * b1} cm².",
+        f"Face 2: {a2} × {b2} = {a2 * b2} cm².",
+        f"Face 3 (triangle): ½ × {base3} × {height3} = {t3} cm².",
+        f"Face 4 (triangle): ½ × {base4} × {height4} = {t4} cm².",
+        f"Face 5: {s5} × {s5} = {s5 * s5} cm².",
+        f"Total = {a1 * b1} + {a2 * b2} + {t3} + {t4} + {s5 * s5} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 
@@ -598,11 +655,23 @@ def _build_faces_hard(rng) -> dict:
     # Put includes_lure FIRST to ensure it's always picked as a distractor
     candidates = [str(includes_lure), str(omits_last_included), str(forgets_half_one)]
 
+    t4, t5 = base4 * height4 // 2, base5 * height5 // 2
+    working = [
+        f"Face 1: {a1} × {b1} = {a1 * b1} cm².",
+        f"Face 2: {a2} × {b2} = {a2 * b2} cm².",
+        f"Face 3: {a3} × {b3} = {a3 * b3} cm².",
+        f"Face 4 (triangle): ½ × {base4} × {height4} = {t4} cm².",
+        f"Face 5 (triangle): ½ × {base5} × {height5} = {t5} cm².",
+        "The open square face is not part of the solid, so leave it out.",
+        f"Total = {a1 * b1} + {a2 * b2} + {a3 * b3} + {t4} + {t5} = {answer} cm².",
+    ]
+
     return dict(
         text=text,
         latex=text,
         answer=answer,
         answer_text=answer_text,
+        working=working,
         distractors=pick_distractors(answer_text, candidates),
     )
 

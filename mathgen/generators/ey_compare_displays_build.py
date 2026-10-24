@@ -37,7 +37,7 @@ _SHORT = (
 
 def _rows(rng, tier: str):
     """``(labels, counts, pictures, wrong index, each)`` where only the row at the wrong index disagrees."""
-    n = rng.choice((3, 4))
+    n = 4  # the question offers every row, so four rows always give four options
     labels = [PLURAL[k] for k in rng.sample(sorted(PLURAL), n)]
     each = 1 if tier == "easy" else 2
     for _ in attempts(1000, "two displays with one wrong row"):
@@ -83,7 +83,7 @@ def ey_compare_displays(rng, tier="easy"):
             (answer + 1, "eyt-count-one-over"),
             (answer - 1, "eyt-count-one-short"),
         ]
-        distractors = tagged_numbers(answer, cands, low=0, high=30)
+        distractors = tagged_numbers(answer, cands, low=0, high=30)[:3]  # always four options
         working = [
             f"The tally shows {counts[w]}. Halved, that is {counts[w] // each}. {counts[w] // each} - {pics[w]} = {answer}."
         ]

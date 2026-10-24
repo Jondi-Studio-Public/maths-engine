@@ -24,7 +24,7 @@ from math import comb
 
 import sympy as sp
 
-from ..core import check, generator, phrase, pick_distractors
+from ..core import check, generator, paren_negative, phrase, pick_distractors
 from ._salg_kit import int_dist, sup
 
 _X = sp.Symbol("x")
@@ -133,7 +133,7 @@ def _medium(rng):
         answer_text=str(answer),
         answer_latex=str(answer),
         working=[
-            f"The term in x^{r} is C({n}, {r}) × ({b})^{k}, so the coefficient is {comb(n, r)} × {b**k} = {answer}."
+            f"The term in x^{r} is C({n}, {r}) × {paren_negative(b)}^{k}, so the coefficient is {comb(n, r)} × {b**k} = {answer}."
         ],
         distractors=_dists(answer, cands),
     )
@@ -174,7 +174,7 @@ def _hard_linear(rng):
         answer=answer,
         answer_text=str(answer),
         answer_latex=str(answer),
-        working=[f"The term in x^{r} is C({n}, {r}) × {a}^{r} × ({b})^{n - r} = {answer}."],
+        working=[f"The term in x^{r} is C({n}, {r}) × {a}^{r} × {paren_negative(b)}^{n - r} = {answer}."],
         distractors=_dists(answer, cands),
     )
 
@@ -212,7 +212,7 @@ def _hard_constant(rng):
         answer_latex=str(answer),
         working=[
             f"The term with {k} factors of {a}x and {k} factors of {b}/x has the powers of x cancelling.",
-            f"C({n}, {k}) × {a}^{k} × ({b})^{k} = {answer}.",
+            f"C({n}, {k}) × {a}^{k} × {paren_negative(b)}^{k} = {answer}.",
         ],
         distractors=_dists(answer, cands),
     )
@@ -314,7 +314,7 @@ def salg_exam_binomial_coefficient(rng, tier="exam"):
                 marks=2,
                 follow_through=f"part_a*{p}**{r}*({q})**{n - r}",
                 working=[
-                    f"The x{sup(r)} term is C({n}, {r}) × {p}^{r} × ({q})^{n - r}, so the coefficient is {a} × {p**r} × {q ** (n - r)} = {b}."
+                    f"The x{sup(r)} term is C({n}, {r}) × {p}^{r} × {paren_negative(q)}^{n - r}, so the coefficient is {a} × {p**r} × {q ** (n - r)} = {b}."
                 ],
                 distractors=b_dist,
             ),
@@ -325,7 +325,9 @@ def salg_exam_binomial_coefficient(rng, tier="exam"):
                 answer_text=str(c),
                 answer_latex=str(c),
                 marks=2,
-                working=[f"The x{sup(r + 1)} term is C({n}, {r + 1}) × {p}^{r + 1} × ({q})^{n - r - 1} = {c}."],
+                working=[
+                    f"The x{sup(r + 1)} term is C({n}, {r + 1}) × {p}^{r + 1} × {paren_negative(q)}^{n - r - 1} = {c}."
+                ],
                 distractors=c_dist,
             ),
             dict(

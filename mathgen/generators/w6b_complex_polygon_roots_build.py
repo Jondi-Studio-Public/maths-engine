@@ -25,7 +25,7 @@ import math
 
 import sympy
 
-from ..core import attempts, check, generator, phrase, rounds_unambiguously
+from ..core import attempts, check, generator, ordinal, phrase, rounds_unambiguously
 from ._w6b_kit import I, cdist, cis, cx_text, cx_value, dist, gaussian, need, retry
 
 _NAMES = {
@@ -124,7 +124,7 @@ _CENTRE_STEMS = (
 )
 _SUM_STEMS = (
     "Let ω = cos(2π/{n}) + i sin(2π/{n}). Find the value of {expr}.",
-    "ω is the {n}th root of unity with the smallest positive argument. Evaluate {expr}.",
+    "ω is the {n_ord} root of unity with the smallest positive argument. Evaluate {expr}.",
     "Given that ω = cos(2π/{n}) + i sin(2π/{n}), calculate {expr}.",
 )
 
@@ -196,7 +196,7 @@ def _medium_sum(rng):
             _num_dist(-1, "roots-of-unity-sum-drops-the-one"),
         ]
     elif kind == "tail":
-        terms = "ω + ω² + … + ω^" + str(n - 1)
+        terms = "ω + ω² + … + ω^" + str(n - 1) if n > 3 else "ω + ω²"
         value = -1
         working = [f"1 + ω + … + ω^{n - 1} = 0, so leaving out the 1 gives -1."]
         candidates = [
@@ -224,7 +224,7 @@ def _medium_sum(rng):
     check(abs(total - value) < 1e-9, "numeric sum differs")
     answer = str(value)
     return dict(
-        text=phrase(rng, _SUM_STEMS, n=n, expr=terms),
+        text=phrase(rng, _SUM_STEMS, n=n, n_ord=ordinal(n), expr=terms),
         answer_kind="expression",
         answer=answer,
         answer_text=answer,
@@ -262,7 +262,7 @@ _OTHERS_STEMS = (
 )
 _POWER_STEMS = (
     "Let ω = cos(2π/{n}) + i sin(2π/{n}). Find the value of 1 + ω^{m} + ω^({m}·2) + … + ω^({m}·{last_k}).",
-    "ω is a primitive {n}th root of unity. Evaluate Σ ω^({m}k) for k = 0, 1, …, {last_k}.",
+    "ω is a primitive {n_ord} root of unity. Evaluate Σ ω^({m}k) for k = 0, 1, …, {last_k}.",
     "With ω = cos(2π/{n}) + i sin(2π/{n}), calculate the sum of ω^({m}k) as k runs from 0 to {last_k}.",
 )
 
@@ -378,7 +378,7 @@ def _hard_power(rng):
             f"The sum is (1 - (ω^{m})^{n})/(1 - ω^{m}) = 0.",
         ]
     return dict(
-        text=phrase(rng, _POWER_STEMS, n=n, m=m, lastm=m * (n - 1), last_k=n - 1),
+        text=phrase(rng, _POWER_STEMS, n=n, n_ord=ordinal(n), m=m, lastm=m * (n - 1), last_k=n - 1),
         answer_kind="expression",
         answer=str(value),
         answer_text=str(value),

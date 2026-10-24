@@ -37,6 +37,7 @@ from mathgen.core import (
     generator,
     join_terms,
     latex_answer,
+    paren_negative as pn,
     phrase,
     pick_distractors,
     rational_text,
@@ -51,6 +52,11 @@ _STEMS = (
     "Consider f(x) = ({num})/({den}) with x ≠ {a} and k a constant. It is known that f(x) has a limit as x tends "
     "to {a}.",
 )
+
+
+def _at(coefficient: int, power: str) -> str:
+    """``coefficient`` times ``power``, leaving out a coefficient of 1: ``5²``, ``-5²``, ``3·5²``."""
+    return power if coefficient == 1 else f"-{power}" if coefficient == -1 else f"{coefficient}·{power}"
 
 
 def _number(prompt, value, marks, working, wrong, follow=None):
@@ -109,7 +115,10 @@ def exd_x_r2c_limit_removable(rng, tier: str = "exam"):
         "Find the value of k.",
         k,
         2,
-        [f"The numerator must be zero at x = {a}: {m}·({a})² + ({p})·({a}) + k = 0, so k = {k}."],
+        [
+            f"The numerator must be zero at x = {a}: "
+            f"{_at(m, f'{pn(a)}²')} {'+' if p > 0 else '-'} {abs(p)}·{pn(a)} + k = 0, so k = {k}."
+        ],
         [
             (-k, "sign-reversed-result"),
             (-(a * a + p * a), "forgot-leading-coefficient"),
@@ -129,7 +138,7 @@ def exd_x_r2c_limit_removable(rng, tier: str = "exam"):
         answer_latex=latex_answer(simplified),
         marks=2,
         working=[
-            f"With k = {k}: {num_text.replace('k', f'({k})')} = ({den_text})({simplified}).",
+            f"With k = {k}: {join_terms([(m, 'x^2'), (p, 'x'), (k, '')])} = ({den_text})({simplified}).",
             f"So f(x) = {simplified} for x ≠ {a}.",
         ],
         distractors=pick_distractors(simplified, [Distractor(t, tag, t) for t, tag in wrong_forms]),

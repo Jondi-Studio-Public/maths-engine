@@ -2,11 +2,44 @@
 
 from sympy import Matrix, Rational, eye, latex
 
-from ..core import generator, check, pick_distractors, rational_text, xy_solution
+from ..core import generator, check, join_terms, paren_negative, pick_distractors, rational_text, xy_solution
 
 
 def _mat_text(M):
     return "[" + "; ".join(" ".join(str(M[i, j]) for j in range(M.cols)) for i in range(M.rows)) + "]"
+
+
+def _cramer_working(A, b_vec, x0, y0):
+    """Working for solving a 2x2 system A x = b by determinants."""
+    a, b, c, d = (int(A[0, 0]), int(A[0, 1]), int(A[1, 0]), int(A[1, 1]))
+    e, f = int(b_vec[0]), int(b_vec[1])
+    pn = paren_negative
+    det = a * d - b * c
+    return [
+        f"det(A) = {pn(a)} × {pn(d)} - {pn(b)} × {pn(c)} = {det}.",
+        f"x = ({pn(e)} × {pn(d)} - {pn(b)} × {pn(f)}) / {pn(det)} = {e * d - b * f} / {pn(det)} = {x0}.",
+        f"y = ({pn(a)} × {pn(f)} - {pn(e)} × {pn(c)}) / {pn(det)} = {a * f - e * c} / {pn(det)} = {y0}.",
+    ]
+
+
+def _det3_working(M, ans):
+    """Cofactor expansion along the first row, with the three 2x2 minors written out."""
+    pn = paren_negative
+    m = [[int(M[i, j]) for j in range(3)] for i in range(3)]
+
+    def minor(r1, r2, c1, c2):
+        v = m[r1][c1] * m[r2][c2] - m[r1][c2] * m[r2][c1]
+        return f"({pn(m[r1][c1])} × {pn(m[r2][c2])} - {pn(m[r1][c2])} × {pn(m[r2][c1])})", v
+
+    t0, v0 = minor(1, 2, 1, 2)
+    t1, v1 = minor(1, 2, 0, 2)
+    t2, v2 = minor(1, 2, 0, 1)
+    return [
+        "For A = [a b c; d e f; g h i], expand along the first row: det = a(ei - fh) - b(di - fg) + c(dh - eg).",
+        f"det = {pn(m[0][0])} × {t0} - {pn(m[0][1])} × {t1} + {pn(m[0][2])} × {t2}.",
+        f"The brackets are {v0}, {v1} and {v2}, so det = {pn(m[0][0])} × {pn(v0)} - {pn(m[0][1])} × {pn(v1)} "
+        f"+ {pn(m[0][2])} × {pn(v2)} = {ans}.",
+    ]
 
 
 def _unimodular(rng, n, shears=4, hi=3):
@@ -116,6 +149,7 @@ def matrices(rng, kinds=("determinant", "inverse", "system", "determinant3", "in
             answer=ans,
             answer_text=str(ans),
             answer_latex=str(ans),
+            working=_det3_working(M, ans),
             distractors=pick_distractors(str(ans), [str(allplus), str(-ans), str(down_only), str(up_only), str(diag)]),
         )
     if kind == "determinant3_product":
@@ -188,6 +222,11 @@ def matrices(rng, kinds=("determinant", "inverse", "system", "determinant3", "in
             answer=ans,
             answer_text=f"A⁻¹ = {_mat_text(Minv)}",
             answer_latex=latex(Minv),
+            working=[
+                f"det(A) = {paren_negative(a_)} × {paren_negative(d_)} - {paren_negative(b_)} × {paren_negative(c_)} = {det}.",
+                f"Swap the diagonal entries, negate the others and divide by det(A): "
+                f"A⁻¹ = (1/{paren_negative(det)}) [{d_} {-b_}; {-c_} {a_}] = {_mat_text(Minv)}.",
+            ],
             distractors=pick_distractors(f"A⁻¹ = {_mat_text(Minv)}", [f"A⁻¹ = {c}" for c in cands]),
         )
     if kind == "inverse3":
@@ -204,6 +243,11 @@ def matrices(rng, kinds=("determinant", "inverse", "system", "determinant3", "in
             answer=ans,
             answer_text=f"A⁻¹ = {_mat_text(Minv)}",
             answer_latex=latex(Minv),
+            working=[
+                f"det(A) = {M.det()}, so A⁻¹ = adj(A) / {paren_negative(int(M.det()))}, where adj(A) is the transposed matrix of cofactors.",
+                f"A⁻¹ = {_mat_text(Minv)}.",
+                "Check: A × A⁻¹ = I.",
+            ],
             distractors=pick_distractors(f"A⁻¹ = {_mat_text(Minv)}", [f"A⁻¹ = {c}" for c in cands]),
         )
     if kind == "system_context":
@@ -267,6 +311,12 @@ def matrices(rng, kinds=("determinant", "inverse", "system", "determinant3", "in
             answer=base["answer"],
             answer_text=ans_text,
             answer_latex=base["answer_latex"],
+            working=[
+                f"Let x be the price of one apple and y the price of one melon: "
+                f"{join_terms([(int(A[0, 0]), 'x'), (int(A[0, 1]), 'y')])} = {b_vec[0]} and "
+                f"{join_terms([(int(A[1, 0]), 'x'), (int(A[1, 1]), 'y')])} = {b_vec[1]}.",
+                *_cramer_working(A, b_vec, x0, y0),
+            ],
             distractors=pick_distractors(ans_text, cands, n=4),
         )
     # 2x2 system in matrix form, backwards from a chosen solution.
@@ -287,5 +337,6 @@ def matrices(rng, kinds=("determinant", "inverse", "system", "determinant3", "in
     return dict(
         text=f"Solve A x = b where A = {_mat_text(A)} and b = ({b_vec[0]}, {b_vec[1]})",
         latex=rf"{latex(A)} \mathbf{{x}} = {latex(b_vec)}",
+        working=_cramer_working(A, b_vec, x0, y0),
         **solved,
     )

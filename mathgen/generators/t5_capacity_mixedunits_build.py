@@ -247,6 +247,13 @@ def prism_capacity_conversion(rng, tier="easy"):
         f"{_fmt_value(dims[2][0])} {dims[2][1]} high"
     )
 
+    # Working multiplies the dimensions in cm, so convert any mm or m side first.
+    cm_dims = [Fraction(v) * _LINEAR_TO_CM[u] for v, u, _r in dims]
+    convert_lines = [
+        f"{_fmt_value(v)} {u} = {_fmt_value(c)} cm." for (v, u, _r), c in zip(dims, cm_dims, strict=True) if u != "cm"
+    ]
+    cm_text = " × ".join(_fmt_value(c) for c in cm_dims)
+
     if tier == "medium":
         litres_value = volume_cm3 / _CAPACITY_FACTORS["L"]
         text = (
@@ -255,8 +262,8 @@ def prism_capacity_conversion(rng, tier="easy"):
             f"in litres (L) as a check, then converting that to cubic metres. {precision}"
         )
         working = [
-            f"Volume = {_fmt_value(dims[0][0])} × {_fmt_value(dims[1][0])} × "
-            f"{_fmt_value(dims[2][0])} = {int(volume_cm3)} cm³.",
+            *convert_lines,
+            f"Volume = {cm_text} = {int(volume_cm3)} cm³.",
             f"Capacity in litres = {int(volume_cm3)} ÷ 1000 = {int(litres_value)} L.",
             f"Capacity in cubic metres = {int(litres_value)} ÷ 1000 = {answer_text} m³.",
         ]
@@ -265,8 +272,8 @@ def prism_capacity_conversion(rng, tier="easy"):
             f"A rectangular prism-shaped container is {dims_phrase}. What is its capacity in {unit_label}? {precision}"
         )
         working = [
-            f"Volume = {_fmt_value(dims[0][0])} × {_fmt_value(dims[1][0])} × "
-            f"{_fmt_value(dims[2][0])} = {int(volume_cm3)} cm³.",
+            *convert_lines,
+            f"Volume = {cm_text} = {int(volume_cm3)} cm³.",
             f"Capacity in {_bare_label(unit_label)} = {int(volume_cm3)} ÷ "
             f"{int(_CAPACITY_FACTORS[target])} = {answer_text}.",
         ]
@@ -472,10 +479,18 @@ def rectangle_mixed_unit_area_perimeter(rng, tier="easy"):
         f"A rectangle has one side of {_fmt_value(side1[0])} {side1[1]} and the other side of "
         f"{_fmt_value(side2[0])} {side2[1]}. What is its {quantity_label}, in {target_label}? {precision}"
     )
-    working = [
-        f"Convert both sides to a common unit before finding the {quantity_label}.",
-        f"{quantity_label.capitalize()} = {answer_text} {_bare_label(target_label)}.",
-    ]
+    converted = []
+    working = []
+    for value, unit in (side1, side2):
+        c = Fraction(value) * _linear_ratio(unit, target)
+        converted.append(c)
+        if unit != target:
+            working.append(f"{_fmt_value(value)} {unit} = {_fmt_value(c)} {target}.")
+    c1, c2 = (_fmt_value(c) for c in converted)
+    if quantity == "perimeter":
+        working.append(f"Perimeter = 2 × ({c1} + {c2}) = {answer_text} {_bare_label(target_label)}.")
+    else:
+        working.append(f"Area = {c1} × {c2} = {answer_text} {_bare_label(target_label)}.")
 
     return dict(
         text=text,

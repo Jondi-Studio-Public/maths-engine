@@ -454,10 +454,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
         "medium",
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
-        "complex_number_as_point",
-        "medium",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
         "conditional_probability_notation",
         "easy",
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
@@ -547,15 +543,7 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
         "define_and_use_multiplication_by_a_scalar_of",
-        "easy",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "define_and_use_multiplication_by_a_scalar_of",
         "hard",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "define_and_use_multiplication_by_a_scalar_of",
-        None,
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
         "define_and_use_unit_vectors_and_the_perpendicular",
@@ -801,10 +789,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
         "find_the_area_of_irregular_figures",
         "easy",
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "find_the_area_of_irregular_figures",
-        "hard",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
         "find_the_area_of_irregular_figures",
         "medium",
@@ -1468,10 +1452,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
     (
         "p10e_logarithmic_scales",
         None,
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "p7d_complete_rate_calculations",
-        "hard",
     ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
         "p7d_examine_direct_proportion",
@@ -2588,8 +2568,7 @@ TIER_ESCALATION_BACKLOG: dict[str, str] = {}
 _TIER_TESTABLE_IDS = sorted(set(_TIER_QUALIFYING_SKILLS) - set(TIER_ESCALATION_BACKLOG))
 
 
-@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS)
-def test_tier_escalation(skill_id):
+def _check_tier_escalation(skill_id):
     skill = _TIER_QUALIFYING_SKILLS[skill_id]
     verdict, _adds = _classify_skill(skill, _TIER_SEEDS)
     assert verdict == "escalates", (
@@ -2598,6 +2577,50 @@ def test_tier_escalation(skill_id):
         f"a genuine range-only hard tier (add it to TIER_ESCALATION_BACKLOG "
         f"with the skill/seed evidence) or a fixable one"
     )
+
+
+# Eight functions over every eighth skill, so the CI sharder (scripts/ci_shard.py, which splits a
+# file by test function and cannot split one function's parameters) can spread them over shards:
+# as one function this was the largest unit of work in the suite (about 1,000 cases, 20 minutes on a
+# runner). The slices `[0::8]` .. `[7::8]` together are every testable skill, once.
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[0::8])
+def test_tier_escalation_part_0(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[1::8])
+def test_tier_escalation_part_1(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[2::8])
+def test_tier_escalation_part_2(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[3::8])
+def test_tier_escalation_part_3(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[4::8])
+def test_tier_escalation_part_4(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[5::8])
+def test_tier_escalation_part_5(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[6::8])
+def test_tier_escalation_part_6(skill_id):
+    _check_tier_escalation(skill_id)
+
+
+@pytest.mark.parametrize("skill_id", _TIER_TESTABLE_IDS[7::8])
+def test_tier_escalation_part_7(skill_id):
+    _check_tier_escalation(skill_id)
 
 
 @pytest.mark.parametrize("skill_id", sorted(TIER_ESCALATION_BACKLOG))

@@ -175,8 +175,7 @@ def _build_easy(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"P(reach t within 2) = 1 - P(s→s→s) = 1 - {rational_text((1 - p) * (1 - p))} "
-            f"= {answer_text} (note: q is not needed for this event).",
+            f"P(reach t within 2) = 1 - P(s→s→s) = 1 - {rational_text((1 - p) * (1 - p))} = {answer_text}.",
         ],
         distractors=distractors,
     )
@@ -221,8 +220,7 @@ def _build_medium(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"P(never reach t in 2) = P(s→s→s) = (1-{rational_text(p)})² = {answer_text} "
-            "(note: q is not needed for this event).",
+            f"P(never reach t in 2) = P(s→s→s) = (1-{rational_text(p)})² = {answer_text}.",
         ],
         distractors=distractors,
     )
@@ -267,8 +265,7 @@ def _build_hard(rng) -> dict:
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text),
         working=[
-            f"P(first reach t at 2) = P(s→s→t) = (1-{rational_text(p)})×{rational_text(p)} "
-            f"= {answer_text} (note: q is not needed for this event).",
+            f"P(first reach t at 2) = P(s→s→t) = (1-{rational_text(p)})×{rational_text(p)} = {answer_text}.",
         ],
         distractors=distractors,
     )
@@ -305,7 +302,9 @@ def _build_exam(rng) -> dict:
         check(other_root > 1, "the other algebraic root is not provably invalid as a probability")
 
         candidates = {
-            "reports-the-other-root": other_root,
+            # The other algebraic root exceeds 1 (an impossible probability, eliminated at sight), so it is
+            # not offered; the in-range slip is to stop at 1 - h and never take the square root.
+            "forgets-the-square-root": one_minus_h,
             "confuses-p-with-1-minus-p": 1 - p,
             "copies-h-directly": h,
             "halves-h": h / 2,

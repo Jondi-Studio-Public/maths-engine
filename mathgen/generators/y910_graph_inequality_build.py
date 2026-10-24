@@ -418,7 +418,15 @@ def _hard_region(rng):
                 "region-on-the-wrong-side-of-the-line",
             ),
         ]
+        # Sets that are smaller than the key, or the same size, so the key is not always the smallest set.
+        outside = [lab for lab in pts if lab not in key]
+        if len(key) >= 2:
+            cands.append((key[:-1], None))
+            cands.append((key[1:], None))
+        if outside:
+            cands.append((sorted(key[:-1] + [outside[0]], key=_POINT_LABELS.index), None))
         cands = [(letters, note) for letters, note in cands if letters and letters != key]
+        rng.shuffle(cands)
         answer_text, distractors = _set_distractors(key, cands, _POINT_LABELS)
         if len(distractors) < 3:
             continue
@@ -759,7 +767,7 @@ def y910_graph_inequality_match(rng, tier="easy"):
     )
     working = [
         f"Read the line: L is {eq_text(m, c)}.",
-        f"At x = {px} the line has y = {m * px + c}, and {py} is {_side(m, c, (px, py))} that, so the region is {side} L: y {'>' if side == 'above' else '<'} ... .",
+        f"At x = {px} the line has y = {m * px + c}, and {py} is {_side(m, c, (px, py))} that, so the region is {side} L, which means y {'>' if side == 'above' else '<'} {eq_text(m, c)[4:]}.",
         f"{'Included' if include else 'Excluded'} boundary uses {_OP_SIGN[op]}: {key}.",
     ]
     return dict(

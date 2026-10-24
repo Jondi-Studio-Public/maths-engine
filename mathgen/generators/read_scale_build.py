@@ -272,6 +272,20 @@ def _read_misreads(v, lo, hi, major, minor, dp):
     return [c for c in cands if lo <= c <= hi and c != v]
 
 
+def _scenes_for_temperature(openers, v):
+    """Keep only the thermometer scenes that can show the reading v: an indoor room sits at 10 to 30 degrees
+    and a freezer at or below zero."""
+    keep = []
+    for opener in openers:
+        indoor = "room" in opener or "classroom" in opener
+        if indoor and not 10 <= v <= 30:
+            continue
+        if "freezer" in opener and v > 0:
+            continue
+        keep.append(opener)
+    return tuple(keep)
+
+
 def _build_read(rng, tier: str):
     if tier == "hard":
         kind = _pick(rng, ("half", "half", "mm"))
@@ -312,6 +326,8 @@ def _build_read(rng, tier: str):
     )
     w = _UNIT_WORDS[unit]
     pools = _HARD_POOLS if tier == "hard" else _READ_POOLS
+    if variant == "thermometer":
+        pools = {**pools, "thermometer": (_scenes_for_temperature(pools["thermometer"][0], v), pools["thermometer"][1])}
     text = _slot_text(rng, pools, variant, obj=obj, w=w)
     if kind == "mm":
         answer_v, dp = v * 10, 0
@@ -321,11 +337,15 @@ def _build_read(rng, tier: str):
     else:
         answer_v = v
         cands = _read_misreads(v, lo, hi, major, minor, dp)
-    note = (
-        f"Each small step is {_num(minor, _dp(minor))} {unit}; the reading is {_num(answer_v, dp)}"
-        if kind != "mm"
-        else f"The ruler reads {_num(v, _dp(minor))} cm, which is {_num(answer_v, 0)} mm"
-    )
+    if kind == "mm":
+        note = f"The ruler reads {_num(v, _dp(minor))} cm, which is {_num(answer_v, 0)} mm"
+    elif kind == "half":
+        note = (
+            f"Each small step is {_num(minor, _dp(minor))} {unit}. The level is halfway between two small marks, "
+            f"so the reading is {_num(answer_v, dp)} {unit}"
+        )
+    else:
+        note = f"Each small step is {_num(minor, _dp(minor))} {unit}; the reading is {_num(answer_v, dp)} {unit}"
     return fig, text, _num(answer_v, dp), [_num(c, dp) for c in cands], note
 
 

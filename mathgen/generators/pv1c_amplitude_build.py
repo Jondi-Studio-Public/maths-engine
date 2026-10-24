@@ -102,6 +102,11 @@ def _prompt(rng, variant: str) -> tuple[str, str]:
     return pattern.format(**_FILL_TEXT), pattern.format(**_FILL_TEX)
 
 
+def _pi_multiple(k: int) -> str:
+    """k·π as written on paper: 0, π, -π, 2π."""
+    return "0" if k == 0 else "π" if k == 1 else "-π" if k == -1 else f"{k}π"
+
+
 # ---------------------------------------------------------------- curve and figure
 
 
@@ -216,7 +221,7 @@ def _working(variant: str, a: int, x_lo: int, x_hi: int) -> list[str]:
     sgn = "positive" if (-1) ** x_lo > 0 else "negative"
     lobe = "above" if a * (-1) ** x_lo > 0 else "below"
     return [
-        f"The first arch runs from x = {x_lo}π to x = {x_lo + 1}π, where sin x is {sgn}.",
+        f"The first arch runs from x = {_pi_multiple(x_lo)} to x = {_pi_multiple(x_lo + 1)}, where sin x is {sgn}.",
         f"The curve is {lobe} the x-axis there, so a is {'positive' if a > 0 else 'negative'}, "
         f"and its extreme height is {abs(a)}: a = {a}.",
     ]

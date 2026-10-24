@@ -190,7 +190,7 @@ def _build(rng):
         2,
         [
             f"Past {xi} {plural}, {plan[better]} is cheaper. The charges differ by ${diff_rate} {article} {unit}.",
-            f"The saving is {diff_rate} x ({n_stay} - {xi}) = {saving} dollars.",
+            f"The saving is {diff_rate} × ({n_stay} - {xi}) = {saving} dollars.",
             f"Check: {plan['A']} costs {both[0]} and {plan['B']} costs {both[1]} for {n_stay} {plural}.",
         ],
         [

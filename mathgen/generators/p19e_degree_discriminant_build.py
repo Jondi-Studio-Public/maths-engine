@@ -561,6 +561,11 @@ def _draw_exam_quadratic(rng, target):
     raise RuntimeError(f"p19e_discriminant_zero_count (exam): failed to draw for target {target}")
 
 
+def _zeros_sentence(count: int) -> str:
+    """ "No real zeros.", "1 real zero." or "2 real zeros." """
+    return "No real zeros." if count == 0 else f"{count} real zero{'' if count == 1 else 's'}."
+
+
 def _make_disc_easy(rng):
     target = rng.choice([0, 1, 2])
     a, b, c, disc = _draw_easy_quadratic(rng, target)
@@ -569,8 +574,8 @@ def _make_disc_easy(rng):
     text = phrase(rng, _EASY_TEMPLATES2, poly=_quad_text(a, b, c) + " = 0") + _ANSWER_FORMAT_DISC
     cands = _row2_distractors(a, b, c, disc)
     working = [
-        f"D = {paren_negative(b)}^2 - 4({a})({c}) = {disc}.",
-        f"{count} real zero(s).",
+        f"D = {paren_negative(b)}^2 - 4 × {paren_negative(a)} × {paren_negative(c)} = {disc}.",
+        _zeros_sentence(count),
     ]
     return _finalise_pair(text, disc, count, cands, working, "D", "zeros", n_distractors=4)
 
@@ -583,8 +588,8 @@ def _make_disc_medium(rng):
     text = phrase(rng, _MEDIUM_TEMPLATES2, poly=_quad_text(a, b, c) + " = 0") + _ANSWER_FORMAT_DISC
     cands = _row2_distractors(a, b, c, disc)
     working = [
-        f"D = {paren_negative(b)}^2 - 4({a})({c}) = {disc}.",
-        f"{count} real zero(s).",
+        f"D = {paren_negative(b)}^2 - 4 × {paren_negative(a)} × {paren_negative(c)} = {disc}.",
+        _zeros_sentence(count),
     ]
     return _finalise_pair(text, disc, count, cands, working, "D", "zeros", n_distractors=4)
 
@@ -598,8 +603,8 @@ def _make_disc_hard(rng):
     cands = _row2_distractors(a, b, c, disc)
     working = [
         f"a = {a}, b = {b}, c = {c}.",
-        f"D = {paren_negative(b)}^2 - 4({a})({c}) = {disc}.",
-        f"{count} real zero(s).",
+        f"D = {paren_negative(b)}^2 - 4 × {paren_negative(a)} × {paren_negative(c)} = {disc}.",
+        _zeros_sentence(count),
     ]
     return _finalise_pair(text, disc, count, cands, working, "D", "zeros", n_distractors=4)
 
@@ -613,8 +618,8 @@ def _make_disc_exam(rng):
     text = phrase(rng, _EXAM_TEMPLATES2, poly_eq=poly_expr + " = 0", poly_expr=poly_expr) + _ANSWER_FORMAT_DISC
     cands = _row2_distractors(a, b, c, disc)
     working = [
-        f"D = {paren_negative(b)}^2 - 4({a})({c}) = {disc}.",
-        f"{count} real zero(s).",
+        f"D = {paren_negative(b)}^2 - 4 × {paren_negative(a)} × {paren_negative(c)} = {disc}.",
+        _zeros_sentence(count),
     ]
     return _finalise_pair(text, disc, count, cands, working, "D", "zeros", n_distractors=4)
 

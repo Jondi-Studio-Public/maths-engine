@@ -122,7 +122,7 @@ def _medium(rng: random.Random) -> dict:
             sd,
             4,
             2,
-            [f"SD = sqrt(p(1 - p)/n) = sqrt({float(p):g} x {float(1 - p):g} / {n})."],
+            [f"SD = sqrt(p(1 - p)/n) = sqrt({float(p):g} × {float(1 - p):g} / {n})."],
             [
                 (p * (1 - p) / n, "r3a-proportion-sd-omits-the-square-root"),
                 (sqrt_fraction(p * (1 - p)), "r3a-proportion-sd-omits-n"),
@@ -268,7 +268,7 @@ def _hard(rng: random.Random) -> dict:
         0,
         3,
         [
-            f"sqrt(p(1 - p)/n) <= {float(target):g}, so n >= {float(p):g} x {float(1 - p):g} / {float(target):g}^2 = {float(ratio):.2f}.",
+            f"sqrt(p(1 - p)/n) <= {float(target):g}, so n >= {float(p):g} × {float(1 - p):g} / {float(target):g}^2 = {float(ratio):.2f}.",
             f"The least whole number is {n}.",
         ],
         [
@@ -360,7 +360,7 @@ def _exam(rng: random.Random) -> dict:
             0,
             3,
             [
-                f"sigma = {float(se):.2f} x sqrt({n0}) = {float(sigma):g}, and n >= ({float(sigma):g} / {float(target):g})^2 = {float(ratio):.2f}.",
+                f"sigma = {float(se):.2f} × sqrt({n0}) = {float(sigma):g}, and n >= ({float(sigma):g} / {float(target):g})^2 = {float(ratio):.2f}.",
                 f"The least whole number is {n_least}.",
             ],
             [

@@ -19,7 +19,7 @@ from __future__ import annotations
 from decimal import Decimal, getcontext
 from fractions import Fraction
 
-from mathgen.core import attempts, check, generator, round_half_up
+from mathgen.core import attempts, check, currency_from_cents, generator, round_half_up
 
 from .exd_x_r3c_parts import number_part
 from ._exd_distinct_parts import distinct_part_answers
@@ -31,6 +31,11 @@ _LOANS = (
     ("car loan", range(15_000, 60_001, 500), (3, 4, 5, 7), "A car loan of ${p:,}"),
     ("personal loan", range(8_000, 40_001, 500), (3, 4, 5), "A personal loan of ${p:,}"),
 )
+
+
+def _money(amount) -> str:
+    """A dollar amount that is already a whole number of cents, written "$274.51"."""
+    return currency_from_cents(int(Fraction(amount) * 100))
 
 
 def _far_from_half_cent(value):
@@ -98,7 +103,7 @@ def exd_x_r3c_loan_first_period(rng, tier="exam"):
         sensible_range=(0, None),
         working=[
             f"Monthly rate = {pct}% ÷ 12; number of repayments = {n}.",
-            f"Repayment = P × i ÷ (1 - (1 + i)^-{n}) = ${repayment}.",
+            f"Repayment = P × i ÷ (1 - (1 + i)^(-{n})) = {_money(repayment)}.",
         ],
         wrongs=[
             (flat, "flat-not-reducing-interest"),
@@ -111,7 +116,7 @@ def exd_x_r3c_loan_first_period(rng, tier="exam"):
         interest1,
         dp=2,
         sensible_range=(0, None),
-        working=[f"Interest = ${principal} × {pct}% ÷ 12 = ${interest1}."],
+        working=[f"Interest = {_money(principal)} × {pct}% ÷ 12 = {_money(interest1)}."],
         wrongs=[
             (principal * rate, "annual-rate-as-periodic"),
             (repayment * i, "interest-on-repayment"),
@@ -122,7 +127,7 @@ def exd_x_r3c_loan_first_period(rng, tier="exam"):
         balance1,
         dp=2,
         sensible_range=(0, None),
-        working=[f"${principal} + ${interest1} - ${repayment} = ${balance1}."],
+        working=[f"{_money(principal)} + {_money(interest1)} - {_money(repayment)} = {_money(balance1)}."],
         wrongs=[
             (principal - repayment, "interest-not-added-to-balance"),
             (principal + interest1 + repayment, "added-repayment-to-balance"),
@@ -135,7 +140,7 @@ def exd_x_r3c_loan_first_period(rng, tier="exam"):
         interest2,
         dp=2,
         sensible_range=(0, None),
-        working=[f"Interest = ${balance1} × {pct}% ÷ 12 = ${interest2}."],
+        working=[f"Interest = {_money(balance1)} × {pct}% ÷ 12 = {_money(interest2)}."],
         wrongs=[
             (interest1, "interest-not-recalculated"),
             ((principal - repayment) * i, "interest-on-balance-before-interest"),

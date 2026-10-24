@@ -321,7 +321,7 @@ def test_set_enumeration():
                 continue
 
             # Extract the description from question text
-            desc_match = re.search(r"following group\?\s*(.+?)\s*(?:\.?\s*Options:|$)", q.text)
+            desc_match = re.search(r"following group\?\s*(.+?)\.?\s*$", q.text)
             if not desc_match:
                 challenged.append((tier, seed, "Could not extract description"))
                 continue
@@ -333,25 +333,11 @@ def test_set_enumeration():
                 challenged.append((tier, seed, f"Unknown description: {description[:50]}"))
                 continue
 
-            # Extract the 4 option texts from question
-            options_match = re.search(r"Options:\s*(.+?)$", q.text, re.DOTALL)
-            if not options_match:
-                challenged.append((tier, seed, "Could not find Options section"))
-                continue
+            # The options are no longer repeated in the stem: they are the answer and the three distractors
+            options = dict(zip("ABCD", [q.answer_text, *q.distractors]))
 
-            options_text = options_match.group(1)
-
-            # Parse each option
-            options = {}
-            for letter in ["A", "B", "C", "D"]:
-                pattern = f"{letter}:\\s*([^;]*?)(?:;|$)"
-                match = re.search(pattern, options_text)
-                if match:
-                    option_desc = match.group(1).strip()
-                    options[letter] = option_desc
-
-            if len(options) != 4:
-                challenged.append((tier, seed, f"Found only {len(options)} options"))
+            if len(options) != 4 or len(set(options.values())) != 4:
+                challenged.append((tier, seed, f"Found only {len(set(options.values()))} distinct options"))
                 continue
 
             # Categorize each option

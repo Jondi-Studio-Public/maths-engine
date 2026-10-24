@@ -333,7 +333,7 @@ def _hard(rng):
     )
     working = [
         f"Keep only the results where {clause(pos, which_given)}: {n_cond} of the {n}.",
-        f"Of those, {n_hit} have {clause(side, which_target)}.",
+        f"Of those {n_cond}, the number where {clause(side, which_target)} is {n_hit}.",
         f"{n_hit}/{n_cond} = {rational_text(p)}.",
     ]
     return _fraction_dict(stem, p, working, opts)
@@ -496,7 +496,7 @@ def fr2d_read_simulation_exam(rng, tier: str = "exam"):
             marks=2,
             sensible_range=(-n, n),
             follow_through=f"part_a-{n}*part_c",
-            working=[f"Expected: {n} x {pt} = {int(expected)}.", f"{wins} - {int(expected)} = {diff}."],
+            working=[f"Expected: {n} × {pt} = {int(expected)}.", f"{wins} - {int(expected)} = {diff}."],
             distractors=d_opts,
         ),
     ]

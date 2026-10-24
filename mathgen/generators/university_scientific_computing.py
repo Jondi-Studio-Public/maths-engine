@@ -11,7 +11,17 @@ from __future__ import annotations
 from fractions import Fraction
 from math import isqrt
 
-from ..core import check, draw_until, fmt_signed, generator, join_terms, latex_answer, pick_distractors, rational_text
+from ..core import (
+    check,
+    draw_until,
+    fmt_signed,
+    generator,
+    join_terms,
+    latex_answer,
+    paren_negative,
+    pick_distractors,
+    rational_text,
+)
 
 
 def _fraction_payload(value: Fraction) -> tuple[dict, str]:
@@ -158,8 +168,8 @@ def jacobi_iteration_2x2(rng, coefficient_hi=8, point_hi=5):
     ]
     return dict(
         text=(
-            f"For {diagonal_a}x + ({off_b})y = {rhs_one} and "
-            f"({off_c})x + {diagonal_d}y = {rhs_two}, perform one Jacobi "
+            f"For {join_terms([(diagonal_a, 'x'), (off_b, 'y')])} = {rhs_one} and "
+            f"{join_terms([(off_c, 'x'), (diagonal_d, 'y')])} = {rhs_two}, perform one Jacobi "
             f"iteration from (x₀, y₀) = ({x0}, {y0}). Give (x₁, y₁)."
         ),
         latex=(
@@ -171,8 +181,8 @@ def jacobi_iteration_2x2(rng, coefficient_hi=8, point_hi=5):
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"x₁ = ({rhs_one} − ({off_b})·{y0})/{diagonal_a} = {rational_text(x1)}.",
-            f"y₁ = ({rhs_two} − ({off_c})·{x0})/{diagonal_d} = {rational_text(y1)}.",
+            f"x₁ = ({rhs_one} − {paren_negative(off_b)}·{paren_negative(y0)})/{diagonal_a} = {rational_text(x1)}.",
+            f"y₁ = ({rhs_two} − {paren_negative(off_c)}·{paren_negative(x0)})/{diagonal_d} = {rational_text(y1)}.",
         ],
         distractors=pick_distractors(answer_text, alternatives),
     )
@@ -230,13 +240,13 @@ def explicit_euler_linear_ode(rng, coefficient_hi=6, step_denominator_hi=7, valu
         ]
         text = (
             f"Use two explicit Euler steps of size h = {rational_text(h)} for "
-            f"y′ = ({lam})y + ({forcing}), starting from y(0) = {y0}. "
+            f"y′ = {join_terms([(lam, 'y'), (forcing, '')])}, starting from y(0) = {y0}. "
             "Find the approximation y(2h)."
         )
-        latex = rf"y'=({lam})y+({forcing}),\quad y(0)={y0},\quad h={rational_text(h)},\quad y_2"
+        latex = rf"y'={join_terms([(lam, 'y'), (forcing, '')])},\quad y(0)={y0},\quad h={rational_text(h)},\quad y_2"
         working = [
-            f"y₁ = y₀ + h·(({lam})y₀+({forcing})) = {y0} + ({rational_text(h)})({slope0}) = {rational_text(y1)}.",
-            f"y₂ = y₁ + h·(({lam})y₁+({forcing})) = {rational_text(y1)} + ({rational_text(h)})({slope1}) = {answer_text}.",
+            f"y₁ = y₀ + h·({join_terms([(lam, 'y₀'), (forcing, '')])}) = {y0} + ({rational_text(h)})({slope0}) = {rational_text(y1)}.",
+            f"y₂ = y₁ + h·({join_terms([(lam, 'y₁'), (forcing, '')])}) = {rational_text(y1)} + ({rational_text(h)})({slope1}) = {answer_text}.",
         ]
     else:
         alternatives = [
@@ -251,12 +261,12 @@ def explicit_euler_linear_ode(rng, coefficient_hi=6, step_denominator_hi=7, valu
         ]
         text = (
             f"Use one explicit Euler step of size h = {rational_text(h)} for "
-            f"y′ = ({lam})y + ({forcing}), starting from y(0) = {y0}. "
+            f"y′ = {join_terms([(lam, 'y'), (forcing, '')])}, starting from y(0) = {y0}. "
             "Find the approximation y(h)."
         )
-        latex = rf"y'=({lam})y+({forcing}),\quad y(0)={y0},\quad h={rational_text(h)},\quad y_1"
+        latex = rf"y'={join_terms([(lam, 'y'), (forcing, '')])},\quad y(0)={y0},\quad h={rational_text(h)},\quad y_1"
         working = [
-            f"The initial slope is ({lam})({y0}) + ({forcing}) = {slope0}.",
+            f"The initial slope is {join_terms([(1, f'{paren_negative(lam)} × {paren_negative(y0)}'), (forcing, '')])} = {slope0}.",
             f"y₁ = y₀ + h·slope = {y0} + ({rational_text(h)})({slope0}) = {answer_text}.",
         ]
 

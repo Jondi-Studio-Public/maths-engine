@@ -176,7 +176,7 @@ def _hard_over_x(rng):
             Cand(c * _ln(x), "r3b-recip-divided-term-dropped"),
         ]
         working = [
-            f"Divide each term by x: (x^{n} {'+' if c > 0 else '-'} {abs(c)})/x = x^{n - 1} {'+' if c > 0 else '-'} {abs(c)}/x."
+            f"Divide each term by x: (x^{n} {'+' if c > 0 else '-'} {abs(c)})/x = {'x' if n == 2 else f'x^{n - 1}'} {'+' if c > 0 else '-'} {abs(c)}/x."
         ]
     return f, F, cands, working
 

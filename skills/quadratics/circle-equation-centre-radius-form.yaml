@@ -1,0 +1,109 @@
+id: circle-equation-centre-radius-form
+name: Write and read the equation of a circle
+domain: quadratics
+year_level:
+- '10'
+- '11'
+description: Read the centre and radius from (x - h)^2 + (y - k)^2 = r^2, and write the equation of a circle from its centre
+  and radius, a translation, a point on it, the ends of a diameter, or a tangency condition, with the sign change and the
+  squaring both required.
+status: active
+placement_eligible: false
+prerequisites:
+- distance-two-points
+- midpoint-two-points
+answer: ordered_list
+sources:
+- topic: w5_circle_forms
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w5_circle_forms
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w5_circle_forms
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w5_circle_forms
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w5c-centre-sign-as-written
+  description: Takes the centre with the signs as they appear inside the brackets, so (x - 3) gives a centre at x = -3.
+- id: w5c-coordinates-swapped
+  description: Swaps the x- and y-coordinates of the centre.
+- id: w5c-radius-is-r-squared
+  description: Gives the number on the right of the equation, r squared, as the radius.
+- id: w5c-radius-off-by-one
+  description: Gives a radius one unit away from the correct one.
+- id: w5c-centre-sign-unchanged
+  description: Writes the centre coordinates into (x + a)^2 + (y + b)^2 with their own signs instead of reversing them.
+- id: w5c-writes-radius-not-squared
+  description: Writes the radius where the radius squared belongs on the right of the equation.
+- id: w5c-doubles-radius-not-squares
+  description: Doubles the radius where it should be squared.
+- id: w5c-distance-by-adding-offsets
+  description: Finds a distance by adding the horizontal and vertical offsets instead of using Pythagoras.
+- id: w5c-uses-centre-sign-in-distance
+  description: Measures the distance from the point to the centre with the signs of the centre reversed.
+- id: w5c-centre-is-sum-not-midpoint
+  description: Adds the coordinates of the two ends of a diameter to get the centre, without halving.
+- id: w5c-diameter-squared-for-radius
+  description: Squares the diameter where the radius should be squared.
+- id: w5c-endpoint-not-midpoint
+  description: Uses an end of the diameter as the centre.
+- id: w5c-ignores-quadrant
+  description: Gives the centre in the wrong quadrant, ignoring which quadrant the circle lies in.
+- id: w5c-tangent-wrong-axis
+  description: Uses the distance to the wrong axis as the radius of a circle that touches an axis.
+- id: w5c-uses-distance-from-origin
+  description: Uses the distance from the centre to the origin as the radius.
+- id: w5c-centre-is-difference
+  description: Subtracts the coordinates of the two ends of a diameter to get the centre.
+- id: w5c-diameter-for-radius
+  description: Gives the diameter where the radius was asked.
+- id: w5c-adds-radius-for-gap
+  description: Adds the radius to the distance to the centre where the shortest distance to the circle was needed.
+- id: w5c-distance-to-centre-not-circle
+  description: Gives the distance from the point to the centre where the distance to the circle itself was asked.
+- id: w5c-radius-for-gap
+  description: Gives the radius where the distance from the point to the circle was asked.
+- id: w5c-uses-squared-distances
+  description: Subtracts squared distances where the distances themselves should be subtracted.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Read the centre and radius from the standard form, or write the equation from a centre and radius, reversing
+      the signs of the centre and squaring the radius.
+  medium:
+    steps: 3
+    demand: Find the centre and radius from a translation, a concentric circle through a given point, or the ends of a diameter
+      before writing the equation.
+  hard:
+    steps: 4
+    demand: 'Combine two conditions: a right angle at the origin that makes a chord a diameter, a circle touching both axes
+      in a named quadrant, or a circle touching an axis.'
+  exam:
+    steps: 6
+    demand: Chain the centre and radius from a diameter, the equation, and the shortest distance from the origin to the
+      circle.
+tags:
+- circles
+- coordinate-geometry
+- nsw-stage-5
+- vce-methods
+- qce-methods
+- nsw-extension-1

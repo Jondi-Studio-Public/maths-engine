@@ -21,7 +21,7 @@ from fractions import Fraction
 
 from mathgen.core import check, draw_until, generator, phrase
 
-from .exd_x_r2j_support import clear_of_boundary, number_part, shown
+from .exd_x_r2j_support import clear_of_boundary, number_part, shown, text_of
 
 _STEM = [
     "A continuous random variable T has probability density function f(t) = {lam}e^(-{lam}t) for t ≥ 0, and "
@@ -102,7 +102,7 @@ def exd_x_r2j_exponential_pdf_chain(rng: random.Random, tier: str = "exam") -> d
         exact=a,
         places=4,
         marks=2,
-        working=[f"P(T ≤ {b_s}) = ∫ from 0 to {b_s} of f(t) dt = {shown(a, 4)} (4 d.p.)."],
+        working=[f"P(T ≤ {b_s}) = ∫ from 0 to {b_s} of f(t) dt = {text_of(a, 4)} (4 d.p.)."],
         wrong=probabilities(
             [
                 (ea, "cdf-vs-survival-confused"),
@@ -118,7 +118,7 @@ def exd_x_r2j_exponential_pdf_chain(rng: random.Random, tier: str = "exam") -> d
         exact=mid,
         places=4,
         marks=2,
-        working=[f"P({b_s} < T ≤ {hi_s}) = ∫ from {b_s} to {hi_s} of f(t) dt = {shown(mid, 4)} (4 d.p.)."],
+        working=[f"P({b_s} < T ≤ {hi_s}) = ∫ from {b_s} to {hi_s} of f(t) dt = {text_of(mid, 4)} (4 d.p.)."],
         wrong=probabilities(
             [
                 (1 - tail, "evaluated-one-limit-only"),
@@ -134,7 +134,7 @@ def exd_x_r2j_exponential_pdf_chain(rng: random.Random, tier: str = "exam") -> d
         exact=tail,
         places=4,
         marks=1,
-        working=["P(T > b + s) = 1 - P(T ≤ b) - P(b < T ≤ b + s).", f"= 1 - {shown(a, 4)} - {shown(mid, 4)}."],
+        working=["P(T > b + s) = 1 - P(T ≤ b) - P(b < T ≤ b + s).", f"= 1 - {text_of(a, 4)} - {text_of(mid, 4)}."],
         wrong=[
             (a + mid, "cdf-vs-survival-confused"),
             (1 - mid, "omitted-first-interval"),
@@ -149,8 +149,8 @@ def exd_x_r2j_exponential_pdf_chain(rng: random.Random, tier: str = "exam") -> d
         places=3,
         marks=2,
         working=[
-            f"P(T ≤ {hi_s} | T > {b_s}) = P({b_s} < T ≤ {hi_s}) / P(T > {b_s}) = {shown(mid, 4)} / (1 - {shown(a, 4)}).",
-            f"= {shown(cond, 3)} (3 d.p.).",
+            f"P(T ≤ {hi_s} | T > {b_s}) = P({b_s} < T ≤ {hi_s}) / P(T > {b_s}) = {text_of(mid, 4)} / (1 - {text_of(a, 4)}).",
+            f"= {text_of(cond, 3)} (3 d.p.).",
         ],
         wrong=[
             (a + mid, "conditional-ignored"),

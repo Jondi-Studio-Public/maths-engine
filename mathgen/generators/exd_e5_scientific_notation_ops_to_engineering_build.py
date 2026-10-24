@@ -344,6 +344,10 @@ def _final(values, rng):
     candidates = []
     if shift != 0:
         candidates.append(f"{result_text} × 10^{raw_exponent}")
+    else:
+        # the exponent is already a multiple of 3, so there is no unconverted form to offer; offer the slip of
+        # moving the exponent by one place instead of three (not an engineering exponent)
+        candidates.append(f"{mantissa_text} × 10^{eng_exponent + 1}")
     candidates.append(f"{mantissa_text} × 10^{eng_exponent + 3}")
     candidates.append(f"{mantissa_text} × 10^{eng_exponent - 3}")
     if tier in ("hard", "exam"):

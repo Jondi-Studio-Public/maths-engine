@@ -61,6 +61,11 @@ _STEMS = [
 ]
 
 
+def _br(value) -> str:
+    """A fraction in brackets, so it can be divided or multiplied: ``(1/2)``; a whole number is left alone."""
+    return f"({value})" if "/" in str(value) else str(value)
+
+
 @generator("exd_x_r2g_cauchy_tail", level=15, presets={"exam": dict(tier="exam")})
 @redraws
 def exd_x_r2g_cauchy_tail(rng: random.Random, tier: str = "exam") -> dict:
@@ -99,7 +104,7 @@ def exd_x_r2g_cauchy_tail(rng: random.Random, tier: str = "exam") -> dict:
             marks=2,
             sensible_range=(0, None),
             working=[
-                f"For m, n >= {n0} the terms lie between a_{n0} and L, a distance {c}/{n0} apart at most.",
+                f"For m, n >= {n0} the terms lie between a_{n0} and L, a distance {_br(c)}/{n0} apart at most.",
                 f"The least upper bound is {spread0}.",
             ],
             wrong=[
@@ -117,7 +122,7 @@ def exd_x_r2g_cauchy_tail(rng: random.Random, tier: str = "exam") -> dict:
             sensible_range=(0, None),
             follow_through=f"floor({n0}*part_b/{eps_ft}) + 1",
             working=[
-                f"The spread for m, n >= N is {c}/N, so we need {c}/N < {eps_s}, that is N > {c / eps}.",
+                f"The spread for m, n >= N is {_br(c)}/N, so we need {_br(c)}/N < {eps_s}, that is N > {c / eps}.",
                 f"The smallest such integer is N = {n}.",
             ],
             wrong=[
@@ -134,7 +139,7 @@ def exd_x_r2g_cauchy_tail(rng: random.Random, tier: str = "exam") -> dict:
             marks=1,
             sensible_range=(0, None),
             follow_through=f"{n0}*part_b/part_c",
-            working=[f"|a_N - L| = {c}/N = {c}/{n} = {gap}."],
+            working=[f"|a_N - L| = {_br(c)}/N = {_br(c)}/{n} = {gap}."],
             wrong=[
                 (eps, "epsilon-taken-as-the-gap"),
                 (c / (n - 1), "off-by-one-count"),

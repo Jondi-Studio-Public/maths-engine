@@ -14,12 +14,22 @@ from math import pi
 
 import sympy
 
-from ..core import check, check_equivalent, generator, latex_answer, pick_distractors
+from ..calc_cache import integrate
+from ..core import check, check_equivalent, generator, join_terms, latex_answer, pick_distractors
 
 
 def _expr_text(value) -> str:
     """Use a grader-friendly exact expression (``**`` and ``pi``)."""
     return str(sympy.simplify(value)).replace("**", "^")
+
+
+def _linear_rhs(rate: int, equilibrium: int) -> str:
+    """``rate (x - equilibrium)`` as written on paper: ``x - 2``, ``-x``, ``-2(x + 1)``, ``4x``."""
+    inner = join_terms([(1, "x"), (-equilibrium, "")])
+    if rate == 1:
+        return inner
+    prefix = "-" if rate == -1 else str(rate)
+    return f"{prefix}{inner}" if equilibrium == 0 else f"{prefix}({inner})"
 
 
 def _fourier_coefficient_step(rng, n_hi):
@@ -30,11 +40,11 @@ def _fourier_coefficient_step(rng, n_hi):
         n = rng.randint(1, n_hi)
         family = rng.choice(("sine", "cosine"))
         basis = sympy.sin(n * x) if family == "sine" else sympy.cos(n * x)
-        coefficient = sympy.simplify(2 / sympy.pi * sympy.integrate(c * basis, (x, 0, sympy.pi / 2)))
+        coefficient = sympy.simplify(2 / sympy.pi * integrate(c * basis, (x, 0, sympy.pi / 2)))
         if coefficient != 0:
             break
 
-    antiderivative = sympy.integrate(c * basis, x)
+    antiderivative = integrate(c * basis, x)
     check_equivalent(sympy.diff(antiderivative, x), c * basis, "Fourier step antiderivative check failed")
     numeric = 2 / pi * float(sympy.N(sympy.Integral(c * basis, (x, 0, sympy.pi / 2)), 30))
     check(abs(numeric - float(sympy.N(coefficient, 30))) < 1e-10, "Fourier step numerical check failed")
@@ -43,8 +53,8 @@ def _fourier_coefficient_step(rng, n_hi):
     check_equivalent(by_hand, coefficient, "Fourier step endpoint evaluation check failed")
 
     other = sympy.cos(n * x) if family == "sine" else sympy.sin(n * x)
-    wrong_basis = sympy.simplify(2 / sympy.pi * sympy.integrate(c * other, (x, 0, sympy.pi / 2)))
-    whole = sympy.simplify(2 / sympy.pi * sympy.integrate(c * basis, (x, 0, sympy.pi)))
+    wrong_basis = sympy.simplify(2 / sympy.pi * integrate(c * other, (x, 0, sympy.pi / 2)))
+    whole = sympy.simplify(2 / sympy.pi * integrate(c * basis, (x, 0, sympy.pi)))
     answer_text = _expr_text(coefficient)
     candidates = [
         _expr_text(-coefficient),
@@ -99,22 +109,20 @@ def fourier_coefficient_simple(rng, n_hi=6, kind=None):
     power = rng.choice((1, 2))
     f = x**power
     basis = sympy.sin(n * x) if family == "sine" else sympy.cos(n * x)
-    coefficient = sympy.simplify(2 / sympy.pi * sympy.integrate(f * basis, (x, 0, sympy.pi)))
+    coefficient = sympy.simplify(2 / sympy.pi * integrate(f * basis, (x, 0, sympy.pi)))
 
     # Independent checks: differentiate the antiderivative and compare a
     # high-precision numerical quadrature with the exact result.
-    antiderivative = sympy.integrate(f * basis, x)
+    antiderivative = integrate(f * basis, x)
     check_equivalent(sympy.diff(antiderivative, x), f * basis, "Fourier integrand antiderivative check failed")
-    numeric = sympy.N(2 / sympy.pi * sympy.integrate(f * basis, (x, 0, sympy.pi)), 30)
+    numeric = sympy.N(2 / sympy.pi * integrate(f * basis, (x, 0, sympy.pi)), 30)
     check(abs(float(numeric) - float(sympy.N(coefficient, 30))) < 1e-10, "Fourier coefficient numerical check failed")
 
     answer_text = _expr_text(coefficient)
     wrong_sign = _expr_text(-coefficient)
     missing_factor = _expr_text(sympy.simplify(coefficient / 2))
     wrong_basis = sympy.simplify(
-        2
-        / sympy.pi
-        * sympy.integrate(f * (sympy.cos(n * x) if family == "sine" else sympy.sin(n * x)), (x, 0, sympy.pi))
+        2 / sympy.pi * integrate(f * (sympy.cos(n * x) if family == "sine" else sympy.sin(n * x)), (x, 0, sympy.pi))
     )
     candidates = [wrong_sign, missing_factor, _expr_text(wrong_basis), _expr_text(coefficient + 1)]
     return dict(
@@ -201,31 +209,31 @@ def constant_coefficient_pde_classification(rng, coefficient_hi=4, kind=None):
         check(b != 0, "rearranged PDE hard tier drew a zero mixed-term coefficient")
         return dict(
             text=(
-                f"Classify the constant-coefficient PDE {a}u_xx "
-                f"+ ({b})u_xy = ({-c})u_yy as elliptic, parabolic or hyperbolic."
+                f"Classify the constant-coefficient PDE {join_terms([(a, 'u_xx'), (b, 'u_xy')])} "
+                f"= {join_terms([(-c, 'u_yy')])} as elliptic, parabolic or hyperbolic."
             ),
-            latex=rf"{a}u_{{xx}}+({b})u_{{xy}}=({-c})u_{{yy}};\quad\text{{classify}}.",
+            latex=rf"{join_terms([(a, 'u_{xx}'), (b, 'u_{xy}')])}={join_terms([(-c, 'u_{yy}')])};\quad\text{{classify}}.",
             answer=answer_text,
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text, plain=True),
             working=[
-                f"Rearrange to standard form: {a}u_xx + ({b})u_xy + ({c})u_yy = 0.",
-                f"Compute Δ = B² − 4AC = {discriminant}.",
+                f"Rearrange to standard form: {join_terms([(a, 'u_xx'), (b, 'u_xy'), (c, 'u_yy')])} = 0.",
+                f"With A = {a}, B = {b}, C = {c}: Δ = B² − 4AC = {discriminant}.",
                 f"Since Δ is {'negative' if discriminant < 0 else 'zero' if discriminant == 0 else 'positive'}, the PDE is {target.lower()}.",
             ],
             distractors=pick_distractors(answer_text, others),
         )
     return dict(
         text=(
-            f"Classify the constant-coefficient PDE {a}u_xx "
-            f"+ ({b})u_xy + ({c})u_yy = 0 as elliptic, parabolic or hyperbolic."
+            f"Classify the constant-coefficient PDE {join_terms([(a, 'u_xx'), (b, 'u_xy'), (c, 'u_yy')])} = 0 "
+            "as elliptic, parabolic or hyperbolic."
         ),
-        latex=rf"{a}u_{{xx}}+({b})u_{{xy}}+({c})u_{{yy}}=0;\quad\text{{classify}}.",
+        latex=rf"{join_terms([(a, 'u_{xx}'), (b, 'u_{xy}'), (c, 'u_{yy}')])}=0;\quad\text{{classify}}.",
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
         working=[
-            f"Compute Δ = B² − 4AC = {discriminant}.",
+            f"With A = {a}, B = {b}, C = {c}: Δ = B² − 4AC = {discriminant}.",
             f"Since Δ is {'negative' if discriminant < 0 else 'zero' if discriminant == 0 else 'positive'}, the PDE is {target.lower()}.",
         ],
         distractors=pick_distractors(answer_text, others),
@@ -270,16 +278,16 @@ def autonomous_equilibrium_stability(rng, rate_hi=5, equilibrium_hi=5, kind=None
         candidates = [opposite, "Non-equilibrium point", "Neutral (zero derivative)"]
         return dict(
             text=(
-                f"For the autonomous equation x' = x({b} − x), "
+                f"For the autonomous equation x' = x({join_terms([(b, ''), (-1, 'x')])}), "
                 f"classify the equilibrium x* = {equilibrium} using the sign of f'(x*)."
             ),
-            latex=rf"x'=x({b}-x);\quad x_*={equilibrium};\quad\text{{classify stability}}.",
+            latex=rf"x'=x({join_terms([(b, ''), (-1, 'x')])});\quad x_*={equilibrium};\quad\text{{classify stability}}.",
             answer=answer_text,
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text, plain=True),
             working=[
-                f"f(x) = x({b} − x) = {b}x − x², so f({equilibrium}) = 0 and x* = {equilibrium} is an equilibrium.",
-                f"f'(x) = {b} − 2x, so f'(x*) = {derivative}; a negative derivative attracts and a positive derivative repels.",
+                f"f(x) = x({join_terms([(b, ''), (-1, 'x')])}) = {join_terms([(b, 'x'), (-1, 'x²')])}, so f({equilibrium}) = 0 and x* = {equilibrium} is an equilibrium.",
+                f"f'(x) = {join_terms([(b, ''), (-2, 'x')])}, so f'(x*) = {derivative}; a negative derivative attracts and a positive derivative repels.",
             ],
             distractors=pick_distractors(answer_text, candidates),
         )
@@ -294,10 +302,10 @@ def autonomous_equilibrium_stability(rng, rate_hi=5, equilibrium_hi=5, kind=None
     candidates = [opposite, "Non-equilibrium point", "Neutral (zero derivative)"]
     return dict(
         text=(
-            f"For the autonomous equation x' = {rate}(x − ({equilibrium})), "
+            f"For the autonomous equation x' = {_linear_rhs(rate, equilibrium)}, "
             f"classify the equilibrium x* = {equilibrium} using the sign of f'(x*)."
         ),
-        latex=rf"x'={rate}(x-({equilibrium}));\quad x_*={equilibrium};\quad\text{{classify stability}}.",
+        latex=rf"x'={_linear_rhs(rate, equilibrium)};\quad x_*={equilibrium};\quad\text{{classify stability}}.",
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),

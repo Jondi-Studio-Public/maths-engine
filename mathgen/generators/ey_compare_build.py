@@ -59,6 +59,23 @@ _MASS_OBJECTS = (
     "lunch box",
     "torch",
 )
+# Rough real weights in grams. The order-by-balances question only pairs objects whose real weights differ by at
+# least a factor of 1.8, so the drawn order always agrees with what a child knows (a brick is never lighter
+# than a banana).
+_REAL_GRAMS = {
+    "hat": 80,
+    "banana": 130,
+    "apple": 200,
+    "teddy": 250,
+    "torch": 300,
+    "shoe": 400,
+    "ball": 450,
+    "book": 600,
+    "lunch box": 800,
+    "jar": 900,
+    "drum": 1500,
+    "brick": 2500,
+}
 _SHAPES = ("jug", "cup", "bowl", "bottle")
 _UNITS = (("paper clip", "paper_clip"), ("block", "block"))
 
@@ -210,12 +227,13 @@ def compare_length_picture(rng, tier="easy"):
         far = _extreme(ends, more)
         cands = [_the(far)] if far != key else []
         cands += [_the(lbl) for lbl in labels if lbl != key]
-        if pair:
-            cands.append(_SAME)
-    distractors = pick_distractors(answer_text, cands, n=2 if pair else len(labels) - 1)
+        cands.append(_SAME)  # with three or more objects it is a fourth option; the lengths differ, so it is wrong
+    distractors = pick_distractors(answer_text, cands, n=2 if pair else 3)
     lens = ", ".join(f"{o['label']} {o['length']}" for o in objs)
     how = (
-        "They all start at the same line, so the one that ends last is longest."
+        "They all start at the same line and end at the same place, so they are the same length."
+        if lined and key is None
+        else f"They all start at the same line, so the one that ends {'last is longest' if more else 'first is shortest'}."
         if lined
         else "They do not start together, so compare how long each is, not where it ends."
     )
@@ -252,11 +270,17 @@ def _sizes(rng, masses: list[int]) -> list[int]:
 
 def _mass_pair(rng):
     """(a, b, more) for a balance of one object each: distinct masses."""
-    names = rng.sample(_MASS_OBJECTS, 2)
+    for _ in attempts(500, "two objects with clearly different real weights"):
+        names = rng.sample(sorted(_REAL_GRAMS), 2)
+        lo, hi = sorted(names, key=_REAL_GRAMS.get)
+        if _REAL_GRAMS[hi] >= 1.8 * _REAL_GRAMS[lo]:
+            break
     for _ in attempts(200, "two distinct masses"):
-        ma, mb = rng.randint(1, 12), rng.randint(1, 12)
+        ma, mb = sorted((rng.randint(1, 12), rng.randint(1, 12)))
         if abs(ma - mb) >= 2:
             break
+    if _REAL_GRAMS[names[0]] > _REAL_GRAMS[names[1]]:
+        ma, mb = mb, ma  # the drawn masses agree with what each object really weighs
     sizes = _sizes(rng, [ma, mb])
     return [{"label": n, "mass": m, "size": s} for n, m, s in zip(names, (ma, mb), sizes)]
 
@@ -427,7 +451,8 @@ def compare_mass_capacity_picture(rng, tier="easy"):
     working = [
         "The two sides are level, so they are the same."
         if tilt == "level"
-        else f"The lower side is heavier. {answer_text} is on the {'lower' if more else 'higher'} side."
+        else f"The lower side is heavier. {answer_text} {'are' if answer_text.endswith('blocks') else 'is'} on the "
+        f"{'lower' if more else 'higher'} side."
     ]
     return _finish(fig, text, answer_text, distractors, working, _read_mass_capacity)
 
@@ -558,8 +583,8 @@ def compare_by_paper_clips(rng, tier="easy"):
 
         answer_text = pair(key)
         others = [p for p in itertools.combinations(labels, 2) if set(p) != set(key) and set(p) != set(trap)]
-        cands = [pair(trap), pair(rng.choice(others)), pair(rng.choice(others))]
-        distractors = pick_distractors(answer_text, cands, n=2)
+        cands = [pair(trap), pair(rng.choice(others)), pair(rng.choice(others)), *map(pair, others)]
+        distractors = pick_distractors(answer_text, cands, n=3)
         working = [f"Count the {uname}s: two are the same. The ends are not at the same place for the same length."]
         return _finish(fig, text, answer_text, distractors, working, _read_clips)
     pair_q = len(objs) == 2
@@ -573,9 +598,8 @@ def compare_by_paper_clips(rng, tier="easy"):
         answer_text = _the(key)
         ends = {o["label"]: o["start"] + o["length"] for o in objs}
         cands = [_the(_extreme(ends, more))] + [_the(lbl) for lbl in labels if lbl != key]
-        if pair_q:
-            cands.append(_SAME)
-    distractors = pick_distractors(answer_text, cands, n=2 if pair_q else len(labels) - 1)
+        cands.append(_SAME)  # a fourth option when three or more objects are shown; the counts differ
+    distractors = pick_distractors(answer_text, cands, n=2 if pair_q else min(len(labels), 4))
     working = [f"Count the {uname}s under each. " + ", ".join(f"{o['label']} {o['units']}" for o in objs) + "."]
     return _finish(fig, text, answer_text, distractors, working, _read_clips)
 
@@ -635,7 +659,10 @@ def _read_order(fig: dict, text: str) -> str:
 def order_by_two_balances(rng, tier="easy"):
     if tier not in _TIERS:
         raise ValueError(f"unknown tier {tier!r}")
-    names = rng.sample(_MASS_OBJECTS, 3)
+    for _ in attempts(500, "three objects with clearly different real weights"):
+        names = sorted(rng.sample(sorted(_REAL_GRAMS), 3), key=_REAL_GRAMS.get)
+        if all(_REAL_GRAMS[y] >= 1.8 * _REAL_GRAMS[x] for x, y in zip(names, names[1:])):
+            break
     masses = sorted(rng.sample(range(2, 15), 3))
     for _ in attempts(500, "three objects with distinct drawn sizes"):
         sizes = [rng.randint(1, 3) for _ in range(3)]
@@ -659,7 +686,7 @@ def order_by_two_balances(rng, tier="easy"):
         cands = [", ".join(order[::-1]), f"{m}, {l}, {h}", f"{l}, {h}, {m}"]
         distractors = pick_distractors(answer_text, cands, n=3)
     else:
-        distractors = pick_distractors(answer_text, [_the(n) for n in order], n=2)
+        distractors = pick_distractors(answer_text, [*(_the(n) for n in order), _SAME], n=3)
     working = [f"Lightest to heaviest: {', '.join(order)}. The lower side of each balance is heavier."]
     return _finish(fig, text, answer_text, distractors, working, _read_order)
 
@@ -776,8 +803,8 @@ def compare_capacity_by_cups(rng, tier="easy"):
 
         answer_text = pair(key)
         others = [p for p in itertools.combinations(labels, 2) if set(p) not in (set(key), set(trap))]
-        cands = [pair(trap), pair(rng.choice(others)), pair(rng.choice(others))]
-        distractors = pick_distractors(answer_text, cands, n=2)
+        cands = [pair(trap), *(pair(p) for p in rng.sample(others, 2))]  # three different wrong pairs
+        distractors = pick_distractors(answer_text, cands, n=3)
         working = [
             "Count the cups under each. Two have the same number of cups. Standing equally tall is not the same."
         ]
@@ -786,9 +813,8 @@ def compare_capacity_by_cups(rng, tier="easy"):
     answer_text = _the(key)
     heights = {c["label"]: _height(c) for c in cs}
     cands = [_the(_extreme(heights, more))] + [_the(lbl) for lbl in labels if lbl != key]
-    if len(cs) == 2:
-        cands.append(_SAME_HOLD)
-    distractors = pick_distractors(answer_text, cands, n=2)
+    cands.append(_SAME_HOLD)  # a third wrong answer when three containers are shown
+    distractors = pick_distractors(answer_text, cands, n=2 if len(cs) == 2 else len(cs))
     working = ["Count the cups poured out: " + ", ".join(f"{c['label']} {c['cups']}" for c in cs) + "."]
     return _finish(fig, text, answer_text, distractors, working, _read_cups)
 

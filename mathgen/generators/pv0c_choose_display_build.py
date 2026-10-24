@@ -101,6 +101,15 @@ for _cls, _info in CLASS_INFO.items():
     check(len(set(_info["wrong"])) == len(_info["wrong"]), f"choose-display: {_cls} wrong pool has duplicates")
     check(len(_info["wrong"]) >= 3, f"choose-display: {_cls} wrong pool too small")
 
+_WHY = {
+    "column graph": "it compares the sizes of separate categories.",
+    "histogram": "it shows how one measured quantity is spread across equal-width intervals.",
+    "scatterplot": "it shows how two measured quantities vary together.",
+    "line graph": "it shows how a quantity changes over time.",
+    "back-to-back stem-and-leaf plot": "it compares the spread of two small data sets side by side.",
+    "segmented column graph": "it compares how each category is split into parts across several groups.",
+}
+
 INSTRUCTION = "Which type of graph is best suited to display this data?"
 
 # ---------------------------------------------------------------------------
@@ -378,10 +387,7 @@ def pv0c_choose_display(rng, tier: str = "easy"):
     description = _describe(rng, class_id, tier)
     text = f"{description} {INSTRUCTION}"
 
-    working = [
-        f"Data class {class_id}: this description's variable type and count match the "
-        f"row whose display is {key}, and no other display on the compatibility matrix."
-    ]
+    working = [f"The data described fits a {key}: {_WHY[key]}"]
 
     return dict(
         text=text,

@@ -91,8 +91,6 @@ loops:
   - {module: exd_x_f5_incl, function: exd_x_f5_incl, index: 0, kind: while_true}
   - {module: exd_x_f5_sinetower, function: exd_x_f5_sinetower, index: 0, kind: while_true}
   - {module: exd_x_f5_tanasym, function: exd_x_f5_tanasym, index: 0, kind: while_true}
-  - {module: exd_x_f5_trigquad, function: exd_x_f5_trigquad, index: 0, kind: while_true}
-  - {module: exd_x_f5_trigquad, function: exd_x_f5_trigquad, index: 1, kind: while_true}
   - {module: exd_x_g1_vector_addition, function: _parallelogram, index: 0, kind: while_true}
   - {module: exd_x_g1_vector_addition, function: _ratio, index: 0, kind: while_true}
   - {module: exd_x_g1_vector_cross_product, function: _bilinear, index: 0, kind: while_true}

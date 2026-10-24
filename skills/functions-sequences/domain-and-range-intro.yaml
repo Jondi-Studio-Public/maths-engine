@@ -1,37 +1,109 @@
 id: domain-and-range-intro
 name: Identify domain and range in simple contexts
 domain: functions-sequences
-description: Identify allowed inputs and resulting outputs from tables, graphs, rules and practical constraints.
-status: deferred
-deferred_reason: assessment_contract
+year_level:
+- '9'
+- '10'
+description: List the domain and range of a function given as ordered pairs, a rule with a stated set of inputs or a practical
+  situation, and find the inputs a restriction allows or forbids.
+status: active
+placement_eligible: false
 prerequisites:
 - function-concept
 - inequality-symbols
-answer: mcq
+answer: list
 sources:
-- topic: function_evaluation
+- topic: w5_domain_range_intro
   params: {}
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
-- topic: function_evaluation
+- topic: w5_domain_range_intro
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
-- topic: function_evaluation
+- topic: w5_domain_range_intro
   params: {}
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
+- topic: exd_x_w5_domain_range_intro
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
 misconceptions:
-- id: misconception-1
-  description: Confusing domain with horizontal axis labels only
-- id: misconception-2
-  description: Ignoring restrictions imposed by a context
-tags: []
+- id: w5f-swaps-domain-and-range
+  description: Gives the domain where the range is asked for, or the range where the domain is asked for.
+- id: w5f-lists-repeated-outputs
+  description: Lists an output once for every input that gives it, instead of once.
+- id: w5f-omits-a-value
+  description: Leaves one of the values out of the list.
+- id: w5f-adds-an-extra-value
+  description: Lists one more value than the rule produces.
+- id: w5f-shifts-the-values
+  description: Shifts every value in the list by one.
+- id: w5f-rule-applied-with-sign-slip
+  description: Makes a sign slip when applying the rule to an input.
+- id: w5f-ignores-the-restriction-from-context
+  description: Lists every whole number between the extremes, ignoring that only some are possible in the situation.
+- id: w5f-ignores-the-restriction
+  description: Lists every value in the window and ignores the restriction on the inputs.
+- id: w5f-excludes-the-boundary
+  description: Leaves out the boundary value when the restriction allows it.
+- id: w5f-restriction-reversed
+  description: Reads the restriction the wrong way round and takes the inputs it excludes.
+- id: w5f-restriction-sign-slip
+  description: Reverses the sign of the number in the restriction when solving for the inputs.
+- id: w5f-negative-squared-as-negative
+  description: Squares a negative input and keeps the minus sign.
+- id: w5f-uses-half-the-domain
+  description: Uses only the inputs on one side of the turning point.
+- id: w5f-counts-inputs-not-outputs
+  description: Counts the inputs where the question asks for the number of different outputs.
+- id: w5f-miscounts-inputs
+  description: Miscounts the inputs by one.
+- id: w5f-gives-the-spread
+  description: Gives the difference between the greatest and least values instead of a count of values.
+- id: w5f-takes-the-last-output
+  description: Gives the last output on the list instead of the greatest.
+- id: w5f-gives-the-input
+  description: Gives the input where the question asks for the output.
+- id: w5f-gives-the-least
+  description: Gives the least value where the question asks for the greatest.
+- id: w5f-gives-the-count
+  description: Gives how many values there are instead of the value asked for.
+- id: w5f-gives-the-output
+  description: Gives the output where the question asks for the input.
+- id: w5f-one-input-only
+  description: Gives only one input where the rule has more than one.
+- id: w5f-sign-slip-on-inputs
+  description: Reverses the sign of the inputs.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Read the inputs and the different outputs from a set of ordered pairs, listing each output once.
+  medium:
+    steps: 3
+    demand: Apply a rule or a practical formula to each permitted input and list the resulting outputs.
+  hard:
+    steps: 5
+    demand: 'Work from a restriction: the inputs a square root allows, the inputs a denominator forbids, or the range of
+      a quadratic where two inputs share an output.'
+  exam:
+    steps: 6
+    demand: Chain the range of a quadratic on a whole-number domain, the number of different outputs, the greatest output
+      and the inputs that give a stated output.
+tags:
+- functions
+- domain
+- range
+- nsw-stage-5
+- vce-general

@@ -298,12 +298,12 @@ def exd_x_ir2a_investigation_step_order(rng: random.Random, tier: str = "exam") 
         sc,
         name,
         lines,
-        f" The {n} results for each group, in {sc['unit']}, were: {sc['a']}: {', '.join(map(str, a))}; {sc['b']}: {', '.join(map(str, b))}.",
+        f" The first {n} results for each group, in {sc['unit']}, were: {sc['a']}: {', '.join(map(str, a))}; {sc['b']}: {', '.join(map(str, b))}.",
     )
     pa = _order_part(STAGE_ORDER, chosen, letter_of, 3)
     pb = _stage_part(rng, STAGE_ORDER, chosen, letter_of, 1)
     pc = number_part(
-        prompt=f"What is the mean {sc['measure']} of the {sc['a']}?",
+        prompt=f"What is the mean {sc['measure']} of the {sc['a'].removeprefix('the ')}?",
         exact=ma,
         places=0,
         marks=2,

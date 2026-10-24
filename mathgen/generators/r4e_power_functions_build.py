@@ -28,6 +28,14 @@ from .r4e_common import Redraw, draw, fraction_part, inequality_part, num, singl
 x = sympy.Symbol("x")
 
 
+_ROOT_NAMES = {2: "square root", 3: "cube root", 4: "fourth root", 5: "fifth root", 6: "sixth root"}
+
+
+def _root_name(q: int) -> str:
+    """The q-th root as it is said: "cube root", "fourth root" ("3-th root" is not English)."""
+    return _ROOT_NAMES.get(q, f"{q}th root")
+
+
 def fr(v) -> Fraction:
     v = sympy.Rational(v)
     return Fraction(int(v.p), int(v.q))
@@ -35,6 +43,11 @@ def fr(v) -> Fraction:
 
 def index_text(p: int, q: int) -> str:
     return f"{p}/{q}" if q != 1 else str(p)
+
+
+def _pw(base, e) -> str:
+    """base^e written on paper: a power of 1 is just the base."""
+    return str(base) if e == 1 else f"{base}^{e}"
 
 
 def power_text(p: int, q: int, base: str = "x") -> str:
@@ -84,8 +97,8 @@ def _easy(rng):
     check(sympy.Rational(c) ** sympy.Rational(p, q) == key if c > 0 else True, "SymPy's power disagrees")
     stem = phrase(rng, _EASY_STEMS, f=power_text(p, q))
     working = [
-        f"x^({p}/{q}) means the {q}-th root of x, raised to the power {p}.",
-        f"The {q}-th root of {c} is {r}, and {r}^{p} = {num(key)}.",
+        f"x^({p}/{q}) means the {_root_name(q)} of x, raised to the power {p}.",
+        f"The {_root_name(q)} of {c} is {r}, and {_pw(r, p)} = {num(key)}.",
     ]
     return single(stem, fraction_part(f"Find f({c}).", fr(key), 2, working, wrong))
 
@@ -122,7 +135,7 @@ def _medium(rng):
         check(sympy.im(sympy.N(shifted ** sympy.Rational(p, q))) == 0, "not defined at the claimed domain")
         prompt = "What is the least value of x for which f(x) is defined as a real number?"
         working = [
-            f"The {q}-th root of (x {'-' if h > 0 else '+'} {abs(h)}) is real only when x {'-' if h > 0 else '+'} {abs(h)} ≥ 0.",
+            f"The {_root_name(q)} of (x {'-' if h > 0 else '+'} {abs(h)}) is real only when x {'-' if h > 0 else '+'} {abs(h)} ≥ 0.",
             f"So the least x is {h}.",
         ]
     else:
@@ -169,9 +182,14 @@ def _hard_equation(rng):
     lhs = f"{'' if a == 1 else a}x^({p}/{q})"
     stem = f"Solve the equation {lhs} = {num(c)}."
     prompt = f"Find the {which}value of x."
+    # The reciprocal index q/p, with the sign on the numerator and no "/1".
+    inv_num, inv_den = (q, p) if p > 0 else (-q, -p)
+    inv = str(inv_num) if inv_den == 1 else f"{inv_num}/{inv_den}"
+    value_text = num(value)
+    base = f"({value_text})" if "/" in value_text or value_text.startswith("-") else value_text
     working = [
-        f"Divide by {a}: x^({p}/{q}) = {num(value)}.",
-        f"Raise both sides to the power {q}/{p}: x = ({num(value)})^({q}/{p}) = {x0}.",
+        f"Divide by {a}: x^({p}/{q}) = {value_text}." if a != 1 else f"x^({p}/{q}) = {value_text}.",
+        f"Raise both sides to the power {inv}: x = {base}^{inv if inv.isdigit() else f'({inv})'} = {x0}.",
     ]
     return single(stem, fraction_part(prompt, x0, 3, working, wrong))
 
@@ -201,8 +219,8 @@ def _hard_intersection(rng):
     check(xs ** sympy.Rational(u_num, n) == kk * xs**v, "the stated solution does not satisfy the equation")
     stem = f"Solve x^({u_num}/{n}) = {kk}{'x' if v == 1 else f'x^{v}'} for x > 0."
     working = [
-        f"Divide both sides by x^{v} (x > 0): x^(1/{n}) = {kk}.",
-        f"Raise both sides to the power {n}: x = {kk}^{n} = {x0}.",
+        f"Divide both sides by {_pw('x', v)} (x > 0): x^(1/{n}) = {kk}.",
+        f"Raise both sides to the power {n}: x = {_pw(kk, n)} = {x0}.",
     ]
     return single(stem, fraction_part("Find the value of x.", x0, 3, working, wrong))
 
@@ -261,7 +279,7 @@ def _chain(rng):
         "Find the value of a.",
         a,
         2,
-        [f"{x0}^({p}/{q}) = {s}^{p} = {s**p}, so a = {y0}/{s**p} = {a}."],
+        [f"{x0}^({p}/{q}) = {_pw(s, p)} = {s**p}, so a = {y0}/{s**p} = {a}."],
         [
             (fr(sympy.Rational(y0, x0)), "rational-index-ignores-the-index"),
             (fr(sympy.Rational(y0, s)), "rational-index-ignores-power"),
@@ -272,7 +290,7 @@ def _chain(rng):
         "State the largest set of real values of x for which the function is defined.",
         domain,
         1,
-        [f"The {q}-th root of x is real {'only for x ≥ 0' if q % 2 == 0 else 'for every x'}."],
+        [f"The {_root_name(q)} of x is real {'only for x ≥ 0' if q % 2 == 0 else 'for every x'}."],
         [
             ([(0, None, True, False)] if q % 2 else [(None, None)], "rational-index-domain-root-parity"),
             ([(0, None)], "rational-index-domain-endpoint-open-closed"),
@@ -283,7 +301,7 @@ def _chain(rng):
         f"Find the value of y when x = {c}.",
         f_c,
         2,
-        [f"{c}^({p}/{q}) = ({r})^{p} = {r**p}, so y = {a} × {r**p} = {f_c}."],
+        [f"{c}^({p}/{q}) = {_pw(f'({r})', p)} = {r**p}, so y = {a} × {r**p} = {f_c}."],
         [
             (fr(a * c), "rational-index-ignores-the-index"),
             (fr(a * c**p) if abs(c) ** p < 10**6 else None, "rational-index-ignores-root"),
@@ -295,7 +313,9 @@ def _chain(rng):
         f"Find the positive value of x for which y = {t_val}.",
         sol,
         3,
-        [f"{a}x^({p}/{q}) = {t_val} gives x^({p}/{q}) = {u**p}, so x = ({u**p})^({q}/{p}) = {sol}."],
+        [
+            f"{a}x^({p}/{q}) = {t_val} gives x^({p}/{q}) = {u**p}, so x = ({u**p})^{f'({q}/{p})' if p != 1 else q} = {sol}."
+        ],
         [
             (fr(sympy.Rational(t_val, a)), "rational-index-solves-for-the-value"),
             (fr(t_val), "rational-index-multiplier-not-divided"),

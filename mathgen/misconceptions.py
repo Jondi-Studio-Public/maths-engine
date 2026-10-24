@@ -21283,6 +21283,12 @@ _ENTRIES = (
         area="linear-algebra",
     ),
     CatalogueEntry(
+        "linear-system-exactly-two-solutions",
+        "Saying a linear system has exactly two solutions, as a quadratic equation can: a linear system has none, one "
+        "or infinitely many.",
+        area="linear-algebra",
+    ),
+    CatalogueEntry(
         "dependence-relation-sign-slip",
         "Giving a coefficient of the wrong sign in a dependence relation: reading w = a·u + b·v as c1·u + c2·v + w = 0 "
         "with c1 = a, when c1 = -a.",
@@ -51948,6 +51954,5756 @@ _ENTRIES = (
         "Multiplying the denominators of the surface's equation (the squares of its semi-axes) instead of the semi-axes of the cross-section.",
         area="quadric-surfaces",
     ),
+    CatalogueEntry(
+        "w4-bridge-counts-leaves",
+        "Counting the vertices with only one edge instead of the edges whose removal splits the network.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-counts-cut-vertices",
+        "Counting the vertices whose removal splits the network, where the edges whose removal does so were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-counts-cycle-edges",
+        "Counting the edges that lie on a cycle, which are exactly the ones that are not bridges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-pieces-off-by-one",
+        "Giving the number of pieces where the number of bridges was asked for, or the reverse, one out because each bridge adds one piece.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-removal-ignored",
+        "Giving every vertex as still reachable after a bridge is removed, as if taking the edge away changed nothing.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-wrong-side",
+        "Counting the vertices on the far side of the removed bridge, or one more or fewer than the piece, instead of the piece that holds the start.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-only-endpoint-lost",
+        "Thinking only one vertex is cut off when a bridge is removed, so every other vertex can still be reached.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-heaviest-edge",
+        "Taking the dearest edges as the ones to remove, without checking that a bridge cannot be removed.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-pair-cuts-network",
+        "Taking the two dearest removable edges together, without checking that removing both leaves the network in two pieces.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-one-edge-only",
+        "Giving the saving from one edge where the total from two edges was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-sum-not-max",
+        "Adding the costs of every edge that could be removed where the greatest total saving from two edges was asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-sum-of-bridges",
+        "Adding the costs of the bridges, which are exactly the edges that cannot be removed.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-lightest-bridge",
+        "Taking the cheapest bridge as the saving, though a bridge cannot be removed at all.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-pieces-all-vertices",
+        "Counting every vertex as a separate piece once the bridges are removed, though the edges on cycles still hold vertices together.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-new-road-ignored",
+        "Leaving the number of bridges unchanged after a new edge is added, though it can put bridges on a cycle.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-new-road-removes-one",
+        "Thinking a new edge stops only one bridge being a bridge, instead of every bridge on the path between its ends.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-new-road-clears-all",
+        "Thinking one new edge stops every bridge being a bridge, instead of only those on the path between its ends.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-repair-leaves",
+        "Giving the number of end pieces where the fewest new edges was asked for: each new edge can join two end pieces at once.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-repair-per-bridge",
+        "Building one new edge for every bridge, when new edges between end pieces cover several bridges each.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-cost-of-cycle-edges",
+        "Totalling the costs of the edges on cycles, which are the ones that are not bridges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-cost-of-all-edges",
+        "Totalling the cost of every edge where only the bridges were asked for.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-cost-dearest-only",
+        "Giving the cost of one bridge, or the total less one, instead of the total of all the bridges.",
+        area="networks",
+    ),
+    CatalogueEntry(
+        "w4-bridge-removed-edge-kept",
+        "Counting the cost of the removed bridge as well as the edges that are left in the piece.",
+        area="networks",
+    ),
+    # -- w6-calculus (limits, substitution, resisted motion, graph reading) ---------------------------------
+    CatalogueEntry(
+        "w6-proj-speed-for-component",
+        "Uses the launch speed where the horizontal or vertical component of the velocity belongs, so the angle is never resolved.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-components-swapped",
+        "Swaps the horizontal and vertical components of the launch velocity (cosine for sine).",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-gravity-on-horizontal",
+        "Adds gravity to the horizontal acceleration, although gravity acts only vertically.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-speed-times-time",
+        "Multiplies the horizontal speed at time t by t to get the distance, as if the speed stayed at that value.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-sign-of-velocity",
+        "Gives the vertical velocity the wrong sign: reports the downward speed as if upward were positive, or the reverse.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-gravity-term-dropped",
+        "Leaves the g/k terminal-speed term out of the vertical velocity, so the vertical speed decays like the horizontal one.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-limit-for-height",
+        "Uses the limiting value of the formula (u over k) in place of the value at the time the projectile is at the top.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-proj-no-drag-range-used",
+        "Multiplies the horizontal launch speed by the time to the top, ignoring the slowing of the horizontal motion.",
+        area="mechanics",
+    ),
+    CatalogueEntry(
+        "w6-subst-x-from-u-reversed",
+        "Writes x as the constant minus u instead of u minus the constant when solving the substitution for x.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-power-of-u-dropped",
+        "Writes the factor u minus the constant but loses the power or root of u that multiplies it.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-exponent-raised-twice",
+        "Raises the power of u once for the factor of x and again when integrating, so the exponent is one too large in the integrand.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-limit-shift-sign-wrong",
+        "Converts the upper limit by subtracting the constant of the substitution instead of adding it.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-lower-limit-for-upper",
+        "Gives the value of u at the lower limit where the upper limit was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-root-dropped",
+        "Loses the square root when rewriting the integrand in u, leaving a power of u of the wrong degree.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-identity-power-not-raised",
+        "Writes sec to the sixth as sec squared times one plus tan squared, forgetting to square the bracket.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-complementary-angle",
+        "Gives the complement of the angle theta where sin theta equals x over a, by using cosine instead of sine.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-supplementary-angle",
+        "Gives 180 degrees minus the angle, the other solution of the sine equation, as the limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-double-angle-limit",
+        "Doubles the angle when converting the limit, as if the substitution used sin 2 theta.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-half-angle-limit",
+        "Halves the angle when converting the limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-double-angle-factor-doubled",
+        "Applies an extra factor of one half to the constant in front of the integral of one plus or minus cos 2 theta.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-amplitude-halved",
+        "Gives half of a, not half of a squared, as the constant in front of the integral.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-amplitude-not-squared",
+        "Takes the substitution x = a sin(theta) to give a factor of a in front of the integral instead of a squared.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-double-angle-factor-dropped",
+        "Leaves out the factor one half from the double-angle identity, so the result is twice the correct value.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-du-factor-doubled",
+        "Multiplies by the factor in du instead of dividing by it, so the result has the factor squared or doubled.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-du-factor-forgotten",
+        "Forgets to divide by the factor in du, such as 2x dx or bx dx, and so leaves the answer too large.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-power-rule-on-bracket",
+        "Applies the power rule to the bracket as if x were the variable, ignoring the inner function and the factor outside it.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-exponent-denominator-mismatch",
+        "Divides each term by the same new exponent instead of by its own new exponent after integrating the powers of u.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-exponent-not-raised",
+        "Divides by the exponent but does not raise it: writes u to the n over n, not u to the n plus one over n plus one.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-identity-sign",
+        "Uses a plus where the identity needs a minus, or the reverse, when rewriting the power of the trigonometric function in terms of u.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-identity-term-dropped",
+        "Drops one term of the identity, for example integrating only u to the n or only the first term of 1 plus u squared.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-inner-derivative-divided",
+        "Divides by the inner function instead of recognising it as the derivative that cancels with du.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-leftover-x-kept",
+        "Integrates the bracket as a power of u but leaves the outside factor of x (or of the exponential) in place, as if it were a constant.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-limit-shift-forgotten",
+        "Converts the limits with the inner function but leaves out the constant added in the substitution, such as using e^x alone for e^x plus a.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-limits-not-changed",
+        "Puts the original limits of x into the antiderivative in u instead of the limits of u.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-limits-swapped",
+        "Subtracts the value at the upper limit from the value at the lower limit, so the sign is wrong.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-log-for-power",
+        "Gives a logarithm for the integral of a power of u other than u to the minus one.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-lower-limit-dropped",
+        "Evaluates the antiderivative at the upper limit only and does not subtract its value at the lower limit.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-minus-from-du-dropped",
+        "Forgets the minus sign in du when the derivative of the inner function is negative, such as u = cos x.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-negative-exponent-sign",
+        "Gives the wrong sign when integrating a negative power of u: divides by n minus one instead of by one minus n.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-odd-power-not-split",
+        "Takes the odd power of x as just the single x that goes into du, leaving out the even power that must be rewritten in u.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-power-not-divided",
+        "Raises the exponent but does not divide by the new exponent.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-power-rule-on-trig",
+        "Applies the power rule to the trigonometric function as if it were the variable.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-shift-sign-wrong",
+        "Writes x as u plus a where u equals x plus a, so the constant has the wrong sign inside the rewritten integrand.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-sign-of-du-wrong",
+        "Gives the integral the wrong overall sign.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-square-binomial-expanded-wrong",
+        "Expands the square of a binomial as the difference of two squares, leaving out the middle term.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-wrong-inner-function",
+        "Substitutes a different inner function from the one in the integrand, such as u equals the root alone, not one plus the root.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-subst-x-replaced-by-u",
+        "Replaces the leftover x by u instead of by u minus the constant added in the substitution.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "w6-limit-equal-degree-allowed",
+        "Allows a power equal to the denominator's degree when the limit is to be 0, or to be infinite, forgetting that equal degrees give a finite non-zero limit.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-off-by-one",
+        "Is one out in the bound on the power: stops one below, or one above, the correct whole number.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-direction-reversed",
+        "Reverses the comparison of degrees: takes a larger numerator degree to give 0, or a smaller one to give an infinite limit.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-first-power-only",
+        "Gives the smallest possible power instead of the largest.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-degrees-multiplied",
+        "Multiplies the denominator's degree by two instead of going one past it.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-only-mismatched-term",
+        "Gives the limit of the mismatched fraction alone, forgetting that the other fraction tends to a non-zero value.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-infinite-term-ignored",
+        "Gives the finite limit of one fraction in a sum, ignoring a fraction that tends to infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-negative-infinity-flips-ratio",
+        "Changes the sign of a finite limit because x tends to minus infinity; equal degrees give the same ratio at either end.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-direction-sign-ignored",
+        "Gives the sign of the limit as x tends to plus infinity, ignoring that an odd power of x is negative as x tends to minus infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-power-of-coefficient-not-taken",
+        "Multiplies the coefficient of a factor by its exponent instead of raising the coefficient to that power.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-factor-coefficients-dropped",
+        "Ignores the coefficients of the factors and uses only the constant in the denominator.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-factors-counted-not-degrees",
+        "Counts the factors in the numerator and the denominator instead of adding their degrees.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-of-x-squared-taken-as-x",
+        "Takes the square root of x squared as x, not |x|, so the sign is wrong as x tends to minus infinity.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-not-taken-of-coefficient",
+        "Leaves the coefficient under the square root unrooted, using s squared where s is needed.",
+        area="limits",
+    ),
+    CatalogueEntry(
+        "w6-limit-root-degree-not-halved",
+        "Compares the numerator's degree with the full degree under the square root instead of half of it.",
+        area="limits",
+    ),
+    # -- w7 figures (scale drawing, views, space strand) --
+    CatalogueEntry(
+        "plan-ignores-the-window-condition",
+        "Names the other room with a toilets symbol, which has a window, ignoring the condition that there is no window symbol.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-window-condition-without-toilets",
+        "Names a room with no window symbol that does not have the toilets symbol, ignoring the toilets condition.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-neighbouring-room",
+        "Names a room next to the correct one on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-other-wet-room",
+        "Names a different wet room (bathroom, ensuite, toilet or laundry) from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-other-fixture-room",
+        "Names the room that holds a different fixture or symbol from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-rooms-without-window",
+        "Counts the rooms with no window symbol where the rooms with a window symbol were asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-all-rooms",
+        "Counts every room on the plan instead of only those that meet the condition.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-omits-the-dishwasher",
+        "Leaves the room with the dishwasher out of the rooms a plumber must visit.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-toilets-only",
+        "Counts only the rooms with the toilets symbol and misses the other fixtures that need a plumber.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-a-shared-room-twice",
+        "Counts a room twice when it has more than one plumbing fixture.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-robe-room",
+        "Counts the room with the built-in robe, which needs no plumber.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-charges-per-window-room",
+        "Multiplies the price by the number of rooms with a window symbol instead of the rooms visited.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-names-an-existing-building",
+        "Names a feature drawn with a solid outline (existing) where the dashed (proposed) one was asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-reverses-the-direction",
+        "Gives the opposite compass direction, reading from the second feature to the first.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-swaps-east-and-west",
+        "Swaps east and west when reading a direction off the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-swaps-north-and-south",
+        "Swaps north and south when reading a direction off the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-turns-the-direction",
+        "Gives a compass direction a quarter turn from the correct one.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-perimeter-for-area",
+        "Gives the perimeter of the feature where its area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-reads-the-existing-building",
+        "Gives the area of an existing building where the proposed feature was asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-area-from-squares-on-the-plan",
+        "Counts squares on the plan as square metres without applying the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-adds-the-sides",
+        "Adds the length and width of the feature instead of multiplying them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-leaves-out-the-proposed-feature",
+        "Gives the area of the existing buildings only, leaving out the proposed feature.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-leaves-out-a-building",
+        "Leaves one building out of the total area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-proposed-feature-twice",
+        "Counts the proposed feature twice in the total area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-neighbouring-square",
+        "Reads the square next to the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-swaps-column-and-row",
+        "Swaps the column letter and the row number, reading the wrong square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-other-landmark",
+        "Names a different landmark from the one in the square asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-counts-rows-from-the-top",
+        "Counts the rows from the top of the map instead of from the bottom.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-confuses-east-and-west",
+        "Moves west where the journey goes east, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-confuses-north-and-south",
+        "Moves south where the journey goes north, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-swaps-the-two-distances",
+        "Swaps the two distances, going the first number of squares in the second direction.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-counts-the-start-square",
+        "Counts the starting square as the first step of each move.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-reverses-both-directions",
+        "Reverses both directions of the journey.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-lands-in-a-wrong-square",
+        "Names the landmark at a square the journey does not end in.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "map-names-the-start",
+        "Names the landmark where the journey started.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-adds-instead-of-subtracts",
+        "Adds the two quantities where their difference was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-adds-scale",
+        "Adds the scale (metres to the centimetre) to the length measured on the plan instead of multiplying by it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-for-perimeter",
+        "Gives the area where the perimeter was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-from-perimeter",
+        "Multiplies the actual perimeter by the scale to get an area, instead of scaling the area on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-linear-factor",
+        "Multiplies an area on the plan by the scale once instead of by its square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-area-unscaled",
+        "Gives the area measured on the plan without applying the scale at all.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-cost-adds-price",
+        "Adds the price to the quantity instead of multiplying them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-cost-of-fractional-rolls",
+        "Prices the exact fraction of a roll needed instead of the whole rolls that must be bought.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-difference-unscaled",
+        "Subtracts the shorter route from the longer on the plan but does not apply the scale to the difference.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-doubles-drawn-length",
+        "Doubles the length it divided by instead of dividing the real length by the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-rolls",
+        "Gives the number of rolls where the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-track-not-difference",
+        "Gives the length of the shorter route where the difference between the two routes was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-gives-turf-bought-not-left",
+        "Gives the area covered by all the rolls bought where the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-hours-for-minutes",
+        "Leaves the time in hours, or reads decimal hours as minutes, instead of converting to minutes.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-kilometre-metre-slip",
+        "Slips by a power of ten between kilometres and metres when scaling a map distance.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leaves-out-a-leg",
+        "Leaves one leg of a road that doubles back out of the total length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leftover-complement",
+        "Takes the leftover as the part of a roll that is used instead of the part that is not.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-leftover-extra-roll",
+        "Adds a whole extra roll to the leftover.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-length-unscaled",
+        "Gives the length measured on the plan without applying the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-metre-centimetre-slip",
+        "Slips by a power of ten when converting between metres and centimetres.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-multiplies-for-time",
+        "Multiplies the distance by the speed instead of dividing the distance by the speed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-multiplies-instead-of-divides",
+        "Multiplies where the scale should be divided into the real length, or divides where it should multiply.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-off-by-one",
+        "Is one centimetre out when converting a real length to a drawn length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-one-roll-too-many",
+        "Rounds up and then adds a further roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-perimeter-bounding-rectangle",
+        "Uses the perimeter of the rectangle round the whole shape instead of the shape's own boundary.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-perimeter-omits-side",
+        "Leaves one wall out when adding the sides of the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-on-drawn-area",
+        "Applies the price per square metre to the area measured on the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-on-perimeter",
+        "Applies the price per square metre to the perimeter instead of the area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-price-per-square-metre-for-roll",
+        "Charges the price of one roll for each square metre instead of for each roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-ratio-not-converted",
+        "Writes the metres to the centimetre as the second term of the ratio without converting to centimetres.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-reads-label-as-scale",
+        "Gives the labelled actual length, or the count of squares, as the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-remainder-for-leftover",
+        "Gives the remainder when the area is divided by the roll size, not the area left on the last roll.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-rounds-down",
+        "Rounds down to whole packs or rolls, so the area is not covered.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-rounds-to-nearest",
+        "Rounds to the nearest whole pack or roll instead of always rounding up.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-scale-squared-for-length",
+        "Multiplies a length by the square of the scale.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-straight-across-route",
+        "Measures the straight-across-then-up route instead of following the road that doubles back.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-time-off-by-an-hour",
+        "Is a whole hour out when converting a time in hours to minutes.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "scd-wrong-wall",
+        "Reads a different wall from the one asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-count-off-by-one",
+        "Counts one cube, square or unit too many or too few.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-the-columns",
+        "Counts the columns of the stack, which are the squares of the view from above, instead of the cubes or squares asked for.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-only-the-squares-in-view",
+        "Counts only the faces drawn in the picture and leaves out the faces that are hidden.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-fills-the-bounding-box",
+        "Counts every position in the box that encloses the stack, as if it were full.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-gives-the-cubes-in-the-stack",
+        "Gives the number of cubes already in the stack where the cubes still needed to fill the box were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-gives-the-capacity-of-the-box",
+        "Gives the number of cubes the whole box holds where the cubes still needed were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-takes-the-stack-off-twice",
+        "Subtracts the cubes in the stack twice when finding how many more cubes fill the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-ignores-faces-that-touch",
+        "Counts six faces for every cube, without removing the faces that are joined to another cube.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-counts-the-bottom-once",
+        "Adds the columns to the squares in view, counting the bottom once instead of doubling the squares in view.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-leaves-the-area-unscaled",
+        "Gives the area in unit squares where the area in square centimetres was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-scales-an-area-by-the-side-once",
+        "Multiplies an area by the side of a unit square once instead of by its square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-cubes-the-side",
+        "Multiplies an area by the cube of the side instead of the square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "stk-uses-the-cubes-for-the-squares",
+        "Scales the number of cubes where the number of unit squares on the surface was needed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-lengths-not-edges",
+        "Counts the lengths of the cuboid that match, not the four edges for each length.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-every-edge",
+        "Counts all twelve edges of the cuboid.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-one-set-of-edges",
+        "Counts one set of four parallel edges where the matching edges were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-three-edges-for-a-length",
+        "Counts three edges for each matching length instead of four.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-faces-for-edges",
+        "Gives the number of faces of the cuboid where edges were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-adds-the-lengths",
+        "Adds the three lengths of the cuboid instead of multiplying them to find the volume.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-adds-the-face-areas",
+        "Adds the areas of the three different faces instead of finding the volume or the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-the-surface-for-the-volume",
+        "Gives the surface area of the cuboid where its volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-multiplies-two-lengths-only",
+        "Multiplies only two of the three lengths of the cuboid, or adds the third.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-counts-one-of-each-pair-of-faces",
+        "Counts the three different faces once each, forgetting that every face has an equal opposite face.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-the-volume-for-the-surface",
+        "Gives the volume of the cuboid where its surface area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-gives-edge-length-for-surface",
+        "Gives the total length of the edges where the surface area was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-leaves-out-a-pair-of-faces",
+        "Leaves one pair of opposite faces out of the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "cub-prices-the-volume",
+        "Applies the price for each unit square to the number of cubes instead of the surface area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-shortest-edge",
+        "Gives the shortest edge of the box where the longest was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-another-edge",
+        "Gives a different edge of the box from the longest.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-width-of-the-sheet",
+        "Gives the width of the sheet round the net as an edge of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-height-of-the-sheet",
+        "Gives the height of the sheet round the net as an edge of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-edges",
+        "Adds the three edges of the box where one length or the volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-volume-for-an-edge",
+        "Gives the volume of the box where an edge was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-leaves-out-the-top-and-bottom",
+        "Finds the area of the four side faces only and leaves out the top and the bottom.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-counts-one-of-each-pair-of-faces",
+        "Counts each of the three different faces once, forgetting that every face has an equal opposite face.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-volume-for-the-surface",
+        "Gives the volume of the box where its surface area (or the leftover sheet) was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-sheet-for-the-surface",
+        "Gives the area of the whole sheet where the area of the net or the area left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-leaves-out-a-pair-of-faces",
+        "Leaves one pair of opposite faces out of the net's area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-surface-for-the-volume",
+        "Gives the surface area of the box where its volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-face-areas",
+        "Adds the areas of the three different faces instead of finding the volume.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-a-face-to-the-volume",
+        "Adds the area of a face to the volume of the box.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-net-not-the-leftover",
+        "Gives the area of the net where the area of the sheet left over was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-adds-the-sheet-sides",
+        "Adds the width and the height of the sheet instead of finding the area left over.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-back-view",
+        "Reads the view from the back where another view was asked, which reverses the column heights.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-side-view",
+        "Gives the view from the side where the front view was asked, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-front-view",
+        "Gives the view from the front where the side view or the squares from above were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-opposite-side-view",
+        "Gives the view from the opposite side, which reverses the column heights.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-counts-every-cube-for-a-view",
+        "Counts every cube of the stack for the squares in a view, including cubes hidden behind others.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-gives-the-plan-for-the-elevation",
+        "Gives the squares of the view from above where the squares of the front view were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "elev-multiplies-by-the-height",
+        "Multiplies the squares from above by the tallest column instead of counting each column once.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-bounding-rectangle",
+        "Gives the area of the rectangle round the shape (or its cost) as if the shape filled it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-the-bare-squares",
+        "Gives the squares of the rectangle that the shape leaves bare where the area of the shape was asked, or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-perimeter-for-the-area",
+        "Gives the distance round the edge where the number of squares inside was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-area-for-the-perimeter",
+        "Gives the number of squares inside where the distance round the edge was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-the-bounding-perimeter",
+        "Gives the perimeter of the rectangle round the shape, ignoring the notches in its edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-leaves-out-a-side",
+        "Leaves one side out when adding the lengths round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-a-side-twice",
+        "Counts one side twice when adding the lengths round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-gives-half-the-perimeter",
+        "Gives half the distance round the edge.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-counts-the-covered-squares",
+        "Gives the squares the shape covers where the bare squares were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "comp-adds-the-sides",
+        "Adds the width and the height of the rectangle where its bare squares were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-cubes-already-counted",
+        "Gives the cubes in the stacks that show a number where the stack marked with a question mark was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-total",
+        "Gives the total number of cubes in the model where another count was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-treats-every-stack-as-one-cube",
+        "Takes the total less one cube for every other stack, as if each stack with a number held a single cube.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-total-after-adding",
+        "Gives the number of cubes in the finished model where the cubes added were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-builds-on-the-bare-squares",
+        "Adds cubes to the bare squares too, instead of leaving them bare.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-forgets-the-marked-stack",
+        "Leaves the stack marked with a question mark out of the cubes already in the model.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-gives-the-cubes-added",
+        "Gives the cubes added where the cubes in the finished model were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "mod-takes-away-the-cubes-added",
+        "Takes the cubes added away from the total instead of adding them.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-squares-not-the-cubes",
+        "Counts the squares of the plan that have a stack instead of adding the cubes in the stacks.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-makes-every-stack-the-tallest",
+        "Gives every stack the height of the tallest stack, instead of using the number written on each square.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "view-adds-the-cubes-in-a-line",
+        "Adds the cubes in a line of stacks instead of taking the tallest, so the column is too tall.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "view-reads-only-the-nearest-row",
+        "Reads only the row of stacks nearest the viewer instead of the tallest stack in each line.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-direction-reversed",
+        "Turns the shape the right amount but the wrong way, clockwise for anticlockwise or the reverse.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-wrong-amount",
+        "Turns the shape through the wrong amount, such as a half turn for a quarter turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-reflection-for-a-turn",
+        "Takes a reflection (a flip) of the shape to be a turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-uses-only-the-first-turn",
+        "Applies only the first of two turns.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-uses-only-the-second-turn",
+        "Applies only the second of two turns.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-a-side-face-for-the-top",
+        "Gives the squares in a side face where the top face was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-perimeter-of-the-top",
+        "Gives the distance round the top face where its squares were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-row-for-the-volume",
+        "Gives the squares in the row of four side faces where the volume was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "net-gives-the-width-of-the-row",
+        "Gives the width of the row of four side faces where the height of the box was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-forgets-the-missing-corner",
+        "Finds the cells of the whole rectangle and forgets the corner that is missing.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-counts-the-missing-corner",
+        "Gives the cells of the missing corner where the cells the plan covers were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-takes-away-the-sides-of-the-corner",
+        "Takes away the width and height of the missing corner instead of its area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-adds-the-notch-to-the-perimeter",
+        "Adds the sides of the missing corner to the distance round the plan, when the notch does not change it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-takes-the-notch-off-the-perimeter",
+        "Takes the sides of the missing corner off the distance round the plan, when the notch does not change it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-gives-half-the-perimeter",
+        "Gives the sum of the width and the height, half the distance round the plan.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "plan-area-for-perimeter",
+        "Gives the cells the plan covers where the distance round it was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "tess-adds-the-sides-and-the-length",
+        "Adds the number of sides to the length of a side instead of multiplying them to find the distance round the tile.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "tess-gives-the-angle-for-the-distance",
+        "Gives the angle of the tile where the distance round it was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "tess-squares-the-side",
+        "Squares the length of a side, as if the distance round a tile were an area.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "tess-misses-a-side",
+        "Counts one side too many or too few when finding the distance round the tile.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "tess-gives-the-length-of-one-side",
+        "Gives the length of one side where the distance round the whole tile was asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "trial-gives-the-outcome-asked-not-the-rest",
+        "Gives the tally of the outcome named, where the trials that were not that outcome were asked.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "trial-uses-one-group-only",
+        "Uses the tally of one group only, where the two groups' results were to be put together.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-goes-the-wrong-way",
+        "Counts the right angles the other way round the dial, from the end back to the start, instead of clockwise.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-start-position",
+        "Counts the starting position as well as the turns, so the count is one too many.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-reads-the-clock-numbers",
+        "Gives a number written on the clock face instead of counting the right angles between the two numbers.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-doubles-the-count",
+        "Counts two right angles for every quarter turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-adds-the-turn-counts",
+        "Adds the number of whole turns to the number of part turns, forgetting that a whole turn is four right angles.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-full-turns-as-one",
+        "Counts each full turn as one right angle, or all the full turns as a single turn of four.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-drops-the-part-turn",
+        "Counts the full turns in right angles but leaves out the part turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-rounds-up-to-a-full-turn",
+        "Rounds the part turn up to a whole turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-a-full-turn-as-two",
+        "Counts a full turn as two right angles, the value of a half turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-adds-the-way-back",
+        "Adds the turn back to the turn forward instead of subtracting it.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-ignores-the-way-back",
+        "Gives the turn forward and takes no notice of the turn back.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-the-way-back",
+        "Gives the right angles of the turn back instead of the net turn.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-the-turn-already-made",
+        "Gives the right angles already past the last whole turn instead of the right angles still needed.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-counts-the-full-turns",
+        "Gives the number of whole turns made instead of the right angles still needed to finish the next one.",
+        area="figure-views",
+    ),
+    CatalogueEntry(
+        "turn-gives-a-whole-turn",
+        "Says four right angles, a whole extra turn, where only the rest of the current turn was needed.",
+        area="figure-views",
+    ),
+    # -- restored entries (dropped by a worker's regenerated block) --
+    CatalogueEntry(
+        "ogive-boundary-for-count",
+        "Gives the boundary from the horizontal axis where a number of values was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-count-for-value",
+        "Gives a cumulative frequency (a count) where a value on the horizontal axis was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-total-for-count",
+        "Gives the total number of values, the top of the graph, instead of the number below the boundary.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-neighbouring-point",
+        "Reads the plotted point next to the one the question names.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-complement-count",
+        "Gives the number below the boundary where the number at or above it was asked, or the reverse.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-adds-heights",
+        "Adds the heights of the two plotted points instead of subtracting the lower from the upper.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-upper-point-only",
+        "Gives the height of the upper plotted point and forgets to take away the values already below the lower boundary.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-lower-point-only",
+        "Gives the height of the lower plotted point instead of the number between the two boundaries.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-width-for-count",
+        "Gives the difference between the two boundaries (the class width) instead of the number of values between them.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-adds-all-heights",
+        "Adds the heights of every plotted point to get the total instead of reading the top of the graph.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-classes-for-total",
+        "Gives the number of classes where the total number of values was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-middle-of-axis",
+        "Takes the middle of the horizontal axis as the median instead of reading where the graph reaches half the total.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-quartile-sum",
+        "Adds the lower and upper quartiles instead of subtracting.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-range-for-iqr",
+        "Gives the range of the whole graph where the interquartile range was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-half-spread",
+        "Gives the distance from a quartile to the median where the distance between the two quartiles was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-upper-quartile-only",
+        "Gives the upper quartile alone where the interquartile range was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-count-between-quartiles",
+        "Gives the number of values between the quartiles (half of them) where the interquartile range was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-modal-upper-boundary",
+        "Gives the upper boundary of the modal class instead of its lower boundary.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-modal-is-last-class",
+        "Takes the last class, where the cumulative frequency is highest, as the modal class.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-modal-is-flattest",
+        "Takes the flattest part of the graph, the class with the fewest values, as the modal class.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-modal-is-median-class",
+        "Takes the class where the graph reaches half the total as the modal class.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-count-for-percentage",
+        "Gives the number of values where the percentage of the total was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-complement-percentage",
+        "Gives the percentage on the wrong side of the boundary (100 less the answer).",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-percentage-of-upper-point",
+        "Gives the percentage below the upper boundary and forgets to take away the percentage below the lower one.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-compares-cumulative",
+        "Compares the cumulative frequencies at the class boundaries instead of the frequencies of the two classes.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "ogive-adds-classes",
+        "Adds the two class frequencies where their difference was asked.",
+        area="cumulative-frequency-ogive",
+    ),
+    CatalogueEntry(
+        "fpoly-midpoint-for-frequency",
+        "Gives the class midpoint from the horizontal axis where the frequency was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-neighbouring-point",
+        "Reads the plotted point next to the one the question names.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-misreads-gridline",
+        "Reads the gridline above or below the plotted point.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-frequency-for-midpoint",
+        "Gives the highest frequency where the midpoint of the modal class was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-boundary-for-midpoint",
+        "Gives a class boundary where the midpoint of the class was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-midpoint-for-boundary",
+        "Gives the midpoint of the modal class where its lower boundary was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-upper-boundary-for-lower",
+        "Gives the upper boundary of the modal class instead of its lower boundary.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-counts-points",
+        "Gives the number of plotted points, or the tallest point, for the total number of values.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-total-misses-a-class",
+        "Leaves out the lowest or highest class when adding the frequencies for the total.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-total-counts-a-class-twice",
+        "Counts the tallest class twice when adding the frequencies for the total.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-adds-modal-and-class",
+        "Adds the two class frequencies where how many more one holds than the other was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-modal-and-neighbour",
+        "Compares the modal class with the class next to the named one, not with the named class.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-boundary-class-included",
+        "Includes the class just below the stated boundary when counting the values at or above it.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-boundary-class-left-out",
+        "Leaves out the class that starts at the stated boundary when counting the values at or above it.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-complement-count",
+        "Counts the values on the wrong side of the stated boundary.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-count-for-percentage",
+        "Gives the number of values where the percentage of the total was asked.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-complement-percentage",
+        "Gives the percentage on the wrong side of the stated boundary (100 less the answer).",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-is-modal-midpoint",
+        "Gives the midpoint of the modal class as the mean.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-unweighted",
+        "Averages the class midpoints without weighting by the frequencies.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-divides-by-classes",
+        "Divides the sum of midpoint times frequency by the number of classes instead of the number of values.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-of-frequencies",
+        "Averages the frequencies instead of the midpoints weighted by them.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "fpoly-mean-uses-lower-boundaries",
+        "Uses the lower boundary of each class in place of its midpoint when estimating the mean.",
+        area="frequency-polygon-read",
+    ),
+    CatalogueEntry(
+        "dq-different-variable",
+        "Chooses something that can be measured about the same people, but that cannot answer the question asked.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-count-for-category",
+        "Records how many of something each person has where the question is about which kind they have.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-category-for-count",
+        "Records which kind each person has where the question asks how many.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-yes-no-too-little",
+        "Records only a yes or no, which loses the count or the category the question needs.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-vague-question",
+        "Chooses a question that is too open to give data that can be sorted or counted.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-two-questions-in-one",
+        "Chooses a question that asks two things at once, so one answer cannot be sorted into one group.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-flags-largest-valid",
+        "Flags the largest entry just because it is the largest, although it is a possible value.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-flags-smallest-valid",
+        "Flags the smallest entry just because it is the smallest, although it is a possible value.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-flags-repeated-entry",
+        "Flags an entry that appears more than once, although a repeated value is not an error.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-flags-other-valid",
+        "Flags an entry that is a possible value and fits the others.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-count-type-confused",
+        "Calls a count of whole things continuous or categorical.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-total-keeps-error",
+        "Adds up the entries without correcting the one that was wrong.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-total-drops-entry",
+        "Leaves the wrong entry out of the total instead of replacing it with the corrected value.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-total-adds-error-twice",
+        "Adds the corrected value to a total that still contains the wrong entry.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-mean-uses-wrong-count",
+        "Divides the total by the number of different values, or by one fewer than the number of people.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-mean-uses-error-total",
+        "Divides the uncorrected total by the number of people.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-total-ignores-sign",
+        "Adds the negative entry as if it were positive when finding the corrected total.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "dq-arithmetic-slip",
+        "Makes a small slip of one or two when adding or dividing.",
+        area="acquire-and-check-data",
+    ),
+    CatalogueEntry(
+        "w9-swapped-coordinates",
+        "Plots the point with its coordinates the wrong way round: goes up first and across second.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-x-sign-ignored",
+        "Plots a negative x-coordinate to the right of the y-axis, or a positive one to the left.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-y-sign-ignored",
+        "Plots a negative y-coordinate above the x-axis, or a positive one below it.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-both-signs-ignored",
+        "Ignores the signs of both coordinates, so the point lands in the first quadrant.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-counts-from-the-wrong-line",
+        "Counts one gridline too far or too few along an axis, so the point is a square out.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-midpoint-not-halved",
+        "Adds the coordinates of the two points to find the midpoint but does not halve the sums.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-midpoint-uses-difference",
+        "Subtracts the coordinates of the two points instead of adding them to find the midpoint.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-midpoint-on-one-axis",
+        "Finds the middle of the x-values but keeps the y-value of one of the points (or the reverse).",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-wrong-pairing",
+        "Completes the parallelogram on the wrong pair of sides, so the fourth point is not opposite the middle vertex.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-adds-all-three",
+        "Adds the coordinates of all three vertices to find the fourth.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-area-half",
+        "Gives the area of triangle ABC, which is half the area of the parallelogram.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-area-sides",
+        "Multiplies the lengths of two adjacent sides, as if the parallelogram were a rectangle.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-parallelogram-area-bounding-box",
+        "Gives the area of the box that just contains the parallelogram.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-line-point-sign",
+        "Subtracts the constant instead of adding it (or the reverse) when finding the point on the line.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-line-point-forgets-gradient",
+        "Uses the x-value as the y-value, or adds the gradient instead of multiplying by it.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-half-unit-rounded",
+        "Rounds a half-unit coordinate to a whole unit.",
+        area="plot-a-point-from-coordinates",
+    ),
+    CatalogueEntry(
+        "w9-line-gradient-sign",
+        "Draws a line as steep as the gradient says but sloping the wrong way: the sign of the gradient is flipped.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercept-sign",
+        "Starts the line at the opposite end of the y-axis, at minus the intercept.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-gradient-inverted",
+        "Moves across by the rise and up by the run, so the line has the reciprocal of the gradient.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-axes-swapped",
+        "Plots the points of the line with x and y the wrong way round, which reflects the line in y = x.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-starts-off-the-intercept",
+        "Starts the line one square above or below the intercept.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-ignores-the-point",
+        "Draws a line with the right gradient but through the origin instead of through the given point.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-through-swapped-point",
+        "Draws the line through the given point with its coordinates the wrong way round.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-parallel-reflected",
+        "Draws the line through the point with the opposite gradient, instead of the same gradient.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-perpendicular-parallel",
+        "Draws a parallel line through the point when a perpendicular one was asked for.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-perpendicular-no-flip",
+        "Takes the reciprocal of the gradient but keeps its sign, so the line is not perpendicular.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-perpendicular-negated-only",
+        "Negates the gradient but forgets to take the reciprocal, so the line is not perpendicular.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercepts-swapped",
+        "Swaps the x- and y-intercepts of the line, which gives a line with the wrong slope.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-standard-form-sign",
+        "Takes the gradient of ax + by = c as a/b instead of -a/b.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercept-from-coefficient",
+        "Reads the y-intercept off the constant on the right of the equation without dividing by the y-coefficient.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-x-intercept-sign",
+        "Finds the x-intercept as c/m instead of -c/m.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-x-intercept-is-y-intercept",
+        "Gives the y-intercept where the x-intercept was asked.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-x-intercept-inverted",
+        "Finds the x-intercept as -m/c, dividing the wrong way round.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercept-uses-gradient",
+        "Finds the y-intercept of the parallel line by using the gradient of the first line as the intercept.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-line-intercept-point-sign",
+        "Subtracts the gradient times x from y but adds it, or the reverse, when finding the intercept through the point.",
+        area="line-draw-from-gradient-and-point",
+    ),
+    CatalogueEntry(
+        "w9-ray-wrong-direction",
+        "Shades the ray towards the wrong end of the number line, so it shows the opposite inequality.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-circle-open-closed-swapped",
+        "Uses an open circle where the bound is included (or a closed circle where it is not).",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ray-and-circle-wrong",
+        "Shades the wrong way and also uses the wrong kind of circle.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-bound-sign-ignored",
+        "Puts the bound on the wrong side of zero, as if its sign did not matter.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-bound-point-only",
+        "Marks only the bound itself and does not shade the numbers that satisfy the inequality.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-forgets-to-divide",
+        "Moves the constant across but does not divide by the coefficient of x.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-constant-sign",
+        "Adds the constant to the right-hand side instead of subtracting it (or the reverse).",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-divides-wrongly",
+        "Multiplies by the coefficient of x instead of dividing by it.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-sign-not-reversed",
+        "Divides by a negative number without reversing the inequality sign.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-ineq-negative-bound-sign",
+        "Divides by a negative number and keeps the sign of the bound, so the bound is on the wrong side of zero.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-compound-wrong-end-open",
+        "Draws a compound inequality with the circles the wrong way round: closed where open and open where closed.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-compound-one-ray",
+        "Shades only a ray from one end of a compound inequality, not the segment between the two bounds.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-compound-outside",
+        "Shades outside the two bounds instead of between them.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-centre-sign",
+        "Takes the centre of |x - a| as -a, so the interval is centred on the wrong side of zero.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-centre-ignored",
+        "Ignores the shift in |x - a| and centres the interval on zero.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-union-for-intersection",
+        "Shades the two outer rays for a 'less than' absolute-value inequality, which needs the segment between them.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-intersection-for-union",
+        "Shades the segment between the bounds for a 'greater than' absolute-value inequality, which needs the two outer rays.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-abs-one-side-only",
+        "Solves only one of the two cases of an absolute-value inequality, so only one bound or ray is shown.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-or-drawn-as-and",
+        "Shades only where both inequalities hold when the word was 'or', or shades only one of the two rays.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-and-drawn-as-or",
+        "Shades everywhere either inequality holds when the word was 'and'.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-integer-count-includes-open-bound",
+        "Counts the whole number at an open circle as a solution.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-integer-count-misses-closed-bound",
+        "Leaves out the whole number at a closed circle when counting solutions.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-integer-count-fencepost",
+        "Counts the gaps between the bounds instead of the whole numbers, so is one out.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-integer-greatest-open-bound",
+        "Gives the bound itself as the greatest whole number even though the inequality is strict.",
+        area="inequality-on-number-line",
+    ),
+    CatalogueEntry(
+        "w9-region-wrong-side",
+        "Shades the side of the boundary line that does not satisfy the inequality.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-boundary-style",
+        "Draws a solid boundary for a strict inequality, or a dashed boundary for one that includes the line.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-intercept-sign",
+        "Puts the boundary line through the y-axis at the opposite end: the sign of the constant is wrong.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-sign",
+        "Draws the boundary sloping the wrong way: the sign of the gradient is wrong.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-inverted",
+        "Draws a boundary with the reciprocal of the gradient, going across by the rise and up by the run.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-axes-swapped",
+        "Swaps x and y when drawing the boundary, which reflects it in the line y = x.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-sign-not-flipped",
+        "Rearranges to make y positive by dividing by a negative number without reversing the inequality sign, so the shading is on the wrong side.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-intercepts-swapped",
+        "Swaps the x- and y-intercepts of the boundary when the equation is in standard form.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-intercept-not-divided",
+        "Uses the right-hand constant as an intercept without dividing by the coefficient of the variable.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-one-condition-only",
+        "Shades the region for one of the inequalities in a system and ignores the others.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-union-for-intersection",
+        "Shades everywhere that satisfies at least one inequality, when the system needs all of them at once.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-strip-one-side",
+        "Shades one side of only one of the two parallel boundaries instead of the strip between them.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-strip-outside",
+        "Shades outside the two parallel boundaries instead of between them.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-quadrant-ignored",
+        "Leaves out the conditions x ≥ 0 and y ≥ 0, so the region extends beyond the first quadrant.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-from-coefficients",
+        "Reads the gradient of ax + by = c as a/b, forgetting the minus sign.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-as-intercept",
+        "Gives the y-intercept c/b where the gradient was asked.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-gradient-inverted-number",
+        "Gives -b/a, the reciprocal of the gradient.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-count-boundary-strict",
+        "Counts a point on a dashed boundary as inside the region.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-count-boundary-missed",
+        "Leaves out a point on a solid boundary, which is part of the region.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-region-count-complement",
+        "Counts the points outside the region instead of inside it.",
+        area="shade-linear-inequality-region",
+    ),
+    CatalogueEntry(
+        "w9-translate-direction",
+        "Moves the shape the wrong way along one direction: right for left, or up for down.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-translate-components-swapped",
+        "Swaps the across and up parts of the translation.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-translate-one-component",
+        "Applies only the across part or only the up part of the translation.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-translate-negated",
+        "Moves the shape by the opposite vector, undoing the translation.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-wrong-axis",
+        "Reflects in the other axis, or the other mirror line, instead of the one named.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-distance-not-doubled",
+        "Moves each point only as far as the mirror line instead of through it, so the image lands on the line.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-line-value-not-doubled",
+        "Writes k - x instead of 2k - x for the image of a point in the line x = k (or k - y for y = k).",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-adds-instead",
+        "Moves each point the distance to the mirror line in the same direction, which translates the shape instead of reflecting it.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-reflect-diagonal-as-swap-sign",
+        "Reflects in y = -x by swapping the coordinates but forgetting to change both signs (or the reverse for y = x).",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-direction",
+        "Turns the shape the wrong way round: clockwise for anticlockwise or the reverse.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-angle",
+        "Turns the shape through a half turn when a quarter turn was asked, or the reverse.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-about-origin",
+        "Turns the shape about the origin instead of about the marked centre.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-as-reflection",
+        "Swaps the coordinates, which reflects the shape in y = x instead of turning it.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-rotate-sign-slip",
+        "Swaps the coordinates in a quarter turn but gives both the wrong sign.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-image-vertices-misordered",
+        "Puts the image vertices in the wrong order, so A' is not where A went.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-composite-order-reversed",
+        "Does the two transformations in the wrong order.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-composite-first-only",
+        "Applies only the first of the two transformations.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-composite-second-only",
+        "Applies only the second of the two transformations to the original shape.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-area-changes-with-image",
+        "Thinks the area changes under a reflection, translation or rotation, and recalculates it wrongly or doubles it.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-area-no-half",
+        "Gives the area of the box round the triangle, forgetting to halve it.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-area-base-times-side",
+        "Multiplies two sides of the triangle instead of using base times height over two.",
+        area="transform-a-shape-on-grid",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-x-sign",
+        "Reads the vertex of y = a(x - h)² + k as (-h, k): the sign inside the bracket is taken at face value.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-y-sign",
+        "Reads the vertex of y = a(x - h)² + k as (h, -k): the sign of the constant is flipped.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-swapped",
+        "Swaps the coordinates of the vertex, giving (k, h).",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-opens-wrong-way",
+        "Draws the parabola opening upwards when a is negative, or downwards when a is positive.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-stretch-ignored",
+        "Ignores the stretch a, so the second point is only 1 up (or down) for each 1 across.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-stretch-inverted",
+        "Uses 1/a for the stretch instead of a.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-stretch-not-squared",
+        "Multiplies the distance from the axis of symmetry by a without squaring it, so the second point is wrong.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-formula-no-half",
+        "Takes the x-coordinate of the vertex of ax² + bx + c as -b, forgetting to divide by 2a.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-formula-sign",
+        "Takes the x-coordinate of the vertex of ax² + bx + c as b/2a, forgetting the minus sign.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-formula-no-a",
+        "Takes the x-coordinate of the vertex of ax² + bx + c as -b/2, forgetting to divide by a.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-y-is-intercept",
+        "Takes the constant term c of the expanded equation as the y-coordinate of the vertex.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-x-is-root",
+        "Puts the vertex at one of the x-intercepts instead of halfway between them.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-roots-sum-not-halved",
+        "Adds the two x-intercepts to find the axis of symmetry but does not halve the sum.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-vertex-on-axis",
+        "Puts the vertex on the x-axis, at the midpoint of the roots, instead of at the minimum or maximum height.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-roots-sign",
+        "Reads the factor (x - p) as a root at -p, so the x-intercepts are on the wrong side of zero.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-stretch-from-intercept",
+        "Takes the y-intercept as the stretch a, instead of dividing it by the product of the roots.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-y-intercept-wrong-sign",
+        "Gives the y-intercept of a(x - p)(x - q) as -apq, forgetting that two negative signs multiply.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-y-intercept-coefficient",
+        "Gives the coefficient of x as the y-intercept of the expanded equation.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-y-intercept-vertex-y",
+        "Gives the y-coordinate of the vertex as the y-intercept.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "w9-parabola-y-intercept-from-vertex-form",
+        "Gives the constant k of the vertex form as the y-intercept, without putting x = 0 into the squared bracket.",
+        area="parabola-from-vertex-and-point",
+    ),
+    CatalogueEntry(
+        "surd-root-not-squared",
+        "Squaring a product that holds a square root but leaving the root unsquared, so (q√n)^2 becomes q^2√n.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-forgot-square-on-q",
+        "Squaring only part of a product: (q√n)^2 or (nk)^2 written with one factor left unsquared.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-square-of-product-as-sum",
+        "Treating the square of a product as the square of a sum, or replacing a product by a sum before squaring.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-cancels-factor-wrongly",
+        "Cancelling a common factor incorrectly in a fraction: dividing only part of the numerator, or losing a power of the letter.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-divides-only-the-root",
+        "Dividing only one term of a sum by b when isolating a surd, so (a + b√n - a)/b becomes √n - a/b.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-forgot-to-divide-by-b",
+        "Subtracting the rational part to isolate the surd but never dividing by its coefficient.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-sign-of-a-flipped",
+        "Adding the rational part where it should be subtracted, or subtracting a cross term that should be added.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-sum-cross-term-forgotten",
+        "Squaring a sum of two surds without the cross term: (√m + √n)^2 written as m + n.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-odd-square-forgets-cross-term",
+        "Squaring an odd number 2k + c without the middle term 4ck.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-square-of-sum-termwise",
+        "Squaring or cubing a sum or product term by term: (2k + 1)^2 as 2k^2 + 1, or (2k)^2 as 2k^2.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-odd-form-off-by-one",
+        "Writing the final line as an even number plus the wrong leftover, so it no longer equals the expression it should show is odd or even.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-factor-not-taken-out-fully",
+        "Taking a factor of 2 (or 4) out of some terms of a sum but not all of them, or not halving the last term.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "parity-product-misses-cross-term",
+        "Multiplying two brackets with fewer than four products, or leaving the factor 2 off a cross term.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "amgm-cross-term-sign",
+        "Writing the square of a sum where the square of a difference is needed, or the reverse.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "amgm-difference-of-squares",
+        "Writing a difference of squares (a - b)(a + b) where a perfect square (a - b)^2 is needed.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "amgm-cross-term-halved",
+        "Expanding or factorising a square with the cross term -ab instead of -2ab.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "amgm-drops-denominator",
+        "Combining fractions but putting only part of the expression over the common denominator, or using the wrong one.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "tri-abs-squared-not-squared",
+        "Treating |a|^2 as |a| (or the cross term 2|a||b| as 2ab) when squaring an absolute value.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "tri-cross-term-sign",
+        "Adding the cross term 2ab where it should be subtracted when finding the difference of two squares.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "tri-cross-term-dropped",
+        "Dropping the cross term, or its factor 2, when expanding the square of a sum of absolute values.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "surd-quotient-inverted",
+        "Turning p over q into q over p when squaring both sides of a quotient involving a surd.",
+        area="proof-steps",
+    ),
+    CatalogueEntry(
+        "w5qi-region-reversed",
+        "Takes the region on the wrong side of the roots: the part between them where the outside was needed, or the reverse.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-strictness-swapped",
+        "Includes the end values when the inequality is strict, or leaves them out when it is not.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-roots-negated",
+        "Writes the roots with their signs reversed, reading (x + 3) as a root of 3.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-one-factor-only",
+        "Treats the product like a single factor and gives one ray, by setting each factor to the same sign as the whole product.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-ignores-negative-leading",
+        "Overlooks a negative leading coefficient, so the parabola opens the wrong way and the regions swap.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-forgot-to-move-constant",
+        "Solves with the number on the right ignored, using the roots of the left-hand side alone.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-positive-root-only",
+        "Takes only the positive square root of the number, so a pair of regions becomes a single ray.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-ignores-repeated-root",
+        "Forgets that a squared factor is never negative, so the answer misses the single value where it is zero.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-no-solution-confusion",
+        "Mixes up all real numbers and no solution when the quadratic never changes sign.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-no-roots-wrong-sign",
+        "Gives the wrong verdict when a quadratic has no real roots, reading the sign of the leading coefficient the wrong way.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-invents-roots",
+        "Invents roots for a quadratic whose discriminant is negative and splits the number line at them.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-as-boundary",
+        "Uses the turning point as the boundary of the solution set.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-forgets-square-root",
+        "Writes the bounds as the centre plus and minus the number under the root, not its square root.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-rounds-surd-bounds",
+        "Replaces the exact bounds by nearby whole numbers.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-sum-not-half",
+        "Gives the sum of the roots as the turning point, forgetting to halve it.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-half-gap",
+        "Gives half the distance between the roots as the x-coordinate of the turning point.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-vertex-sign-flipped",
+        "Gives the turning point with its sign reversed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-root-for-turning-point",
+        "Gives one of the roots as the x-coordinate of the turning point.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-count-sums-roots",
+        "Adds the two roots to count the whole numbers between them, where their difference was needed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-intercept-not-extreme",
+        "Gives the y-intercept as the greatest or least value of the quadratic.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-extreme-sign-flipped",
+        "Gives the greatest or least value with its sign reversed.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-gives-position-not-value",
+        "Gives the x-coordinate of the turning point where its y-value was asked.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5qi-extreme-forgets-linear-term",
+        "Substitutes the turning point into the squared term alone and drops the rest of the quadratic.",
+        area="quadratic-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-region-reversed",
+        "Takes the regions on the wrong side of the critical values, giving where the fraction has the opposite sign.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-zero-strictness",
+        "Mishandles the value that makes the numerator zero: leaving it out when the inequality allows equality, or including it when it does not.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-multiplied-by-denominator",
+        "Multiplies both sides by an expression that can be negative without reversing the inequality for the values where it is, leaving only the numerator to solve.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-included",
+        "Includes the value that makes the denominator zero, although the fraction is undefined there.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-roots-negated",
+        "Writes the critical values with their signs reversed, reading (x + 3) as zero at 3.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-compares-with-zero-not-k",
+        "Solves the fraction against 0 where the inequality compares it with another number.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-square-treated-as-sign-change",
+        "Treats a squared factor like a single factor, so the fraction appears to change sign where it does not.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-zero-for-pole",
+        "Gives the value that makes the numerator zero where the value that makes the denominator zero was asked.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-sign-flipped",
+        "Gives the value that makes the denominator zero with its sign reversed.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-pole-zero-guess",
+        "Guesses that the fraction is undefined at x = 0.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5ri-counts-the-pole",
+        "Counts the whole number where the denominator is zero as a solution, or the complement of the solution count.",
+        area="rational-inequalities",
+    ),
+    CatalogueEntry(
+        "w5c-centre-sign-as-written",
+        "Takes the centre with the signs as they appear inside the brackets, so (x - 3) gives a centre at x = -3.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-sign-unchanged",
+        "Writes the centre coordinates into (x + a)^2 + (y + b)^2 with their own signs instead of reversing them.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-coordinates-swapped",
+        "Swaps the x- and y-coordinates of the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-is-r-squared",
+        "Gives the number on the right of the equation, r squared, as the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-off-by-one",
+        "Gives a radius one unit away from the correct one.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-writes-radius-not-squared",
+        "Writes the radius where the radius squared belongs on the right of the equation.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-doubles-radius-not-squares",
+        "Doubles the radius where it should be squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-distance-by-adding-offsets",
+        "Finds a distance by adding the horizontal and vertical offsets instead of using Pythagoras.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-centre-sign-in-distance",
+        "Measures the distance from the point to the centre with the signs of the centre reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-sum-not-midpoint",
+        "Adds the coordinates of the two ends of a diameter to get the centre, without halving.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-squared-for-radius",
+        "Squares the diameter where the radius should be squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-endpoint-not-midpoint",
+        "Uses an end of the diameter as the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-quadrant",
+        "Gives the centre in the wrong quadrant, ignoring which quadrant the circle lies in.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-tangent-wrong-axis",
+        "Uses the distance to the wrong axis as the radius of a circle that touches an axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-distance-from-origin",
+        "Uses the distance from the centre to the origin as the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-difference",
+        "Subtracts the coordinates of the two ends of a diameter to get the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-for-radius",
+        "Gives the diameter where the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-radius-for-gap",
+        "Adds the radius to the distance to the centre where the shortest distance to the circle was needed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-distance-to-centre-not-circle",
+        "Gives the distance from the point to the centre where the distance to the circle itself was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-for-gap",
+        "Gives the radius where the distance from the point to the circle was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-squared-distances",
+        "Subtracts squared distances where the distances themselves should be subtracted.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-is-half-coefficient-with-its-sign",
+        "Halves the coefficient of x or y but keeps its sign, so x^2 - 6x gives a centre at x = -3.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-not-halved",
+        "Uses the whole coefficient of x or y as the coordinate of the centre, without halving it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-to-add-completed-squares",
+        "Forgets to add the squares made by completing the square to the right side, so the radius squared comes out too small.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-completed-squares-subtracted-twice",
+        "Subtracts the completed squares from the right side instead of adding them.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-expands-with-wrong-signs",
+        "Expands the squared brackets with the signs of the linear terms reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-linear-term-not-doubled",
+        "Writes the linear term as the centre coordinate alone, without doubling it when expanding.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-squared-added-not-subtracted",
+        "Adds the radius squared to the squares of the centre coordinates where it should be subtracted.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-constant-sign-reversed",
+        "Gives the constant term with its sign reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-the-common-factor",
+        "Completes the square without first dividing through by the common factor of the squared terms.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-squares-the-radius-squared",
+        "Squares r squared a second time.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-the-centre-offset",
+        "Adds the height of the centre to the radius where only the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-chord-half-for-radius",
+        "Gives half the chord where the radius was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-x-for-y",
+        "Gives x-coordinates where the y-coordinates of the points were asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-centre-offset",
+        "Gives plus and minus the radius, forgetting that the centre is not on the axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-one-intersection-only",
+        "Gives only one of the two points where the line meets the circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-half-chord-for-chord",
+        "Gives half the chord where the whole chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-diameter-for-chord",
+        "Gives the diameter where the chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-uses-centre-height-for-chord",
+        "Doubles the height of the centre above the axis where the chord was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-chord-by-subtracting",
+        "Doubles the radius less the height of the centre instead of using Pythagoras for the chord.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-centre-sign-flipped",
+        "Uses a centre with the signs reversed when deciding where a point lies.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-centre",
+        "Measures the distance from the origin instead of from the centre of the circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-compares-squared-distance-with-radius",
+        "Compares the squared distance with the radius instead of the radius squared.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-offsets-without-squaring",
+        "Adds the horizontal and vertical offsets instead of finding the distance, and compares the sum with the radius.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-near-miss-treated-as-on",
+        "Treats a point that is close to the circle as being on it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-boundary-misjudged",
+        "Misjudges which side of the circle a point close to it lies on.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-square-root",
+        "Gives the squared distance where the distance was asked.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-subtracts-radius-for-farthest",
+        "Subtracts the radius where the farthest point needs it added.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-adds-squared-radius",
+        "Adds the radius squared to the distance.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-doubles-the-distance",
+        "Doubles the greatest distance.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-takes-the-other-point",
+        "Chooses the other point on the circle, on the wrong side of the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-forgets-the-centre-offset",
+        "Gives the offset from the centre as the coordinate, forgetting to add the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-radius-for-offset",
+        "Adds the radius to the centre as if the point were level with it.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-constant-is-minus-r-squared",
+        "Gives minus the radius squared as the constant term.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-ignores-the-linear-terms",
+        "Substitutes the point into the squared terms only and ignores the linear terms.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-confuses-f-with-centre-form",
+        "Mixes up the constant F with the right-hand side of the centre-radius form.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-allows-zero-radius",
+        "Allows the radius squared to be zero, which describes a single point rather than a circle.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-wrong-direction-for-bound",
+        "Takes the bound in the wrong direction and gives a value that is too large.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-off-by-one-at-the-bound",
+        "Gives a value one below the greatest whole number allowed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-inverted",
+        "Inverts the gradient, running across over up instead of up over across.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-sign-flipped",
+        "Gives the gradient with its sign reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-from-origin",
+        "Finds the gradient from the origin to the point instead of from the centre.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-gradient-with-centre-sign-flipped",
+        "Finds the gradient from the centre with its signs reversed.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-tangent-parallel-to-radius",
+        "Gives the gradient of the radius as the gradient of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-is-the-y-coordinate",
+        "Gives the y-coordinate of the point of contact as the y-intercept of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-sign-error",
+        "Makes a sign error when finding where the tangent meets the axis.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-with-radius-gradient",
+        "Finds the intercept using the gradient of the radius instead of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5c-intercept-is-the-x-coordinate",
+        "Gives the x-coordinate of the point of contact as the x-intercept of the tangent.",
+        area="circle-equations",
+    ),
+    CatalogueEntry(
+        "w5f-absolute-value-means-not-function",
+        "Decides that a rule containing an absolute value cannot be a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-adds-an-extra-value",
+        "Lists one more value than the rule produces.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-any-collection-is-function",
+        "Treats any collection of ordered pairs as a function, without checking that no input has two outputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-any-equation-with-restriction-fails",
+        "Decides that an equation with a restricted set of inputs is not a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-any-new-value-breaks-rule",
+        "Thinks any new output value for an input already used breaks the function rule, including a value that is the same as before.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-confuses-input-and-output",
+        "Looks for repeats in the outputs rather than in the inputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-confuses-repeated-output-with-repeated-input",
+        "Treats two inputs that share an output as an input with two outputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-counts-inputs-kept-not-removed",
+        "Gives the number of inputs that stay, not the number that must be removed.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-counts-inputs-not-outputs",
+        "Counts the inputs where the question asks for the number of different outputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-counts-pairs-not-inputs",
+        "Counts the ordered pairs rather than the different inputs.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-curve-without-vertical-line-test",
+        "Chooses a relation by its look without testing whether a vertical line meets it twice.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-excludes-the-boundary",
+        "Leaves out the boundary value when the restriction allows it.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-count",
+        "Gives how many values there are instead of the value asked for.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-input",
+        "Gives the input where the question asks for the output.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-least",
+        "Gives the least value where the question asks for the greatest.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-output",
+        "Gives the output where the question asks for the input.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-gives-the-spread",
+        "Gives the difference between the greatest and least values instead of a count of values.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-ignores-the-restriction",
+        "Lists every value in the window and ignores the restriction on the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-ignores-the-restriction-from-context",
+        "Lists every whole number between the extremes, ignoring that only some are possible in the situation.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-input-outside-domain",
+        "Accepts a mapping that uses an input that is not in the first set.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-lists-repeated-outputs",
+        "Lists an output once for every input that gives it, instead of once.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-miscounts-inputs",
+        "Miscounts the inputs by one.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-negative-squared-as-negative",
+        "Squares a negative input and keeps the minus sign.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-omits-a-value",
+        "Leaves one of the values out of the list.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-one-input-only",
+        "Gives only one input where the rule has more than one.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-output-outside-codomain",
+        "Accepts a mapping that sends an input to a value outside the second set.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-repeated-identical-pair-counts",
+        "Treats a pair that is written twice as two outputs for one input.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-requires-distinct-outputs",
+        "Thinks every output in a function must be different.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-restriction-reversed",
+        "Reads the restriction the wrong way round and takes the inputs it excludes.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-restriction-sign-slip",
+        "Reverses the sign of the number in the restriction when solving for the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-rule-applied-with-sign-slip",
+        "Makes a sign slip when applying the rule to an input.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-shifts-the-values",
+        "Shifts every value in the list by one.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-sign-slip-on-inputs",
+        "Reverses the sign of the inputs.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-squared-term-means-not-function",
+        "Decides that an equation with a squared term is not a function.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-swaps-domain-and-range",
+        "Gives the domain where the range is asked for, or the range where the domain is asked for.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-takes-the-last-output",
+        "Gives the last output on the list instead of the greatest.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5f-unmapped-input-allowed",
+        "Accepts a mapping that leaves an input with no output.",
+        area="function-concept",
+    ),
+    CatalogueEntry(
+        "w5f-uses-half-the-domain",
+        "Uses only the inputs on one side of the turning point.",
+        area="domain-and-range-intro",
+    ),
+    CatalogueEntry(
+        "w5t-drops-solutions",
+        "Gives only some of the solutions in the window and leaves the others out.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-forgets-the-coefficient",
+        "Solves as if the angle were x alone, ignoring the coefficient of x.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-multiplies-for-the-coefficient",
+        "Multiplies by the coefficient of x where the solution must be divided by it.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-one-period-only",
+        "Stops after the first period and misses the later solutions the coefficient of x brings into the window.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-opposite-quadrants",
+        "Uses the CAST quadrants for the opposite sign of the value.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-reference-angle-as-answer",
+        "Gives the reference angle itself as the solution without applying the coefficient.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-shift-wrong-way",
+        "Shifts the solutions the wrong way, adding the shift where it must be subtracted.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-wrong-end-of-the-list",
+        "Gives the largest solution where the smallest is asked for.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5t-wrong-function-quadrants",
+        "Uses the quadrant pattern of a different trigonometric function.",
+        area="trig-equations",
+    ),
+    CatalogueEntry(
+        "w5e-equals-means-answer-next",
+        "Reads the equals sign as 'the answer comes next', so accepts a sentence whose right side starts with the answer to the left side.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-sides-not-compared",
+        "Does not work out and compare the value of both sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-equals-needs-single-number",
+        "Believes the equals sign must be followed by a single number.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-wrong-side-value",
+        "Makes an error in working out the value of one side of the sentence.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-compares-form",
+        "Judges whether the sides are equal by the numbers or signs written rather than by their values.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-adds-all-numbers",
+        "Adds every number in the sentence to get the missing number.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-copies-a-number",
+        "Copies a number from the sentence instead of balancing the two sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-off-by-one",
+        "Is one out when balancing the two sides.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-adds-instead-of-multiplies",
+        "Adds the numbers where the sentence multiplies them.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-changes-one-side-only",
+        "Changes only one side of a true sentence and still expects it to balance.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-opposite-changes",
+        "Adds to one side and subtracts from the other, expecting them to stay equal.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5e-unequal-changes",
+        "Changes the two sides by different amounts and expects them to stay equal.",
+        area="meaning-of-equality",
+    ),
+    CatalogueEntry(
+        "w5i-same-operation",
+        "Uses the same operation again instead of the inverse operation.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-mixes-operation-pairs",
+        "Pairs an operation with one that is not its inverse, such as adding with multiplying.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-wrong-amount",
+        "Chooses the inverse operation but uses the wrong number.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-reverses-the-numbers",
+        "Writes the inverse calculation with the two numbers the wrong way round.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-wrong-order",
+        "Undoes the steps in the order they were done instead of the reverse order.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-stops-after-one-step",
+        "Undoes only one of the steps of a two-step rule.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-rsub-treated-as-sub",
+        "Treats 'subtract it from a number' as 'subtract a number from it' when undoing it.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5i-undoes-itself",
+        "Believes that adding, subtracting, multiplying or dividing by a number undoes itself.",
+        area="inverse-operations",
+    ),
+    CatalogueEntry(
+        "w5s-takes-the-constant",
+        "Gives the number on the right-hand side of the equation as the solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-forgets-to-divide",
+        "Undoes the added or subtracted number but forgets to divide by the coefficient.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sign-slip",
+        "Makes a sign error when undoing a number or reading a bracket, and gets the opposite value.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-off-by-one",
+        "Gives a value one away from the solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-expression-value-not-checked",
+        "Does not work out the value of the left side, so accepts an equation whose sides differ.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-solution-copied-from-equation",
+        "Treats a number that appears in the equation as its solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-adds-the-coefficients",
+        "Adds the coefficients of n from the two sides instead of subtracting them.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-negative",
+        "Gives only the positive solution of an equation that also has a negative solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-positive",
+        "Gives only the negative solution of an equation that also has a positive solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-gives-the-number-not-the-root",
+        "Gives the number on the right-hand side, or its square, instead of the values of x that satisfy the equation.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-zero",
+        "Leaves out zero, which is also a solution.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-misses-the-other-root",
+        "Gives one solution of an equation that has two.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-ignores-the-stated-set",
+        "Ignores the set of numbers the question allows and includes solutions outside it.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sum-and-product-as-roots",
+        "Uses the sum and the product of the solutions as if they were the solutions.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-repeats-one-root",
+        "Builds an equation from one solution used twice.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5s-sum-of-constants",
+        "Adds the constants of the two sides instead of evaluating one side.",
+        area="solution-and-solution-set",
+    ),
+    CatalogueEntry(
+        "w5n-cancelling-means-no-solution",
+        "Believes that when the x terms cancel or the equation looks true there is no solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-cancelling-means-every-number",
+        "Believes that when the x terms cancel every number is a solution, even if the numbers left over are not equal.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-zero-equals-zero-is-x-zero",
+        "Reads a true statement such as 6 = 6 as meaning x = 0.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-constant-as-solution",
+        "Gives one of the numbers in the equation as the solution when the x terms have cancelled.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-difference-as-solution",
+        "Subtracts the constants and gives the difference as the solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-sign-slip",
+        "Makes a sign error and gives the opposite of the solution.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-forgets-to-divide",
+        "Moves the terms across but does not divide by the coefficient of x.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-off-by-one",
+        "Gives a value one away from the correct value.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5n-adds-instead-of-multiplies",
+        "Adds the bracket's number and the multiplier instead of multiplying them.",
+        area="identity-and-no-solution",
+    ),
+    CatalogueEntry(
+        "w5k-wrong-verdict",
+        "Works out both sides correctly but draws the wrong conclusion about whether the value is a solution.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-joins-digits",
+        "Writes the coefficient and the substituted value side by side as one number, so 3x with x = 4 becomes 34.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-ignores-coefficient",
+        "Replaces the term in x by the value of x alone and leaves out the coefficient.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-negative-sign-dropped",
+        "Drops the minus sign of a negative value when substituting it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-moves-the-constant-wrongly",
+        "Adds the constant to the right side when checking, instead of comparing the sides as they are.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-adds-instead-of-multiplies",
+        "Adds the coefficient and the value of x instead of multiplying them.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-multiplies-the-constant",
+        "Multiplies by the constant term instead of adding or subtracting it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-substitutes-the-answer",
+        "Substitutes the number on the right-hand side for x instead of the proposed value.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-brackets-the-constant",
+        "Groups the constant term with x as if it were inside a bracket.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-brackets-ignored",
+        "Multiplies only the first term of a bracket by the number outside it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-sign-slip-on-constant",
+        "Changes the sign of the constant term when substituting.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-trusts-the-working",
+        "Accepts a worked value without recalculating it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-off-by-one",
+        "Is one or a few away from the correct value of a side.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-copies-the-left-side",
+        "Gives the value of the left side as the value of the right side.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-checks-one-side",
+        "Works out one side only and does not compare it with the other.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5k-takes-the-constant",
+        "Gives a number from the equation as the solution without checking it.",
+        area="check-solution-by-substitution",
+    ),
+    CatalogueEntry(
+        "w5q-distributes-to-first-term",
+        "Multiplies only the first term in a bracket by the number outside it.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-sign-slip",
+        "Changes the sign of a term when expanding or collecting.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-adds-instead-of-multiplies",
+        "Adds the number outside a bracket to the terms instead of multiplying them.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-drops-a-term",
+        "Leaves out one of the terms when writing an equivalent expression.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-arithmetic-slip",
+        "Makes an arithmetic slip when expanding or evaluating an expression.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-multiplies-like-terms",
+        "Multiplies the coefficients of like terms instead of adding them.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-adds-powers",
+        "Writes the sum of like terms with x squared.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-combines-unlike-terms",
+        "Adds a constant to the coefficient of x as if they were like terms.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-subtracts-like-terms",
+        "Subtracts the coefficients of like terms that should be added.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-appearance-differs",
+        "Believes expressions that look different cannot be equivalent.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5q-one-example-as-proof",
+        "Treats the expressions as equivalent because they match for one value of x.",
+        area="recognise-equivalent-expressions",
+    ),
+    CatalogueEntry(
+        "w5v-swaps-the-roles",
+        "Swaps the independent and dependent variables.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-picks-a-fixed-amount",
+        "Chooses a fixed amount, such as a rate or a starting charge, as a variable.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-irrelevant-quantity",
+        "Chooses a quantity that plays no part in the relationship.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-axis-position-decides",
+        "Decides which variable is independent by the axis it is drawn on.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-forgets-the-fixed-amount",
+        "Leaves out the fixed starting amount when working out the dependent value.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-adds-instead-of-multiplies",
+        "Adds the rate and the independent value instead of multiplying them.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-multiplies-the-fixed-amount",
+        "Multiplies the fixed starting amount by the independent value as well.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5v-off-by-a-step",
+        "Adds one extra step of the rate to the dependent value.",
+        area="independent-dependent-variables",
+    ),
+    CatalogueEntry(
+        "w5p-line-means-proportional",
+        "Believes any straight-line relationship is proportional, even with an added number.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-constant-difference-not-ratio",
+        "Treats a constant difference between y and x, or a constant step in y, as proportionality.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-increasing-means-proportional",
+        "Believes a relationship is proportional whenever y increases as x increases.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-roughly-constant-ratio",
+        "Accepts a ratio y \u00f7 x that is nearly constant as constant.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-inverse-is-proportional",
+        "Believes y = k/x is a proportional relationship.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ratio-not-checked",
+        "Does not divide y by x for each pair, so cannot tell which table is not proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ignores-fixed-charge",
+        "Ignores a starting amount or fixed charge when deciding whether a relationship is proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-intercept-miscalculated",
+        "Makes an error finding where the line crosses the y-axis.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-line-not-proportional",
+        "Believes a straight line can never be proportional.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-gradient-one-only",
+        "Believes a proportional relationship must have a gradient of 1.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-intercept-ignored",
+        "Finds the gradient of the line but ignores where it crosses the y-axis.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-sign-slip",
+        "Reverses the sign of the added number in the equation of the line.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-ratio-miscalculated",
+        "Makes an error working out y \u00f7 x for a pair.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-origin-not-in-table",
+        "Believes a relationship is not proportional because the table does not show x = 0.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-difference-not-ratio",
+        "Subtracts x from y or finds differences of y where the ratio y \u00f7 x is needed.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-adds-instead-of-multiplies",
+        "Adds the multiplier and the value of x instead of multiplying them.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-off-by-a-step",
+        "Gives a value one step of the rule away from the correct value.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-first-y-as-constant",
+        "Takes the first y value as the number multiplied by x.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5p-gradient-miscalculated",
+        "Makes an error working out the gradient of the line from two points.",
+        area="proportional-vs-non-proportional",
+    ),
+    CatalogueEntry(
+        "w5g-strict-includes-equal",
+        "Believes a strict inequality such as 5 > 5 is true when the two numbers are equal.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-symbol-direction-reversed",
+        "Reads the inequality symbol the wrong way round.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-negative-larger-magnitude-bigger",
+        "Treats a negative number with a larger digit as the larger number.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-strict-includes-boundary",
+        "Includes the boundary value in a strict inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-strict-for-inclusive",
+        "Uses a strict symbol where the words allow the boundary value.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-inclusive-for-strict",
+        "Uses an inclusive symbol where the words exclude the boundary value.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-equals-for-inequality",
+        "Uses an equals sign where the words describe a range of values.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-reads-only-one-bound",
+        "Checks only one part of a double inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-adding-a-negative-increases",
+        "Believes adding a negative number makes a number larger.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-sign-of-product",
+        "Believes the product of two negative numbers is negative.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-squaring-keeps-order",
+        "Believes squaring negative numbers keeps their order.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-off-by-one",
+        "Is one away from the greatest or least whole number allowed.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-picks-the-lowest",
+        "Gives an unrelated extreme value instead of the one the inequality allows.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-values-not-checked",
+        "Does not test each value against the inequality.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-increasing-decreasing-confused",
+        "Orders the numbers from greatest to least where least to greatest is asked, or the reverse.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5g-neighbours-swapped",
+        "Swaps two neighbouring numbers when ordering a list.",
+        area="inequality-symbols",
+    ),
+    CatalogueEntry(
+        "w5a-ratio-for-difference",
+        "Treats a constant ratio between terms as the constant difference of an arithmetic sequence.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-increasing-pattern-is-arithmetic",
+        "Believes a sequence is arithmetic whenever the terms keep increasing in a pattern.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-repeating-differences",
+        "Believes a sequence is arithmetic when its differences repeat in a pattern rather than being the same.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-checks-one-pair",
+        "Compares only the first two terms and does not check the rest of the sequence.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-first-term-as-difference",
+        "Uses the first term as the common difference.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-difference-miscounted",
+        "Makes an error finding the difference between terms.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-direction-reversed",
+        "Gets the direction of the difference wrong, adding where the sequence goes down or the reverse.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-adds-previous-terms",
+        "Adds the previous two terms to find the next one.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-difference-for-middle",
+        "Gives the difference between the end terms as the middle term.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-decreasing-means-arithmetic",
+        "Believes a sequence that decreases by getting smaller is arithmetic.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-miscounts-steps",
+        "Divides the gap between the end terms by the wrong number of steps.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-off-by-one-term",
+        "Counts one term too many or too few when finding a later term.",
+        area="arithmetic-sequences",
+    ),
+    CatalogueEntry(
+        "w5a-forgets-the-first-term",
+        "Multiplies the difference by the term number but leaves out the first term.",
+        area="arithmetic-sequences",
+    ),
+    # w3 consumer block begin
+    CatalogueEntry(
+        "fdep-rate-not-converted",
+        "Multiplies the price by the percentage without dividing by 100.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-value-for-depreciation",
+        "Gives the value left after one year where the yearly depreciation was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-decimal-slip",
+        "Misplaces the decimal point when finding a percentage of the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-divides-by-rate",
+        "Divides the price by the percentage instead of finding that percentage of it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-amount-not-value",
+        "Gives the total depreciation where the value after the years was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-one-year-only",
+        "Takes off only one year's depreciation however many years have passed.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-adds-to-price",
+        "Adds the depreciation to the price instead of subtracting it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-uses-reducing",
+        "Takes the percentage off the new value each year when the flat rate is a percentage of the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-year-not-total",
+        "Gives one year's depreciation where the total over several years was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-ignores-years",
+        "Finds the percentage lost in total and does not divide by the number of years.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-dollars-not-percent",
+        "Gives the depreciation per year in dollars where a percentage of the price was asked.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-percent-of-value",
+        "Finds the percentage of the later value instead of the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-from-value",
+        "Divides the target value by the yearly depreciation instead of the amount lost.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-from-price",
+        "Divides the purchase price by the yearly depreciation, ignoring the value to be reached.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-counts-year-zero",
+        "Adds an extra year, counting the day of purchase as a year.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-boundary-year",
+        "Gives the last year the value is still at or above the target, not the first year it is below it.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-salvage-ignored",
+        "Divides the purchase price by the life, forgetting to take off the scrap value first.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-salvage-added",
+        "Adds the scrap value to the price before dividing by the life.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-adds-one-year-back",
+        "Adds back only one year of depreciation to a later value to find the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-reading-as-price",
+        "Takes a later value as the purchase price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-years-remaining",
+        "Gives the years still to go, not the total number of years until the value is zero.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-rate-from-price-only",
+        "Divides the percentage lost by the years, then forgets the value left is a share of the price.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "fdep-remaining-for-lost",
+        "Uses the percentage remaining as the percentage lost.",
+        area="flat-rate-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-not-converted",
+        "Multiplies by the percentage without dividing by 100.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-depreciation-for-value",
+        "Gives the amount depreciated where the value was asked.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-uses-flat",
+        "Takes the same amount off each year (flat rate) when the percentage applies to the current value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-one-year-only",
+        "Applies the percentage once however many years have passed.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-multiplies-by-years",
+        "Multiplies the rate by the number of years inside the bracket instead of using a power.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-extra-year",
+        "Applies the percentage one year too many.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-one-year-short",
+        "Applies the percentage one year too few.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-for-multiplier",
+        "Multiplies by the rate (for example 0.15) instead of by one less the rate (0.85).",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-growth-multiplier",
+        "Uses one plus the rate as the yearly multiplier, which grows the value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-total-for-value",
+        "Gives the value left where the total depreciation was asked.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-first-year-amount",
+        "Finds the depreciation for the first year only and calls it the total.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-boundary-year",
+        "Gives the last year the value is still at or above the target, not the first year it is below it.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-flat-years",
+        "Finds the years to reach the target as if the same amount came off each year.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-from-whole-drop",
+        "Takes the whole drop over two years as the yearly rate instead of finding the yearly multiplier.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-rate-halved",
+        "Halves the two-year drop to get the yearly rate.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-multiplier-for-rate",
+        "Gives the yearly multiplier as a percentage instead of the rate of depreciation.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-price-from-flat",
+        "Adds back the same amount each year to find the price instead of dividing by the multiplier.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-price-multiplies",
+        "Multiplies the later value by the multiplier instead of dividing, so the 'price' is smaller than the value.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-wrong-year-amount",
+        "Gives the depreciation of the wrong year (the year before or after).",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "rbd-year-from-first-value",
+        "Takes the percentage of the purchase price for the year asked, as if every year lost the same amount.",
+        area="reducing-balance-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-difference-sign",
+        "Adds the two values instead of finding their difference.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-reports-one-method",
+        "Gives the value under one method where the difference was asked.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-decimal-slip",
+        "Misplaces the decimal point in the difference.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-doubles-difference",
+        "Doubles the difference, adding the gap for each method instead of comparing them once.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-year-flat-zero",
+        "Gives the year the flat-rate value would reach zero instead of the year the methods cross over.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-total-rate",
+        "Uses the percentage for each year of the flat method as if it were applied once.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-crossover-early",
+        "Names the year before the reducing-balance value becomes the higher.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-crossover-late",
+        "Names the year after the reducing-balance value becomes the higher.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-equal-rate",
+        "Assumes the matching flat rate equals the reducing-balance rate.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-rate-ignores-years",
+        "Gives the total percentage lost, without dividing by the number of years.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "cmp-flat-rate-of-value",
+        "Divides the dollars lost by the number of years but not by the price, so the rate is in dollars.",
+        area="compare-flat-and-reducing-depreciation",
+    ),
+    CatalogueEntry(
+        "iol-rate-not-converted",
+        "Multiplies the loan by the percentage without dividing by 100.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-divides-by-rate",
+        "Divides the loan by the rate instead of finding that percentage of it.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-decimal-slip",
+        "Misplaces the decimal point when finding the interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-annual-for-monthly",
+        "Gives the interest for a whole year where the monthly payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-multiplies-by-twelve",
+        "Multiplies the yearly interest by 12 instead of dividing it by 12.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-principal-share",
+        "Divides the loan by 12 and calls that the monthly interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-one-year-only",
+        "Gives one year's interest where the interest over several years was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-extra-year",
+        "Counts one year too many when adding up the interest.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-months-as-years",
+        "Multiplies the monthly payment by the number of years instead of the number of months.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-total-repaid-for-interest",
+        "Gives the total repaid (loan plus interest) where the interest was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-forgets-principal",
+        "Gives only the interest paid where the total repaid, including the loan, was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-compound",
+        "Compounds the interest each year, although the amount owing never changes on an interest-only loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-forgets-twelve",
+        "Divides the payment by the rate without first converting the monthly payment to a yearly amount.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-multiplies-by-rate",
+        "Multiplies the yearly interest by the rate instead of dividing by it.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-annual-as-loan",
+        "Takes the yearly interest as the amount borrowed.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rate-from-annual-payment",
+        "Treats the monthly payment as the yearly interest when finding the rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rate-inverted",
+        "Divides the loan by the yearly interest instead of the other way round.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-first-rate-throughout",
+        "Uses the first interest rate for the whole term of the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-second-rate-throughout",
+        "Uses the later interest rate for the whole term of the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-average-rate",
+        "Averages the two rates, although they apply for different lengths of time.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-swapped-years",
+        "Swaps the number of years at each rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rise-as-payment",
+        "Gives the rise in the payment where the original payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-loan-for-payment",
+        "Gives the amount borrowed where the original monthly payment was asked.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-rise-times-rate",
+        "Multiplies the rise in the payment by the rate instead of dividing by the change in rate.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-ignored",
+        "Ignores the lump sum paid off the loan.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-off-interest",
+        "Takes the lump sum off the interest instead of off the amount owing.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-whole-term",
+        "Applies the lump sum to the whole term, as if it had been paid on the first day.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "iol-lump-after-only",
+        "Counts only the interest after the lump sum was paid.",
+        area="interest-only-loan",
+    ),
+    CatalogueEntry(
+        "ann-wrong-period-row",
+        "Reads the factor for one period more or fewer than the contributions made.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-wrong-rate-row",
+        "Reads the factor for the next rate up or down in the table.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-no-interest",
+        "Multiplies the contribution by the number of periods, ignoring the interest.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-factor-only",
+        "Gives the table factor itself, forgetting to multiply by the contribution.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-lump-sum-growth",
+        "Grows a single deposit instead of using the annuity factor.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-divides-by-factor",
+        "Divides the contribution by the factor instead of multiplying.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-multiplies-for-payment",
+        "Multiplies the target by the factor instead of dividing by it.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-divides-by-periods",
+        "Divides the target by the number of periods, ignoring the interest.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-future-value-for-interest",
+        "Gives the future value where the interest earned was asked.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-contributions-for-interest",
+        "Gives the total contributed where the interest earned was asked.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-years-as-periods",
+        "Uses the number of years as the number of periods.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-rate-not-divided",
+        "Divides the annual rate by the wrong number of periods per year, so reads the wrong row of the table.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-difference-sign",
+        "Adds the two future values instead of finding their difference.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "ann-contributions-total-only",
+        "Gives the total contributed for one option only.",
+        area="future-value-annuity-table",
+    ),
+    CatalogueEntry(
+        "pm-adds-cost-and-price",
+        "Adds the cost and the selling price instead of finding their difference.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-gives-selling-price",
+        "Gives the selling price where the profit or loss was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-gives-cost",
+        "Gives the cost price where the profit or loss was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percent-for-dollars",
+        "Gives the profit as a percentage where the amount in dollars was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-markup-only",
+        "Gives the mark-up in dollars where the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-adds-percent-as-dollars",
+        "Adds the percentage to the cost as if it were a number of dollars.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-takes-off",
+        "Takes the percentage off the cost instead of adding it.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-rate-not-converted",
+        "Multiplies the cost by the percentage without dividing by 100.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-profit-on-selling-price",
+        "Finds the profit as a percentage of the selling price instead of the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-forgets-subtraction",
+        "Divides the selling price by the cost and gives that as the percentage profit, forgetting to subtract 100%.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-dollars-for-percent",
+        "Gives the profit in dollars where a percentage was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-loss-on-selling-price",
+        "Finds the loss as a percentage of the selling price instead of the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-ratio-inverted",
+        "Divides the cost price by the selling price.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-over-average",
+        "Divides the profit or loss by the average of the cost and the selling price.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-per-item-only",
+        "Gives the profit on one item where the profit on the whole batch was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-revenue-for-profit",
+        "Gives the money taken from the sale of the batch where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-total-cost-for-profit",
+        "Gives the total cost of the batch where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percent-off-price",
+        "Takes the mark-up percentage off the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-adds-markup",
+        "Adds the mark-up percentage of the selling price to the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-from-markup-dollars",
+        "Divides the selling price by the mark-up percentage.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-markup-for-margin",
+        "Gives the mark-up on cost where the profit as a percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-over-cost",
+        "Divides the profit by the cost when the profit as a percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-dollars",
+        "Gives the profit in dollars where the percentage of the selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-percentages-added",
+        "Adds the mark-up and subtracts the discount as percentages of the cost (for example +40% then -25% is +15%).",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-discount-ignored",
+        "Ignores the discount and gives the profit at the marked-up price.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-discount-only",
+        "Gives the discount in dollars where the profit was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-cost-from-loss-wrong",
+        "Adds the loss percentage to the selling price to find the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-profit-on-loss-price",
+        "Adds the profit percentage to the reduced selling price instead of to the cost.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-price-for-cost",
+        "Gives the cost price where the new selling price was asked.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "pm-margin-price",
+        "Adds the margin percentage to the cost to find the selling price, instead of dividing the cost by what is left.",
+        area="profit-loss-and-markup",
+    ),
+    CatalogueEntry(
+        "com-rate-not-converted",
+        "Multiplies the sales by the rate without dividing by 100.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-divides-by-rate",
+        "Divides the sales by the rate instead of finding that percentage of them.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-decimal-slip",
+        "Misplaces the decimal point when finding the commission.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-over-commission",
+        "Divides the sales by the commission instead of the commission by the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-commission-over-100",
+        "Divides the commission by 100 instead of by the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-largest-only",
+        "Finds the commission on the largest sale only.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-misses-one-sale",
+        "Leaves one of the sales out of the total.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-commission-only",
+        "Gives the commission alone where the total pay was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-base-only",
+        "Gives the base pay alone where the total pay was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-base-times-rate",
+        "Finds the commission rate of the base pay instead of the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-rate-as-dollars",
+        "Adds the commission rate to the base pay as a number of dollars.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-multiplies-for-sales",
+        "Multiplies the commission by the rate instead of dividing by it.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-from-total-pay",
+        "Treats the whole pay as commission when finding the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-sales-adds-base",
+        "Adds the base pay to the pay before finding the sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-gross-sales",
+        "Finds the commission on the gross sales, ignoring the returns.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-returns-only",
+        "Finds the commission on the returns instead of on the net sales.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-plan-total-only",
+        "Gives the pay under one plan where the difference between the plans was asked.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-plan-sum",
+        "Adds the pay under the two plans instead of finding the difference.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-second-rate-everywhere",
+        "Applies the higher rate to all the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-first-rate-everywhere",
+        "Applies the lower rate to all the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-tier-excess-only",
+        "Finds the commission on the sales above the tier only, forgetting the first tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-second-rate-on-all-above",
+        "Applies the higher rate to all the sales and adds the first tier as well.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-first-rate",
+        "Divides the commission by the first rate to find the sales, ignoring the tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-second-rate",
+        "Divides the commission by the higher rate to find the sales, ignoring the first tier.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-inverse-adds-tier",
+        "Adds the whole tier to sales found from the commission, without taking off the first tier's commission.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-ignores-first",
+        "Divides the base pay by the higher rate, ignoring the commission the other plan also pays.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-sums-rates",
+        "Divides the base pay by the sum of the rates instead of their difference.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-no-hundred",
+        "Divides the base pay by the difference in rates but forgets that the rates are percentages.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-break-even-first-rate",
+        "Divides the base pay by the lower rate alone.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "com-tier-base-dropped",
+        "Leaves the base pay out of the total.",
+        area="commission-pay",
+    ),
+    CatalogueEntry(
+        "sd-sign-of-slope",
+        "Adds the price term to the demand intercept instead of subtracting it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-uses-other-line",
+        "Substitutes the price into the other line (supply for demand or demand for supply).",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-forgets-intercept",
+        "Leaves the intercept out and multiplies the price by the slope only.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-adds-lines",
+        "Adds the quantity demanded and the quantity supplied instead of finding their difference.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-ignores-price-terms",
+        "Subtracts the intercepts and ignores the price terms when finding the shortage or surplus.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-gives-demand-for-gap",
+        "Gives the quantity demanded where the shortage or surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-gives-supply-for-gap",
+        "Gives the quantity supplied where the shortage or surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-price-for-quantity",
+        "Gives the price where the quantity was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-adds-intercepts",
+        "Adds the intercepts instead of subtracting them when setting demand equal to supply.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-subtracts-slopes",
+        "Subtracts the slopes instead of adding them when collecting the price terms.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-divides-by-one-slope",
+        "Divides by one slope only when solving for the price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-average-intercepts",
+        "Takes the average of the two intercepts as the equilibrium quantity.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-quantity-for-price",
+        "Gives the quantity where the price was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-wrong-line-quantity",
+        "Finds the quantity from an incorrect equilibrium price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-price-plus-quantity",
+        "Adds the price and the quantity instead of multiplying them for the revenue.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-revenue-quantity-only",
+        "Gives the quantity where the revenue was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-revenue-price-only",
+        "Gives the price where the revenue was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-slope-from-one-point",
+        "Uses a quantity as the slope instead of the change in quantity for a change in price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-slope-inverted",
+        "Divides the change in price by the change in quantity for the slope.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-subtracted-from-quantity",
+        "Subtracts the tax from the quantity instead of the price in the supply line.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-added-to-price",
+        "Adds the tax to the price in the supply line instead of subtracting it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-ignored",
+        "Ignores the tax and gives the original equilibrium quantity.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-tax-price-for-quantity",
+        "Gives the new equilibrium price where the quantity was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-as-price",
+        "Divides the surplus by the sum of the slopes and gives that as the price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-shortage-price",
+        "Subtracts the extra price needed for the surplus instead of adding it.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-equilibrium",
+        "Gives the equilibrium price where the price for a surplus was asked.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "sd-surplus-one-slope",
+        "Divides the surplus by one slope only to find the extra price.",
+        area="supply-demand-equilibrium",
+    ),
+    CatalogueEntry(
+        "fg-unweighted-average",
+        "Averages the prizes without weighting them by their probabilities.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-sum-of-prizes",
+        "Adds the prizes without weighting them by their probabilities.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-largest-prize",
+        "Gives the largest prize as the expected prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-forgets-entry",
+        "Gives the expected prize where the expected gain (after paying to play) was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-reversed-sign",
+        "Subtracts the expected prize from the entry fee, so the sign of the gain is wrong.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-adds-entry",
+        "Adds the entry fee to the expected prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-sum-for-fee",
+        "Gives the total of the prizes as the fair entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-largest-prize",
+        "Gives the largest prize as the fair entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-total-not-divided",
+        "Adds the prizes on all the tickets and does not divide by the number of tickets.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-ignores-blanks",
+        "Divides by the number of winning tickets only, ignoring the blank ones.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-ignores-target-profit",
+        "Gives the fair entry fee, leaving out the profit the organiser wants.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-subtracts-target-profit",
+        "Takes the profit the organiser wants off the fair entry fee instead of adding it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-fee-is-target-profit",
+        "Gives the profit the organiser wants as the entry fee.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-sign",
+        "Gives the players' expected gain over all the plays where the organiser's profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-prize-total",
+        "Gives the expected prize paid out over all the plays where the profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-per-play",
+        "Gives the profit on one play where the profit over many plays was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-profit-fee-total",
+        "Gives the entry fees taken where the profit was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-no-probability",
+        "Sets the prize equal to the entry fee without allowing for the chance of winning it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-forgets-others",
+        "Ignores the expected value of the other prizes when finding the missing prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-times-probability",
+        "Multiplies by the probability instead of dividing by it when finding the missing prize.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-missing-prize-adds-others",
+        "Adds the expected value of the other prizes instead of subtracting it.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-with-replacement",
+        "Uses the same probability for the second draw, as if the first counter were put back.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-one-draw",
+        "Uses the chance for one draw only, ignoring the second.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-probability-added",
+        "Adds the two probabilities instead of multiplying them.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-per-play",
+        "Gives the profit per play where the number of plays was asked.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-multiplies",
+        "Multiplies the target profit by the profit per play instead of dividing.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-prize-based",
+        "Divides the target by the expected prize instead of the expected profit.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "fg-games-fee-based",
+        "Divides the target by the entry fee instead of the expected profit.",
+        area="fair-game-expected-gain",
+    ),
+    CatalogueEntry(
+        "hl-product",
+        "Multiplies the two numbers instead of finding their common factor or multiple.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-sum",
+        "Adds the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-smaller",
+        "Gives the smaller of the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-larger",
+        "Gives the larger of the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-difference",
+        "Gives the difference between the two numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-for-hcf",
+        "Finds the lowest common multiple where the highest common factor was needed.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-for-lcm",
+        "Finds the highest common factor where the lowest common multiple was needed.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-not-divided",
+        "Gives the number of items in a share as the HCF, forgetting to divide by it.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-shares-for-size",
+        "Gives the number of groups where the size of each group was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-size-for-shares",
+        "Gives the size of each group where the number of groups was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-one-dimension",
+        "Counts the tiles along one side only.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-tiles-sum",
+        "Adds the number of tiles along each side instead of multiplying them.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-not-divided",
+        "Gives the time until the buses leave together where the number of trips was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-trips-other-bus",
+        "Gives the number of trips of the other bus.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-two-numbers-only",
+        "Finds the lowest common multiple of two of the three numbers.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-three-product",
+        "Multiplies the three numbers together.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-turns-big-gear",
+        "Gives the turns of the larger gear where the smaller gear was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-turns-lcm",
+        "Gives the number of teeth that pass instead of the number of turns.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-hcf-two-only",
+        "Finds the highest common factor of only two of the three lengths.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-side-not-area",
+        "Gives the side of the square where the number of tiles was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-tiles-one-way",
+        "Counts the tiles along one side of the square only.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-ignores-remainders",
+        "Finds the HCF of the numbers without taking the remainders off first.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-adds-remainders",
+        "Adds the remainders to the numbers instead of subtracting them.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-remainder-lcm",
+        "Finds the lowest common multiple of the reduced numbers instead of the highest common factor.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-forgets-remainder",
+        "Gives the lowest common multiple and forgets to add the remainder.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-subtracts-remainder",
+        "Subtracts the remainder from the lowest common multiple instead of adding it.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-forgets-start",
+        "Leaves out the meeting at the start when counting how many times the events coincide.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-counts-extra",
+        "Counts one meeting too many.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-time-not-meetings",
+        "Gives the time of the first meeting where the number of meetings was asked.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-product-for-other",
+        "Multiplies the HCF and the LCM and does not divide by the known number.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-lcm-over-hcf",
+        "Divides the LCM by the HCF to find the other number.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "hl-other-divides-lcm",
+        "Divides the LCM by the known number to find the other number.",
+        area="hcf-lcm-word-problems",
+    ),
+    CatalogueEntry(
+        "w3ci-balance-for-interest",
+        "Gives the final balance where the interest earned was asked.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-simple-instead",
+        "Finds simple interest, adding the same amount every year.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-one-year",
+        "Gives one year's interest only.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-wrong-years",
+        "Compounds for one year too many or too few.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-annual-rate-each-period",
+        "Uses the annual rate in every compounding period instead of the rate for one period.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-periods-as-years",
+        "Counts the years instead of the number of compounding periods.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-annual-compounding",
+        "Compounds once a year although the interest is added more often.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-multiplies-by-amount",
+        "Multiplies the target amount by the growth factor instead of dividing.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-simple-discount",
+        "Takes the simple interest off the target amount to find the amount to invest.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-first-rate-throughout",
+        "Uses the first rate for the whole term when the rate changes.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-average-rate",
+        "Uses the average of the two rates for the whole term.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3ci-difference-reversed",
+        "Gives one kind of interest where the difference between the two was asked.",
+        area="compound-interest",
+    ),
+    CatalogueEntry(
+        "w3si-compounded",
+        "Compounds the interest every year instead of using simple interest.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-adds-principal",
+        "Adds the principal to the interest where only the interest was asked.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-off-by-one",
+        "Counts one year too many.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-forgets-principal",
+        "Gives the interest where the total amount was asked.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-months-as-years",
+        "Uses the number of months as the number of years.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-month-not-divided",
+        "Divides the months by 100 or by 10 instead of by 12.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-rate-not-percent",
+        "Leaves the rate as a whole number and does not divide it by 100.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-ignores-time",
+        "Leaves the time out of the working.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-time-for-rate",
+        "Divides the interest by the principal and by the rate but not by the time (or the reverse).",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-multiplies-for-inverse",
+        "Multiplies by the other quantities where the interest should be divided by them.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3si-total-for-interest",
+        "Uses the total amount as the interest when working back.",
+        area="simple-interest",
+    ),
+    CatalogueEntry(
+        "w3wg-adds-instead",
+        "Adds the rate and the hours instead of multiplying them.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-misses-a-shift",
+        "Leaves one day's hours out of the total.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-first-day-repeated",
+        "Uses the first day's hours for every day.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-extra-hour",
+        "Counts one hour too many.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-only",
+        "Gives the loading alone, not the pay including it.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-as-dollars",
+        "Takes the tax rate off as a number of dollars.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-ignored",
+        "Gives the gross pay and does not take off tax.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rate-misread",
+        "Divides by a rate that is a dollar out.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rates-difference",
+        "Subtracts the two rates instead of the two pays.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-hours-difference",
+        "Multiplies the difference in hours by one rate.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-minutes-as-decimal",
+        "Writes 30 minutes as 0.30 of an hour (and 15 minutes as 0.15).",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-ignores-minutes",
+        "Leaves the minutes out of the hours worked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rounds-up-hour",
+        "Rounds the part hour up to a whole hour.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-rate-inverted",
+        "Divides the hours by the pay instead of the pay by the hours.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-as-percent-only",
+        "Adds the loading as a dollar amount instead of a percentage of the rate.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-loading-ignored",
+        "Leaves the casual loading out.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-as-pay",
+        "Gives the tax withheld where the pay after tax was asked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-tax-added",
+        "Adds the tax to the gross pay instead of taking it off.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-floor-hours",
+        "Rounds the hours needed down, so the target is not reached.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-pay-as-hours",
+        "Divides the pay by the wrong number of hours.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-single-job",
+        "Gives the pay from one job only.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3wg-sum-not-difference",
+        "Adds the two pays where the difference was asked.",
+        area="calculate-wages",
+    ),
+    CatalogueEntry(
+        "w3ot-one-hour",
+        "Pays one hour of overtime only.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-extra-hour",
+        "Counts one overtime hour too many.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-wrong-multiplier",
+        "Uses double time where time and a half applies.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-all-hours-multiplied",
+        "Applies the overtime multiplier to every hour worked.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-overtime-at-ordinary",
+        "Pays the overtime hours at the ordinary rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-hours-not-subtracted",
+        "Uses all the hours worked as the overtime hours.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-ordinary-only",
+        "Leaves out the overtime pay.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-overtime-only",
+        "Gives the overtime pay where the whole week's pay was asked.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-second-rate-throughout",
+        "Pays every overtime hour at the higher rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-first-rate-throughout",
+        "Pays every overtime hour at the lower rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-pay-over-rate",
+        "Divides the pay by the ordinary rate only and does not remove the ordinary hours first.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-multiplier-forgotten-on-division",
+        "Divides by the hours worked and ignores that some are paid at a higher rate.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3ot-ordinary-as-total",
+        "Treats the whole pay as overtime pay.",
+        area="calculate-overtime",
+    ),
+    CatalogueEntry(
+        "w3up-miscounts-hundreds",
+        "Miscounts the number of 100 g lots in the packet.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-unit-price-given",
+        "Gives one of the unit prices where the difference was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-total-as-unit",
+        "Gives the price of the pack where the price of one was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-inverted",
+        "Divides the quantity by the price instead of the price by the quantity.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-adds-instead",
+        "Adds the unit price to itself instead of multiplying by the number of items.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-difference-of-totals",
+        "Subtracts the two pack prices instead of the two unit prices.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-per-gram",
+        "Gives the price per gram where the price per 100 grams was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-per-kg-as-100g",
+        "Gives the price per kilogram where the price per 100 grams was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-saving-per-item",
+        "Gives the saving on one item where the saving on all of them was asked.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-wrong-pack",
+        "Prices all the items at the dearer pack's unit price.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-percent-of-cheaper",
+        "Finds the percentage using the cheaper unit price as the starting amount.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3up-percent-points",
+        "Gives the difference in cents as the percentage.",
+        area="unit-pricing",
+    ),
+    CatalogueEntry(
+        "w3fl-compounded",
+        "Compounds the interest instead of charging flat interest.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-one-year-of-payments",
+        "Counts one year of repayments only.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-off-by-one",
+        "Counts one year too many or too few.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-ignores-interest",
+        "Divides the amount borrowed alone by the number of months.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-interest-as-total",
+        "Gives the interest where the total repaid was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-one-year-interest",
+        "Finds one year's interest only.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-total-as-interest",
+        "Gives the total repaid where the interest was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-deposit-ignored",
+        "Charges interest on the price although a deposit is paid first.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-deposit-not-subtracted",
+        "Forgets to take the deposit off the price before adding interest.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-months-as-years",
+        "Divides by the number of years instead of the number of months.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-rate-without-time",
+        "Finds the rate without allowing for the number of years.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-rate-from-total",
+        "Uses the total repaid, not the interest, to find the rate.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-term-in-months",
+        "Gives the number of months where the number of years was asked.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3fl-term-from-total",
+        "Uses the total repaid, not the interest, to find the term.",
+        area="flat-loan-repayment",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-wrong-window",
+        "Multiplies the average by the wrong window size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-wrong-window",
+        "Averages a window of the wrong size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-shifted-window",
+        "Averages the window that starts at the stated point instead of the one centred on it.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-total-as-mean",
+        "Gives the total of the window without dividing.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-whole-series",
+        "Averages the whole series instead of one window.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-change-not-divided",
+        "Gives the change in the window total without dividing by the window size.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-change-as-new-value",
+        "Gives the difference between the values leaving and entering as the change in the mean.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-not-from-total",
+        "Treats the moving average as the missing value.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-missing-no-total",
+        "Subtracts the known values from the average without multiplying it by the window size first.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-centred-unweighted",
+        "Gives the end values of a centred 4-point mean the same weight as the others.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3ma-centred-simple",
+        "Averages only the middle four values.",
+        area="moving-average",
+    ),
+    CatalogueEntry(
+        "w3mn-known-mean",
+        "Gives the mean of the known values as the missing value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-total-needed",
+        "Gives the total needed where the last score was asked.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-weights-swapped",
+        "Weights each mean by the other group's size.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-value-left-out",
+        "Leaves the new number out of the total.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-divides-by-wrong-count",
+        "Divides the total by the wrong number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-unweighted",
+        "Averages the scores without using the frequencies.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-divides-by-rows",
+        "Divides the weighted total by the number of rows in the table.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-freq-sums-frequencies",
+        "Gives the total of the frequencies as the mean.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-mean-of-means",
+        "Averages the two group means without weighting them by group size.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-is-mean",
+        "Gives the target mean as the missing value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-no-total",
+        "Subtracts the known values from the mean without multiplying the mean by the number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-missing-wrong-count",
+        "Multiplies the target mean by one value too few when finding the missing total.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-value-averaged",
+        "Averages the old mean with the new value.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3mn-new-count-forgotten",
+        "Divides the new total by the old number of values.",
+        area="calculate-mean",
+    ),
+    CatalogueEntry(
+        "w3np-fewest-roads",
+        "Chooses the route with the fewest roads instead of the shortest total.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-greedy",
+        "Always takes the shortest road next and does not compare whole routes.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-longest",
+        "Gives the longest route instead of the shortest.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-second-shortest",
+        "Gives the second shortest route.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-skips-stop",
+        "Ignores that the route must pass through the stated town.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-two-legs-shortest-sum-error",
+        "Joins the two shortest legs even when they overlap or share a road.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-closed-ignored",
+        "Keeps using the road that has been closed.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3np-drops-the-detour",
+        "Takes the closed road's length off the old shortest route instead of finding a new route.",
+        area="shortest-network-path",
+    ),
+    CatalogueEntry(
+        "w3pc-over-final",
+        "Divides the change by the final value instead of the original value.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-change-as-percent",
+        "Gives the amount of the change as the percentage.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-ratio-as-change",
+        "Gives the final value as a percentage of the original and does not subtract 100.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-original-as-final",
+        "Gives the original value as a percentage of the final value.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-points-as-percent",
+        "Gives the rise in percentage points as the percentage change.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-adds-steps",
+        "Adds the increase and takes off the decrease instead of multiplying the two multipliers.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-sums-percentages",
+        "Adds the two percentages whatever their direction.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-reverse-same-percent",
+        "Takes the fall that undoes a rise to be the same percentage as the rise.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-second-step-on-original",
+        "Gives the fall in the second step as a percentage of the original price, not the overall change.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3pc-wrong-direction",
+        "Gives a percentage increase where a decrease was asked, or the reverse.",
+        area="percentage-change",
+    ),
+    CatalogueEntry(
+        "w3cd-category-as-number",
+        "Treats a variable recorded in words or labels as numerical.",
+        area="classify-data",
+    ),
+    CatalogueEntry(
+        "w3el-smallest-float",
+        "Chooses the activity with the smallest float that is not zero.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-largest-est",
+        "Chooses the activity with the latest earliest start time.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-largest-lst",
+        "Chooses the activity with the latest latest start time.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-first-listed",
+        "Chooses the first activity in the table.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-longest-activity",
+        "Follows the longest single activities instead of the longest path.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-most-activities",
+        "Takes the path with the most activities for the critical path.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-one-swap",
+        "Swaps one critical activity for a non-critical one.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-est-for-lst",
+        "Gives the earliest start time where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-ignores-successors",
+        "Finds the latest start time from the project duration alone and ignores the activities that follow.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-forgets-duration",
+        "Gives the latest start time of the next activity without taking off the duration.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-finish-for-start",
+        "Gives the earliest finish time where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3el-float-for-lst",
+        "Gives the float where the latest start time was asked.",
+        area="senior-use-ests-and-lsts-to-locate-the-critical",
+    ),
+    CatalogueEntry(
+        "w3br-sin-cos-swapped",
+        "Swaps sine and cosine when finding a distance north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-adds-legs",
+        "Adds the two leg lengths instead of combining the north and east distances.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-one-leg",
+        "Uses the first leg only.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-no-reverse",
+        "Gives the bearing from the start to the finish where the bearing home was asked.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-tan-swapped",
+        "Uses the north distance over the east distance for the angle.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-raw-angle",
+        "Gives the angle in the triangle and does not turn it into a three-figure bearing.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-angle-from-east",
+        "Measures the angle from east instead of from north.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-sign-of-component",
+        "Adds a distance south or west as if it were north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-uses-sin-not-cos",
+        "Uses the sine of the bearing where the cosine is needed to cancel the north distance.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-distance-as-component",
+        "Gives the distance walked as the distance north or east.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-tan-used",
+        "Uses the tangent where the sine or cosine is needed.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-divides",
+        "Divides by the sine or cosine where it should multiply.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-adds-components",
+        "Adds the north and east distances instead of using Pythagoras.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    CatalogueEntry(
+        "w3br-uses-total-not-component",
+        "Uses the whole first leg as the distance to cancel.",
+        area="senior-solve-problems-involving-bearings",
+    ),
+    # w3 consumer block end
 )
 
 #: Every entry, by id.

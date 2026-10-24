@@ -136,7 +136,7 @@ _MEDIUM_TEMPLATES = (
     "cm², showing the slant height as a separate step in your working.",
     "A pyramid with a square base has a base side length of {s} cm and a perpendicular "
     "height of {h} cm. Work out the pyramid's volume, in cm³, and its total surface "
-    "area, in cm² -- show the slant height as a separate working step.",
+    "area, in cm² — show the slant height as a separate working step.",
     "A square-based pyramid has a base side length of {s} cm and a perpendicular height "
     "of {h} cm. Calculate the pyramid's volume, in cm³, and its total surface area, "
     "in cm², showing the slant height as its own separate step.",
@@ -148,7 +148,7 @@ _HARD_TEMPLATES = (
     "steps.",
     "A pyramid with a square base has a base area of {area} cm² and a perpendicular "
     "height of {h} cm. Work out the pyramid's volume, in cm³, and its total surface "
-    "area, in cm² -- first find the base side length, then the slant height, showing "
+    "area, in cm² — first find the base side length, then the slant height, showing "
     "both as separate steps.",
     "A square-based pyramid has a base area of {area} cm² and a perpendicular "
     "height of {h} cm. Calculate the pyramid's volume, in cm³, and its total surface "
@@ -159,10 +159,10 @@ _EXAM_TEMPLATES = (
     "A square pyramid has a base side length of {s} cm and a "
     "perpendicular height of {h} cm. Find (a) the pyramid's volume, in cm³, and (b) "
     "its total surface area, in cm², showing your working for each part.",
-    "This exam question gives a square pyramid a base side length of {s} cm and a "
+    "A square pyramid has a base side length of {s} cm and a "
     "perpendicular height of {h} cm. With full working, find (a) the volume, in "
     "cm³, and (b) the total surface area, in cm².",
-    "Exam question: a square-based pyramid has a base side length of {s} cm and a "
+    "A square-based pyramid has a base side length of {s} cm and a "
     "perpendicular height of {h} cm. Show your working to find (a) the volume, in "
     "cm³, and (b) the total surface area, in cm².",
 )
@@ -238,7 +238,7 @@ def _final(values, rng, *, s, h, l, tier):
         "square_pyramid_volume_and_surface_area: surface_area part disagrees with independent recomputation",
     )
 
-    answer_text = f"volume = {volume_v}, surface_area = {sa_v}"
+    answer_text = f"volume = {volume_v}, area = {sa_v}"
     answer = {"volume": volume_v, "surface_area": sa_v}
 
     area = s * s
@@ -257,25 +257,25 @@ def _final(values, rng, *, s, h, l, tier):
     # differs from the true surface area on every draw, by construction.
     wrong_sa_apex = s * s + 2 * s * h
     if wrong_sa_apex != sa_v:
-        candidates.append(f"volume = {volume_v}, surface_area = {wrong_sa_apex}")
+        candidates.append(f"volume = {volume_v}, area = {wrong_sa_apex}")
 
     # omits_base_square: sums only the four triangular faces (2*s*l), no
     # base square -- always short by exactly s**2 > 0.
     wrong_sa_omits_base = 2 * s * l_v
     if wrong_sa_omits_base != sa_v:
-        candidates.append(f"volume = {volume_v}, surface_area = {wrong_sa_omits_base}")
+        candidates.append(f"volume = {volume_v}, area = {wrong_sa_omits_base}")
 
     # no_half_factor_on_laterals: uses s*l per face instead of (1/2)*s*l --
     # always high by exactly 2*s*l > 0.
     wrong_sa_no_half = s * s + 4 * s * l_v
     if wrong_sa_no_half != sa_v:
-        candidates.append(f"volume = {volume_v}, surface_area = {wrong_sa_no_half}")
+        candidates.append(f"volume = {volume_v}, area = {wrong_sa_no_half}")
 
     # no_third_factor_on_volume: uses s**2*h instead of (1/3)*s**2*h --
     # always exactly 3x the true volume (which is always > 0).
     wrong_volume_no_third = s * s * h
     if wrong_volume_no_third != volume_v:
-        candidates.append(f"volume = {wrong_volume_no_third}, surface_area = {sa_v}")
+        candidates.append(f"volume = {wrong_volume_no_third}, area = {sa_v}")
 
     for cand in candidates:
         check(

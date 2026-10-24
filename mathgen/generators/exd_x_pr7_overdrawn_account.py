@@ -132,7 +132,7 @@ def exd_x_pr7_overdrawn_account(rng: random.Random, tier: str = "exam") -> dict:
                 2,
                 a_options,
                 [
-                    f"{currency_from_cents(-opening)} - {months} x {currency_from_cents(fee)} = {currency_from_cents(after_fees)}."
+                    f"{currency_from_cents(-opening)} - {months} × {currency_from_cents(fee)} = {currency_from_cents(after_fees)}."
                 ],
                 (None, 0),
             ),

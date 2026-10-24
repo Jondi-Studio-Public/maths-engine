@@ -1,0 +1,87 @@
+id: graph-bridges
+name: Find the bridges of a drawn network
+domain: financial-discrete
+year_level: ['12']
+description: >-
+  Read a drawn network and find its bridges, the edges whose removal leaves the network in two separate pieces. The
+  network is shown only as a diagram. Easy: count the bridges, or total the costs of the bridges. Medium: a named bridge is removed and the places still reachable
+  from A are counted, or the costs of the edges still joined to A are totalled. Hard: each edge carries a cost and two edges are to be removed to save their costs while every place can still
+  be reached, so bridges cannot go and the two dearest removable edges may be a pair that cuts the network; find the greatest total saving. The exam chain counts the
+  bridges, the pieces left when every bridge is removed (carried forward), the bridges left after a stated new edge is built,
+  and the fewest new edges that leave no bridge. Distinct from graph-walks-trails-paths-cycles, which classifies routes, and
+  from senior-use-minimal-spanning-trees-to-solve-minimal-connector, which keeps the cheapest set of edges that joins everything.
+status: active
+needs_figure: true
+placement_eligible: false
+prerequisites: [graph-vertex-degrees-handshaking, graph-walks-trails-paths-cycles]
+answer: number
+sources:
+- topic: w4_graph_bridges
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: w4_graph_bridges
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: w4_graph_bridges
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: w4_graph_bridges_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: w4-bridge-counts-leaves
+  description: Counts the vertices with only one edge instead of the edges whose removal splits the network.
+- id: w4-bridge-counts-cut-vertices
+  description: Counts the vertices whose removal splits the network, where the edges whose removal does so were asked for.
+- id: w4-bridge-counts-cycle-edges
+  description: Counts the edges that lie on a cycle, which are exactly the ones that are not bridges.
+- id: w4-bridge-pieces-off-by-one
+  description: Gives the number of pieces where the number of bridges was asked for, or the reverse, one out because each bridge adds one piece.
+- id: w4-bridge-removal-ignored
+  description: Gives every vertex as still reachable after a bridge is removed, as if taking the edge away changed nothing.
+- id: w4-bridge-wrong-side
+  description: Counts the vertices on the far side of the removed bridge, or one more or fewer than the piece, instead of the piece that holds the start.
+- id: w4-bridge-only-endpoint-lost
+  description: Thinks only one vertex is cut off when a bridge is removed, so every other vertex can still be reached.
+- id: w4-bridge-heaviest-edge
+  description: Takes the dearest edges as the ones to remove, without checking that a bridge cannot be removed.
+- id: w4-bridge-pair-cuts-network
+  description: Takes the two dearest removable edges together, without checking that removing both leaves the network in two pieces.
+- id: w4-bridge-one-edge-only
+  description: Gives the saving from one edge where the total from two edges was asked for.
+- id: w4-bridge-sum-not-max
+  description: Adds the costs of every edge that could be removed where the greatest total saving from two edges was asked for.
+- id: w4-bridge-sum-of-bridges
+  description: Adds the costs of the bridges, which are exactly the edges that cannot be removed.
+- id: w4-bridge-lightest-bridge
+  description: Takes the cheapest bridge as the saving, though a bridge cannot be removed at all.
+- id: w4-bridge-pieces-all-vertices
+  description: Counts every vertex as a separate piece once the bridges are removed, though the edges on cycles still hold vertices together.
+- id: w4-bridge-new-road-ignored
+  description: Leaves the number of bridges unchanged after a new edge is added, though it can put bridges on a cycle.
+- id: w4-bridge-new-road-removes-one
+  description: Thinks a new edge stops only one bridge being a bridge, instead of every bridge on the path between its ends.
+- id: w4-bridge-new-road-clears-all
+  description: Thinks one new edge stops every bridge being a bridge, instead of only those on the path between its ends.
+- id: w4-bridge-repair-leaves
+  description: Gives the number of end pieces where the fewest new edges was asked for; each new edge can join two end pieces at once.
+- id: w4-bridge-repair-per-bridge
+  description: Builds one new edge for every bridge, when new edges between end pieces cover several bridges each.
+- id: w4-bridge-cost-of-cycle-edges
+  description: Totalling the costs of the edges on cycles, which are the ones that are not bridges.
+- id: w4-bridge-cost-of-all-edges
+  description: Totalling the cost of every edge where only the bridges were asked for.
+- id: w4-bridge-cost-dearest-only
+  description: Giving the cost of one bridge, or the total less one, instead of the total of all the bridges.
+- id: w4-bridge-removed-edge-kept
+  description: Counting the cost of the removed bridge as well as the edges that are left in the piece.
+difficulty_progression: Easy applies the definition to a whole drawing and counts. Medium removes a named bridge and counts the piece that holds
+  A, so the learner has to see which edges lie on cycles and where the split falls. Hard adds costs and a constraint on a pair of removals, so the
+  two dearest removable edges can be the trap and the answer needs the best pair that keeps the network in one piece. The exam chain counts the
+  bridges, uses them to count the pieces left, reasons about how a new edge covers the bridges on one path, and finally pairs up
+  the end pieces to find how few new edges leave no bridge.
+tags: [graph-theory, networks, bridges, connectivity, figure]

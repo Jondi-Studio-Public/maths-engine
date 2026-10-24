@@ -1,0 +1,109 @@
+id: circle-complete-the-square
+name: Find the centre and radius of a circle by completing the square
+domain: quadratics
+year_level:
+- '10'
+- '11'
+description: Complete the square on x^2 + y^2 + Dx + Ey + F = 0 to read off the centre and radius, including half-integer
+  centres, terms on both sides and a common factor, and expand a circle back to D, E and F.
+status: active
+placement_eligible: false
+prerequisites:
+- circle-equation-centre-radius-form
+- completing-square-and-discriminant
+answer: ordered_list
+sources:
+- topic: w5_circle_complete_square
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w5_circle_complete_square
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w5_circle_complete_square
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w5_circle_complete_square
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: w5c-centre-is-half-coefficient-with-its-sign
+  description: Halves the coefficient of x or y but keeps its sign, so x^2 - 6x gives a centre at x = -3.
+- id: w5c-centre-not-halved
+  description: Uses the whole coefficient of x or y as the coordinate of the centre, without halving it.
+- id: w5c-radius-is-r-squared
+  description: Gives the number on the right of the equation, r squared, as the radius.
+- id: w5c-coordinates-swapped
+  description: Swaps the x- and y-coordinates of the centre.
+- id: w5c-forgets-to-add-completed-squares
+  description: Forgets to add the squares made by completing the square to the right side, so the radius squared comes out
+    too small.
+- id: w5c-completed-squares-subtracted-twice
+  description: Subtracts the completed squares from the right side instead of adding them.
+- id: w5c-expands-with-wrong-signs
+  description: Expands the squared brackets with the signs of the linear terms reversed.
+- id: w5c-linear-term-not-doubled
+  description: Writes the linear term as the centre coordinate alone, without doubling it when expanding.
+- id: w5c-radius-squared-added-not-subtracted
+  description: Adds the radius squared to the squares of the centre coordinates where it should be subtracted.
+- id: w5c-constant-sign-reversed
+  description: Gives the constant term with its sign reversed.
+- id: w5c-squares-the-radius-squared
+  description: Squares r squared a second time.
+- id: w5c-ignores-the-common-factor
+  description: Completes the square without first dividing through by the common factor of the squared terms.
+- id: w5c-adds-the-centre-offset
+  description: Adds the height of the centre to the radius where only the radius was asked.
+- id: w5c-chord-half-for-radius
+  description: Gives half the chord where the radius was asked.
+- id: w5c-x-for-y
+  description: Gives x-coordinates where the y-coordinates of the points were asked.
+- id: w5c-ignores-centre-offset
+  description: Gives plus and minus the radius, forgetting that the centre is not on the axis.
+- id: w5c-one-intersection-only
+  description: Gives only one of the two points where the line meets the circle.
+- id: w5c-half-chord-for-chord
+  description: Gives half the chord where the whole chord was asked.
+- id: w5c-diameter-for-chord
+  description: Gives the diameter where the chord was asked.
+- id: w5c-uses-centre-height-for-chord
+  description: Doubles the height of the centre above the axis where the chord was asked.
+- id: w5c-chord-by-subtracting
+  description: Doubles the radius less the height of the centre instead of using Pythagoras for the chord.
+difficulty_progression:
+  easy:
+    steps: 3
+    demand: Complete the square in x and in y for whole-number centres, add both completed squares to the right side and
+      take the square root.
+  medium:
+    steps: 4
+    demand: Meet half-integer centres, a constant on the right side, or the reverse task of expanding a centre-radius equation
+      to D, E and F.
+  hard:
+    steps: 5
+    demand: Divide out a common factor or bring terms from both sides first, then complete the square and give the radius
+      squared.
+  exam:
+    steps: 6
+    demand: Chain the centre, the radius, the points where the circle meets a vertical line and the chord cut off on the
+      x-axis.
+tags:
+- circles
+- completing-the-square
+- coordinate-geometry
+- nsw-extension-1
+- vce-methods
+- qce-methods

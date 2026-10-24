@@ -74,7 +74,7 @@ def _candidates(x: int, s: int, key: int) -> list[int]:
     return [x, s, s + x, key - 1, key + 1]
 
 
-def _finalise(text: str, key: int, raw_candidates: list[int]) -> dict:
+def _finalise(text: str, key: int, raw_candidates: list[int], s: int, x: int) -> dict:
     seen = {key}
     distinct_ints: list[int] = []
     distractors: list[str] = []
@@ -95,7 +95,7 @@ def _finalise(text: str, key: int, raw_candidates: list[int]) -> dict:
         answer_text=str(key),
         answer_latex=str(key),
         distractors=distractors,
-        working=[f"answer: {key}"],
+        working=[f"The fact {key} + {x} = {s} also gives {s} - {x} = {key}."],
     )
 
 
@@ -153,7 +153,7 @@ def _build_easy(rng) -> dict:
     key = a
     check_equivalent(key, s - b, "p19a_add_sub_fact_family easy: key does not equal sum - subtrahend")
     text = phrase(rng, _EASY, a=a, b=b, s=s)
-    return _finalise(text, key, _candidates(b, s, key))
+    return _finalise(text, key, _candidates(b, s, key), s, b)
 
 
 def _build_medium(rng) -> dict:
@@ -165,7 +165,7 @@ def _build_medium(rng) -> dict:
     sum_first = rng.random() < 0.5
     templates = _MEDIUM_SUMFIRST if sum_first else _MEDIUM_NORMAL
     text = phrase(rng, templates, a=a, b=b, s=s, x=x)
-    return _finalise(text, key, _candidates(x, s, key))
+    return _finalise(text, key, _candidates(x, s, key), s, x)
 
 
 def _build_hard(rng) -> dict:
@@ -174,7 +174,7 @@ def _build_hard(rng) -> dict:
     key = a2
     check_equivalent(key, s - x, "p19a_add_sub_fact_family hard: key does not equal sum - subtrahend")
     text = phrase(rng, _HARD, a1=a1, b1=b1, a2=a2, b2=b2, s=s, x=x)
-    return _finalise(text, key, _candidates(x, s, key))
+    return _finalise(text, key, _candidates(x, s, key), s, x)
 
 
 def _build(rng, tier: str = "easy") -> dict:

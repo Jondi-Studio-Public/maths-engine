@@ -269,7 +269,7 @@ def _easy_amount(rng):
         u=a["many"],
     )
     working = [
-        f"Depreciation = rate per {a['one']} x {a['many']} used = {_rate_text(a['rate'], as_cents)} x {_n(n)}.",
+        f"Depreciation = rate per {a['one']} × {a['many']} used = {_rate_text(a['rate'], as_cents)} × {_n(n)}.",
         f"= {_in_text(total)}.",
     ]
     return dict(text=stem, working=working, distractors=dist, **_money_fields(total), answer_kind="number")

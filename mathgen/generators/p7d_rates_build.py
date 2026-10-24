@@ -46,6 +46,7 @@ from fractions import Fraction
 
 from mathgen.core import (
     VerificationError,
+    article_for_number,
     check,
     check_equivalent,
     check_pairwise_distinct,
@@ -138,16 +139,16 @@ def _calc_easy(rng):
     fmt = _currency if context == "pay" else _plain
     if context == "speed":
         text = f"A car travels at {r} km/h. How far does it travel in {n} hours?"
-        working = [f"Total distance = rate x time = {r} x {n} = {total} km."]
+        working = [f"Total distance = rate × time = {r} × {n} = {total} km."]
     elif context == "flow":
         text = f"Water flows from a tap at {r} litres per minute. How many litres flow in {n} minutes?"
-        working = [f"Total volume = rate x time = {r} x {n} = {total} litres."]
+        working = [f"Total volume = rate × time = {r} × {n} = {total} litres."]
     elif context == "pay":
         text = f"A tool-hire company charges {_currency(r)} per hour. How much does {n} hours of hire cost?"
-        working = [f"Total cost = rate x time = {_currency(r)} x {n} = {_currency(total)}."]
+        working = [f"Total cost = rate × time = {_currency(r)} × {n} = {_currency(total)}."]
     else:  # production
         text = f"A machine produces {r} items per hour. How many items does it produce in {n} hours?"
-        working = [f"Total produced = rate x time = {r} x {n} = {total} items."]
+        working = [f"Total produced = rate × time = {r} × {n} = {total} items."]
 
     answer_text = fmt(total)
     candidates = [fmt(cand_sum), fmt(cand_extra), fmt(cand_rate_only)]
@@ -282,7 +283,7 @@ def _calc_hard(rng):
     if context == "tap":
         text = (
             f"Tap A fills a tank at {a} litres per minute. Tap B fills the same tank at {b} litres "
-            f"per minute. Working together, starting at the same time, they fill a {total} litre "
+            f"per minute. Working together, starting at the same time, they fill {article_for_number(total)} {total} litre "
             f"tank from empty. How many minutes does it take to fill the tank?"
         )
     else:
@@ -567,8 +568,8 @@ def _compare_hard(rng):
     _verify_hard_compare(volA_mL, volB_L, packA_price, packB_price, priceA_perL, priceB_perL, answer_cents)
 
     text = (
-        f"Brand A sells a {volA_mL} mL bottle for {_currency(packA_price)}. "
-        f"Brand B sells a {volB_L} L bottle for {_currency(packB_price)}. (1 L = 1000 mL.) "
+        f"Brand A sells {article_for_number(volA_mL)} {volA_mL} mL bottle for {_currency(packA_price)}. "
+        f"Brand B sells {article_for_number(volB_L)} {volB_L} L bottle for {_currency(packB_price)}. (1 L = 1000 mL.) "
         f"Find the difference between the two brands' prices per litre, to the nearest cent."
     )
     answer_text = currency_from_cents(answer_cents)

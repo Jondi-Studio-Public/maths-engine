@@ -66,6 +66,12 @@ def _money(value: Fraction) -> str:
     return stated_precision_string(round_half_up(value, 2), 2)
 
 
+def _commas(text: str) -> str:
+    """Thousands commas for a plain dollar amount, so stems and working match ($20,000)."""
+    whole, dot, frac = text.partition(".")
+    return f"{int(whole):,}{dot}{frac}"
+
+
 def _money_signed(value: Fraction) -> str:
     v = round_half_up(value, 2)
     sign = "-" if v < 0 else ""
@@ -155,7 +161,7 @@ def _loan_forward(rng, n_lo: int, n_hi: int, lump: bool):
     if lump:
         extra_at = rng.randint(2, n - 1)
         extra = R * rng.choice((Fraction(1, 2), Fraction(1, 1), Fraction(3, 2)))
-        extra_text = f" In period {extra_at}, an extra one-off repayment of ${_money(extra)} is also made. "
+        extra_text = f" In period {extra_at}, an extra one-off repayment of ${_commas(_money(extra))} is also made. "
 
     balance = _iterate_balance(principal, r, R, n, extra_at, extra)
     balance_check = _stream_balance(principal, r, R, n, extra_at, extra)
@@ -163,7 +169,11 @@ def _loan_forward(rng, n_lo: int, n_hi: int, lump: bool):
 
     template = rng.choice(_LOAN_FORWARD_TEMPLATES)
     text = template.format(
-        p=principal, r=_fmt_pct(rate_pct), R=(int(R) if R.denominator == 1 else float(R)), extra=extra_text, n=n
+        p=f"{int(principal):,}",
+        r=_fmt_pct(rate_pct),
+        R=(f"{int(R):,}" if R.denominator == 1 else float(R)),
+        extra=extra_text,
+        n=n,
     )
     text = text.rstrip() + _TO_THE_CENT
 
@@ -191,7 +201,7 @@ def _loan_forward(rng, n_lo: int, n_hi: int, lump: bool):
         answer_text=answer_text,
         answer_latex=f"\\${answer_text}",
         distractors=distractors,
-        working=[f"Applying B(n+1) = B(n)(1 + r) - R for {n} periods gives ${answer_text}."],
+        working=[f"Applying B(n+1) = B(n)(1 + r) - R for {n} periods gives ${_commas(answer_text)}."],
     )
 
 
@@ -249,9 +259,9 @@ def _loan_find_n(rng):
     check(_closed_balance(principal, r, R, n_correct) <= T, "closed form disagrees with the search at n")
     check(_closed_balance(principal, r, R, n_correct - 1) > T, "closed form disagrees with the search at n-1")
 
-    r_disp = int(R) if R.denominator == 1 else float(R)
+    r_disp = f"{int(R):,}" if R.denominator == 1 else float(R)
     template = rng.choice(_LOAN_FIND_N_TEMPLATES)
-    text = template.format(p=principal, r=_fmt_pct(rate_pct), R=r_disp, T=int(T))
+    text = template.format(p=f"{int(principal):,}", r=_fmt_pct(rate_pct), R=r_disp, T=f"{int(T):,}")
     answer_text = str(n_correct)
     d_over = n_correct + 1
     d_under = max(0, n_correct - 1)
@@ -266,7 +276,7 @@ def _loan_find_n(rng):
         answer_latex=answer_text,
         distractors=distractors,
         working=[
-            f"Applying the recurrence period by period, the balance first falls to ${int(T)} or "
+            f"Applying the recurrence period by period, the balance first falls to ${int(T):,} or "
             f"below after {n_correct} periods."
         ],
     )
@@ -311,10 +321,10 @@ def _loan_rate_change(rng):
 
     template = rng.choice(_LOAN_RATE_CHANGE_TEMPLATES)
     text = template.format(
-        p=principal,
+        p=f"{int(principal):,}",
         r1=_fmt_pct(rate1_pct),
         r2=_fmt_pct(rate2_pct),
-        R=(int(R) if R.denominator == 1 else float(R)),
+        R=(f"{int(R):,}" if R.denominator == 1 else float(R)),
         n1=n1,
         ntotal=ntotal,
     )
@@ -341,9 +351,9 @@ def _loan_rate_change(rng):
         answer_latex=f"\\${answer_text}",
         distractors=distractors,
         working=[
-            f"After {n1} periods at {_fmt_pct(rate1_pct)}%, the balance is ${_money(phase1_balance)}. "
+            f"After {n1} periods at {_fmt_pct(rate1_pct)}%, the balance is ${_commas(_money(phase1_balance))}. "
             f"Carrying that forward as the starting balance for {n2} more periods at "
-            f"{_fmt_pct(rate2_pct)}% gives ${answer_text}."
+            f"{_fmt_pct(rate2_pct)}% gives ${_commas(answer_text)}."
         ],
     )
 
@@ -623,7 +633,7 @@ _WAGE_TEMPLATES = (
     "A fast-food store's wage sheet lists each worker's hourly rate and hours this week: {table}."
     "{ot_note} What is {who}'s total wage for the week?",
     "The weekly wage spreadsheet for a fast-food store shows: {table}.{ot_note} Find {who}'s gross pay for the week.",
-    "From this week's wage sheet -- {table}{ot_note} -- calculate the total amount {who} earned.",
+    "This week's wage sheet shows: {table}.{ot_note} From this sheet, calculate the total amount {who} earned.",
 )
 
 _WAGE_OT_NOTE = " Overtime hours are paid at 1.5 times the hourly rate."
@@ -631,8 +641,8 @@ _WAGE_DIFF_TEMPLATES = (
     "A fast-food store's wage sheet lists each worker's hourly rate and hours this week: {table}. "
     "Overtime hours are paid at the stated multiple of the hourly rate. How much MORE did {who_a} "
     "earn than {who_b} this week?",
-    "From this week's wage spreadsheet -- {table}, overtime paid at the stated multiple of the "
-    "hourly rate -- find the difference between {who_a}'s wage and {who_b}'s wage.",
+    "This week's wage sheet shows: {table}. Overtime is paid at the stated multiple of the "
+    "hourly rate. Find the difference between {who_a}'s wage and {who_b}'s wage.",
 )
 
 
@@ -688,7 +698,7 @@ def _wage_single(rng, k: int, with_ot: bool, uniform_mult: bool, force_ot_for_an
         answer_text=answer_text,
         answer_latex=f"\\${answer_text}",
         distractors=distractors,
-        working=[f"Reading {who}'s own row and applying the stated rate(s): total wage = ${answer_text}."],
+        working=[f"Reading {who}'s own row and applying the stated rates: total wage = ${answer_text}."],
     )
 
 
@@ -740,10 +750,7 @@ def _wage_diff(rng):
         answer_text=answer_text,
         answer_latex=f"\\${answer_text}",
         distractors=distractors,
-        working=[
-            f"{who_a}'s wage minus {who_b}'s wage: ${_money(wage_a)} - ${_money(wage_b)} "
-            f"= ${answer_text} (in magnitude)."
-        ],
+        working=[f"{who_a}'s wage minus {who_b}'s wage: ${_money(wage_a)} - ${_money(wage_b)} = ${answer_text}."],
     )
 
 
@@ -908,7 +915,7 @@ def _gmt_single_leg(rng, half_hour: bool, force_day_back: bool):
         f"A flight departs {place_from} ({_fmt_offset(off_from)}) at "
         f"{hour:02d}:{minute:02d} on {_DAYS[day_idx]}, and flies for {duration_h} hours to "
         f"{place_to} ({_fmt_offset(off_to)}), crossing the International Date "
-        f"Line. Using GMT as the reference, find {place_to}'s local day and time of arrival. "
+        f"Line. Using GMT as the reference, find the local day and time of arrival in {place_to}. "
         f"{_GMT_INSTRUCTION}"
     )
     same_zone_wrong = _fmt_time(depart_minutes + duration_h * 60)  # ignored both zones/date line entirely
@@ -922,7 +929,7 @@ def _gmt_single_leg(rng, half_hour: bool, force_day_back: bool):
         candidates,
         working=[
             f"Departure in GMT: {_fmt_time(depart_minutes - _offset_minutes(off_from))}. "
-            f"Add the {duration_h}h flight, then apply {place_to}'s GMT offset: {answer_text}."
+            f"Add the {duration_h}h flight, then apply the GMT offset of {place_to}: {answer_text}."
         ],
     )
 
@@ -963,10 +970,10 @@ def _gmt_two_leg(rng):
     text = (
         f"A traveller departs {place_a} ({_fmt_offset(off_a)}) at {hour:02d}:00 on "
         f"{_DAYS[day_idx]} and flies {dur1} hours to {place_b} ({_fmt_offset(off_b)}), "
-        f"crossing the International Date Line. After a {layover}-hour layover in {place_b}'s local "
-        f"time, a connecting flight takes {dur2} hours to {place_c} ({_fmt_offset(off_c)}). "
-        f"Using GMT as the reference throughout, find {place_c}'s local day and time of "
-        f"arrival. {_GMT_INSTRUCTION}"
+        f"crossing the International Date Line. After a {layover}-hour layover in {place_b}, "
+        f"a connecting flight takes {dur2} hours to {place_c} ({_fmt_offset(off_c)}). "
+        f"Using GMT as the reference throughout, find the local day and time of "
+        f"arrival in {place_c}. {_GMT_INSTRUCTION}"
     )
     ignore_layover = _fmt_time(_gmt_leg(depart_minutes, off_a, (dur1 + dur2) * 60, off_c))
     swap_leg2_zone = _fmt_time(_gmt_leg(arrive_b, off_a, layover * 60 + dur2 * 60, off_c))

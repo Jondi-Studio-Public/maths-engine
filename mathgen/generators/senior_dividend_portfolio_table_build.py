@@ -196,7 +196,7 @@ def _medium(rng):
     )
     working = []
     for i, h in enumerate(holdings):
-        working.append(f"{names[i]}: dividend per share ${money(_dollars(h[3]))}; {h[0]} x that = {money(paid[i])}")
+        working.append(f"{names[i]}: dividend per share ${money(_dollars(h[3]))}; {h[0]} × that = {money(paid[i])}")
     working.append(f"Total: {money(total)}")
     return answer, stem, wrong, working
 
@@ -278,11 +278,11 @@ def _hard(rng):
         rng,
         [
             "{owner} holds shares in four companies. For each holding the table shows the number of shares held, "
-            "the share price, the earnings per share and the dividend per share. Dividend paid = shares held x "
+            "the share price, the earnings per share and the dividend per share. Dividend paid = shares held × "
             "dividend per share; dividend yield = dividend per share / share price, as a percentage; P/E ratio = "
             "share price / earnings per share. Complete the table, giving dollar amounts to the cent (2 decimal places) and the yield "
             "and the P/E ratio to one decimal place. Fill in each ? with a number.",
-            "The table compares four shares in {owner_l} portfolio. Dividend paid = shares held x dividend per share; "
+            "The table compares four shares in {owner_l} portfolio. Dividend paid = shares held × dividend per share; "
             "dividend yield = dividend per share / share price, as a percentage; P/E ratio = share price / earnings "
             "per share. Complete the table, giving dollar amounts to the cent (2 decimal places) and the yield and the P/E ratio to "
             "one decimal place. Fill in each ? with a number.",
@@ -438,13 +438,13 @@ def _exam(rng):
         rng,
         [
             "The table shows part of the record of {owner_l} portfolio of shares in three companies. Some entries "
-            "are missing, and different entries are missing from different rows. Dividend paid = shares held x "
+            "are missing, and different entries are missing from different rows. Dividend paid = shares held × "
             "dividend per share; dividend yield = dividend per share / share price, as a percentage; P/E ratio = "
             "share price / earnings per share. Every entry that is shown is exact. Complete the table, giving "
             "dollar amounts to the cent (2 decimal places) and the yield and the P/E ratio to one decimal place. Fill in each ? with a "
             "number.",
             "{owner_u} keeps this record of three shares, but some entries are missing and they are not the same "
-            "in every row. Dividend paid = shares held x dividend per share; dividend yield = dividend per share / "
+            "in every row. Dividend paid = shares held × dividend per share; dividend yield = dividend per share / "
             "share price, as a percentage; P/E ratio = share price / earnings per share. Every entry that is shown "
             "is exact. Complete the table, giving dollar amounts to the cent (2 decimal places) and the yield and the P/E ratio to "
             "one decimal place. Fill in each ? with a number.",

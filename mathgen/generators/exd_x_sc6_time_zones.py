@@ -35,6 +35,11 @@ def _h(value: Fraction) -> str:
     return stated_precision_string(round_half_up(Fraction(value), 1), 1)
 
 
+def _hrs(value: Fraction) -> str:
+    """`_h` with its unit, singular for exactly 1 ("1.0 hour", "2.5 hours")."""
+    return f"{_h(value)} {'hour' if round_half_up(Fraction(value), 1) == 1 else 'hours'}"
+
+
 def _num(value: Fraction):
     value = round_half_up(Fraction(value), 1)
     return int(value) if value.denominator == 1 else float(value)
@@ -373,28 +378,28 @@ def exd_x_sc6_aus_zones(rng: random.Random, tier: str = "exam") -> dict:
             2,
             working=[
                 f"{west}: UTC{_fmt_utc(_eff(west))}. {east}: UTC{_fmt_utc(_eff(east))}.",
-                f"Difference = {_h(d)} hours.",
+                f"Difference = {_hrs(d)}.",
             ],
             distractors=_tag(d, a_cands),
         )
     ]
     parts += _clock_parts(
-        f"A flight leaves {west} at {_clock(dep1)} local time and takes {_h(d_east)} hours to reach {east}. "
+        f"A flight leaves {west} at {_clock(dep1)} local time and takes {_hrs(d_east)} to reach {east}. "
         f"Find the local time in {east} when it lands.",
         "b",
         arr1,
         f"{dep1} + {d_east} + part_a",
         b_cands,
-        [f"Landing time in {west}'s time = {_clock(dep1 + d_east)}; add {_h(d)} hours: {_clock(arr1)}."],
+        [f"Landing time in {west}'s time = {_clock(dep1 + d_east)}; add {_hrs(d)}: {_clock(arr1)}."],
     )
     parts += _clock_parts(
-        f"The return flight leaves {east} at {_clock(dep2)} local time and takes {_h(d_west)} hours. "
+        f"The return flight leaves {east} at {_clock(dep2)} local time and takes {_hrs(d_west)}. "
         f"Find the local time in {west} when it lands.",
         "d",
         arr2,
         f"{dep2} + {d_west} - part_a",
         c_cands,
-        [f"{_clock(dep2 + d_west)} in {east}'s time; subtract {_h(d)} hours: {_clock(arr2)}."],
+        [f"{_clock(dep2 + d_west)} in {east}'s time; subtract {_hrs(d)}: {_clock(arr2)}."],
     )
     return dict(text=_zone_stem(west, east), parts=parts)
 
@@ -452,7 +457,7 @@ def exd_x_sc6_call_window(rng: random.Random, tier: str = "exam") -> dict:
             "Give your answer in hours, to 1 decimal place.",
             d,
             2,
-            working=[f"Effective offsets differ by {_h(d)} hours."],
+            working=[f"Effective offsets differ by {_hrs(d)}."],
             distractors=_tag(d, a_cands),
         ),
         _part(
@@ -510,7 +515,7 @@ def exd_x_sc6_travel_zones(rng: random.Random, tier: str = "exam") -> dict:
     direction = "east" if eastbound else "west"
     stem = (
         f"Both {origin} and {dest} are on standard time. A traveller leaves {origin} at {_clock(dep)} local time "
-        f"and flies {direction} to {dest}. The flight takes {_h(dur)} hours and lands at {_clock(arr_clock)} "
+        f"and flies {direction} to {dest}. The flight takes {_hrs(dur)} and lands at {_clock(arr_clock)} "
         f"{dest} local time, {day_label}."
     )
     word_back = "east" if not eastbound else "west"
@@ -540,19 +545,19 @@ def exd_x_sc6_travel_zones(rng: random.Random, tier: str = "exam") -> dict:
             working=[
                 f"Landing time on {origin}'s clock = {_clock(dep + dur)}; {dest} reads {_clock(arr_clock)} "
                 f"{day_label.replace('on the ', '')}.",
-                f"The difference is {_h(d)} hours.",
+                f"The difference is {_hrs(d)}.",
             ],
             distractors=_tag(d, a_cands),
         )
     ]
     parts += _clock_parts(
         f"On the return the traveller leaves {dest} at {_clock(dep_back)} local time, flying {word_back}. "
-        f"This flight takes {_h(dur_back)} hours. Find the local time in {origin} when it lands.",
+        f"This flight takes {_hrs(dur_back)}. Find the local time in {origin} when it lands.",
         "b",
         back_arrival,
         f"{dep_back} + {dur_back} {sign_text} part_a",
         b_cands,
-        [f"{_clock(dep_back + dur_back)} on {dest}'s clock; adjust by {_h(d)} hours: {_clock(back_arrival)}."],
+        [f"{_clock(dep_back + dur_back)} on {dest}'s clock; adjust by {_hrs(d)}: {_clock(back_arrival)}."],
     )
     parts += _clock_parts(
         f"During the stay, at {_clock(call_time)} local time in {dest}, the traveller phones home to {origin}. "
@@ -561,6 +566,6 @@ def exd_x_sc6_travel_zones(rng: random.Random, tier: str = "exam") -> dict:
         call_home,
         f"{call_time} {'-' if sign == 1 else '+'} part_a",
         c_cands,
-        [f"{origin} is {'behind' if sign == 1 else 'ahead of'} {dest} by {_h(d)} hours: {_clock(call_home)}."],
+        [f"{origin} is {'behind' if sign == 1 else 'ahead of'} {dest} by {_hrs(d)}: {_clock(call_home)}."],
     )
     return dict(text=stem, parts=parts)

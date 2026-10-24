@@ -123,7 +123,7 @@ def exd_x_s2_traffic(rng: random.Random, tier: str = "exam") -> dict:
     working = [
         "Conditioning restricts attention to the outcomes consistent with the given information.",
         f"P(given) = {rational_text(denom)}, P(target and given) = {rational_text(sum(joint[k] for k in target))}.",
-        f"Answer = {rational_text(sum(joint[k] for k in target))}/{rational_text(denom)} = {answer_text}.",
+        f"Answer = ({rational_text(sum(joint[k] for k in target))}) ÷ ({rational_text(denom)}) = {answer_text}.",
     ]
     return dict(
         text=text,

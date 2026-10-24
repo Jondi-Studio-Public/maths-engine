@@ -37,6 +37,11 @@ from .p15d_build import (
 _LABELS = "PQRSTU"
 
 
+def _wk(v: Fraction) -> str:
+    """Working text: a whole mean prints without the spurious decimal."""
+    return str(int(v)) if v.denominator == 1 else f"{float(v):.1f}"
+
+
 def _sides(rng: random.Random, shape: str, type_name: str) -> list[int]:
     return _triangle_sides(rng, type_name) if shape == "triangle" else _quad_sides(rng, type_name)
 
@@ -157,7 +162,7 @@ def exd_x_r2j_shape_sorting_chain(rng: random.Random, tier: str = "exam") -> dic
         exact=mean,
         places=1,
         marks=1,
-        working=[f"Mean = {total} / {count} = {float(mean):.1f} units."],
+        working=[f"Mean = {total} / {count} = {_wk(mean)} units."],
         wrong=[
             (Fraction(total, 6), "divided-by-all-the-shapes"),
             (Fraction(all_total, 6), "ignored-the-sorting"),
@@ -175,7 +180,7 @@ def exd_x_r2j_shape_sorting_chain(rng: random.Random, tier: str = "exam") -> dic
         marks=2,
         working=[
             f"Shape V also reaches {target}, with perimeter {late_perimeter}.",
-            f"New mean = ({total} + {late_perimeter}) / {count + 1} = {float(new_mean):.1f} units.",
+            f"New mean = ({total} + {late_perimeter}) / {count + 1} = {_wk(new_mean)} units.",
         ],
         wrong=[
             (mean, "ignored-the-new-shape"),

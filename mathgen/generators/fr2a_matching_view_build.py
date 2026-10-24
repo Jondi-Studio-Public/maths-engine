@@ -102,7 +102,9 @@ def _plan_parts(x0, y0, grid):
     depth, width = len(grid), len(grid[0])
     segs = _cell_segments(x0, y0, [depth] * width)  # a full rectangle of squares
     points = [
-        {"at": [x0 + x + 0.5, y0 + y + 0.5], "label": str(grid[y][x])} for y in range(depth) for x in range(width)
+        {"at": [x0 + x + 0.5, y0 + y + 0.5], "label": str(grid[y][x]), "marker": False}
+        for y in range(depth)
+        for x in range(width)
     ]
     return segs, points
 
@@ -128,7 +130,7 @@ def _layout_figure(top_row, options, *, alt, title, panel_w):
             points += pts
         else:
             segments += _cell_segments(x, top_y, data)
-        points.append({"at": [x + panel_w / 2, top_y - 0.6], "label": label})
+        points.append({"at": [x + panel_w / 2, top_y - 0.6], "label": label, "marker": False})
         x += panel_w + _GAP
     x = 0.0
     for i, (kind, data) in enumerate(options):
@@ -138,7 +140,7 @@ def _layout_figure(top_row, options, *, alt, title, panel_w):
             seg, pts = _plan_parts(x, _Y0, data)
             segments += seg
             points += pts
-        points.append({"at": [x + panel_w / 2, _Y0 - 0.6], "label": _LETTERS[i]})
+        points.append({"at": [x + panel_w / 2, _Y0 - 0.6], "label": _LETTERS[i], "marker": False})
         x += panel_w + _GAP
     top = top_y + max(_extent(item) for item in top_row) + 0.5
     width = 4 * panel_w + 3 * _GAP

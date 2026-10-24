@@ -22,7 +22,7 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, join_terms, phrase
 from ._sr2b_kit import int_dist, number_fields, pick, retry_short
 
 _SQ = "square units"
@@ -230,7 +230,7 @@ def _hard_unknown(rng):
         text=stem + f"Find the area of the region between the graph and the x-axis {label}.",
         working=[
             f"Let the unknown areas be Q (middle) and R (last). Total area: {P} + Q + R = {total}, so Q + R = {total - P}.",
-            f"Integral: {signs[0] * P} + ({signs[1]})Q + ({signs[2]})R = {integral}, so ({signs[1]})Q + ({signs[2]})R = {integral - signs[0] * P}.",
+            f"Integral: {join_terms([(signs[0] * P, ''), (signs[1], 'Q'), (signs[2], 'R')])} = {integral}, so {join_terms([(signs[1], 'Q'), (signs[2], 'R')])} = {integral - signs[0] * P}.",
             f"Solving gives Q = {Q} and R = {R}, so the area asked for is {ans}.",
         ],
         distractors=_dists(ans, cands),

@@ -153,12 +153,22 @@ def _sample_divisibility_pair(
         "hard": dict(a_range=(7, 30), b_range=(100, 999), force_near_miss=True),
     },
 )
-def factors_multiples_divisibility(rng, a_range=(2, 12), b_range=(2, 100), force_near_miss=False, form="number"):
+def factors_multiples_divisibility(
+    rng, a_range=(2, 12), b_range=(2, 100), force_near_miss=False, form="number", choose=False
+):
     """Given two natural numbers a and b, determine whether a divides b exactly.
     Two-option classification: yes/no.
 
     ``form="factored"`` (hard tier): b is shown in prime-factorised form and the
-    learner decides by comparing prime powers rather than by dividing."""
+    learner decides by comparing prime powers rather than by dividing.
+
+    ``choose=True`` (what the skill file sets) asks the four-option form instead: which of four numbers
+    does ``a`` divide exactly (hard: which of four divides the factorised number). See
+    ``w2_pick_the_one``; a blind guess is then right a quarter of the time, not half."""
+    if choose:
+        from .w2_pick_the_one import divides_which
+
+        return divides_which(rng, a_range, b_range, form)
     if form == "factored":
         a, b_fac, predicted = _factored_divisibility(rng)
         b_txt = _factored_text(b_fac)
@@ -380,7 +390,9 @@ def _sample_property_pair(
         "hard": dict(n_range=(50, 300), prop=None, force_near_miss=None),  # randomised, 1 in 3 near-miss
     },
 )
-def prime_composite_square_properties(rng, n_range=(2, 30), prop=None, force_near_miss=False, form="number"):
+def prime_composite_square_properties(
+    rng, n_range=(2, 30), prop=None, force_near_miss=False, form="number", choose=False
+):
     """Given a natural number and a property (prime, composite, or perfect square),
     determine whether the number has that property. Two-option classification: yes/no.
 
@@ -391,7 +403,14 @@ def prime_composite_square_properties(rng, n_range=(2, 30), prop=None, force_nea
     ``form="factored"`` (hard tier): the number is shown in prime-factorised form
     and the learner decides whether it is a perfect square from the parity of
     the exponents, with no multiplying out.
+
+    ``choose=True`` (what the skill file sets) asks which of four numbers is prime, composite or a perfect
+    square (hard: which of four factorised numbers is a perfect square); see ``w2_pick_the_one``.
     """
+    if choose:
+        from .w2_pick_the_one import property_pick
+
+        return property_pick(rng, n_range[0], n_range[1], prop, form)
     if form == "factored":
         predicted = rng.choice(["yes", "no"])
         primes = sorted(rng.sample([2, 3, 5, 7, 11], rng.choice([2, 3])))

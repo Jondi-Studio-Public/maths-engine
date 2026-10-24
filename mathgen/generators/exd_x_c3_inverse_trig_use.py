@@ -11,11 +11,16 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from ..core import check, generator, pick_distractors, rational_text
+from ..core import bracket_compound, check, generator, pick_distractors, rational_text
 from .exd_x_c3_support import Redraw, draw
 
 # (opposite, adjacent, hypotenuse) triples used for the rational sine/cosine pairs.
 _TRIPLES = [(3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (20, 21, 29)]
+
+
+def paren_negative_r(value: Fraction) -> str:
+    """A rational as a factor: bracketed when negative or a fraction, so a product never reads "2 × 8/17 × -3/5"."""
+    return bracket_compound(rational_text(value))
 
 
 def _ratio(rng: random.Random, allow_negative: bool) -> tuple[Fraction, Fraction]:
@@ -39,7 +44,13 @@ def _sum_of_inverse_trig(rng: random.Random) -> dict:
         cu * sv,  # forgets the first product
     ]
     text = f"Evaluate sin(arcsin({rational_text(u)}) + arccos({rational_text(v)})) exactly."
-    return _pack(text, answer, cands)
+    working = [
+        f"Let A = arcsin({rational_text(u)}) and B = arccos({rational_text(v)}). A lies in [-π/2, π/2] and B in [0, π].",
+        f"sin A = {rational_text(u)} and cos A = {rational_text(cu)} (not negative). "
+        f"cos B = {rational_text(v)} and sin B = {rational_text(sv)} (not negative).",
+        f"sin(A + B) = sin A cos B + cos A sin B = {rational_text(u * v)} + {rational_text(cu * sv)} = {rational_text(answer)}.",
+    ]
+    return _pack(text, answer, cands, working)
 
 
 def _double_angle(rng: random.Random) -> dict:
@@ -54,7 +65,12 @@ def _double_angle(rng: random.Random) -> dict:
         v * sv,  # forgets the 2
     ]
     text = f"Evaluate sin(2·arccos({rational_text(v)})) exactly."
-    return _pack(text, answer, cands)
+    working = [
+        f"Let A = arccos({rational_text(v)}), so cos A = {rational_text(v)} and A lies in [0, π].",
+        f"On [0, π] sine is not negative, so sin A = {rational_text(sv)}.",
+        f"sin 2A = 2 sin A cos A = 2 × {paren_negative_r(sv)} × {paren_negative_r(v)} = {rational_text(answer)}.",
+    ]
+    return _pack(text, answer, cands, working)
 
 
 def _tan_of_sum(rng: random.Random) -> dict:
@@ -75,10 +91,17 @@ def _tan_of_sum(rng: random.Random) -> dict:
         (u + t) / (1 - u * t),  # uses sin A where tan A belongs
     ]
     text = f"Evaluate tan(arcsin({rational_text(u)}) + arctan({rational_text(t)})) exactly."
-    return _pack(text, answer, cands)
+    working = [
+        f"Let A = arcsin({rational_text(u)}) in [-π/2, π/2], so sin A = {rational_text(u)} and cos A = {rational_text(cu)} "
+        f"(not negative). Then tan A = {rational_text(ta)}.",
+        f"tan B = {rational_text(t)} for B = arctan({rational_text(t)}).",
+        f"tan(A + B) = (tan A + tan B) / (1 - tan A tan B) = ({rational_text(ta)} + {rational_text(t)}) / "
+        f"(1 - {paren_negative_r(ta)} × {paren_negative_r(t)}) = {rational_text(answer)}.",
+    ]
+    return _pack(text, answer, cands, working)
 
 
-def _pack(text: str, answer: Fraction, cands) -> dict:
+def _pack(text: str, answer: Fraction, cands, working=None) -> dict:
     check(answer.denominator < 10**4, "unexpectedly large denominator")
     answer_text = rational_text(answer)
     distractors = pick_distractors(answer_text, [rational_text(c) for c in cands])
@@ -90,6 +113,7 @@ def _pack(text: str, answer: Fraction, cands) -> dict:
         answer=answer_text,
         answer_text=answer_text,
         distractors=distractors,
+        working=list(working or []),
     )
 
 

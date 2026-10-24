@@ -43,7 +43,7 @@ def plan_figure(grid):
     """The plan view of ``grid`` (rows from the front; ``None`` marks the unknown stack) as a ``cartesian`` figure."""
     depth, width = len(grid), len(grid[0])
     points = [
-        {"at": [x + 0.5, y + 0.5], "label": "?" if grid[y][x] is None else str(grid[y][x])}
+        {"at": [x + 0.5, y + 0.5], "label": "?" if grid[y][x] is None else str(grid[y][x]), "marker": False, "size": 18}
         for y in range(depth)
         for x in range(width)
     ]

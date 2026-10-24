@@ -356,10 +356,12 @@ def exd_x_fr2a_transform_chain(rng, tier="exam"):
 
 
 def _fr2a_transform_chain(rng):
+    # Pick the triple before the placement loop: the big triples fit the grid far less often, so choosing
+    # inside the loop left the 3-4-5 triangle on over half of the questions.
+    leg1, leg2, hyp = rng.choice(kit.LEG_TRIPLES)
+    if rng.random() < 0.5:
+        leg1, leg2 = leg2, leg1
     for _ in attempts(3000, "a right-angled triangle, two moves and a picture that fit"):
-        leg1, leg2, hyp = rng.choice(kit.LEG_TRIPLES)
-        if rng.random() < 0.5:
-            leg1, leg2 = leg2, leg1
         bx, by = rng.randint(-4, 4), rng.randint(-4, 4)
         sx, sy = rng.choice((-1, 1)), rng.choice((-1, 1))
         a = (bx + sx * leg1, by)

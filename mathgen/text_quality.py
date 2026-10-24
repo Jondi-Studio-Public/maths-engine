@@ -58,6 +58,19 @@ def _singular_count_plural(text: str) -> str | None:
     return None
 
 
+_ORDINAL_RE = re.compile(r"(?<![\d.])(\d+)(st|nd|rd|th)\b(?![\^*(])")
+
+
+def _wrong_ordinal(text: str) -> str | None:
+    """A numeral with the wrong ordinal ending: "3th", "21th", "12nd", "4rd". Leaves 11th-13th, 21st, 112th alone."""
+    for match in _ORDINAL_RE.finditer(text):
+        n = int(match.group(1))
+        suffix = "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th")
+        if match.group(2) != suffix:
+            return match.group(0)
+    return None
+
+
 def _regex(pattern: str) -> Callable[[str], str | None]:
     compiled = re.compile(pattern)
 
@@ -84,6 +97,12 @@ BAD_TEXT_PATTERNS: tuple[TextPattern, ...] = (
         "learner",
         _regex(r"\*\*"),
         "Python exponent notation; write the power in words, with a caret, or in the latex field",
+    ),
+    TextPattern(
+        "wrong_ordinal",
+        "learner",
+        _wrong_ordinal,
+        'an ordinal with the wrong ending, as "3th" or "21th". Build it with core.ordinal',
     ),
     TextPattern(
         "star_operator",

@@ -142,12 +142,19 @@ def _wrong_diff(a, b, sa, sb):
     return cand
 
 
+_QUARTILE_METHOD = (
+    " Find quartiles by splitting the ordered data into a lower half and an upper half; when there is an odd number "
+    "of values, leave the median out of both halves."
+)
+
+
 def _rule(min_n):
     base = (
         "The rule: the difference is strong evidence of a real difference only when the difference between the two "
         "medians is at least as large as the larger of the two interquartile ranges (IQRs); otherwise it is weak evidence."
     )
-    if min_n:
+    if min_n:  # raw data: the learner finds the quartiles, so the method must be stated
+        base += _QUARTILE_METHOD
         base += f" A group with fewer than {min_n} values is too small, and no judgement can be made."
     return base
 

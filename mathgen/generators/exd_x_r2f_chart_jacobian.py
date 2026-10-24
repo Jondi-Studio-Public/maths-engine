@@ -18,7 +18,7 @@ import random
 import sympy
 from sympy import Rational, symbols
 
-from ..core import attempts, check, generator, join_terms, rational_text
+from ..core import attempts, check, generator, join_terms, paren_negative as pn, rational_text
 from .exd_x_r2f_common import expr_part, frac_part
 
 x, y = symbols("x y")
@@ -82,7 +82,7 @@ def exd_x_r2f_chart_jacobian(rng: random.Random, tier: str = "exam") -> dict:
         2,
         [
             f"J = [[{2 * p}x, {q}], [{r}, {2 * s}y]].",
-            f"det J = ({2 * p}x)({2 * s}y) - ({q})({r}) = {sympy.sstr(det_expr)}.",
+            f"det J = ({2 * p}x)({2 * s}y) - {pn(q)} × {pn(r)} = {join_terms([(4 * p * s, 'xy'), (-q * r, '')])}.",
         ],
         [
             ("forgot-power-multiplier", p * s * x * y - q * r),
@@ -95,7 +95,10 @@ def exd_x_r2f_chart_jacobian(rng: random.Random, tier: str = "exam") -> dict:
         f"Hence find the value of det J at P({x0}, {y0}).",
         det_val,
         1,
-        [f"det J = 4({p})({s})({x0})({y0}) - ({q})({r}) = {rational_text(det_val)}."],
+        [
+            f"det J = {join_terms([(4 * p * s, 'xy'), (-q * r, '')])} at ({x0}, {y0}): "
+            f"{4 * p * s} × {pn(x0)} × {pn(y0)} {'-' if q * r > 0 else '+'} {abs(q * r)} = {rational_text(det_val)}."
+        ],
         [
             ("origin-substitution", -q * r),
             ("forgot-power-multiplier", p * s * x0 * y0 - q * r),

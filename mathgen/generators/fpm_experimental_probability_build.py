@@ -21,6 +21,7 @@ one decimal place and the stated precision of the key is its true value.
 from __future__ import annotations
 
 import math
+import re
 
 import functools
 from fractions import Fraction
@@ -30,6 +31,7 @@ from ..core import (
     GRADER_TOLERANCE,
     attempts,
     check,
+    equals_chain,
     generator,
     latex_answer,
     numeric_answer,
@@ -226,7 +228,7 @@ def fpm_relative_frequency(rng, tier: str = "easy"):
     else:
         working = [
             f"There were {' + '.join(map(str, counts))} = {total} results in all.",
-            f"The event covers {' + '.join(map(str, named))} = {favourable} of them.",
+            f"The event covers {equals_chain(' + '.join(map(str, named)), favourable)} of them.",
             f"Relative frequency = {favourable}/{total} = {rational_text(p)}.",
         ]
     return dict(
@@ -507,7 +509,7 @@ def fpm_expected_vs_observed(rng, tier: str = "easy"):
     candidates = [c for c in candidates if int(c.text) != delta and int(c.text) > 0]
     distractors = pick_distractors(str(delta), candidates, 3, tolerance=GRADER_TOLERANCE)
     _need(distractors)
-    stem = f"{setting} " + phrase(rng, _OBS_ASK_MEDIUM, obs=dev["obs"].format(obs=observed))
+    stem = f"{setting} " + phrase(rng, _OBS_ASK_MEDIUM, obs=_once(dev["obs"].format(obs=observed)))
     return dict(
         text=stem,
         answer_kind="number",
@@ -536,7 +538,7 @@ def fpm_expected_observed_exam(rng):
     need = _n_for(p, rng, 150, 1500)
     target = int(p * need)
     check(Fraction(target, need) == p, "target count does not match the probability")
-    stem = dev["setting"].format(n=n) + f" In the experiment, {dev['obs'].format(obs=observed)}."
+    stem = dev["setting"].format(n=n) + f" In the experiment, {_once(dev['obs'].format(obs=observed))}."
 
     p_text = rational_text(p)
     a_cands = [_frac_d(pr, tag) for pr, tag in dev["p_cands"] if 0 < pr < 1]
@@ -700,8 +702,16 @@ def _rate(ctx) -> Fraction:
     return ctx["p"] if ctx["p"] is not None else ctx["hidden"]
 
 
+def _once(text: str) -> str:
+    """``1 times`` reads as ``1 time``."""
+    return re.sub(r"\b1 times\b", "1 time", text)
+
+
 def _report(name, ctx, n, s) -> str:
-    return f"{name} {ctx['action'].format(n=n)} {ctx['result'].format(s=s)}"
+    result = ctx["result"].format(s=s)
+    if s == 1:
+        result = _once(result).replace("1 of the throws were", "1 of the throws was")
+    return f"{name} {ctx['action'].format(n=n)} {result}"
 
 
 @generator(
@@ -756,7 +766,7 @@ def _ss_pool(rng, ctx, rate, names, two):
     reports = " ".join(_report(nm, ctx, n, s) for nm, n, s in zip(names, sizes, successes))
     joint = "Their" if two else "All three"
     stem = (
-        f"{reports} {joint} results are combined, as if the {total} {ctx['unit']}s were one experiment. "
+        f"{reports} {joint} results are combined, as if the {total} {ctx['unit']}{'es' if ctx['unit'].endswith(('s', 'ch', 'sh', 'x')) else 's'} were one experiment. "
         f"Use the combined results to estimate {ctx['thing']}. Give your answer as a percentage, correct to 1 decimal place."
     )
     candidates = [_pct_d(percents[j], "uses-one-experiment-only") for j in range(groups)]

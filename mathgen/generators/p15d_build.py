@@ -939,7 +939,7 @@ def _attrs_for(shape, type_name):
 # builder): every internal node's test genuinely splits the types that can
 # still reach it, so both branches are reachable and no test's answer is
 # ever already forced by an earlier test on the same path.
-#   easy:   sides3? -> equal_sides? (triangle only) / single quad bin.
+#   easy:   sides3? -> equal_sides? on both branches (four bins, so four options).
 #   medium: + right_angle, on BOTH branches (square/rhombus/rectangle/
 #           parallelogram all differ on it; equilateral+right_angle is
 #           impossible, so that leaf is terminal one level earlier).
@@ -951,7 +951,11 @@ def _attrs_for(shape, type_name):
 #           not right" quad branch to split off kite (no parallel pair at
 #           all) before the hard tier's own second-pair question -- a step
 #           the hard tier never asks.
-_TREE_EASY = _node("sides3", _node("equal_sides", _leaf("Bin A"), _leaf("Bin B")), _leaf("Bin C"))
+_TREE_EASY = _node(
+    "sides3",
+    _node("equal_sides", _leaf("Bin A"), _leaf("Bin B")),
+    _node("equal_sides", _leaf("Bin C"), _leaf("Bin D")),
+)
 
 _TREE_MEDIUM = _node(
     "sides3",
@@ -1009,6 +1013,16 @@ _TEST_PROMPT_VARIANTS = {
         "Does the shape have a SECOND pair of parallel sides too?",
         "Are both pairs of the shape's opposite sides parallel?",
     ],
+}
+
+
+#: Short student-facing name of each test, for the worked trace.
+_TEST_SHORT = {
+    "sides3": "exactly 3 sides",
+    "equal_sides": "all sides equal",
+    "right_angle": "a right angle",
+    "has_parallel_pair": "a pair of parallel sides",
+    "has_second_parallel_pair": "a second pair of parallel sides",
 }
 
 
@@ -1156,7 +1170,7 @@ def p15d_shape_sorting(rng, tier="easy"):
             if attrs["right_angle"]
             else "None of its interior angles is a right angle."
         )
-    if "has_parallel_pair" in tests_used or "has_second_parallel_pair" in tests_used:
+    if shape != "triangle" and ("has_parallel_pair" in tests_used or "has_second_parallel_pair" in tests_used):
         parallel = attrs.get("parallel", "none")
         facts.append(
             {
@@ -1183,6 +1197,9 @@ def p15d_shape_sorting(rng, tier="easy"):
         answer=answer_text,
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
-        working=[f"Trace: " + " -> ".join(f"{t}={'yes' if v else 'no'}" for t, v in path), f"Result: {answer_text}."],
+        working=[
+            "Trace: " + "; ".join(f"{_TEST_SHORT[t]}? {'yes' if v else 'no'}" for t, v in path),
+            f"Result: {answer_text}.",
+        ],
         distractors=pick_distractors(answer_text, alternatives, n=3),
     )

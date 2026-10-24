@@ -294,7 +294,7 @@ def _build_numeral_individual(rng):
     check_pairwise_distinct(missing, *survivors, msg="p13a_polygon_angle_sum: easy-tier distractor collision")
 
     working = [
-        f"Interior angle sum = ({n} - 2) x 180 = {(n - 2) * 180} degrees.",
+        f"Interior angle sum = ({n} - 2) × 180 = {(n - 2) * 180} degrees.",
         f"Known angles sum to {sum(knowns)} degrees.",
         f"Missing angle = {(n - 2) * 180} - {sum(knowns)} = {missing} degrees.",
     ]
@@ -332,8 +332,8 @@ def _build_numeral_grouped(rng):
     check_pairwise_distinct(missing, *survivors, msg="p13a_polygon_angle_sum: medium-tier distractor collision")
 
     working = [
-        f"Interior angle sum = ({n} - 2) x 180 = {(n - 2) * 180} degrees.",
-        f"Grouped angles: {g} x {v} = {g * v} degrees.",
+        f"Interior angle sum = ({n} - 2) × 180 = {(n - 2) * 180} degrees.",
+        f"Grouped angles: {g} × {v} = {g * v} degrees.",
         f"All known angles sum to {known_sum} degrees.",
         f"Missing angle = {(n - 2) * 180} - {known_sum} = {missing} degrees.",
     ]
@@ -372,7 +372,7 @@ def _build_name_individual(rng):
     check_pairwise_distinct(missing, *survivors, msg="p13a_polygon_angle_sum: hard-tier distractor collision")
 
     working = [
-        f"A {name} has {n} sides, so the interior angle sum = ({n} - 2) x 180 = {(n - 2) * 180} degrees.",
+        f"{_article(name)} {name} has {n} sides, so the interior angle sum = ({n} - 2) × 180 = {(n - 2) * 180} degrees.",
         f"Known angles sum to {sum(knowns)} degrees.",
         f"Missing angle = {(n - 2) * 180} - {sum(knowns)} = {missing} degrees.",
     ]
@@ -393,7 +393,7 @@ def _build_name_grouped(rng):
 
     text = (
         f"{_article(name)} {name} has {g} angles measuring {v} degrees each and the rest measuring "
-        f"{_format_list(rest)}. {_CLOSER}"
+        f"{_format_list(rest)}. One more angle is unknown. {_CLOSER}"
     )
     answer_text = str(missing)
     _check_exam(text, answer_text)
@@ -413,8 +413,8 @@ def _build_name_grouped(rng):
     check_pairwise_distinct(missing, *survivors, msg="p13a_polygon_angle_sum: exam-tier distractor collision")
 
     working = [
-        f"A {name} has {n} sides, so the interior angle sum = ({n} - 2) x 180 = {(n - 2) * 180} degrees.",
-        f"Grouped angles: {g} x {v} = {g * v} degrees.",
+        f"{_article(name)} {name} has {n} sides, so the interior angle sum = ({n} - 2) × 180 = {(n - 2) * 180} degrees.",
+        f"Grouped angles: {g} × {v} = {g * v} degrees.",
         f"All known angles sum to {known_sum} degrees.",
         f"Missing angle = {(n - 2) * 180} - {known_sum} = {missing} degrees.",
     ]

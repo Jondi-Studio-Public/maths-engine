@@ -33,14 +33,14 @@ _SETTINGS = [
         ["vegetable beds", "a herb garden", "a playground", "a compost area", "a seating area"],
         "left as lawn",
         "square metres",
-        (2, 90),
+        (25, 60),
     ),
     (
         "A primary school playground in Launceston has an area of {area} square metres.",
         ["a basketball court", "a handball area", "a sandpit", "a veggie patch", "a shade garden"],
         "left open for free play",
         "square metres",
-        (6, 60),
+        (75, 120),
     ),
 ]
 _ORDINALS = ["first", "second", "third", "fourth", "fifth"]
@@ -127,7 +127,9 @@ def _attempt(rng: random.Random) -> dict:
                 marks=1,
                 sensible_range=(0, 1),
                 working=[
-                    f"Each halving leaves half of what was left, so {steps} halvings leave (1/2)^{steps} = {rational_text(unused)}."
+                    "Each halving leaves half of what was left: "
+                    + ", ".join(f"1/{2**i}" for i in range(1, steps + 1))
+                    + f". After {steps} halvings, {rational_text(unused)} of the land is left."
                 ],
                 distractors=d_a,
             ),

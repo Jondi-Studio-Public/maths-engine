@@ -1,0 +1,123 @@
+id: commission-pay
+name: Commission pay
+domain: financial-discrete
+year_level:
+- '9'
+- '10'
+description: 'Calculate pay that includes commission: commission on sales, base pay plus commission, the sales needed for
+  a stated pay, tiered commission, and the sales at which two plans pay the same.'
+status: active
+placement_eligible: false
+prerequisites:
+- percentage-of-quantity
+- calculate-wages
+answer: number
+sources:
+- topic: w3_commission_pay
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w3_commission_pay
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w3_commission_pay
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w3_commission_pay
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: com-rate-not-converted
+  description: Multiplies the sales by the rate without dividing by 100.
+- id: com-divides-by-rate
+  description: Divides the sales by the rate instead of finding that percentage of them.
+- id: com-decimal-slip
+  description: Misplaces the decimal point when finding the commission.
+- id: com-sales-over-commission
+  description: Divides the sales by the commission instead of the commission by the sales.
+- id: com-commission-over-100
+  description: Divides the commission by 100 instead of by the sales.
+- id: com-largest-only
+  description: Finds the commission on the largest sale only.
+- id: com-misses-one-sale
+  description: Leaves one of the sales out of the total.
+- id: com-commission-only
+  description: Gives the commission alone where the total pay was asked.
+- id: com-base-only
+  description: Gives the base pay alone where the total pay was asked.
+- id: com-base-times-rate
+  description: Finds the commission rate of the base pay instead of the sales.
+- id: com-rate-as-dollars
+  description: Adds the commission rate to the base pay as a number of dollars.
+- id: com-multiplies-for-sales
+  description: Multiplies the commission by the rate instead of dividing by it.
+- id: com-sales-from-total-pay
+  description: Treats the whole pay as commission when finding the sales.
+- id: com-sales-adds-base
+  description: Adds the base pay to the pay before finding the sales.
+- id: com-gross-sales
+  description: Finds the commission on the gross sales, ignoring the returns.
+- id: com-returns-only
+  description: Finds the commission on the returns instead of on the net sales.
+- id: com-plan-total-only
+  description: Gives the pay under one plan where the difference between the plans was asked.
+- id: com-plan-sum
+  description: Adds the pay under the two plans instead of finding the difference.
+- id: com-second-rate-everywhere
+  description: Applies the higher rate to all the sales, ignoring the tier.
+- id: com-first-rate-everywhere
+  description: Applies the lower rate to all the sales, ignoring the tier.
+- id: com-tier-excess-only
+  description: Finds the commission on the sales above the tier only, forgetting the first tier.
+- id: com-second-rate-on-all-above
+  description: Applies the higher rate to all the sales and adds the first tier as well.
+- id: com-inverse-first-rate
+  description: Divides the commission by the first rate to find the sales, ignoring the tier.
+- id: com-inverse-second-rate
+  description: Divides the commission by the higher rate to find the sales, ignoring the first tier.
+- id: com-inverse-adds-tier
+  description: Adds the whole tier to sales found from the commission, without taking off the first tier's commission.
+- id: com-break-even-ignores-first
+  description: Divides the base pay by the higher rate, ignoring the commission the other plan also pays.
+- id: com-break-even-sums-rates
+  description: Divides the base pay by the sum of the rates instead of their difference.
+- id: com-break-even-no-hundred
+  description: Divides the base pay by the difference in rates but forgets that the rates are percentages.
+- id: com-break-even-first-rate
+  description: Divides the base pay by the lower rate alone.
+- id: com-tier-base-dropped
+  description: Leaves the base pay out of the total.
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Find a percentage of the sales, or the rate from a commission and the sales.
+  medium:
+    steps: 3
+    demand: Combine base pay and commission, work back to the sales, use net sales or compare two plans.
+  hard:
+    steps: 5
+    demand: Apply two commission rates to the parts of the sales, work back through the tier, or find the sales at which two
+      plans pay the same.
+  exam:
+    steps: 7
+    demand: Chain pay below and above a tier, the sales for a stated pay and a comparison with a flat plan.
+tags:
+- financial
+- commission
+- wages
+- acara-y9
+- acara-y10
+- nsw-standard

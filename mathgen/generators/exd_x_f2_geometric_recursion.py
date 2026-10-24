@@ -37,7 +37,7 @@ from sympy.parsing.sympy_parser import (
     standard_transformations,
 )
 
-from ..core import VerificationError, check, generator, join_terms, phrase, pick_distractors
+from ..core import VerificationError, check, generator, join_terms, paren_negative, phrase, pick_distractors
 
 x = Symbol("x")
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application, convert_xor)
@@ -105,7 +105,7 @@ def _build(rng: random.Random, scale: int) -> dict:
     working = [
         f"In a geometric sequence t2^2 = t1 × t3, so ({texts[1]})^2 = ({texts[0]})({texts[2]}).",
         f"The x^2 terms cancel, leaving a linear equation with solution x = {x0}.",
-        f"The terms are {t[0]}, {t[1]}, {t[2]}, so r = {t[1]} / {t[0]} = {r} and the first term is {first}.",
+        f"The terms are {t[0]}, {t[1]}, {t[2]}, so r = {t[1]} / {paren_negative(t[0])} = {r} and the first term is {first}.",
     ]
     return dict(
         text=text,

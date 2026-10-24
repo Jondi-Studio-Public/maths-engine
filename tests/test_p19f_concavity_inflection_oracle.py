@@ -10,7 +10,12 @@ construction.
 import re
 
 import pytest
-from sympy import diff, solve, symbols, sympify
+from sympy import diff, solve, symbols
+from sympy.parsing.sympy_parser import (
+    implicit_multiplication_application,
+    parse_expr,
+    standard_transformations,
+)
 
 from mathgen import make
 
@@ -32,8 +37,13 @@ def _parse_f(text: str):
     expr_text = m.group(1).strip()
     while expr_text.count("(") > expr_text.count(")"):
         expr_text = expr_text.rsplit("(", 1)[0].rstrip(", ").strip()
-    expr_text = expr_text.replace("^", "**").replace("·", "*")
-    return sympify(expr_text, locals={"x": x})
+    # The prose writes a product by juxtaposition ("15x^2"), so parse with implicit multiplication.
+    expr_text = expr_text.replace("^", "**")
+    return parse_expr(
+        expr_text,
+        local_dict={"x": x},
+        transformations=standard_transformations + (implicit_multiplication_application,),
+    )
 
 
 def _oracle_verdict(f):

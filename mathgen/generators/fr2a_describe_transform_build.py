@@ -168,7 +168,8 @@ def _describe(rng, tier):
         var = "x" if kind == "RV" else "y"
         text = (
             f"Triangle ABC is reflected in a {which} line to give A'B'C', as shown on the grid. The mirror line is "
-            f"{var} = k, and corner A is a distance dist from it, in grid units. Find k and dist, and give them as k = _, dist = _."
+            f"{var} = k. Find k and the distance from corner A to the mirror line, in grid units, and give them as "
+            f"k = _, dist = _ (dist is that distance)."
         )
         verify = [(kind, k)]
         working = [
@@ -230,6 +231,7 @@ def _describe(rng, tier):
             "RY": "reflected in the y-axis",
             "H": "rotated 180° about the origin",
         }[other[0]]
+        move_noun = "rotation" if other[0] == "H" else "reflection"
         if first_is_turn:
             seq = f"{move_name}, and then the image is translated"
         else:
@@ -242,10 +244,10 @@ def _describe(rng, tier):
         working = [
             f"A is at {kit.coord_text(*a)} and A'' is at {kit.coord_text(*a1)}.",
             (
-                f"The {move_name.split(' ')[0]} comes first, so A' is {kit.coord_text(*before)}. The translation takes A' to A'': "
+                f"The {move_noun} comes first, so A' is {kit.coord_text(*before)}. The translation takes A' to A'': "
                 f"right {right}, up {up}."
                 if first_is_turn
-                else f"The translation comes first, then the {move_name.split(' ')[0]}. Undo the {move_name.split(' ')[0]} on A'' "
+                else f"The translation comes first, then the {move_noun}. Undo the {move_noun} on A'' "
                 f"to get {kit.coord_text(*kit.apply_step(other, a1))}, the point the translation reached from A: right {right}, up {up}."
             ),
         ]
@@ -355,10 +357,12 @@ def exd_x_fr2a_describe_chain(rng, tier="exam"):
 
 
 def _fr2a_describe_chain(rng):
+    # Pick the triple before the placement loop: the big triples fit the grid far less often, so choosing
+    # inside the loop left the 3-4-5 triangle on over half of the questions.
+    leg1, leg2, hyp = rng.choice(kit.LEG_TRIPLES)
+    if rng.random() < 0.5:
+        leg1, leg2 = leg2, leg1
     for _ in attempts(3000, "a right-angled triangle, a move and a picture that fit"):
-        leg1, leg2, hyp = rng.choice(kit.LEG_TRIPLES)
-        if rng.random() < 0.5:
-            leg1, leg2 = leg2, leg1
         bx, by = rng.randint(-3, 3), rng.randint(-3, 3)
         sx, sy = rng.choice((-1, 1)), rng.choice((-1, 1))
         pts = [(bx + sx * leg1, by), (bx, by), (bx, by + sy * leg2)]
@@ -442,7 +446,7 @@ def _fr2a_describe_chain(rng):
     part_b = dict(
         prompt=(
             "Give the details of the move. For a translation write right = _, up = _ (negative for left or down). "
-            "For a reflection write the mirror line as k = _ (its x or y value) and the distance dist from A to it as "
+            "For a reflection write the mirror line as k = _ (its x or y value) and the distance from A to it as "
             "dist = _. For a half turn write the centre as x = _, y = _."
         ),
         answer_kind="pair",

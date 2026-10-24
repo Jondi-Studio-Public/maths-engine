@@ -12,7 +12,7 @@ from fractions import Fraction
 from itertools import combinations, product
 from math import comb
 
-from ..core import GRADER_TOLERANCE, check, draw_until, generator, pick_distractors, paren_negative
+from ..core import GRADER_TOLERANCE, check, draw_until, equals_chain, generator, pick_distractors, paren_negative
 
 
 def _fraction_payload(value: Fraction) -> tuple[dict[str, int], str]:
@@ -155,13 +155,16 @@ def finite_distribution_variance(rng, outcome_hi=10, weight_hi=6, outcomes=4):
     check(sum(weights) == total and total > 0, "invalid distribution weights")
 
     answer, answer_text = _fraction_payload(variance)
-    alternatives = [
-        _fraction_payload(mean)[1],
-        _fraction_payload(second_moment)[1],
-        _fraction_payload(mean * mean)[1],
-        _fraction_payload(variance + 1)[1],
-        _fraction_payload(-variance)[1],
+    # A variance cannot be negative, so a negative slip (the mean, or the key negated) is never offered.
+    slips = [
+        mean,
+        second_moment,
+        mean * mean,
+        variance + 1,
+        variance * total / (total - 1) if total > 1 else None,  # divides by n - 1 instead of n
+        second_moment - mean,  # E[X^2] - E[X]
     ]
+    alternatives = [_fraction_payload(v)[1] for v in slips if v is not None and v >= 0]
     distribution = ", ".join(f"P(X={x})={w}/{total}" for x, w in zip(values, weights))
     return dict(
         text=f"A finite random variable has {distribution}. Find Var(X).",
@@ -257,14 +260,14 @@ def bernoulli_mle(rng, n_hi=25, kind=None):
         str(round(k / n, 2)),
     ]
     return dict(
-        text=f"In {n} independent Bernoulli trials there are {k} {'success' if k == 1 else 'successes'}. Find the MLE of p.",
+        text=f"In {n} independent Bernoulli trials there {'is' if k == 1 else 'are'} {k} {'success' if k == 1 else 'successes'}. Find the MLE of p.",
         latex=rf"\hat p=\arg\max_{{0<p<1}}p^{{{k}}}(1-p)^{{{n - k}}}",
         answer=answer,
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
             f"The log-likelihood score is k/p − (n−k)/(1−p).",
-            f"Setting it to zero gives p-hat = k/n = {k}/{n} = {answer_text}.",
+            f"Setting it to zero gives p-hat = k/n = {equals_chain(f'{k}/{n}', answer_text)}.",
         ],
         distractors=pick_distractors(answer_text, alternatives),
     )

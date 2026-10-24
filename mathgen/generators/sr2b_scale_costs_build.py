@@ -41,6 +41,12 @@ def _txt(v: Fraction) -> str:
     return exact_decimal_string(v, 2)
 
 
+def _money(v: Fraction) -> str:
+    """Money: whole dollars, or exactly two decimal places (never $869.4)."""
+    t = _txt(v)
+    return t + "0" if "." in t and len(t.split(".")[1]) == 1 else t
+
+
 def _draw_room(rng, *, allow=lambda rl, rw: True):
     """Real dimensions in metres (multiples of 0.5) and a scale for which the plan lengths have one decimal place."""
     for _ in attempts(1000, "a room whose plan lengths are tidy"):
@@ -113,7 +119,7 @@ def _easy(rng):
         working=[
             f"Real length = {_fmt_plan(plan_l)} × {s} = {_txt(plan_l * s)} cm = {_txt(rl)} m. Real width = {_fmt_plan(plan_w)} × {s} = {_txt(plan_w * s)} cm = {_txt(rw)} m.",
             f"Area = {_txt(rl)} × {_txt(rw)} = {_txt(area)} m².",
-            f"Cost = {_txt(area)} × {price} = ${_txt(cost)}.",
+            f"Cost = {_txt(area)} × {price} = ${_money(cost)}.",
         ],
         distractors=pick(number_fields(cost, dp)["answer_text"], cands),
         **number_fields(cost, dp),
@@ -157,7 +163,7 @@ def _medium(rng):
         working=[
             f"Real floor: {_txt(rl)} m by {_txt(rw)} m, so the area is {_txt(area)} m² (each length is multiplied by {s}, so the area by {s}²).",
             f"Amount ordered = {_txt(area)} × {_txt(Fraction(100 + waste, 100))} = {_txt(area * f)} m².",
-            f"Cost = {_txt(area * f)} × {price} = ${_txt(cost)}.",
+            f"Cost = {_txt(area * f)} × {price} = ${_money(cost)}.",
         ],
         distractors=pick(ans, [c for c in cands if c.text != ans]),
         **number_fields(cost, dp),
@@ -203,7 +209,7 @@ def _hard_boxes(rng):
         working=[
             f"Real floor: {_txt(rl)} m by {_txt(rw)} m = {_txt(area)} m².",
             f"With waste: {_txt(area)} × {_txt(Fraction(100 + waste, 100))} = {_txt(need)} m², and {_txt(need)} ÷ {cover_t} = {float(need / cover):.2f}, so {boxes} whole boxes are needed.",
-            f"Cost = {boxes} × ${price_t} = ${_txt(cost)}.",
+            f"Cost = {boxes} × ${price_t} = ${_money(cost)}.",
         ],
         distractors=pick(ans, [c for c in cands if c.text != ans]),
         **number_fields(cost, dp),
@@ -243,8 +249,8 @@ def _hard_fence(rng):
         text=stem,
         working=[
             f"Real sides: {_txt(rl)} m and {_txt(rw)} m, so the distance round is 2 × ({_txt(rl)} + {_txt(rw)}) = {_txt(perimeter)} m.",
-            f"Fencing needed = {_txt(perimeter)} - {_txt(gate)} = {_txt(perimeter - gate)} m, costing {_txt(perimeter - gate)} × {fence} = ${_txt((perimeter - gate) * fence)}.",
-            f"Total = ${_txt((perimeter - gate) * fence)} + ${gate_price} = ${_txt(cost)}.",
+            f"Fencing needed = {_txt(perimeter)} − {_txt(gate)} = {_txt(perimeter - gate)} m, costing {_txt(perimeter - gate)} × {fence} = ${_money((perimeter - gate) * fence)}.",
+            f"Total = ${_money((perimeter - gate) * fence)} + ${gate_price} = ${_money(cost)}.",
         ],
         distractors=pick(ans, [c for c in cands if c.text != ans]),
         **number_fields(cost, dp),
@@ -375,7 +381,7 @@ def sr2b_exam_scale_costs(rng, tier="exam"):
                 sensible_range=(0, None),
                 follow_through=f"ceiling(part_c/{_txt(cover)})*{_txt(box_price)}",
                 working=[
-                    f"{_txt(need)} ÷ {cover_t} is more than {boxes - 1}, so {boxes} boxes are needed: {boxes} × ${price_t} = ${_txt(cost)}."
+                    f"{_txt(need)} ÷ {cover_t} is more than {boxes - 1}, so {boxes} boxes are needed: {boxes} × ${price_t} = ${_money(cost)}."
                 ],
                 distractors=pick(
                     number_fields(cost, dp_c)["answer_text"],

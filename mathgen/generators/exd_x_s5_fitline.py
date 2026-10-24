@@ -250,8 +250,8 @@ def _bestfit_build(rng: random.Random) -> dict:
         check(intercept + m * x0 == y0, "bestfit: slope-intercept form disagrees with point-slope form")
         working = [
             f"Gradient = r times s_y / s_x = {_dec(r)} times {sy} / {sx} = {_dec(m)}.",
-            f"The line passes through ({xb}, {yb}): {join_terms([(1, 'y'), (-yb, '')])} = {_dec(m)} ({join_terms([(1, 'x'), (-xb, '')])}).",
-            f"At x = {x0}: y = {yb} {'-' if m < 0 else '+'} {_dec(abs(m))} times {paren_negative(d)} = {answer_text}.",
+            f"The line passes through ({xb}, {yb}): {join_terms([(1, 'y'), (-yb, '')])} = {'' if m == 1 else '-' if m == -1 else f'{_dec(m)} '}({join_terms([(1, 'x'), (-xb, '')])}).",
+            f"At x = {x0}: y = {yb} {'-' if m < 0 else '+'} {'' if abs(m) == 1 else f'{_dec(abs(m))} times '}{paren_negative(d)} = {answer_text}.",
         ]
         cands = [stated_precision_string(round_tenth(w), 1) for w in wrong.values()]
         distractors = pick_distractors(answer_text, cands, tolerance=tol)

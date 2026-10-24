@@ -15,7 +15,7 @@ from ..figure_kinds import measure
 DOTS = ("●", "◆", "★", "■")
 
 
-def _number_question(text, answer, candidates, *, latex=None, working=None):
+def _number_question(text, answer, candidates, *, latex=None, working=None, distractors=None):
     answer_text = str(answer)
     return dict(
         text=text,
@@ -24,7 +24,7 @@ def _number_question(text, answer, candidates, *, latex=None, working=None):
         answer_text=answer_text,
         answer_latex=answer_text,
         working=working or [],
-        distractors=pick_distractors(answer_text, candidates),
+        distractors=distractors if distractors is not None else pick_distractors(answer_text, candidates),
     )
 
 
@@ -43,6 +43,43 @@ def _choice_question(text, answer, candidates, *, latex=None, working=None):
 def _nearby(n, lo=0, hi=100):
     values = [n - 1, n + 1, n + 2, n - 2, n + 5]
     return [value for value in values if lo <= value <= hi]
+
+
+def _balanced(rng, answer, pool, preferred=(), must=()):
+    """Three wrong whole numbers whose rank among the four options is uniform.
+
+    The old distractors were always answer -1, +1, +2, so the key was nearly always the
+    second-smallest option. Here the key's rank (0 = smallest .. 3) is drawn from the ranks
+    the pool allows, then that many distractors come from below the key and the rest from
+    above. Within a side the `preferred` values (real slips: off by one, a tens slip, adding
+    instead of multiplying) come first, then the nearest others. Values in `must` are always
+    offered (a named slip a test or a skill promises), and the rank is drawn around them."""
+    below = sorted({v for v in pool if v < answer}, reverse=True)
+    above = sorted({v for v in pool if v > answer})
+    must = [v for v in dict.fromkeys(must) if v in below or v in above][:3]
+    m_below = sum(1 for v in must if v < answer)
+    m_above = len(must) - m_below
+    ranks = [r for r in range(4) if m_below <= r <= len(below) and m_above <= 3 - r <= len(above)]
+    if not ranks:  # the pool is too small on one side: take what there is
+        ranks = [min(max(len(below), m_below), 3)]
+    # Answers sit near the bottom of their range more often than the top (a window cannot go below 0), so
+    # the higher ranks are weighted up a little to even out the key's rank across a whole tier.
+    r = rng.choices(ranks, weights=[(1.0, 1.0, 1.5, 2.0)[k] for k in ranks])[0]
+
+    def take(side, k, forced):
+        favoured = list(dict.fromkeys(v for v in preferred if v in side and v not in forced))
+        rest = [v for v in side if v not in favoured and v not in forced]
+        return forced + (favoured + rest)[: max(0, k - len(forced))]
+
+    chosen = take(below, r, [v for v in must if v < answer]) + take(above, 3 - r, [v for v in must if v > answer])
+    if len(chosen) < 3:  # top up from either side, nearest first
+        extra = sorted((v for v in below + above if v not in chosen), key=lambda v: abs(v - answer))
+        chosen += extra[: 3 - len(chosen)]
+    return [str(v) for v in chosen]
+
+
+def _window(answer, lo, hi, radius=3):
+    return [v for v in range(answer - radius, answer + radius + 1) if lo <= v <= hi and v != answer]
 
 
 _SHAPE_OF = {
@@ -73,9 +110,12 @@ def count_objects(rng, lo=1, hi=5):
     q = _number_question(
         text,
         count,
-        _nearby(count, 0, max(10, hi + 2)),
+        [],
         latex=f"plain:{text}",
         working=[f"Touch each shape once while counting: {count}."],
+        distractors=_balanced(
+            rng, count, _window(count, max(0, lo - 1), max(10, hi + 2), 3), (count - 1, count + 1, count + 2)
+        ),
     )
     q["figure"] = fig
     return q
@@ -90,8 +130,9 @@ def recognise_numeral(rng, lo=0, hi=10):
     return _number_question(
         f"Tap the number {target}",
         target,
-        _nearby(target, lo, hi),
+        [],
         latex=rf"\text{{Tap the number }} {target}",
+        distractors=_balanced(rng, target, _window(target, lo, hi + 2, 3), (target - 1, target + 1)),
     )
 
 
@@ -113,8 +154,9 @@ def number_sequence(rng, hi=10):
     return _number_question(
         f"What comes next?  {start}, {start + 1}, {start + 2}, __",
         answer,
-        _nearby(answer, 0, hi + 2),
+        [],
         latex=rf"{start},\ {start + 1},\ {start + 2},\ \square",
+        distractors=_balanced(rng, answer, _window(answer, 0, hi + 3, 3), (answer - 1, answer + 1, answer - 3)),
     )
 
 
@@ -125,7 +167,16 @@ def before_after(rng, hi=10):
     answer = number + 1 if ask_after else number - 1
     word = "after" if ask_after else "before"
     return _number_question(
-        f"Which number comes {word} {number}?", answer, _nearby(answer, 0, hi), latex=rf"\text{{{word} }} {number}"
+        f"Which number comes {word} {number}?",
+        answer,
+        [],
+        latex=rf"\text{{{word} }} {number}",
+        distractors=_balanced(
+            rng,
+            answer,
+            _window(answer, 0, hi + 1, 3),
+            (number, number + 1 if not ask_after else number - 1, answer - 1, answer + 1),
+        ),
     )
 
 
@@ -136,8 +187,9 @@ def number_bond(rng, total=5):
     return _number_question(
         f"{part} and what make {total}?",
         missing,
-        _nearby(missing, 0, total),
+        [],
         latex=rf"{part} + \square = {total}",
+        distractors=_balanced(rng, missing, _window(missing, 0, total + 2, 3), (part, missing - 1, missing + 1)),
         working=[f"Start at {part} and count up to {total}: {missing} more."],
     )
 
@@ -150,23 +202,29 @@ def early_addition(rng, total_hi=10):
     return _number_question(
         f"{a} + {b} = ?",
         answer,
-        _nearby(answer, 0, total_hi),
+        [],
         latex=rf"{a} + {b} = \square",
+        distractors=_balanced(
+            rng, answer, _window(answer, 0, total_hi + 3, 3 if total_hi <= 20 else 12), (answer - 1, answer + 1)
+        ),
         working=[f"Put the groups together: {a} and {b} make {answer}."],
     )
 
 
 @generator("early_subtraction", level=1)
 def early_subtraction(rng, total_hi=10):
-    a = rng.randint(0, total_hi)
-    b = rng.randint(0, a)
-    answer = a - b
+    answer = rng.randint(0, total_hi)
+    b = rng.randint(0, total_hi - answer)
+    a = answer + b
     return _number_question(
         f"{a} - {b} = ?",
         answer,
-        _nearby(answer, 0, total_hi),
+        [],
         latex=rf"{a} - {b} = \square",
         working=[f"Start with {a}, take away {b}, and {answer} remain."],
+        distractors=_balanced(
+            rng, answer, _window(answer, 0, total_hi + 3, 3 if total_hi <= 20 else 12), (answer - 1, answer + 1)
+        ),
     )
 
 
@@ -181,7 +239,8 @@ def teen_place_value(rng, hi=99):
     else:
         answer = ones
         text = f"How many ones are in {number}?"
-        cands = [tens, (ones + 1) % 10, max(0, ones - 1), number]
+        # A multiple of ten has no ones, so the first four collapse to three; the last two keep four options.
+        cands = [tens, (ones + 1) % 10, max(0, ones - 1), number, (ones + 2) % 10, (ones + 9) % 10]
     return _number_question(text, answer, cands, latex=rf"{number}= {tens}\text{{ tens}}+{ones}\text{{ ones}}")
 
 
@@ -289,8 +348,18 @@ def skip_count(rng, steps=(2, 5, 10), hi=100):
     return _number_question(
         f"What comes next?  {start}, {start + step}, {start + 2 * step}, __",
         answer,
-        [answer - step, answer + step, answer + 1, answer - 1],
+        [],
         latex=rf"{start},\ {start + step},\ {start + 2 * step},\ \square",
+        distractors=_balanced(
+            rng,
+            answer,
+            [
+                v
+                for v in (answer - 2 * step, answer - step, answer + step, answer + 2 * step, answer - 1, answer + 1)
+                if v >= 0
+            ],
+            (answer - step, answer + step, answer + 1, answer - 1),
+        ),
     )
 
 
@@ -302,8 +371,26 @@ def equal_groups(rng, groups_hi=5, each_hi=5):
     return _number_question(
         f"There are {groups} groups with {each} in each group. How many altogether?",
         answer,
-        [groups + each, answer - each, answer + each, answer - 1],
+        [],
         latex=rf"{groups}\times {each}=\square",
+        distractors=_balanced(
+            rng,
+            answer,
+            [
+                v
+                for v in (
+                    groups + each,
+                    answer - each,
+                    answer + each,
+                    answer - groups,
+                    answer + groups,
+                    answer - 1,
+                    answer + 1,
+                )
+                if v >= 0
+            ],
+            (groups + each, answer - each, answer + each),
+        ),
         working=[f"Count {each}, {groups} times: {answer}."],
     )
 
@@ -316,7 +403,13 @@ def fair_sharing(rng, groups_hi=5, each_hi=5):
     return _number_question(
         f"Share {total} things equally between {groups} children. How many each?",
         each,
-        [groups, total, each + 1, max(0, each - 1)],
+        [],
         latex=rf"{total}\div {groups}=\square",
+        distractors=_balanced(
+            rng,
+            each,
+            [v for v in (groups, total, each + 1, each - 1, each + 2, each - 2) if v >= 0],
+            (groups, total, each + 1, each - 1),
+        ),
         working=[f"Make {groups} equal groups. Each group gets {each}."],
     )

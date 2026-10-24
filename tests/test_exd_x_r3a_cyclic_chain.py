@@ -17,7 +17,7 @@ NEXT = {"A": "B", "B": "C", "C": "D", "D": "A"}
 
 def _angles(q):
     out = {}
-    for name, body in re.findall(r"angle ([A-D]) = \(([^)]*)\) degrees", q.stem):
+    for name, body in re.findall(r"angle ([A-D]) = \(?([^()]*?)\)? degrees", q.stem):
         out[name] = sympy.sympify(re.sub(r"(\d)([xy])", r"\1*\2", body))
     assert set(out) == set("ABCD"), q.stem
     return out

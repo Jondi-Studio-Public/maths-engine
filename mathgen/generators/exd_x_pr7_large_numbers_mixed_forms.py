@@ -126,7 +126,7 @@ def exd_x_pr7_large_numbers_mixed_forms(rng: random.Random, tier: str = "exam") 
         answer_text=key,
         answer_latex=key,
         working=[
-            *(f"{t} = {v:,}." for _, t, v in chosen),
+            *((f"{t} is already written in digits." if t == f"{v:,}" else f"{t} = {v:,}.") for _, t, v in chosen),
             f"Smallest to largest: {key}.",
         ],
         distractors=distractors,

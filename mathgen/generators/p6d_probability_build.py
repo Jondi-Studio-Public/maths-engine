@@ -11,8 +11,8 @@ Two skills:
    - Medium: p is unreduced, learner must recognize and express complement in lowest terms
    - Hard: two-outcome scenario with no word "not", learner must recognize complementary event
 
-   Distractors: forgot-to-complement (p), misreads-numerator (1-Fraction(n±1,d)),
-   adds-instead (1+p), reciprocal (d/n).
+   Distractors (all genuine probabilities in [0, 1]): forgot-to-complement (p), misreads-numerator
+   (1-Fraction(n±1,d), either direction), then slips of two or the ends of the scale as fallbacks.
 
 2. f10-random-equal-likelihood-outcomes (AC9M5P01): Given 4 spinners with
    explicit sector lists, classify which has equally likely outcomes.
@@ -138,7 +138,6 @@ def probability_complements_compounds(rng, tier="easy"):
 
     # Build distractors
     # 1. forgot-to-complement: value p (distinct from c iff p != 1/2, which we exclude)
-    distractor_1 = _format_fraction(p_reduced)
     check_distinct(c, p_reduced, msg="forgot-to-complement must differ from answer")
 
     # 2. misreads-numerator: shift n by ±1
@@ -147,7 +146,6 @@ def probability_complements_compounds(rng, tier="easy"):
     else:
         shifted_n = n0 - 1
     misreads_value = 1 - Fraction(shifted_n, d0)
-    distractor_2 = _format_fraction(misreads_value)
     check_distinct(c, misreads_value, msg="misreads-numerator must differ from answer")
     # Verify the difference is exactly 1/d
     check(
@@ -155,26 +153,35 @@ def probability_complements_compounds(rng, tier="easy"):
         f"misreads-numerator should differ by 1/{d0}: c={c}, misreads={misreads_value}",
     )
 
-    # 3. adds-instead: 1 + p
-    adds_value = 1 + p_reduced
-    distractor_3 = _format_fraction(adds_value)
-    check_distinct(c, adds_value, msg="adds-instead must differ from answer")
-    check(adds_value > 1, f"adds-instead should be > 1: {adds_value}")
+    # 3. Nudge the numerator the other way (a slip of one in the opposite direction). Stays a
+    # probability; the "adds instead" (1 + p) and reciprocal (d/n) slips exceed 1, which a learner
+    # rejects at sight, so they are not offered.
+    other_shifted_n = n0 - 1 if shifted_n == n0 + 1 else n0 + 1
+    other_value = 1 - Fraction(other_shifted_n, d0)
+    check_distinct(c, other_value, msg="opposite numerator slip must differ from answer")
 
-    # 4. reciprocal: d/n
-    reciprocal_value = Fraction(d0, n0)
-    distractor_4 = _format_fraction(reciprocal_value)
-    check_distinct(c, reciprocal_value, msg="reciprocal must differ from answer")
-    check(reciprocal_value > 1, f"reciprocal should be > 1: {reciprocal_value}")
-
-    # Format distractors with the same formatter
-    distractors = pick_distractors(answer_text, [distractor_1, distractor_2, distractor_3, distractor_4], n=3)
+    # Fallbacks, all genuine in-range wrong values: a slip of two, or the other end of the scale.
+    fallbacks = [c + Fraction(2, d0), c - Fraction(2, d0), Fraction(1, d0), Fraction(d0 - 1, d0)]
+    candidates = [p_reduced, misreads_value, other_value, *fallbacks]
+    candidates = [_format_fraction(v) for v in candidates if 0 <= v <= 1 and v != c]
+    distractors = pick_distractors(answer_text, candidates, n=3)
+    check(len(distractors) == 3, "need three in-range distractors")
+    check(all(0 <= Fraction(x) <= 1 for x in distractors), "every distractor must be a probability")
 
     # Independent check: sum to 1 (different route from 1 - p computation)
     check_equivalent(c + p_reduced, Fraction(1, 1), msg="complement should sum to 1 with the original event")
 
+    comp_den = d0 * k if tier == "medium" else d0
+    comp_num = comp_den - (n0 * k if tier == "medium" else n0)
+    working = [
+        "The two events cannot both happen and one of them must happen, so their probabilities add to 1.",
+        f"1 − {p_display} = {comp_den}/{comp_den} − {p_display} = {comp_num}/{comp_den}"
+        + (f", which simplifies to {answer_text}." if f"{comp_num}/{comp_den}" != answer_text else "."),
+    ]
+
     return dict(
         text=question_text,
+        working=working,
         latex=f"plain:{question_text}",
         answer={"p": int(c.numerator), "q": int(c.denominator)},
         answer_text=answer_text,
@@ -405,8 +412,17 @@ def random_equal_likelihood_outcomes(rng, tier="easy"):
         else:
             check(not is_balanced, f"distractor option (index {i}) should not be balanced")
 
+    working = ["Equally likely outcomes means every colour appears the same number of times. Count each colour."]
+    for i, spinner in enumerate(shuffled_spinners):
+        tally = Counter(spinner["labels"])
+        tally_text = ", ".join(f"{colour} {count}" for colour, count in tally.items())
+        verdict = "equal" if i == answer_index else "not equal"
+        working.append(f"Spinner {chr(65 + i)}: {tally_text} ({verdict}).")
+    working.append(f"Only Spinner {chr(65 + answer_index)} has the same count for every colour.")
+
     return dict(
         text=question_text,
+        working=working,
         latex=f"plain:{question_text}",
         answer=answer_text,
         answer_text=answer_text,

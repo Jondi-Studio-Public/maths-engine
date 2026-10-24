@@ -86,7 +86,7 @@ PAIRS = (
     ),
     dict(
         iv="the brightness of a classroom's screen display",
-        dv="how many words per minute students read from the screen",
+        dv="the students' reading speed from the screen (words per minute)",
         controlled="the font size used on the screen",
         other="the noise level measured at each student's desk",
         exam_trap="the students' reading speed on paper before the trial",
@@ -105,7 +105,7 @@ PAIRS = (
         unit_plural="patients",
     ),
     dict(
-        iv="how often a plant is watered each week",
+        iv="the number of times a plant is watered each week",
         dv="the plant's growth in centimetres over a month",
         controlled="the type of soil used",
         other="the colour of the plant pot",

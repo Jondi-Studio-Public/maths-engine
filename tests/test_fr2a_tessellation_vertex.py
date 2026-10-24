@@ -42,7 +42,7 @@ def polygons_in(text):
 
 
 def test_wiring():
-    sup.assert_wired(SKILL, TOPIC, None, "number", False)
+    sup.assert_wired(SKILL, TOPIC, "exd_x_w7f_tessellation_chain", "number", False)
 
 
 def test_contract_all_tiers():

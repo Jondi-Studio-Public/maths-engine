@@ -119,7 +119,7 @@ def _build(rng: random.Random, cols: tuple, noun: str, plural: str) -> dict:
         f"Using your answer to (a), find the probability that both {plural} are {c1}.",
         key_c,
         2,
-        [f"Multiply along the {c1}, {c1} path: {r_t(key_a)} x {r_t(second[0][0])} = {r_t(key_c)}."],
+        [f"Multiply along the {c1}, {c1} path: {r_t(key_a)} × {r_t(second[0][0])} = {r_t(key_c)}."],
         [
             (key_a * key_a, "assumes-with-replacement"),
             (key_a + second[0][0], "adds-along-a-path"),
@@ -133,7 +133,7 @@ def _build(rng: random.Random, cols: tuple, noun: str, plural: str) -> dict:
         key_d,
         2,
         [
-            f"Same colour is {c1}, {c1} or {c2}, {c2}. The {c2}, {c2} path is {r_t(first[1])} x {r_t(key_b)} = "
+            f"Same colour is {c1}, {c1} or {c2}, {c2}. The {c2}, {c2} path is {r_t(first[1])} × {r_t(key_b)} = "
             f"{r_t(first[1] * key_b)}.",
             f"{r_t(key_c)} + {r_t(first[1] * key_b)} = {r_t(key_d)}.",
         ],

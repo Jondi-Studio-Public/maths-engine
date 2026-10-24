@@ -53,6 +53,11 @@ _SCALE = ("Each grid square is 1 unit on both axes.", "Both axes have 1 unit per
 _LABELS_TEXT = "The two graphs are labelled f and g."
 
 
+def _bt(text: str) -> str:
+    """Bracket a rendered number that is negative or a fraction, so it can follow an operator."""
+    return f"({text})" if text.startswith("-") or "/" in text else text
+
+
 def _plane(curves, points=(), alt=_ALT):
     return figures.cartesian(
         x_range=(LO, HI), y_range=(LO, HI), alt=alt, grid=1, equal_scale=True, points=list(points), curves=curves
@@ -146,7 +151,7 @@ def ey_graph_translation(rng, tier="easy"):
                 f"g is a vertical translation of f, with g(x) = f(x) + a. {scale} What is the value of a?",
             )
         )
-        key, wrong = str(a), [-a, k + a, k, -(k + a)]
+        key, wrong = str(a), [-a, k + a, k, -(k + a), a + 1, a - 1]
         working = [
             f"The vertex of f is at ({h}, {k}) and the vertex of g is at ({h}, {k + a}).",
             f"a = {k + a} - {pn(k)} = {a}.",
@@ -158,7 +163,7 @@ def ey_graph_translation(rng, tier="easy"):
                 f"g is a horizontal translation of f, with g(x) = f(x + b). {scale} What is the value of b?",
             )
         )
-        key, wrong = str(b), [-b, h - b, h, -(h - b)]
+        key, wrong = str(b), [-b, h - b, h, -(h - b), b + 1, b - 1]
         working = [
             f"The vertex of f is at x = {h} and the vertex of g is at x = {h - b}.",
             f"g(x) = f(x + b) moves the graph by -b, so -b = {h - b} - {pn(h)} = {-b} and b = {b}.",
@@ -177,7 +182,7 @@ def ey_graph_translation(rng, tier="easy"):
             f"A move of {-b} in x is f({arg('x', b)}) and a move of {a} in y adds {pn(a)}, so {key}.",
         ]
         wrong = [w for w in wrong if w != key]
-    distractors = mcq(key, [str(w) for w in wrong])
+    distractors = mcq(key, [str(w) for w in wrong], minimum=3)
     check(
         _read_translation(type("Q", (), {"figure": fig, "text": text})) == key,
         "the translation reader disagrees with the key",
@@ -344,6 +349,8 @@ def _dil_figure(kind, m, s, c, k, point=None):
 def _dil_eq(form: str, v: F) -> str:
     """g(x) = c f(x) ('v') or f(kx) ('h') written the way the options show it."""
     if form == "v":
+        if v == 1:
+            return "g(x) = f(x)"
         if v == -1:
             return "g(x) = -f(x)"
         if v.denominator == 1:
@@ -351,6 +358,10 @@ def _dil_eq(form: str, v: F) -> str:
         if v == F(1, v.denominator):
             return f"g(x) = f(x)/{v.denominator}"
         return f"g(x) = {frac_text(v)}f(x)"
+    if v == 1:
+        return "g(x) = f(x)"
+    if v == -1:
+        return "g(x) = f(-x)"
     if v.denominator == 1:
         return f"g(x) = f({v}x)"
     return f"g(x) = f(x/{v.denominator})"
@@ -389,7 +400,7 @@ def ey_graph_dilation(rng, tier="easy"):
         )
         f0 = _f0(kind, m, s)
         key = frac_text(c)
-        wrong = [1 / c, c - 1, c * f0, f0 * c - f0]
+        wrong = [1 / c, c - 1, c * f0, f0 * c - f0, -c, c + 1, 1 / (c + 1)]
         working = [
             f"The y-intercept of f is {f0} and the y-intercept of g is {c * f0}.",
             f"c = {c * f0} / {f0} = {frac_text(c)}.",
@@ -408,7 +419,7 @@ def ey_graph_dilation(rng, tier="easy"):
         root = F(m) / k
         wrong = [1 / k, k * k, root, m - root, F(m) * k]
         working = [
-            f"The x-intercepts of f are +-{m} and the x-intercepts of g are +-{frac_text(root)}.",
+            f"The x-intercepts of f are ±{m} and the x-intercepts of g are ±{frac_text(root)}.",
             f"f(kx) = 0 when kx = {m}, so x = {m}/k: k = {m} / {frac_text(root)} = {frac_text(k)}.",
         ]
     else:
@@ -434,7 +445,7 @@ def ey_graph_dilation(rng, tier="easy"):
         else:
             working = [
                 "The y-intercepts of f and g are the same, so the dilation is horizontal.",
-                f"The x-intercepts go from +-{m} to +-{frac_text(F(m) / k)}, divided by {frac_text(k)}: {key}.",
+                f"The x-intercepts go from ±{m} to ±{frac_text(F(m) / k)}, divided by {frac_text(k)}: {key}.",
             ]
     fig = _dil_figure(kind, m, s, c, k)
     distractors = mcq(key, [str(w) if isinstance(w, str) else frac_text(w) for w in wrong])
@@ -516,7 +527,7 @@ def ey_graph_dilation_exam(rng, tier="exam"):
             [p * k, p, F(p) / c],
             places=2,
             follow=f"{p}/part_a",
-            working=[f"The x-coordinate is divided by k: {p} / {frac_text(k)} = {frac_text(F(p) / k)}."],
+            working=[f"The x-coordinate is divided by k: {p} ÷ {_bt(frac_text(k))} = {frac_text(F(p) / k)}."],
         ),
         num_part(
             "Hence find the y-coordinate of the point on g that P moves to.",
@@ -524,7 +535,7 @@ def ey_graph_dilation_exam(rng, tier="exam"):
             [q / c, q, q * k],
             places=2,
             follow=f"{q}*part_b",
-            working=[f"The y-coordinate is multiplied by c: {q} x {frac_text(c)} = {frac_text(c * q)}."],
+            working=[f"The y-coordinate is multiplied by c: {pn(q)} × {_bt(frac_text(c))} = {frac_text(c * q)}."],
         ),
     ]
     figures.assert_no_leak(fig, [frac_text(k), frac_text(c)])
@@ -560,6 +571,8 @@ _G = {
     "-f(x)": lambda v, av: -v,
     "f(|x|)": lambda v, av: av,
     "1/f(x)": lambda v, av: 1 / v if v else None,
+    "-|f(x)|": lambda v, av: -av,
+    "f(-x)": lambda v, av: v,  # (read from f at -x; see _which_g)
 }
 _OPTIONS = tuple(f"g(x) = {name}" for name in _G)
 
@@ -583,6 +596,8 @@ def _g_curve(name: str, fn):
         "-f(x)": lambda x: -fn(x),
         "f(|x|)": lambda x: fn(abs(x)),
         "1/f(x)": lambda x: 1 / fn(x),
+        "-|f(x)|": lambda x: -abs(fn(x)),
+        "f(-x)": lambda x: fn(-x),
     }[name]
     return sample(g, label="g")
 
@@ -598,6 +613,8 @@ def _which_g(f_map, g_map) -> str:
             fv = f_map[x]
             if name == "f(|x|)":
                 want = f_map[abs(x)] if abs(x) in f_map else None
+            elif name == "f(-x)":
+                want = f_map[-x] if -x in f_map else None
             else:
                 want = tf(fv, abs(fv))
             if want is not None:
@@ -631,7 +648,11 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
         raise ValueError(f"unknown tier {tier!r}")
     scale = rng.choice(_SCALE)
     if tier in ("easy", "medium"):
-        name = rng.choice(("|f(x)|", "-f(x)") if tier == "easy" else ("f(|x|)", "|f(x)|", "1/f(x)"))
+        name = rng.choice(
+            ("|f(x)|", "-f(x)", "-|f(x)|", "f(-x)")
+            if tier == "easy"
+            else ("f(|x|)", "|f(x)|", "1/f(x)", "f(-x)", "-|f(x)|")
+        )
         for _ in attempts(300, "a function f whose transformation is unambiguous"):
             fn, desc = _f_family(rng, rng.choice(("line", "quad")))
             if _distinct_forms(fn):
@@ -656,7 +677,7 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
                 )
             )
         key = f"g(x) = {name}"
-        distractors = mcq(key, [o for o in _OPTIONS if o != key])
+        distractors = mcq(key, [o for o in _OPTIONS if o != key], count=4)
         working = {
             "|f(x)|": ["Every part of f below the x-axis is reflected above it; the rest is unchanged."],
             "-f(x)": ["Every point of f is reflected in the x-axis: above becomes below and below becomes above."],
@@ -664,6 +685,10 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
                 "The part of f with x >= 0 is kept and reflected in the y-axis, so g is symmetric about the y-axis."
             ],
             "1/f(x)": ["g has a vertical asymptote at each zero of f, and is positive where f is positive."],
+            "-|f(x)|": ["Every part of f above the x-axis is reflected below it, so g is never positive."],
+            "f(-x)": [
+                "Every point of f is reflected in the y-axis: the graph of g is the mirror image of f left to right."
+            ],
         }[name] + [f"So {key}."]
         figures.assert_no_leak(fig, [key])
         return dict(
@@ -691,15 +716,19 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
     t = rng.choice(ts)
     if mode == "abs":
         gname, at, ans = "|f(x)|", t, abs(F(fn(t)))
-        wrong = [fn(t), abs(t), -abs(fn(t))]
+        wrong = [fn(t), abs(t), -abs(fn(t)), fn(-t), abs(fn(t)) + 1, abs(fn(t)) - 1]  # f(-t): read at -t
         working = [f"From the graph, f({t}) = {fn(t)}.", f"|f({t})| = |{fn(t)}| = {abs(fn(t))}."]
     elif mode == "fabs":
         at = -t
-        gname, ans, wrong = "f(|x|)", F(fn(t)), [fn(-t), -fn(t), abs(fn(t))]
+        gname, ans, wrong = "f(|x|)", F(fn(t)), [fn(-t), -fn(t), abs(fn(t)), -fn(-t), fn(t) + 1, fn(t) - 1]
         working = [f"|{at}| = {t}, so g({at}) = f({t}).", f"From the graph, f({t}) = {fn(t)}."]
     else:
         at = t
-        gname, ans, wrong = "1/f(x)", 1 / F(fn(t)), [-1 / F(fn(t)), F(fn(t)), F(1, t)]
+        gname, ans, wrong = (
+            "1/f(x)",
+            1 / F(fn(t)),
+            [-1 / F(fn(t)), F(fn(t)), F(1, t), F(1, fn(t) ** 2), -F(1, t), F(1, 2 * fn(t)), F(2, fn(t))],
+        )
         working = [f"From the graph, f({t}) = {fn(t)}.", f"1/f({t}) = 1/{fn(t)} = {frac_text(ans)}."]
     fig = _plane([sample(fn, label="f")], alt="the graph of f on a coordinate grid, one unit per grid square")
     text = rng.choice(
@@ -709,7 +738,7 @@ def ey_graph_reciprocal_abs(rng, tier="easy"):
         )
     )
     key = frac_text(ans)
-    distractors = mcq(key, [frac_text(F(w)) for w in wrong])
+    distractors = mcq(key, [frac_text(F(w)) for w in wrong], minimum=3)
     q = type("Q", (), {"figure": fig, "text": text})
     check(_read_recip(q) == key, "the reciprocal reader disagrees with the key")
     figures.assert_no_leak(fig, [key])

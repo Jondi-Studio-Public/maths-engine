@@ -23,7 +23,7 @@ import re
 from fractions import Fraction as F
 
 from .. import figures
-from ..core import attempts, check, generator
+from ..core import attempts, check, generator, paren_negative
 from ._ey_senior_kit import curve_map, frac_text, mcq, near, num_part, retry_short, sample
 
 _TAILS = (
@@ -363,14 +363,14 @@ def ey_context_line_exam(rng, tier="exam"):
             value,
             [m * n_pred, c * n_pred, c + m * (n_pred + 1)],
             follow=f"part_b+part_a*{n_pred}",
-            working=[f"{word} = {c} + ({m}) x {n_pred} = {value}."],
+            working=[f"{word} = {c} + ({m}) × {n_pred} = {value}."],
         ),
         num_part(
             f"After how many {ctx['xp']} is the {word} {target} {_unit_of(ctx)}?",
             n_goal,
             [F(target, m) if m else 0, F(target - c, abs(m)) + 1, n_goal - 1],
             follow=f"({target}-part_b)/part_a",
-            working=[f"{target} = {c} + ({m}) x n, so n = ({target} - {c}) / {m} = {n_goal}."],
+            working=[f"{target} = {c} + ({m}) × n, so n = ({target} - {c}) / {m} = {n_goal}."],
         ),
     ]
     figures.assert_no_leak(fig, [str(m), str(c)])
@@ -585,7 +585,7 @@ def ey_position_tangent(rng, tier="easy"):
         key, wrong = str(back), [T - back, t2, t1, t2 - t1 + 1]
         working = [
             f"The cart turns at t = {t1} and t = {t2}.",
-            f"s is getting smaller {'between' if a > 0 else 'before the first turn and after the second turn, '}"
+            f"s is getting smaller {'between ' if a > 0 else 'before the first turn and after the second turn, '}"
             + (f"t = {t1} and t = {t2}: {back} seconds." if a > 0 else f"so {t1} + {T - t2} = {back} seconds."),
         ]
     distractors = mcq_number(key, wrong)
@@ -685,7 +685,9 @@ def ey_position_tangent_exam(rng, tier="exam"):
             avg,
             [-avg, s2 - s1, F(s2, t2)],
             follow=f"({s2}-({s1}))/part_d",
-            working=[f"s goes from {s1} to {s2} in {_secs(t2 - t1)}: ({s2} - ({s1})) / {t2 - t1} = {frac_text(avg)}."],
+            working=[
+                f"s goes from {s1} to {s2} in {_secs(t2 - t1)}: ({s2} - {paren_negative(s1)}) / {t2 - t1} = {frac_text(avg)}."
+            ],
         ),
     ]
     figures.assert_no_leak(fig, [str(v0), str(t1), str(t2)])

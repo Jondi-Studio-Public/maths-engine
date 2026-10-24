@@ -150,7 +150,7 @@ def exd_x_sc2_similar_sas(rng: random.Random, tier: str = "exam") -> dict:
                 working=[
                     f"SAS similarity needs the sides on either side of the {angle}° angle in the same ratio.",
                     f"{'PQ : AB' if given_first else 'QR : BC'} = {given_value} : {own}, so the ratio is {ratio}.",
-                    f"{ask} = {other} x {ratio} = {unknown_side} {unit}.",
+                    f"{ask} = {other} × {ratio} = {unknown_side} {unit}.",
                 ],
                 distractors=a_dis,
             ),
@@ -163,7 +163,7 @@ def exd_x_sc2_similar_sas(rng: random.Random, tier: str = "exam") -> dict:
                 marks=2,
                 sensible_range=(0, None),
                 follow_through=(f"{ac}*part_a/{other}"),
-                working=[f"PR : AC is also {ratio}, so PR = {ac} x {ratio} = {pr} {unit}."],
+                working=[f"PR : AC is also {ratio}, so PR = {ac} × {ratio} = {pr} {unit}."],
                 distractors=b_dis,
             ),
             dict(

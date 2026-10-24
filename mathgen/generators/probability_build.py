@@ -121,27 +121,26 @@ def finite_sample_space_probability(rng, space_size=8, pool_hi=14, event_type="m
     answer_text = rational_text(prob)
     outcomes_str = ", ".join(map(str, outcomes))
 
-    # Misconception distractors, in priority order:
-    #  - event-count: reports the count of favourable outcomes as a bare integer
-    #  - inverted-ratio: reports total/favourable instead of favourable/total
+    # Misconception distractors, in priority order. Every one is a probability strictly between 0
+    # and 1: an option above 1 (the count, total/favourable) is eliminated at sight, so none is offered.
     #  - complement: reports (total - favourable)/total instead of favourable/total
-    #  - favourable-over-other: reports favourable/(total-favourable) (the prerequisite
-    #    misconception from simple-event-probability)
-    event_count_text = str(len(favourable))
-    inverted_text = rational_text(Fraction(len(outcomes), len(favourable)))
-    complement_text = rational_text(Fraction(len(outcomes) - len(favourable), len(outcomes)))
-    other_count = len(outcomes) - len(favourable)
-    if other_count > 0:
-        other_text = rational_text(Fraction(len(favourable), other_count))
-    else:
-        other_text = rational_text(Fraction(len(favourable), 1))
-
-    candidates = [
-        event_count_text,
-        inverted_text,
-        complement_text,
-        other_text,
+    #  - favourable-over-other: favourable/(total - favourable), the simple-event-probability slip
+    #    (only when it stays below 1)
+    #  - miscounts: one favourable outcome too many or too few, over the right total
+    #  - total-off-by-one: favourable over a total that is one out
+    n_fav, n_all = len(favourable), len(outcomes)
+    other_count = n_all - n_fav
+    values = [
+        Fraction(other_count, n_all),
+        Fraction(n_fav, other_count),
+        Fraction(n_fav + 1, n_all),
+        Fraction(n_fav - 1, n_all),
+        Fraction(n_fav, n_all + 1),
+        Fraction(n_fav, n_all - 1),
+        Fraction(n_fav + 2, n_all),
+        Fraction(n_fav - 2, n_all),
     ]
+    candidates = [rational_text(v) for v in values if 0 < v < 1 and v != prob]
 
     return dict(
         text=(
