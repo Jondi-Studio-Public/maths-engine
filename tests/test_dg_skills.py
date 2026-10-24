@@ -448,7 +448,7 @@ def test_the_stem_and_leaf_grader_wants_ordered_leaves():
 
 def _compare_data(q):
     a = [d["at"] for d in q.figure["dots"] for _ in range(d["count"])]
-    body = q.text.split("means", 1)[1].split(": ", 1)[1].split(". ", 1)[0].rstrip(".")
+    body = q.text.split("means", 1)[1].split(". ", 1)[1].split(". ", 1)[0].rstrip(".")
     b = []
     for row in body.split("; "):
         stem, _, leaves = row.partition("|")
