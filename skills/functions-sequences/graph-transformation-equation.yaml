@@ -36,6 +36,7 @@ misconceptions:
 - {id: gt-period-unchanged, description: 'Giving the period of the original trigonometric graph and ignoring the dilation from the y-axis.'}
 - {id: gt-reflection-wrong-axis, description: 'Reflecting in the other axis: replacing x by -x where the graph is reflected in the x-axis, or negating the whole function where it is reflected in the y-axis.'}
 - {id: gt-vertical-shift-sign, description: 'Moving the graph the wrong way along the y-axis: adding the shift for a move down, or subtracting it for a move up.'}
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 2, demand: 'Apply two transformations in order, one of them a translation, and write the new equation
       with the right sign inside or outside the function.'}

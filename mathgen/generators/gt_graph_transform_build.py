@@ -35,7 +35,7 @@ import sympy
 from .. import figures
 from ..answers import Distractor
 from ..core import VerificationError, attempts, check, generator, latex_answer, phrase
-from ._spread_kit import uses_rng
+from ._spread_kit import NEAR, pick as spread_pick, uses_rng
 from ._gt_kit import (
     FAMILIES,
     TooFewDistractors,
@@ -156,7 +156,8 @@ def _wrong_equations(fam, ops, key: str) -> list[Distractor]:
     seen = [key]
     first, rest = [], []
     used = set()
-    for tag, chain in wrong_chains(ops):
+    chains = wrong_chains(ops)
+    for tag, chain in chains:
         try:
             q = compose(chain)
             if not _shift_ok(fam, q):
@@ -169,7 +170,30 @@ def _wrong_equations(fam, ops, key: str) -> list[Distractor]:
         seen.append(text)
         (rest if tag in used else first).append(Distractor(text, tag, text))
         used.add(tag)
+    if len(first) + len(rest) < 3:
+        # too few single slips: a second common slip made on top of the first is still a plausible wrong equation
+        for _, chain in chains:
+            for tag, chain2 in wrong_chains(chain):
+                try:
+                    q = compose(chain2)
+                    if not _shift_ok(fam, q):
+                        continue
+                    text = equation_text(fam, q)
+                except VerificationError:
+                    continue
+                if any(same_function(text, s) for s in seen):
+                    continue
+                seen.append(text)
+                rest.append(Distractor(text, tag, text))
     return first + rest
+
+
+def _near_pairs(rng, ans: Pair) -> list[tuple[str, Frac, Frac]]:
+    """Plain near misses of a coordinate pair, in a random order: one coordinate a unit or two out, the other right."""
+    x, y = ans.values
+    out = [(NEAR, x + dx, y + dy) for dx, dy in ((0, 1), (1, 0), (0, -1), (-1, 0), (0, 2), (2, 0), (0, -2), (-2, 0))]
+    rng.shuffle(out)
+    return out
 
 
 def _need(options: list, minimum: int = 2):
@@ -560,7 +584,7 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
         wrongs.append((tag, _feature(fam, q)[1]))
     if kind == "pair":
         ans = Pair("x", value[0], "y", value[1])
-        cands = pair_candidates(ans, [(t, v[0], v[1]) for t, v in wrongs])
+        cands = pair_candidates(ans, [(t, v[0], v[1]) for t, v in wrongs] + _near_pairs(rng, ans))
         fields = ans.fields()
     else:
         from ._sr2b_kit import number_fields
@@ -577,7 +601,7 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
         if c.text not in seen and c.text != fields["answer_text"]:
             seen.add(c.text)
             b_opts.append(c)
-    b_opts = _need(b_opts)
+    b_opts = _need(b_opts) if kind == "pair" else spread_pick(fields["answer_text"], b_opts, lo=None)
     part_b = dict(
         prompt=_feature_prompt(fam),
         marks=2 if kind == "pair" else 1,
@@ -609,7 +633,12 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
         if c.text not in seen and c.text != rational_text(y0):
             seen.add(c.text)
             c_opts.append(c)
-    c_opts = _need(c_opts)
+    if y0.denominator != 1:  # a fraction: its neighbours are a whole step of its denominator away
+        for k in rng.sample((-2, -1, 1, 2), 4):
+            v = y0 + Frac(k, y0.denominator)
+            if v != 0 and rational_text(v) not in seen:
+                c_opts.append(Distractor(rational_text(v), NEAR, _frac_value(v)))
+    c_opts = spread_pick(rational_text(y0), c_opts)
     part_c = dict(
         prompt="Find the y-intercept of the graph of g.",
         answer_kind="fraction",
@@ -631,6 +660,9 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
             if _shift_ok(fam, q) and 2 / abs(q[1]) != period:
                 d_wrong.append(Distractor(pi_text(2 / abs(q[1])), tag, pi_text(2 / abs(q[1]))))
         d_wrong.append(Distractor(pi_text(Frac(2)), "gt-period-unchanged", pi_text(Frac(2))))
+        # plain near misses: the period out by a half, a third or a whole more
+        for f in rng.sample((Frac(1, 2), Frac(3, 2), Frac(1, 3), Frac(3), Frac(2), Frac(1, 4)), 6):
+            d_wrong.append(Distractor(pi_text(period * f), NEAR, pi_text(period * f)))
         seen, d_opts = set(), []
         for c in d_wrong:
             if c.text not in seen and c.text != d_ans:
@@ -658,7 +690,7 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
     for tag, chain in wrong_chains(ops):
         q = move_point((px, py), chain)
         wrongs.append((tag, q[0], q[1]))
-    d_opts = _need(pair_candidates(ans, wrongs))
+    d_opts = pair_candidates(ans, wrongs + _near_pairs(rng, ans))
     seen, uniq = set(), []
     for c in d_opts:
         if c.text not in seen and c.text != ans.text:

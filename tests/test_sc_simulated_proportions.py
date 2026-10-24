@@ -162,3 +162,35 @@ def test_hard_scaling_and_ratio_start_from_a_feasible_standard_deviation():
         assert sd * sd * n <= F(1, 4), (seed, n, sd)
         seen[kind] += 1
     assert min(seen.values()) >= 100, seen
+
+
+def test_no_sample_size_option_other_than_the_key_gives_the_stated_standard_deviation():
+    """Round 5: n +- 1..3 are as good as n when the stated sd is only given to 3 places, so none may be offered."""
+    checked = {"size": 0, "ratio": 0}
+    for seed in range(500):
+        for tier in ("easy", "medium", "hard"):
+            q = make("sc_simulated_proportions", seed=seed, difficulty=tier)
+            if m := re.search(r"^(\d+)% of the .* sample proportion is (0\.\d+)\. Find the sample size needed", q.text):
+                p, stated, kind = int(m.group(1)) / 100, m.group(2), "size"
+
+                def gives(n):
+                    return f"{sd(p, n):.{len(stated) - 2}f}" == stated
+            elif m := re.search(r"gave a standard deviation of (0\.\d+) .* fall to (0\.\d+)\?", q.text):
+                n1, s1, stated, kind = (
+                    int(re.search(r"Samples of (\d+)", q.text).group(1)),
+                    float(m.group(1)),
+                    m.group(2),
+                    "ratio",
+                )
+
+                def gives(n, n1=n1, s1=s1, stated=stated):
+                    return f"{s1 * math.sqrt(n1 / n):.{len(stated) - 2}f}" == stated
+            else:
+                continue
+            key = int(q.answer_text)
+            assert gives(key), (seed, q.text, q.answer_text)
+            others = [int(d) for d in q.distractors]
+            assert not any(gives(n) for n in others), (seed, q.text, q.answer_text, others)
+            assert len(set(others) | {key}) == len(others) + 1 >= 4, (seed, others)
+            checked[kind] += 1
+    assert checked["size"] >= 30 and checked["ratio"] >= 30, checked

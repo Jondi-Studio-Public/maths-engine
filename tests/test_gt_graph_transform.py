@@ -192,7 +192,9 @@ def test_exam_keys_match_an_independent_derivation():
             (xt,) = [r for r in sp.solve(sp.diff(g, X, 2), X) if r.is_real]
             assert _pair(b.answer_text) == [xt, sp.simplify(g.subs(X, xt))], (seed, q.text)
         elif "horizontal" in b.prompt:
-            limits = {sp.limit(g, X, sp.oo), sp.limit(g, X, -sp.oo)} - {sp.oo, -sp.oo}
+            # SymPy 1.14 answers oo for the limit of 3*3**(2*x - 4) as x -> -oo (it is 0); a positive variable avoids the slip
+            t = sp.Symbol("t", positive=True)
+            limits = {sp.limit(g.subs(X, t), t, sp.oo), sp.limit(g.subs(X, -t), t, sp.oo)} - {sp.oo, -sp.oo}
             assert sp.Rational(b.answer_text) in limits, (seed, q.text)
         elif "vertical" in b.prompt:
             (xv,) = sp.solve(sp.denom(sp.together(gs)), X)

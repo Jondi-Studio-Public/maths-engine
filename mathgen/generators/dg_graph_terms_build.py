@@ -29,7 +29,7 @@ from ..core import attempts, check, generator, phrase
 from .. import figures
 from ._network_fig import graph_figure
 from ._snet_kit import degrees, int_distractors, neighbours, norm
-from ._spread_kit import mixed, uses_rng
+from ._spread_kit import mixed, round_extras, uses_rng
 from ._w9_graph_kit import TooFewDistractors, enough, retry_draw
 
 LETTERS = "ABCDEFGHIJ"
@@ -159,9 +159,9 @@ def _connected(rng, n, m):
 
 
 def _in_pieces(rng, n):
-    """A simple graph on ``n`` vertices in two or three pieces (one may be a lone vertex), and its component sizes."""
-    k = rng.choice((2, 2, 3))
-    for _ in attempts(1000, "a graph in two or three pieces"):
+    """A simple graph on ``n`` vertices in two to four pieces (one may be a lone vertex), and its component sizes."""
+    k = rng.choice((2, 3, 4))
+    for _ in attempts(1000, "a graph in two to four pieces"):
         cuts = sorted(rng.sample(range(1, n), k - 1))
         sizes = [b - a for a, b in zip([0, *cuts], [*cuts, n])]
         if sorted(sizes)[-1] >= 3:
@@ -209,11 +209,20 @@ def _checked_degrees(n, edges):
     return deg
 
 
-def _ints(answer, candidates, n=3, *, lo=0):
+def _ints(answer, candidates, n=3, *, lo=0, hi=None):
     """Tagged integer distractors; a candidate that is None or below ``lo`` is skipped."""
-    cands = [c for c in candidates if c[0] is not None and c[0] >= lo]
-    near = [(answer + d, "dg-near-miss-value") for d in (-3, -2, -1, 1, 2, 3) if answer + d >= max(lo, 1)]
-    return int_distractors(answer, mixed(answer, cands, n, fillers=near), n, lo=lo)
+    cands = [c for c in candidates if c[0] is not None and c[0] >= lo and (hi is None or c[0] <= hi)]
+    near = [
+        (answer + d, "dg-near-miss-value")
+        for d in (-3, -2, -1, 1, 2, 3)
+        if answer + d >= max(lo, 1) and (hi is None or answer + d <= hi)
+    ]
+    near += [
+        (v, t)
+        for v, t in round_extras(answer, lambda v: (v, "dg-near-miss-value"))
+        if v >= max(lo, 1) and (hi is None or v <= hi)
+    ]
+    return int_distractors(answer, mixed(answer, cands, n, fillers=near, lo=lo, hi=hi), n, lo=lo)
 
 
 def _q(text, figure, answer, working, distractors):
@@ -271,6 +280,7 @@ def _easy(rng):
             text = phrase(rng, _ADJ, x=L[x])
             nbrs = sorted(neighbours(n, edges)[x])
             answer = d
+            lo_, hi_ = 1, n - 1  # a drawn vertex has an edge, and at most n - 1 neighbours
             check(answer == len(nbrs), "adjacent count")
             cands = [
                 (d + 1, "dg-gt-adjacent-counts-itself"),
@@ -285,6 +295,7 @@ def _easy(rng):
         elif shape == "nonadjacent":
             text = phrase(rng, _NONADJ, x=L[x])
             answer = n - 1 - d
+            lo_, hi_ = 1, n - 1
             others = sorted(set(range(n)) - set(neighbours(n, edges)[x]) - {x})
             check(answer == len(others), "non-adjacent count")
             cands = [
@@ -300,6 +311,7 @@ def _easy(rng):
         elif shape == "edges":
             text = phrase(rng, _EDGES)
             answer = len(edges)
+            lo_, hi_ = 1, n * (n - 1) // 2  # a simple graph has at most one edge per pair
             cands = [
                 (sum(deg), "dg-gt-edges-as-degree-sum"),
                 (n, "dg-gt-vertices-as-edges"),
@@ -310,6 +322,7 @@ def _easy(rng):
         else:
             text = phrase(rng, _MAXDEG)
             answer = max(deg)
+            lo_, hi_ = 1, n - 1
             second = sorted(set(deg))[-2] if len(set(deg)) > 1 else None
             cands = [
                 (second, "dg-gt-degree-of-wrong-vertex"),
@@ -323,7 +336,7 @@ def _easy(rng):
             ]
             if len([v for v in deg if v == answer]) > 3:
                 continue
-        ds = _ints(answer, [c for c in cands if c[0] is not None])
+        ds = _ints(answer, [c for c in cands if c[0] is not None], lo=lo_, hi=hi_)
         if len(ds) < 3:
             continue
         return _q(text, fig, answer, working, ds)
@@ -367,6 +380,7 @@ def _medium(rng):
             if shape == "components":
                 text = phrase(rng, _COMP)
                 answer = c
+                lo_, hi_ = 1, n
                 cands = [
                     (isolated if isolated else None, "dg-gt-components-isolated-only"),
                     (c + 1, "dg-gt-components-miscount"),
@@ -376,6 +390,7 @@ def _medium(rng):
             else:
                 text = phrase(rng, _CONNECT)
                 answer = c - 1
+                lo_, hi_ = 1, n - 1
                 cands = [
                     (c, "dg-gt-components-as-edges-needed"),
                     (n - big, "dg-gt-components-edges-per-vertex"),
@@ -388,7 +403,7 @@ def _medium(rng):
                 if shape == "components"
                 else f"Joining {c} pieces takes {c} - 1 = {answer} edge{'' if answer == 1 else 's'} at the least.",
             ]
-            ds = _ints(answer, [x for x in cands if x[0] is not None and x[0] >= 0], lo=0)
+            ds = _ints(answer, [x for x in cands if x[0] is not None and x[0] >= 0], lo=lo_, hi=hi_)
             if answer < 1 or len(ds) < 3:
                 continue
             return _q(text, fig, answer, working, ds)
@@ -406,6 +421,7 @@ def _medium(rng):
         if shape == "subvertices":
             text = phrase(rng, _SUBV)
             answer = len(ends)
+            lo_, hi_ = 2, n
             cands = [
                 (n, "dg-gt-subgraph-all-vertices"),
                 (len(thick), "dg-gt-vertices-as-edges"),
@@ -419,6 +435,7 @@ def _medium(rng):
         else:
             text = phrase(rng, _SUBE)
             answer = len(edges) - len(thick)
+            lo_, hi_ = 1, len(edges)
             cands = [
                 (len(thick), "dg-gt-subgraph-counts-its-own-edges"),
                 (len(edges), "dg-gt-edges-miscount"),
@@ -429,7 +446,7 @@ def _medium(rng):
                 f"The network has {len(edges)} edges and H has {len(thick)} edge{'' if len(thick) == 1 else 's'} (the thick ones).",
                 f"{len(edges)} - {len(thick)} = {answer} edge{'' if answer == 1 else 's'} not in H.",
             ]
-        ds = _ints(answer, cands, lo=0)
+        ds = _ints(answer, cands, lo=lo_, hi=hi_)
         if len(ds) < 3 or answer < 1:
             continue
         return _q(text, fig, answer, working, ds)
@@ -503,8 +520,8 @@ _MG_DEG = ("What is the degree of vertex {x}? (A loop adds 2 to the degree of it
 def _hard(rng):
     for _ in attempts(400, "a multigraph question"):
         n = rng.randint(5, 6)
-        loops = rng.randint(1, 3)
-        extras = rng.randint(1, 3)
+        loops = rng.randint(2, 5)
+        extras = rng.randint(2, 4)
         es, simple = _multigraph(rng, n, loops, extras, rng.randint(n, n + 1))
         f = _multi_facts(n, es)
         check(sum(f["deg"]) == 2 * len(es), "handshake sum of the multigraph")
@@ -580,7 +597,9 @@ def _hard(rng):
                 f"{_pl(nonloop, 'edge')} join{'s' if nonloop == 1 else ''} {LETTERS[x]} to other vertices.",
                 f"Each loop at {LETTERS[x]} adds 2, so the degree is {nonloop} + 2 x {(answer - nonloop) // 2} = {answer}.",
             ]
-        ds = _ints(answer, [c for c in cands if c[0] is not None], lo=0)
+        ds = _ints(
+            answer, [c for c in cands if c[0] is not None], lo=0, hi=2 * len(es) if shape == "degree" else len(es)
+        )
         if len(ds) < 3:
             continue
         d = _q(text, None, answer, working, ds)
@@ -646,9 +665,14 @@ def _num(answer):
 def _chain_drawn(rng):
     for _ in attempts(400, "a drawn graph-terms chain"):
         n = rng.randint(6, 8)
-        edges = _connected(rng, n, rng.randint(n - 1, n + 1))
+        edges = _connected(rng, n, rng.randint(n - 1, n + 2))
         deg = _checked_degrees(n, edges)
-        x = rng.choice([v for v in range(n) if 2 <= deg[v] <= 4])
+        middling = [v for v in range(n) if 2 <= deg[v] <= 5]
+        if not middling:
+            continue  # every vertex has degree 1 or more than 5: draw another network
+        # the degree asked about is drawn first, so a degree of 2 (most vertices) does not crowd out the larger ones
+        pick_deg = rng.choice(sorted({deg[v] for v in middling}))
+        x = rng.choice([v for v in middling if deg[v] == pick_deg])
         rest = [e for e in edges if x not in e]
         nbrs = sorted(neighbours(n, edges)[x])
         left = [v for v in range(n) if v != x]
@@ -656,8 +680,10 @@ def _chain_drawn(rng):
         idx = {v: i for i, v in enumerate(left)}
         comps = components(n - 1, [(idx[u], idx[v]) for u, v in rest])
         c = len(comps)
-        if not (2 <= c <= 3) or len(rest) < 3:
+        if not (2 <= c <= 4) or len(rest) < 3:
             continue
+        if c == 2 and rng.random() < 0.55:
+            continue  # two pieces is the usual outcome: keep three and four in step with it
         try:
             fig = _draw(n, edges)
         except TooFewDistractors:
@@ -674,6 +700,8 @@ def _chain_drawn(rng):
                 (d - 1, "dg-gt-edges-miscount"),
                 (m, "dg-gt-edges-miscount"),
             ],
+            lo=1,
+            hi=n - 1,
         )
         sa = [L[v] for v in nbrs]
         non = [L[v] for v in left if v not in nbrs]
@@ -694,6 +722,8 @@ def _chain_drawn(rng):
                 (m + 1, "dg-gt-edges-miscount"),
                 (m - 1, "dg-gt-edges-miscount"),
             ],
+            lo=1,
+            hi=n * (n - 1) // 2,
         )
         dd = _ints(
             m - d,
@@ -704,6 +734,7 @@ def _chain_drawn(rng):
                 (d, "dg-gt-delete-vertex-keeps-edges"),
             ],
             lo=0,
+            hi=m,
         )
         de = _ints(
             c,
@@ -714,6 +745,7 @@ def _chain_drawn(rng):
                 (c + 2, "dg-gt-components-miscount"),
             ],
             lo=1,
+            hi=n - 1,
         )
         if min(len(x_) for x_ in (da, db, dc, dd, de)) < 2:
             continue
@@ -731,7 +763,7 @@ def _chain_drawn(rng):
                     1,
                     [f"Count the edges at {L[x]}: {d}."],
                     da,
-                    sensible_range=(0, n - 1),
+                    sensible_range=(0, n),
                 ),
                 _p(
                     f"List the vertices adjacent to {L[x]}.",
@@ -777,7 +809,7 @@ def _chain_drawn(rng):
 def _chain_multi(rng):
     for _ in attempts(400, "a multigraph chain"):
         n = rng.randint(5, 6)
-        loops, extras = rng.randint(1, 3), rng.randint(1, 3)
+        loops, extras = rng.randint(2, 5), rng.randint(2, 5)
         es, simple = _multigraph(rng, n, loops, extras, rng.randint(n, n + 1))
         f = _multi_facts(n, es)
         total = len(es)
@@ -799,6 +831,7 @@ def _chain_multi(rng):
                 (f["loops"] - 1, "dg-gt-edges-miscount"),
                 (f["loops"] + f["extras"], "dg-gt-loops-as-multiple"),
             ],
+            hi=total,
         )
         db = _ints(
             f["extras"],
@@ -808,6 +841,7 @@ def _chain_multi(rng):
                 (f["extras"] + 1, "dg-gt-edges-miscount"),
                 (f["pairs"], "dg-gt-multiple-all-copies"),
             ],
+            hi=total,
         )
         dc = _ints(
             simple_m,
@@ -817,6 +851,8 @@ def _chain_multi(rng):
                 (total, "dg-gt-simple-keeps-repeats"),
                 (simple_m + 1, "dg-gt-edges-miscount"),
             ],
+            lo=1,
+            hi=total,
         )
         dd = _ints(
             degx,
@@ -827,6 +863,7 @@ def _chain_multi(rng):
                 (simple_m, "dg-gt-edges-miscount"),
             ],
             lo=0,
+            hi=2 * total,
         )
         if min(len(v) for v in (da, db, dc, dd)) < 2:
             continue

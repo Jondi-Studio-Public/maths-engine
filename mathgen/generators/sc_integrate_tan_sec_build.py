@@ -22,10 +22,10 @@ answer in terms of tan x``), because the grader compares expressions, not answer
 from __future__ import annotations
 
 import re
-from sympy import Rational, log, pi, sec, sqrt, tan
+from sympy import Rational, log, pi, sec, sqrt, sympify, tan
 
 from ..core import check, generator, latex_from_inline
-from ._spread_kit import uses_rng
+from ._spread_kit import NEAR, mixed, uses_rng
 from ._r3b_kit import (
     Cand,
     Itg,
@@ -106,6 +106,14 @@ def _no_constant(cands):
     return [Cand(c.expr, c.tag, const=False) for c in cands if c is not None]
 
 
+def _options(key, cands, rng):
+    """Three wrong exact values for a definite integral, with a random number of them below the key: the named slips
+    first, then plain near misses (the key out by a half, third, quarter or sixth) on a side that has too few."""
+    key = sympify(key)
+    near = [Cand(key + Rational(k, d), NEAR, const=False) for d in (2, 3, 4, 6) for k in (-1, 1)]
+    return pick_expr(key, False, mixed(key, _no_constant(cands), fillers=near))
+
+
 def _definite(rng, f: Itg, value, lo, hi, cands, working):
     check_definite(value, f.value, lo, hi)
     text, latex = say(rng, _EXACT, {"I": integral_text(f, lo, hi)}, {"I": integral_math(f, lo, hi)})
@@ -113,7 +121,7 @@ def _definite(rng, f: Itg, value, lo, hi, cands, working):
         text=text,
         working=[_tidy(w) for w in working],
         latex=latex,
-        distractors=pick_expr(value, False, _no_constant(cands), rng=rng),
+        distractors=_options(value, cands, rng),
         **exact_fields(value),
     )
 
@@ -482,8 +490,10 @@ def _reduce(n):
 @generator("sc_integrate_tan_sec_exam", level=14, presets={"exam": {}})
 @uses_rng
 @retry
-def sc_integrate_tan_sec_exam(rng):
+def sc_integrate_tan_sec_exam(rng, tier="exam"):
     """Exam chain over 0 to pi/4: I(s), I(s + 2), I(s + 4) by the reduction, then a combination of two of them."""
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     s = rng.choice([1, 2])
     for n in (s + 2, s + 4):
         check(_reduce(n) == _I[n], f"I({n}) differs from the reduction")
@@ -530,7 +540,7 @@ def sc_integrate_tan_sec_exam(rng):
             Cand(pi / 4 - 1, "sc-definite-sign-slip"),
             Cand(Rational(1), "sc-tan-sq-taken-as-sec-sq"),
         ]
-    pa = part(pa_p, pa_l, 2, pa_work, exact_fields(a), pick_expr(a, False, _no_constant(a_cands), rng=rng))
+    pa = part(pa_p, pa_l, 2, pa_work, exact_fields(a), _options(a, a_cands, rng))
     tn = "tan x" if s == 1 else f"tan^{s} x"
     hint = f"Use tan^{s + 2} x = {tn} sec^2 x - {tn} and your answer to (a). "
     pb_p, pb_l = prompt(fn(s + 2), hint)
@@ -543,18 +553,15 @@ def sc_integrate_tan_sec_exam(rng):
             f"So I = 1/{s + 1} - ({expr_text(a, False)}) = {expr_text(b, False)}.",
         ],
         exact_fields(b),
-        pick_expr(
+        _options(
             b,
-            False,
-            _no_constant(
-                [
-                    Cand(Rational(1, s + 1) + a, "sc-reduction-sign"),
-                    Cand(a - Rational(1, s + 1), "sc-definite-sign-slip"),
-                    Cand(Rational(1, s + 1), "sc-reduction-term-dropped"),
-                    Cand(Rational(1, s + 3), "sc-tan-power-rule-on-trig"),
-                ]
-            ),
-            rng=rng,
+            [
+                Cand(Rational(1, s + 1) + a, "sc-reduction-sign"),
+                Cand(a - Rational(1, s + 1), "sc-definite-sign-slip"),
+                Cand(Rational(1, s + 1), "sc-reduction-term-dropped"),
+                Cand(Rational(1, s + 3), "sc-tan-power-rule-on-trig"),
+            ],
+            rng,
         ),
         follow_through=f"1/{s + 1} - part_a",
     )
@@ -569,19 +576,16 @@ def sc_integrate_tan_sec_exam(rng):
             f"So I = 1/{s + 3} - ({expr_text(b, False)}) = {expr_text(c, False)}.",
         ],
         exact_fields(c),
-        pick_expr(
+        _options(
             c,
-            False,
-            _no_constant(
-                [
-                    Cand(Rational(1, s + 3) + b, "sc-reduction-sign"),
-                    Cand(b - Rational(1, s + 3), "sc-definite-sign-slip"),
-                    Cand(Rational(1, s + 3), "sc-reduction-term-dropped"),
-                    Cand(Rational(1, s + 5), "sc-tan-power-rule-on-trig"),
-                    Cand(Rational(1, s + 1) - b, "sc-reduction-wrong-denominator"),
-                ]
-            ),
-            rng=rng,
+            [
+                Cand(Rational(1, s + 3) + b, "sc-reduction-sign"),
+                Cand(b - Rational(1, s + 3), "sc-definite-sign-slip"),
+                Cand(Rational(1, s + 3), "sc-reduction-term-dropped"),
+                Cand(Rational(1, s + 5), "sc-tan-power-rule-on-trig"),
+                Cand(Rational(1, s + 1) - b, "sc-reduction-wrong-denominator"),
+            ],
+            rng,
         ),
         follow_through=f"1/{s + 3} - part_b",
     )
@@ -597,18 +601,15 @@ def sc_integrate_tan_sec_exam(rng):
         1,
         [f"Integrate term by term: {p} × ({expr_text(c, False)}) + {q} × ({expr_text(b, False)})."],
         exact_fields(combo),
-        pick_expr(
+        _options(
             combo,
-            False,
-            _no_constant(
-                [
-                    Cand(c + b, "sc-coefficients-ignored"),
-                    Cand(p * c - q * b, "sc-definite-sign-slip"),
-                    Cand(p * b + q * c, "sc-coefficients-swapped"),
-                    Cand(p * c + q * a, "sc-wrong-earlier-part-used"),
-                ]
-            ),
-            rng=rng,
+            [
+                Cand(c + b, "sc-coefficients-ignored"),
+                Cand(p * c - q * b, "sc-definite-sign-slip"),
+                Cand(p * b + q * c, "sc-coefficients-swapped"),
+                Cand(p * c + q * a, "sc-wrong-earlier-part-used"),
+            ],
+            rng,
         ),
         follow_through=f"{p}*part_c + {q}*part_b",
     )

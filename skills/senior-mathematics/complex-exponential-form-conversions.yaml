@@ -38,6 +38,18 @@ sources:
   stages:
   - exam
 misconceptions:
+- id: cx-arg-power-ignored
+  description: "Not applying the power to the argument: using θ where nθ is needed."
+- id: cx-modulus-forgot-root
+  description: "Leaving out the square root in the modulus: giving a² + b² for |z|."
+- id: cx-power-as-multiplication
+  description: Multiplying the modulus by n instead of raising it to the power n.
+- id: cx-power-exponent-off-by-one
+  description: Raising the modulus to the power n - 1 instead of n.
+- id: cx-product-subtracts-args
+  description: "Subtracting the arguments when multiplying: the arguments add under multiplication."
+- id: cx-quotient-adds-args
+  description: "Adding the arguments when dividing: the arguments subtract under division."
 - id: sc-cx-angle-ignored
   description: Replaces cos θ or sin θ by 1 and keeps only the coefficient, as if the angle made no difference.
 - id: sc-cx-binomial-coefficient-dropped
@@ -87,6 +99,8 @@ misconceptions:
   description: Uses only the argument of the first number when combining two numbers in exponential form.
 - id: sc-cx-sign-reversed
   description: Gives the right size with the wrong sign.
+- id: near-miss-value
+  description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'
 difficulty_progression:
   easy:
     steps: 2

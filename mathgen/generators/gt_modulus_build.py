@@ -405,7 +405,7 @@ def gt_modulus_exam(rng, tier="exam"):
             marks=2,
             sensible_range=(0, 20),
             working=[why],
-            distractors=pick(str(count), d_wrong),
+            distractors=pick(str(count), d_wrong, lo=0, hi=4),  # at most 4 solutions
             **number_fields(Frac(count), 0),
         ),
     ]

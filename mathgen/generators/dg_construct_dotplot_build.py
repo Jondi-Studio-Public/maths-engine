@@ -295,6 +295,8 @@ def dg_construct_dotplot_chain(rng, tier="exam"):
             lo=0,
         )
         diff = med - mode
+        if abs(diff) < 1.5 and rng.random() < 0.8:
+            continue  # a median beside the mode leaves only two or three plausible differences
         dd = numd(
             diff,
             [

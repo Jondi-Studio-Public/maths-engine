@@ -147,3 +147,18 @@ def test_deterministic_varied_and_clean():
         assert_deterministic_and_varied("sc_complex_euler", tier, distinct=distinct)
         assert all("**" not in q.text for q in questions(SK, tier, range(30)))
     assert_deterministic_and_varied("sc_complex_euler_exam", "exam", distinct=25)
+
+
+def test_skill_declares_every_misconception_the_generator_emits():
+    """Round 5: the cx-* ids the |z^n|, product and quotient parts emit must be listed on the skill."""
+    declared = {m.id for m in SK.misconceptions}
+    emitted = set()
+    for tier in ("easy", "medium", "hard"):
+        for q in questions(SK, tier, range(300)):
+            emitted |= set(q.option_notes.values())
+    topic = sources(SK)["exam"]
+    for seed in range(300):
+        for p in make(topic, seed=seed, difficulty="exam").parts:
+            emitted |= set(p.option_notes.values())
+    assert {"cx-power-exponent-off-by-one", "cx-arg-power-ignored", "cx-modulus-forgot-root"} <= emitted, emitted
+    assert emitted <= declared, emitted - declared

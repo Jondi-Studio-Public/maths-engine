@@ -407,7 +407,7 @@ def gt_f_squared_exam(rng, tier="exam"):
                 f"f has two zeros, where (f(x))^2 has minimums on the axis, and a turning point between them at x = {h}.",
                 "So there are 3 turning points.",
             ],
-            distractors=pick("3", c_wrong),
+            distractors=pick("3", c_wrong, lo=0, hi=3),  # a parabola squared turns at most 3 times
             **number_fields(Frac(3), 0),
         ),
         dict(
@@ -415,7 +415,7 @@ def gt_f_squared_exam(rng, tier="exam"):
             marks=2,
             sensible_range=(0, 20),
             working=d_working,
-            distractors=pick(str(expect), d_wrong),
+            distractors=pick(str(expect), d_wrong, lo=0, hi=4),  # at most 4 solutions
             **number_fields(Frac(expect), 0),
         ),
     ]

@@ -219,6 +219,8 @@ def _easy(rng):
             return None
         hi_, lo_ = (na, nb) if ma > mb else (nb, na)
         ans = abs(ma - mb)
+        if ans < 3:
+            return None  # a difference of 1 or 2 leaves the key the least of the options whatever is drawn
         ask = f"By how much is the mode of {hi_} greater than the mode of {lo_}?"
         fa, fb = max(counts), sorted(b).count(mb)
         cands = [
@@ -236,6 +238,8 @@ def _easy(rng):
         ra, rb = max(a) - min(a), max(b) - min(b)
         hi_, lo_ = (na, nb) if ra > rb else (nb, na)
         ans = abs(ra - rb)
+        if ans < 2:
+            return None  # the reversed difference sits below a gap of 2 or more, with 0 and the gap less one
         ask = f"By how much is the range of {hi_} greater than the range of {lo_}?"
         cands = [
             (ra + rb, "dg-cd-difference-added"),
@@ -250,6 +254,8 @@ def _easy(rng):
             return None
         hi_, lo_ = (na, nb) if len(a) > len(b) else (nb, na)
         ans = abs(len(a) - len(b))
+        if ans < 3:
+            return None
         ask = f"How many more values does {hi_} have than {lo_}?"
         ticks = len(counts)
         cands = [
@@ -277,6 +283,8 @@ def _medium(rng):
         return None
     hi_, lo_ = (na, nb) if ma > mb else (nb, na)
     ans = abs(ma - mb)
+    if ans < 3:
+        return None  # a gap of under 3 leaves the key the least of the options whatever is drawn
     oa, ob = sorted(a), sorted(b)
     mid_axis_a = Fraction(low + low + len(counts) - 1, 2)
     mid_stem_b = Fraction(10 * ((ob[0] // 10 + ob[-1] // 10) // 2) + 5)

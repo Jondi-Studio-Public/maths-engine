@@ -32,7 +32,7 @@ from __future__ import annotations
 import math
 
 from ..core import attempts, check, generator
-from ._spread_kit import NEAR, uses_rng
+from ._spread_kit import NEAR, round_extras, uses_rng
 from ._r3b_kit import Redraw, int_dist, int_fields, part, retry
 
 # ------------------------------------------------------------------------------------------------ predicates
@@ -243,12 +243,23 @@ def _numbers(values, limit=14):
     return shown + (", ..." if len(vals) > limit else "")
 
 
-def _dist(rng, key, cands, *, near_misses: bool = True):
-    """Wrong counts: a count is a positive whole number no bigger than the number of values in play. Plain near
-    misses (key +/- 1 to 3) make up a side that has too few named slips; a "smallest counterexample" question must not
-    take them, since a value just above the key can itself be a counterexample."""
-    near = [(key + d, NEAR) for d in (-3, -2, -1, 1, 2, 3)] if near_misses else []
-    return _dist_spread(rng, key, [(v, t) for v, t in cands if v is not None and v > 0] + near)
+def _dist(rng, key, cands, *, hi=None, exclude=()):
+    """Wrong counts: a count is a positive whole number no bigger than `hi`, the number of values in play. Plain near
+    misses (key +/- 1 to 3, or up to 6 where `exclude` rules some out) make up a side that has too few named slips.
+    `exclude` holds values that would be right answers too (the other counterexamples of a "smallest counterexample"
+    question), which no option may be."""
+    reach = (-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6) if exclude else (-3, -2, -1, 1, 2, 3)
+    near = [(key + d, NEAR) for d in reach]
+    near += round_extras(key, lambda v: (v, NEAR))
+    return _dist_spread(
+        rng,
+        key,
+        [
+            (v, t)
+            for v, t in [(v, t) for v, t in cands if v is not None] + near
+            if v > 0 and (hi is None or v <= hi) and v not in exclude
+        ],
+    )
 
 
 def _dist_spread(rng, key, cands):
@@ -269,6 +280,14 @@ def _dist_spread(rng, key, cands):
     below, above = side(lambda v: v < key), side(lambda v: v > key)
     k = rng.randint(max(0, 3 - len(above)), min(3, len(below)))
     chosen = below[:k] + above[: 3 - k]
+    if key > 0 and key % 10 == 0 and not any(v % 10 == 0 for v, _ in chosen) and rng.random() < 0.4:
+        # about two times in five a round key keeps company, so the lone round count is not always the key
+        spare = [c for c in below + above if c[0] % 10 == 0 and c not in chosen]
+        if spare:
+            extra = rng.choice(spare)
+            same = [i for i, c in enumerate(chosen) if (c[0] < key) == (extra[0] < key)] or list(range(len(chosen)))
+            plain = [i for i in same if chosen[i][1] == NEAR] or same
+            chosen[rng.choice(plain)] = extra
     rng.shuffle(chosen)
     return [int_dist(v, t) for v, t in chosen]
 
@@ -296,7 +315,10 @@ def _easy(rng):
             f"The values of n that satisfy the hypothesis start {_numbers(a, 6)}; the first of them that fails the conclusion is {ans}.",
         ]
         return dict(
-            text=text, working=working, distractors=_dist(rng, ans, cands, near_misses=False), **int_fields(ans)
+            text=text,
+            working=working,
+            distractors=_dist(rng, ans, cands, hi=universe, exclude=a - b),
+            **int_fields(ans),
         )
     if variant == "smallest-converse" and rng.random() < 0.7:
         p, q, a, b, universe = _nested_remainders(rng)
@@ -332,13 +354,16 @@ def _easy(rng):
             (_nth(a, 3), "sc-counterexample-hypothesis-only"),
             (_nth(a & b, 3), "sc-counterexample-both-true"),
         ]
-        # A wrong option must not itself be a counterexample to the converse (a later one is still a counterexample).
-        cands = [(v, t) for v, t in cands if v not in b - a]
         working = [
             f"A counterexample to the converse has its hypothesis ({_c(q, 'text')}) true and its conclusion ({_c(p, 'text')}) false.",
             f"The values of n that satisfy {_c(q, 'text')} start {_numbers(b, 6)}; the first of them that fails {_c(p, 'text')} is {ans}.",
         ]
-        return dict(text=text, working=working, distractors=_dist_spread(rng, ans, cands), **int_fields(ans))
+        return dict(
+            text=text,
+            working=working,
+            distractors=_dist(rng, ans, cands, hi=universe, exclude=b - a),
+            **int_fields(ans),
+        )
     ans = only_b
     text = (
         _intro(p, q, universe)
@@ -355,7 +380,7 @@ def _easy(rng):
         f"A counterexample to the converse has {_c(q, 'text')} true and {_c(p, 'text')} false: a value counted by Q but not by P.",
         f"{_vals(len(b))} satisfy Q, and all {_vals(len(a))} that satisfy P are among them, so the number of counterexamples is {len(b)} - {len(a)} = {ans}.",
     ]
-    return dict(text=text, working=working, distractors=_dist(rng, ans, cands), **int_fields(ans))
+    return dict(text=text, working=working, distractors=_dist(rng, ans, cands, hi=universe), **int_fields(ans))
 
 
 # ------------------------------------------------------------------------------------------------ medium
@@ -427,7 +452,7 @@ def _medium(rng):
             "The converse is false only when Q is true and P is false; otherwise it is true at n.",
             f"{_vals(len(b))} have Q and {len(a & b)} of them also have P, so it fails at {_vals(only_b)} and is true at {universe} - {only_b} = {ans}.",
         ]
-    return dict(text=text, working=working, distractors=_dist(rng, ans, cands), **int_fields(ans))
+    return dict(text=text, working=working, distractors=_dist(rng, ans, cands, hi=universe), **int_fields(ans))
 
 
 # ------------------------------------------------------------------------------------------------ hard
@@ -494,7 +519,7 @@ def _hard_sets(rng):
             "The converse is “if Q then P”; its negation is “Q and not P”.",
             f"These are the values in B that are not in A: {len(b)} - {len(a & b)} = {ans}.",
         ]
-    return dict(text=text, working=working, distractors=_dist(rng, ans, cands), **int_fields(ans))
+    return dict(text=text, working=working, distractors=_dist(rng, ans, cands, hi=universe), **int_fields(ans))
 
 
 def _hard_integers(rng):
@@ -544,7 +569,7 @@ def _hard_integers(rng):
             f"The converse is “if {q.text}, then {p.text}”; its negation is “{q.text} and {p.neg}”.",
             f"{_vals(len(b))} have Q and {len(a & b)} of them also have P, so {only_b} have Q and not P.",
         ]
-    return dict(text=text, working=working, distractors=_dist(rng, ans, cands), **int_fields(ans))
+    return dict(text=text, working=working, distractors=_dist(rng, ans, cands, hi=universe), **int_fields(ans))
 
 
 def _hard(rng):
@@ -571,8 +596,10 @@ def sc_conditional_counts(rng, tier: str = "easy"):
 @generator("sc_conditional_counts_exam", level=17, presets={"exam": {}})
 @uses_rng
 @retry
-def sc_conditional_counts_exam(rng):
+def sc_conditional_counts_exam(rng, tier="exam"):
     """Exam chain: |A|, |B|, counterexamples to the contrapositive, to the converse (from the first three), 'iff' failures."""
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     p, q, a, b, universe = _draw_pair(rng, "false")
     only_a, only_b = _counts(a, b, universe)
     na, nb = len(a), len(b)
@@ -596,6 +623,7 @@ def sc_conditional_counts_exam(rng):
                 (na - 1, "sc-off-by-one-in-count"),
                 (na + 1, "sc-off-by-one-in-count"),
             ],
+            hi=universe,
         ),
         sensible_range=(0, universe + 1),
     )
@@ -614,6 +642,7 @@ def sc_conditional_counts_exam(rng):
                 (nb - 1, "sc-off-by-one-in-count"),
                 (nb + 1, "sc-off-by-one-in-count"),
             ],
+            hi=universe,
         ),
         sensible_range=(0, universe + 1),
     )
@@ -635,6 +664,7 @@ def sc_conditional_counts_exam(rng):
                 (na, "sc-counterexample-hypothesis-only"),
                 (len(a & b), "sc-counterexample-both-true"),
             ],
+            hi=universe,
         ),
         sensible_range=(0, universe + 1),
     )
@@ -657,6 +687,7 @@ def sc_conditional_counts_exam(rng):
                 (universe - na, "sc-counterexample-conclusion-false"),
                 (nb - na, "sc-converse-ignores-overlap"),
             ],
+            hi=universe,
         ),
         follow_through="part_b - part_a + part_c",
         sensible_range=(0, universe + 1),
@@ -679,6 +710,7 @@ def sc_conditional_counts_exam(rng):
                 (universe - only_a - only_b, "sc-counts-true-instances-not-failures"),
                 (len(a & b), "sc-biconditional-counts-both-true"),
             ],
+            hi=universe,
         ),
         follow_through="part_c + part_d",
         sensible_range=(0, universe + 1),

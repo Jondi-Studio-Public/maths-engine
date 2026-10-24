@@ -301,6 +301,26 @@ def _shape(rng, name: str):
     return fig, lines, order, len(placed)
 
 
+_COUNTS: dict[str, tuple[int, int]] = {}
+
+
+def _by_count(rng, names, index: int) -> str:
+    """A shape from ``names`` whose count (0 lines, 1 order) is drawn over the counts on offer (the larger
+    the likelier), so the many shapes with 1 or 2 lines do not crowd out the counts that leave wrong values both sides."""
+    if not _COUNTS:
+        import random
+
+        for key, verts in _catalogue(random.Random(0)).items():
+            _COUNTS[key] = symmetry_counts(verts)
+    groups: dict[int, list[str]] = {}
+    for name in names:
+        groups.setdefault(_COUNTS[name][index], []).append(name)
+    counts = sorted(groups)
+    # the larger the count, the more wrong values fit below it: weight each count by its size
+    chosen = rng.choices(counts, weights=[c + 1 - index for c in counts])[0]
+    return rng.choice(groups[chosen])
+
+
 def _number_question(text, answer, cands, working, fig, *, low=0, high=40) -> dict:
     return dict(
         text=text,
@@ -375,7 +395,7 @@ def _order_question(rng, name: str) -> dict:
     working = [
         f"Turn the shape a full turn about its middle. It fits onto itself {order} time{'s' if order != 1 else ''}, counting the start."
     ]
-    return _number_question(text, order, _order_wrongs(name, lines, order, sides), working, fig)
+    return _number_question(text, order, _order_wrongs(name, lines, order, sides), working, fig, low=1)
 
 
 @generator("eyz_symmetry_count", level=4, presets=_PRESETS)
@@ -383,11 +403,12 @@ def _order_question(rng, name: str) -> dict:
 def eyz_symmetry_count(rng, tier="easy"):
     _tier(tier)
     if tier == "easy":
-        return _lines_question(rng, rng.choice(_EASY))
+        return _lines_question(rng, _by_count(rng, _EASY, 0))
     if tier == "medium":
-        return _order_question(rng, rng.choice(_MEDIUM))
-    name = rng.choice(_HARD)
-    return (_lines_question if rng.random() < 0.5 else _order_question)(rng, name)
+        return _order_question(rng, _by_count(rng, _MEDIUM, 1))
+    lines_first = rng.random() < 0.5
+    name = _by_count(rng, _HARD, 0 if lines_first else 1)
+    return (_lines_question if lines_first else _order_question)(rng, name)
 
 
 def _read_symmetry(q) -> str:
@@ -408,10 +429,12 @@ figures.register_reader("eyz_symmetry_count_exam", _read_symmetry)
 # =============================================================================== exam
 
 
-def _part(prompt, value, marks, candidates, working, *, follow_through=None, sensible_range=(-0.5, None)) -> dict:
+def _part(
+    prompt, value, marks, candidates, working, *, follow_through=None, sensible_range=(-0.5, None), low=0
+) -> dict:
     """A number-graded part whose answer is the whole number ``value`` (zero allowed)."""
     tagged = [Distractor(str(v), mid, v) for v, mid in candidates if isinstance(v, int) and v >= 0]
-    picked = pick_distractors(str(value), tagged, 3, tolerance=GRADER_TOLERANCE)
+    picked = pick_distractors(str(value), tagged, 3, lo=low, near_misses=True, tolerance=GRADER_TOLERANCE)
     check(len(picked) >= 2, "a part needs at least two distractors")
     part = dict(
         prompt=prompt,
@@ -434,7 +457,7 @@ def _part(prompt, value, marks, candidates, working, *, follow_through=None, sen
 def eyz_symmetry_count_exam(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    name = rng.choice(_EXAM)
+    name = _by_count(rng, _EXAM, rng.randint(0, 1))
     fig, lines, order, sides = _shape(rng, name)
     sides = _SIDES_WORD.get(name, sides)
     turn = 360 // order
@@ -464,6 +487,7 @@ def eyz_symmetry_count_exam(rng, tier="exam"):
                 1,
                 _order_wrongs(name, lines, order, sides),
                 [f"The shape fits onto itself {order} time{'s' if order != 1 else ''} in a full turn."],
+                low=1,  # every shape fits onto itself at least once in a full turn
             ),
             _part(
                 "Hence, what is the smallest turn that fits it onto itself, in degrees?",

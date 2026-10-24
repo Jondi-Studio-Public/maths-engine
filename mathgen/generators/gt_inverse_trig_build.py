@@ -299,9 +299,12 @@ def _medium_domain(rng):
         ),
         f=fn,
     )
+    near = [
+        Distractor(rational_text(top + Frac(k, b)), NEAR, rational_text(top + Frac(k, b))) for k in (-2, -1, 1, 2)
+    ]  # a slip of one or two steps of 1/b either way
     return dict(
         text=stem,
-        distractors=pick(ans, cands),
+        distractors=pick(ans, cands, fillers=near),
         working=[
             "arcsin(u) is defined only for -1 ≤ u ≤ 1.",
             f"So -1 ≤ {b}x {'+' if d > 0 else '-'} {abs(d)} ≤ 1, which gives {rational_text(Frac(-1 - d, b))} ≤ x ≤ {ans}.",
@@ -363,6 +366,17 @@ _TRIPLES = [(3, 4, 5), (5, 12, 13), (8, 15, 17), (7, 24, 25), (20, 21, 29)]
 def _frac_dist(v: Frac, tag: str) -> Distractor:
     t = rational_text(v)
     return Distractor(t, tag, t)
+
+
+def _near_fracs(v: Frac, q: int) -> list[Distractor]:
+    """Plain slips a step either side of a ratio: one or two steps of 1/denominator (of 1/q when that is very fine)."""
+    d = v.denominator if v.denominator <= 40 else q
+    out = []
+    for k in (-3, -2, -1, 1, 2, 3):
+        w = v + Frac(k, d)
+        if w != 0 and abs(w) <= 3:
+            out.append(_frac_dist(w, NEAR))
+    return out
 
 
 def _frac_fields(v: Frac) -> dict:
@@ -439,7 +453,12 @@ def _hard_ratio(rng):
         ),
         e=stem_fn,
     )
-    return dict(text=stem, distractors=pick(ans, cands), working=[why, f"So {stem_fn} = {ans}."], **_frac_fields(value))
+    return dict(
+        text=stem,
+        distractors=pick(ans, cands, fillers=_near_fracs(value, q)),
+        working=[why, f"So {stem_fn} = {ans}."],
+        **_frac_fields(value),
+    )
 
 
 _ANGLES = [Frac(n, d) for d in (3, 4, 6) for n in range(-11, 12) if n != 0 and math.gcd(abs(n), d) == 1]
@@ -637,7 +656,16 @@ def gt_inverse_trig_exam(rng, tier="exam"):
                 f"f(x) = 0 when arcsin({_x_text(b)}) = {_stem_pi(_arcsin(float(s)))}, that is {_x_text(b)} = {rational_text(s)}.",
                 f"So x = {rational_text(zero)}, which is {rational_text(s)} times the largest x.",
             ],
-            distractors=pick(rational_text(zero), d_wrong),
+            distractors=pick(
+                rational_text(zero),
+                d_wrong,
+                fillers=[
+                    Distractor(rational_text(v), NEAR, exact_value(v))
+                    # plain slips stay inside the domain, where an x-intercept has to be
+                    for v in (zero / 2, -top_x, 3 * zero / 2, -zero / 2, -3 * zero / 2)
+                    if v != zero and abs(v) <= top_x
+                ],
+            ),
         ),
     ]
     stem = phrase(

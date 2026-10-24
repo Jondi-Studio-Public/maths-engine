@@ -9,7 +9,7 @@ from types import SimpleNamespace
 from ..answers import Distractor
 from ..grading import GRADERS
 from ..grading.interactive import bars_answer, fraction_json
-from ._spread_kit import mixed
+from ._spread_kit import mixed, round_extras, round_step
 
 NEAR = "dg-near-miss-value"  # the plain near miss that fills a side of the options
 
@@ -44,9 +44,33 @@ def numd(answer, candidates, n: int = 3, *, lo=None, hi=None) -> list[Distractor
     seen = {answer}
     out: list[Distractor] = []
     # The picks below take the first usable candidates; mix the order so the key has no fixed rank among the options.
-    step = Fraction(1) if answer.denominator == 1 else Fraction(1, 2)
-    near = [(answer + d * step, NEAR) for d in (-3, -2, -1, 1, 2, 3) if answer > 0 and answer + d * step > 0]
-    candidates = mixed(answer, [(v, t) for v, t in candidates if v is not None], fillers=near)
+    step = Fraction(round_step(answer, always=True)) if answer.denominator == 1 else Fraction(1, 2)
+    # plain near misses stay positive unless the caller allows less (`lo=0` lets a difference or a count be 0)
+    floor = 0 if lo is not None and lo <= 0 else None
+    near = [
+        (answer + d * step, NEAR)
+        for d in (-3, -2, -1, 1, 2, 3)
+        if (answer > 0 and (answer + d * step > 0 or (floor is not None and answer + d * step >= floor)))
+        or (
+            answer < 0 and lo is None and answer + d * step != 0
+        )  # a signed answer (a difference) has signed neighbours
+    ]
+    near += [(v, t) for v, t in round_extras(answer, lambda v: (Fraction(v), NEAR)) if answer.denominator == 1]
+
+    def usable(value):
+        value = Fraction(value)
+        if value.denominator not in (1, 2) or (answer.denominator == 1 and value.denominator != 1):
+            return False  # a half beside a whole-number answer would give the answer away by its shape
+        return value != answer
+
+    # only options that will be shown take part in the draw, so the key's rank is the one the draw gave it
+    candidates = mixed(
+        answer,
+        [(v, t) for v, t in candidates if v is not None and usable(v)],
+        fillers=[f for f in near if usable(f[0])],
+        lo=lo,
+        hi=hi,
+    )
     for value, tag in candidates:
         value = Fraction(value)
         if (

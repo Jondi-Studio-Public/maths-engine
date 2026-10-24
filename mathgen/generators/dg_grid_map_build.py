@@ -394,6 +394,8 @@ def dg_grid_map_chain(rng, tier="exam"):
         dx, dy = yc - xc, yr - xr
         if dx == 0 or dy == 0 or abs(dx) > 5 or abs(dy) > 4:
             continue
+        if (abs(dx) == 1 or abs(dy) == 1) and rng.random() < 0.8:
+            continue  # a gap of one square leaves nothing below it to offer
         ref_c, ref_r = rng.randrange(w), rng.randrange(h)
         if (ref_c, ref_r) in cells:
             continue

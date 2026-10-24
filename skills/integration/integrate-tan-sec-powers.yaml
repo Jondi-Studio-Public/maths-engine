@@ -131,6 +131,8 @@ misconceptions:
   description: Leaves out the tan^2 x/2 term of the antiderivative of tan^3 x, keeping only the logarithm.
 - id: sc-wrong-earlier-part-used
   description: Combines the wrong earlier results, using the integral of the lowest power where a higher one belongs.
+- id: near-miss-value
+  description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'
 difficulty_progression:
   easy:
     steps: 2

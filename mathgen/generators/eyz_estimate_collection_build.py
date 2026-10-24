@@ -38,8 +38,8 @@ _THINGS = {
 }
 _OFFSETS = (-2, -1, 0, 1, 2)
 _MOST = 85  # a picture never fills more than this per cent of its cells, so estimating is not counting every cell
-_SIDE_H = 9  # hard and exam: each side is 6 wide by 9 tall, room for 40 and up to 85% full
-_WALL_X = 6  # hard and exam: the wall stands on this lattice line, so each side is a 6 by 9 block
+_SIDE_H = 11  # hard and exam: each side is 6 wide by 11 tall, room for 50 and up to 85% full
+_WALL_X = 6  # hard and exam: the wall stands on this lattice line, so each side is a 6 by 11 block
 
 
 def _near(ans: int, rng, *, top: int) -> int:
@@ -158,7 +158,11 @@ def _medium(rng) -> dict:
 
 def _two_sides(rng, *, difference: bool) -> tuple[int, int]:
     for _ in attempts(500, "two sides that round consistently"):
-        a_ans, b_ans = 10 * rng.randint(1, 4), 10 * rng.randint(1, 4)
+        if difference:  # the difference is at least 30, so a wrong ten sits on either side of it
+            a_ans = 10 * rng.randint(4, 5)
+            b_ans = 10 * rng.randint(1, a_ans // 10 - 3)
+        else:  # sides of 20 or more, so a wrong ten below the side is a real option (10 is the lowest)
+            a_ans, b_ans = 10 * rng.randint(2, 5), 10 * rng.randint(2, 5)
         a, b = (
             _near(a_ans, rng, top=_MOST * _WALL_X * _SIDE_H // 100),
             _near(b_ans, rng, top=_MOST * _WALL_X * _SIDE_H // 100),

@@ -29,7 +29,7 @@ from fractions import Fraction
 from ..core import VerificationError, attempts, check, generator
 from ._r3b_kit import Redraw, retry
 from ._r3d_kit import clear_of_boundary, dec, sqrt_of
-from ._spread_kit import number_fields, number_part, uses_rng
+from ._spread_kit import NEAR, number_fields, number_part, uses_rng
 
 F = Fraction
 
@@ -222,6 +222,12 @@ def _medium(rng):
 
 # ------------------------------------------------------------------------------------------------ hard
 
+
+def _reads_as(value: float, shown: str) -> bool:
+    """True when `value` rounds, at the precision `shown` is printed to, to `shown`."""
+    return f"{value:.{len(shown) - 2}f}" == shown
+
+
 _SDS = (F(1, 100), F(2, 100), F(25, 1000), F(3, 100), F(4, 100), F(5, 100))
 
 
@@ -248,11 +254,17 @@ def _hard(rng):
             (p / sd**2, "sc-n-forgets-one-minus-p"),
             (sqrt_of(pq) / sd, "sc-n-root-not-squared"),
         ]
+        wrong += [
+            (F(round(n * f)), NEAR) for f in (F(1, 5), F(1, 4), F(1, 3), 4, 5, 6)
+        ]  # sizes far enough off not to read as sd
+        wrong = [  # a wrong size whose sd still reads as the stated value to 3 places would be a second right answer
+            w for w in wrong if not _reads_as(math.sqrt(pq / w[0]), dec(sd, 3))
+        ]
         working = [
             "sd = √(p(1 - p)/n), so n = p(1 - p)/sd².",
             f"n = {dec(p, 2)} × {dec(1 - p, 2)}/{dec(sd, 3)}² = {dec(pq, 4)}/{dec(sd**2, 6)} = {n}.",
         ]
-        return dict(text=text, working=working, **number_fields(F(n), 0, wrong, nonneg=True))
+        return dict(text=text, working=working, **number_fields(F(n), 0, wrong, nonneg=True, near_misses=False))
     if variant == "scaling":
         k = rng.choice((2, 3, 4))
         for _ in attempts(500, "a clean starting spread"):
@@ -297,11 +309,16 @@ def _hard(rng):
         ]
         if n1 % (j * j) == 0:
             wrong.append((F(n1, j * j), "sc-n-ratio-inverted"))
+        # sizes above the key too, so it is not always the largest option; far enough off not to read as the new sd
+        wrong += [(F(round(value * f)), NEAR) for f in (F(1, 5), F(1, 4), F(1, 3), F(2, 5), 4, 5, 6, 8)]
+        wrong = [  # likewise: drop a size whose standard deviation still reads as the target to 3 places
+            w for w in wrong if not _reads_as(float(s1) * math.sqrt(n1 / float(w[0])), dec(s2, 3))
+        ]
         working = [
             "The standard deviation is proportional to 1/√n, so n is proportional to 1/sd².",
             f"The standard deviation falls by a factor of {j}, so n is multiplied by {j}² = {j * j}: {n1} × {j * j} = {value}.",
         ]
-        return dict(text=text, working=working, **number_fields(F(value), 0, wrong, nonneg=True))
+        return dict(text=text, working=working, **number_fields(F(value), 0, wrong, nonneg=True, near_misses=False))
     if variant == "simulated-spread":
         n = rng.choice((50, 100))
         p = rng.choice(_PS)
@@ -379,8 +396,10 @@ def sc_simulated_proportions(rng, tier: str = "easy"):
 @uses_rng
 @retry
 @_thin_means_redraw
-def sc_simulated_proportions_exam(rng):
+def sc_simulated_proportions_exam(rng, tier="exam"):
     """Exam chain: one sample proportion, the mean of eight, the standard deviation, p + 2 sd, and the sd at 4n."""
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     ctx = _context(rng)
     pop, unit, trait = ctx
     m = 8

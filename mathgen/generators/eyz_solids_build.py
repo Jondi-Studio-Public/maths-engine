@@ -206,7 +206,13 @@ def _solid_easy(rng) -> dict:
     options = ["flat faces", "curved surfaces"]
     if FACTS[name][2] is not None:
         options += ["edges", "corners"]
+        if rng.random() < 0.6:
+            options.remove("curved surfaces")  # 0 or 1 curved surface: almost nothing below the key to offer
     feature = rng.choice(options)
+    if feature == "flat faces" and name not in _POLY and rng.random() < 0.6:
+        name = rng.choice(
+            _POLY
+        )  # a sphere, cone or cylinder has 0 to 2 flat faces: few wrong counts can sit below that
     answer = FACTS[name][_FEATURE_INDEX[feature]]
     fig = _scene([name], "an everyday solid")
     stem = {
@@ -310,7 +316,11 @@ figures.register_reader("eyz_named_solids", _read_named_solids)
 # =============================================================================== prisms and pyramids from their base
 
 
-def _count_question(text: str, answer: int, cands, working) -> dict:
+# the fewest a solid can have (a tetrahedron has 4 faces, 6 edges and 4 vertices): a smaller count is no solid at all
+_FEWEST = {"faces": 4, "edges": 6, "vertices": 4}
+
+
+def _count_question(text: str, answer: int, cands, working, quantity: str) -> dict:
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -319,7 +329,7 @@ def _count_question(text: str, answer: int, cands, working) -> dict:
         answer_latex=str(answer),
         answer_kind="number",
         working=working,
-        distractors=tagged_numbers(answer, cands, low=1, high=60),
+        distractors=tagged_numbers(answer, cands, low=_FEWEST[quantity], high=60),
     )
 
 
@@ -371,7 +381,7 @@ def _prism_easy(rng) -> dict:
         "edges": [f"{n} edges on the base, {n} on the top and {n} joining them: {3 * n}."],
         "vertices": [f"{n} corners on the base and {n} on the top: {2 * n}."],
     }[quantity]
-    return _count_question(text, answer, _wrong_formulas("prism", n, quantity), working)
+    return _count_question(text, answer, _wrong_formulas("prism", n, quantity), working, quantity)
 
 
 def _net_pieces(kind: str, n: int) -> str:
@@ -409,12 +419,12 @@ def _prism_medium(rng) -> dict:
         wrongs.insert(0, (sum(len(fc) for fc in solid_faces(kind, n)), "eyz-counts-the-corners-of-the-flat-pieces"))
     if quantity == "faces":
         wrongs.insert(0, (n + 1 if kind == "prism" else n, "eyz-leaves-out-a-piece-of-the-net"))
-    return _count_question(text, answer, wrongs, working)
+    return _count_question(text, answer, wrongs, working, quantity)
 
 
 def _prism_hard(rng) -> dict:
     kind = rng.choice(("prism", "pyramid"))
-    n = rng.choice((3, 4, 5, 6, 7, 8))
+    n = rng.choice((5, 6, 7, 8))  # a triangular or square base gives 4 or 5 faces: too few for wrong counts below
     v, e, f = counts_of(solid_faces(kind, n))
     given, asked = rng.sample(("faces", "edges", "vertices"), 2)
     have = {"faces": f, "edges": e, "vertices": v}
@@ -452,7 +462,7 @@ def _prism_hard(rng) -> dict:
         f"The base has {n} sides.",
         f"{_a(_prism_name(n) if kind == 'prism' else _pyramid_name(n)).capitalize()} has {answer} {asked}.",
     ]
-    return _count_question(text, answer, cands, working)
+    return _count_question(text, answer, cands, working, asked)
 
 
 @generator("eyz_prism_pyramid_counts", level=3, presets=_PRESETS)
@@ -494,6 +504,7 @@ def eyz_prism_pyramid_counts_exam(rng, tier="exam"):
                     (f + 1, None),
                     (f - 1, None),
                 ],
+                lo=_FEWEST["faces"],
                 working=[f"{pieces} make {f} faces."],
             ),
             whole_part(
@@ -508,6 +519,7 @@ def eyz_prism_pyramid_counts_exam(rng, tier="exam"):
                     (e + 1, None),
                     (e - 1, None),
                 ],
+                lo=_FEWEST["edges"],
                 working=[
                     f"The faces have {sum(len(fc) for fc in solid_faces(kind, n))} sides in all. Two faces share each edge, so {sum(len(fc) for fc in solid_faces(kind, n))} ÷ 2 = {e}."
                 ],
@@ -523,6 +535,7 @@ def eyz_prism_pyramid_counts_exam(rng, tier="exam"):
                     (f, "eyz-gives-faces-for-corners"),
                     (f + e + 2, None),
                 ],
+                lo=_FEWEST["vertices"],
                 follow_through="2 - part_a + part_b",
                 working=[f"V = 2 + E - F = 2 + {e} - {f} = {v}."],
             ),

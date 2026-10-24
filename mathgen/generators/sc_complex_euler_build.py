@@ -29,7 +29,7 @@ import sympy
 from sympy import I, Rational, cos, exp, pi, sin, sqrt
 
 from ..core import attempts, check, generator
-from ._spread_kit import uses_rng
+from ._spread_kit import NEAR, mixed, uses_rng
 from ._fy1cd_kit import F, pi_text, say, surd
 from ._r3b_kit import (
     Cand,
@@ -127,10 +127,54 @@ def _stem(*items):
     return dict(text=text, latex=latex)
 
 
-def _scalar(expr, cands, rng, *, want=2):
+def _writable(value) -> bool:
+    """Is `value` of the form q, q sqrt(2) or q sqrt(3) with q rational (the shapes `_surd_text` can spell)?"""
+    value = sympy.sympify(value)
+    return any((value / sympy.sqrt(root)).is_Rational for root in (1, 2, 3))
+
+
+def _around(size, cc, p, *, limit=None, key=None):
+    """`size` times cos (or sin) of the angles a slip away from pπ, and (given the key) the key out by a half or a whole:
+    values of the same shape as a real or imaginary part, none larger than the number's own modulus (a part cannot
+    exceed it)."""
+    out = []
+    for d in (
+        Fraction(1, 6),
+        Fraction(-1, 6),
+        Fraction(1, 4),
+        Fraction(-1, 4),
+        Fraction(1, 3),
+        Fraction(-1, 3),
+        Fraction(1, 2),
+        Fraction(-1, 2),
+        Fraction(1),
+    ):
+        v = sympy.sympify(size * cc(p + d))
+        if _writable(v) and (limit is None or abs(v) <= limit):
+            out.append(v)
+    if key is not None:
+        key = sympy.sympify(key)
+        out += [key + Rational(k, 2) for k in (-2, -1, 1, 2) if limit is None or abs(key + Rational(k, 2)) <= limit]
+    return out
+
+
+def _options(key, cands, near, *, want=2, nonzero=False):
+    """Wrong exact values with a random number of them below the key: the named slips first, then plain near misses
+    (`near`) on a side that has too few. A part that later parts follow through from offers no 0 (`nonzero`)."""
+    key = sympy.sympify(key)
+    fillers = [Cand(sympy.sympify(v), NEAR, const=False) for v in near if v is not None and not (nonzero and v == 0)]
+    return pick_expr(
+        key,
+        False,
+        mixed(key, [c for c in cands if c is not None and c.expr is not None], fillers=fillers),
+        minimum=want,
+    )
+
+
+def _scalar(expr, cands, rng, *, want=2, near=()):
     """Answer fields and options for an exact real value."""
     fields = exact_fields(expr)
-    picked = pick_expr(expr, False, [Cand(c, t, const=False) for c, t in cands if c is not None], rng=rng, minimum=want)
+    picked = _options(expr, [Cand(c, t, const=False) for c, t in cands if c is not None], near, want=want)
     return fields, picked
 
 
@@ -178,7 +222,9 @@ def _easy_convert(rng):
         f"r e^(iθ) = r(cos θ + i sin θ), with r = {r} and θ = {_angle(p)[0]}.",
         f"{part_name}(z) = r {'cos' if part_name == 'Re' else 'sin'} θ = {r} × {sympy.simplify(c if part_name == 'Re' else s)} = {sympy.simplify(value)}.",
     ]
-    fields, options = _scalar(sympy.nsimplify(value), cands, rng)
+    fields, options = _scalar(
+        sympy.nsimplify(value), cands, rng, near=_around(r, _re_or_im(part_name), p, limit=r, key=value)
+    )
     return dict(**st, working=working, distractors=options, **fields)
 
 
@@ -228,7 +274,9 @@ def _easy_euler(rng):
         "e^(3iπ) = -1 and e^(-iπ) = -1 (a whole number of half turns on the real axis), and e^(-2iπ) = 1.",
         f"The value is {sympy.simplify(total + c0)}.",
     ]
-    fields, options = _scalar(sympy.Integer(value), cands, rng)
+    fields, options = _scalar(
+        sympy.Integer(value), cands, rng, near=[sympy.Integer(value + k) for k in (-4, -3, -2, -1, 1, 2, 3, 4)]
+    )
     return dict(**st, working=working, distractors=options, **fields)
 
 
@@ -306,7 +354,7 @@ def _medium(rng):
             f"z1/z2 = {r} e^(i{_angle(p_red)[0]}), so {part_name}(z1/z2) = {'' if r == 1 else f'{r} '}{'cos' if part_name == 'Re' else 'sin'}({_angle(p_red)[0]}) = {value}.",
         ]
     st = _stem("Let z1 = ", z1, " and z2 = ", z2, f". {verb}, as an exact value.")
-    fields, options = _scalar(value, cands, rng)
+    fields, options = _scalar(value, cands, rng, near=_around(r, cc, p_red, limit=abs(r), key=value))
     return dict(**st, working=working, distractors=options, **fields)
 
 
@@ -365,7 +413,9 @@ def _hard_power(rng):
         f"z{nsup} = ({mod_text}){nsup} e^(i{_angle(n * p)[0]}) = {_surd_text(modulus**n)[0]} (cos({_angle(n * p)[0]}) + i sin({_angle(n * p)[0]})).",
         f"{part_name}(z{nsup}) = {_surd_text(modulus**n)[0]} × {'cos' if part_name == 'Re' else 'sin'}({_angle(n * p)[0]}) = {value}.",
     ]
-    fields, options = _scalar(value, cands, rng)
+    fields, options = _scalar(
+        value, cands, rng, near=_around(modulus**n, _re_or_im(part_name), n * p, limit=modulus**n, key=value)
+    )
     return dict(**st, working=working, distractors=options, **fields)
 
 
@@ -410,7 +460,9 @@ def _hard_euler_trig(rng):
         else "Their difference is 2i sin θ (the cosine terms cancel), and dividing by i leaves 2 sin θ.",
         f"The value is {2 * c} {'cos' if kind == 'cosine' else 'sin'}({ang[0]}) = {value}.",
     ]
-    fields, options = _scalar(value, cands, rng)
+    fields, options = _scalar(
+        value, cands, rng, near=_around(2 * c, _re_or_im("Re" if kind == "cosine" else "Im"), p, limit=2 * c, key=value)
+    )
     return dict(**st, working=working, distractors=options, **fields)
 
 
@@ -440,8 +492,10 @@ def sc_complex_euler(rng, tier: str = "easy"):
 @generator("sc_complex_euler_exam", level=18, presets={"exam": {}})
 @uses_rng
 @retry
-def sc_complex_euler_exam(rng):
+def sc_complex_euler_exam(rng, tier="exam"):
     """Exam chain: Re z and Im z from r e^(iθ), then Re, Im and the modulus of z^n from them by following through."""
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(1000, "a clear chain"):
         p = rng.choice([q for q in _ANGLES if q.denominator > 1 and (q.denominator != 2)])
         r = rng.choice((2, 3, 4, 5, 6, 7, 8, 9, 10, 12))
@@ -464,9 +518,8 @@ def sc_complex_euler_exam(rng):
         1,
         [f"z = {r}(cos({_angle(p)[0]}) + i sin({_angle(p)[0]})), so Re(z) = {r} cos({_angle(p)[0]}) = {a}."],
         exact_fields(a),
-        pick_expr(
+        _options(
             a,
-            False,
             _nonzero(
                 [
                     Cand(r * s, "sc-cx-cos-sin-swapped", const=False),
@@ -475,7 +528,8 @@ def sc_complex_euler_exam(rng):
                     Cand(-a, "sc-cx-sign-reversed", const=False),
                 ]
             ),
-            rng=rng,
+            _around(r, _re_or_im("Re"), p, limit=r, key=a),
+            nonzero=True,
         ),
     )
     pb = part(
@@ -484,9 +538,8 @@ def sc_complex_euler_exam(rng):
         1,
         [f"Im(z) = {r} sin({_angle(p)[0]}) = {b}."],
         exact_fields(b),
-        pick_expr(
+        _options(
             b,
-            False,
             _nonzero(
                 [
                     Cand(r * c, "sc-cx-cos-sin-swapped", const=False),
@@ -495,7 +548,8 @@ def sc_complex_euler_exam(rng):
                     Cand(-b, "sc-cx-sign-reversed", const=False),
                 ]
             ),
-            rng=rng,
+            _around(r, _re_or_im("Im"), p, limit=r, key=b),
+            nonzero=True,
         ),
     )
     if n == 2:
@@ -534,7 +588,7 @@ def sc_complex_euler_exam(rng):
         2,
         [f"(a + bi){nsup} has real part {re_form} (using i^2 = -1), so Re(z{nsup}) = {re_n}."],
         exact_fields(re_n),
-        pick_expr(re_n, False, _nonzero(re_wrong), rng=rng),
+        _options(re_n, _nonzero(re_wrong), _around(r**n, _re_or_im("Re"), n * p, limit=r**n, key=re_n), nonzero=True),
         follow_through=ft_re,
     )
     pd = part(
@@ -543,7 +597,7 @@ def sc_complex_euler_exam(rng):
         2,
         [f"(a + bi){nsup} has imaginary part {im_form}, so Im(z{nsup}) = {im_n}."],
         exact_fields(im_n),
-        pick_expr(im_n, False, _nonzero(im_wrong), rng=rng),
+        _options(im_n, _nonzero(im_wrong), _around(r**n, _re_or_im("Im"), n * p, limit=r**n, key=im_n), nonzero=True),
         follow_through=ft_im,
     )
     modulus = sympy.Integer(r**n)
@@ -555,9 +609,8 @@ def sc_complex_euler_exam(rng):
             f"|z{nsup}| = √(({re_n})² + ({im_n})²) = {modulus}, which is {r}{nsup}, as the exponential form r{nsup} e^(i{n}θ) says."
         ],
         exact_fields(modulus),
-        pick_expr(
+        _options(
             modulus,
-            False,
             [
                 Cand(sympy.nsimplify(abs(re_n) + abs(im_n)), "sc-cx-modulus-sum-not-root", const=False),
                 Cand(modulus**2, "cx-modulus-forgot-root", const=False),
@@ -566,7 +619,7 @@ def sc_complex_euler_exam(rng):
                 Cand(sympy.Integer(r) ** (n + 1), "cx-power-exponent-off-by-one", const=False),
                 Cand(sympy.Integer(r) ** (n - 1), "cx-power-exponent-off-by-one", const=False),
             ],
-            rng=rng,
+            [modulus + k for k in (-3, -2, -1, 1, 2, 3)] + [modulus + r, modulus - r],
         ),
         follow_through="sqrt(part_c**2 + part_d**2)",
     )

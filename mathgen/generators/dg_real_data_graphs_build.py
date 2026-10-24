@@ -344,7 +344,7 @@ def _text(ctx, key, **kw):
     return re.sub(r"\ba (?=(?:8\d*|11|18)\b)", "an ", ctx[key].format(**kw))
 
 
-def _num_dist(answer, cands, lo=0):
+def _num_dist(answer, cands, lo=1):
     # Never offer 0 as a wrong value: it is no reading of any of these graphs and is easy to rule out.
     return numd(answer, [c for c in cands if c[0] is not None and c[0] != 0], lo=lo)
 
@@ -381,7 +381,8 @@ def _read_y_q(rng, ctx, g, fig):
 
 
 def _read_x_q(rng, ctx, g, fig):
-    i = rng.randint(2, g["j"])
+    # a reading of 2 hours (the horizontal axis in single units) leaves one wrong value below it: start at 3
+    i = rng.randint(3 if ctx["gx"] == 1 and g["j"] >= 4 else 2, g["j"])
     x = ctx["gx"] * i
     y = g["ys"][i]
     text = _text(ctx, "read_x", y=y)
@@ -421,7 +422,7 @@ def _rate_q(rng, ctx, g, fig, intercept):
         if ctx["xs"] == 1
         else f"The line changes by {g['step']} for each {ctx['gx']}, so by {numtext(r)} for every {ctx['xs']}.",
     ]
-    return _wrap(text, fig, r, work, _num_dist(r, cands, lo=None if g["s"] < 0 else 0))
+    return _wrap(text, fig, r, work, _num_dist(r, cands, lo=None if g["s"] < 0 else 1))
 
 
 def _fixed_q(rng, ctx, g, fig):

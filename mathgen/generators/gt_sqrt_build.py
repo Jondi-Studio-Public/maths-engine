@@ -39,7 +39,7 @@ from ._gt_quad import (
     verify_domain,
     vertex_of,
 )
-from ._spread_kit import pick, uses_rng
+from ._spread_kit import NEAR, pick, uses_rng
 from ._sr2b_kit import int_dist, number_fields, retry_short, text_dist
 
 ALL = sp.Interval(-sp.oo, sp.oo)
@@ -352,6 +352,25 @@ def gt_sqrt_function(rng, tier="easy"):
 # -------------------------------------------------------------------------------------------------------- exam
 
 
+def _surd_text(n: int) -> str:
+    """The square root of the whole number n as it is typed: 3*sqrt(2), sqrt(5), or a plain integer for a square."""
+    outer = max(d for d in range(1, n + 1) if n % (d * d) == 0)
+    inner = n // (outer * outer)
+    if inner == 1:
+        return str(outer)
+    return f"{outer}*sqrt({inner})" if outer > 1 else f"sqrt({inner})"
+
+
+def _surd_near(c0: int) -> list:
+    """Plain near misses of sqrt(c0): the root of a number a slip away from c0, for a student who mis-added."""
+    out = []
+    for d in (-3, -2, -1, 1, 2, 3):
+        if c0 + d > 0:
+            text = _surd_text(c0 + d)
+            out.append(text_dist(text, NEAR))
+    return out
+
+
 @generator("gt_sqrt_function_exam", level=15, presets={"exam": dict(tier="exam")})
 @uses_rng
 @retry_short
@@ -440,7 +459,7 @@ def gt_sqrt_function_exam(rng, tier="exam"):
             prompt="Find the exact value of y when x = 0 on the graph of y = sqrt(f(x)).",
             marks=1,
             working=[f"f(0) = {t} - ({-h})^2 = {c0}.", f"y = sqrt({c0}) = {ans.replace('*', '')}."],
-            distractors=pick(ans, d_wrong),
+            distractors=pick(ans, d_wrong, fillers=_surd_near(c0)),
             answer_kind="expression",
             answer=ans,
             answer_text=ans,
