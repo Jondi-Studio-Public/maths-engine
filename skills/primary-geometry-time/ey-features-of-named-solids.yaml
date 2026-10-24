@@ -1,0 +1,68 @@
+id: ey-features-of-named-solids
+name: Count the features of everyday solids
+domain: primary-geometry-time
+year_level: ['3']
+naplan_domain: [space]
+learner_band: early
+description: "Count the flat faces, curved surfaces, edges and corners of a pictured cube, rectangular prism, square pyramid, cylinder, cone or sphere, then of a few solids together, then of every solid of one name in a mixed group."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [f10-shape-features-classification]
+answer: number
+sources:
+- topic: eyz_named_solids
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_named_solids
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_named_solids
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Name one solid and count one kind of feature on it, including the faces, edges and corners out of sight."}
+  medium: {steps: 2, demand: "Count the same kind of feature on each of a few solids, then add the counts."}
+  hard: {steps: 3, demand: "Find the solids of one name in a mixed group, count how many there are, then multiply by the count for one."}
+misconceptions:
+- id: eyz-counts-the-curved-surface-as-a-face
+  description: "Counts the curved surface as a flat face."
+- id: eyz-gives-edges-for-faces
+  description: "Gives the number of edges where the faces were asked for."
+- id: eyz-gives-corners-for-faces
+  description: "Gives the number of corners where the faces were asked for."
+- id: eyz-counts-only-the-faces-you-can-see
+  description: "Counts only the faces that show in the picture."
+- id: eyz-gives-flat-faces-for-curved
+  description: "Gives the flat faces where the curved surfaces were asked for."
+- id: eyz-gives-faces-for-edges
+  description: "Gives the faces where the edges were asked for."
+- id: eyz-gives-corners-for-edges
+  description: "Gives the corners where the edges were asked for."
+- id: eyz-misses-the-hidden-edges
+  description: "Counts only the edges that show in the picture."
+- id: eyz-gives-faces-for-corners
+  description: "Gives the faces where the corners were asked for."
+- id: eyz-gives-edges-for-corners
+  description: "Gives the edges where the corners were asked for."
+- id: eyz-misses-a-hidden-corner
+  description: "Misses a corner at the back."
+- id: eyz-leaves-out-a-solid
+  description: "Leaves one of the solids out of the total."
+- id: eyz-counts-one-solid-only
+  description: "Gives the count for one solid where the total was asked for."
+- id: eyz-uses-the-same-count-for-every-solid
+  description: "Uses the count of one solid for every solid."
+- id: eyz-counts-every-solid-in-the-picture
+  description: "Adds in the solids of other names."
+- id: eyz-counts-the-solids-not-their-features
+  description: "Gives the number of solids instead of their features."
+- id: eyz-miscounts-the-solids
+  description: "Is one solid out in counting how many there are of that name."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+tags: [acara-f10-v9, early, space, solids, faces-edges-vertices, ac9m3sp01, figure]

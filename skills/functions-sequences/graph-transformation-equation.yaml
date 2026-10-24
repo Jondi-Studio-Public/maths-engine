@@ -1,0 +1,50 @@
+id: graph-transformation-equation
+name: State the equation of a graph after a sequence of transformations
+domain: functions-sequences
+year_level: ['11']
+description: Write, as a typed expression, the equation of the image of a power, exponential, trigonometric or reciprocal
+  graph after two or three translations, dilations and reflections taken in the order given, from a wordy description,
+  from a drawn graph with three marked points, and as the first part of an exam chain that goes on to the image's turning
+  point or asymptote, its y-intercept and the image of a marked point.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [senior-graph-translation-read-shift, senior-graph-dilation-read-factor]
+answer: expression
+sources:
+- topic: gt_graph_transform
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: gt_graph_transform
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: gt_graph_transform
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: gt_graph_transform_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: gt-dilation-factor-inverted, description: 'Using the reciprocal of the dilation factor: multiplying x by k for a dilation by a factor of k from the y-axis (which divides x by k), or the same slip for a dilation from the x-axis.'}
+- {id: gt-horizontal-shift-sign, description: 'Moving the graph the wrong way along the x-axis: writing f(x + h) for a shift to the right, or f(x - h) for a shift to the left.'}
+- {id: gt-transformation-left-out, description: 'Leaving one of the transformations out: the equation shows a shift, a reflection or a dilation fewer than the graph went through.'}
+- {id: gt-order-swapped, description: 'Applying the transformations in a different order from the one given, so a dilation or reflection acts on a translation it should have come before, or the reverse.'}
+- {id: gt-period-unchanged, description: 'Giving the period of the original trigonometric graph and ignoring the dilation from the y-axis.'}
+- {id: gt-reflection-wrong-axis, description: 'Reflecting in the other axis: replacing x by -x where the graph is reflected in the x-axis, or negating the whole function where it is reflected in the y-axis.'}
+- {id: gt-vertical-shift-sign, description: 'Moving the graph the wrong way along the y-axis: adding the shift for a move down, or subtracting it for a move up.'}
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+difficulty_progression:
+  easy: {steps: 2, demand: 'Apply two transformations in order, one of them a translation, and write the new equation
+      with the right sign inside or outside the function.'}
+  medium: {steps: 4, demand: 'Apply three transformations where the order changes the answer, tracking how a dilation
+      scales an earlier translation, and write the equation.'}
+  hard: {steps: 5, demand: 'Identify the reflection, dilations and translations of a drawn image from its shape and three
+      marked points, and write its equation with no transformation words given.'}
+  exam: {steps: 7, demand: 'Write the equation of the image, then use the transformations for its turning point or asymptote,
+      substitute x = 0 into the equation for the y-intercept, and move a named point of the base graph.'}
+tags: [acara-senior-v8-4, functions, transformations, translation, dilation, reflection, acmmm025, acmmm026, figure]

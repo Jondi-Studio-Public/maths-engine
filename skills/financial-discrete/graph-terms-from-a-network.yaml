@@ -1,0 +1,87 @@
+id: graph-terms-from-a-network
+name: Use the words of graph theory on a network
+domain: financial-discrete
+description: >-
+  Use the vocabulary of graphs on a network that is drawn, and on a multigraph given as an edge list: adjacent vertices,
+  degree, connected components, subgraphs, loops, multiple edges and simple graphs. easy counts the edges, the vertices
+  adjacent or not adjacent to a vertex, or the greatest degree of a drawn network; medium counts the connected
+  components of a network drawn in pieces, the fewest edges that join them, or the vertices and the left-out edges of a
+  thick subgraph; hard works on a multigraph written as an edge list (loops, pairs joined by multiple edges, the edges of
+  the simple graph left after loops and repeated edges are removed, and the degree of a vertex that carries a loop);
+  exam is a chain that finds a degree, lists the adjacent vertices (a typed set), counts the edges, and then the edges
+  and the components left when that vertex is deleted (or the same terms on a multigraph).
+status: active
+needs_figure: true
+capability_gates: [figure_stimulus]
+placement_eligible: false
+prerequisites: [shortest-network-path]
+answer: number
+sources:
+- topic: dg_graph_terms
+  params: {}
+  difficulty: easy
+  stages: [6]
+- topic: dg_graph_terms
+  params: {}
+  difficulty: medium
+  stages: [6]
+- topic: dg_graph_terms
+  params: {}
+  difficulty: hard
+  stages: [6, maintenance]
+- topic: dg_graph_terms_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dg-gt-adjacent-counts-itself
+  description: "Counts the vertex itself as one of its own adjacent vertices."
+- id: dg-gt-adjacent-all-others
+  description: "Takes every other vertex as adjacent, ignoring which are actually joined by an edge."
+- id: dg-gt-adjacent-for-nonadjacent
+  description: "Counts the adjacent vertices when the vertices NOT adjacent were asked for."
+- id: dg-gt-degree-of-wrong-vertex
+  description: "Reads the degree of a different vertex, or the second greatest degree, not the greatest."
+- id: dg-gt-edges-as-degree-sum
+  description: "Gives the sum of the degrees as the number of edges, so every edge is counted twice."
+- id: dg-gt-edges-miscount
+  description: "Miscounts the edges by one, usually missing one that is hidden behind a crossing or counted from both ends."
+- id: dg-gt-vertices-as-edges
+  description: "Gives the number of vertices where the number of edges was asked for."
+- id: dg-gt-components-isolated-only
+  description: "Counts only the isolated vertices as separate pieces and treats every larger piece as part of one."
+- id: dg-gt-components-as-edges-needed
+  description: "Gives the number of components as the number of edges to add, forgetting that joining c pieces takes c - 1 edges."
+- id: dg-gt-components-edges-per-vertex
+  description: "Adds one edge for every vertex that is not in the largest piece, instead of one edge per piece."
+- id: dg-gt-components-miscount
+  description: "Miscounts the separate pieces of the network by one."
+- id: dg-gt-subgraph-all-vertices
+  description: "Counts every vertex of the network in the subgraph, not only the ends of the thick edges."
+- id: dg-gt-subgraph-counts-its-own-edges
+  description: "Gives the edges of the subgraph when the edges of the network that it leaves out were asked for."
+- id: dg-gt-subgraph-vertices-of-network
+  description: "Gives the number of vertices of the whole network where the subgraph's vertices were asked for."
+- id: dg-gt-loop-counted-once
+  description: "Counts a loop once towards the degree of its vertex; a loop leaves the vertex at both of its ends, so it adds 2."
+- id: dg-gt-loop-not-counted
+  description: "Ignores the loop when finding the degree of its vertex."
+- id: dg-gt-multiple-all-copies
+  description: "Counts every copy of a repeated edge as a multiple edge, instead of only the extra copies."
+- id: dg-gt-loops-as-multiple
+  description: "Counts the loops as multiple edges, or the multiple edges as loops."
+- id: dg-gt-simple-keeps-repeats
+  description: "Removes the loops but leaves the repeated edges when making the graph simple."
+- id: dg-gt-simple-keeps-loops
+  description: "Removes the repeated edges but leaves the loops when making the graph simple."
+- id: dg-gt-delete-vertex-keeps-edges
+  description: "Deletes a vertex but keeps the edges that were at it."
+- id: dg-gt-delete-vertex-uses-sum
+  description: "Takes away the number of vertices adjacent to the deleted vertex twice, once for each end of its edges."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
+difficulty_progression:
+  easy: {steps: 1, demand: "Read one count (edges, adjacent vertices, greatest degree) straight from a drawn network, using the definition of adjacent and degree."}
+  medium: {steps: 2, demand: "Find the connected components (or the thick subgraph's vertices) first, then turn that into the number of edges needed to join the pieces or the edges the subgraph leaves out."}
+  hard: {steps: 3, demand: "Work from an edge list with no picture, separating loops from repeated edges and handling a loop's double contribution to a degree or the removal of both kinds of edge to leave a simple graph."}
+  exam: {steps: 5, demand: "Chain a degree, a typed set of neighbours, an edge count, the edges left after deleting the vertex and the components of what remains."}
+tags: [graph-theory, networks, gm078, graph-terms, loops, multiple-edges, subgraph, connected, figure-stimulus]

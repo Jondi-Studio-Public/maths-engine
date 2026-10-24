@@ -1,0 +1,62 @@
+id: graph-sqrt-of-function-domain-range
+name: Find the domain and range of y = sqrt(f(x)) from the graph or rule of f
+domain: functions-sequences
+year_level: ['12']
+description: State, as a typed set written with inequalities, the domain of y = sqrt(f(x)) from a drawn line or parabola
+  (including a parabola that never meets the axis, giving all real numbers or no solution) or from an expanded
+  quadratic, and the range of y = sqrt(f(x)) for a quadratic with a greatest or least value that is a perfect square;
+  the exam chain takes the greatest value of f through to the greatest value of the root, then its domain and its exact
+  y-intercept as a surd.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [function-notation, domain-range-standard-functions]
+answer: inequality
+sources:
+- topic: gt_sqrt_function
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: gt_sqrt_function
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: gt_sqrt_function
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: gt_sqrt_function_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: gtf-domain-all-reals, description: 'Giving all real numbers as the domain of the square root of f, as if the root of a negative value existed.'}
+- {id: gtf-domain-excludes-zeros, description: 'Leaving out the zeros of f from the domain of the square root of f, using a strict inequality where the square root of 0 is defined.'}
+- {id: gtf-domain-wrong-side, description: 'Giving the part of the x-axis where f is negative as the domain of the square root of f, instead of where f is not negative.'}
+- {id: gtf-root-as-half, description: 'Halving the value inside the square root instead of taking its square root.'}
+- {id: gtf-root-negative-branch, description: 'Giving the negative square root, as if the square root function had two outputs.'}
+- {id: gtf-root-not-taken, description: 'Giving the value inside the square root as the answer, without taking the root.'}
+- {id: gtf-root-squared-instead, description: 'Squaring the value inside the square root instead of taking its square root.'}
+- {id: gtf-zero-sign, description: 'Reading a zero of the function with the wrong sign, so a graph that crosses the axis at x = 3 is taken to cross at x = -3.'}
+- {id: gts-completing-square-adds-instead-of-subtracts, description: 'Completing the square with the wrong sign, so the shift squared is added to the constant instead of taken from it.'}
+- {id: gts-domain-from-vertex, description: 'Using the x-coordinate of the vertex of f as the end point of the domain of the square root of f.'}
+- {id: gts-greatest-value-of-root-for-f, description: 'Giving the greatest value of the square root of f as the greatest value of f, or the reverse.'}
+- {id: gts-ignores-the-shift, description: 'Evaluating the square root of f at x = 0 as if f had no horizontal shift, using only the greatest value of f.'}
+- {id: gts-no-zeros-no-domain, description: 'Saying the square root of f has no domain because f has no zeros, although f is positive everywhere and the root is defined for every x.'}
+- {id: gts-range-doubled, description: 'Doubling the greatest value of the root, as if the root took values from minus to plus.'}
+- {id: gts-range-forgets-upper-bound, description: 'Giving a range with no upper bound for a root of a function that has a greatest value, or a range with an upper bound that does not exist.'}
+- {id: gts-range-of-f-not-root, description: 'Giving the range of f where the range of the square root of f is asked, without taking the square root of the end points.'}
+- {id: gts-range-starts-at-zero, description: 'Starting the range of the square root of f at 0 although f never gets below a positive value.'}
+- {id: gts-reads-constant-as-greatest-value, description: 'Giving the constant term of the quadratic as its greatest value, which is the y-intercept and not the highest point.'}
+- {id: gts-reads-linear-coefficient-as-greatest-value, description: 'Giving the coefficient of x as the greatest value of the quadratic.'}
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+difficulty_progression:
+  easy: {steps: 2, demand: 'Read the zero of a drawn line and decide which side of it the line is not negative.'}
+  medium: {steps: 3, demand: 'Read the zeros of a drawn parabola, decide whether it is not negative outside or between
+      them, or whether it never meets the axis, and write the set with the right end points.'}
+  hard: {steps: 4, demand: 'Factorise an expanded quadratic for its domain, or complete the square to find the greatest
+      or least value of f and take its square root for the range.'}
+  exam: {steps: 6, demand: 'Complete the square for the greatest value of f, follow it to the greatest value of the root,
+      then find the domain between the zeros and the exact y-intercept as a surd.'}
+tags: [acara-senior-v8-4, functions, transformations, square-root-of-a-function, domain, range, figure]

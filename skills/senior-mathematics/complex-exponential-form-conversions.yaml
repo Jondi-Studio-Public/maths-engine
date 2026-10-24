@@ -1,0 +1,130 @@
+id: complex-exponential-form-conversions
+name: Convert between Cartesian, polar and exponential form and use Euler's formula
+domain: senior-mathematics
+year_level:
+- '12'
+description: Convert between a + bi, r(cos θ + i sin θ) and r e^(iθ), evaluate expressions from Euler's identity, and multiply,
+  divide and raise to powers in exponential form, typing each real or imaginary part as an exact value.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-convert-between-cartesian-and-polar-form
+- senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form
+answer: expression
+sources:
+- topic: sc_complex_euler
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: sc_complex_euler
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: sc_complex_euler
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: sc_complex_euler_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: cx-arg-power-ignored
+  description: "Not applying the power to the argument: using θ where nθ is needed."
+- id: cx-modulus-forgot-root
+  description: "Leaving out the square root in the modulus: giving a² + b² for |z|."
+- id: cx-power-as-multiplication
+  description: Multiplying the modulus by n instead of raising it to the power n.
+- id: cx-power-exponent-off-by-one
+  description: Raising the modulus to the power n - 1 instead of n.
+- id: cx-product-subtracts-args
+  description: "Subtracting the arguments when multiplying: the arguments add under multiplication."
+- id: cx-quotient-adds-args
+  description: "Adding the arguments when dividing: the arguments subtract under division."
+- id: sc-cx-angle-ignored
+  description: Replaces cos θ or sin θ by 1 and keeps only the coefficient, as if the angle made no difference.
+- id: sc-cx-binomial-coefficient-dropped
+  description: Expands (a + bi)^3 with the cross terms lacking their binomial coefficient 3.
+- id: sc-cx-conjugate-terms-cancel
+  description: Takes e^(iθ) + e^(-iθ), or the same with a minus, to be 0 because the two terms look like opposites.
+- id: sc-cx-cos-sin-swapped
+  description: Swaps the roles of cosine and sine, giving the imaginary part where the real part was asked for or the reverse.
+- id: sc-cx-cross-term-not-doubled
+  description: Expands (a + bi)^2 with a middle term ab instead of 2ab.
+- id: sc-cx-euler-constant-dropped
+  description: Evaluates the exponential terms correctly but leaves out the constant added to them.
+- id: sc-cx-euler-factor-two-dropped
+  description: Takes e^(iθ) + e^(-iθ) (or the difference over i) to be cos θ (or sin θ), forgetting that it is twice that.
+- id: sc-cx-euler-pi-as-one
+  description: Takes e^(iπ) to be 1 rather than -1.
+- id: sc-cx-euler-two-pi-as-minus-one
+  description: Takes e^(2iπ) to be -1, as if a full turn were a half turn.
+- id: sc-cx-euler-values-swapped
+  description: Swaps the values of e^(iπ) and e^(2iπ), using 1 for the half turn and -1 for the full turn.
+- id: sc-cx-i-cubed-as-i
+  description: Takes i^3 to be i rather than -i, so the sign of a term in (a + bi)^3 is wrong.
+- id: sc-cx-i-squared-as-one
+  description: Takes i^2 to be 1 instead of -1, so a product of imaginary parts is added where it should be subtracted.
+- id: sc-cx-imaginary-part-dropped
+  description: Expands (a + bi)^n as a^n, ignoring every term that contains b.
+- id: sc-cx-moduli-added
+  description: Adds the moduli when multiplying two complex numbers, where they multiply.
+- id: sc-cx-moduli-not-divided
+  description: Multiplies the moduli when dividing two complex numbers, where they divide.
+- id: sc-cx-modulus-added
+  description: Adds r to cos θ or sin θ instead of multiplying, so r(cos θ + i sin θ) is read with the modulus added on.
+- id: sc-cx-modulus-dropped
+  description: Gives cos θ or sin θ alone, leaving out the modulus r as a factor.
+- id: sc-cx-modulus-not-raised
+  description: Raises the argument to the power but leaves the modulus as r, instead of r^n.
+- id: sc-cx-modulus-sum-not-root
+  description: Adds the sizes of the real and imaginary parts to find the modulus instead of using the square root of the
+    sum of squares.
+- id: sc-cx-parts-swapped-in-expansion
+  description: Gives the imaginary part of (a + bi)^n where the real part was asked for, or the reverse.
+- id: sc-cx-quadrant-sign-lost
+  description: Uses the first-quadrant value of cos θ or sin θ and loses its sign in the quadrant the angle is in.
+- id: sc-cx-quotient-arguments-reversed
+  description: Subtracts the arguments in the wrong order when dividing, so the angle has the wrong sign.
+- id: sc-cx-second-argument-ignored
+  description: Uses only the argument of the first number when combining two numbers in exponential form.
+- id: sc-cx-sign-reversed
+  description: Gives the right size with the wrong sign.
+- id: near-miss-value
+  description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: Evaluate cos θ or sin θ for a standard angle in its quadrant and scale by r, or evaluate e^(iπ), e^(2iπ) and
+      their multiples from Euler's identity.
+  medium:
+    steps: 3
+    demand: Multiply or divide two numbers in exponential form by combining moduli and arguments, reduce the angle, then
+      read off the real or imaginary part.
+  hard:
+    steps: 4
+    demand: Find the modulus and argument of a Cartesian number, raise to a power by multiplying the argument, and convert
+      back; or recognise c(e^(iθ) + e^(-iθ)) and c(e^(iθ) - e^(-iθ))/i as twice cosine and sine.
+  exam:
+    steps: 6
+    demand: Convert r e^(iθ) to a + bi, expand (a + bi)^n using the parts just found, then use the real and imaginary parts
+      of the power to find its modulus.
+tags:
+- acara-senior-v8-4
+- senior-mathematics
+- complex-numbers
+- euler-form
+- exponential-form
+- polar-form
+- nsw-extension-2
+- acmsm081
+- acmsm082

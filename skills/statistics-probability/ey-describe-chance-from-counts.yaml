@@ -1,0 +1,48 @@
+id: ey-describe-chance-from-counts
+name: Describe a chance from counts
+domain: statistics-probability
+year_level: ['3']
+naplan_domain: [probability]
+learner_band: early
+description: "Describe the chance of an everyday event as impossible, unlikely, even chance, likely or certain from the counters in a bag, how often something happened in the last 10 times, the numbers on a die or two colours taken together, and work through a bag in parts."
+status: active
+placement_eligible: false
+prerequisites: [ey-list-possible-outcomes]
+answer: mcq
+sources:
+- topic: eyz_chance_words
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_chance_words
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_chance_words
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: eyz_chance_words_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Compare the counters of one colour with all the counters in a two-colour bag, then choose the word."}
+  medium: {steps: 3, demand: "Use counted evidence from the last 10 times, or one colour or not one colour in a three-colour bag, then choose the word."}
+  hard: {steps: 4, demand: "Add two colours together, or decide which numbers of a die fit the event, then compare with all the outcomes and choose the word."}
+  exam: {steps: 5, demand: "Find the total, then the counters that are not red from it, then use that count to choose the word for the chance of not red."}
+misconceptions:
+- id: eyz-rates-the-chance-too-high
+  description: "Chooses the word one step more likely than the counts support."
+- id: eyz-rates-the-chance-too-low
+  description: "Chooses the word one step less likely than the counts support."
+- id: eyz-opposite-chance
+  description: "Chooses the word for the opposite chance."
+- id: eyz-ignores-the-counts
+  description: "Chooses a word without using the counts."
+- id: eyz-gives-one-colour-not-the-total
+  description: "Gives the number of one colour where the total was asked for."
+- id: eyz-counts-the-colour-not-the-rest
+  description: "Gives the number of the named colour where the number that are not that colour was asked for."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+tags: [acara-f10-v9, early, probability, chance, likelihood, ac9m3p01]

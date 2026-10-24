@@ -1,0 +1,60 @@
+id: inverse-trig-values-and-graph-features
+name: Find exact values, domains, ranges and graph features of arcsin, arccos and arctan
+domain: trigonometry
+year_level: ['12']
+description: Give the exact principal value of arcsin, arccos or arctan at a standard point, state a greatest value, an
+  asymptote, a domain end point or a value of a transformed inverse trig function, and evaluate composites such as
+  arcsin(sin(7pi/6)) or sin(2 arcsin(-4/5)); the exam chain takes f(x) = a arcsin(bx) + c through its domain, greatest
+  value, a value and its x-intercept.
+status: active
+placement_eligible: false
+prerequisites: [senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034, exact-trig-values-typed]
+answer: expression
+sources:
+- topic: gt_inverse_trig
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: gt_inverse_trig
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: gt_inverse_trig
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: gt_inverse_trig_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: gti-angle-outside-range, description: 'Giving an angle outside the principal range of the inverse function, such as the 330 degree or 11 pi over 6 angle.'}
+- {id: gti-angle-reduced-not-principal, description: 'Reducing the angle to the first quadrant instead of finding the principal value.'}
+- {id: gti-arcsin-arccos-swapped, description: 'Using the arcsin range for arccos, or the arccos range for arcsin.'}
+- {id: gti-arcsin-range-and-arccos-range-swapped, description: 'Giving the range of arccos where the range of arcsin is asked, or the reverse.'}
+- {id: gti-asymptote-uses-pi, description: 'Giving the arctan asymptote as y = pi or y = pi over 4 instead of y = pi over 2.'}
+- {id: gti-composite-cancels, description: 'Cancelling an inverse trig function with its partner for an angle outside the principal range, such as arcsin(sin(5 pi over 6)) = 5 pi over 6.'}
+- {id: gti-domain-ignores-b, description: 'Giving the domain -1 to 1 for arcsin(bx) without dividing by b.'}
+- {id: gti-domain-ignores-shift, description: 'Giving the domain of an inverse trig function without allowing for a horizontal shift.'}
+- {id: gti-doubles-the-sine-only, description: 'Multiplying only the sine by the factor and not the whole function when evaluating a scaled inverse trig function.'}
+- {id: gti-forgets-the-factor-two, description: 'Forgetting the vertical dilation factor when finding the greatest value or an intercept.'}
+- {id: gti-forgets-the-shift, description: 'Evaluating an inverse trig function at a point without adding its vertical shift.'}
+- {id: gti-least-for-greatest, description: 'Giving the least value of an inverse trig function where its greatest value is asked.'}
+- {id: gti-multiplies-by-b, description: 'Multiplying the end points of the domain by b instead of dividing, for arcsin(bx).'}
+- {id: gti-negative-angle, description: 'Giving a negative angle where the inverse function has only non-negative values, or the reverse.'}
+- {id: gti-negative-angle-for-arccos, description: 'Giving a negative angle for arccos of a negative number, where arccos has range 0 to pi.'}
+- {id: gti-range-ignores-shift, description: 'Giving the range of a shifted or scaled inverse trig function without applying the vertical shift.'}
+- {id: gti-reciprocal, description: 'Giving the reciprocal of the ratio when solving for the x-intercept.'}
+- {id: gti-returns-the-argument, description: 'Giving the argument back as the value of an inverse trig function.'}
+- {id: gti-second-quadrant-angle, description: 'Giving the second-quadrant angle for an arcsin or arctan value, which lies outside the range of the function.'}
+- {id: gti-shift-sign, description: 'Applying a vertical shift with the wrong sign when finding an extreme value of an inverse trig function.'}
+- {id: gti-sign-dropped, description: 'Dropping the sign of the argument: giving arcsin(1/2) for arcsin(-1/2), or the positive angle where the answer is negative.'}
+- {id: gti-sign-of-root, description: 'Giving the wrong sign when solving for the x-intercept of a shifted inverse trig function.'}
+- {id: gti-wrong-ratio, description: 'Using the wrong exact ratio for the angle, such as the sine of pi over 6 taken as root 3 over 2.'}
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+difficulty_progression:
+  easy: {steps: 2, demand: 'Recall the exact value of sine, cosine or tangent at a standard angle and choose the angle in the principal range of the inverse function.'}
+  medium: {steps: 3, demand: 'Use the range or domain of the inverse function to find a greatest value, an asymptote or a domain end point of a scaled and shifted graph.'}
+  hard: {steps: 4, demand: 'Evaluate a composite, deciding whether the inner angle lies in the principal range or must be replaced by its principal equivalent, or use a double angle identity with a right triangle.'}
+  exam: {steps: 7, demand: 'Find the domain, greatest value and a value of a scaled and shifted arcsin function, then solve f(x) = 0 for the x-intercept.'}
+tags: [acara-senior-v8-4, trigonometry, inverse-trig, acmsm119]

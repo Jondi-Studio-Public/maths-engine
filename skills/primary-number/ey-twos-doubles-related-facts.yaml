@@ -1,0 +1,81 @@
+id: ey-twos-doubles-related-facts
+name: Twos facts, doubles and related facts
+domain: primary-number
+year_level: ['2']
+naplan_domain: [algebra]
+learner_band: early
+description: "Find doubles and twos multiplication facts, the missing number and the half or related division fact, then build a new twos fact from a known one, double and halve beyond 10, and use doubles for near doubles."
+status: active
+placement_eligible: false
+read_aloud: true
+prerequisites: [add-within-20]
+answer: number
+sources:
+- topic: eyz_twos_facts
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_twos_facts
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_twos_facts
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: eyz_twos_facts_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 1, demand: "Double a number to 10, from the word double, two equal groups or n + n."}
+  medium: {steps: 2, demand: "Say a twos fact either way round, then work back from it to the missing factor or the half."}
+  hard: {steps: 3, demand: "Build a new twos fact from a known one, or double and halve numbers beyond 10 by splitting them into tens and ones, or use a double for a near double."}
+  exam: {steps: 5, demand: "Double the units in a story, add the twos that more units bring, then halve the total, each answer used by the next."}
+misconceptions:
+- id: eyz-adds-two-for-double
+  description: "Adds 2 to the number instead of doubling it."
+- id: eyz-gives-the-number-again
+  description: "Gives the number itself, as if there were only one group."
+- id: eyz-squares-the-number
+  description: "Multiplies the number by itself instead of by 2."
+- id: eyz-one-too-many-in-double
+  description: "Reaches an answer one too big, by counting on one extra."
+- id: eyz-one-too-few-in-double
+  description: "Reaches an answer one too small, by missing one when counting on."
+- id: eyz-gives-the-product
+  description: "Gives the product again where the missing factor was asked for."
+- id: eyz-names-the-given-factor
+  description: "Gives the 2 already in the fact instead of the unknown number."
+- id: eyz-off-by-one-half
+  description: "Gives a number one more or one less than the half."
+- id: eyz-changes-by-the-step-once
+  description: "Moves from the known fact by the number of steps, not by 2 for each step."
+- id: eyz-changes-by-one-group-only
+  description: "Moves from the known fact by one group of 2 however far the new fact is away."
+- id: eyz-keeps-the-known-fact
+  description: "Gives the known fact again instead of building the new one."
+- id: eyz-doubles-the-tens-only
+  description: "Doubles the tens and leaves the ones as they were."
+- id: eyz-doubles-the-ones-only
+  description: "Doubles the ones and leaves the tens as they were."
+- id: eyz-extra-ten-when-regrouping
+  description: "Gains a ten when regrouping, so the answer is 10 too big."
+- id: eyz-lost-ten-when-regrouping
+  description: "Loses a ten when regrouping, so the answer is 10 too small."
+- id: eyz-doubles-digits-side-by-side
+  description: "Doubles each digit and writes the results side by side without regrouping."
+- id: eyz-forgets-the-extra-one
+  description: "Gives the double of the smaller number and forgets the extra one."
+- id: eyz-uses-the-larger-double
+  description: "Gives the double of the larger number."
+- id: eyz-adds-the-units-not-the-twos
+  description: "Adds the number of extra units, forgetting that each one brings 2."
+- id: halving-skipped
+  description: "Gives the number before halving, as if the halving step had not been needed."
+- id: doubled-instead-of-halved
+  description: "Doubles where the amount was to be halved."
+- id: story-one-quantity-ignored
+  description: "Leaves one of the quantities in the story out."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+tags: [acara-f10-v9, early, multiplication, division, doubling, halving, fact-families, ac9m2a03]
