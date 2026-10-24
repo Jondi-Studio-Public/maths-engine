@@ -262,6 +262,8 @@ def _single(rng, tier):
         if res is None:
             return None
         mm = res[0]
+        if kw.get("divide", True) and any(mm[i][i] == 0 for i in range(3)):
+            return None  # this slip leaves a zero pivot, so it gives no solution column to offer
         return back_sub([r[:3] for r in mm], [r[3] for r in mm], divide=kw.get("divide", True))
 
     cands = [

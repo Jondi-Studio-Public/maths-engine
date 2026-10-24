@@ -186,7 +186,8 @@ def _medium(rng):
                 f"Initially «T = {T0}» and after {t1} {c['unit']} «T = {_fmt(T1)}». Find «k», correct to 3 decimal places."
             )
             dist = number_options(k, 3, _k_wrongs(c))
-            check(len(dist) >= 2, "too few distractors for k")
+            if len(dist) < 2:
+                continue  # redraw: the wrong values collapsed onto the key or each other
             return dict(
                 text=stem,
                 latex=latex,
@@ -217,7 +218,8 @@ def _medium(rng):
             ("r3h-cooling-ambient-added-to-initial", A + T0 * math.exp(-kf * t)),
         ]
         dist = number_options(val, 1, _band(c, wrongs))
-        check(len(dist) >= 2, "too few distractors for T")
+        if len(dist) < 2:
+            continue  # redraw: the wrong values collapsed onto the key or each other
         return dict(
             text=stem,
             latex=latex,

@@ -30,15 +30,16 @@ from ..core import (
     stated_precision_tolerance,
 )
 
+# (plural, singular, plausible price of one item in cents: low, high)
 _ITEMS = [
-    ("exercise books", "exercise book"),
-    ("water bottles", "water bottle"),
-    ("sunscreen sachets", "sunscreen sachet"),
-    ("tennis balls", "tennis ball"),
-    ("pencil cases", "pencil case"),
-    ("lunch boxes", "lunch box"),
-    ("show bags", "show bag"),
-    ("sausage rolls", "sausage roll"),
+    ("exercise books", "exercise book", 150, 450),
+    ("water bottles", "water bottle", 400, 1200),
+    ("sunscreen sachets", "sunscreen sachet", 100, 300),
+    ("tennis balls", "tennis ball", 200, 500),
+    ("pencil cases", "pencil case", 400, 1200),
+    ("lunch boxes", "lunch box", 800, 2000),
+    ("show bags", "show bag", 1000, 3000),
+    ("sausage rolls", "sausage roll", 250, 500),
 ]
 _PACK_SIZES = [3, 6, 7, 9, 11, 12, 13, 14, 15]
 
@@ -59,7 +60,9 @@ def exd_x_n3_unit_price_rounding(rng: random.Random, tier: str = "exam") -> dict
     check(tier == "exam", f"unknown tier {tier!r}")
 
     def draw(r):
-        return r.choice(_PACK_SIZES), r.randint(600, 9500), r.randint(20, 95), r.randrange(len(_ITEMS))
+        k = r.randrange(len(_ITEMS))
+        size = r.choice(_PACK_SIZES)
+        return size, r.randint(size * _ITEMS[k][2], size * _ITEMS[k][3]), r.randint(20, 95), k
 
     def accept(t):
         n, pack, m, _ = t
@@ -78,7 +81,7 @@ def exd_x_n3_unit_price_rounding(rng: random.Random, tier: str = "exam") -> dict
         )
 
     n, pack, m, idx = draw_until(rng, draw, accept, what="a pack size, price and order")
-    plural, single = _ITEMS[idx]
+    plural, single, _lo, _hi = _ITEMS[idx]
     unit = Fraction(pack, n)
     unit_r = round_half_up(unit, 0)  # cents
     cost_r = m * unit_r  # cents, exact

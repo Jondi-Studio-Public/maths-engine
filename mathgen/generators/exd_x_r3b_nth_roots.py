@@ -147,7 +147,7 @@ def _build(rng: random.Random) -> dict:
         0,
         2,
         [
-            f"The arguments of the roots are (θ + 360k)/{n} for k = 0, 1, ..., {n - 1}.",
+            f"The arguments of the roots are (θ + 360k)/{n} for k = {', '.join(map(str, range(n))) if n <= 4 else f'0, 1, ..., {n - 1}'}.",
             f"The root in the {_ORDINAL[quadrant]} quadrant has k = {k}: ({theta} + {360 * k})/{n} = {arg}.",
         ],
         [

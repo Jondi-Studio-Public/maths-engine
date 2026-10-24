@@ -445,7 +445,7 @@ def _medium_rational(rng):
             (hole(-y_hole), "r3i-range-shift-sign"),
         ]
         working = [
-            f"As x grows large, ({_lin(a, b)})/({_lin(c, d)}) approaches {a}/{c} = {_b(y_hole)} but never reaches it.",
+            f"As x grows large, ({_lin(a, b)})/({_lin(c, d)}) approaches {_b(y_hole) if f'{a}/{c}' == _b(y_hole) else f'{a}/{c} = ' + _b(y_hole)} but never reaches it.",
             f"Every other value is taken, so the range is {ans}.",
         ]
         var = "y"

@@ -295,7 +295,6 @@ loops:
   - {module: p5a_measurement_volume_decimal_build, function: volume_surface_area_prisms_cylinders, index: 0, kind: rng_redraw}
   - {module: p5a_measurement_volume_decimal_build, function: volume_surface_area_prisms_cylinders, index: 1, kind: rng_redraw}
   - {module: p5b_circle_theorems_build, function: angle_in_semicircle, index: 0, kind: while_true}
-  - {module: p5b_circle_theorems_build, function: angles_same_arc, index: 0, kind: while_true}
   - {module: p5b_complex_plane_build, function: _complex_degenerate, index: 0, kind: rng_redraw}
   - {module: p5b_complex_plane_build, function: _complex_direct, index: 0, kind: rng_redraw}
   - {module: p5b_complex_plane_build, function: _complex_sum, index: 0, kind: rng_redraw}

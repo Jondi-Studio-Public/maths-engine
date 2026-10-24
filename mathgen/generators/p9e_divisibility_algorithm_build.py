@@ -143,7 +143,8 @@ def _build_single_range(rng, d_range, r_range):
 # -- medium: compound AND/OR test over a range --------------------------------
 
 
-# Share of AND questions left on the short range, where no number passes (answer 0).
+# Share of AND draws left on the short range. Those draws have no passing number (answer 0) and are
+# redrawn below, so the share only costs a few attempts; it is kept so the rng stream is unchanged.
 _NONE_CASE_SHARE = 0.12
 
 
@@ -160,7 +161,7 @@ def _build_compound_range(rng, d_pool, r_range):
         gate = rng.choice(["AND", "OR"])
         if gate == "AND" and rng.random() >= _NONE_CASE_SHARE:
             # Run the range past a couple of multiples of lcm so the count is 1 or more (capped
-            # at 300); the occasional short range keeps an honest "none pass" case.
+            # at 300); a short-range draw is rejected below because a key of 0 is a constant guess.
             lcm = d1 * d2
             R = rng.randint(2 * lcm, min(4 * lcm, 300))
         d1_count = R // d1
@@ -172,6 +173,8 @@ def _build_compound_range(rng, d_pool, r_range):
         single_condition = d1_count
         if other_gate_count == correct or single_condition == correct:
             continue
+        if gate == "AND" and and_count == 0:
+            continue  # a key of 0 is a constant guess that wins whenever the range ends below the lcm
         break
     else:
         check(False, f"could not draw a coherent medium (d1, d2, R, gate) combination after {_MAX_ATTEMPTS} attempts")

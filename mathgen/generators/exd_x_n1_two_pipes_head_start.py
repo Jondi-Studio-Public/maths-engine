@@ -62,7 +62,7 @@ def exd_x_n1_two_pipes_head_start(rng, tier="exam"):
         first,
         1,
         [
-            f"{device.capitalize()} A fills 1/{a} of the {noun} each hour, so in {h} hours it fills {h}/{a} = {first.numerator}/{first.denominator}."
+            f"{device.capitalize()} A fills 1/{a} of the {noun} each hour, so in {h} hours it fills {h}/{a}{'' if f'{h}/{a}' == f'{first.numerator}/{first.denominator}' else f' = {first.numerator}/{first.denominator}'}."
         ],
         [
             (Fraction(1, a), None),

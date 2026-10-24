@@ -30,7 +30,7 @@ import math
 from fractions import Fraction
 
 from ..core import attempts, check, draw_until, generator, paren_negative, phrase
-from ._smech_kit import G, G_NOTE, clear_of_boundary, dec, is_exact, number_fields, number_part
+from ._smech_kit import G, G_NOTE, clear_of_boundary, dec, is_exact, number_fields, number_part, shown
 
 _THINGS = ("trolley", "sled", "crate", "go-kart", "wheelbarrow", "barrow")
 _ACCEL = (Fraction(1, 2), Fraction(4, 5), Fraction(6, 5), Fraction(3, 2), Fraction(2), Fraction(5, 2), Fraction(3))
@@ -54,11 +54,14 @@ def _easy(rng):
     m, a = _draw_motion(rng)
     net = int(m * a)
     variant = rng.choice(("acceleration", "resistance", "mass"))
-    res = rng.randint(6, 40)
-    p1 = rng.randint(10, 60)
-    p2 = net + res - p1
-    if p2 < 5:  # keep the two pushes both genuine
-        p1, p2 = net + res - 10, 10
+    for _ in attempts(200, "two genuine pushes that balance the net force"):
+        res = rng.randint(6, 40)
+        p1 = rng.randint(10, 60)
+        p2 = net + res - p1
+        if p2 < 5:  # keep the two pushes both genuine
+            p1, p2 = net + res - 10, 10
+        if p1 > 0:  # a small net force and resistance can leave no room for a positive first push: redraw
+            break
     check(p1 + p2 - res == net and p1 > 0 and p2 > 0, "forces do not balance the construction")
     forces = f"two forces in the direction of motion, {p1} N and {p2} N, and a resistance of {res} N against it"
     if variant == "acceleration":
@@ -292,6 +295,11 @@ def smech_newton_second_law_exam(rng):
         if not (clear_of_boundary(Fraction(mag).limit_denominator(10**9), 1) and _angle_clear(theta)):
             continue
         if min(abs(theta - 45), abs(theta - 135)) < 1:  # the complement and the reflection would equal the answer
+            continue
+        # Each component part needs two wrong values that differ from the key and from each other.
+        slips_a = {shown(v, 0) for v in (ax - f1x - f2x, f1x + f2x - m * ax, m * ax - f1x, m * ax + f1x + f2x)} - {px}
+        slips_b = {shown(v, 0) for v in (ay - f1y - f2y, f1y + f2y - m * ay, m * ay - f2y, m * ay + f1y + f2y)} - {py}
+        if len(slips_a) < 2 or len(slips_b) < 2:
             continue
         break
     # Second route: the same components from complex arithmetic.

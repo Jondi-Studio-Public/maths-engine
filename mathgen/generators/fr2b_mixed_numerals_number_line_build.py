@@ -19,6 +19,7 @@ figure alone: the marks and the tick step, never the key.
 from __future__ import annotations
 
 from fractions import Fraction
+from math import gcd
 
 from .. import figures
 from ..answers import Distractor, exact_value
@@ -111,7 +112,9 @@ def _single(rng, tier):
     text = phrase(rng, templates)
     working = [
         f"Between each pair of whole numbers there are {n} equal steps, so each step is 1/{n}.",
-        f"P is {k} {'step' if k == 1 else 'steps'} past {whole}, so P is {answer_text}.",
+        f"P is {k} {'step' if k == 1 else 'steps'} past {whole}, which is {k}/{n}"
+        + (f" = {k // gcd(k, n)}/{n // gcd(k, n)} in simplest form" if gcd(k, n) > 1 else "")
+        + f", so P is {answer_text}.",
     ]
     return _result(text, value, answer_text, tagged(answer_text, cands), working, fig)
 

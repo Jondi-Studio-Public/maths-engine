@@ -763,7 +763,7 @@
 {"answer": "Function f", "id": "compare-functions-representations/medium/0/50d37a6c8da6", "text": "Function f is the curve on the grid. Function g is given by g(x) = -3(x - 5)^2 …"}
 {"answer": "They are equal", "id": "compare-functions-representations/medium/1/73ceadd4dc88", "text": "Function f is the curve on the grid. Function g is given by g(x) = -3(x - 2)^2 …"}
 {"answer": "They are equal", "id": "compare-functions-representations/medium/2/da5aef172454", "text": "The graph shows the function f. Function g is given by g(x) = -3(x - 2)^2 + 2. …"}
-{"answer": "(a) 10; (b) Weak evidence of a real difference: the medians…", "id": "compare-groups-evidence/easy/0/215d10445274", "text": "Mia compared the battery life (hours) of two groups. Brand a batteries: smalles…"}
+{"answer": "(a) 10; (b) Weak evidence of a real difference: the medians…", "id": "compare-groups-evidence/easy/0/bbcb59c0f38c", "text": "Mia compared the battery life (hours) of two groups. Brand A batteries: smalles…"}
 {"answer": "(a) 46; (b) Strong evidence of a real difference: the media…", "id": "compare-groups-evidence/easy/1/b00bcedb8c04", "text": "Tom compared the time to finish a puzzle (seconds) of two groups. Students who …"}
 {"answer": "(a) 16; (b) Strong evidence of a real difference: the media…", "id": "compare-groups-evidence/easy/2/293ff568d8fd", "text": "Kofi compared the time to cycle to school (minutes) of two groups. Students usi…"}
 {"answer": "(a) 21; (b) 11; (c) 20; (d) -1; (e) Strong evidence of a re…", "id": "compare-groups-evidence/exam/0/7f6f2a0df2fc", "text": "Jess measured the words typed in one minute for two groups. The morning class (…"}
@@ -1780,12 +1780,12 @@
 {"answer": "4", "id": "ey-calendar-count-days/medium/0/6c07ba8df43b", "text": "How many weeks from the Start to the End?"}
 {"answer": "4", "id": "ey-calendar-count-days/medium/1/9dfaabcf1f41", "text": "The Start and the End are how many weeks apart?"}
 {"answer": "4", "id": "ey-calendar-count-days/medium/2/286801ed1cdb", "text": "How many weeks from the Start to the End?"}
-{"answer": "3", "id": "ey-calendar-days-between/easy/0/1ee6ea7e0762", "text": "How many days from the Zoo to the Market?"}
-{"answer": "2", "id": "ey-calendar-days-between/easy/1/36056e7fdf75", "text": "Tariq counts the days from the Market to the Swim. How many?"}
-{"answer": "3", "id": "ey-calendar-days-between/easy/2/fac1af26c30a", "text": "Priya counts the days from the Swim to the Movie. How many?"}
-{"answer": "8", "id": "ey-calendar-days-between/hard/0/42c15498203a", "text": "How many days from the Dentist to the last day of the month?"}
-{"answer": "18", "id": "ey-calendar-days-between/hard/1/36c3073be497", "text": "Ingrid counts from the Concert to the last day of the month. How many days?"}
-{"answer": "15", "id": "ey-calendar-days-between/hard/2/1ea57bbb832c", "text": "How many days from the Footy to the Dentist?"}
+{"answer": "3", "id": "ey-calendar-days-between/easy/0/1a79024e9864", "text": "How many days from the Zoo to the Market?"}
+{"answer": "2", "id": "ey-calendar-days-between/easy/1/94b4b3a60a23", "text": "Tariq counts the days from the Market to the Swim. How many?"}
+{"answer": "3", "id": "ey-calendar-days-between/easy/2/346faabd80c8", "text": "Priya counts the days from the Swim to the Movie. How many?"}
+{"answer": "8", "id": "ey-calendar-days-between/hard/0/c9d00f06f640", "text": "How many days from the Dentist to the last day of the month?"}
+{"answer": "18", "id": "ey-calendar-days-between/hard/1/50e952f6dd93", "text": "Ingrid counts from the Concert to the last day of the month. How many days?"}
+{"answer": "15", "id": "ey-calendar-days-between/hard/2/432f98e9d926", "text": "How many days from the Footy to the Dentist?"}
 {"answer": "18", "id": "ey-calendar-days-between/medium/0/334d9405a61d", "text": "2 weeks after the Market is which date?"}
 {"answer": "29", "id": "ey-calendar-days-between/medium/1/417ad027a5f5", "text": "What is the date 3 weeks after the Concert?"}
 {"answer": "19", "id": "ey-calendar-days-between/medium/2/bc520806c1ed", "text": "What is the date 2 weeks after the Zoo?"}
@@ -2103,7 +2103,7 @@
 {"answer": "111", "id": "f10-angle-relationships/easy/2/d33de7b1033b", "text": "The angles in the diagram meet at a point and together complete a full turn. Wo…"}
 {"answer": "(a) 112; (b) 18; (c) 74", "id": "f10-angle-relationships/exam/0/3b965943dad6", "text": "A garden sprinkler waters four sectors around it, which together make a full ci…"}
 {"answer": "(a) 70; (b) 7; (c) 36", "id": "f10-angle-relationships/exam/1/abcb29387a84", "text": "A garden sprinkler waters four sectors around it, which together make a full ci…"}
-{"answer": "(a) 124; (b) 26; (c) 31", "id": "f10-angle-relationships/exam/2/8e0ba77fe183", "text": "Four angles meet at a point and together make a full turn. Three of them measur…"}
+{"answer": "(a) 124; (b) 26; (c) 31", "id": "f10-angle-relationships/exam/2/ea61694f495f", "text": "Four angles meet at a point and together make a full turn. Three of them measur…"}
 {"answer": "46", "id": "f10-angle-relationships/hard/0/49a67fb3a782", "text": "Two lines cross at a point. Vertically opposite angles are always equal, and th…"}
 {"answer": "97", "id": "f10-angle-relationships/hard/1/6cc60302234d", "text": "Look at the two crossing lines. The two marked angles are vertically opposite, …"}
 {"answer": "144", "id": "f10-angle-relationships/hard/2/4d0cb556ff84", "text": "Two lines cross at a point. Vertically opposite angles are always equal, and th…"}
@@ -2179,15 +2179,15 @@
 {"answer": "29", "id": "f10-bracketed-number-equations/medium/0/510c83f46c89", "text": "Find the value of ? in 8 × (? - 4) + 56 = 256"}
 {"answer": "14", "id": "f10-bracketed-number-equations/medium/1/56d15877a5ab", "text": "Solve: 2 × (? - 7) + 4 = 18"}
 {"answer": "-16", "id": "f10-bracketed-number-equations/medium/2/b132d3d5cf90", "text": "Solve: 7 × (? - 11) + 35 = -154"}
-{"answer": "19", "id": "f10-capacity-mass-informal-units/easy/0/16ed519b0686", "text": "The bottle holds 11 mugs of water and the fish tank holds 8 mugs. How many mugs…"}
-{"answer": "18", "id": "f10-capacity-mass-informal-units/easy/1/91f4ca56c10a", "text": "The fish tank holds 13 mugs of water and the saucepan holds 5 mugs. How many mu…"}
-{"answer": "3", "id": "f10-capacity-mass-informal-units/easy/2/c6c11a4a3c28", "text": "The teapot balances 9 blocks and the book balances 6 blocks. How many more bloc…"}
-{"answer": "26", "id": "f10-capacity-mass-informal-units/hard/0/9c18262c84ef", "text": "One big weight balances 4 small weights. To balance the shoe, Sam uses 6 full b…"}
-{"answer": "24", "id": "f10-capacity-mass-informal-units/hard/1/9ca508bb0b03", "text": "One mug holds 3 spoons. To fill the bucket, Aiko uses 7 full mugs and then 3 sp…"}
-{"answer": "3", "id": "f10-capacity-mass-informal-units/hard/2/78489e6ad200", "text": "One mug holds 4 spoons. The tub holds 5 mugs of water. The bowl holds 23 spoons…"}
+{"answer": "19", "id": "f10-capacity-mass-informal-units/easy/0/6ff831638183", "text": "The bucket holds 11 mugs of water and the saucepan holds 8 mugs. How many mugs …"}
+{"answer": "18", "id": "f10-capacity-mass-informal-units/easy/1/7981069169e5", "text": "The watering can holds 13 mugs of water and the saucepan holds 5 mugs. How many…"}
+{"answer": "3", "id": "f10-capacity-mass-informal-units/easy/2/3d21613bc3c8", "text": "The book balances 9 blocks and the pear balances 6 blocks. How many more blocks…"}
+{"answer": "26", "id": "f10-capacity-mass-informal-units/hard/0/50df4eb2fac8", "text": "One big weight balances 4 small weights. To balance the toy truck, Sam uses 6 f…"}
+{"answer": "24", "id": "f10-capacity-mass-informal-units/hard/1/bdb42b0af677", "text": "One mug holds 3 spoons. To fill the jug, Aiko uses 7 full mugs and then 3 spoon…"}
+{"answer": "3", "id": "f10-capacity-mass-informal-units/hard/2/c8ba36437958", "text": "One mug holds 4 spoons. The bowl holds 5 mugs of water. The fish tank holds 23 …"}
 {"answer": "8", "id": "f10-capacity-mass-informal-units/medium/0/a50813b54863", "text": "The watering can holds 23 scoops of water. Leila pours in 8 scoops and then 7 m…"}
-{"answer": "5", "id": "f10-capacity-mass-informal-units/medium/1/bec73141c456", "text": "The apple balances 20 cubes. The melon balances 7 cubes and the pencil case bal…"}
-{"answer": "15", "id": "f10-capacity-mass-informal-units/medium/2/05efcb2ca8de", "text": "The teapot balances 5 cubes. The shoe balances 5 cubes more than the teapot. Ho…"}
+{"answer": "9", "id": "f10-capacity-mass-informal-units/medium/1/7d2419158d47", "text": "The melon balances 24 cubes. The teapot balances 8 cubes and the tin of beans b…"}
+{"answer": "15", "id": "f10-capacity-mass-informal-units/medium/2/ffb31ddd7ed9", "text": "The pear balances 5 cubes. The lunchbox balances 5 cubes more than the pear. Ho…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/6172bec54640", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/408ac8af0bdd", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
 {"answer": "certain", "id": "f10-chance-language-and-outcomes/easy/2/98f8a7cf8206", "text": "A bag contains 3 black. Event X: drawing a black. How would you classify the li…"}
@@ -2207,10 +2207,10 @@
 {"answer": "(a) Exponential: each y-value is 3 times the one before; (b…", "id": "f10-choose-model-from-data/exam/1/667ec92b1c76", "text": "The table shows the number y of followers of a community page x weeks after it …"}
 {"answer": "(a) Exponential: each y-value is 2 times the one before; (b…", "id": "f10-choose-model-from-data/exam/2/e7cfa3d3752d", "text": "The table shows the number y of followers of a community page x weeks after it …"}
 {"answer": "70", "id": "f10-choose-model-from-data/hard/0/ee6721aaf561", "text": "The table shows the data y megabytes used on a phone plan x days after it start…"}
-{"answer": "378", "id": "f10-choose-model-from-data/hard/1/fc934d16fa30", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
+{"answer": "378", "id": "f10-choose-model-from-data/hard/1/eae5f30dfc9b", "text": "The table shows the distance y metres a wagon has rolled along a siding x minut…"}
 {"answer": "269", "id": "f10-choose-model-from-data/hard/2/6f00dc35b763", "text": "The table shows the number y of tiles in stage x of a square tile pattern. x: 0…"}
-{"answer": "y = 3x^2 + x + 1", "id": "f10-choose-model-from-data/medium/0/de19702ccb78", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
-{"answer": "y = x^2 + 3x + 1", "id": "f10-choose-model-from-data/medium/1/f75eb3ddbec3", "text": "The table shows the distance y metres a trolley has rolled down a ramp x second…"}
+{"answer": "y = 3x^2 + x + 1", "id": "f10-choose-model-from-data/medium/0/d94afcdfb82c", "text": "The table shows the distance y metres a wagon has rolled along a siding x minut…"}
+{"answer": "y = x^2 + 3x + 1", "id": "f10-choose-model-from-data/medium/1/e8f735bb8a8c", "text": "The table shows the distance y metres a wagon has rolled along a siding x minut…"}
 {"answer": "y = -x^2 + 10x + 6", "id": "f10-choose-model-from-data/medium/2/6173dbc7e88b", "text": "The table shows the height y metres of a rocket flare x seconds after it is fir…"}
 {"answer": "metres", "id": "f10-choose-unit-and-convert/easy/0/3721176a8958", "text": "Which metric unit would you choose to measure the length of a netball court?"}
 {"answer": "kilograms", "id": "f10-choose-unit-and-convert/easy/1/a8a407ac40bf", "text": "Mia needs to measure the mass of a watermelon. Which unit should she use?"}
@@ -2224,7 +2224,7 @@
 {"answer": "347.4 cm", "id": "f10-choose-unit-and-convert/medium/0/bcc22f48889f", "text": "Four lengths are written in different units: 461.1 cm, 347.4 cm, 5.03 m and 427…"}
 {"answer": "4.26 L", "id": "f10-choose-unit-and-convert/medium/1/98684768046e", "text": "Four capacities are written in different units: 3.13 L, 4.26 L, 4.06 L and 3795…"}
 {"answer": "303.5 cm", "id": "f10-choose-unit-and-convert/medium/2/9d3c5ac655a9", "text": "Four lengths are written in different units: 3.53 m, 303.5 cm, 438 cm and 4790 …"}
-{"answer": "270", "id": "f10-circle-and-prism-duration-rates/easy/0/626de91ac63a", "text": "A flight departs Zone A at 10:00, arrives Zone B at 11:30, on the same day. Zon…"}
+{"answer": "270", "id": "f10-circle-and-prism-duration-rates/easy/0/6686e977f8ea", "text": "A flight departs Zone A at 10:00, arrives Zone B at 11:30, on the same day. Zon…"}
 {"answer": "210", "id": "f10-circle-and-prism-duration-rates/easy/1/badff1ef0833", "text": "A flight departs Zone A at 05:30, arrives Zone B at 08:00, on the same day. Zon…"}
 {"answer": "135", "id": "f10-circle-and-prism-duration-rates/easy/2/8131c6119992", "text": "A flight departs Zone A at 07:15, arrives Zone B at 08:30, on the same day. Zon…"}
 {"answer": "(a) 250; (b) 85; (c) 390; (d) 725", "id": "f10-circle-and-prism-duration-rates/exam/0/e2ec8f7dae9a", "text": "A traveller flies from Hong Kong to Honolulu with a stopover in Tokyo. The firs…"}
@@ -2233,9 +2233,9 @@
 {"answer": "600", "id": "f10-circle-and-prism-duration-rates/hard/0/de5dff578ca4", "text": "A flight departs Zone A at 23:45 on Day 1 and lands in Zone B at 07:30 the next…"}
 {"answer": "600", "id": "f10-circle-and-prism-duration-rates/hard/1/35e73587ea49", "text": "A flight departs Zone A at 21:00 on Day 1 and lands in Zone B at 03:00 the next…"}
 {"answer": "615", "id": "f10-circle-and-prism-duration-rates/hard/2/70f08367847b", "text": "A flight departs Zone A at 21:00 on Day 1 and lands in Zone B at 03:15 the next…"}
-{"answer": "120", "id": "f10-circle-and-prism-duration-rates/medium/0/a48a8106a6ac", "text": "A flight departs Zone A at 11:30 and lands in Zone B at 10:45 on the same day (…"}
-{"answer": "150", "id": "f10-circle-and-prism-duration-rates/medium/1/28dd62c569b8", "text": "A flight departs Zone A at 05:45 and lands in Zone B at 04:15 on the same day (…"}
-{"answer": "150", "id": "f10-circle-and-prism-duration-rates/medium/2/449da03a6f3e", "text": "A flight departs Zone A at 12:15 and lands in Zone B at 12:00 on the same day (…"}
+{"answer": "120", "id": "f10-circle-and-prism-duration-rates/medium/0/db72ee7e5481", "text": "A flight departs Zone A at 11:30 and lands in Zone B at 10:45 on the same day (…"}
+{"answer": "150", "id": "f10-circle-and-prism-duration-rates/medium/1/41cc4bfb5c15", "text": "A flight departs Zone A at 05:45 and lands in Zone B at 04:15 on the same day (…"}
+{"answer": "150", "id": "f10-circle-and-prism-duration-rates/medium/2/ea40382c8049", "text": "A flight departs Zone A at 12:15 and lands in Zone B at 12:00 on the same day (…"}
 {"answer": "150.7", "id": "f10-circle-measures/easy/0/85c4b492dd77", "text": "A circle has a radius of 24 cm. Using π ≈ 3.14, what is its circumference, in c…"}
 {"answer": "150.7", "id": "f10-circle-measures/easy/1/d2a57876b486", "text": "A circle has a radius of 24 cm. Using π ≈ 3.14, what is its circumference, in c…"}
 {"answer": "81.6", "id": "f10-circle-measures/easy/2/c878efb58830", "text": "A circle has a radius of 13 cm. Using π ≈ 3.14, what is its circumference, in c…"}
@@ -2446,9 +2446,9 @@
 {"answer": "0.5154, 0.611, 0.7606, 0.861", "id": "f10-decimal-order-numberline/easy/0/57d7236d2b59", "text": "Arrange these decimals from smallest to largest: 0.5154, 0.861, 0.611, 0.7606."}
 {"answer": "0.483, 0.7217, 0.7617, 0.876", "id": "f10-decimal-order-numberline/easy/1/8df9010f86b7", "text": "Arrange these decimals from smallest to largest: 0.876, 0.7217, 0.483, 0.7617."}
 {"answer": "0.144, 0.1551, 0.642, 0.847", "id": "f10-decimal-order-numberline/easy/2/854970345c35", "text": "Arrange these decimals from smallest to largest: 0.847, 0.642, 0.1551, 0.144."}
-{"answer": "(a) 3.45; (b) 3.55; (c) 0.05", "id": "f10-decimal-order-numberline/exam/0/7f09f07f4adf", "text": "Distance posts on a running trail in Kings Park, Perth, are labelled every tent…"}
-{"answer": "(a) 13.45; (b) 13.55; (c) 0.05", "id": "f10-decimal-order-numberline/exam/1/d7e4e0ebab3a", "text": "Distance posts along a cycle path beside the Brisbane River are labelled every …"}
-{"answer": "(a) 3.925; (b) 4.075; (c) 0.025", "id": "f10-decimal-order-numberline/exam/2/0a25e6a323c6", "text": "A trail marker board on a Blue Mountains walk is labelled every tenth of a kilo…"}
+{"answer": "(a) 3.45; (b) 3.55; (c) 0.05", "id": "f10-decimal-order-numberline/exam/0/8fefb1b8f452", "text": "Distance posts on a running trail in Kings Park, Perth, are labelled every tent…"}
+{"answer": "(a) 13.45; (b) 13.55; (c) 0.05", "id": "f10-decimal-order-numberline/exam/1/cb30eebbcddb", "text": "Distance posts along a cycle path beside the Brisbane River are labelled every …"}
+{"answer": "(a) 3.925; (b) 4.075; (c) 0.025", "id": "f10-decimal-order-numberline/exam/2/04ae2533f8ba", "text": "A trail marker board on a Blue Mountains walk is labelled every tenth of a kilo…"}
 {"answer": "0.306, 0.324, 2.3849, 5.397", "id": "f10-decimal-order-numberline/hard/0/8ba745bd6fcf", "text": "Arrange these decimals from smallest to largest: 2.3849, 0.306, 0.324, 5.397."}
 {"answer": "0.9210, 0.925, 7.9265, 8.929", "id": "f10-decimal-order-numberline/hard/1/1abec20682f3", "text": "Arrange these decimals from smallest to largest: 7.9265, 0.925, 0.9210, 8.929."}
 {"answer": "0.136, 0.139, 9.1333, 9.134", "id": "f10-decimal-order-numberline/hard/2/b08d2c4dd310", "text": "Arrange these decimals from smallest to largest: 9.1333, 0.139, 9.134, 0.136."}
@@ -2566,9 +2566,9 @@
 {"answer": "0.1", "id": "f10-exact-approximate-repeated-calculation/easy/0/4132771f12c5", "text": "Start with 8.38. Multiply by 2.2; then multiply by 3.5, in that order. Work out…"}
 {"answer": "0.03", "id": "f10-exact-approximate-repeated-calculation/easy/1/8e687ebf4d3c", "text": "Start with 1.52. Multiply by 1.8; then multiply by 8.5, in that order. Work out…"}
 {"answer": "0.01", "id": "f10-exact-approximate-repeated-calculation/easy/2/6c2532493dfb", "text": "Start with 9.08. Multiply by 2.2; then multiply by 2.5, in that order. Work out…"}
-{"answer": "(a) 2.67; (b) 189.57; (c) 0.16", "id": "f10-exact-approximate-repeated-calculation/exam/0/844ba6fbbcea", "text": "A pack of 9 show bags costs $24.01. A school canteen prices each show bag at th…"}
-{"answer": "(a) 2.23; (b) 55.75; (c) 0.08", "id": "f10-exact-approximate-repeated-calculation/exam/1/7e89c86f983c", "text": "A pack of 6 exercise books costs $13.40. A school canteen prices each exercise …"}
-{"answer": "(a) 3.09; (b) 200.85; (c) 0.18", "id": "f10-exact-approximate-repeated-calculation/exam/2/507296d43f9d", "text": "A pack of 11 water bottles costs $34.02. A school canteen prices each water bot…"}
+{"answer": "(a) 2.84; (b) 116.44; (c) 0.14", "id": "f10-exact-approximate-repeated-calculation/exam/0/4823cb5ebd8f", "text": "A pack of 12 sunscreen sachets costs $34.04. A school canteen prices each sunsc…"}
+{"answer": "(a) 9.48; (b) 255.96; (c) 0.07", "id": "f10-exact-approximate-repeated-calculation/exam/1/d6274a710e12", "text": "A pack of 15 water bottles costs $142.24. A school canteen prices each water bo…"}
+{"answer": "(a) 11.76; (b) 940.80; (c) 0.27", "id": "f10-exact-approximate-repeated-calculation/exam/2/c9aee3d8d3d5", "text": "A pack of 3 water bottles costs $35.27. A school canteen prices each water bott…"}
 {"answer": "0.03", "id": "f10-exact-approximate-repeated-calculation/hard/0/7f992129d6bb", "text": "Start with 8.67. Multiply by 1.8; then multiply by 1.8; then multiply by pi (it…"}
 {"answer": "0.001", "id": "f10-exact-approximate-repeated-calculation/hard/1/46a15f4ee198", "text": "Start with 2.86. Add 3; then multiply by pi (its true, unrounded value); then m…"}
 {"answer": "0.001", "id": "f10-exact-approximate-repeated-calculation/hard/2/283aecb41b83", "text": "Start with 9.12. Multiply by 3.5; then multiply by pi (its true, unrounded valu…"}
@@ -3025,15 +3025,15 @@
 {"answer": "96", "id": "f10-metric-measure-instrument-estimate/medium/0/41612c969c17", "text": "A scale has major marks every 20 g. Each major interval is split into 5 small d…"}
 {"answer": "32", "id": "f10-metric-measure-instrument-estimate/medium/1/42d2e5be21c2", "text": "A scale has major marks every 10 g. Each major interval is split into 5 small d…"}
 {"answer": "30", "id": "f10-metric-measure-instrument-estimate/medium/2/0bb95701e73a", "text": "A ruler has major marks every 20 cm. Each major interval is split into 2 small …"}
-{"answer": "1 1/2", "id": "f10-mixed-numerals-number-line/easy/0/e6fd5218b846", "text": "What number is marked by P on the number line? Write it as a mixed numeral."}
-{"answer": "4 1/4", "id": "f10-mixed-numerals-number-line/easy/1/c452626f41d1", "text": "What number is marked by P on the number line? Write it as a mixed numeral."}
-{"answer": "6 1/2", "id": "f10-mixed-numerals-number-line/easy/2/258c744d87de", "text": "Point P is marked on the number line. Write the number at P as a mixed numeral."}
+{"answer": "1 1/2", "id": "f10-mixed-numerals-number-line/easy/0/eb37161b685e", "text": "What number is marked by P on the number line? Write it as a mixed numeral."}
+{"answer": "4 1/4", "id": "f10-mixed-numerals-number-line/easy/1/da079acbb4d1", "text": "What number is marked by P on the number line? Write it as a mixed numeral."}
+{"answer": "6 1/2", "id": "f10-mixed-numerals-number-line/easy/2/8ce7db98b128", "text": "Point P is marked on the number line. Write the number at P as a mixed numeral."}
 {"answer": "2 3/4", "id": "f10-mixed-numerals-number-line/hard/0/2c4151f09173", "text": "Two points, P and Q, sit on the number line. Find the length of the gap between…"}
 {"answer": "1 3/4", "id": "f10-mixed-numerals-number-line/hard/1/244624140c62", "text": "Points P and Q are marked on the number line. How far is it from P to Q? Write …"}
 {"answer": "1 2/3", "id": "f10-mixed-numerals-number-line/hard/2/9fb56e3bc662", "text": "Points P and Q are marked on the number line. How far is it from P to Q? Write …"}
-{"answer": "13 4/5", "id": "f10-mixed-numerals-number-line/medium/0/a2adc1be3a98", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
-{"answer": "16 1/5", "id": "f10-mixed-numerals-number-line/medium/1/a6e99f6ca884", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
-{"answer": "16 2/5", "id": "f10-mixed-numerals-number-line/medium/2/ee10789c334f", "text": "The number line is labelled at its two ends only. What number is marked by P? W…"}
+{"answer": "13 4/5", "id": "f10-mixed-numerals-number-line/medium/0/ec57a20cefb4", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
+{"answer": "16 1/5", "id": "f10-mixed-numerals-number-line/medium/1/326caca35a25", "text": "Only the two ends of the number line are labelled. Write the number at P as a m…"}
+{"answer": "16 2/5", "id": "f10-mixed-numerals-number-line/medium/2/11930e6de284", "text": "The number line is labelled at its two ends only. What number is marked by P? W…"}
 {"answer": "10", "id": "f10-model-plans-cube-counts/easy/0/9a3fb258bfc1", "text": "A model is built from cubes. The plan shows how many cubes are in each stack. H…"}
 {"answer": "11", "id": "f10-model-plans-cube-counts/easy/1/a8735712c20d", "text": "This plan is a model seen from above. The number on a square is how many cubes …"}
 {"answer": "13", "id": "f10-model-plans-cube-counts/easy/2/1547133ec80e", "text": "A model is built from cubes. The plan shows how many cubes are in each stack. H…"}
@@ -3574,18 +3574,18 @@
 {"answer": "35", "id": "f10-rational-percentage-estimation/medium/0/0404b808c95b", "text": "Estimate 25% of 138, rounded to the nearest whole number (round a half up)."}
 {"answer": "21", "id": "f10-rational-percentage-estimation/medium/1/a1c335b79084", "text": "Estimate 25% of 85, rounded to the nearest whole number (round a half up)."}
 {"answer": "37", "id": "f10-rational-percentage-estimation/medium/2/5e7055468e04", "text": "Estimate 25% of 146, rounded to the nearest whole number (round a half up)."}
-{"answer": "48.00", "id": "f10-rational-percentage-financial-model/easy/0/eaac199ba018", "text": "A household budgets $480 for the month. They spend 1/10 of it on rent and 75% o…"}
-{"answer": "51.00", "id": "f10-rational-percentage-financial-model/easy/1/2e0b4bc64d9e", "text": "Sione earns $1020 from a weekend job. Sione donates 1/10 of it to charity and p…"}
-{"answer": "220.00", "id": "f10-rational-percentage-financial-model/easy/2/a8481b92d8d2", "text": "A household budgets $1100 for the month. They spend 3/10 of it on rent and 20% …"}
+{"answer": "48.00", "id": "f10-rational-percentage-financial-model/easy/0/47d5bfb9a20a", "text": "A household budgets $480 for the month. They spend 1/10 of it on rent and 75% o…"}
+{"answer": "51.00", "id": "f10-rational-percentage-financial-model/easy/1/577dd6f152c3", "text": "Sione earns $1020 from a weekend job. Sione donates 1/10 of it to charity and p…"}
+{"answer": "220.00", "id": "f10-rational-percentage-financial-model/easy/2/0537f7a380d3", "text": "A household budgets $1100 for the month. They spend 3/10 of it on rent and 20% …"}
 {"answer": "(a) 125.00; (b) 975.00; (c) 97.50; (d) 1072.50", "id": "f10-rational-percentage-financial-model/exam/0/2fe3d20c6f3c", "text": "A caravan park charges $1000 for a week's site hire. A linen fee equal to 1/8 o…"}
 {"answer": "(a) 222.00; (b) 1406.00; (c) 140.60; (d) 1546.60", "id": "f10-rational-percentage-financial-model/exam/1/479fba2e2f24", "text": "An electrician charges $1480 for labour on a job. A call-out fee equal to 3/20 …"}
 {"answer": "(a) 504.00; (b) 2100.00; (c) 210.00; (d) 2310.00", "id": "f10-rational-percentage-financial-model/exam/2/0cfa8d468916", "text": "A caterer quotes $1680 for a school fete. A delivery fee equal to 3/10 of the q…"}
-{"answer": "1660.00", "id": "f10-rational-percentage-financial-model/hard/0/8aee203e60e3", "text": "A household spent 75% of its monthly budget, then a further 3/5 of what remaine…"}
-{"answer": "920.00", "id": "f10-rational-percentage-financial-model/hard/1/824b84fcd789", "text": "A household spent 7/10 of its monthly budget, then a further 65% of what remain…"}
-{"answer": "1960.00", "id": "f10-rational-percentage-financial-model/hard/2/afdb58be975a", "text": "A household spent 1/4 of its monthly budget, then a further 10% of what remaine…"}
-{"answer": "42.00", "id": "f10-rational-percentage-financial-model/medium/0/e5f352f762d6", "text": "Beatrice has a $140 allowance. Beatrice saves 40% of it. Beatrice then spends 3…"}
-{"answer": "84.00", "id": "f10-rational-percentage-financial-model/medium/1/f2f218810794", "text": "Kai earns $280 from a weekend job. Kai sets aside 50% of it. Kai then gives 3/5…"}
-{"answer": "248.40", "id": "f10-rational-percentage-financial-model/medium/2/3669f7efd322", "text": "Kenji has a $920 allowance. Kenji saves 30% of it. Kenji then spends 9/10 of th…"}
+{"answer": "1660.00", "id": "f10-rational-percentage-financial-model/hard/0/704f437f5636", "text": "A household spent 75% of its monthly budget, then a further 3/5 of what remaine…"}
+{"answer": "920.00", "id": "f10-rational-percentage-financial-model/hard/1/67934ecb36f5", "text": "A household spent 7/10 of its monthly budget, then a further 65% of what remain…"}
+{"answer": "1960.00", "id": "f10-rational-percentage-financial-model/hard/2/a7024a8cc97c", "text": "A household spent 1/4 of its monthly budget, then a further 10% of what remaine…"}
+{"answer": "42.00", "id": "f10-rational-percentage-financial-model/medium/0/2d2a19419067", "text": "Beatrice has a $140 allowance. Beatrice saves 40% of it. Beatrice then spends 3…"}
+{"answer": "84.00", "id": "f10-rational-percentage-financial-model/medium/1/610ad89ee90e", "text": "Kai earns $280 from a weekend job. Kai sets aside 50% of it. Kai then gives 3/5…"}
+{"answer": "248.40", "id": "f10-rational-percentage-financial-model/medium/2/8f6378187fa0", "text": "Kenji has a $920 allowance. Kenji saves 30% of it. Kenji then spends 9/10 of th…"}
 {"answer": "55", "id": "f10-read-a-box-plot/easy/0/55e05f52a987", "text": "The box plot shows the time students took to finish a puzzle. Read the maximum …"}
 {"answer": "60", "id": "f10-read-a-box-plot/easy/1/0b7e01d1fbfb", "text": "The box plot shows the time students took to finish a puzzle. Find the maximum …"}
 {"answer": "30", "id": "f10-read-a-box-plot/easy/2/67794f0dff61", "text": "The box plot shows the marks of students in a test. What is the lower quartile …"}
@@ -3656,10 +3656,10 @@
 {"answer": "58", "id": "f10-regular-irregular-area-perimeter/easy/1/20fba224801f", "text": "A rectangular sheet is 16 cm by 13 cm. What is its perimeter, in centimetres?"}
 {"answer": "96", "id": "f10-regular-irregular-area-perimeter/easy/2/d39c8a8f9f76", "text": "A rectangular sheet is 16 cm by 6 cm. What is its area, in square centimetres?"}
 {"answer": "(a) 56; (b) 544; (c) 2112", "id": "f10-regular-irregular-area-perimeter/exam/0/c6a81f2e90d2", "text": "A rectangular block of land has an area of 560 m² and a width of 10 m. A rectan…"}
-{"answer": "(a) 48; (b) 440; (c) 1856", "id": "f10-regular-irregular-area-perimeter/exam/1/b7794f078932", "text": "A rectangular yard has an area of 480 m² and a width of 10 m. A rectangular 2 m…"}
-{"answer": "(a) 17; (b) 103; (c) 1300", "id": "f10-regular-irregular-area-perimeter/exam/2/a7e3a4274936", "text": "A rectangular block of land has an area of 153 m² and a width of 9 m. A rectang…"}
+{"answer": "(a) 21; (b) 276; (c) 1184", "id": "f10-regular-irregular-area-perimeter/exam/1/fabffd62fb2a", "text": "A rectangular school oval has an area of 336 m² and a width of 16 m. A rectangu…"}
+{"answer": "(a) 19; (b) 249; (c) 1540", "id": "f10-regular-irregular-area-perimeter/exam/2/933776bd74a7", "text": "A rectangular yard has an area of 304 m² and a width of 16 m. A rectangular 5 m…"}
 {"answer": "60", "id": "f10-regular-irregular-area-perimeter/hard/0/e19671e42977", "text": "A rectangular sheet 15 cm by 15 cm has a rectangular notch 7 cm by 12 cm cut fr…"}
-{"answer": "64", "id": "f10-regular-irregular-area-perimeter/hard/1/d9a49986f3b0", "text": "A rectangular sheet 12 cm by 20 cm has a rectangular notch 10 cm by 15 cm cut f…"}
+{"answer": "58", "id": "f10-regular-irregular-area-perimeter/hard/1/d718e380ab1f", "text": "A rectangular sheet 15 cm by 14 cm has a rectangular notch 12 cm by 2 cm cut fr…"}
 {"answer": "64", "id": "f10-regular-irregular-area-perimeter/hard/2/74b8857edc31", "text": "A rectangular sheet 19 cm by 13 cm has a rectangular notch 12 cm by 3 cm cut fr…"}
 {"answer": "83", "id": "f10-regular-irregular-area-perimeter/medium/0/9d54c97a365f", "text": "A rectangular sheet 11 cm by 13 cm has a rectangular notch 6 cm by 10 cm cut fr…"}
 {"answer": "100", "id": "f10-regular-irregular-area-perimeter/medium/1/25ad8cfe4b6e", "text": "A rectangular sheet 12 cm by 13 cm has a rectangular notch 8 cm by 7 cm cut fro…"}
@@ -3667,9 +3667,9 @@
 {"answer": "8/21", "id": "f10-relative-frequency-estimate/easy/0/da6d44ea8202", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
 {"answer": "2/5", "id": "f10-relative-frequency-estimate/easy/1/7817e66cacab", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
 {"answer": "9/20", "id": "f10-relative-frequency-estimate/easy/2/e90ecced2ade", "text": "A student flicked a bottle cap many times and recorded how it landed. The resul…"}
-{"answer": "(a) 24; (b) 41/89; (c) 69; (d) 5617/7921", "id": "f10-relative-frequency-estimate/exam/0/b27fda807341", "text": "89 calls to a library help line were each recorded as one of four outcomes. The…"}
-{"answer": "(a) 11; (b) 5/13; (c) 96; (d) 105/169", "id": "f10-relative-frequency-estimate/exam/1/34c623458c9a", "text": "52 shoppers at a market stall were each recorded by what they bought. The count…"}
-{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "f10-relative-frequency-estimate/exam/2/edd0fedf4dd0", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
+{"answer": "(a) 24; (b) 41/89; (c) 69; (d) 5617/7921", "id": "f10-relative-frequency-estimate/exam/0/e4a89ccb7d3f", "text": "89 calls to a library help line were each recorded as one of four outcomes. The…"}
+{"answer": "(a) 11; (b) 5/13; (c) 96; (d) 105/169", "id": "f10-relative-frequency-estimate/exam/1/e7b2aefb12fd", "text": "52 shoppers at a market stall were each recorded by what they bought. The count…"}
+{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "f10-relative-frequency-estimate/exam/2/1774c266c1de", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
 {"answer": "61/100", "id": "f10-relative-frequency-estimate/hard/0/b56ad675f134", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
 {"answer": "21/25", "id": "f10-relative-frequency-estimate/hard/1/5e3bec9f7e1d", "text": "A student flicked a bottle cap many times and recorded how it landed. The relat…"}
 {"answer": "37/100", "id": "f10-relative-frequency-estimate/hard/2/ce713aeaaca2", "text": "A spinner with four coloured sections was spun many times and the colour was re…"}
@@ -3805,18 +3805,18 @@
 {"answer": "C, D, A, B, E", "id": "f10-spatial-algorithm-choose-test/medium/0/7b530b2802d1", "text": "These steps to construct the perpendicular bisector of a segment have been shuf…"}
 {"answer": "A, B, D, C, E", "id": "f10-spatial-algorithm-choose-test/medium/1/6fb29d7341c6", "text": "These steps to bisect an angle have been shuffled: A. Draw rays QP and QR so th…"}
 {"answer": "A, B, E, C, D", "id": "f10-spatial-algorithm-choose-test/medium/2/bb00b88cf0d2", "text": "These steps to construct the perpendicular bisector of a segment have been shuf…"}
-{"answer": "1", "id": "f10-square-roots-perfect-squares/easy/0/01764c7ec264", "text": "Is 1 a perfect square? If yes, what is its square root?"}
-{"answer": "2", "id": "f10-square-roots-perfect-squares/easy/1/92f928907044", "text": "Is 4 a perfect square? If yes, what is its square root?"}
-{"answer": "11", "id": "f10-square-roots-perfect-squares/easy/2/8e0c2f749d3f", "text": "Is 121 a perfect square? If yes, what is its square root?"}
+{"answer": "1", "id": "f10-square-roots-perfect-squares/easy/0/25b08bd71616", "text": "Is 1 a perfect square? If yes, what is its square root?"}
+{"answer": "2", "id": "f10-square-roots-perfect-squares/easy/1/a02b75d0f2d7", "text": "Is 4 a perfect square? If yes, what is its square root?"}
+{"answer": "11", "id": "f10-square-roots-perfect-squares/easy/2/ad5cabe22634", "text": "Is 121 a perfect square? If yes, what is its square root?"}
 {"answer": "(a) 24; (b) 324; (c) 18", "id": "f10-square-roots-perfect-squares/exam/0/eda80687662d", "text": "300 students are to stand in a square formation, with the same number of rows a…"}
 {"answer": "(a) 47; (b) 729; (c) 27", "id": "f10-square-roots-perfect-squares/exam/1/4f927c3387f4", "text": "682 students are to stand in a square formation, with the same number of rows a…"}
 {"answer": "(a) 71; (b) 1600; (c) 40", "id": "f10-square-roots-perfect-squares/exam/2/f8c4e8bd7bad", "text": "1529 students are to stand in a square formation, with the same number of rows …"}
-{"answer": "1029", "id": "f10-square-roots-perfect-squares/hard/0/dc0fd78e0b09", "text": "Is 3² × 7⁶ a perfect square? If yes, what is its square root?"}
-{"answer": "6", "id": "f10-square-roots-perfect-squares/hard/1/3bf87bd449fb", "text": "Is 2² × 3² a perfect square? If yes, what is its square root?"}
-{"answer": "30", "id": "f10-square-roots-perfect-squares/hard/2/0c55a5c3f010", "text": "Is 2² × 3² × 5² a perfect square? If yes, what is its square root?"}
-{"answer": "not a perfect square", "id": "f10-square-roots-perfect-squares/medium/0/1f32a2b96fb5", "text": "Is 61 a perfect square? If yes, what is its square root?"}
-{"answer": "not a perfect square", "id": "f10-square-roots-perfect-squares/medium/1/a91dd4ddc988", "text": "Is 23 a perfect square? If yes, what is its square root?"}
-{"answer": "11", "id": "f10-square-roots-perfect-squares/medium/2/518fd8af7ae1", "text": "Is 121 a perfect square? If yes, what is its square root?"}
+{"answer": "1029", "id": "f10-square-roots-perfect-squares/hard/0/cd6953dd517f", "text": "Is 3² × 7⁶ a perfect square? If yes, what is its square root?"}
+{"answer": "6", "id": "f10-square-roots-perfect-squares/hard/1/4e3f2b2131a8", "text": "Is 2² × 3² a perfect square? If yes, what is its square root?"}
+{"answer": "30", "id": "f10-square-roots-perfect-squares/hard/2/f3c08102d39d", "text": "Is 2² × 3² × 5² a perfect square? If yes, what is its square root?"}
+{"answer": "not a perfect square", "id": "f10-square-roots-perfect-squares/medium/0/cd7341d88804", "text": "Is 61 a perfect square? If yes, what is its square root?"}
+{"answer": "not a perfect square", "id": "f10-square-roots-perfect-squares/medium/1/5b00e25b1c56", "text": "Is 23 a perfect square? If yes, what is its square root?"}
+{"answer": "11", "id": "f10-square-roots-perfect-squares/medium/2/c63ceb3a7991", "text": "Is 121 a perfect square? If yes, what is its square root?"}
 {"answer": "10", "id": "f10-stem-and-leaf-plots/easy/0/6fa389439e34", "text": "The stem-and-leaf plot shows how many minutes some customers waited in a queue.…"}
 {"answer": "9", "id": "f10-stem-and-leaf-plots/easy/1/d12dde26c067", "text": "The stem-and-leaf plot shows the ages in years of the members of a club. Key: 6…"}
 {"answer": "11", "id": "f10-stem-and-leaf-plots/easy/2/3efd111afe86", "text": "The stem-and-leaf plot shows the points a basketball team scored in each of its…"}
@@ -4174,9 +4174,9 @@
 {"answer": "16.00", "id": "fair-game-expected-gain/easy/0/db77231a444b", "text": "A game uses a bag holding 6 identical counters, one of which is drawn at random…"}
 {"answer": "-1.00", "id": "fair-game-expected-gain/easy/1/be6c628a0ab4", "text": "A game uses 12 numbered tickets in a hat, one of which is drawn at random. The …"}
 {"answer": "-4.80", "id": "fair-game-expected-gain/easy/2/e502e194b752", "text": "A game uses a bag holding 20 identical counters, one of which is drawn at rando…"}
-{"answer": "(a) 20.75; (b) -4.00; (c) 24.75; (d) 1000.00", "id": "fair-game-expected-gain/exam/0/c80fedb82c0b", "text": "A game uses a bag holding 8 identical counters, one of which is drawn at random…"}
-{"answer": "(a) 9.25; (b) 3.25; (c) 13.25; (d) -325.00", "id": "fair-game-expected-gain/exam/1/69e49e00c3c0", "text": "A game uses 8 numbered tickets in a hat, one of which is drawn at random. The p…"}
-{"answer": "(a) 17.45; (b) 3.45; (c) 21.45; (d) -690.00", "id": "fair-game-expected-gain/exam/2/819849ace896", "text": "A game uses 20 numbered tickets in a hat, one of which is drawn at random. The …"}
+{"answer": "(a) 20.75; (b) -4.00; (c) 24.75; (d) 1000.00", "id": "fair-game-expected-gain/exam/0/13cf4e2a796f", "text": "A game uses a bag holding 8 identical counters, one of which is drawn at random…"}
+{"answer": "(a) 9.25; (b) 3.25; (c) 13.25; (d) -325.00", "id": "fair-game-expected-gain/exam/1/d67dafa6f156", "text": "A game uses 8 numbered tickets in a hat, one of which is drawn at random. The p…"}
+{"answer": "(a) 17.45; (b) 3.45; (c) 21.45; (d) -690.00", "id": "fair-game-expected-gain/exam/2/e18d515d7165", "text": "A game uses 20 numbered tickets in a hat, one of which is drawn at random. The …"}
 {"answer": "57", "id": "fair-game-expected-gain/hard/0/787c05594045", "text": "A game uses 10 numbered tickets in a hat, one of which is drawn at random. A pr…"}
 {"answer": "600", "id": "fair-game-expected-gain/hard/1/3ca7080fca7c", "text": "A game uses a spinner with 10 equal sectors. The prizes are $32 on 1 sector, $1…"}
 {"answer": "14.20", "id": "fair-game-expected-gain/hard/2/f851f084fa19", "text": "A bag holds 3 red counters and 2 green counters. A player pays $2 to draw two c…"}
@@ -6094,7 +6094,7 @@
 {"answer": "(a) Parallel box plots; (b) 110; (c) 122; (d) 12", "id": "pick-display-for-question/exam/0/b372bbf265e9", "text": "Kofi has measured the time taken to finish a puzzle (in seconds) for two groups…"}
 {"answer": "(a) Parallel box plots; (b) 110; (c) 117; (d) 7", "id": "pick-display-for-question/exam/1/574e3a152a50", "text": "Dev has measured the time taken to finish a puzzle (in seconds) for two groups.…"}
 {"answer": "(a) Parallel box plots; (b) 42; (c) 39; (d) 3", "id": "pick-display-for-question/exam/2/2a9ce37bac83", "text": "Zara has measured the height of a plant after eight weeks (in centimetres) for …"}
-{"answer": "(a) Parallel box plots; (b) 2", "id": "pick-display-for-question/hard/0/e207035dc676", "text": "Aiko has measured the height of a plant after eight weeks (in centimetres) for …"}
+{"answer": "(a) Parallel box plots; (b) 2", "id": "pick-display-for-question/hard/0/885a16863914", "text": "Aiko has measured the height of a plant after eight weeks (in centimetres) for …"}
 {"answer": "(a) A pie chart; (b) 108", "id": "pick-display-for-question/hard/1/29def53bb84c", "text": "Tom has counted the languages spoken at home by students in a year level, out o…"}
 {"answer": "(a) A histogram; (b) 16.7", "id": "pick-display-for-question/hard/2/0e59b1cac339", "text": "Aiko has recorded the waiting time of each of 24 patients at a clinic, in minut…"}
 {"answer": "(a) A histogram; (b) 2", "id": "pick-display-for-question/medium/0/4d8d393005f9", "text": "Hannah has recorded the waiting time of each of 24 patients at a clinic, in min…"}
@@ -6148,12 +6148,12 @@
 {"answer": "(4, 6)", "id": "place-features-on-a-grid-map/medium/0/94afb977c94a", "text": "Start at the campground. The bus stop is 3 squares east and 3 squares north of …"}
 {"answer": "(5, 6)", "id": "place-features-on-a-grid-map/medium/1/0a7ee3a7e0ef", "text": "Start at the house. The information sign is 3 squares east and 2 squares north …"}
 {"answer": "(0, 2)", "id": "place-features-on-a-grid-map/medium/2/d3d18226ad4a", "text": "A new bike rack will go 3 squares west and 2 squares south of the lookout. Shad…"}
-{"answer": "9", "id": "place-value-to-100/easy/0/a11decfcfcb1", "text": "How many ones are in 79?"}
-{"answer": "1", "id": "place-value-to-100/easy/1/a68d68e5a7b1", "text": "How many tens are in 17?"}
-{"answer": "9", "id": "place-value-to-100/easy/2/96798b6e68c4", "text": "How many tens are in 96?"}
-{"answer": "8", "id": "place-value-to-20/easy/0/4debdcd9dce4", "text": "How many ones are in 18?"}
-{"answer": "1", "id": "place-value-to-20/easy/1/4a8e77b851db", "text": "How many tens are in 10?"}
-{"answer": "2", "id": "place-value-to-20/easy/2/44ea91d28b2a", "text": "How many tens are in 20?"}
+{"answer": "9", "id": "place-value-to-100/easy/0/da56b4359d3c", "text": "How many ones are in 79?"}
+{"answer": "1", "id": "place-value-to-100/easy/1/d4488efefc87", "text": "How many tens are in 17?"}
+{"answer": "9", "id": "place-value-to-100/easy/2/16e9545a958d", "text": "How many tens are in 96?"}
+{"answer": "8", "id": "place-value-to-20/easy/0/ce1b29f60e5d", "text": "How many ones are in 18?"}
+{"answer": "1", "id": "place-value-to-20/easy/1/41523ecbe03c", "text": "How many tens are in 10?"}
+{"answer": "2", "id": "place-value-to-20/easy/2/bd6fa8bf5500", "text": "How many tens are in 20?"}
 {"answer": "(2, 7)", "id": "plot-a-point-from-coordinates/easy/0/839efe9d5671", "text": "Place a point at (2, 7)."}
 {"answer": "(4, 5)", "id": "plot-a-point-from-coordinates/easy/1/eb98794f65a4", "text": "Plot the point U(4, 5)."}
 {"answer": "(5, 8)", "id": "plot-a-point-from-coordinates/easy/2/704ded95eaca", "text": "Mark point U at (5, 8) on the grid."}
@@ -7263,7 +7263,7 @@
 {"answer": "165", "id": "senior-complete-calculations-with-rates-including-solving-problems-involving/easy/2/22e99d7b8e97", "text": "Water flows from a tap at 11 litres per minute. How many litres flow in 15 minu…"}
 {"answer": "(a) 1/2; (b) 7/40; (c) 12.9", "id": "senior-complete-calculations-with-rates-including-solving-problems-involving/exam/0/d5d17b6574af", "text": "A rainwater tank is filled by two pipes. Pipe A can fill the empty tank on its …"}
 {"answer": "(a) 1/5; (b) 31/240; (c) 9.2", "id": "senior-complete-calculations-with-rates-including-solving-problems-involving/exam/1/3b18eb5c140b", "text": "A rainwater tank is filled by two pipes. Pipe A can fill the empty tank on its …"}
-{"answer": "(a) 5/12; (b) 17/60; (c) 7.1", "id": "senior-complete-calculations-with-rates-including-solving-problems-involving/exam/2/34fd16008577", "text": "A farm dam trough is topped up by two pumps. Pump A alone would fill the empty …"}
+{"answer": "(a) 5/12; (b) 17/60; (c) 7.1", "id": "senior-complete-calculations-with-rates-including-solving-problems-involving/exam/2/2e2a3bd3246d", "text": "A farm dam trough is topped up by two pumps. Pump A alone would fill the empty …"}
 {"answer": "28", "id": "senior-complete-calculations-with-rates-including-solving-problems-involving/hard/0/bee3eb70b55e", "text": "Worker A completes a job at 4 items per hour. Worker B completes the same kind …"}
 {"answer": "30", "id": "senior-complete-calculations-with-rates-including-solving-problems-involving/hard/1/46811b585aed", "text": "Worker A completes a job at 6 items per hour. Worker B completes the same kind …"}
 {"answer": "28", "id": "senior-complete-calculations-with-rates-including-solving-problems-involving/hard/2/a49831f34b0c", "text": "Worker A completes a job at 7 items per hour. Worker B completes the same kind …"}
@@ -7633,9 +7633,9 @@
 {"answer": "r = 2, theta = 90", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/easy/0/45c0267b65c8", "text": "For a complex number w = r·cis(θ°), the n-th roots are r^(1/n)·cis((θ+360k)/n °…"}
 {"answer": "r = 4, theta = 90", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/easy/1/5fc5684ce660", "text": "For a complex number w = r·cis(θ°), the n-th roots are r^(1/n)·cis((θ+360k)/n °…"}
 {"answer": "r = 2, theta = 105", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/easy/2/675fc22c5898", "text": "For a complex number w = r·cis(θ°), the n-th roots are r^(1/n)·cis((θ+360k)/n °…"}
-{"answer": "(a) 512; (b) 315; (c) 8; (d) 345", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/exam/0/f190a9f17fff", "text": "Consider the complex number w = 256√2 - (256√2)i and its cube roots. (a) Find |…"}
-{"answer": "(a) 64; (b) 150; (c) 4; (d) 290", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/exam/1/a38b97a6daab", "text": "Consider the complex number w = -32√3 + 32i and its cube roots. (a) Find |w|. (…"}
-{"answer": "(a) 1296; (b) 120; (c) 6; (d) 300", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/exam/2/3b094dd73aaa", "text": "Let w = -648 + (648√3)i. The fourth roots of w are plotted in the complex plane…"}
+{"answer": "(a) 512; (b) 315; (c) 8; (d) 345", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/exam/0/da463226f233", "text": "Consider the complex number w = 256√2 - (256√2)i and its cube roots. (a) Find |…"}
+{"answer": "(a) 64; (b) 150; (c) 4; (d) 290", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/exam/1/d20cd9c69e85", "text": "Consider the complex number w = -32√3 + 32i and its cube roots. (a) Find |w|. (…"}
+{"answer": "(a) 1296; (b) 120; (c) 6; (d) 300", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/exam/2/2bdd1e34a489", "text": "Let w = -648 + (648√3)i. The fourth roots of w are plotted in the complex plane…"}
 {"answer": "r = 4, theta = 330", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/hard/0/322a816287ac", "text": "For a complex number w = r·cis(θ°), the n-th roots are r^(1/n)·cis((θ+360k)/n °…"}
 {"answer": "r = 2, theta = 120", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/hard/1/94e744897922", "text": "For a complex number w = r·cis(θ°), the n-th roots are r^(1/n)·cis((θ+360k)/n °…"}
 {"answer": "r = 3, theta = 90", "id": "senior-determine-and-examine-the-n-th-roots-of-acmsm088/hard/2/8bd0d309c1b1", "text": "For a complex number w = r·cis(θ°), the n-th roots are r^(1/n)·cis((θ+360k)/n °…"}
@@ -9718,9 +9718,9 @@
 {"answer": "4.473", "id": "senior-solve-equations-involving-indices-using-logarithms/easy/0/dbca1e064a43", "text": "Solve 4^x = 493 for x. Give your answer to 3 decimal places."}
 {"answer": "2.817", "id": "senior-solve-equations-involving-indices-using-logarithms/easy/1/134274323d53", "text": "Solve 8^x = 350 for x. Give your answer to 3 decimal places."}
 {"answer": "4.914", "id": "senior-solve-equations-involving-indices-using-logarithms/easy/2/146c268bf627", "text": "Solve 3^x = 221 for x. Give your answer to 3 decimal places."}
-{"answer": "1.796", "id": "senior-solve-equations-involving-indices-using-logarithms/exam/0/67c0b27f4444", "text": "Solve 5^(2x) - 6(5^x) - 216 = 0 for x. Give your answer to 3 decimal places."}
-{"answer": "2.966", "id": "senior-solve-equations-involving-indices-using-logarithms/exam/1/ffd3a6583b15", "text": "Solve 3^(2x) - 24(3^x) - 52 = 0 for x. Give your answer to 3 decimal places."}
-{"answer": "2.814", "id": "senior-solve-equations-involving-indices-using-logarithms/exam/2/f59a1571e4e8", "text": "Solve 3^(2x) - 20(3^x) - 44 = 0 for x. Give your answer to 3 decimal places."}
+{"answer": "1.796", "id": "senior-solve-equations-involving-indices-using-logarithms/exam/0/f1fdfe700c20", "text": "Solve 5^(2x) - 6(5^x) - 216 = 0 for x. Give your answer to 3 decimal places."}
+{"answer": "2.966", "id": "senior-solve-equations-involving-indices-using-logarithms/exam/1/7ef7fa06d43c", "text": "Solve 3^(2x) - 24(3^x) - 52 = 0 for x. Give your answer to 3 decimal places."}
+{"answer": "2.814", "id": "senior-solve-equations-involving-indices-using-logarithms/exam/2/46fd4cc6b899", "text": "Solve 3^(2x) - 20(3^x) - 44 = 0 for x. Give your answer to 3 decimal places."}
 {"answer": "-2.927", "id": "senior-solve-equations-involving-indices-using-logarithms/hard/0/ccc0630b0de7", "text": "Solve 6^(x + 5) = 41 for x. Give your answer to 3 decimal places."}
 {"answer": "0.737", "id": "senior-solve-equations-involving-indices-using-logarithms/hard/1/a4b833580b34", "text": "Solve 3^(x + 4) = 182 for x. Give your answer to 3 decimal places."}
 {"answer": "1.631", "id": "senior-solve-equations-involving-indices-using-logarithms/hard/2/a4d7ff65be68", "text": "Solve 3^(x + 3) = 162 for x. Give your answer to 3 decimal places."}
@@ -10735,9 +10735,9 @@
 {"answer": "11/43", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/easy/0/34be26bced26", "text": "A histogram summarises the delivery time (minutes) of parcels for a courier for…"}
 {"answer": "19/78", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/easy/1/c6b4e96ad812", "text": "A histogram summarises the delivery time (minutes) of parcels for a courier for…"}
 {"answer": "19/63", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/easy/2/17386600cce8", "text": "A histogram summarises the fill weight (grams) of packets from a production lin…"}
-{"answer": "(a) 12; (b) 404/525; (c) 202/215", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/exam/0/cbde68f41640", "text": "A histogram summarises the lifetime, in hours, of 105 torch batteries. The clas…"}
-{"answer": "(a) 12; (b) 166/445; (c) 83/121", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/exam/1/95ae26cb67b3", "text": "A histogram summarises the mass, in grams, of 89 eggs sold by a farm. The class…"}
-{"answer": "(a) 19; (b) 109/245; (c) 109/150", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/exam/2/ae67221060d5", "text": "A histogram summarises the waiting time, in minutes, of 98 patients at a medica…"}
+{"answer": "(a) 12; (b) 404/525; (c) 202/215", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/exam/0/d7b2f7aff901", "text": "A histogram summarises the lifetime, in hours, of 105 torch batteries. The clas…"}
+{"answer": "(a) 12; (b) 166/445; (c) 83/121", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/exam/1/4bf3979552b1", "text": "A histogram summarises the mass, in grams, of 89 eggs sold by a farm. The class…"}
+{"answer": "(a) 19; (b) 109/245; (c) 109/150", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/exam/2/4bb18974d028", "text": "A histogram summarises the waiting time, in minutes, of 98 patients at a medica…"}
 {"answer": "13/94", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/hard/0/01eba622a98a", "text": "A histogram summarises the delivery time (minutes) of parcels for a courier for…"}
 {"answer": "22/31", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/hard/1/b6b6405495ab", "text": "A histogram summarises the fill weight (grams) of packets from a production lin…"}
 {"answer": "18/89", "id": "senior-use-relative-frequencies-and-histograms-obtained-from-data/hard/2/3e165d423dd8", "text": "A histogram summarises the commute time (minutes) of employees at a company for…"}
@@ -10759,9 +10759,9 @@
 {"answer": "11/81", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/0/19dd2712dd1e", "text": "A spinner was spun 81 times, and the colour of each was recorded: red: 18, blue…"}
 {"answer": "6/17", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/1/1f15b61d48e3", "text": "51 customer service calls were logged, and the outcome type of each was recorde…"}
 {"answer": "3/5", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/easy/2/4d83aaec4953", "text": "60 customer service calls were logged, and the outcome type of each was recorde…"}
-{"answer": "(a) 24; (b) 41/89; (c) 69; (d) 5617/7921", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/0/b27fda807341", "text": "89 calls to a library help line were each recorded as one of four outcomes. The…"}
-{"answer": "(a) 11; (b) 5/13; (c) 96; (d) 105/169", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/1/34c623458c9a", "text": "52 shoppers at a market stall were each recorded by what they bought. The count…"}
-{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/2/edd0fedf4dd0", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
+{"answer": "(a) 24; (b) 41/89; (c) 69; (d) 5617/7921", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/0/e4a89ccb7d3f", "text": "89 calls to a library help line were each recorded as one of four outcomes. The…"}
+{"answer": "(a) 11; (b) 5/13; (c) 96; (d) 105/169", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/1/e7b2aefb12fd", "text": "52 shoppers at a market stall were each recorded by what they bought. The count…"}
+{"answer": "(a) 28; (b) 35/61; (c) 23; (d) 3045/3721", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/exam/2/1774c266c1de", "text": "61 train arrivals at a suburban station were each recorded as one of four outco…"}
 {"answer": "60/77", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/0/661712034ef6", "text": "77 seeds from a packet were planted, and the germination outcome of each was re…"}
 {"answer": "148/165", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/1/f04af6428626", "text": "A six-sided die was rolled 165 times, and the outcome of each was recorded: 1: …"}
 {"answer": "49/64", "id": "senior-use-relative-frequencies-obtained-from-data-as-point/hard/2/5f78640e2d4e", "text": "A spinner was spun 128 times, and the colour of each was recorded: red: 38, blu…"}
@@ -10834,9 +10834,9 @@
 {"answer": "(a) 7.6; (b) 40291; (c) 43400; (d) 13", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/exam/0/27b209c7e3e1", "text": "Owen invests $28,000 in an account that pays simple interest and earns $1,400 i…"}
 {"answer": "(a) 6.5; (b) 30034; (c) 50400; (d) 19", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/exam/1/849ff67b76d0", "text": "Deng invests $28,000 in an account that pays simple interest and earns $2,240 i…"}
 {"answer": "(a) 4.6; (b) 22266; (c) 47200; (d) 23", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/exam/2/c496804e0368", "text": "Deng invests $40,000 in an account that pays simple interest and earns $1,200 i…"}
-{"answer": "31", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/hard/0/d94105bee5d6", "text": "Yara invests $53473 in an account earning simple interest at 14.5% p.a. Zane in…"}
-{"answer": "19", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/hard/1/0ea14dd0e5af", "text": "Yara owes $57312 on a simple-interest loan charged at 10.5% p.a. Zane owes $489…"}
-{"answer": "10", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/hard/2/2137726cd7ad", "text": "Deng invests $34191 in an account earning simple interest at 3% p.a. Wei invest…"}
+{"answer": "31", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/hard/0/9c2d83d539fb", "text": "Yara invests $53473 in an account earning simple interest at 14.5% p.a. Zane in…"}
+{"answer": "19", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/hard/1/3c6b16a59cf9", "text": "Yara owes $57312 on a simple-interest loan charged at 10.5% p.a. Zane owes $489…"}
+{"answer": "10", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/hard/2/2e13e33abb8b", "text": "Deng invests $34191 in an account earning simple interest at 3% p.a. Wei invest…"}
 {"answer": "33", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/medium/0/bfa42df590f8", "text": "Priya invests $8297 in each of two accounts, with no further deposits or withdr…"}
 {"answer": "15", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/medium/1/f2239bdd5b58", "text": "$27573 is invested in each of two accounts, with no further deposits or withdra…"}
 {"answer": "18", "id": "senior-use-technology-to-compare-numerically-and-graphically-the/medium/2/cc1b5d6437b4", "text": "An investor deposits $46601 into each of two accounts and makes no further depo…"}
