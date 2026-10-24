@@ -1690,7 +1690,7 @@
 {"answer": "3.14", "id": "expectation-variance-linear-transform/hard/0/23aaedec42cd", "text": "A random variable X has the distribution P(X = 0) = 0.15, P(X = 2) = 0.35, P(X …"}
 {"answer": "4.19", "id": "expectation-variance-linear-transform/hard/1/13c8260945e7", "text": "A random variable X has the distribution P(X = 1) = 0.40, P(X = 2) = 0.10, P(X …"}
 {"answer": "39.85", "id": "expectation-variance-linear-transform/hard/2/947dde37ec12", "text": "A random variable X has the distribution P(X = 0) = 0.35, P(X = 1) = 0.30, P(X …"}
-{"answer": "6084.00", "id": "expectation-variance-linear-transform/medium/0/8d8593e4bd55", "text": "The time T that a customer waits in a queue has mean 3.7 minutes and standard d…"}
+{"answer": "6084.00", "id": "expectation-variance-linear-transform/medium/0/7bb63182a2ff", "text": "The time T that a customer waits in a queue has mean 3.7 minutes and standard d…"}
 {"answer": "5.94", "id": "expectation-variance-linear-transform/medium/1/368bf563cc2d", "text": "The daily maximum temperature C in a town has mean 30.9 degrees Celsius and sta…"}
 {"answer": "53.96", "id": "expectation-variance-linear-transform/medium/2/f4a76862e980", "text": "The daily maximum temperature C in a town has mean 12.2 degrees Celsius and sta…"}
 {"answer": "48", "id": "expected-frequency/easy/0/894f4fe35fe2", "text": "An event has probability 4/5. How many times is it expected in 60 trials?"}
