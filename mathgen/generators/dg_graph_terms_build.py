@@ -160,7 +160,7 @@ def _connected(rng, n, m):
 def _in_pieces(rng, n):
     """A simple graph on ``n`` vertices in two or three pieces (one may be a lone vertex), and its component sizes."""
     k = rng.choice((2, 2, 3))
-    while True:
+    for _ in attempts(1000, "a graph in two or three pieces"):
         cuts = sorted(rng.sample(range(1, n), k - 1))
         sizes = [b - a for a, b in zip([0, *cuts], [*cuts, n])]
         if sorted(sizes)[-1] >= 3:

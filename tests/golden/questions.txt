@@ -863,7 +863,7 @@
 {"answer": "3*sqrt(2)", "id": "complex-exponential-form-conversions/easy/1/9d8435efc364", "text": "Let z = 6(cos(π/4) + i sin(π/4)). Find the imaginary part of z, Im(z), as an ex…"}
 {"answer": "-sqrt(3)/2", "id": "complex-exponential-form-conversions/easy/2/a3e10ff3042e", "text": "Let z = cos(5π/6) + i sin(5π/6). Find the real part of z, Re(z), as an exact va…"}
 {"answer": "(a) -1; (b) -sqrt(3); (c) -2; (d) 2*sqrt(3); (e) 4", "id": "complex-exponential-form-conversions/exam/0/34bd686e4155", "text": "Let z = 2e^(-i2π/3). (a) Find the real part of z, Re(z), as an exact value. (b)…"}
-{"answer": "(a) -3*sqrt(3)/2; (b) 3/2; (c) 9/2; (d) -9*sqrt(3)/2; (e) 9", "id": "complex-exponential-form-conversions/exam/1/2264225558f8", "text": "Let z = 3e^(i5π/6). (a) Find the real part of z, Re(z), as an exact value. (b) …"}
+{"answer": "(a) -5*sqrt(3)/2; (b) 5/2; (c) 25/2; (d) -25*sqrt(3)/2; (e)…", "id": "complex-exponential-form-conversions/exam/1/b771132851a5", "text": "Let z = 5e^(i5π/6). (a) Find the real part of z, Re(z), as an exact value. (b) …"}
 {"answer": "(a) sqrt(3); (b) 1; (c) 2; (d) 2*sqrt(3); (e) 4", "id": "complex-exponential-form-conversions/exam/2/744bcf37be04", "text": "Let z = 2e^(iπ/6). (a) Find the real part of z, Re(z), as an exact value. (b) F…"}
 {"answer": "-128", "id": "complex-exponential-form-conversions/hard/0/c212a6977e23", "text": "Let z = 2 + 2 i. Find the real part of z⁵, as an exact value."}
 {"answer": "2*sqrt(3)", "id": "complex-exponential-form-conversions/hard/1/581c1abfb2c7", "text": "Evaluate 2(e^(iπ/3) - e^(-iπ/3))/i, giving an exact real value."}
@@ -4489,9 +4489,9 @@
 {"answer": "x = 4, y = 0", "id": "graph-f-squared-features/easy/0/82389bfd82c4", "text": "The graph of the straight line y = f(x) is shown. State the coordinates of the …"}
 {"answer": "x = 1, y = 0", "id": "graph-f-squared-features/easy/1/b8abc4a58639", "text": "The graph of the straight line y = f(x) is shown. State the coordinates of the …"}
 {"answer": "x = -2, y = 0", "id": "graph-f-squared-features/easy/2/1ddd68741478", "text": "The graph of y = f(x) is a straight line, as drawn. Find the coordinates of the…"}
-{"answer": "(a) -10; (b) 100; (c) 3; (d) 4", "id": "graph-f-squared-features/exam/0/3b098004b77e", "text": "The function f is given by f(x) = x^2 - 8x + 6. (a) Find the least value of f, …"}
-{"answer": "(a) -3; (b) 9; (c) 3; (d) 3", "id": "graph-f-squared-features/exam/1/57ce3ad06d95", "text": "The function f is given by f(x) = x^2 + 6x + 6. (a) Find the least value of f, …"}
-{"answer": "(a) -3; (b) 9; (c) 3; (d) 4", "id": "graph-f-squared-features/exam/2/b0fa45217353", "text": "Consider the function f(x) = x^2 - 4x + 1. (a) Find the least value of f, by co…"}
+{"answer": "(a) -37; (b) 1369; (c) 3; (d) 4", "id": "graph-f-squared-features/exam/0/72afbf936f73", "text": "The function f is given by f(x) = x^2 - 8x - 21. (a) Find the least value of f,…"}
+{"answer": "(a) -6; (b) 36; (c) 3; (d) 3", "id": "graph-f-squared-features/exam/1/b04796c24d4e", "text": "The function f is given by f(x) = x^2 + 6x + 3. (a) Find the least value of f, …"}
+{"answer": "(a) -6; (b) 36; (c) 3; (d) 4", "id": "graph-f-squared-features/exam/2/818a4d3e150b", "text": "Consider the function f(x) = x^2 - 4x - 2. (a) Find the least value of f, by co…"}
 {"answer": "x = 3, y = 16", "id": "graph-f-squared-features/hard/0/935ae5bd3409", "text": "The function f is given by f(x) = x^2 - 6x + 5. State the coordinates of the lo…"}
 {"answer": "x = 4, y = 81", "id": "graph-f-squared-features/hard/1/39c0ed8e5208", "text": "Let f(x) = x^2 - 8x + 7. The graph of y = (f(x))^2 has three turning points. Fi…"}
 {"answer": "x = 5, y = 16", "id": "graph-f-squared-features/hard/2/4d7ea6ca8b8a", "text": "The function f is given by f(x) = x^2 - 10x + 21. State the coordinates of the …"}
@@ -4513,9 +4513,9 @@
 {"answer": "x = -4, y = 4", "id": "graph-modulus-key-features/easy/0/76fda1ed6643", "text": "Let f(x) = x^2 + 8x + 12. State the coordinates of the local maximum of the gra…"}
 {"answer": "x = 0, y = 30", "id": "graph-modulus-key-features/easy/1/18137d290d75", "text": "Let f(x) = x^2 - x - 30. State the coordinates of the y-intercept of the graph …"}
 {"answer": "x = -2, y = 25", "id": "graph-modulus-key-features/easy/2/b66292d333ec", "text": "The function f is given by f(x) = x^2 + 4x - 21. Find the coordinates of the lo…"}
-{"answer": "(a) -5, -1, 1, 5; (b) -4; (c) 4; (d) 3", "id": "graph-modulus-key-features/exam/0/cfb8bdacbb5a", "text": "The function f is given by f(x) = x^2 - 6x + 5. (a) Find the x-intercepts of th…"}
-{"answer": "(a) -7, -3, 3, 7; (b) -4; (c) 4; (d) 2", "id": "graph-modulus-key-features/exam/1/fca5914076f8", "text": "Consider the function f(x) = x^2 - 10x + 21. (a) Find the x-intercepts of the g…"}
-{"answer": "(a) -9, -3, 3, 9; (b) -9; (c) 9; (d) 4", "id": "graph-modulus-key-features/exam/2/b38b5a6ad329", "text": "Consider the function f(x) = x^2 - 12x + 27. (a) Find the x-intercepts of the g…"}
+{"answer": "(a) -17, -5, 5, 17; (b) -36; (c) 36; (d) 2", "id": "graph-modulus-key-features/exam/0/877d3a217d60", "text": "Consider the function f(x) = x^2 - 22x + 85. (a) Find the x-intercepts of the g…"}
+{"answer": "(a) -14, -10, 10, 14; (b) -4; (c) 4; (d) 3", "id": "graph-modulus-key-features/exam/1/0979009e8ce4", "text": "Consider the function f(x) = x^2 - 24x + 140. (a) Find the x-intercepts of the …"}
+{"answer": "(a) -14, -8, 8, 14; (b) -9; (c) 9; (d) 3", "id": "graph-modulus-key-features/exam/2/d0a6647f1361", "text": "Let f be the quadratic function with rule f(x) = x^2 - 22x + 112. (a) Find the …"}
 {"answer": "x = -5, y = 3", "id": "graph-modulus-key-features/hard/0/656866c2fbf2", "text": "Let f(x) = 3x^2 + 30x + 72. State the coordinates of the local maximum of the g…"}
 {"answer": "x = 0, y = 75", "id": "graph-modulus-key-features/hard/1/7f1a6b406f2d", "text": "Let f(x) = 3x^2 - 75. State the coordinates of the local maximum of the graph o…"}
 {"answer": "x = 2, y = 9", "id": "graph-modulus-key-features/hard/2/0212c99177ae", "text": "Let f(x) = -x^2 + 4x + 5. State the coordinates of the local maximum of the gra…"}
@@ -4537,9 +4537,9 @@
 {"answer": "x ≤ -3", "id": "graph-sqrt-of-function-domain-range/easy/0/e1e58ebc740f", "text": "The graph of the straight line y = f(x) is shown. Find the domain of the functi…"}
 {"answer": "x ≤ 2", "id": "graph-sqrt-of-function-domain-range/easy/1/062387212a60", "text": "The graph of y = f(x) is a straight line, as drawn. State the largest domain of…"}
 {"answer": "x ≥ -4", "id": "graph-sqrt-of-function-domain-range/easy/2/9d28f1c7b25f", "text": "The graph of y = f(x) is a straight line, as drawn. State the largest domain of…"}
-{"answer": "(a) 16; (b) 4; (c) -5 ≤ x ≤ 3; (d) sqrt(15)", "id": "graph-sqrt-of-function-domain-range/exam/0/e0c991d267ad", "text": "The function f is given by f(x) = -x^2 - 2x + 15. (a) Find the greatest value o…"}
-{"answer": "(a) 36; (b) 6; (c) -4 ≤ x ≤ 8; (d) 4*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/1/1fc03fe2d6ae", "text": "Consider the function f(x) = -x^2 + 4x + 32. (a) Find the greatest value of f. …"}
-{"answer": "(a) 49; (b) 7; (c) -3 ≤ x ≤ 11; (d) sqrt(33)", "id": "graph-sqrt-of-function-domain-range/exam/2/98490ab5452c", "text": "Consider the function f(x) = -x^2 + 8x + 33. (a) Find the greatest value of f. …"}
+{"answer": "(a) 81; (b) 9; (c) -6 ≤ x ≤ 12; (d) 6*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/0/c2bc74208714", "text": "Consider the function f(x) = -x^2 + 6x + 72. (a) Find the greatest value of f. …"}
+{"answer": "(a) 4; (b) 2; (c) -1 ≤ x ≤ 3; (d) sqrt(3)", "id": "graph-sqrt-of-function-domain-range/exam/1/72ffbe4a771d", "text": "Consider the function f(x) = -x^2 + 2x + 3. (a) Find the greatest value of f. (…"}
+{"answer": "(a) 16; (b) 4; (c) -7 ≤ x ≤ 1; (d) sqrt(7)", "id": "graph-sqrt-of-function-domain-range/exam/2/8f0c3830143f", "text": "The function f is given by f(x) = -x^2 - 6x + 7. (a) Find the greatest value of…"}
 {"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/0/73864e693237", "text": "For f(x) = -x^2 + 4x + 12, state the range of y = sqrt(f(x))."}
 {"answer": "x ≤ 0 or x ≥ 3", "id": "graph-sqrt-of-function-domain-range/hard/1/3aef37fcf15d", "text": "Let f(x) = 2x^2 - 6x. Find the largest domain of the function y = sqrt(f(x)), a…"}
 {"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/2/f1709b8924ae", "text": "Let f(x) = -x^2 + 2x + 15. Find the range of the function y = sqrt(f(x)), as an…"}
@@ -4984,9 +4984,9 @@
 {"answer": "-2*x + 2*tan(x) + C", "id": "integrate-tan-sec-powers/easy/0/c7ee2f19ef2d", "text": "Find the indefinite integral ∫ 2 tan^2(x) dx."}
 {"answer": "-2*x + 2*tan(x) + C", "id": "integrate-tan-sec-powers/easy/1/6a28ea11b398", "text": "Find the indefinite integral ∫ 2 tan^2(x) dx."}
 {"answer": "-6*x + 3*tan(2*x) + C", "id": "integrate-tan-sec-powers/easy/2/ea2f106f3997", "text": "Determine ∫ 6 tan^2(2x) dx."}
-{"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/0/1a61fc41c445", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
-{"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/1/41a03f3b992e", "text": "Each integral below is taken from 0 to pi/4. Give each answer as an exact value…"}
-{"answer": "(a) ln(2)/2; (b) (1 - ln(2))/2; (c) (2*ln(2) - 1)/4; (d) (3…", "id": "integrate-tan-sec-powers/exam/2/64bd850530cb", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
+{"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/0/1db4033ead0b", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
+{"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/1/a45dffe30d8a", "text": "Each integral below is taken from 0 to pi/4. Give each answer as an exact value…"}
+{"answer": "(a) ln(2)/2; (b) (1 - ln(2))/2; (c) (2*ln(2) - 1)/4; (d) (1…", "id": "integrate-tan-sec-powers/exam/2/aaf2ef0f2a51", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
 {"answer": "sqrt(3)", "id": "integrate-tan-sec-powers/hard/0/f0ae2c984f0c", "text": "Find the exact value of ∫ from 0 to pi/3 of tan^2(x) sec^2(x) dx."}
 {"answer": "7/3", "id": "integrate-tan-sec-powers/hard/1/16fcea2afc0f", "text": "Evaluate ∫ from 0 to pi/3 of sec^3(x) tan(x) dx, giving an exact answer."}
 {"answer": "tan(x)^5/5 + tan(x)^3/3 + C", "id": "integrate-tan-sec-powers/hard/2/b3c22c63a5fd", "text": "Find ∫ tan^2(x) sec^4(x) dx. Give your answer in terms of tan(x)."}
@@ -5092,9 +5092,9 @@
 {"answer": "-pi/6", "id": "inverse-trig-values-and-graph-features/easy/0/3bf82fca2d5d", "text": "What is arcsin(-1/2)? Give an exact value in radians."}
 {"answer": "pi/4", "id": "inverse-trig-values-and-graph-features/easy/1/94369ecdec23", "text": "What is arctan(1)? Give an exact value in radians."}
 {"answer": "pi/6", "id": "inverse-trig-values-and-graph-features/easy/2/f2da47ddd604", "text": "State the exact value of arcsin(1/2) in radians."}
-{"answer": "(a) 1/3; (b) 8pi/3; (c) 8pi/3; (d) -1/6", "id": "inverse-trig-values-and-graph-features/exam/0/a200a0d8db8d", "text": "The function f is given by f(x) = 4 arcsin(3x) + 2π/3. (a) Find the largest val…"}
-{"answer": "(a) 1/4; (b) 2pi/3; (c) -4pi/3; (d) 1/8", "id": "inverse-trig-values-and-graph-features/exam/1/4c70e9331100", "text": "Consider the function f(x) = 2 arcsin(4x) - π/3. (a) Find the largest value of …"}
-{"answer": "(a) 1/4; (b) 2pi; (c) -2pi; (d) 1/8", "id": "inverse-trig-values-and-graph-features/exam/2/5a136712b9d9", "text": "The function f is given by f(x) = 6 arcsin(4x) - π. (a) Find the largest value …"}
+{"answer": "(a) 1/4; (b) 8pi/3; (c) 8pi/3; (d) -1/8", "id": "inverse-trig-values-and-graph-features/exam/0/ed4980bcfc02", "text": "The function f is given by f(x) = 4 arcsin(4x) + 2π/3. (a) Find the largest val…"}
+{"answer": "(a) 1/2; (b) 0; (c) -8pi/3; (d) 1/2", "id": "inverse-trig-values-and-graph-features/exam/1/2958f11ff845", "text": "Consider the function f(x) = 8 arcsin(2x) - 4π. (a) Find the largest value of x…"}
+{"answer": "(a) 1/3; (b) 5pi/3; (c) -5pi/3; (d) 1/6", "id": "inverse-trig-values-and-graph-features/exam/2/a14e83c0636d", "text": "The function f is given by f(x) = 5 arcsin(3x) - 5π/6. (a) Find the largest val…"}
 {"answer": "pi/3", "id": "inverse-trig-values-and-graph-features/hard/0/82cf60428836", "text": "Evaluate arccos(cos(-pi/3)) exactly, in radians."}
 {"answer": "pi/6", "id": "inverse-trig-values-and-graph-features/hard/1/4059500c63c1", "text": "Evaluate arcsin(sin(-7pi/6)) exactly, in radians."}
 {"answer": "-24/25", "id": "inverse-trig-values-and-graph-features/hard/2/b66aed9ace53", "text": "Evaluate sin(2 arcsin(-4/5)) exactly, without a calculator."}
