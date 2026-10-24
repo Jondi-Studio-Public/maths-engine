@@ -817,18 +817,18 @@
 {"answer": "The cats row", "id": "compare-tally-and-picture-displays/medium/0/def5e839420b", "text": "The tally and the pictures disagree in one row. Which row is it?"}
 {"answer": "The flowers row", "id": "compare-tally-and-picture-displays/medium/1/809591e1d266", "text": "The tally and the pictures disagree in one row. Which row is it?"}
 {"answer": "The apples row", "id": "compare-tally-and-picture-displays/medium/2/3cce269c4363", "text": "The tally and the pictures disagree in one row. Which row is it?"}
-{"answer": "4", "id": "compare-two-data-displays/easy/0/818d56a29df5", "text": "The dot plot shows the number of sit-ups each student did in one minute for Cla…"}
-{"answer": "1", "id": "compare-two-data-displays/easy/1/950377534fb9", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
-{"answer": "2", "id": "compare-two-data-displays/easy/2/bce35ef7f175", "text": "The dot plot shows the number of sit-ups each student did in one minute for Cla…"}
-{"answer": "(a) 19.5; (b) 21; (c) 1.5; (d) 1", "id": "compare-two-data-displays/exam/0/0601325200e2", "text": "The dot plot shows the number of push-ups each student did in one minute for Te…"}
-{"answer": "(a) 23.5; (b) 27; (c) 3.5; (d) 1", "id": "compare-two-data-displays/exam/1/fcb2bcb9b1c0", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
-{"answer": "(a) 17; (b) 23.5; (c) 6.5; (d) 1", "id": "compare-two-data-displays/exam/2/7dd70feb39dd", "text": "The dot plot shows the number of push-ups each student did in one minute for Te…"}
-{"answer": "12", "id": "compare-two-data-displays/hard/0/4969f4da3f74", "text": "The dot plot shows the number of sit-ups each student did in one minute for Tea…"}
-{"answer": "11", "id": "compare-two-data-displays/hard/1/ee7e8fdd2721", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
-{"answer": "11", "id": "compare-two-data-displays/hard/2/9724d3cfa084", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
-{"answer": "0.5", "id": "compare-two-data-displays/medium/0/71f8b3b60cf3", "text": "The dot plot shows the number of points each team scored in a game for Class 7C…"}
-{"answer": "2", "id": "compare-two-data-displays/medium/1/fec2f5a86c59", "text": "The dot plot shows the number of sit-ups each student did in one minute for Cla…"}
-{"answer": "4", "id": "compare-two-data-displays/medium/2/2b1c95889ec4", "text": "The dot plot shows the number of sit-ups each student did in one minute for Gro…"}
+{"answer": "4", "id": "compare-two-data-displays/easy/0/5884f50b677a", "text": "The dot plot shows the number of sit-ups each student did in one minute for Cla…"}
+{"answer": "1", "id": "compare-two-data-displays/easy/1/ab496235f5a3", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
+{"answer": "2", "id": "compare-two-data-displays/easy/2/1c1155b073a9", "text": "The dot plot shows the number of sit-ups each student did in one minute for Cla…"}
+{"answer": "(a) 19.5; (b) 21; (c) 1.5; (d) 1", "id": "compare-two-data-displays/exam/0/b083cb8e19c2", "text": "The dot plot shows the number of push-ups each student did in one minute for Te…"}
+{"answer": "(a) 23.5; (b) 27; (c) 3.5; (d) 1", "id": "compare-two-data-displays/exam/1/48d7f3107c5c", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
+{"answer": "(a) 17; (b) 23.5; (c) 6.5; (d) 1", "id": "compare-two-data-displays/exam/2/bc23b0e5ba76", "text": "The dot plot shows the number of push-ups each student did in one minute for Te…"}
+{"answer": "12", "id": "compare-two-data-displays/hard/0/e593c0e702ab", "text": "The dot plot shows the number of sit-ups each student did in one minute for Tea…"}
+{"answer": "11", "id": "compare-two-data-displays/hard/1/1ccde62e054a", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
+{"answer": "11", "id": "compare-two-data-displays/hard/2/2b94a49b603f", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
+{"answer": "0.5", "id": "compare-two-data-displays/medium/0/dc273724b519", "text": "The dot plot shows the number of points each team scored in a game for Class 7C…"}
+{"answer": "2", "id": "compare-two-data-displays/medium/1/0a93ebf4046d", "text": "The dot plot shows the number of sit-ups each student did in one minute for Cla…"}
+{"answer": "4", "id": "compare-two-data-displays/medium/2/c63516f26825", "text": "The dot plot shows the number of sit-ups each student did in one minute for Gro…"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/0/c95fc8d15d5b", "text": "Pack A: 368 grams for $12.29. Pack B: 485 grams for $28.65. Which is the cheape…"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/1/943da520c9f4", "text": "Pack A: 946 grams for $17.49. Pack B: 347 grams for $29.16. Which is the cheape…"}
 {"answer": "Tie: the same price either way", "id": "compare-unit-prices/easy/2/c05b4c2a0509", "text": "Pack A: 717 grams for $28.19. Pack B: 2868 grams for $112.76. Which is the chea…"}
@@ -1066,18 +1066,18 @@
 {"answer": "4.9 = 3, 5.0 = 1, 5.1 = 2, 5.2 = 4, 5.3 = 2", "id": "construct-dot-plots-from-data/medium/0/5d3c01c1b32a", "text": "A class measured the height of each bean seedling in centimetres: 5.2, 5.2, 4.9…"}
 {"answer": "6.2 = 1, 6.3 = 5, 6.4 = 5, 6.5 = 2, 6.6 = 1", "id": "construct-dot-plots-from-data/medium/1/12d583d4a6b0", "text": "Students ran a 40 metre sprint and their times in seconds were: 6.4, 6.4, 6.4, …"}
 {"answer": "4.4 = 5, 4.5 = 5, 4.6 = 3, 4.7 = 4, 4.8 = 3", "id": "construct-dot-plots-from-data/medium/2/ba3ae65167fb", "text": "A class measured the height of each bean seedling in centimetres: 4.8, 4.6, 4.5…"}
-{"answer": "5 Leaves = 1 6 7 9, 6 Leaves = 1 2 4, 7 Leaves = 3 4, 8 Lea…", "id": "construct-stem-and-leaf-plots/easy/0/e5121d6c2901", "text": "The number of points a team scored in each game was: 64, 73, 59, 83, 56, 57, 62…"}
-{"answer": "5 Leaves = 4 6, 6 Leaves = 0 6 8 9, 7 Leaves = 0 3 4 9, 8 L…", "id": "construct-stem-and-leaf-plots/easy/1/d388ce9357f6", "text": "A class recorded the number of pages each student read last weekend: 79, 73, 56…"}
-{"answer": "3 Leaves = 7 9, 4 Leaves = 0 1 4 9, 5 Leaves = 0 7 8, 6 Lea…", "id": "construct-stem-and-leaf-plots/easy/2/8489eb33b8b5", "text": "A class recorded the number of pages each student read last weekend: 50, 39, 49…"}
-{"answer": "(a) 5 Leaves = 0 1 3 4 6, 6 Leaves = 1 5 6 9 9, 7 Leaves = …", "id": "construct-stem-and-leaf-plots/exam/0/68be3688f9c1", "text": "A shop recorded the number of customers each hour: 61, 77, 51, 66, 65, 56, 72, …"}
-{"answer": "(a) 6 Leaves = 0 0 4 6 8, 7 Leaves = 9 9, 8 Leaves = 4 6 8 …", "id": "construct-stem-and-leaf-plots/exam/1/eb53aa92a042", "text": "The number of points a team scored in each game was: 84, 95, 95, 60, 89, 64, 88…"}
-{"answer": "(a) 5 Leaves = 4 6 6 8 9, 6 Leaves = 0 3 6 6, 7 Leaves = 1 …", "id": "construct-stem-and-leaf-plots/exam/2/4587a1ff4ff6", "text": "The ages of the people at a swimming lesson were: 78, 58, 71, 71, 56, 59, 60, 6…"}
-{"answer": "14 Leaves = 1 3, 15 Leaves = 0 2 2 6, 16 Leaves = 0 2 6 7 8…", "id": "construct-stem-and-leaf-plots/hard/0/782382dc487d", "text": "A walking group recorded the steps each member took in one morning, in tens: 15…"}
-{"answer": "14 Leaves = 5 8, 15 Leaves = 0 1 5, 16 Leaves = 6 6 9, 17 L…", "id": "construct-stem-and-leaf-plots/hard/1/59b1a024a2a2", "text": "The heights, in centimetres, of the students in a Year 7 class were: 150, 145, …"}
-{"answer": "12 Leaves = 3 5 8, 13 Leaves = 2 4 9, 14 Leaves = 1 4 5 7 9…", "id": "construct-stem-and-leaf-plots/hard/2/dd13db21c900", "text": "The heights, in centimetres, of the students in a Year 7 class were: 141, 147, …"}
-{"answer": "1 Leaves = 2 3 6 9 9, 2 Leaves = 1 3 4 9, 3 Leaves = 3 4 9,…", "id": "construct-stem-and-leaf-plots/medium/0/dd9050ca9937", "text": "A shop recorded the number of customers each hour: 19, 23, 33, 39, 41, 47, 29, …"}
-{"answer": "1 Leaves = 4 5 6, 2 Leaves = 0 4 7, 3 Leaves = 0 8, 4 Leave…", "id": "construct-stem-and-leaf-plots/medium/1/256bd2b82c7d", "text": "The number of points a team scored in each game was: 16, 24, 59, 48, 54, 14, 30…"}
-{"answer": "3 Leaves = 0 1 3 3, 4 Leaves = 0 0 2 6 7, 5 Leaves = 2 6, 6…", "id": "construct-stem-and-leaf-plots/medium/2/2e2ddc1707ee", "text": "The number of points a team scored in each game was: 56, 77, 52, 40, 74, 33, 31…"}
+{"answer": "5 Leaf = 1 6 7 9, 6 Leaf = 1 2 4, 7 Leaf = 3 4, 8 Leaf = 3 4", "id": "construct-stem-and-leaf-plots/easy/0/1209d42da2a9", "text": "The number of points a team scored in each game was: 64, 73, 59, 83, 56, 57, 62…"}
+{"answer": "5 Leaf = 4 6, 6 Leaf = 0 6 8 9, 7 Leaf = 0 3 4 9, 8 Leaf = …", "id": "construct-stem-and-leaf-plots/easy/1/7a7ba73ee049", "text": "A class recorded the number of pages each student read last weekend: 79, 73, 56…"}
+{"answer": "3 Leaf = 7 9, 4 Leaf = 0 1 4 9, 5 Leaf = 0 7 8, 6 Leaf = 0 9", "id": "construct-stem-and-leaf-plots/easy/2/350530964669", "text": "A class recorded the number of pages each student read last weekend: 50, 39, 49…"}
+{"answer": "(a) 5 Leaf = 0 1 3 4 6, 6 Leaf = 1 5 6 9 9, 7 Leaf = 2 5 7;…", "id": "construct-stem-and-leaf-plots/exam/0/a875165bf1ea", "text": "A shop recorded the number of customers each hour: 61, 77, 51, 66, 65, 56, 72, …"}
+{"answer": "(a) 6 Leaf = 0 0 4 6 8, 7 Leaf = 9 9, 8 Leaf = 4 6 8 8 9, 9…", "id": "construct-stem-and-leaf-plots/exam/1/fa4ea3e4a25f", "text": "The number of points a team scored in each game was: 84, 95, 95, 60, 89, 64, 88…"}
+{"answer": "(a) 5 Leaf = 4 6 6 8 9, 6 Leaf = 0 3 6 6, 7 Leaf = 1 1 7 8 …", "id": "construct-stem-and-leaf-plots/exam/2/5ea3d0969ff5", "text": "The ages of the people at a swimming lesson were: 78, 58, 71, 71, 56, 59, 60, 6…"}
+{"answer": "14 Leaf = 1 3, 15 Leaf = 0 2 2 6, 16 Leaf = 0 2 6 7 8, 17 L…", "id": "construct-stem-and-leaf-plots/hard/0/6c7dea265d55", "text": "A walking group recorded the steps each member took in one morning, in tens: 15…"}
+{"answer": "14 Leaf = 5 8, 15 Leaf = 0 1 5, 16 Leaf = 6 6 9, 17 Leaf = …", "id": "construct-stem-and-leaf-plots/hard/1/e98256f28646", "text": "The heights, in centimetres, of the students in a Year 7 class were: 150, 145, …"}
+{"answer": "12 Leaf = 3 5 8, 13 Leaf = 2 4 9, 14 Leaf = 1 4 5 7 9, 15 L…", "id": "construct-stem-and-leaf-plots/hard/2/94d4bb1d2e71", "text": "The heights, in centimetres, of the students in a Year 7 class were: 141, 147, …"}
+{"answer": "1 Leaf = 2 3 6 9 9, 2 Leaf = 1 3 4 9, 3 Leaf = 3 4 9, 4 Lea…", "id": "construct-stem-and-leaf-plots/medium/0/1fcab547c67c", "text": "A shop recorded the number of customers each hour: 19, 23, 33, 39, 41, 47, 29, …"}
+{"answer": "1 Leaf = 4 5 6, 2 Leaf = 0 4 7, 3 Leaf = 0 8, 4 Leaf = 8 8 …", "id": "construct-stem-and-leaf-plots/medium/1/386f75ba0713", "text": "The number of points a team scored in each game was: 16, 24, 59, 48, 54, 14, 30…"}
+{"answer": "3 Leaf = 0 1 3 3, 4 Leaf = 0 0 2 6 7, 5 Leaf = 2 6, 6 Leaf …", "id": "construct-stem-and-leaf-plots/medium/2/7a28e80d4339", "text": "The number of points a team scored in each game was: 56, 77, 52, 40, 74, 33, 31…"}
 {"answer": "a solid star", "id": "continue-patterns/easy/0/84424c4840f9", "text": "What should come next?"}
 {"answer": "the number 2", "id": "continue-patterns/easy/1/eca725bbb37f", "text": "What comes next in the pattern?"}
 {"answer": "a solid diamond", "id": "continue-patterns/easy/2/6d2b70e429c5", "text": "Which one comes next in this pattern?"}
