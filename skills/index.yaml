@@ -622,6 +622,14 @@ compare-tally-and-picture-displays:
   sources:
   - topic: ey_compare_displays
     module: mathgen/generators/ey_compare_displays_build.py
+compare-two-data-displays:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dg_compare_displays
+    module: mathgen/generators/dg_compare_displays_build.py
+  - topic: dg_compare_displays_chain
+    module: mathgen/generators/dg_compare_displays_build.py
 compare-unit-prices:
   domain: arithmetic
   status: active
@@ -646,6 +654,14 @@ complex-conjugate:
     module: mathgen/generators/curriculum_expansion.py
   - topic: exd_x_r3b_complex_conjugate
     module: mathgen/generators/exd_x_r3b_complex_conjugate.py
+complex-exponential-form-conversions:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sc_complex_euler
+    module: mathgen/generators/sc_complex_euler_build.py
+  - topic: sc_complex_euler_exam
+    module: mathgen/generators/sc_complex_euler_build.py
 complex-imaginary-part:
   domain: senior-mathematics
   status: active
@@ -778,6 +794,30 @@ constants-coefficients-terms:
     module: mathgen/generators/foundations_algebra.py
   - topic: exd_x_sc3_coefficients_chain
     module: mathgen/generators/exd_x_sc3_coefficients_chain.py
+construct-column-and-picture-graphs:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dg_construct_columns
+    module: mathgen/generators/dg_construct_columns_build.py
+  - topic: dg_construct_columns_chain
+    module: mathgen/generators/dg_construct_columns_build.py
+construct-dot-plots-from-data:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dg_construct_dotplot
+    module: mathgen/generators/dg_construct_dotplot_build.py
+  - topic: dg_construct_dotplot_chain
+    module: mathgen/generators/dg_construct_dotplot_build.py
+construct-stem-and-leaf-plots:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dg_construct_stem
+    module: mathgen/generators/dg_construct_stem_build.py
+  - topic: dg_construct_stem_chain
+    module: mathgen/generators/dg_construct_stem_build.py
 continue-patterns:
   domain: early-foundations
   status: active
@@ -1308,6 +1348,12 @@ ey-compare-duration:
   sources:
   - topic: compare_duration_picture
     module: mathgen/generators/ey_duration_build.py
+ey-compare-with-right-angle:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: eyz_right_angle_compare
+    module: mathgen/generators/eyz_angles_build.py
 ey-count-steps-on-grid:
   domain: primary-geometry-time
   status: active
@@ -1320,12 +1366,52 @@ ey-day-strip-sequence:
   sources:
   - topic: ey_day_strip
     module: mathgen/generators/ey_day_strip_build.py
+ey-describe-chance-from-counts:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: eyz_chance_words
+    module: mathgen/generators/eyz_chance_build.py
+  - topic: eyz_chance_words_exam
+    module: mathgen/generators/eyz_chance_build.py
+ey-estimate-angle-size:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: eyz_angle_estimate
+    module: mathgen/generators/eyz_angles_build.py
+ey-estimate-collection-quantity:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: eyz_estimate_collection
+    module: mathgen/generators/eyz_estimate_collection_build.py
+  - topic: eyz_estimate_collection_exam
+    module: mathgen/generators/eyz_estimate_collection_build.py
+ey-features-of-named-solids:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: eyz_named_solids
+    module: mathgen/generators/eyz_solids_build.py
 ey-follow-directions-grid:
   domain: primary-geometry-time
   status: active
   sources:
   - topic: ey_follow_directions
     module: mathgen/generators/ey_position_build.py
+ey-list-possible-outcomes:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: eyz_list_outcomes
+    module: mathgen/generators/eyz_chance_build.py
+ey-name-angle-by-size:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: eyz_angle_kind
+    module: mathgen/generators/eyz_angles_build.py
 ey-order-by-two-balances:
   domain: measurement
   status: active
@@ -1338,6 +1424,14 @@ ey-position-words-scene:
   sources:
   - topic: ey_position_words
     module: mathgen/generators/ey_position_build.py
+ey-prism-pyramid-counts:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: eyz_prism_pyramid_counts
+    module: mathgen/generators/eyz_solids_build.py
+  - topic: eyz_prism_pyramid_counts_exam
+    module: mathgen/generators/eyz_solids_build.py
 ey-quarter-half-turns:
   domain: primary-geometry-time
   status: active
@@ -1350,6 +1444,22 @@ ey-simple-map-reading:
   sources:
   - topic: ey_map_reading
     module: mathgen/generators/ey_position_build.py
+ey-symmetry-from-drawn-shapes:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: eyz_symmetry_count
+    module: mathgen/generators/eyz_symmetry_build.py
+  - topic: eyz_symmetry_count_exam
+    module: mathgen/generators/eyz_symmetry_build.py
+ey-twos-doubles-related-facts:
+  domain: primary-number
+  status: active
+  sources:
+  - topic: eyz_twos_facts
+    module: mathgen/generators/eyz_twos_facts_build.py
+  - topic: eyz_twos_facts_exam
+    module: mathgen/generators/eyz_twos_facts_build.py
 f10-add-subtract-number-sentences:
   domain: equations
   status: active
@@ -3008,6 +3118,14 @@ graph-eulerian-trails-circuits:
     module: mathgen/generators/snet_eulerian_build.py
   - topic: snet_eulerian_chain
     module: mathgen/generators/snet_eulerian_build.py
+graph-f-squared-features:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: gt_f_squared
+    module: mathgen/generators/gt_f_squared_build.py
+  - topic: gt_f_squared_exam
+    module: mathgen/generators/gt_f_squared_build.py
 graph-hamiltonian-paths-cycles:
   domain: financial-discrete
   status: active
@@ -3016,6 +3134,14 @@ graph-hamiltonian-paths-cycles:
     module: mathgen/generators/snet_hamiltonian_build.py
   - topic: snet_hamiltonian_chain
     module: mathgen/generators/snet_hamiltonian_build.py
+graph-modulus-key-features:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: gt_modulus
+    module: mathgen/generators/gt_modulus_build.py
+  - topic: gt_modulus_exam
+    module: mathgen/generators/gt_modulus_build.py
 graph-planar-faces:
   domain: financial-discrete
   status: active
@@ -3024,6 +3150,30 @@ graph-planar-faces:
     module: mathgen/generators/sr2a_planar_faces_build.py
   - topic: sr2a_planar_faces_chain
     module: mathgen/generators/sr2a_planar_faces_build.py
+graph-sqrt-of-function-domain-range:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: gt_sqrt_function
+    module: mathgen/generators/gt_sqrt_build.py
+  - topic: gt_sqrt_function_exam
+    module: mathgen/generators/gt_sqrt_build.py
+graph-terms-from-a-network:
+  domain: financial-discrete
+  status: active
+  sources:
+  - topic: dg_graph_terms
+    module: mathgen/generators/dg_graph_terms_build.py
+  - topic: dg_graph_terms_chain
+    module: mathgen/generators/dg_graph_terms_build.py
+graph-transformation-equation:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: gt_graph_transform
+    module: mathgen/generators/gt_graph_transform_build.py
+  - topic: gt_graph_transform_exam
+    module: mathgen/generators/gt_graph_transform_build.py
 graph-vertex-degrees-handshaking:
   domain: financial-discrete
   status: active
@@ -3148,6 +3298,14 @@ identity-and-no-solution-explain:
   sources:
   - topic: w10_explain_identity
     module: mathgen/generators/w10_explain_build.py
+implication-converse-contrapositive-counts:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: sc_conditional_counts
+    module: mathgen/generators/sc_conditional_statements_build.py
+  - topic: sc_conditional_counts_exam
+    module: mathgen/generators/sc_conditional_statements_build.py
 inclined-plane-friction:
   domain: differential-equations
   status: active
@@ -3298,6 +3456,14 @@ integrate-substitution-rewrite-x:
     module: mathgen/generators/w6_substitution_build.py
   - topic: exd_x_w6_subst_rewrite_x
     module: mathgen/generators/w6_substitution_exams_build.py
+integrate-tan-sec-powers:
+  domain: integration
+  status: active
+  sources:
+  - topic: sc_integrate_tan_sec
+    module: mathgen/generators/sc_integrate_tan_sec_build.py
+  - topic: sc_integrate_tan_sec_exam
+    module: mathgen/generators/sc_integrate_tan_sec_build.py
 integrate-trig:
   domain: integration
   status: active
@@ -3362,6 +3528,14 @@ inverse-operations-explain:
   sources:
   - topic: w10_explain_inverse
     module: mathgen/generators/w10_explain_build.py
+inverse-trig-values-and-graph-features:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: gt_inverse_trig
+    module: mathgen/generators/gt_inverse_trig_build.py
+  - topic: gt_inverse_trig_exam
+    module: mathgen/generators/gt_inverse_trig_build.py
 investigation-step-order:
   domain: statistics-probability
   status: active
@@ -4104,6 +4278,14 @@ pigeonhole-and-binomial-identities:
     module: mathgen/generators/r3i_pigeonhole_build.py
   - topic: r3i_exam_pigeonhole
     module: mathgen/generators/r3i_pigeonhole_build.py
+place-features-on-a-grid-map:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: dg_grid_map
+    module: mathgen/generators/dg_grid_map_build.py
+  - topic: dg_grid_map_chain
+    module: mathgen/generators/dg_grid_map_build.py
 place-value-to-100:
   domain: early-foundations
   status: active
@@ -4408,6 +4590,14 @@ read-expressions:
   sources:
   - topic: read_expression
     module: mathgen/generators/foundations_algebra.py
+read-values-and-rates-from-real-data-graphs:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: dg_real_data_graphs
+    module: mathgen/generators/dg_real_data_graphs_build.py
+  - topic: dg_real_data_graphs_chain
+    module: mathgen/generators/dg_real_data_graphs_build.py
 rearrange-simple-formulas:
   domain: equations
   status: active
@@ -7452,6 +7642,14 @@ simpsons-rule:
     module: mathgen/generators/r4e_simpsons_rule_build.py
   - topic: r4e_simpsons_rule_chain
     module: mathgen/generators/r4e_simpsons_rule_build.py
+simulated-sample-proportion-calculations:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: sc_simulated_proportions
+    module: mathgen/generators/sc_simulated_proportions_build.py
+  - topic: sc_simulated_proportions_exam
+    module: mathgen/generators/sc_simulated_proportions_build.py
 sine-rule:
   domain: trigonometry
   status: active

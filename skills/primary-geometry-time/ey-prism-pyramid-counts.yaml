@@ -1,0 +1,76 @@
+id: ey-prism-pyramid-counts
+name: Count the faces, edges and vertices of prisms and pyramids
+domain: primary-geometry-time
+year_level: ['3']
+naplan_domain: [space]
+learner_band: early
+description: "Count the faces, edges or vertices of a prism or pyramid from the shape of its base, from the pieces of its net, and by working back from one count to another, then use Euler's formula to find the vertices of a solid from its net."
+status: active
+placement_eligible: false
+prerequisites: [ey-features-of-named-solids]
+answer: number
+sources:
+- topic: eyz_prism_pyramid_counts
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_prism_pyramid_counts
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_prism_pyramid_counts
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: eyz_prism_pyramid_counts_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Name the base, then count the faces, edges or vertices of a prism from the number of sides of the base."}
+  medium: {steps: 3, demand: "Read the pieces of a net to tell the solid it folds into, then count its faces, edges or vertices."}
+  hard: {steps: 4, demand: "Work back from a stated count to the number of sides of the base, then count something else on the same prism or pyramid."}
+  exam: {steps: 6, demand: "Count the faces from the pieces of a net, the edges from the sides of the pieces, the vertices from Euler's formula with the first two answers, then the length of straw for all the edges."}
+misconceptions:
+- id: eyz-uses-faces-for-edges-in-the-total
+  description: "Multiplies the length by the number of faces or corners where the edges were needed."
+- id: eyz-adds-the-length-instead-of-multiplying
+  description: "Adds the length of one straw to the number of edges, or gives one length, instead of multiplying."
+- id: eyz-counts-only-the-sides
+  description: "Counts the side faces of a prism and leaves out its two ends."
+- id: eyz-uses-the-other-solids-count
+  description: "Uses the count for a prism where a pyramid was named, or the reverse."
+- id: eyz-gives-corners-for-faces
+  description: "Gives the corners where the faces were asked for."
+- id: eyz-gives-edges-for-faces
+  description: "Gives the edges where the faces were asked for."
+- id: eyz-gives-faces-for-edges
+  description: "Gives the faces where the edges were asked for."
+- id: eyz-gives-edges-for-corners
+  description: "Gives the edges where the corners were asked for."
+- id: eyz-gives-faces-for-corners
+  description: "Gives the faces where the corners were asked for."
+- id: eyz-gives-corners-for-edges
+  description: "Gives the corners where the edges were asked for."
+- id: eyz-counts-the-base-edges-twice
+  description: "Counts the edges of the base twice."
+- id: eyz-counts-only-the-base-edges
+  description: "Gives the edges of the base only."
+- id: eyz-counts-only-the-base-corners
+  description: "Gives the corners of the base only."
+- id: eyz-counts-the-corners-of-the-flat-pieces
+  description: "Adds up the corners of every piece of the net, though pieces share corners when it folds."
+- id: eyz-leaves-out-a-piece-of-the-net
+  description: "Leaves one of the pieces of the net out."
+- id: eyz-uses-the-other-solids-rule
+  description: "Works back to the base with the rule for the other solid."
+- id: eyz-repeats-the-given-count
+  description: "Gives the count already stated in the question."
+- id: eyz-gives-the-base-sides-not-the-count
+  description: "Gives the number of sides of the base instead of the count asked for."
+- id: eyz-adds-instead-of-using-eulers-formula
+  description: "Adds the faces and edges instead of using V - E + F = 2."
+- id: eyz-forgets-the-two-in-eulers-formula
+  description: "Leaves out the 2 in V - E + F = 2."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+tags: [acara-f10-v9, early, space, prisms, pyramids, nets, faces-edges-vertices, ac9m3sp01]

@@ -1,0 +1,72 @@
+id: place-features-on-a-grid-map
+name: Place features on a grid map by shading squares
+domain: primary-geometry-time
+year_level: ['5']
+naplan_domain: [space]
+description: >-
+  On a map drawn on a square grid with column letters, row numbers, landmark symbols and a north arrow, shade the squares
+  that answer a position question. easy shades the square with a stated grid reference; medium shades the square a stated
+  number of squares east or west and north or south of a named landmark; hard shades a rectangular region from its corner
+  references, or the squares strictly between two landmarks in the same row or column; exam is a chain that shades a
+  referenced square, counts the squares east-west and north-south between two landmarks, adds them for a walk (following
+  through from both counts) and shades a square a move from a third landmark.
+status: active
+needs_figure: true
+capability_gates: [figure_stimulus]
+placement_eligible: false
+learner_band: primary
+prerequisites: [f10-map-feature-and-landmark-representation]
+answer: grid_cells
+sources:
+- topic: dg_grid_map
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dg_grid_map
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: dg_grid_map
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: dg_grid_map_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dg-gm-reference-reversed
+  description: "Reads the grid reference the wrong way round, taking the number as the column and the letter as the row."
+- id: dg-gm-row-from-top
+  description: "Counts the rows from the top of the map instead of from the bottom."
+- id: dg-gm-counts-start-square
+  description: "Counts the square the move starts from as the first square of the move, ending one square short."
+- id: dg-gm-one-square-too-far
+  description: "Moves one square too far along the row or column."
+- id: dg-gm-direction-reversed
+  description: "Moves west when east was asked, or south when north was asked."
+- id: dg-gm-moves-swapped
+  description: "Swaps the two moves, going the east-west number of squares up and the north-south number across."
+- id: dg-gm-region-corners-only
+  description: "Shades only the corner squares of the region instead of every square inside the rectangle."
+- id: dg-gm-region-edge-left-out
+  description: "Shades a rectangle one row or column short, leaving out the squares on the far edge."
+- id: dg-gm-between-includes-ends
+  description: "Shades the squares of the two landmarks as well as the squares between them."
+- id: dg-gm-between-one-short
+  description: "Shades one square fewer than lie between the landmarks."
+- id: dg-gm-count-includes-start
+  description: "Counts the starting square as well as the squares moved, giving one too many."
+- id: dg-gm-count-reference-difference
+  description: "Subtracts the letters' places and the numbers the wrong way round, mixing up which is the east-west distance."
+- id: dg-gm-walk-as-diagonal
+  description: "Gives the larger of the two moves as the length of the walk instead of adding them."
+- id: dg-gm-walk-product
+  description: "Multiplies the east-west and north-south moves instead of adding them."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
+difficulty_progression:
+  easy: {steps: 1, demand: "Read a letter-and-number grid reference and shade the square where that column and row meet."}
+  medium: {steps: 2, demand: "Find the named landmark's square, then count a move east or west and north or south from it."}
+  hard: {steps: 3, demand: "Shade a whole region from two corner references, or the squares strictly between two landmarks, without the squares of the landmarks."}
+  exam: {steps: 5, demand: "Chain a shaded reference, the east-west and north-south counts between landmarks, the walk that adds them, and a final shaded move from a third landmark."}
+tags: [acara-f10-v9, primary-geometry-time, ac9m5sp02, grid-map, grid-reference, drawn-answer, figure]

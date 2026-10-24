@@ -154,6 +154,531 @@ _ENTRIES = (
         "Counting the straight way between two places instead of the steps along the path.",
         area="early-years",
     ),
+    # -- early years: twos facts and doubles (eyz) ------------------------------------------------------------------
+    CatalogueEntry(
+        "eyz-adds-two-for-double",
+        "Adds 2 to the number instead of doubling it (reads 2 groups as 'plus 2').",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-number-again",
+        "Gives the number itself, as if there were only one group of it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-squares-the-number",
+        "Multiplies the number by itself (7 × 7) instead of by 2.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-one-too-many-in-double",
+        "Reaches a double that is one too big, by counting on one extra.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-one-too-few-in-double",
+        "Reaches a double that is one too small, by missing one when counting on.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-product",
+        "Gives the product again where the missing factor was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-names-the-given-factor",
+        "Gives the 2 that is already in the fact instead of the unknown number.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-off-by-one-half",
+        "Gives a number one more or one less than the half.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-changes-by-the-step-once",
+        "Moves from the known twos fact by the number of steps, not by 2 for each step.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-changes-by-one-group-only",
+        "Moves from the known twos fact by only one group of 2, however many groups the new fact is away.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-keeps-the-known-fact",
+        "Gives the known fact again instead of building the new one from it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-doubles-the-tens-only",
+        "Doubles the tens and leaves the ones as they were.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-doubles-the-ones-only",
+        "Doubles the ones and leaves the tens as they were.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-extra-ten-when-regrouping",
+        "Gains a ten when regrouping, so the answer is 10 too big.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lost-ten-when-regrouping",
+        "Loses a ten when regrouping, so the answer is 10 too small.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-doubles-digits-side-by-side",
+        "Doubles each digit and writes the results side by side, without regrouping the ones into tens.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-the-extra-one",
+        "Gives the double of the smaller number and forgets the extra one.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-the-larger-double",
+        "Gives the double of the larger number instead of the double of the smaller plus one.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-the-units-not-the-twos",
+        "Adds the number of extra units, forgetting that each one brings 2.",
+        area="early-years",
+    ),
+    # -- early years: estimating a collection (eyz) -----------------------------------------------------------------
+    CatalogueEntry(
+        "eyz-does-not-round-the-estimate",
+        "Gives the exact count, or the exact total of the counts, without rounding to the nearest 10 as asked.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-rounds-to-the-wrong-ten",
+        "Rounds to the wrong multiple of 10: the one above when the number is close to the one below, or the reverse.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-box-count",
+        "Gives the number of objects in the box as if it were the number in the whole picture.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-wrong-share-of-the-whole",
+        "Scales the box by the wrong share, as though it were one quarter or one sixth of the picture and not one fifth.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-one-part-only",
+        "Estimates from only part of the picture.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-instead-of-subtracts",
+        "Adds the two sides where how many more was asked.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-reports-one-side-only",
+        "Gives the estimate for one side only, where both sides were asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-subtracts-instead-of-adds",
+        "Finds the difference between the two sides where the total was asked.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-other-side",
+        "Estimates the other side of the wall from the one asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-to-multiply",
+        "Gives the number of objects where the amount for all of them was asked.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-faces-for-edges-in-the-total",
+        "Multiplies the length by the number of faces or corners where the edges were needed.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-the-length-instead-of-multiplying",
+        "Adds the length of one straw to the number of edges, or gives one length, instead of multiplying.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-one-turn-for-several",
+        "Gives the size of one smallest turn where several turns were asked.",
+        area="early-years",
+    ),
+    # -- early years: comparing, naming and estimating angles (eyz) -------------------------------------------------
+    CatalogueEntry(
+        "eyz-counts-right-angles-as-bigger",
+        "Counts the angles that are exactly a right angle as bigger than a right angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-right-angles-as-smaller",
+        "Counts the angles that are exactly a right angle as smaller than a right angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-bigger-angles-as-right",
+        "Counts the bigger angles as well as the right angles when asked which are the same as a right angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-every-angle",
+        "Counts every angle shown instead of the ones that fit the comparison.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-off-by-ten-degrees",
+        "Reads the angle 10 or 20 degrees too big or too small, a ray out when judging how far past a benchmark the arm is.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-reads-from-the-wrong-arm",
+        "Measures the angle from the wrong arm, so gives 180 degrees less the angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-angle-not-the-reflex",
+        "Gives the smaller angle between the arms, 360 degrees less the reflex angle.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-the-straight-angle",
+        "Gives only the part of a reflex angle past a straight line, forgetting the 180 degrees before it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-other-comparison",
+        "Lists the angles that are smaller, the same or bigger than a right angle, but not the kind the question asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-leaves-out-an-angle",
+        "Leaves one of the angles that fit out of the list.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-an-extra-angle",
+        "Adds an angle that does not fit to the list.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-misjudges-how-far-past-the-ray",
+        "Misjudges how far the arm is past a benchmark ray, so the estimate is 20 or 30 degrees out.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-misses-an-outcome",
+        "Leaves out one of the possible outcomes.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-an-impossible-outcome",
+        "Adds an outcome that cannot happen, such as a coin landing on its edge or a letter that is not there.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-repeats-as-outcomes",
+        "Lists the same outcome more than once, as if each repeat were a different outcome.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-every-counter",
+        "Lists every counter in the bag, repeats and all, instead of each colour once.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-other-group",
+        "Lists the outcomes that do not fit the condition instead of the ones that do.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-every-outcome",
+        "Lists every outcome of the event, ignoring the condition.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-a-number-that-does-not-fit",
+        "Adds a number that does not fit the condition to the list.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-includes-the-boundary-number",
+        "Includes the number the condition is measured from, though more than or less than leaves it out.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-factor-not-the-multiples",
+        "Lists the number itself and not the multiples of it.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-reads-part-of-the-word",
+        "Lists the outcomes from only the first part of the word.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-rates-the-chance-too-high",
+        "Chooses the word one step more likely than the counts support.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-rates-the-chance-too-low",
+        "Chooses the word one step less likely than the counts support.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-opposite-chance",
+        "Chooses the word for the opposite chance, such as unlikely for likely.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-ignores-the-counts",
+        "Chooses a word without using how many counters or times there were.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-one-colour-not-the-total",
+        "Gives the number of counters of one colour where the total was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-the-colour-not-the-rest",
+        "Gives the number of counters of the named colour where the number that are not that colour was asked for.",
+        area="early-years",
+    ),
+    # -- early years: features of solids (eyz) ----------------------------------------------------------------------
+    CatalogueEntry(
+        "eyz-counts-the-curved-surface-as-a-face",
+        "Counts the curved surface as one of the flat faces.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-edges-for-faces",
+        "Gives the number of edges where the faces were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-corners-for-faces",
+        "Gives the number of corners where the faces were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-only-the-faces-you-can-see",
+        "Counts only the faces that show in the picture, missing the ones behind and underneath.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-flat-faces-for-curved",
+        "Gives the number of flat faces where the curved surfaces were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-faces-for-edges",
+        "Gives the number of faces where the edges were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-corners-for-edges",
+        "Gives the number of corners where the edges were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-misses-the-hidden-edges",
+        "Counts only the edges that show in the picture, missing the hidden ones.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-faces-for-corners",
+        "Gives the number of faces where the corners were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-edges-for-corners",
+        "Gives the number of edges where the corners were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-misses-a-hidden-corner",
+        "Counts only the corners that show in the picture, missing one at the back.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-leaves-out-a-solid",
+        "Leaves one of the solids out of the total.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-one-solid-only",
+        "Gives the count for one solid where the total for all of them was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-the-same-count-for-every-solid",
+        "Uses the count of one solid for every solid, though the solids are different.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-every-solid-in-the-picture",
+        "Adds in the solids of other names as well as the ones asked about.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-the-solids-not-their-features",
+        "Gives the number of solids of that name instead of their faces, edges or corners.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-miscounts-the-solids",
+        "Is one solid out in counting how many there are of that name.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-only-the-sides",
+        "Counts the side faces of a prism and leaves out its two ends.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-the-other-solids-count",
+        "Uses the count for a prism where a pyramid was named, or the reverse.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-the-base-edges-twice",
+        "Counts the edges of the base twice.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-only-the-base-edges",
+        "Gives the edges of the base only.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-only-the-base-corners",
+        "Gives the corners of the base only.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-the-corners-of-the-flat-pieces",
+        "Adds up the corners of every piece of the net, though pieces share corners when it folds.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-leaves-out-a-piece-of-the-net",
+        "Leaves one of the pieces of the net out, or counts only the pieces of one kind.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-uses-the-other-solids-rule",
+        "Works out the base from the given count with the rule for a prism where a pyramid is meant, or the reverse.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-repeats-the-given-count",
+        "Gives the count already stated in the question.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-base-sides-not-the-count",
+        "Gives the number of sides of the base instead of the count asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-adds-instead-of-using-eulers-formula",
+        "Adds the faces and edges instead of using V - E + F = 2.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-the-two-in-eulers-formula",
+        "Subtracts the faces from the edges and leaves out the 2 in V - E + F = 2.",
+        area="early-years",
+    ),
+    # -- early years: symmetry in drawn shapes (eyz) ----------------------------------------------------------------
+    CatalogueEntry(
+        "eyz-counts-diagonals-as-lines",
+        "Counts the diagonals of a rectangle or parallelogram as lines of symmetry.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-number-of-sides",
+        "Gives the number of sides of the shape where its symmetry was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-order-for-the-lines",
+        "Gives the order of rotational symmetry where the lines of symmetry were asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-each-line-twice",
+        "Counts each line of symmetry twice, once for each half.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-lines-for-the-order",
+        "Gives the number of lines of symmetry where the order of rotational symmetry was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-forgets-the-turn-back-to-the-start",
+        "Leaves out the full turn that returns the shape to where it started, so is one short.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-says-no-rotational-symmetry",
+        "Says a shape that fits onto itself only after a full turn has no rotational symmetry (order 0).",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-counts-twice-round",
+        "Counts a second full turn as well as the first, so doubles the order.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-a-full-turn",
+        "Gives 360 degrees, a full turn, as the smallest turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-always-gives-a-half-turn",
+        "Gives 180 degrees as the smallest turn whatever the shape.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-order-not-the-angle",
+        "Gives the order of rotational symmetry where the angle of the turn was asked for.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-gives-the-rest-of-the-turn",
+        "Gives 360 degrees less the smallest turn.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-includes-the-neighbouring-kind",
+        "Adds the angles of a neighbouring kind, such as the right angles with the acute ones, to the list.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-neighbouring-kind",
+        "Lists the angles of a neighbouring kind, such as the right angles for the acute ones.",
+        area="early-years",
+    ),
+    CatalogueEntry(
+        "eyz-lists-the-other-kinds",
+        "Lists the angles that are not of the kind asked for.",
+        area="early-years",
+    ),
     # -- early years: sorting, tally tables and picture displays ----------------------------------------------------
     CatalogueEntry(
         "eyt-counts-all-kinds",
@@ -57704,6 +58229,1712 @@ _ENTRIES = (
         area="senior-solve-problems-involving-bearings",
     ),
     # w3 consumer block end
+    # -- graph transformations and inverse trigonometric graphs (gt block) ------------------------------------------
+    CatalogueEntry(
+        "gt-horizontal-shift-sign",
+        "Moving the graph the wrong way along the x-axis: writing f(x + h) for a shift to the right, or f(x - h) for a "
+        "shift to the left.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-vertical-shift-sign",
+        "Moving the graph the wrong way along the y-axis: adding the shift for a move down, or subtracting it for a "
+        "move up.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-order-swapped",
+        "Applying the transformations in a different order from the one given, so a dilation or reflection acts on a "
+        "translation it should have come before, or the reverse.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-dilation-factor-inverted",
+        "Using the reciprocal of the dilation factor: multiplying x by k for a dilation by a factor of k from the "
+        "y-axis (which divides x by k), or the same slip for a dilation from the x-axis.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-reflection-wrong-axis",
+        "Reflecting in the other axis: replacing x by -x where the graph is reflected in the x-axis, or negating the "
+        "whole function where it is reflected in the y-axis.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gt-period-unchanged",
+        "Giving the period of the original trigonometric graph and ignoring the dilation from the y-axis.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
+        "gtf-turning-point-at-y-intercept",
+        "Giving the y-intercept of the line (or its square) as the turning point of the squared function, instead of the point on the x-axis where the line is zero.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-zero-sign",
+        "Reading a zero of the function with the wrong sign, so a graph that crosses the axis at x = 3 is taken to cross at x = -3.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-invariant-point-as-turning-point",
+        "Taking the point where the function equals 1, where the function and its square meet, as the turning point of the squared function.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-domain-wrong-side",
+        "Giving the part of the x-axis where f is negative as the domain of the square root of f, instead of where f is not negative.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-domain-excludes-zeros",
+        "Leaving out the zeros of f from the domain of the square root of f, using a strict inequality where the square root of 0 is defined.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-domain-all-reals",
+        "Giving all real numbers as the domain of the square root of f, as if the root of a negative value existed.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-turning-point-unsquared",
+        "Keeping the turning point of f as the turning point of the squared function, without squaring its y-coordinate.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-square-keeps-sign",
+        "Squaring a negative value but keeping the negative sign, so (-4) squared is given as -16.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-absolute-value-for-square",
+        "Taking the absolute value of the y-coordinate where it should be squared, as if the graph were of y = |f(x)|.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-turning-point-at-zero",
+        "Giving a zero of f as the local maximum of the squared function, where the squared graph has a minimum on the axis.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-count-ignores-max",
+        "Counting only the minimums at the zeros of f as turning points of the squared function, and leaving out the local maximum between them.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-count-as-f",
+        "Giving the number of turning points of f as the number for the squared function.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-count-extra",
+        "Counting a turning point on each side of every zero, or counting the zeros as well as the turning points.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-root-not-taken",
+        "Giving the value inside the square root as the answer, without taking the root.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-root-as-half",
+        "Halving the value inside the square root instead of taking its square root.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-root-negative-branch",
+        "Giving the negative square root, as if the square root function had two outputs.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-root-squared-instead",
+        "Squaring the value inside the square root instead of taking its square root.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-reads-constant-as-minimum",
+        "Giving the constant term of the quadratic as its least value, which is the y-intercept and not the lowest point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-reads-linear-coefficient-as-minimum",
+        "Giving the coefficient of x as the least value of the quadratic.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-completing-square-drops-constant",
+        "Completing the square on the x terms and leaving out the original constant, so the least value is minus the square of the shift.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-minimum-sign",
+        "Giving the least value of the quadratic with the wrong sign.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-doubles-instead-of-squares",
+        "Doubling a value where it should be squared.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-gives-the-zero",
+        "Giving the zero of the function, where the function and its square both equal 0, as the point where the graphs meet away from the axis.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-uses-f-equals-minus-one",
+        "Solving f(x) = -1 instead of f(x) = 1 to find where a function meets its square, although the square of -1 is 1 and not -1.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-forgets-to-divide-by-gradient",
+        "Solving m(x - r) = 1 as x - r = 1, leaving out the division by the gradient.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-solutions-above-the-peak",
+        "Giving two solutions for a horizontal line that cuts the squared graph below its local maximum, where it meets the graph four times.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-solutions-at-the-peak",
+        "Giving three solutions, as for a line through the local maximum, for a line that cuts below it.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-solutions-both-branches-doubled",
+        "Counting two solutions for each of the three turning-point regions, giving six.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-no-zeros-no-domain",
+        "Saying the square root of f has no domain because f has no zeros, although f is positive everywhere and the root is defined for every x.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-domain-from-vertex",
+        "Using the x-coordinate of the vertex of f as the end point of the domain of the square root of f.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-range-of-f-not-root",
+        "Giving the range of f where the range of the square root of f is asked, without taking the square root of the end points.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-range-forgets-upper-bound",
+        "Giving a range with no upper bound for a root of a function that has a greatest value, or a range with an upper bound that does not exist.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-range-doubled",
+        "Doubling the greatest value of the root, as if the root took values from minus to plus.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-range-starts-at-zero",
+        "Starting the range of the square root of f at 0 although f never gets below a positive value.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-reads-constant-as-greatest-value",
+        "Giving the constant term of the quadratic as its greatest value, which is the y-intercept and not the highest point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-reads-linear-coefficient-as-greatest-value",
+        "Giving the coefficient of x as the greatest value of the quadratic.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-greatest-value-of-root-for-f",
+        "Giving the greatest value of the square root of f as the greatest value of f, or the reverse.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-completing-square-adds-instead-of-subtracts",
+        "Completing the square with the wrong sign, so the shift squared is added to the constant instead of taken from it.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gts-ignores-the-shift",
+        "Evaluating the square root of f at x = 0 as if f had no horizontal shift, using only the greatest value of f.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reflection-skipped",
+        "Leaving the vertex below the axis where it is, instead of reflecting the part of the graph below the x-axis above it for the modulus of the function.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-negates-x-instead-of-y",
+        "Reflecting in the wrong axis for the modulus of a function: changing the sign of the x-coordinate of the point instead of the y-coordinate.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-negates-both-coordinates",
+        "Changing the sign of both coordinates of the turning point, as if the graph had been turned half a turn.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-y-intercept-as-turning-point",
+        "Giving the y-intercept of the graph as its turning point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-intercept-keeps-sign",
+        "Giving the y-intercept of the modulus graph with the sign it has on the graph of f, when the modulus makes it positive.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reads-linear-coefficient-as-intercept",
+        "Giving the coefficient of x as the y-intercept of the quadratic.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-gives-an-x-intercept",
+        "Giving a point on the x-axis where the y-intercept was asked for.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-confuses-absolute-forms",
+        "Treating y = f(|x|), where the modulus acts on x, as y = |f(x)|, where it acts on the whole function, or the reverse.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-sum-of-zeros-as-vertex",
+        "Using the sum of the zeros as the x-coordinate of the vertex, instead of half the sum.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-uses-a-zero-as-the-minimum",
+        "Giving a zero of the function as its minimum point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-mirrors-the-negative-zero",
+        "Taking the negative zero of f as giving an x-intercept at its opposite, when |x| can never equal a negative number.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-uses-the-negative-zero",
+        "Giving the negative zero of f as an x-intercept of f(|x|) with positive x, ignoring that |x| is never negative.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-forgets-leading-coefficient",
+        "Finding the height of the vertex of a parabola as if its leading coefficient were 1.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reflects-when-already-positive",
+        "Reflecting a vertex that is already above the axis, so the height of the local maximum of the modulus graph is given as negative.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-misses-the-mirror-image",
+        "Listing only the positive x-intercepts of f(|x|) and leaving out their mirror images in the y-axis.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-keeps-only-the-mirror-image",
+        "Listing only the negative x-intercepts of f(|x|).",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-uses-one-zero",
+        "Giving the mirror pair of only one zero as the x-intercepts of f(|x|).",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-minimum-sign",
+        "Giving the least value of the quadratic with the wrong sign.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reads-constant-as-minimum",
+        "Giving the constant term of the quadratic as its least value, which is the y-intercept and not the lowest point.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-reads-linear-coefficient-as-minimum",
+        "Giving the coefficient of x as the least value of the quadratic.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-completing-square-drops-constant",
+        "Completing the square on the x terms and leaving out the original constant, so the least value is minus the square of the shift.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-gives-the-x-coordinate",
+        "Giving the x-coordinate of the vertex where its height was asked for.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-counts-only-outer-sections",
+        "Counting only the two outer sections of the modulus graph, leaving out the two sections that meet at the local maximum.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-counts-the-peak-as-a-solution",
+        "Counting the local maximum as a third solution for a horizontal line that does not pass through it.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-treats-the-line-as-below-the-peak",
+        "Giving four solutions for a horizontal line that is at or above the local maximum, where some of the four sections are not reached.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-counts-every-section-twice",
+        "Counting two solutions on each of the three sections around the turning points, giving six.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gti-sign-dropped",
+        "Dropping the sign of the argument: giving arcsin(1/2) for arcsin(-1/2), or the positive angle where the answer is negative.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-second-quadrant-angle",
+        "Giving the second-quadrant angle for an arcsin or arctan value, which lies outside the range of the function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-angle-outside-range",
+        "Giving an angle outside the principal range of the inverse function, such as the 330 degree or 11 pi over 6 angle.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-arcsin-arccos-swapped",
+        "Using the arcsin range for arccos, or the arccos range for arcsin.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-negative-angle-for-arccos",
+        "Giving a negative angle for arccos of a negative number, where arccos has range 0 to pi.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-range-ignores-shift",
+        "Giving the range of a shifted or scaled inverse trig function without applying the vertical shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-arcsin-range-and-arccos-range-swapped",
+        "Giving the range of arccos where the range of arcsin is asked, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-least-for-greatest",
+        "Giving the least value of an inverse trig function where its greatest value is asked.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-shift-sign",
+        "Applying a vertical shift with the wrong sign when finding an extreme value of an inverse trig function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-asymptote-uses-pi",
+        "Giving the arctan asymptote as y = pi or y = pi over 4 instead of y = pi over 2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-domain-ignores-shift",
+        "Giving the domain of an inverse trig function without allowing for a horizontal shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-multiplies-by-b",
+        "Multiplying the end points of the domain by b instead of dividing, for arcsin(bx).",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-forgets-the-shift",
+        "Evaluating an inverse trig function at a point without adding its vertical shift.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-returns-the-argument",
+        "Giving the argument back as the value of an inverse trig function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-sign-of-root",
+        "Giving the wrong sign when solving for the x-intercept of a shifted inverse trig function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-reciprocal",
+        "Giving the reciprocal of the ratio when solving for the x-intercept.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-wrong-ratio",
+        "Using the wrong exact ratio for the angle, such as the sine of pi over 6 taken as root 3 over 2.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-doubles-the-sine-only",
+        "Multiplying only the sine by the factor and not the whole function when evaluating a scaled inverse trig function.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-forgets-the-factor-two",
+        "Forgetting the vertical dilation factor when finding the greatest value or an intercept.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-composite-cancels",
+        "Cancelling an inverse trig function with its partner for an angle outside the principal range, such as arcsin(sin(5 pi over 6)) = 5 pi over 6.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-negative-angle",
+        "Giving a negative angle where the inverse function has only non-negative values, or the reverse.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-angle-reduced-not-principal",
+        "Reducing the angle to the first quadrant instead of finding the principal value.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gti-domain-ignores-b",
+        "Giving the domain -1 to 1 for arcsin(bx) without dividing by b.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "gtf-four-solutions-for-line-above-the-peak",
+        "Giving four solutions for a horizontal line above the local maximum of the squared graph, where it cuts the graph only twice.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-three-solutions-for-line-above-the-peak",
+        "Giving three solutions for a horizontal line above the local maximum of the squared graph, as for a line through the peak.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-one-solution-for-line-above-the-peak",
+        "Giving one solution for a horizontal line above the local maximum of the squared graph, counting only one of its two outer sections.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-four-solutions-for-line-at-the-peak",
+        "Giving four solutions for a horizontal line through the local maximum of the squared graph, counting the touch point twice.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-two-solutions-for-line-at-the-peak",
+        "Giving two solutions for a horizontal line through the local maximum of the squared graph, forgetting the touch point.",
+        area="graph-features",
+    ),
+    # sc consumer block start
+    CatalogueEntry(
+        "sc-biconditional-counts-both-directions",
+        "Counts the values where either direction of the implication fails, as the values where the biconditional holds, so the failures are reported instead of the values that satisfy it.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-biconditional-counts-both-true",
+        "Counts only the values where both clauses are true, forgetting that 'P if and only if Q' is also true where both are false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-biconditional-counts-one-direction",
+        "Counts the failures of only one direction of 'P if and only if Q', so the other direction's failures are missed.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-contrapositive-counts-converse-failures",
+        "Takes the contrapositive to fail where the converse fails (Q true and P false), instead of where the original statement fails.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-converse-counts-statement-failures",
+        "Counts the failures of the original statement when the converse (or inverse) was asked about, as if swapping the clauses changed nothing.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-converse-ignores-overlap",
+        "Finds the failures of the converse as the number of values with Q minus the number with P, without allowing for the values that have both.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-both-true",
+        "Counts values where both clauses hold as counterexamples, although a counterexample needs the conclusion to be false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-conclusion-false",
+        "Counts every value where the conclusion is false as a counterexample, without requiring the hypothesis to be true.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-conclusion-true-only",
+        "Takes the first value where the hypothesis of the converse holds as a counterexample, without checking that its conclusion fails.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-hypothesis-only",
+        "Counts every value where the hypothesis is true as a counterexample, without checking whether the conclusion fails.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counterexample-of-converse",
+        "Gives a counterexample to the converse when a counterexample to the statement itself was asked for.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counts-hypothesis-of-contrapositive",
+        "Counts the values where the contrapositive's hypothesis (not Q) is true, instead of those where it is true and its conclusion false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counts-the-wrong-set",
+        "Counts the values for a different clause, or for its negation, than the one the question names.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-counts-true-instances-not-failures",
+        "Gives the number of values where the statement is true when the number where it fails was asked for, or the reverse.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-negation-as-converse-failure",
+        "Takes the negation of 'if P then Q' to be true where the converse fails (Q and not P), instead of where P and not Q.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-negation-as-if-p-then-not-q",
+        "Negates 'if P then Q' as 'if P then not Q', which is a different implication and is true in many places the negation is false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-negation-counts-both-true",
+        "Counts the values where P and Q are both true as satisfying the negation, instead of P true and Q false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-negation-of-converse-as-negation",
+        "Counts where the negation of the original statement is true when the negation of the converse was asked for.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-off-by-one-in-count",
+        "Miscounts by one when listing the values that satisfy a clause, usually including or leaving out an end value.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-vacuous-truth-ignored",
+        "Counts only the values where both P and Q hold as making the implication true, forgetting that it is also true wherever the hypothesis is false.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-vacuous-truth-only",
+        "Counts only the values where the hypothesis is false as making the implication true, leaving out those where both clauses hold.",
+        area="implication-converse-contrapositive-counts",
+    ),
+    CatalogueEntry(
+        "sc-complement-for-proportion",
+        "Gives the proportion without the trait (the complement) instead of the proportion with it.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-count-over-hundred",
+        "Divides the count by 100 instead of by the sample size, treating it as a percentage.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-divides-by-one-fewer",
+        "Divides the total by one fewer than the number of samples when finding a mean.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-gap-as-fraction-of-p",
+        "Reports the gap between the mean of the simulated proportions and p as a fraction of p instead of as a difference.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-gap-sign-reversed",
+        "Subtracts the mean from the population proportion, so the gap has the wrong sign.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-interval-one-sd",
+        "Uses one standard deviation from the population proportion for the interval that holds about 95% of sample proportions, where 2 are needed.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-interval-three-sd",
+        "Uses three standard deviations from the population proportion for an interval described as holding about 95% of sample proportions.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-interval-uses-variance",
+        "Adds twice the variance (the standard deviation not square-rooted) to the population proportion to find the upper end of the interval.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-interval-width-not-endpoint",
+        "Gives the distance 2 sd from p, not the endpoint p + 2 sd.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-lower-limit-for-upper",
+        "Gives the lower end of the interval (p - 2 sd) where the upper end was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-mean-count-not-proportion",
+        "Averages the counts and leaves the result as a count, without dividing by the sample size to get a proportion.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-mean-not-divided-by-samples",
+        "Adds the sample proportions and does not divide by the number of samples.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-mean-reported-as-gap",
+        "Gives the mean of the simulated proportions where the difference from the population proportion was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-median-for-mean",
+        "Reports the middle sample proportion where the mean was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-forgets-one-minus-p",
+        "Finds the sample size from p over the squared standard deviation, leaving out the factor 1 - p.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-forgets-to-square-sd",
+        "Finds the sample size as p(1 - p) over the standard deviation, without squaring the standard deviation.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-increase-not-total",
+        "Gives how many more are needed than in the original samples, not the new sample size.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-proportional-to-sd-ratio",
+        "Takes the sample size to change by the same factor as the standard deviation, not by its square.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-ratio-inverted",
+        "Divides the sample size by the square of the ratio when it must be multiplied: a smaller spread needs larger samples.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-n-root-not-squared",
+        "Divides the square root of p(1 - p) by the standard deviation to get n, so it is the square root of the sample size.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-odds-for-proportion",
+        "Divides the count by the number without the trait (odds) instead of by the whole sample.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-forgets-one-minus-p",
+        "Finds the standard deviation of the sample proportion from p over n, leaving out the factor 1 - p.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-forgets-square-root",
+        "Gives the variance p(1 - p)/n as the standard deviation, without the square root.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-grows-with-n",
+        "Thinks the spread of sample proportions grows when the samples get larger.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-of-count-for-proportion",
+        "Gives the standard deviation of the count, the square root of np(1 - p), as that of the sample proportion.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-root-of-numerator-only",
+        "Takes the square root of p(1 - p) but divides by n, not by the square root of n.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-sd-scales-with-n",
+        "Divides the standard deviation by the full factor the sample size grew by, where it divides by the square root of that factor.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-uses-one-sample",
+        "Reports a single sample's proportion where the mean of all the simulated proportions was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-uses-population-proportion",
+        "Gives the population proportion p where the proportion in the sample was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-spread-divides-by-one-fewer",
+        "Divides the sum of squared deviations by one fewer than the number of samples, when the question says to divide by the number of samples.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-spread-variance-for-sd",
+        "Gives the variance of the simulated proportions where their standard deviation was asked for, leaving out the square root.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-mean-deviation-for-sd",
+        "Averages the absolute deviations from the mean instead of squaring them and taking a root.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-theory-for-data",
+        "Substitutes into the formula for the spread of a sample proportion when the spread of the listed simulated values was asked for.",
+        area="simulated-sample-proportion-calculations",
+    ),
+    CatalogueEntry(
+        "sc-coefficients-ignored",
+        "Adds the integrals of the separate terms without multiplying each by its coefficient.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-coefficients-swapped",
+        "Pairs each coefficient with the integral of the other term.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-limits-added",
+        "Adds the values at the two limits instead of subtracting the lower from the upper.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only, forgetting to subtract its value at the lower limit.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-sec-value-for-tan",
+        "Uses sec of the upper limit where tan of it belongs, for example 2 in place of the square root of 3 at pi/3.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-sign-slip",
+        "Gives the right size of a definite integral with the wrong sign.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-definite-tan-term-dropped",
+        "Evaluates only the x term of tan x - x, leaving out the tan term.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-reduction-sign",
+        "Adds the previous integral where it should be subtracted when reducing tan^n to tan^(n-2) sec^2 minus tan^(n-2).",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-reduction-term-dropped",
+        "Leaves out the integral of the lower power, keeping only the integral of tan^(n-2) sec^2.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-reduction-wrong-denominator",
+        "Uses 1 over the wrong odd number for the integral of tan^(n-2) sec^2 when reducing tan^n.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-power-lowered",
+        "Integrates sec^n x tan x to sec^(n-1) x/(n-1), lowering the power instead of keeping it.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-power-rule-on-trig",
+        "Applies the power rule to sec^4 x, giving sec^5 x/5 as if sec x were the variable.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-power-rule-wrong-exponent",
+        "Integrates sec^n x tan x to sec^(n+1) x/(n+1) by applying the power rule to sec x alone.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-substituted-power-not-divided",
+        "After substituting u = sec x, integrates u^(n-1) without dividing by the new exponent n.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-inner-derivative-ignored",
+        "Integrates a function of kx without dividing by k, the coefficient of x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-integrated-as-tan-squared",
+        "Integrates sec x tan x to tan^2 x/2 (or the same at the limits), as if it were tan x times its own derivative.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-power-rule",
+        "Integrates sec x tan x to sec^2 x/2, treating the product as a power of sec x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-sec-dropped",
+        "Integrates sec x tan x to tan x, dropping the sec x factor.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan-sign-slip",
+        "Gets the sign wrong when integrating a product of sec and tan, for example giving -sec x as the integral of sec x tan x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan3-denominators-swapped",
+        "Divides each power of sec x by the exponent of the other in the antiderivative of sec^m x tan^3 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan3-exponents-off-by-one",
+        "Writes the powers of sec x in the antiderivative of sec^m x tan^3 x one lower than they should be.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan3-identity-sign",
+        "Uses tan^2 x = sec^2 x + 1, so the two terms of the antiderivative are added instead of subtracted.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec-tan3-term-dropped",
+        "Leaves out one of the two terms of the antiderivative of sec^m x tan^3 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec4-cube-not-divided",
+        "Integrates (1 + tan^2 x) sec^2 x to tan x + tan^3 x, without dividing the cube term by 3.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec4-identity-sign",
+        "Uses sec^2 x = tan^2 x - 1, so the cube term is subtracted instead of added.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-sec4-term-dropped",
+        "Leaves out one of the two terms of tan x + tan^3 x/3 when integrating sec^4 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-substituted-power-not-divided",
+        "After substituting u = tan x, integrates the power of u without dividing by the new exponent.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-substituted-power-not-divided-by-own-exponent",
+        "Divides every term of the integral of u^2(1 + u^2) by 3 instead of by its own new exponent.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-inner-derivative-ignored",
+        "Integrates a tan or sec function of kx without dividing by k.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-integrated-as-sec",
+        "Integrates tan x to sec x, confusing an integral with a derivative.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-power-rule-on-trig",
+        "Applies the power rule to tan^n x, giving tan^(n+1) x/(n+1) as if tan x were the variable.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-reduction-sign",
+        "Gets a sign wrong when splitting tan^4 x as tan^2 x sec^2 x - tan^2 x, so a term of the antiderivative carries the wrong sign.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-reduction-term-dropped",
+        "Leaves the x term out of tan^3 x/3 - tan x + x, forgetting the constant that tan^2 = sec^2 - 1 leaves behind.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sec-divides-by-old-exponent",
+        "After substituting u = tan x, divides u^(m+1) by the old exponent m instead of the new exponent m + 1.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sec-exponent-not-raised",
+        "Divides by m + 1 but leaves the power of tan x unchanged instead of raising it by one.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sec-inner-derivative-ignored",
+        "Integrates tan^m(kx) sec^2(kx) with u = tan(kx) but does not divide by k.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sec-sign-slip",
+        "Puts a negative sign on the integral of tan^m x sec^2 x, as if a cosine were being integrated.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sq-constant-not-integrated",
+        "Writes tan^2 x = sec^2 x - 1 but integrates the 1 to 1 instead of to x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sq-identity-sign",
+        "Uses tan^2 x = sec^2 x + 1, so the x term has the wrong sign.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan-sq-taken-as-sec-sq",
+        "Integrates tan^2 x as if it were sec^2 x, giving tan x with no x term.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan1-log-of-sec-value-not-halved",
+        "Gives ln 2 for the integral of tan x from 0 to pi/4, using sec(pi/4) squared (2) inside the logarithm instead of its value, the square root of 2.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan3-log-sign",
+        "Gets the sign of the logarithm term wrong in the antiderivative tan^2 x/2 + ln|cos x| of tan^3 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan3-log-term-dropped",
+        "Leaves out the logarithm term of the antiderivative of tan^3 x.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-tan3-power-term-dropped",
+        "Leaves out the tan^2 x/2 term of the antiderivative of tan^3 x, keeping only the logarithm.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-wrong-earlier-part-used",
+        "Combines the wrong earlier results, using the integral of the lowest power where a higher one belongs.",
+        area="integrate-tan-sec-powers",
+    ),
+    CatalogueEntry(
+        "sc-cx-angle-ignored",
+        "Replaces cos θ or sin θ by 1 and keeps only the coefficient, as if the angle made no difference.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-binomial-coefficient-dropped",
+        "Expands (a + bi)^3 with the cross terms lacking their binomial coefficient 3.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-conjugate-terms-cancel",
+        "Takes e^(iθ) + e^(-iθ), or the same with a minus, to be 0 because the two terms look like opposites.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-cos-sin-swapped",
+        "Swaps the roles of cosine and sine, giving the imaginary part where the real part was asked for or the reverse.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-cross-term-not-doubled",
+        "Expands (a + bi)^2 with a middle term ab instead of 2ab.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-constant-dropped",
+        "Evaluates the exponential terms correctly but leaves out the constant added to them.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-factor-two-dropped",
+        "Takes e^(iθ) + e^(-iθ) (or the difference over i) to be cos θ (or sin θ), forgetting that it is twice that.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-pi-as-one",
+        "Takes e^(iπ) to be 1 rather than -1.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-two-pi-as-minus-one",
+        "Takes e^(2iπ) to be -1, as if a full turn were a half turn.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-euler-values-swapped",
+        "Swaps the values of e^(iπ) and e^(2iπ), using 1 for the half turn and -1 for the full turn.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-i-cubed-as-i",
+        "Takes i^3 to be i rather than -i, so the sign of a term in (a + bi)^3 is wrong.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-i-squared-as-one",
+        "Takes i^2 to be 1 instead of -1, so a product of imaginary parts is added where it should be subtracted.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-imaginary-part-dropped",
+        "Expands (a + bi)^n as a^n, ignoring every term that contains b.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-moduli-added",
+        "Adds the moduli when multiplying two complex numbers, where they multiply.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-moduli-not-divided",
+        "Multiplies the moduli when dividing two complex numbers, where they divide.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-modulus-added",
+        "Adds r to cos θ or sin θ instead of multiplying, so r(cos θ + i sin θ) is read with the modulus added on.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-modulus-dropped",
+        "Gives cos θ or sin θ alone, leaving out the modulus r as a factor.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-modulus-not-raised",
+        "Raises the argument to the power but leaves the modulus as r, instead of r^n.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-modulus-sum-not-root",
+        "Adds the sizes of the real and imaginary parts to find the modulus instead of using the square root of the sum of squares.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-parts-swapped-in-expansion",
+        "Gives the imaginary part of (a + bi)^n where the real part was asked for, or the reverse.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-quadrant-sign-lost",
+        "Uses the first-quadrant value of cos θ or sin θ and loses its sign in the quadrant the angle is in.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-quotient-arguments-reversed",
+        "Subtracts the arguments in the wrong order when dividing, so the angle has the wrong sign.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-second-argument-ignored",
+        "Uses only the argument of the first number when combining two numbers in exponential form.",
+        area="complex-exponential-form-conversions",
+    ),
+    CatalogueEntry(
+        "sc-cx-sign-reversed",
+        "Gives the right size with the wrong sign.",
+        area="complex-exponential-form-conversions",
+    ),
+    # sc consumer block end
+    # dg block begin
+    CatalogueEntry(
+        "dg-gt-adjacent-counts-itself",
+        "Counts the vertex itself as one of its own adjacent vertices.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-adjacent-all-others",
+        "Takes every other vertex as adjacent, ignoring which are actually joined by an edge.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-adjacent-for-nonadjacent",
+        "Counts the adjacent vertices when the vertices NOT adjacent were asked for.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-degree-of-wrong-vertex",
+        "Reads the degree of a different vertex, or the second greatest degree, not the greatest.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-edges-as-degree-sum",
+        "Gives the sum of the degrees as the number of edges, so every edge is counted twice.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-edges-miscount",
+        "Miscounts the edges by one, usually missing one that is hidden behind a crossing or counted from both ends.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-vertices-as-edges",
+        "Gives the number of vertices where the number of edges was asked for.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-components-isolated-only",
+        "Counts only the isolated vertices as separate pieces and treats every larger piece as part of one.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-components-as-edges-needed",
+        "Gives the number of components as the number of edges to add, forgetting that joining c pieces takes c - 1 edges.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-components-edges-per-vertex",
+        "Adds one edge for every vertex that is not in the largest piece, instead of one edge per piece.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-components-miscount",
+        "Miscounts the separate pieces of the network by one.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-subgraph-all-vertices",
+        "Counts every vertex of the network in the subgraph, not only the ends of the thick edges.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-subgraph-counts-its-own-edges",
+        "Gives the edges of the subgraph when the edges of the network that it leaves out were asked for.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-subgraph-vertices-of-network",
+        "Gives the number of vertices of the whole network where the subgraph's vertices were asked for.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-loop-counted-once",
+        "Counts a loop once towards the degree of its vertex; a loop leaves the vertex at both of its ends, so it adds 2.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-loop-not-counted",
+        "Ignores the loop when finding the degree of its vertex.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-multiple-all-copies",
+        "Counts every copy of a repeated edge as a multiple edge, instead of only the extra copies.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-loops-as-multiple",
+        "Counts the loops as multiple edges, or the multiple edges as loops.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-simple-keeps-repeats",
+        "Removes the loops but leaves the repeated edges when making the graph simple.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-simple-keeps-loops",
+        "Removes the repeated edges but leaves the loops when making the graph simple.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-delete-vertex-keeps-edges",
+        "Deletes a vertex but keeps the edges that were at it.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-gt-delete-vertex-uses-sum",
+        "Takes away the number of vertices adjacent to the deleted vertex twice, once for each end of its edges.",
+        area="graph-terms-from-a-network",
+    ),
+    CatalogueEntry(
+        "dg-cc-tally-miscount",
+        "Miscounts one category when sorting the responses, so one column is a unit too tall or too short.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-categories-swapped",
+        "Gives two categories each other's heights, matching a count to the wrong label.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-value-as-height",
+        "Uses the data value itself as the height of its column instead of counting how many times it occurs.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-zero-column-skipped",
+        "Gives a value that never occurs the height of the next value, skipping the column that should be zero.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-key-ignored",
+        "Draws one symbol for every item and ignores the key that says a symbol stands for more than one.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-key-multiplied",
+        "Multiplies the count by the key instead of dividing, so the rows are far too long.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-half-symbol-dropped",
+        "Drops the half symbol for an odd count, so the row is half a symbol too short.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-half-symbol-whole",
+        "Draws a whole symbol where a half symbol is needed, so the row is half a symbol too long.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-missing-total-as-count",
+        "Gives the total as the missing count, forgetting to take away the counts already known.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-missing-one-category-left-out",
+        "Leaves one known count out of the subtraction when finding the missing count.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-range-added",
+        "Adds the tallest and shortest column instead of finding how much taller one is.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-second-tallest",
+        "Compares the tallest column with the second shortest, or the second tallest with the shortest.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-cc-difference-in-items-not-symbols",
+        "Gives the difference in items when the difference in symbols was asked for, forgetting to divide by the key.",
+        area="construct-column-and-picture-graphs",
+    ),
+    CatalogueEntry(
+        "dg-dp-one-dot-per-value",
+        "Draws one dot above each different value, so a repeated value is not stacked.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-dots-shifted",
+        "Puts the dots one tick to the side of the value they belong to, so every stack is on the wrong value.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-value-as-dots",
+        "Uses the value itself as the number of dots above it instead of counting how many times it occurs.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-gap-closed",
+        "Squeezes the empty ticks out of the axis, so the stacks after a gap sit one value too low.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-miscount-one",
+        "Miscounts one stack by one dot when tallying the list.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-mode-as-count",
+        "Gives the number of dots in the tallest stack where the value of the mode was asked for.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-mode-second",
+        "Picks the second tallest stack, or the highest value, as the mode.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-median-as-middle-value",
+        "Takes the middle value of the axis, not the middle of the ordered data, as the median.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-median-as-mean-of-extremes",
+        "Takes the halfway point between the lowest and highest value as the median.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-median-even-lower",
+        "Takes the lower of the two middle values as the median when the number of values is even.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-difference-reversed",
+        "Subtracts the median from the mode when the median minus the mode was asked for.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-dp-difference-uses-count",
+        "Uses the number of dots at the mode instead of the mode itself in the difference.",
+        area="construct-dot-plots-from-data",
+    ),
+    CatalogueEntry(
+        "dg-sl-leaves-unordered",
+        "Writes the leaves of a row in the order the values were listed instead of in increasing order.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-leaves-descending",
+        "Writes the leaves of a row from largest to smallest instead of smallest to largest.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-repeat-written-once",
+        "Writes a repeated value's leaf only once, so the row is one leaf short.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-leaf-dropped",
+        "Leaves one value out of the plot, so a row has a leaf missing.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-whole-value-as-leaf",
+        "Writes the whole value as the leaf instead of only its last digit.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-leaf-in-wrong-stem",
+        "Puts a value in the row of the next stem, for example a number in the twenties in the thirties row.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-count-stems",
+        "Gives the number of stems as the number of values.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-count-off-one",
+        "Miscounts the leaves by one when finding how many values there are.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-position-half-n",
+        "Halves the number of values to find the position of the median, forgetting to add 1 first.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-position-not-halved",
+        "Gives n + 1 as the position of the median without halving it.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-median-position-as-value",
+        "Gives the position of the median as if it were the median itself.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-median-of-leaves-only",
+        "Finds the middle leaf and forgets to put its stem in front of it.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-median-middle-stem",
+        "Takes the middle of the stems (or the middle row's first value) as the median.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-sl-median-even-lower",
+        "Takes the lower of the two middle values as the median when the number of values is even.",
+        area="construct-stem-and-leaf-plots",
+    ),
+    CatalogueEntry(
+        "dg-cd-mode-as-frequency",
+        "Gives how many times the mode occurs (the height of the tallest stack or the number of leaves) instead of the mode itself.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-difference-reversed",
+        "Subtracts the larger measure from the smaller, so the difference has the wrong sign.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-difference-added",
+        "Adds the two measures instead of finding how much greater one is than the other.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-range-as-highest",
+        "Gives the highest value as the range instead of taking the lowest away from it.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-leaf-as-value",
+        "Reads a leaf as the whole value, ignoring its stem, when reading the stem-and-leaf plot.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-median-axis-middle",
+        "Takes the middle of the axis (or of the stems) as the median instead of the middle of the ordered values.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-median-even-lower",
+        "Takes the lower of the two middle values as the median when there is an even number of values.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-median-halfway-extremes",
+        "Takes the value halfway between the lowest and highest values as the median.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-count-total",
+        "Adds the two numbers of values when how many more one group has than the other was asked.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-count-off-one",
+        "Miscounts the values by one when reading a display.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-ticks-not-dots",
+        "Counts the ticks on the dot plot's axis where the number of values (dots) was needed.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-above-includes-equal",
+        "Counts values equal to the median as well as the values above it when only values above were asked.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-below-includes-equal",
+        "Counts values equal to the median as well as the values below it when only values below were asked.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-combined-range-of-one",
+        "Gives the larger of the two groups' ranges as the range of the combined data.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-cd-combined-range-added",
+        "Adds the two groups' ranges to get the range of the combined data.",
+        area="compare-two-data-displays",
+    ),
+    CatalogueEntry(
+        "dg-rd-gridlines-not-scaled",
+        "Counts the gridlines up to the line and gives that count, forgetting that each gridline stands for more than 1.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-off-one-gridline",
+        "Reads the value one gridline too high or too low.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-axes-swapped",
+        "Gives the amount that was stated in the question, reading the wrong axis instead of the one asked for.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-intercept-at-first-unit",
+        "Reads the starting value at the first unit of the horizontal axis instead of at zero.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-intercept-zero",
+        "Says the starting value is 0, as if the line began at the origin, when it starts higher up the vertical axis.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-ignores-intercept",
+        "Divides a reading by its horizontal amount to find the rate, which only works for a line through the origin and includes the starting value.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-as-rise",
+        "Gives the whole rise between two readings as the rate instead of dividing by the run.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-inverted",
+        "Divides the run by the rise, finding the units of one thing per unit of the other, upside down.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-as-value",
+        "Gives a reading on the line (including the starting value) where the rate of change was asked.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-gridlines",
+        "Finds the rise per gridline across, forgetting that a step on each axis stands for more than 1.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-rate-sign",
+        "Gives the rate of a falling line as a negative amount (or a rising one as a loss) when the amount used or added each unit was asked.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-extrapolate-ignores-intercept",
+        "Multiplies the rate by the new amount and leaves out the starting value.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-extrapolate-adds-units",
+        "Carries on the line by adding 1 for each extra unit instead of adding the rate.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-extrapolate-ratio",
+        "Scales the last reading up in proportion to the amount, which is wrong when the line does not start at zero.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-extrapolate-intercept-twice",
+        "Adds the starting value on twice when carrying the line past the edge of the graph.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-far-ignores-intercept",
+        "Divides the whole budget by the rate without taking away the starting charge first.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-far-adds-intercept",
+        "Adds the starting charge to the budget instead of taking it away before dividing by the rate.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-stop-as-distance",
+        "Gives the distance at the stop instead of the time it lasted.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-stop-as-end-time",
+        "Gives the time the stop ended instead of how long it lasted.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-average-of-speeds",
+        "Averages the speeds of the stages (with 0 for the stop) instead of dividing the total distance by the total time.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-average-excludes-stop",
+        "Divides the total distance by the time spent moving only, leaving out the stop.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-average-as-distance",
+        "Gives the total distance where the average speed was asked.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-stage-reads-end",
+        "Gives the distance at the end of the stage as its speed, forgetting to subtract the start and divide by the time.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-rd-stage-distance-not-speed",
+        "Gives the distance travelled in the stage without dividing by the hours it took.",
+        area="read-values-and-rates-from-real-data-graphs",
+    ),
+    CatalogueEntry(
+        "dg-gm-reference-reversed",
+        "Reads the grid reference the wrong way round, taking the number as the column and the letter as the row.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-row-from-top",
+        "Counts the rows from the top of the map instead of from the bottom.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-counts-start-square",
+        "Counts the square the move starts from as the first square of the move, ending one square short.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-one-square-too-far",
+        "Moves one square too far along the row or column.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-direction-reversed",
+        "Moves west when east was asked, or south when north was asked.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-moves-swapped",
+        "Swaps the two moves, going the east-west number of squares up and the north-south number across.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-region-corners-only",
+        "Shades only the corner squares of the region instead of every square inside the rectangle.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-region-edge-left-out",
+        "Shades a rectangle one row or column short, leaving out the squares on the far edge.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-between-includes-ends",
+        "Shades the squares of the two landmarks as well as the squares between them.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-between-one-short",
+        "Shades one square fewer than lie between the landmarks.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-count-includes-start",
+        "Counts the starting square as well as the squares moved, giving one too many.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-count-reference-difference",
+        "Subtracts the letters' places and the numbers the wrong way round, mixing up which is the east-west distance.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-walk-as-diagonal",
+        "Gives the larger of the two moves as the length of the walk instead of adding them.",
+        area="place-features-on-a-grid-map",
+    ),
+    CatalogueEntry(
+        "dg-gm-walk-product",
+        "Multiplies the east-west and north-south moves instead of adding them.",
+        area="place-features-on-a-grid-map",
+    ),
+    # dg block end
+)
+
+# -- generic, appended with the data-display, early-years, graph-transformation and senior-statistics builds ------
+_ENTRIES += (
+    CatalogueEntry(
+        "dg-near-miss-value",
+        "Reads, counts or works out a value a little way from the right one: out by one or two, with no single "
+        "method behind the slip.",
+        area="data-displays",
+    ),
+    CatalogueEntry(
+        "near-miss-value",
+        "Gives a value a little way from the right one: out by one or two in a count or a reading, with no single "
+        "method behind the slip.",
+        area="general",
+    ),
 )
 
 #: Every entry, by id.

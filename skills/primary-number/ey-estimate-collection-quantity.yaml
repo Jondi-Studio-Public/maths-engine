@@ -1,0 +1,59 @@
+id: ey-estimate-collection-quantity
+name: Estimate the quantity of objects in a collection
+domain: primary-number
+year_level: ['3']
+naplan_domain: [number]
+learner_band: early
+description: "Estimate to the nearest 10 how many trees, houses or tents are scattered in a picture, using a box that marks one fifth of it, by sizing up tens by eye, and by estimating each side of a divided picture and combining them."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: [place-value-to-100]
+answer: number
+sources:
+- topic: eyz_estimate_collection
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: eyz_estimate_collection
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: eyz_estimate_collection
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: eyz_estimate_collection_exam
+  params: {}
+  difficulty: exam
+  stages: [exam]
+difficulty_progression:
+  easy: {steps: 2, demand: "Count the objects in the marked box, scale it up by the share of the picture it covers, then round to the nearest 10."}
+  medium: {steps: 3, demand: "With no box to help, size up a larger collection in tens by eye and round the estimate to the nearest 10."}
+  hard: {steps: 4, demand: "Estimate each side of a divided picture to the nearest 10, then add the sides or find how many more on one side."}
+  exam: {steps: 6, demand: "Estimate the left side, then the right side, then the total, then multiply the total by an amount for each object, each answer following from the ones before."}
+misconceptions:
+- id: eyz-does-not-round-the-estimate
+  description: "Gives the exact count, or the exact total of the counts, without rounding to the nearest 10."
+- id: eyz-rounds-to-the-wrong-ten
+  description: "Rounds to the wrong multiple of 10."
+- id: eyz-gives-the-box-count
+  description: "Gives the number in the box as if it were the number in the whole picture."
+- id: eyz-wrong-share-of-the-whole
+  description: "Scales the box by the wrong share of the picture."
+- id: eyz-counts-one-part-only
+  description: "Estimates from only part of the picture."
+- id: eyz-adds-instead-of-subtracts
+  description: "Adds the two sides where how many more was asked."
+- id: eyz-reports-one-side-only
+  description: "Gives the estimate for one side only."
+- id: eyz-subtracts-instead-of-adds
+  description: "Finds the difference between the sides where the total was asked."
+- id: eyz-other-side
+  description: "Estimates the other side of the wall from the one asked about."
+- id: eyz-forgets-to-multiply
+  description: "Gives the number of objects where the amount for all of them was asked."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+tags: [acara-f10-v9, early, estimation, rounding, collections, ac9m3n05, figure]
