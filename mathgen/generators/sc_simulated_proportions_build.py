@@ -358,7 +358,8 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 @_thin_means_redraw
 def sc_simulated_proportions(rng, tier: str = "easy"):
     """Sample proportions, their mean and spread in simulated samples, and how spread depends on sample size."""
-    check(tier in _TIERS, f"unknown tier {tier!r}")
+    if tier not in _TIERS:
+        raise ValueError(f"unknown tier {tier!r}")
     return _TIERS[tier](rng)
 
 
