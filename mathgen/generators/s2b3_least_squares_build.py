@@ -22,7 +22,7 @@ from fractions import Fraction
 
 import sympy
 
-from ..core import attempts, check, generator, phrase
+from ..core import VerificationError, attempts, check, generator, phrase
 from ._s2b3_kit import (
     dot,
     etext,
@@ -217,6 +217,16 @@ def _draw_system(rng, rows, cols, den=24):
 
 
 def _medium(rng):
+    """One medium question; a system whose slips leave fewer than two distinct wrong columns is redrawn."""
+    for _ in attempts(60, "a system that leaves two usable distractors"):
+        try:
+            return _medium_once(rng)
+        except VerificationError as err:
+            if "distractors" not in str(err):
+                raise
+
+
+def _medium_once(rng):
     rows, cols = rng.choice(((3, 2), (4, 2), (4, 2)))
     a, b, x, r = _draw_system(rng, rows, cols)
     _verify(a, b, x)

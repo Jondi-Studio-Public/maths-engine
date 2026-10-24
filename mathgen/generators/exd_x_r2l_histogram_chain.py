@@ -203,8 +203,11 @@ def _build(rng: random.Random) -> dict:
             working=[
                 f"From {lo_i} to {start + (i + 1) * width} is {frac(1 - u)} of the class with frequency {freqs[i]}.",
                 f"From {start + j * width} to {hi_i} is {frac(v)} of the class with frequency {freqs[j]}.",
-                f"Count = {freqs[i]} x {frac(1 - u)} + (whole classes in between) + {freqs[j]} x {frac(v)} "
-                f"= {rational_text(prob_b * n)}, so the probability is {_over(rational_text(prob_b * n), n)} = {b_text}.",
+                f"Count = {freqs[i]} x {frac(1 - u)}"
+                + (f" + {sum(freqs[i + 1 : j])}" if j > i + 1 else "")
+                + f" + {freqs[j]} x {frac(v)} = {rational_text(prob_b * n)}, "
+                f"so the probability is {_over(rational_text(prob_b * n), n)}"
+                + (f" = {b_text}." if _over(rational_text(prob_b * n), n) != b_text else "."),
             ],
             distractors=b_d,
         ),

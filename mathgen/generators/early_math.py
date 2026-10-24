@@ -241,7 +241,15 @@ def teen_place_value(rng, hi=99):
         text = f"How many ones are in {number}?"
         # A multiple of ten has no ones, so the first four collapse to three; the last two keep four options.
         cands = [tens, (ones + 1) % 10, max(0, ones - 1), number, (ones + 2) % 10, (ones + 9) % 10]
-    return _number_question(text, answer, cands, latex=rf"{number}= {tens}\text{{ tens}}+{ones}\text{{ ones}}")
+    tens_text = f"{tens} {'ten' if tens == 1 else 'tens'}"
+    ones_text = f"{ones} {'one' if ones == 1 else 'ones'}"
+    return _number_question(
+        text,
+        answer,
+        cands,
+        latex=rf"{number}= {tens}\text{{ tens}}+{ones}\text{{ ones}}",
+        working=[f"{number} is {tens_text} and {ones_text}."],
+    )
 
 
 @generator("shape_names", level=1)

@@ -22,7 +22,7 @@ from fractions import Fraction
 
 import sympy
 
-from ..core import attempts, check, generator
+from ..core import VerificationError, attempts, check, generator
 from ._r3k_kit import (
     clean_working,
     stored,
@@ -243,7 +243,7 @@ def _hard_binomial_sum(rng):
         (p**k * q ** (n - k), "r3k-mgf-sum-forgot-the-coefficient"),
         (_product_of_marginals(p, q, n1, n2, k), "r3k-mgf-sum-product-of-probabilities"),
     ]
-    cands = [(rat(v), tag) for v, tag in cands if 0 < v < 1]
+    cands = [(rat(v), tag) for v, tag in cands if v is not None and 0 < v < 1]
     dist = need(expr_distractors(rat(key), cands))
     text = (
         f"X and Y are independent random variables with moment generating functions M_X(t) = ({_ft(q)} + {_coef_e(p)})^{n1} "
@@ -379,6 +379,16 @@ def r3k_mgf(rng, tier="easy"):
 def exd_x_r3k_mgf(rng, tier="exam"):
     """E(X), Var(X), P(X = k) and Var(aX + b) for a binomial or Poisson MGF."""
     check(tier == "exam", f"unknown tier {tier!r}")
+    # A family whose slips collapse onto the key leaves a part with one distractor: redraw the whole chain.
+    for _ in attempts(60, "an exam MGF chain whose parts each keep two distractors"):
+        try:
+            return _exam_once(rng)
+        except VerificationError as err:
+            if "distractors" not in str(err):
+                raise
+
+
+def _exam_once(rng):
     fam = rng.choice((_binomial, _poisson))(rng)
     d1, d2 = _check_family(fam)
     mean, var = fam.mean, fam.var

@@ -188,7 +188,7 @@ def _medium(rng):
         options=", ".join(texts[:-1]) + " and " + texts[-1],
         word=word,
     )
-    smallest = min(_UNITS[attr], key=_UNITS[attr].get)
+    smallest = min({m[1] for m in measures}, key=_UNITS[attr].get)  # the smallest unit the stem uses
     inner = [f"{_fmt(b / _UNITS[attr][smallest])} {smallest}" for _n, _u, b in measures]
     working = [f"In {_NAMES_OF[smallest]} they are {', '.join(inner)}.", f"The {word} is {key}."]
     fields = kit.mcq_fields(key, wrong)

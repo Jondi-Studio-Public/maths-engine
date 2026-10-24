@@ -27,6 +27,8 @@ def exd_x_m2_block_fencing(rng: random.Random, tier: str = "exam") -> dict:
         ln = rng.randint(w + 2, 60)
         p = rng.randint(2, w - 3)
         q = rng.randint(2, ln - 3)
+        if q >= w:
+            continue  # a notch side as long as the width would square off the block and change the perimeter
         price = rng.choice([14, 16, 18, 22, 25, 28, 32, 36, 45])
         area = w * ln
         remaining = area - p * q

@@ -116,7 +116,7 @@ def exd_x_pr2_angle_point_unknown(rng: random.Random, tier: str = "exam") -> dic
                 marks=1,
                 follow_through=f"{p}*part_b + {k}",
                 distractors=_options(Fraction(first), _whole_only(c_slips), _whole),
-                working=[f"{p} × {x} + {k} = {first} degrees."],
+                working=[f"{x if p == 1 else f'{p} × {x}'} + {k} = {first} degrees."],
             ),
         ],
     )

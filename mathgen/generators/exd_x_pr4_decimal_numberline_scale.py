@@ -18,6 +18,7 @@ from mathgen.answers import Distractor
 from mathgen.core import (
     attempts,
     check,
+    exact_decimal_string,
     generator,
     numeric_answer,
     pick_distractors,
@@ -93,6 +94,9 @@ def exd_x_pr4_decimal_numberline_scale(rng: random.Random, tier: str = "exam") -
     check(min(len(a_d), len(b_d), len(c_d)) >= 2, "too few distractors")
 
     stop = rng.choice(_STOPS)
+    step_text = exact_decimal_string(step, 3)
+    k_step = step_text if k == 1 else f"{k} × {step_text}"
+    j_step = step_text if j == 1 else f"{j} × {step_text}"
     stem = (
         f"{rng.choice(_SETTINGS)} Each gap between two labelled posts is divided into {sections} equal sections. "
         f"A {stop} (P) is {k} section{'s' if k != 1 else ''} past the {stated_precision_string(label, 1)} km post. "
@@ -109,8 +113,8 @@ def exd_x_pr4_decimal_numberline_scale(rng: random.Random, tier: str = "exam") -
                 marks=2,
                 sensible_range=(0, None),
                 working=[
-                    f"One section is 0.1 ÷ {sections} = {stated_precision_string(step, 3)} km.",
-                    f"P = {stated_precision_string(label, 1)} + {k} × {stated_precision_string(step, 3)} = {p_text} km.",
+                    f"One section is 0.1 ÷ {sections} = {step_text} km.",
+                    f"P = {stated_precision_string(label, 1)} + {k_step} = {p_text} km.",
                 ],
                 distractors=a_d,
             ),
@@ -122,7 +126,7 @@ def exd_x_pr4_decimal_numberline_scale(rng: random.Random, tier: str = "exam") -
                 marks=1,
                 sensible_range=(0, None),
                 follow_through=f"part_a + {j * step.numerator}/{step.denominator}",
-                working=[f"Q = {p_text} + {j} × {stated_precision_string(step, 3)} = {q_text} km."],
+                working=[f"Q = {p_text} + {j_step} = {q_text} km."],
                 distractors=b_d,
             ),
             dict(

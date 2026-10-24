@@ -15,23 +15,59 @@ Every answer is built from the chosen counts and then recomputed from the unit s
 
 from __future__ import annotations
 
-from mathgen.core import attempts, check, generator, phrase
+from mathgen.core import attempts, check, generator
 
 from . import _fr2c_kit as kit
 
 _NAMES = ("Mia", "Tom", "Aiko", "Dev", "Leila", "Sam", "Jess", "Kofi", "Priya", "Marcus", "Zoe", "Ben")
 _CONTAINERS = ("bucket", "jug", "bowl", "bottle", "tub", "watering can", "pot", "fish tank", "basin", "saucepan")
 _CAP_UNITS = ("cup", "mug", "scoop", "spoon")
-_ITEMS = ("pear", "book", "shoe", "melon", "teapot", "toy truck", "tin of beans", "pencil case", "apple", "lunchbox")
 _MASS_UNITS = ("block", "marble", "counter", "cube")
+# Rough real sizes, so a drawn story never has an everyday object the wrong way round (a tin of beans lighter than an
+# apple, a bucket holding less than a bottle). Objects drawn together differ by at least a factor of _GAP, and the
+# heavier (or larger) object always gets the larger count.
+_REAL_GRAMS = {
+    "pencil case": 100,
+    "apple": 180,
+    "pear": 200,
+    "toy truck": 300,
+    "tin of beans": 420,
+    "shoe": 500,
+    "book": 700,
+    "lunchbox": 900,
+    "teapot": 1100,
+    "melon": 2000,
+}
+_REAL_ML = {
+    "bottle": 600,
+    "bowl": 1000,
+    "jug": 1500,
+    "saucepan": 2500,
+    "tub": 3500,
+    "pot": 4000,
+    "watering can": 5000,
+    "basin": 8000,
+    "bucket": 10000,
+    "fish tank": 40000,
+}
+_GAP = 1.5
 
 
 def _plural(unit: str, n: int) -> str:
     return unit if n == 1 else unit + "s"
 
 
-def _pair(rng, pool):
-    a, b = rng.sample(pool, 2)
+def _by_size(rng, table, n):
+    """n names from `table`, lightest (smallest) first, each at least _GAP times the one before."""
+    for _ in attempts(500, "objects with clearly different real sizes"):
+        names = sorted(rng.sample(sorted(table), n), key=table.get)
+        if all(table[y] >= _GAP * table[x] for x, y in zip(names, names[1:])):
+            return names
+
+
+def _pair(rng, table):
+    """(smaller, larger) by real size."""
+    a, b = _by_size(rng, table, 2)
     return a, b
 
 
@@ -41,7 +77,7 @@ def _pair(rng, pool):
 def _easy(rng):
     cap = rng.random() < 0.5
     unit = rng.choice(_CAP_UNITS if cap else _MASS_UNITS)
-    a_thing, b_thing = _pair(rng, _CONTAINERS if cap else _ITEMS)
+    b_thing, a_thing = _pair(rng, _REAL_ML if cap else _REAL_GRAMS)  # the larger one gets the larger count
     small = rng.randint(3, 9)
     big = small + rng.randint(2, 8)
     diff = rng.random() < 0.5
@@ -53,17 +89,7 @@ def _easy(rng):
         verb = "balance"
     if diff:
         value = big - small
-        ask = phrase(
-            rng,
-            (
-                "How many more {u} does the {a} {v} than the {b}?",
-                "How many more {u} does the {a} {v} than the {b} {v}?",
-            ),
-            u=_plural(unit, 2),
-            a=a_thing,
-            v=verb,
-            b=b_thing,
-        )
+        ask = f"How many more {_plural(unit, 2)} does the {a_thing} {verb} than the {b_thing}?"
         wrong = [
             ("added-instead-of-subtracted", big + small),
             ("fr2c-reports-the-larger-count", big),
@@ -94,7 +120,7 @@ def _medium(rng):
     name = rng.choice(_NAMES)
     if kind == "fill":
         unit = rng.choice(_CAP_UNITS)
-        thing = rng.choice(_CONTAINERS)
+        thing = rng.choice(_CONTAINERS)  # one container, so no ordering to respect
         first, second = rng.randint(3, 8), rng.randint(3, 8)
         full = rng.randint(max(14, first + second + 1), 30)
         value = full - first - second
@@ -113,7 +139,7 @@ def _medium(rng):
         working = [f"{name} has poured {first} + {second} = {first + second}.", f"{full} - {first + second} = {value}."]
     elif kind == "more_than":
         unit = rng.choice(_MASS_UNITS)
-        a_thing, b_thing = _pair(rng, _ITEMS)
+        a_thing, b_thing = _pair(rng, _REAL_GRAMS)  # the second balances more than the first
         base = rng.randint(5, 15)
         extra = rng.randint(2, 6)
         value = base + base + extra
@@ -131,8 +157,12 @@ def _medium(rng):
         working = [f"The {b_thing} balances {base} + {extra} = {base + extra}.", f"{base} + {base + extra} = {value}."]
     else:
         unit = rng.choice(_MASS_UNITS)
-        big_thing, p, q = rng.sample(_ITEMS, 3)
-        pv, qv = rng.randint(3, 9), rng.randint(3, 9)
+        for _ in attempts(500, "an object clearly heavier than two others together"):
+            q, p, big_thing = _by_size(rng, _REAL_GRAMS, 3)
+            if _REAL_GRAMS[big_thing] >= 1.2 * (_REAL_GRAMS[p] + _REAL_GRAMS[q]):
+                break
+        qv = rng.randint(3, 8)
+        pv = rng.randint(qv + 1, 9)  # the heavier of the two has the larger count
         bigv = pv + qv + rng.randint(2, 9)
         value = bigv - pv - qv
         text = (
@@ -160,12 +190,12 @@ def _hard(rng):
     k = rng.randint(3, 5)  # small units in one big unit
     if cap:
         big_u, small_u = rng.choice([("mug", "spoon"), ("cup", "spoon"), ("scoop", "teaspoon"), ("jug", "cup")])
-        a_thing, b_thing = _pair(rng, _CONTAINERS)
+        a_thing, b_thing = _pair(rng, _REAL_ML)  # b_thing holds more, as its larger count says
         s_verb, p_verb, of = "holds", "hold", " of water"
         fill = f"To fill the {a_thing}, {name} uses"
     else:
         big_u, small_u = rng.choice([("brick", "block"), ("big weight", "small weight"), ("tin", "marble")])
-        a_thing, b_thing = _pair(rng, _ITEMS)
+        a_thing, b_thing = _pair(rng, _REAL_GRAMS)
         s_verb, p_verb, of = "balances", "balance", ""
         fill = f"To balance the {a_thing}, {name} uses"
     b = rng.randint(3, 7)

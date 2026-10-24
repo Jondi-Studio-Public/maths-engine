@@ -30,7 +30,7 @@ from __future__ import annotations
 import random
 from fractions import Fraction
 
-from mathgen.core import attempts, check, generator
+from mathgen.core import VerificationError, attempts, check, generator
 
 from ._ir2a_kit import NAMES, chain, fraction_part, mcq_part, number_part, single, tidy
 
@@ -495,7 +495,15 @@ _HARD_METHODS = (SIMPLE, SYSTEMATIC, STRATIFIED, CENSUS)
 
 
 def _two_part(rng, method: str, level: str) -> dict:
-    stem, number_p = _build(rng, method, level)
+    # A draw whose wrong values all land on the key (or on each other) leaves the number part with fewer than two
+    # usable distractors; redraw the numbers on the same stream rather than fail the question.
+    for _ in attempts(60, "numbers that leave two usable distractors"):
+        try:
+            stem, number_p = _build(rng, method, level)
+            break
+        except VerificationError as err:
+            if "fewer than two usable distractors" not in str(err):
+                raise
     return chain(stem, _method_part(rng, method, level), number_p)
 
 

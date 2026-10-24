@@ -125,7 +125,7 @@ KEY = {
 
 # What each class says about itself, used only by the easy tier ("The variable is ...").
 KIND_LINE = {
-    "A": "The variable is categorical: each person falls in exactly one category.",
+    "A": "The variable is categorical: each one falls in exactly one category.",
     "B": "The variable is categorical: each item falls in exactly one category.",
     "C": "The variable is numerical and continuous: each value is a measurement.",
     "D": "The variable is numerical and was recorded at regular points in time.",
