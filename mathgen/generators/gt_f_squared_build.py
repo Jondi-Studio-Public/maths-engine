@@ -94,6 +94,7 @@ def _easy(rng):
         (
             "The graph of the straight line y = f(x) is shown. State the coordinates of the turning point of the graph of y = (f(x))^2.",
             "The graph of y = f(x) is a straight line, as drawn. Find the coordinates of the turning point of the graph of y = (f(x))^2.",
+            "The straight line drawn is the graph of y = f(x). The graph of y = (f(x))^2 has one turning point. Where is it?",
         ),
     )
     figures.assert_no_leak(fig, [ans.text, *[d.text for d in options]])

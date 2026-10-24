@@ -97,6 +97,7 @@ def _easy(rng):
         (
             "The graph of the straight line y = f(x) is shown. Find the domain of the function y = sqrt(f(x)), as an inequality.",
             "The graph of y = f(x) is a straight line, as drawn. State the largest domain of the function y = sqrt(f(x)).",
+            "A straight line is drawn as the graph of y = f(x). For which values of x is the function y = sqrt(f(x)) defined? Give your answer as an inequality.",
         ),
     )
     figures.assert_no_leak(fig, [text, *[d.text for d in out["distractors"]]])
@@ -176,6 +177,7 @@ def _medium(rng):
         (
             "The graph of the parabola y = f(x) is shown. Find the domain of the function y = sqrt(f(x)), as an inequality.",
             "The graph of y = f(x) is drawn. State the largest domain of the function y = sqrt(f(x)).",
+            "Part of the graph of y = f(x) is drawn. For which values of x is the function y = sqrt(f(x)) defined? Give your answer as an inequality.",
         ),
     )
     figures.assert_no_leak(fig, [text, *[d.text for d in out["distractors"]]])
