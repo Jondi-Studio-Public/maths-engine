@@ -465,7 +465,8 @@ def gt_graph_transform(rng, tier="easy"):
     """The equation of a transformed graph; the tiers are described in the module docstring."""
     if tier in ("easy", "medium"):
         return _tidy(_worded(rng, tier))
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if tier != "hard":
+        raise ValueError(f"unknown tier {tier!r}")
     return _tidy(_hard(rng))
 
 
@@ -689,7 +690,8 @@ def _frac_latex(v):
 @retry_short
 def gt_graph_transform_exam(rng, tier="exam"):
     """Exam chain: the equation of the image, a feature of it, its y-intercept (follows through), a point's image."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "an exam chain with a rational y-intercept"):
         fam = FAMILIES[rng.choice(_EXAM_BASES)]
         ops = _draw_chain(rng, fam, "exam")
