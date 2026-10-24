@@ -92,6 +92,7 @@ def _finish(stem, key, cands, working):
         str(key), [c for c in cands if c.value > 0 and c.value != key], 3, tolerance=GRADER_TOLERANCE
     )
     need(options)
+    working = [line[:1].upper() + line[1:] for line in working]
     return dict(
         text=stem,
         answer_kind="number",

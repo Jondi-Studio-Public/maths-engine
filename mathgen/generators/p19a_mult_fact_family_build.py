@@ -177,7 +177,7 @@ def _candidates(first, second, divisor, product, quotient):
     return raw
 
 
-def _finalise(text, product, quotient, raw_candidates):
+def _finalise(text, product, quotient, raw_candidates, first, second, divisor):
     answer_pair = (product, quotient)
     answer_text = _labelled(product, quotient)
 
@@ -201,7 +201,11 @@ def _finalise(text, product, quotient, raw_candidates):
         answer_text=answer_text,
         answer_latex=latex_answer(answer_text, plain=True),
         distractors=pick_distractors(answer_text, formatted, n=3),
-        working=[f"product = {product}", answer_text],
+        working=[
+            f"product = {first} × {second} = {product}",
+            f"quotient = {product} ÷ {divisor} = {quotient}",
+            answer_text,
+        ],
     )
 
 
@@ -217,7 +221,7 @@ def _build(rng, tier: str = "easy"):
         _verify_pair(first, second, divisor, product, quotient)
         text = phrase(rng, _EASY_TEMPLATES, first=first, second=second)
         raw = _candidates(first, second, divisor, product, quotient)
-        return _finalise(text, product, quotient, raw)
+        return _finalise(text, product, quotient, raw, first, second, divisor)
 
     if tier == "medium":
         turnaround = rng.random() < 0.5
@@ -227,7 +231,7 @@ def _build(rng, tier: str = "easy"):
         templates = _MEDIUM_TURNAROUND if turnaround else _MEDIUM_SAME_AS_EASY
         text = phrase(rng, templates, first=first, second=second, divisor=divisor)
         raw = _candidates(first, second, divisor, product, quotient)
-        return _finalise(text, product, quotient, raw)
+        return _finalise(text, product, quotient, raw, first, second, divisor)
 
     # hard: worded quotitive/partitive division, divisor drawn independently.
     quotitive = rng.random() < 0.5
@@ -237,7 +241,7 @@ def _build(rng, tier: str = "easy"):
     templates = _HARD_QUOTITIVE if quotitive else _HARD_PARTITIVE
     text = phrase(rng, templates, first=first, second=second, divisor=divisor)
     raw = _candidates(first, second, divisor, product, quotient)
-    return _finalise(text, product, quotient, raw)
+    return _finalise(text, product, quotient, raw, first, second, divisor)
 
 
 @generator(

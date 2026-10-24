@@ -367,7 +367,12 @@ def timetable_itinerary_duration(rng, tier="easy"):
     # Use pick_distractors to select unique distractors
     distractors = pick_distractors(answer_text, candidates)
 
-    working = [f"{asked_label}'s journey takes {answer_duration} {_minute_word(answer_duration)}."]
+    asked_start_text = _clock12(_minutes_since_midnight_construction(asked_start_h, asked_start_m, asked_start_ap))
+    asked_end_text = _clock12(_minutes_since_midnight_construction(asked_end_h, asked_end_m, asked_end_ap))
+    working = [
+        f"From {asked_start_text} to {asked_end_text} is {answer_duration} {_minute_word(answer_duration)}.",
+        f"{asked_label}'s journey takes {answer_duration} {_minute_word(answer_duration)}.",
+    ]
 
     return dict(
         text=question_text,
