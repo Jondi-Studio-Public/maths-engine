@@ -203,13 +203,40 @@ def test_easy_smallest_counterexample_to_the_converse_has_a_varied_key():
     assert len(keys) >= 8 and max(keys.values()) / total <= 0.3, keys
 
 
+def _clause_tests():
+    """Clause text -> its test on n, for every clause the generator can print."""
+    import random
+
+    from mathgen.generators import sc_conditional_statements_build as gen
+
+    clauses = {}
+    for seed in range(20):
+        rng = random.Random(seed)
+        for pred in gen._hypotheses(rng) + gen._conclusions(rng):
+            clauses[pred.text] = pred.test
+    for k in range(2, 40):
+        for r in range(k):
+            pred = gen._remainder(k, r)
+            clauses[pred.text] = pred.test
+    return clauses
+
+
 def test_easy_smallest_counterexample_to_the_converse_key_has_no_fixed_rank():
+    clauses = _clause_tests()
     ranks = {}
     for seed in range(1500):
         q = make("sc_conditional_counts", seed=seed, difficulty="easy")
-        if "smallest value" in q.text and "converse" in q.text:
-            assert len(q.distractors) == 3
-            below = sum(int(d) < int(q.answer) for d in q.distractors)
-            ranks[below] = ranks.get(below, 0) + 1
+        if "smallest value" not in q.text or "converse" not in q.text:
+            continue
+        assert len(q.distractors) == 3
+        universe = int(re.search(r"from 1 to (\d+)", q.text)[1])
+        p_text, q_text = re.search(r"S: “if (.*?), then (.*?)”", q.text).groups()
+        test_p, test_q = clauses[p_text], clauses[q_text]
+        counterexamples = {n for n in range(1, universe + 1) if test_q(n) and not test_p(n)}
+        assert int(q.answer) == min(counterexamples), seed
+        # a wrong option is never itself a counterexample to the converse
+        assert not counterexamples & {int(d) for d in q.distractors}, (seed, q.distractors)
+        below = sum(int(d) < int(q.answer) for d in q.distractors)
+        ranks[below] = ranks.get(below, 0) + 1
     total = sum(ranks.values())
     assert set(ranks) >= {0, 1, 2} and max(ranks.values()) / total <= 0.45, ranks

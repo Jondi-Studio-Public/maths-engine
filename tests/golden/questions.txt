@@ -4750,7 +4750,7 @@
 {"answer": "No solution", "id": "identity-and-no-solution/medium/0/8dd23a64a279", "text": "Solve 8(x + 1) = 8x + 10. Which description of its solutions is correct?"}
 {"answer": "Every number is a solution", "id": "identity-and-no-solution/medium/1/3fc7ea6e5a28", "text": "How many solutions does 2(x + 1) = 2(x - 2) + 6 have?"}
 {"answer": "Every number is a solution", "id": "identity-and-no-solution/medium/2/367266ff0d19", "text": "How many solutions does 7x - 5 = 7(x + 4) - 33 have?"}
-{"answer": "6", "id": "implication-converse-contrapositive-counts/easy/0/8c0ff36764c8", "text": "Let n be a whole number from 1 to 64. Consider the statement S: “if n leaves a …"}
+{"answer": "6", "id": "implication-converse-contrapositive-counts/easy/0/bbfa4e5dbd43", "text": "Let n be a whole number from 1 to 64. Consider the statement S: “if n leaves a …"}
 {"answer": "3", "id": "implication-converse-contrapositive-counts/easy/1/66c4d58bb430", "text": "Let n be a whole number from 1 to 64. Consider the statement S: “if n is prime,…"}
 {"answer": "10", "id": "implication-converse-contrapositive-counts/easy/2/826178bd3689", "text": "Let n be a whole number from 1 to 48. Consider the statement S: “if n is a mult…"}
 {"answer": "(a) 36; (b) 43; (c) 14; (d) 21; (e) 35", "id": "implication-converse-contrapositive-counts/exam/0/b53df0d6ba16", "text": "Let n be a whole number from 1 to 72. Consider the statement S: “if n is odd, t…"}

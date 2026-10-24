@@ -317,7 +317,11 @@ def _easy(rng):
             (_nth(b, 3), "sc-counterexample-conclusion-true-only"),
             (_nth(a, 2), "sc-counterexample-hypothesis-only"),
             (_nth(a & b, 2), "sc-counterexample-both-true"),
+            (_nth(a, 3), "sc-counterexample-hypothesis-only"),
+            (_nth(a & b, 3), "sc-counterexample-both-true"),
         ]
+        # A wrong option must not itself be a counterexample to the converse (a later one is still a counterexample).
+        cands = [(v, t) for v, t in cands if v not in b - a]
         working = [
             f"A counterexample to the converse has its hypothesis ({_c(q, 'text')}) true and its conclusion ({_c(p, 'text')}) false.",
             f"The values of n that satisfy {_c(q, 'text')} start {_numbers(b, 6)}; the first of them that fails {_c(p, 'text')} is {ans}.",
