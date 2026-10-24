@@ -72,4 +72,5 @@ misconceptions:
   description: "Adds the faces and edges instead of using V - E + F = 2."
 - id: eyz-forgets-the-two-in-eulers-formula
   description: "Leaves out the 2 in V - E + F = 2."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 tags: [acara-f10-v9, early, space, prisms, pyramids, nets, faces-edges-vertices, ac9m3sp01]

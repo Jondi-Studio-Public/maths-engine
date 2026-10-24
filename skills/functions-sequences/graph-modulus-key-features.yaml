@@ -54,6 +54,7 @@ misconceptions:
 - {id: gtm-uses-one-zero, description: 'Giving the mirror pair of only one zero as the x-intercepts of f(|x|).'}
 - {id: gtm-uses-the-negative-zero, description: 'Giving the negative zero of f as an x-intercept of f(|x|) with positive x, ignoring that |x| is never negative.'}
 - {id: gtm-y-intercept-as-turning-point, description: 'Giving the y-intercept of the graph as its turning point.'}
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 3, demand: 'Factorise to find the vertex, then flip a vertex below the axis for |f|, or take |f(0)| for
       the y-intercept.'}

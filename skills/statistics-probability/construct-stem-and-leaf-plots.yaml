@@ -59,6 +59,7 @@ misconceptions:
   description: "Takes the middle of the stems (or the middle row's first value) as the median."
 - id: dg-sl-median-even-lower
   description: "Takes the lower of the two middle values as the median when the number of values is even."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 2, demand: "Split each two-digit value into stem and leaf and write each row's leaves in increasing order."}
   medium: {steps: 3, demand: "Sort a longer list into rows, keeping a repeated value's leaf as many times as it occurs."}

@@ -61,4 +61,5 @@ misconceptions:
   description: "Gives the size of one smallest turn where several turns were asked."
 - id: eyz-gives-the-rest-of-the-turn
   description: "Gives 360 degrees less the smallest turn."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 tags: [acara-f10-v9, early, space, symmetry, rotational-symmetry, ac9m4sp03, figure]

@@ -24,6 +24,7 @@ import re
 
 from .. import figures
 from ..core import attempts, check, generator
+from ._spread_kit import uses_rng
 from ..figure_kinds import grid
 from ..grading.grid import cell_text, cells_answer
 from ._dg_kit import numd, p_number
@@ -363,6 +364,7 @@ def _hard(rng):
 
 
 @generator("dg_grid_map", level=8, presets={t: {"tier": t} for t in ("easy", "medium", "hard")})
+@uses_rng
 def dg_grid_map(rng, tier="easy"):
     if tier not in ("easy", "medium", "hard"):
         raise ValueError(f"unknown tier {tier!r}")
@@ -378,6 +380,7 @@ def dg_grid_map(rng, tier="easy"):
 
 
 @generator("dg_grid_map_chain", level=8, presets={"exam": {"tier": "exam"}})
+@uses_rng
 def dg_grid_map_chain(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

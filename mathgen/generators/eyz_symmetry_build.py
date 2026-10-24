@@ -24,9 +24,9 @@ import re
 
 from .. import figures
 from ..answers import Distractor
-from ..core import GRADER_TOLERANCE, check, generator, latex_answer, pick_distractors
+from ..core import GRADER_TOLERANCE, check, generator, latex_answer
 from ..figure_kinds.space import diagram
-from ._ey2a_kit import tagged_numbers
+from ._spread_kit import pick_distractors, tagged_numbers, uses_rng
 
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
@@ -379,6 +379,7 @@ def _order_question(rng, name: str) -> dict:
 
 
 @generator("eyz_symmetry_count", level=4, presets=_PRESETS)
+@uses_rng
 def eyz_symmetry_count(rng, tier="easy"):
     _tier(tier)
     if tier == "easy":
@@ -429,6 +430,7 @@ def _part(prompt, value, marks, candidates, working, *, follow_through=None, sen
 
 
 @generator("eyz_symmetry_count_exam", level=4, presets={"exam": dict(tier="exam")})
+@uses_rng
 def eyz_symmetry_count_exam(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

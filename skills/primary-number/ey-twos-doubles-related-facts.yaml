@@ -77,4 +77,5 @@ misconceptions:
   description: "Doubles where the amount was to be halved."
 - id: story-one-quantity-ignored
   description: "Leaves one of the quantities in the story out."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 tags: [acara-f10-v9, early, multiplication, division, doubling, halving, fact-families, ac9m2a03]

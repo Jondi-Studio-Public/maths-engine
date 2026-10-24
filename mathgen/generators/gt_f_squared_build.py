@@ -30,7 +30,8 @@ import numpy as np
 from .. import figures
 from ..core import attempts, check, generator, phrase
 from ._gt_quad import curve_points, para, plane, quad_text, verify_square, vertex_of
-from ._sr2b_kit import Pair, int_dist, number_fields, pair_candidates, pick, retry_short
+from ._sr2b_kit import Pair, int_dist, number_fields, pair_candidates, retry_short
+from ._spread_kit import pick, uses_rng
 
 # --------------------------------------------------------------------------------------------------------- shared
 
@@ -283,6 +284,7 @@ figures.register_reader("gt_f_squared", _read)
     level=14,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 @retry_short
 def gt_f_squared(rng, tier="easy"):
     """A turning or meeting point of y = f(x)^2; the tiers are described in the module docstring."""
@@ -306,6 +308,7 @@ def _count_solutions(fn, c: float, lo: float, hi: float) -> int:
 
 
 @generator("gt_f_squared_exam", level=15, presets={"exam": dict(tier="exam")})
+@uses_rng
 @retry_short
 def gt_f_squared_exam(rng, tier="exam"):
     """Exam chain on f(x) = x^2 - 2hx + h^2 - m^2: least value, local maximum of f^2, turning points, solutions of f^2 = c."""

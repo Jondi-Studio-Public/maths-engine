@@ -28,7 +28,8 @@ from fractions import Fraction
 
 from ..core import VerificationError, attempts, check, generator
 from ._r3b_kit import Redraw, retry
-from ._r3d_kit import clear_of_boundary, dec, number_fields, number_part, sqrt_of
+from ._r3d_kit import clear_of_boundary, dec, sqrt_of
+from ._spread_kit import number_fields, number_part, uses_rng
 
 F = Fraction
 
@@ -361,6 +362,7 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 
 
 @generator("sc_simulated_proportions", level=20, presets=_PRESETS)
+@uses_rng
 @retry
 @_thin_means_redraw
 def sc_simulated_proportions(rng, tier: str = "easy"):
@@ -374,6 +376,7 @@ def sc_simulated_proportions(rng, tier: str = "easy"):
 
 
 @generator("sc_simulated_proportions_exam", level=20, presets={"exam": {}})
+@uses_rng
 @retry
 @_thin_means_redraw
 def sc_simulated_proportions_exam(rng):

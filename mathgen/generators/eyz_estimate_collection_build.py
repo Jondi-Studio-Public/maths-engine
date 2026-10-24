@@ -25,8 +25,7 @@ import re
 from .. import figures
 from ..core import attempts, check, generator
 from ..figure_kinds.grid import grid_drawing
-from ._ey2a_kit import tagged_numbers
-from ._pr6_chain_kit import whole_part
+from ._spread_kit import tagged_numbers, whole_part, uses_rng
 
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
@@ -80,6 +79,11 @@ def _wrongs_single(count: int, ans: int, extra=()) -> list:
     ]
 
 
+def _tens(candidates):
+    """The candidates that are whole tens: every option of an estimate to the nearest 10 is one."""
+    return [(v, t) for v, t in candidates if v % 10 == 0]
+
+
 def _question(text: str, ans: int, cands, working, fig) -> dict:
     return dict(
         text=text,
@@ -89,7 +93,8 @@ def _question(text: str, ans: int, cands, working, fig) -> dict:
         answer_latex=str(ans),
         answer_kind="number",
         working=working,
-        distractors=tagged_numbers(ans, cands, low=1, high=150),
+        # Every option is a nearest-10 value, as the stem asks: a raw count would give the key away by not being one.
+        distractors=tagged_numbers(ans, [(v, t) for v, t in cands if v % 10 == 0], low=1, high=150, step=10),
         figure=fig,
     )
 
@@ -118,9 +123,9 @@ def _easy(rng) -> dict:
         count,
         ans,
         extra=[
-            (k, "eyz-gives-the-box-count"),
-            (4 * k, "eyz-wrong-share-of-the-whole"),
-            (6 * k, "eyz-wrong-share-of-the-whole"),
+            (_round10(k), "eyz-gives-the-box-count"),
+            (_round10(4 * k), "eyz-wrong-share-of-the-whole"),
+            (_round10(6 * k), "eyz-wrong-share-of-the-whole"),
         ],
     )
     working = [
@@ -216,6 +221,7 @@ def _hard(rng) -> dict:
 
 
 @generator("eyz_estimate_collection", level=3, presets=_PRESETS)
+@uses_rng
 def eyz_estimate_collection(rng, tier="easy"):
     if tier not in _TIERS:
         raise ValueError(f"unknown tier {tier!r}")
@@ -223,6 +229,7 @@ def eyz_estimate_collection(rng, tier="easy"):
 
 
 @generator("eyz_estimate_collection_exam", level=3, presets={"exam": dict(tier="exam")})
+@uses_rng
 def eyz_estimate_collection_exam(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
@@ -256,42 +263,51 @@ def eyz_estimate_collection_exam(rng, tier="exam"):
                 f"About how many {things} on the left side?",
                 ra,
                 1,
-                [
-                    (a, "eyz-does-not-round-the-estimate"),
-                    (ra + 10, "eyz-rounds-to-the-wrong-ten"),
-                    (rb, "eyz-other-side"),
-                    (ra - 10, "eyz-rounds-to-the-wrong-ten"),
-                    (ra + 20, None),
-                    (ra + 30, None),
-                ],
+                _tens(
+                    [
+                        (a, "eyz-does-not-round-the-estimate"),
+                        (ra + 10, "eyz-rounds-to-the-wrong-ten"),
+                        (rb, "eyz-other-side"),
+                        (ra - 10, "eyz-rounds-to-the-wrong-ten"),
+                        (ra + 20, None),
+                        (ra + 30, None),
+                    ]
+                ),
+                step=10,
                 working=[f"There are {a} on the left, about {ra} to the nearest 10."],
             ),
             whole_part(
                 f"About how many {things} on the right side?",
                 rb,
                 1,
-                [
-                    (b, "eyz-does-not-round-the-estimate"),
-                    (rb + 10, "eyz-rounds-to-the-wrong-ten"),
-                    (ra, "eyz-other-side"),
-                    (rb - 10, "eyz-rounds-to-the-wrong-ten"),
-                    (rb + 20, None),
-                    (rb + 30, None),
-                ],
+                _tens(
+                    [
+                        (b, "eyz-does-not-round-the-estimate"),
+                        (rb + 10, "eyz-rounds-to-the-wrong-ten"),
+                        (ra, "eyz-other-side"),
+                        (rb - 10, "eyz-rounds-to-the-wrong-ten"),
+                        (rb + 20, None),
+                        (rb + 30, None),
+                    ]
+                ),
+                step=10,
                 working=[f"There are {b} on the right, about {rb} to the nearest 10."],
             ),
             whole_part(
                 f"Hence, about how many {things} on both sides?",
                 total,
                 2,
-                [
-                    (abs(ra - rb), "eyz-subtracts-instead-of-adds"),
-                    (total + 10, "eyz-rounds-to-the-wrong-ten"),
-                    (a + b, "eyz-does-not-round-the-estimate"),
-                    (ra, "eyz-reports-one-side-only"),
-                    (total - 10, "eyz-rounds-to-the-wrong-ten"),
-                    (total + 20, None),
-                ],
+                _tens(
+                    [
+                        (abs(ra - rb), "eyz-subtracts-instead-of-adds"),
+                        (total + 10, "eyz-rounds-to-the-wrong-ten"),
+                        (a + b, "eyz-does-not-round-the-estimate"),
+                        (ra, "eyz-reports-one-side-only"),
+                        (total - 10, "eyz-rounds-to-the-wrong-ten"),
+                        (total + 20, None),
+                    ]
+                ),
+                step=10,
                 follow_through="part_a + part_b",
                 working=[f"{ra} + {rb} = {total}."],
             ),

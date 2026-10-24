@@ -25,11 +25,13 @@ from __future__ import annotations
 import math
 from fractions import Fraction as Frac
 
+import numpy as np
 import sympy as sp
 
 from ..answers import Distractor, exact_value
 from ..core import attempts, check, generator, phrase, rational_text
-from ._sr2b_kit import int_dist, number_fields, pi_latex, pi_shown, pi_text, pick, retry_short, text_dist, value_latex
+from ._spread_kit import NEAR, pick, uses_rng
+from ._sr2b_kit import int_dist, number_fields, pi_latex, pi_shown, pi_text, retry_short, text_dist, value_latex
 
 # the argument, as typed, and its exact value; the principal values (in units of pi) are checked below
 _S2, _S3 = sp.sqrt(2), sp.sqrt(3)
@@ -512,6 +514,7 @@ def _hard_composite(rng):
     level=15,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 @retry_short
 def gt_inverse_trig(rng, tier="easy"):
     """An exact value or graph feature of an inverse trigonometric function; the tiers are in the module docstring."""
@@ -528,6 +531,7 @@ def gt_inverse_trig(rng, tier="easy"):
 
 
 @generator("gt_inverse_trig_exam", level=16, presets={"exam": dict(tier="exam")})
+@uses_rng
 @retry_short
 def gt_inverse_trig_exam(rng, tier="exam"):
     """Exam chain on f(x) = a arcsin(bx) + c: largest x in the domain, greatest value, f at a given x, the x-intercept."""
@@ -548,10 +552,10 @@ def gt_inverse_trig_exam(rng, tier="exam"):
     zero = s / b
     # second route: scan f over its domain for its greatest value and its zero
     n = 40001
-    xs = [-1 / b + 2 / b * i / (n - 1) for i in range(n)]
-    ys = [a * math.asin(max(-1.0, min(1.0, b * x))) + float(c) * math.pi for x in xs]
-    check(abs(max(ys) / math.pi - float(greatest)) < 1e-6, "greatest value differs from the scan")
-    root = min(range(n), key=lambda i: abs(ys[i]))
+    xs = np.linspace(-1 / b, 1 / b, n)
+    ys = a * np.arcsin(np.clip(b * xs, -1.0, 1.0)) + float(c) * math.pi
+    check(abs(ys.max() / math.pi - float(greatest)) < 1e-6, "greatest value differs from the scan")
+    root = int(np.argmin(np.abs(ys)))
     check(abs(xs[root] - float(zero)) < 1e-4, "zero differs from the scan")
     fn = f"{a} arcsin({_x_text(b)}){_shift_text(c)}"
     # (a)
@@ -559,6 +563,10 @@ def gt_inverse_trig_exam(rng, tier="exam"):
         Distractor(rational_text(Frac(b)), "gti-multiplies-by-b", exact_value(Frac(b))),
         Distractor("1", "gti-domain-ignores-b", 1),
         Distractor(rational_text(-top_x), "gti-least-for-greatest", exact_value(-top_x)),
+        # plain near misses on both sides of the key, so it is not always the middle option
+        Distractor(rational_text(2 * top_x), NEAR, exact_value(2 * top_x)),
+        Distractor(rational_text(Frac(1, b + 1)), NEAR, exact_value(Frac(1, b + 1))),
+        Distractor(rational_text(Frac(1, 2 * b)), NEAR, exact_value(Frac(1, 2 * b))),
     ]
     a_wrong = [d for d in a_wrong if d.text != rational_text(top_x)]
     # (b)

@@ -83,6 +83,7 @@ misconceptions:
   description: "Gives the distance at the end of the stage as its speed, forgetting to subtract the start and divide by the time."
 - id: dg-rd-stage-distance-not-speed
   description: "Gives the distance travelled in the stage without dividing by the hours it took."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 1, demand: "Read one value from a line through the origin, counting gridlines whose step is not 1."}
   medium: {steps: 2, demand: "Separate the starting value from the rate, finding the rate as change in value over change in amount rather than value over amount."}

@@ -29,6 +29,7 @@ import sympy
 from sympy import I, Rational, cos, exp, pi, sin, sqrt
 
 from ..core import attempts, check, generator
+from ._spread_kit import uses_rng
 from ._fy1cd_kit import F, pi_text, say, surd
 from ._r3b_kit import (
     Cand,
@@ -422,6 +423,7 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 
 
 @generator("sc_complex_euler", level=18, presets=_PRESETS)
+@uses_rng
 @retry
 def sc_complex_euler(rng, tier: str = "easy"):
     """Cartesian, polar and exponential form of a complex number: converting, multiplying, dividing and powers."""
@@ -436,6 +438,7 @@ def sc_complex_euler(rng, tier: str = "easy"):
 
 
 @generator("sc_complex_euler_exam", level=18, presets={"exam": {}})
+@uses_rng
 @retry
 def sc_complex_euler_exam(rng):
     """Exam chain: Re z and Im z from r e^(iθ), then Re, Im and the modulus of z^n from them by following through."""
@@ -560,6 +563,8 @@ def sc_complex_euler_exam(rng):
                 Cand(modulus**2, "cx-modulus-forgot-root", const=False),
                 Cand(sympy.Integer(r), "sc-cx-modulus-not-raised", const=False),
                 Cand(sympy.Integer(n * r), "cx-power-as-multiplication", const=False),
+                Cand(sympy.Integer(r) ** (n + 1), "cx-power-exponent-off-by-one", const=False),
+                Cand(sympy.Integer(r) ** (n - 1), "cx-power-exponent-off-by-one", const=False),
             ],
             rng=rng,
         ),

@@ -115,6 +115,7 @@ misconceptions:
   description: Reports a single sample's proportion where the mean of all the simulated proportions was asked for.
 - id: sc-uses-population-proportion
   description: Gives the population proportion p where the proportion in the sample was asked for.
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 difficulty_progression:
   easy:
     steps: 2

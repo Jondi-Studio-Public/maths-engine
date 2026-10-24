@@ -26,9 +26,9 @@ import math
 
 from .. import figures
 from ..answers import Distractor
-from ..core import attempts, generator, pick_distractors
+from ..core import attempts, generator
 from ..figure_kinds.space import angle_class, diagram, sweep_degrees
-from ._ey2a_kit import tagged_numbers
+from ._spread_kit import pick_distractors, tagged_numbers, uses_rng
 
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
@@ -237,6 +237,7 @@ def _right_compare(rng, tier: str) -> dict:
 
 
 @generator("eyz_right_angle_compare", level=3, presets=_PRESETS)
+@uses_rng
 def eyz_right_angle_compare(rng, tier="easy"):
     _tier(tier)
     return _right_compare(rng, tier)
@@ -363,6 +364,7 @@ def _kind_question(rng, tier: str) -> dict:
 
 
 @generator("eyz_angle_kind", level=4, presets=_PRESETS)
+@uses_rng
 def eyz_angle_kind(rng, tier="easy"):
     _tier(tier)
     return _kind_question(rng, tier)
@@ -476,12 +478,15 @@ def _estimate_question(rng, tier: str) -> dict:
         answer_latex=str(answer),
         answer_kind="number",
         working=working,
-        distractors=tagged_numbers(answer, cands, low=5, high=355),
+        distractors=tagged_numbers(
+            answer, cands, low=5, high=355, step=10, ok=lambda v: v not in labelled and not _leaks(v, labelled)
+        ),
         figure=fig,
     )
 
 
 @generator("eyz_angle_estimate", level=4, presets=_PRESETS)
+@uses_rng
 def eyz_angle_estimate(rng, tier="easy"):
     _tier(tier)
     return _estimate_question(rng, tier)

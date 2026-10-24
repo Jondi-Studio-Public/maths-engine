@@ -64,4 +64,5 @@ misconceptions:
   description: "Gives the number of solids instead of their features."
 - id: eyz-miscounts-the-solids
   description: "Is one solid out in counting how many there are of that name."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 tags: [acara-f10-v9, early, space, solids, faces-edges-vertices, ac9m3sp01, figure]

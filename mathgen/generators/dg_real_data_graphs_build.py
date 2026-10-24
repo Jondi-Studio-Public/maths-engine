@@ -27,6 +27,7 @@ from fractions import Fraction
 
 from .. import figures
 from ..core import attempts, check, generator
+from ._spread_kit import uses_rng
 from ._dg_kit import numd, numtext, p_number
 
 AREA = "read-values-and-rates-from-real-data-graphs"
@@ -475,7 +476,7 @@ def _medium(rng):
 def _extra_q(rng, ctx, g, fig, intercept):
     r = _rate(ctx, g) / ctx["xs"]  # per unit of x
     edge = ctx["gx"] * g["j"]
-    X = edge + ctx["gx"] * rng.randint(1, 3)
+    X = edge + ctx["gx"] * rng.randint(1, 5)
     ans = Fraction(g["c"]) + r * X
     if ans.denominator not in (1, 2):
         return None
@@ -610,6 +611,7 @@ def _hard(rng):
 
 
 @generator("dg_real_data_graphs", level=12, presets={t: {"tier": t} for t in ("easy", "medium", "hard")})
+@uses_rng
 def dg_real_data_graphs(rng, tier="easy"):
     if tier not in ("easy", "medium", "hard"):
         raise ValueError(f"unknown tier {tier!r}")
@@ -625,6 +627,7 @@ def dg_real_data_graphs(rng, tier="easy"):
 
 
 @generator("dg_real_data_graphs_chain", level=12, presets={"exam": {"tier": "exam"}})
+@uses_rng
 def dg_real_data_graphs_chain(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
@@ -637,11 +640,11 @@ def dg_real_data_graphs_chain(rng, tier="exam"):
         c = Fraction(g["c"])
         r = Fraction(g["step"], ctx["gx"])
         edge = ctx["gx"] * g["j"]
-        X = edge + ctx["gx"] * rng.randint(1, 3)
+        X = edge + ctx["gx"] * rng.randint(1, 5)
         if ctx["key"] == "taxi" and re.match(r"(?:8|11$|18$)", str(X)):
             continue  # "an 8 km trip": the chain keeps to "a N km trip", the form its follow-through test reads
         cost = c + r * X
-        far_x = edge + ctx["gx"] * rng.randint(1, 3)
+        far_x = edge + ctx["gx"] * rng.randint(1, 5)
         if far_x == X:
             continue  # else the budget in (d) is the answer to (c)
         budget = c + r * far_x

@@ -65,6 +65,7 @@ misconceptions:
   description: "Gives the larger of the two groups' ranges as the range of the combined data."
 - id: dg-cd-combined-range-added
   description: "Adds the two groups' ranges to get the range of the combined data."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 3, demand: "Read one measure (mode, range or number of values) from the dot plot and again from the stem-and-leaf plot, then find how much greater one is."}
   medium: {steps: 4, demand: "Find the median of each group from its own display, using the position (n + 1) / 2 and a half step for an even count, then compare them."}

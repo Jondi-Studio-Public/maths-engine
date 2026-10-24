@@ -59921,6 +59921,22 @@ _ENTRIES = (
     # dg block end
 )
 
+# -- generic, appended with the data-display, early-years, graph-transformation and senior-statistics builds ------
+_ENTRIES += (
+    CatalogueEntry(
+        "dg-near-miss-value",
+        "Reads, counts or works out a value a little way from the right one: out by one or two, with no single "
+        "method behind the slip.",
+        area="data-displays",
+    ),
+    CatalogueEntry(
+        "near-miss-value",
+        "Gives a value a little way from the right one: out by one or two in a count or a reading, with no single "
+        "method behind the slip.",
+        area="general",
+    ),
+)
+
 #: Every entry, by id.
 CATALOGUE: dict[str, CatalogueEntry] = {entry.id: entry for entry in _ENTRIES}
 

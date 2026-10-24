@@ -31,7 +31,8 @@ import sympy as sp
 from ..answers import Distractor
 from ..core import attempts, check, generator, phrase
 from ._gt_quad import quad_text, scan_turning_points
-from ._sr2b_kit import Pair, int_dist, number_fields, pair_candidates, pick, retry_short
+from ._sr2b_kit import Pair, int_dist, number_fields, pair_candidates, retry_short
+from ._spread_kit import pick, uses_rng
 
 X = sp.Symbol("x")
 
@@ -272,6 +273,7 @@ def _hard(rng):
     level=14,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 @retry_short
 def gt_modulus(rng, tier="easy"):
     """A key point of y = |f(x)| or y = f(|x|); the tiers are described in the module docstring."""
@@ -307,6 +309,7 @@ def _list_dist(values, tag) -> Distractor:
 
 
 @generator("gt_modulus_exam", level=15, presets={"exam": dict(tier="exam")})
+@uses_rng
 @retry_short
 def gt_modulus_exam(rng, tier="exam"):
     """Exam chain on a quadratic with both zeros positive: intercepts of f(|x|), least value, peak of |f|, solutions of |f| = c."""

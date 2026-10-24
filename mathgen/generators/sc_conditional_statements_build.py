@@ -32,7 +32,8 @@ from __future__ import annotations
 import math
 
 from ..core import attempts, check, generator
-from ._r3b_kit import Redraw, int_dist, int_fields, part, pick_ints, retry
+from ._spread_kit import NEAR, uses_rng
+from ._r3b_kit import Redraw, int_dist, int_fields, part, retry
 
 # ------------------------------------------------------------------------------------------------ predicates
 
@@ -242,9 +243,12 @@ def _numbers(values, limit=14):
     return shown + (", ..." if len(vals) > limit else "")
 
 
-def _dist(rng, key, cands):
-    """Wrong counts: a count is a positive whole number no bigger than the number of values in play."""
-    return pick_ints(key, [(v, t) for v, t in cands if v is not None and v > 0], count=3, rng=rng)
+def _dist(rng, key, cands, *, near_misses: bool = True):
+    """Wrong counts: a count is a positive whole number no bigger than the number of values in play. Plain near
+    misses (key +/- 1 to 3) make up a side that has too few named slips; a "smallest counterexample" question must not
+    take them, since a value just above the key can itself be a counterexample."""
+    near = [(key + d, NEAR) for d in (-3, -2, -1, 1, 2, 3)] if near_misses else []
+    return _dist_spread(rng, key, [(v, t) for v, t in cands if v is not None and v > 0] + near)
 
 
 def _dist_spread(rng, key, cands):
@@ -255,10 +259,16 @@ def _dist_spread(rng, key, cands):
             wrong.setdefault(v, t)
     if len(wrong) < 3:
         raise Redraw("fewer than three distinct wrong counts")
-    below = [(v, t) for v, t in wrong.items() if v < key]
-    above = [(v, t) for v, t in wrong.items() if v > key]
+
+    def side(keep):
+        tagged = [(v, t) for v, t in wrong.items() if keep(v) and t != NEAR]
+        plain = sorted(((v, t) for v, t in wrong.items() if keep(v) and t == NEAR), key=lambda c: abs(c[0] - key))
+        rng.shuffle(tagged)
+        return tagged + plain  # a named slip is preferred to a plain near miss on the same side
+
+    below, above = side(lambda v: v < key), side(lambda v: v > key)
     k = rng.randint(max(0, 3 - len(above)), min(3, len(below)))
-    chosen = rng.sample(below, k) + rng.sample(above, 3 - k)
+    chosen = below[:k] + above[: 3 - k]
     rng.shuffle(chosen)
     return [int_dist(v, t) for v, t in chosen]
 
@@ -285,7 +295,9 @@ def _easy(rng):
             f"A counterexample to S has the hypothesis {_c(p, 'text')} true and the conclusion {_c(q, 'text')} false.",
             f"The values of n that satisfy the hypothesis start {_numbers(a, 6)}; the first of them that fails the conclusion is {ans}.",
         ]
-        return dict(text=text, working=working, distractors=_dist(rng, ans, cands), **int_fields(ans))
+        return dict(
+            text=text, working=working, distractors=_dist(rng, ans, cands, near_misses=False), **int_fields(ans)
+        )
     if variant == "smallest-converse" and rng.random() < 0.7:
         p, q, a, b, universe = _nested_remainders(rng)
     else:
@@ -544,6 +556,7 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 
 
 @generator("sc_conditional_counts", level=17, presets=_PRESETS)
+@uses_rng
 @retry
 def sc_conditional_counts(rng, tier: str = "easy"):
     """Counts and smallest counterexamples that separate a conditional from its converse, contrapositive and negation."""
@@ -556,6 +569,7 @@ def sc_conditional_counts(rng, tier: str = "easy"):
 
 
 @generator("sc_conditional_counts_exam", level=17, presets={"exam": {}})
+@uses_rng
 @retry
 def sc_conditional_counts_exam(rng):
     """Exam chain: |A|, |B|, counterexamples to the contrapositive, to the converse (from the first three), 'iff' failures."""

@@ -22,8 +22,7 @@ from __future__ import annotations
 from .. import figures
 from ..core import check, generator
 from ..figure_kinds.scene import scene_item, shape_scene
-from ._ey2a_kit import tagged_numbers
-from ._pr6_chain_kit import whole_part
+from ._spread_kit import tagged_numbers, whole_part, uses_rng
 
 
 def _a(word: str) -> str:
@@ -133,6 +132,7 @@ _PLURAL = {
     "cone": "cones",
     "sphere": "spheres",
 }
+_ONE = {"flat faces": "flat face", "edges": "edge", "corners": "corner"}
 _FEATURE_INDEX = {"flat faces": 0, "curved surfaces": 1, "edges": 2, "corners": 3}
 
 
@@ -281,13 +281,14 @@ def _solid_hard(rng) -> dict:
         ((n_target - 1) * each, "eyz-miscounts-the-solids"),
     ]
     working = [
-        f"There are {n_target} {_PLURAL[target]}. Each has {each} {feature}.",
+        f"There are {n_target} {_PLURAL[target]}. Each has {each} {_ONE[feature] if each == 1 else feature}.",
         f"{n_target} × {each} = {answer}.",
     ]
     return _fact_question(text, answer, cands, working, fig)
 
 
 @generator("eyz_named_solids", level=3, presets=_PRESETS)
+@uses_rng
 def eyz_named_solids(rng, tier="easy"):
     _tier(tier)
     return {"easy": _solid_easy, "medium": _solid_medium, "hard": _solid_hard}[tier](rng)
@@ -455,12 +456,14 @@ def _prism_hard(rng) -> dict:
 
 
 @generator("eyz_prism_pyramid_counts", level=3, presets=_PRESETS)
+@uses_rng
 def eyz_prism_pyramid_counts(rng, tier="easy"):
     _tier(tier)
     return {"easy": _prism_easy, "medium": _prism_medium, "hard": _prism_hard}[tier](rng)
 
 
 @generator("eyz_prism_pyramid_counts_exam", level=3, presets={"exam": dict(tier="exam")})
+@uses_rng
 def eyz_prism_pyramid_counts_exam(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

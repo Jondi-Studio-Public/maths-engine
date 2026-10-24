@@ -22,6 +22,7 @@ from fractions import Fraction
 
 from .. import figures
 from ..core import attempts, check, generator
+from ._spread_kit import uses_rng
 from ..figure_kinds.data import dot_plot
 from ._dg_kit import numd, numtext, p_number
 
@@ -365,6 +366,7 @@ def _hard(rng):
 
 
 @generator("dg_compare_displays", level=12, presets={t: {"tier": t} for t in ("easy", "medium", "hard")})
+@uses_rng
 def dg_compare_displays(rng, tier="easy"):
     if tier not in ("easy", "medium", "hard"):
         raise ValueError(f"unknown tier {tier!r}")
@@ -380,6 +382,7 @@ def dg_compare_displays(rng, tier="easy"):
 
 
 @generator("dg_compare_displays_chain", level=12, presets={"exam": {"tier": "exam"}})
+@uses_rng
 def dg_compare_displays_chain(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

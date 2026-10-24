@@ -60,6 +60,7 @@ misconceptions:
   description: "Compares the tallest column with the second shortest, or the second tallest with the shortest."
 - id: dg-cc-difference-in-items-not-symbols
   description: "Gives the difference in items when the difference in symbols was asked for, forgetting to divide by the key."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 2, demand: "Sort a list of responses into categories and count each one to get the height of its column."}
   medium: {steps: 2, demand: "Divide each count by the key of a picture graph, using a half symbol where the count is an odd number of halves."}

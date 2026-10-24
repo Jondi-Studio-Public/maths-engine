@@ -9,6 +9,9 @@ from types import SimpleNamespace
 from ..answers import Distractor
 from ..grading import GRADERS
 from ..grading.interactive import bars_answer, fraction_json
+from ._spread_kit import mixed
+
+NEAR = "dg-near-miss-value"  # the plain near miss that fills a side of the options
 
 __all__ = ["bars_fields", "bars_dist", "bars_text", "numd", "numf", "numtext", "set_fields", "p_number", "p_bars"]
 
@@ -40,9 +43,11 @@ def numd(answer, candidates, n: int = 3, *, lo=None, hi=None) -> list[Distractor
     answer = Fraction(answer)
     seen = {answer}
     out: list[Distractor] = []
+    # The picks below take the first usable candidates; mix the order so the key has no fixed rank among the options.
+    step = Fraction(1) if answer.denominator == 1 else Fraction(1, 2)
+    near = [(answer + d * step, NEAR) for d in (-3, -2, -1, 1, 2, 3) if answer > 0 and answer + d * step > 0]
+    candidates = mixed(answer, [(v, t) for v, t in candidates if v is not None], fillers=near)
     for value, tag in candidates:
-        if value is None:
-            continue
         value = Fraction(value)
         if (
             value in seen

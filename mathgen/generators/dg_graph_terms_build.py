@@ -29,6 +29,7 @@ from ..core import attempts, check, generator, phrase
 from .. import figures
 from ._network_fig import graph_figure
 from ._snet_kit import degrees, int_distractors, neighbours, norm
+from ._spread_kit import mixed, uses_rng
 from ._w9_graph_kit import TooFewDistractors, enough, retry_draw
 
 LETTERS = "ABCDEFGHIJ"
@@ -210,7 +211,9 @@ def _checked_degrees(n, edges):
 
 def _ints(answer, candidates, n=3, *, lo=0):
     """Tagged integer distractors; a candidate that is None or below ``lo`` is skipped."""
-    return int_distractors(answer, [c for c in candidates if c[0] is not None and c[0] >= lo], n, lo=lo)
+    cands = [c for c in candidates if c[0] is not None and c[0] >= lo]
+    near = [(answer + d, "dg-near-miss-value") for d in (-3, -2, -1, 1, 2, 3) if answer + d >= max(lo, 1)]
+    return int_distractors(answer, mixed(answer, cands, n, fillers=near), n, lo=lo)
 
 
 def _q(text, figure, answer, working, distractors):
@@ -277,7 +280,7 @@ def _easy(rng):
             ]
             working = [
                 f"The edges at {L[x]} join it to {', '.join(L[v] for v in nbrs)}.",
-                f"That is {d} adjacent vertices.",
+                f"That is {d} adjacent {'vertex' if d == 1 else 'vertices'}.",
             ]
         elif shape == "nonadjacent":
             text = phrase(rng, _NONADJ, x=L[x])
@@ -587,6 +590,7 @@ def _hard(rng):
 
 
 @generator("dg_graph_terms", level=12, presets={t: {"tier": t} for t in ("easy", "medium", "hard")})
+@uses_rng
 def dg_graph_terms(rng, tier="easy"):
     if tier not in ("easy", "medium", "hard"):
         raise ValueError(f"unknown tier {tier!r}")
@@ -876,6 +880,7 @@ def _chain_multi(rng):
 
 
 @generator("dg_graph_terms_chain", level=12, presets={"exam": {"tier": "exam"}})
+@uses_rng
 def dg_graph_terms_chain(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

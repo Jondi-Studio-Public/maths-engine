@@ -21,9 +21,18 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..answers import Distractor
-from ..core import attempts, check, generator, pick_distractors
+from ..core import attempts, check, generator
 from ..slots import NAMES
-from ._pr6_chain_kit import whole_part
+from ._spread_kit import pick_distractors, whole_part, uses_rng
+
+
+def _bag(items) -> str:
+    """ "5 purple and 3 blue counters", or, when a count is 1, "5 purple counters and 1 blue counter"."""
+    if all(c >= 2 for c, _ in items):
+        parts = [f"{c} {col}" for c, col in items]
+        return (parts[0] if len(parts) == 1 else ", ".join(parts[:-1]) + f" and {parts[-1]}") + " counters"
+    parts = [f"{c} {col} counter{'' if c == 1 else 's'}" for c, col in items]
+    return ", ".join(parts[:-1]) + f" and {parts[-1]}"
 
 
 def _a(word: str) -> str:
@@ -136,9 +145,8 @@ def _easy_outcomes(rng) -> dict:
     n = rng.randint(2, 3)
     cols = rng.sample(_COLOURS, n)
     counts = rng.sample(range(1, 5), n)
-    parts = [f"{c} {col}" for c, col in zip(counts, cols)]
-    desc = ", ".join(parts[:-1]) + f" and {parts[-1]}"
-    text = f"A bag has {desc} counters. One is picked. List the colours it could be."
+    desc = _bag(list(zip(counts, cols)))
+    text = f"A bag has {desc}. One is picked. List the colours it could be."
     every = [col for c, col in zip(counts, cols) for _ in range(c)]
     spare = [c for c in _COLOURS if c not in cols]
     wrong = [(every, "eyz-lists-every-counter")]
@@ -290,6 +298,7 @@ def _hard_outcomes(rng) -> dict:
 
 
 @generator("eyz_list_outcomes", level=3, presets=_PRESETS)
+@uses_rng
 def eyz_list_outcomes(rng, tier="easy"):
     _tier(tier)
     return {"easy": _easy_outcomes, "medium": _medium_outcomes, "hard": _hard_outcomes}[tier](rng)
@@ -370,7 +379,7 @@ def _share(word: str, rng, total: int | None = None) -> tuple[int, int]:
     """``(favourable, total)`` whose chance falls clearly in ``word``'s range, with a total from 6 to 10."""
     for _ in attempts(500, "a share in the word's range"):
         t = total or rng.choice((6, 8, 10))
-        n = {"impossible": 0, "certain": t}.get(word, rng.randint(1, t - 1))
+        n = {"impossible": 0, "certain": t}.get(word, rng.randint(2, t - 2))
         if _word_of(Fraction(n, t)) == word:
             return n, t
     raise AssertionError("unreachable")
@@ -397,7 +406,7 @@ def _easy_chance(rng) -> dict:
         t = rng.choice((6, 8, 10))
         n = rng.randint(2, t - 2)
         other = rng.choice([c for c in _COLOURS if c not in (a, b)])
-        text = f"A bag has {n} {a} and {t - n} {b} counters. Which sentence about picking {other} is true?"
+        text = f"A bag has {_bag([(n, a), (t - n, b)])}. Which sentence about picking {other} is true?"
         return _word_question(
             text, f"picking {other}", word, [f"There are no {other} counters, so picking one is impossible."]
         )
@@ -406,7 +415,7 @@ def _easy_chance(rng) -> dict:
         text = f"A bag has {t} {a} counters. Which sentence about picking {a} is true?"
         return _word_question(text, f"picking {a}", word, [f"Every counter is {a}, so picking {a} is certain."])
     n, t = _share(word, rng)
-    text = f"A bag has {n} {a} and {t - n} {b} counters. Which sentence about picking {a} is true?"
+    text = f"A bag has {_bag([(n, a), (t - n, b)])}. Which sentence about picking {a} is true?"
     return _word_question(text, f"picking {a}", word, _bag_working(word, n, t, a))
 
 
@@ -434,14 +443,17 @@ _EVIDENCE = (
 def _medium_chance(rng) -> dict:
     word = rng.choice(("unlikely", "even chance", "likely"))
     if rng.random() < 0.5:
-        n = {"unlikely": rng.choice((1, 2, 3)), "even chance": 5, "likely": rng.choice((7, 8, 9))}[word]
+        n = {"unlikely": rng.choice((2, 3)), "even chance": 5, "likely": rng.choice((7, 8, 9))}[word]
         template, event = rng.choice(_EVIDENCE)
         return _word_question(
-            template.format(n=n), event, word, [f"{n} out of 10 is {_gloss(word)}, so it is {_PHRASE[word]}."]
+            template.format(n=n),
+            event,
+            word,
+            [f"{n} out of 10 is {_gloss(word)}, so it is {_PHRASE[word]}."],
         )
     # Three colours: pick one colour, or "not" a colour.
     for _ in attempts(500, "three colours with a clear chance"):
-        counts = [rng.randint(1, 6) for _ in range(3)]
+        counts = [rng.randint(2, 6) for _ in range(3)]
         t = sum(counts)
         if not 8 <= t <= 12:
             continue
@@ -453,8 +465,8 @@ def _medium_chance(rng) -> dict:
             p, what = Fraction(t - counts[k], t), f"a counter that is not {cols[k]}"
         if _word_of(p) == word:
             break
-    desc = f"{counts[0]} {cols[0]}, {counts[1]} {cols[1]} and {counts[2]} {cols[2]}"
-    text = f"A bag has {desc} counters. Which sentence about picking {what} is true?"
+    desc = _bag(list(zip(counts, cols)))
+    text = f"A bag has {desc}. Which sentence about picking {what} is true?"
     favourable = p.numerator * (t // p.denominator)
     fit = f"not {cols[k]}" if "not" in what else cols[k]
     return _word_question(
@@ -497,7 +509,7 @@ def _hard_chance(rng) -> dict:
     # A bag of three colours asked as "red or blue" (two colours together), so the learner adds before judging.
     for _ in attempts(1000, "two colours together with a clear chance"):
         word = rng.choice(("unlikely", "even chance", "likely"))
-        counts = [rng.randint(1, 6) for _ in range(3)]
+        counts = [rng.randint(2, 6) for _ in range(3)]
         t = sum(counts)
         if not 8 <= t <= 12:
             continue
@@ -505,8 +517,8 @@ def _hard_chance(rng) -> dict:
         p = Fraction(counts[0] + counts[1], t)
         if _word_of(p) == word:
             break
-    desc = f"{counts[0]} {cols[0]}, {counts[1]} {cols[1]} and {counts[2]} {cols[2]}"
-    text = f"A bag has {desc} counters. Which sentence about picking {cols[0]} or {cols[1]} is true?"
+    desc = _bag(list(zip(counts, cols)))
+    text = f"A bag has {desc}. Which sentence about picking {cols[0]} or {cols[1]} is true?"
     s = counts[0] + counts[1]
     return _word_question(
         text,
@@ -520,12 +532,14 @@ def _hard_chance(rng) -> dict:
 
 
 @generator("eyz_chance_words", level=3, presets=_PRESETS)
+@uses_rng
 def eyz_chance_words(rng, tier="easy"):
     _tier(tier)
     return {"easy": _easy_chance, "medium": _medium_chance, "hard": _hard_chance}[tier](rng)
 
 
 @generator("eyz_chance_words_exam", level=3, presets={"exam": dict(tier="exam")})
+@uses_rng
 def eyz_chance_words_exam(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
@@ -539,7 +553,7 @@ def eyz_chance_words_exam(rng, tier="exam"):
         if word and word != "certain":
             break
     blue = t - red
-    desc = f"{red} {colour} and {blue} {other} counters"
+    desc = _bag([(red, colour), (blue, other)])
     event = f"picking a counter that is not {colour}"
     part_c = dict(
         prompt=f"Which sentence about {event} is true?",

@@ -44,4 +44,5 @@ misconceptions:
   description: "Gives the number of one colour where the total was asked for."
 - id: eyz-counts-the-colour-not-the-rest
   description: "Gives the number of the named colour where the number that are not that colour was asked for."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 tags: [acara-f10-v9, early, probability, chance, likelihood, ac9m3p01]

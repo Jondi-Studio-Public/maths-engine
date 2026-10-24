@@ -39,7 +39,8 @@ from ._gt_quad import (
     verify_domain,
     vertex_of,
 )
-from ._sr2b_kit import int_dist, number_fields, pick, retry_short, text_dist
+from ._spread_kit import pick, uses_rng
+from ._sr2b_kit import int_dist, number_fields, retry_short, text_dist
 
 ALL = sp.Interval(-sp.oo, sp.oo)
 NONE = sp.EmptySet
@@ -335,6 +336,7 @@ figures.register_reader("gt_sqrt_function", _read)
     level=14,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 @retry_short
 def gt_sqrt_function(rng, tier="easy"):
     """The domain or range of y = sqrt(f(x)); the tiers are described in the module docstring."""
@@ -351,6 +353,7 @@ def gt_sqrt_function(rng, tier="easy"):
 
 
 @generator("gt_sqrt_function_exam", level=15, presets={"exam": dict(tier="exam")})
+@uses_rng
 @retry_short
 def gt_sqrt_function_exam(rng, tier="exam"):
     """Exam chain on f(x) = s^2 - (x - h)^2: greatest value of f and of sqrt(f), the domain, the exact y-intercept."""
@@ -395,7 +398,7 @@ def gt_sqrt_function_exam(rng, tier="exam"):
         text_dist(f"-{ans}", "gtf-root-negative-branch"),
         text_dist(f"sqrt({t})", "gts-ignores-the-shift"),
     ]
-    d_wrong = [w for w in d_wrong if sp.simplify(sp.sympify(w.text) - root) != 0]
+    d_wrong = [w for w in d_wrong if abs(float(sp.sympify(w.text)) - float(root)) > 1e-9]  # a different real number
     c_wrong = [
         ineq_dist(interval_set(("outside", h - s_, h + s_)), "gtf-domain-wrong-side"),
         ineq_dist(sp.Interval.open(h - s_, h + s_), "gtf-domain-excludes-zeros"),

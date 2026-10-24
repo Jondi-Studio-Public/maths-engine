@@ -40,4 +40,5 @@ misconceptions:
   description: "Gives the smaller angle between the arms, 360 degrees less the reflex angle."
 - id: eyz-forgets-the-straight-angle
   description: "Gives only the part of a reflex angle past a straight line."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 tags: [acara-f10-v9, early, measurement, angles, estimation, ac9m4m04, figure]

@@ -55,4 +55,5 @@ misconceptions:
   description: "Estimates the other side of the wall from the one asked about."
 - id: eyz-forgets-to-multiply
   description: "Gives the number of objects where the amount for all of them was asked."
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 tags: [acara-f10-v9, early, estimation, rounding, collections, ac9m3n05, figure]

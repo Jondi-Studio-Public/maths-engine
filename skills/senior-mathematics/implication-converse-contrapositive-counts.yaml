@@ -96,6 +96,7 @@ misconceptions:
 - id: sc-vacuous-truth-only
   description: Counts only the values where the hypothesis is false as making the implication true, leaving out those where
     both clauses hold.
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 difficulty_progression:
   easy:
     steps: 2

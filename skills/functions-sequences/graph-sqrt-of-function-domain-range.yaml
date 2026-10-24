@@ -50,6 +50,7 @@ misconceptions:
 - {id: gts-range-starts-at-zero, description: 'Starting the range of the square root of f at 0 although f never gets below a positive value.'}
 - {id: gts-reads-constant-as-greatest-value, description: 'Giving the constant term of the quadratic as its greatest value, which is the y-intercept and not the highest point.'}
 - {id: gts-reads-linear-coefficient-as-greatest-value, description: 'Giving the coefficient of x as the greatest value of the quadratic.'}
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 2, demand: 'Read the zero of a drawn line and decide which side of it the line is not negative.'}
   medium: {steps: 3, demand: 'Read the zeros of a drawn parabola, decide whether it is not negative outside or between

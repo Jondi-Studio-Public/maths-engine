@@ -63,6 +63,7 @@ misconceptions:
   description: "Gives the larger of the two moves as the length of the walk instead of adding them."
 - id: dg-gm-walk-product
   description: "Multiplies the east-west and north-south moves instead of adding them."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 1, demand: "Read a letter-and-number grid reference and shade the square where that column and row meet."}
   medium: {steps: 2, demand: "Find the named landmark's square, then count a move east or west and north or south from it."}

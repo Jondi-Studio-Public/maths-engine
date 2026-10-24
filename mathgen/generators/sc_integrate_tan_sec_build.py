@@ -25,6 +25,7 @@ import re
 from sympy import Rational, log, pi, sec, sqrt, tan
 
 from ..core import check, generator, latex_from_inline
+from ._spread_kit import uses_rng
 from ._r3b_kit import (
     Cand,
     Itg,
@@ -452,6 +453,7 @@ _PRESETS = {t: {"tier": t} for t in _TIERS}
 
 
 @generator("sc_integrate_tan_sec", level=14, presets=_PRESETS)
+@uses_rng
 @retry
 def sc_integrate_tan_sec(rng, tier: str = "easy"):
     """Integrals of tan and sec powers and products; the tiers are described in the module docstring."""
@@ -478,6 +480,7 @@ def _reduce(n):
 
 
 @generator("sc_integrate_tan_sec_exam", level=14, presets={"exam": {}})
+@uses_rng
 @retry
 def sc_integrate_tan_sec_exam(rng):
     """Exam chain over 0 to pi/4: I(s), I(s + 2), I(s + 4) by the reduction, then a combination of two of them."""

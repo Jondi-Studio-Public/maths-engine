@@ -16,8 +16,8 @@ from __future__ import annotations
 
 from ..core import VerificationError, attempts, check, generator
 from ..slots import NAMES
-from ._ey2a_kit import tagged_numbers
-from ._pr6_chain_kit import check_chain, whole_part
+from ._pr6_chain_kit import check_chain
+from ._spread_kit import tagged_numbers, whole_part, uses_rng
 
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
@@ -238,6 +238,7 @@ def _hard(rng) -> dict:
 
 
 @generator("eyz_twos_facts", level=2, presets=_PRESETS)
+@uses_rng
 def eyz_twos_facts(rng, tier="easy"):
     if tier not in _TIERS:
         raise ValueError(f"unknown tier {tier!r}")
@@ -279,6 +280,7 @@ _SCENES = (
 
 
 @generator("eyz_twos_facts_exam", level=2, presets={"exam": dict(tier="exam")})
+@uses_rng
 def eyz_twos_facts_exam(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

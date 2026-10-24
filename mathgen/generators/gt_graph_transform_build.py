@@ -35,6 +35,7 @@ import sympy
 from .. import figures
 from ..answers import Distractor
 from ..core import VerificationError, attempts, check, generator, latex_answer, phrase
+from ._spread_kit import uses_rng
 from ._gt_kit import (
     FAMILIES,
     TooFewDistractors,
@@ -460,6 +461,7 @@ figures.register_reader("gt_graph_transform", _read)
     level=13,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 @retry_short
 def gt_graph_transform(rng, tier="easy"):
     """The equation of a transformed graph; the tiers are described in the module docstring."""
@@ -687,6 +689,7 @@ def _frac_latex(v):
 
 
 @generator("gt_graph_transform_exam", level=14, presets={"exam": dict(tier="exam")})
+@uses_rng
 @retry_short
 def gt_graph_transform_exam(rng, tier="exam"):
     """Exam chain: the equation of the image, a feature of it, its y-intercept (follows through), a point's image."""

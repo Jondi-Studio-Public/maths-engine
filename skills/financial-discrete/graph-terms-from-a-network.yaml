@@ -78,6 +78,7 @@ misconceptions:
   description: "Deletes a vertex but keeps the edges that were at it."
 - id: dg-gt-delete-vertex-uses-sum
   description: "Takes away the number of vertices adjacent to the deleted vertex twice, once for each end of its edges."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 1, demand: "Read one count (edges, adjacent vertices, greatest degree) straight from a drawn network, using the definition of adjacent and degree."}
   medium: {steps: 2, demand: "Find the connected components (or the thick subgraph's vertices) first, then turn that into the number of edges needed to join the pieces or the edges the subgraph leaves out."}

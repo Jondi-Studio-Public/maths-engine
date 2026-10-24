@@ -55,6 +55,7 @@ misconceptions:
   description: "Subtracts the median from the mode when the median minus the mode was asked for."
 - id: dg-dp-difference-uses-count
   description: "Uses the number of dots at the mode instead of the mode itself in the difference."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 2, demand: "Tally a list of whole numbers and give one stack of dots for each value on the axis."}
   medium: {steps: 2, demand: "Tally data to one decimal place, matching the whole number and the tenth together so 6.2 and 6.3 stay on different ticks."}

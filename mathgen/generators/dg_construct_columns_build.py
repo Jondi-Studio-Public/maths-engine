@@ -23,6 +23,7 @@ from collections import Counter
 from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
+from ._spread_kit import uses_rng
 from ._dg_kit import bars_dist, bars_fields, numd, numf, numtext, p_bars, p_number
 
 AREA = "construct-column-and-picture-graphs"
@@ -373,6 +374,7 @@ def _hard(rng):
 
 
 @generator("dg_construct_columns", level=8, presets={t: {"tier": t} for t in ("easy", "medium", "hard")})
+@uses_rng
 def dg_construct_columns(rng, tier="easy"):
     if tier not in ("easy", "medium", "hard"):
         raise ValueError(f"unknown tier {tier!r}")
@@ -388,6 +390,7 @@ def dg_construct_columns(rng, tier="easy"):
 
 
 @generator("dg_construct_columns_chain", level=8, presets={"exam": {"tier": "exam"}})
+@uses_rng
 def dg_construct_columns_chain(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

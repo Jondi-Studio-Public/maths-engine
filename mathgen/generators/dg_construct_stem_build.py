@@ -25,6 +25,7 @@ from types import SimpleNamespace
 
 from ..answers import Distractor, same_value
 from ..core import attempts, check, generator
+from ._spread_kit import uses_rng
 from ..grading import GRADERS
 from ..grading.typed import table_answer_text
 from ._dg_kit import numd, numtext, p_number
@@ -327,6 +328,7 @@ def _hard(rng):
 
 
 @generator("dg_construct_stem", level=12, presets={t: {"tier": t} for t in ("easy", "medium", "hard")})
+@uses_rng
 def dg_construct_stem(rng, tier="easy"):
     if tier not in ("easy", "medium", "hard"):
         raise ValueError(f"unknown tier {tier!r}")
@@ -342,6 +344,7 @@ def dg_construct_stem(rng, tier="easy"):
 
 
 @generator("dg_construct_stem_chain", level=12, presets={"exam": {"tier": "exam"}})
+@uses_rng
 def dg_construct_stem_chain(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")

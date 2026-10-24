@@ -51,6 +51,7 @@ misconceptions:
 - {id: gti-sign-dropped, description: 'Dropping the sign of the argument: giving arcsin(1/2) for arcsin(-1/2), or the positive angle where the answer is negative.'}
 - {id: gti-sign-of-root, description: 'Giving the wrong sign when solving for the x-intercept of a shifted inverse trig function.'}
 - {id: gti-wrong-ratio, description: 'Using the wrong exact ratio for the angle, such as the sine of pi over 6 taken as root 3 over 2.'}
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 2, demand: 'Recall the exact value of sine, cosine or tangent at a standard angle and choose the angle in the principal range of the inverse function.'}
   medium: {steps: 3, demand: 'Use the range or domain of the inverse function to find a greatest value, an asymptote or a domain end point of a scaled and shifted graph.'}
