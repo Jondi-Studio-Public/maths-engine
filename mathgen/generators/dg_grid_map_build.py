@@ -110,6 +110,11 @@ _FEATURES = (
 )
 
 
+def _a(word):
+    """The word with its indefinite article: "an information sign", "a kiosk"."""
+    return ("an " if word[:1] in "aeiou" else "a ") + word
+
+
 def _ref(c, r):
     return f"{LETTERS[c]}{r + 1}"
 
@@ -194,7 +199,7 @@ def _move_text(dx, dy):
 
 _EASY = (
     "Shade the square with grid reference {ref} for the new {feature}.",
-    "The council will put a {feature} in square {ref}. Shade that square.",
+    "The council will put {a_feature} in square {ref}. Shade that square.",
     "Shade square {ref}, where the {feature} will go.",
 )
 
@@ -207,7 +212,7 @@ def _easy(rng):
     cells = _landmarks(rng, w, h, rng.randint(4, 5), avoid={(c, r)})
     fig = _figure(rng, cells, w, h)
     feature = rng.choice(_FEATURES)
-    text = rng.choice(_EASY).format(ref=_ref(c, r), feature=feature)
+    text = rng.choice(_EASY).format(ref=_ref(c, r), feature=feature, a_feature=_a(feature))
     wrong = [
         ({(r, c)} if _inside((r, c), w, h) else set(), "dg-gm-reference-reversed"),
         ({(c, h - 1 - r)}, "dg-gm-row-from-top"),

@@ -25,6 +25,12 @@ from ..core import attempts, check, generator, pick_distractors
 from ..slots import NAMES
 from ._pr6_chain_kit import whole_part
 
+
+def _a(word: str) -> str:
+    """The word with its indefinite article: "an octagon", "a square"."""
+    return ("an " if word[:1] in "aeiou" else "a ") + word
+
+
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
 
@@ -144,8 +150,8 @@ def _easy_outcomes(rng) -> dict:
         cols,
         wrong,
         [
-            f"A {cols[0]} counter, a {cols[1]} counter"
-            + (f" or a {cols[2]} counter" if n == 3 else "")
+            f"{_a(cols[0]).capitalize()} counter, {_a(cols[1])} counter"
+            + (f" or {_a(cols[2])} counter" if n == 3 else "")
             + " could come out. List each colour once."
         ],
     )
@@ -442,7 +448,7 @@ def _medium_chance(rng) -> dict:
         cols = rng.sample(_COLOURS, 3)
         k = rng.randrange(3)
         if rng.random() < 0.5:
-            p, what = Fraction(counts[k], t), f"a {cols[k]} counter"
+            p, what = Fraction(counts[k], t), f"{_a(cols[k])} counter"
         else:
             p, what = Fraction(t - counts[k], t), f"a counter that is not {cols[k]}"
         if _word_of(p) == word:

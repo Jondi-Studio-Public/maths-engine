@@ -143,3 +143,22 @@ def test_deterministic_varied_and_clean():
         assert_deterministic_and_varied("sc_simulated_proportions", tier, distinct=distinct)
         assert all("**" not in q.text for q in questions(SK, tier, range(30)))
     assert_deterministic_and_varied("sc_simulated_proportions_exam", "exam", distinct=25)
+
+
+def test_hard_scaling_and_ratio_start_from_a_feasible_standard_deviation():
+    from fractions import Fraction as F
+
+    seen = {"scaling": 0, "ratio": 0}
+    for seed in range(1500):
+        q = make("sc_simulated_proportions", seed=seed, difficulty="hard")
+        m = re.search(r"samples of (\d+) had a standard deviation of ([\d.]+)", q.text)
+        kind = "scaling"
+        if not m:
+            m = re.search(r"Samples of (\d+) .*? gave a standard deviation of ([\d.]+)", q.text)
+            kind = "ratio"
+        if not m:
+            continue
+        n, sd = int(m[1]), F(m[2])
+        assert sd * sd * n <= F(1, 4), (seed, n, sd)
+        seen[kind] += 1
+    assert min(seen.values()) >= 100, seen

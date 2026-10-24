@@ -25,6 +25,12 @@ from ..figure_kinds.scene import scene_item, shape_scene
 from ._ey2a_kit import tagged_numbers
 from ._pr6_chain_kit import whole_part
 
+
+def _a(word: str) -> str:
+    """The word with its indefinite article: "an octagon", "a square"."""
+    return ("an " if word[:1] in "aeiou" else "a ") + word
+
+
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
 
@@ -253,7 +259,8 @@ def _solid_hard(rng) -> dict:
     pool = tuple(FACTS) if feature == "flat faces" else _POLY
     target = rng.choice(pool)
     n_target = rng.randint(2, 4)
-    others = [s for s in pool if s != target]
+    # A cube is also a rectangular prism, so a prism question must not show cubes.
+    others = [s for s in pool if s != target and not (target == "rectangular prism" and s == "cube")]
     shapes = [target] * n_target + [rng.choice(others) for _ in range(rng.randint(2, 4))]
     rng.shuffle(shapes)
     answer = n_target * FACTS[target][_FEATURE_INDEX[feature]]
@@ -354,8 +361,8 @@ def _prism_easy(rng) -> dict:
     name = _prism_name(n)
     text = rng.choice(
         (
-            f"A prism has a {shape} for its base. How many {quantity} does it have?",
-            f"How many {quantity} does a {name} have?",
+            f"A prism has {_a(shape)} for its base. How many {quantity} does it have?",
+            f"How many {quantity} does {_a(name)} have?",
         )
     )
     working = {
@@ -393,7 +400,7 @@ def _prism_medium(rng) -> dict:
         )
     )
     working = [
-        f"{pieces} make a {_prism_name(n) if kind == 'prism' else _pyramid_name(n)}.",
+        f"{pieces} make {_a(_prism_name(n) if kind == 'prism' else _pyramid_name(n))}.",
         f"It has {answer} {quantity}.",
     ]
     wrongs = _wrong_formulas(kind, n, quantity)
@@ -442,7 +449,7 @@ def _prism_hard(rng) -> dict:
     ]
     working = [
         f"The base has {n} sides.",
-        f"A {_prism_name(n) if kind == 'prism' else _pyramid_name(n)} has {answer} {asked}.",
+        f"{_a(_prism_name(n) if kind == 'prism' else _pyramid_name(n)).capitalize()} has {answer} {asked}.",
     ]
     return _count_question(text, answer, cands, working)
 

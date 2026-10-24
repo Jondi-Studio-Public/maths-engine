@@ -1882,18 +1882,18 @@
 {"answer": "140", "id": "ey-estimate-angle-size/medium/0/44512cc2baf4", "text": "Count the dashed rays. Estimate the angle in degrees, to the nearest 10."}
 {"answer": "160", "id": "ey-estimate-angle-size/medium/1/2577e13b7aa2", "text": "Count the rays from 0. About how big is the angle, in degrees? Nearest 10."}
 {"answer": "10", "id": "ey-estimate-angle-size/medium/2/7019c4cf8aff", "text": "Count the dashed rays. Estimate the angle in degrees, to the nearest 10."}
-{"answer": "40", "id": "ey-estimate-collection-quantity/easy/0/d2d0d60a7424", "text": "About how many houses? The box is one fifth. Round to the nearest 10."}
-{"answer": "20", "id": "ey-estimate-collection-quantity/easy/1/f8c7ec2b7b5a", "text": "About how many tents? The box is one fifth. Round to the nearest 10."}
-{"answer": "50", "id": "ey-estimate-collection-quantity/easy/2/e49e16e92c85", "text": "About how many trees? The box is one fifth. Round to the nearest 10."}
-{"answer": "(a) 10; (b) 40; (c) 50; (d) 550", "id": "ey-estimate-collection-quantity/exam/0/b3c41b109dc7", "text": "Look at the tents on each side of the wall. Estimate each count to the nearest …"}
-{"answer": "(a) 20; (b) 20; (c) 40; (d) 160", "id": "ey-estimate-collection-quantity/exam/1/36a1eb83615f", "text": "Look at the tents on each side of the wall. Estimate each count to the nearest …"}
-{"answer": "(a) 30; (b) 20; (c) 50; (d) 500", "id": "ey-estimate-collection-quantity/exam/2/2cd0606b5f59", "text": "The picture shows trees, split into two sides by a wall. Estimate to the neares…"}
-{"answer": "70", "id": "ey-estimate-collection-quantity/hard/0/849ce4d285f7", "text": "About how many trees on both sides altogether? Round to the nearest 10."}
-{"answer": "30", "id": "ey-estimate-collection-quantity/hard/1/f8d547bd3d42", "text": "About how many more trees are on the left than the right? Nearest 10."}
-{"answer": "10", "id": "ey-estimate-collection-quantity/hard/2/5b64636a4183", "text": "About how many more trees are on the left than the right? Nearest 10."}
-{"answer": "60", "id": "ey-estimate-collection-quantity/medium/0/1a530369f6e7", "text": "About how many tents are there? Estimate to the nearest 10."}
-{"answer": "70", "id": "ey-estimate-collection-quantity/medium/1/85d074f69dff", "text": "Estimate how many trees there are. Round to the nearest 10."}
-{"answer": "70", "id": "ey-estimate-collection-quantity/medium/2/b1ebfe18a0c8", "text": "About how many houses are there? Estimate to the nearest 10."}
+{"answer": "40", "id": "ey-estimate-collection-quantity/easy/0/7c95654f3887", "text": "About how many houses? The box is one fifth. Round to the nearest 10."}
+{"answer": "20", "id": "ey-estimate-collection-quantity/easy/1/90c8c1950b37", "text": "The box is one fifth of the picture. About how many tents? Nearest 10."}
+{"answer": "50", "id": "ey-estimate-collection-quantity/easy/2/209ad3dc016f", "text": "About how many trees? The box is one fifth. Round to the nearest 10."}
+{"answer": "(a) 10; (b) 20; (c) 30; (d) 120", "id": "ey-estimate-collection-quantity/exam/0/65f65ad6d8e3", "text": "Look at the tents on each side of the wall. Estimate each count to the nearest …"}
+{"answer": "(a) 10; (b) 30; (c) 40; (d) 440", "id": "ey-estimate-collection-quantity/exam/1/28aa8724e23d", "text": "A wall splits the tents in the picture into a left side and a right side. Round…"}
+{"answer": "(a) 30; (b) 20; (c) 50; (d) 150", "id": "ey-estimate-collection-quantity/exam/2/1f4cabfcd47d", "text": "Look at the trees on each side of the wall. Estimate each count to the nearest …"}
+{"answer": "50", "id": "ey-estimate-collection-quantity/hard/0/7a210e6a750f", "text": "About how many trees on both sides altogether? Round to the nearest 10."}
+{"answer": "10", "id": "ey-estimate-collection-quantity/hard/1/a6dc637cab50", "text": "Estimate how many more trees are on the left side than the right. Nearest 10."}
+{"answer": "20", "id": "ey-estimate-collection-quantity/hard/2/d67179683354", "text": "Estimate how many more trees are on the left side than the right. Nearest 10."}
+{"answer": "60", "id": "ey-estimate-collection-quantity/medium/0/b97a2cb60a74", "text": "About how many tents are there? Estimate to the nearest 10."}
+{"answer": "70", "id": "ey-estimate-collection-quantity/medium/1/d271a8015f0b", "text": "Estimate how many trees there are. Round to the nearest 10."}
+{"answer": "70", "id": "ey-estimate-collection-quantity/medium/2/1588ee3ffc44", "text": "Estimate how many houses there are. Round to the nearest 10."}
 {"answer": "5", "id": "ey-features-of-named-solids/easy/0/8fc17c3e529d", "text": "How many corners does this solid have?"}
 {"answer": "12", "id": "ey-features-of-named-solids/easy/1/8189cbb5857f", "text": "Count the edges on this solid."}
 {"answer": "1", "id": "ey-features-of-named-solids/easy/2/833d3c01329d", "text": "Count the curved surfaces on this solid."}
@@ -1914,7 +1914,7 @@
 {"answer": "aeroplane", "id": "ey-follow-directions-grid/medium/2/0e5e062256af", "text": "Begin at Start. Go up 1, then left 3. What do you find?"}
 {"answer": "{pink, red, white}", "id": "ey-list-possible-outcomes/easy/0/69f39ae511a0", "text": "A bag has 2 white, 1 red and 4 pink counters. One is picked. List the colours i…"}
 {"answer": "{blue, green, orange, purple, red}", "id": "ey-list-possible-outcomes/easy/1/39f2237e3476", "text": "A spinner is orange, red, green, purple and blue, in equal sections. List every…"}
-{"answer": "{orange, yellow}", "id": "ey-list-possible-outcomes/easy/2/ffcef4f0395d", "text": "A bag has 4 orange and 3 yellow counters. One is picked. List the colours it co…"}
+{"answer": "{orange, yellow}", "id": "ey-list-possible-outcomes/easy/2/858435965223", "text": "A bag has 4 orange and 3 yellow counters. One is picked. List the colours it co…"}
 {"answer": "{1, 3, 4, 6}", "id": "ey-list-possible-outcomes/hard/0/fef176fbb68f", "text": "A die is rolled. List the outcomes that are not 2 or 5."}
 {"answer": "{1, 3, 4, 6}", "id": "ey-list-possible-outcomes/hard/1/1241e0909507", "text": "A die is rolled. List the outcomes that are not 2 or 5."}
 {"answer": "{2, 3, 4, 5}", "id": "ey-list-possible-outcomes/hard/2/a5f265344852", "text": "A die is rolled. List the outcomes that are not 1 or 6."}
@@ -4537,7 +4537,7 @@
 {"answer": "x ≤ -3", "id": "graph-sqrt-of-function-domain-range/easy/0/0e9eb19f1752", "text": "A straight line is drawn as the graph of y = f(x). For which values of x is the…"}
 {"answer": "x ≤ 2", "id": "graph-sqrt-of-function-domain-range/easy/1/488839037bad", "text": "A straight line is drawn as the graph of y = f(x). For which values of x is the…"}
 {"answer": "x ≥ -4", "id": "graph-sqrt-of-function-domain-range/easy/2/9d28f1c7b25f", "text": "The graph of y = f(x) is a straight line, as drawn. State the largest domain of…"}
-{"answer": "(a) 81; (b) 9; (c) -6 ≤ x ≤ 12; (d) 6*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/0/c2bc74208714", "text": "Consider the function f(x) = -x^2 + 6x + 72. (a) Find the greatest value of f. …"}
+{"answer": "(a) 81; (b) 9; (c) -6 ≤ x ≤ 12; (d) 6*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/0/a62b80177a5b", "text": "Consider the function f(x) = -x^2 + 6x + 72. (a) Find the greatest value of f. …"}
 {"answer": "(a) 4; (b) 2; (c) -1 ≤ x ≤ 3; (d) sqrt(3)", "id": "graph-sqrt-of-function-domain-range/exam/1/72ffbe4a771d", "text": "Consider the function f(x) = -x^2 + 2x + 3. (a) Find the greatest value of f. (…"}
 {"answer": "(a) 16; (b) 4; (c) -7 ≤ x ≤ 1; (d) sqrt(7)", "id": "graph-sqrt-of-function-domain-range/exam/2/8f0c3830143f", "text": "The function f is given by f(x) = -x^2 - 6x + 7. (a) Find the greatest value of…"}
 {"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/0/73864e693237", "text": "For f(x) = -x^2 + 4x + 12, state the range of y = sqrt(f(x))."}
@@ -4750,8 +4750,8 @@
 {"answer": "No solution", "id": "identity-and-no-solution/medium/0/8dd23a64a279", "text": "Solve 8(x + 1) = 8x + 10. Which description of its solutions is correct?"}
 {"answer": "Every number is a solution", "id": "identity-and-no-solution/medium/1/3fc7ea6e5a28", "text": "How many solutions does 2(x + 1) = 2(x - 2) + 6 have?"}
 {"answer": "Every number is a solution", "id": "identity-and-no-solution/medium/2/367266ff0d19", "text": "How many solutions does 7x - 5 = 7(x + 4) - 33 have?"}
-{"answer": "2", "id": "implication-converse-contrapositive-counts/easy/0/90642168f09d", "text": "Let n be a whole number from 1 to 64. Consider the statement S: “if n is a mult…"}
-{"answer": "3", "id": "implication-converse-contrapositive-counts/easy/1/bcbcc621128a", "text": "Let n be a whole number from 1 to 64. Consider the statement S: “if n is a mult…"}
+{"answer": "3", "id": "implication-converse-contrapositive-counts/easy/0/522b0e798cc5", "text": "Let n be a whole number from 1 to 48. Consider the statement S: “if n is a perf…"}
+{"answer": "3", "id": "implication-converse-contrapositive-counts/easy/1/66c4d58bb430", "text": "Let n be a whole number from 1 to 64. Consider the statement S: “if n is prime,…"}
 {"answer": "10", "id": "implication-converse-contrapositive-counts/easy/2/826178bd3689", "text": "Let n be a whole number from 1 to 48. Consider the statement S: “if n is a mult…"}
 {"answer": "(a) 36; (b) 43; (c) 14; (d) 21; (e) 35", "id": "implication-converse-contrapositive-counts/exam/0/b53df0d6ba16", "text": "Let n be a whole number from 1 to 72. Consider the statement S: “if n is odd, t…"}
 {"answer": "(a) 12; (b) 32; (c) 4; (d) 24; (e) 28", "id": "implication-converse-contrapositive-counts/exam/1/829641969d87", "text": "Let n be a whole number from 1 to 48. Consider the statement S: “if n is a mult…"}
@@ -5093,7 +5093,7 @@
 {"answer": "pi/4", "id": "inverse-trig-values-and-graph-features/easy/1/94369ecdec23", "text": "What is arctan(1)? Give an exact value in radians."}
 {"answer": "pi/6", "id": "inverse-trig-values-and-graph-features/easy/2/f2da47ddd604", "text": "State the exact value of arcsin(1/2) in radians."}
 {"answer": "(a) 1/4; (b) 8pi/3; (c) 8pi/3; (d) -1/8", "id": "inverse-trig-values-and-graph-features/exam/0/ed4980bcfc02", "text": "The function f is given by f(x) = 4 arcsin(4x) + 2π/3. (a) Find the largest val…"}
-{"answer": "(a) 1/2; (b) 0; (c) -8pi/3; (d) 1/2", "id": "inverse-trig-values-and-graph-features/exam/1/2958f11ff845", "text": "Consider the function f(x) = 8 arcsin(2x) - 4π. (a) Find the largest value of x…"}
+{"answer": "(a) 1/2; (b) 8pi/3; (c) -16pi/3; (d) 1/4", "id": "inverse-trig-values-and-graph-features/exam/1/d9c7dabdf289", "text": "Consider the function f(x) = 8 arcsin(2x) - 4π/3. (a) Find the largest value of…"}
 {"answer": "(a) 1/3; (b) 5pi/3; (c) -5pi/3; (d) 1/6", "id": "inverse-trig-values-and-graph-features/exam/2/a14e83c0636d", "text": "The function f is given by f(x) = 5 arcsin(3x) - 5π/6. (a) Find the largest val…"}
 {"answer": "pi/3", "id": "inverse-trig-values-and-graph-features/hard/0/82cf60428836", "text": "Evaluate arccos(cos(-pi/3)) exactly, in radians."}
 {"answer": "pi/6", "id": "inverse-trig-values-and-graph-features/hard/1/4059500c63c1", "text": "Evaluate arcsin(sin(-7pi/6)) exactly, in radians."}
@@ -6590,10 +6590,10 @@
 {"answer": "150", "id": "read-values-and-rates-from-real-data-graphs/easy/1/1e9671d834f5", "text": "How far, in kilometres, can the car drive on 12 litres of fuel?"}
 {"answer": "6", "id": "read-values-and-rates-from-real-data-graphs/easy/2/6fda344ae4d1", "text": "How many Australian dollars is 4 euros worth?"}
 {"answer": "(a) 20; (b) 20; (c) 160; (d) 7", "id": "read-values-and-rates-from-real-data-graphs/exam/0/af09e30755d0", "text": "The graph shows a plumber's charge against the number of hours worked. (a) What…"}
-{"answer": "(a) 6; (b) 2; (c) 28; (d) 9", "id": "read-values-and-rates-from-real-data-graphs/exam/1/86b37f8c60ed", "text": "The graph shows the fare for a taxi trip against the distance travelled. (a) Wh…"}
+{"answer": "(a) 6; (b) 2; (c) 20; (d) 7", "id": "read-values-and-rates-from-real-data-graphs/exam/1/87b8536c36ca", "text": "The graph shows the fare for a taxi trip against the distance travelled. (a) Wh…"}
 {"answer": "(a) 5; (b) 10; (c) 65; (d) 7", "id": "read-values-and-rates-from-real-data-graphs/exam/2/f7be68c37ee8", "text": "The graph shows the cost of hiring a bike against the number of hours. (a) What…"}
-{"answer": "28", "id": "read-values-and-rates-from-real-data-graphs/hard/0/71c34ba69228", "text": "The graph stops at 8 km. At the same rates, what would the fare be for a 11 km …"}
-{"answer": "2", "id": "read-values-and-rates-from-real-data-graphs/hard/1/a444d3ddb752", "text": "For how many hours did the cyclist stop?"}
+{"answer": "28", "id": "read-values-and-rates-from-real-data-graphs/hard/0/063c4e79eb3f", "text": "The graph stops at 8 km. At the same rates, what would the fare be for an 11 km…"}
+{"answer": "4", "id": "read-values-and-rates-from-real-data-graphs/hard/1/3790e5e33bf8", "text": "For how many hours did the cyclist stop?"}
 {"answer": "40", "id": "read-values-and-rates-from-real-data-graphs/hard/2/0c53568b569e", "text": "The graph stops at 4 hours. At the same rates, what would it cost to hire the b…"}
 {"answer": "3", "id": "read-values-and-rates-from-real-data-graphs/medium/0/3030e860c299", "text": "For how many hours of work does the plumber charge $70?"}
 {"answer": "40", "id": "read-values-and-rates-from-real-data-graphs/medium/1/021049da43d4", "text": "What does the plumber charge for a job of 2 hours, in dollars?"}
@@ -11386,9 +11386,9 @@
 {"answer": "(a) 0.188; (b) 0.183; (c) 0.040; (d) 0.230; (e) 0.020", "id": "simulated-sample-proportion-calculations/exam/0/89e981245cd0", "text": "15% of the customers at a bakery buy a sourdough loaf. A simulation draws rando…"}
 {"answer": "(a) 0.400; (b) 0.437; (c) 0.044; (d) 0.488; (e) 0.022", "id": "simulated-sample-proportion-calculations/exam/1/e4306bd89f78", "text": "40% of the seeds in a packet of wildflower mix germinate. A simulation draws ra…"}
 {"answer": "(a) 0.180; (b) 0.190; (c) 0.040; (d) 0.280; (e) 0.020", "id": "simulated-sample-proportion-calculations/exam/2/2da8fd2ad31c", "text": "20% of the tickets sold for a cricket match are bought online. A simulation dra…"}
-{"answer": "0.011", "id": "simulated-sample-proportion-calculations/hard/0/ff6d21562417", "text": "In a simulation of tickets from a population of tickets sold for a cricket matc…"}
+{"answer": "0.031", "id": "simulated-sample-proportion-calculations/hard/0/2e10b07eab48", "text": "In a simulation of tickets from a population of tickets sold for a cricket matc…"}
 {"answer": "0.620", "id": "simulated-sample-proportion-calculations/hard/1/5e9c1d37c519", "text": "55% of the seeds in a packet of wildflower mix germinate. A simulation draws ra…"}
-{"answer": "2400", "id": "simulated-sample-proportion-calculations/hard/2/c5a9a26f4550", "text": "Samples of 150 customers from a population of customers at a bakery gave a stan…"}
+{"answer": "2400", "id": "simulated-sample-proportion-calculations/hard/2/b1cd01eb4969", "text": "Samples of 150 customers from a population of customers at a bakery gave a stan…"}
 {"answer": "-0.011", "id": "simulated-sample-proportion-calculations/medium/0/bf0d76ddb0c9", "text": "45% of the students at a large secondary school walk to school. A simulation dr…"}
 {"answer": "-0.026", "id": "simulated-sample-proportion-calculations/medium/1/b57b4ab1b7c2", "text": "65% of the students at a large secondary school walk to school. A simulation dr…"}
 {"answer": "0.019", "id": "simulated-sample-proportion-calculations/medium/2/3823ffc58f68", "text": "10% of the light globes from a factory are faulty. A simulation draws random sa…"}

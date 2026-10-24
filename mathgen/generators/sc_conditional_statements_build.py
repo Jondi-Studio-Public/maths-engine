@@ -231,8 +231,11 @@ def _dist(rng, key, cands):
 def _easy(rng):
     variant = rng.choice(("smallest-converse", "count-converse", "smallest-statement"))
     if variant == "smallest-statement":
-        p, q, a, b, universe = _draw_pair(rng, "false-one")
-        ans = min(a - b)
+        for _ in attempts(200, "a counterexample that is not the first value satisfying P"):
+            p, q, a, b, universe = _draw_pair(rng, "false-one")
+            ans = min(a - b)
+            if ans != min(a):  # else "the first n that satisfies P" would answer without testing Q
+                break
         text = _intro(p, q, universe) + " S is false. Find the smallest value of n that is a counterexample to S."
         cands = [
             (min(a), "sc-counterexample-hypothesis-only"),
@@ -245,7 +248,11 @@ def _easy(rng):
             f"The values of n that satisfy the hypothesis start {_numbers(a, 6)}; the first of them that fails the conclusion is {ans}.",
         ]
         return dict(text=text, working=working, distractors=_dist(rng, ans, cands), **int_fields(ans))
-    p, q, a, b, universe = _draw_pair(rng, "true")
+    for _ in attempts(200, "a counterexample that is not the first value satisfying Q"):
+        p, q, a, b, universe = _draw_pair(rng, "true")
+        # The converse's hypothesis is Q; for "smallest" the first n satisfying Q must not simply be the answer.
+        if variant != "smallest-converse" or min(b - a) != min(b):
+            break
     only_a, only_b = _counts(a, b, universe)
     check(only_a == 0, "S should be true")
     converse = f"“if {q.text}, then {p.text}”"

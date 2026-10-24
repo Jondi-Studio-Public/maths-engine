@@ -529,3 +529,50 @@ def test_symmetry_exam_smallest_turn_is_360_over_the_order():
         k = int(_nums(q.parts[3].prompt)[0])
         assert several == k * turn and q.parts[3].follow_through == f"{k}*part_c"
         assert (lines == 0) or order >= 1
+
+
+# --- review fixes -----------------------------------------------------------------------------------------------
+
+
+def test_a_rectangular_prism_question_never_shows_a_cube():
+    seen = 0
+    for seed in range(400):
+        q = make("eyz_named_solids", seed=seed, difficulty="hard")
+        if "rectangular prisms" in q.text:
+            seen += 1
+            assert "cube" not in [item["shape"] for item in q.figure["items"]], seed
+    assert seen >= 20
+
+
+def test_no_picture_in_estimate_a_collection_is_nearly_full():
+    for topic, tier in (("eyz_estimate_collection", t) for t in ("easy", "medium", "hard")):
+        for seed in range(200):
+            q = make(topic, seed=seed, difficulty=tier)
+            grid = q.figure["grid"]
+            assert len(q.figure["symbols"]) <= 0.85 * grid["width"] * grid["height"], (tier, seed)
+    for seed in range(200):
+        q = make("eyz_estimate_collection_exam", seed=seed, difficulty="exam")
+        grid = q.figure["grid"]
+        assert len(q.figure["symbols"]) <= 0.85 * grid["width"] * grid["height"], seed
+
+
+def test_prompts_and_working_use_a_and_an_correctly_in_chance_and_solids():
+    wrong = re.compile(r"\b[aA] (?:[aeiou]\w)|\ban (?:[b-df-hj-np-tv-z]\w)")
+    for topic, tiers in (
+        ("eyz_chance_words", ("easy", "medium", "hard")),
+        ("eyz_list_outcomes", ("easy", "medium", "hard")),
+        ("eyz_prism_pyramid_counts", ("easy", "medium", "hard")),
+    ):
+        for tier in tiers:
+            for seed in range(250):
+                try:
+                    q = make(topic, seed=seed, difficulty=tier)
+                except KeyError:
+                    break
+                for t in [q.text, *q.working, *(p.prompt for p in q.parts), *(w for p in q.parts for w in p.working)]:
+                    assert not wrong.search(t), (topic, tier, seed, t)
+
+
+def test_the_compare_module_docstring_describes_the_set_answer():
+    doc = angles.__doc__
+    assert "four angles A to D" in doc and "``set``" in doc and "five angles" not in doc

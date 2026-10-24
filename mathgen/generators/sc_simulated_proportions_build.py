@@ -45,6 +45,12 @@ _CONTEXTS = (
 )
 
 
+def _feasible_sd(sd, n) -> bool:
+    """True when a sample proportion of samples of n can have this standard deviation: sd = √(p(1 - p)/n) with p between
+    0.1 and 0.9, so sd²·n = p(1 - p) lies between 0.09 and 0.25."""
+    return F(9, 100) <= sd * sd * n <= F(1, 4)
+
+
 def _thin_means_redraw(build):
     """A draw whose wrong options come out too few or too close to the key is redrawn, not raised."""
 
@@ -251,7 +257,7 @@ def _hard(rng):
         for _ in attempts(500, "a clean starting spread"):
             n = rng.choice((25, 36, 40, 50, 64, 100))
             s1 = F(rng.randint(2, 9) * k * 5 + rng.randint(0, 4) * k, 1000)
-            if s1 < F(1, 10):
+            if _feasible_sd(s1, n):
                 break
         new_n = n * k * k
         value = s1 / k
@@ -274,10 +280,11 @@ def _hard(rng):
     if variant == "sample-size-ratio":
         j = rng.choice((2, 3, 4, 5))
         n1 = rng.choice((25, 40, 50, 100, 120, 150, 200))
-        s1 = F(rng.choice((8, 9, 10, 12, 15)) * 2, 1000) * j
+        for _ in attempts(500, "a feasible starting spread"):
+            s1 = F(rng.randint(4, 30) * j, 1000)  # a multiple of j/1000, so the target spread is exact too
+            if _feasible_sd(s1, n1):
+                break
         s2 = s1 / j
-        if s1 >= F(2, 10):
-            s1, s2, j = F(60, 1000), F(30, 1000), 2
         value = n1 * j * j
         text = (
             f"Samples of {n1} {unit} from a population of {pop} gave a standard deviation of {dec(s1, 3)} for the "

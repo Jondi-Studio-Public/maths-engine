@@ -753,3 +753,30 @@ def test_make_is_the_only_entry_the_generators_need():
     for _sid, topic, chain, _kind in SKILLS:
         assert make(topic, seed=0, difficulty="easy").text
         assert make(chain, seed=0, difficulty="exam").parts
+
+
+# --- review fixes: articles, a guessable stop, ----------------------------------------------------------------
+
+
+def test_prompts_use_a_and_an_correctly_in_the_grid_map_and_real_data_graphs():
+    a_before_vowel = re.compile(r"\ba (?:[aeiou]\w|8\d*\b|11\b|18\b)")
+    an_before_consonant = re.compile(r"\ban (?:[b-df-hj-np-tv-z]\w|[0-79]\d*\b)(?<!\b11)(?<!\b18)")
+    for topic in ("dg_grid_map", "dg_real_data_graphs"):
+        for tier in ("easy", "medium", "hard"):
+            for seed in range(250):
+                q = make(topic, seed=seed, difficulty=tier)
+                for t in [q.text, *q.working, *(p.prompt for p in q.parts)]:
+                    assert not a_before_vowel.search(t), (topic, tier, seed, t)
+                    assert not an_before_consonant.search(t), (topic, tier, seed, t)
+
+
+def test_the_journey_stop_is_not_always_one_or_two_hours_or_the_smallest_option():
+    keys, smallest = Counter(), 0
+    for seed in range(600):
+        q = make("dg_real_data_graphs", seed=seed, difficulty="hard")
+        if "For how many hours did the cyclist stop" not in q.text:
+            continue
+        keys[float(q.answer)] += 1
+        if all(float(q.answer) < float(d) for d in q.distractors):
+            smallest += 1
+    assert len(keys) >= 4 and smallest == 0, (keys, smallest)

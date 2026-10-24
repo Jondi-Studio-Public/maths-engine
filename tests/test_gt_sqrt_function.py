@@ -143,3 +143,33 @@ def test_exam_part_b_follows_through_from_a():
         replies = {**canon, "a": "49", "b": "7"}
         assert sup.part_marks(SKILL, q, replies, "b") == q.parts[1].marks
         assert sup.part_marks(SKILL, q, {**replies, "b": "49"}, "b") == 0
+
+
+def test_exam_half_distractor_is_only_offered_for_a_whole_half():
+    for seed in range(300):
+        q = sup.exam_question("gt_sqrt_function_exam", seed)
+        part_b = q.parts[1]
+        t = int(part_b.answer_text) ** 2
+        if t % 2:
+            assert not any(
+                getattr(d, "misconception", None) == "gtf-root-as-half" or getattr(d, "tag", None) == "gtf-root-as-half"
+                for d in part_b.distractors
+            ), seed
+
+
+def test_skill_declares_every_misconception_the_generator_emits():
+    from mathgen.skills import load_skills
+
+    _, skills = load_skills()
+    skill = next(x for x in skills if x.id == "graph-sqrt-of-function-domain-range")
+    declared = {m.id for m in skill.misconceptions}
+    emitted = set()
+    for tier in ("easy", "medium", "hard"):
+        for seed in range(150):
+            q = sup.tier_question("gt_sqrt_function", tier, seed)
+            emitted |= {getattr(d, "tag", None) or getattr(d, "misconception", None) for d in q.distractors}
+    for seed in range(150):
+        q = sup.exam_question("gt_sqrt_function_exam", seed)
+        for p in q.parts:
+            emitted |= {getattr(d, "tag", None) or getattr(d, "misconception", None) for d in p.distractors}
+    assert (emitted - {None}) <= declared, emitted - declared

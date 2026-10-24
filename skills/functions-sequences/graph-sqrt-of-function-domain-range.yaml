@@ -31,6 +31,14 @@ sources:
   difficulty: exam
   stages: [exam]
 misconceptions:
+- {id: gtf-domain-all-reals, description: 'Giving all real numbers as the domain of the square root of f, as if the root of a negative value existed.'}
+- {id: gtf-domain-excludes-zeros, description: 'Leaving out the zeros of f from the domain of the square root of f, using a strict inequality where the square root of 0 is defined.'}
+- {id: gtf-domain-wrong-side, description: 'Giving the part of the x-axis where f is negative as the domain of the square root of f, instead of where f is not negative.'}
+- {id: gtf-root-as-half, description: 'Halving the value inside the square root instead of taking its square root.'}
+- {id: gtf-root-negative-branch, description: 'Giving the negative square root, as if the square root function had two outputs.'}
+- {id: gtf-root-not-taken, description: 'Giving the value inside the square root as the answer, without taking the root.'}
+- {id: gtf-root-squared-instead, description: 'Squaring the value inside the square root instead of taking its square root.'}
+- {id: gtf-zero-sign, description: 'Reading a zero of the function with the wrong sign, so a graph that crosses the axis at x = 3 is taken to cross at x = -3.'}
 - {id: gts-completing-square-adds-instead-of-subtracts, description: 'Completing the square with the wrong sign, so the shift squared is added to the constant instead of taken from it.'}
 - {id: gts-domain-from-vertex, description: 'Using the x-coordinate of the vertex of f as the end point of the domain of the square root of f.'}
 - {id: gts-greatest-value-of-root-for-f, description: 'Giving the greatest value of the square root of f as the greatest value of f, or the reverse.'}

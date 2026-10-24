@@ -3,10 +3,10 @@
 Every angle is two straight arms from a vertex with a small arc between them. The figure never prints a size, so
 the learner reads the picture. Three topics share the drawing helpers below:
 
-- ``eyz_right_angle_compare`` (skill ``ey-compare-with-right-angle``, ``number``): five angles A to E; the learner
-  counts how many are smaller than, the same as, or bigger than a right angle. Easy draws a dashed guide at a
-  right angle from each angle's first arm, so each is judged on its own; medium draws one right angle R beside
-  them to compare with; hard also draws angles close to a right angle (10 to 15 degrees off), straight angles and
+- ``eyz_right_angle_compare`` (skill ``ey-compare-with-right-angle``, ``set``): four angles A to D; the learner
+  lists the letters of the angles that are smaller than, the same as, or bigger than a right angle. Easy draws a
+  dashed guide at a right angle from each angle's first arm, so each is judged on its own; medium draws one right
+  angle R beside them to compare with; hard also draws angles close to a right angle (10 to 15 degrees off), straight angles and
   reflex angles.
 - ``eyz_angle_kind`` (skill ``ey-name-angle-by-size``, ``set``): four angles A to D; the learner lists the letters of
   the angles of a named kind. Easy draws acute, right and obtuse angles and asks for one of those kinds; medium draws

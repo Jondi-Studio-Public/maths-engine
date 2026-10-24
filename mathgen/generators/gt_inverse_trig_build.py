@@ -535,7 +535,9 @@ def gt_inverse_trig_exam(rng, tier="exam"):
         raise ValueError(f"unknown tier {tier!r}")
     a = rng.choice((2, 3, 4, 5, 6, 8))
     b = rng.choice((2, 3, 4, 5))
-    s = rng.choice((Frac(1, 2), Frac(-1, 2), Frac(1)))  # f has its zero where b x = s
+    # f has its zero where b x = s. Not s = 1: then the greatest value is 0 and the zero is the largest x, so (b) would
+    # always be 0 and (d) would repeat (a).
+    s = rng.choice((Frac(1, 2), Frac(-1, 2)))
     c = -a * _arcsin(float(s))  # in units of pi
     check(abs(a * math.asin(float(s)) + float(c) * math.pi) < 1e-12, "f does not vanish at the chosen point")
     u = rng.choice([v for v in (Frac(1, 2), Frac(-1, 2), Frac(1), Frac(-1)) if v != s])

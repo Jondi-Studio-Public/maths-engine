@@ -170,3 +170,10 @@ def test_exam_part_d_follows_through_from_a():
         replies = {**canon, "a": "3/7", "d": str(s * sp.Rational(3, 7))}
         assert sup.part_marks(SKILL, q, replies, "d") == q.parts[3].marks, (seed, replies)
         assert sup.part_marks(SKILL, q, {**replies, "d": "5"}, "d") == 0
+
+
+def test_exam_parts_b_and_d_are_not_fixed_by_the_choice_of_zero():
+    for seed in range(300):
+        q = sup.exam_question("gt_inverse_trig_exam", seed)
+        a, b, _, d = (p.answer_text for p in q.parts)
+        assert b != "0" and a != d, seed

@@ -179,3 +179,15 @@ def test_deterministic_varied_and_clean():
         assert_deterministic_and_varied("sc_conditional_counts", tier, distinct=distinct)
         assert all("**" not in q.text for q in questions(SK, tier, range(30)))
     assert_deterministic_and_varied("sc_conditional_counts_exam", "exam", distinct=25)
+
+
+def test_easy_smallest_counterexample_is_not_just_the_first_value_satisfying_the_hypothesis():
+    hits = total = 0
+    for seed in range(400):
+        q = make("sc_conditional_counts", seed=seed, difficulty="easy")
+        if "smallest value" not in q.text:
+            continue
+        total += 1
+        first = int(re.search(r"start ([\d, .]+); the first", q.working[1])[1].split(",")[0])
+        hits += first == int(q.answer)
+    assert total >= 50 and hits / total < 0.25, (hits, total)

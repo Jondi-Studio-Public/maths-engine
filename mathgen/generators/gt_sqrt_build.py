@@ -379,10 +379,11 @@ def gt_sqrt_function_exam(rng, tier="exam"):
     b_fields = number_fields(Frac(s_), 0)
     b_wrong = [
         int_dist(t, "gts-range-of-f-not-root"),
-        int_dist(t // 2 if t % 2 == 0 else t + 1, "gtf-root-as-half"),
         int_dist(-s_, "gtf-root-negative-branch"),
         int_dist(t * t, "gtf-root-squared-instead"),
     ]
+    if t % 2 == 0:  # half of an odd t is not a whole number, so there is no whole-number "halved" option
+        b_wrong.insert(1, int_dist(t // 2, "gtf-root-as-half"))
     outer = max(d for d in range(1, c0 + 1) if c0 % (d * d) == 0)
     inner = c0 // (outer * outer)
     ans = f"{outer}*sqrt({inner})" if outer > 1 else f"sqrt({inner})"

@@ -339,7 +339,8 @@ def _rate(ctx, g):
 
 
 def _text(ctx, key, **kw):
-    return ctx[key].format(**kw)
+    # "a 8 km trip" reads "an 8 km trip": fix the article after the numbers are filled in.
+    return re.sub(r"\ba (?=(?:8\d*|11|18)\b)", "an ", ctx[key].format(**kw))
 
 
 def _num_dist(answer, cands, lo=0):
@@ -502,11 +503,11 @@ def _journey(rng):
     for _ in attempts(300, "a journey graph"):
         gy = rng.choice((5, 10))
         a, b = rng.sample((1, 2, 3), 2)
-        d1, w, d2 = rng.randint(2, 3), rng.randint(1, 2), rng.randint(1, 3)
+        d1, w, d2 = rng.randint(2, 3), rng.randint(2, 5), rng.randint(1, 3)
         s1, s2 = a * gy, b * gy
         pts = [(0, 0), (d1, s1 * d1), (d1 + w, s1 * d1), (d1 + w + d2, s1 * d1 + s2 * d2)]
         T, D = pts[-1]
-        if T > 7 or D > 12 * gy * 2 or (Fraction(D, T)).denominator not in (1, 2):
+        if T > 10 or D > 12 * gy * 2 or (Fraction(D, T)).denominator not in (1, 2):
             continue
         return dict(gy=gy, s1=s1, s2=s2, d1=d1, w=w, d2=d2, pts=pts, T=T, D=D)
     raise AssertionError  # pragma: no cover
@@ -556,12 +557,16 @@ def _journey_q(rng, shape=None):
     elif shape == "stopped":
         ans = Fraction(t2 - t1)
         text = _JOURNEY_Q["stopped"]
-        cands = [
+        # One option below the key, always (the stop lasts at least 2 hours); the rest in a seeded order, so the
+        # key is neither always the smallest nor always beside the same wrong values.
+        rest = [
             (Fraction(y1), "dg-rd-stop-as-distance"),
             (Fraction(t2), "dg-rd-stop-as-end-time"),
             (Fraction(t1), "dg-rd-stop-as-end-time"),
             (ans + 1, "dg-rd-off-one-gridline"),
         ]
+        rng.shuffle(rest)
+        cands = [(ans - 1, "dg-rd-off-one-gridline"), *rest]
         work = [
             f"The flat part of the graph runs from {t1} to {t2} hours.",
             f"It lasted {t2} - {t1} = {t2 - t1} hour{'' if t2 - t1 == 1 else 's'}.",
@@ -624,6 +629,8 @@ def dg_real_data_graphs_chain(rng, tier="exam"):
         r = Fraction(g["step"], ctx["gx"])
         edge = ctx["gx"] * g["j"]
         X = edge + ctx["gx"] * rng.randint(1, 3)
+        if re.match(r"(?:8|11$|18$)", str(X)):
+            continue  # "an 8 km trip": the chain keeps to "a N km trip", the form its follow-through test reads
         cost = c + r * X
         far_x = edge + ctx["gx"] * rng.randint(1, 3)
         budget = c + r * far_x
@@ -725,7 +732,7 @@ def dg_real_data_graphs_chain(rng, tier="exam"):
 
 
 def _pattern(template):
-    esc = re.escape(template)
+    esc = re.escape(template).replace(r"\ a\ \{", r"\ an?\ \{")
     for name in ("x", "y", "t1", "t2", "T", "edge", "X", "B"):
         esc = esc.replace(re.escape("{" + name + "}"), rf"(?P<{name}>\d+(?:\.\d+)?)")
     return re.compile(esc)

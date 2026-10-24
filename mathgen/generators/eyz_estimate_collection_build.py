@@ -38,11 +38,12 @@ _THINGS = {
     "campground": "tents",
 }
 _OFFSETS = (-2, -1, 0, 1, 2)
+_MOST = 85  # a picture never fills more than this per cent of its cells, so estimating is not counting every cell
 _WALL_X = 6  # hard and exam: the wall stands on this lattice line, so each side is a 6 by 7 block
 
 
 def _near(ans: int, rng, *, top: int) -> int:
-    """A true count within 2 of the multiple of 10 ``ans``, never above ``top``."""
+    """A true count within 2 of the multiple of 10 ``ans``, never above ``top`` (at most 85% of the cells)."""
     return rng.choice([ans + o for o in _OFFSETS if 0 < ans + o <= top])
 
 
@@ -93,10 +94,10 @@ def _question(text: str, ans: int, cands, working, fig) -> dict:
 
 
 def _easy(rng) -> dict:
-    w, h = 10, 6
+    w, h = 10, 8
     symbol = rng.choice(tuple(_THINGS))
     ans = 10 * rng.randint(1, 6)
-    count = _near(ans, rng, top=60)
+    count = _near(ans, rng, top=_MOST * w * h // 100)
     k = round(count / 5)
     check(abs(5 * k - count) <= 2 and _round10(5 * k) == ans, "the box scales to the answer")
     j = rng.randint(0, w - 2)
@@ -129,10 +130,10 @@ def _easy(rng) -> dict:
 
 
 def _medium(rng) -> dict:
-    w, h = 10, 7
+    w, h = 10, 9
     symbol = rng.choice(tuple(_THINGS))
     ans = 10 * rng.randint(2, 7)
-    count = _near(ans, rng, top=70)
+    count = _near(ans, rng, top=_MOST * w * h // 100)
     fig = _figure(w, h, symbol, _pick(rng, [(x, y) for x in range(w) for y in range(h)], count))
     things = _THINGS[symbol]
     text = rng.choice(
@@ -151,8 +152,8 @@ def _medium(rng) -> dict:
 
 def _two_sides(rng, *, difference: bool) -> tuple[int, int]:
     for _ in attempts(500, "two sides that round consistently"):
-        a_ans, b_ans = 10 * rng.randint(1, 4), 10 * rng.randint(1, 4)
-        a, b = _near(a_ans, rng, top=42), _near(b_ans, rng, top=42)
+        a_ans, b_ans = 10 * rng.randint(1, 3), 10 * rng.randint(1, 3)
+        a, b = _near(a_ans, rng, top=_MOST * _WALL_X * 7 // 100), _near(b_ans, rng, top=_MOST * _WALL_X * 7 // 100)
         if difference and a <= b:
             continue
         total_ok = _round10(a) + _round10(b) == _round10(a + b)
