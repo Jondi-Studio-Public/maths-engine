@@ -162,13 +162,24 @@ def _options(key, cands, near, *, want=2, nonzero=False):
     """Wrong exact values with a random number of them below the key: the named slips first, then plain near misses
     (`near`) on a side that has too few. A part that later parts follow through from offers no 0 (`nonzero`)."""
     key = sympy.sympify(key)
-    fillers = [Cand(sympy.sympify(v), NEAR, const=False) for v in near if v is not None and not (nonzero and v == 0)]
-    return pick_expr(
-        key,
-        False,
-        mixed(key, [c for c in cands if c is not None and c.expr is not None], fillers=fillers),
-        minimum=want,
-    )
+
+    def shape(
+        v,
+    ):  # whole, fraction or surd: a filler shares the key's shape, so the key is not the only one of its kind
+        return "int" if v.is_Integer else "rational" if v.is_Rational else "surd"
+
+    fillers = [
+        Cand(sympy.sympify(v), NEAR, const=False)
+        for v in near
+        if v is not None and not (nonzero and v == 0) and shape(sympy.sympify(v)) == shape(key)
+    ]
+    pool = [c for c in cands if c is not None and c.expr is not None]
+    picked = []
+    for _ in range(8):  # redraw the split until some option shares the key's shape (a whole key beside only fractions)
+        picked = pick_expr(key, False, mixed(key, pool, fillers=fillers), minimum=want)
+        if any(shape(sympy.sympify(d.value if not isinstance(d.value, str) else d.text)) == shape(key) for d in picked):
+            break
+    return picked
 
 
 def _scalar(expr, cands, rng, *, want=2, near=()):

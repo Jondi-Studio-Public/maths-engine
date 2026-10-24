@@ -859,17 +859,17 @@
 {"answer": "(a) 13; (b) -9/13; (c) 7/13; (d) 10/13", "id": "complex-conjugate/exam/0/02802315cf79", "text": "Consider the complex number z = (-3 + i)/(2 - 3i). (a) Find |2 - 3i|^2. (b) Fin…"}
 {"answer": "(a) 17; (b) 32/17; (c) 9/17; (d) 65/17", "id": "complex-conjugate/exam/1/d70ad0f0a514", "text": "Consider the complex number z = (4 + 7i)/(1 + 4i). (a) Find |1 + 4i|^2. (b) Fin…"}
 {"answer": "(a) 20; (b) 13/10; (c) -3/5; (d) 41/20", "id": "complex-conjugate/exam/2/f8130a5a10bf", "text": "Consider the complex number z = (4 + 5i)/(4 + 2i). (a) Find |4 + 2i|^2. (b) Fin…"}
-{"answer": "1", "id": "complex-exponential-form-conversions/easy/0/e284f54bf842", "text": "Let z = e^(iπ/2). Find the imaginary part of z, Im(z), as an exact value."}
+{"answer": "1", "id": "complex-exponential-form-conversions/easy/0/d67b07f18781", "text": "Let z = e^(iπ/2). Find the imaginary part of z, Im(z), as an exact value."}
 {"answer": "3*sqrt(2)", "id": "complex-exponential-form-conversions/easy/1/e55a9829f32a", "text": "Let z = 6(cos(π/4) + i sin(π/4)). Find the imaginary part of z, Im(z), as an ex…"}
 {"answer": "-sqrt(3)/2", "id": "complex-exponential-form-conversions/easy/2/a3e10ff3042e", "text": "Let z = cos(5π/6) + i sin(5π/6). Find the real part of z, Re(z), as an exact va…"}
-{"answer": "(a) -1; (b) -sqrt(3); (c) -2; (d) 2*sqrt(3); (e) 4", "id": "complex-exponential-form-conversions/exam/0/f635d1a410e9", "text": "Let z = 2e^(-i2π/3). (a) Find the real part of z, Re(z), as an exact value. (b)…"}
-{"answer": "(a) -5*sqrt(3)/2; (b) 5/2; (c) 25/2; (d) -25*sqrt(3)/2; (e)…", "id": "complex-exponential-form-conversions/exam/1/364db65f7777", "text": "Let z = 5e^(i5π/6). (a) Find the real part of z, Re(z), as an exact value. (b) …"}
-{"answer": "(a) sqrt(3); (b) 1; (c) 2; (d) 2*sqrt(3); (e) 4", "id": "complex-exponential-form-conversions/exam/2/5927f84b2858", "text": "Let z = 2e^(iπ/6). (a) Find the real part of z, Re(z), as an exact value. (b) F…"}
-{"answer": "-128", "id": "complex-exponential-form-conversions/hard/0/ed341576b8a1", "text": "Let z = 2 + 2 i. Find the real part of z⁵, as an exact value."}
+{"answer": "(a) -1; (b) -sqrt(3); (c) -2; (d) 2*sqrt(3); (e) 4", "id": "complex-exponential-form-conversions/exam/0/d077d2279076", "text": "Let z = 2e^(-i2π/3). (a) Find the real part of z, Re(z), as an exact value. (b)…"}
+{"answer": "(a) -5*sqrt(3)/2; (b) 5/2; (c) 25/2; (d) -25*sqrt(3)/2; (e)…", "id": "complex-exponential-form-conversions/exam/1/dd495d8c449d", "text": "Let z = 5e^(i5π/6). (a) Find the real part of z, Re(z), as an exact value. (b) …"}
+{"answer": "(a) sqrt(3); (b) 1; (c) 2; (d) 2*sqrt(3); (e) 4", "id": "complex-exponential-form-conversions/exam/2/dbe980a60cab", "text": "Let z = 2e^(iπ/6). (a) Find the real part of z, Re(z), as an exact value. (b) F…"}
+{"answer": "-128", "id": "complex-exponential-form-conversions/hard/0/da07e72bfb04", "text": "Let z = 2 + 2 i. Find the real part of z⁵, as an exact value."}
 {"answer": "2*sqrt(3)", "id": "complex-exponential-form-conversions/hard/1/8dfcd2c1aec3", "text": "Evaluate 2(e^(iπ/3) - e^(-iπ/3))/i, giving an exact real value."}
 {"answer": "2*sqrt(2)", "id": "complex-exponential-form-conversions/hard/2/d937ea3fbe4d", "text": "Evaluate 2(e^(iπ/4) + e^(-iπ/4)), giving an exact real value."}
-{"answer": "3*sqrt(3)", "id": "complex-exponential-form-conversions/medium/0/a1f5ccd6f680", "text": "Let z1 = 2e^(-i2π/3) and z2 = 3e^(-i2π/3). Find the imaginary part of the produ…"}
-{"answer": "-3*sqrt(2)/2", "id": "complex-exponential-form-conversions/medium/1/0005c6f4af69", "text": "Let z1 = 3e^(i3π/4) and z2 = e^(-iπ/2). Find the imaginary part of the quotient…"}
+{"answer": "3*sqrt(3)", "id": "complex-exponential-form-conversions/medium/0/73f17e152e3d", "text": "Let z1 = 2e^(-i2π/3) and z2 = 3e^(-i2π/3). Find the imaginary part of the produ…"}
+{"answer": "-3*sqrt(2)/2", "id": "complex-exponential-form-conversions/medium/1/dcabc6b83867", "text": "Let z1 = 3e^(i3π/4) and z2 = e^(-iπ/2). Find the imaginary part of the quotient…"}
 {"answer": "-6", "id": "complex-exponential-form-conversions/medium/2/c37e45330b41", "text": "Let z1 = 3e^(-iπ/3) and z2 = 2e^(-i2π/3). Find the real part of the product z1 …"}
 {"answer": "-4", "id": "complex-imaginary-part/easy/0/bbbd288f4a7e", "text": "Find the imaginary coefficient of z = −5 − 4i."}
 {"answer": "-5", "id": "complex-imaginary-part/easy/1/31fc03ebae37", "text": "Find the imaginary coefficient of z = 4 − 5i."}
