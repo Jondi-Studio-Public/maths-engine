@@ -1310,7 +1310,10 @@ def _enlargement(rng):
         ]
         if shape == "triangle" and sides[which] == max(sides):
             wrong_a.append(Fraction(sum(sides) - sides[which]) * k)  # adds the two short sides
-        work_a = [f"{a_name}{b_name} is {sides[which]} cm long.", f"The image is {_fraction_text(k)} times as long."]
+        work_a = [
+            f"{a_name}{b_name} is {sides[which]} cm long.",
+            f"The image is {_fraction_text(k)} times as long, so the image side is {_fraction_text(want)} cm.",
+        ]
     else:
         want = Fraction(perimeter) * k
         prompt_a = rng.choice(

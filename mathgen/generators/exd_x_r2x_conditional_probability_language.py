@@ -155,7 +155,7 @@ def exd_x_r2x_conditional_probability_language(rng, tier: str = "exam"):
             group,
             0,
             1,
-            [f"The {c_pl} group is the sum of its two cells: {n[row][0]} + {n[row][1]} = {group}."],
+            [f"The number of {noun} who {c_pl} is the sum of its two cells: {n[row][0]} + {n[row][1]} = {group}."],
             [
                 (cell, "r2x-cond-joint-not-group-total"),
                 (total - group, "r2x-cond-complement-group"),

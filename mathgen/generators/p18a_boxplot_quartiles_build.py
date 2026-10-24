@@ -118,7 +118,7 @@ _EXAM_METHOD = (
 _CONTEXTS = ("heights", "times", "scores")
 _RANGE = {"heights": (120, 190), "times": (5, 90), "scores": (30, 100)}
 _CONTEXT_LABEL = {
-    "heights": "seedling heights (cm)",
+    "heights": "student heights (cm)",
     "times": "delivery times (minutes)",
     "scores": "test scores (out of 100)",
 }

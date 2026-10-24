@@ -96,7 +96,7 @@ def _draw(rng):
     them."""
     for _ in attempts(30, "an axis with room for both patterns"):
         ctx = rng.choice(_CONTEXTS)
-        names = rng.choice(_COMPARE_PAIRS)
+        names = rng.choice(ctx.get("pairs", _COMPARE_PAIRS))
         minor = ctx["step"] % 2 == 0 and rng.random() < 0.5
         unit = ctx["step"] // 2 if minor else ctx["step"]
         top = (ctx["hi"] - ctx["lo"]) // unit

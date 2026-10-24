@@ -70,6 +70,16 @@ def _text_verbatim(s: str) -> str:
     return r"\text{" + s.replace("^", r"\textasciicircum{}") + "}"
 
 
+def _single_letter(out: list[str], j: int) -> bool:
+    """True when ``out[j]`` is a one-letter variable (the character before it is not a letter)."""
+    return j >= 0 and out[j].isalpha() and not (j >= 1 and out[j - 1].isalpha())
+
+
+def _single_letter_ahead(rest: str) -> bool:
+    """True when ``rest`` starts with a one-letter variable (not a function name or a longer word)."""
+    return rest[:1].isalpha() and not rest[1:2].isalpha()
+
+
 def _drop_stars(s: str) -> str:
     """Remove the `*` multiplication signs from a sympy-style line, the way a textbook writes the product."""
     out: list[str] = []
@@ -99,6 +109,8 @@ def _drop_stars(s: str) -> str:
         elif nxt.isalpha():
             if (prev.isdigit() or prev == ")") and not _FUNC_START.match(rest):
                 out.append("")
+            elif _single_letter(out, j) and _single_letter_ahead(rest):
+                out.append("")  # two one-letter variables side by side: 4vw, not 4v w
             else:
                 out.append(" ")
         elif nxt.isdigit():
