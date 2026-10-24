@@ -76,8 +76,8 @@ def _single_letter(out: list[str], j: int) -> bool:
 
 
 def _single_letter_ahead(rest: str) -> bool:
-    """True when ``rest`` starts with a one-letter variable (not a function name or a longer word)."""
-    return rest[:1].isalpha() and not rest[1:2].isalpha()
+    """True when ``rest`` starts with a one-letter variable (not a function name, a longer word or a factorial)."""
+    return rest[:1].isalpha() and not rest[1:2].isalpha() and rest[1:2] != "!"
 
 
 def _drop_stars(s: str) -> str:
