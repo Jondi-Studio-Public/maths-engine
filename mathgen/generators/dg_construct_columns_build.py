@@ -425,7 +425,9 @@ def dg_construct_columns_chain(rng, tier="exam"):
                 (diff + 1, "dg-cc-tally-miscount"),
                 (diff - 1, "dg-cc-tally-miscount"),
             ],
-            lo=0,
+            lo=1,
+            hi=max(counts) + min(counts),
+            step=1,
         )
         dc = bars_dist(
             cats_l,
@@ -447,7 +449,9 @@ def dg_construct_columns_chain(rng, tier="exam"):
                 (sym - 1, "dg-cc-tally-miscount"),
                 (diff * 2, "dg-cc-key-multiplied"),
             ],
-            lo=0,
+            lo=1,  # the tallest and shortest columns differ, so the symbols differ
+            hi=diff * 2,
+            step=1,
         )
         if min(len(x) for x in (da, db, dc, dd)) < 2:
             continue

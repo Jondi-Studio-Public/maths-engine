@@ -84,7 +84,7 @@ def _tens(candidates):
     return [(v, t) for v, t in candidates if v % 10 == 0]
 
 
-def _question(text: str, ans: int, cands, working, fig) -> dict:
+def _question(text: str, ans: int, cands, working, fig, *, hi: int) -> dict:
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -94,7 +94,7 @@ def _question(text: str, ans: int, cands, working, fig) -> dict:
         answer_kind="number",
         working=working,
         # Every option is a nearest-10 value, as the stem asks: a raw count would give the key away by not being one.
-        distractors=tagged_numbers(ans, [(v, t) for v, t in cands if v % 10 == 0], low=1, high=150, step=10),
+        distractors=tagged_numbers(ans, [(v, t) for v, t in cands if v % 10 == 0], low=10, high=hi, step=10),
         figure=fig,
     )
 
@@ -132,7 +132,7 @@ def _easy(rng) -> dict:
         f"The box holds {k} {things}. It is one fifth, so 5 × {k} = {5 * k}.",
         f"{5 * k} is about {ans} to the nearest 10.",
     ]
-    return _question(text, ans, cands, working, fig)
+    return _question(text, ans, cands, working, fig, hi=_round10(_MOST * w * h // 100))
 
 
 def _medium(rng) -> dict:
@@ -153,7 +153,7 @@ def _medium(rng) -> dict:
         f"Count in tens by eye: there are about {ans} {things}.",
         f"The exact count is {count}, which is {ans} to the nearest 10.",
     ]
-    return _question(text, ans, cands, working, fig)
+    return _question(text, ans, cands, working, fig, hi=_round10(_MOST * w * h // 100))
 
 
 def _two_sides(rng, *, difference: bool) -> tuple[int, int]:
@@ -221,7 +221,9 @@ def _hard(rng) -> dict:
             (a + b, "eyz-does-not-round-the-estimate"),
         ]
         working = [f"Left is about {ra} and right is about {rb}.", f"{ra} + {rb} = {ans}."]
-    return _question(text, ans, cands, working, fig)
+    return _question(
+        text, ans, cands, working, fig, hi=_round10(_MOST * _SIDE_H * _WALL_X // 100) * (1 if difference else 2)
+    )
 
 
 @generator("eyz_estimate_collection", level=3, presets=_PRESETS)
@@ -277,6 +279,8 @@ def eyz_estimate_collection_exam(rng, tier="exam"):
                         (ra + 30, None),
                     ]
                 ),
+                lo=10,
+                hi=_round10(_MOST * _SIDE_H * _WALL_X // 100),  # a side holds at most this many
                 step=10,
                 working=[f"There are {a} on the left, about {ra} to the nearest 10."],
             ),
@@ -294,6 +298,8 @@ def eyz_estimate_collection_exam(rng, tier="exam"):
                         (rb + 30, None),
                     ]
                 ),
+                lo=10,
+                hi=_round10(_MOST * _SIDE_H * _WALL_X // 100),
                 step=10,
                 working=[f"There are {b} on the right, about {rb} to the nearest 10."],
             ),
@@ -311,6 +317,8 @@ def eyz_estimate_collection_exam(rng, tier="exam"):
                         (total + 20, None),
                     ]
                 ),
+                lo=10,
+                hi=2 * _round10(_MOST * _SIDE_H * _WALL_X // 100),  # both sides together
                 step=10,
                 follow_through="part_a + part_b",
                 working=[f"{ra} + {rb} = {total}."],
@@ -328,6 +336,8 @@ def eyz_estimate_collection_exam(rng, tier="exam"):
                     (m * total - m * 10, "eyz-rounds-to-the-wrong-ten"),
                     (m * total + m, None),
                 ],
+                lo=m,
+                hi=m * 2 * _round10(_MOST * _SIDE_H * _WALL_X // 100),
                 follow_through=f"{m}*part_c",
                 working=[f"{m} × {total} = {m * total}."],
             ),

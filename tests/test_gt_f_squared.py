@@ -133,7 +133,8 @@ def test_exam_keys_match_an_independent_derivation():
         assert sp.Rational(b.answer_text) == least**2
         slope = sp.Poly(sp.diff(f**2, X), X)
         turning = {r for r in sp.real_roots(slope)}
-        assert int(c.answer_text) == len(turning), (seed, q.text)
+        left, right = (sp.Rational(v) for v in re.search(r"for (-?\d+) < x < (-?\d+)\?", c.prompt).groups())
+        assert int(c.answer_text) == len([r for r in turning if left < r < right]), (seed, q.text)
         k = sp.Rational(re.search(r"\^2 = (-?\d+)", d.prompt).group(1))
         assert int(d.answer_text) == len(set(sp.real_roots(sp.Poly(f**2 - k, X)))), (seed, q.text)
 

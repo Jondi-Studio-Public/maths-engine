@@ -246,8 +246,6 @@ _EXAM = (
     "square",
     "rectangle",
     "rhombus",
-    "kite",
-    "isosceles trapezium",
     "parallelogram",
     "equilateral triangle",
     "regular pentagon",
@@ -321,7 +319,7 @@ def _by_count(rng, names, index: int) -> str:
     return rng.choice(groups[chosen])
 
 
-def _number_question(text, answer, cands, working, fig, *, low=0, high=40) -> dict:
+def _number_question(text, answer, cands, working, fig, *, low, high) -> dict:
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -379,7 +377,7 @@ def _lines_question(rng, name: str) -> dict:
         )
     )
     working = [_lines_working(lines)]
-    return _number_question(text, lines, _line_wrongs(name, lines, order, sides), working, fig)
+    return _number_question(text, lines, _line_wrongs(name, lines, order, sides), working, fig, low=0, high=24)
 
 
 def _order_question(rng, name: str) -> dict:
@@ -395,7 +393,7 @@ def _order_question(rng, name: str) -> dict:
     working = [
         f"Turn the shape a full turn about its middle. It fits onto itself {order} time{'s' if order != 1 else ''}, counting the start."
     ]
-    return _number_question(text, order, _order_wrongs(name, lines, order, sides), working, fig, low=1)
+    return _number_question(text, order, _order_wrongs(name, lines, order, sides), working, fig, low=1, high=24)
 
 
 @generator("eyz_symmetry_count", level=4, presets=_PRESETS)
@@ -430,11 +428,11 @@ figures.register_reader("eyz_symmetry_count_exam", _read_symmetry)
 
 
 def _part(
-    prompt, value, marks, candidates, working, *, follow_through=None, sensible_range=(-0.5, None), low=0
+    prompt, value, marks, candidates, working, *, follow_through=None, sensible_range=(-0.5, None), low=0, high
 ) -> dict:
     """A number-graded part whose answer is the whole number ``value`` (zero allowed)."""
     tagged = [Distractor(str(v), mid, v) for v, mid in candidates if isinstance(v, int) and v >= 0]
-    picked = pick_distractors(str(value), tagged, 3, lo=low, near_misses=True, tolerance=GRADER_TOLERANCE)
+    picked = pick_distractors(str(value), tagged, 3, lo=low, hi=high, near_misses=True, tolerance=GRADER_TOLERANCE)
     check(len(picked) >= 2, "a part needs at least two distractors")
     part = dict(
         prompt=prompt,
@@ -480,6 +478,7 @@ def eyz_symmetry_count_exam(rng, tier="exam"):
                 1,
                 _line_wrongs(name, lines, order, sides),
                 [_lines_working(lines)],
+                high=24,  # at most 12 lines, and twice that for a slip
             ),
             _part(
                 "What is its order of rotational symmetry?",
@@ -488,6 +487,7 @@ def eyz_symmetry_count_exam(rng, tier="exam"):
                 _order_wrongs(name, lines, order, sides),
                 [f"The shape fits onto itself {order} time{'s' if order != 1 else ''} in a full turn."],
                 low=1,  # every shape fits onto itself at least once in a full turn
+                high=24,
             ),
             _part(
                 "Hence, what is the smallest turn that fits it onto itself, in degrees?",
@@ -505,6 +505,8 @@ def eyz_symmetry_count_exam(rng, tier="exam"):
                 [f"360 ÷ {order} = {turn} degrees."],
                 follow_through="360/part_b",
                 sensible_range=(0, 360.5),
+                low=1,
+                high=360,  # the smallest turn is at most a full turn
             ),
             _part(
                 f"It is turned through {k} of those smallest turns. How many degrees is that?",
@@ -521,6 +523,8 @@ def eyz_symmetry_count_exam(rng, tier="exam"):
                 [f"{k} × {turn} = {k * turn} degrees."],
                 follow_through=f"{k}*part_c",
                 sensible_range=(0, None),
+                low=1,
+                high=k * 360,
             ),
         ],
     )

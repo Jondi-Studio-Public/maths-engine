@@ -74,7 +74,15 @@ def _outcome_question(text: str, outcomes: list, wrong: list[tuple[list, str]], 
             continue
         seen.add(key)
         distractors.append(Distractor(_set_text(key), tag, list(key)))
-    picked = pick_distractors(_set_text(answer), distractors, n=4, unordered=True)
+    picked = pick_distractors(
+        _set_text(answer),
+        distractors,
+        n=4,
+        unordered=True,
+        lo=None,
+        hi=None,
+        unbounded="lists of outcomes, not numbers",
+    )
     check(len(picked) >= 3, "an outcomes question needs three wrong lists")
     return dict(
         text=text,
@@ -361,7 +369,9 @@ def _word_options(event: str, answer: str) -> list[Distractor]:
 
 def _word_question(text: str, event: str, word: str, working: list[str]) -> dict:
     answer = sentence(event, word)
-    chosen = pick_distractors(answer, _word_options(event, word), n=4)
+    chosen = pick_distractors(
+        answer, _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentences, not numbers"
+    )
     check(len(chosen) == 4, "four wrong sentences")
     return dict(
         text=text,
@@ -566,7 +576,9 @@ def eyz_chance_words_exam(rng, tier="exam"):
             f"{blue} of the {t} counters are not {colour}.",
             f"{blue} out of {t} is {_gloss(word)}, so it is {_PHRASE[word]}.",
         ],
-        distractors=pick_distractors(sentence(event, word), _word_options(event, word), n=4),
+        distractors=pick_distractors(
+            sentence(event, word), _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentences, not numbers"
+        ),
     )
     return dict(
         text=f"{name} has a bag with {desc}. {name} picks one without looking.",
@@ -582,6 +594,8 @@ def eyz_chance_words_exam(rng, tier="exam"):
                     (t - 1, None),
                     (t + 2, None),
                 ],
+                lo=2,  # a bag with two colours holds at least two counters
+                hi=t + 3,
                 working=[f"{red} + {blue} = {t}."],
             ),
             whole_part(
@@ -595,6 +609,8 @@ def eyz_chance_words_exam(rng, tier="exam"):
                     (blue - 1, None),
                     (blue + 2, None),
                 ],
+                lo=1,  # the counters that are not red: some, but not all of them
+                hi=t - 1,
                 follow_through=f"part_a - {red}",
                 working=[f"{t} - {red} = {blue}."],
             ),

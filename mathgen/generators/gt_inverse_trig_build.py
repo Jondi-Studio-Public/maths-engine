@@ -157,7 +157,15 @@ def _easy(rng):
     lo, hi = ("0", "π") if kind == "arccos" else ("-π/2", "π/2")
     return dict(
         text=stem,
-        distractors=pick(ans, cands),
+        # the options are angles in units of pi: arccos lives in [0, 1], arcsin and arctan in (-1/2, 1/2); the named
+        # slips are the very mistakes of leaving the range (outside it, or the wrong branch), so they may stray further
+        distractors=pick(
+            ans,
+            cands,
+            lo=0 if kind == "arccos" else -Frac(5, 12),
+            hi=1 if kind == "arccos" else Frac(5, 12),
+            slip_range=(-1, 2) if kind == "arccos" else (-2, 2),
+        ),
         working=[
             f"{fname}(u) is the angle between {lo} and {hi} (inclusive) whose {'sine' if kind == 'arcsin' else 'cosine' if kind == 'arccos' else 'tangent'} is u.",
             f"{argtext} = {'sin' if kind == 'arcsin' else 'cos' if kind == 'arccos' else 'tan'}({_stem_pi(value)}), and {_stem_pi(value)} is in that range.",
@@ -222,7 +230,7 @@ def _medium_greatest(rng):
     span = "-π/2 to π/2" if kind == "arcsin" else "0 to π"
     return dict(
         text=stem,
-        distractors=pick(ans, cands),
+        distractors=pick(ans, cands, lo=c - abs(a), hi=c + abs(a), slip_range=(-abs(a) - 2, abs(a) + 2)),
         working=[
             f"{kind} takes values from {span}, so {_lead(a, kind, _x_text(b))} has greatest value {_stem_pi(abs(a) * half)}.",
             f"Adding the shift gives the greatest value {_stem_pi(top)}.",
@@ -256,7 +264,7 @@ def _medium_asymptote(rng):
     )
     return dict(
         text=stem,
-        distractors=pick(ans, cands),
+        distractors=pick(ans, cands, lo=c - abs(a), hi=c + abs(a), slip_range=(-abs(a) - 2, abs(a) + 2)),
         working=[
             "As x gets very large, arctan approaches π/2 from below and, as x gets very large and negative, approaches -π/2.",
             f"{_lead(a, 'arctan', _x_text(b))} therefore lies between {_stem_pi(-abs(a) * Frac(1, 2))} and {_stem_pi(abs(a) * Frac(1, 2))}, and the shift gives the upper asymptote y = {_stem_pi(top)}.",
@@ -304,7 +312,9 @@ def _medium_domain(rng):
     ]  # a slip of one or two steps of 1/b either way
     return dict(
         text=stem,
-        distractors=pick(ans, cands, fillers=near),
+        distractors=pick(
+            ans, cands, fillers=near, lo=None, hi=None, unbounded="an endpoint of a domain can be any rational number"
+        ),
         working=[
             "arcsin(u) is defined only for -1 ≤ u ≤ 1.",
             f"So -1 ≤ {b}x {'+' if d > 0 else '-'} {abs(d)} ≤ 1, which gives {rational_text(Frac(-1 - d, b))} ≤ x ≤ {ans}.",
@@ -349,7 +359,7 @@ def _medium_value(rng):
     )
     return dict(
         text=stem,
-        distractors=pick(ans, cands),
+        distractors=pick(ans, cands, lo=-abs(a) - 2, hi=abs(a) + 2, slip_range=(-abs(a) - 3, abs(a) + 3)),
         working=[
             f"{b} × {rational_text(x0)} = {rational_text(u)}, so f({rational_text(x0)}) = {a} arcsin({rational_text(u)}){_shift_text(c)}.",
             f"arcsin({rational_text(u)}) = {_stem_pi(base)}, so f = {a} × {_stem_pi(base)}{_shift_text(c)} = {_stem_pi(value)}.",
@@ -455,7 +465,14 @@ def _hard_ratio(rng):
     )
     return dict(
         text=stem,
-        distractors=pick(ans, cands, fillers=_near_fracs(value, q)),
+        distractors=pick(
+            ans,
+            cands,
+            fillers=_near_fracs(value, q),
+            lo=None,
+            hi=None,
+            unbounded="a ratio of sides can be any rational number (tan is unbounded)",
+        ),
         working=[why, f"So {stem_fn} = {ans}."],
         **_frac_fields(value),
     )
@@ -519,7 +536,7 @@ def _hard_composite(rng):
     )
     return dict(
         text=stem,
-        distractors=pick(ans, cands),
+        distractors=pick(ans, cands, lo=-2, hi=2, slip_range=(-3, 3)),
         working=[
             f"{kind}(u) gives the angle between {lo} and {hi} whose {inner} is u, so the answer is not just {_stem_pi(t)} when {_stem_pi(t)} is outside that range.",
             f"{inner}({_stem_pi(t)}) = {inner}({_stem_pi(value)}), and {_stem_pi(value)} is in the range, so {e} = {_stem_pi(value)}.",
@@ -622,7 +639,13 @@ def gt_inverse_trig_exam(rng, tier="exam"):
                 f"arcsin needs -1 ≤ {_x_text(b)} ≤ 1, so -{rational_text(top_x)} ≤ x ≤ {rational_text(top_x)}.",
                 f"The largest x is {rational_text(top_x)}.",
             ],
-            distractors=pick(rational_text(top_x), a_wrong),
+            distractors=pick(
+                rational_text(top_x),
+                a_wrong,
+                lo=None,
+                hi=None,
+                unbounded="a domain endpoint can be any rational number",
+            ),
         ),
         dict(
             prompt="Find the greatest value of f. Give an exact value in terms of pi.",
@@ -631,7 +654,13 @@ def gt_inverse_trig_exam(rng, tier="exam"):
                 f"arcsin takes values up to π/2, so {a} arcsin({_x_text(b)}) has greatest value {_stem_pi(Frac(a, 2))}.",
                 f"With the shift, the greatest value of f is {_stem_pi(greatest)}.",
             ],
-            distractors=pick(_pt(greatest), [d for d in b_wrong if d.text != _pt(greatest)]),
+            distractors=pick(
+                _pt(greatest),
+                [d for d in b_wrong if d.text != _pt(greatest)],
+                lo=c - abs(a),
+                hi=c + abs(a),
+                slip_range=(-abs(a) - 2, abs(a) + 2),
+            ),
             **_expr_fields(greatest),
         ),
         dict(
@@ -641,7 +670,13 @@ def gt_inverse_trig_exam(rng, tier="exam"):
                 f"{b} × {rational_text(x0)} = {rational_text(u)}, and arcsin({rational_text(u)}) = {_stem_pi(_arcsin(float(u)))}.",
                 f"f({rational_text(x0)}) = {a} × {_stem_pi(_arcsin(float(u)))}{_shift_text(c)} = {_stem_pi(f_at)}.",
             ],
-            distractors=pick(_pt(f_at), [d for d in c_wrong if d.text != _pt(f_at)]),
+            distractors=pick(
+                _pt(f_at),
+                [d for d in c_wrong if d.text != _pt(f_at)],
+                lo=-abs(a) - 2,
+                hi=abs(a) + 2,
+                slip_range=(-abs(a) - 3, abs(a) + 3),
+            ),
             **_expr_fields(f_at),
         ),
         dict(
@@ -659,6 +694,9 @@ def gt_inverse_trig_exam(rng, tier="exam"):
             distractors=pick(
                 rational_text(zero),
                 d_wrong,
+                lo=-top_x,
+                hi=top_x,
+                slip_range=(-b * top_x - 1, b * top_x + 1),
                 fillers=[
                     Distractor(rational_text(v), NEAR, exact_value(v))
                     # plain slips stay inside the domain, where an x-intercept has to be

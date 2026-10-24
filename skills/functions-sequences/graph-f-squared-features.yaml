@@ -58,6 +58,8 @@ misconceptions:
 - {id: gtf-uses-f-equals-minus-one, description: 'Solving f(x) = -1 instead of f(x) = 1 to find where a function meets its square, although the square of -1 is 1 and not -1.'}
 - {id: gtf-zero-sign, description: 'Reading a zero of the function with the wrong sign, so a graph that crosses the axis at x = 3 is taken to cross at x = -3.'}
 - {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+- {id: gtf-count-ignores-interval, description: 'Counting every turning point of the graph, whether or not it lies in the interval asked about.'}
+- {id: gtf-negative-line-has-solutions, description: 'Finding solutions of (f(x))^2 = c for a negative c, as if a square could be negative.'}
 difficulty_progression:
   easy: {steps: 2, demand: 'Read the zero of a drawn line, then use that squaring never goes below the axis to place the
       turning point on it.'}

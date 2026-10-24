@@ -139,7 +139,7 @@ def _easy(rng):
             (F(c, 100), "sc-count-over-hundred"),
         ]
         working = [f"The sample proportion is the count over the sample size: {c}/{n} = {dec(value, 3)}."]
-        return dict(text=text, working=working, **number_fields(value, 3, wrong))
+        return dict(text=text, working=working, **number_fields(value, 3, wrong, lo=0, hi=1))
     m = rng.randint(6, 9)
     for _ in attempts(500, "a set of counts"):
         counts = _counts(rng, n, p, m)
@@ -163,7 +163,7 @@ def _easy(rng):
         f"Each sample proportion is its count over {n}. The counts total {sum(counts)}.",
         f"The mean proportion is {sum(counts)}/({m} × {n}) = {sum(counts)}/{m * n} = {dec(mean, 3)}.",
     ]
-    return dict(text=text, working=working, **number_fields(mean, 3, wrong))
+    return dict(text=text, working=working, **number_fields(mean, 3, wrong, lo=0, hi=1))
 
 
 # ------------------------------------------------------------------------------------------------ medium
@@ -191,7 +191,7 @@ def _medium(rng):
             f"The standard deviation of the sample proportion is √(p(1 - p)/n) with p = {dec(p, 2)} and n = {n}.",
             f"√({dec(p, 2)} × {dec(1 - p, 2)}/{n}) = √{dec(pq / n, 6)} = {dec(sd, 3)}.",
         ]
-        return dict(text=text, working=working, **number_fields(sd, 3, wrong))
+        return dict(text=text, working=working, **number_fields(sd, 3, wrong, lo=0, hi=F(1, 2)))
     n = rng.choice((50, 100, 200))
     m = rng.randint(6, 8)
     for _ in attempts(800, "a set of sample proportions"):
@@ -217,7 +217,7 @@ def _medium(rng):
         f"Add the {m} proportions and divide by {m}: mean = {dec(mean, 4)}.",
         f"Mean minus population proportion = {dec(mean, 4)} - {dec(p, 2)} = {dec(gap, 3)}.",
     ]
-    return dict(text=text, working=working, **number_fields(gap, 3, wrong))
+    return dict(text=text, working=working, **number_fields(gap, 3, wrong, lo=-1, hi=1))
 
 
 # ------------------------------------------------------------------------------------------------ hard
@@ -264,7 +264,9 @@ def _hard(rng):
             "sd = √(p(1 - p)/n), so n = p(1 - p)/sd².",
             f"n = {dec(p, 2)} × {dec(1 - p, 2)}/{dec(sd, 3)}² = {dec(pq, 4)}/{dec(sd**2, 6)} = {n}.",
         ]
-        return dict(text=text, working=working, **number_fields(F(n), 0, wrong, nonneg=True, near_misses=False))
+        return dict(
+            text=text, working=working, **number_fields(F(n), 0, wrong, nonneg=True, near_misses=False, lo=1, hi=None)
+        )
     if variant == "scaling":
         k = rng.choice((2, 3, 4))
         for _ in attempts(500, "a clean starting spread"):
@@ -289,7 +291,7 @@ def _hard(rng):
             "The standard deviation of the sample proportion is √(p(1 - p)/n), so it is proportional to 1/√n.",
             f"The sample size is multiplied by {k * k}, so the standard deviation is divided by √{k * k} = {k}: {dec(s1, 3)}/{k} = {dec(value, 3)}.",
         ]
-        return dict(text=text, working=working, **number_fields(value, 3, wrong, nonneg=True))
+        return dict(text=text, working=working, **number_fields(value, 3, wrong, nonneg=True, lo=0, hi=F(1, 2)))
     if variant == "sample-size-ratio":
         j = rng.choice((2, 3, 4, 5))
         n1 = rng.choice((25, 40, 50, 100, 120, 150, 200))
@@ -318,7 +320,11 @@ def _hard(rng):
             "The standard deviation is proportional to 1/√n, so n is proportional to 1/sd².",
             f"The standard deviation falls by a factor of {j}, so n is multiplied by {j}² = {j * j}: {n1} × {j * j} = {value}.",
         ]
-        return dict(text=text, working=working, **number_fields(F(value), 0, wrong, nonneg=True, near_misses=False))
+        return dict(
+            text=text,
+            working=working,
+            **number_fields(F(value), 0, wrong, nonneg=True, near_misses=False, lo=1, hi=None),
+        )
     if variant == "simulated-spread":
         n = rng.choice((50, 100))
         p = rng.choice(_PS)
@@ -348,7 +354,7 @@ def _hard(rng):
             f"Squared deviations from the mean sum to {dec(var * m, 6)}; dividing by {m} gives the variance {dec(var, 6)}.",
             f"The standard deviation is √{dec(var, 6)} = {dec(sd, 3)}.",
         ]
-        return dict(text=text, working=working, **number_fields(sd, 3, wrong, nonneg=True))
+        return dict(text=text, working=working, **number_fields(sd, 3, wrong, nonneg=True, lo=0, hi=F(1, 2)))
     for _ in attempts(500, "a clear upper limit"):
         p = rng.choice(_PS)
         n = rng.choice((50, 80, 100, 150, 200, 250, 400))
@@ -371,7 +377,7 @@ def _hard(rng):
         f"The standard deviation of the sample proportion is √({dec(p, 2)} × {dec(1 - p, 2)}/{n}) = {dec(sd, 4)}.",
         f"The upper end is p + 2sd = {dec(p, 2)} + 2 × {dec(sd, 4)} = {dec(upper, 3)}.",
     ]
-    return dict(text=text, working=working, **number_fields(upper, 3, wrong, nonneg=True))
+    return dict(text=text, working=working, **number_fields(upper, 3, wrong, nonneg=True, lo=0, hi=1))
 
 
 _TIERS = {"easy": _easy, "medium": _medium, "hard": _hard}
@@ -445,6 +451,8 @@ def sc_simulated_proportions_exam(rng, tier="exam"):
             (p, "sc-uses-population-proportion"),
         ],
         sensible=(0, 1),
+        lo=0,
+        hi=1,
     )
     pb = number_part(
         f"Find the mean of the {m} sample proportions, correct to 3 decimal places.",
@@ -459,6 +467,8 @@ def sc_simulated_proportions_exam(rng, tier="exam"):
             (first, "sc-uses-one-sample"),
         ],
         sensible=(0, 1),
+        lo=0,
+        hi=1,
     )
     pc = number_part(
         "Find the standard deviation of the sample proportion, using the population proportion, correct to 3 decimal places.",
@@ -473,6 +483,8 @@ def sc_simulated_proportions_exam(rng, tier="exam"):
             (sqrt_of(n * pq), "sc-sd-of-count-for-proportion"),
         ],
         sensible=(0, None),
+        lo=0,
+        hi=F(1, 2),
     )
     pd = number_part(
         "About 95% of sample proportions lie within 2 standard deviations of the population proportion. "
@@ -489,6 +501,8 @@ def sc_simulated_proportions_exam(rng, tier="exam"):
         ],
         follow=f"{dec(p, 2)} + 2*part_c",
         sensible=(0, 2),
+        lo=0,
+        hi=1,
     )
     pe = number_part(
         f"The simulation is repeated with samples of {4 * n}, four times as large. "
@@ -506,5 +520,7 @@ def sc_simulated_proportions_exam(rng, tier="exam"):
         ],
         follow="part_c/2",
         sensible=(0, 1),
+        lo=0,
+        hi=F(1, 2),
     )
     return dict(text=stem, parts=[pa, pb, pc, pd, pe])

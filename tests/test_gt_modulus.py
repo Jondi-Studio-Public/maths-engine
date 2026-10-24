@@ -104,8 +104,9 @@ def test_exam_keys_match_an_independent_derivation():
         least = f.subs(X, xv)
         assert sp.Rational(b.answer_text) == least
         assert sp.Rational(c.answer_text) == abs(least)
-        k = int(re.search(r"\|f\(x\)\| = (\d+)", d.prompt).group(1))
-        count = len(set(sp.real_roots(sp.Poly(f - k, X))) | set(sp.real_roots(sp.Poly(f + k, X))))
+        k = int(re.search(r"\|f\(x\)\| = (-?\d+)", d.prompt).group(1))
+        # |f| is never negative: a negative line is met nowhere
+        count = 0 if k < 0 else len(set(sp.real_roots(sp.Poly(f - k, X))) | set(sp.real_roots(sp.Poly(f + k, X))))
         assert int(d.answer_text) == count, (seed, q.text)
 
 

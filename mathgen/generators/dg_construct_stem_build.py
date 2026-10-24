@@ -379,6 +379,8 @@ def dg_construct_stem_chain(rng, tier="exam"):
                 (n + 2, "dg-sl-count-off-one"),
             ],
             lo=1,
+            hi=None,  # a miscount can run on a few past the true number
+            step=1,
         )
         dc = numd(
             pos,
@@ -389,6 +391,8 @@ def dg_construct_stem_chain(rng, tier="exam"):
                 (pos + 1, "dg-sl-count-off-one"),
             ],
             lo=1,
+            hi=n + 1,
+            step=1,
         )
         leaf_only = Fraction(ordered[(n - 1) // 2] % 10 + ordered[n // 2] % 10, 2)
         mid_stem = int(list(rows)[stems // 2]) * 10
@@ -402,6 +406,8 @@ def dg_construct_stem_chain(rng, tier="exam"):
                 (med + 1, "dg-sl-count-off-one"),
             ],
             lo=0,
+            hi=ordered[-1],
+            step=1,
         )
         if len(ds_a) < 3 or min(len(x) for x in (db, dc, dd)) < 2:
             continue

@@ -28,6 +28,12 @@ from pathlib import Path
 
 import pytest
 import sympy as sp
+from sympy.parsing.sympy_parser import (
+    convert_xor,
+    implicit_multiplication_application,
+    parse_expr,
+    standard_transformations,
+)
 
 from mathgen import make
 from mathgen.core import REGISTRY
@@ -45,21 +51,15 @@ TOPICS = sorted(
 )
 TIERS = ("easy", "medium", "hard", "exam")
 
-# (topic, tier, part, kind) -> why the key cannot be spread. Every entry is a place where the feasible options are so few
-# that the key is at the edge of them whatever is drawn; the kind "" stands for the whole part.
-INHERENT = {
-    (
-        "gt_f_squared_exam",
-        "exam",
-        "p2",
-        "",
-    ): "turning points of a parabola squared: 0 to 3 are possible and the key is 3",
-}
+# (topic, tier, part, kind) -> why the key cannot be spread. Nothing is exempt: a redesign gives the key room instead
+# (the turning-point count of a parabola squared asks about an interval now, so 0 to 3 are all live answers).
+INHERENT: dict = {}
 
 # (topic, tier, part) -> (fewest, most) a count option can be and still be possible for what the part asks.
 FEASIBLE = {
     ("gt_f_squared_exam", "exam", "p2"): (0, 3),  # turning points of a parabola squared
     ("gt_f_squared_exam", "exam", "p3"): (0, 4),  # solutions of (f(x))^2 = c
+    ("eyz_estimate_collection_exam", "exam", "p0"): (10, 66),  # a side of 6 x 11 cells holds at most 66
     ("gt_modulus_exam", "exam", "p3"): (0, 4),  # solutions of |f(x)| = c
     ("eyz_prism_pyramid_counts_exam", "exam", "p0"): (4, None),  # faces: a solid has at least 4
     ("eyz_prism_pyramid_counts_exam", "exam", "p1"): (6, None),  # edges: at least 6
@@ -71,20 +71,26 @@ FEASIBLE = {
 NOT_TENS = {("eyz_estimate_collection_exam", "exam", "p3")}
 
 
+_WORDS = {"pi": sp.pi, "sqrt": sp.sqrt, "ln": sp.log, "log": sp.log}
+_TRANSFORMS = standard_transformations + (implicit_multiplication_application, convert_xor)
+
+
 @functools.lru_cache(maxsize=None)
 def _number(text):
-    """The number an option stands for (a plain number, a fraction, or an expression such as 3*pi/4 or 1 - pi/4), else None."""
-    text = str(text).strip().replace("$", "").replace(",", "")
+    """The number an option stands for (a plain number, a fraction, or an expression such as 2pi/3, 3*pi/4, ln(2)/2,
+    1 - pi/4 or 3sqrt(2)), else None. Implicit multiplication is read ("2pi" is 2*pi)."""
+    text = re.sub(r"(?<=\d),(?=\d{3}\b)", "", str(text).strip().replace("$", "")).replace("\u2212", "-")
     try:
         return float(Fraction(text)) if re.fullmatch(r"-?\d+/\d+", text) else float(text)
     except ValueError:
         pass
-    if not re.fullmatch(r"[0-9pisqrt()*/+\-. ]{1,60}", text.replace("π", "pi")):
+    text = text.replace("\u03c0", "pi").replace("\u221a", "sqrt")
+    if not re.fullmatch(r"[0-9a-z()*/+\-.^ ]{1,60}", text) or set(re.findall(r"[a-z]+", text)) - set(_WORDS):
         return None
     try:
-        expr = sp.sympify(text.replace("π", "pi").replace("^", "**"), locals={"pi": sp.pi})
+        expr = parse_expr(text, local_dict=dict(_WORDS), transformations=_TRANSFORMS)
         return float(expr) if getattr(expr, "is_number", False) else None
-    except (sp.SympifyError, TypeError, ValueError, SyntaxError):
+    except (sp.SympifyError, TypeError, ValueError, SyntaxError, ZeroDivisionError, AttributeError):
         return None
 
 
@@ -107,6 +113,26 @@ def _slot(seed, answer, options) -> int:
     return shown.index(str(answer))
 
 
+# Slips that are, by the skill's own definition, a value the stem rules out (a negative amount for an amount used): the
+# misconception IS the impossible reading, and the skill teaches against it.
+SIGN_SLIPS = {"dg-rd-rate-sign"}
+
+
+def impossible(text: str, answer: str, nums: list) -> list:
+    """The options the stem rules out, whatever the figure: a count below 0 or not whole, a probability or proportion
+    above 1 (unless the answer is a percentage), a difference asked for as "greater than" that is not positive."""
+    low = text.lower()
+    key, wrong = nums[0], nums[1:]
+    bad = []
+    if re.search(r"\bhow many\b|\bnumber of\b", low) and key == int(key) and key >= 0:
+        bad += [v for v in wrong if v < 0 or v != int(v)]
+    if re.search(r"by how much is .{0,80}(greater|more|larger|higher) than", low) and key > 0:
+        bad += [v for v in wrong if v <= 0]
+    if re.search(r"probability|proportion", low) and 0 <= key <= 1 and "%" not in answer and "percent" not in low:
+        bad += [v for v in wrong if v > 1 or v < 0 and "minus" not in low]
+    return bad
+
+
 def _kind(text: str) -> str:
     words = re.findall(r"[a-z#']+", re.sub(r"\d+(?:\.\d+)?", "#", text.lower()))
     return " ".join(words[:4])
@@ -116,6 +142,12 @@ def _units(q):
     if q.parts:
         return [(f"p{i}", p.answer_text, p.distractors, p.prompt) for i, p in enumerate(q.parts)]
     return [("q", q.answer_text, q.distractors, q.text)]
+
+
+def _tags(q, options) -> list:
+    """The misconception tag of each option, in order (None for an untagged filler)."""
+    notes = {**q.option_notes, **{k: v for p in q.parts or () for k, v in p.option_notes.items()}}
+    return [notes.get(getattr(o, "text", str(o))) for o in options]
 
 
 def _limit(n_options: int, n: int, sigmas: float = 3.5) -> float:
@@ -144,6 +176,11 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
             if all(n is not None for n in nums):
                 if "nearest 10" in text and (topic, tier, label) not in NOT_TENS and any(v % 10 for v in nums):
                     problems.append(f"{topic} {tier} {label} seed {seed}: not a multiple of 10: {answer} {shown}")
+                allowed = [nums[0]] + [n for n, t in zip(nums[1:], _tags(q, options)) if t not in SIGN_SLIPS]
+                if bad := impossible(text, str(answer), allowed):
+                    problems.append(
+                        f"{topic} {tier} {label} seed {seed}: impossible option {bad} for {answer}: {text[:60]}"
+                    )
                 if (bounds := FEASIBLE.get((topic, tier, label))) is not None:
                     lo, hi = bounds
                     bad = [v for v in nums if (lo is not None and v < lo) or (hi is not None and v > hi)]
@@ -325,3 +362,79 @@ def test_seeds_that_once_crashed_or_starved_a_part_of_options_now_make(topic, ti
             assert len(part.distractors) >= 2, (topic, seed, part.label)
         if topic == "dg_real_data_graphs_chain":
             assert len(q.parts[2].distractors) >= 3, (topic, seed)
+
+
+# --------------------------------------------------------------------------------------- bounds on every option
+
+
+def test_every_call_that_offers_options_must_state_how_far_they_may_reach():
+    """`lo=` and `hi=` are mandatory (None for an open end); both open needs `unbounded="why"`. A call that says nothing
+    cannot offer a filler the question cannot have."""
+    from mathgen.generators import _spread_kit as kit
+
+    for call in (
+        lambda: kit.mixed(5, [(3, "x")]),
+        lambda: kit.mixed(5, [(3, "x")], lo=0),
+        lambda: kit.mixed(5, [(3, "x")], lo=None, hi=None),
+        lambda: kit.pick("5", [], lo=0),
+        lambda: kit.whole_part("p", 5, 1, [(3, "x")], working=[]),
+    ):
+        with pytest.raises(TypeError):
+            call()
+    assert kit.mixed(5, [(3, "x")], lo=0, hi=None)  # one open end is a statement
+    assert kit.mixed(5, [(3, "x")], lo=None, hi=None, unbounded="any real value")  # so is a reason
+
+
+def test_a_value_outside_the_bounds_is_dropped_not_offered():
+    from mathgen.generators import _spread_kit as kit
+
+    out = kit.mixed(
+        5,
+        [(-3, "slip"), (4, "slip"), (9, "slip")],
+        fillers=[(6, "near"), (-1, "near"), (12, "near"), (3, "near")],
+        lo=0,
+        hi=10,
+    )
+    assert all(0 <= v <= 10 for v, _ in out), out
+    assert [v for v, _ in out][:3] and set(v for v, _ in out) <= {4, 9, 6, 3}
+    wide = kit.mixed(
+        5, [(-3, "slip")], fillers=[(6, "near"), (4, "near"), (7, "near")], lo=0, hi=10, slip_range=(-5, 10)
+    )
+    assert (-3, "slip") in wide  # a slip that IS the mistake of leaving the range may stray, a filler may not
+
+
+def test_the_integrals_over_zero_to_pi_over_4_are_never_offered_negative():
+    for seed in range(300):
+        q = make("sc_integrate_tan_sec_exam", seed=seed, difficulty="exam")
+        for part in q.parts[:3]:
+            for option in part.distractors:
+                value = _number(getattr(option, "text", option))
+                assert value is not None and 0 < value <= math.pi / 4 + 1e-9, (seed, part.label, option)
+
+
+def test_a_multigraph_never_offers_more_pairs_or_extra_copies_than_its_edges_allow():
+    checked = 0
+    for seed in range(400):
+        q = make("dg_graph_terms", seed=seed, difficulty="hard")
+        listed = re.search(r"are (.+?)\. An edge written twice", q.text)
+        if not listed:
+            continue
+        edges = [e.strip() for e in listed.group(1).split(",")]
+        nonloop = sum(1 for e in edges if e[0] != e[1])
+        if "How many pairs of vertices are joined by multiple edges" in q.text:
+            cap = nonloop // 2  # a pair that is repeated has at least two of the non-loop edges
+        elif "extra" in q.text and "multiple" in q.text:
+            cap = nonloop - 1
+        else:
+            continue
+        checked += 1
+        values = [_number(x) for x in (q.answer_text, *q.distractors)]
+        assert all(v is not None and 0 <= v <= cap for v in values), (seed, q.answer_text, list(q.distractors), cap)
+    assert checked >= 20
+
+
+def test_part_a_of_the_symmetry_chain_and_the_estimate_chain_stay_inside_their_figures():
+    for seed in range(300):
+        q = make("eyz_estimate_collection_exam", seed=seed, difficulty="exam")
+        for part in q.parts[:2]:
+            assert all(_number(x) <= 66 for x in (part.answer_text, *part.distractors)), (seed, part.label)

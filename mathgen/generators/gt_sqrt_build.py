@@ -61,7 +61,13 @@ def _strict(spec) -> sp.Set:
 
 def _finish(text, answer_set, wrong_sets, var="x"):
     """The answer fields and the picked wrong sets for one inequality question."""
-    options = pick(text, [ineq_dist(s, tag, var) for s, tag in wrong_sets])
+    options = pick(
+        text,
+        [ineq_dist(s, tag, var) for s, tag in wrong_sets],
+        lo=None,
+        hi=None,
+        unbounded="inequalities, read by slot",
+    )
     return dict(
         answer_kind="inequality",
         answer=text,
@@ -430,7 +436,7 @@ def gt_sqrt_function_exam(rng, tier="exam"):
             marks=2,
             sensible_range=(-1000, 1000),
             working=[f"f(x) = {t} - ({_shifted(h)})^2, so its greatest value is {t}, at x = {h}."],
-            distractors=pick(a_fields["answer_text"], a_wrong),
+            distractors=pick(a_fields["answer_text"], a_wrong, lo=1, hi=None),  # the greatest value of f is positive
             **a_fields,
         ),
         dict(
@@ -439,7 +445,7 @@ def gt_sqrt_function_exam(rng, tier="exam"):
             sensible_range=(0, 100),
             follow_through="sqrt(part_a)",
             working=[f"The greatest value of f is {t}, so the greatest value of sqrt(f(x)) is sqrt({t}) = {s_}."],
-            distractors=pick(b_fields["answer_text"], b_wrong),
+            distractors=pick(b_fields["answer_text"], b_wrong, lo=1, hi=None),  # a square root is not negative
             **b_fields,
         ),
         dict(
@@ -449,7 +455,7 @@ def gt_sqrt_function_exam(rng, tier="exam"):
                 f"f(x) = {t} - ({_shifted(h)})^2 is not negative between its zeros x = {h - s_} and x = {h + s_}.",
                 f"The domain is {dom}.",
             ],
-            distractors=pick(dom, c_wrong),
+            distractors=pick(dom, c_wrong, lo=None, hi=None, unbounded="inequalities, read by slot"),
             answer_kind="inequality",
             answer=dom,
             answer_text=dom,
@@ -459,7 +465,9 @@ def gt_sqrt_function_exam(rng, tier="exam"):
             prompt="Find the exact value of y when x = 0 on the graph of y = sqrt(f(x)).",
             marks=1,
             working=[f"f(0) = {t} - ({-h})^2 = {c0}.", f"y = sqrt({c0}) = {ans.replace('*', '')}."],
-            distractors=pick(ans, d_wrong, fillers=_surd_near(c0)),
+            # y(0) is positive and no more than the greatest value; the slip of leaving the root off gives f(0) itself, which
+            # is as large as the greatest value of f
+            distractors=pick(ans, d_wrong, lo=1, hi=s_, fillers=_surd_near(c0), slip_range=(1, t)),
             answer_kind="expression",
             answer=ans,
             answer_text=ans,

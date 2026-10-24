@@ -83,7 +83,7 @@ def _easy_max(rng):
         ("gtm-y-intercept-as-turning-point", 0, abs(p * q)),
         ("gtm-negates-both-coordinates", -h, -m * m),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong))
+    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
     stem = phrase(
         rng,
         (
@@ -124,7 +124,7 @@ def _easy_intercept(rng):
         ("gtm-gives-an-x-intercept", q, 0),
         ("gtm-gives-an-x-intercept", p, 0),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong))
+    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
     stem = phrase(
         rng,
         (
@@ -162,7 +162,7 @@ def _medium_min(rng):
         ("gtm-y-intercept-as-turning-point", 0, p * q),
         ("gtm-uses-a-zero-as-the-minimum", p, 0),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong))
+    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
     stem = phrase(
         rng,
         (
@@ -202,7 +202,7 @@ def _medium_intercept(rng):
         ("gtm-y-intercept-as-turning-point", 0, p * q),
         ("gtm-confuses-absolute-forms", p + q, 0),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong))
+    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
     stem = phrase(
         rng,
         (
@@ -242,7 +242,7 @@ def _hard(rng):
         ("gtm-negates-x-instead-of-y", -h, top),
         ("gtm-y-intercept-as-turning-point", 0, abs(C)),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong))
+    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
     where = (
         "opens upward, so its vertex is below the axis and is reflected"
         if a > 0
@@ -296,6 +296,8 @@ def _distinct_real_roots(poly) -> set:
 def _solutions_of_abs(p: int, q: int, c: int) -> int:
     """The number of x with |x^2 - (p + q)x + pq| = c, from SymPy's real roots of f = c and f = -c."""
     f = X**2 - (p + q) * X + p * q
+    if c < 0:
+        return 0  # |f| is never negative
     return len(_distinct_real_roots(f - c) | _distinct_real_roots(f + c))
 
 
@@ -318,13 +320,14 @@ def gt_modulus_exam(rng, tier="exam"):
     p, q = _draw_same_parity(rng, 1, 20, gap=4, positive=True)
     h, m = (p + q) // 2, (q - p) // 2
     peak = m * m
-    kind = rng.choice(("below", "at", "above"))
+    kind = rng.choice(("below", "at", "above", "negative"))
     c = {
         "below": rng.choice([v for v in range(1, peak) if v != peak]),
         "at": peak,
         "above": peak + rng.choice((1, 2, 3, 5)),
+        "negative": -rng.choice((1, 2, 3, 5, 8)),
     }[kind]
-    count = {"below": 4, "at": 3, "above": 2}[kind]
+    count = {"below": 4, "at": 3, "above": 2, "negative": 0}[kind]
     check(_solutions_of_abs(p, q, c) == count, f"|f(x)| = {c} does not have {count} solutions")
     key_a = sorted({-q, -p, p, q})
     check(len(key_a) == 4, "four intercepts expected")
@@ -362,10 +365,13 @@ def gt_modulus_exam(rng, tier="exam"):
         )
         if n != count
     ]
+    if kind == "negative":
+        d_wrong = [int_dist(n, "gtm-negative-line-has-solutions") for n in (2, 4, 1)]
     why = {
         "below": f"The local maximum of |f| is {peak} and its minimums are 0. A horizontal line y = {c} with 0 < {c} < {peak} cuts each of the four sections once: 4 solutions.",
         "at": f"The line y = {c} passes through the local maximum {peak}, touching there, and cuts the two outer sections: 3 solutions.",
         "above": f"The line y = {c} is above the local maximum {peak}, so it cuts only the two outer sections: 2 solutions.",
+        "negative": f"|f(x)| is never negative and {c} < 0, so the line y = {c} is below the whole graph: 0 solutions.",
     }[kind]
     parts = [
         dict(
@@ -375,7 +381,7 @@ def gt_modulus_exam(rng, tier="exam"):
                 f"f(x) = (x - {p})(x - {q}), so f(|x|) = 0 when |x| = {p} or |x| = {q}.",
                 f"Each of these has two values of x: {a_text}.",
             ],
-            distractors=pick(a_text, a_wrong),
+            distractors=pick(a_text, a_wrong, lo=None, hi=None, unbounded="lists of intercepts, read by slot"),
             answer_kind="list",
             answer=key_a,
             answer_text=a_text,
@@ -386,7 +392,13 @@ def gt_modulus_exam(rng, tier="exam"):
             marks=2,
             sensible_range=(-100, 100),
             working=[f"f(x) = (x {_sg(-h)})^2 - {peak}, so the least value of f is {-peak}, at x = {h}."],
-            distractors=pick(b_fields["answer_text"], b_wrong),
+            distractors=pick(
+                b_fields["answer_text"],
+                b_wrong,
+                lo=None,
+                hi=None,
+                unbounded="the least value of a quadratic can have either sign",
+            ),
             **b_fields,
         ),
         dict(
@@ -397,15 +409,15 @@ def gt_modulus_exam(rng, tier="exam"):
             working=[
                 f"The vertex of f, at height {-peak}, is below the axis, so it is reflected: the height becomes |{-peak}| = {peak}."
             ],
-            distractors=pick(c_fields["answer_text"], c_wrong),
+            distractors=pick(c_fields["answer_text"], c_wrong, lo=1, hi=None),
             **c_fields,
         ),
         dict(
             prompt=f"How many solutions does the equation |f(x)| = {c} have?",
             marks=2,
-            sensible_range=(0, 20),
+            sensible_range=(-0.5, 4.5),
             working=[why],
-            distractors=pick(str(count), d_wrong, lo=0, hi=4),  # at most 4 solutions
+            distractors=pick(str(count), d_wrong, lo=0, hi=4, allow_zero=True),  # at most 4 solutions
             **number_fields(Frac(count), 0),
         ),
     ]

@@ -818,15 +818,15 @@
 {"answer": "The flowers row", "id": "compare-tally-and-picture-displays/medium/1/809591e1d266", "text": "The tally and the pictures disagree in one row. Which row is it?"}
 {"answer": "The apples row", "id": "compare-tally-and-picture-displays/medium/2/3cce269c4363", "text": "The tally and the pictures disagree in one row. Which row is it?"}
 {"answer": "4", "id": "compare-two-data-displays/easy/0/2824c7fc1dab", "text": "The dot plot shows the number of sit-ups each student did in one minute for Cla…"}
-{"answer": "6", "id": "compare-two-data-displays/easy/1/74044a8a4a37", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
+{"answer": "6", "id": "compare-two-data-displays/easy/1/3c2e476c2330", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
 {"answer": "5", "id": "compare-two-data-displays/easy/2/95e747c01d11", "text": "The dot plot shows the number of points each team scored in a game for Class 7A…"}
-{"answer": "(a) 19.5; (b) 21; (c) 1.5; (d) 1", "id": "compare-two-data-displays/exam/0/2cffb761d2d0", "text": "The dot plot shows the number of push-ups each student did in one minute for Te…"}
-{"answer": "(a) 23.5; (b) 27; (c) 3.5; (d) 1", "id": "compare-two-data-displays/exam/1/7d4598eaa659", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
-{"answer": "(a) 17; (b) 23.5; (c) 6.5; (d) 1", "id": "compare-two-data-displays/exam/2/b7a815cf6820", "text": "The dot plot shows the number of push-ups each student did in one minute for Te…"}
+{"answer": "(a) 18; (b) 21; (c) 3; (d) 4", "id": "compare-two-data-displays/exam/0/7171694a1de3", "text": "The dot plot shows the number of points each team scored in a game for Team Red…"}
+{"answer": "(a) 16; (b) 25; (c) 9; (d) 4", "id": "compare-two-data-displays/exam/1/f520cfba2dce", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
+{"answer": "(a) 17; (b) 21; (c) 4; (d) 3", "id": "compare-two-data-displays/exam/2/768a0bcd5a6c", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
 {"answer": "12", "id": "compare-two-data-displays/hard/0/f194db73042f", "text": "The dot plot shows the number of sit-ups each student did in one minute for Tea…"}
-{"answer": "11", "id": "compare-two-data-displays/hard/1/fd01c1cf5ab0", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
+{"answer": "11", "id": "compare-two-data-displays/hard/1/a68dbc101917", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
 {"answer": "11", "id": "compare-two-data-displays/hard/2/ff86fa984c09", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
-{"answer": "3", "id": "compare-two-data-displays/medium/0/6d5d0c30f49d", "text": "The dot plot shows the number of points each team scored in a game for Team Red…"}
+{"answer": "3", "id": "compare-two-data-displays/medium/0/83f79eb8434c", "text": "The dot plot shows the number of points each team scored in a game for Team Red…"}
 {"answer": "7.5", "id": "compare-two-data-displays/medium/1/60b3da3dc02a", "text": "The dot plot shows the number of points each team scored in a game for Team Red…"}
 {"answer": "4", "id": "compare-two-data-displays/medium/2/b8200a7f6d0b", "text": "The dot plot shows the number of sit-ups each student did in one minute for Gro…"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/0/c95fc8d15d5b", "text": "Pack A: 368 grams for $12.29. Pack B: 485 grams for $28.65. Which is the cheape…"}
@@ -1045,9 +1045,9 @@
 {"answer": "salad = 6, pasta = 8, sushi = 7", "id": "construct-column-and-picture-graphs/easy/0/056bf4fb5503", "text": "A canteen recorded the lunch each child ordered: pasta, sushi, sushi, pasta, sa…"}
 {"answer": "wrap = 2, sushi = 6, pasta = 8, soup = 5, salad = 3", "id": "construct-column-and-picture-graphs/easy/1/eeac3d0de071", "text": "A canteen recorded the lunch each child ordered: pasta, sushi, pasta, pasta, wr…"}
 {"answer": "cat = 2, dog = 7, lizard = 5", "id": "construct-column-and-picture-graphs/easy/2/6bc6c197a2fa", "text": "A class voted for their favourite pet. The votes were: lizard, lizard, dog, cat…"}
-{"answer": "(a) cricket = 5, swimming = 4, tennis = 7, hockey = 3; (b) …", "id": "construct-column-and-picture-graphs/exam/0/0b69a8d9ff56", "text": "A sports teacher noted each student's chosen sport: swimming, tennis, swimming,…"}
+{"answer": "(a) cricket = 5, swimming = 4, tennis = 7, hockey = 3; (b) …", "id": "construct-column-and-picture-graphs/exam/0/91d4fbf5a6c6", "text": "A sports teacher noted each student's chosen sport: swimming, tennis, swimming,…"}
 {"answer": "(a) soup = 5, wrap = 6, sandwich = 3, pasta = 2; (b) 4; (c)…", "id": "construct-column-and-picture-graphs/exam/1/a1aeaf6a6310", "text": "A canteen recorded the lunch each child ordered: wrap, wrap, soup, sandwich, wr…"}
-{"answer": "(a) bus = 7, train = 9, car = 3, bike = 5; (b) 6; (c) bus =…", "id": "construct-column-and-picture-graphs/exam/2/9b37e28e8015", "text": "Students were asked how they travel to school. The answers were: train, bike, t…"}
+{"answer": "(a) bus = 7, train = 9, car = 3, bike = 5; (b) 6; (c) bus =…", "id": "construct-column-and-picture-graphs/exam/2/e33ae6db067f", "text": "Students were asked how they travel to school. The answers were: train, bike, t…"}
 {"answer": "Rye = 13, Sourdough = 5, Wholemeal = 11, White = 6, Multigr…", "id": "construct-column-and-picture-graphs/hard/0/5138bbe76398", "text": "A bakery counted the loaves sold in the morning. In all, 39 loaves were counted…"}
 {"answer": "Hockey = 3, Cricket = 10, Soccer = 4, Tennis = 9", "id": "construct-column-and-picture-graphs/hard/1/363a3e9ed359", "text": "The table shows how many students chose each sport for the school carnival. In …"}
 {"answer": "0 = 4, 1 = 2, 2 = 5, 3 = 4, 4 = 0, 5 = 5, 6 = 4", "id": "construct-column-and-picture-graphs/hard/2/968654eda68b", "text": "A teacher recorded the number of books each student read last month: 2, 0, 3, 3…"}
@@ -1057,9 +1057,9 @@
 {"answer": "1 = 3, 2 = 2, 3 = 1, 4 = 2, 5 = 2, 6 = 2", "id": "construct-dot-plots-from-data/easy/0/af469b465140", "text": "Students in a Year 7 class were asked how many brothers and sisters they have. …"}
 {"answer": "0 = 1, 1 = 1, 2 = 3, 3 = 5, 4 = 1, 5 = 3, 6 = 3", "id": "construct-dot-plots-from-data/easy/1/b92bfaa26b0b", "text": "A netballer recorded how many goals she scored in each game of the season: 0, 5…"}
 {"answer": "0 = 3, 1 = 2, 2 = 3, 3 = 1, 4 = 2, 5 = 4, 6 = 4", "id": "construct-dot-plots-from-data/easy/2/4730b2475c07", "text": "Students in a Year 7 class were asked how many brothers and sisters they have. …"}
-{"answer": "(a) 4 = 5, 5 = 2, 6 = 2, 7 = 3, 8 = 2, 9 = 4, 10 = 4; (b) 4…", "id": "construct-dot-plots-from-data/exam/0/74d2595c5ea9", "text": "A netball club recorded the shoe size of each player: 10, 7, 4, 10, 4, 7, 10, 6…"}
-{"answer": "(a) 2 = 4, 3 = 2, 4 = 4, 5 = 5, 6 = 2; (b) 5; (c) 4; (d) -1", "id": "construct-dot-plots-from-data/exam/1/484f5fba79d9", "text": "Students in a Year 7 class were asked how many brothers and sisters they have. …"}
-{"answer": "(a) 0 = 1, 1 = 3, 2 = 3, 3 = 3, 4 = 1, 5 = 5, 6 = 4; (b) 5;…", "id": "construct-dot-plots-from-data/exam/2/ede062ee47d4", "text": "A bus company recorded how many minutes late the morning bus was on each school…"}
+{"answer": "(a) 0 = 3, 1 = 3, 2 = 4, 3 = 2, 4 = 3, 5 = 3, 6 = 3, 7 = 3;…", "id": "construct-dot-plots-from-data/exam/0/f13d53c9cd79", "text": "A bus company recorded how many minutes late the morning bus was on each school…"}
+{"answer": "(a) 0 = 4, 1 = 3, 2 = 1, 3 = 2, 4 = 2, 5 = 5; (b) 5; (c) 3;…", "id": "construct-dot-plots-from-data/exam/1/771f743d5bce", "text": "Students in a Year 7 class were asked how many brothers and sisters they have. …"}
+{"answer": "(a) 1 = 3, 2 = 5, 3 = 2, 4 = 2, 5 = 1, 6 = 3, 7 = 1; (b) 2;…", "id": "construct-dot-plots-from-data/exam/2/fe8f54f59086", "text": "A bus company recorded how many minutes late the morning bus was on each school…"}
 {"answer": "0 = 4, 1 = 5, 2 = 3, 3 = 2, 4 = 0, 5 = 0, 6 = 0, 7 = 0, 8 =…", "id": "construct-dot-plots-from-data/hard/0/fc51614b8d88", "text": "A teacher recorded how many questions each student got wrong in a ten-question …"}
 {"answer": "1 = 3, 2 = 0, 3 = 5, 4 = 0, 5 = 0, 6 = 0, 7 = 0, 8 = 0, 9 =…", "id": "construct-dot-plots-from-data/hard/1/7f3313fb517a", "text": "A netballer recorded how many goals she scored in each game of the season: 3, 3…"}
 {"answer": "1 = 3, 2 = 5, 3 = 2, 4 = 5, 5 = 0, 6 = 0, 7 = 0, 8 = 0, 9 =…", "id": "construct-dot-plots-from-data/hard/2/7c9561bf6351", "text": "A bus company recorded how many minutes late the morning bus was on each school…"}
@@ -1069,9 +1069,9 @@
 {"answer": "5 Leaf = 1 6 7 9, 6 Leaf = 1 2 4, 7 Leaf = 3 4, 8 Leaf = 3 4", "id": "construct-stem-and-leaf-plots/easy/0/1209d42da2a9", "text": "The number of points a team scored in each game was: 64, 73, 59, 83, 56, 57, 62…"}
 {"answer": "5 Leaf = 4 6, 6 Leaf = 0 6 8 9, 7 Leaf = 0 3 4 9, 8 Leaf = …", "id": "construct-stem-and-leaf-plots/easy/1/7a7ba73ee049", "text": "A class recorded the number of pages each student read last weekend: 79, 73, 56…"}
 {"answer": "3 Leaf = 7 9, 4 Leaf = 0 1 4 9, 5 Leaf = 0 7 8, 6 Leaf = 0 9", "id": "construct-stem-and-leaf-plots/easy/2/350530964669", "text": "A class recorded the number of pages each student read last weekend: 50, 39, 49…"}
-{"answer": "(a) 5 Leaf = 0 1 3 4 6, 6 Leaf = 1 5 6 9 9, 7 Leaf = 2 5 7;…", "id": "construct-stem-and-leaf-plots/exam/0/55e2b794fd07", "text": "A shop recorded the number of customers each hour: 61, 77, 51, 66, 65, 56, 72, …"}
-{"answer": "(a) 6 Leaf = 0 0 4 6 8, 7 Leaf = 9 9, 8 Leaf = 4 6 8 8 9, 9…", "id": "construct-stem-and-leaf-plots/exam/1/f98d93eae7c5", "text": "The number of points a team scored in each game was: 84, 95, 95, 60, 89, 64, 88…"}
-{"answer": "(a) 5 Leaf = 4 6 6 8 9, 6 Leaf = 0 3 6 6, 7 Leaf = 1 1 7 8 …", "id": "construct-stem-and-leaf-plots/exam/2/6b49eb99be98", "text": "The ages of the people at a swimming lesson were: 78, 58, 71, 71, 56, 59, 60, 6…"}
+{"answer": "(a) 5 Leaf = 0 1 3 4 6, 6 Leaf = 1 5 6 9 9, 7 Leaf = 2 5 7;…", "id": "construct-stem-and-leaf-plots/exam/0/51eedcdb7b01", "text": "A shop recorded the number of customers each hour: 61, 77, 51, 66, 65, 56, 72, …"}
+{"answer": "(a) 6 Leaf = 0 0 4 6 8, 7 Leaf = 9 9, 8 Leaf = 4 6 8 8 9, 9…", "id": "construct-stem-and-leaf-plots/exam/1/27d9471a3de5", "text": "The number of points a team scored in each game was: 84, 95, 95, 60, 89, 64, 88…"}
+{"answer": "(a) 5 Leaf = 4 6 6 8 9, 6 Leaf = 0 3 6 6, 7 Leaf = 1 1 7 8 …", "id": "construct-stem-and-leaf-plots/exam/2/23e499f7c425", "text": "The ages of the people at a swimming lesson were: 78, 58, 71, 71, 56, 59, 60, 6…"}
 {"answer": "14 Leaf = 1 3, 15 Leaf = 0 2 2 6, 16 Leaf = 0 2 6 7 8, 17 L…", "id": "construct-stem-and-leaf-plots/hard/0/6c7dea265d55", "text": "A walking group recorded the steps each member took in one morning, in tens: 15…"}
 {"answer": "14 Leaf = 5 8, 15 Leaf = 0 1 5, 16 Leaf = 6 6 9, 17 Leaf = …", "id": "construct-stem-and-leaf-plots/hard/1/e98256f28646", "text": "The heights, in centimetres, of the students in a Year 7 class were: 150, 145, …"}
 {"answer": "12 Leaf = 3 5 8, 13 Leaf = 2 4 9, 14 Leaf = 1 4 5 7 9, 15 L…", "id": "construct-stem-and-leaf-plots/hard/2/94d4bb1d2e71", "text": "The heights, in centimetres, of the students in a Year 7 class were: 141, 147, …"}
@@ -1864,9 +1864,9 @@
 {"answer": "Picking orange is impossible.", "id": "ey-describe-chance-from-counts/easy/0/101d4b1b0945", "text": "A bag has 2 white and 4 green counters. Which sentence about picking orange is …"}
 {"answer": "Picking orange is impossible.", "id": "ey-describe-chance-from-counts/easy/1/04de47bb9d56", "text": "A bag has 3 purple and 3 red counters. Which sentence about picking orange is t…"}
 {"answer": "Picking red is impossible.", "id": "ey-describe-chance-from-counts/easy/2/6e7656bbb5ee", "text": "A bag has 4 green and 6 orange counters. Which sentence about picking red is tr…"}
-{"answer": "(a) 11; (b) 10; (c) Picking a counter that is not purple is…", "id": "ey-describe-chance-from-counts/exam/0/5ad3720ae7ad", "text": "Sophia has a bag with 1 purple counter and 10 blue counters. Sophia picks one w…"}
-{"answer": "(a) 11; (b) 8; (c) Picking a counter that is not red is lik…", "id": "ey-describe-chance-from-counts/exam/1/8d7a3e93907f", "text": "Sophia has a bag with 3 red and 8 purple counters. Sophia picks one without loo…"}
-{"answer": "(a) 6; (b) 5; (c) Picking a counter that is not white is li…", "id": "ey-describe-chance-from-counts/exam/2/0f4856764d1e", "text": "Santiago has a bag with 1 white counter and 5 green counters. Santiago picks on…"}
+{"answer": "(a) 11; (b) 10; (c) Picking a counter that is not purple is…", "id": "ey-describe-chance-from-counts/exam/0/41144a87b466", "text": "Sophia has a bag with 1 purple counter and 10 blue counters. Sophia picks one w…"}
+{"answer": "(a) 11; (b) 8; (c) Picking a counter that is not red is lik…", "id": "ey-describe-chance-from-counts/exam/1/4fba4e155250", "text": "Sophia has a bag with 3 red and 8 purple counters. Sophia picks one without loo…"}
+{"answer": "(a) 6; (b) 5; (c) Picking a counter that is not white is li…", "id": "ey-describe-chance-from-counts/exam/2/725ce69a1f7f", "text": "Santiago has a bag with 1 white counter and 5 green counters. Santiago picks on…"}
 {"answer": "Rolling an even number is an even chance.", "id": "ey-describe-chance-from-counts/hard/0/c270073fd9aa", "text": "A die is rolled. Which sentence about rolling an even number is true?"}
 {"answer": "Picking blue or red is likely.", "id": "ey-describe-chance-from-counts/hard/1/ab60e03d2e80", "text": "A bag has 2 blue, 5 red and 3 orange counters. Which sentence about picking blu…"}
 {"answer": "Picking pink or green is likely.", "id": "ey-describe-chance-from-counts/hard/2/e77977847652", "text": "A bag has 4 pink, 5 green and 2 purple counters. Which sentence about picking p…"}
@@ -1884,16 +1884,16 @@
 {"answer": "10", "id": "ey-estimate-angle-size/medium/2/2187eeb61126", "text": "Count the dashed rays. Estimate the angle in degrees, to the nearest 10."}
 {"answer": "40", "id": "ey-estimate-collection-quantity/easy/0/f122b5bceaa0", "text": "About how many houses? The box is one fifth. Round to the nearest 10."}
 {"answer": "20", "id": "ey-estimate-collection-quantity/easy/1/90249c152845", "text": "The box is one fifth of the picture. About how many tents? Nearest 10."}
-{"answer": "50", "id": "ey-estimate-collection-quantity/easy/2/8ad413c264b4", "text": "About how many trees? The box is one fifth. Round to the nearest 10."}
-{"answer": "(a) 20; (b) 50; (c) 70; (d) 210", "id": "ey-estimate-collection-quantity/exam/0/dbb562255825", "text": "A wall splits the tents in the picture into a left side and a right side. Round…"}
-{"answer": "(a) 30; (b) 30; (c) 60; (d) 240", "id": "ey-estimate-collection-quantity/exam/1/0aa4f2487605", "text": "A wall splits the tents in the picture into a left side and a right side. Round…"}
+{"answer": "50", "id": "ey-estimate-collection-quantity/easy/2/e7f4a83b787b", "text": "About how many trees? The box is one fifth. Round to the nearest 10."}
+{"answer": "(a) 20; (b) 50; (c) 70; (d) 210", "id": "ey-estimate-collection-quantity/exam/0/38bc635a3573", "text": "A wall splits the tents in the picture into a left side and a right side. Round…"}
+{"answer": "(a) 30; (b) 30; (c) 60; (d) 240", "id": "ey-estimate-collection-quantity/exam/1/53dd2a4a407b", "text": "A wall splits the tents in the picture into a left side and a right side. Round…"}
 {"answer": "(a) 40; (b) 30; (c) 70; (d) 420", "id": "ey-estimate-collection-quantity/exam/2/4548d23f388c", "text": "Look at the trees on each side of the wall. Estimate each count to the nearest …"}
 {"answer": "90", "id": "ey-estimate-collection-quantity/hard/0/3527861025ba", "text": "About how many trees on both sides altogether? Round to the nearest 10."}
 {"answer": "30", "id": "ey-estimate-collection-quantity/hard/1/745a3f2ebdb8", "text": "Estimate how many more trees are on the left side than the right. Nearest 10."}
 {"answer": "30", "id": "ey-estimate-collection-quantity/hard/2/21a84b94dad6", "text": "About how many more trees are on the left than the right? Nearest 10."}
-{"answer": "60", "id": "ey-estimate-collection-quantity/medium/0/a98b87eb7d10", "text": "About how many tents are there? Estimate to the nearest 10."}
+{"answer": "60", "id": "ey-estimate-collection-quantity/medium/0/a4f75381086b", "text": "About how many tents are there? Estimate to the nearest 10."}
 {"answer": "70", "id": "ey-estimate-collection-quantity/medium/1/8237cb2d0196", "text": "Estimate how many trees there are. Round to the nearest 10."}
-{"answer": "70", "id": "ey-estimate-collection-quantity/medium/2/33c731f54d53", "text": "Estimate how many houses there are. Round to the nearest 10."}
+{"answer": "70", "id": "ey-estimate-collection-quantity/medium/2/793fc76c6601", "text": "Estimate how many houses there are. Round to the nearest 10."}
 {"answer": "5", "id": "ey-features-of-named-solids/easy/0/19365365ab98", "text": "How many corners does this solid have?"}
 {"answer": "12", "id": "ey-features-of-named-solids/easy/1/53d6cdced1d2", "text": "How many edges does this solid have?"}
 {"answer": "1", "id": "ey-features-of-named-solids/easy/2/189342ad7ff3", "text": "Count the curved surfaces on this solid."}
@@ -1951,14 +1951,14 @@
 {"answer": "12", "id": "ey-prism-pyramid-counts/easy/0/e7d8bf1daf18", "text": "A prism has a hexagon for its base. How many vertices does it have?"}
 {"answer": "12", "id": "ey-prism-pyramid-counts/easy/1/08df599b54bc", "text": "How many vertices does a hexagonal prism have?"}
 {"answer": "8", "id": "ey-prism-pyramid-counts/easy/2/59475ea7b673", "text": "A prism has a hexagon for its base. How many faces does it have?"}
-{"answer": "(a) 4; (b) 6; (c) 4; (d) 36", "id": "ey-prism-pyramid-counts/exam/0/d461f41d9afd", "text": "A net is made of 4 triangles. It folds into a solid. (a) How many faces does th…"}
-{"answer": "(a) 7; (b) 12; (c) 7; (d) 156", "id": "ey-prism-pyramid-counts/exam/1/1e61090aa331", "text": "A net is made of 1 hexagon and 6 triangles. It folds into a solid. (a) How many…"}
-{"answer": "(a) 9; (b) 21; (c) 14; (d) 168", "id": "ey-prism-pyramid-counts/exam/2/65e4c45f6ddc", "text": "A net is made of 2 heptagons and 7 rectangles. It folds into a solid. (a) How m…"}
+{"answer": "(a) 4; (b) 6; (c) 4; (d) 36", "id": "ey-prism-pyramid-counts/exam/0/379dc9c3e014", "text": "A net is made of 4 triangles. It folds into a solid. (a) How many faces does th…"}
+{"answer": "(a) 7; (b) 12; (c) 7; (d) 156", "id": "ey-prism-pyramid-counts/exam/1/814e689a7fdf", "text": "A net is made of 1 hexagon and 6 triangles. It folds into a solid. (a) How many…"}
+{"answer": "(a) 9; (b) 21; (c) 14; (d) 168", "id": "ey-prism-pyramid-counts/exam/2/7b17518bf5b3", "text": "A net is made of 2 heptagons and 7 rectangles. It folds into a solid. (a) How m…"}
 {"answer": "12", "id": "ey-prism-pyramid-counts/hard/0/7459a3882e19", "text": "A prism has 18 edges. How many vertices does it have?"}
 {"answer": "16", "id": "ey-prism-pyramid-counts/hard/1/e52067791a0c", "text": "A pyramid has 9 vertices. How many edges does it have?"}
 {"answer": "15", "id": "ey-prism-pyramid-counts/hard/2/4c4cf23cd7cf", "text": "A prism has 7 faces. How many edges does it have?"}
 {"answer": "10", "id": "ey-prism-pyramid-counts/medium/0/e9c7604986cf", "text": "A net is made of 1 pentagon and 5 triangles. How many edges will the folded sol…"}
-{"answer": "12", "id": "ey-prism-pyramid-counts/medium/1/394c24ff0756", "text": "A net is made of 2 hexagons and 6 rectangles. How many vertices will the folded…"}
+{"answer": "12", "id": "ey-prism-pyramid-counts/medium/1/3b4afaa93ca4", "text": "A net is made of 2 hexagons and 6 rectangles. How many vertices will the folded…"}
 {"answer": "10", "id": "ey-prism-pyramid-counts/medium/2/799c19c28882", "text": "A net is made of 1 pentagon and 5 triangles. How many edges will the folded sol…"}
 {"answer": "tent", "id": "ey-quarter-half-turns/easy/0/f9891f02aa41", "text": "Ingrid does a quarter turn left. What does Ingrid face now?"}
 {"answer": "church", "id": "ey-quarter-half-turns/easy/1/6e4a0aac915f", "text": "Turn a quarter turn to the left. What do you face now?"}
@@ -1993,9 +1993,9 @@
 {"answer": "18", "id": "ey-twos-doubles-related-facts/easy/0/91f6fbe0950d", "text": "Double 9. What is the answer?"}
 {"answer": "6", "id": "ey-twos-doubles-related-facts/easy/1/31595e969f4b", "text": "Double 3. What is the answer?"}
 {"answer": "6", "id": "ey-twos-doubles-related-facts/easy/2/0cd268db5007", "text": "There are 2 strings. Each has 3 beads. How many beads altogether?"}
-{"answer": "(a) 28; (b) 32; (c) 16", "id": "ey-twos-doubles-related-facts/exam/0/c67ce931af9d", "text": "Yuki packs 14 lunch boxes. Each box gets 2 muesli bars. (a) How many muesli bar…"}
-{"answer": "(a) 34; (b) 46; (c) 23", "id": "ey-twos-doubles-related-facts/exam/1/252ebff5eda5", "text": "A class has 17 desks. Each desk seats 2 children. (a) How many children can sit…"}
-{"answer": "(a) 42; (b) 52; (c) 26", "id": "ey-twos-doubles-related-facts/exam/2/fe7f4f51af9a", "text": "Talia has 21 pairs of socks. There are 2 socks in each pair. (a) How many socks…"}
+{"answer": "(a) 28; (b) 32; (c) 16", "id": "ey-twos-doubles-related-facts/exam/0/a830fa40b5d2", "text": "Yuki packs 14 lunch boxes. Each box gets 2 muesli bars. (a) How many muesli bar…"}
+{"answer": "(a) 34; (b) 46; (c) 23", "id": "ey-twos-doubles-related-facts/exam/1/5c30f7cf44bd", "text": "A class has 17 desks. Each desk seats 2 children. (a) How many children can sit…"}
+{"answer": "(a) 42; (b) 52; (c) 26", "id": "ey-twos-doubles-related-facts/exam/2/879231652b15", "text": "Talia has 21 pairs of socks. There are 2 socks in each pair. (a) How many socks…"}
 {"answer": "80", "id": "ey-twos-doubles-related-facts/hard/0/97b47bcfd735", "text": "What is double 40?"}
 {"answer": "50", "id": "ey-twos-doubles-related-facts/hard/1/d03f9e5370d8", "text": "Double 25. What is the answer?"}
 {"answer": "12", "id": "ey-twos-doubles-related-facts/hard/2/394f5725b2ac", "text": "You know 2 × 4 = 8. What is 2 × 6?"}
@@ -4489,9 +4489,9 @@
 {"answer": "x = 4, y = 0", "id": "graph-f-squared-features/easy/0/82389bfd82c4", "text": "The graph of the straight line y = f(x) is shown. State the coordinates of the …"}
 {"answer": "x = 1, y = 0", "id": "graph-f-squared-features/easy/1/b8abc4a58639", "text": "The graph of the straight line y = f(x) is shown. State the coordinates of the …"}
 {"answer": "x = -2, y = 0", "id": "graph-f-squared-features/easy/2/1ddd68741478", "text": "The graph of y = f(x) is a straight line, as drawn. Find the coordinates of the…"}
-{"answer": "(a) -37; (b) 1369; (c) 3; (d) 4", "id": "graph-f-squared-features/exam/0/cef2cf660764", "text": "Consider the function f(x) = x^2 - 8x - 21. (a) Find the least value of f, by c…"}
-{"answer": "(a) -6; (b) 36; (c) 3; (d) 3", "id": "graph-f-squared-features/exam/1/acdc0f19447c", "text": "Consider the function f(x) = x^2 + 6x + 3. (a) Find the least value of f, by co…"}
-{"answer": "(a) -6; (b) 36; (c) 3; (d) 4", "id": "graph-f-squared-features/exam/2/9e5e3c17d009", "text": "Consider the function f(x) = x^2 - 4x - 2. (a) Find the least value of f, by co…"}
+{"answer": "(a) -37; (b) 1369; (c) 1; (d) 3", "id": "graph-f-squared-features/exam/0/ff0f146a59de", "text": "The function f is given by f(x) = x^2 - 8x - 21. (a) Find the least value of f,…"}
+{"answer": "(a) -6; (b) 36; (c) 3; (d) 0", "id": "graph-f-squared-features/exam/1/e414095a4ecd", "text": "The function f is given by f(x) = x^2 + 6x + 3. (a) Find the least value of f, …"}
+{"answer": "(a) -6; (b) 36; (c) 1; (d) 3", "id": "graph-f-squared-features/exam/2/19d40523db2e", "text": "Consider the function f(x) = x^2 - 4x - 2. (a) Find the least value of f, by co…"}
 {"answer": "x = 3, y = 16", "id": "graph-f-squared-features/hard/0/935ae5bd3409", "text": "The function f is given by f(x) = x^2 - 6x + 5. State the coordinates of the lo…"}
 {"answer": "x = 4, y = 81", "id": "graph-f-squared-features/hard/1/39c0ed8e5208", "text": "Let f(x) = x^2 - 8x + 7. The graph of y = (f(x))^2 has three turning points. Fi…"}
 {"answer": "x = 5, y = 16", "id": "graph-f-squared-features/hard/2/4d7ea6ca8b8a", "text": "The function f is given by f(x) = x^2 - 10x + 21. State the coordinates of the …"}
@@ -4513,9 +4513,9 @@
 {"answer": "x = -4, y = 4", "id": "graph-modulus-key-features/easy/0/76fda1ed6643", "text": "Let f(x) = x^2 + 8x + 12. State the coordinates of the local maximum of the gra…"}
 {"answer": "x = 0, y = 30", "id": "graph-modulus-key-features/easy/1/18137d290d75", "text": "Let f(x) = x^2 - x - 30. State the coordinates of the y-intercept of the graph …"}
 {"answer": "x = -2, y = 25", "id": "graph-modulus-key-features/easy/2/b66292d333ec", "text": "The function f is given by f(x) = x^2 + 4x - 21. Find the coordinates of the lo…"}
-{"answer": "(a) -17, -5, 5, 17; (b) -36; (c) 36; (d) 2", "id": "graph-modulus-key-features/exam/0/3d1c9be4ffee", "text": "The function f is given by f(x) = x^2 - 22x + 85. (a) Find the x-intercepts of …"}
-{"answer": "(a) -14, -10, 10, 14; (b) -4; (c) 4; (d) 3", "id": "graph-modulus-key-features/exam/1/cafc98612b89", "text": "The function f is given by f(x) = x^2 - 24x + 140. (a) Find the x-intercepts of…"}
-{"answer": "(a) -14, -8, 8, 14; (b) -9; (c) 9; (d) 3", "id": "graph-modulus-key-features/exam/2/934960abd70b", "text": "Let f be the quadratic function with rule f(x) = x^2 - 22x + 112. (a) Find the …"}
+{"answer": "(a) -17, -5, 5, 17; (b) -36; (c) 36; (d) 4", "id": "graph-modulus-key-features/exam/0/2cedf6c2254b", "text": "The function f is given by f(x) = x^2 - 22x + 85. (a) Find the x-intercepts of …"}
+{"answer": "(a) -14, -10, 10, 14; (b) -4; (c) 4; (d) 2", "id": "graph-modulus-key-features/exam/1/e606388bea00", "text": "The function f is given by f(x) = x^2 - 24x + 140. (a) Find the x-intercepts of…"}
+{"answer": "(a) -14, -8, 8, 14; (b) -9; (c) 9; (d) 0", "id": "graph-modulus-key-features/exam/2/33c171e39ff4", "text": "A quadratic function is defined by f(x) = x^2 - 22x + 112. (a) Find the x-inter…"}
 {"answer": "x = -5, y = 3", "id": "graph-modulus-key-features/hard/0/656866c2fbf2", "text": "Let f(x) = 3x^2 + 30x + 72. State the coordinates of the local maximum of the g…"}
 {"answer": "x = 0, y = 75", "id": "graph-modulus-key-features/hard/1/7f1a6b406f2d", "text": "Let f(x) = 3x^2 - 75. State the coordinates of the local maximum of the graph o…"}
 {"answer": "x = 2, y = 9", "id": "graph-modulus-key-features/hard/2/0212c99177ae", "text": "Let f(x) = -x^2 + 4x + 5. State the coordinates of the local maximum of the gra…"}
@@ -4537,9 +4537,9 @@
 {"answer": "x ≤ -3", "id": "graph-sqrt-of-function-domain-range/easy/0/0e9eb19f1752", "text": "A straight line is drawn as the graph of y = f(x). For which values of x is the…"}
 {"answer": "x ≤ 2", "id": "graph-sqrt-of-function-domain-range/easy/1/488839037bad", "text": "A straight line is drawn as the graph of y = f(x). For which values of x is the…"}
 {"answer": "x ≥ -4", "id": "graph-sqrt-of-function-domain-range/easy/2/9d28f1c7b25f", "text": "The graph of y = f(x) is a straight line, as drawn. State the largest domain of…"}
-{"answer": "(a) 81; (b) 9; (c) -6 ≤ x ≤ 12; (d) 6*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/0/d622ed6791af", "text": "Consider the function f(x) = -x^2 + 6x + 72. (a) Find the greatest value of f. …"}
-{"answer": "(a) 4; (b) 2; (c) -1 ≤ x ≤ 3; (d) sqrt(3)", "id": "graph-sqrt-of-function-domain-range/exam/1/1602c5fe36e2", "text": "The function f is given by f(x) = -x^2 + 2x + 3. (a) Find the greatest value of…"}
-{"answer": "(a) 16; (b) 4; (c) -7 ≤ x ≤ 1; (d) sqrt(7)", "id": "graph-sqrt-of-function-domain-range/exam/2/61efbf32561b", "text": "The function f is given by f(x) = -x^2 - 6x + 7. (a) Find the greatest value of…"}
+{"answer": "(a) 81; (b) 9; (c) -6 ≤ x ≤ 12; (d) 6*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/0/df0422cd3905", "text": "Consider the function f(x) = -x^2 + 6x + 72. (a) Find the greatest value of f. …"}
+{"answer": "(a) 4; (b) 2; (c) -1 ≤ x ≤ 3; (d) sqrt(3)", "id": "graph-sqrt-of-function-domain-range/exam/1/90d618897ee5", "text": "The function f is given by f(x) = -x^2 + 2x + 3. (a) Find the greatest value of…"}
+{"answer": "(a) 16; (b) 4; (c) -7 ≤ x ≤ 1; (d) sqrt(7)", "id": "graph-sqrt-of-function-domain-range/exam/2/65acd2eb2722", "text": "The function f is given by f(x) = -x^2 - 6x + 7. (a) Find the greatest value of…"}
 {"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/0/73864e693237", "text": "For f(x) = -x^2 + 4x + 12, state the range of y = sqrt(f(x))."}
 {"answer": "x ≤ 0 or x ≥ 3", "id": "graph-sqrt-of-function-domain-range/hard/1/3aef37fcf15d", "text": "Let f(x) = 2x^2 - 6x. Find the largest domain of the function y = sqrt(f(x)), a…"}
 {"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/2/f1709b8924ae", "text": "Let f(x) = -x^2 + 2x + 15. Find the range of the function y = sqrt(f(x)), as an…"}
@@ -4552,9 +4552,9 @@
 {"answer": "(a) 2; (b) {A, F}; (c) 6; (d) 4; (e) 2", "id": "graph-terms-from-a-network/exam/0/de495772c895", "text": "A network of 6 vertices, A to F, is drawn. Two vertices are adjacent when one e…"}
 {"answer": "(a) 3; (b) 4; (c) 7; (d) 5", "id": "graph-terms-from-a-network/exam/1/799435f1722d", "text": "A multigraph has vertices A to F and 14 edges: AE, DF, BF, DF, AB, BB, CE, BF, …"}
 {"answer": "(a) 4; (b) {A, B, F, G}; (c) 8; (d) 4; (e) 2", "id": "graph-terms-from-a-network/exam/2/97016ac795a7", "text": "A network of 7 vertices, A to G, is drawn. Two vertices are adjacent when one e…"}
-{"answer": "4", "id": "graph-terms-from-a-network/hard/0/cb1d78e1d77e", "text": "The edges of a multigraph on vertices A to E are DD, BC, AE, BE, BB, BC, CE, AE…"}
-{"answer": "3", "id": "graph-terms-from-a-network/hard/1/ac2b87cf19d9", "text": "A multigraph has vertices A to F and these edges, each written once per copy: E…"}
-{"answer": "6", "id": "graph-terms-from-a-network/hard/2/2b04a5018e81", "text": "The edges of a multigraph on vertices A to F are BE, DF, CD, FF, CC, BF, EE, DD…"}
+{"answer": "4", "id": "graph-terms-from-a-network/hard/0/a2bf4f30dd0c", "text": "The edges of a multigraph on vertices A to E are DD, BC, AE, BE, BB, BC, CE, AE…"}
+{"answer": "3", "id": "graph-terms-from-a-network/hard/1/83f88ad54138", "text": "A multigraph has vertices A to F and these edges, each written once per copy: E…"}
+{"answer": "6", "id": "graph-terms-from-a-network/hard/2/1026dcd0c219", "text": "The edges of a multigraph on vertices A to F are BE, DF, CD, FF, CC, BF, EE, DD…"}
 {"answer": "4", "id": "graph-terms-from-a-network/medium/0/26105d9da51c", "text": "The subgraph H is made of the thick edges and the vertices at their ends. How m…"}
 {"answer": "1", "id": "graph-terms-from-a-network/medium/1/362cfc626595", "text": "The drawn network is not connected. What is the fewest number of edges that cou…"}
 {"answer": "2", "id": "graph-terms-from-a-network/medium/2/cb73219bdd2b", "text": "The thick edges, together with the vertices at their ends, form a subgraph H of…"}
@@ -4984,11 +4984,11 @@
 {"answer": "-2*x + 2*tan(x) + C", "id": "integrate-tan-sec-powers/easy/0/c7ee2f19ef2d", "text": "Find the indefinite integral ∫ 2 tan^2(x) dx."}
 {"answer": "-2*x + 2*tan(x) + C", "id": "integrate-tan-sec-powers/easy/1/6a28ea11b398", "text": "Find the indefinite integral ∫ 2 tan^2(x) dx."}
 {"answer": "-6*x + 3*tan(2*x) + C", "id": "integrate-tan-sec-powers/easy/2/ea2f106f3997", "text": "Determine ∫ 6 tan^2(2x) dx."}
-{"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/0/9539c3a12511", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
-{"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/1/f238a435e1fb", "text": "Each integral below is taken from 0 to pi/4. Give each answer as an exact value…"}
-{"answer": "(a) ln(2)/2; (b) (1 - ln(2))/2; (c) (2*ln(2) - 1)/4; (d) (1…", "id": "integrate-tan-sec-powers/exam/2/49d37216adb8", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
+{"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/0/42a98a042630", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
+{"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/1/055d7668d45a", "text": "Each integral below is taken from 0 to pi/4. Give each answer as an exact value…"}
+{"answer": "(a) ln(2)/2; (b) (1 - ln(2))/2; (c) (2*ln(2) - 1)/4; (d) (1…", "id": "integrate-tan-sec-powers/exam/2/f940405df74c", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
 {"answer": "sqrt(3)", "id": "integrate-tan-sec-powers/hard/0/a9ada61a516e", "text": "Find the exact value of ∫ from 0 to pi/3 of tan^2(x) sec^2(x) dx."}
-{"answer": "7/3", "id": "integrate-tan-sec-powers/hard/1/0cfd8344c54a", "text": "Evaluate ∫ from 0 to pi/3 of sec^3(x) tan(x) dx, giving an exact answer."}
+{"answer": "7/3", "id": "integrate-tan-sec-powers/hard/1/eac028bed6d8", "text": "Evaluate ∫ from 0 to pi/3 of sec^3(x) tan(x) dx, giving an exact answer."}
 {"answer": "tan(x)^5/5 + tan(x)^3/3 + C", "id": "integrate-tan-sec-powers/hard/2/b3c22c63a5fd", "text": "Find ∫ tan^2(x) sec^4(x) dx. Give your answer in terms of tan(x)."}
 {"answer": "tan(x)^3/3 + C", "id": "integrate-tan-sec-powers/medium/0/ee8c9f002f12", "text": "Find ∫ tan^2(x) sec^2(x) dx. Give your answer in terms of tan(x)."}
 {"answer": "sec(x)^5/5 + C", "id": "integrate-tan-sec-powers/medium/1/98f8e9df33b6", "text": "Find ∫ sec^5(x) tan(x) dx. Give your answer in terms of sec(x)."}
@@ -5090,16 +5090,16 @@
 {"answer": "x = 16", "id": "inverse-operations/medium/1/48dd4411a195", "text": "The output of a machine is 42. The machine does these steps in order to x: subt…"}
 {"answer": "Divide by 9, then subtract 8", "id": "inverse-operations/medium/2/e48c200ba851", "text": "x goes into a machine that does: add 8, then multiply by 9. Which steps, done i…"}
 {"answer": "-pi/6", "id": "inverse-trig-values-and-graph-features/easy/0/c697b6284f93", "text": "What is arcsin(-1/2)? Give an exact value in radians."}
-{"answer": "pi/4", "id": "inverse-trig-values-and-graph-features/easy/1/92366ebe7e6d", "text": "What is arctan(1)? Give an exact value in radians."}
+{"answer": "pi/4", "id": "inverse-trig-values-and-graph-features/easy/1/4f8e8de03ed6", "text": "What is arctan(1)? Give an exact value in radians."}
 {"answer": "pi/6", "id": "inverse-trig-values-and-graph-features/easy/2/ce22b981557a", "text": "State the exact value of arcsin(1/2) in radians."}
-{"answer": "(a) 1/4; (b) 8pi/3; (c) 8pi/3; (d) -1/8", "id": "inverse-trig-values-and-graph-features/exam/0/b807a651d200", "text": "The function f is given by f(x) = 4 arcsin(4x) + 2π/3. (a) Find the largest val…"}
-{"answer": "(a) 1/2; (b) 8pi/3; (c) -16pi/3; (d) 1/4", "id": "inverse-trig-values-and-graph-features/exam/1/9b9886af3683", "text": "Consider the function f(x) = 8 arcsin(2x) - 4π/3. (a) Find the largest value of…"}
-{"answer": "(a) 1/3; (b) 5pi/3; (c) -5pi/3; (d) 1/6", "id": "inverse-trig-values-and-graph-features/exam/2/df0d37a78c76", "text": "Consider the function f(x) = 5 arcsin(3x) - 5π/6. (a) Find the largest value of…"}
-{"answer": "pi/3", "id": "inverse-trig-values-and-graph-features/hard/0/82cf60428836", "text": "Evaluate arccos(cos(-pi/3)) exactly, in radians."}
+{"answer": "(a) 1/4; (b) 8pi/3; (c) 8pi/3; (d) -1/8", "id": "inverse-trig-values-and-graph-features/exam/0/38c38638c33c", "text": "The function f is given by f(x) = 4 arcsin(4x) + 2π/3. (a) Find the largest val…"}
+{"answer": "(a) 1/2; (b) 8pi/3; (c) -16pi/3; (d) 1/4", "id": "inverse-trig-values-and-graph-features/exam/1/2b24b6010a6f", "text": "Consider the function f(x) = 8 arcsin(2x) - 4π/3. (a) Find the largest value of…"}
+{"answer": "(a) 1/3; (b) 5pi/3; (c) -5pi/3; (d) 1/6", "id": "inverse-trig-values-and-graph-features/exam/2/b81a5e1ea0ea", "text": "Consider the function f(x) = 5 arcsin(3x) - 5π/6. (a) Find the largest value of…"}
+{"answer": "pi/3", "id": "inverse-trig-values-and-graph-features/hard/0/9b636fa5385a", "text": "Evaluate arccos(cos(-pi/3)) exactly, in radians."}
 {"answer": "pi/6", "id": "inverse-trig-values-and-graph-features/hard/1/cc41b98d7ed2", "text": "Evaluate arcsin(sin(-7pi/6)) exactly, in radians."}
 {"answer": "-24/25", "id": "inverse-trig-values-and-graph-features/hard/2/46c6993d4d2e", "text": "Evaluate sin(2 arcsin(-4/5)) exactly, without a calculator."}
-{"answer": "2pi/3", "id": "inverse-trig-values-and-graph-features/medium/0/455d96e3f133", "text": "Let f(x) = 2 arcsin(4x) + π/3. Find the exact value of f(1/8). Give your answer…"}
-{"answer": "17pi/4", "id": "inverse-trig-values-and-graph-features/medium/1/05e2c33a24d6", "text": "The graph of y = 4 arccos(4x) + π/4 has a greatest value. State it exactly, in …"}
+{"answer": "2pi/3", "id": "inverse-trig-values-and-graph-features/medium/0/904e9f6ef3e3", "text": "Let f(x) = 2 arcsin(4x) + π/3. Find the exact value of f(1/8). Give your answer…"}
+{"answer": "17pi/4", "id": "inverse-trig-values-and-graph-features/medium/1/6d9f9c9249fb", "text": "The graph of y = 4 arccos(4x) + π/4 has a greatest value. State it exactly, in …"}
 {"answer": "4/3", "id": "inverse-trig-values-and-graph-features/medium/2/1d1ba2479a76", "text": "The function f is given by f(x) = -2 arcsin(3x - 3) - π. Find the largest value…"}
 {"answer": "A, C, B, E, D", "id": "investigation-step-order/easy/0/992949a23fa9", "text": "Ravi is carrying out a statistical investigation. These are the actions, in no …"}
 {"answer": "A, C, E, D, B", "id": "investigation-step-order/easy/1/158ae0a1e045", "text": "Isla is carrying out a statistical investigation. These are the actions, in no …"}
@@ -6139,9 +6139,9 @@
 {"answer": "(0, 4)", "id": "place-features-on-a-grid-map/easy/0/0ccbd4437f63", "text": "Shade the square with grid reference A5 for the new drinking fountain."}
 {"answer": "(7, 2)", "id": "place-features-on-a-grid-map/easy/1/32b94dd03e52", "text": "Shade the square with grid reference H3 for the new first-aid post."}
 {"answer": "(4, 5)", "id": "place-features-on-a-grid-map/easy/2/6801afacebe8", "text": "The council will put a bike rack in square E6. Shade that square."}
-{"answer": "(a) (7, 4); (b) 2; (c) 4; (d) 6; (e) (1, 5)", "id": "place-features-on-a-grid-map/exam/0/7301a6f44f46", "text": "A map of a park is drawn on a grid. The church is in square C1, and the lookout…"}
-{"answer": "(a) (4, 0); (b) 2; (c) 1; (d) 3; (e) (0, 5)", "id": "place-features-on-a-grid-map/exam/1/ac707ad83fc7", "text": "A map of a park is drawn on a grid. The lookout is in square B2, and the railwa…"}
-{"answer": "(a) (0, 2); (b) 5; (c) 2; (d) 7; (e) (4, 2)", "id": "place-features-on-a-grid-map/exam/2/58df7ecf8b56", "text": "A map of a park is drawn on a grid. The railway station is in square G5, and th…"}
+{"answer": "(a) (3, 3); (b) 5; (c) 4; (d) 9; (e) (3, 1)", "id": "place-features-on-a-grid-map/exam/0/d38fdf33801c", "text": "A map of a park is drawn on a grid. The lookout is in square F2, and the campgr…"}
+{"answer": "(a) (2, 2); (b) 3; (c) 4; (d) 7; (e) (3, 0)", "id": "place-features-on-a-grid-map/exam/1/624103db1e82", "text": "A map of a park is drawn on a grid. The hospital is in square E6, and the schoo…"}
+{"answer": "(a) (0, 5); (b) 4; (c) 3; (d) 7; (e) (5, 1)", "id": "place-features-on-a-grid-map/exam/2/e6e9dbf25f90", "text": "A map of a park is drawn on a grid. The house is in square E7, and the picnic a…"}
 {"answer": "(3, 3) (4, 3) (5, 3) (6, 3) (3, 4) (4, 4) (5, 4) (6, 4)", "id": "place-features-on-a-grid-map/hard/0/b842e4349515", "text": "A market fills the rectangle of squares with opposite corners D4 and G5. Shade …"}
 {"answer": "(0, 1) (1, 1) (2, 1) (3, 1) (0, 2) (1, 2) (2, 2) (3, 2)", "id": "place-features-on-a-grid-map/hard/1/4ede94200261", "text": "A market fills the rectangle of squares with opposite corners A2 and D3. Shade …"}
 {"answer": "(4, 3) (5, 3) (6, 3) (7, 3) (4, 4) (5, 4) (6, 4) (7, 4) (4,…", "id": "place-features-on-a-grid-map/hard/2/9c866e6f6974", "text": "A market fills the rectangle of squares with opposite corners E4 and H6. Shade …"}
@@ -11380,18 +11380,18 @@
 {"answer": "8.42", "id": "simpsons-rule/medium/0/07ae2729e4f6", "text": "Use Simpson's rule with 4 strips to estimate the area under y = x^4 - 2x^3 + 3x…"}
 {"answer": "84.42", "id": "simpsons-rule/medium/1/adb4bc01668f", "text": "Use Simpson's rule with 4 strips to estimate the area under y = x^4 + 2x^3 - 2x…"}
 {"answer": "3330.00", "id": "simpsons-rule/medium/2/52186b5a54f8", "text": "The flow rate of water into a tank, in litres per minute, is recorded every 3 m…"}
-{"answer": "0.560", "id": "simulated-sample-proportion-calculations/easy/0/faac196027cc", "text": "70% of the households in a regional town have rooftop solar panels. A simulatio…"}
-{"answer": "0.792", "id": "simulated-sample-proportion-calculations/easy/1/314971364839", "text": "70% of the tickets sold for a cricket match are bought online. A simulation dra…"}
+{"answer": "0.560", "id": "simulated-sample-proportion-calculations/easy/0/d4269f5cd468", "text": "70% of the households in a regional town have rooftop solar panels. A simulatio…"}
+{"answer": "0.792", "id": "simulated-sample-proportion-calculations/easy/1/6791c6ee77af", "text": "70% of the tickets sold for a cricket match are bought online. A simulation dra…"}
 {"answer": "0.480", "id": "simulated-sample-proportion-calculations/easy/2/eed4d6f2480e", "text": "40% of the cyclists using a city bike path wear a helmet. A simulation draws ra…"}
-{"answer": "(a) 0.188; (b) 0.183; (c) 0.040; (d) 0.230; (e) 0.020", "id": "simulated-sample-proportion-calculations/exam/0/5f48d5b3d6a3", "text": "15% of the customers at a bakery buy a sourdough loaf. A simulation draws rando…"}
-{"answer": "(a) 0.400; (b) 0.437; (c) 0.044; (d) 0.488; (e) 0.022", "id": "simulated-sample-proportion-calculations/exam/1/4ab9fd47d41e", "text": "40% of the seeds in a packet of wildflower mix germinate. A simulation draws ra…"}
-{"answer": "(a) 0.180; (b) 0.190; (c) 0.040; (d) 0.280; (e) 0.020", "id": "simulated-sample-proportion-calculations/exam/2/9f51ec1ccf28", "text": "20% of the tickets sold for a cricket match are bought online. A simulation dra…"}
+{"answer": "(a) 0.188; (b) 0.183; (c) 0.040; (d) 0.230; (e) 0.020", "id": "simulated-sample-proportion-calculations/exam/0/9e367d6fb2e5", "text": "15% of the customers at a bakery buy a sourdough loaf. A simulation draws rando…"}
+{"answer": "(a) 0.400; (b) 0.437; (c) 0.044; (d) 0.488; (e) 0.022", "id": "simulated-sample-proportion-calculations/exam/1/21b6ae2c3275", "text": "40% of the seeds in a packet of wildflower mix germinate. A simulation draws ra…"}
+{"answer": "(a) 0.180; (b) 0.190; (c) 0.040; (d) 0.280; (e) 0.020", "id": "simulated-sample-proportion-calculations/exam/2/8b90a5015cc3", "text": "20% of the tickets sold for a cricket match are bought online. A simulation dra…"}
 {"answer": "0.031", "id": "simulated-sample-proportion-calculations/hard/0/ddec307b6ac3", "text": "In a simulation of tickets from a population of tickets sold for a cricket matc…"}
 {"answer": "0.620", "id": "simulated-sample-proportion-calculations/hard/1/3665a847f274", "text": "55% of the seeds in a packet of wildflower mix germinate. A simulation draws ra…"}
 {"answer": "2400", "id": "simulated-sample-proportion-calculations/hard/2/e8fa3e9bf4c0", "text": "Samples of 150 customers from a population of customers at a bakery gave a stan…"}
 {"answer": "-0.011", "id": "simulated-sample-proportion-calculations/medium/0/265dd2a241a6", "text": "45% of the students at a large secondary school walk to school. A simulation dr…"}
 {"answer": "-0.026", "id": "simulated-sample-proportion-calculations/medium/1/16fca007a3a9", "text": "65% of the students at a large secondary school walk to school. A simulation dr…"}
-{"answer": "0.019", "id": "simulated-sample-proportion-calculations/medium/2/3823ffc58f68", "text": "10% of the light globes from a factory are faulty. A simulation draws random sa…"}
+{"answer": "0.019", "id": "simulated-sample-proportion-calculations/medium/2/a85493b8bdcd", "text": "10% of the light globes from a factory are faulty. A simulation draws random sa…"}
 {"answer": "B = 115.7°", "id": "sine-rule/ambiguous/0/7fcca541a269", "text": "In triangle ABC, angle A = 34°, side a = 18 and side b = 29 (a is opposite A, b…"}
 {"answer": "B = 113.0°", "id": "sine-rule/ambiguous/1/c6b9e260bb57", "text": "In triangle ABC, angle A = 31°, side a = 33 and side b = 59 (a is opposite A, b…"}
 {"answer": "B = 103.2°", "id": "sine-rule/ambiguous/2/09d996e5f4d5", "text": "In triangle ABC, angle A = 36°, side a = 32 and side b = 53 (a is opposite A, b…"}

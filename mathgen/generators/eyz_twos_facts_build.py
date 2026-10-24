@@ -312,6 +312,8 @@ def eyz_twos_facts_exam(rng, tier="exam"):
                     (p * p, "eyz-squares-the-number"),
                     (a + 1, None),
                 ],
+                lo=1,
+                hi=2 * b,  # nothing in the story is more than twice the largest count
                 working=[f"2 × {p} = {a}."],
             ),
             whole_part(
@@ -325,6 +327,8 @@ def eyz_twos_facts_exam(rng, tier="exam"):
                     (b + 2, None),
                     (b - 2, None),
                 ],
+                lo=1,
+                hi=2 * b,  # nothing in the story is more than twice the largest count
                 follow_through=f"part_a + 2*{q}",
                 working=[f"{q} more groups of 2 is 2 × {q} = {2 * q}.", f"{a} + {2 * q} = {b}."],
             ),
@@ -338,6 +342,8 @@ def eyz_twos_facts_exam(rng, tier="exam"):
                     (c + 1, "eyz-off-by-one-half"),
                     (c - 1, "eyz-off-by-one-half"),
                 ],
+                lo=1,
+                hi=2 * b,  # nothing in the story is more than twice the largest count
                 follow_through="part_b/2",
                 working=[f"{c} + {c} = {b}, so {b} ÷ 2 = {c}."],
             ),

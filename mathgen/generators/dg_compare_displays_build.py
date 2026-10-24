@@ -121,7 +121,7 @@ def _unique_mode(values):
     return modes[0] if len(modes) == 1 else None
 
 
-def _draw_data(rng, higher_b=False):
+def _draw_data(rng, higher_b=False, apart=False):
     """Two data sets on one scale. A is drawn as stacks (so counts), B as a list. Returns (a_values, b_values)."""
     for _ in attempts(500, "two data sets"):
         low = rng.randint(12, 22)
@@ -132,7 +132,12 @@ def _draw_data(rng, higher_b=False):
         a = _expand(counts, low)
         shift = rng.randint(-2, 4)
         n_b = rng.randint(11, 17)
-        b = [low + shift + rng.randint(0, k - 1) + rng.choice((0, 0, 1, 2)) for _ in range(n_b)]
+        if apart:  # B spread narrower or wider than A, so the two ranges differ by 3 or more
+            narrow = rng.random() < 0.5
+            reach = rng.randint(k - 6, k - 4) if narrow else rng.randint(k + 1, k + 4)
+            b = [low + shift + rng.randint(0, max(reach, 3)) for _ in range(n_b)]
+        else:
+            b = [low + shift + rng.randint(0, k - 1) + rng.choice((0, 0, 1, 2)) for _ in range(n_b)]
         if not (11 <= len(a) <= 16) or max(counts) > 6:
             continue
         if _unique_mode(a) is None or _unique_mode(b) is None:
@@ -178,8 +183,8 @@ def _stem_sentence(names, b):
     return f"The values for {names[1]} are in this stem-and-leaf plot. Key: {first // 10} | {first % 10} means {first}. {_stem_text(b)}."
 
 
-def _setup(rng, higher_b=False):
-    counts, low, a, b = _draw_data(rng, higher_b)
+def _setup(rng, higher_b=False, apart=False):
+    counts, low, a, b = _draw_data(rng, higher_b, apart)
     var = rng.choice(_VARIABLES)
     names = rng.choice(_GROUPS)
     fig = _figure(counts, low, names, var)
@@ -203,7 +208,11 @@ def _q(text, fig, answer, working, ds):
 
 
 def _nonneg(answer, cands):
-    return numd(answer, cands, lo=0 if answer >= 0 else None)
+    if answer > 0:
+        return numd(answer, cands, lo=1, hi=None)  # a positive count or gap: neither 0 nor negative
+    if answer == 0:
+        return numd(answer, cands, lo=0, hi=None)
+    return numd(answer, cands, lo=None, hi=None, unbounded="a signed difference of two readings")
 
 
 # ---------------------------------------------------------------------------------------------- easy
@@ -395,12 +404,14 @@ def dg_compare_displays_chain(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(500, "a compare-displays chain"):
-        counts, low, a, b, names, fig, intro = _setup(rng, higher_b=True)
+        counts, low, a, b, names, fig, intro = _setup(rng, higher_b=True, apart=True)
         na, nb = names
         ma, mb = _median(a), _median(b)
         diff = mb - ma
         ra, rb = max(a) - min(a), max(b) - min(b)
         gap = abs(ra - rb)
+        if gap < 3 or diff < 2:
+            continue  # room below the key, as in the single-display tiers: a gap or difference of 1 or 2 has nothing under it
         hi_r, lo_r = (na, nb) if ra > rb else (nb, na)
         oa, ob = sorted(a), sorted(b)
         da = numd(
@@ -412,7 +423,9 @@ def dg_compare_displays_chain(rng, tier="exam"):
                 (ma + 1, "dg-cd-count-off-one"),
                 (ma - 1, "dg-cd-count-off-one"),
             ],
-            lo=0,
+            lo=low,
+            hi=low + len(counts) - 1,  # a median lies on the axis
+            step=1,
         )
         db = numd(
             mb,
@@ -423,7 +436,9 @@ def dg_compare_displays_chain(rng, tier="exam"):
                 (Fraction(ob[(len(b) - 1) // 2] % 10), "dg-cd-leaf-as-value"),
                 (mb + 1, "dg-cd-count-off-one"),
             ],
-            lo=0,
+            lo=0,  # a leaf read as the value can be a single digit
+            hi=ob[-1],
+            step=1,
         )
         dc = numd(
             diff,
@@ -434,7 +449,9 @@ def dg_compare_displays_chain(rng, tier="exam"):
                 (diff - 1, "dg-cd-count-off-one"),
                 (diff + Fraction(1, 2), "dg-cd-median-even-lower"),
             ],
-            lo=None,
+            lo=Fraction(1, 2),  # the median of B is the greater, so the difference is positive
+            hi=max(b) - min(a),
+            step=1,
         )
         dd = numd(
             gap,
@@ -445,9 +462,11 @@ def dg_compare_displays_chain(rng, tier="exam"):
                 (gap + 1, "dg-cd-count-off-one"),
                 (gap - 1, "dg-cd-count-off-one"),
             ],
-            lo=0,
+            lo=1,  # "greater than": positive, and one range is not more than the two together
+            hi=ra + rb,
+            step=1,
         )
-        if min(len(x) for x in (da, db, dc, dd)) < 2 or gap == 0 or diff <= 0:
+        if min(len(x) for x in (da, db, dc, dd)) < 2:
             continue
         return dict(
             text=intro.rstrip(),

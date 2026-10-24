@@ -392,7 +392,7 @@ def dg_grid_map_chain(rng, tier="exam"):
         (yc, yr), y = items[1]
         (zc, zr), z = items[2]
         dx, dy = yc - xc, yr - xr
-        if dx == 0 or dy == 0 or abs(dx) > 5 or abs(dy) > 4:
+        if dx == 0 or dy == 0 or abs(dx) > 5 or abs(dy) > 5:
             continue
         if (abs(dx) == 1 or abs(dy) == 1) and rng.random() < 0.8:
             continue  # a gap of one square leaves nothing below it to offer
@@ -437,7 +437,9 @@ def dg_grid_map_chain(rng, tier="exam"):
                 (ax - 1, "dg-gm-counts-start-square"),
                 (ax + ay, "dg-gm-count-reference-difference"),
             ],
-            lo=0,
+            lo=min(ax, 1),  # a count of squares moved: 0 is no answer here
+            hi=w - 1,
+            step=1,
         )
         dc = numd(
             ay,
@@ -447,7 +449,9 @@ def dg_grid_map_chain(rng, tier="exam"):
                 (ay - 1, "dg-gm-counts-start-square"),
                 (ax + ay, "dg-gm-count-reference-difference"),
             ],
-            lo=0,
+            lo=min(ay, 1),
+            hi=h - 1,
+            step=1,
         )
         walk = ax + ay
         dd = numd(
@@ -458,7 +462,9 @@ def dg_grid_map_chain(rng, tier="exam"):
                 (walk + 1, "dg-gm-count-includes-start"),
                 (walk - 1, "dg-gm-counts-start-square"),
             ],
-            lo=0,
+            lo=min(walk, 1),
+            hi=w + h - 2,
+            step=1,
         )
         if len(da) < 3 or len(de) < 3 or min(len(v) for v in (db, dc, dd)) < 2:
             continue

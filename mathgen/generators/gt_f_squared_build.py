@@ -89,7 +89,7 @@ def _easy(rng):
         ("gtf-turning-point-at-y-intercept", 0, f0 * f0),
         ("gtf-invariant-point-as-turning-point", r + 1 / m, 1),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong))
+    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
     stem = phrase(
         rng,
         (
@@ -137,7 +137,13 @@ def _medium(rng):
     fig = plane(f, "f", "the graph of the parabola y = f(x) on a coordinate grid, one unit per grid square")
     verify_square(f, _square_points(h, m, k))
     ans = _pair(h, k * k)
-    options = pick(ans.text, pair_candidates(ans, _vertex_wrongs(h, k, m)))
+    options = pick(
+        ans.text,
+        pair_candidates(ans, _vertex_wrongs(h, k, m)),
+        lo=None,
+        hi=None,
+        unbounded="coordinate pairs, read by slot",
+    )
     if roots:
         stem = phrase(
             rng,
@@ -185,7 +191,13 @@ def _hard_max(rng):
     f = para(1, h, k)
     verify_square(f, _square_points(h, m, k))
     ans = _pair(h, k * k)
-    options = pick(ans.text, pair_candidates(ans, _vertex_wrongs(h, k, m)))
+    options = pick(
+        ans.text,
+        pair_candidates(ans, _vertex_wrongs(h, k, m)),
+        lo=None,
+        hi=None,
+        unbounded="coordinate pairs, read by slot",
+    )
     stem = phrase(
         rng,
         (
@@ -242,7 +254,7 @@ def _hard_meet(rng):
         ("gtf-forgets-to-divide-by-gradient", r + 1, 1),
         ("gtf-gives-the-zero", x1, 0),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong))
+    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
     stem = phrase(
         rng,
         (
@@ -300,6 +312,14 @@ def gt_f_squared(rng, tier="easy"):
 # -------------------------------------------------------------------------------------------------------- exam
 
 
+def _turning_in(fn, left: float, right: float) -> int:
+    """Turning points of fn(x)^2 strictly between left and right: sign changes of its slope on a fine grid (second route)."""
+    xs = np.linspace(left, right, 200001)
+    y = fn(xs) ** 2
+    slope = np.diff(y)
+    return int(np.count_nonzero(slope[:-1] * slope[1:] < 0))
+
+
 def _count_solutions(fn, c: float, lo: float, hi: float) -> int:
     """Sign changes of fn(x)^2 - c on [lo, hi], on a grid that avoids the turning points (the second route)."""
     xs = np.linspace(lo, hi, 200001) + 1.234e-6
@@ -320,11 +340,18 @@ def gt_f_squared_exam(rng, tier="exam"):
     f = para(1, h, k)
     verify_square(f, _square_points(h, math.sqrt(n), k))
     top = n * n
-    case = rng.choice(("below", "at", "above"))
-    c = {"below": rng.randint(1, top - 1), "at": top, "above": top + rng.choice((1, 2, 3, 5, 8, 20))}[case]
-    expect = {"below": 4, "at": 3, "above": 2}[case]
-    span = math.sqrt(n) + math.sqrt(c) + 6.0
-    if case == "at":
+    case = rng.choice(("below", "at", "above", "negative"))
+    c = {
+        "below": rng.randint(1, top - 1),
+        "at": top,
+        "above": top + rng.choice((1, 2, 3, 5, 8, 20)),
+        "negative": -rng.choice((1, 2, 3, 5, 8, 20)),
+    }[case]
+    expect = {"below": 4, "at": 3, "above": 2, "negative": 0}[case]
+    span = math.sqrt(n) + math.sqrt(max(c, 0)) + 6.0
+    if case == "negative":
+        check(_count_solutions(f, c, h - span, h + span) == 0, f"(f(x))^2 = {c} has solutions")
+    elif case == "at":
         check(
             _count_solutions(f, c + 1e-3, h - span, h + span) == 2
             and _count_solutions(f, c - 1e-3, h - span, h + span) == 4,
@@ -346,7 +373,25 @@ def gt_f_squared_exam(rng, tier="exam"):
         int_dist(-top, "gtf-square-keeps-sign"),
         int_dist(2 * abs(k), "gtf-doubles-instead-of-squares"),
     ]
-    c_wrong = [int_dist(2, "gtf-count-ignores-max"), int_dist(1, "gtf-count-as-f"), int_dist(4, "gtf-count-extra")]
+    # (c) how many turning points of y = (f(x))^2 lie between two whole-number x values: the zeros of f give minimums on
+    # the axis at h -/+ sqrt(n), the local maximum is at h
+    root = math.sqrt(n)
+    turning = (h - root, h, h + root)
+    for _ in attempts(200, "an interval whose ends are not turning points"):
+        left = h + rng.randint(-int(root) - 3, 1)
+        right = left + rng.randint(1, int(2 * root) + 5)
+        if all(abs(left - t) > 1e-6 and abs(right - t) > 1e-6 for t in turning):
+            break
+    inside = [t for t in turning if left < t < right]
+    c_count = len(inside)
+    check(c_count == _turning_in(f, left, right), "turning points counted two ways")
+    c_wrong = [
+        int_dist(3, "gtf-count-ignores-interval"),
+        int_dist(1, "gtf-count-as-f"),
+        int_dist(sum(1 for t in inside if t != h), "gtf-count-ignores-max"),
+        int_dist(4, "gtf-count-extra"),
+    ]
+    c_wrong = [d for d in c_wrong if d.text != str(c_count)]
     d_wrong = {
         "below": [
             int_dist(2, "gtf-solutions-above-the-peak"),
@@ -363,6 +408,11 @@ def gt_f_squared_exam(rng, tier="exam"):
             int_dist(3, "gtf-three-solutions-for-line-above-the-peak"),
             int_dist(1, "gtf-one-solution-for-line-above-the-peak"),
         ],
+        "negative": [
+            int_dist(2, "gtf-negative-line-has-solutions"),
+            int_dist(4, "gtf-negative-line-has-solutions"),
+            int_dist(1, "gtf-one-solution-for-line-above-the-peak"),
+        ],
     }[case]
     d_working = {
         "below": [
@@ -377,6 +427,10 @@ def gt_f_squared_exam(rng, tier="exam"):
             f"The local maximum of (f(x))^2 is {top}, and {c} > {top}.",
             f"The line y = {c} is above the peak, so it cuts only the two outer sections, once each: 2 solutions.",
         ],
+        "negative": [
+            f"(f(x))^2 is never negative, and {c} < 0.",
+            f"The line y = {c} is below the whole graph, so there are 0 solutions.",
+        ],
     }[case]
     parts = [
         dict(
@@ -384,7 +438,13 @@ def gt_f_squared_exam(rng, tier="exam"):
             marks=2,
             sensible_range=(-100, 100),
             working=[f"f(x) = ({_shifted('x', h)})^2 - {n}.", f"The least value of f is {k}, at x = {h}."],
-            distractors=pick(a_fields["answer_text"], a_wrong),
+            distractors=pick(
+                a_fields["answer_text"],
+                a_wrong,
+                lo=None,
+                hi=None,
+                unbounded="the least value of a quadratic can have either sign",
+            ),
             **a_fields,
         ),
         dict(
@@ -396,26 +456,27 @@ def gt_f_squared_exam(rng, tier="exam"):
                 f"At x = {h}, f(x) = {k}, between the zeros, so (f(x))^2 has a local maximum there.",
                 f"y = ({k})^2 = {top}.",
             ],
-            distractors=pick(b_fields["answer_text"], b_wrong),
+            distractors=pick(b_fields["answer_text"], b_wrong, lo=1, hi=None),
             **b_fields,
         ),
         dict(
-            prompt="How many turning points does the graph of y = (f(x))^2 have?",
+            prompt=f"How many turning points does the graph of y = (f(x))^2 have for {left} < x < {right}?",
             marks=1,
-            sensible_range=(0, 20),
+            sensible_range=(-0.5, 3.5),
             working=[
-                f"f has two zeros, where (f(x))^2 has minimums on the axis, and a turning point between them at x = {h}.",
-                "So there are 3 turning points.",
+                f"f has two zeros, at x = {h} ± √{n}, where (f(x))^2 has minimums on the axis, and a "
+                f"turning point between them at x = {h}.",
+                f"{c_count} of the 3 turning points lie between x = {left} and x = {right}.",
             ],
-            distractors=pick("3", c_wrong, lo=0, hi=3),  # a parabola squared turns at most 3 times
-            **number_fields(Frac(3), 0),
+            distractors=pick(str(c_count), c_wrong, lo=0, hi=3, allow_zero=True),  # a parabola squared turns 3 times
+            **number_fields(Frac(c_count), 0),
         ),
         dict(
             prompt=f"How many solutions does the equation (f(x))^2 = {c} have?",
             marks=2,
-            sensible_range=(0, 20),
+            sensible_range=(-0.5, 4.5),
             working=d_working,
-            distractors=pick(str(expect), d_wrong, lo=0, hi=4),  # at most 4 solutions
+            distractors=pick(str(expect), d_wrong, lo=0, hi=4, allow_zero=True),  # at most 4 solutions
             **number_fields(Frac(expect), 0),
         ),
     ]

@@ -27,6 +27,24 @@ from ._sr2b_kit import pick as _pick
 
 NEAR = "near-miss-value"  # the catalogue id of a plain near miss used to fill a side of the options
 
+
+class _Required:
+    def __repr__(self):
+        return "<required>"
+
+
+REQUIRED = _Required()  # the default of lo= and hi=: a call that leaves a bound out is a TypeError, not an open range
+
+
+def check_bounds(lo, hi, unbounded):
+    """Every call must say how far its options may reach. `lo=` and `hi=` are the least and greatest value an option can
+    take (None for one open end); both None needs `unbounded="why"`. A named slip outside the range is dropped, not offered."""
+    if lo is REQUIRED or hi is REQUIRED:
+        raise TypeError("pass lo= and hi= (the feasible range of the options), or unbounded='reason' with both None")
+    if lo is None and hi is None and not unbounded:
+        raise TypeError("lo and hi are both None: give the feasible range, or unbounded='reason'")
+
+
 _RNG: contextvars.ContextVar = contextvars.ContextVar("spread_rng", default=None)
 
 
@@ -126,20 +144,26 @@ def round_extras(key, make) -> list:
     return [make(int(v) + d) for d in (-10, 10) if v + d > 0]
 
 
-def mixed(key, items, count: int = 3, fillers=(), *, lo=None, hi=None) -> list:
+def mixed(key, items, count: int = 3, fillers=(), *, lo=REQUIRED, hi=REQUIRED, unbounded=None, slip_range=None) -> list:
     """`items` reordered so that its first `count` hold a random number below the key and the rest above it.
 
     Tagged items come first on each side; `fillers` (plain near misses, tried nearest first) make up a side that has too
     few. Any entry that is not a plain number leaves the list as it came. The unchosen items follow in their original
     order, so a pick that rejects some of the chosen still finds the rest."""
 
-    def feasible(item):
+    check_bounds(lo, hi, unbounded)
+
+    def feasible(item, lo=lo, hi=hi):
         v = _value(item)
         return v is None or ((lo is None or v >= lo) and (hi is None or v <= hi))
 
+    # `slip_range` widens the bounds for NAMED slips only, when the slip is the very mistake of leaving the range
+    # (an inverse-trig angle outside its principal range); fillers always keep to [lo, hi]
+    s_lo, s_hi = slip_range if slip_range is not None else (lo, hi)
+
     # a value outside [lo, hi] cannot be reached by the question's own structure (a fourth turning point of a parabola's
     # square, a pyramid with two vertices): offering it gives the key away by elimination
-    items = [i for i in items if feasible(i)]
+    items = [i for i in items if feasible(i, s_lo, s_hi)]
     fillers = [f for f in fillers if feasible(f)]
     key = _value(key)
     values = [_value(i) for i in items]
@@ -191,7 +215,8 @@ def mixed(key, items, count: int = 3, fillers=(), *, lo=None, hi=None) -> list:
     return chosen + rest + spare_fill
 
 
-def tagged_numbers(answer, candidates, *, low: int = 0, high: int = 40, step: int = 1, ok=None):
+def tagged_numbers(answer, candidates, *, low=REQUIRED, high=REQUIRED, step: int = 1, ok=None):
+    check_bounds(low, high, None)
     usable, seen = [], {answer}
     for value, tag in candidates:
         if value in seen or not low <= value <= high:
@@ -211,21 +236,27 @@ def tagged_numbers(answer, candidates, *, low: int = 0, high: int = 40, step: in
     return _tagged_numbers(answer, mixed(answer, usable, fillers=near, lo=low, hi=high), low=low, high=high)[:3]
 
 
-def whole_part(prompt, value, marks, candidates, *, step: int = 1, lo=None, hi=None, **kw):
+def whole_part(prompt, value, marks, candidates, *, step: int = 1, lo=REQUIRED, hi=REQUIRED, unbounded=None, **kw):
+    check_bounds(lo, hi, unbounded)
     if step == 1:
         step = round_step(value)
     near = [(value + d * step, NEAR) for d in (-4, -3, -2, -1, 1, 2, 3, 4) if value + d * step > 0]
     near += round_extras(value, lambda v: (v, NEAR))
-    return _whole_part(prompt, value, marks, mixed(value, candidates, fillers=near, lo=lo, hi=hi), **kw)
+    return _whole_part(
+        prompt, value, marks, mixed(value, candidates, fillers=near, lo=lo, hi=hi, unbounded=unbounded), **kw
+    )
 
 
 def _decimals(text: str) -> int:
     return len(text.split(".")[1]) if "." in text else 0
 
 
-def number_fields(value, dp, wrong, *, nonneg: bool = False, near_misses: bool = True, lo=None, hi=None, **kw):
+def number_fields(
+    value, dp, wrong, *, nonneg: bool = False, near_misses: bool = True, lo=REQUIRED, hi=REQUIRED, unbounded=None, **kw
+):
     """`near_misses=False` for a question whose neighbours of the key can themselves be right (a size that is 'needed',
     'large enough', or whose stated rounding they share)."""
+    check_bounds(lo, hi, unbounded)
     step = Fraction(round_step(value) if dp == 0 else 1, 10**dp)
     near = [
         (Fraction(value) + d * step, NEAR)
@@ -234,12 +265,27 @@ def number_fields(value, dp, wrong, *, nonneg: bool = False, near_misses: bool =
     ]
     if near_misses and dp == 0:
         near += round_extras(value, lambda v: (Fraction(v), NEAR))
-    return _number_fields(value, dp, mixed(value, wrong, fillers=near, lo=lo, hi=hi), nonneg=nonneg, **kw)
+    return _number_fields(
+        value, dp, mixed(value, wrong, fillers=near, lo=lo, hi=hi, unbounded=unbounded), nonneg=nonneg, **kw
+    )
 
 
 def number_part(
-    prompt, value, dp, marks, working, wrong, *, nonneg: bool = False, near_misses: bool = True, lo=None, hi=None, **kw
+    prompt,
+    value,
+    dp,
+    marks,
+    working,
+    wrong,
+    *,
+    nonneg: bool = False,
+    near_misses: bool = True,
+    lo=REQUIRED,
+    hi=REQUIRED,
+    unbounded=None,
+    **kw,
 ):
+    check_bounds(lo, hi, unbounded)
     step = Fraction(round_step(value) if dp == 0 else 1, 10**dp)
     near = [
         (Fraction(value) + d * step, NEAR)
@@ -249,24 +295,64 @@ def number_part(
     if near_misses and dp == 0:
         near += round_extras(value, lambda v: (Fraction(v), NEAR))
     return _number_part(
-        prompt, value, dp, marks, working, mixed(value, wrong, fillers=near, lo=lo, hi=hi), nonneg=nonneg, **kw
+        prompt,
+        value,
+        dp,
+        marks,
+        working,
+        mixed(value, wrong, fillers=near, lo=lo, hi=hi, unbounded=unbounded),
+        nonneg=nonneg,
+        **kw,
     )
 
 
-def pick(answer_text, candidates, count: int = 3, *, lo=None, hi=None, fillers=(), **kw):
+def _choose(answer_text, allow_zero, ordered, count, **kw):
+    """`_sr2b_kit.pick`, which never offers a plain 0, unless the question is a count that can be 0 (`allow_zero`)."""
+    if not allow_zero:
+        return _pick(answer_text, ordered, count, **kw)
+    from ._sr2b_kit import TooFewDistractors
+
+    out = _pick_distractors(answer_text, ordered, count)
+    if len(out) < kw.get("minimum", 2):
+        raise TooFewDistractors(f"too few distractors for {answer_text}")
+    return out
+
+
+def pick(
+    answer_text,
+    candidates,
+    count: int = 3,
+    *,
+    lo=REQUIRED,
+    hi=REQUIRED,
+    unbounded=None,
+    fillers=(),
+    allow_zero=False,
+    slip_range=None,
+    **kw,
+):
     """`_sr2b_kit.pick` over a candidate list reordered to give the key a random rank (plain near misses fill a side)."""
+    check_bounds(lo, hi, unbounded)
     key = _value(answer_text)
     near = list(fillers)
     if _is_pi(answer_text, candidates):
         # a multiple of pi: its neighbours are the angles a student could reach by a slip, a sixth, quarter or third away
         from ._sr2b_kit import pi_text
 
-        dens = (key.denominator,) if key.denominator > 1 else (6, 4, 3)
+        dens = tuple(dict.fromkeys((6, 4, 3, *((key.denominator,) if key.denominator > 1 else ()))))
         for den in dens:
             for k in (-2, -1, 1, 2):
                 v = key + Fraction(k, den)
                 near.append(Distractor(pi_text(v), NEAR, pi_text(v)))
-        return _pick(answer_text, mixed(answer_text, candidates, count, fillers=near, lo=lo, hi=hi), count, **kw)
+        return _choose(
+            answer_text,
+            allow_zero,
+            mixed(
+                answer_text, candidates, count, fillers=near, lo=lo, hi=hi, unbounded=unbounded, slip_range=slip_range
+            ),
+            count,
+            **kw,
+        )
     if key is not None and "/" not in str(answer_text) and _NUMBER.fullmatch(str(answer_text)):
         places = _decimals(str(answer_text))
         step = Fraction(round_step(key) if places == 0 else 1, 10**places)
@@ -277,7 +363,13 @@ def pick(answer_text, candidates, count: int = 3, *, lo=None, hi=None, fillers=(
         ]
     if key is not None and _NUMBER.fullmatch(str(answer_text)) and _decimals(str(answer_text)) == 0:
         near += round_extras(key, lambda v: Distractor(str(v), NEAR, v))
-    return _pick(answer_text, mixed(answer_text, candidates, count, fillers=near, lo=lo, hi=hi), count, **kw)
+    return _choose(
+        answer_text,
+        allow_zero,
+        mixed(answer_text, candidates, count, fillers=near, lo=lo, hi=hi, unbounded=unbounded, slip_range=slip_range),
+        count,
+        **kw,
+    )
 
 
 def _is_pi(answer_text, candidates) -> bool:
@@ -285,8 +377,11 @@ def _is_pi(answer_text, candidates) -> bool:
     return any(_PI.fullmatch(t) and ("pi" in t or "π" in t) for t in texts) and _value(answer_text) is not None
 
 
-def pick_distractors(answer_text, candidates, n: int = 3, *, lo=None, hi=None, near_misses: bool = False, **kw):
+def pick_distractors(
+    answer_text, candidates, n: int = 3, *, lo=REQUIRED, hi=REQUIRED, unbounded=None, near_misses: bool = False, **kw
+):
     """`core.pick_distractors` over a reordered candidate list; `near_misses` adds whole-number neighbours of a whole key."""
+    check_bounds(lo, hi, unbounded)
     key = _value(answer_text)
     fillers = []
     if near_misses and key is not None and key.denominator == 1:
@@ -297,7 +392,9 @@ def pick_distractors(answer_text, candidates, n: int = 3, *, lo=None, hi=None, n
             if int(key) + d * step >= (0 if lo is None else lo)
         ]
         fillers += round_extras(key, lambda v: Distractor(str(v), NEAR, v))
-    return _pick_distractors(answer_text, mixed(answer_text, candidates, n, fillers=fillers, lo=lo, hi=hi), n, **kw)
+    return _pick_distractors(
+        answer_text, mixed(answer_text, candidates, n, fillers=fillers, lo=lo, hi=hi, unbounded=unbounded), n, **kw
+    )
 
 
 def _py(v):

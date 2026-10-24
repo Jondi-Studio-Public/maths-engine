@@ -184,7 +184,10 @@ def _feature_wrongs(name: str, feature: str) -> list[tuple[int, str | None]]:
     return [(v, t) for v, t in out if v != value]
 
 
-def _fact_question(text: str, answer: int, cands, working, fig) -> dict:
+def _fact_question(text: str, answer: int, cands, working, fig, shapes) -> dict:
+    # a count of the picture runs to about twice the largest total of one feature over the solids shown (every face or
+    # edge counted twice, or a count taken over twice the solids): past that is no reading of the figure at all
+    cap = 2 * max(12, *(sum(FACTS[sh][i] or 0 for sh in shapes) for i in range(4)))
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -193,7 +196,7 @@ def _fact_question(text: str, answer: int, cands, working, fig) -> dict:
         answer_latex=str(answer),
         answer_kind="number",
         working=working,
-        distractors=tagged_numbers(answer, cands, low=0, high=80),
+        distractors=tagged_numbers(answer, cands, low=0, high=cap),
         figure=fig,
     )
 
@@ -229,7 +232,7 @@ def _solid_easy(rng) -> dict:
         feature
     ]
     working = [f"A {name} has {answer} {singular if answer == 1 else feature}."]
-    return _fact_question(text, answer, _feature_wrongs(name, feature), working, fig)
+    return _fact_question(text, answer, _feature_wrongs(name, feature), working, fig, [name])
 
 
 def _solid_medium(rng) -> dict:
@@ -257,7 +260,7 @@ def _solid_medium(rng) -> dict:
     if feature == "flat faces":
         cands.append((answer + sum(FACTS[s][1] for s in shapes), "eyz-counts-the-curved-surface-as-a-face"))
     working = [" + ".join(str(v) for v in per) + f" = {answer}."]
-    return _fact_question(text, answer, cands, working, fig)
+    return _fact_question(text, answer, cands, working, fig, shapes)
 
 
 def _solid_hard(rng) -> dict:
@@ -290,7 +293,7 @@ def _solid_hard(rng) -> dict:
         f"There are {n_target} {_PLURAL[target]}. Each has {each} {_ONE[feature] if each == 1 else feature}.",
         f"{n_target} × {each} = {answer}.",
     ]
-    return _fact_question(text, answer, cands, working, fig)
+    return _fact_question(text, answer, cands, working, fig, shapes)
 
 
 @generator("eyz_named_solids", level=3, presets=_PRESETS)
@@ -320,7 +323,15 @@ figures.register_reader("eyz_named_solids", _read_named_solids)
 _FEWEST = {"faces": 4, "edges": 6, "vertices": 4}
 
 
-def _count_question(text: str, answer: int, cands, working, quantity: str) -> dict:
+def _cap(quantity: str, n: int) -> int:
+    """The most faces, edges or vertices a count for an n-sided base can reach: about twice a prism's (every face or edge
+    counted twice, edges and corners added). A tighter cap would make the prism, which has the most, always the largest."""
+    return {"faces": 2 * (n + 2), "edges": 2 * 3 * n, "vertices": 2 * 2 * n}[quantity]
+
+
+def _count_question(text: str, answer: int, cands, working, quantity: str, n: int) -> dict:
+    # none of the counts for an n-sided base is more than about twice a prism's
+    cap = _cap(quantity, n)
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -329,7 +340,7 @@ def _count_question(text: str, answer: int, cands, working, quantity: str) -> di
         answer_latex=str(answer),
         answer_kind="number",
         working=working,
-        distractors=tagged_numbers(answer, cands, low=_FEWEST[quantity], high=60),
+        distractors=tagged_numbers(answer, cands, low=_FEWEST[quantity], high=cap),
     )
 
 
@@ -381,7 +392,7 @@ def _prism_easy(rng) -> dict:
         "edges": [f"{n} edges on the base, {n} on the top and {n} joining them: {3 * n}."],
         "vertices": [f"{n} corners on the base and {n} on the top: {2 * n}."],
     }[quantity]
-    return _count_question(text, answer, _wrong_formulas("prism", n, quantity), working, quantity)
+    return _count_question(text, answer, _wrong_formulas("prism", n, quantity), working, quantity, n)
 
 
 def _net_pieces(kind: str, n: int) -> str:
@@ -419,7 +430,7 @@ def _prism_medium(rng) -> dict:
         wrongs.insert(0, (sum(len(fc) for fc in solid_faces(kind, n)), "eyz-counts-the-corners-of-the-flat-pieces"))
     if quantity == "faces":
         wrongs.insert(0, (n + 1 if kind == "prism" else n, "eyz-leaves-out-a-piece-of-the-net"))
-    return _count_question(text, answer, wrongs, working, quantity)
+    return _count_question(text, answer, wrongs, working, quantity, n)
 
 
 def _prism_hard(rng) -> dict:
@@ -462,7 +473,7 @@ def _prism_hard(rng) -> dict:
         f"The base has {n} sides.",
         f"{_a(_prism_name(n) if kind == 'prism' else _pyramid_name(n)).capitalize()} has {answer} {asked}.",
     ]
-    return _count_question(text, answer, cands, working, asked)
+    return _count_question(text, answer, cands, working, asked, n)
 
 
 @generator("eyz_prism_pyramid_counts", level=3, presets=_PRESETS)
@@ -505,6 +516,7 @@ def eyz_prism_pyramid_counts_exam(rng, tier="exam"):
                     (f - 1, None),
                 ],
                 lo=_FEWEST["faces"],
+                hi=_cap("faces", n),
                 working=[f"{pieces} make {f} faces."],
             ),
             whole_part(
@@ -520,6 +532,7 @@ def eyz_prism_pyramid_counts_exam(rng, tier="exam"):
                     (e - 1, None),
                 ],
                 lo=_FEWEST["edges"],
+                hi=_cap("edges", n),
                 working=[
                     f"The faces have {sum(len(fc) for fc in solid_faces(kind, n))} sides in all. Two faces share each edge, so {sum(len(fc) for fc in solid_faces(kind, n))} ÷ 2 = {e}."
                 ],
@@ -536,6 +549,7 @@ def eyz_prism_pyramid_counts_exam(rng, tier="exam"):
                     (f + e + 2, None),
                 ],
                 lo=_FEWEST["vertices"],
+                hi=_cap("vertices", n),
                 follow_through="2 - part_a + part_b",
                 working=[f"V = 2 + E - F = 2 + {e} - {f} = {v}."],
             ),
@@ -551,6 +565,8 @@ def eyz_prism_pyramid_counts_exam(rng, tier="exam"):
                     (e * k + k, None),
                     (e * k - k, None),
                 ],
+                lo=_FEWEST["edges"] * k,
+                hi=_cap("edges", n) * k,
                 follow_through=f"{k}*part_b",
                 working=[f"{e} × {k} = {e * k} cm."],
             ),

@@ -346,7 +346,16 @@ def _text(ctx, key, **kw):
 
 def _num_dist(answer, cands, lo=1):
     # Never offer 0 as a wrong value: it is no reading of any of these graphs and is easy to rule out.
-    return numd(answer, [c for c in cands if c[0] is not None and c[0] != 0], lo=lo)
+    return numd(
+        answer,
+        [c for c in cands if c[0] is not None and c[0] != 0],
+        lo=lo,
+        hi=None,
+        # a falling line's rate asked as an amount used is positive; lo=None only lets the skill's own sign slip
+        # ("dg-rd-rate-sign", a negative amount) through, and nothing else is signed
+        unbounded=None if lo is not None else "the rate of a falling line, read with its sign (dg-rd-rate-sign)",
+        nonzero=True,
+    )
 
 
 def _wrap(text, fig, ans, working, ds):

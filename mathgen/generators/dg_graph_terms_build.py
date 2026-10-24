@@ -597,9 +597,18 @@ def _hard(rng):
                 f"{_pl(nonloop, 'edge')} join{'s' if nonloop == 1 else ''} {LETTERS[x]} to other vertices.",
                 f"Each loop at {LETTERS[x]} adds 2, so the degree is {nonloop} + 2 x {(answer - nonloop) // 2} = {answer}.",
             ]
-        ds = _ints(
-            answer, [c for c in cands if c[0] is not None], lo=0, hi=2 * len(es) if shape == "degree" else len(es)
-        )
+        # what each count can reach: the loops are edges; the extra copies and the repeated pairs come from the
+        # non-loop edges (a repeated pair has at least two of them, an extra copy needs a first copy to follow); a
+        # degree counts a non-loop edge once and a loop twice
+        nonloop_all = sum(1 for u, v in es if u != v)
+        reach = {
+            "loops": len(es),
+            "multiple": max(1, nonloop_all - 1),
+            "pairs": max(1, nonloop_all // 2),
+            "simple": nonloop_all,
+            "degree": len(es) + (len(es) - nonloop_all),
+        }.get(shape, len(es))
+        ds = _ints(answer, [c for c in cands if c[0] is not None], lo=0, hi=reach)
         if len(ds) < 3:
             continue
         d = _q(text, None, answer, working, ds)

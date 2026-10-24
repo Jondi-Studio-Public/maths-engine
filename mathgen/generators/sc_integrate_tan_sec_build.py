@@ -22,7 +22,7 @@ answer in terms of tan x``), because the grader compares expressions, not answer
 from __future__ import annotations
 
 import re
-from sympy import Rational, log, pi, sec, sqrt, sympify, tan
+from sympy import Rational, lambdify, log, pi, sec, sqrt, sympify, tan
 
 from ..core import check, generator, latex_from_inline
 from ._spread_kit import NEAR, mixed, uses_rng
@@ -106,22 +106,36 @@ def _no_constant(cands):
     return [Cand(c.expr, c.tag, const=False) for c in cands if c is not None]
 
 
-def _options(key, cands, rng):
+def _options(key, cands, rng, *, lo, hi):
     """Three wrong exact values for a definite integral, with a random number of them below the key: the named slips
     first, then plain near misses (the key out by a half, third, quarter or sixth) on a side that has too few."""
     key = sympify(key)
-    near = [Cand(key + Rational(k, d), NEAR, const=False) for d in (2, 3, 4, 6) for k in (-1, 1)]
-    return pick_expr(key, False, mixed(key, _no_constant(cands), fillers=near))
+    near = [Cand(key + Rational(k, d), NEAR, const=False) for d in (2, 3, 4, 6, 8, 12) for k in (-1, 1)]
+    # a small positive key (an integral over a short interval) has little room below it: a scaled key is a slip too
+    near += [Cand(key * m, NEAR, const=False) for m in (Rational(1, 2), Rational(2, 3), Rational(3, 2), 2)]
+    return pick_expr(key, False, mixed(key, _no_constant(cands), fillers=near, lo=lo, hi=hi))
+
+
+def _span(f, lo, hi):
+    """The least and greatest an integral of `f` over [lo, hi] can be: width times the least and the greatest of the
+    integrand there (found on a fine grid, with a little room), so no option is offered that the integrand rules out."""
+    width = float(hi - lo)
+    fn = lambdify(x, f, "math")
+    ys = [fn(float(lo) + width * i / 400) for i in range(401)]
+    return Rational(min(ys) * width).limit_denominator(1000) - Rational(1, 1000), Rational(
+        max(ys) * width
+    ).limit_denominator(1000) + Rational(1, 1000)
 
 
 def _definite(rng, f: Itg, value, lo, hi, cands, working):
     check_definite(value, f.value, lo, hi)
+    floor, ceiling = _span(f.value, lo, hi)
     text, latex = say(rng, _EXACT, {"I": integral_text(f, lo, hi)}, {"I": integral_math(f, lo, hi)})
     return dict(
         text=text,
         working=[_tidy(w) for w in working],
         latex=latex,
-        distractors=_options(value, cands, rng),
+        distractors=_options(value, cands, rng, lo=floor, hi=ceiling),
         **exact_fields(value),
     )
 
@@ -540,7 +554,7 @@ def sc_integrate_tan_sec_exam(rng, tier="exam"):
             Cand(pi / 4 - 1, "sc-definite-sign-slip"),
             Cand(Rational(1), "sc-tan-sq-taken-as-sec-sq"),
         ]
-    pa = part(pa_p, pa_l, 2, pa_work, exact_fields(a), _options(a, a_cands, rng))
+    pa = part(pa_p, pa_l, 2, pa_work, exact_fields(a), _options(a, a_cands, rng, lo=0, hi=pi / 4))
     tn = "tan x" if s == 1 else f"tan^{s} x"
     hint = f"Use tan^{s + 2} x = {tn} sec^2 x - {tn} and your answer to (a). "
     pb_p, pb_l = prompt(fn(s + 2), hint)
@@ -562,6 +576,8 @@ def sc_integrate_tan_sec_exam(rng, tier="exam"):
                 Cand(Rational(1, s + 3), "sc-tan-power-rule-on-trig"),
             ],
             rng,
+            lo=0,
+            hi=pi / 4,  # tan^n on [0, pi/4] runs from 0 to 1, so its integral lies between 0 and pi/4
         ),
         follow_through=f"1/{s + 1} - part_a",
     )
@@ -586,6 +602,8 @@ def sc_integrate_tan_sec_exam(rng, tier="exam"):
                 Cand(Rational(1, s + 1) - b, "sc-reduction-wrong-denominator"),
             ],
             rng,
+            lo=0,
+            hi=pi / 4,
         ),
         follow_through=f"1/{s + 3} - part_b",
     )
@@ -610,6 +628,8 @@ def sc_integrate_tan_sec_exam(rng, tier="exam"):
                 Cand(p * c + q * a, "sc-wrong-earlier-part-used"),
             ],
             rng,
+            lo=0,
+            hi=(p + q) * pi / 4,
         ),
         follow_through=f"{p}*part_c + {q}*part_b",
     )

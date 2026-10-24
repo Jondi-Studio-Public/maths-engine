@@ -176,7 +176,19 @@ def _options(key, cands, near, *, want=2, nonzero=False):
     pool = [c for c in cands if c is not None and c.expr is not None]
     picked = []
     for _ in range(8):  # redraw the split until some option shares the key's shape (a whole key beside only fractions)
-        picked = pick_expr(key, False, mixed(key, pool, fillers=fillers), minimum=want)
+        picked = pick_expr(
+            key,
+            False,
+            mixed(
+                key,
+                pool,
+                fillers=fillers,
+                lo=None,
+                hi=None,
+                unbounded="a real or imaginary part is any real number; `near` is capped by the modulus (`limit`)",
+            ),
+            minimum=want,
+        )
         if any(shape(sympy.sympify(d.value if not isinstance(d.value, str) else d.text)) == shape(key) for d in picked):
             break
     return picked

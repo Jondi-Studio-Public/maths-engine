@@ -249,10 +249,10 @@ def dg_construct_dotplot_chain(rng, tier="exam"):
         raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(600, "a dot plot chain"):
         stem_t, lo, hi = rng.choice(_INT_THEMES)
-        k = rng.randint(5, 7)
+        k = rng.randint(6, 8)  # a longer axis leaves room either side of the mode and the median
         low = rng.randint(lo, max(lo, hi - k + 1))
         values = list(range(low, low + k))
-        counts = _counts(rng, k, total=(14, 24))
+        counts = _counts(rng, k, total=(16, 26))
         data = [v for v, c in zip(values, counts) for _ in range(c)]
         modes = statistics.multimode(data)
         if len(modes) != 1:
@@ -279,7 +279,9 @@ def dg_construct_dotplot_chain(rng, tier="exam"):
                 (values[-1], "dg-dp-mode-second"),
                 (values[0], "dg-dp-mode-second"),
             ],
-            lo=0,
+            lo=values[0],  # the mode and the median are read off the axis
+            hi=values[-1],
+            step=1,
         )
         mid_axis = Fraction(values[0] + values[-1], 2)
         lower = ordered[(n - 1) // 2]
@@ -292,7 +294,9 @@ def dg_construct_dotplot_chain(rng, tier="exam"):
                 (med + 1, "dg-dp-median-as-middle-value"),
                 (med - 1, "dg-dp-median-as-middle-value"),
             ],
-            lo=0,
+            lo=values[0],  # the mode and the median are read off the axis
+            hi=values[-1],
+            step=1,
         )
         diff = med - mode
         if abs(diff) < 1.5 and rng.random() < 0.8:
@@ -305,6 +309,10 @@ def dg_construct_dotplot_chain(rng, tier="exam"):
                 (diff + 1, "dg-dp-miscount-one"),
                 (diff - 1, "dg-dp-miscount-one"),
             ],
+            lo=values[0] - values[-1],
+            hi=values[-1] - values[0],
+            step=1,
+            nonzero=True,  # the median is not the mode, so the difference is not 0
         )
         if min(len(x) for x in (da, db, dc, dd)) < 2:
             continue

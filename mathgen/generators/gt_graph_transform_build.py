@@ -601,7 +601,17 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
         if c.text not in seen and c.text != fields["answer_text"]:
             seen.add(c.text)
             b_opts.append(c)
-    b_opts = _need(b_opts) if kind == "pair" else spread_pick(fields["answer_text"], b_opts, lo=None)
+    b_opts = (
+        _need(b_opts)
+        if kind == "pair"
+        else spread_pick(
+            fields["answer_text"],
+            b_opts,
+            lo=None,
+            hi=None,
+            unbounded="an asymptote or intercept of g can sit at any integer",
+        )
+    )
     part_b = dict(
         prompt=_feature_prompt(fam),
         marks=2 if kind == "pair" else 1,
@@ -638,7 +648,9 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
             v = y0 + Frac(k, y0.denominator)
             if v != 0 and rational_text(v) not in seen:
                 c_opts.append(Distractor(rational_text(v), NEAR, _frac_value(v)))
-    c_opts = spread_pick(rational_text(y0), c_opts)
+    c_opts = spread_pick(
+        rational_text(y0), c_opts, lo=None, hi=None, unbounded="the y-intercept of g can be any rational number"
+    )
     part_c = dict(
         prompt="Find the y-intercept of the graph of g.",
         answer_kind="fraction",

@@ -59935,6 +59935,21 @@ _ENTRIES += (
         "method behind the slip.",
         area="general",
     ),
+    CatalogueEntry(
+        "gtf-count-ignores-interval",
+        "Counting every turning point of the graph, whether or not it lies in the interval asked about.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtm-negative-line-has-solutions",
+        "Finding solutions of |f(x)| = c for a negative c, as if an absolute value could be negative.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "gtf-negative-line-has-solutions",
+        "Finding solutions of (f(x))^2 = c for a negative c, as if a square could be negative.",
+        area="graph-features",
+    ),
 )
 
 #: Every entry, by id.
