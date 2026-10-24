@@ -132,10 +132,10 @@ _QUAD_UP = (
         None,
     ),
     (
-        "The table shows the distance y metres a trolley has rolled down a ramp x seconds after it is released.",
-        "seconds",
+        "The table shows the distance y metres a wagon has rolled along a siding x minutes after its brake is released.",
+        "minutes",
         "metres",
-        "The ramp is {b} metres long.",
+        "The siding is {b} metres long.",
         None,
     ),
 )

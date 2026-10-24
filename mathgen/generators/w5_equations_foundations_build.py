@@ -317,7 +317,7 @@ def _eq_not_equal_expression(rng):
         f"{v - 3} + 4",
         f"{v + 5} - 6",
         f"{a + 1} × {b} + {b}",
-        f"{v} - 0 + 2",
+        f"{v + 3} - 2",
         f"{a} × {b + 1}",
     ]
     key = rng.choice(bad_options)
@@ -1754,6 +1754,13 @@ def _check_find_mistake(rng):
     raise TooFewDistractors("no distinct mistake values")
 
 
+def _coef_times(c, v) -> str:
+    """``c × v`` for working, with a coefficient of 1 dropped (the equation shows ``x``, not ``1x``)."""
+    if c == 1:
+        return str(v)
+    return f"{c} × {v}"
+
+
 def _check_exam(rng):
     a, c = rng.randint(3, 8), rng.randint(1, 2)
     s = rng.randint(2, 9)
@@ -1837,7 +1844,7 @@ def _check_exam(rng):
                 fa["answer_kind"],
                 _sub(fa),
                 1,
-                [f"{a} × {v} {'+' if b > 0 else '-'} {abs(b)} = {L}."],
+                [f"{_coef_times(a, v)} {'+' if b > 0 else '-'} {abs(b)} = {L}."],
                 da,
                 sensible_range=(None, None),
             ),
@@ -1846,7 +1853,11 @@ def _check_exam(rng):
                 fb["answer_kind"],
                 _sub(fb),
                 1,
-                [f"{c} × {v} {'+' if d > 0 else '-'} {abs(d)} = {R}."],
+                [
+                    f"{_coef_times(c, v)} {'+' if d > 0 else '-'} {abs(d)} = {R}."
+                    if d
+                    else f"{_coef_times(c, v)} = {R}."
+                ],
                 db,
                 sensible_range=(None, None),
             ),

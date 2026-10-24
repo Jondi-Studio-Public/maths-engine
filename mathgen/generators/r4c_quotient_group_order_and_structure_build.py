@@ -19,7 +19,7 @@ from __future__ import annotations
 from math import gcd, lcm
 
 from ..core import attempts, check, generator
-from ._r4c_kit import number_part, number_question, ordered_part
+from ._r4c_kit import int_options, number_part, number_question, ordered_part
 
 
 def _pair_order(m, n, a, b):
@@ -50,8 +50,17 @@ def _easy(rng):
         k = d * rng.choice(units)
         a = rng.randrange(1, n)
         order = d // gcd(d, a)
+        slips = [
+            (d, "quotient-element-order-is-group-order"),
+            (n // gcd(n, a), "quotient-element-order-in-the-big-group"),
+            (n // d, "quotient-element-order-is-subgroup-order"),
+            (d // gcd(d, a % d if a % d else d) if (a % d) and d // gcd(d, a % d) != order else None, None),
+            (order + 1, None),
+            (order * 2 if order * 2 <= d else None, None),
+        ]
         if order >= 3 and (k != d or rng.random() < 0.2):
-            break
+            if len(int_options(order, slips, 4)) >= 2:  # redraw when the slips collapse onto the answer
+                break
     check(gcd(n, k) == d, "the gcd differs from the planned divisor")
     # second route: the least multiple of a that lands in <k> (the multiples of d)
     check(
@@ -72,14 +81,7 @@ def _easy(rng):
             f"⟨{k}⟩ = ⟨gcd({k}, {n})⟩ = ⟨{d}⟩, so the quotient is Z_{d}.",
             f"{a} + ⟨{k}⟩ has order {d} / gcd({d}, {a}) = {order}.",
         ],
-        [
-            (d, "quotient-element-order-is-group-order"),
-            (n // gcd(n, a), "quotient-element-order-in-the-big-group"),
-            (n // d, "quotient-element-order-is-subgroup-order"),
-            (d // gcd(d, a % d if a % d else d) if (a % d) and d // gcd(d, a % d) != order else None, None),
-            (order + 1, None),
-            (order * 2 if order * 2 <= d else None, None),
-        ],
+        slips,
     )
 
 

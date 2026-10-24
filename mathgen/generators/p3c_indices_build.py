@@ -32,6 +32,11 @@ from sympy import symbols, Rational, latex, sympify
 from ..core import check, check_distinct, check_equivalent, generator, phrase, pick_distractors
 
 
+def _xp(e) -> str:
+    """x raised to e, writing plain x for exponent 1."""
+    return "x" if e == 1 else f"x^{e}"
+
+
 def _display(expr) -> str:
     """Learner-facing rendering of a sympy power: ``x^5``, ``x^(3/2)``.
 
@@ -87,7 +92,7 @@ def _build_easy_product(rng) -> dict:
 
     answer_text = _display(answer_expr)
 
-    text = f"Simplify x^{a} × x^{b}, giving your answer as a single power of x."
+    text = f"Simplify {_xp(a)} × {_xp(b)}, giving your answer as a single power of x."
     latex_text = rf"{latex(x**a)} \cdot {latex(x**b)}"
 
     # Misconceptions:
@@ -125,7 +130,7 @@ def _build_medium_product_quotient(rng) -> dict:
 
     answer_text = _display(answer_expr)
 
-    text = f"Simplify (x^{a} × x^{b}) ÷ x^{c}, giving your answer as a single power of x."
+    text = f"Simplify ({_xp(a)} × {_xp(b)}) ÷ {_xp(c)}, giving your answer as a single power of x."
 
     # Misconceptions:
     #  - ignores-the-division: x**(a+b)
@@ -167,7 +172,7 @@ def _build_hard_power_fraction(rng) -> dict:
     # Render p as a string (e.g., "1/2").
     p_str = str(p)
 
-    text = f"Simplify (x^({p_str}))^{q} × x^{r} ÷ x^{s}, giving your answer as a single power of x."
+    text = f"Simplify (x^({p_str}))^{q} × {_xp(r)} ÷ {_xp(s)}, giving your answer as a single power of x."
 
     # For the latex, hand-write to avoid confusion with precedence.
     # (x**(1/2))**3 to show the fractional exponent clearly.

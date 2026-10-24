@@ -335,7 +335,9 @@ def _prob_working(shape: str, k: Fraction, c: int, d: int, p: int, q: int, raw: 
     answer_text = stated_precision_string(round_half_up(raw, dp), dp)
     if shape == "uniform":
         return (
-            f"P({p} < X < {q}) = ({q} − {p}) × {rational_text(k)} = {rational_text(raw)} = {answer_text} "
+            f"P({p} < X < {q}) = ({q} − {p}) × {rational_text(k)}"
+            + (f" = {rational_text(raw)}" if rational_text(raw) != rational_text(k) and (q - p) != 1 else "")
+            + f" = {answer_text} "
             f"(to {dp} decimal place{'s' if dp != 1 else ''})."
         )
     power = 2 if shape == "linear" else 3

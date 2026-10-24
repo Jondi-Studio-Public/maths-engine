@@ -33,7 +33,7 @@ from __future__ import annotations
 import math
 import re
 
-from ..core import GRADER_TOLERANCE, check, generator, phrase, pick_distractors
+from ..core import GRADER_TOLERANCE, attempts, check, generator, phrase, pick_distractors
 
 TIERS = ("easy", "medium", "hard")
 
@@ -762,25 +762,28 @@ def f10c_quadrilateral_properties(rng, tier="easy"):
     cases at each tier)."""
     if tier not in TIERS:
         raise ValueError(f"unknown tier {tier!r}; expected one of {list(TIERS)}")
-    case = rng.choice(_CASES[tier])(rng)
+    for _ in attempts(200, "a case with at least two distractors"):
+        case = rng.choice(_CASES[tier])(rng)
 
-    check(_is_half(case.value), "f10c_quadrilateral_properties: answer is not a multiple of 0.5")
-    check(
-        abs(case.truth - case.value) < 1e-6,
-        f"f10c_quadrilateral_properties: independent route gives {case.truth}, answer is {case.value}",
-    )
+        check(_is_half(case.value), "f10c_quadrilateral_properties: answer is not a multiple of 0.5")
+        check(
+            abs(case.truth - case.value) < 1e-6,
+            f"f10c_quadrilateral_properties: independent route gives {case.truth}, answer is {case.value}",
+        )
 
-    answer_text = _fmt(case.value)
-    pool = []
-    notes = {}
-    for v, note in case.cands:
-        if not (case.lo < v < case.hi) or not _is_half(v):
-            continue
-        txt = _fmt(v)
-        if txt not in notes:
-            pool.append(txt)
-            notes[txt] = note
-    distractors = pick_distractors(answer_text, pool, n=3, tolerance=GRADER_TOLERANCE)
+        answer_text = _fmt(case.value)
+        pool = []
+        notes = {}
+        for v, note in case.cands:
+            if not (case.lo < v < case.hi) or not _is_half(v):
+                continue
+            txt = _fmt(v)
+            if txt not in notes:
+                pool.append(txt)
+                notes[txt] = note
+        distractors = pick_distractors(answer_text, pool, n=3, tolerance=GRADER_TOLERANCE)
+        if len(distractors) >= 2:
+            break
     check(len(distractors) >= 2, "f10c_quadrilateral_properties: fewer than two distractors survived")
     # Offset the pool's order so the same misconception is not always first.
     rng.shuffle(distractors)

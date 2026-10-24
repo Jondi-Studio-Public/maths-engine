@@ -144,6 +144,20 @@ def _ladder(rng):
         forgot_sqrt_val = ladder**2 - given**2
         if _fmt(added_val) == answer_text or _fmt(forgot_sqrt_val) == answer_text:
             continue
+        # The two distractors must also survive pick_distractors' grader-
+        # tolerance filter (e.g. forgot-sqrt landing within tolerance of the
+        # added value), so redraw on that too rather than fail afterwards.
+        if (
+            len(
+                pick_distractors(
+                    answer_text,
+                    [_fmt(added_val), _fmt(forgot_sqrt_val)],
+                    tolerance=GRADER_TOLERANCE,
+                )
+            )
+            != 2
+        ):
+            continue
         break
     else:
         check(False, "applied_pythagoras/ladder: no valid draw in 200 attempts")

@@ -98,7 +98,7 @@ def _build(rng):
         y_far,
         2,
         [
-            f"From A, x changes by {x_far - xa}, so y changes by ({frac_text(m)}) × {x_far - xa} = {frac_text(m * (x_far - xa))}.",
+            f"From A, x changes by {x_far - xa}, so y changes by {f'({frac_text(m)}) × {x_far - xa} = ' if m != 1 else ''}{frac_text(m * (x_far - xa))}.",
             f"y = {join_terms([(ya, ''), (int(m * (x_far - xa)), '')])} = {frac_text(y_far)}.",
         ],
         [

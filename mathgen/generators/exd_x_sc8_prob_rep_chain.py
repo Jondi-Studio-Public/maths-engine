@@ -222,7 +222,7 @@ def exd_x_sc8_prob_rep_chain(rng: random.Random, tier: str = "exam") -> dict:
                 sensible_range=(0, 100),
                 follow_through=f"{pw_text}*10000/(100-part_a)",
                 working=[
-                    f"P(not {fourth}) = 100% - {key_a_text}% = {_pct(100 - key_a)}%.",
+                    f"P(a student who {_negative(fourth)}) = 100% - {key_a_text}% = {_pct(100 - key_a)}%.",
                     f"Share who {first}: {pw_text} / {_pct((100 - key_a) / 100)} = {key_c_text}% (1 d.p.).",
                 ],
                 distractors=c_dis,

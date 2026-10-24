@@ -447,6 +447,12 @@ def exd_x_w5_circle_forms(rng, tier="exam"):
 # -- complete the square ----------------------------------------------------------------------------------------------
 
 
+def _square_sum(texts: list, values: list) -> str:
+    """``h^2 + k^2`` as text, leaving out a square that is zero (no ``+ 0``)."""
+    kept = [str(t) for t, v in zip(texts, values) if v != 0]
+    return " + ".join(kept) if kept else "0"
+
+
 def _sub(fields: dict) -> dict:
     """The answer fields of a part: everything but the kind, which the part carries on its own."""
     return {key: val for key, val in fields.items() if key != "answer_kind"}
@@ -518,7 +524,7 @@ def _cs_medium(rng):
                 if D
                 else "x^2 is already a square; complete the square for y in the same way."
             ),
-            f"r^2 = {rt(h * h)} + {rt(k * k)} - ({F}) = {rt(rr)}.",
+            f"r^2 = {_square_sum([rt(h * h), rt(k * k)], [h * h, k * k])} - ({F}) = {rt(rr)}.",
         ]
     elif kind == "expand":
         h, k = _centre(rng)
@@ -697,7 +703,7 @@ def _cs_exam(rng):
                 rad["answer_kind"],
                 _sub(rad),
                 2,
-                [f"r^2 = {h * h} + {k * k} - ({F}) = {r * r}."],
+                [f"r^2 = {_square_sum([h * h, k * k], [h * h, k * k])} - ({F}) = {r * r}."],
                 rad_d,
                 sensible_range=(0, None),
             ),
@@ -1033,7 +1039,10 @@ def _unknown_medium(rng):
             ],
         )
         stem = f"The equation {_expanded_with_f(h, k)} describes a circle of radius {r}. Find F."
-        work = [f"Complete the square: r^2 = {h * h} + {k * k} - F = {r * r}.", f"So F = {F}."]
+        work = [
+            f"Complete the square: r^2 = {_square_sum([h * h, k * k], [h * h, k * k])} - F = {r * r}.",
+            f"So F = {F}.",
+        ]
     else:
         for _ in attempts(100, "a point off the centre"):
             px, py = rng.randint(-8, 8), rng.randint(-8, 8)
@@ -1390,7 +1399,7 @@ def _tangent_exam(rng):
                 gb["answer_kind"],
                 _sub(gb),
                 1,
-                ["The tangent is perpendicular to the radius: use the negative reciprocal."],
+                [f"The tangent is perpendicular to the radius: use the negative reciprocal, {rt(m)}."],
                 gb_d,
                 follow_through="-1/part_a",
             ),
@@ -1399,7 +1408,7 @@ def _tangent_exam(rng):
                 cc["answer_kind"],
                 _sub(cc),
                 2,
-                [f"y - {paren_negative(py)} = {rt(m)}(x - {paren_negative(px)}); put x = 0."],
+                [f"y - {paren_negative(py)} = {rt(m)}(x - {paren_negative(px)}); put x = 0 to get y = {rt(c)}."],
                 cc_d,
                 follow_through=f"{py} - part_b*({px})",
             ),
@@ -1408,7 +1417,7 @@ def _tangent_exam(rng):
                 dd["answer_kind"],
                 _sub(dd),
                 2,
-                [f"Put y = 0 in y - {paren_negative(py)} = {rt(m)}(x - {paren_negative(px)})."],
+                [f"Put y = 0 in y - {paren_negative(py)} = {rt(m)}(x - {paren_negative(px)}), so x = {rt(x0)}."],
                 dd_d,
                 follow_through=f"{px} - {py}/part_b",
             ),

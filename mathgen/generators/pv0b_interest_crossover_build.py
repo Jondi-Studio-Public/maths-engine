@@ -558,8 +558,8 @@ def _build_different_principals(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"The compound amount is {Pc_int} x (1 + {c_disp}/100)^n; the simple amount is "
-            f"{Ps_int} x (1 + {s_disp} x n / 100). Because the principals differ, both must be "
+            f"The compound amount is {Pc_int} × (1 + {c_disp}/100)^n; the simple amount is "
+            f"{Ps_int} × (1 + {s_disp} × n / 100). Because the principals differ, both must be "
             f"carried through the comparison. The first whole year n at which the compound amount "
             f"exceeds the simple amount is n = {m}."
         ],

@@ -163,6 +163,10 @@ def _the(group: str) -> str:
     return group if group.startswith("the ") else f"the {group}"
 
 
+def _cap(label):
+    return label[:1].upper() + label[1:]
+
+
 def _fmt(vals):
     return ", ".join(str(v) for v in vals)
 
@@ -174,7 +178,7 @@ def _summaries_text(ctx, sa, sb):
             f"largest {s['hi']} ({s['n']} values)"
         )
 
-    return f"{one(ctx['a'].capitalize(), sa)}. {one(ctx['b'].capitalize(), sb)}."
+    return f"{one(_cap(ctx['a']), sa)}. {one(_cap(ctx['b']), sb)}."
 
 
 def _median_diff_wrongs(sa, sb, d):
@@ -264,8 +268,8 @@ def _build_raw(rng, level):
         na, nb = rng.choice([(15, 15), (15, 19), (19, 15), (19, 19)])
     a, b, sa, sb, d, L, S = _draw(rng, ctx, na, nb, rng.choice([STRONG, WEAK]), 0)
     stem = (
-        f"{name} measured the {ctx['measure']} for two groups. {ctx['a'].capitalize()} ({na} values): {_fmt(a)}. "
-        f"{ctx['b'].capitalize()} ({nb} values): {_fmt(b)}. {_rule(min_n)}"
+        f"{name} measured the {ctx['measure']} for two groups. {_cap(ctx['a'])} ({na} values): {_fmt(a)}. "
+        f"{_cap(ctx['b'])} ({nb} values): {_fmt(b)}. {_rule(min_n)}"
     )
     pa, pb, d, L = _number_parts(sa, sb, ctx)
     key = _verdict(d, L, na, nb, min_n)
@@ -292,8 +296,8 @@ def exd_x_ir2a_compare_groups_evidence(rng: random.Random, tier: str = "exam") -
     want = rng.choice([STRONG, WEAK])
     a, b, sa, sb, d, L, S = _draw(rng, ctx, 11, 11, want, min_n)
     stem = (
-        f"{name} measured the {ctx['measure']} for two groups. {ctx['a'].capitalize()} (11 values): {_fmt(a)}. "
-        f"{ctx['b'].capitalize()} (11 values): {_fmt(b)}. {_rule(min_n)}"
+        f"{name} measured the {ctx['measure']} for two groups. {_cap(ctx['a'])} (11 values): {_fmt(a)}. "
+        f"{_cap(ctx['b'])} (11 values): {_fmt(b)}. {_rule(min_n)}"
     )
     pa = number_part(
         prompt="What is the difference between the medians of the two groups? Give the larger minus the smaller.",

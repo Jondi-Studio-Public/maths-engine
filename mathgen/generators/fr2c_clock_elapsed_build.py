@@ -155,7 +155,7 @@ def _medium(rng):
         ("fr2c-count-off-by-one", value + 10),
     ]
     working = [
-        f"{s} is {fmt24(start) if twelve_first else s} and {e} is {fmt24(end)} in 24-hour time.",
+        f"{s} is {fmt24(start)} in 24-hour time." if twelve_first else f"{e} is {fmt24(end)} in 24-hour time.",
         f"{fmt24(end)} - {fmt24(start)} = {value} minutes.",
     ]
     return text, value, [(m, w) for m, w in wrong if w and w > 0], working

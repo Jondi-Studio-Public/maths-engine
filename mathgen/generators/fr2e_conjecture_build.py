@@ -86,6 +86,15 @@ def _factor_text(v: Fraction) -> str:
     return str(v.numerator) if v.denominator == 1 else f"{v.numerator}/{v.denominator}"
 
 
+def _power_step(c: Fraction, e: int) -> str:
+    """One input's contribution, e.g. ``(1/2)^(-2) = 4``; an exponent of 1 is dropped."""
+    if e == 1:
+        return _factor_text(c)
+    base = _factor_text(c) if c.denominator == 1 else f"({_factor_text(c)})"
+    power = f"({e})" if e < 0 else str(e)
+    return f"{base}^{power} = {_factor_text(c**e)}"
+
+
 def _easy(rng):
     sentence, output, variables = rng.choice(_FORMULAS)
     symbols = list(variables)
@@ -145,7 +154,7 @@ def _easy(rng):
         factor,
         1,
         [
-            f"Each input changes the output by its factor raised to its power: {', '.join(f'{_factor_text(picks[s][0])}^{variables[s][1]}' for s in chosen)}.",
+            f"Each input changes the output by its factor raised to its power: {', '.join(_power_step(picks[s][0], variables[s][1]) for s in chosen)}.",
             f"The output changes by a factor of {_factor_text(factor)}.",
         ],
         wrong,

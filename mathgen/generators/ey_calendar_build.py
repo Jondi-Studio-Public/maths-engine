@@ -351,7 +351,7 @@ def ey_calendar_between(rng, tier="easy"):
         answer = days - start
         cands = [answer + 1, start, days, answer - 1]
         text = phrase(rng, _TO_END_TEXT, n=name, a=a)
-        working = f"The month ends on the {days}. {days} - {start} = {answer} days."
+        working = f"The month ends on the {_ordinal(days)}. {days} - {start} = {answer} days."
     else:
         gap = rng.randint(2, 6) if tier == "easy" else rng.randint(8, 20)
         start = rng.randint(1, days - gap)
@@ -365,7 +365,7 @@ def ey_calendar_between(rng, tier="easy"):
         answer = gap
         cands = [gap + 1, gap - 1, start + gap, start, 7 if tier == "easy" else 14, gap + 7]
         text = phrase(rng, _BETWEEN_TEXT, n=name, a=a, b=b)
-        working = f"The {b} is on the {start + gap} and the {a} on the {start}. {start + gap} - {start} = {gap} days."
+        working = f"The {b} is on the {_ordinal(start + gap)} and the {a} on the {_ordinal(start)}. {start + gap} - {start} = {gap} days."
     distractors = pick_distractors(str(answer), _unleaked(fig, [str(c) for c in cands if c > 0]))
     out = _number_result(text, answer, fig, distractors, working)
     check(_read_between(fig, text) == out["answer_text"], "the figure does not show the keyed answer")

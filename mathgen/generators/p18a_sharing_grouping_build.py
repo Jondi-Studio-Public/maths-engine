@@ -143,7 +143,15 @@ def _candidates_for_share(total, divisor, q, remainder, item_sg, item_pl, contai
     # a quotitive (group-count) answer instead of a partitive (per-container)
     # one -- exactly what a learner who divides correctly but misreads the
     # situation would pick.
-    raw.append((("group", q, remainder), _count_text(q, container_sg, container_pl, item_sg, item_pl, remainder)))
+    # When q equals the divisor the swapped text just restates the stem ("4 bags" of 4), a true statement, so a
+    # plain off-by-one on the group count stands in for it.
+    swapped_q = q if q != divisor else (q + 2 if q < 3 else q - 1)
+    raw.append(
+        (
+            ("group", swapped_q, remainder),
+            _count_text(swapped_q, container_sg, container_pl, item_sg, item_pl, remainder),
+        )
+    )
     # restates-total: reports the given total as if it already were the answer.
     raw.append((("total", total, 0), f"{total} {item_pl}"))
     # off-by-one on the quotient, same reading, no remainder change.
@@ -160,7 +168,8 @@ def _candidates_for_group(total, divisor, q, remainder, item_sg, item_pl, contai
     # swapped-reading: the SAME quotient and remainder as the true answer,
     # reported as if it were a partitive (per-container) answer instead of a
     # quotitive (group-count) one.
-    raw.append((("share", q, remainder), _each_text(q, item_pl, container_sg, item_sg, remainder)))
+    swapped_q = q if q != divisor else (q + 2 if q < 3 else q - 1)
+    raw.append((("share", swapped_q, remainder), _each_text(swapped_q, item_pl, container_sg, item_sg, remainder)))
     # restates-total.
     raw.append((("total", total, 0), f"{total} {item_pl}"))
     # off-by-one on the quotient, same reading, no remainder change.
@@ -409,6 +418,8 @@ def _build(rng, tier: str = "easy"):
     _check_division(total, g, e, 0, "p18a_sharing_grouping exam: step-1 division check failed")
     _check_division(e, s2, c, 0, "p18a_sharing_grouping exam: step-2 division check failed")
 
+    # When c equals the size s2 given in the stem the swapped text restates the stem (a true option).
+    sw = c if c != s2 else (c + 2 if c < 3 else c - 1)
     if share:
         text = phrase(
             rng,
@@ -427,7 +438,7 @@ def _build(rng, tier: str = "easy"):
         raw = [
             # swapped-reading: the SAME final quotient c, reported under the
             # quotitive (group-count) unit instead of the partitive one.
-            (("group", c, 0), _count_text(c, container2_sg, container2_pl, item_sg, item_pl)),
+            (("group", sw, 0), _count_text(sw, container2_sg, container2_pl, item_sg, item_pl)),
             # stops-after-step-1: reports the first-step share e under the
             # FINAL container, ignoring the second division. (Stated against
             # the first container it would be a true fact about the scene --
@@ -454,7 +465,7 @@ def _build(rng, tier: str = "easy"):
         raw = [
             # swapped-reading: the SAME final quotient c, reported under the
             # partitive (per-container) unit instead of the quotitive one.
-            (("share", c, 0), _each_text(c, item_pl, container2_sg, item_sg)),
+            (("share", sw, 0), _each_text(sw, item_pl, container2_sg, item_sg)),
             # stops-after-step-1: reports the first-step share e as a count
             # of the FINAL containers, ignoring the second division (never a
             # true fact about the scene; see the share branch above).

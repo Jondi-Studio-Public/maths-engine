@@ -235,6 +235,16 @@ def _verify_duration_via_inverse(
     check(recomputed == answer, f"inverse check {recomputed} != {answer}")
 
 
+def _positive_distractors(answer_text, candidates, base):
+    """Pick as many distractors as `candidates` has, never offering a negative duration: a negative
+    candidate is replaced by `base` plus a multiple of an hour, a plausible slip that stays positive."""
+    keep = [c for c in candidates if c > 0]
+    for k in range(1, 8):
+        keep += [base + 60 * k, base - 60 * k]
+    keep = [c for c in keep if c > 0]
+    return pick_distractors(answer_text, [str(c) for c in keep], n=min(len(candidates), 3))
+
+
 @generator(
     "circle_and_prism_duration_rates",
     level=1,
@@ -281,8 +291,7 @@ def circle_and_prism_duration_rates(rng, mode="no_layover"):
         ignores_offset_val = (arr_B - dep_A) + layover
         wrong_offset_val = (arr_B - offset_minutes - dep_A) + layover
 
-        candidates = [str(ignores_offset_val), str(wrong_offset_val)]
-        distractors = pick_distractors(answer_text, candidates)
+        distractors = _positive_distractors(answer_text, [ignores_offset_val, wrong_offset_val], answer)
 
     elif mode == "with_layover":
         # Medium: same as easy, plus a layover
@@ -317,8 +326,9 @@ def circle_and_prism_duration_rates(rng, mode="no_layover"):
         wrong_offset_val = (arr_B - offset_minutes - dep_A) + layover
         omits_layover_val = arr_B - dep_A + 1440 - offset_minutes
 
-        candidates = [str(ignores_offset_val), str(wrong_offset_val), str(flight_duration)]
-        distractors = pick_distractors(answer_text, candidates)
+        distractors = _positive_distractors(
+            answer_text, [ignores_offset_val, wrong_offset_val, flight_duration], answer
+        )
 
     else:  # mode == "midnight_crossing"
         # Hard: forced midnight crossing (arrival next day)
@@ -369,8 +379,9 @@ def circle_and_prism_duration_rates(rng, mode="no_layover"):
         # naive_signed is negative here; the "fix" is abs + layover
         forgets_wrap_val = abs(naive_signed) + layover
 
-        candidates = [str(ignores_offset_val), str(wrong_offset_val), str(flight_duration), str(forgets_wrap_val)]
-        distractors = pick_distractors(answer_text, candidates)
+        distractors = _positive_distractors(
+            answer_text, [ignores_offset_val, wrong_offset_val, flight_duration, forgets_wrap_val], answer
+        )
 
     return dict(
         text=text,

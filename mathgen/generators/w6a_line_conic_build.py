@@ -370,7 +370,7 @@ def _medium_circle(rng):
         ),
     )
     working = [
-        f"Substituting y = ({_lin_rhs(p, cc)})/{q} gives {_poly_rhs(den, 2 * p * cc, cc * cc - q * q * r * r)} = 0.",
+        f"Substituting y = {_lin_rhs(p, cc) if q == 1 else f'({_lin_rhs(p, cc)})/{q}'} gives {_poly_rhs(den, 2 * p * cc, cc * cc - q * q * r * r)} = 0.",
         f"The roots are x = {smaller} and x = {larger}; the larger is {larger}.",
     ]
     return dict(text=stem, working=working, distractors=dist, answer_kind="number", **num_fields(larger))

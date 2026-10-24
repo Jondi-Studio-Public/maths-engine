@@ -735,7 +735,7 @@ def exd_x_w7b_number_systems_primes(rng, tier="exam"):
 
 
 def _exam_chain(rng):
-    for _ in attempts(1000, "a hexadecimal numeral with a rich factorisation"):
+    for _ in attempts(20000, "a hexadecimal numeral with a rich factorisation"):
         k = rng.choice((2, 3))
         primes = sorted(rng.sample([2, 3, 5, 7, 11, 13], k))
         exps = _exponents(rng, k, 1, 3)

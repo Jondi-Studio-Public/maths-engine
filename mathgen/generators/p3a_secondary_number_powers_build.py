@@ -141,13 +141,22 @@ def _square_root_power_form(rng):
         half_down = math.prod(p ** (e // 2) for p, e in zip(chosen, exps))
         half_up = math.prod(p ** ((e + 1) // 2) for p, e in zip(chosen, exps))
         candidates = [str(half_down), str(half_up), str(root), str(n // 2)]
+    if perfect:
+        halves = " × ".join(f"{p}{str(e // 2).translate(_SUP)}" if e // 2 > 1 else str(p) for p, e in zip(chosen, exps))
+        working = [f"Every exponent is even, so {shown} = ({halves})². The square root is {halves} = {root}."]
+    else:
+        odd_p, odd_e = next((p, e) for p, e in zip(chosen, exps) if e % 2)
+        working = [
+            f"{odd_p}{str(odd_e).translate(_SUP)} has an odd exponent, so {shown} = {n} cannot be written as a square "
+            "and is not a perfect square."
+        ]
     return dict(
         text=text,
         latex=f"plain:{text}",
         answer=answer,
         answer_text=answer,
         answer_latex=latex_answer(answer),
-        working=[],
+        working=working,
         distractors=pick_distractors(answer, candidates, n=3),
     )
 
@@ -242,7 +251,11 @@ def square_roots_perfect_squares(rng, root_range=(1, 12), force_non_perfect=None
         answer=predicted,
         answer_text=predicted,
         answer_latex=latex_answer(predicted),
-        working=[],
+        working=[
+            f"{root_n} × {root_n} = {n}, so the square root of {n} is {root_n}."
+            if predicted != "not a perfect square"
+            else f"{root_n}² = {root_n**2} and {root_n + 1}² = {(root_n + 1) ** 2}, and {n} is between them, so {n} is not a perfect square."
+        ],
         distractors=pick_distractors(predicted, distractor_candidates, n=3),
     )
 

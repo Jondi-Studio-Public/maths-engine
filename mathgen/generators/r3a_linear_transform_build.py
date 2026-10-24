@@ -219,7 +219,9 @@ def _medium(rng: random.Random) -> dict:
             (a * sd * sd + shift, "r3a-linear-variance-adds-the-shift"),
             (a * sd, "r3a-linear-variance-scales-the-sd-only"),
         ]
-        working = [f"Var(aX + b) = a^2 Var(X) = {paren_negative(float(a))}^2 × {float(sd * sd):g}."]
+        a_text = f"{float(a):g}"
+        a_text = f"({a_text})" if a < 0 else a_text
+        working = [f"Var(aX + b) = a^2 Var(X) = {a_text}^2 × {float(sd * sd):g}."]
     # the transformed distribution itself: two equally likely points one standard deviation either side of the mean
     points = [mean - sd, mean + sd]
     half = [Fraction(1, 2)] * 2

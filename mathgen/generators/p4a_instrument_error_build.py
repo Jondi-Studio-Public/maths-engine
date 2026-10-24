@@ -279,18 +279,21 @@ def _verify_percentage_error(relative_frac: Fraction, expected: int) -> None:
     check(int(computed) == expected, f"percentage mismatch: expected {expected}, got {computed}")
 
 
-def _sample_e_with_no_trailing_zero(rng, T: int, resample_limit: int = 200) -> int:
-    """Sample e from 1..T-1, rejecting if (100*e)//T ends in 0.
+def _sample_e_with_no_trailing_zero(rng, T: int) -> int:
+    """Sample a plausible measurement error e for a true value T.
 
-    This prevents trailing-zero 2-decimal displays like 0.10, 0.20, 0.50.
-    Only used for relative and percentage error tiers.
+    A real reading is within about 12 percent of the true value, so e is drawn from 1..12% of T.
+    The percentage (100*e/T) must be a whole number that does not end in 0, which prevents
+    trailing-zero 2-decimal displays like 0.10, 0.20, 0.50. Only used for relative and percentage error tiers.
     """
-    for _ in range(resample_limit):
-        e = rng.randint(1, T - 1)
-        if ((100 * e) // T) % 10 != 0:
-            return e
-    # Fallback: return the last sampled e (should rarely happen)
-    return e
+    pool = [e for e in range(1, T * 12 // 100 + 1) if (100 * e) % T == 0 and ((100 * e) // T) % 10 != 0]
+    check(bool(pool), f"no plausible error for true value {T}")
+    return rng.choice(pool)
+
+
+def _sample_absolute_e(rng, T: int) -> int:
+    """A plausible absolute error: at most a fifth of the true value."""
+    return rng.randint(1, max(2, T // 5))
 
 
 @generator(
@@ -307,7 +310,7 @@ def measurement_error_interpretation(rng, tier="easy"):
     if tier == "easy":
         # Easy: absolute error
         T = rng.choice([10, 20, 25, 50, 100])
-        e = rng.randint(1, T - 1)
+        e = _sample_absolute_e(rng, T)
         # Sample sign
         if rng.choice([True, False]):
             measured = T + e
@@ -379,7 +382,10 @@ def measurement_error_interpretation(rng, tier="easy"):
             perturbed = Fraction(e - 1, T)
         perturbed_text = f"{float(perturbed):.2f}"
 
-        candidates = [swapped_text, absolute_text, percent_as_decimal_text, perturbed_text]
+        # 5. reports the ratio measured / true instead of the error
+        ratio_text = f"{float(Fraction(measured, T)):.2f}"
+
+        candidates = [swapped_text, absolute_text, percent_as_decimal_text, perturbed_text, ratio_text]
 
         distractors = pick_distractors(answer_text, candidates)
 
@@ -399,7 +405,7 @@ def measurement_error_interpretation(rng, tier="easy"):
 
         if request_type == "absolute":
             T = rng.choice([10, 20, 25, 50, 100])
-            e = rng.randint(1, T - 1)
+            e = _sample_absolute_e(rng, T)
             if rng.choice([True, False]):
                 measured = T + e
             else:
@@ -468,6 +474,9 @@ def measurement_error_interpretation(rng, tier="easy"):
             else:
                 perturbed = Fraction(e - 1, T)
             cand_list.append(f"{float(perturbed):.2f}")
+
+            # 5. reports the ratio measured / true instead of the error
+            cand_list.append(f"{float(Fraction(measured, T)):.2f}")
 
             candidates = cand_list
             answer = answer_float

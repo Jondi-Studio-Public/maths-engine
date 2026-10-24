@@ -607,12 +607,18 @@ def laplace_transform(rng, tier="easy"):
         answer_text = _s_text(answer)
         machine = _machine(sum((t.sym() for t in answer), sympy.Integer(0)))
         stem, stem_latex = say_marked(rng.choice(_FORWARD_STEMS).format(f=f"{_time_text(terms, pretty=True)}"))
-        scored = [Distractor(_s_text(w), tag, _s_text(w)) for tag, w in candidates if _differs_s(answer, w)]
+        scored = [
+            Distractor(_s_text(w), tag, _s_text(w)) for tag, w in candidates if _s_text(w) and _differs_s(answer, w)
+        ]
     else:
         answer_text = _time_text(answer)
         machine = _machine(sum((t.sym() for t in answer), sympy.Integer(0)))
         stem, stem_latex = say_marked(rng.choice(_INVERSE_STEMS).format(F=given.replace("^2", "²").replace("^3", "³")))
-        scored = [Distractor(_time_text(w), tag, _time_text(w)) for tag, w in candidates if _differs_t(answer, w)]
+        scored = [
+            Distractor(_time_text(w), tag, _time_text(w))
+            for tag, w in candidates
+            if _time_text(w) and _differs_t(answer, w)
+        ]
     distractors = pick_distractors(answer_text, scored, 4)
     check(len(distractors) >= 2, "too few Laplace distractors")
     return dict(

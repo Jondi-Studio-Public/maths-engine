@@ -207,7 +207,11 @@ def _build(rng: random.Random) -> dict:
             marks=1,
             sensible_range=(0, None),
             follow_through=f"{horizon}*part_b",
-            working=[f"{horizon} x {b_text} = {float(projected):.2f}, so about {c_text}."],
+            working=[
+                f"{horizon} × {b_text} = {c_text}."
+                if projected == int(projected)
+                else f"{horizon} × {b_text} = {float(projected):.2f}, so about {c_text}."
+            ],
             distractors=c_d,
         ),
         dict(

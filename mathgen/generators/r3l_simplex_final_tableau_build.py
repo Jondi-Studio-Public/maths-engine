@@ -27,7 +27,7 @@ from __future__ import annotations
 from fractions import Fraction
 
 from ..answers import Distractor, exact_value
-from ..core import attempts, check, generator, pick_distractors
+from ..core import VerificationError, attempts, check, generator, pick_distractors
 from ._r3l_kit import basis_of, draw_lp, initial_tableau, num, run_simplex, sub
 from ._ucv1_linalg import mat_str
 
@@ -267,10 +267,14 @@ def _hard(rng):
 )
 def r3l_simplex_final_tableau(rng, tier="easy"):
     """Read an optimal simplex tableau; the tiers are described in the module docstring."""
-    if tier == "easy":
-        return _easy(rng)
-    if tier == "medium":
-        return _medium(rng)
+    if tier in ("easy", "medium"):
+        # A tableau whose entries repeat can leave fewer than three distinct wrong values: redraw it.
+        for _ in attempts(60, "a tableau that leaves three usable distractors"):
+            try:
+                return (_easy if tier == "easy" else _medium)(rng)
+            except VerificationError as err:
+                if "too few distractors" not in str(err):
+                    raise
     check(tier == "hard", f"unknown tier {tier!r}")
     return _hard(rng)
 
