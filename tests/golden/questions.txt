@@ -1834,15 +1834,15 @@
 {"answer": "The sleep", "id": "ey-compare-duration/medium/0/5e60d9665c7f", "text": "Each box is one go. Which one takes longest?"}
 {"answer": "The song", "id": "ey-compare-duration/medium/1/1823e9800db4", "text": "Look at the boxes. Which takes the least time?"}
 {"answer": "The sleep", "id": "ey-compare-duration/medium/2/e74c824a7035", "text": "Each box is one go. Which one takes longest?"}
-{"answer": "{D}", "id": "ey-compare-with-right-angle/easy/0/1681dcadb26b", "text": "Which angles are bigger than a right angle? Dashed lines are square corners."}
-{"answer": "{A}", "id": "ey-compare-with-right-angle/easy/1/542f3ae6924e", "text": "Which angles are the same as a right angle? Dashed lines are square corners."}
-{"answer": "{C}", "id": "ey-compare-with-right-angle/easy/2/d0740815d952", "text": "Which angles are bigger than a right angle? Dashed lines are square corners."}
-{"answer": "{C, D}", "id": "ey-compare-with-right-angle/hard/0/b27d01b1f500", "text": "List the letters of the angles that are smaller than the right angle R."}
-{"answer": "{B}", "id": "ey-compare-with-right-angle/hard/1/fd8ae5c33f97", "text": "List the letters of the angles that are bigger than the right angle R."}
-{"answer": "{A}", "id": "ey-compare-with-right-angle/hard/2/2608e13a9212", "text": "List the letters of the angles that are bigger than the right angle R."}
-{"answer": "{D}", "id": "ey-compare-with-right-angle/medium/0/544172db899e", "text": "Which of the angles A to D are the same as the right angle R?"}
-{"answer": "{D}", "id": "ey-compare-with-right-angle/medium/1/e39e415f91b5", "text": "Which of the angles A to D are bigger than the right angle R?"}
-{"answer": "{B, C}", "id": "ey-compare-with-right-angle/medium/2/38c70ee0e4b1", "text": "Which of the angles A to D are smaller than the right angle R?"}
+{"answer": "{D}", "id": "ey-compare-with-right-angle/easy/0/290ba728d614", "text": "Which angles are bigger than a right angle? Dashed lines are square corners."}
+{"answer": "{A}", "id": "ey-compare-with-right-angle/easy/1/157fd43d107c", "text": "Which angles are the same as a right angle? Dashed lines are square corners."}
+{"answer": "{C}", "id": "ey-compare-with-right-angle/easy/2/3298e18d84dd", "text": "Which angles are bigger than a right angle? Dashed lines are square corners."}
+{"answer": "{C, D}", "id": "ey-compare-with-right-angle/hard/0/578826757910", "text": "List the letters of the angles that are smaller than the right angle R."}
+{"answer": "{B}", "id": "ey-compare-with-right-angle/hard/1/a34e62a7982a", "text": "List the letters of the angles that are bigger than the right angle R."}
+{"answer": "{A}", "id": "ey-compare-with-right-angle/hard/2/a0efd25258b9", "text": "List the letters of the angles that are bigger than the right angle R."}
+{"answer": "{D}", "id": "ey-compare-with-right-angle/medium/0/b9a183e84aa7", "text": "Which of the angles A to D are the same as the right angle R?"}
+{"answer": "{D}", "id": "ey-compare-with-right-angle/medium/1/ba99c1f68c48", "text": "Which of the angles A to D are bigger than the right angle R?"}
+{"answer": "{B, C}", "id": "ey-compare-with-right-angle/medium/2/5aa0ebfc0bd6", "text": "Which of the angles A to D are smaller than the right angle R?"}
 {"answer": "3", "id": "ey-count-steps-on-grid/easy/0/014a7f37f087", "text": "How many steps is it along the path to the tent?"}
 {"answer": "2", "id": "ey-count-steps-on-grid/easy/1/31435f641006", "text": "Follow the straight path from the ring. How many steps to the hospital?"}
 {"answer": "2", "id": "ey-count-steps-on-grid/easy/2/4f840d9e6ae5", "text": "How many steps is it along the path to the tree?"}
@@ -1861,18 +1861,18 @@
 {"answer": "3", "id": "ey-day-strip-sequence/medium/0/b05be1651c77", "text": "Which number card happens at lunchtime?"}
 {"answer": "2", "id": "ey-day-strip-sequence/medium/1/494684aa22a8", "text": "What number is the card that happens at night?"}
 {"answer": "3", "id": "ey-day-strip-sequence/medium/2/4bd78f0bf295", "text": "Which number card happens in the morning?"}
-{"answer": "Picking orange is impossible.", "id": "ey-describe-chance-from-counts/easy/0/101d4b1b0945", "text": "A bag has 2 white and 4 green counters. Which sentence about picking orange is …"}
-{"answer": "Picking orange is impossible.", "id": "ey-describe-chance-from-counts/easy/1/04de47bb9d56", "text": "A bag has 3 purple and 3 red counters. Which sentence about picking orange is t…"}
-{"answer": "Picking red is impossible.", "id": "ey-describe-chance-from-counts/easy/2/6e7656bbb5ee", "text": "A bag has 4 green and 6 orange counters. Which sentence about picking red is tr…"}
-{"answer": "(a) 11; (b) 10; (c) Picking a counter that is not purple is…", "id": "ey-describe-chance-from-counts/exam/0/41144a87b466", "text": "Sophia has a bag with 1 purple counter and 10 blue counters. Sophia picks one w…"}
-{"answer": "(a) 11; (b) 8; (c) Picking a counter that is not red is lik…", "id": "ey-describe-chance-from-counts/exam/1/bc1b8cd13619", "text": "Sophia has a bag with 3 red and 8 purple counters. Sophia picks one without loo…"}
-{"answer": "(a) 6; (b) 5; (c) Picking a counter that is not white is li…", "id": "ey-describe-chance-from-counts/exam/2/725ce69a1f7f", "text": "Santiago has a bag with 1 white counter and 5 green counters. Santiago picks on…"}
-{"answer": "Rolling an even number is an even chance.", "id": "ey-describe-chance-from-counts/hard/0/c270073fd9aa", "text": "A die is rolled. Which sentence about rolling an even number is true?"}
-{"answer": "Picking blue or red is likely.", "id": "ey-describe-chance-from-counts/hard/1/ab60e03d2e80", "text": "A bag has 2 blue, 5 red and 3 orange counters. Which sentence about picking blu…"}
-{"answer": "Picking pink or green is likely.", "id": "ey-describe-chance-from-counts/hard/2/e77977847652", "text": "A bag has 4 pink, 5 green and 2 purple counters. Which sentence about picking p…"}
-{"answer": "Picking a purple counter is unlikely.", "id": "ey-describe-chance-from-counts/medium/0/e046aef9321e", "text": "A bag has 2 purple, 5 orange and 5 blue counters. Which sentence about picking …"}
-{"answer": "Bread selling out tomorrow is an even chance.", "id": "ey-describe-chance-from-counts/medium/1/e58b541a7cfb", "text": "A shop sold out of bread on 5 of the last 10 days. Which sentence about tomorro…"}
-{"answer": "Rain tomorrow is unlikely.", "id": "ey-describe-chance-from-counts/medium/2/06f265783828", "text": "It rained on 3 of the last 10 days. Which sentence about rain tomorrow is true?"}
+{"answer": "Picking orange is impossible.", "id": "ey-describe-chance-from-counts/easy/0/9e9843fb4f85", "text": "A bag has 2 white and 4 green counters. Which sentence about picking orange is …"}
+{"answer": "Picking orange is impossible.", "id": "ey-describe-chance-from-counts/easy/1/9376dcdb8174", "text": "A bag has 3 purple and 3 red counters. Which sentence about picking orange is t…"}
+{"answer": "Picking red is impossible.", "id": "ey-describe-chance-from-counts/easy/2/26232c57ff7c", "text": "A bag has 4 green and 6 orange counters. Which sentence about picking red is tr…"}
+{"answer": "(a) 11; (b) 10; (c) Picking a counter that is not purple is…", "id": "ey-describe-chance-from-counts/exam/0/a068b0a186ec", "text": "Sophia has a bag with 1 purple counter and 10 blue counters. Sophia picks one w…"}
+{"answer": "(a) 11; (b) 8; (c) Picking a counter that is not red is lik…", "id": "ey-describe-chance-from-counts/exam/1/793ecc7ba4e9", "text": "Sophia has a bag with 3 red and 8 purple counters. Sophia picks one without loo…"}
+{"answer": "(a) 6; (b) 5; (c) Picking a counter that is not white is li…", "id": "ey-describe-chance-from-counts/exam/2/c9e05e751ff7", "text": "Santiago has a bag with 1 white counter and 5 green counters. Santiago picks on…"}
+{"answer": "Rolling an even number is an even chance.", "id": "ey-describe-chance-from-counts/hard/0/32723d3869b1", "text": "A die is rolled. Which sentence about rolling an even number is true?"}
+{"answer": "Picking pink or purple is an even chance.", "id": "ey-describe-chance-from-counts/hard/1/14111b4e7022", "text": "A bag has 4 pink, 2 purple and 6 red counters. Which sentence about picking pin…"}
+{"answer": "Picking white or red is unlikely.", "id": "ey-describe-chance-from-counts/hard/2/85f46c262beb", "text": "A bag has 1 white counter, 1 red counter and 6 pink counters. Which sentence ab…"}
+{"answer": "Picking a purple counter is unlikely.", "id": "ey-describe-chance-from-counts/medium/0/3ef947eebe0b", "text": "A bag has 2 purple, 5 orange and 5 blue counters. Which sentence about picking …"}
+{"answer": "Bread selling out tomorrow is an even chance.", "id": "ey-describe-chance-from-counts/medium/1/500c35349c24", "text": "A shop sold out of bread on 5 of the last 10 days. Which sentence about tomorro…"}
+{"answer": "Rain tomorrow is unlikely.", "id": "ey-describe-chance-from-counts/medium/2/cfa306c88616", "text": "It rained on 3 of the last 10 days. Which sentence about rain tomorrow is true?"}
 {"answer": "160", "id": "ey-estimate-angle-size/easy/0/c2db6f4b6c97", "text": "The rays are 30 degrees apart. Estimate the drawn angle to the nearest 10."}
 {"answer": "130", "id": "ey-estimate-angle-size/easy/1/1806766f42f3", "text": "Use the labelled rays. About how big is the angle, in degrees? Nearest 10."}
 {"answer": "140", "id": "ey-estimate-angle-size/easy/2/d4d6a290c22b", "text": "Read between the labelled rays. Estimate the angle in degrees, to the nearest 1…"}
@@ -1912,24 +1912,24 @@
 {"answer": "hospital", "id": "ey-follow-directions-grid/medium/0/e4dcbbdca086", "text": "Kai starts at Start and goes up 2, then left 1. What does Kai find?"}
 {"answer": "tree", "id": "ey-follow-directions-grid/medium/1/d0bafd6c1253", "text": "Nadia starts at Start and goes down 1, then left 2. What does Nadia find?"}
 {"answer": "aeroplane", "id": "ey-follow-directions-grid/medium/2/0e5e062256af", "text": "Begin at Start. Go up 1, then left 3. What do you find?"}
-{"answer": "{pink, red, white}", "id": "ey-list-possible-outcomes/easy/0/b1b4be79b36b", "text": "A bag has 2 white counters, 1 red counter and 4 pink counters. One is picked. L…"}
-{"answer": "{blue, green, orange, purple, red}", "id": "ey-list-possible-outcomes/easy/1/39f2237e3476", "text": "A spinner is orange, red, green, purple and blue, in equal sections. List every…"}
-{"answer": "{orange, yellow}", "id": "ey-list-possible-outcomes/easy/2/858435965223", "text": "A bag has 4 orange and 3 yellow counters. One is picked. List the colours it co…"}
-{"answer": "{1, 3, 4, 6}", "id": "ey-list-possible-outcomes/hard/0/fef176fbb68f", "text": "A die is rolled. List the outcomes that are not 2 or 5."}
-{"answer": "{1, 3, 4, 6}", "id": "ey-list-possible-outcomes/hard/1/1241e0909507", "text": "A die is rolled. List the outcomes that are not 2 or 5."}
-{"answer": "{2, 3, 4, 5}", "id": "ey-list-possible-outcomes/hard/2/a5f265344852", "text": "A die is rolled. List the outcomes that are not 1 or 6."}
-{"answer": "{1, 2, 3}", "id": "ey-list-possible-outcomes/medium/0/3293814cd5e5", "text": "Roll a die. List every number less than 4."}
-{"answer": "{1, 2, 3}", "id": "ey-list-possible-outcomes/medium/1/1561c275e07c", "text": "Roll a die. List every number less than 4."}
-{"answer": "{1, 3, 5}", "id": "ey-list-possible-outcomes/medium/2/39b330408d15", "text": "Roll a die. Which numbers are an odd number? List them."}
-{"answer": "{A, B, C}", "id": "ey-name-angle-by-size/easy/0/b8e8fb4f4c5a", "text": "Which angles are acute?"}
-{"answer": "{B}", "id": "ey-name-angle-by-size/easy/1/d555bc5b81eb", "text": "Which angles are acute?"}
-{"answer": "{A, B}", "id": "ey-name-angle-by-size/easy/2/755cf6385701", "text": "Which angles are acute?"}
-{"answer": "{D}", "id": "ey-name-angle-by-size/hard/0/7b8bfed901a1", "text": "Which angles are straight or reflex? List the letters."}
-{"answer": "{A, D}", "id": "ey-name-angle-by-size/hard/1/45de060ab7b8", "text": "Which angles are acute or right? List the letters."}
-{"answer": "{A, B, C}", "id": "ey-name-angle-by-size/hard/2/163f4e4747d8", "text": "Which angles are not obtuse? List the letters."}
-{"answer": "{D}", "id": "ey-name-angle-by-size/medium/0/41b945799cf2", "text": "Which of the angles A to D are reflex?"}
-{"answer": "{A}", "id": "ey-name-angle-by-size/medium/1/5b5ecd394ee8", "text": "Which of the angles A to D are obtuse?"}
-{"answer": "{B}", "id": "ey-name-angle-by-size/medium/2/6fa9c3333d5e", "text": "Which of the angles A to D are reflex?"}
+{"answer": "{white, red, pink}", "id": "ey-list-possible-outcomes/easy/0/f14c7538b3cf", "text": "A bag has 2 white counters, 1 red counter and 4 pink counters. One is picked. L…"}
+{"answer": "{blue, green, orange, purple, red}", "id": "ey-list-possible-outcomes/easy/1/98f64083d928", "text": "A spinner is orange, red, green, purple and blue, in equal sections. List every…"}
+{"answer": "{orange, yellow}", "id": "ey-list-possible-outcomes/easy/2/8a8b81a26179", "text": "A bag has 4 orange and 3 yellow counters. One is picked. List the colours it co…"}
+{"answer": "{1, 3, 4, 6}", "id": "ey-list-possible-outcomes/hard/0/39459524babf", "text": "A die is rolled. List the outcomes that are not 2 or 5."}
+{"answer": "{1, 6, 3, 4}", "id": "ey-list-possible-outcomes/hard/1/e31b7d8a37f9", "text": "A die is rolled. List the outcomes that are not 2 or 5."}
+{"answer": "{4, 5, 3, 2}", "id": "ey-list-possible-outcomes/hard/2/bab296061ce1", "text": "A die is rolled. List the outcomes that are not 1 or 6."}
+{"answer": "{3, 1, 2}", "id": "ey-list-possible-outcomes/medium/0/6b4bc005c95c", "text": "Roll a die. List every number less than 4."}
+{"answer": "{3, 2, 1}", "id": "ey-list-possible-outcomes/medium/1/cc60880c194b", "text": "Roll a die. List every number less than 4."}
+{"answer": "{1, 3, 5}", "id": "ey-list-possible-outcomes/medium/2/31b3a014ac91", "text": "Roll a die. Which numbers are an odd number? List them."}
+{"answer": "{A, B, C}", "id": "ey-name-angle-by-size/easy/0/b3998b6cec7c", "text": "Which angles are acute?"}
+{"answer": "{B}", "id": "ey-name-angle-by-size/easy/1/202e21d0780c", "text": "Which angles are acute?"}
+{"answer": "{A, B}", "id": "ey-name-angle-by-size/easy/2/30f13f8be0b2", "text": "Which angles are acute?"}
+{"answer": "{D}", "id": "ey-name-angle-by-size/hard/0/ce67a1ad88c8", "text": "Which angles are straight or reflex? List the letters."}
+{"answer": "{A, D}", "id": "ey-name-angle-by-size/hard/1/dd0a4ef73671", "text": "Which angles are acute or right? List the letters."}
+{"answer": "{A, B, C}", "id": "ey-name-angle-by-size/hard/2/6f35e5c2c0d9", "text": "Which angles are not obtuse? List the letters."}
+{"answer": "{D}", "id": "ey-name-angle-by-size/medium/0/09b2d765eec4", "text": "Which of the angles A to D are reflex?"}
+{"answer": "{A}", "id": "ey-name-angle-by-size/medium/1/65454b5eed43", "text": "Which of the angles A to D are obtuse?"}
+{"answer": "{B}", "id": "ey-name-angle-by-size/medium/2/6c53597f3d22", "text": "Which of the angles A to D are reflex?"}
 {"answer": "The brick", "id": "ey-order-by-two-balances/easy/0/b1c7694a331f", "text": "Which is the heaviest?"}
 {"answer": "The jar", "id": "ey-order-by-two-balances/easy/1/f3bb9b66e655", "text": "Which one is the heaviest?"}
 {"answer": "The drum", "id": "ey-order-by-two-balances/easy/2/8fcb42e42256", "text": "Which one is the heaviest?"}
@@ -4534,42 +4534,42 @@
 {"answer": "10", "id": "graph-planar-faces/medium/0/e8ddbe1e86cf", "text": "8 suburbs are to be joined so that every suburb has its own direct bike path to…"}
 {"answer": "6", "id": "graph-planar-faces/medium/1/6f9225bde434", "text": "7 stations are to be joined so that every station has its own direct rail link …"}
 {"answer": "4", "id": "graph-planar-faces/medium/2/455c52495c56", "text": "A council plans a separate cable from each of 4 houses to each of 4 depots, 16 …"}
-{"answer": "x ≤ -3", "id": "graph-sqrt-of-function-domain-range/easy/0/8076b047991d", "text": "The graph of y = f(x) is a straight line, as drawn. State the largest domain of…"}
-{"answer": "x ≤ 2", "id": "graph-sqrt-of-function-domain-range/easy/1/062387212a60", "text": "The graph of y = f(x) is a straight line, as drawn. State the largest domain of…"}
-{"answer": "x ≥ -4", "id": "graph-sqrt-of-function-domain-range/easy/2/001967473fdb", "text": "The graph of the straight line y = f(x) is shown. Find the domain of the functi…"}
-{"answer": "(a) 81; (b) 9; (c) -6 ≤ x ≤ 12; (d) 6*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/0/115b828a58fb", "text": "Consider the function f(x) = -x^2 + 6x + 72. (a) Find the greatest value of f. …"}
-{"answer": "(a) 4; (b) 2; (c) -1 ≤ x ≤ 3; (d) sqrt(3)", "id": "graph-sqrt-of-function-domain-range/exam/1/5d3aea40a88b", "text": "Consider the function f(x) = -x^2 + 2x + 3. (a) Find the greatest value of f. (…"}
-{"answer": "(a) 16; (b) 4; (c) -7 ≤ x ≤ 1; (d) sqrt(7)", "id": "graph-sqrt-of-function-domain-range/exam/2/6bdb3b8b5ab3", "text": "Consider the function f(x) = -x^2 - 6x + 7. (a) Find the greatest value of f. (…"}
-{"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/0/c25158faca05", "text": "Let f(x) = -x^2 + 4x + 12. Find the range of the function y = sqrt(f(x)), as an…"}
-{"answer": "x ≤ 0 or x ≥ 3", "id": "graph-sqrt-of-function-domain-range/hard/1/57b8a504b1d0", "text": "Let f(x) = 2x^2 - 6x. Find the largest domain of the function y = sqrt(f(x)), a…"}
-{"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/2/82e7b9cf0443", "text": "Let f(x) = -x^2 + 2x + 15. Find the range of the function y = sqrt(f(x)), as an…"}
-{"answer": "no solution", "id": "graph-sqrt-of-function-domain-range/medium/0/0dc621ca5e3e", "text": "Part of the graph of y = f(x) is drawn. For which values of x is the function y…"}
-{"answer": "x ≤ 1 or x ≥ 5", "id": "graph-sqrt-of-function-domain-range/medium/1/5799862d937b", "text": "The graph of the parabola y = f(x) is shown. Find the domain of the function y …"}
-{"answer": "x ≤ -2 or x ≥ 2", "id": "graph-sqrt-of-function-domain-range/medium/2/5e0c673ca27b", "text": "The graph of y = f(x) is drawn. State the largest domain of the function y = sq…"}
+{"answer": "x ≤ -3", "id": "graph-sqrt-of-function-domain-range/easy/0/d7246678c1ca", "text": "The graph of the straight line y = f(x) is shown. Find the domain of the functi…"}
+{"answer": "x ≤ 2", "id": "graph-sqrt-of-function-domain-range/easy/1/0a594f30d54b", "text": "A straight line is drawn as the graph of y = f(x). For which values of x is the…"}
+{"answer": "x ≥ -4", "id": "graph-sqrt-of-function-domain-range/easy/2/c0b19874f7a1", "text": "The graph of the straight line y = f(x) is shown. Find the domain of the functi…"}
+{"answer": "(a) 81; (b) 9; (c) -6 ≤ x ≤ 12; (d) 6*sqrt(2)", "id": "graph-sqrt-of-function-domain-range/exam/0/21c7f4d89311", "text": "The function f is given by f(x) = -x^2 + 6x + 72. (a) Find the greatest value o…"}
+{"answer": "(a) 4; (b) 2; (c) -1 ≤ x ≤ 3; (d) sqrt(3)", "id": "graph-sqrt-of-function-domain-range/exam/1/d448799ce0c1", "text": "The function f is given by f(x) = -x^2 + 2x + 3. (a) Find the greatest value of…"}
+{"answer": "(a) 16; (b) 4; (c) -7 ≤ x ≤ 1; (d) sqrt(7)", "id": "graph-sqrt-of-function-domain-range/exam/2/53c80099518b", "text": "Consider the function f(x) = -x^2 - 6x + 7. (a) Find the greatest value of f. (…"}
+{"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/0/ed4f4f3d102e", "text": "Let f(x) = -x^2 + 4x + 12. Find the range of the function y = sqrt(f(x)), as an…"}
+{"answer": "x ≤ 0 or x ≥ 3", "id": "graph-sqrt-of-function-domain-range/hard/1/d4c781792da9", "text": "Let f(x) = 2x^2 - 6x. Find the largest domain of the function y = sqrt(f(x)), a…"}
+{"answer": "0 ≤ y ≤ 4", "id": "graph-sqrt-of-function-domain-range/hard/2/4862f834005a", "text": "Let f(x) = -x^2 + 2x + 15. Find the range of the function y = sqrt(f(x)), as an…"}
+{"answer": "no solution", "id": "graph-sqrt-of-function-domain-range/medium/0/441746e1e1af", "text": "The graph of y = f(x) is drawn. State the largest domain of the function y = sq…"}
+{"answer": "x ≤ 1 or x ≥ 5", "id": "graph-sqrt-of-function-domain-range/medium/1/6c26689ba48e", "text": "The graph of the parabola y = f(x) is shown. Find the domain of the function y …"}
+{"answer": "x ≤ -2 or x ≥ 2", "id": "graph-sqrt-of-function-domain-range/medium/2/68af77911d3f", "text": "Part of the graph of y = f(x) is drawn. For which values of x is the function y…"}
 {"answer": "2", "id": "graph-terms-from-a-network/easy/0/e899aecfa76a", "text": "Vertex A is adjacent to some of the other vertices of the drawn network. How ma…"}
 {"answer": "5", "id": "graph-terms-from-a-network/easy/1/adec74403798", "text": "Vertex G is adjacent to some of the other vertices of the drawn network. How ma…"}
 {"answer": "4", "id": "graph-terms-from-a-network/easy/2/950620dc3dcc", "text": "The degree of a vertex is the number of edges at it. What is the greatest degre…"}
-{"answer": "(a) 4; (b) {D, E, G, H}; (c) 10; (d) 6; (e) 3", "id": "graph-terms-from-a-network/exam/0/2ccbffe68af9", "text": "A network of 9 vertices, A to I, is drawn. Two vertices are adjacent when one e…"}
+{"answer": "(a) 4; (b) {D, E, G, H}; (c) 10; (d) 6; (e) 3", "id": "graph-terms-from-a-network/exam/0/2a6a9ff8e838", "text": "A network of 9 vertices, A to I, is drawn. Two vertices are adjacent when one e…"}
 {"answer": "(a) 3; (b) 4; (c) 7; (d) 5", "id": "graph-terms-from-a-network/exam/1/825ba9d8fe9f", "text": "A multigraph has vertices A to F and 14 edges: AE, DF, BF, DF, AB, BB, CE, BF, …"}
-{"answer": "(a) 4; (b) {B, C, H, I}; (c) 8; (d) 4; (e) 4", "id": "graph-terms-from-a-network/exam/2/cd1907a3da07", "text": "A network of 9 vertices, A to I, is drawn. Two vertices are adjacent when one e…"}
+{"answer": "(a) 4; (b) {B, C, H, I}; (c) 8; (d) 4; (e) 4", "id": "graph-terms-from-a-network/exam/2/688064e13cea", "text": "A network of 9 vertices, A to I, is drawn. Two vertices are adjacent when one e…"}
 {"answer": "4", "id": "graph-terms-from-a-network/hard/0/a2bf4f30dd0c", "text": "The edges of a multigraph on vertices A to E are DD, BC, AE, BE, BB, BC, CE, AE…"}
 {"answer": "3", "id": "graph-terms-from-a-network/hard/1/83f88ad54138", "text": "A multigraph has vertices A to F and these edges, each written once per copy: E…"}
 {"answer": "6", "id": "graph-terms-from-a-network/hard/2/1026dcd0c219", "text": "The edges of a multigraph on vertices A to F are BE, DF, CD, FF, CC, BF, EE, DD…"}
 {"answer": "4", "id": "graph-terms-from-a-network/medium/0/26105d9da51c", "text": "The subgraph H is made of the thick edges and the vertices at their ends. How m…"}
 {"answer": "3", "id": "graph-terms-from-a-network/medium/1/8e56e3879ac9", "text": "The drawn network is not connected. What is the fewest number of edges that cou…"}
 {"answer": "2", "id": "graph-terms-from-a-network/medium/2/05500606f0ba", "text": "The thick edges, together with the vertices at their ends, form a subgraph H of…"}
-{"answer": "-x^2 + 3", "id": "graph-transformation-equation/easy/0/26ac2c073932", "text": "A graph has equation y = x^2. It is translated 3 units down, then reflected in …"}
-{"answer": "cos(x - pi/4)/2", "id": "graph-transformation-equation/easy/1/e2e628aa07c8", "text": "The graph of y = cos(x) is translated π/4 units to the right, then dilated by a…"}
-{"answer": "3^(-x + 1)", "id": "graph-transformation-equation/easy/2/49f4b73574c6", "text": "A graph has equation y = 3^x. It is translated 1 unit to the left, then reflect…"}
-{"answer": "(a) -cos(2*(x + pi/4)); (b) 1; (c) 0; (d) pi", "id": "graph-transformation-equation/exam/0/27bed6c12a94", "text": "The graph of y = f(x), where f(x) = cos(x), is transformed to the graph of y = …"}
-{"answer": "(a) -2*(x - 3)^3; (b) x = 3, y = 0; (c) 54; (d) x = 2, y = 2", "id": "graph-transformation-equation/exam/1/16ff0cee4cf8", "text": "Let f(x) = x^3. The graph of y = f(x) is dilated by a factor of 2 from the x-ax…"}
-{"answer": "(a) -x^2/2 - 3; (b) x = 0, y = -3; (c) -3; (d) x = 3, y = -…", "id": "graph-transformation-equation/exam/2/d0487d5f3577", "text": "The graph of y = f(x), where f(x) = x^2, is transformed to the graph of y = g(x…"}
-{"answer": "-cos(x/2)", "id": "graph-transformation-equation/hard/0/3ced135de62b", "text": "The graph of y = f(x), where f(x) = cos(x), is drawn with its image g under a s…"}
-{"answer": "cos(2*x) - 3", "id": "graph-transformation-equation/hard/1/886dcdaa2284", "text": "The graph of f(x) = cos(x) and a transformed graph g are shown. Three points on…"}
-{"answer": "-2^(x + 3)", "id": "graph-transformation-equation/hard/2/27880cc1c458", "text": "The graph of f(x) = 2^x and a transformed graph g are shown. Three points on g …"}
-{"answer": "3*3^(x/3) - 2", "id": "graph-transformation-equation/medium/0/cb7a85dda3fc", "text": "The curve y = 3^x is dilated by a factor of 3 from the y-axis, then dilated by …"}
-{"answer": "3/(x - 4) + 3", "id": "graph-transformation-equation/medium/1/40f7dbe13358", "text": "The curve y = 1/x is translated 3 units up, then dilated by a factor of 3 from …"}
-{"answer": "-1/(2*(x + 4))", "id": "graph-transformation-equation/medium/2/33831e790724", "text": "The graph of y = 1/x is dilated by a factor of 1/2 from the y-axis, then transl…"}
+{"answer": "-x^3 - 3", "id": "graph-transformation-equation/easy/0/e3259d509c75", "text": "A graph has equation y = x^3. It is translated 3 units down, then reflected in …"}
+{"answer": "cos(x - pi/4)/2", "id": "graph-transformation-equation/easy/1/18f9d537f24a", "text": "The curve y = cos(x) is translated π/4 units to the right, then dilated by a fa…"}
+{"answer": "tan(-x) + 2", "id": "graph-transformation-equation/easy/2/9d568545265a", "text": "The curve y = tan(x) is translated 2 units up, then reflected in the y-axis, in…"}
+{"answer": "(a) -cos(2*(x + pi/4)); (b) 1; (c) 0; (d) pi", "id": "graph-transformation-equation/exam/0/1c987fac407b", "text": "Let f(x) = cos(x). The graph of y = f(x) is translated π/2 units to the left, t…"}
+{"answer": "(a) -2*(x - 3)^3; (b) x = 3, y = 0; (c) 54; (d) x = 5, y = …", "id": "graph-transformation-equation/exam/1/4b14ccde3c4a", "text": "Let f(x) = x^3. The graph of y = f(x) is dilated by a factor of 2 from the x-ax…"}
+{"answer": "(a) -x^2/2 - 3; (b) x = 0, y = -3; (c) -3; (d) x = 2, y = -5", "id": "graph-transformation-equation/exam/2/f03225c50cfb", "text": "Let f(x) = x^2. The graph of y = f(x) is dilated by a factor of 1/2 from the x-…"}
+{"answer": "-cos(x + pi/2)", "id": "graph-transformation-equation/hard/0/0d0709b7cf2f", "text": "The graph of y = f(x), where f(x) = cos(x), is drawn with its image g under a s…"}
+{"answer": "-cos(x + pi/2)", "id": "graph-transformation-equation/hard/1/7b04d12182d8", "text": "The graph of f(x) = cos(x) and a transformed graph g are shown. Three points on…"}
+{"answer": "-2^(x + 3)", "id": "graph-transformation-equation/hard/2/f8e78a786fbb", "text": "The graph of f(x) = 2^x and a transformed graph g are shown. Three points on g …"}
+{"answer": "3*3^(x/3) - 2", "id": "graph-transformation-equation/medium/0/46e638b59a5c", "text": "A graph has equation y = 3^x. It is dilated by a factor of 3 from the y-axis, t…"}
+{"answer": "3/(x - 4) + 3", "id": "graph-transformation-equation/medium/1/01ba7b5326af", "text": "The curve y = 1/x is translated 3 units up, then dilated by a factor of 3 from …"}
+{"answer": "-1/(2*(x + 4))", "id": "graph-transformation-equation/medium/2/b8814ff16686", "text": "The graph of y = 1/x is dilated by a factor of 1/2 from the y-axis, then transl…"}
 {"answer": "3", "id": "graph-vertex-degrees-handshaking/easy/0/10c2efb7be2f", "text": "A school lab has 7 computers, A to G, joined by network cables. Each pair of le…"}
 {"answer": "3", "id": "graph-vertex-degrees-handshaking/easy/1/96cd4d84bb96", "text": "A national park has 6 lookouts, A to F, connected by walking tracks. Each pair …"}
 {"answer": "2", "id": "graph-vertex-degrees-handshaking/easy/2/007a8c615e8a", "text": "A tour company runs ferries between 7 islands, A to G. Each pair of letters nam…"}
@@ -4981,18 +4981,18 @@
 {"answer": "4*(x + 1)^(3/2) - 12*sqrt(x + 1) + C", "id": "integrate-substitution-rewrite-x/medium/0/a2009925173f", "text": "Use the substitution u = x + 1 to find ∫ 6x/√(x + 1) dx. Give your answer as a …"}
 {"answer": "12*(x + 5)^(5/2)/5 - 20*(x + 5)^(3/2) + C", "id": "integrate-substitution-rewrite-x/medium/1/6ee158ccd787", "text": "Use the substitution u = x + 5 to find ∫ 6x√(x + 5) dx. Give your answer as a s…"}
 {"answer": "2*(x + 5)^(5/2)/5 - 10*(x + 5)^(3/2)/3 + C", "id": "integrate-substitution-rewrite-x/medium/2/4d7ea98a9f33", "text": "Use the substitution u = x + 5 to find ∫ x√(x + 5) dx. Give your answer as a su…"}
-{"answer": "-2*x + 2*tan(x) + C", "id": "integrate-tan-sec-powers/easy/0/4d7c3ad676e3", "text": "Find the indefinite integral ∫ 2 tan^2(x) dx."}
-{"answer": "-2*x + 2*tan(x) + C", "id": "integrate-tan-sec-powers/easy/1/4c7f42183569", "text": "Find the indefinite integral ∫ 2 tan^2(x) dx."}
-{"answer": "-6*x + 3*tan(2*x) + C", "id": "integrate-tan-sec-powers/easy/2/d081bc7f7a13", "text": "Determine ∫ 6 tan^2(2x) dx."}
+{"answer": "-2*x + 2*tan(x) + C", "id": "integrate-tan-sec-powers/easy/0/94cf16941242", "text": "Find the indefinite integral ∫ 2 tan^2(x) dx."}
+{"answer": "-2*x + 2*tan(x) + C", "id": "integrate-tan-sec-powers/easy/1/f26e5880335c", "text": "Find the indefinite integral ∫ 2 tan^2(x) dx."}
+{"answer": "-6*x + 3*tan(2*x) + C", "id": "integrate-tan-sec-powers/easy/2/20d588b7888e", "text": "Determine ∫ 6 tan^2(2x) dx."}
 {"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/0/248c393ea1f8", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
 {"answer": "(a) 1 - pi/4; (b) (3*pi - 8)/12; (c) (52 - 15*pi)/60; (d) (…", "id": "integrate-tan-sec-powers/exam/1/055d7668d45a", "text": "Each integral below is taken from 0 to pi/4. Give each answer as an exact value…"}
 {"answer": "(a) ln(2)/2; (b) (1 - ln(2))/2; (c) (2*ln(2) - 1)/4; (d) (1…", "id": "integrate-tan-sec-powers/exam/2/f940405df74c", "text": "Work out the exact value of each of these definite integrals, which all run fro…"}
 {"answer": "sqrt(3)", "id": "integrate-tan-sec-powers/hard/0/3857a7b6e8e2", "text": "Find the exact value of ∫ from 0 to pi/3 of tan^2(x) sec^2(x) dx."}
 {"answer": "7/3", "id": "integrate-tan-sec-powers/hard/1/eac028bed6d8", "text": "Evaluate ∫ from 0 to pi/3 of sec^3(x) tan(x) dx, giving an exact answer."}
-{"answer": "tan(x)^5/5 + tan(x)^3/3 + C", "id": "integrate-tan-sec-powers/hard/2/c5d0a3b4b8e4", "text": "Find ∫ tan^2(x) sec^4(x) dx. Give your answer in terms of tan(x)."}
-{"answer": "tan(x)^3/3 + C", "id": "integrate-tan-sec-powers/medium/0/8e66a3ab0f51", "text": "Find ∫ tan^2(x) sec^2(x) dx. Give your answer in terms of tan(x)."}
-{"answer": "sec(x)^5/5 + C", "id": "integrate-tan-sec-powers/medium/1/74faeda710d1", "text": "Find ∫ sec^5(x) tan(x) dx. Give your answer in terms of sec(x)."}
-{"answer": "tan(2*x)^3/6 + C", "id": "integrate-tan-sec-powers/medium/2/1b8fc1363233", "text": "Determine ∫ tan^2(2x) sec^2(2x) dx. Give your answer in terms of tan(2x)."}
+{"answer": "tan(x)^5/5 + tan(x)^3/3 + C", "id": "integrate-tan-sec-powers/hard/2/88818aa455f6", "text": "Find ∫ tan^2(x) sec^4(x) dx. Give your answer in terms of tan(x)."}
+{"answer": "tan(x)^3/3 + C", "id": "integrate-tan-sec-powers/medium/0/9588a2695ce0", "text": "Find ∫ tan^2(x) sec^2(x) dx. Give your answer in terms of tan(x)."}
+{"answer": "sec(x)^5/5 + C", "id": "integrate-tan-sec-powers/medium/1/e1715ece17ab", "text": "Find ∫ sec^5(x) tan(x) dx. Give your answer in terms of sec(x)."}
+{"answer": "tan(2*x)^3/6 + C", "id": "integrate-tan-sec-powers/medium/2/bc8bdf38e828", "text": "Determine ∫ tan^2(2x) sec^2(2x) dx. Give your answer in terms of tan(2x)."}
 {"answer": "3*x - 3*sin(2*x)/2 + C", "id": "integrate-trig-powers/easy/0/35dc8e839c78", "text": "Find ∫ 6 sin^2(x) dx."}
 {"answer": "x - sin(2*x)/2 + C", "id": "integrate-trig-powers/easy/1/c737fbfb47e5", "text": "Find the indefinite integral ∫ 2 sin^2(x) dx."}
 {"answer": "x - sin(6*x)/6 + C", "id": "integrate-trig-powers/easy/2/37ab4c52d210", "text": "Find the indefinite integral ∫ 2 sin^2(3x) dx."}
@@ -5097,7 +5097,7 @@
 {"answer": "(a) 1/3; (b) 5pi/3; (c) -5pi/3; (d) 1/6", "id": "inverse-trig-values-and-graph-features/exam/2/b81a5e1ea0ea", "text": "Consider the function f(x) = 5 arcsin(3x) - 5π/6. (a) Find the largest value of…"}
 {"answer": "pi/3", "id": "inverse-trig-values-and-graph-features/hard/0/9b636fa5385a", "text": "Evaluate arccos(cos(-pi/3)) exactly, in radians."}
 {"answer": "pi/6", "id": "inverse-trig-values-and-graph-features/hard/1/4cb86451aed1", "text": "Evaluate arcsin(sin(-7pi/6)) exactly, in radians."}
-{"answer": "-24/25", "id": "inverse-trig-values-and-graph-features/hard/2/46c6993d4d2e", "text": "Evaluate sin(2 arcsin(-4/5)) exactly, without a calculator."}
+{"answer": "-24/25", "id": "inverse-trig-values-and-graph-features/hard/2/8c4859388182", "text": "Evaluate sin(2 arcsin(-4/5)) exactly, without a calculator."}
 {"answer": "2pi/3", "id": "inverse-trig-values-and-graph-features/medium/0/904e9f6ef3e3", "text": "Let f(x) = 2 arcsin(4x) + π/3. Find the exact value of f(1/8). Give your answer…"}
 {"answer": "17pi/4", "id": "inverse-trig-values-and-graph-features/medium/1/48a01d9788dd", "text": "The graph of y = 4 arccos(4x) + π/4 has a greatest value. State it exactly, in …"}
 {"answer": "4/3", "id": "inverse-trig-values-and-graph-features/medium/2/e8619df1a18d", "text": "The function f is given by f(x) = -2 arcsin(3x - 3) - π. Find the largest value…"}

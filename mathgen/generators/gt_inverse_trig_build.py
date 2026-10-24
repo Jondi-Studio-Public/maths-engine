@@ -22,6 +22,7 @@ Every angle is built as an exact multiple of pi from a table of standard values,
 
 from __future__ import annotations
 
+import re
 import math
 from fractions import Fraction as Frac
 
@@ -463,19 +464,68 @@ def _hard_ratio(rng):
         ),
         e=stem_fn,
     )
+    if stem_fn.startswith(("sin", "cos")):
+        # a sine or cosine lies in [-1, 1]: plain near misses stay there; a named slip (2u, the reciprocal) may leave it,
+        # but never alone, or it alone would be the option that is not a possible value
+        def draw():
+            return pick(ans, cands, fillers=_near_fracs(value, q), lo=-1, hi=1, slip_range=(-3, 3))
+
+        def outside(d):
+            v = _frac_of(d.text)
+            return v is not None and abs(v) > 1
+
+        options = _not_alone(draw, outside)
+    else:
+        options = pick(ans, cands, fillers=_near_fracs(value, q), lo=None, hi=None, unbounded="open")  # a tangent
     return dict(
         text=stem,
-        distractors=pick(
-            ans,
-            cands,
-            fillers=_near_fracs(value, q),
-            lo=None,
-            hi=None,
-            unbounded="open",
-        ),
+        distractors=options,
         working=[why, f"So {stem_fn} = {ans}."],
         **_frac_fields(value),
     )
+
+
+_RANGE = {"arccos": (Frac(0), Frac(1)), "arcsin": (-Frac(1, 2), Frac(1, 2)), "arctan": (-Frac(5, 12), Frac(5, 12))}
+
+
+def _in_range_options(kind, value, ans, cands):
+    """Options for arccos(cos t) and the like. Plain near misses stay inside the function's range (arcsin and arctan
+    in (-pi/2, pi/2), arccos in [0, pi]); the named wrong-branch slips may leave it, because leaving it is the mistake,
+    but a single option outside the range would be the only way to tell the key by its range, so one is never alone."""
+    lo, hi = _RANGE[kind]
+
+    def outside(d):
+        v = _value_of(d.text)
+        return v is not None and not (lo <= v <= hi)
+
+    return _not_alone(lambda: pick(ans, cands, lo=lo, hi=hi, slip_range=(-3, 3)), outside)
+
+
+def _not_alone(draw, outside, tries=12):
+    """A draw of options in which the number outside the allowed range is not exactly one."""
+    options = draw()
+    for _ in range(tries):
+        if sum(outside(d) for d in options) != 1:
+            break
+        options = draw()
+    return options
+
+
+def _frac_of(text):
+    try:
+        return Frac(text.strip())
+    except (ValueError, ZeroDivisionError):
+        return None
+
+
+def _value_of(text):
+    """An option such as 5pi/6 or -pi/4 as a multiple of pi (None if it is not one)."""
+    m = re.fullmatch(r"(-?)(\d*)pi(?:/(\d+))?", text.replace(" ", ""))
+    if text.strip() == "0":
+        return Frac(0)
+    if not m:
+        return None
+    return (-1 if m.group(1) else 1) * Frac(int(m.group(2) or 1), int(m.group(3) or 1))
 
 
 _ANGLES = [Frac(n, d) for d in (3, 4, 6) for n in range(-11, 12) if n != 0 and math.gcd(abs(n), d) == 1]
@@ -536,7 +586,7 @@ def _hard_composite(rng):
     )
     return dict(
         text=stem,
-        distractors=pick(ans, cands, lo=-2, hi=2, slip_range=(-3, 3)),
+        distractors=_in_range_options(kind, value, ans, cands),
         working=[
             f"{kind}(u) gives the angle between {lo} and {hi} whose {inner} is u, so the answer is not just {_stem_pi(t)} when {_stem_pi(t)} is outside that range.",
             f"{inner}({_stem_pi(t)}) = {inner}({_stem_pi(value)}), and {_stem_pi(value)} is in the range, so {e} = {_stem_pi(value)}.",

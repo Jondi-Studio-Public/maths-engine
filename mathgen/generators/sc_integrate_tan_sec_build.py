@@ -22,14 +22,20 @@ answer in terms of tan x``), because the grader compares expressions, not answer
 from __future__ import annotations
 
 import re
+from functools import lru_cache
+
+import sympy
 from sympy import Add, Rational, lambdify, log, pi, sec, sqrt, sympify, tan
 
+from ..answers import Distractor
 from ..core import check, generator, latex_from_inline
+from ._dg_kit import ranked_text
 from ._spread_kit import NEAR, mixed, uses_rng
 from ._r3b_kit import (
     Cand,
     Itg,
     Redraw,
+    _values,
     check_antiderivative,
     check_definite,
     exact_fields,
@@ -40,6 +46,7 @@ from ._r3b_kit import (
     part,
     pick_expr,
     retry,
+    same_function,
     say,
     x,
 )
@@ -90,29 +97,41 @@ def _itg(value, *pieces) -> Itg:
     return Itg(value, text="".join(t for t, _ in pieces), latex="".join(m for _, m in pieces))
 
 
-def _by_length(key, cands, rng, count=3):
-    """`pick_expr`, with the key's rank in length (options shorter and longer than the key's text) random: a key that
-    is the longest, or the shortest, of its options gives it away."""
-    klen = len(expr_text(key, True))
+@lru_cache(maxsize=8192)
+def _printed(expr, const: bool) -> str:
+    """`expr_text`, kept: the same few coefficients and angles come round for every question and SymPy's printer is the
+    slow part of building the options."""
+    return expr_text(expr, const)
+
+
+def _by_rank(key, cands, rng, count=3):
+    """Three wrong antiderivatives with the key's place among them spread, not left to the slips: how many are worth
+    less than it at two points and how many are shorter than it. A key that is the longest, the shortest or the middle
+    value of its options gives it away."""
     live = [c for c in cands if c is not None and c.expr is not None and sympify(c.expr).free_symbols]  # no bare 0 + C
     rng.shuffle(live)
-    shorter = [c for c in live if len(expr_text(c.expr, c.const)) < klen]
-    longer = [c for c in live if len(expr_text(c.expr, c.const)) > klen]
-    level = [c for c in live if len(expr_text(c.expr, c.const)) == klen]
-    if level and (len(shorter) < 2 or rng.random() < 0.5):
-        # an option as long as the key: its length singles nothing out (a short key like sec(x) + C has none shorter)
-        ranks = [r for r in range(count) if r <= len(shorter) and count - 1 - r <= len(longer)]
-        if ranks:
-            r = rng.choice(ranks)
-            ordered = [level[0], *shorter[:r], *longer[: count - 1 - r]]
-            ordered += [c for c in live if c not in ordered]
-            return pick_expr(key, True, ordered)
-    ranks = [r for r in range(count + 1) if r <= len(shorter) and count - r <= len(longer)]
-    r = rng.choice(ranks) if ranks else 0
-    ordered = [*shorter[:r], *longer[: count - r]] if ranks else []
-    # a pick can fail (a duplicate of the key or of an earlier one): the rest follow, nearest in length first
-    ordered += [c for c in live if c not in ordered]
-    return pick_expr(key, True, ordered)
+    key = sympify(key)
+    key_text = _printed(key, True)
+    values = {key_text: _at(key)}
+    pool, kept = [], [key]
+    for c in live:
+        expr = sympify(c.expr)
+        if expr.has(sympy.I, sympy.zoo, sympy.nan, sympy.oo) or any(same_function(expr, k) for k in kept):
+            continue
+        kept.append(expr)
+        text = _printed(expr, c.const)
+        values[text] = _at(expr)
+        pool.append(Distractor(text, c.tag, text))
+        if len(pool) == 26:  # enough to choose between; each costs a print
+            break
+    if len(pool) < 2:
+        raise Redraw("fewer than two distinct wrong expressions")
+    return ranked_text(key_text, pool, "expression", count, values=values)
+
+
+def _at(expr):
+    """The expression's values at the two sample points, a big number where it is undefined."""
+    return tuple(1e9 if v is None else v for v in _values(expr)[:2])
 
 
 def _indef(rng, f: Itg, F, cands, working, note=""):
@@ -141,7 +160,7 @@ def _indef(rng, f: Itg, F, cands, working, note=""):
         text=text,
         working=[_tidy(w) for w in working],
         latex=latex,
-        distractors=_by_length(F, cands, rng),
+        distractors=_by_rank(F, cands, rng),
         **key_fields(F),
     )
 

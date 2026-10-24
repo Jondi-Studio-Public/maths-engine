@@ -197,7 +197,10 @@ def _fn(expr):
     return sympy.lambdify(x, expr, modules=["math"])
 
 
+@functools.lru_cache(maxsize=8192)
 def _values(expr, points=_POINTS):
+    """The expression at each point (None where undefined), kept: `lambdify` compiles code and costs ~2 ms, and the same
+    candidate expressions come round for every question."""
     f = _fn(expr)
     out = []
     for p in points:
@@ -207,7 +210,7 @@ def _values(expr, points=_POINTS):
             out.append(None)
             continue
         out.append(value.real if abs(value.imag) < 1e-12 else None)
-    return out
+    return tuple(out)
 
 
 def same_function(a, b) -> bool:

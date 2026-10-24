@@ -22,13 +22,16 @@ Each topic registers a figure reader that recomputes the answer from the drawn c
 
 from __future__ import annotations
 
+import itertools
 import math
+import random
 
 from .. import figures
 from ..answers import Distractor
 from ..core import attempts, generator
 from ..figure_kinds.space import angle_class, diagram, sweep_degrees
-from ._spread_kit import pick_distractors, tagged_numbers, uses_rng
+from ._dg_kit import draw_ranked
+from ._spread_kit import _RNG, pick_distractors, tagged_numbers, uses_rng
 
 _TIERS = ("easy", "medium", "hard")
 _PRESETS = {t: {"tier": t} for t in _TIERS}
@@ -152,23 +155,38 @@ def _set_text(letters) -> str:
 
 
 def _wrong_letter_sets(answer: set, all_letters: set, extras: list[tuple[set, str]]) -> list[Distractor]:
-    """Wrong lists of letters, each the list a named slip reaches (``extras`` first, likeliest first), then a
-    letter left out, a letter added and every letter."""
-    out = list(extras)
-    if len(answer) >= 2:
-        for letter in sorted(answer):
-            out.append((answer - {letter}, "eyz-leaves-out-an-angle"))
-    for letter in sorted(all_letters - answer):
-        out.append((answer | {letter}, "eyz-adds-an-extra-angle"))
-    out.append((set(all_letters), "eyz-counts-every-angle"))
-    seen, result = {frozenset(answer)}, []
-    for letters, tag in out:
+    """Wrong lists of letters: the lists the named slips reach (``extras``, likeliest first), then every other list of
+    the letters, tagged by what it does to the answer (a letter left out, a letter added, every letter, or one of each).
+
+    Five of them are drawn so that the key's place among the options is spread on both its size and its letters: the
+    slips alone make the key the smallest list, or the largest, or the one with a middling number of letters."""
+    pool = [(set(letters), tag, True) for letters, tag in extras]
+    ordered = sorted(all_letters)
+    for r in range(1, len(ordered) + 1):
+        for combo in itertools.combinations(ordered, r):
+            letters = set(combo)
+            if letters == all_letters:
+                tag = "eyz-counts-every-angle"
+            elif letters < answer:
+                tag = "eyz-leaves-out-an-angle"
+            elif letters > answer:
+                tag = "eyz-adds-an-extra-angle"
+            else:
+                tag = "eyz-leaves-out-an-angle"
+            pool.append((letters, tag, False))
+    seen, usable = {frozenset(answer)}, []
+    for letters, tag, named in pool:
         key = frozenset(letters)
         if not letters or key in seen:
             continue
         seen.add(key)
-        result.append(Distractor(_set_text(letters), tag, sorted(letters)))
-    return result[:5]
+        text = _set_text(letters)
+        usable.append(
+            ({"size": float(len(letters)), "_items": frozenset(letters)}, named, Distractor(text, tag, sorted(letters)))
+        )
+    rng = _RNG.get() or random.Random(_set_text(answer))
+    key = {"size": float(len(answer)), "_items": frozenset(answer)}
+    return draw_ranked(usable, key, 5, rng, joint=True)
 
 
 def _letter_sets(sets: dict[str, set], asked: str, all_letters: set) -> list[Distractor]:

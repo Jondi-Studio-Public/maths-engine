@@ -28,6 +28,7 @@ from pathlib import Path
 
 import pytest
 import sympy as sp
+from sympy.parsing.sympy_parser import implicit_multiplication_application, parse_expr, standard_transformations
 from sympy.parsing.sympy_parser import (
     convert_xor,
     implicit_multiplication_application,
@@ -40,7 +41,14 @@ from mathgen.core import REGISTRY
 
 SEEDS = 600
 MIN_GROUP = 30  # a question kind needs this many samples before its rank shares mean anything
-CAP = {4: 0.40, 3: 0.55}  # the largest share one rank may have, by number of options (key and wrong ones)
+
+
+def _cap(n_options: int) -> float:
+    """The largest share one rank may have, by number of options (key and wrong ones): about 1.6 times chance."""
+    return 0.55 if n_options <= 3 else round(1.6 / n_options, 3)
+
+
+CAP = {n: _cap(n) for n in range(3, 13)}
 
 _GEN = Path(__file__).resolve().parent.parent / "mathgen" / "generators"
 _FILES = {Path(f).name for f in glob.glob(str(_GEN / "*_build.py")) if re.match(r"(dg|eyz|gt|sc)_", Path(f).name)}
@@ -122,7 +130,24 @@ def _hull(text):
     return None
 
 
-_STRICT = {"length"}
+@functools.lru_cache(maxsize=None)
+def _expression(text):
+    """(value at 0.37, value at 1.41) of an expression in x as the grader reads it (`3*exp(2*x)/2`, `-cos(2*(x + pi/4))`,
+    a trailing `+ C` dropped), or None when it cannot be read: the rank is by what the option IS, not how long it is."""
+    body = re.sub(r"\s*\+\s*C$", "", text.strip()).replace("^", "**").replace("ln", "log")
+    try:
+        expr = parse_expr(
+            body,
+            local_dict={"x": sp.Symbol("x"), "e": sp.E},
+            transformations=standard_transformations + (implicit_multiplication_application,),
+        )
+        out = []
+        for point in (0.37, 1.41):
+            value = complex(expr.subs(sp.Symbol("x"), point))
+            out.append(value.real if abs(value.imag) < 1e-9 else _INF)
+        return tuple(out)
+    except (SyntaxError, TypeError, ValueError, ZeroDivisionError, sp.SympifyError, AttributeError):
+        return None
 
 
 def features(text) -> dict | None:
@@ -130,7 +155,7 @@ def features(text) -> dict | None:
 
     A number is its value; a coordinate pair is its y and its x; grid squares are their count and their summed column and
     row; a set, a list, a bar chart and a stem plot are their sizes and totals; a chance sentence is its likelihood
-    word; an inequality is its least and greatest allowed value; an expression in x is its value at two points. None
+    word; an inequality is its first and last bound and its length; an expression in x is its value at two points. None
     means the option is none of these and the question must be given a kind here (a gap in this test is a failure)."""
     text = str(text).strip()
     if (v := _number(text)) is not None:
@@ -149,7 +174,7 @@ def features(text) -> dict | None:
             }
     if m := re.fullmatch(r"\{(.*)\}", text):
         items = sorted(i.strip() for i in m.group(1).split(","))
-        return {"size": float(len(items)), "members": tuple(items)}
+        return {"size": float(len(items)), "_items": frozenset(items)}
     if "Leaf =" in text:
         rows = tuple(tuple(int(d) for d in part.split("=")[1].split()) for part in text.split(", "))
         return {"rows": rows}
@@ -158,33 +183,50 @@ def features(text) -> dict | None:
     for word, score in _LIKELIHOOD:
         if re.search(rf"\b{word}\b", text):
             return {"likelihood": float(score)}
-    if hull := _hull(text):  # an inequality: how long it is
-        return {"length": float(len(text))}
+    if hull := _hull(text):  # an inequality: its bounds as written (first, last) and its length
+        nums = [_frac(b) or 0.0 for b in re.findall(r"-?\d+(?:\.\d+)?(?:/\d+)?", text)]
+        return {
+            "first": nums[0] if nums else 0.0,
+            "last": nums[-1] if nums else 0.0,
+            "length": float(len(text)),
+        }
     if re.fullmatch(r"-?[\d./]+(, -?[\d./]+)+", text):
         nums = [_frac(i) for i in text.split(", ")]
         return {"size": float(len(nums)), "greatest": max(nums), "least": min(nums)}
-    if re.search(r"\bx\b", text):  # an expression in x: how long it is
-        return {"length": float(len(text))}
+    if re.search(r"\bx\b", text):  # an expression in x: its values at two points, and its length
+        if (at := _expression(text)) is None:
+            return None
+        return {"at 0.37": at[0], "at 1.41": at[1], "length": float(len(text))}
     return None
 
 
 def ranks(answer, options):
     """{feature: key rank} for one question, and the option texts that stand for nothing.
 
-    The rank is the number of wrong options below the key, plus half of those equal to it. A feature the options do not
+    The rank is the number of wrong options below the key, plus half of those equal to it: a tie is never skipped, it counts as half a place (the
+    key's mean place if the tie were broken by a coin). A feature the options do not
     all have, or on which they all agree (the x of three coordinates in one column), says nothing and is left out."""
     texts = [str(answer), *(getattr(o, "text", str(o)) for o in options)]
     feats = [features(t) for t in texts]
     if any(f is None for f in feats):
         return {}, [t for t, f in zip(texts, feats) if f is None]
+    if all("_items" in f for f in feats):
+        # how much each list shares with the others: the key is the list the wrong ones are a slip away from, so it
+        # tends to share most (or, with wrong lists far from each other, least). It reads the SET of options, so it
+        # is the options that decide it, not which entries the key happens to hold.
+        lists = [f["_items"] for f in feats]
+        for i, f in enumerate(feats):
+            f["agreement"] = sum(
+                len(lists[i] & o) / len(lists[i] | o) for j, o in enumerate(lists) if j != i and lists[i] | o
+            )
+    for f in feats:
+        f.pop("_items", None)
     out = {}
     for name in set.intersection(*(set(f) for f in feats)):
         vals = [round(f[name], 9) if isinstance(f[name], float) else f[name] for f in feats]
         if len(set(vals)) == 1:
             continue
         key = vals[0]
-        if name in _STRICT and key in vals[1:]:
-            continue  # the key is as long as another option: its length singles nothing out
         out[name] = sum(v < key for v in vals[1:]) + sum(v == key for v in vals[1:]) / 2
     return out, []
 
@@ -224,7 +266,7 @@ def _tags(q, options) -> list:
 def _limit(n_options: int, n: int, sigmas: float = 3.5) -> float:
     """The most share one rank may take: the cap for a big group, a little more for a small one (chance can reach it)."""
     chance = 1 / n_options
-    return max(CAP[n_options], chance + sigmas * math.sqrt(chance * (1 - chance) / n))
+    return max(CAP[min(n_options, 12)], chance + sigmas * math.sqrt(chance * (1 - chance) / n))
 
 
 def survey(topic: str, tier: str, seeds=range(SEEDS)):
@@ -286,7 +328,7 @@ def lopsided(topic: str, tier: str, seeds=range(SEEDS)) -> tuple[list[str], list
     for table in (kinds, parts):
         for (label, kind, n_options, name), ranks_ in table.items():
             total = sum(ranks_.values())
-            if n_options not in CAP:
+            if n_options < 3:
                 continue
             if total < MIN_GROUP:
                 rare[(label, n_options, name)].update(ranks_)

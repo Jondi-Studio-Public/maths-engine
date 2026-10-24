@@ -18,12 +18,15 @@ Answers are built backwards from a chosen word, so nothing is solved at generati
 
 from __future__ import annotations
 
+import random
+from dataclasses import replace
 from fractions import Fraction
 
 from ..answers import Distractor
 from ..core import attempts, check, generator
 from ..slots import NAMES
-from ._spread_kit import pick_distractors, whole_part, uses_rng
+from ._dg_kit import draw_ranked
+from ._spread_kit import _RNG, pick_distractors, whole_part, uses_rng
 
 
 def _bag(items) -> str:
@@ -63,37 +66,83 @@ def _ordered(items):
     return sorted(items, key=lambda v: (0, v) if isinstance(v, int) else (1, str(v)))
 
 
-def _outcome_question(text: str, outcomes: list, wrong: list[tuple[list, str]], working: list[str]) -> dict:
-    """A ``set`` question. ``wrong`` is ``[(list of outcomes, misconception id), ...]``, likeliest first."""
+def _features(items) -> dict:
+    """What the key's place among the options is read from: how many outcomes are listed, and where the list sits among the entries it could hold."""
+    return {"size": len(items), "_items": frozenset(str(i) for i in items)}
+
+
+def _outcome_question(
+    text: str, outcomes: list, wrong: list[tuple[list, str]], working: list[str], universe=()
+) -> dict:
+    """A ``set`` question. ``wrong`` is ``[(list of outcomes, misconception id), ...]``, likeliest first.
+
+    The slips given are joined by the ones every list has: one outcome left out, two left out, one listed twice. The
+    key's place among the options is then drawn on both its size and its content, so it is not always the list with
+    a middle number of outcomes."""
     answer = _ordered(outcomes)
-    seen = {tuple(answer)}
-    distractors = []
-    for items, tag in wrong:
-        key = tuple(_ordered(items)) if len(set(items)) == len(items) else tuple(items)
-        if not items or key in seen:
-            continue
-        seen.add(key)
-        distractors.append(Distractor(_set_text(key), tag, list(key)))
-    picked = pick_distractors(
-        _set_text(answer),
-        distractors,
-        n=4,
-        unordered=True,
-        lo=None,
-        hi=None,
-        unbounded="set",
-    )
+    same = lambda items: tuple(sorted(str(i) for i in items))  # noqa: E731  (the same entries, in any order, are one list)
+    seen = {same(answer)}
+    named, extra = [], []
+    for group, flag in ((wrong, True), (_systematic(answer, wrong, universe), False)):
+        for items, tag in group:
+            key = tuple(_ordered(items)) if len(set(items)) == len(items) else tuple(items)
+            if not items or same(items) in seen:
+                continue
+            seen.add(same(items))
+            (named if flag else extra).append(Distractor(_set_text(key), tag, list(key)))
+    rng = _RNG.get() or random.Random(_set_text(answer))
+    rng.shuffle(extra)  # only so many are checked: not always the same ones
+    pool = pick_distractors(_set_text(answer), named + extra, n=100, unordered=True, lo=None, hi=None, unbounded="set")
+    names = {d.text for d in named}
+    usable = [({**_features(d.value), "text": 0}, d.text in names, d) for d in pool]
+    for f, _, _ in usable:
+        f.pop("text")
+    picked = draw_ranked(usable, _features(answer), 4, rng, joint=True)
     check(len(picked) >= 3, "an outcomes question needs three wrong lists")
+    # each list is written in order or not, by a coin: otherwise the key (the one list made from the sorted outcomes)
+    # is always the in-order one, and the options that are not in order are the wrong ones
+    shown = lambda items: _set_text(_ordered(items) if rng.random() < 0.5 else rng.sample(list(items), len(items)))  # noqa: E731
+    key_text = shown(answer)
+    picked = [replace(d, text=shown(d.value)) for d in picked]
     return dict(
         text=text,
         latex=f"plain:{text}",
         answer=answer,
-        answer_text=_set_text(answer),
-        answer_latex=f"plain:{_set_text(answer)}",
+        answer_text=key_text,
+        answer_latex=f"plain:{key_text}",
         answer_kind="set",
         working=working,
         distractors=picked,
     )
+
+
+def _systematic(answer: list, wrong: list, universe) -> list[tuple[list, str]]:
+    """Slips any list of outcomes allows: some left out, one listed twice, and (where the slips given add an outcome that
+    cannot happen) a foreign outcome added, two added, or one swapped in for a real one. They give the options lists
+    smaller than, the same size as and bigger than the key, in many orders."""
+    out = [(answer[:i] + answer[i + 1 :], "eyz-misses-an-outcome") for i in range(len(answer))]
+    if len(answer) > 3:
+        out += [(answer[:i] + answer[i + 2 :], "eyz-misses-an-outcome") for i in range(len(answer) - 1)]
+    if len(answer) > 4:
+        out += [(answer[:i] + answer[i + 3 :], "eyz-misses-an-outcome") for i in range(len(answer) - 2)]
+    out += [(answer + [answer[i]], "eyz-lists-repeats-as-outcomes") for i in range(len(answer))]
+    tag = next(
+        (t for _, t in wrong if t.startswith("eyz-adds")), "eyz-adds-a-number-that-does-not-fit" if universe else None
+    )
+    if tag:
+        foreign = [u for u in dict.fromkeys([*universe, *(v for items, _ in wrong for v in items)]) if u not in answer]
+        for u in foreign:
+            out.append((answer + [u], tag))
+            out += [(answer[:i] + [u] + answer[i + 1 :], tag) for i in range(len(answer))]
+        out += [(answer + [u, v], tag) for k, u in enumerate(foreign) for v in foreign[k + 1 :]]
+        # two swapped for foreign ones: far from the key, but near to each other
+        for k, u in enumerate(foreign):
+            for v in foreign[k + 1 :]:
+                out += [
+                    (answer[:i] + [u] + answer[i + 1 : i + 2] + answer[i + 3 :] + [v], tag)
+                    for i in range(len(answer) - 2)
+                ]
+    return out
 
 
 def _drop_one(items: list, tag: str, rng) -> list[tuple[list, str]]:
@@ -120,7 +169,13 @@ def _easy_outcomes(rng) -> dict:
             (["tails"], "eyz-misses-an-outcome"),
             (["heads", "tails", "both"], "eyz-adds-an-impossible-outcome"),
         ]
-        return _outcome_question(text, outs, wrong, ["A coin can land heads or tails."])
+        return _outcome_question(
+            text,
+            outs,
+            wrong,
+            ["A coin can land heads or tails."],
+            ("edge", "both", "side", "neither", "the edge", "the rim"),
+        )
     if kind == "die":
         text = rng.choice(
             ("A die is rolled once. List all the possible outcomes.", "Roll a die. List every number it could show.")
@@ -149,7 +204,7 @@ def _easy_outcomes(rng) -> dict:
         wrong.append((cols + [spare[0]], "eyz-adds-an-impossible-outcome"))
         wrong.append((cols + [cols[0]], "eyz-lists-repeats-as-outcomes"))
         wrong.append((cols[:2] if n > 3 else cols[:1], "eyz-misses-an-outcome"))
-        return _outcome_question(text, cols, wrong, [f"The spinner can stop on any of its {n} colours."])
+        return _outcome_question(text, cols, wrong, [f"The spinner can stop on any of its {n} colours."], _COLOURS)
     n = rng.randint(2, 3)
     cols = rng.sample(_COLOURS, n)
     counts = rng.sample(range(1, 5), n)
@@ -170,6 +225,7 @@ def _easy_outcomes(rng) -> dict:
             + (f" or {_a(cols[2])} counter" if n == 3 else "")
             + " could come out. List each colour once."
         ],
+        _COLOURS,
     )
 
 
@@ -194,7 +250,7 @@ def _medium_outcomes(rng) -> dict:
             (outs + [other[0]], "eyz-adds-a-number-that-does-not-fit"),
         ]
         return _outcome_question(
-            text, outs, wrong, [f"The {'odd' if odd else 'even'} numbers on a die are {_set_text(outs)}."]
+            text, outs, wrong, [f"The {'odd' if odd else 'even'} numbers on a die are {_set_text(outs)}."], range(1, 7)
         )
     if kind in ("die-more", "die-less"):
         more = kind == "die-more"
@@ -214,7 +270,11 @@ def _medium_outcomes(rng) -> dict:
             ([1, 2, 3, 4, 5, 6], "eyz-lists-every-outcome"),
         ]
         return _outcome_question(
-            text, outs, wrong, [f"The numbers {word} {k} on a die are {_set_text(outs)}. {k} itself is not {word} {k}."]
+            text,
+            outs,
+            wrong,
+            [f"The numbers {word} {k} on a die are {_set_text(outs)}. {k} itself is not {word} {k}."],
+            range(1, 7),
         )
     top = rng.choice((8, 10, 12))
     if kind == "cards-multiple":
@@ -230,7 +290,9 @@ def _medium_outcomes(rng) -> dict:
             (outs + [outs[-1] + 1 if outs[-1] + 1 <= top else 1], "eyz-adds-a-number-that-does-not-fit"),
             (list(range(1, top + 1)), "eyz-lists-every-outcome"),
         ]
-        return _outcome_question(text, outs, wrong, [f"Count in {m}s up to {top}: {_set_text(outs)}."])
+        return _outcome_question(
+            text, outs, wrong, [f"Count in {m}s up to {top}: {_set_text(outs)}."], range(1, top + 1)
+        )
     k = rng.randint(top - 5, top - 2)
     outs = list(range(k + 1, top + 1))
     text = f"Cards are numbered 1 to {top}. One is picked. List the outcomes that are more than {k}."
@@ -241,7 +303,9 @@ def _medium_outcomes(rng) -> dict:
         (outs[1:], "eyz-misses-an-outcome"),
         (list(range(1, top + 1)), "eyz-lists-every-outcome"),
     ]
-    return _outcome_question(text, outs, wrong, [f"The numbers more than {k} up to {top} are {_set_text(outs)}."])
+    return _outcome_question(
+        text, outs, wrong, [f"The numbers more than {k} up to {top} are {_set_text(outs)}."], range(1, top + 1)
+    )
 
 
 _WORDS = (
@@ -277,7 +341,11 @@ def _hard_outcomes(rng) -> dict:
             (sorted(set(letters[: len(letters) // 2])), "eyz-reads-part-of-the-word"),
         ]
         return _outcome_question(
-            text, outs, wrong, [f"{word} has the letters {_set_text(outs)}. A repeated letter is one outcome."]
+            text,
+            outs,
+            wrong,
+            [f"{word} has the letters {_set_text(outs)}. A repeated letter is one outcome."],
+            "BCDFGHJKLMPQRSTWXZ",
         )
     if kind == "digits":
         n = rng.choice(_NUMBERS)
@@ -291,7 +359,9 @@ def _hard_outcomes(rng) -> dict:
             (outs[1:], "eyz-misses-an-outcome"),
             (list(range(10)), "eyz-lists-every-outcome"),
         ]
-        return _outcome_question(text, outs, wrong, [f"The digits of {n} are {_set_text(outs)}, each listed once."])
+        return _outcome_question(
+            text, outs, wrong, [f"The digits of {n} are {_set_text(outs)}, each listed once."], range(10)
+        )
     out_a, out_b = sorted(rng.sample(range(1, 7), 2))
     outs = [v for v in range(1, 7) if v not in (out_a, out_b)]
     text = f"A die is rolled. List the outcomes that are not {out_a} or {out_b}."
@@ -302,7 +372,9 @@ def _hard_outcomes(rng) -> dict:
         (outs[1:], "eyz-misses-an-outcome"),
         ([1, 2, 3, 4, 5, 6], "eyz-lists-every-outcome"),
     ]
-    return _outcome_question(text, outs, wrong, [f"Take {out_a} and {out_b} away from 1 to 6: {_set_text(outs)}."])
+    return _outcome_question(
+        text, outs, wrong, [f"Take {out_a} and {out_b} away from 1 to 6: {_set_text(outs)}."], range(0, 8)
+    )
 
 
 @generator("eyz_list_outcomes", level=3, presets=_PRESETS)
@@ -367,10 +439,22 @@ def _word_options(event: str, answer: str) -> list[Distractor]:
     return out
 
 
+def _some_words(event: str, word: str) -> list[Distractor]:
+    """Three of the four wrong sentences. With all four the options would be the five chance words every time and the
+    key's place among them would be fixed by its word; leaving one out spreads it."""
+    pool = pick_distractors(
+        sentence(event, word), _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentence"
+    )
+    check(len(pool) == 4, "four wrong sentences")
+    rng = _RNG.get() or random.Random(sentence(event, word))
+    key = {"likelihood": WORDS.index(word)}
+    usable = [({"likelihood": WORDS.index(word_in(d.text))}, False, d) for d in pool]
+    return draw_ranked(usable, key, 3, rng)
+
+
 def _word_question(text: str, event: str, word: str, working: list[str]) -> dict:
     answer = sentence(event, word)
-    chosen = pick_distractors(answer, _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentence")
-    check(len(chosen) == 4, "four wrong sentences")
+    chosen = _some_words(event, word)
     return dict(
         text=text,
         latex=f"plain:{text}",
@@ -515,9 +599,12 @@ def _hard_chance(rng) -> dict:
         text = f"A die is rolled. Which sentence about rolling {what} is true?"
         return _word_question(text, f"rolling {what}", word, [_DIE_WHY[word]])
     # A bag of three colours asked as "red or blue" (two colours together), so the learner adds before judging.
+    word = rng.choice(("unlikely", "even chance", "likely"))  # drawn once: each word needs its own sort of bag
     for _ in attempts(1000, "two colours together with a clear chance"):
-        word = rng.choice(("unlikely", "even chance", "likely"))
-        counts = [rng.randint(2, 6) for _ in range(3)]
+        if word == "unlikely":  # the two asked for are a small share, so the third colour is most of the bag
+            counts = [rng.randint(1, 2), rng.randint(1, 2), rng.randint(5, 9)]
+        else:
+            counts = [rng.randint(2, 6) for _ in range(3)]
         t = sum(counts)
         if not 8 <= t <= 12:
             continue
@@ -558,7 +645,9 @@ def eyz_chance_words_exam(rng, tier="exam"):
         t = rng.randint(6, 12)
         red = rng.randint(1, t - 1)
         word = _word_of(Fraction(t - red, t))
-        if word and word != "certain":
+        # ten of the colour asked about has no other multiple of 10 for company in the options (at most t - 1 = 11),
+        # so such a bag is drawn about half as often as the others and the key is not so often the lone round option
+        if word and word != "certain" and not (t - red == 10 and rng.random() < 0.5):
             break
     blue = t - red
     desc = _bag([(red, colour), (blue, other)])
@@ -574,9 +663,7 @@ def eyz_chance_words_exam(rng, tier="exam"):
             f"{blue} of the {t} counters are not {colour}.",
             f"{blue} out of {t} is {_gloss(word)}, so it is {_PHRASE[word]}.",
         ],
-        distractors=pick_distractors(
-            sentence(event, word), _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentence"
-        ),
+        distractors=_some_words(event, word),
     )
     return dict(
         text=f"{name} has a bag with {desc}. {name} picks one without looking.",

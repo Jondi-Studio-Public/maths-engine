@@ -21,6 +21,7 @@ Each key is built from the chosen zeros or vertex and checked by scanning ``f`` 
 from __future__ import annotations
 
 import math
+import random
 from fractions import Fraction as Frac
 
 import numpy as np
@@ -28,6 +29,7 @@ import sympy as sp
 
 from .. import figures
 from ..core import attempts, check, generator, phrase, rational_text
+from ..grading.inequality import set_text
 from ._gt_quad import (
     curve_points,
     ineq_dist,
@@ -39,7 +41,9 @@ from ._gt_quad import (
     verify_domain,
     vertex_of,
 )
-from ._spread_kit import NEAR, pick, pick_kind, uses_rng
+from ..answers import Distractor
+from ._dg_kit import ranked_text
+from ._spread_kit import _RNG, NEAR, pick, pick_kind, uses_rng
 from ._sr2b_kit import int_dist, number_fields, retry_short, text_dist
 
 ALL = sp.Interval(-sp.oo, sp.oo)
@@ -59,9 +63,77 @@ def _strict(spec) -> sp.Set:
     return sp.Interval.open(r(spec[1]), r(spec[2]))
 
 
+def _moved(s, left: int, right: int):
+    """The set with every finite left end point moved by `left` and every finite right end point by `right`."""
+    pieces = s.args if isinstance(s, sp.Union) else (s,)
+    out = []
+    for p in pieces:
+        if not isinstance(p, sp.Interval):
+            return None
+        a = p.start if p.start == -sp.oo else p.start + left
+        b = p.end if p.end == sp.oo else p.end + right
+        if a >= b:
+            return None
+        out.append(sp.Interval(a, b, p.left_open, p.right_open))
+    return sp.Union(*out)
+
+
+_SHIFTS = (
+    (1, 1), (-1, -1), (2, 2), (-2, -2), (3, 3), (-3, -3), (1, -1), (-1, 1), (2, -2), (-2, 2),
+    (1, 0), (0, 1), (-1, 0), (0, -1), (2, 0), (0, 2), (-2, 0), (0, -2),
+)  # fmt: skip
+
+
+def _neighbours(s, var="x") -> list:
+    """Plain near misses of the key: the same set with its end points out by one or two, or widened or narrowed, and
+    with a bound added or dropped. They are not slips of method, but they give the options other end points and lengths
+    than the slips do, so the key is not always the one in the middle of the end points. Each is checked by reading it
+    back (slow, and only for the three that are used), so nine of the shifts and four of the others are made."""
+    rng = _RNG.get() or random.Random(str(s))
+    out = []
+    moves = list(_SHIFTS)
+    rng.shuffle(moves)
+    for left, right in moves:
+        if len(out) == 9:
+            break
+        moved = _moved(s, left, right)
+        if moved is not None and moved != s and not (var == "y" and moved.inf < 0):  # a root is never negative
+            out.append(moved)
+    pieces = s.args if isinstance(s, sp.Union) else (s,)
+    extra = []
+    for p in pieces:
+        if isinstance(p, sp.Interval) and (p.end == sp.oo) != (p.start == -sp.oo):
+            for k in (2, 3, 5):
+                if p.end == sp.oo:
+                    extra.append(sp.Interval(p.start, p.start + k, p.left_open, False))
+                else:
+                    extra.append(sp.Interval(p.end - k, p.end, False, p.right_open))
+        elif isinstance(p, sp.Interval) and p.start != -sp.oo and p.end != sp.oo:
+            extra += [sp.Interval(p.start, sp.oo, p.left_open, True), sp.Interval(-sp.oo, p.end, True, p.right_open)]
+    if len(pieces) == 2:
+        extra += list(pieces)
+    rng.shuffle(extra)
+    out += [e for e in extra if e != s and not (var == "y" and e.inf < 0)][:4]
+    return out
+
+
+def _pick_domains(text, wrongs, answer_set, var="x"):
+    """Three wrong sets: the slips and the near misses of the key, validated, then drawn so the key's place among them
+    is spread on its end points and its length. A near miss is read back as a set only if it is the one drawn."""
+    near = {}
+    for moved in _neighbours(answer_set, var) if answer_set is not None else []:
+        near[set_text(moved, var)] = moved
+    pool = list(wrongs) + [Distractor(t, NEAR, t) for t in near]
+    chosen = ranked_text(text, pick_kind(text, pool, "inequality", count=len(pool)), "inequality")
+    for d in chosen:
+        if d.text in near:
+            ineq_text(near[d.text], var)  # the grader reads it back as the set it was made from
+    return chosen
+
+
 def _finish(text, answer_set, wrong_sets, var="x"):
     """The answer fields and the picked wrong sets for one inequality question."""
-    options = pick_kind(text, [ineq_dist(s, tag, var) for s, tag in wrong_sets], "inequality")
+    options = _pick_domains(text, [ineq_dist(s, tag, var) for s, tag in wrong_sets], answer_set, var)
     return dict(
         answer_kind="inequality",
         answer=text,
@@ -272,6 +344,7 @@ def _hard_range(rng):
         ys = np.sqrt(np.maximum(f(xs), 0))
         check(abs(ys.max() - s_) < 1e-9 and abs(ys.min()) < 1e-3, "range scan differs from [0, s]")
         text = _range_text(0, s_)
+        key_set = sp.Interval(0, s_)
         wrong = [
             (sp.Interval(0, s_ * s_), "gts-range-of-f-not-root"),
             (sp.Interval(0, sp.oo), "gts-range-forgets-upper-bound"),
@@ -290,6 +363,7 @@ def _hard_range(rng):
         ys = np.sqrt(f(xs))
         check(abs(ys.min() - s_) < 1e-6, "range scan differs from [s, oo)")
         text = _range_text(s_, None)
+        key_set = sp.Interval(s_, sp.oo)
         wrong = [
             (sp.Interval(s_ * s_, sp.oo), "gts-range-of-f-not-root"),
             (sp.Interval(0, sp.oo), "gts-range-starts-at-zero"),
@@ -301,7 +375,7 @@ def _hard_range(rng):
             f"f(x) = ({_shifted(h)})^2 + {s_ * s_}, so the least value of f is {s_ * s_}, and f has no greatest value.",
             f"So sqrt(f(x)) takes every value from sqrt({s_ * s_}) = {s_} upwards: the range is {text}.",
         ]
-    out = _finish(text, None, [(s, t) for s, t in wrong], "y")
+    out = _finish(text, key_set, [(s, t) for s, t in wrong], "y")
     out.update(
         text=phrase(
             rng,
@@ -456,7 +530,7 @@ def gt_sqrt_function_exam(rng, tier="exam"):
                 f"f(x) = {t} - ({_shifted(h)})^2 is not negative between its zeros x = {h - s_} and x = {h + s_}.",
                 f"The domain is {dom}.",
             ],
-            distractors=pick_kind(dom, c_wrong, "inequality"),
+            distractors=_pick_domains(dom, c_wrong, dom_set),
             answer_kind="inequality",
             answer=dom,
             answer_text=dom,

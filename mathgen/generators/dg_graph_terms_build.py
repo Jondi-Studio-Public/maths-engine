@@ -642,8 +642,8 @@ def _set_fields(vs):
 
 
 def _set_dist(answer_items, candidates, universe=()):
-    """Tagged distractors for a set answer. The key's place among the options is drawn on its size and on the letters
-    (read in order), with plain near misses (one letter swapped, added or left out, from `universe`) beside the slips."""
+    """Tagged distractors for a set answer. The key's place among the options is drawn on its size and on how much it
+    shares with the other options, with plain near misses (one letter swapped, added or left out, from `universe`) beside the slips."""
     from ..grading import GRADERS
     from types import SimpleNamespace
 
@@ -667,9 +667,9 @@ def _set_dist(answer_items, candidates, universe=()):
                 continue
             seen.add(text)
             usable.append(
-                ({"size": len(items), "members": tuple(sorted(items))}, named, Distractor(text, tag, sorted(items)))
+                ({"size": len(items), "_items": frozenset(items)}, named, Distractor(text, tag, sorted(items)))
             )
-    return draw_ranked(usable, {"size": len(key), "members": tuple(key)}, 3, rng)
+    return draw_ranked(usable, {"size": len(key), "_items": frozenset(key)}, 3, rng, joint=True)
 
 
 def _p(prompt, fields, marks, working, distractors, **extra):

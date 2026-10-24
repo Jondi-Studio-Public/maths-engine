@@ -58249,6 +58249,12 @@ _ENTRIES = (
         area="graph-transformations",
     ),
     CatalogueEntry(
+        "gt-transformation-left-out",
+        "Leaving one of the transformations out: the equation shows a shift, a reflection or a dilation fewer than the "
+        "graph went through.",
+        area="graph-transformations",
+    ),
+    CatalogueEntry(
         "gt-dilation-factor-inverted",
         "Using the reciprocal of the dilation factor: multiplying x by k for a dilation by a factor of k from the "
         "y-axis (which divides x by k), or the same slip for a dilation from the x-axis.",

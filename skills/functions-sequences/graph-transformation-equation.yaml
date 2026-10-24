@@ -32,6 +32,7 @@ sources:
 misconceptions:
 - {id: gt-dilation-factor-inverted, description: 'Using the reciprocal of the dilation factor: multiplying x by k for a dilation by a factor of k from the y-axis (which divides x by k), or the same slip for a dilation from the x-axis.'}
 - {id: gt-horizontal-shift-sign, description: 'Moving the graph the wrong way along the x-axis: writing f(x + h) for a shift to the right, or f(x - h) for a shift to the left.'}
+- {id: gt-transformation-left-out, description: 'Leaving one of the transformations out: the equation shows a shift, a reflection or a dilation fewer than the graph went through.'}
 - {id: gt-order-swapped, description: 'Applying the transformations in a different order from the one given, so a dilation or reflection acts on a translation it should have come before, or the reverse.'}
 - {id: gt-period-unchanged, description: 'Giving the period of the original trigonometric graph and ignoring the dilation from the y-axis.'}
 - {id: gt-reflection-wrong-axis, description: 'Reflecting in the other axis: replacing x by -x where the graph is reflected in the x-axis, or negating the whole function where it is reflected in the y-axis.'}

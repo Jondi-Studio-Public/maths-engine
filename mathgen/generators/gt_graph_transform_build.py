@@ -27,6 +27,7 @@ from __future__ import annotations
 
 import functools
 import math
+import random
 import re
 from fractions import Fraction as Frac
 
@@ -35,7 +36,8 @@ import sympy
 from .. import figures
 from ..answers import Distractor
 from ..core import VerificationError, attempts, check, generator, latex_answer, phrase
-from ._spread_kit import NEAR, pick as spread_pick, uses_rng
+from ._dg_kit import ranked_text
+from ._spread_kit import _RNG, NEAR, pick as spread_pick, uses_rng
 from ._gt_kit import (
     FAMILIES,
     TooFewDistractors,
@@ -49,6 +51,7 @@ from ._gt_kit import (
     ops_sentence,
     same_function,
     shift_of,
+    typed_function,
     value_at,
     wrong_chains,
 )
@@ -151,9 +154,33 @@ def _draw_chain(rng, fam, tier: str):
 # ---------------------------------------------------------------------------------------------------- distractors
 
 
+_FUNCS: dict = {}  # equation text -> its value at x, for options built from parameters (no text to parse)
+
+
+def _agree(fam, p, q, xs) -> bool:
+    """Whether two parameter sets give the same values at every sample (so the same graph)."""
+    seen = 0
+    for u in xs:
+        try:
+            a, b = value_at(p, fam, u), value_at(q, fam, u)
+        except (ZeroDivisionError, OverflowError, ValueError):
+            continue
+        if not (math.isfinite(a) and math.isfinite(b)) or max(abs(a), abs(b)) > 1e8:  # a pole: no value to compare
+            continue
+        seen += 1
+        if abs(a - b) > 1e-7 * (1 + abs(a)):
+            return False
+    return seen >= 4
+
+
+def _value_function(text: str):
+    return _FUNCS.get(text) or typed_function(text)
+
+
 def _wrong_equations(fam, ops, key: str) -> list[Distractor]:
     """Wrong equations from the common slips, one per slip first, none equal to the key or each other."""
     seen = [key]
+    known = [compose(ops)]  # the parameters of the key and of each option so far
     first, rest = [], []
     used = set()
     chains = wrong_chains(ops)
@@ -168,10 +195,12 @@ def _wrong_equations(fam, ops, key: str) -> list[Distractor]:
         if any(same_function(text, s) for s in seen):
             continue
         seen.append(text)
+        known.append(q)
         (rest if tag in used else first).append(Distractor(text, tag, text))
         used.add(tag)
-    if len(first) + len(rest) < 3:
-        # too few single slips: a second common slip made on top of the first is still a plausible wrong equation
+    if len(first) + len(rest) < 5:
+        # a second common slip made on top of the first is still a plausible wrong equation, and gives the options
+        # lengths and values to choose between, so the key is not the only one of its length or in the middle
         for _, chain in chains:
             for tag, chain2 in wrong_chains(chain):
                 try:
@@ -184,7 +213,69 @@ def _wrong_equations(fam, ops, key: str) -> list[Distractor]:
                 if any(same_function(text, s) for s in seen):
                     continue
                 seen.append(text)
+                known.append(q)
                 rest.append(Distractor(text, tag, text))
+                if len(first) + len(rest) >= 7:
+                    break
+    # one transformation left out: a plain slip, and a shorter equation than the key's
+    for i in range(len(ops)):
+        try:
+            q = compose(ops[:i] + ops[i + 1 :])
+            if not _shift_ok(fam, q):
+                continue
+            text = equation_text(fam, q)
+        except VerificationError:
+            continue
+        if any(same_function(text, s) for s in seen):
+            continue
+        seen.append(text)
+        known.append(q)
+        rest.append(Distractor(text, "gt-transformation-left-out", text))
+    # plain near misses: one amount out (doubled, halved, a unit or two more or less, half as much again). They are not
+    # slips of method, but they give the options other lengths and values than the slips do, so the key is not always
+    # the longest or the one in the middle. They are read from their parameters, with no text to parse.
+    amounts = [
+        (i, op, new)
+        for i, op in enumerate(ops)
+        if op[0] in ("tx", "ty", "dx", "dy")
+        for new in (
+            op[1] * 2,
+            op[1] / 2,
+            op[1] + 1,
+            op[1] - 1,
+            op[1] * 3 / 2,
+            op[1] * 2 / 3,
+            op[1] + 2,
+            op[1] - 2,
+            op[1] * 4,
+            op[1] / 3,
+            op[1] / 4,
+            op[1] + 5,
+            op[1] - 5,
+            op[1] + 8,
+        )
+        if new not in (0, op[1])
+    ]
+    (_RNG.get() or random.Random(key)).shuffle(amounts)
+    xs = [0.37 * i - 2.1 for i in range(12)]
+    near = 0
+    for i, op, new in amounts:
+        if near == 8:
+            break
+        try:
+            q = compose(ops[:i] + [(op[0], new)] + ops[i + 1 :])
+            if not _shift_ok(fam, q):
+                continue
+            text = equation_text(fam, q)
+        except VerificationError:
+            continue
+        if text in seen or any(_agree(fam, q, p, xs) for p in known):
+            continue
+        known.append(q)
+        seen.append(text)
+        _FUNCS[text] = lambda u, q=q: value_at(q, fam, u / math.pi if fam.trig else u)
+        rest.append(Distractor(text, NEAR, text))
+        near += 1
     return first + rest
 
 
@@ -196,10 +287,12 @@ def _near_pairs(rng, ans: Pair) -> list[tuple[str, Frac, Frac]]:
     return out
 
 
-def _need(options: list, minimum: int = 2):
+def _need(options: list, minimum: int = 2, key: str | None = None):
+    """Three of the wrong options. With the key's text (an equation), they are drawn so the key's place among them is
+    spread on its value at two points and its length, not left to the first slips found."""
     if len(options) < minimum:
         raise TooFewDistractors("too few wrong equations")
-    return options[:3]
+    return ranked_text(key, options, "expression", evaluate=_value_function) if key is not None else options[:3]
 
 
 def _steps(fam, ops) -> list[str]:
@@ -249,7 +342,7 @@ def _worded(rng, tier: str):
     key = equation_text(fam, compose(ops))
     check_by_points(fam, ops, key)
     check(functions_match(fam, compose(ops), key, [0.31 * i - 1.7 for i in range(12)]), "key differs from parameters")
-    options = _need(_wrong_equations(fam, ops, key))
+    options = _need(_wrong_equations(fam, ops, key), key=key)
     stem = phrase(
         rng,
         (
@@ -400,7 +493,7 @@ def _hard(rng):
             break
     key = equation_text(fam, p)
     check_by_points(fam, ops, key)
-    options = _need(_wrong_equations(fam, ops, key))
+    options = _need(_wrong_equations(fam, ops, key), key=key)
     # the marked points lie on the key (a third route, from the figure's own labels)
     for pt in fig["points"]:
         x, y = pt["at"]
@@ -559,7 +652,7 @@ def _feature_working(fam, ops, p) -> str:
 
 def _exam_parts(rng, fam, ops, p, key, y_int):
     # (a) the equation
-    a_opts = _need(_wrong_equations(fam, ops, key))
+    a_opts = _need(_wrong_equations(fam, ops, key), key=key)
     part_a = dict(
         prompt="Find the equation of g.",
         answer_kind="expression",
@@ -678,7 +771,9 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
             if c.text not in seen and c.text != d_ans:
                 seen.add(c.text)
                 d_opts.append(c)
-        d_opts = _need(d_opts)
+        # the period is a multiple of pi, from a quarter of one up to eight; the key's place among the options is drawn
+        _need(d_opts)
+        d_opts = spread_pick(d_ans, d_opts, lo=Frac(1, 4), hi=Frac(8))
         part_d = dict(
             prompt="Find the period of g. Give an exact value in radians.",
             answer_kind="expression",
