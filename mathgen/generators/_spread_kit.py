@@ -43,6 +43,8 @@ def check_bounds(lo, hi, unbounded):
         raise TypeError("pass lo= and hi= (the feasible range of the options), or unbounded='reason' with both None")
     if lo is None and hi is None and not unbounded:
         raise TypeError("lo and hi are both None: give the feasible range, or unbounded='reason'")
+    if unbounded and unbounded not in KINDS:
+        raise ValueError(f"unbounded must name a kind of option, one of {KINDS}; got {unbounded!r}")
 
 
 _RNG: contextvars.ContextVar = contextvars.ContextVar("spread_rng", default=None)
@@ -199,6 +201,15 @@ def mixed(key, items, count: int = 3, fillers=(), *, lo=REQUIRED, hi=REQUIRED, u
     else:
         k = rng.randint(kmin, kmax)
     chosen = pool_below[:k] + pool_above[: count - k]
+    # Plain fillers are otherwise used only on a side the named slips cannot fill, so a question that HAS a filler would
+    # be one whose key is at an end. Three times in four a named slip gives its place to a filler on its side.
+    if fill and not any(any(c is f for f in fill) for c in chosen) and rng.random() < 0.75:
+        for side_fill, below_side in rng.sample([(fill_below, True), (fill_above, False)], 2):
+            named = [c for c in chosen if (_value(c) < key) == below_side]
+            spare = [f for f in side_fill if not any(f is c for c in chosen)]
+            if named and spare:
+                chosen[chosen.index(rng.choice(named))] = spare[0]
+                break
     if _round10(key) and not any(_round10(c) for c in chosen) and rng.random() < 0.4:
         # about two times in five a round key keeps company: a round option takes the place of a plain near miss
         spare = [c for c in pool_below + pool_above if _round10(c) and not any(c is x for x in chosen)]
@@ -370,6 +381,113 @@ def pick(
         count,
         **kw,
     )
+
+
+def pick_pairs(
+    ans, slips, *, x_lo, x_hi, y_lo, y_hi, extras=(), near: bool = True, count: int = 3, **kw
+) -> list[Distractor]:
+    """Wrong coordinate pairs for a `Pair` key, drawn so that the key's rank by y AND by x are both random.
+
+    `slips` and `extras` are `(tag, x, y)` named slips; `near` adds plain one- and two-step neighbours of the key as
+    fillers. Only points inside the window `[x_lo, x_hi] x [y_lo, y_hi]` (the points the question can have) are offered.
+    A target y-rank and a target x-rank are drawn at random and the options are chosen to meet them, so no coordinate of
+    the key is always the greatest or the least."""
+    from ._sr2b_kit import Pair
+
+    rng = _RNG.get() or random.Random(ans.text)
+    kx, ky = ans.values
+    labels = ans.labels
+    pool: dict = {}
+
+    def add(tag, x, y, named):
+        x, y = Fraction(x), Fraction(y)
+        if not (x_lo <= x <= x_hi and y_lo <= y <= y_hi):
+            return
+        if abs(x - kx) < Fraction(6, 100) and abs(y - ky) < Fraction(6, 100):
+            return
+        pool.setdefault((x, y), (Pair(labels[0], x, labels[1], y).distractor(tag), named))
+
+    for tag, x, y in (*slips, *extras):
+        add(tag, x, y, True)
+    if near:
+        for dx, dy in (
+            (-2, 0),
+            (-1, 0),
+            (1, 0),
+            (2, 0),
+            (0, -2),
+            (0, -1),
+            (0, 1),
+            (0, 2),
+            (-1, -1),
+            (1, 1),
+            (-1, 1),
+            (1, -1),
+        ):
+            add(NEAR, kx + dx, ky + dy, False)
+    best = draw_points(pool, (kx, ky), count, rng)
+    ordered = [v[0] for _, v in best]
+    rest = [v[0] for xy, v in pool.items() if all(xy != b[0] for b in best)]
+    return _pick(ans.text, ordered + rest, count, **kw)
+
+
+def draw_points(pool: dict, key: tuple, count: int, rng) -> list:
+    """`count` items of `pool` ({(x, y): (payload, named)}) with the key's rank by y AND by x both drawn at random.
+
+    A target number of points below the key in y is drawn first, then the draw is repeated and a rank in x picked among
+    those the pool can give, every one equally likely. Named slips come before plain fillers on their side, mostly.
+    Returns the chosen ``((x, y), (payload, named))`` items."""
+    kx, ky = key
+    below = [(xy, v) for xy, v in pool.items() if xy[1] < ky]
+    above = [(xy, v) for xy, v in pool.items() if xy[1] > ky]
+    level = [(xy, v) for xy, v in pool.items() if xy[1] == ky]
+
+    def draw(group, n):  # named slips come before plain fillers, mostly (a filler can still take a place)
+        keyed = sorted(group, key=lambda g: rng.random() * (0.6 if g[1][1] else 1.0))
+        return keyed[:n]
+
+    draws: dict = {}  # x-rank of the key -> the draws that give it
+    for _ in range(40):
+        lo_b = max(0, count - len(above) - len(level))
+        hi_b = min(count, len(below))
+        if lo_b > hi_b:
+            break
+        r_below = rng.randint(lo_b, hi_b)
+        r_above = rng.randint(max(0, count - r_below - len(level)), min(count - r_below, len(above)))
+        r_level = count - r_below - r_above
+        chosen = draw(below, r_below) + draw(above, r_above) + draw(level, r_level)
+        x_rank = sum(1 for (x, _), _v in chosen if x < kx) + sum(1 for (x, _), _v in chosen if x == kx) / 2
+        draws.setdefault(x_rank, []).append(chosen)
+    # every x-rank the pool can give is equally likely, however many draws land on it
+    return rng.choice(draws[rng.choice(sorted(draws))]) if draws else list(pool.items())[:count]
+
+
+KINDS = ("list", "set", "inequality", "sentence", "expression", "table", "open")
+
+
+def pick_kind(answer_text, candidates, kind: str, count: int = 3, **kw):
+    """`_sr2b_kit.pick` for options that are not numbers on a line: a `kind` of "list", "set", "inequality", "sentence",
+    "expression" or "table". The candidates are shuffled first (named slips before plain ones by tag, if any), so the key
+    is not set against the same three slips every time. "open" is a number with no bound at either end (a domain
+    endpoint, a ratio of sides); it is a reason, not a way out of the rank test, which reads every option."""
+    if kind not in KINDS:
+        raise ValueError(f"kind must be one of {KINDS}, not {kind!r}")
+    rng = _RNG.get() or random.Random(str(answer_text))
+    shuffled = list(candidates)
+    rng.shuffle(shuffled)
+    if kind in ("inequality", "expression"):
+        # such options are read by how long they are: the key's rank in length is drawn (how many options are shorter
+        # than it), not left to the slips, which are mostly longer or mostly shorter than the key
+        klen = len(str(answer_text))
+        size = lambda c: len(getattr(c, "text", str(c)))  # noqa: E731
+        shorter = [c for c in shuffled if size(c) < klen]
+        longer = [c for c in shuffled if size(c) > klen]
+        ranks = [r for r in range(count + 1) if r <= len(shorter) and count - r <= len(longer)]
+        if ranks:
+            r = rng.choice(ranks)
+            first = [*shorter[:r], *longer[: count - r]]
+            shuffled = first + [c for c in shuffled if c not in first]
+    return _choose(answer_text, False, shuffled, count, **kw)
 
 
 def _is_pi(answer_text, candidates) -> bool:

@@ -81,7 +81,7 @@ def _outcome_question(text: str, outcomes: list, wrong: list[tuple[list, str]], 
         unordered=True,
         lo=None,
         hi=None,
-        unbounded="lists of outcomes, not numbers",
+        unbounded="set",
     )
     check(len(picked) >= 3, "an outcomes question needs three wrong lists")
     return dict(
@@ -369,9 +369,7 @@ def _word_options(event: str, answer: str) -> list[Distractor]:
 
 def _word_question(text: str, event: str, word: str, working: list[str]) -> dict:
     answer = sentence(event, word)
-    chosen = pick_distractors(
-        answer, _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentences, not numbers"
-    )
+    chosen = pick_distractors(answer, _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentence")
     check(len(chosen) == 4, "four wrong sentences")
     return dict(
         text=text,
@@ -577,7 +575,7 @@ def eyz_chance_words_exam(rng, tier="exam"):
             f"{blue} out of {t} is {_gloss(word)}, so it is {_PHRASE[word]}.",
         ],
         distractors=pick_distractors(
-            sentence(event, word), _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentences, not numbers"
+            sentence(event, word), _word_options(event, word), n=4, lo=None, hi=None, unbounded="sentence"
         ),
     )
     return dict(

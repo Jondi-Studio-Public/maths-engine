@@ -158,7 +158,7 @@ def _around(size, cc, p, *, limit=None, key=None):
     return out
 
 
-def _options(key, cands, near, *, want=2, nonzero=False):
+def _options(key, cands, near, *, want=3, nonzero=False):
     """Wrong exact values with a random number of them below the key: the named slips first, then plain near misses
     (`near`) on a side that has too few. A part that later parts follow through from offers no 0 (`nonzero`)."""
     key = sympy.sympify(key)
@@ -185,7 +185,7 @@ def _options(key, cands, near, *, want=2, nonzero=False):
                 fillers=fillers,
                 lo=None,
                 hi=None,
-                unbounded="a real or imaginary part is any real number; `near` is capped by the modulus (`limit`)",
+                unbounded="open",
             ),
             minimum=want,
         )
@@ -194,7 +194,7 @@ def _options(key, cands, near, *, want=2, nonzero=False):
     return picked
 
 
-def _scalar(expr, cands, rng, *, want=2, near=()):
+def _scalar(expr, cands, rng, *, want=3, near=()):
     """Answer fields and options for an exact real value."""
     fields = exact_fields(expr)
     picked = _options(expr, [Cand(c, t, const=False) for c, t in cands if c is not None], near, want=want)
@@ -222,7 +222,9 @@ def _easy_convert(rng):
         c, s = _unit(p)
         part_name = rng.choice(("Re", "Im"))
         value = r * (c if part_name == "Re" else s)
-        if value != 0:
+        # a part near the full modulus (r cos 0, r cos pi/6) leaves almost no room on that side for wrong values, which
+        # cannot exceed r: its key would nearly always be the largest or the least option
+        if value != 0 and abs(value) <= Rational(3, 4) * r:
             break
     z = _exp_or_polar(rng, r, p)
     z2 = _exp(r, p)
@@ -450,7 +452,9 @@ def _hard_euler_trig(rng):
         c = rng.choice((1, 2, 3, 4, 5, 6))
         cp, sp = _unit(p)
         value = sympy.nsimplify(2 * c * (cp if kind == "cosine" else sp))
-        if value != 0:
+        # a value at the very end of its range (2c cos pi = -2c) has nothing beyond it to offer on one side: keep the
+        # key at least a quarter of the range from either end, so options below and above it are both possible
+        if value != 0 and abs(float(value)) <= 1.5 * c:
             break
     ang = _angle(p)
     head = "" if c == 1 else f"{c}"

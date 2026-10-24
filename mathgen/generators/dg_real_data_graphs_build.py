@@ -345,17 +345,10 @@ def _text(ctx, key, **kw):
 
 
 def _num_dist(answer, cands, lo=1):
-    # Never offer 0 as a wrong value: it is no reading of any of these graphs and is easy to rule out.
-    return numd(
-        answer,
-        [c for c in cands if c[0] is not None and c[0] != 0],
-        lo=lo,
-        hi=None,
-        # a falling line's rate asked as an amount used is positive; lo=None only lets the skill's own sign slip
-        # ("dg-rd-rate-sign", a negative amount) through, and nothing else is signed
-        unbounded=None if lo is not None else "the rate of a falling line, read with its sign (dg-rd-rate-sign)",
-        nonzero=True,
-    )
+    # Never offer 0 as a wrong value: it is no reading of any of these graphs and is easy to rule out. Nor a negative
+    # one: every quantity asked here (a reading, an amount used or added per unit) is positive, whichever way the line
+    # slopes.
+    return numd(answer, [c for c in cands if c[0] is not None and c[0] != 0], lo=lo, hi=None, nonzero=True)
 
 
 def _wrap(text, fig, ans, working, ds):
@@ -422,7 +415,6 @@ def _rate_q(rng, ctx, g, fig, intercept):
         (Fraction(ctx["gy"] * g["p"]) if Fraction(ctx["gy"] * g["p"]) != r else None, "dg-rd-rate-gridlines"),
         (1 / r if (1 / r).denominator in (1, 2) else None, "dg-rd-rate-inverted"),
         (Fraction(g["ys"][1]), "dg-rd-rate-as-value"),
-        (-r if g["s"] < 0 else None, "dg-rd-rate-sign"),
     ]
     first = f"From the first gridline to the last, the line goes from {g['ys'][0]} to {y_end} over {x1}."
     work = [
@@ -431,7 +423,7 @@ def _rate_q(rng, ctx, g, fig, intercept):
         if ctx["xs"] == 1
         else f"The line changes by {g['step']} for each {ctx['gx']}, so by {numtext(r)} for every {ctx['xs']}.",
     ]
-    return _wrap(text, fig, r, work, _num_dist(r, cands, lo=None if g["s"] < 0 else 1))
+    return _wrap(text, fig, r, work, _num_dist(r, cands))
 
 
 def _fixed_q(rng, ctx, g, fig):

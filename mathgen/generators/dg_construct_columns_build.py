@@ -399,12 +399,14 @@ def dg_construct_columns_chain(rng, tier="exam"):
         k = 4
         cats = [c.capitalize() for c in rng.sample(theme[1], k)]
         cats_l = [c.lower() for c in cats]
-        counts = _heights(rng, k, 2, 9)
-        if not 16 <= sum(counts) <= 28:
+        counts = _heights(rng, k, 2, 11)
+        if not 16 <= sum(counts) <= 32:
             continue
         diff = max(counts) - min(counts)
-        if diff % 2 or not any(c % 2 for c in counts):
-            continue  # the symbols difference is a whole number and some row needs a half symbol
+        if diff % 2 or diff < 8 or not any(c % 2 for c in counts):
+            # the symbols difference is a whole number (at least 4, so three wrong answers fit below it) and some row
+            # needs a half symbol
+            continue
         hs = [Fraction(c, 2) for c in counts]
         data = _list_text(rng, cats_l, counts)
         stem = theme[0].format(data=data)

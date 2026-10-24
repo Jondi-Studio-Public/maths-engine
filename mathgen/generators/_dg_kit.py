@@ -3,17 +3,30 @@ distractors, bar-height replies, and a part builder. Nothing here draws random n
 
 from __future__ import annotations
 
+import random
 from fractions import Fraction
 from types import SimpleNamespace
 
 from ..answers import Distractor
 from ..grading import GRADERS
 from ..grading.interactive import bars_answer, fraction_json
-from ._spread_kit import REQUIRED, check_bounds, mixed, round_extras, round_step
+from ._spread_kit import _RNG, REQUIRED, check_bounds, mixed, round_extras, round_step
 
 NEAR = "dg-near-miss-value"  # the plain near miss that fills a side of the options
 
-__all__ = ["bars_fields", "bars_dist", "bars_text", "numd", "numf", "numtext", "set_fields", "p_number", "p_bars"]
+__all__ = [
+    "balanced",
+    "draw_ranked",
+    "bars_fields",
+    "bars_dist",
+    "bars_text",
+    "numd",
+    "numf",
+    "numtext",
+    "set_fields",
+    "p_number",
+    "p_bars",
+]
 
 
 def numtext(value) -> str:
@@ -117,31 +130,107 @@ def bars_fields(categories, heights, snap=1) -> dict:
     )
 
 
+def balanced(usable, key_feature, n: int, rng) -> list[Distractor]:
+    """`n` of the options in `usable`, a list of ``(feature, named, option)``, with a random number of them below the
+    key's feature (a tuple read left to right): the key's place among the options is drawn, not left to the slips.
+
+    The named slips come first on their side. Plain fillers would then be used only on a side the slips leave short, so a
+    question with a filler would be one whose key sits at an end; three times in four a named slip gives its place to a
+    filler on its side."""
+    below = [(d, named) for f, named, d in usable if f < key_feature]
+    above = [(d, named) for f, named, d in usable if f > key_feature]
+    for side in (below, above):
+        rng.shuffle(side)
+        side.sort(key=lambda item: not item[1])  # named first (a stable sort keeps the shuffle within each kind)
+    ranks = [r for r in range(n + 1) if r <= len(below) and n - r <= len(above)]
+    if not ranks:
+        return [d for _, _, d in usable][:n]
+    r = rng.choice(ranks)
+    chosen = [*below[:r], *above[: n - r]]
+    if rng.random() < 0.75 and all(named for _, named in chosen):
+        for side, taken in rng.sample([(below, below[:r]), (above, above[: n - r])], 2):
+            spare = [item for item in side if not item[1] and item not in taken]
+            if taken and spare:
+                chosen[chosen.index(rng.choice(taken))] = spare[0]
+                break
+    return [d for d, _ in chosen]
+
+
+def draw_ranked(usable, key_features: dict, n: int, rng) -> list[Distractor]:
+    """`n` of `usable`, a list of ``(features, named, option)``, drawn so that the key's rank on EACH feature is random.
+
+    `features` maps a name to a number (a count, a mean row, a mean column). Many draws of `n` options are made, named
+    slips a little more likely than plain fillers; one feature and then one of the ranks (wrong options below the key,
+    ties counting half) the draws reach on it are picked at random, and a draw with that rank is returned. Over many
+    questions every feature's rank is spread, however the slips cluster."""
+    if len(usable) <= n:
+        return [d for _, _, d in usable]
+
+    def rank_of(draw):
+        out = {}
+        for name, key in key_features.items():
+            vals = [f[name] for f, _, _ in draw]
+            out[name] = sum(v < key for v in vals) + sum(v == key for v in vals) / 2
+        return out
+
+    draws = []
+    for _ in range(60):
+        order = sorted(usable, key=lambda u: rng.random() * (0.5 if u[1] else 1.0))
+        draw = order[:n]
+        draws.append((rank_of(draw), draw))
+    varying = [name for name in key_features if len({r[name] for r, _ in draws}) > 1]
+    if not varying:
+        return [d for _, _, d in draws[0][1]]
+    name = rng.choice(varying)
+    target = rng.choice(sorted({r[name] for r, _ in draws}))
+    return [d for _, _, d in rng.choice([dr for r, dr in draws if r[name] == target])]
+
+
 def bars_dist(categories, heights, candidates, snap=1, n: int = 3) -> list[Distractor]:
     """Tagged distractors for a bars answer: ``candidates`` is ``[(wrong heights, tag), ...]``. Kept when the real
-    grader marks the typed text wrong for the answer and right for the heights it stands for."""
+    grader marks the typed text wrong for the answer and right for the heights it stands for.
+
+    The key's place among the options is drawn, not left to the slips: a bar list is read left to right, so a wrong
+    list is below the key where its first differing bar is lower. The usable slips are split into those below and
+    those above the key, plus one-step bumps of a single bar (a plain near miss, which can go either way), and a random
+    number of the `n` options come from below."""
     key = bars_fields(categories, heights, snap)
     probe = SimpleNamespace(answer=key["answer"], answer_text=key["answer_text"], answer_kind="bars", parts=None)
     seen = {key["answer_text"]}
-    out: list[Distractor] = []
-    for wrong, tag in candidates:
-        if wrong is None or any(Fraction(h) < 0 or Fraction(h) > TOP for h in wrong):
-            continue
-        text = bars_text(categories, wrong)
-        if text in seen:
-            continue
-        stands = bars_fields(categories, wrong, snap)
-        if GRADERS["bars"](probe, text).correct:
-            continue
-        if not GRADERS["bars"](
-            SimpleNamespace(answer=stands["answer"], answer_text=text, answer_kind="bars", parts=None), text
-        ).correct:
-            continue
-        seen.add(text)
-        out.append(Distractor(text, tag, stands["answer"]))
-        if len(out) == n:
-            break
-    return out
+    rng = _RNG.get() or random.Random(key["answer_text"])
+    step = Fraction(snap)
+    near = []
+    for i in range(len(heights)):
+        for d in (-1, 1):
+            bumped = [Fraction(h) for h in heights]
+            bumped[i] += d * step
+            near.append((bumped, NEAR))
+    usable = []
+    key_heights = [Fraction(h) for h in heights]
+    for named, group in ((0, candidates), (1, near)):
+        for wrong, tag in group:
+            if wrong is None or any(Fraction(h) < 0 or Fraction(h) > TOP for h in wrong):
+                continue
+            text = bars_text(categories, wrong)
+            if text in seen:
+                continue
+            stands = bars_fields(categories, wrong, snap)
+            if GRADERS["bars"](probe, text).correct:
+                continue
+            if not GRADERS["bars"](
+                SimpleNamespace(answer=stands["answer"], answer_text=text, answer_kind="bars", parts=None), text
+            ).correct:
+                continue
+            seen.add(text)
+            # the named slips come first on their side, the plain bumps fill it
+            usable.append(
+                (
+                    [Fraction(h) for h in wrong],
+                    not named,
+                    Distractor(text, tag, stands["answer"]),
+                )
+            )
+    return balanced(usable, key_heights, n, rng)
 
 
 def set_fields(items) -> dict:

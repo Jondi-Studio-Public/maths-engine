@@ -314,7 +314,7 @@ def dg_construct_dotplot_chain(rng, tier="exam"):
             step=1,
             nonzero=True,  # the median is not the mode, so the difference is not 0
         )
-        if min(len(x) for x in (da, db, dc, dd)) < 2:
+        if min(len(x) for x in (da, db, dc, dd)) < 3:
             continue
         return dict(
             text=f"{stem} The data is shown in a dot plot with one dot for each value.",

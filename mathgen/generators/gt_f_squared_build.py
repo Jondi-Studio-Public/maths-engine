@@ -30,8 +30,8 @@ import numpy as np
 from .. import figures
 from ..core import attempts, check, generator, phrase
 from ._gt_quad import curve_points, para, plane, quad_text, verify_square, vertex_of
-from ._sr2b_kit import Pair, int_dist, number_fields, pair_candidates, retry_short
-from ._spread_kit import pick, uses_rng
+from ._sr2b_kit import Pair, int_dist, number_fields, retry_short
+from ._spread_kit import pick, pick_pairs, uses_rng
 
 # --------------------------------------------------------------------------------------------------------- shared
 
@@ -53,6 +53,7 @@ def _vertex_wrongs(h, k, m):
         ("gtf-turning-point-unsquared", h, k),
         ("gtf-square-keeps-sign", h, -k * k),
         ("gtf-absolute-value-for-square", h, abs(k)),
+        ("gtf-doubles-instead-of-squares", h, 2 * abs(k)),
     ]
     if m:
         out.append(("gtf-turning-point-at-zero", h - m, 0))
@@ -89,7 +90,9 @@ def _easy(rng):
         ("gtf-turning-point-at-y-intercept", 0, f0 * f0),
         ("gtf-invariant-point-as-turning-point", r + 1 / m, 1),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
+    wrong.append(("gtf-square-keeps-sign", 0, -f0 * f0))  # the y-intercept squared, with its sign kept
+    reach = max(f0 * f0, 4)
+    options = pick_pairs(ans, wrong, x_lo=-8, x_hi=8, y_lo=-reach - 2, y_hi=reach + 4)
     stem = phrase(
         rng,
         (
@@ -137,12 +140,13 @@ def _medium(rng):
     fig = plane(f, "f", "the graph of the parabola y = f(x) on a coordinate grid, one unit per grid square")
     verify_square(f, _square_points(h, m, k))
     ans = _pair(h, k * k)
-    options = pick(
-        ans.text,
-        pair_candidates(ans, _vertex_wrongs(h, k, m)),
-        lo=None,
-        hi=None,
-        unbounded="coordinate pairs, read by slot",
+    options = pick_pairs(
+        ans,
+        _vertex_wrongs(h, k, m),
+        x_lo=-8,
+        x_hi=8,
+        y_lo=-k * k - 2,
+        y_hi=2 * k * k + 2,
     )
     if roots:
         stem = phrase(
@@ -191,12 +195,13 @@ def _hard_max(rng):
     f = para(1, h, k)
     verify_square(f, _square_points(h, m, k))
     ans = _pair(h, k * k)
-    options = pick(
-        ans.text,
-        pair_candidates(ans, _vertex_wrongs(h, k, m)),
-        lo=None,
-        hi=None,
-        unbounded="coordinate pairs, read by slot",
+    options = pick_pairs(
+        ans,
+        _vertex_wrongs(h, k, m),
+        x_lo=-2,
+        x_hi=14,
+        y_lo=-k * k - 2,
+        y_hi=2 * k * k + 2,
     )
     stem = phrase(
         rng,
@@ -254,7 +259,7 @@ def _hard_meet(rng):
         ("gtf-forgets-to-divide-by-gradient", r + 1, 1),
         ("gtf-gives-the-zero", x1, 0),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
+    options = pick_pairs(ans, wrong, x_lo=-12, x_hi=12, y_lo=-4, y_hi=6)
     stem = phrase(
         rng,
         (
@@ -377,10 +382,13 @@ def gt_f_squared_exam(rng, tier="exam"):
     # the axis at h -/+ sqrt(n), the local maximum is at h
     root = math.sqrt(n)
     turning = (h - root, h, h + root)
-    for _ in attempts(200, "an interval whose ends are not turning points"):
-        left = h + rng.randint(-int(root) - 3, 1)
+    want = rng.choice((0, 1, 2, 3))  # the count asked for is drawn first, so 1 and 2 do not crowd out 0 and 3
+    for _ in attempts(2000, "an interval whose ends are not turning points and that holds the wanted count"):
+        left = h + rng.randint(-int(root) - 5, 2)
         right = left + rng.randint(1, int(2 * root) + 5)
-        if all(abs(left - t) > 1e-6 and abs(right - t) > 1e-6 for t in turning):
+        if all(abs(left - t) > 1e-6 and abs(right - t) > 1e-6 for t in turning) and (
+            sum(1 for t in turning if left < t < right) == want
+        ):
             break
     inside = [t for t in turning if left < t < right]
     c_count = len(inside)
@@ -443,7 +451,7 @@ def gt_f_squared_exam(rng, tier="exam"):
                 a_wrong,
                 lo=None,
                 hi=None,
-                unbounded="the least value of a quadratic can have either sign",
+                unbounded="open",
             ),
             **a_fields,
         ),

@@ -21,6 +21,7 @@ alone, and degrees are also checked against the handshake sum.
 
 from __future__ import annotations
 
+import random
 import re
 from collections import Counter
 
@@ -29,7 +30,8 @@ from ..core import attempts, check, generator, phrase
 from .. import figures
 from ._network_fig import graph_figure
 from ._snet_kit import degrees, int_distractors, neighbours, norm
-from ._spread_kit import mixed, round_extras, uses_rng
+from ._dg_kit import NEAR, draw_ranked
+from ._spread_kit import _RNG, mixed, round_extras, uses_rng
 from ._w9_graph_kit import TooFewDistractors, enough, retry_draw
 
 LETTERS = "ABCDEFGHIJ"
@@ -159,9 +161,9 @@ def _connected(rng, n, m):
 
 
 def _in_pieces(rng, n):
-    """A simple graph on ``n`` vertices in two to four pieces (one may be a lone vertex), and its component sizes."""
-    k = rng.choice((2, 3, 4))
-    for _ in attempts(1000, "a graph in two to four pieces"):
+    """A simple graph on ``n`` vertices in three to six pieces (some may be lone vertices), and its component sizes."""
+    k = rng.choice((3, 4, 5, 6))  # three or more pieces: the key (the pieces, or one fewer) has room below it
+    for _ in attempts(1000, "a graph in three to six pieces"):
         cuts = sorted(rng.sample(range(1, n), k - 1))
         sizes = [b - a for a, b in zip([0, *cuts], [*cuts, n])]
         if sorted(sizes)[-1] >= 3:
@@ -264,13 +266,18 @@ _MAXDEG = (
 
 
 def _easy(rng):
-    for _ in attempts(300, "an easy graph-terms network"):
-        n = rng.randint(5, 7)
-        edges = _connected(rng, n, rng.randint(n, n + 3))
+    # where the greatest degree falls between 2 and n - 1 is drawn once, so the key is not always 3 or 4; so is the shape
+    where = rng.random()
+    shape = rng.choice(("adjacent", "nonadjacent", "edges", "maxdeg"))
+    for tries in attempts(1200, "an easy graph-terms network"):
+        n = rng.randint(6, 8)  # a degree is at most n - 1: a bigger network leaves room for wrong answers on both sides
+        edges = _connected(rng, n, rng.randint(n + 1, n + 5))
         deg = _checked_degrees(n, edges)
-        shape = rng.choice(("adjacent", "nonadjacent", "edges", "maxdeg"))
-        x = rng.choice([v for v in range(n) if 1 <= deg[v] <= n - 2])
-        d = deg[x]
+        if shape == "maxdeg" and tries < 800 and max(deg) != 3 + int(where * 3):
+            continue  # the greatest degree asked for: 3, 4 or 5 (a network of 6 or more edges has no vertex of 2 at most)
+        # a degree is drawn first, then a vertex that has it: the key is not always the commonest degree
+        d = rng.choice(sorted({deg[v] for v in range(n) if 1 <= deg[v] <= n - 2}))
+        x = rng.choice([v for v in range(n) if deg[v] == d])
         try:
             fig = _draw(n, edges)
         except TooFewDistractors:
@@ -367,7 +374,7 @@ def _medium(rng):
     for _ in attempts(400, "a medium graph-terms network"):
         shape = rng.choice(("components", "connect", "subvertices", "subedges"))
         if shape in ("components", "connect"):
-            n = rng.randint(6, 8)
+            n = rng.randint(8, 9)
             edges = _in_pieces(rng, n)
             comps = components(n, edges)
             c = len(comps)
@@ -634,29 +641,35 @@ def _set_fields(vs):
     return dict(answer_kind="set", answer=items, answer_text=text, answer_latex="plain:" + text)
 
 
-def _set_dist(answer_items, candidates):
+def _set_dist(answer_items, candidates, universe=()):
+    """Tagged distractors for a set answer. The key's place among the options is drawn on its size and on the letters
+    (read in order), with plain near misses (one letter swapped, added or left out, from `universe`) beside the slips."""
     from ..grading import GRADERS
     from types import SimpleNamespace
 
-    probe = SimpleNamespace(
-        answer=sorted(answer_items),
-        answer_text="{" + ", ".join(sorted(answer_items)) + "}",
-        answer_kind="set",
-        parts=None,
-    )
+    rng = _RNG.get() or random.Random(str(sorted(answer_items)))
+    key = sorted(answer_items)
+    probe = SimpleNamespace(answer=key, answer_text="{" + ", ".join(key) + "}", answer_kind="set", parts=None)
     seen = {probe.answer_text}
-    out = []
-    for items, tag in candidates:
-        if not items:
-            continue
-        text = "{" + ", ".join(sorted(items)) + "}"
-        if text in seen:
-            continue
-        if GRADERS["set"](probe, text).correct:
-            continue
-        seen.add(text)
-        out.append(Distractor(text, tag, sorted(items)))
-    return out[:3]
+    others = [u for u in universe if u not in key]
+    near = [sorted({*key, o}) for o in others] + [sorted({*key} - {k}) for k in key]
+    near += [sorted({*key} - {k} | {o}) for k in key for o in others]
+    rng.shuffle(near)
+    usable = []
+    for named, group in ((True, candidates), (False, [(items, NEAR) for items in near[:10]])):
+        for items, tag in group:
+            if not items:
+                continue
+            text = "{" + ", ".join(sorted(items)) + "}"
+            if text in seen:
+                continue
+            if GRADERS["set"](probe, text).correct:
+                continue
+            seen.add(text)
+            usable.append(
+                ({"size": len(items), "members": tuple(sorted(items))}, named, Distractor(text, tag, sorted(items)))
+            )
+    return draw_ranked(usable, {"size": len(key), "members": tuple(key)}, 3, rng)
 
 
 def _p(prompt, fields, marks, working, distractors, **extra):
@@ -672,8 +685,8 @@ def _num(answer):
 
 
 def _chain_drawn(rng):
-    for _ in attempts(400, "a drawn graph-terms chain"):
-        n = rng.randint(6, 8)
+    for _ in attempts(2000, "a drawn graph-terms chain"):
+        n = rng.randint(7, 9)
         edges = _connected(rng, n, rng.randint(n - 1, n + 2))
         deg = _checked_degrees(n, edges)
         middling = [v for v in range(n) if 2 <= deg[v] <= 5]
@@ -689,10 +702,10 @@ def _chain_drawn(rng):
         idx = {v: i for i, v in enumerate(left)}
         comps = components(n - 1, [(idx[u], idx[v]) for u, v in rest])
         c = len(comps)
-        if not (2 <= c <= 4) or len(rest) < 3:
+        if not (2 <= c <= 5) or len(rest) < 3:
             continue
-        if c == 2 and rng.random() < 0.55:
-            continue  # two pieces is the usual outcome: keep three and four in step with it
+        if c == 2 and rng.random() < 0.8:
+            continue  # two pieces is the usual outcome: keep the larger counts in step with it, so the key has room below
         try:
             fig = _draw(n, edges)
         except TooFewDistractors:
@@ -722,6 +735,7 @@ def _chain_drawn(rng):
                 (sa[:-1], "dg-gt-edges-miscount"),
                 ([L[v] for v in left], "dg-gt-adjacent-all-others"),
             ],
+            universe=[L[v] for v in left],
         )
         dc = _ints(
             m,

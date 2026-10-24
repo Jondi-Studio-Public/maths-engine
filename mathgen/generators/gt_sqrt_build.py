@@ -39,7 +39,7 @@ from ._gt_quad import (
     verify_domain,
     vertex_of,
 )
-from ._spread_kit import NEAR, pick, uses_rng
+from ._spread_kit import NEAR, pick, pick_kind, uses_rng
 from ._sr2b_kit import int_dist, number_fields, retry_short, text_dist
 
 ALL = sp.Interval(-sp.oo, sp.oo)
@@ -61,13 +61,7 @@ def _strict(spec) -> sp.Set:
 
 def _finish(text, answer_set, wrong_sets, var="x"):
     """The answer fields and the picked wrong sets for one inequality question."""
-    options = pick(
-        text,
-        [ineq_dist(s, tag, var) for s, tag in wrong_sets],
-        lo=None,
-        hi=None,
-        unbounded="inequalities, read by slot",
-    )
+    options = pick_kind(text, [ineq_dist(s, tag, var) for s, tag in wrong_sets], "inequality")
     return dict(
         answer_kind="inequality",
         answer=text,
@@ -168,6 +162,9 @@ def _domain_wrongs(a, h, m, k):
         (_strict(spec), "gtf-domain-excludes-zeros"),
         (ALL, "gtf-domain-all-reals"),
         (interval_set(("outside", -high, -low)) if a > 0 else interval_set(("between", -high, -low)), "gtf-zero-sign"),
+        (_strict(other), "gtf-domain-wrong-side"),  # the wrong side, with the zeros left out as well
+        (interval_set(("ge", h)), "gts-domain-from-vertex"),  # shorter than the key
+        (interval_set(("le", h)), "gts-domain-from-vertex"),
     ]
 
 
@@ -235,6 +232,10 @@ def _hard_domain(rng):
         (_strict(spec), "gtf-domain-excludes-zeros"),
         (ALL, "gtf-domain-all-reals"),
         (interval_set(("outside", -q, -p) if a > 0 else ("between", -q, -p)), "gtf-zero-sign"),
+        (_strict(other), "gtf-domain-wrong-side"),  # the wrong side, with the zeros left out as well
+        # the vertex's x as the one end point: a shorter answer than the key, so the key is not always the longest
+        (interval_set(("ge", Frac(p + q, 2))), "gts-domain-from-vertex"),
+        (interval_set(("le", Frac(p + q, 2))), "gts-domain-from-vertex"),
     ]
     out = _finish(text, s, wrong)
     where = "outside the zeros" if a > 0 else "between the zeros"
@@ -455,7 +456,7 @@ def gt_sqrt_function_exam(rng, tier="exam"):
                 f"f(x) = {t} - ({_shifted(h)})^2 is not negative between its zeros x = {h - s_} and x = {h + s_}.",
                 f"The domain is {dom}.",
             ],
-            distractors=pick(dom, c_wrong, lo=None, hi=None, unbounded="inequalities, read by slot"),
+            distractors=pick_kind(dom, c_wrong, "inequality"),
             answer_kind="inequality",
             answer=dom,
             answer_text=dom,

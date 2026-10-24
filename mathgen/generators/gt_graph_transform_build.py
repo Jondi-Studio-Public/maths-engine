@@ -609,7 +609,7 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
             b_opts,
             lo=None,
             hi=None,
-            unbounded="an asymptote or intercept of g can sit at any integer",
+            unbounded="open",
         )
     )
     part_b = dict(
@@ -648,9 +648,7 @@ def _exam_parts(rng, fam, ops, p, key, y_int):
             v = y0 + Frac(k, y0.denominator)
             if v != 0 and rational_text(v) not in seen:
                 c_opts.append(Distractor(rational_text(v), NEAR, _frac_value(v)))
-    c_opts = spread_pick(
-        rational_text(y0), c_opts, lo=None, hi=None, unbounded="the y-intercept of g can be any rational number"
-    )
+    c_opts = spread_pick(rational_text(y0), c_opts, lo=None, hi=None, unbounded="open")
     part_c = dict(
         prompt="Find the y-intercept of the graph of g.",
         answer_kind="fraction",

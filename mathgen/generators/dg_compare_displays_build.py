@@ -212,7 +212,7 @@ def _nonneg(answer, cands):
         return numd(answer, cands, lo=1, hi=None)  # a positive count or gap: neither 0 nor negative
     if answer == 0:
         return numd(answer, cands, lo=0, hi=None)
-    return numd(answer, cands, lo=None, hi=None, unbounded="a signed difference of two readings")
+    return numd(answer, cands, lo=None, hi=None, unbounded="open")
 
 
 # ---------------------------------------------------------------------------------------------- easy

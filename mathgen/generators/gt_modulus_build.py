@@ -31,8 +31,8 @@ import sympy as sp
 from ..answers import Distractor
 from ..core import attempts, check, generator, phrase
 from ._gt_quad import quad_text, scan_turning_points
-from ._sr2b_kit import Pair, int_dist, number_fields, pair_candidates, retry_short
-from ._spread_kit import pick, uses_rng
+from ._sr2b_kit import Pair, int_dist, number_fields, retry_short
+from ._spread_kit import pick, pick_kind, pick_pairs, uses_rng
 
 X = sp.Symbol("x")
 
@@ -83,7 +83,7 @@ def _easy_max(rng):
         ("gtm-y-intercept-as-turning-point", 0, abs(p * q)),
         ("gtm-negates-both-coordinates", -h, -m * m),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
+    options = pick_pairs(ans, wrong, **_window(ans, wrong))
     stem = phrase(
         rng,
         (
@@ -102,6 +102,13 @@ def _easy_max(rng):
         ],
         **ans.fields(),
     )
+
+
+def _window(ans, wrong, margin: int = 2) -> dict:
+    """The points a learner could name for this question: the key and the slips, and `margin` units beyond them."""
+    xs = [ans.values[0], *(x for _, x, _ in wrong)]
+    ys = [ans.values[1], *(y for _, _, y in wrong)]
+    return dict(x_lo=min(xs) - margin, x_hi=max(xs) + margin, y_lo=min(ys) - margin, y_hi=max(ys) + margin)
 
 
 def _sg(n: int) -> str:
@@ -124,7 +131,7 @@ def _easy_intercept(rng):
         ("gtm-gives-an-x-intercept", q, 0),
         ("gtm-gives-an-x-intercept", p, 0),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
+    options = pick_pairs(ans, wrong, **_window(ans, wrong))
     stem = phrase(
         rng,
         (
@@ -162,7 +169,7 @@ def _medium_min(rng):
         ("gtm-y-intercept-as-turning-point", 0, p * q),
         ("gtm-uses-a-zero-as-the-minimum", p, 0),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
+    options = pick_pairs(ans, wrong, **_window(ans, wrong))
     stem = phrase(
         rng,
         (
@@ -202,7 +209,7 @@ def _medium_intercept(rng):
         ("gtm-y-intercept-as-turning-point", 0, p * q),
         ("gtm-confuses-absolute-forms", p + q, 0),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
+    options = pick_pairs(ans, wrong, **_window(ans, wrong))
     stem = phrase(
         rng,
         (
@@ -242,7 +249,7 @@ def _hard(rng):
         ("gtm-negates-x-instead-of-y", -h, top),
         ("gtm-y-intercept-as-turning-point", 0, abs(C)),
     ]
-    options = pick(ans.text, pair_candidates(ans, wrong), lo=None, hi=None, unbounded="coordinate pairs, read by slot")
+    options = pick_pairs(ans, wrong, **_window(ans, wrong))
     where = (
         "opens upward, so its vertex is below the axis and is reflected"
         if a > 0
@@ -340,6 +347,11 @@ def gt_modulus_exam(rng, tier="exam"):
         _list_dist([-q, -p], "gtm-keeps-only-the-mirror-image"),
         _list_dist([-p, p], "gtm-uses-one-zero"),
         _list_dist([p, q, p + q], "gtm-sum-of-zeros-as-vertex"),
+        _list_dist([-q, -p, p, p + q], "gtm-sum-of-zeros-as-vertex"),
+        _list_dist([-q, p, q], "gtm-misses-the-mirror-image"),
+        _list_dist([-p - q, -p, p, p + q], "gtm-sum-of-zeros-as-vertex"),
+        _list_dist([-q, -p, p, q, p + q], "gtm-sum-of-zeros-as-vertex"),
+        _list_dist([-p - q, -q, -p, p, q], "gtm-sum-of-zeros-as-vertex"),
     ]
     b_fields = number_fields(Frac(-peak), 0)
     b_wrong = [
@@ -381,7 +393,7 @@ def gt_modulus_exam(rng, tier="exam"):
                 f"f(x) = (x - {p})(x - {q}), so f(|x|) = 0 when |x| = {p} or |x| = {q}.",
                 f"Each of these has two values of x: {a_text}.",
             ],
-            distractors=pick(a_text, a_wrong, lo=None, hi=None, unbounded="lists of intercepts, read by slot"),
+            distractors=pick_kind(a_text, a_wrong, "list"),
             answer_kind="list",
             answer=key_a,
             answer_text=a_text,
@@ -397,7 +409,7 @@ def gt_modulus_exam(rng, tier="exam"):
                 b_wrong,
                 lo=None,
                 hi=None,
-                unbounded="the least value of a quadratic can have either sign",
+                unbounded="open",
             ),
             **b_fields,
         ),

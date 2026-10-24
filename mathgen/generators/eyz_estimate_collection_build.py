@@ -161,8 +161,8 @@ def _two_sides(rng, *, difference: bool) -> tuple[int, int]:
         if difference:  # the difference is at least 30, so a wrong ten sits on either side of it
             a_ans = 10 * rng.randint(4, 5)
             b_ans = 10 * rng.randint(1, a_ans // 10 - 3)
-        else:  # sides of 20 or more, so a wrong ten below the side is a real option (10 is the lowest)
-            a_ans, b_ans = 10 * rng.randint(2, 5), 10 * rng.randint(2, 5)
+        else:  # any side from 10 to 50, so the key is as likely to be the lowest or the highest ten as to be between
+            a_ans, b_ans = 10 * rng.randint(1, 5), 10 * rng.randint(1, 5)  # any ten from 10 to 50
         a, b = (
             _near(a_ans, rng, top=_MOST * _WALL_X * _SIDE_H // 100),
             _near(b_ans, rng, top=_MOST * _WALL_X * _SIDE_H // 100),
@@ -280,7 +280,7 @@ def eyz_estimate_collection_exam(rng, tier="exam"):
                     ]
                 ),
                 lo=10,
-                hi=_round10(_MOST * _SIDE_H * _WALL_X // 100),  # a side holds at most this many
+                hi=50,  # the sides are 10 to 50: the key is as likely to be the highest ten as the lowest
                 step=10,
                 working=[f"There are {a} on the left, about {ra} to the nearest 10."],
             ),
@@ -299,7 +299,7 @@ def eyz_estimate_collection_exam(rng, tier="exam"):
                     ]
                 ),
                 lo=10,
-                hi=_round10(_MOST * _SIDE_H * _WALL_X // 100),
+                hi=50,
                 step=10,
                 working=[f"There are {b} on the right, about {rb} to the nearest 10."],
             ),

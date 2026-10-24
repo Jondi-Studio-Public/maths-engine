@@ -38,7 +38,7 @@ from sympy.parsing.sympy_parser import (
 from mathgen import make
 from mathgen.core import REGISTRY
 
-SEEDS = 400
+SEEDS = 600
 MIN_GROUP = 30  # a question kind needs this many samples before its rank shares mean anything
 CAP = {4: 0.40, 3: 0.55}  # the largest share one rank may have, by number of options (key and wrong ones)
 
@@ -53,8 +53,6 @@ TIERS = ("easy", "medium", "hard", "exam")
 
 # (topic, tier, part, kind) -> why the key cannot be spread. Nothing is exempt: a redesign gives the key room instead
 # (the turning-point count of a parabola squared asks about an interval now, so 0 to 3 are all live answers).
-INHERENT: dict = {}
-
 # (topic, tier, part) -> (fewest, most) a count option can be and still be possible for what the part asks.
 FEASIBLE = {
     ("gt_f_squared_exam", "exam", "p2"): (0, 3),  # turning points of a parabola squared
@@ -94,28 +92,101 @@ def _number(text):
         return None
 
 
-def _rank(answer, options):
-    """How many wrong options are below the key in value, and every option's value (None where it has none).
+_LIKELIHOOD = (("impossible", 0), ("unlikely", 1), ("an even chance", 2), ("likely", 3), ("certain", 4))
+_INF = 1e9
 
-    Options that do not evaluate (a table, a pair of coordinates, an expression in x) have no magnitude to rank by;
-    for those `rank` is None and only the displayed slot (`_slot`) is checked."""
+
+def _frac(text):
+    try:
+        return float(Fraction(text.strip()))
+    except (ValueError, ZeroDivisionError):
+        return _number(text)
+
+
+def _hull(text):
+    """(least, greatest) of the real values an inequality (or `all real numbers`) allows, infinities as +-1e9."""
+    low = text.strip()
+    if low == "all real numbers":
+        return -_INF, _INF
+    if low == "no solution":
+        return _INF, -_INF  # the empty set: nothing is allowed
+    if " or " in low:
+        return -_INF, _INF
+    m = re.fullmatch(r"(-?[\d./]+) (≤|<) [xy] (≤|<) (-?[\d./]+)", low)
+    if m:
+        return _frac(m.group(1)), _frac(m.group(4))
+    m = re.fullmatch(r"[xy] (≤|<|≥|>) (-?[\d./]+)", low)
+    if m:
+        v = _frac(m.group(2))
+        return (-_INF, v) if m.group(1) in "≤<" else (v, _INF)
+    return None
+
+
+_STRICT = {"length"}
+
+
+def features(text) -> dict | None:
+    """What an option stands for as numbers, so that the key's place among the options can be ranked for ANY answer kind.
+
+    A number is its value; a coordinate pair is its y and its x; grid squares are their count and their summed column and
+    row; a set, a list, a bar chart and a stem plot are their sizes and totals; a chance sentence is its likelihood
+    word; an inequality is its least and greatest allowed value; an expression in x is its value at two points. None
+    means the option is none of these and the question must be given a kind here (a gap in this test is a failure)."""
+    text = str(text).strip()
+    if (v := _number(text)) is not None:
+        return {"value": v}
+    if m := re.fullmatch(r"x = (\S+), y = (\S+)", text):
+        x, y = _frac(m.group(1)), _frac(m.group(2))
+        return {"y": y, "x": x} if x is not None and y is not None else None
+    if cells := re.findall(r"\((-?\d+), (-?\d+)\)", text):
+        if re.fullmatch(r"(\(-?\d+, -?\d+\) ?)+", text):
+            cols, rows = [int(c) for c, _ in cells], [int(r) for _, r in cells]
+            # how many squares, and where they are: the mean row and the mean column, each ranked on its own
+            return {
+                "count": float(len(cells)),
+                "row": sum(rows) / len(rows),
+                "column": sum(cols) / len(cols),
+            }
+    if m := re.fullmatch(r"\{(.*)\}", text):
+        items = sorted(i.strip() for i in m.group(1).split(","))
+        return {"size": float(len(items)), "members": tuple(items)}
+    if "Leaf =" in text:
+        rows = tuple(tuple(int(d) for d in part.split("=")[1].split()) for part in text.split(", "))
+        return {"rows": rows}
+    if re.fullmatch(r"[^,=]+ = -?[\d./]+(, [^,=]+ = -?[\d./]+)*", text):
+        return {"bars": tuple(_frac(part.split(" = ")[1]) for part in text.split(", "))}
+    for word, score in _LIKELIHOOD:
+        if re.search(rf"\b{word}\b", text):
+            return {"likelihood": float(score)}
+    if hull := _hull(text):  # an inequality: how long it is
+        return {"length": float(len(text))}
+    if re.fullmatch(r"-?[\d./]+(, -?[\d./]+)+", text):
+        nums = [_frac(i) for i in text.split(", ")]
+        return {"size": float(len(nums)), "greatest": max(nums), "least": min(nums)}
+    if re.search(r"\bx\b", text):  # an expression in x: how long it is
+        return {"length": float(len(text))}
+    return None
+
+
+def ranks(answer, options):
+    """{feature: key rank} for one question, and the option texts that stand for nothing.
+
+    The rank is the number of wrong options below the key, plus half of those equal to it. A feature the options do not
+    all have, or on which they all agree (the x of three coordinates in one column), says nothing and is left out."""
     texts = [str(answer), *(getattr(o, "text", str(o)) for o in options)]
-    nums = [_number(t) for t in texts]
-    if any(n is None for n in nums):
-        return None, nums
-    return sum(n < nums[0] for n in nums[1:]), nums
-
-
-def _slot(seed, answer, options) -> int:
-    """Where the key lands in the option list the presenter shows (`mathgen.core.mcq_options` shuffles by the seed)."""
-    shown = [str(answer), *(getattr(o, "text", str(o)) for o in options)]
-    random.Random(seed).shuffle(shown)
-    return shown.index(str(answer))
-
-
-# Slips that are, by the skill's own definition, a value the stem rules out (a negative amount for an amount used): the
-# misconception IS the impossible reading, and the skill teaches against it.
-SIGN_SLIPS = {"dg-rd-rate-sign"}
+    feats = [features(t) for t in texts]
+    if any(f is None for f in feats):
+        return {}, [t for t, f in zip(texts, feats) if f is None]
+    out = {}
+    for name in set.intersection(*(set(f) for f in feats)):
+        vals = [round(f[name], 9) if isinstance(f[name], float) else f[name] for f in feats]
+        if len(set(vals)) == 1:
+            continue
+        key = vals[0]
+        if name in _STRICT and key in vals[1:]:
+            continue  # the key is as long as another option: its length singles nothing out
+        out[name] = sum(v < key for v in vals[1:]) + sum(v == key for v in vals[1:]) / 2
+    return out, []
 
 
 def impossible(text: str, answer: str, nums: list) -> list:
@@ -157,12 +228,12 @@ def _limit(n_options: int, n: int, sigmas: float = 3.5) -> float:
 
 
 def survey(topic: str, tier: str, seeds=range(SEEDS)):
-    """Per (part, kind) and per part: Counter of ranks (and option counts), plus every problem found on the way."""
+    """Per (part, kind, feature) and per (part, feature): Counter of key ranks, plus every problem found on the way."""
     kinds: dict = defaultdict(Counter)
     parts: dict = defaultdict(Counter)
-    samples: dict = defaultdict(list)  # (part, kind, options) -> [(key value, wrong values)] for whole-number groups
-    slots: dict = defaultdict(Counter)
     problems: list[str] = []
+    unranked: Counter = Counter()
+    seen: Counter = Counter()
     for seed in seeds:
         q = make(topic, seed=seed, difficulty=tier)
         for label, answer, options, text in _units(q):
@@ -172,12 +243,11 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
                 continue
             if str(answer) in shown:
                 problems.append(f"{topic} {tier} {label} seed {seed}: an option repeats the key {answer}")
-            rank, nums = _rank(answer, options)
+            nums = [_number(t) for t in [answer, *shown]]
             if all(n is not None for n in nums):
                 if "nearest 10" in text and (topic, tier, label) not in NOT_TENS and any(v % 10 for v in nums):
                     problems.append(f"{topic} {tier} {label} seed {seed}: not a multiple of 10: {answer} {shown}")
-                allowed = [nums[0]] + [n for n, t in zip(nums[1:], _tags(q, options)) if t not in SIGN_SLIPS]
-                if bad := impossible(text, str(answer), allowed):
+                if bad := impossible(text, str(answer), nums):
                     problems.append(
                         f"{topic} {tier} {label} seed {seed}: impossible option {bad} for {answer}: {text[:60]}"
                     )
@@ -186,67 +256,48 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
                     bad = [v for v in nums if (lo is not None and v < lo) or (hi is not None and v > hi)]
                     if bad:
                         problems.append(f"{topic} {tier} {label} seed {seed}: impossible option {bad} for {answer}")
-            slots[(label, len(shown) + 1)][_slot(q.seed, answer, options)] += 1
-            if rank is None:
-                continue
-            kinds[(label, _kind(text), len(shown) + 1)][rank] += 1
-            parts[(label, "", len(shown) + 1)][rank] += 1
-            if all(n is not None and n == int(n) for n in nums):
-                samples[(label, _kind(text), len(shown) + 1)].append((nums[0], nums[1:]))
-                samples[(label, "", len(shown) + 1)].append((nums[0], nums[1:]))
-    return kinds, parts, samples, slots, problems
-
-
-def forced_share(topic: str, tier: str, label: str, group: list, wrong: int) -> float:
-    """The smallest largest-rank-share any option sets could reach for these keys.
-
-    A whole-number key that is the least value the question ever shows has nothing to be above, so it is the smallest
-    option whatever is drawn; one a step from the least has at most one option below. Each seed can reach only the
-    ranks its key leaves room for (`wrong` options, `key - least` steps below it, `most - key` above); the answer is the
-    best split of the seeds over those ranks, by Hall's condition on runs of ranks."""
-    values = [v for key, opts in group for v in (key, *opts)]
-    lo, hi = min(values), max(values)
-    if (bounds := FEASIBLE.get((topic, tier, label))) is not None:
-        lo = bounds[0] if bounds[0] is not None else lo
-        hi = bounds[1] if bounds[1] is not None else hi
-    step = functools.reduce(math.gcd, [int(abs(v - lo)) for v in values if v != lo], 0) or 1
-    reach = []
-    for key, _ in group:
-        below, above = int((key - lo) // step), int((hi - key) // step)
-        reach.append((max(0, wrong - above), min(wrong, below)))
-    worst = 0.0
-    for x in range(wrong + 1):
-        for y in range(x, wrong + 1):
-            inside = sum(1 for a, b in reach if x <= a and b <= y)
-            worst = max(worst, inside / (len(reach) * (y - x + 1)))
-    return worst
+            found, nothing = ranks(answer, options)
+            seen[label] += 1
+            if nothing:
+                unranked[label] += 1
+                if unranked[label] <= 2:
+                    problems.append(f"{topic} {tier} {label} seed {seed}: options with no rank to check: {nothing[:2]}")
+            # plain near misses fill the side of the key that the named slips leave short, so a question that HAS such
+            # fillers can put the key at one end every time (sc_complex_euler: +1/2, +1 and 6 beside a key of 3 sqrt 2)
+            filled = any(tag and tag.endswith("near-miss-value") for tag in _tags(q, options))
+            for name, rank in found.items():
+                kinds[(label, _kind(text), len(shown) + 1, name)][rank] += 1
+                parts[(label, "", len(shown) + 1, name)][rank] += 1
+                if filled:
+                    kinds[(label, _kind(text) + " +fillers", len(shown) + 1, name)][rank] += 1
+                    parts[(label, " +fillers", len(shown) + 1, name)][rank] += 1
+    for label, count in unranked.items():
+        if count > seen[label] // 10:
+            problems.append(
+                f"{topic} {tier} {label}: {count} of {seen[label]} questions have options no rank can be read from"
+            )
+    return kinds, parts, problems
 
 
 def lopsided(topic: str, tier: str, seeds=range(SEEDS)) -> tuple[list[str], list[str]]:
-    kinds, parts, samples, slots, problems = survey(topic, tier, seeds)
+    kinds, parts, problems = survey(topic, tier, seeds)
     found = []
-    for (label, n_options), where in slots.items():
-        total = sum(where.values())
-        if total >= MIN_GROUP and n_options in CAP and max(where.values()) / total > _limit(n_options, total):
-            found.append(f"{tier} {label} the key sits in one slot of the shown list {dict(sorted(where.items()))}")
+    rare: dict = defaultdict(Counter)  # groups too small to judge alone are judged together, never skipped
     for table in (kinds, parts):
-        for (label, kind, n_options), ranks in table.items():
-            total = sum(ranks.values())
-            if total < MIN_GROUP or n_options not in CAP:
+        for (label, kind, n_options, name), ranks_ in table.items():
+            total = sum(ranks_.values())
+            if n_options not in CAP:
                 continue
-            if (topic, tier, label, kind) in INHERENT or (topic, tier, label, "") in INHERENT:
+            if total < MIN_GROUP:
+                rare[(label, n_options, name)].update(ranks_)
                 continue
-            share = max(ranks.values()) / total
-            limit = _limit(n_options, total, 3.5 if not kind else 4.0)
-            note = ""
-            if (
-                len(samples.get((label, kind, n_options), ())) == total
-            ):  # whole-number options: allow what the keys force
-                forced = forced_share(topic, tier, label, samples[(label, kind, n_options)], n_options - 1)
-                limit = max(limit, forced + 0.15)
-                note = f" (keys force {forced:.2f})"
-            if share > limit:
-                found.append(f"{tier} {label} [{kind or 'whole part'}] {dict(sorted(ranks.items()))}{note}")
+            share = max(ranks_.values()) / total
+            if share > _limit(n_options, total, 3.5 if not kind.strip() else 4.5):
+                found.append(f"{tier} {label} [{kind.strip() or 'whole part'} / {name}] {dict(sorted(ranks_.items()))}")
+    for (label, n_options, name), ranks_ in rare.items():
+        total = sum(ranks_.values())
+        if total >= MIN_GROUP and max(ranks_.values()) / total > _limit(n_options, total):
+            found.append(f"{tier} {label} [small groups together / {name}] {dict(sorted(ranks_.items()))}")
     return found, problems
 
 
@@ -382,7 +433,7 @@ def test_every_call_that_offers_options_must_state_how_far_they_may_reach():
         with pytest.raises(TypeError):
             call()
     assert kit.mixed(5, [(3, "x")], lo=0, hi=None)  # one open end is a statement
-    assert kit.mixed(5, [(3, "x")], lo=None, hi=None, unbounded="any real value")  # so is a reason
+    assert kit.mixed(5, [(3, "x")], lo=None, hi=None, unbounded="open")  # so is a reason (one of the kinds)
 
 
 def test_a_value_outside_the_bounds_is_dropped_not_offered():
@@ -438,3 +489,110 @@ def test_part_a_of_the_symmetry_chain_and_the_estimate_chain_stay_inside_their_f
         q = make("eyz_estimate_collection_exam", seed=seed, difficulty="exam")
         for part in q.parts[:2]:
             assert all(_number(x) <= 66 for x in (part.answer_text, *part.distractors)), (seed, part.label)
+
+
+# ------------------------------------------------------------------- non-scalar answers: coordinates, lists, sets, bars
+
+
+def _y_and_x_ranks(topic, tier, seeds=range(400)):
+    """{(y rank, x rank): n} for every coordinate-pair part of a topic, ties counted half."""
+    out = Counter()
+    for seed in seeds:
+        for _label, answer, options, _text in _units(make(topic, seed=seed, difficulty=tier)):
+            shown = [getattr(o, "text", str(o)) for o in options or []]
+            feats = [features(t) for t in (answer, *shown)]
+            if not all(f and "y" in f for f in feats):
+                continue
+            key = feats[0]
+            for name in ("y", "x"):
+                below = sum(f[name] < key[name] for f in feats[1:]) + sum(f[name] == key[name] for f in feats[1:]) / 2
+                out[(name, below)] += 1
+    return out
+
+
+@pytest.mark.parametrize(
+    ("topic", "tier"),
+    [("gt_f_squared", "medium"), ("gt_f_squared", "hard"), ("gt_modulus", "hard"), ("gt_modulus", "medium")],
+)
+def test_the_key_coordinate_is_not_always_the_highest_or_the_lowest_option(topic, tier):
+    """Measured on 37bc137: the correct coordinate of gt_f_squared medium had the greatest y on 3000 of 3000 seeds, and
+    that of gt_modulus hard sat second from the top on 92%. Each coordinate is ranked on its own: y, then x."""
+    ranks = _y_and_x_ranks(topic, tier)
+    for name in ("y", "x"):
+        mine = {r: n for (k, r), n in ranks.items() if k == name}
+        total = sum(mine.values())
+        assert total >= 100, (topic, tier, name, mine)
+        assert max(mine.values()) / total <= 0.5, (topic, tier, name, mine)
+        assert len(mine) >= 3, (topic, tier, name, mine)
+
+
+def test_pick_pairs_draws_the_rank_of_the_key_in_y_and_in_x():
+
+    from mathgen.generators import _spread_kit as kit
+    from mathgen.generators._sr2b_kit import Pair
+
+    seen = {"y": Counter(), "x": Counter()}
+    for seed in range(300):
+        token = kit._RNG.set(random.Random(seed))
+        try:
+            key = Pair("x", Fraction(3), "y", Fraction(4))
+            slips = [("gtf-reflected", -3, 4), ("gtf-swapped", 4, 3), ("gtf-doubled", 3, 8), ("gtf-negated", 3, -4)]
+            options = kit.pick_pairs(key, slips, x_lo=-8, x_hi=8, y_lo=-8, y_hi=8)
+        finally:
+            kit._RNG.reset(token)
+        feats = [features(o.text) for o in options]
+        assert len(feats) == 3 and all(feats), options
+        seen["y"][sum(f["y"] < 4 for f in feats) + sum(f["y"] == 4 for f in feats) / 2] += 1
+        seen["x"][sum(f["x"] < 3 for f in feats) + sum(f["x"] == 3 for f in feats) / 2] += 1
+    for name, counts in seen.items():
+        assert len(counts) >= 4 and max(counts.values()) <= 0.4 * 300, (name, counts)
+
+
+def test_a_free_text_opt_out_of_the_bound_check_is_refused():
+    """`unbounded=` takes one of KINDS (the shape of the answer, so the rank test knows how to read it), never a sentence:
+    the old free-text "coordinate pairs ..." let 15 call sites out of the test."""
+    from mathgen.generators import _spread_kit as kit
+
+    assert "coordinate" not in "".join(kit.KINDS) and "list" in kit.KINDS and "set" in kit.KINDS
+    with pytest.raises(ValueError):
+        kit.check_bounds(None, None, "coordinate pairs have no one-dimensional bound")
+    with pytest.raises(ValueError):
+        kit.pick_kind("[1, 2]", [], "coordinates")
+    kit.check_bounds(None, None, "open")  # a scalar with an open range is still a stated reason
+
+
+def test_no_generator_leaves_the_rank_test_with_a_free_text_unbounded_reason():
+    """Every `unbounded=` in the generators is one of the kinds (no coordinate pair or list among them)."""
+    from mathgen.generators import _spread_kit as kit
+
+    root = Path(__file__).resolve().parents[1] / "mathgen" / "generators"
+    bad = []
+    for path in root.glob("*.py"):
+        for m in re.finditer(r"unbounded\s*=\s*([\"'])(.*?)\1", path.read_text(encoding="utf-8")):
+            if m.group(2) not in kit.KINDS and path.name not in {"_spread_kit.py"}:
+                bad.append((path.name, m.group(2)))
+    assert not bad, bad[:5]
+
+
+def test_the_negative_rate_of_change_is_no_longer_offered_as_an_option():
+    """dg_real_data_graphs medium offered "-12 litres per 100 km" on 76 seeds; a rate of consumption is not negative,
+    so the option was a giveaway and the rank test exempted its tag."""
+    for tier in ("easy", "medium", "hard"):
+        for seed in range(300):
+            q = make("dg_real_data_graphs", seed=seed, difficulty=tier)
+            assert "dg-rd-rate-sign" not in set(q.option_notes.values()), (tier, seed)
+            assert all(not str(getattr(o, "text", o)).startswith("-") for o in q.distractors), (tier, seed)
+
+
+def test_bars_stem_and_cell_options_are_drawn_on_both_sides_of_the_key():
+    """Bars, stem plots, shaded squares and vertex sets are ranked from their content (lexicographic bars and rows, the
+    mean row and column of shaded squares, the size and letters of a set): none has a rank in more than half of them."""
+    for topic, tier in (
+        ("dg_construct_columns", "medium"),
+        ("dg_construct_dotplot", "easy"),
+        ("dg_construct_stem", "medium"),
+        ("dg_grid_map", "hard"),
+        ("dg_graph_terms_chain", "exam"),
+    ):
+        found, problems = lopsided(topic, tier)
+        assert not found and not problems, (topic, tier, found, problems[:2])

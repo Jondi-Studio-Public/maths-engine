@@ -404,7 +404,9 @@ def _fan(rng, tier: str) -> tuple[dict, int, bool]:
     spokes = list(range(30, top + 1, 30)) if top == 180 else list(range(30, 360, 30))
     options = [a for a in range(lo, hi + 1, 10) if a not in labelled and a not in (0, top) and not _leaks(a, labelled)]
     if tier == "easy":
-        options = [a for a in options if a % 30 in (10, 20)]
+        # an angle under 70 has at most one wrong estimate below it that the labels do not give away, so the key would
+        # nearly always be the smallest option
+        options = [a for a in options if a % 30 in (10, 20) and a >= 70]
     alpha = rng.choice(options)
     base = rng.choice(range(0, 360, 15))
     draw = _Drawing()

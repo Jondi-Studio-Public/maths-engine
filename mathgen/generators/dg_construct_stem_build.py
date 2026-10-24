@@ -19,16 +19,17 @@ is re-derived with `statistics`.
 
 from __future__ import annotations
 
+import random
 import statistics
 from fractions import Fraction
 from types import SimpleNamespace
 
 from ..answers import Distractor, same_value
 from ..core import attempts, check, generator
-from ._spread_kit import uses_rng
+from ._spread_kit import _RNG, uses_rng
 from ..grading import GRADERS
 from ..grading.typed import table_answer_text
-from ._dg_kit import numd, numtext, p_number
+from ._dg_kit import NEAR, balanced, numd, numtext, p_number
 
 AREA = "construct-stem-and-leaf-plots"
 
@@ -111,32 +112,52 @@ def _probe(answer, text):
     return SimpleNamespace(answer=answer, answer_text=text, answer_kind="table", parts=None)
 
 
+def _near_edits(rows):
+    """A leaf read one out (kept in order within its row): a plain near miss that can fall either side of the key."""
+    out = []
+    for s, row in rows.items():
+        for i, leaf in enumerate(row):
+            for d in (-1, 1):
+                if 0 <= leaf + d <= 9:
+                    out.append(({**rows, s: sorted([*row[:i], leaf + d, *row[i + 1 :]])}, NEAR))
+    return out
+
+
 def _dists(rows, edits, n=3):
     """Tagged distractors from ``[(modified rows, tag), ...]``: kept when the real grader rejects the typed text for the
-    answer and accepts it for the rows it stands for."""
+    answer and accepts it for the rows it stands for. The key's place among the options is drawn: the rows are read in
+    order, so a wrong plot is below the key where its first differing row is lower (or a prefix of it)."""
+    rng = _RNG.get() or random.Random(str(sorted(rows)))
+    near = _near_edits(rows)
+    rng.shuffle(near)
     answer = _table(rows)
     text = table_answer_text(answer)
     key = _probe(answer, text)
     check(GRADERS["table"](key, text).correct, "the table grader rejects its own canonical answer")
     seen = {text}
-    out = []
-    for cand, tag in edits:
-        if cand is None or any(not v for v in cand.values()):
-            continue
-        a2 = _table(cand)
-        t2 = table_answer_text(a2)
-        if (
-            t2 in seen
-            or same_value(a2, answer, "table")
-            or GRADERS["table"](key, t2).correct
-            or not GRADERS["table"](_probe(a2, t2), t2).correct
-        ):
-            continue
-        seen.add(t2)
-        out.append(Distractor(t2, tag, a2))
-        if len(out) == n:
-            break
-    return out
+    usable = []
+    for named, group in ((0, edits), (1, near[:12])):
+        for cand, tag in group:
+            if cand is None or any(not v for v in cand.values()):
+                continue
+            a2 = _table(cand)
+            t2 = table_answer_text(a2)
+            if (
+                t2 in seen
+                or same_value(a2, answer, "table")
+                or GRADERS["table"](key, t2).correct
+                or not GRADERS["table"](_probe(a2, t2), t2).correct
+            ):
+                continue
+            seen.add(t2)
+            usable.append(
+                (
+                    tuple(tuple(v) for v in cand.values()),
+                    not named,
+                    Distractor(t2, tag, a2),
+                )
+            )
+    return balanced(usable, tuple(tuple(v) for v in rows.values()), n, rng)
 
 
 def _edits(rng, rows):
@@ -237,21 +258,10 @@ def _question(rng, values, mode, theme, tail):
     )
     answer = _table(rows)
     edits = _edits(rng, rows)
-    ds = _dists(rows, edits)
-    if mode == "tens" and ds:
-        # the whole value written as the leaf in one row replaces the last distractor
+    if mode == "tens":  # the whole value written as the leaf in one row
         s_ = rng.choice(list(rows))
-        blanks = dict(answer["blanks"])
-        blanks[f"{list(rows).index(s_)},1"] = " ".join(f"{s_}{x}" for x in rows[s_])
-        wrong = {**answer, "blanks": blanks}
-        wrong_text = table_answer_text(wrong)
-        key = _probe(answer, table_answer_text(answer))
-        if (
-            not same_value(wrong, answer, "table")
-            and not GRADERS["table"](key, wrong_text).correct
-            and GRADERS["table"](_probe(wrong, wrong_text), wrong_text).correct
-        ):
-            ds = ds[:2] + [Distractor(wrong_text, "dg-sl-whole-value-as-leaf", wrong)]
+        edits.append(({**rows, s_: [int(f"{s_}{x}") for x in rows[s_]]}, "dg-sl-whole-value-as-leaf"))
+    ds = _dists(rows, edits)
     return rows, answer, text, ds
 
 

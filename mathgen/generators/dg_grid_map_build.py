@@ -20,14 +20,15 @@ move or reference in the question.
 
 from __future__ import annotations
 
+import random
 import re
 
 from .. import figures
 from ..core import attempts, check, generator
-from ._spread_kit import uses_rng
+from ._spread_kit import _RNG, uses_rng
 from ..figure_kinds import grid
 from ..grading.grid import cell_text, cells_answer
-from ._dg_kit import numd, p_number
+from ._dg_kit import NEAR, draw_ranked, numd, p_number
 from ._w9_graph_kit import dist
 
 AREA = "place-features-on-a-grid-map"
@@ -164,17 +165,53 @@ def _inside(cell, w, h):
     return 0 <= cell[0] < w and 0 <= cell[1] < h
 
 
+def _features(cells):
+    """What a shading stands for, as the rank test reads it: how many squares, and the mean row and mean column."""
+    cells = list(cells)
+    return {
+        "count": len(cells),
+        "row": sum(r for _, r in cells) / len(cells),
+        "column": sum(c for c, _ in cells) / len(cells),
+    }
+
+
+def _fillers(key, w, h):
+    """Plain near misses of a shading: the whole shading moved a square, or one square more or fewer."""
+    out = []
+    reach = (1, 2) if len(key) == 1 else (1,)
+    for step in reach:
+        for dx, dy in ((step, 0), (-step, 0), (0, step), (0, -step)):
+            out.append({(c + dx, r + dy) for c, r in key})
+    if len(key) == 1:
+        c, r = next(iter(key))
+        out += [{(c + dx, r + dy)} for dx, dy in ((1, 1), (-1, -1), (1, -1), (-1, 1))]
+    else:
+        edge = {(c + dx, r + dy) for c, r in key for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1))} - key
+        out += [key | {e} for e in sorted(edge)]
+        out += [key - {m} for m in sorted(key)] if len(key) > 2 else []
+    return [f for f in out if f and f != key and all(_inside(c, w, h) for c in f)]
+
+
 def _cells_part(cells, w, h, wrong):
-    """``(answer fields, distractors)`` for a grid_cells answer from ``wrong = [(set of cells, tag), ...]``."""
+    """``(answer fields, distractors)`` for a grid_cells answer from ``wrong = [(set of cells, tag), ...]``.
+
+    The key's place among the options is drawn on each of its three features: how many squares, how far up and how far
+    across (the mean row and mean column), whichever way the named slips happen to lie."""
+    rng = _RNG.get() or random.Random(str(sorted(cells)))
     key = {tuple(c) for c in cells}
     ans = cells_answer(sorted(key), (w, h))
     text = cell_text(key)
-    cands = []
-    for got, tag in wrong:
-        got = {tuple(c) for c in got}
-        if got and got != key and all(_inside(c, w, h) for c in got):
-            cands.append((cell_text(got), cells_answer(sorted(got), (w, h)), tag))
-    ds = dist("grid_cells", ans, text, cands, n=3)
+    usable, seen = [], set()
+    for named, group in ((True, wrong), (False, [(f, NEAR) for f in _fillers(key, w, h)])):
+        for got, tag in group:
+            got = {tuple(c) for c in got}
+            if not got or got == key or not all(_inside(c, w, h) for c in got) or frozenset(got) in seen:
+                continue
+            kept = dist("grid_cells", ans, text, [(cell_text(got), cells_answer(sorted(got), (w, h)), tag)], n=1)
+            if kept:
+                seen.add(frozenset(got))
+                usable.append((_features(got), named, kept[0]))
+    ds = draw_ranked(usable, _features(key), 3, rng)
     return dict(answer=ans, answer_text=text, answer_latex="plain:" + text), ds
 
 
@@ -385,18 +422,16 @@ def dg_grid_map_chain(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(600, "a grid-map chain"):
-        w, h = _size(rng)
+        w, h = rng.choice((7, 8)), rng.choice((7, 8))  # room above a gap of up to five squares for wrong counts
         cells = _landmarks(rng, w, h, 4)
         items = list(cells.items())
         (xc, xr), x = items[0]
         (yc, yr), y = items[1]
         (zc, zr), z = items[2]
         dx, dy = yc - xc, yr - xr
-        if dx == 0 or dy == 0 or abs(dx) > 5 or abs(dy) > 5:
-            continue
-        if (abs(dx) == 1 or abs(dy) == 1) and rng.random() < 0.8:
-            continue  # a gap of one square leaves nothing below it to offer
-        ref_c, ref_r = rng.randrange(w), rng.randrange(h)
+        if not (3 <= abs(dx) <= 5 and 3 <= abs(dy) <= 5):
+            continue  # a gap of one or two squares leaves too little below it for the wrong counts to fall on both sides
+        ref_c, ref_r = rng.randrange(1, w - 1), rng.randrange(1, h - 1)  # not on the map's edge: both sides are open
         if (ref_c, ref_r) in cells:
             continue
         mx, my = rng.choice((-2, -1, 1, 2)), rng.choice((-2, -1, 1, 2))
@@ -438,7 +473,7 @@ def dg_grid_map_chain(rng, tier="exam"):
                 (ax + ay, "dg-gm-count-reference-difference"),
             ],
             lo=min(ax, 1),  # a count of squares moved: 0 is no answer here
-            hi=w - 1,
+            hi=w,
             step=1,
         )
         dc = numd(
@@ -450,7 +485,7 @@ def dg_grid_map_chain(rng, tier="exam"):
                 (ax + ay, "dg-gm-count-reference-difference"),
             ],
             lo=min(ay, 1),
-            hi=h - 1,
+            hi=h,
             step=1,
         )
         walk = ax + ay

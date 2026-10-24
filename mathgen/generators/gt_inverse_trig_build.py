@@ -141,6 +141,8 @@ def _easy(rng):
                 (base, "gti-arcsin-arccos-swapped"),
             ]
         fname = kind
+    # a half-turn or a whole turn either way: an angle outside the range with the right trig value, on each side of the key
+    wrong += [(value + d, "gti-angle-outside-range") for d in (1, -1, 2, -2)]
     cands = [_dist(v, t) for v, t in wrong if v != value]
     ans = _pt(value)
     argtext = _typed(sign, arg)
@@ -162,9 +164,9 @@ def _easy(rng):
         distractors=pick(
             ans,
             cands,
-            lo=0 if kind == "arccos" else -Frac(5, 12),
-            hi=1 if kind == "arccos" else Frac(5, 12),
-            slip_range=(-1, 2) if kind == "arccos" else (-2, 2),
+            lo=0 if kind == "arccos" else -Frac(1, 2) if kind == "arcsin" else -Frac(5, 12),  # arcsin reaches +-pi/2
+            hi=1 if kind == "arccos" else Frac(1, 2) if kind == "arcsin" else Frac(5, 12),
+            slip_range=(-2, 3) if kind == "arccos" else (-3, 3),
         ),
         working=[
             f"{fname}(u) is the angle between {lo} and {hi} (inclusive) whose {'sine' if kind == 'arcsin' else 'cosine' if kind == 'arccos' else 'tangent'} is u.",
@@ -230,7 +232,7 @@ def _medium_greatest(rng):
     span = "-π/2 to π/2" if kind == "arcsin" else "0 to π"
     return dict(
         text=stem,
-        distractors=pick(ans, cands, lo=c - abs(a), hi=c + abs(a), slip_range=(-abs(a) - 2, abs(a) + 2)),
+        distractors=pick(ans, cands, lo=c - abs(a), hi=c + 2 * abs(a), slip_range=(-abs(a) - 2, abs(a) + 2)),
         working=[
             f"{kind} takes values from {span}, so {_lead(a, kind, _x_text(b))} has greatest value {_stem_pi(abs(a) * half)}.",
             f"Adding the shift gives the greatest value {_stem_pi(top)}.",
@@ -312,9 +314,7 @@ def _medium_domain(rng):
     ]  # a slip of one or two steps of 1/b either way
     return dict(
         text=stem,
-        distractors=pick(
-            ans, cands, fillers=near, lo=None, hi=None, unbounded="an endpoint of a domain can be any rational number"
-        ),
+        distractors=pick(ans, cands, fillers=near, lo=None, hi=None, unbounded="open"),
         working=[
             "arcsin(u) is defined only for -1 ≤ u ≤ 1.",
             f"So -1 ≤ {b}x {'+' if d > 0 else '-'} {abs(d)} ≤ 1, which gives {rational_text(Frac(-1 - d, b))} ≤ x ≤ {ans}.",
@@ -471,7 +471,7 @@ def _hard_ratio(rng):
             fillers=_near_fracs(value, q),
             lo=None,
             hi=None,
-            unbounded="a ratio of sides can be any rational number (tan is unbounded)",
+            unbounded="open",
         ),
         working=[why, f"So {stem_fn} = {ans}."],
         **_frac_fields(value),
@@ -644,7 +644,7 @@ def gt_inverse_trig_exam(rng, tier="exam"):
                 a_wrong,
                 lo=None,
                 hi=None,
-                unbounded="a domain endpoint can be any rational number",
+                unbounded="open",
             ),
         ),
         dict(
@@ -658,7 +658,7 @@ def gt_inverse_trig_exam(rng, tier="exam"):
                 _pt(greatest),
                 [d for d in b_wrong if d.text != _pt(greatest)],
                 lo=c - abs(a),
-                hi=c + abs(a),
+                hi=c + 2 * abs(a),  # arccos reaches |a| above the shift: leave room above it too
                 slip_range=(-abs(a) - 2, abs(a) + 2),
             ),
             **_expr_fields(greatest),

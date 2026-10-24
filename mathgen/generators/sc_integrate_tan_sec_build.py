@@ -22,7 +22,7 @@ answer in terms of tan x``), because the grader compares expressions, not answer
 from __future__ import annotations
 
 import re
-from sympy import Rational, lambdify, log, pi, sec, sqrt, sympify, tan
+from sympy import Add, Rational, lambdify, log, pi, sec, sqrt, sympify, tan
 
 from ..core import check, generator, latex_from_inline
 from ._spread_kit import NEAR, mixed, uses_rng
@@ -90,14 +90,58 @@ def _itg(value, *pieces) -> Itg:
     return Itg(value, text="".join(t for t, _ in pieces), latex="".join(m for _, m in pieces))
 
 
+def _by_length(key, cands, rng, count=3):
+    """`pick_expr`, with the key's rank in length (options shorter and longer than the key's text) random: a key that
+    is the longest, or the shortest, of its options gives it away."""
+    klen = len(expr_text(key, True))
+    live = [c for c in cands if c is not None and c.expr is not None and sympify(c.expr).free_symbols]  # no bare 0 + C
+    rng.shuffle(live)
+    shorter = [c for c in live if len(expr_text(c.expr, c.const)) < klen]
+    longer = [c for c in live if len(expr_text(c.expr, c.const)) > klen]
+    level = [c for c in live if len(expr_text(c.expr, c.const)) == klen]
+    if level and (len(shorter) < 2 or rng.random() < 0.5):
+        # an option as long as the key: its length singles nothing out (a short key like sec(x) + C has none shorter)
+        ranks = [r for r in range(count) if r <= len(shorter) and count - 1 - r <= len(longer)]
+        if ranks:
+            r = rng.choice(ranks)
+            ordered = [level[0], *shorter[:r], *longer[: count - 1 - r]]
+            ordered += [c for c in live if c not in ordered]
+            return pick_expr(key, True, ordered)
+    ranks = [r for r in range(count + 1) if r <= len(shorter) and count - r <= len(longer)]
+    r = rng.choice(ranks) if ranks else 0
+    ordered = [*shorter[:r], *longer[: count - r]] if ranks else []
+    # a pick can fail (a duplicate of the key or of an earlier one): the rest follow, nearest in length first
+    ordered += [c for c in live if c not in ordered]
+    return pick_expr(key, True, ordered)
+
+
 def _indef(rng, f: Itg, F, cands, working, note=""):
     check_antiderivative(F, f.value)
+    terms = Add.make_args(sympify(F))
+    x = next(iter(sympify(F).free_symbols), None)
+    cands = list(cands)
+    if len(terms) > 1:  # slips with one term doubled, halved or dropped
+        cands += [Cand(F - t + m * t, NEAR) for t in terms for m in (2, Rational(1, 2), 0)]
+    # shorter slips: a term without its denominator, or with the power of tan or sec left at one
+    for t in terms:
+        flat = t.replace(
+            lambda e: e.is_Pow and e.exp.is_Integer and e.exp > 1 and e.base.func in (tan, sec), lambda e: e.base
+        )
+        bare = flat.as_numer_denom()[0]
+        # the argument of tan or sec without its coefficient (the inner derivative ignored)
+        plain = (
+            t.replace(lambda e: e.func in (tan, sec) and e.args[0] != x, lambda e: e.func(x)) if x is not None else t
+        )
+        cands += [Cand(F - t + new, NEAR) for new in (t.as_numer_denom()[0], flat, bare, plain)]
+    if x is not None:  # a stray term makes a longer slip, so the key is not always the shortest
+        cands += [Cand(F + e, NEAR) for e in (x, -x)]
+        cands += [Cand(F * m, NEAR) for m in (Rational(3, 2), Rational(1, 2), Rational(1, 3))]  # the whole key scaled
     text, latex = say(rng, _FIND, {"I": integral_text(f)}, {"I": integral_math(f)}, suffix=note)
     return dict(
         text=text,
         working=[_tidy(w) for w in working],
         latex=latex,
-        distractors=pick_expr(F, True, cands, rng=rng),
+        distractors=_by_length(F, cands, rng),
         **key_fields(F),
     )
 

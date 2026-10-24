@@ -206,11 +206,11 @@ _ALT = "everyday solids in a row"
 
 def _solid_easy(rng) -> dict:
     name = rng.choice(tuple(FACTS))
-    options = ["flat faces", "curved surfaces"]
+    # (curved surfaces are asked of several solids at once, in the medium tier: one solid has 0 or 1, and a count of 0 or 1
+    # has nothing, or one value, below it)
+    options = ["flat faces"]
     if FACTS[name][2] is not None:
         options += ["edges", "corners"]
-        if rng.random() < 0.6:
-            options.remove("curved surfaces")  # 0 or 1 curved surface: almost nothing below the key to offer
     feature = rng.choice(options)
     if feature == "flat faces" and name not in _POLY and rng.random() < 0.6:
         name = rng.choice(
@@ -235,8 +235,46 @@ def _solid_easy(rng) -> dict:
     return _fact_question(text, answer, _feature_wrongs(name, feature), working, fig, [name])
 
 
+def _curved_group(rng) -> dict:
+    """The curved surfaces of three solids, none to all three of them round. There are at most three, so the options are
+    the other counts from 0 to 3 and the key's place among them is the number of round solids it is drawn from."""
+    n = 3
+    n_round = rng.randint(0, n)
+    shapes = [rng.choice(("cylinder", "cone", "sphere")) for _ in range(n_round)]
+    shapes += [rng.choice(_POLY) for _ in range(n - n_round)]
+    rng.shuffle(shapes)
+    answer = sum(FACTS[s][1] for s in shapes)
+    flat_of_round = sum(FACTS[s][0] for s in shapes if FACTS[s][1])
+    text = rng.choice(
+        (
+            "How many curved surfaces do these solids have in all?",
+            "Count the curved surfaces of all the solids together.",
+        )
+    )
+    cands: list[tuple[int, str | None]] = [
+        (flat_of_round, "eyz-gives-flat-faces-for-curved"),
+        (len(shapes), "eyz-counts-the-solids-not-their-features"),
+        (answer - 1, "eyz-leaves-out-a-solid"),
+        (answer + 1, "eyz-miscounts-the-solids"),
+    ]
+    working = [f"The round solids each have 1 curved surface and the others have none: {answer} in all."]
+    return dict(
+        text=text,
+        latex=f"plain:{text}",
+        answer=answer,
+        answer_text=str(answer),
+        answer_latex=str(answer),
+        answer_kind="number",
+        working=working,
+        distractors=tagged_numbers(answer, cands, low=0, high=n),
+        figure=_scene(shapes, _ALT),
+    )
+
+
 def _solid_medium(rng) -> dict:
-    feature = rng.choice(("flat faces", "flat faces", "edges", "corners"))
+    feature = rng.choice(("flat faces", "flat faces", "edges", "corners", "curved surfaces"))
+    if feature == "curved surfaces":
+        return _curved_group(rng)
     pool = tuple(FACTS) if feature == "flat faces" else _POLY
     k = rng.randint(2, 3)
     shapes = [rng.choice(pool) for _ in range(k)]
@@ -266,7 +304,7 @@ def _solid_medium(rng) -> dict:
 def _solid_hard(rng) -> dict:
     feature = rng.choice(("flat faces", "edges", "corners"))
     pool = tuple(FACTS) if feature == "flat faces" else _POLY
-    target = rng.choice(pool)
+    target = rng.choice([s for s in pool if FACTS[s][_FEATURE_INDEX[feature]]])  # not a total of 0: it is always lowest
     n_target = rng.randint(2, 4)
     # A cube is also a rectangular prism, so a prism question must not show cubes.
     others = [s for s in pool if s != target and not (target == "rectangular prism" and s == "cube")]
