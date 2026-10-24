@@ -39,7 +39,8 @@ _THINGS = {
 }
 _OFFSETS = (-2, -1, 0, 1, 2)
 _MOST = 85  # a picture never fills more than this per cent of its cells, so estimating is not counting every cell
-_WALL_X = 6  # hard and exam: the wall stands on this lattice line, so each side is a 6 by 7 block
+_SIDE_H = 9  # hard and exam: each side is 6 wide by 9 tall, room for 40 and up to 85% full
+_WALL_X = 6  # hard and exam: the wall stands on this lattice line, so each side is a 6 by 9 block
 
 
 def _near(ans: int, rng, *, top: int) -> int:
@@ -152,8 +153,11 @@ def _medium(rng) -> dict:
 
 def _two_sides(rng, *, difference: bool) -> tuple[int, int]:
     for _ in attempts(500, "two sides that round consistently"):
-        a_ans, b_ans = 10 * rng.randint(1, 3), 10 * rng.randint(1, 3)
-        a, b = _near(a_ans, rng, top=_MOST * _WALL_X * 7 // 100), _near(b_ans, rng, top=_MOST * _WALL_X * 7 // 100)
+        a_ans, b_ans = 10 * rng.randint(1, 4), 10 * rng.randint(1, 4)
+        a, b = (
+            _near(a_ans, rng, top=_MOST * _WALL_X * _SIDE_H // 100),
+            _near(b_ans, rng, top=_MOST * _WALL_X * _SIDE_H // 100),
+        )
         if difference and a <= b:
             continue
         total_ok = _round10(a) + _round10(b) == _round10(a + b)
@@ -164,7 +168,7 @@ def _two_sides(rng, *, difference: bool) -> tuple[int, int]:
 
 
 def _hard(rng) -> dict:
-    w, h = 12, 7
+    w, h = 12, _SIDE_H
     symbol = rng.choice(tuple(_THINGS))
     difference = rng.random() < 0.4
     a, b = _two_sides(rng, difference=difference)
@@ -222,7 +226,7 @@ def eyz_estimate_collection(rng, tier="easy"):
 def eyz_estimate_collection_exam(rng, tier="exam"):
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    w, h = 12, 7
+    w, h = 12, _SIDE_H
     symbol = rng.choice(tuple(_THINGS))
     a, b = _two_sides(rng, difference=False)
     left = [(x, y) for x in range(_WALL_X) for y in range(h)]

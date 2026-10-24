@@ -1885,12 +1885,12 @@
 {"answer": "40", "id": "ey-estimate-collection-quantity/easy/0/7c95654f3887", "text": "About how many houses? The box is one fifth. Round to the nearest 10."}
 {"answer": "20", "id": "ey-estimate-collection-quantity/easy/1/90c8c1950b37", "text": "The box is one fifth of the picture. About how many tents? Nearest 10."}
 {"answer": "50", "id": "ey-estimate-collection-quantity/easy/2/209ad3dc016f", "text": "About how many trees? The box is one fifth. Round to the nearest 10."}
-{"answer": "(a) 10; (b) 20; (c) 30; (d) 120", "id": "ey-estimate-collection-quantity/exam/0/65f65ad6d8e3", "text": "Look at the tents on each side of the wall. Estimate each count to the nearest …"}
-{"answer": "(a) 10; (b) 30; (c) 40; (d) 440", "id": "ey-estimate-collection-quantity/exam/1/28aa8724e23d", "text": "A wall splits the tents in the picture into a left side and a right side. Round…"}
-{"answer": "(a) 30; (b) 20; (c) 50; (d) 150", "id": "ey-estimate-collection-quantity/exam/2/1f4cabfcd47d", "text": "Look at the trees on each side of the wall. Estimate each count to the nearest …"}
-{"answer": "50", "id": "ey-estimate-collection-quantity/hard/0/7a210e6a750f", "text": "About how many trees on both sides altogether? Round to the nearest 10."}
-{"answer": "10", "id": "ey-estimate-collection-quantity/hard/1/a6dc637cab50", "text": "Estimate how many more trees are on the left side than the right. Nearest 10."}
-{"answer": "20", "id": "ey-estimate-collection-quantity/hard/2/d67179683354", "text": "Estimate how many more trees are on the left side than the right. Nearest 10."}
+{"answer": "(a) 10; (b) 40; (c) 50; (d) 550", "id": "ey-estimate-collection-quantity/exam/0/42a2985013f9", "text": "Look at the tents on each side of the wall. Estimate each count to the nearest …"}
+{"answer": "(a) 20; (b) 20; (c) 40; (d) 440", "id": "ey-estimate-collection-quantity/exam/1/33b630941543", "text": "A wall splits the tents in the picture into a left side and a right side. Round…"}
+{"answer": "(a) 30; (b) 20; (c) 50; (d) 550", "id": "ey-estimate-collection-quantity/exam/2/acbbc241730b", "text": "The picture shows trees, split into two sides by a wall. Estimate to the neares…"}
+{"answer": "70", "id": "ey-estimate-collection-quantity/hard/0/6591fab2430b", "text": "Estimate the total number of trees on both sides. Nearest 10."}
+{"answer": "30", "id": "ey-estimate-collection-quantity/hard/1/634ed6fa3172", "text": "About how many more trees are on the left than the right? Nearest 10."}
+{"answer": "10", "id": "ey-estimate-collection-quantity/hard/2/55040df0af13", "text": "About how many more trees are on the left than the right? Nearest 10."}
 {"answer": "60", "id": "ey-estimate-collection-quantity/medium/0/b97a2cb60a74", "text": "About how many tents are there? Estimate to the nearest 10."}
 {"answer": "70", "id": "ey-estimate-collection-quantity/medium/1/d271a8015f0b", "text": "Estimate how many trees there are. Round to the nearest 10."}
 {"answer": "70", "id": "ey-estimate-collection-quantity/medium/2/1588ee3ffc44", "text": "Estimate how many houses there are. Round to the nearest 10."}
