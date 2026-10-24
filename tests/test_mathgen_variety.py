@@ -939,10 +939,6 @@ VARIETY_BACKLOG: dict[tuple[str, str | None], str] = {
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (
         "index_laws_review",
-        "hard",
-    ): "pre-phrase() single template (2 shapes/60 seeds); a cleanup varies it via mathgen.core.phrase",
-    (
-        "index_laws_review",
         "medium",
     ): "pre-phrase() single template (1 shape/60 seeds); a cleanup varies it via mathgen.core.phrase",
     (

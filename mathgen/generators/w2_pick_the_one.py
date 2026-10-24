@@ -300,8 +300,13 @@ def _pick_nonsquare_factored(rng):
     check(not _is_square(key_n) and all(_is_square(n) for n in sq_n), "factored non-square key or distractor wrong")
     texts = [_factored_text(f) for f in [key_fac, *squares]]
     check(len(set(texts)) == 4, "options must be distinct")
-    bad = ", ".join(str(p) for p in primes if key_fac[p] % 2)
-    why = f"The exponent of {bad} in {texts[0]} is odd; every exponent in each other option is even."
+    odd = [str(p) for p in primes if key_fac[p] % 2]
+    if len(odd) == 1:
+        why = f"The exponent of {odd[0]} in {texts[0]} is odd; every exponent in each other option is even."
+    else:
+        why = (
+            f"The exponents of {' and '.join(odd)} in {texts[0]} are odd; every exponent in each other option is even."
+        )
     text = rng.choice(_FACTORED_STEMS).format(n=rng.choice(NAMES))
     return _result(text, texts[0], texts[1:], [why])
 

@@ -63,7 +63,7 @@ def exd_x_pr6_remainder_boxes(rng, tier: str = "exam"):
     town = rng.choice(_TOWNS)
     things = rng.choice(scene["things"])
     box = rng.choice(scene["box"])
-    boxes = box + "s"
+    boxes = box + ("es" if box.endswith(("x", "s", "ch", "sh")) else "s")
     for _ in attempts(1000, "a packing draw whose answers are not printed in the question"):
         d = rng.choice(scene["sizes"])
         q = rng.randint(*scene["quotients"])

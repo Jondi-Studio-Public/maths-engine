@@ -494,7 +494,8 @@ def fpm_expected_vs_observed(rng, tier: str = "easy"):
     delta = _plausible_delta(rng, n, p, expected)
     sign = rng.choice([-1, 1])
     observed = expected + sign * delta
-    check(observed > 0 and observed != expected, "observed count is not a plausible different count")
+    if not (observed > 0 and observed != expected):
+        raise _Short
     candidates = [
         _int_d(observed, "reports-observed-not-difference"),
         _int_d(expected, "reports-expected-not-difference"),
@@ -534,7 +535,8 @@ def fpm_expected_observed_exam(rng):
     expected = int(p * n)
     delta = _plausible_delta(rng, n, p, expected)
     observed = expected + rng.choice([-1, 1]) * delta
-    check(observed > 0, "observed count must be positive")
+    if observed <= 0:
+        raise _Short
     need = _n_for(p, rng, 150, 1500)
     target = int(p * need)
     check(Fraction(target, need) == p, "target count does not match the probability")

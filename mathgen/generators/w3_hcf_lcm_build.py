@@ -143,7 +143,7 @@ def _hl_hcf(rng):
     enough(d, 3)
     text = f"{intro} {ask}"
     working = [
-        f"The HCF of {a} and {b} is {g}. Nothing is left over only when the length or number divides both exactly."
+        f"The HCF of {a} and {b} is {g}. Nothing is left over only when the number of groups divides both numbers exactly."
     ]
     return dict(text=text, working=working, distractors=d, **WHOLE.fields(g), answer_kind="number")
 

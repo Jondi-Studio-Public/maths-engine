@@ -380,7 +380,10 @@ def time_units_and_nearest_minute(rng, tier="easy"):
     answer_text = str(answer)
 
     if tier in ("easy", "medium"):
-        working = [f"Convert {value} {unit_from_str} to {unit_to_str}: {answer_text} {unit_to_str}."]
+        step = (
+            f"{value} × {answer // value} = {answer}" if answer > value else f"{value} ÷ {value // answer} = {answer}"
+        )
+        working = [f"Convert {value} {unit_from_str} to {unit_to_str}: {step}, so {answer_text} {unit_to_str}."]
     else:
         # For hard, text was already constructed above
         working = [f"{text} {hard_working}"]

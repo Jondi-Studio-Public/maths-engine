@@ -362,7 +362,7 @@ def stat2_column_graph(rng, tier="easy"):
             answer_text=answer_text,
             answer_latex=answer_latex,
             distractors=distractors,
-            working=working,
+            working=[line[:1].upper() + line[1:] for line in working],
             figure=fig,
         )
 

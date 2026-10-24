@@ -74,6 +74,7 @@ _CONTEXTS = [
         lo=0,
         hi=60,
         step=5,
+        pairs=(("Group X", "Group Y"), ("Bed 1", "Bed 2"), ("Plot A", "Plot B"), ("Group P", "Group Q")),
     ),
     dict(
         subj="pumpkins",
@@ -84,6 +85,7 @@ _CONTEXTS = [
         lo=0,
         hi=24,
         step=2,
+        pairs=(("Group X", "Group Y"), ("Farm A", "Farm B"), ("Stall 1", "Stall 2"), ("Group P", "Group Q")),
     ),
 ]
 
@@ -416,7 +418,7 @@ def _truth(kind, x, y, plots):
 
 def _draw_compare(rng, tier):
     ctx = _pick(rng, _CONTEXTS)
-    names = _pick(rng, _COMPARE_PAIRS)
+    names = _pick(rng, ctx.get("pairs", _COMPARE_PAIRS))
     step = ctx["step"]
     lead = phrase(
         rng,

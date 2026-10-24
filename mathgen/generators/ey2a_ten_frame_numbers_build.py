@@ -77,7 +77,7 @@ def ey2a_ten_frame_numbers(rng, tier="easy"):
                 (10, "ey2a-counts-one-frame"),
                 (answer + 1, "ey2a-count-one-over"),
                 (answer - 1, "ey2a-count-one-short"),
-                (k + 1, "ey2a-counts-one-frame"),
+                (k + 1, None),
                 (20 - k, "ey2a-counts-empty-boxes"),
             ]
             working = [f"The full frame is 10. 10 and {k} more is {answer}."]
@@ -100,7 +100,7 @@ def ey2a_ten_frame_numbers(rng, tier="easy"):
                 (answer + 1, "ey2a-count-one-over"),
                 (answer - 1, "ey2a-count-one-short"),
                 (10 - b, "ey2a-counts-empty-boxes"),
-                (a + b, "ey2a-counts-all-kinds"),
+                (a + b, None),
             ]
             working = [f"The left frame has {a}. It needs 10 - {a} = {answer} more."]
     elif tier == "hard":
@@ -135,9 +135,9 @@ def ey2a_ten_frame_numbers(rng, tier="easy"):
                 (a + b, "ey2a-counts-filled-boxes"),
                 (answer + 1, "ey2a-count-one-over"),
                 (answer - 1, "ey2a-count-one-short"),
-                (10 - max(a, b), "ey2a-counts-one-frame"),
+                (10 - max(a, b), None),
                 (answer + 2, "ey2a-count-one-over"),
-                (20 - max(a, b), "ey2a-counts-one-frame"),
+                (20 - max(a, b), None),
             ]
             working = [f"{a} + {b} = {a + b} are on the frames. 20 - {a + b} = {answer} more fill them."]
     else:

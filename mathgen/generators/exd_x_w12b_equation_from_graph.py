@@ -120,7 +120,7 @@ def _build(rng):
         2,
         [
             f"Parallel lines have the same gradient, m = {frac_text(m)}.",
-            f"Substituting ({p}, {int(q)}): {int(q)} = {_br(frac_text(m))} × {paren_negative(p)} + c, so c = {frac_text(c2)}.",
+            f"Substituting ({p}, {int(q)}): {int(q)} = {'' if m == 1 else _br(frac_text(m)) + ' × '}{paren_negative(p)} + c, so c = {frac_text(c2)}.",
             f"The equation is {eq_text(m, c2)}.",
         ],
         [
