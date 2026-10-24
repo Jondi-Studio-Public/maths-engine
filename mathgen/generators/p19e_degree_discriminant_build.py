@@ -353,7 +353,7 @@ def _make_exam(rng):
     cands.append((apparent_deg, apparent_coef))
     working = [
         f"The x^{apparent_deg} terms cancel: they sum to 0.",
-        f"Highest surviving power is x^{degree}, with coefficient {lc}.",
+        f"Highest surviving power is {'x' if degree == 1 else f'x^{degree}'}, with coefficient {lc}.",
         f"degree = {degree}, coefficient = {lc}.",
     ]
     return _finalise_pair(text, degree, lc, cands, working, "degree", "coefficient", n_distractors=4)

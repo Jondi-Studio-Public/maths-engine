@@ -138,6 +138,12 @@ def _fmt(value: Fraction) -> str:
     return stated_precision_string(value, _DP)
 
 
+def _kb(k) -> str:
+    """Rate constant for a product: negative values in brackets."""
+    text = _fmt(Fraction(k))
+    return f"({text})" if text.startswith("-") else text
+
+
 _INSTRUCTION = "Give your answer correct to 2 decimal places."
 
 # =============================================================================
@@ -235,7 +241,7 @@ def _build_exp_easy(rng) -> dict:
         answer=numeric_answer(ans),
         answer_text=answer_text,
         answer_latex=answer_text,
-        working=[f"dN/dt = N0·k·e^(kt). At t=0, e^0=1, so dN/dt = {N0}·{_fmt(Fraction(k))} = {answer_text}."],
+        working=[f"dN/dt = N0·k·e^(kt). At t=0, e^0=1, so dN/dt = {N0}·{_kb(k)} = {answer_text}."],
         distractors=distractors,
     )
 
@@ -288,8 +294,7 @@ def _build_exp_medium(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"dN/dt = N0·k·e^(kt). At t={t0}, dN/dt = {N0}·{_fmt(Fraction(k))}·"
-            f"e^({_fmt(Fraction(k))}·{t0}) = {answer_text}."
+            f"dN/dt = N0·k·e^(kt). At t={t0}, dN/dt = {N0}·{_kb(k)}·e^({_fmt(Fraction(k))}·{t0}) = {answer_text}."
         ],
         distractors=distractors,
     )
@@ -360,7 +365,7 @@ def _build_exp_hard(rng) -> dict:
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[
-            f"dN/dt = N0·k·e^(kt) = {R}. e^(kt) = {R} / ({N0}·{_fmt(Fraction(k))}) = {ratio:.4f}. "
+            f"dN/dt = N0·k·e^(kt) = {R}. e^(kt) = {R} / ({N0}·{_kb(k)}) = {ratio:.4f}. "
             f"t = ln({ratio:.4f}) / {_fmt(Fraction(k))} = {answer_text} {scenario['unit']}."
         ],
         distractors=distractors,
