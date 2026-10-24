@@ -427,14 +427,17 @@ _ESTIMATE_TEXT = {
     "easy": (
         "Use the labelled rays. About how big is the angle, in degrees? Nearest 10.",
         "Read between the labelled rays. Estimate the angle in degrees, to the nearest 10.",
+        "The rays are 30 degrees apart. Estimate the drawn angle to the nearest 10.",
     ),
     "medium": (
         "Count the rays from 0. About how big is the angle, in degrees? Nearest 10.",
         "Count the dashed rays. Estimate the angle in degrees, to the nearest 10.",
+        "Dashed rays are 30 degrees apart. How big is the angle? Nearest 10.",
     ),
     "hard": (
         "This angle is bigger than a straight line. Estimate it, to the nearest 10 degrees.",
         "The angle is past a straight line. About how big is it? Nearest 10 degrees.",
+        "Go round past 180 from 0. Estimate the angle to the nearest 10.",
     ),
 }
 

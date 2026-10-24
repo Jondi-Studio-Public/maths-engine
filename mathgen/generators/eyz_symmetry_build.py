@@ -352,7 +352,11 @@ def _lines_question(rng, name: str) -> dict:
     fig, lines, order, sides = _shape(rng, name)
     sides = _SIDES_WORD.get(name, sides)
     text = rng.choice(
-        ("How many lines of symmetry does this shape have?", "Count the lines of symmetry of this shape.")
+        (
+            "How many lines of symmetry does this shape have?",
+            "Count the lines of symmetry of this shape.",
+            "A mirror line makes both halves match. How many does the shape have?",
+        )
     )
     working = [_lines_working(lines)]
     return _number_question(text, lines, _line_wrongs(name, lines, order, sides), working, fig)
@@ -365,6 +369,7 @@ def _order_question(rng, name: str) -> dict:
         (
             "How many times does this shape fit onto itself in one full turn?",
             "What is the order of rotational symmetry of this shape?",
+            "Turn the shape one full turn. How many times does it look the same?",
         )
     )
     working = [
