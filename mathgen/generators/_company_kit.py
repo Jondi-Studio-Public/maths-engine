@@ -32,11 +32,15 @@ def _sign(x) -> int:
     return (x > 0) - (x < 0)
 
 
-def features(v) -> dict:
-    """What a learner can notice about one option: sign, whole or not, parity, power of two, standard angle, digits."""
-    items = [Fraction(x) for x in _tuple(v)]
+def features(v, view=None) -> dict:
+    """What a learner can notice about one option: sign, whole or not, parity, power of two, standard angle, digits.
+
+    `view` turns a value into what the learner reads (a rounded decimal) before anything is measured."""
+    view = view or (lambda x: x)
+    items = [view(Fraction(x)) for x in _tuple(v)]
+    text = ", ".join(str(x) if x.denominator != 1 else str(int(x)) for x in items)
     f = {
-        "ndigits": min(sum(c.isdigit() for c in _text(v)), 8),
+        "ndigits": min(sum(c.isdigit() for c in text), 8),
         "sign": tuple(_sign(x) for x in items),
         "whole": tuple(x.denominator == 1 for x in items),
     }
@@ -46,36 +50,96 @@ def features(v) -> dict:
         f["pow2"] = tuple(x > 0 and x & (x - 1) == 0 for x in ints)
         f["ten"] = tuple(x != 0 and x % 10 == 0 for x in ints)
         f["std"] = tuple(abs(x) in STD_DEGREES for x in ints)
+        f["mult5"] = tuple(x % 5 == 0 for x in ints)
     return f
 
 
-def lone_features(key, shown) -> set:
+NEAR_FEATURES = ("near1", "near2", "mult5")
+
+
+def _rows(key, shown, extra, view, custom) -> list:
+    """Feature dicts for the key and the shown options. `extra` names features to add: ``near1`` / ``near2`` (how many
+    other options lie within 1 / within 2, at most 3) and ``mult5``; `custom` maps a name to a function of a value."""
+    vals = [key, *shown]
+    rows = [features(v, view) for v in vals]
+    if not ({"near1", "near2"} & set(extra)) and "mult5" not in extra:
+        for r in rows:
+            r.pop("mult5", None)
+    if all(len(_tuple(v)) == 1 for v in vals):
+        nums = [(view(Fraction(_tuple(v)[0])) if view else Fraction(_tuple(v)[0])) for v in vals]
+        for i, r in enumerate(rows):
+            for name, width in (("near1", 1), ("near2", 2)):
+                if name in extra:
+                    r[name] = min(sum(abs(x - nums[i]) <= width for j, x in enumerate(nums) if j != i), 3)
+    for name, fn in (custom or {}).items():
+        for r, v in zip(rows, vals):
+            r[name] = fn(v)
+    return rows
+
+
+def lone_features(key, shown, extra=(), view=None, custom=None) -> set:
     """Feature names whose value on the key no shown option shares (a feature counts when every option has it)."""
-    fk = features(key)
-    others = [features(v) for v in shown]
+    rows = _rows(key, shown, extra, view, custom)
+    fk, others = rows[0], rows[1:]
     names = set(fk).intersection(*(set(o) for o in others)) if others else set(fk)
     return {n for n in names if all(o[n] != fk[n] for o in others)}
 
 
-def keep_company(key, ordered, pool=(), count: int = 3, shift_cost: float = SHIFT_COST):
+def lone_weight(key, shown, extra=(), view=None, custom=None, balance=False) -> int:
+    """How much loneliness the options have: the weight of the features the key holds alone, and with `balance` also of
+    the features each shown option holds alone (the key's own count three times over; a learner who strikes out the odd ones then gains nothing)."""
+    if not balance:
+        return sum(WEIGHT.get(n, 1) for n in lone_features(key, shown, extra, view, custom))
+    rows = _rows(key, shown, extra, view, custom)
+    names = set.intersection(*(set(r) for r in rows))
+    total = 0
+    for n in names:
+        counts = {}
+        for r in rows:
+            counts[r[n]] = counts.get(r[n], 0) + 1
+        total += WEIGHT.get(n, 1) * (sum(1 for r in rows[1:] if counts[r[n]] == 1) + 3 * (counts[rows[0][n]] == 1))
+    return total
+
+
+def keep_company(
+    key,
+    ordered,
+    pool=(),
+    count: int = 3,
+    shift_cost: float = SHIFT_COST,
+    *,
+    extra=(),
+    view=None,
+    custom=None,
+    ok=None,
+    must=(),
+    balance=False,
+    max_pool=_MAX_POOL,
+):
     """`ordered` ([(value, tag)]; the first `count` are shown) changed so the key has company in as many features as
-    possible. Candidates are the rest of `ordered` and `pool`; a swap keeps the number below the key where it can."""
+    possible. Candidates are the rest of `ordered` and `pool`; a swap keeps the number below the key where it can.
+
+    `extra` adds features to protect (``NEAR_FEATURES``), `view` is what the learner reads of a value, `custom` adds
+    named features (a function of a value) and `ok(value)` rules a candidate out. The shown options already in place
+    are never ruled out by `ok`. With `balance` the wrong options are given company too (each option, not only the key, is
+    counted when it holds a feature value alone), over at most `max_pool` candidates. When the key still has no company in a feature of `must`, `TooFewDistractors` is raised so
+    the caller's draw is made again."""
     shown = list(ordered[:count])
     plain = lambda v: all(isinstance(x, (int, Fraction)) for x in _tuple(v))  # noqa: E731
     if not plain(key) or not all(plain(v) for v, _ in ordered):
         return ordered  # not whole numbers or fractions (a word, a decimal, an expression): nothing to compare
-    if len(shown) < count or not lone_features(key, [v for v, _ in shown]):
+    if len(shown) < count or not lone_weight(key, [v for v, _ in shown], extra, view, custom, balance):
         return ordered
     k = _tuple(key)
     seen = {k} | {_tuple(v) for v, _ in shown}
     cands = list(shown)
     for v, t in list(ordered[count:]) + list(pool):
-        if _tuple(v) not in seen:
+        if _tuple(v) not in seen and (ok is None or ok(v)):
             seen.add(_tuple(v))
             cands.append((v, t))
     # its own generator, seeded from the options: the question's random stream is left as it was
     rng = random.Random(repr((str(key), [str(v) for v, _ in ordered])))
-    cands = cands[:_MAX_POOL]
+    cands = cands[:max_pool]
 
     def below(v):
         return _tuple(v) < k
@@ -88,7 +152,7 @@ def keep_company(key, ordered, pool=(), count: int = 3, shift_cost: float = SHIF
         ):
             pick = [cands[i] for i in (*old, *new)]
             score = (
-                sum(WEIGHT.get(n, 1) for n in lone_features(key, [v for v, _ in pick]))
+                lone_weight(key, [v for v, _ in pick], extra, view, custom, balance)
                 + shift_cost * abs(sum(1 for v, _ in pick if below(v)) - base_below),
             )
             if best_score is None or score < best_score:
@@ -99,6 +163,10 @@ def keep_company(key, ordered, pool=(), count: int = 3, shift_cost: float = SHIF
             break
     pick = rng.choice(best) if rng else best[0]
     chosen = list(pick)
+    if must and set(must) & lone_features(key, [v for v, _ in chosen], extra, view, custom):
+        from ._w6a_kit import TooFewDistractors
+
+        raise TooFewDistractors("no wrong option keeps the key company in " + ", ".join(sorted(must)))
     if rng:
         rng.shuffle(chosen)
     return chosen + [c for c in ordered if not any(c is x or c == x for x in chosen)]

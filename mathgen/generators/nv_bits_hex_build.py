@@ -30,6 +30,7 @@ from ..answers import Distractor
 from ..core import attempts, check, generator, latex_answer, phrase
 from ..grading import GRADERS
 from ._exd_distinct_parts import distinct_part_answers
+from ._company_kit import NEAR_FEATURES, keep_company
 from ._nv_kit import is_multiple_of_ten, is_power_of_two, lone_property_fix, spread_order
 from ._spread_kit import _RNG, NEAR, uses_rng
 from ._w6a_kit import TooFewDistractors, enough, num_dist, num_fields, part, retry_draw
@@ -299,9 +300,31 @@ def _spread(key, cands, lo=1, hi=None, count=3):
             ],
             count,
         )
+    if len(ordered) >= count:
+        ordered = _company(key, ordered, lo, hi)
     dist = num_dist(key, ordered, n=count)
     enough(dist)
     return dist
+
+
+def _company(key, ordered, lo, hi, shift_cost=1.5):
+    """`ordered` with the key sharing, with a wrong option, its count of other options within 1 and within 2 and its being a
+    multiple of 5 (`_company_kit`); the draw is made again when no wrong value can share the multiple of 5."""
+    pool = [(key + sgn * d, NEAR) for d in (1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 30) for sgn in (-1, 1)]
+    pool.sort(key=lambda c: abs(c[0] - key))
+    if is_power_of_two(Fraction(key)):  # a power of two keeps another for company
+        pool = [(v, NEAR) for v in (key * 2, key // 2, key * 4, key // 4) if v >= 1] + pool
+    return keep_company(
+        key,
+        ordered,
+        pool,
+        shift_cost=shift_cost,
+        extra=NEAR_FEATURES,
+        ok=lambda v: Fraction(v) != key and (lo or 1) <= v and (hi is None or v <= hi),
+        must=("mult5",),
+        balance=True,
+        max_pool=14,
+    )
 
 
 def _pow2_spread(key, cands, lo=2, count=3):
@@ -354,6 +377,21 @@ def _pow2_spread(key, cands, lo=2, count=3):
                 break
         else:
             raise TooFewDistractors("no wrong option has the key's number of digits")
+    # ... and shares how many other options lie within 1 and within 2 of it, if that leaves two powers of two
+    spares = [c for c in [*pows.values(), *fill.values()] if c not in chosen]
+    extra_pool = [(key + sgn * d, NEAR) for d in (1, 2, 3, 4) for sgn in (-1, 1) if key + sgn * d >= lo]
+    shared = keep_company(
+        key,
+        chosen + spares,
+        extra_pool,
+        shift_cost=1.5,
+        extra=NEAR_FEATURES,
+        ok=lambda v: Fraction(v) != k and v >= lo,
+        balance=True,
+        max_pool=14,
+    )[:count]
+    if sum(is_power_of_two(Fraction(c[0])) for c in shared) >= 2:
+        chosen = shared
     rng.shuffle(chosen)
     return chosen
 
