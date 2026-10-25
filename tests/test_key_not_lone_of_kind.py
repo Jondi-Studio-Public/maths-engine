@@ -170,10 +170,14 @@ def survey(topic: str, difficulty: str, params: dict, seeds=range(SEEDS)):
     wrong_lone: Counter = Counter()
     for seed in seeds:
         q = make(topic, seed=seed, difficulty=difficulty, **params)
-        for label, answer, options, _prompt in _units(q):
+        for label, answer, options, prompt in _units(q):
             shown = [getattr(o, "text", str(o)) for o in options or []]
             texts = [str(answer), *shown]
             if len(shown) < 2 or _is_word_answer(texts) or _key_is_zero(texts[0]):
+                continue
+            if "quadrant numbers" in str(prompt):
+                # A set of quadrant numbers is a closed answer space (at most 4 keys): its parity or power-of-two
+                # pattern is a label, not a quantity, like the fixed word sets above.
                 continue
             n_seen[label] += 1
             n_opts[label] += len(texts)
