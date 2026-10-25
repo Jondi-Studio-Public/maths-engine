@@ -24,7 +24,7 @@ import math
 
 import sympy
 
-from ..core import attempts, check, generator, paren_negative, phrase
+from ..core import attempts, check, generator, paren_negative, phrase, pick_distractors
 from ._w6b_kit import I, cdist, cx_text, cx_value, dist, gaussian, need, plus, retry, want
 
 _MULTIPLIERS = (2, 3, -1, -2, I, -I, 1 + I, 1 - I, 2 * I, 2 + I, 1 + 2 * I)
@@ -46,6 +46,67 @@ def _cmp(z) -> complex:
 
 def _num(value, tag):
     return dist(str(value), tag, value)
+
+
+NEAR = "near-miss-value"
+
+
+_OFFSETS = [complex(a, b) for a in (-3, -2, -1, 0, 1, 2, 3) for b in (-3, -2, -1, 0, 1, 2, 3) if (a, b) != (0, 0)]
+
+
+def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, step=(1, 2, 3)):
+    """`n` wrong options with the key's place among them drawn at random, not left to the order of the slips.
+
+    A complex option has no order, so those are taken in a random order. For a numeric key the number of options below
+    it is drawn at random (as far as the slips and plain near misses allow); named slips come before plain fillers."""
+    cands = [c for c in cands if c is not None]
+    if key is None:
+        named = need(answer_text, cands, len(cands))
+        rng.shuffle(named)
+        if keyz is None:
+            return named[:n]
+        # a complex option has no order, but its real and imaginary parts each have a rank among the options: the named
+        # slips sit at fixed places, so one or two of them are mixed with near misses at random offsets
+        keep = named[: rng.randint(1, min(2, n - 1, len(named)))]
+        used = {d.text for d in keep} | {answer_text}
+        offsets = rng.sample(_OFFSETS, len(_OFFSETS))
+        for off in offsets:
+            if len(keep) == n:
+                break
+            z = keyz + gaussian(int(off.real), int(off.imag))
+            f = cdist(z, NEAR)
+            if f.text not in used:
+                used.add(f.text)
+                keep.append(f)
+        rng.shuffle(keep)
+        want(len(keep) >= 2, "too few options")
+        return keep
+    fillers = [_num(key + d, NEAR) for k in step for d in (-k, k)]
+    named = pick_distractors(str(answer_text), cands, max(len(cands), 1))
+    taken = {float(d.value) for d in named}
+    extra = [
+        f
+        for f in fillers
+        if float(f.value) not in taken and (lo is None or f.value > lo) and (hi is None or f.value < hi)
+    ]
+    named = [d for d in named if (lo is None or d.value > lo) and (hi is None or d.value < hi)]
+
+    def side(items, below):
+        got = [d for d in items if (d.value < key) == below]
+        rng.shuffle(got)
+        return got
+
+    nb, na = side(named, True), side(named, False)
+    fb, fa = side(extra, True), side(extra, False)
+    pool_b, pool_a = nb + fb, na + fa
+    want(len(pool_b) + len(pool_a) >= n and len(pool_b) + len(pool_a) >= 2, "too few options")
+    low = max(0, n - len(pool_a))
+    high = min(n, len(pool_b))
+    want(low <= high, "no split")
+    below = rng.randint(low, high)
+    out = pool_b[:below] + pool_a[: n - below]
+    rng.shuffle(out)
+    return out
 
 
 def _expr_fields(z):
@@ -121,7 +182,7 @@ def _easy_map(rng):
     return dict(
         text=phrase(rng, _MAP_STEMS, a=_br(a), b=_br(b), z=cx_text(z)),
         working=working,
-        distractors=need(cx_text(w), cands, 4),
+        distractors=pick(rng, cx_text(w), cands, 3, keyz=w),
         **_expr_fields(w),
     )
 
@@ -145,7 +206,7 @@ def _easy_mid(rng):
     return dict(
         text=phrase(rng, _MID_STEMS, a=cx_text(a), b=cx_text(b)),
         working=working,
-        distractors=need(cx_text(m), cands, 4),
+        distractors=pick(rng, cx_text(m), cands, 3, keyz=m),
         **_expr_fields(m),
     )
 
@@ -170,7 +231,7 @@ def _easy_dist(rng):
     return dict(
         text=phrase(rng, _DIST_STEMS, a=cx_text(a), b=cx_text(b)),
         working=working,
-        distractors=need(str(d), cands, 4),
+        distractors=pick(rng, str(d), cands, 3, key=d, lo=0),
         **_num_fields(d),
     )
 
@@ -228,7 +289,7 @@ def _medium_ratio(rng):
     return dict(
         text=phrase(rng, _RATIO_STEMS, a=cx_text(a), b=cx_text(b), c=cx_text(c)),
         working=working,
-        distractors=need(cx_text(q), cands, 4),
+        distractors=pick(rng, cx_text(q), cands, 3, keyz=q),
         **_expr_fields(q),
     )
 
@@ -258,7 +319,7 @@ def _medium_multiplier(rng):
     return dict(
         text=phrase(rng, _MULT_STEMS, z1=cx_text(z1), w1=cx_text(w1), z2=cx_text(z2), w2=cx_text(w2)),
         working=working,
-        distractors=need(cx_text(a), cands, 4),
+        distractors=pick(rng, cx_text(a), cands, 3, keyz=a),
         **_expr_fields(a),
     )
 
@@ -288,7 +349,7 @@ def _medium_collinear(rng):
         _num(ax + t * dy, "nx-collinear-parts-swapped"),
         _num(int(sympy.re(b)) + t * dx, "nx-collinear-wrong-base-point"),
         _num(ax - t * dx, "nx-collinear-sign-slip"),
-        _num(ax + (c * dx) // dy if (c * dx) % dy == 0 else ax + c + dx, "nx-collinear-imaginary-offset-ignored"),
+        _num(ax + (c * dx) // dy, "nx-collinear-imaginary-offset-ignored") if (c * dx) % dy == 0 else None,
     ]
     working = [
         f"(C - A)/(B - A) is real, where C - A = (k - ({ax})) {_kc(c - ay)} and B - A = {cx_text(d)}.",
@@ -298,7 +359,7 @@ def _medium_collinear(rng):
     return dict(
         text=phrase(rng, _COLL_STEMS, a=cx_text(a), b=cx_text(b), c=_kc(c)),
         working=working,
-        distractors=need(str(k), cands, 4),
+        distractors=pick(rng, str(k), cands, 3, key=k),
         answer_kind="number",
         answer=k,
         answer_text=str(k),
@@ -366,9 +427,8 @@ def _hard_angle(rng):
     cands = [
         _num(180 - theta, "nx-angle-supplement-taken"),
         _num(abs(90 - theta), "nx-angle-complement-taken") if theta != 90 else None,
-        _num(theta // 2 if theta % 2 == 0 else theta + 15, "nx-angle-halved"),
-        _num(min(2 * theta, 180) if 2 * theta != theta else theta + 30, "nx-angle-doubled"),
-        _num(360 - theta, "nx-angle-reflex-taken"),
+        _num(theta // 2, "nx-angle-halved") if theta % 2 == 0 else None,
+        _num(2 * theta, "nx-angle-doubled") if 2 * theta < 180 else None,
     ]
     working = [
         f"(c - b)/(a - b) = ({cx_text(c - b)})/({cx_text(a - b)}) = {cx_text(q)}.",
@@ -377,7 +437,7 @@ def _hard_angle(rng):
     return dict(
         text=phrase(rng, _ANGLE_STEMS, a=cx_text(a), b=cx_text(b), c=cx_text(c)),
         working=working,
-        distractors=need(str(theta), [c for c in cands if c], 4),
+        distractors=pick(rng, str(theta), cands, 3, key=theta, lo=0, hi=180, step=(15, 30)),
         **_deg_fields(theta),
     )
 
@@ -412,7 +472,7 @@ def _hard_perp(rng):
     return dict(
         text=phrase(rng, _PERP_STEMS, a=cx_text(a), b=cx_text(b), c=_kc(c)),
         working=working,
-        distractors=need(str(k), cands, 4),
+        distractors=pick(rng, str(k), cands, 3, key=k),
         answer_kind="number",
         answer=k,
         answer_text=str(k),
@@ -490,8 +550,8 @@ def _exam(rng):
     angle_cands = [
         _num(180 - theta, "nx-angle-supplement-taken"),
         _num(abs(90 - theta), "nx-angle-complement-taken") if theta != 90 else None,
-        _num(360 - theta, "nx-angle-reflex-taken"),
-        _num(2 * theta if 2 * theta <= 180 else theta // 2 + 5, "nx-angle-doubled"),
+        _num(2 * theta, "nx-angle-doubled") if 2 * theta < 180 else None,
+        _num(theta // 2, "nx-angle-halved") if theta % 2 == 0 else None,
     ]
     mid_cands = [
         cdist(a + c, "nx-midpoint-sum-not-halved"),
@@ -517,7 +577,7 @@ def _exam(rng):
                     f"c - b = {cx_text(c - b)}, a - b = {cx_text(a - b)}.",
                     f"The ratio is ({cx_text(c - b)})/({cx_text(a - b)}) = {cx_text(q_ratio)}.",
                 ],
-                distractors=need(cx_text(q_ratio), ratio_cands, 3),
+                distractors=pick(rng, cx_text(q_ratio), ratio_cands, 3, keyz=q_ratio),
                 **_xfields(q_ratio, 2),
             ),
             dict(
@@ -529,12 +589,12 @@ def _exam(rng):
                 follow_through="abs(arg(Subs(part_a,(i,),(I,))))*180/pi",
                 sensible_range=(0, 180),
                 working=[f"Angle ABC is the size of arg((c - b)/(a - b)), that is {theta}°."],
-                distractors=need(str(theta), [c for c in angle_cands if c], 3),
+                distractors=pick(rng, str(theta), angle_cands, 3, key=theta, lo=0, hi=180, step=(15, 30)),
             ),
             dict(
                 prompt="Find the complex number that represents M, the midpoint of AC.",
                 working=[f"M = (a + c)/2 = ({cx_text(a + c)})/2 = {cx_text(mid)}."],
-                distractors=need(cx_text(mid), mid_cands, 3),
+                distractors=pick(rng, cx_text(mid), mid_cands, 3, keyz=mid),
                 **_xfields(mid, 1),
             ),
             dict(
@@ -545,7 +605,7 @@ def _exam(rng):
                     "M is the midpoint of BD, so d = 2m - b.",
                     f"d = 2({cx_text(mid)}) - ({cx_text(b)}) = {cx_text(dd)}.",
                 ],
-                distractors=need(cx_text(dd), d_cands, 3),
+                distractors=pick(rng, cx_text(dd), d_cands, 3, keyz=dd),
                 **_xfields(dd, 2),
             ),
         ],

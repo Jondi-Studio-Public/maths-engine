@@ -47,8 +47,6 @@ misconceptions:
   description: Doubles the argument of the ratio when reading off the angle at the vertex.
 - id: nx-angle-halved
   description: Halves the argument of the ratio when reading off the angle at the vertex.
-- id: nx-angle-reflex-taken
-  description: Gives the reflex angle (360 degrees minus the angle) where the angle at the vertex was asked.
 - id: nx-angle-supplement-taken
   description: Gives 180 degrees minus the angle, using the argument of the wrong ratio or the wrong side of the vertex.
 - id: nx-collinear-imaginary-offset-ignored

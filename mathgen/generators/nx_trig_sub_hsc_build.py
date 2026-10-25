@@ -33,6 +33,7 @@ from ..core import check, generator, latex_from_inline
 from ._r3b_kit import (
     Cand,
     Itg,
+    Redraw,
     exact_fields,
     integral_math,
     integral_text,
@@ -230,7 +231,27 @@ def _span(f, lo, hi):
 
 def _pick_values(key, cands):
     """Three wrong exact values (value, tag pairs) for a constant such as 1/a^3."""
-    return pick_expr(key, False, [Cand(v, t, const=False) for v, t in cands if v is not None])
+    key = sympy.sympify(key)
+    near = [Cand(key * m, NEAR, const=False) for m in (R(1, 2), R(2), R(3), R(1, 3), R(3, 2), R(2, 3), R(4))]
+    near += [Cand(key + d, NEAR, const=False) for d in (R(1, 2), R(1), R(2), R(1, 3))]
+    named = [Cand(v, t, const=False) for v, t in cands if v is not None]
+    out = pick_expr(key, False, mixed(key, named, fillers=near, lo=0, hi=None))
+    # the key must not be the only whole number (or the only fraction) among its options
+    if not any((sympy.sympify(d.text).is_integer) == key.is_integer for d in out):
+        raise Redraw("the key is the only option of its shape")
+    return out
+
+
+def _angle_options(key, cands):
+    """Three wrong angles for a limit of theta: between 0 and a quarter turn (a limit past pi/2 cannot arise from
+    x = a tan or a sin of a positive angle that the question allows), with the key's place among them drawn at random."""
+    key = sympy.sympify(key)
+    near = [
+        Cand(key + d, NEAR, const=False)
+        for d in (pi / 12, -pi / 12, pi / 6, -pi / 6, pi / 24, -pi / 24, pi / 8, -pi / 8)
+    ]
+    cands = [Cand(c.expr, c.tag, const=False) for c in cands if c.expr != 0]
+    return pick_expr(key, False, mixed(key, cands, fillers=near, lo=0, hi=pi / 2))
 
 
 def _no_const(cands):
@@ -376,14 +397,10 @@ def _easy_k(rng):
         "sinroot": [
             (a, "nx-tsub-amplitude-not-squared"),
             (a**3, "nx-tsub-amplitude-cubed"),
-            (R(1), "nx-tsub-reciprocal-a-dropped"),
-            (a**2 / 2, "nx-tsub-half-dropped"),
         ],
         "sinx2": [
             (a, "nx-tsub-amplitude-not-squared"),
             (a**3, "nx-tsub-amplitude-cubed"),
-            (a**4, "nx-tsub-substitution-not-squared"),
-            (R(1), "nx-tsub-reciprocal-a-dropped"),
         ],
         "sin32": [
             (1 / a, "nx-tsub-power-of-a-wrong"),
@@ -530,7 +547,6 @@ def _easy_limit(rng):
         Cand(sympy.sympify(ask_x), "nx-tsub-limit-not-converted"),
         Cand(2 * key, "nx-tsub-limit-double-angle"),
         Cand(key / 2, "nx-tsub-limit-half-angle"),
-        Cand(atan(ask_x) if fam == "tan" else sympy.asin(ask_x), "nx-tsub-limit-inverse-without-dividing"),
     ]
     cands = [Cand(c.expr, c.tag, const=False) for c in cands if c.expr != 0]
     sub = f"x = {a}{'tan' if fam == 'tan' else 'sin'}(θ)"
@@ -543,7 +559,7 @@ def _easy_limit(rng):
         text=text,
         latex=latex,
         working=[_tidy(w) for w in working],
-        distractors=pick_expr(key, False, cands),
+        distractors=_angle_options(key, cands),
         **exact_fields(key),
     )
 
@@ -651,8 +667,6 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         else [
             (a, "nx-tsub-amplitude-not-squared"),
             (a**3, "nx-tsub-amplitude-cubed"),
-            (R(1), "nx-tsub-reciprocal-a-dropped"),
-            (a**2 / 2, "nx-tsub-half-dropped"),
         ]
     )
     b_cands = [
@@ -660,13 +674,12 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         Cand(hi_x, "nx-tsub-limit-not-converted", const=False),
         Cand(2 * beta, "nx-tsub-limit-double-angle", const=False),
         Cand(beta / 2, "nx-tsub-limit-half-angle", const=False),
-        Cand(atan(hi_x) if fam == "tan" else sympy.asin(hi_x), "nx-tsub-limit-inverse-without-dividing", const=False),
     ]
     c_cands = [
         Cand(beta / 2 - sin(2 * beta) / 4, "nx-tsub-identity-sign"),
         Cand(beta + sin(2 * beta) / 2, "nx-tsub-half-dropped"),
         Cand(beta / 2, "nx-tsub-identity-term-dropped"),
-        Cand(sin(beta) ** 3 / 3, "nx-tsub-power-rule-on-trig"),
+        Cand(cos(beta) ** 3 / 3 - R(1, 3), "nx-tsub-power-rule-on-trig"),
     ]
     d_cands = [
         Cand(inner, "nx-tsub-constant-not-applied"),
@@ -695,7 +708,7 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         1,
         [_tidy(f"{trig}(θ) = x/{a} = {_lim(sympy.nsimplify(hi_x / a))}, so θ = {_lim(beta)}.")],
         exact_fields(beta),
-        pick_expr(beta, False, b_cands),
+        _angle_options(beta, b_cands),
     )
     pc = part(
         "Using your upper limit from the previous part, find the exact value of the integral of cos^2(θ) dθ from 0 to that limit.",
