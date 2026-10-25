@@ -415,18 +415,18 @@
 {"answer": "left = 5/2, right = 5", "id": "bisection-interval-update/medium/0/e0d66a7f9ae1", "text": "For f(x) = x² − 19, the current positive bracket is [0, 5]. Perform one bisecti…"}
 {"answer": "left = 5/2, right = 5", "id": "bisection-interval-update/medium/1/f261b3900ddf", "text": "For f(x) = x² − 22, the current positive bracket is [0, 5]. Perform one bisecti…"}
 {"answer": "left = 5/2, right = 5", "id": "bisection-interval-update/medium/2/12da0b1cd4bc", "text": "For f(x) = x² − 17, the current positive bracket is [0, 5]. Perform one bisecti…"}
-{"answer": "11", "id": "bits-hex-and-digit-counts/easy/0/d2892523c762", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
-{"answer": "9", "id": "bits-hex-and-digit-counts/easy/1/dc8e97c3b371", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
-{"answer": "11", "id": "bits-hex-and-digit-counts/easy/2/02037cf18ed2", "text": "A scoreboard counts whole numbers from 0 up to 1181, stored in binary. What is …"}
-{"answer": "(a) 14; (b) 16384; (c) 246; (d) 3F09", "id": "bits-hex-and-digit-counts/exam/0/6fcc417576bd", "text": "The logger in a pedometer that reports a whole number of steps stores each read…"}
-{"answer": "(a) 14; (b) 16384; (c) 6690; (d) 4", "id": "bits-hex-and-digit-counts/exam/1/63ca337bc9ee", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
-{"answer": "(a) 14; (b) 16384; (c) 6580; (d) 264B", "id": "bits-hex-and-digit-counts/exam/2/1a1842871b11", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
-{"answer": "4095", "id": "bits-hex-and-digit-counts/hard/0/b2a272cfb41b", "text": "What is the largest whole number (in decimal) that can be written with 3 hexade…"}
+{"answer": "11", "id": "bits-hex-and-digit-counts/easy/0/2159116bec1f", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
+{"answer": "9", "id": "bits-hex-and-digit-counts/easy/1/ec97e911dd26", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
+{"answer": "11", "id": "bits-hex-and-digit-counts/easy/2/a2a748fc573a", "text": "A scoreboard counts whole numbers from 0 up to 1181, stored in binary. What is …"}
+{"answer": "(a) 14; (b) 16384; (c) 246; (d) 3F09", "id": "bits-hex-and-digit-counts/exam/0/0aea5034b01d", "text": "The logger in a pedometer that reports a whole number of steps stores each read…"}
+{"answer": "(a) 14; (b) 16384; (c) 6690; (d) 4", "id": "bits-hex-and-digit-counts/exam/1/1a7f11b3b8ed", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
+{"answer": "(a) 14; (b) 16384; (c) 6580; (d) 264B", "id": "bits-hex-and-digit-counts/exam/2/5185a32ead94", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
+{"answer": "4095", "id": "bits-hex-and-digit-counts/hard/0/0da7e9caf828", "text": "What is the largest whole number (in decimal) that can be written with 3 hexade…"}
 {"answer": "071", "id": "bits-hex-and-digit-counts/hard/1/2bf30d896364", "text": "Write 113 in hexadecimal using exactly 3 digits (put zeros in front if needed).…"}
 {"answer": "0AA", "id": "bits-hex-and-digit-counts/hard/2/8126868e009e", "text": "A memory address is shown as exactly 3 hexadecimal digits, with leading zeros a…"}
-{"answer": "8", "id": "bits-hex-and-digit-counts/medium/0/6c87ad6797f9", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
-{"answer": "7", "id": "bits-hex-and-digit-counts/medium/1/aecb52b5aa21", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
-{"answer": "3", "id": "bits-hex-and-digit-counts/medium/2/9b0f9a4314df", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
+{"answer": "8", "id": "bits-hex-and-digit-counts/medium/0/4b252a3f3893", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
+{"answer": "7", "id": "bits-hex-and-digit-counts/medium/1/5894a46c1a95", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
+{"answer": "3", "id": "bits-hex-and-digit-counts/medium/2/a41783baa9fb", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
 {"answer": "91.50", "id": "bnpl-fees-and-instalments/easy/0/e50861e21c66", "text": "Sophie buys a set of bike lights and a helmet for $360 using a buy-now-pay-late…"}
 {"answer": "96.50", "id": "bnpl-fees-and-instalments/easy/1/347d0de65b29", "text": "Sophie buys a robot vacuum cleaner for $380 using a buy-now-pay-later plan. The…"}
 {"answer": "107.00", "id": "bnpl-fees-and-instalments/easy/2/ac46872e4622", "text": "Liam buys a games console controller bundle for $420 using a buy-now-pay-later …"}
@@ -574,11 +574,11 @@
 {"answer": "647.0", "id": "choose-summary-statistic-for-data/easy/0/70174fe0781e", "text": "Here are the sale prices, in thousands of dollars, of five houses on one street…"}
 {"answer": "18.0", "id": "choose-summary-statistic-for-data/easy/1/e941f2bde936", "text": "A newspaper lists the weekly pocket money, in dollars, of five students: 8, 143…"}
 {"answer": "3.0", "id": "choose-summary-statistic-for-data/easy/2/1f8c406ca376", "text": "Here are the numbers of goals scored by a team in five games: 3, 3, 1, 8, 7. Wh…"}
-{"answer": "(a) 26.5; (b) 26.0; (c) 1590.0; (d) 30.0", "id": "choose-summary-statistic-for-data/exam/0/4f9b14812ead", "text": "A planner lists the distances, in kilometres, cycled by a club member on ten ri…"}
+{"answer": "(a) 26.5; (b) 26.0; (c) 1590.0; (d) 30.0", "id": "choose-summary-statistic-for-data/exam/0/59bd504275c5", "text": "A planner lists the distances, in kilometres, cycled by a club member on ten ri…"}
 {"answer": "(a) 21.0; (b) 21.5; (c) 1260.0; (d) -30.0", "id": "choose-summary-statistic-for-data/exam/1/a351fdeb6494", "text": "A planner lists the daily rainfall, in millimetres, recorded over ten days at a…"}
 {"answer": "(a) 99.0; (b) 78.5; (c) 20.5; (d) 26.1", "id": "choose-summary-statistic-for-data/exam/2/b67e3f0797d7", "text": "A researcher lists the annual salaries, in thousands of dollars, of ten staff a…"}
-{"answer": "5", "id": "choose-summary-statistic-for-data/hard/0/3dfc5fb8ddbd", "text": "A survey recorded the flavour of pie chosen at a bakery, coded 1 = beef, 2 = ch…"}
-{"answer": "5", "id": "choose-summary-statistic-for-data/hard/1/f44a2ed65aef", "text": "A cafe asks eleven customers to rate its service from 1 (poor) to 7 (excellent)…"}
+{"answer": "5", "id": "choose-summary-statistic-for-data/hard/0/1d4f8f2f4d07", "text": "A survey recorded the flavour of pie chosen at a bakery, coded 1 = beef, 2 = ch…"}
+{"answer": "4", "id": "choose-summary-statistic-for-data/hard/1/297010134c67", "text": "A school asks eleven parents how satisfied they are with a camp, from 1 (very d…"}
 {"answer": "18.5", "id": "choose-summary-statistic-for-data/hard/2/f9bc54409934", "text": "A report says the typical weekly pocket money is 28.0, taken from the weekly po…"}
 {"answer": "610.0", "id": "choose-summary-statistic-for-data/medium/0/1e4c17a7f94e", "text": "These are the sale prices, in thousands of dollars, of ten houses on one street…"}
 {"answer": "211.5", "id": "choose-summary-statistic-for-data/medium/1/ea94be88508a", "text": "Data on the weekly grocery bills, in dollars, of ten households: 205, 228, 188,…"}
