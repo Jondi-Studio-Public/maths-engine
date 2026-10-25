@@ -27,16 +27,17 @@ fixed rank among the options (`_nv_kit.spread_order`).
 
 from __future__ import annotations
 
+import math
 import statistics
 from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
 from ._exd_distinct_parts import distinct_part_answers
-from ._nv_kit import spread_order
+from ._nv_kit import is_multiple_of_ten, lone_property_fix, spread_order
 from ._exd_r3f_parts import clear_of_boundary
 from ._r3j_kit import choice_question, number_part, sane, single_number
 from ._spread_kit import NEAR, uses_rng
-from ._w6a_kit import retry_draw
+from ._w6a_kit import TooFewDistractors, retry_draw
 
 TOPIC = "nv_summary_choice"
 EXAM_TOPIC = "exd_x_nv_summary_choice"
@@ -250,8 +251,10 @@ def _counts(rng, ctx, n=10):
         if tally[0] < least or (len(tally) > 1 and tally[1] == tally[0]):
             continue
         mean, median = _mean(values), _median(values)
-        # two whole numbers either side of the mode inside the data (zero is never offered): the key is not at an end
-        if top - max(min(values), 1) < 2 or max(values) - top < 2:
+        # two other listed values either side of the mode (zero is never offered), so the options drawn from the list can fall on either side of it
+        listed = set(values) - {0}
+        need = 2 if n == 10 else 1
+        if len({v for v in listed if v < top}) < need or len({v for v in listed if v > top}) < need:
             continue
         if (
             (n == 5 or sum(values) % 5 == 0)
@@ -269,7 +272,7 @@ def _counts(rng, ctx, n=10):
 # -- wrong values -----------------------------------------------------------------------------------------------------
 
 
-def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=None):
+def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=None, places=1):
     """`slips` reordered so that a random number of the first three wrong values are below the key (plain near misses
     make up a side that has too few), so the key's rank among the options is not fixed.
 
@@ -277,8 +280,11 @@ def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=No
     `values` (the printed data) bounds every option to [min, max] of the data (without it, `lo`/`hi` do, from 1 up);
     `whole` (a mode question, whose key is a listed whole value) allows whole numbers only; `exclude` holds figures the stem names as wrong (a claim)."""
     key = Fraction(key)
-    steps = (-3, -2, -1, 1, 2, 3) if whole else (-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6)
-    fillers = [(key + (d if whole else Fraction(d, 2)), NEAR) for d in steps]
+    if whole and values:  # a mode question: a plain near miss is another value from the printed list
+        fillers = [(Fraction(v), NEAR) for v in sorted(set(values))]
+    else:
+        steps = (-3, -2, -1, 1, 2, 3) if whole else (-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6)
+        fillers = [(key + (d if whole else Fraction(d, 2)), NEAR) for d in steps]
     if values:
         lo, hi = min(values), max(values)
     else:
@@ -292,7 +298,38 @@ def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=No
     # the answer kit drops a wrong value far from the key (and a zero): drop it here so it cannot take a place in the order
     slips = [c for c in sane(slips, key, 15) if fits(c)]
     fillers = [c for c in sane(fillers, key, 15) if fits(c)]
-    return spread_order(key, slips, fillers, 3, lo=lo, hi=hi)
+    ordered = spread_order(key, slips, fillers, 3, lo=lo, hi=hi)
+    # the key is never the only whole number, the only listed value, or the only multiple of ten among its options
+    if len(ordered) >= 3:
+        stay = [c for c in ordered if fits(c)]
+
+        def pool(extra):
+            return [c for c in extra if fits(c) and lo <= Fraction(c[0]) <= hi and Fraction(c[0]) != key]
+
+        listed_values = {Fraction(v) for v in values or ()}
+        scale = 10**places
+
+        def view(v):  # what the learner reads: the value to the stated places
+            return Fraction(math.floor(v * scale + Fraction(1, 2)), scale)
+
+        if whole and values:  # a mode question: another listed value, never an unlisted number
+            whole_pool = tens_pool = [(v, NEAR) for v in sorted(listed_values)]
+        else:
+            whole_pool = [(key + d, NEAR) for d in (-2, -1, 1, 2)]
+            tens_pool = [(key + d, NEAR) for d in (-10, 10, -20, 20)]
+        ordered = lone_property_fix(
+            key,
+            stay,
+            [
+                (lambda v: v.denominator == 1, pool(whole_pool)),
+                (lambda v: v in listed_values, pool([(v, NEAR) for v in sorted(listed_values)])),
+                (is_multiple_of_ten, pool(tens_pool)),
+            ],
+            view=view,
+        )
+    if len(ordered) < 3:
+        raise TooFewDistractors("fewer than three options fit the stem")
+    return ordered
 
 
 def _median_slips(values, mean, median):
@@ -580,7 +617,7 @@ def _hard_claim_common(rng):
         f"The question asks for the most common value, not the mean ({_fmt(mean)}).",
         f"The value {mode} is listed {values.count(mode)} times, more than any other value.",
     ]
-    slips = [(median, "nv-median-for-most-common"), (mean + 1, NEAR)] + _mode_slips(values, mean, median)[2:]
+    slips = [(median, "nv-median-for-most-common")] + _mode_slips(values, mean, median)[2:]
     return single_number(
         text, Fraction(mode), 1, working, _ordered(Fraction(mode), slips, values, whole=True, exclude=[mean])
     )
@@ -623,17 +660,30 @@ def _hard_claim_ordinal(rng):
         (Fraction(int(median) - 1), NEAR),
         (Fraction(_median_unsorted(codes)), "nv-median-unsorted"),
     ]
-    return single_number(text, median, 0, working, _ordered_whole(median, slips, exclude=[round(mean), mean]))
+    return single_number(
+        text,
+        median,
+        0,
+        working,
+        _ordered_whole(median, slips, exclude=[round(mean), mean], lo=min(codes), hi=max(codes), listed=codes),
+    )
 
 
-def _ordered_whole(key, slips, exclude=()):
+def _ordered_whole(key, slips, exclude=(), lo=1, hi=7, listed=()):
     """Whole ratings from 1 to 7, other than the figures the stem names as wrong."""
     key = Fraction(key)
     banned = {Fraction(x) for x in exclude}
     fillers = [(key + d, NEAR) for d in (-4, -3, -2, -1, 1, 2, 3, 4)]
     slips = [c for c in slips if Fraction(c[0]) not in banned]
     fillers = [c for c in fillers if Fraction(c[0]) not in banned]
-    return spread_order(key, slips, fillers, 3, lo=1, hi=7)
+    ordered = spread_order(key, slips, fillers, 3, lo=lo, hi=hi)
+    if len(ordered) < 3:
+        raise TooFewDistractors("fewer than three ratings fit the stem")
+    if listed:  # the key (a rating that was given) is not the only given rating among the options
+        given = {Fraction(v) for v in listed}
+        pool = [(v, NEAR) for v in sorted(given) if v != key and v not in banned and lo <= v <= hi]
+        ordered = lone_property_fix(key, ordered, [(lambda v: v in given, pool)])
+    return ordered
 
 
 def _hard_coded_count(rng):

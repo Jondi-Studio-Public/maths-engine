@@ -60709,6 +60709,16 @@ _ENTRIES += (
         area="bits-hex-and-digit-counts",
     ),
     CatalogueEntry(
+        "nv-values-bit-extra",
+        "Counts the values of one more bit than there is, giving twice as many.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-codes-place-extra",
+        "Counts one more hexadecimal place than the code has.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
         "nv-hex-groups-reversed",
         "Reads the groups of four bits from right to left, so the hexadecimal digits come out in reverse order.",
         area="bits-hex-and-digit-counts",
@@ -60761,11 +60771,6 @@ _ENTRIES += (
     CatalogueEntry(
         "nv-hex-digits-one-extra",
         "Adds one hexadecimal digit to the count that is needed.",
-        area="bits-hex-and-digit-counts",
-    ),
-    CatalogueEntry(
-        "nv-hex-codes-swapped",
-        "Swaps the base and the exponent, working out the digit count to the power 16 instead of 16 to the power of the digit count.",
         area="bits-hex-and-digit-counts",
     ),
     CatalogueEntry(

@@ -378,3 +378,43 @@ def test_hex_options_are_mixed_in_shape():
             key_only_letters += 1
     assert letterless_keys >= 30, letterless_keys
     assert key_only_letters <= 60, key_only_letters
+
+
+def _is_pow2(o):
+    return o.isdigit() and int(o) >= 1 and int(o) & (int(o) - 1) == 0
+
+
+PROPERTIES = {
+    "power of two": _is_pow2,
+    "multiple of 10": lambda o: o.isdigit() and int(o) % 10 == 0 and int(o) > 0,
+    "a hexadecimal letter": lambda o: any(c in "ABCDEFabcdef" for c in o) and not o.isdigit(),
+}
+
+
+def _lone(label, key, options, seed, typed_hex=False):
+    """The properties the key has that no wrong option has (a typed hexadecimal numeral has only the letter property)."""
+    out = []
+    for name, has in PROPERTIES.items():
+        if typed_hex != (name == "a hexadecimal letter"):
+            continue
+        if has(key) and not any(has(o) for o in options):
+            out.append(f"{label} seed {seed}: the key {key} is the only option that is {name}: {options}")
+    return out
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_key_is_never_the_only_option_with_a_property(tier):
+    bad = []
+    for seed in range(1000):
+        q = sup.tier_question(TOPIC, tier, seed)
+        bad += _lone(tier, q.answer_text, list(q.distractors), seed, q.answer_kind == "ordered_list")
+    assert not bad, bad[:5]
+
+
+def test_exam_key_is_never_the_only_option_with_a_property():
+    bad = []
+    for seed in range(1000):
+        q = sup.exam_question(EXAM, seed)
+        for label, p in zip("abcd", q.parts):
+            bad += _lone(label, p.answer_text, list(p.distractors), seed, p.answer_kind == "ordered_list")
+    assert not bad, bad[:5]
