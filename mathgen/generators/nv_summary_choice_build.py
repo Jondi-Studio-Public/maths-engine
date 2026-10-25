@@ -317,6 +317,7 @@ def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=No
         else:
             whole_pool = [(key + d, NEAR) for d in (-2, -1, 1, 2)]
             tens_pool = [(key + d, NEAR) for d in (-10, 10, -20, 20)]
+        fraction_pool = [(key + Fraction(d, 10), NEAR) for d in (-3, -1, 1, 3, -7, 7)]
         ordered = lone_property_fix(
             key,
             stay,
@@ -324,6 +325,7 @@ def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=No
                 (lambda v: v.denominator == 1, pool(whole_pool)),
                 (lambda v: v in listed_values, pool([(v, NEAR) for v in sorted(listed_values)])),
                 (is_multiple_of_ten, pool(tens_pool)),
+                (lambda v: v.denominator != 1, pool(fraction_pool)),  # a non-whole key keeps a non-whole wrong option
             ],
             view=view,
         )
