@@ -29,6 +29,8 @@ log = logging.getLogger("mathgen.server")
 MAX_REPLY_CHARS = 2000
 #: Replies in one batch. Each is graded with its own deadline, so a batch can hold a worker for a while.
 MAX_BATCH = 100
+#: Timeouts a batch may spend before its remaining items come back as `timeout` without being run.
+BATCH_MAX_TIMEOUTS = 3
 #: Parts (or keys) in a multi-part reply.
 MAX_REPLY_PARTS = 20
 MAX_SEED = 2**63 - 1
@@ -407,8 +409,14 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
         results = []
         deadline = time.monotonic() + config.batch_timeout
         kind = {404: "bad_request", 422: "bad_request", 409: "question_changed", 504: "timeout"}
+        slow = 0
         with slot():  # one place for the whole batch
             for item in body.items:
+                if (
+                    slow >= BATCH_MAX_TIMEOUTS
+                ):  # a batch of hanging replies must not hold a worker for the whole deadline
+                    results.append({"id": item.id, "error": "timeout", "detail": "the batch had too many slow replies"})
+                    continue
                 left = deadline - time.monotonic()
                 if left <= 0:  # past the batch deadline: not run, so a batch cannot hold a worker for long
                     results.append({"id": item.id, "error": "timeout", "detail": "the batch ran out of time"})
@@ -426,6 +434,7 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
                         )
                     )
                 except HTTPException as exc:
+                    slow += exc.status_code == 504
                     detail = exc.detail if isinstance(exc.detail, dict) else {"detail": exc.detail}
                     results.append({"id": item.id, "error": kind.get(exc.status_code, "unavailable"), **detail})
         return {"results": results}
