@@ -402,3 +402,32 @@ def test_the_key_is_never_told_apart_by_sign_size_or_format():
             continue
         for dim, share in shares.items():
             assert share <= 0.12, (name, dim, round(share, 3), shares)
+
+
+def _lone_sign(key: str, options) -> bool:
+    """True when the key is a non-zero number and every wrong option is on the other side of zero."""
+    try:
+        k = Fraction(key.replace(" ", ""))
+        vs = [Fraction(o.replace(" ", "")) for o in options]
+    except (ValueError, ZeroDivisionError):
+        return False  # a word or a list: no sign to give it away
+    return k != 0 and all(v * k <= 0 for v in vs)
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_the_key_is_never_the_only_option_of_its_sign(tier):
+    bad = []
+    for seed in range(1200):
+        q = t.question(SKILL, tier, seed)
+        if _lone_sign(q.answer_text, q.distractors):
+            bad.append((seed, q.answer_text, list(q.distractors)))
+    assert not bad, bad[:5]
+
+
+def test_the_key_of_an_exam_part_is_never_the_only_option_of_its_sign():
+    bad = []
+    for seed in range(1200):
+        for p in sup.exam_question(CHAIN, seed).parts:
+            if _lone_sign(p.answer_text, p.distractors):
+                bad.append((seed, p.label, p.answer_text, list(p.distractors)))
+    assert not bad, bad[:5]

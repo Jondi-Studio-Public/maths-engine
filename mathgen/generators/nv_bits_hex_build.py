@@ -293,6 +293,44 @@ def _spread(key, cands, lo=1, hi=None, count=3):
     return dist
 
 
+def _pow2_spread(key, cands, lo=2, count=3):
+    """Three wrong powers-of-two-rich options for a count 2^n: at least two of them are powers of two (so the key keeps at
+    least two powers of two for company), with a uniformly random number of the three below the key."""
+    rng = _RNG.get()
+    k = Fraction(key)
+    fillers = [(key + d, NEAR) for d in (-4, -3, -2, -1, 1, 2, 3, 4)]
+    named = {Fraction(v): (v, t) for v, t in cands if v is not None and v >= lo and Fraction(v) != k}
+    fill = {Fraction(v): (v, t) for v, t in fillers if v >= lo and Fraction(v) not in named}
+    pows = {Fraction(key * 2**e): ((key * 2**e if e > 0 else key // 2**-e), NEAR) for e in (-3, -2, -1, 1, 2, 3)}
+    pows = {x: c for x, c in pows.items() if c[0] >= lo}
+    for x, c in list(named.items()):
+        if x in pows:
+            pows[x] = c  # keep the named slip's tag
+            del named[x]
+    pb = [c for x, c in pows.items() if x < k]
+    pa = [c for x, c in pows.items() if x > k]
+    ob = [c for x, c in named.items() if x < k] + [c for x, c in fill.items() if x < k]
+    oa = [c for x, c in named.items() if x > k] + [c for x, c in fill.items() if x > k]
+    for pool in (pb, pa, ob, oa):
+        rng.shuffle(pool)
+    ob.sort(key=lambda c: c[1] == NEAR)  # named slips before plain near misses
+    oa.sort(key=lambda c: c[1] == NEAR)
+    options = []
+    for r in range(count + 1):  # r options below the key
+        for x in range(min(r, len(pb)) + 1):
+            for y in range(min(count - r, len(pa)) + 1):
+                if x + y >= 2 and r - x <= len(ob) and count - r - y <= len(oa):
+                    options.append((r, x, y))
+    if not options:
+        raise TooFewDistractors("no powers-of-two spread")
+    ranks = sorted({o[0] for o in options})
+    r = rng.choice(ranks)
+    r, x, y = rng.choice([o for o in options if o[0] == r])
+    chosen = pb[:x] + ob[: r - x] + pa[:y] + oa[: count - r - y]
+    rng.shuffle(chosen)
+    return chosen
+
+
 def _num(rng, patterns, **slots):
     return phrase(rng, patterns, **slots)
 
@@ -790,17 +828,21 @@ def _exam_chain(rng):
         ],
         hi=3 * bits,
     )
-    b_dist = _spread(
+    b_dist = num_dist(
         values,
-        [
-            (bits * bits, "nv-values-squares"),
-            (2 * bits, "nv-values-doubles-bits"),
-            (values - 1, "nv-values-forgets-zero"),
-            (values // 2, "nv-values-half"),
-            (values * 2, "nv-values-bit-extra"),
-        ],
-        lo=2,
+        _pow2_spread(
+            values,
+            [
+                (bits * bits, "nv-values-squares"),
+                (2 * bits, "nv-values-doubles-bits"),
+                (values - 1, "nv-values-forgets-zero"),
+                (values // 2, "nv-values-half"),
+                (values * 2, "nv-values-bit-extra"),
+            ],
+        ),
+        n=3,
     )
+    enough(b_dist)
     c_dist = _spread(
         unused,
         [

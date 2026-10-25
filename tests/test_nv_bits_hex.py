@@ -418,3 +418,14 @@ def test_exam_key_is_never_the_only_option_with_a_property():
         for label, p in zip("abcd", q.parts):
             bad += _lone(label, p.answer_text, list(p.distractors), seed, p.answer_kind == "ordered_list")
     assert not bad, bad[:5]
+
+
+def test_exam_values_part_has_at_least_three_powers_of_two():
+    """Part (b) asks for 2^n, so the key must keep company: at least three of the four options are powers of two."""
+    few = []
+    for seed in range(1200):
+        p = sup.exam_question(EXAM, seed).parts[1]
+        options = [int(p.answer_text), *(int(o) for o in p.distractors)]
+        if sum(1 for v in options if v & (v - 1) == 0) < 3:
+            few.append((seed, options))
+    assert not few, few[:5]

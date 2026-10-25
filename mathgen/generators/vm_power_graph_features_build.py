@@ -99,15 +99,39 @@ def _spread(value, wrong, lo=None, hi=None, zero_ok=False, exclude=()):
         and value + d not in exclude
     ]
     wrong = [w for w in wrong if (zero_ok or w[0] != 0) and w[0] not in exclude]
-    return mixed(
+    return _same_sign_company(
         value,
-        list(wrong),
-        fillers=near,
-        lo=lo,
-        hi=hi,
-        unbounded="open" if lo is None and hi is None else None,
-        slip_range=(None, None) if hi is None else None,  # a stated upper bound binds the named slips too
+        mixed(
+            value,
+            list(wrong),
+            fillers=near,
+            lo=lo,
+            hi=hi,
+            unbounded="open" if lo is None and hi is None else None,
+            slip_range=(None, None) if hi is None else None,  # a stated upper bound binds the named slips too
+        ),
+        zero_ok,
     )
+
+
+def _same_sign_company(value, ordered, zero_ok, count=3):
+    """`ordered` (the first `count` are the options shown) changed so the key is never the only option with its sign:
+    when no shown wrong value is on the key's side of zero, one from the rest of the list takes the place of a shown one
+    (a plain near miss around the key is always among them, so the draw does not fail)."""
+    k = Fraction(value)
+    if k == 0:
+        return ordered
+    same = lambda v: Fraction(v) * k > 0  # noqa: E731
+    shown, rest = list(ordered[:count]), list(ordered[count:])
+    if len(shown) < count or any(same(v) for v, _ in shown):
+        return ordered
+    options = [c for c in rest if same(c[0])]
+    if not options:
+        return ordered
+    rng = _RNG.get()
+    pick = rng.choice(options) if rng else options[0]
+    shown[rng.randrange(count) if rng else -1] = pick
+    return shown + [c for c in ordered[count:] if c is not pick] + [c for c in ordered[:count] if c not in shown]
 
 
 def fraction_part(prompt, value, marks, working, wrong, lo=None, hi=None, zero_ok=False, **kw):
