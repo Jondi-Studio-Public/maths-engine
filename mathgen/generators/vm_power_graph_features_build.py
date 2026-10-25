@@ -154,25 +154,43 @@ def nums(prompt, values, marks, working, wrong, lo=None, hi=None, zero_ok=False,
     return words_part(prompt, values, marks, working, wrong)
 
 
+# The quadrant sets a power-function graph (or its reflection) can occupy: the vertical line test rules out "1, 4" and
+# "2, 3", so a wrong option is never one of those.
+OTHER_SIZE_WEIGHTS = (
+    0,
+    1,
+    0,
+)  # exactly one set of another size: the key is not told by being the odd one out, or by being in a pair
+_LEGAL = {1: [(1,), (2,), (3,), (4,)], 2: [(1, 2), (1, 3), (2, 4), (3, 4)]}
+
+
+def _legal_sets(size: int) -> list:
+    return list(_LEGAL.get(size) or _label_sets(size))
+
+
 def _label_options(key: tuple, wrong) -> list:
-    """Wrong sets of quadrant numbers. Each set of that size is as likely to be offered as any other, so no set (and no
-    feature of a set, such as two even numbers) belongs to the key alone; a named slip keeps its tag when it comes up,
-    and a slip that names a different number of quadrants takes a place now and then."""
+    """Wrong sets of quadrant numbers, drawn only from sets some power function can have. The other sets of the key's size
+    are each as likely as any other, so no set (and no feature of a set, such as two even numbers) belongs to the key
+    alone; now and then a legal set of a different size (a slip that names too few or too many quadrants) takes a place,
+    which also keeps the key's rank among the options from being fixed by which set it is."""
     rng = _RNG.get()
     tagged = {tuple(vs): t for vs, t in wrong}
-    others = [s for s in _label_sets(len(key)) if s != key]
-    rng.shuffle(others)
-    other_size = [(tuple(vs), t) for vs, t in wrong if len(vs) != len(key)]
-    rng.shuffle(other_size)
-    take = 1 if other_size and rng.random() < 0.4 else 0
-    chosen = [(s, tagged.get(s, "near-miss-value")) for s in others]
-    chosen = other_size[:take] + chosen[: 3 - take] + chosen[3 - take :] + other_size[take:]
+    same = [s for s in _legal_sets(len(key)) if s != key]
+    rng.shuffle(same)
+    other = [(tuple(vs), t) for vs, t in wrong if len(vs) != len(key) and tuple(vs) in _legal_sets(len(vs))]
+    spare = [s for n in _LEGAL if n != len(key) for s in _legal_sets(n) if s not in {v for v, _ in other}]
+    rng.shuffle(other)
+    rng.shuffle(spare)
+    other += [(s, "near-miss-value") for s in spare]
+    take = min(len(other), rng.choices((0, 1, 2), weights=OTHER_SIZE_WEIGHTS)[0])
+    chosen = [(s, tagged.get(s, "near-miss-value")) for s in same]
+    chosen = other[:take] + chosen[: 3 - take] + chosen[3 - take :] + other[take:]
     return [(list(v), t) for v, t in chosen]
 
 
 def _choice_or_perturbed(key: tuple, choice: bool, exclude=()) -> list:
     if choice:
-        return [(sub, "near-miss-value") for sub in _label_sets(len(key))]
+        return [(sub, "near-miss-value") for sub in _legal_sets(len(key))]
     return _perturbed(key, exclude)
 
 
@@ -518,6 +536,8 @@ def _hard_intercepts(rng):
     check(a != 0 and abs(a) <= 40, "dilation out of range")
     t_values = [s * t0] if n % 2 == 1 else [-t0, t0]
     key = h + max(t_values)
+    if key == 0:  # a "0" option would then always be the key, since 0 is not offered as a wrong answer
+        raise Redraw("intercept at the origin")
     wrong = [
         # the shift applied the wrong way, which for an even n is the same value as the other (left-most) root
         (h - max(t_values), "vm-pf-intercept-sign-of-shift" if n % 2 else "vm-pf-intercept-other-root"),

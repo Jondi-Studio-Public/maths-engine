@@ -156,6 +156,9 @@ def question_features(texts: list) -> list:
     return [{k: f[k] for k in common} for f in feats]
 
 
+LABEL_ONLY = {"parity", "pow2", "std_degree"}
+
+
 def _key_is_zero(text: str) -> bool:
     items = _items(text)
     return items is not None and all(abs(z) < 1e-12 for z in items)
@@ -175,13 +178,13 @@ def survey(topic: str, difficulty: str, params: dict, seeds=range(SEEDS)):
             texts = [str(answer), *shown]
             if len(shown) < 2 or _is_word_answer(texts) or _key_is_zero(texts[0]):
                 continue
-            if "quadrant numbers" in str(prompt):
-                # A set of quadrant numbers is a closed answer space (at most 4 keys): its parity or power-of-two
-                # pattern is a label, not a quantity, like the fixed word sets above.
-                continue
             n_seen[label] += 1
             n_opts[label] += len(texts)
             feats = question_features(texts)
+            if "quadrant numbers" in str(prompt):
+                # The parity or power-of-two pattern of a set of quadrant numbers is a label, not a quantity (at most 4
+                # keys, a closed answer space); size, membership and the rest are judged like any option.
+                feats = [{k: v for k, v in f.items() if k not in LABEL_ONLY} for f in feats]
             for name in feats[0]:
                 counts = Counter(f[name] for f in feats)
                 for idx, f in enumerate(feats):
@@ -241,3 +244,43 @@ def test_key_is_not_the_lone_option_of_its_kind(skill, src):
     topic, params = src["topic"], dict(src.get("params") or {})
     bad = tells(*survey(topic, src["difficulty"], params))
     assert not bad, f"{skill} / {topic} {src['difficulty']}:\n" + "\n".join(_fmt(r) for r in bad)
+
+
+@pytest.mark.parametrize(("skill", "src"), _sources())
+def test_a_zero_key_is_not_the_only_zero(skill, src):
+    """A key of 0 is exempt from the lone-feature statistics, but only if 0 is also offered as a wrong option at a
+    comparable rate: otherwise a "0" among the options is always the key."""
+    topic, params = src["topic"], dict(src.get("params") or {})
+    key_zero: Counter = Counter()
+    wrong_zero: Counter = Counter()
+    for seed in range(SEEDS):
+        q = make(topic, seed=seed, difficulty=src["difficulty"], **params)
+        for label, answer, options, _prompt in _units(q):
+            shown = [getattr(o, "text", str(o)) for o in options or []]
+            if _is_word_answer([str(answer), *shown]):
+                continue
+            if _key_is_zero(str(answer)):
+                key_zero[label] += 1
+            elif any(_key_is_zero(t) for t in shown):
+                wrong_zero[label] += 1
+    bad = {
+        label: (n, wrong_zero[label])
+        for label, n in key_zero.items()
+        if n >= MIN_KEY_COUNT and n / (n + wrong_zero[label]) > 0.5
+    }
+    assert not bad, f"{skill} / {topic} {src['difficulty']}: 0 is the key in {bad} (key draws, wrong-zero draws)"
+
+
+def test_quadrant_wrong_options_are_sets_a_power_function_can_have():
+    """The vertical line test rules out "1, 4" and "2, 3": a wrong option is never one of them."""
+    seen = 0
+    for diff, params in (("medium", {}), ("exam", {"tier": "exam"})):
+        topic = "vm_power_graph_features" if diff == "medium" else "vm_power_graph_features_exam"
+        for seed in range(SEEDS):
+            for _label, _answer, options, prompt in _units(make(topic, seed=seed, difficulty=diff, **params)):
+                if "quadrant numbers" not in str(prompt):
+                    continue
+                seen += 1
+                texts = [getattr(o, "text", str(o)) for o in options]
+                assert not {"1, 4", "2, 3"} & set(texts), (topic, seed, texts)
+    assert seen > 500
