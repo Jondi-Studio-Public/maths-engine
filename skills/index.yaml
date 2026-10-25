@@ -4948,6 +4948,8 @@ senior-ascertain-the-reasonableness-of-answers-to-arithmetic-calculations:
   sources:
   - topic: reasonableness_verdict
     module: mathgen/generators/p10b_checking_results_build.py
+  - topic: exd_x_em003_reasonableness_chain
+    module: mathgen/generators/exd_x_em003_reasonableness_chain.py
 senior-calculate-and-interpret-quartiles-deciles-and-percentiles:
   domain: statistics-probability
   status: active
@@ -5506,6 +5508,8 @@ senior-distinguish-between-causality-and-correlation-through-examples:
   sources:
   - topic: causality_correlation_classify
     module: mathgen/generators/p5d_causality_interpolation_build.py
+  - topic: exd_x_gm064_causation_chain
+    module: mathgen/generators/exd_x_gm064_causation_chain.py
 senior-distinguish-between-interpolation-and-extrapolation-when-using-the:
   domain: statistics-probability
   status: active

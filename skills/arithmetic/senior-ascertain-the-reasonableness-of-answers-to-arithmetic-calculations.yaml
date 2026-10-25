@@ -20,6 +20,10 @@ sources:
 - topic: reasonableness_verdict
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_em003_reasonableness_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: trusts-a-stated-answer-without-checking-magnitude
   description: Accepts a stated result as reasonable without comparing its order of magnitude to the operands, missing a x10 or x0.1 error.

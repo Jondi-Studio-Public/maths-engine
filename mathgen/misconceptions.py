@@ -60908,6 +60908,135 @@ _ENTRIES += (
     # nv-summary block end
 )
 
+# -- causation versus correlation exam chain ------------------------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "cc-r-for-r-squared",
+        "Giving the size of the correlation coefficient r, as a percentage, for the coefficient of determination r².",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-unexplained-for-explained",
+        "Swapping the percentage of variation explained by the explanatory variable with the percentage not explained.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-unexplained-from-r",
+        "Taking 100% minus the size of r as a percentage for a percentage of variation, instead of using r².",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-large-r-proves-cause",
+        "Concluding that one variable causes the other because the correlation is strong, whatever the study design.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-no-cause-without-perfect-r",
+        "Believing causation can only be claimed when the correlation coefficient is 1 or -1.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-experiment-cannot-show-cause",
+        "Believing no study, even a randomised experiment, can show that one variable causes another.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-measured-confounder-fixes-design",
+        "Treating an observational study as controlled because the third variable was measured.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-r-squared-as-causal-share",
+        "Reading r² as the share of the changes in the response that the explanatory variable causes.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "est-rounds-one-factor-only",
+        "Rounding only one of the two numbers to 1 significant figure before multiplying, so the estimate is not a quick mental one.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-adds-rounded-factors",
+        "Adding the two rounded numbers instead of multiplying them to estimate a product.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-rounds-to-nearest-ten",
+        "Rounding each number to the nearest ten where 1 significant figure was asked for, which leaves a hard multiplication.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-truncates-instead-of-rounding",
+        "Cutting each number down to its first digit followed by zeros instead of rounding to the nearest, so every estimate is too small.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-estimate-zeros-miscounted",
+        "Multiplying the rounded numbers with a zero too many or too few, so the estimate is a power of ten out.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-demands-exact-match",
+        "Calling a stated answer wrong because its digits are not the same as the estimate's, when it is the right size.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-needs-exact-answer",
+        "Saying a stated answer cannot be judged until the exact calculation is done, when an estimate is enough to judge its size.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-accepts-wrong-magnitude",
+        "Accepting a stated answer that is about ten times too large or too small because its digits look right.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-reverses-direction",
+        "Seeing that a stated answer is out by a factor of ten but naming the wrong direction, too large for too small or the reverse.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-exact-place-value-shift",
+        "Working out a product with the whole answer a power of ten out, a place-value slip in the final step.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-adds-instead-of-multiplying",
+        "Adding the two numbers where the calculation multiplies them.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-estimate-given-as-exact",
+        "Giving the rounded estimate where the exact value of the product was asked for.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-partial-product-unshifted",
+        "Adding the partial products of a long multiplication without shifting the tens partial product one place to the left.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-percent-of-estimate",
+        "Finding the difference as a percentage of the estimate instead of the exact value the question names.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-ratio-for-difference",
+        "Giving the estimate as a percentage of the exact value, not the percentage by which it differs.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-raw-difference-for-percent",
+        "Giving the plain difference between the estimate and the exact value where a percentage was asked for.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-percentage-decimal-shift",
+        "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
+        area="estimation",
+    ),
+)
+
 #: Every entry, by id.
 CATALOGUE: dict[str, CatalogueEntry] = {entry.id: entry for entry in _ENTRIES}
 
