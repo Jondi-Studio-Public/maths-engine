@@ -320,3 +320,38 @@ def test_hard_stems_print_signed_surd_brackets():
     for seed in range(300):
         text = q_of(TOPIC, "hard", seed).text
         assert "+ (-" not in text and "- (-" not in text, text
+
+
+def _kind_of(text):
+    z = sympy.expand(parse_cx(text))
+    if sympy.im(z) == 0:
+        return "real"
+    return "imaginary" if sympy.re(z) == 0 else "mixed"
+
+
+def test_a_real_or_imaginary_key_is_never_the_lone_option_of_its_kind():
+    """Over 1000 seeds per part, a real (or pure imaginary) key has a wrong option of the same kind."""
+    seen = 0
+    for tier in TIERS:
+        for seed in range(1000):
+            q = q_of(TOPIC, tier, seed)
+            if q.answer_kind == "number":
+                continue
+            kind = _kind_of(q.answer_text)
+            if kind != "mixed":
+                seen += 1
+                assert any(_kind_of(t) == kind for t in q.distractors), (tier, seed, q.answer_text, q.distractors)
+    for seed in range(1000):
+        q = make(EXAM, seed=seed, difficulty="exam")
+        for index in (0, 2, 3):
+            part = q.parts[index]
+            kind = _kind_of(part.answer_text)
+            if kind != "mixed":
+                seen += 1
+                assert any(_kind_of(t) == kind for t in part.distractors), (
+                    seed,
+                    index,
+                    part.answer_text,
+                    part.distractors,
+                )
+    assert seen > 500

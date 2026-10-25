@@ -271,26 +271,25 @@ def _shape(value):
     )
 
 
-def _options(key, cands, rng, *, lo, hi):
-    """Three wrong exact values. Plain near misses are the key with its coefficient changed (as a wrong coefficient
-    would), so they have the key's shape; no extra constant term appears in any of them."""
+def _denominator(value) -> int:
+    return int(sympy.fraction(sympy.together(value))[1])
+
+
+def _options(key, cands, rng, *, lo, hi, ceiling_value=None):
+    """Three wrong exact values. Plain near misses are made like the key: one term of it doubled, halved or negated
+    (a wrong coefficient or sign, as a student would make) and the whole key times a small whole number or its
+    reciprocal, so they print in the key's form, without odd leading coefficients or large denominators."""
     key = sympy.sympify(key)
-    multipliers = (
-        R(1, 4),
-        R(1, 3),
-        R(1, 2),
-        R(2, 3),
-        R(3, 4),
-        R(4, 5),
-        R(9, 10),
-        R(21, 20),
-        R(11, 10),
-        R(9, 8),
-        R(6, 5),
-    )
-    multipliers += (R(5, 4), R(4, 3), R(3, 2), 2, 3)
-    near = [Cand(key * m, NEAR, const=False) for m in multipliers]
-    out = pick_expr(key, False, mixed(key, _no_const(cands), fillers=near, lo=lo, hi=hi))
+    terms = sympy.Add.make_args(sympy.expand(key))
+    near = [Cand(key * m, NEAR, const=False) for m in (R(1, 2), R(1, 3), 2, 3, 4, R(1, 4))]
+    for t in terms:
+        near += [Cand(key - t + m * t, NEAR, const=False) for m in (2, R(1, 2), -1, 3, R(3, 2), R(9, 8), R(5, 4))]
+    if ceiling_value is not None:  # the value that the largest possible cos^2 (1 throughout) would give
+        near.append(Cand(ceiling_value, NEAR, const=False))
+    room = 4 * _denominator(key)
+    near = [c for c in near if _denominator(sympy.sympify(c.expr)) <= room]
+    cands = [c for c in _no_const(cands) if _denominator(sympy.sympify(c.expr)) <= room]
+    out = pick_expr(key, False, mixed(key, cands, fillers=near, lo=lo, hi=hi))
     if not any(_shape(sympy.sympify(d.text)) == _shape(key) for d in out):
         raise Redraw("the key is the only option of its shape")
     return out
@@ -771,6 +770,7 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
             rng,
             lo=R(1, 1000),
             hi=beta,
+            ceiling_value=beta,
         ),
         follow_through="part_b/2 + sin(2*part_b)/4",
     )
@@ -780,7 +780,7 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         1,
         [_tidy(f"The value is k × (the integral of cos^2): {k} × ({_lim(inner)}) = {_lim(value)}.")],
         exact_fields(value),
-        _options(value, [Cand(c.expr, c.tag, False) for c in d_cands], rng, lo=0, hi=k * beta),
+        _options(value, [Cand(c.expr, c.tag, False) for c in d_cands], rng, lo=0, hi=k * beta, ceiling_value=k * beta),
         follow_through="part_a*part_c",
     )
     check(isinstance(pa, dict), "")
