@@ -29,6 +29,8 @@ from ..answers import Distractor
 from ..core import attempts, check, generator, latex_answer, phrase
 from ..grading import GRADERS
 from ._exd_distinct_parts import distinct_part_answers
+from ._nv_kit import spread_order
+from ._spread_kit import _RNG, NEAR, uses_rng
 from ._w6a_kit import TooFewDistractors, enough, num_dist, num_fields, part, retry_draw
 from types import SimpleNamespace
 
@@ -130,8 +132,38 @@ MISCONCEPTIONS = [
     ),
     ("nv-unused-total-values", "Gives the total number of values rather than the number that are unused.", AREA),
     ("nv-colour-channels-swapped", "Writes the colour channels in the wrong order in the hexadecimal code.", AREA),
+    ("nv-largest-two-less", "Takes two away from 2 to the power n, not one, to get the largest n-bit value.", AREA),
+    (
+        "nv-values-half",
+        "Gives 2 to the power (n - 1) as the number of values, leaving out the two choices of one bit.",
+        AREA,
+    ),
+    (
+        "nv-hex-last-digit-dropped",
+        "Stops the repeated division by 16 one step early, leaving off the last digit.",
+        AREA,
+    ),
+    ("nv-hex-digits-bits-over-two", "Divides the number of bits by 2 to count hexadecimal digits.", AREA),
+    ("nv-hex-digits-one-extra", "Adds one hexadecimal digit to the count that is needed.", AREA),
+    (
+        "nv-hex-codes-swapped",
+        "Swaps the base and the exponent, working out the digit count to the power 16 instead of 16 to the power of the digit count.",
+        AREA,
+    ),
+    (
+        "nv-largest-top-place",
+        "Gives the place value of the leading hexadecimal place (16 to the power k - 1) as the largest number.",
+        AREA,
+    ),
+    (
+        "nv-hex-top-digit-count",
+        "Uses the number of leftover bits as the top hexadecimal digit instead of the largest value they hold.",
+        AREA,
+    ),
+    ("nv-unused-gives-reading", "Gives the largest reading as the number of unused values.", AREA),
 ]
 
+_FORMAT = " Type the digits only: no 0x, no #, no spaces."
 _DIGITS = "0123456789ABCDEF"
 
 
@@ -189,6 +221,35 @@ def hex_dist(key: str, candidates, n: int = 4) -> list[Distractor]:
     return out
 
 
+def _test_value(text: str) -> int:
+    """How an option is ordered: an all-digit numeral as a decimal number, one with a letter as hexadecimal."""
+    return int(text) if text.isdigit() else int(text, 16)
+
+
+def hex_spread(key: str, candidates, count: int = 3) -> list[Distractor]:
+    """`hex_dist` over candidates ordered so that a random number of the chosen wrong numerals are below the key in value.
+
+    Plain near misses (the number a little more or less, same width) make up a side the named slips leave short. A slip
+    equal in value to the key (the decimal digits written as hexadecimal) can be neither below nor above it; it takes
+    one of the places now and then."""
+    rng = _RNG.get()
+    usable = [c for c in candidates if c[0] and not _reads_as_number(c[0])]
+    if rng is None:
+        return hex_dist(key, usable, count)
+    kv = _test_value(key)
+    width = len(key) if key.startswith("0") else 0
+    n = int(key, 16)
+    near = [(_hex(n + d, width), NEAR) for d in (-256, -16, -2, -1, 1, 2, 16, 256) if n + d > 0]
+    near = [c for c in near if not _reads_as_number(c[0])]
+    named = [(_test_value(c[0]), c) for c in usable if _test_value(c[0]) != kv]
+    ties = [c for c in usable if _test_value(c[0]) == kv and c[0].upper() != key.upper()]
+    fillers = [(_test_value(c[0]), c) for c in near]
+    ordered = [c for _, c in spread_order(kv, named, fillers, count)]
+    if ties and rng.random() < 0.3:
+        ordered[rng.randrange(min(count, len(ordered)))] = rng.choice(ties)
+    return hex_dist(key, ordered + usable, count)
+
+
 def _hex(n: int, width: int = 0) -> str:
     text = format(n, "X")
     return text.rjust(width, "0")
@@ -198,8 +259,15 @@ def _from_hex(text: str) -> int:
     return int(text, 16)
 
 
-def _dist(key, cands):
-    dist = num_dist(key, cands)
+def _dist(key, cands, lo=1, hi=None):
+    """Three wrong whole numbers with a random number of them below the key, so its rank among the options varies."""
+    return _spread(key, cands, lo, hi, 3)
+
+
+def _spread(key, cands, lo=1, hi=None, count=3):
+    fillers = [(key + d, NEAR) for d in (-4, -3, -2, -1, 1, 2, 3, 4)]
+    ordered = spread_order(key, cands, fillers, count, lo=lo, hi=hi)
+    dist = num_dist(key, ordered, n=count)
     enough(dist)
     return dist
 
@@ -223,7 +291,7 @@ def _easy_bits_needed(rng):
         (bits - 1, "nv-bits-log-rounded-down"),
         (len(str(n)), "nv-bits-counts-decimal-digits"),
         (bits + 1, "nv-bits-one-extra"),
-        (round(math.log2(n)) if round(math.log2(n)) != bits else n // 8, "nv-bits-round-to-nearest"),
+        (round(math.log2(n)) if round(math.log2(n)) != bits else None, "nv-bits-round-to-nearest"),
         (n // 8, "nv-bits-divides-by-eight"),
     ]
     dist = _dist(bits, cands)
@@ -251,7 +319,7 @@ def _easy_largest(rng):
         (2**n, "nv-largest-is-power"),
         (2 ** (n - 1), "nv-largest-half"),
         (2 * n - 1, "nv-largest-linear"),
-        (2**n - 2, "nv-values-forgets-zero"),
+        (2**n - 2, "nv-largest-two-less"),
     ]
     dist = _dist(value, cands)
     stem = _num(
@@ -275,7 +343,7 @@ def _easy_values(rng):
         (n * n, "nv-values-squares"),
         (2 * n, "nv-values-doubles-bits"),
         (2**n - 1, "nv-values-forgets-zero"),
-        (2 ** (n - 1), "nv-largest-half"),
+        (2 ** (n - 1), "nv-values-half"),
     ]
     dist = _dist(value, cands)
     stem = _num(
@@ -317,11 +385,11 @@ def _medium_dec_to_hex(rng):
     cands = [
         (h[::-1], "nv-hex-remainders-reversed"),
         (wrong_letter, "nv-hex-letter-misvalue"),
-        (_hex(n + 16 if n % 16 != 15 else n - 16), "nv-hex-letter-misvalue"),
-        (h[:-1] if len(h) > 2 else "", "nv-bits-one-extra"),
+        (_hex(n + 16 if n % 16 != 15 else n - 16), NEAR),
+        (h[:-1] if len(h) > 2 else "", "nv-hex-last-digit-dropped"),
         (str(n), "nv-hex-decimal-digits"),
     ]
-    dist = hex_dist(h, cands)
+    dist = hex_spread(h, cands)
     enough(dist)
     stem = _num(
         rng,
@@ -339,7 +407,7 @@ def _medium_dec_to_hex(rng):
         f"Divide by 16 repeatedly: {divs}.",
         f"Read the remainders from the last to the first, with 10 = A up to 15 = F: {h}.",
     ]
-    return dict(text=stem, working=working, distractors=dist, **hex_fields(h))
+    return dict(text=stem + _FORMAT, working=working, distractors=dist, **hex_fields(h))
 
 
 def _medium_bin_to_hex(rng):
@@ -363,9 +431,10 @@ def _medium_bin_to_hex(rng):
         (threes, "nv-hex-groups-of-three"),
         (h[::-1], "nv-hex-remainders-reversed"),
         (unpadded, "nv-hex-no-padding"),
-        (str(int(bits, 2)), "nv-hex-decimal-digits"),
+        (_hex(int(bits, 2) + 1), NEAR),
+        (_hex(max(int(bits, 2) - 1, 1)), NEAR),
     ]
-    dist = hex_dist(h, cands)
+    dist = hex_spread(h, cands)
     enough(dist)
     stem = _num(
         rng,
@@ -382,7 +451,7 @@ def _medium_bin_to_hex(rng):
         + " ".join(f"{g} = {_DIGITS[int(g, 2)]}" for g in groups)
         + f", giving {h}.",
     ]
-    return dict(text=stem, working=working, distractors=dist, **hex_fields(h))
+    return dict(text=stem + _FORMAT, working=working, distractors=dist, **hex_fields(h))
 
 
 def _medium_hex_digit_count(rng):
@@ -393,8 +462,8 @@ def _medium_hex_digit_count(rng):
     cands = [
         (n // 4, "nv-hex-digits-rounded-down"),
         (-(-n // 3), "nv-hex-digits-bits-over-three"),
-        (n // 2, "nv-bits-divides-by-eight"),
-        (value + 1, "nv-bits-one-extra"),
+        (n // 2, "nv-hex-digits-bits-over-two"),
+        (value + 1, "nv-hex-digits-one-extra"),
     ]
     dist = _dist(value, cands)
     stem = _num(
@@ -421,7 +490,7 @@ def _medium_hex_codes(rng):
         (16 * k, "nv-hex-codes-multiply"),
         (10**k, "nv-hex-codes-base-ten"),
         (16**k - 1, "nv-values-forgets-zero"),
-        (k**16 if k**16 < 10**7 else 2**k, "nv-values-squares"),
+        (k**16 if k**16 < 10**7 else None, "nv-hex-codes-swapped"),
     ]
     dist = _dist(value, cands)
     stem = _num(
@@ -450,7 +519,7 @@ def _hard_bits_boundary(rng):
         (bits - 1, "nv-bits-power-boundary" if n == 2**k else "nv-bits-log-rounded-down"),
         (bits + 1, "nv-bits-one-extra"),
         (len(str(n)), "nv-bits-counts-decimal-digits"),
-        (round(math.log2(n)) if round(math.log2(n)) != bits else bits + 2, "nv-bits-round-to-nearest"),
+        (round(math.log2(n)) if round(math.log2(n)) != bits else None, "nv-bits-round-to-nearest"),
     ]
     dist = _dist(bits, cands)
     stem = _num(
@@ -477,7 +546,7 @@ def _hard_codes_for_items(rng):
     cands = [
         (bits - 1, "nv-bits-log-rounded-down"),
         (bits + 1, "nv-bits-one-extra"),
-        (m.bit_length() if m.bit_length() != bits else bits + 2, "nv-bits-power-boundary"),
+        (m.bit_length() if m.bit_length() != bits else None, "nv-bits-power-boundary"),
         (m // 8, "nv-bits-divides-by-eight"),
     ]
     dist = _dist(bits, cands)
@@ -506,11 +575,11 @@ def _hard_padded_hex(rng):
     cands = [
         (short, "nv-hex-padding-dropped"),
         (short.ljust(width, "0"), "nv-hex-padding-wrong-side"),
-        (_hex(n + 1, width), "nv-hex-letter-misvalue"),
+        (_hex(n + 1, width), NEAR),
         (str(n).rjust(width, "0"), "nv-hex-decimal-digits"),
         (h[::-1], "nv-hex-remainders-reversed"),
     ]
-    dist = hex_dist(h, cands)
+    dist = hex_spread(h, cands)
     enough(dist)
     stem = _num(
         rng,
@@ -526,7 +595,7 @@ def _hard_padded_hex(rng):
         f"{n} in hexadecimal is {short}.",
         f"The numeral must have {width} digits, so add {width - len(short)} zero{'s' if width - len(short) != 1 else ''} in front: {h}.",
     ]
-    return dict(text=stem, working=working, distractors=dist, **hex_fields(h))
+    return dict(text=stem + _FORMAT, working=working, distractors=dist, **hex_fields(h))
 
 
 def _hard_colour(rng):
@@ -541,9 +610,9 @@ def _hard_colour(rng):
         (unpadded, "nv-hex-padding-dropped"),
         (f"{b:02X}{g:02X}{r:02X}", "nv-colour-channels-swapped"),
         (f"{r:02X}{b:02X}{g:02X}", "nv-colour-channels-swapped"),
-        (f"{r:02X}{g:02X}{min(b + 1, 255):02X}", "nv-hex-letter-misvalue"),
+        (f"{r:02X}{g:02X}{min(b + 1, 255):02X}", NEAR),
     ]
-    dist = hex_dist(h, cands)
+    dist = hex_spread(h, cands)
     enough(dist)
     stem = _num(
         rng,
@@ -559,7 +628,7 @@ def _hard_colour(rng):
         f"Each amount becomes exactly two hexadecimal digits: {r} = {r:02X}, {g} = {g:02X}, {b} = {b:02X}.",
         f"Join them in the order red, green, blue: {h}.",
     ]
-    return dict(text=stem, working=working, distractors=dist, **hex_fields(h))
+    return dict(text=stem + _FORMAT, working=working, distractors=dist, **hex_fields(h))
 
 
 def _hard_largest_hex(rng):
@@ -570,10 +639,10 @@ def _hard_largest_hex(rng):
     cands = [
         ("F" * len(h), "nv-hex-top-digit-f"),
         (_DIGITS[2**top] + "F" * (n // 4), "nv-hex-top-digit-power"),
-        (_DIGITS[top] + "F" * (n // 4), "nv-hex-top-digit-power"),
+        (_DIGITS[top] + "F" * (n // 4), "nv-hex-top-digit-count"),
         ("F" * (n // 4), "nv-hex-digits-rounded-down"),
     ]
-    dist = hex_dist(h, cands)
+    dist = hex_spread(h, cands)
     enough(dist)
     stem = _num(
         rng,
@@ -589,7 +658,7 @@ def _hard_largest_hex(rng):
         f"Group the {n} ones in fours from the right: {' '.join(g for g in groups if g)}.",
         f"The leftover {top} bit{'s' if top != 1 else ''} give {_DIGITS[2**top - 1]}, each full group gives F: {h}.",
     ]
-    return dict(text=stem, working=working, distractors=dist, **hex_fields(h))
+    return dict(text=stem + _FORMAT, working=working, distractors=dist, **hex_fields(h))
 
 
 def _hard_largest_n_digits(rng):
@@ -600,7 +669,7 @@ def _hard_largest_n_digits(rng):
         (16**k, "nv-largest-is-power"),
         (16 * k - 1, "nv-hex-codes-multiply"),
         (10**k - 1, "nv-hex-codes-base-ten"),
-        (16 ** (k - 1), "nv-largest-half"),
+        (16 ** (k - 1), "nv-largest-top-place"),
     ]
     dist = _dist(value, cands)
     stem = _num(
@@ -635,6 +704,7 @@ _HARD = (
     level=19,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 def nv_bits_hex_counts(rng, tier="easy"):
     """Bits needed, largest and number of values, hexadecimal numerals typed as text; tiers as in the module docstring."""
     pool = {"easy": _EASY, "medium": _MEDIUM, "hard": _HARD}.get(tier)
@@ -648,6 +718,7 @@ def nv_bits_hex_counts(rng, tier="easy"):
 
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 @distinct_part_answers
+@uses_rng
 def exd_x_nv_bits_hex_counts(rng, tier="exam"):
     """Exam chain: bits for a largest reading, values those bits hold, unused values, hexadecimal digits or numeral."""
     if tier != "exam":
@@ -677,7 +748,7 @@ def _exam_chain(rng):
     check(digits == len(format(values - 1, "X")), "digit count differs")
     sensor = rng.choice(_SENSORS)
     ask_hex = rng.random() < 0.5
-    a_dist = num_dist(
+    a_dist = _spread(
         bits,
         [
             (bits - 1, "nv-bits-log-rounded-down"),
@@ -686,23 +757,23 @@ def _exam_chain(rng):
             (top // 8, "nv-bits-divides-by-eight"),
         ],
     )
-    b_dist = num_dist(
+    b_dist = _spread(
         values,
         [
             (bits * bits, "nv-values-squares"),
             (2 * bits, "nv-values-doubles-bits"),
             (values - 1, "nv-values-forgets-zero"),
-            (values // 2, "nv-largest-half"),
+            (values // 2, "nv-values-half"),
         ],
     )
-    c_dist = num_dist(
+    c_dist = _spread(
         unused,
         [
             (unused + 1, "nv-unused-off-by-one"),
             (unused - 1, "nv-unused-off-by-one"),
             (values, "nv-unused-total-values"),
             (values - top - 2, "nv-unused-off-by-one"),
-            (top, "nv-unused-total-values"),
+            (top, "nv-unused-gives-reading"),
         ],
     )
     for d in (a_dist, b_dist, c_dist):
@@ -749,14 +820,14 @@ def _exam_chain(rng):
         cands = [
             (h[::-1], "nv-hex-remainders-reversed"),
             (str(top), "nv-hex-decimal-digits"),
-            (format(top + 16, "X") if top % 16 < 15 else format(top - 16, "X"), "nv-hex-letter-misvalue"),
-            (h[:-1], "nv-bits-one-extra"),
+            (format(top + 16, "X") if top % 16 < 15 else format(top - 16, "X"), NEAR),
+            (h[:-1], "nv-hex-last-digit-dropped"),
         ]
-        d_dist = hex_dist(h, cands)
+        d_dist = hex_spread(h, cands)
         enough(d_dist)
         parts.append(
             part(
-                "Write the largest reading in hexadecimal.",
+                "Write the largest reading in hexadecimal." + _FORMAT,
                 "ordered_list",
                 {k: v for k, v in hex_fields(h).items() if k != "answer_kind"},
                 2,
@@ -766,13 +837,13 @@ def _exam_chain(rng):
         )
         tail = ""
     else:
-        d_dist = num_dist(
+        d_dist = _spread(
             digits,
             [
                 (bits // 4, "nv-hex-digits-rounded-down"),
                 (-(-bits // 3), "nv-hex-digits-bits-over-three"),
-                (digits + 1, "nv-bits-one-extra"),
-                (bits // 2, "nv-bits-divides-by-eight"),
+                (digits + 1, "nv-hex-digits-one-extra"),
+                (bits // 2, "nv-hex-digits-bits-over-two"),
             ],
         )
         enough(d_dist)

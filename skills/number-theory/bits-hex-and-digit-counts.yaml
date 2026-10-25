@@ -102,3 +102,22 @@ misconceptions:
   description: Gives the total number of values rather than the number that are unused.
 - id: nv-colour-channels-swapped
   description: Writes the colour channels in the wrong order in the hexadecimal code.
+- id: nv-largest-two-less
+  description: Takes two away from 2 to the power n, not one, to get the largest n-bit value.
+- id: nv-values-half
+  description: Gives 2 to the power (n - 1) as the number of values, leaving out the two choices of one bit.
+- id: nv-hex-last-digit-dropped
+  description: Stops the repeated division by 16 one step early, leaving off the last digit.
+- id: nv-hex-digits-bits-over-two
+  description: Divides the number of bits by 2 to count hexadecimal digits.
+- id: nv-hex-digits-one-extra
+  description: Adds one hexadecimal digit to the count that is needed.
+- id: nv-hex-codes-swapped
+  description: Swaps the base and the exponent, working out the digit count to the power 16 instead of 16 to the power of
+    the digit count.
+- id: nv-largest-top-place
+  description: Gives the place value of the leading hexadecimal place (16 to the power k - 1) as the largest number.
+- id: nv-hex-top-digit-count
+  description: Uses the number of leftover bits as the top hexadecimal digit instead of the largest value they hold.
+- id: nv-unused-gives-reading
+  description: Gives the largest reading as the number of unused values.
