@@ -331,7 +331,7 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
             if nothing and _is_vocabulary(answer, shown):
                 # words (odd / even / neither, a set of quadrants) have no numeric order; what matters is that the key is
                 # not the same word on every seed
-                vocab[(label, _kind(text), len(shown) + 1)][str(answer)] += 1
+                vocab[(label, len(shown) + 1)][str(answer)] += 1
                 continue
             if nothing:
                 unranked[label] += 1
@@ -346,10 +346,10 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
                 if filled:
                     kinds[(label, _kind(text) + " +fillers", len(shown) + 1, name)][rank] += 1
                     parts[(label, " +fillers", len(shown) + 1, name)][rank] += 1
-    for (label, kind, n_options), keys in vocab.items():
+    for (label, n_options), keys in vocab.items():
         total = sum(keys.values())
         if total >= MIN_GROUP and max(keys.values()) / total > _limit(n_options, total, 4.5):
-            problems.append(f"{topic} {tier} {label} [{kind}]: the key is the same word too often: {dict(keys)}")
+            problems.append(f"{topic} {tier} {label}: the key is the same word too often: {dict(keys)}")
     for label, count in unranked.items():
         if count > seen[label] // 10:
             problems.append(
