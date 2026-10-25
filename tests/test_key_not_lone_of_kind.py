@@ -1,28 +1,35 @@
-"""The key must not be the lone holder of a feature value more often than chance, as a learner would see it.
+"""The key must be the lone holder of a feature value about as often as any one wrong option, in BOTH directions.
 
-Review rounds 4 to 6 of the NSW/VCE/QCE PR each found a new "the key is the only option that ..." leak (the only
+Review rounds 4 to 7 of the NSW/VCE/QCE PR each found a new "the key is the only option that ..." leak (the only
 negative, the only real, the only half-integer, the only whole number, the only mixed complex number ...) and each was
 fixed one case at a time. This test checks the class at once, for every source (easy, medium, hard, exam) of the six
 skills, every part of every question. It judges only what a learner can see: the options of one part, pooled over seeds.
 
 Each option is described by features: sign of the real and imaginary parts, whole or not, trailing ".0" vs a nonzero
-decimal, complex kind (real / pure imaginary / mixed), power of two, parity, digit count, standard degree, standard
-multiple of pi, leading-coefficient form and hex letter. Formatting artefacts (text length, expression shape) are not
-features. For each (part, feature value), among draws where EXACTLY ONE option holds the value, the key should be that
-option 1 time in n_options. The test fails when the key is it more often, by all of
+decimal, complex kind (real / pure imaginary / mixed), power of two, parity, multiple of 5, digit count, standard degree,
+standard multiple of pi, leading-coefficient form, hex letter, and for plain numbers how many other options lie within
+1 and within 2 and whether the option is the most central or the most outlying. Formatting artefacts (text length,
+expression shape) are not features. For each (part, feature value), among draws where EXACTLY ONE option holds the value,
+the key should be that option 1 time in n_options. It fails when the key is it
 
-    * a one-sided binomial tail under 1e-4 against 1/n_options (the few hundred comparisons give no false alarms),
-    * an excess of at least 1% of the draws over the chance count, and
-    * at least 5 draws where the key is the lone holder.
+    * too often (a learner who picks the odd one out gains): one-sided binomial tail under 1e-4, an excess of at least 1%
+      of the draws over the chance count, and at least 5 such draws; or
+    * too rarely (a learner who eliminates the odd one out gains): lower binomial tail under 1e-4, a deficit of at least
+      1% of the draws, and at least 30 lone events. Complex kind is exempt from this side: the generators keep the key
+      company on purpose, and its other side is a zero-tolerance rule.
 
-A key of 0 is exempt (it is the only 0 by construction). Parts whose options are fixed vocabulary words (odd / even /
-neither) are exempt: they are the whole answer space. Complex kind is guarded outright: no draw may leave the key alone
-in its kind, because the generators promise a same-kind wrong option. Each feature is judged per value and also summed
-over its values ("*").
+A key of 0 is exempt (it is the only 0 by construction; the same test checks the premise: 0 must also be offered as a wrong option).
+Parts whose options are fixed vocabulary words (odd / even / neither) are exempt. Complex kind is guarded outright: no
+draw may leave the key alone in its kind. Each feature is judged per value and also summed over its values ("*").
+
+The same test plays the learner outright (elimination strategy): discard every option that is the only one with
+some feature, guess among the rest, and compare with chance (review 7 measured +10.7 points median on these skills, +3.3
+on the merged library).
 """
 
 from __future__ import annotations
 
+import functools
 import math
 import re
 from collections import Counter, defaultdict
@@ -36,9 +43,13 @@ from mathgen import make
 from tests.test_option_rank_spread_128 import _complex, _number, _units
 
 SEEDS = 1200
+SEEDS_FOR = {"exd_nx_trig_sub_hsc": 700}  # 130 ms a call: fewer seeds keep the run under four minutes at -n 8
 MIN_KEY_COUNT = 5  # fewer lone-key draws than this is not evidence
 MIN_EXCESS = 0.01  # the key's lone count must beat the chance count by at least this share of the draws
 P_MAX = 1e-4  # ... and the binomial tail of the key's count under 1/n_options must be this small.
+MIN_EVENTS_UNDER = 30  # a key that is rarely the lone holder needs this many lone events to be judged
+ELIM_POINTS = 0.03  # the elimination strategy may beat (or trail) chance by this much, plus sampling noise
+ELIM_SIGMAS = 3.0
 
 # Features the generators guard outright (a real, pure imaginary or mixed key always has a wrong option of its kind): the
 # guard leaves no draw at all, and a rate that is "only" chance-level (8 of 1200) is the guard missing a case.
@@ -52,6 +63,7 @@ SIX = (
     "choose-summary-statistic-for-data",
     "bits-hex-and-digit-counts",
 )
+SLOW_FIRST = "trig-substitution-hsc-tan-and-convert"
 _SKILLS = Path(__file__).resolve().parent.parent / "skills"
 KNOWN_WORDS = {"pi", "sqrt", "ln", "log", "exp", "sin", "cos", "tan", "sec", "cot", "csc"}
 STD_PI_DEN = {1, 2, 3, 4, 6}
@@ -64,7 +76,9 @@ def _sources():
         path = next(_SKILLS.glob(f"*/{skill}.yaml"))
         for i, src in enumerate(yaml.safe_load(path.read_text(encoding="utf-8"))["sources"]):
             out.append(pytest.param(skill, src, id=f"{skill}-{i}-{src['difficulty']}"))
-    return out
+    # The trig substitution generators take 25 to 130 ms a call: start them first so the run is not waiting on them.
+    slow = [p for p in out if p.values[0] == SLOW_FIRST][::-1]  # exam first
+    return slow + [p for p in out if p.values[0] != SLOW_FIRST]
 
 
 # ---------------------------------------------------------------------------------------------------------------- features
@@ -79,6 +93,7 @@ def _is_word_answer(texts) -> bool:
     return all(has_word(t) for t in texts)
 
 
+@functools.lru_cache(maxsize=None)
 def _items(text: str) -> list | None:
     """The numbers an option stands for (one for a scalar, several for 'a, b'), real or complex; None if it has none."""
     t = text.strip()
@@ -91,6 +106,7 @@ def _items(text: str) -> list | None:
     return None
 
 
+@functools.lru_cache(maxsize=None)
 def _num(t: str):
     v = _number(t)
     if v is not None:
@@ -118,7 +134,8 @@ def _pi_kind(text: str, v: complex) -> str:
     return "pi-std" if f.denominator in STD_PI_DEN else "pi-other"
 
 
-def option_features(text: str, hexlike: bool) -> dict:
+@functools.lru_cache(maxsize=None)
+def _option_features(text: str, hexlike: bool) -> dict:
     """{feature: hashable value} for one option text."""
     t = text.strip()
     f: dict = {}
@@ -142,6 +159,7 @@ def option_features(text: str, hexlike: bool) -> dict:
         if len(ints) == len(reals):
             f["parity"] = tuple(x % 2 for x in ints)
             f["pow2"] = tuple(x > 0 and x & (x - 1) == 0 for x in ints)
+            f["mult5"] = tuple(x % 5 == 0 for x in ints)
             f["std_degree"] = tuple(abs(x) in STD_DEG for x in ints)
     if len(items) == 1:
         f["pi"] = _pi_kind(t, items[0])
@@ -151,9 +169,34 @@ def option_features(text: str, hexlike: bool) -> dict:
 def question_features(texts: list) -> list:
     """Feature dicts for the options in `texts` (key first). A feature is kept only if every option has it."""
     hexlike = all(re.fullmatch(r"[0-9A-Fa-f]+", t.strip()) for t in texts)
-    feats = [option_features(t, hexlike) for t in texts]
+    feats = [dict(_option_features(t, hexlike)) for t in texts]
+    values = [_plain(t) for t in texts]
+    if all(v is not None for v in values):  # plain numbers: where each option sits among the others
+        for i, f in enumerate(feats):
+            f["near1"] = min(sum(abs(v - values[i]) <= 1 for j, v in enumerate(values) if j != i), 3)
+            f["near2"] = min(sum(abs(v - values[i]) <= 2 for j, v in enumerate(values) if j != i), 3)
+        spread = [round(sum(abs(v - w) for w in values), 9) for v in values]
+        for i, f in enumerate(feats):
+            lo, hi = min(spread), max(spread)
+            f["centrality"] = (
+                "central"
+                if spread[i] == lo and spread.count(lo) == 1
+                else "outlier"
+                if spread[i] == hi and spread.count(hi) == 1
+                else "mid"
+            )
     common = set.intersection(*(set(f) for f in feats))
     return [{k: f[k] for k in common} for f in feats]
+
+
+def _plain(text: str):
+    """The real number an option is, or None (a plain number, fraction or surd; not a list, complex or hex)."""
+    if re.fullmatch(r"[0-9A-F]*[A-F][0-9A-F]*", text.strip()):
+        return None
+    items = _items(text)
+    if items is None or len(items) != 1 or abs(items[0].imag) > 1e-9:
+        return None
+    return items[0].real
 
 
 LABEL_ONLY = {"parity", "pow2", "std_degree"}
@@ -164,18 +207,49 @@ def _key_is_zero(text: str) -> bool:
     return items is not None and all(abs(z) < 1e-12 for z in items)
 
 
-def survey(topic: str, difficulty: str, params: dict, seeds=range(SEEDS)):
-    """Per part: draws inspected, options per draw, and per (feature, value) the seeds where the key is the lone holder
-    and the count of draws where a wrong option is."""
+ELIM_EXTRA = {
+    "has_slash": lambda t: "/" in t,
+    "has_sqrt": lambda t: "sqrt" in t or "\u221a" in t,
+    "has_minus": lambda t: "-" in t or "\u2212" in t,
+    "mult10": lambda t: bool(re.fullmatch(r"-?\d+", t.strip())) and int(t) != 0 and int(t) % 10 == 0,
+}
+
+
+def _elimination(feats: list, texts: list) -> float:
+    """The learner's chance of the key: drop every option that is the only holder of some feature value, guess among
+    the survivors (everything if none survive)."""
+    rows = [{**f, **{k: fn(t) for k, fn in ELIM_EXTRA.items()}} for f, t in zip(feats, texts)]
+    n = len(rows)
+    lone = [False] * n
+    for name in rows[0]:
+        vals = [r[name] for r in rows]
+        counts = Counter(vals)
+        if len(counts) == 1:
+            continue
+        for i, v in enumerate(vals):
+            lone[i] |= counts[v] == 1
+    alive = [i for i in range(n) if not lone[i]] or list(range(n))
+    return 1 / len(alive) if 0 in alive else 0.0
+
+
+def _survey_uncached(topic: str, difficulty: str, params: dict, seeds=range(SEEDS)) -> dict:
     n_seen: Counter = Counter()
     n_opts: Counter = Counter()
     key_lone: dict = defaultdict(list)
     wrong_lone: Counter = Counter()
+    elim: dict = defaultdict(lambda: [0.0, 0.0, 0.0, 0])  # part -> sum of gain over chance, sum of squares, draws
+    key_zero: Counter = Counter()  # part -> draws whose key is 0
+    wrong_zero: Counter = Counter()  # part -> draws with a wrong option 0 (and a key that is not)
     for seed in seeds:
         q = make(topic, seed=seed, difficulty=difficulty, **params)
         for label, answer, options, prompt in _units(q):
             shown = [getattr(o, "text", str(o)) for o in options or []]
             texts = [str(answer), *shown]
+            if not _is_word_answer(texts):
+                if _key_is_zero(texts[0]):
+                    key_zero[label] += 1
+                elif any(_key_is_zero(t) for t in shown):
+                    wrong_zero[label] += 1
             if len(shown) < 2 or _is_word_answer(texts) or _key_is_zero(texts[0]):
                 continue
             n_seen[label] += 1
@@ -185,6 +259,11 @@ def survey(topic: str, difficulty: str, params: dict, seeds=range(SEEDS)):
                 # The parity or power-of-two pattern of a set of quadrant numbers is a label, not a quantity (at most 4
                 # keys, a closed answer space); size, membership and the rest are judged like any option.
                 feats = [{k: v for k, v in f.items() if k not in LABEL_ONLY} for f in feats]
+            gain = _elimination(feats, texts) - 1 / len(texts)
+            e = elim[label]
+            e[0] += gain
+            e[1] += gain * gain
+            e[3] += 1
             for name in feats[0]:
                 counts = Counter(f[name] for f in feats)
                 for idx, f in enumerate(feats):
@@ -195,80 +274,105 @@ def survey(topic: str, difficulty: str, params: dict, seeds=range(SEEDS)):
                             key_lone[(label, *tag)].append(seed)
                         else:
                             wrong_lone[(label, *tag)] += 1
-    return n_seen, n_opts, key_lone, wrong_lone
+    return {
+        "n_seen": n_seen,
+        "n_opts": n_opts,
+        "key_lone": key_lone,
+        "wrong_lone": wrong_lone,
+        "elim": dict(elim),
+        "key_zero": key_zero,
+        "wrong_zero": wrong_zero,
+    }
 
 
-def _tail(k: int, n: int, p: float) -> float:
+survey = _survey_uncached
+
+
+def _binom_pmf(i: int, n: int, p: float) -> float:
+    return math.exp(
+        math.lgamma(n + 1) - math.lgamma(i + 1) - math.lgamma(n - i + 1) + i * math.log(p) + (n - i) * math.log1p(-p)
+    )
+
+
+def _upper_tail(k: int, n: int, p: float) -> float:
     """P(X >= k) for X ~ Binomial(n, p)."""
-    below = 0.0
-    for i in range(k):
-        below += math.exp(
-            math.lgamma(n + 1)
-            - math.lgamma(i + 1)
-            - math.lgamma(n - i + 1)
-            + i * math.log(p)
-            + (n - i) * math.log1p(-p)
-        )
-    return max(0.0, 1.0 - below)
+    return sum(_binom_pmf(i, n, p) for i in range(k, n + 1))
 
 
-def tells(n_seen, n_opts, key_lone, wrong_lone) -> list:
-    """Rows (part, feature, value, key_share, chance, key_count, lone_events, draws, excess, seeds) that break the rule."""
+def _lower_tail(k: int, n: int, p: float) -> float:
+    """P(X <= k) for X ~ Binomial(n, p)."""
+    return sum(_binom_pmf(i, n, p) for i in range(0, k + 1))
+
+
+def tells(survey_result: dict) -> list:
+    """Rows (part, feature, value, side, key_share, chance, key_count, lone_events, draws, excess, seeds) that break the rule."""
+    n_seen, n_opts = survey_result["n_seen"], survey_result["n_opts"]
+    key_lone, wrong_lone = survey_result["key_lone"], survey_result["wrong_lone"]
+    keys = set(key_lone) | set(wrong_lone)
     bad = []
-    for (label, name, value), seeds in sorted(key_lone.items(), key=lambda kv: str(kv[0])):
+    for label, name, value in sorted(keys, key=str):
+        seeds = key_lone.get((label, name, value), [])
         n = n_seen[label]
         k = len(seeds)
         events = k + wrong_lone[(label, name, value)]  # draws-by-option where exactly one option held the value
+        if not events:
+            continue
         chance = n / n_opts[label]  # 1 / options per draw
         share = k / events
         excess = (k - events * chance) / n
-        if name in ZERO_TOLERANCE and value != "*":
-            bad.append((label, name, value, share, chance, k, events, n, excess, seeds[:4]))
+        row = (label, name, value, share, chance, k, events, n, excess, seeds[:4])
+        if name in ZERO_TOLERANCE:
+            if value != "*" and k:
+                bad.append((*row[:3], "key alone in its kind", *row[3:]))
             continue
-        if k < MIN_KEY_COUNT or excess < MIN_EXCESS or _tail(k, events, chance) > P_MAX:
-            continue
-        bad.append((label, name, value, share, chance, k, events, n, excess, seeds[:4]))
+        if k >= MIN_KEY_COUNT and excess >= MIN_EXCESS and _upper_tail(k, events, chance) <= P_MAX:
+            bad.append((*row[:3], "key too often", *row[3:]))
+        elif events >= MIN_EVENTS_UNDER and -excess >= MIN_EXCESS and _lower_tail(k, events, chance) <= P_MAX:
+            bad.append((*row[:3], "key too rarely", *row[3:]))
     return bad
 
 
+def elimination_gains(survey_result: dict) -> list:
+    """Rows (part, advantage, standard error, draws) where eliminating the odd ones out beats or trails chance too far."""
+    out = []
+    for label, (total, squares, _unused, draws) in sorted(survey_result["elim"].items()):
+        if draws < 100:
+            continue
+        mean = total / draws
+        se = math.sqrt(max(squares / draws - mean * mean, 0.0) / draws)
+        if abs(mean) > ELIM_POINTS and abs(mean) > ELIM_SIGMAS * se:
+            out.append((label, mean, se, draws))
+    return out
+
+
 def _fmt(row) -> str:
-    label, name, value, share, chance, k, events, n, excess, seeds = row
+    label, name, value, side, share, chance, k, events, n, excess, seeds = row
     return (
-        f"part {label} feature {name}={value!s}: key is the lone holder in {k} of {events} lone events "
-        f"(key_share {share:.2f}, chance {chance:.2f}, {k}/{n} draws, excess {excess:.3f}) seeds {seeds}"
+        f"part {label} feature {name}={value!s}: {side}: key is the lone holder in {k} of {events} lone events "
+        f"(key_share {share:.2f}, chance {chance:.2f}, {k}/{n} draws, excess {excess:+.3f}) seeds {seeds}"
     )
 
 
 @pytest.mark.parametrize(("skill", "src"), _sources())
 def test_key_is_not_the_lone_option_of_its_kind(skill, src):
+    """Both directions of the lone-option rule, and the elimination strategy, from one pass over the source (the two
+    checks share the generator calls, which are the cost)."""
     topic, params = src["topic"], dict(src.get("params") or {})
-    bad = tells(*survey(topic, src["difficulty"], params))
-    assert not bad, f"{skill} / {topic} {src['difficulty']}:\n" + "\n".join(_fmt(r) for r in bad)
-
-
-@pytest.mark.parametrize(("skill", "src"), _sources())
-def test_a_zero_key_is_not_the_only_zero(skill, src):
-    """A key of 0 is exempt from the lone-feature statistics, but only if 0 is also offered as a wrong option at a
-    comparable rate: otherwise a "0" among the options is always the key."""
-    topic, params = src["topic"], dict(src.get("params") or {})
-    key_zero: Counter = Counter()
-    wrong_zero: Counter = Counter()
-    for seed in range(SEEDS):
-        q = make(topic, seed=seed, difficulty=src["difficulty"], **params)
-        for label, answer, options, _prompt in _units(q):
-            shown = [getattr(o, "text", str(o)) for o in options or []]
-            if _is_word_answer([str(answer), *shown]):
-                continue
-            if _key_is_zero(str(answer)):
-                key_zero[label] += 1
-            elif any(_key_is_zero(t) for t in shown):
-                wrong_zero[label] += 1
-    bad = {
-        label: (n, wrong_zero[label])
-        for label, n in key_zero.items()
+    result = survey(topic, src["difficulty"], params, range(SEEDS_FOR.get(topic, SEEDS)))
+    lines = [_fmt(r) for r in tells(result)]
+    lines += [
+        f"elimination strategy: part {label} {mean:+.3f} over chance (se {se:.3f}, {n} draws)"
+        for label, mean, se, n in elimination_gains(result)
+    ]
+    # A key of 0 is exempt from the statistics above, but only if 0 is also offered as a wrong option at a comparable
+    # rate: otherwise a "0" among the options is always the key.
+    key_zero, wrong_zero = result["key_zero"], result["wrong_zero"]
+    lines += [
+        f"zero key: part {label} has 0 as the key in {n} draws and as a wrong option in {wrong_zero[label]}"
+        for label, n in sorted(key_zero.items())
         if n >= MIN_KEY_COUNT and n / (n + wrong_zero[label]) > 0.5
-    }
-    assert not bad, f"{skill} / {topic} {src['difficulty']}: 0 is the key in {bad} (key draws, wrong-zero draws)"
+    ]
+    assert not lines, f"{skill} / {topic} {src['difficulty']}:\n" + "\n".join(lines)
 
 
 def test_quadrant_wrong_options_are_sets_a_power_function_can_have():
