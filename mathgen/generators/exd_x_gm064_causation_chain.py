@@ -71,7 +71,7 @@ _SURVEYS = (
     ("the number of doctors in a town", "the number of illnesses reported", "towns", 1, "the town's population"),
     ("the number of pubs in a town", "the number of churches", "towns", 1, "the town's population"),
     ("jumper sales", "sales of cold drinks", "weeks", -1, "the temperature"),
-    ("hot drink sales", "ice-cream sales", "cafes", -1, "the daily temperature"),
+    ("hot drink sales", "ice-cream sales", "days", -1, "the daily temperature"),
 )
 
 # r has one decimal place, so r^2 as a percentage is a whole number. 0.5 would make r as a percentage equal 2 x r^2.
@@ -165,15 +165,18 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
 
         cx, cy = cap(x), cap(y)
         if experiment:
-            c_key = "Yes: the levels of the explanatory variable were randomly assigned, so causation can be claimed"
+            c_key = "Yes: the levels of the variable were randomly assigned, so a causal claim is possible"
             c_wrong = [
                 (
-                    "No: a correlation coefficient below 1 in size cannot show causation",
+                    "No: a correlation coefficient smaller than 1 in size can never show causation",
                     "cc-no-cause-without-perfect-r",
                 ),
-                ("No: no study can ever show that one variable causes another", "cc-experiment-cannot-show-cause"),
                 (
-                    "Yes: the correlation coefficient shows a strong link, whatever the design",
+                    "No: no study design can ever show that one variable causes the other",
+                    "cc-experiment-cannot-show-cause",
+                ),
+                (
+                    "Yes: a strong correlation coefficient shows cause, whatever the design",
                     "cc-large-r-proves-cause",
                 ),
             ]
@@ -199,15 +202,18 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
             ]
             d_note = f"The design supports causation and r² = {explained}%, so the first statement is justified."
         else:
-            c_key = f"No: this is an observational study, so it shows an association only and {z} may explain it"
+            c_key = f"No: the data were only observed, so this shows an association and {z} may explain it"
             c_wrong = [
-                ("Yes: a correlation this size shows that one variable causes the other", "cc-large-r-proves-cause"),
                 (
-                    "No: it would need a correlation coefficient of 1 or -1 to show causation",
+                    "Yes: a correlation coefficient this large shows that one variable causes the other",
+                    "cc-large-r-proves-cause",
+                ),
+                (
+                    "No: causation needs a correlation coefficient of exactly 1 or -1, which this is not",
                     "cc-no-cause-without-perfect-r",
                 ),
                 (
-                    f"Yes: the researchers measured {z} as well, so it has been controlled",
+                    f"Yes: the researchers also measured {z}, so its effect has been controlled here",
                     "cc-measured-confounder-fixes-design",
                 ),
             ]

@@ -147,7 +147,7 @@ _EST_ASK = (
 _VERDICT_ASK = (
     "A colleague's calculator shows {s}. Using your estimate, is that answer reasonable?",
     "The calculator gives {s}. Judging by your estimate, which statement is correct?",
-    "Someone enters the calculation and reads {s}. Compare this with your estimate: is it reasonable?",
+    "A student's answer to the calculation is {s}. Compare this with your estimate: is it reasonable?",
 )
 _EXACT_ASK = (
     "Work out the exact {total}, {unit}.",
