@@ -275,7 +275,8 @@ def test_key_position_in_the_option_list_varies():
 #   hard distance between intersections   a whole number, at least 1 (a distance between two different points)
 #   hard value on the image               a non-zero whole number
 #   hard right-most x-intercept           a whole number other than h (x = h is the asymptote, not on the graph)
-#   exam (a) a, (b) y at -u               a non-zero number
+#   exam (a) a, (b) y at -u               a non-zero number; (b) at most 8 times the key in size (CROSS-PART: it
+#                                         mirrors the point (u, v) given in the stem)
 #   exam (d) positive x-intercept         a positive number
 #   every part                            no option repeats the key
 
@@ -324,6 +325,9 @@ def test_no_option_of_an_exam_part_is_ruled_out_by_the_stem():
         for label in ("a", "b", "d"):
             assert all(Fraction(o) != 0 for o in parts[label].distractors), (seed, label)
         assert all(Fraction(o) > 0 for o in parts["d"].distractors), (seed, parts["d"].distractors)
+        # (b) is the mirror point of the (u, v) the stem gave: no option is wildly bigger than the key
+        key_b = abs(Fraction(parts["b"].answer_text))
+        assert all(abs(Fraction(o)) <= 8 * key_b for o in parts["b"].distractors), (seed, parts["b"].distractors)
         for o in [parts["c"].answer_text, *parts["c"].distractors]:
             vs = _numbers(o)
             assert all(v == int(v) and 1 <= v <= 4 for v in vs) and vs == sorted(set(vs)), (seed, o)
@@ -341,3 +345,60 @@ def test_text_has_no_double_signs():
         texts += [ex.stem, *(w for p in ex.parts for w in [p.prompt, *p.working])]
         for text in texts:
             assert not pattern.search(text), (seed, text)
+
+
+# -- the key is not told apart by its shape ---------------------------------------------------------------------------
+
+
+def _kinds(text: str):
+    """The sign, number of integer digits, decimal places and integer-ness of a numeric option (None if not a number)."""
+    text = text.replace(" ", "")
+    try:
+        v = Fraction(text)
+    except (ValueError, ZeroDivisionError):
+        return None
+    return {
+        "sign": v < 0,
+        "digits": len(str(int(abs(v)))),
+        "places": len(text.split(".")[1]) if "." in text else 0,
+        "whole": v.denominator == 1,
+    }
+
+
+def _lone_kinds(items):
+    """Over (key, options) pairs: how often the key is the ONLY option of its kind, per kind."""
+    from collections import Counter
+
+    lone, total = Counter(), 0
+    for key, options in items:
+        k, others = _kinds(key), [_kinds(o) for o in options]
+        if k is None or None in others or len(others) < 3:
+            continue
+        total += 1
+        for dim in k:
+            if all(o[dim] != k[dim] for o in others):
+                lone[dim] += 1
+    return {dim: lone[dim] / max(total, 1) for dim in ("sign", "digits", "places", "whole")}, total
+
+
+def test_the_key_is_never_told_apart_by_sign_size_or_format():
+    """Over 1000 seeds per tier and per exam part, the key is the only option of its sign, integer-digit count, decimal
+    places or whole-ness in at most a small share of questions (chance alone gives a few percent; a generator whose
+    wrong answers share a shape that the key lacks gives a third or more)."""
+    from collections import defaultdict
+
+    groups = {}
+    for tier in ("easy", "medium", "hard"):
+        qs = [t.question(SKILL, tier, s) for s in range(1000)]
+        groups[tier] = [(q.answer_text, q.distractors) for q in qs]
+    parts = defaultdict(list)
+    for s in range(1000):
+        for p in sup.exam_question(CHAIN, s).parts:
+            parts[f"exam {p.label}"].append((p.answer_text, p.distractors))
+    groups.update(parts)
+    for name, items in groups.items():
+        shares, total = _lone_kinds(items)
+        if total < 100:
+            continue
+        for dim, share in shares.items():
+            assert share <= 0.12, (name, dim, round(share, 3), shares)

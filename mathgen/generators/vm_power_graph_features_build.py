@@ -106,12 +106,12 @@ def _spread(value, wrong, lo=None, hi=None, zero_ok=False, exclude=()):
         lo=lo,
         hi=hi,
         unbounded="open" if lo is None and hi is None else None,
-        slip_range=(None, None),
+        slip_range=(None, None) if hi is None else None,  # a stated upper bound binds the named slips too
     )
 
 
-def fraction_part(prompt, value, marks, working, wrong, lo=None, zero_ok=False, **kw):
-    return _fraction_part(prompt, value, marks, working, _spread(Fraction(value), wrong, lo, zero_ok=zero_ok), **kw)
+def fraction_part(prompt, value, marks, working, wrong, lo=None, hi=None, zero_ok=False, **kw):
+    return _fraction_part(prompt, value, marks, working, _spread(Fraction(value), wrong, lo, hi, zero_ok=zero_ok), **kw)
 
 
 def one_word(prompt, word, marks, working, wrong):
@@ -452,10 +452,11 @@ def _hard_intercepts(rng):
     t_values = [s * t0] if n % 2 == 1 else [-t0, t0]
     key = h + max(t_values)
     wrong = [
-        (h - max(t_values), "vm-pf-intercept-sign-of-shift"),
+        # the shift applied the wrong way, which for an even n is the same value as the other (left-most) root
+        (h - max(t_values), "vm-pf-intercept-sign-of-shift" if n % 2 else "vm-pf-intercept-other-root"),
         (max(t_values), "vm-pf-intercept-shift-forgotten"),
         (h + 2 * max(t_values), "near-miss-value"),
-        (h - min(t_values), "vm-pf-intercept-sign-of-shift"),
+        (h - min(t_values), "vm-pf-intercept-sign-of-shift" if n % 2 else "vm-pf-intercept-other-root"),
         (h + max(t_values) + 1, "near-miss-value"),
     ]
     rule = fx_text(a, -n, 1, h, k)
@@ -551,10 +552,11 @@ def _chain(rng):
         [
             (-at_neg, "vm-pf-symmetry-sign-wrong"),
             (a * -u, "vm-pf-a-index-ignored"),
-            (a * (-u) ** n, "vm-pf-negative-index-as-positive"),
             (at_neg + 1, "near-miss-value"),
             (at_neg - 1, "near-miss-value"),
         ],
+        lo=-8 * abs(at_neg),  # the point at -u is a mirror image of the given point (u, v), so no option is far bigger
+        hi=8 * abs(at_neg),
         follow_through=f"part_a*(-{u})**(-{n})",
     )
     part_c = nums(

@@ -60158,6 +60158,11 @@ _ENTRIES += (
         area="graph-features",
     ),
     CatalogueEntry(
+        "vm-pf-intercept-other-root",
+        "Giving the left-most x-intercept when the right-most was asked, taking the negative root of the shifted graph.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
         "vm-pf-intercept-sign-of-shift",
         "Moving an x-intercept by the horizontal shift in the wrong direction.",
         area="graph-features",
@@ -60575,11 +60580,6 @@ _ENTRIES += (
     CatalogueEntry(
         "vm-pf-a-sign-lost",
         "Losing the sign of a when it is found from the given point.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-negative-index-as-positive",
-        "Reading x^(-n) as x^n, multiplying by the power of x instead of dividing by it.",
         area="algorithms",
     ),
     CatalogueEntry(

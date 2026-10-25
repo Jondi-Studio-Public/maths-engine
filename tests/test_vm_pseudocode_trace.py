@@ -334,6 +334,10 @@ def test_key_position_in_the_option_list_varies():
 #   exam bisection (a)                positive, at most the starting width
 #   exam bisection (b)                positive, at most the width after two passes
 #   exam (c), both families           whole number, at least 1
+#   CROSS-PART (earlier stems bound later parts)
+#   exam Newton (c)                   at least 2: part (b) has already run the loop a second time
+#   exam bisection (c)                at least 5: part (b) has already run the loop five times
+#   exam Newton (d)                   at most the answer to (b): the loop ran at least twice and x only falls
 #   exam bisection (d)                inside the starting bracket [a0, b0]
 #   every part                        no option repeats the key
 
@@ -398,6 +402,17 @@ def test_no_option_of_an_exam_part_is_ruled_out_by_the_stem():
         for p in parts.values():
             assert Fraction(p.answer_text) not in _opts(p), (seed, p.label)
         assert all(v == int(v) and v >= 1 for v in _opts(parts["c"])), (seed, parts["c"].distractors)
+        newton = "g(x)" in code
+        floor = 2 if newton else 5  # what parts (a) and (b) have already made the loop run
+        assert "a second time" in parts["b"].prompt if newton else "five times" in parts["b"].prompt
+        assert all(v >= floor for v in _opts(parts["c"])), (seed, floor, parts["c"].distractors)
+        assert Fraction(parts["c"].answer_text) >= floor, seed
+        if newton:
+            slack = _slack(parts["b"].prompt)  # (b) is only shown to its own last place
+            assert all(v <= Fraction(parts["b"].answer_text) + slack for v in _opts(parts["d"])), (
+                seed,
+                parts["d"].distractors,
+            )
         if "g(x)" in code:
             x0 = Fraction(re.search(r"set x to (\d+)", code).group(1))
             a_key = Fraction(parts["a"].answer_text)
@@ -429,3 +444,60 @@ def test_working_text_has_no_double_signs_or_empty_terms():
         for group in texts:
             for text in group:
                 assert not pattern.search(text), (seed, text)
+
+
+# -- the key is not told apart by its shape ---------------------------------------------------------------------------
+
+
+def _kinds(text: str):
+    """The sign, number of integer digits, decimal places and integer-ness of a numeric option (None if not a number)."""
+    text = text.replace(" ", "")
+    try:
+        v = Fraction(text)
+    except (ValueError, ZeroDivisionError):
+        return None
+    return {
+        "sign": v < 0,
+        "digits": len(str(int(abs(v)))),
+        "places": len(text.split(".")[1]) if "." in text else 0,
+        "whole": v.denominator == 1,
+    }
+
+
+def _lone_kinds(items):
+    """Over (key, options) pairs: how often the key is the ONLY option of its kind, per kind."""
+    from collections import Counter
+
+    lone, total = Counter(), 0
+    for key, options in items:
+        k, others = _kinds(key), [_kinds(o) for o in options]
+        if k is None or None in others or len(others) < 3:
+            continue
+        total += 1
+        for dim in k:
+            if all(o[dim] != k[dim] for o in others):
+                lone[dim] += 1
+    return {dim: lone[dim] / max(total, 1) for dim in ("sign", "digits", "places", "whole")}, total
+
+
+def test_the_key_is_never_told_apart_by_sign_size_or_format():
+    """Over 1000 seeds per tier and per exam part, the key is the only option of its sign, integer-digit count, decimal
+    places or whole-ness in at most a small share of questions (chance alone gives a few percent; a generator whose
+    wrong answers share a shape that the key lacks gives a third or more)."""
+    from collections import defaultdict
+
+    groups = {}
+    for tier in ("easy", "medium", "hard"):
+        qs = [t.question(SKILL, tier, s) for s in range(1000)]
+        groups[tier] = [(q.answer_text, q.distractors) for q in qs]
+    parts = defaultdict(list)
+    for s in range(1000):
+        for p in sup.exam_question(CHAIN, s).parts:
+            parts[f"exam {p.label}"].append((p.answer_text, p.distractors))
+    groups.update(parts)
+    for name, items in groups.items():
+        shares, total = _lone_kinds(items)
+        if total < 100:
+            continue
+        for dim, share in shares.items():
+            assert share <= 0.12, (name, dim, round(share, 3), shares)

@@ -57,7 +57,9 @@ def fraction_part(prompt, value, marks, working, wrong, *, lo=1, hi=None, **kw):
     return _fraction_part(prompt, value, marks, working, _spread(value, wrong, 1, lo, hi), **kw)
 
 
-def number_part(prompt, value, places, marks, working, wrong, *, lo=None, hi=None, follow_through=None) -> dict:
+def number_part(
+    prompt, value, places, marks, working, wrong, *, lo=None, hi=None, step=None, follow_through=None
+) -> dict:
     """A decimal answer rounded to `places` places, graded as a `number`.
 
     Like `exd_x_r2b_support.number_part`, except that a wrong answer is dropped only when it rounds to the key. The
@@ -82,7 +84,9 @@ def number_part(prompt, value, places, marks, working, wrong, *, lo=None, hi=Non
     lo = unit_in_last_place if lo is None else lo - unit_in_last_place  # a rounded key may sit one unit outside
     hi = None if hi is None else hi + unit_in_last_place
     wrong = [(v, t) for v, t in wrong if v is not None and not same(v)]  # before the split, so it is not skewed
-    options = _first_wrong(key_text, _spread(rounded, wrong, F(1, 10 ** max(places - 1, 0)), lo, hi), same, build)
+    options = _first_wrong(
+        key_text, _spread(rounded, wrong, step or F(1, 10 ** max(places - 1, 0)), lo, hi), same, build
+    )
     return _finish(
         dict(
             prompt=prompt,
@@ -689,9 +693,13 @@ def vm_pseudocode_trace(rng, tier: str = "easy"):
 # -- exam chain ----------------------------------------------------------------------------------------------------
 
 
+NEWTON_PASSES_ASKED = 2  # the exam chain's part (b) asks for x "after the loop has run a second time"
+BISECTION_PASSES_ASKED = 5  # and the bisection chain's part (b) for b - a "after the loop has run five times"
+
+
 def _chain_newton(rng):
     cubic = rng.random() < 0.4
-    for _ in attempts(500, "a Newton program that stops after three to five passes, clear of rounding ties"):
+    for _ in attempts(500, "a Newton program that stops after three to six passes, clear of rounding ties"):
         c = rng.randint(3, 60) if cubic else rng.randint(3, 80)
         f = (lambda v: v**3 - c) if cubic else (lambda v: v * v - c)
         g = (lambda v: 3 * v * v) if cubic else (lambda v: 2 * v)
@@ -699,7 +707,7 @@ def _chain_newton(rng):
         x0 = math.ceil(root) + rng.choice((0, 0, 1))
         if f(F(x0)) == 0:
             continue
-        tol = rng.choice((F(1, 10), F(1, 100), F(1, 1000)))
+        tol = rng.choice((F(1, 10), F(1, 100), F(1, 1000), F(1, 10000)))
         x, n, xs = F(x0), 0, [F(x0)]
         d = F(1)
         for _i in attempts(60, "the stopping rule being met"):
@@ -708,7 +716,7 @@ def _chain_newton(rng):
             y = x - f(x) / g(x)
             d, x, n = x - y, y, n + 1
             xs.append(x)
-        if 3 <= n <= 5 and all(clear_of_boundary(v, 3) for v in xs[1:3]) and clear_of_boundary(xs[-1], 4):
+        if 3 <= n <= 6 and all(clear_of_boundary(v, 3) for v in xs[1:3]) and clear_of_boundary(xs[-1], 4):
             break
     ftext = f"x^3 - {c}" if cubic else f"x^2 - {c}"
     gtext = "3 × x^2" if cubic else "2 × x"
@@ -781,6 +789,7 @@ def _chain_newton(rng):
             (n - 2, _NEAR),
             (n + 3, _NEAR),
         ],
+        lo=NEWTON_PASSES_ASKED,  # part (b) has already run the loop a second time, so it ran at least twice
     )
     part_d = number_part(
         "What value of x is printed last, correct to 4 decimal places?",
@@ -795,7 +804,10 @@ def _chain_newton(rng):
             (xs[min(n + 1, len(xs) - 1)] if n + 1 < len(xs) else _extra_step(f, g, xs[-1]), "vm-iterations-miscounted"),
         ],
         lo=xs[-1] / 2,
-        hi=F(x0),  # x only falls from the start
+        # the loop ran at least twice and x only falls, so it is below the answer to (b), which the learner has to
+        # 3 places (half a unit more is still consistent with it); plain near misses are then a last place apart
+        hi=round_half_up(xs[NEWTON_PASSES_ASKED], 3) + F(1, 2000),
+        step=F(1, 10000),
     )
     return dict(text=stem, parts=[part_a, part_b, part_c, part_d])
 
@@ -805,7 +817,7 @@ def _extra_step(f, g, x):
 
 
 def _chain_bisection(rng):
-    for _ in attempts(500, "a bisection program that stops after five to eight passes"):
+    for _ in attempts(500, "a bisection program that stops after seven to ten passes"):
         width = rng.choice((2, 4))
         a0 = width * rng.randint(1, 3)
         b0 = a0 + width
@@ -813,7 +825,7 @@ def _chain_bisection(rng):
         if math.isqrt(c) ** 2 == c:
             continue
         f = lambda v, c=c: v * v - c  # noqa: E731
-        tol = rng.choice((F(1, 20), F(1, 50), F(1, 100), F(1, 200)))
+        tol = rng.choice((F(1, 50), F(1, 100), F(1, 200), F(1, 500)))
         a, b, n = F(a0), F(b0), 0
         for _i in attempts(40, "the interval narrowing below the tolerance"):
             if not b - a > tol:
@@ -825,7 +837,7 @@ def _chain_bisection(rng):
             n += 1
         if f((a + b) / 2) == 0:
             continue
-        if 5 <= n <= 8 and clear_of_boundary((a + b) / 2, 4):
+        if 7 <= n <= 10 and clear_of_boundary((a + b) / 2, 4):
             break
     code = _program(
         f"let f(x) = x^2 - {c}",
@@ -893,6 +905,7 @@ def _chain_bisection(rng):
             (n + 2, "near-miss-value"),
             (n - 2, "near-miss-value"),
         ],
+        lo=BISECTION_PASSES_ASKED,  # part (b) has already run the loop five times
     )
     part_d = number_part(
         "What value is printed last, correct to 4 decimal places?",

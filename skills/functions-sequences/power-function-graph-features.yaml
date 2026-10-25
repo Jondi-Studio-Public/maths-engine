@@ -39,6 +39,7 @@ misconceptions:
 - {id: vm-pf-dilation-forgotten, description: "Leaving out the dilation factor and reporting the y-value of the unstretched graph."}
 - {id: vm-pf-index-inverted, description: "Inverting the root of an intercept, giving m divided by u where u divided by m is required."}
 - {id: vm-pf-intercept-shift-forgotten, description: "Ignoring the translation when finding an intercept, so the intercept is not moved."}
+- {id: vm-pf-intercept-other-root, description: "Giving the left-most x-intercept when the right-most was asked, taking the negative root of the shifted graph."}
 - {id: vm-pf-intercept-sign-of-shift, description: "Moving an x-intercept by the horizontal shift in the wrong direction."}
 - {id: vm-pf-intersection-index-not-undone, description: "Giving the factor in a as the intersection, without raising it to the power that undoes the index."}
 - {id: vm-pf-intersection-misses-negative-root, description: "Missing the intersection at negative x on an odd function, although the graph is symmetric about the origin."}
@@ -59,7 +60,6 @@ misconceptions:
 - {id: vm-pf-symmetry-doubled, description: "Doubling the y-value instead of using the symmetry of the graph."}
 - {id: vm-pf-symmetry-sign-wrong, description: "Using the symmetry of the wrong kind: negating the y-value of an even function, or keeping the sign for an odd one."}
 - {id: vm-pf-a-sign-lost, description: "Losing the sign of a when it is found from the given point."}
-- {id: vm-pf-negative-index-as-positive, description: "Reading x^(-n) as x^n, multiplying by the power of x instead of dividing by it."}
 - {id: vm-pf-intercept-reads-given-point, description: "Giving the x-coordinate of the given point as the intercept of the translated graph."}
 - {id: vm-pf-intercept-scaled-wrong-way, description: "Multiplying the given x-coordinate by the scale factor of the intercept instead of dividing by it."}
 - {id: vm-pf-a-extra-power, description: "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a."}
