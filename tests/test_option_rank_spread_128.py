@@ -380,8 +380,16 @@ def lopsided(topic: str, tier: str, seeds=range(SEEDS)) -> tuple[list[str], list
     return found, problems
 
 
-@pytest.mark.parametrize("topic", TOPICS)
-def test_key_has_no_fixed_rank_among_the_options_and_no_option_is_impossible(topic):
+def _topics_of(*prefixes):
+    """The TOPICS whose generator file starts with one of the prefixes (the sweep is split by family so CI can balance it)."""
+    return [
+        t
+        for t in TOPICS
+        if Path(inspect.getsourcefile(inspect.unwrap(REGISTRY[t][1]))).name.startswith(tuple(f"{x}_" for x in prefixes))
+    ]
+
+
+def _check_key_rank_and_options(topic):
     unfair, broken = [], []
     for tier in TIERS:
         try:
@@ -393,6 +401,26 @@ def test_key_has_no_fixed_rank_among_the_options_and_no_option_is_impossible(top
         broken += problems
     assert not broken, broken[:3]
     assert not unfair, unfair
+
+
+@pytest.mark.parametrize("topic", _topics_of("dg", "eyz"))
+def test_key_has_no_fixed_rank_dg_eyz(topic):
+    _check_key_rank_and_options(topic)
+
+
+@pytest.mark.parametrize("topic", _topics_of("gt", "sc"))
+def test_key_has_no_fixed_rank_gt_sc(topic):
+    _check_key_rank_and_options(topic)
+
+
+@pytest.mark.parametrize("topic", _topics_of("nv", "nx"))
+def test_key_has_no_fixed_rank_nv_nx(topic):
+    _check_key_rank_and_options(topic)
+
+
+@pytest.mark.parametrize("topic", _topics_of("vm"))
+def test_key_has_no_fixed_rank_vm(topic):
+    _check_key_rank_and_options(topic)
 
 
 def test_a_round_key_is_not_usually_the_lone_round_option():
