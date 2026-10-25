@@ -287,7 +287,18 @@ def _spread(key, cands, lo=1, hi=None, count=3):
         inside = lambda pool: [(v, NEAR) for v in pool if v >= (lo or 1) and (hi is None or v <= hi) and v != key]  # noqa: E731
         pow2 = inside([key * 4, key * 2, key // 2, key // 4]) if is_power_of_two(Fraction(key)) else []
         tens = inside([key + 10, key - 10, key + 20, key - 20])
-        ordered = lone_property_fix(key, ordered, [(is_power_of_two, pow2), (is_multiple_of_ten, tens)], count)
+        same = inside([key + d for d in (-4, -2, 2, 4)])  # the key's parity is shared by a wrong option
+        ordered = lone_property_fix(
+            key,
+            ordered,
+            [
+                (is_power_of_two, pow2),
+                (is_multiple_of_ten, tens),
+                (lambda v: v.denominator == 1 and v % 2 == 0, same),
+                (lambda v: v.denominator == 1 and v % 2 == 1, same),
+            ],
+            count,
+        )
     dist = num_dist(key, ordered, n=count)
     enough(dist)
     return dist
@@ -327,6 +338,22 @@ def _pow2_spread(key, cands, lo=2, count=3):
     r = rng.choice(ranks)
     r, x, y = rng.choice([o for o in options if o[0] == r])
     chosen = pb[:x] + ob[: r - x] + pa[:y] + oa[: count - r - y]
+    # the key is never the only option with its number of digits: a wrong option of the same length takes the place of
+    # one on the same side of the key that is not needed for the two powers of two
+    width = len(str(key))
+    if not any(len(str(c[0])) == width for c in chosen):
+        npow = lambda c: is_power_of_two(Fraction(c[0]))  # noqa: E731
+        for i, c in enumerate(chosen):
+            below = Fraction(c[0]) < k
+            spare = sum(map(npow, chosen)) > 2 or not npow(c)
+            pool = [f for x, f in fill.items() if len(str(f[0])) == width and (x < k) == below and not npow(f)]
+            pool += [f for x, f in pows.items() if len(str(f[0])) == width and (x < k) == below and f not in chosen]
+            pool = [f for f in pool if f not in chosen and (spare or npow(f))]
+            if pool:
+                chosen[i] = rng.choice(pool)
+                break
+        else:
+            raise TooFewDistractors("no wrong option has the key's number of digits")
     rng.shuffle(chosen)
     return chosen
 
