@@ -63,6 +63,12 @@ misconceptions:
 - {id: vm-pf-symmetry-doubled, description: "Doubling the y-value instead of using the symmetry of the graph."}
 - {id: vm-pf-symmetry-sign-wrong, description: "Using the symmetry of the wrong kind: negating the y-value of an even function, or keeping the sign for an odd one."}
 - {id: vm-pf-symmetry-zero, description: "Saying the y-value at a negative x is 0, as if the graph vanished there."}
+- {id: vm-pf-intersection-sign-of-a-ignored, description: "Ignoring the sign of a, so the intersection is placed on the wrong side of the origin."}
+- {id: vm-pf-a-sign-lost, description: "Losing the sign of a when it is found from the given point."}
+- {id: vm-pf-negative-index-as-positive, description: "Reading x^(-n) as x^n, multiplying by the power of x instead of dividing by it."}
+- {id: vm-pf-intercept-reads-given-point, description: "Giving the x-coordinate of the given point as the intercept of the translated graph."}
+- {id: vm-pf-intercept-scaled-wrong-way, description: "Multiplying the given x-coordinate by the scale factor of the intercept instead of dividing by it."}
+- {id: vm-pf-a-extra-power, description: "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a."}
 - {id: near-miss-value, description: "Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip."}
 difficulty_progression:
   easy: {steps: 2, demand: 'Decide odd, even or neither from the parity of the root and the power, use that symmetry for a value at -x, or read an asymptote of a translated reciprocal power.'}

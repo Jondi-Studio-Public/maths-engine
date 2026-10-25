@@ -59,6 +59,7 @@ misconceptions:
 - {id: vm-width-halved-extra, description: "Halving the interval width too many times when finding its width after a number of passes."}
 - {id: vm-width-halved-once, description: "Halving the interval width only once when more than one pass has been run."}
 - {id: vm-width-vs-count, description: "Giving the number of intervals of the tolerance's width instead of the number of times the loop halves the interval."}
+- {id: vm-trap-right-rectangle-confused, description: "Giving the right-rectangle sum when the program is a trapezium sum."}
 - {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 difficulty_progression:
   easy: {steps: 3, demand: 'Run a for-loop pass by pass, keeping a running total or product, and report the printed value.'}

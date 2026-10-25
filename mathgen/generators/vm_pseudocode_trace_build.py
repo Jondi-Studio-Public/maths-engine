@@ -26,9 +26,23 @@ from ..core import VerificationError, attempts, check, generator, phrase
 from ..answers import Distractor, exact_value
 from ..core import latex_answer, round_half_up, stated_precision_string
 from .exd_x_r2b_support import Redraw, _finish, _first_wrong, _number_value, clear_of_boundary, draw
-from .r4e_common import fraction_part, single
+from ._spread_kit import mixed, uses_rng
+from .r4e_common import fraction_part as _fraction_part
+from .r4e_common import single
 
 F = Fraction
+
+
+def _spread(value, wrong, step):
+    """The wrong-answer candidates reordered so that the first three hold a random number below the key and the rest above
+    it (`_spread_kit.mixed`), with plain near misses a multiple of `step` away to make up a side that is short."""
+    key = F(value)
+    near = [(key + d * step, "near-miss-value") for d in (-4, -3, -2, -1, 1, 2, 3, 4) if key + d * step >= 0]
+    return mixed(key, list(wrong), fillers=near, lo=0, hi=None, slip_range=(None, None))
+
+
+def fraction_part(prompt, value, marks, working, wrong, **kw):
+    return _fraction_part(prompt, value, marks, working, _spread(value, wrong, 1), **kw)
 
 
 def number_part(prompt, value, places, marks, working, wrong, *, follow_through=None) -> dict:
@@ -52,7 +66,7 @@ def number_part(prompt, value, places, marks, working, wrong, *, follow_through=
     def same(v):
         return round_half_up(F(v), places) == rounded
 
-    options = _first_wrong(key_text, wrong, same, build)
+    options = _first_wrong(key_text, _spread(rounded, wrong, F(1, 10 ** max(places - 1, 0))), same, build)
     return _finish(
         dict(
             prompt=prompt,
@@ -267,6 +281,8 @@ def _medium_additive(rng):
         (other, "vm-while-boundary-misread"),
         (key + 1, "vm-counts-wrong-passes" if ask_n else _NEAR),
         (key - 1, "vm-counts-wrong-passes" if ask_n else _NEAR),
+        (key - 2, _NEAR),
+        (key + 3, _NEAR),
         (target, "vm-prints-threshold") if not ask_n else (n_end + 2, _NEAR),
         (s_end - d, "vm-prints-value-before-last-pass") if not ask_n else (None, ""),
     ]
@@ -349,7 +365,7 @@ def _medium_collatz(rng):
         (n - 1, "vm-counts-wrong-passes"),
         (n + 1, "vm-counts-wrong-passes"),
         (len([v for v in seq[:-1] if v % 2 == 0]), "vm-counts-one-branch"),
-        (max(seq), "vm-prints-wrong-variable"),
+        (start, "vm-reads-initial-value"),
     ]
     working = [f"s takes the values {', '.join(map(str, seq))}, which is {n} passes."]
     return single(
@@ -595,7 +611,7 @@ def _hard_area(rng):
     else:
         wrong = [
             (left, "vm-trap-left-rectangle-confused"),
-            (right, "vm-rect-right-for-left"),
+            (right, "vm-trap-right-rectangle-confused"),
             (h * ((f(xs[0]) + f(xs[-1])) + sum(f(x) for x in xs[1:-1])), "vm-trap-ends-not-halved"),
             (trap / h, "vm-sum-forgets-width"),
         ]
@@ -624,6 +640,7 @@ _TIERS = {
     level=17,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 def vm_pseudocode_trace(rng, tier: str = "easy"):
     """Read short pseudocode and give the printed value; the tiers are described in the module docstring."""
     if tier not in _TIERS:
@@ -690,6 +707,9 @@ def _chain_newton(rng):
             (_add_newton(f, g, x0, 1), "vm-newton-adds-correction"),
             (_slope_free(f, x0, 1), "vm-newton-forgets-slope"),
             (F(x0), "vm-reads-initial-value"),
+            (f(F(x0)) / g(F(x0)), "vm-newton-prints-correction"),
+            (xs[1] + 1, "near-miss-value"),
+            (xs[1] - 1, "near-miss-value"),
         ],
     )
     part_b = number_part(
@@ -717,7 +737,9 @@ def _chain_newton(rng):
         [
             (n - 1, "vm-counts-wrong-passes"),
             (n + 1, "vm-counts-wrong-passes"),
-            (1 + n + 1, _NEAR),
+            (n + 2, _NEAR),
+            (n - 2, _NEAR),
+            (n + 3, _NEAR),
         ],
     )
     part_d = number_part(
@@ -742,7 +764,7 @@ def _extra_step(f, g, x):
 
 def _chain_bisection(rng):
     for _ in attempts(500, "a bisection program that stops after five to eight passes"):
-        width = rng.choice((1, 2, 4))
+        width = rng.choice((2, 4))
         a0 = width * rng.randint(1, 3)
         b0 = a0 + width
         c = rng.randint(a0 * a0 + 1, b0 * b0 - 1)
@@ -797,6 +819,9 @@ def _chain_bisection(rng):
             (F(width, 2), "vm-width-halved-once"),
             (F(width, 8), "vm-width-halved-extra"),
             (F(width), "vm-reads-initial-value"),
+            (F(width, 16), "vm-width-halved-extra"),
+            (w2 + F(1, 2), "near-miss-value"),
+            (w2 - F(1, 8), "near-miss-value"),
         ],
     )
     part_b = number_part(
@@ -806,10 +831,10 @@ def _chain_bisection(rng):
         2,
         [f"Three more halvings of {dec(w2)} give {dec(w2)} ÷ 8 = {dec(w5)}."],
         [
-            (w2 / 4, "vm-width-halved-extra"),
-            (w2 / 16, "vm-width-halved-extra"),
-            (w2 / 2, "vm-width-halved-once"),
-            (w2, "vm-width-halved-once"),
+            (w2 / 4, "vm-iterations-miscounted"),
+            (w2 / 16, "vm-iterations-miscounted"),
+            (w2 / 2, "vm-iterations-miscounted"),
+            (w2, "vm-iterations-miscounted"),
         ],
         follow_through="part_a/8",
     )
@@ -823,6 +848,7 @@ def _chain_bisection(rng):
             (n + 1, "vm-counts-wrong-passes"),
             (math.ceil(width / tol), "vm-width-vs-count"),
             (n + 2, "near-miss-value"),
+            (n - 2, "near-miss-value"),
         ],
     )
     part_d = number_part(
@@ -854,6 +880,7 @@ def _chain(rng):
 
 
 @generator("vm_pseudocode_trace_exam", level=17, presets={"exam": dict(tier="exam")})
+@uses_rng
 def vm_pseudocode_trace_exam(rng, tier: str = "exam"):
     """A loop with a stopping rule: one pass, the next pass following through, the pass count, then the printed value."""
     if tier != "exam":

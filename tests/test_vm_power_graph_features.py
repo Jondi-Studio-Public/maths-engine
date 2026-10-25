@@ -73,15 +73,15 @@ def show_list(vs):
 
 def oracle(q):
     text = q.text
-    m = re.match(r"Let [fy](?:\(x\))? = (.+?)\. Is f odd", text)
+    m = re.match(r"Let [fy](?:\(x\))? = (.+?)\. Write 1 if f is even", text)
     if m:
         rule = parse_rule(m.group(1))
         pairs = [(evaluate(rule, v), evaluate(rule, -v)) for v in (1.5, 2.5, 7.0)]
         if any(b is None for _, b in pairs):
-            return "neither"
+            return "3"
         if all(math.isclose(b, a_) for a_, b in pairs):
-            return "even"
-        return "odd" if all(math.isclose(b, -a_) for a_, b in pairs) else "neither"
+            return "1"
+        return "2" if all(math.isclose(b, -a_) for a_, b in pairs) else "3"
     m = re.match(r"A function f\(x\) = a(x\^\S+) has a graph through the point \((\d+), (-?\d+)\)", text)
     if m:
         p, qq = index(m.group(1)[2:].strip("()"))
@@ -95,29 +95,31 @@ def oracle(q):
             return str(h)
         expr = a * sympy.Pow(x - h, sympy.Rational(p, qq)) + k
         return str(sympy.limit(expr, x, sympy.oo))
-    m = re.match(r"Let y = (.+?)\. Give the x-value of the vertical", text)
+    m = re.match(r"Let y = (.+?)\. Its vertical asymptote is x = h", text)
     if m:
         a, h, p, qq, k = parse_rule(m.group(1))
         expr = a * sympy.Pow(x - h, sympy.Rational(p, qq)) + k
-        return f"{h}, {sympy.limit(expr, x, sympy.oo)}"
-    m = re.match(r"Let y = (.+?)\. In which quadrants", text)
+        return str(h - sympy.limit(expr, x, sympy.oo))
+    m = re.match(r"Let y = (.+?)\. The graph lies in some", text)
     if m:
         rule = parse_rule(m.group(1))
-        return show_list(quadrants(lambda v: evaluate(rule, v)))
-    m = re.match(r"The graph of y = (.+?) is reflected in (the x-axis|the y-axis|both axes)", text)
+        return str(sum(quadrants(lambda v: evaluate(rule, v))))
+    m = re.match(
+        r"The graph of y = (.+?) is reflected in (the x-axis|the y-axis|both axes[^.]*)\. The image lies", text
+    )
     if m:
         rule = parse_rule(m.group(1))
         kind = m.group(2)
-        sx = -1 if kind in ("the y-axis", "both axes") else 1
-        sy = -1 if kind in ("the x-axis", "both axes") else 1
-        return show_list(quadrants(lambda v: (lambda r: None if r is None else sy * r)(evaluate(rule, sx * v))))
-    m = re.match(r"Let f\(x\) = (.+?)\. Find the x-coordinates of all", text)
+        sx = -1 if kind.startswith(("the y-axis", "both")) else 1
+        sy = -1 if kind.startswith(("the x-axis", "both")) else 1
+        return str(sum(quadrants(lambda v: (lambda r: None if r is None else sy * r)(evaluate(rule, sx * v)))))
+    m = re.match(r"Let f\(x\) = (.+?)\. The graph of y = f\(x\) meets", text)
     if m:
         a, _, p, qq, _ = parse_rule(m.group(1))
         hits = [
             v for v in range(-600, 601) if (r := rpow(v, p, qq)) is not None and math.isclose(a * r, v, abs_tol=1e-9)
         ]
-        return show_list(hits)
+        return str(hits[-1] - hits[0])
     m = re.match(
         r"(?:The graph of|Starting from) y = (\S+?),? (?:is|the graph is) .*?(?:factor of (\d+).*?)?reflected in the (x|y)-axis\. "
         r"Find the y-coordinate of the point on the image with x-coordinate (-?\d+)",
@@ -129,14 +131,14 @@ def oracle(q):
         X = int(m.group(4))
         r = rpow(-X, p, qq) if m.group(3) == "y" else rpow(X, p, qq)
         return str(round(a * r * (-1 if m.group(3) == "x" else 1)))
-    m = re.match(r"Let y = (.+?)\. Find the x-intercepts", text)
+    m = re.match(r"Let y = (.+?)\. Find the x-coordinate of the right-most", text)
     rule = parse_rule(m.group(1))
     hits = [
         v
         for v in range(-40, 41)
         if (r := evaluate(rule, v)) is not None and math.isclose(r, 0, abs_tol=1e-9) and v != rule[1]
     ]
-    return show_list(hits)
+    return str(hits[-1])
 
 
 @pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
@@ -164,14 +166,14 @@ def test_unknown_tier_is_rejected():
 
 def test_easy_covers_each_symmetry_word():
     words = {t.question(SKILL, "easy", s).answer_text for s in range(80)}
-    assert {"odd", "even", "neither"} <= words
+    assert {"1", "2", "3"} <= words
 
 
 def test_hard_covers_each_kind():
     texts = [t.question(SKILL, "hard", s).text for s in range(80)]
     assert any("meets the line y = x" in v for v in texts)
     assert any("dilated" in v or "stretched" in v for v in texts)
-    assert any("x-intercepts" in v for v in texts)
+    assert any("right-most x-intercept" in v for v in texts)
 
 
 def test_registered_and_chain_shape():
@@ -196,8 +198,39 @@ def test_chain_key_matches_independent_derivation():
         got = {p.label: p.answer_text for p in q.parts}
         assert got["a"] == str(a)
         assert sympy.Rational(got["b"]) == a * sympy.Integer(-u) ** (-n)
-        assert got["c"] == show_list(quadrants(lambda val: rpow(val, -n, 1) * float(a)))
+        assert got["c"] == str(sum(quadrants(lambda val: rpow(val, -n, 1) * float(a))))
         k = int(re.search(r"(up|down)", q.parts[3].prompt).group(1) == "up") * 2 - 1
-        shift = int(re.search(r"translated (\d+) units", q.parts[3].prompt).group(1)) * k
+        shift = int(re.search(r"translated (\d+) units?", q.parts[3].prompt).group(1)) * k
         roots = [r for r in sympy.solve(a * x ** (-n) + shift, x) if r.is_real and r > 0]
         assert sympy.Rational(got["d"]) == roots[0]
+
+
+def _rank(key: str, options) -> int:
+    """How many wrong options sort below the key: by value when they are numbers, else by text."""
+
+    def sort_key(text):
+        try:
+            return (0, float(Fraction(text.replace(" ", ""))), "")
+        except (ValueError, ZeroDivisionError):
+            return (1, 0.0, text)
+
+    return sum(1 for o in options if sort_key(o) < sort_key(key))
+
+
+def test_key_rank_varies_power_graph():
+    """The key must not sit in one place among the options: each tier (and each exam part) takes at least three ranks."""
+    from collections import Counter
+
+    for tier in ("easy", "medium", "hard"):
+        ranks = Counter()
+        for seed in range(240):
+            q = t.question(SKILL, tier, seed)
+            ranks[_rank(q.answer_text, q.distractors)] += 1
+        assert len(ranks) >= 3, (tier, ranks)
+    parts = {}
+    for seed in range(240):
+        q = sup.exam_question(CHAIN, seed)
+        for p in q.parts:
+            parts.setdefault(p.label, Counter())[_rank(p.answer_text, p.distractors)] += 1
+    for label, ranks in parts.items():
+        assert len(ranks) >= 3, (label, ranks)

@@ -274,3 +274,34 @@ def test_chain_key_matches_independent_interpreter():
             width = int(re.search(r"set b to (\d+)", code).group(1)) - int(re.search(r"set a to (\d+)", code).group(1))
             assert got["a"] == show(Fraction(width, 4), 3)
             assert got["b"] == show(Fraction(width, 32), 4)
+
+
+def _rank(key: str, options) -> int:
+    """How many wrong options sort below the key: by value when they are numbers, else by text."""
+
+    def sort_key(text):
+        try:
+            return (0, float(Fraction(text.replace(" ", ""))), "")
+        except (ValueError, ZeroDivisionError):
+            return (1, 0.0, text)
+
+    return sum(1 for o in options if sort_key(o) < sort_key(key))
+
+
+def test_key_rank_varies_pseudocode():
+    """The key must not sit in one place among the options: each tier (and each exam part) takes at least three ranks."""
+    from collections import Counter
+
+    for tier in ("easy", "medium", "hard"):
+        ranks = Counter()
+        for seed in range(240):
+            q = t.question(SKILL, tier, seed)
+            ranks[_rank(q.answer_text, q.distractors)] += 1
+        assert len(ranks) >= 3, (tier, ranks)
+    parts = {}
+    for seed in range(240):
+        q = sup.exam_question(CHAIN, seed)
+        for p in q.parts:
+            parts.setdefault(p.label, Counter())[_rank(p.answer_text, p.distractors)] += 1
+    for label, ranks in parts.items():
+        assert len(ranks) >= 3, (label, ranks)
