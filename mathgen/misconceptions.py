@@ -59956,6 +59956,265 @@ _ENTRIES += (
         "Finding solutions of (f(x))^2 = c for a negative c, as if a square could be negative.",
         area="graph-features",
     ),
+    # nv-bits-hex block
+    CatalogueEntry(
+        "nv-bits-log-rounded-down",
+        "Takes the bits needed for a number as the whole part of its base-2 logarithm, one too few.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-counts-decimal-digits",
+        "Gives the number of decimal digits of the number as the number of bits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-one-extra",
+        "Adds a bit for the number zero or for a sign, giving one bit too many.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-power-boundary",
+        "Gives the exponent when the number is a power of two (256 as 8 bits), forgetting that 256 itself needs a ninth bit.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-round-to-nearest",
+        "Rounds the base-2 logarithm to the nearest whole number instead of up.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-divides-by-eight",
+        "Divides the number by 8, treating the number of bits as the number of bytes.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-is-power",
+        "Gives 2 to the power n as the largest value n bits can hold, which is the number of values (the largest is one less).",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-half",
+        "Gives 2 to the power (n - 1) as the largest value n bits can hold, the value of the top bit alone.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-linear",
+        "Gives 2n - 1 as the largest value, doubling the number of bits instead of using powers of two.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-squares",
+        "Gives n squared as the number of different values n bits can hold.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-doubles-bits",
+        "Gives 2n as the number of different values n bits can hold.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-forgets-zero",
+        "Gives 2 to the power n, less one, as the number of values, leaving out the value zero.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-remainders-reversed",
+        "Writes the remainders of repeated division by 16 in the order found, not from the last to the first.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-letter-misvalue",
+        "Gives a hexadecimal letter the wrong value (for example B as 12), so a digit is one out.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-decimal-digits",
+        "Writes the decimal digits of the number as if they were already hexadecimal digits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-groups-from-left",
+        "Groups the binary digits in fours from the left, so the groups do not line up with the place values.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-groups-of-three",
+        "Groups the binary digits in threes (octal digits) when writing a hexadecimal numeral.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-no-padding",
+        "Leaves a short group of binary digits unpadded, reading it with the wrong place values.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-digits-rounded-down",
+        "Divides the number of bits by 4 and rounds down, one hexadecimal digit too few.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-digits-bits-over-three",
+        "Divides the number of bits by 3 (octal grouping) to count hexadecimal digits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-codes-multiply",
+        "Multiplies the number of digits by 16 instead of using 16 to that power.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-codes-base-ten",
+        "Uses 10 to the power of the digit count, as if the digits were decimal.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-padding-dropped",
+        "Drops the leading zeros of a numeral that was to be written to a stated width.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-padding-wrong-side",
+        "Pads a short numeral with zeros on the right, changing its value.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-top-digit-f",
+        "Writes the largest n-bit number with every hexadecimal digit as F, ignoring that the top digit holds fewer bits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-top-digit-power",
+        "Uses 2 to the power of the leftover bits as the top digit instead of one less.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-unused-off-by-one",
+        "Counts the unused values of a bit pattern as 2 to the power n minus the largest reading, forgetting that zero is a value.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-unused-total-values",
+        "Gives the total number of values rather than the number that are unused.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-colour-channels-swapped",
+        "Writes the colour channels in the wrong order in the hexadecimal code.",
+        area="bits-hex-and-digit-counts",
+    ),
+    # nv-bits-hex block end
+    # nv-summary block
+    CatalogueEntry(
+        "nv-mean-of-categories",
+        "Treats the categories of a nominal variable as numbers that can be averaged.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-of-unordered-categories",
+        "Looks for the middle category of a nominal variable, which has no order.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-of-ordinal-labels",
+        "Averages ordered labels such as poor to excellent as if they were equally spaced numbers.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mode-ignores-order",
+        "Gives the mode for ordered ratings, which says nothing about the order of the ratings.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-range-as-centre",
+        "Gives the range, a measure of spread, where a measure of centre was asked for.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-for-skewed",
+        "Uses the mean for data with one extreme value, although the extreme value drags the mean away from a typical value.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-always-best",
+        "Believes the mean is always the best summary because it uses every value.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-for-total",
+        "Uses the median where a total is wanted; the total comes from the mean times the number of values.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mode-for-skewed",
+        "Takes the most common value as the typical one, even when no value is repeated.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-removes-outlier",
+        "Throws away the extreme value and averages the rest, instead of using the median of all the values.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-for-most-common",
+        "Gives the mean where the most common value was needed.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-for-most-common",
+        "Gives the median where the most common value was needed.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mode-for-equal-share",
+        "Gives the most common value where an equal share of a total was needed.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-of-codes",
+        "Finds the middle number of the codes used for categories and reads it as the typical category.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-of-codes",
+        "Averages the numbers used to code categories and names the category nearest that number.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-claim-accepted",
+        "Accepts the claimed summary without checking that it suits the variable and the data.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-unsorted",
+        "Takes the middle of the list as written, without putting the values in order first.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-one-middle",
+        "Takes one of the two middle values of an even count instead of the number halfway between them.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-wrong-count",
+        "Divides the total by a count that is one out.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-difference-reversed",
+        "Subtracts in the wrong order, giving the median minus the mean.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-total-not-scaled",
+        "Gives the mean itself where the total for many items was asked.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-total-divided",
+        "Divides the mean by the number of items where the total was asked.",
+        area="choose-summary-statistic",
+    ),
+    # nv-summary block end
 )
 
 #: Every entry, by id.
