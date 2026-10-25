@@ -33,6 +33,7 @@ from fractions import Fraction
 
 from ..core import attempts, check, generator, phrase
 from ._exd_distinct_parts import distinct_part_answers
+from ._company_kit import NEAR_FEATURES, keep_company
 from ._nv_kit import is_multiple_of_ten, lone_property_fix, spread_order
 from ._exd_r3f_parts import clear_of_boundary
 from ._r3j_kit import choice_question, number_part, sane, single_number
@@ -329,9 +330,42 @@ def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=No
             ],
             view=view,
         )
+        # ... and shares how many other options lie within 1 and within 2 of it, and being a multiple of 5, with another
+        ordered = _company(
+            key,
+            ordered,
+            Fraction(1) if whole else Fraction(1, 10),
+            lambda v: (
+                fits((v,)) and lo <= Fraction(v) <= hi and (not (whole and values) or Fraction(v) in listed_values)
+            ),
+            view,
+            {"listed": lambda v: Fraction(v) in listed_values} if listed_values else None,
+        )
     if len(ordered) < 3:
         raise TooFewDistractors("fewer than three options fit the stem")
     return ordered
+
+
+def _company(key, ordered, step, ok, view=None, custom=None, shift_cost=1.5, must=("mult5",)):
+    """`ordered` with the key sharing, with a wrong option, its count of other options within 1 and within 2 and its being
+    a multiple of 5 (`_company_kit`); the draw is made again when no wrong value can share the multiple of 5."""
+    key = Fraction(key)
+    seen = view or (lambda v: v)
+    custom = {**(custom or {}), "ten": lambda v: is_multiple_of_ten(seen(Fraction(v)))}  # as shown, and defined for all
+    near_pool = [(key + sgn * d * step, NEAR) for d in (1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 30) for sgn in (-1, 1)]
+    near_pool.sort(key=lambda c: abs(c[0] - key))
+    return keep_company(
+        key,
+        ordered,
+        near_pool,
+        shift_cost=shift_cost,
+        extra=NEAR_FEATURES,
+        view=view,
+        custom=custom,
+        ok=lambda v: Fraction(v) != key and ok(v),
+        must=must,
+        balance=False,
+    )
 
 
 def _median_slips(values, mean, median):
@@ -685,7 +719,14 @@ def _ordered_whole(key, slips, exclude=(), lo=1, hi=7, listed=()):
         given = {Fraction(v) for v in listed}
         pool = [(v, NEAR) for v in sorted(given) if v != key and v not in banned and lo <= v <= hi]
         ordered = lone_property_fix(key, ordered, [(lambda v: v in given, pool)])
-    return ordered
+    return _company(
+        key,
+        ordered,
+        Fraction(1),
+        lambda v: lo <= Fraction(v) <= hi and Fraction(v) not in banned,
+        None,
+        {"given": lambda v: Fraction(v) in {Fraction(x) for x in listed}} if listed else None,
+    )
 
 
 def _hard_coded_count(rng):
@@ -721,6 +762,7 @@ def _hard_coded_count(rng):
     key = Fraction(counts[top])
     fillers = [(key + d, NEAR) for d in (-2, -1, 1, 2)]
     ordered = spread_order(key, slips, fillers, 3, lo=1, hi=len(codes) - 1)
+    ordered = _company(key, ordered, Fraction(1), lambda v: 1 <= Fraction(v) <= len(codes) - 1, None, None, 4.0, ())
     return single_number(text, key, 0, working, ordered)
 
 

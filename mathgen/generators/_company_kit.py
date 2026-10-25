@@ -29,13 +29,24 @@ def _tuple(v) -> tuple:
 _PLACES: list = [None]
 # whether the distance between options counts (not for labels such as quadrant numbers)
 _NEAR: list = [True]
+# what a caller asks beyond that: view (value -> what the learner reads), custom (name -> function of a value), balance
+_VIEW: list = [None]
+_CUSTOM: list = [None]
+_BALANCE: list = [True]
+NEAR_FEATURES = ("near1", "near2", "mult5")  # always measured; kept so a caller can name them
+
+
+def _items(v) -> list:
+    """The numbers of an option as the learner reads them (through the caller's `view`, if any)."""
+    view = _VIEW[0] or (lambda x: x)
+    return [view(Fraction(x)) for x in _tuple(v)]
 
 
 def _text(v) -> str:
     places = _PLACES[0]
     if places is not None:
-        return ", ".join(f"{float(x):.{places}f}" for x in _tuple(v))
-    return ", ".join(str(Fraction(x)) if Fraction(x).denominator != 1 else str(int(x)) for x in _tuple(v))
+        return ", ".join(f"{float(x):.{places}f}" for x in _items(v))
+    return ", ".join(str(x) if x.denominator != 1 else str(int(x)) for x in _items(v))
 
 
 def _sign(x) -> int:
@@ -44,7 +55,7 @@ def _sign(x) -> int:
 
 def features(v) -> dict:
     """What a learner can notice about one option: sign, whole or not, parity, power of two, standard angle, digits."""
-    items = [Fraction(x) for x in _tuple(v)]
+    items = _items(v)
     text = _text(v)
     f = {
         "ndigits": min(sum(c.isdigit() for c in text), 8),
@@ -70,6 +81,8 @@ _CACHE: dict = {}
 def _cached(v):
     """(features, float value or None) of one option, remembered."""
     key = (_PLACES[0], *_tuple(v))
+    if _VIEW[0] is not None:  # a view is a function: its results are not remembered
+        return features(v), float(_items(v)[0]) if len(key) == 2 else None
     hit = _CACHE.get(key)
     if hit is None:
         if len(_CACHE) > 5000:
@@ -92,6 +105,8 @@ def lone_sets(options) -> list:
     if None not in values and _NEAR[0]:
         columns["near1"] = [min(sum(abs(v - w) <= 1 + 1e-9 for w in values) - 1, 3) for v in values]
         columns["near2"] = [min(sum(abs(v - w) <= 2 + 1e-9 for w in values) - 1, 3) for v in values]
+    for name, fn in (_CUSTOM[0] or {}).items():  # features the caller defines for every option
+        columns[name] = [fn(v) for v in options]
     out = [set() for _ in options]
     for n, col in columns.items():
         for i, v in enumerate(col):
@@ -105,19 +120,44 @@ def lone_features(key, shown) -> set:
     return lone_sets([key, *shown])[0]
 
 
-def keep_company(key, ordered, pool=(), count: int = 3, shift_cost: float = SHIFT_COST, places=None, near: bool = True):
-    """`_keep_company` for options printed to `places` decimal places (None: as whole numbers or fractions)."""
-    _PLACES[0], _NEAR[0] = places, near
+def keep_company(
+    key,
+    ordered,
+    pool=(),
+    count: int = 3,
+    shift_cost: float = SHIFT_COST,
+    places=None,
+    near: bool = True,
+    *,
+    extra=(),
+    view=None,
+    custom=None,
+    ok=None,
+    must=(),
+    balance: bool = True,
+    max_pool: int = _MAX_POOL,
+):
+    """`_keep_company` for options printed to `places` decimal places (None: as whole numbers or fractions).
+
+    `view` turns a value into what the learner reads of it (a rounded decimal) before anything is measured; `custom`
+    maps a name to a function of a value, a feature of every option; `ok(value)` rules a candidate out (the shown options
+    are never ruled out); `balance` (default) also counts the wrong options that are alone in a feature, False only the
+    key; `max_pool` caps the candidates; when the key still has no company in a feature named in `must`,
+    `TooFewDistractors` is raised so the caller's draw is made again. `extra` names features (``NEAR_FEATURES``) a caller
+    protects: they are always measured, so it changes nothing."""
+    _PLACES[0], _NEAR[0], _VIEW[0], _CUSTOM[0], _BALANCE[0] = places, near, view, custom, balance
     try:
         clean = [c for c in ordered if c[0] is not None]  # a slip that did not come out (None) is not an option
         if len(clean) == len(ordered):
-            return _keep_company(key, ordered, pool, count, shift_cost)
-        return _keep_company(key, clean, pool, count, shift_cost) + [c for c in ordered if c[0] is None]
+            return _keep_company(key, ordered, pool, count, shift_cost, ok, must, max_pool)
+        return _keep_company(key, clean, pool, count, shift_cost, ok, must, max_pool) + [
+            c for c in ordered if c[0] is None
+        ]
     finally:
-        _PLACES[0], _NEAR[0] = None, True
+        _PLACES[0], _NEAR[0], _VIEW[0], _CUSTOM[0], _BALANCE[0] = None, True, None, None, True
 
 
-def _keep_company(key, ordered, pool, count, shift_cost):
+def _keep_company(key, ordered, pool, count, shift_cost, ok=None, must=(), max_pool=_MAX_POOL):
     """`ordered` ([(value, tag)]; the first `count` are shown) changed so the key has company in as many features as
     possible. Candidates are the rest of `ordered` and `pool`; a swap keeps the number below the key where it can."""
     shown = list(ordered[:count])
@@ -127,18 +167,18 @@ def _keep_company(key, ordered, pool, count, shift_cost):
     if len(shown) < count:
         return ordered
     sets0 = lone_sets([key, *(v for v, _ in shown)])
-    if not sets0[0] and not any(sets0[1:]):
+    if not sets0[0] and not (_BALANCE[0] and any(sets0[1:])):
         return ordered
     k = _tuple(key)
     seen = {k} | {_tuple(v) for v, _ in shown}
     cands = list(shown)
     for v, t in list(ordered[count:]) + list(pool):
-        if _tuple(v) not in seen:
+        if _tuple(v) not in seen and (ok is None or ok(v)):
             seen.add(_tuple(v))
             cands.append((v, t))
     # its own generator, seeded from the options: the question's random stream is left as it was
     rng = random.Random(repr((str(key), [str(v) for v, _ in ordered])))
-    cands = cands[:_MAX_POOL]
+    cands = cands[:max_pool]
 
     def below(v):
         return _tuple(v) < k
@@ -149,7 +189,7 @@ def _keep_company(key, ordered, pool, count, shift_cost):
         sets = lone_sets([key, *(v for v, _ in pick)])
         return (
             sum(WEIGHT.get(n, 1) for n in sets[0])
-            + WRONG_LONE * sum(len(x) for x in sets[1:])
+            + (WRONG_LONE if _BALANCE[0] else 0) * sum(len(x) for x in sets[1:])
             + shift_cost * abs(sum(1 for v, _ in pick if below(v)) - base_below)
         )
 
@@ -183,6 +223,10 @@ def _keep_company(key, ordered, pool, count, shift_cost):
         if best_pair:
             current = best_pair
     chosen = list(current)
+    if must and set(must) & lone_sets([key, *(v for v, _ in chosen)])[0]:
+        from ._w6a_kit import TooFewDistractors
+
+        raise TooFewDistractors("no wrong option keeps the key company in " + ", ".join(sorted(must)))
     rng.shuffle(chosen)
     return chosen + [c for c in ordered if not any(c is x or c == x for x in chosen)]
 
