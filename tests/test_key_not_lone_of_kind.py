@@ -50,7 +50,7 @@ MIN_KEY_COUNT = 5  # fewer lone-key draws than this is not evidence
 MIN_EXCESS = 0.01  # the key's lone count must beat the chance count by at least this share of the draws
 P_MAX = 1e-4  # ... and the binomial tail of the key's count under 1/n_options must be this small.
 MIN_EVENTS_UNDER = 30  # a key that is rarely the lone holder needs this many lone events to be judged
-ELIM_POINTS = 0.06  # a learner strategy may beat (or trail) chance by this much, plus sampling noise
+ELIM_POINTS = 0.30  # relative to the merged library: its best-strategy edge has median +16 and p90 +30 on these features
 ELIM_SIGMAS = 3.0
 
 # Features the generators guard outright (a real, pure imaginary or mixed key always has a wrong option of its kind): the
