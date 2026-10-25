@@ -27,6 +27,7 @@ import re
 import sympy
 
 from ..core import attempts, check, generator, paren_negative, phrase, pick_distractors
+from ._nx_company_kit import company
 from ._w6b_kit import I, cdist, cx_text, cx_value, dist, gaussian, need, num_text, plus, retry, want
 
 _MULTIPLIERS = (2, 3, -1, -2, I, -I, 1 + I, 1 - I, 2 * I, 2 + I, 1 + 2 * I)
@@ -171,6 +172,19 @@ def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, s
     want(low <= high, "no split")
     below = rng.randint(low, high)
     out = pool_b[:below] + pool_a[: n - below]
+    spare = [d for d in pool_b + pool_a if not any(d is o for o in out)]
+    taken = {float(d.value) for d in out + spare} | {float(key)}
+    for wide in (
+        5,
+        10,
+        15,
+        20,
+    ):  # more plain near misses, so the key can be given company (a multiple of 5, a neighbour)
+        for v in (key - wide, key + wide):
+            if v not in taken and (lo is None or v > lo) and (hi is None or v < hi):
+                taken.add(v)
+                spare.append(_num(v, NEAR))
+    out = company(str(answer_text), float(key), out, spare, rng, float)
     if (
         lo is not None
         and hi is not None
