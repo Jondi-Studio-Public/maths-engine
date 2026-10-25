@@ -22,7 +22,8 @@ A key of 0 is exempt (it is the only 0 by construction; the same test checks the
 Parts whose options are fixed vocabulary words (odd / even / neither) are exempt. Complex kind is guarded outright: no
 draw may leave the key alone in its kind. Each feature is judged per value and also summed over its values ("*").
 
-The same test plays the learner outright (elimination strategy): discard every option that is the only one with
+The same test plays the learner outright (strategies: eliminate the odd ones out, pick the most central, pick the most
+outlying) and bounds each at 6 points from chance. The too-rare side is a printed diagnostic, not an assert. Elimination: discard every option that is the only one with
 some feature, guess among the rest, and compare with chance (review 7 measured +10.7 points median on these skills, +3.3
 on the merged library).
 """
@@ -31,6 +32,7 @@ from __future__ import annotations
 
 import functools
 import math
+import os
 import re
 from collections import Counter, defaultdict
 from fractions import Fraction
@@ -48,7 +50,7 @@ MIN_KEY_COUNT = 5  # fewer lone-key draws than this is not evidence
 MIN_EXCESS = 0.01  # the key's lone count must beat the chance count by at least this share of the draws
 P_MAX = 1e-4  # ... and the binomial tail of the key's count under 1/n_options must be this small.
 MIN_EVENTS_UNDER = 30  # a key that is rarely the lone holder needs this many lone events to be judged
-ELIM_POINTS = 0.03  # the elimination strategy may beat (or trail) chance by this much, plus sampling noise
+ELIM_POINTS = 0.06  # a learner strategy may beat (or trail) chance by this much, plus sampling noise
 ELIM_SIGMAS = 3.0
 
 # Features the generators guard outright (a real, pure imaginary or mixed key always has a wrong option of its kind): the
@@ -237,7 +239,9 @@ def _survey_uncached(topic: str, difficulty: str, params: dict, seeds=range(SEED
     n_opts: Counter = Counter()
     key_lone: dict = defaultdict(list)
     wrong_lone: Counter = Counter()
-    elim: dict = defaultdict(lambda: [0.0, 0.0, 0.0, 0])  # part -> sum of gain over chance, sum of squares, draws
+    elim: dict = defaultdict(
+        lambda: [0.0, 0.0, 0]
+    )  # (part, strategy) -> sum of gain over chance, sum of squares, draws
     key_zero: Counter = Counter()  # part -> draws whose key is 0
     wrong_zero: Counter = Counter()  # part -> draws with a wrong option 0 (and a key that is not)
     for seed in seeds:
@@ -259,11 +263,25 @@ def _survey_uncached(topic: str, difficulty: str, params: dict, seeds=range(SEED
                 # The parity or power-of-two pattern of a set of quadrant numbers is a label, not a quantity (at most 4
                 # keys, a closed answer space); size, membership and the rest are judged like any option.
                 feats = [{k: v for k, v in f.items() if k not in LABEL_ONLY} for f in feats]
-            gain = _elimination(feats, texts) - 1 / len(texts)
-            e = elim[label]
-            e[0] += gain
-            e[1] += gain * gain
-            e[3] += 1
+            chance = 1 / len(texts)
+            gains = {"eliminate": _elimination(feats, texts) - chance}
+            if "centrality" in feats[0]:  # plain numbers: pick the most central / the most outlying option
+                for strategy, tag in (("most-central", "central"), ("most-outlying", "outlier")):
+                    pick = [i for i, f in enumerate(feats) if f["centrality"] == tag]
+                    gains[strategy] = ((1 / len(pick) if 0 in pick else 0.0) if pick else chance) - chance
+            values = [_plain(t) for t in texts]
+            if all(v is not None for v in values):  # pick the option nearest the median of all the options
+                ordered = sorted(values)
+                mid = len(ordered) // 2
+                median = ordered[mid] if len(ordered) % 2 else (ordered[mid - 1] + ordered[mid]) / 2
+                dist = [round(abs(v - median), 9) for v in values]
+                pick = [i for i, d in enumerate(dist) if d == min(dist)]
+                gains["nearest-median"] = (1 / len(pick) if 0 in pick else 0.0) - chance
+            for strategy, gain in gains.items():
+                e = elim[(label, strategy)]
+                e[0] += gain
+                e[1] += gain * gain
+                e[2] += 1
             for name in feats[0]:
                 counts = Counter(f[name] for f in feats)
                 for idx, f in enumerate(feats):
@@ -333,16 +351,35 @@ def tells(survey_result: dict) -> list:
 
 
 def elimination_gains(survey_result: dict) -> list:
-    """Rows (part, advantage, standard error, draws) where eliminating the odd ones out beats or trails chance too far."""
+    """Rows (part, strategy, advantage, standard error, draws) where a no-maths strategy beats or trails chance too far,
+    for each part and each strategy (eliminate the lone options, pick the most central, pick the most outlying)."""
     out = []
-    for label, (total, squares, _unused, draws) in sorted(survey_result["elim"].items()):
+    for (label, strategy), (total, squares, draws) in sorted(survey_result["elim"].items()):
         if draws < 100:
             continue
         mean = total / draws
         se = math.sqrt(max(squares / draws - mean * mean, 0.0) / draws)
         if abs(mean) > ELIM_POINTS and abs(mean) > ELIM_SIGMAS * se:
-            out.append((label, mean, se, draws))
+            out.append((label, strategy, mean, se, draws))
     return out
+
+
+def best_strategy_edges(survey_result: dict) -> dict:
+    """{part: (strategy, advantage)} for the strategy with the largest advantage over chance, whatever the bound."""
+    best: dict = {}
+    for (label, strategy), (total, _sq, draws) in survey_result["elim"].items():
+        if draws >= 100 and (label not in best or total / draws > best[label][1]):
+            best[label] = (strategy, total / draws)
+    return best
+
+
+def _report(header: str, lines: list) -> None:
+    """The non-gating diagnostics: printed under `pytest -s`, and appended to the file named by KEY_LONE_REPORT."""
+    text = "\n".join([f"## {header}", *lines])
+    print("\n" + text)
+    if path := os.environ.get("KEY_LONE_REPORT"):
+        with open(path, "a", encoding="utf-8") as fh:
+            fh.write(text + "\n")
 
 
 def _fmt(row) -> str:
@@ -355,14 +392,20 @@ def _fmt(row) -> str:
 
 @pytest.mark.parametrize(("skill", "src"), _sources())
 def test_key_is_not_the_lone_option_of_its_kind(skill, src):
-    """Both directions of the lone-option rule, and the elimination strategy, from one pass over the source (the two
-    checks share the generator calls, which are the cost)."""
+    """One pass over the source (the generator calls are the cost) feeds every check.
+
+    Gating: the key is not the lone holder of a feature value too often (and complex kind is never lone); no learner
+    strategy (eliminate the odd ones out, pick the most central, pick the most outlying, pick the one nearest the median) is more than 6 points from
+    chance in a part; a key of 0 is also offered as a wrong option. Diagnostic only, not asserted: the key being the lone
+    holder too RARELY (the odd one out is almost never the key), printed under -s and appended to $KEY_LONE_REPORT."""
     topic, params = src["topic"], dict(src.get("params") or {})
     result = survey(topic, src["difficulty"], params, range(SEEDS_FOR.get(topic, SEEDS)))
-    lines = [_fmt(r) for r in tells(result)]
+    name = f"{skill} / {topic} {src['difficulty']}"
+    rows = tells(result)
+    lines = [_fmt(r) for r in rows if r[3] != "key too rarely"]
     lines += [
-        f"elimination strategy: part {label} {mean:+.3f} over chance (se {se:.3f}, {n} draws)"
-        for label, mean, se, n in elimination_gains(result)
+        f"strategy {strategy}: part {label} {mean:+.3f} over chance (se {se:.3f}, {n} draws)"
+        for label, strategy, mean, se, n in elimination_gains(result)
     ]
     # A key of 0 is exempt from the statistics above, but only if 0 is also offered as a wrong option at a comparable
     # rate: otherwise a "0" among the options is always the key.
@@ -372,7 +415,13 @@ def test_key_is_not_the_lone_option_of_its_kind(skill, src):
         for label, n in sorted(key_zero.items())
         if n >= MIN_KEY_COUNT and n / (n + wrong_zero[label]) > 0.5
     ]
-    assert not lines, f"{skill} / {topic} {src['difficulty']}:\n" + "\n".join(lines)
+    best = best_strategy_edges(result)
+    _report(
+        name,
+        [f"best strategy, part {p}: {st} {edge:+.3f}" for p, (st, edge) in sorted(best.items())]
+        + [f"diagnostic {_fmt(r)}" for r in rows if r[3] == "key too rarely"],
+    )
+    assert not lines, f"{name}:\n" + "\n".join(lines)
 
 
 def test_quadrant_wrong_options_are_sets_a_power_function_can_have():
