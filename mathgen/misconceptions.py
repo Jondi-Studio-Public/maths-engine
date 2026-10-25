@@ -60758,6 +60758,51 @@ _ENTRIES += (
         "Writes the colour channels in the wrong order in the hexadecimal code.",
         area="bits-hex-and-digit-counts",
     ),
+    CatalogueEntry(
+        "nv-largest-two-less",
+        "Takes two away from 2 to the power n, not one, to get the largest n-bit value.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-half",
+        "Gives 2 to the power (n - 1) as the number of values, leaving out the two choices of one bit.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-last-digit-dropped",
+        "Stops the repeated division by 16 one step early, leaving off the last digit.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-digits-bits-over-two",
+        "Divides the number of bits by 2 to count hexadecimal digits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-digits-one-extra",
+        "Adds one hexadecimal digit to the count that is needed.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-codes-swapped",
+        "Swaps the base and the exponent, working out the digit count to the power 16 instead of 16 to the power of the digit count.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-top-place",
+        "Gives the place value of the leading hexadecimal place (16 to the power k - 1) as the largest number.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-top-digit-count",
+        "Uses the number of leftover bits as the top hexadecimal digit instead of the largest value they hold.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-unused-gives-reading",
+        "Gives the largest reading as the number of unused values.",
+        area="bits-hex-and-digit-counts",
+    ),
     # nv-bits-hex block end
     # nv-summary block
     CatalogueEntry(
@@ -60776,8 +60821,13 @@ _ENTRIES += (
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
-        "nv-mode-ignores-order",
-        "Gives the mode for ordered ratings, which says nothing about the order of the ratings.",
+        "nv-mode-only-for-ordinal",
+        "Thinks only the mode can be found for ordered categories.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-fewer-measures-than-possible",
+        "Thinks fewer measures of centre can be found for a numerical variable than can.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
@@ -60791,18 +60841,18 @@ _ENTRIES += (
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
-        "nv-mean-always-best",
-        "Believes the mean is always the best summary because it uses every value.",
+        "nv-mean-for-ordinal",
+        "Gives the mean of ordered ratings coded 1 to 5, where the middle rating was needed.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mode-ignores-order",
+        "Gives the most common rating where the middle rating was needed.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
         "nv-median-for-total",
         "Uses the median where a total is wanted; the total comes from the mean times the number of values.",
-        area="choose-summary-statistic",
-    ),
-    CatalogueEntry(
-        "nv-mode-for-skewed",
-        "Takes the most common value as the typical one, even when no value is repeated.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
@@ -60821,23 +60871,23 @@ _ENTRIES += (
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
-        "nv-mode-for-equal-share",
-        "Gives the most common value where an equal share of a total was needed.",
-        area="choose-summary-statistic",
-    ),
-    CatalogueEntry(
-        "nv-median-of-codes",
-        "Finds the middle number of the codes used for categories and reads it as the typical category.",
+        "nv-largest-as-centre",
+        "Gives the largest value as the typical value.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
         "nv-mean-of-codes",
-        "Averages the numbers used to code categories and names the category nearest that number.",
+        "Gives the count for the category nearest the mean code, as if the mean code named a category.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
-        "nv-claim-accepted",
-        "Accepts the claimed summary without checking that it suits the variable and the data.",
+        "nv-median-of-codes",
+        "Gives the count for the category at the middle code, as if the middle code named a category.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-count-of-another-category",
+        "Gives the count of a category that is not the most common one.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
@@ -60851,8 +60901,18 @@ _ENTRIES += (
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
+        "nv-median-wrong-position",
+        "Takes the value one place away from the middle of the ordered list.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
         "nv-mean-wrong-count",
         "Divides the total by a count that is one out.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-wrong-measure",
+        "Works out a different measure of centre from the one that was asked for.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
@@ -60868,6 +60928,26 @@ _ENTRIES += (
     CatalogueEntry(
         "nv-total-divided",
         "Divides the mean by the number of items where the total was asked.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-total-of-sample",
+        "Gives the total of the listed values as the total for the larger number of items.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-percent-of-mean",
+        "Finds the excess as a percentage of the mean instead of the median.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-difference-not-percent",
+        "Gives the difference itself where a percentage of the median was asked.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-ratio-not-excess",
+        "Gives the mean as a percentage of the median, not the excess over it.",
         area="choose-summary-statistic",
     ),
     # nv-summary block end

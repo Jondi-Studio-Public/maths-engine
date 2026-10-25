@@ -13,6 +13,7 @@ from tests import r3b_support as sup
 SKILL = "bits-hex-and-digit-counts"
 TOPIC = "nv_bits_hex_counts"
 EXAM = "exd_x_nv_bits_hex_counts"
+FORMAT = " Type the digits only: no 0x, no #, no spaces."
 
 
 def ints(text):
@@ -73,7 +74,7 @@ def test_numeric_keys_match_the_stem(tier):
 
 
 def hex_oracle(q):
-    t = q.text
+    t = q.text.replace(FORMAT, "")
     nums = ints(t)
     if re.search(r"bit pattern|binary number|binary numeral", t):
         bits = re.search(r"\b[01]{6,}\b", t).group()
@@ -215,3 +216,64 @@ def test_unknown_tier_raises():
         nv_bits_hex_counts(random.Random(1), tier="exam")
     with pytest.raises(ValueError):
         exd_x_nv_bits_hex_counts(random.Random(1), tier="hard")
+
+
+def test_every_hex_question_states_the_format_to_type():
+    """The shared ordered-list grader compares the typed text, so each hex question says what to type."""
+    seen = 0
+    for tier in ("medium", "hard"):
+        for seed in range(200):
+            q = sup.tier_question(TOPIC, tier, seed)
+            if q.answer_kind == "ordered_list":
+                assert q.text.endswith(FORMAT), q.text
+                seen += 1
+    for seed in range(100):
+        for p in sup.exam_question(EXAM, seed).parts:
+            if p.answer_kind == "ordered_list":
+                assert FORMAT in p.prompt
+                seen += 1
+    assert seen >= 100
+
+
+def _unit_rank_and_position(unit):
+    from mathgen.core import mcq_options
+
+    key, wrong = unit.answer_text, list(unit.distractors)
+    try:
+        value = lambda t: int(t, 16) if unit.answer_kind == "ordered_list" else float(t)
+        rank = sum(value(w) < value(key) for w in wrong)
+    except ValueError:
+        rank = sum(w < key for w in wrong)
+    return rank, mcq_options(unit).index(key)
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard", "exam"])
+def test_key_rank_and_position_vary(tier):
+    """Over 240 seeds each part or question has its key at three or more different ranks and in several list places."""
+    from collections import defaultdict
+
+    ranks, places = defaultdict(set), defaultdict(set)
+    for seed in range(240):
+        q = sup.exam_question(EXAM, seed) if tier == "exam" else sup.tier_question(TOPIC, tier, seed)
+        for label, unit in [(p.label, p) for p in q.parts] or [("q", q)]:
+            r, pos = _unit_rank_and_position(unit)
+            ranks[label].add(r)
+            places[label].add(pos)
+    for label in ranks:
+        assert len(ranks[label]) >= 3, (tier, label, ranks[label])
+        assert len(places[label]) >= 2, (tier, label, places[label])
+
+
+def test_key_rank_does_not_follow_the_stem_kind():
+    """Each question kind on its own: a fixed rank for one kind is what the slips-first-listed pattern produces."""
+    from collections import Counter, defaultdict
+
+    kinds = defaultdict(Counter)
+    for tier in ("easy", "medium", "hard"):
+        for seed in range(400):
+            q = sup.tier_question(TOPIC, tier, seed)
+            kinds[(tier, " ".join(re.sub(r"\d+", "#", q.text).split()[:3]))][_unit_rank_and_position(q)[0]] += 1
+    for kind, counts in kinds.items():
+        n = sum(counts.values())
+        if n >= 40:
+            assert max(counts.values()) / n <= 0.6, (kind, counts)
