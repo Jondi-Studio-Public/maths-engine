@@ -60163,11 +60163,6 @@ _ENTRIES += (
         area="graph-features",
     ),
     CatalogueEntry(
-        "vm-pf-intercept-misses-negative-root",
-        "Giving only the positive x-intercept when an even power gives a second intercept to the left of the asymptote.",
-        area="graph-features",
-    ),
-    CatalogueEntry(
         "vm-pf-intercept-shift-forgotten",
         "Ignoring the translation when finding an intercept, so the intercept is not moved.",
         area="graph-features",
@@ -60178,11 +60173,6 @@ _ENTRIES += (
         area="graph-features",
     ),
     CatalogueEntry(
-        "vm-pf-intercept-spurious-root",
-        "Giving a second x-intercept for an odd power, which has only one.",
-        area="graph-features",
-    ),
-    CatalogueEntry(
         "vm-pf-intersection-index-not-undone",
         "Giving the factor in a as the intersection, without raising it to the power that undoes the index.",
         area="graph-features",
@@ -60190,11 +60180,6 @@ _ENTRIES += (
     CatalogueEntry(
         "vm-pf-intersection-misses-negative-root",
         "Missing the intersection at negative x on an odd function, although the graph is symmetric about the origin.",
-        area="graph-features",
-    ),
-    CatalogueEntry(
-        "vm-pf-intersection-misses-origin",
-        "Leaving out the origin as an intersection of y = x with a power function whose index is positive.",
         area="graph-features",
     ),
     CatalogueEntry(
@@ -60225,11 +60210,6 @@ _ENTRIES += (
     CatalogueEntry(
         "vm-pf-parity-guess",
         "Choosing odd, even or neither without using the parity of the root and the power.",
-        area="graph-features",
-    ),
-    CatalogueEntry(
-        "vm-pf-quadrant-all-four",
-        "Saying the graph of a power function lies in all four quadrants.",
         area="graph-features",
     ),
     CatalogueEntry(
@@ -60280,11 +60260,6 @@ _ENTRIES += (
     CatalogueEntry(
         "vm-pf-symmetry-sign-wrong",
         "Using the symmetry of the wrong kind: negating the y-value of an even function, or keeping the sign for an odd one.",
-        area="graph-features",
-    ),
-    CatalogueEntry(
-        "vm-pf-symmetry-zero",
-        "Saying the y-value at a negative x is 0, as if the graph vanished there.",
         area="graph-features",
     ),
     CatalogueEntry(
@@ -60942,11 +60917,6 @@ _ENTRIES += (
     ),
     # nv-summary block end
     CatalogueEntry(
-        "vm-pf-intersection-sign-of-a-ignored",
-        "Ignoring the sign of a, so the intersection is placed on the wrong side of the origin.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
         "vm-pf-a-sign-lost",
         "Losing the sign of a when it is found from the given point.",
         area="algorithms",
@@ -60974,6 +60944,11 @@ _ENTRIES += (
     CatalogueEntry(
         "vm-pf-a-extra-power",
         "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-right-branch-only",
+        "Giving only the quadrant to the right of the y-axis and leaving out the branch for x < 0.",
         area="graph-features",
     ),
 )

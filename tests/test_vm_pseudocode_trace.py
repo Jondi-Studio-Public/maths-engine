@@ -305,3 +305,11 @@ def test_key_rank_varies_pseudocode():
             parts.setdefault(p.label, Counter())[_rank(p.answer_text, p.distractors)] += 1
     for label, ranks in parts.items():
         assert len(ranks) >= 3, (label, ranks)
+
+
+def test_key_position_in_the_option_list_varies():
+    from mathgen.core import mcq_options
+
+    for tier in ("easy", "medium", "hard"):
+        spots = {mcq_options(q).index(q.answer_text) for q in (t.question(SKILL, tier, s) for s in range(60))}
+        assert len(spots) >= 2, (tier, spots)

@@ -38,20 +38,16 @@ misconceptions:
 - {id: vm-pf-dilation-applied-to-x, description: "Applying the dilation factor to x inside the function instead of multiplying the y-value by it."}
 - {id: vm-pf-dilation-forgotten, description: "Leaving out the dilation factor and reporting the y-value of the unstretched graph."}
 - {id: vm-pf-index-inverted, description: "Inverting the root of an intercept, giving m divided by u where u divided by m is required."}
-- {id: vm-pf-intercept-misses-negative-root, description: "Giving only the positive x-intercept when an even power gives a second intercept to the left of the asymptote."}
 - {id: vm-pf-intercept-shift-forgotten, description: "Ignoring the translation when finding an intercept, so the intercept is not moved."}
 - {id: vm-pf-intercept-sign-of-shift, description: "Moving an x-intercept by the horizontal shift in the wrong direction."}
-- {id: vm-pf-intercept-spurious-root, description: "Giving a second x-intercept for an odd power, which has only one."}
 - {id: vm-pf-intersection-index-not-undone, description: "Giving the factor in a as the intersection, without raising it to the power that undoes the index."}
 - {id: vm-pf-intersection-misses-negative-root, description: "Missing the intersection at negative x on an odd function, although the graph is symmetric about the origin."}
-- {id: vm-pf-intersection-misses-origin, description: "Leaving out the origin as an intersection of y = x with a power function whose index is positive."}
 - {id: vm-pf-intersection-symmetry-assumed, description: "Assuming a mirror intersection at negative x when the function is even, neither, or its sign of a rules it out."}
 - {id: vm-pf-intersection-unit-assumed, description: "Assuming the graph meets y = x only at 0 and 1, whatever the constant a."}
 - {id: vm-pf-neither-for-defined-function, description: "Calling a function neither odd nor even although its root is odd and so it is defined for negative x."}
 - {id: vm-pf-odd-even-swapped, description: "Swapping odd and even: calling the function odd when the power is even, or even when the power is odd."}
 - {id: vm-pf-parity-from-numerator-only, description: "Deciding odd or even from the numerator of the index alone, ignoring that an even root limits the domain."}
 - {id: vm-pf-parity-guess, description: "Choosing odd, even or neither without using the parity of the root and the power."}
-- {id: vm-pf-quadrant-all-four, description: "Saying the graph of a power function lies in all four quadrants."}
 - {id: vm-pf-quadrant-ignores-even-root-domain, description: "Placing a graph in the left-hand quadrants when an even root means it exists only for x > 0."}
 - {id: vm-pf-quadrant-ignores-sign-of-a, description: "Ignoring that a negative constant a turns the graph upside down."}
 - {id: vm-pf-quadrant-parity-swapped, description: "Swapping the quadrants of an odd function with those of an even function."}
@@ -62,13 +58,12 @@ misconceptions:
 - {id: vm-pf-root-not-taken, description: "Stopping at the power of x and not taking the root to find the intercept."}
 - {id: vm-pf-symmetry-doubled, description: "Doubling the y-value instead of using the symmetry of the graph."}
 - {id: vm-pf-symmetry-sign-wrong, description: "Using the symmetry of the wrong kind: negating the y-value of an even function, or keeping the sign for an odd one."}
-- {id: vm-pf-symmetry-zero, description: "Saying the y-value at a negative x is 0, as if the graph vanished there."}
-- {id: vm-pf-intersection-sign-of-a-ignored, description: "Ignoring the sign of a, so the intersection is placed on the wrong side of the origin."}
 - {id: vm-pf-a-sign-lost, description: "Losing the sign of a when it is found from the given point."}
 - {id: vm-pf-negative-index-as-positive, description: "Reading x^(-n) as x^n, multiplying by the power of x instead of dividing by it."}
 - {id: vm-pf-intercept-reads-given-point, description: "Giving the x-coordinate of the given point as the intercept of the translated graph."}
 - {id: vm-pf-intercept-scaled-wrong-way, description: "Multiplying the given x-coordinate by the scale factor of the intercept instead of dividing by it."}
 - {id: vm-pf-a-extra-power, description: "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a."}
+- {id: vm-pf-quadrant-right-branch-only, description: "Giving only the quadrant to the right of the y-axis and leaving out the branch for x < 0."}
 - {id: near-miss-value, description: "Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip."}
 difficulty_progression:
   easy: {steps: 2, demand: 'Decide odd, even or neither from the parity of the root and the power, use that symmetry for a value at -x, or read an asymptote of a translated reciprocal power.'}
