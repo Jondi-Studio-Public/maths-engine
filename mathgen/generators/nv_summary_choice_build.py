@@ -364,6 +364,7 @@ def _company(key, ordered, step, ok, view=None, custom=None, shift_cost=1.5, mus
         custom=custom,
         ok=lambda v: Fraction(v) != key and ok(v),
         must=must,
+        balance=False,
     )
 
 
