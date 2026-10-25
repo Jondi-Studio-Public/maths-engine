@@ -82,8 +82,9 @@ def test_easy_oracle():
             assert math.isclose(float(sympy.N(sympy.Abs(a - b))), float(q.answer_text)), (seed, q.text)
             seen.add("distance")
         else:
-            m = re.search(r"(\([^)]*\)|\w+)z \+ (\([^)]*\)|\w+)", q.text)
-            mult, const = (parse_cx(g.strip("()")) for g in m.groups())
+            m = re.search(r"(\([^)]*\)|-?\w+)z ([+-]) (\([^)]*\)|\w+)", q.text)
+            mult, const = parse_cx(m.group(1).strip("()")), parse_cx(m.group(3).strip("()"))
+            const = const if m.group(2) == "+" else -const
             rest = q.text.replace(m.group(0), "")
             z = complexes(rest)[0]
             assert same(parse_cx(q.answer_text), mult * z + const), (seed, q.text, q.answer_text)
@@ -226,3 +227,76 @@ def test_no_angle_option_exceeds_a_straight_angle():
             assert all(0 < float(t) < 180 for t in q.distractors), (q.text, q.distractors)
         e = make(EXAM, seed=seed, difficulty="exam")
         assert all(0 < float(t) < 180 for t in e.parts[1].distractors), e.parts[1].distractors
+
+
+# -- what each stem rules out: every option (slips and fillers alike) is checked against its part's constraints ---------
+#
+# part                          constraint on every option
+# easy  image under w = az + b  a complex number with whole-number parts, like the key
+# easy  midpoint                a complex number with whole-number parts
+# easy  distance                a whole number >= 1
+# medium ratio / multiplier     a complex number of the key's shape (whole parts for whole-part keys)
+# medium collinear k            a whole number
+# hard  angle ABC               a whole number of degrees, 0 < v < 180 (a triangle's angle)
+# hard  perpendicular k         a whole number
+# exam  (a) ratio               shape of the key;  (b) angle: whole degrees 0 < v < 180
+# exam  (c) midpoint            whole-part complex;  (d) fourth vertex: whole-part complex
+
+
+def _whole(z) -> bool:
+    z = sympy.expand(z)
+    return bool(sympy.re(z).is_integer and sympy.im(z).is_integer)
+
+
+def _check_complex(key, options, where):
+    shape = _whole(parse_cx(key))
+    for t in options:
+        assert _whole(parse_cx(t)) == shape, (where, key, options)
+        assert t != key, where
+
+
+def _check_whole(key, options, where, lo=None, hi=None):
+    for t in options:
+        v = float(t)
+        assert v == int(v), (where, options)
+        assert (lo is None or v > lo) and (hi is None or v < hi), (where, key, options)
+
+
+def test_every_option_meets_its_parts_constraints():
+    for tier in TIERS:
+        for seed in range(320):
+            q = q_of(TOPIC, tier, seed)
+            where = (tier, seed, q.text)
+            if q.answer_kind == "number":
+                angle = tier == "hard" and not re.search(r"k [+-] \d+i", q.text)
+                _check_whole(q.answer_text, q.distractors, where, *((0, 180) if angle else (None, None)))
+                if "distance" in q.text.lower() or "apart" in q.text or "length of the segment" in q.text:
+                    _check_whole(q.answer_text, q.distractors, where, 0, None)
+            else:
+                _check_complex(q.answer_text, q.distractors, where)
+    for seed in range(320):
+        q = make(EXAM, seed=seed, difficulty="exam")
+        for index, part in enumerate(q.parts):
+            where = ("exam", seed, index)
+            if index == 1:
+                _check_whole(part.answer_text, part.distractors, where, 0, 180)
+            else:
+                _check_complex(part.answer_text, part.distractors, where)
+        assert _whole(parse_cx(q.parts[2].answer_text)) and _whole(parse_cx(q.parts[3].answer_text))
+
+
+def test_angle_options_do_not_leave_the_key_at_an_extreme():
+    """With 5 and 10 degree fillers the key is not always the smallest at 30 degrees or the largest at 150."""
+    for theta in ("30", "150"):
+        ranks = set()
+        for seed in range(600):
+            q = q_of(TOPIC, "hard", seed)
+            if q.answer_text == theta:
+                ranks.add(sum(float(t) < float(theta) for t in q.distractors))
+        assert len(ranks) >= 2, (theta, ranks)
+
+
+def test_stems_never_show_a_bracketed_negative_constant():
+    for seed in range(320):
+        text = q_of(TOPIC, "easy", seed).text
+        assert not re.search(r"\+ \(-\d+i?\)", text), text

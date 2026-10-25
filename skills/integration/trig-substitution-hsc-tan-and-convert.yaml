@@ -35,7 +35,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_nx_trig_sub_hsc
-  params: {tier: exam}
+  params: {}
   difficulty: exam
   stages:
   - exam
@@ -58,6 +58,8 @@ misconceptions:
 - id: nx-tsub-derivative-factor-wrong
   description: Writes the wrong constant in dx, a squared in place of a or 1 in place of a, forgetting that x = a times a
     trig function has derivative a times the derivative of that function.
+- id: nx-tsub-double-angle-not-halved
+  description: Integrates cos 2 theta to sin 2 theta, forgetting to divide by 2, so the sin 2 theta term is twice its size.
 - id: nx-tsub-dx-factor-a-dropped
   description: Leaves the factor a out of dx = a sec squared theta dtheta (or a cos theta dtheta), so the answer has one factor
     of a too few in the numerator.
@@ -87,8 +89,6 @@ misconceptions:
 - id: nx-tsub-power-of-a-wrong
   description: Uses the wrong power of a in front of the integral, for example a to the first power where a cubed or a squared
     arises.
-- id: nx-tsub-power-rule-on-trig
-  description: Integrates cos squared theta by the power rule, as if it were u squared with u = cos theta.
 - id: nx-tsub-reciprocal-a-added
   description: Divides by a in an integral whose substitution leaves no factor of a, such as 1/sqrt(a squared minus x squared).
 - id: nx-tsub-reciprocal-a-dropped
