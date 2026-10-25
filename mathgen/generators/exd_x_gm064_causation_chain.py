@@ -114,6 +114,28 @@ def cap(text: str) -> str:
     return text[0].upper() + text[1:]
 
 
+# Neutral tails of four lengths. Each option of (c) and (d) gets one at random, a different one each, so the length of
+# an option says nothing about which one is the key.
+_TAILS = ("", " in this study", " from the data collected here", " on the evidence of the study described above")
+
+
+def pad_options(rng, key, wrong):
+    """``key`` and the ``(text, misconception)`` pairs in ``wrong`` with a distinct tail each, assigned at random.
+
+    ``wrong`` is shuffled first, so the option that a four-candidate part leaves out is not always the same one.
+    """
+    wrong = list(wrong)
+    rng.shuffle(wrong)
+    levels = rng.sample(range(len(_TAILS)), len(_TAILS))
+    extra = [rng.randrange(len(_TAILS)) for _ in range(len(wrong))]
+    key = key + _TAILS[levels[0]]
+    padded = []
+    for i, (text, tag) in enumerate(wrong):
+        level = levels[i + 1] if i + 1 < len(levels) else extra[i]
+        padded.append((text + _TAILS[level], tag))
+    return key, padded
+
+
 @generator(TOPIC, level=13, presets={"exam": {"tier": "exam"}})
 def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
     """r², the unexplained variation, whether the design supports causation, and the justified conclusion."""
@@ -184,7 +206,7 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
             d_key = f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}"
             d_wrong = [
                 (
-                    f"{cx} and {y} are only associated, because r is not 1 or -1",
+                    f"{cx} and {y} are only associated, because r is not 1 or -1, though {explained}% of the variation in {y} is explained by {x}",
                     "cc-no-cause-without-perfect-r",
                 ),
                 (
@@ -192,11 +214,11 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
                     "cc-unexplained-for-explained",
                 ),
                 (
-                    f"{cx} and {y} are only associated, because a correlation never shows cause",
+                    f"{cx} and {y} are only associated, because a correlation never shows cause, though {explained}% of the variation in {y} is explained by {x}",
                     "cc-experiment-cannot-show-cause",
                 ),
                 (
-                    f"Changes in {x} cause {explained}% of the changes in {y}, and the other {unexplained}% have no cause",
+                    f"Changes in {x} cause {explained}% of the changes in {y}, and the other {unexplained}% of the changes have no cause at all",
                     "cc-r-squared-as-causal-share",
                 ),
             ]
@@ -224,7 +246,8 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
             )
             d_wrong = [
                 (
-                    f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}",
+                    f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}, "
+                    f"because the correlation is so strong",
                     "cc-large-r-proves-cause",
                 ),
                 (
@@ -233,15 +256,18 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
                     "cc-unexplained-for-explained",
                 ),
                 (
-                    f"Changes in {x} cause {explained}% of the changes in {y}, and {z} causes the rest",
+                    f"Changes in {x} cause {explained}% of the changes in {y}, and {z} causes the rest of the changes",
                     "cc-r-squared-as-causal-share",
                 ),
                 (
-                    f"Changes in {x} cause changes in {y}, because {z} was measured and so is controlled",
+                    f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}, "
+                    f"because {z} was measured and so is controlled",
                     "cc-measured-confounder-fixes-design",
                 ),
             ]
             d_note = f"The study is observational, so only an association can be concluded; r² = {explained}%."
+        c_key, c_wrong = pad_options(rng, c_key, c_wrong)
+        d_key, d_wrong = pad_options(rng, d_key, d_wrong)
         part_c = mcq_part(phrase(rng, _ASK_C, x=x, y=y), c_key, 1, [c_note], c_wrong)
         part_d = mcq_part(phrase(rng, _ASK_D, x=x, y=y), d_key, 2, [d_note], d_wrong)
         if None in (part_a, part_b, part_c, part_d):

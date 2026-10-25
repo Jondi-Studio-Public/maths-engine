@@ -4,6 +4,7 @@ and the justified conclusion."""
 from __future__ import annotations
 
 import re
+from collections import Counter
 from fractions import Fraction
 
 import pytest
@@ -111,3 +112,16 @@ def test_follow_through_from_wrong_explained_percentage():
         return "a", str(int(wrong)), {"b": str(int(100 - wrong))}
 
     check_follow_through(SKILL_ID, TOPIC, carried, 60)
+
+
+def _key_length_rank(part) -> int:
+    """How many of the part's options are strictly shorter than its key."""
+    return sum(len(str(getattr(d, "text", d))) < len(part.answer_text) for d in part.distractors)
+
+
+@pytest.mark.parametrize("label", ["c", "d"])
+def test_key_length_gives_nothing_away(questions, label):
+    """Over 300 seeds the key lands at every length rank, and no rank takes more than about 40%."""
+    ranks = Counter(_key_length_rank(next(p for p in q.parts if p.label == label)) for q in questions[:300])
+    assert set(ranks) == {0, 1, 2, 3}, ranks
+    assert max(ranks.values()) <= 0.4 * 300, ranks
