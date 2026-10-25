@@ -27,6 +27,7 @@ import sympy
 from ..core import attempts, check, generator, phrase
 from .exd_x_r2b_support import Redraw, draw, words_part
 from ._exd_distinct_parts import distinct_part_answers
+from ._company_kit import keep_company, numeric_pool
 from ._spread_kit import _RNG, mixed, uses_rng
 from .exd_x_r2b_support import fraction_part as _fraction_part
 from .r4e_common import single
@@ -86,6 +87,12 @@ def reflect(qs, axis: str) -> list[int]:
     return sorted(_REFLECT[axis][v] for v in qs)
 
 
+def _with_company(ordered, value, lo, hi, zero_ok, exclude):
+    """`ordered` with the key given company in sign, parity, power of two, digits and standard angle (`_company_kit`)."""
+    ok = lambda v: (zero_ok or v != 0) and v not in exclude  # noqa: E731
+    return keep_company(value, ordered, numeric_pool(value, 1, lo, hi, ok))
+
+
 def _spread(value, wrong, lo=None, hi=None, zero_ok=False, exclude=()):
     """Wrong answers for a single number, reordered so that the first three hold a random number below the key and the
     rest above it (`_spread_kit.mixed`), with plain near misses to make up a side that is short. A value of a power
@@ -99,8 +106,7 @@ def _spread(value, wrong, lo=None, hi=None, zero_ok=False, exclude=()):
         and value + d not in exclude
     ]
     wrong = [w for w in wrong if (zero_ok or w[0] != 0) and w[0] not in exclude]
-    return _same_sign_company(
-        value,
+    return _with_company(
         mixed(
             value,
             list(wrong),
@@ -110,28 +116,12 @@ def _spread(value, wrong, lo=None, hi=None, zero_ok=False, exclude=()):
             unbounded="open" if lo is None and hi is None else None,
             slip_range=(None, None) if hi is None else None,  # a stated upper bound binds the named slips too
         ),
+        value,
+        lo,
+        hi,
         zero_ok,
+        exclude,
     )
-
-
-def _same_sign_company(value, ordered, zero_ok, count=3):
-    """`ordered` (the first `count` are the options shown) changed so the key is never the only option with its sign:
-    when no shown wrong value is on the key's side of zero, one from the rest of the list takes the place of a shown one
-    (a plain near miss around the key is always among them, so the draw does not fail)."""
-    k = Fraction(value)
-    if k == 0:
-        return ordered
-    same = lambda v: Fraction(v) * k > 0  # noqa: E731
-    shown, rest = list(ordered[:count]), list(ordered[count:])
-    if len(shown) < count or any(same(v) for v, _ in shown):
-        return ordered
-    options = [c for c in rest if same(c[0])]
-    if not options:
-        return ordered
-    rng = _RNG.get()
-    pick = rng.choice(options) if rng else options[0]
-    shown[rng.randrange(count) if rng else -1] = pick
-    return shown + [c for c in ordered[count:] if c is not pick] + [c for c in ordered[:count] if c not in shown]
 
 
 def fraction_part(prompt, value, marks, working, wrong, lo=None, hi=None, zero_ok=False, **kw):
@@ -149,9 +139,62 @@ def nums(prompt, values, marks, working, wrong, lo=None, hi=None, zero_ok=False,
     if len(values) == 1 and not choice:
         pairs = _spread(values[0], [(vs[0], t) for vs, t in wrong if len(vs) == 1], lo, hi, zero_ok, exclude)
         wrong = [([int(v)], t) for v, t in pairs]
-    elif _RNG.get() is not None:
-        _RNG.get().shuffle(wrong)
+    elif choice and len(values) > 1 and _RNG.get() is not None:
+        wrong = _label_options(tuple(values), wrong)
+    else:
+        if _RNG.get() is not None:
+            _RNG.get().shuffle(wrong)
+        key = tuple(values)
+        wrong = [
+            (list(v), t)
+            for v, t in keep_company(
+                key, [(tuple(vs), t) for vs, t in wrong], _choice_or_perturbed(key, choice, exclude)
+            )
+        ]
     return words_part(prompt, values, marks, working, wrong)
+
+
+def _label_options(key: tuple, wrong) -> list:
+    """Wrong sets of quadrant numbers. Each set of that size is as likely to be offered as any other, so no set (and no
+    feature of a set, such as two even numbers) belongs to the key alone; a named slip keeps its tag when it comes up,
+    and a slip that names a different number of quadrants takes a place now and then."""
+    rng = _RNG.get()
+    tagged = {tuple(vs): t for vs, t in wrong}
+    others = [s for s in _label_sets(len(key)) if s != key]
+    rng.shuffle(others)
+    other_size = [(tuple(vs), t) for vs, t in wrong if len(vs) != len(key)]
+    rng.shuffle(other_size)
+    take = 1 if other_size and rng.random() < 0.4 else 0
+    chosen = [(s, tagged.get(s, "near-miss-value")) for s in others]
+    chosen = other_size[:take] + chosen[: 3 - take] + chosen[3 - take :] + other_size[take:]
+    return [(list(v), t) for v, t in chosen]
+
+
+def _choice_or_perturbed(key: tuple, choice: bool, exclude=()) -> list:
+    if choice:
+        return [(sub, "near-miss-value") for sub in _label_sets(len(key))]
+    return _perturbed(key, exclude)
+
+
+def _label_sets(size: int) -> list:
+    """Every set of `size` quadrant numbers, smallest first."""
+    from itertools import combinations
+
+    return list(combinations((1, 2, 3, 4), size))
+
+
+def _perturbed(key: tuple, exclude=()) -> list:
+    """Pairs or lists of numbers one or two away from the key in one place, or the key's numbers swapped."""
+    out = []
+    for i in range(len(key)):
+        for d in (-2, -1, 1, 2):
+            v = list(key)
+            v[i] += d
+            if all(x != 0 and x not in exclude for x in v):
+                out.append((tuple(v), "near-miss-value"))
+    if len(key) == 2 and key[0] != key[1]:
+        out.append(((key[1], key[0]), "near-miss-value"))
+    return out
 
 
 def num_text(values) -> str:

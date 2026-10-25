@@ -26,6 +26,7 @@ from ..core import VerificationError, attempts, check, generator, phrase
 from ..answers import Distractor, exact_value
 from ..core import latex_answer, round_half_up, stated_precision_string
 from .exd_x_r2b_support import Redraw, _finish, _first_wrong, _number_value, clear_of_boundary, draw
+from ._company_kit import keep_company, numeric_pool
 from ._spread_kit import mixed, uses_rng
 from .r4e_common import fraction_part as _fraction_part
 from .r4e_common import single
@@ -49,7 +50,10 @@ def _spread(value, wrong, step, lo, hi):
         for d in (-4, -3, -2, -1, 1, 2, 3, 4)
         if (lo is None or key + d * step >= lo) and (hi is None or key + d * step <= hi)
     ]
-    return mixed(key, list(wrong), fillers=near, lo=lo, hi=hi, unbounded="open" if lo is None and hi is None else None)
+    ordered = mixed(
+        key, list(wrong), fillers=near, lo=lo, hi=hi, unbounded="open" if lo is None and hi is None else None
+    )
+    return keep_company(key, ordered, numeric_pool(key, step, lo, hi))
 
 
 def fraction_part(prompt, value, marks, working, wrong, *, lo=1, hi=None, **kw):
