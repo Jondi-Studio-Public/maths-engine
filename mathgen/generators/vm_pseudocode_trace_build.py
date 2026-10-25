@@ -33,19 +33,31 @@ from .r4e_common import single
 F = Fraction
 
 
-def _spread(value, wrong, step):
+def _spread(value, wrong, step, lo, hi):
     """The wrong-answer candidates reordered so that the first three hold a random number below the key and the rest above
-    it (`_spread_kit.mixed`), with plain near misses a multiple of `step` away to make up a side that is short."""
+    it (`_spread_kit.mixed`), with plain near misses a multiple of `step` away to make up a side that is short.
+
+    `lo` and `hi` are what the stem allows (a count is at least 1, a value printed after a loop is at least the loop's
+    limit, a bisection value lies inside the bracket, ...). They bind every option, slips and fillers alike: a slip outside
+    them is dropped. The key is never moved, and it must lie inside them."""
     key = F(value)
-    near = [(key + d * step, "near-miss-value") for d in (-4, -3, -2, -1, 1, 2, 3, 4) if key + d * step >= 0]
-    return mixed(key, list(wrong), fillers=near, lo=0, hi=None, slip_range=(None, None))
+    check(
+        (lo is None or key >= lo) and (hi is None or key <= hi), f"the key {key} lies outside its own bounds {lo}, {hi}"
+    )
+    near = [
+        (key + d * step, "near-miss-value")
+        for d in (-4, -3, -2, -1, 1, 2, 3, 4)
+        if (lo is None or key + d * step >= lo) and (hi is None or key + d * step <= hi)
+    ]
+    return mixed(key, list(wrong), fillers=near, lo=lo, hi=hi, unbounded="open" if lo is None and hi is None else None)
 
 
-def fraction_part(prompt, value, marks, working, wrong, **kw):
-    return _fraction_part(prompt, value, marks, working, _spread(value, wrong, 1), **kw)
+def fraction_part(prompt, value, marks, working, wrong, *, lo=1, hi=None, **kw):
+    """A whole-number answer. Counts and printed values are at least 1 unless the part says otherwise."""
+    return _fraction_part(prompt, value, marks, working, _spread(value, wrong, 1, lo, hi), **kw)
 
 
-def number_part(prompt, value, places, marks, working, wrong, *, follow_through=None) -> dict:
+def number_part(prompt, value, places, marks, working, wrong, *, lo=None, hi=None, follow_through=None) -> dict:
     """A decimal answer rounded to `places` places, graded as a `number`.
 
     Like `exd_x_r2b_support.number_part`, except that a wrong answer is dropped only when it rounds to the key. The
@@ -66,7 +78,11 @@ def number_part(prompt, value, places, marks, working, wrong, *, follow_through=
     def same(v):
         return round_half_up(F(v), places) == rounded
 
-    options = _first_wrong(key_text, _spread(rounded, wrong, F(1, 10 ** max(places - 1, 0))), same, build)
+    unit_in_last_place = F(1, 10**places)
+    lo = unit_in_last_place if lo is None else lo - unit_in_last_place  # a rounded key may sit one unit outside
+    hi = None if hi is None else hi + unit_in_last_place
+    wrong = [(v, t) for v, t in wrong if v is not None and not same(v)]  # before the split, so it is not skewed
+    options = _first_wrong(key_text, _spread(rounded, wrong, F(1, 10 ** max(places - 1, 0)), lo, hi), same, build)
     return _finish(
         dict(
             prompt=prompt,
@@ -174,7 +190,7 @@ def _easy_sum(rng):
         (c * n + d, "vm-last-term-only"),
         (key + 1, _NEAR),
     ]
-    working = [f"Start with {acc} = {s0}. Each pass adds {c} × {i} + {d} for {i} = 1, 2, ..., {n}, so {acc} = {key}."]
+    working = [f"Start with {acc} = {s0}. Each pass adds {term} for {i} = 1, 2, ..., {n}, so {acc} = {key}."]
     return single(_stem(rng, code), fraction_part(rng.choice(_PRINTED), key, 2, working, wrong))
 
 
@@ -212,7 +228,9 @@ def _easy_product(rng):
         (p0 + m * n, "vm-power-as-sum"),
         (p0 * m * n, "vm-power-as-product"),
     ]
-    working = [f"{acc} is multiplied by {m} on each of {n} passes, so {acc} = {p0} × {m}^{n} = {key}."]
+    working = [
+        f"{acc} is multiplied by {m} on each of {n} passes, so {acc} = {(str(p0) + ' × ') if p0 != 1 else ''}{m}^{n} = {key}."
+    ]
     return single(_stem(rng, code), fraction_part(rng.choice(_PRINTED), key, 2, working, wrong))
 
 
@@ -284,7 +302,6 @@ def _medium_additive(rng):
         (key - 2, _NEAR),
         (key + 3, _NEAR),
         (target, "vm-prints-threshold") if not ask_n else (n_end + 2, _NEAR),
-        (s_end - d, "vm-prints-value-before-last-pass") if not ask_n else (None, ""),
     ]
     working = [
         f"s goes {', '.join(str(s0 + d * k) for k in range(n_end + 1))}; the test s {'<' if strict else '≤'} {target} "
@@ -298,6 +315,7 @@ def _medium_additive(rng):
             2,
             working,
             wrong,
+            lo=1 if ask_n else (target if strict else target + 1),  # the loop ends once the test fails
         ),
     )
 
@@ -332,14 +350,19 @@ def _medium_multiplicative(rng):
     wrong = [
         (other, "vm-while-boundary-misread"),
         (key + 1 if ask_n else s_end * m, "vm-counts-wrong-passes" if ask_n else "vm-loop-extra-pass"),
-        (key - 1 if ask_n else s_end // m, "vm-counts-wrong-passes" if ask_n else "vm-prints-value-before-last-pass"),
+        (key - 1, "vm-counts-wrong-passes") if ask_n else (s_end * m * m, _NEAR),
         (target if not ask_n else n_end + 2, "vm-prints-threshold" if not ask_n else _NEAR),
     ]
     working = [
         f"s goes {', '.join(str(s0 * m**k) for k in range(n_end + 1))}; the test s {'<' if strict else '≤'} {target} "
         f"first fails when s = {s_end}, after {n_end} passes."
     ]
-    return single(_stem(rng, code), fraction_part(rng.choice(_PRINTED), key, 2, working, wrong))
+    return single(
+        _stem(rng, code),
+        fraction_part(
+            rng.choice(_PRINTED), key, 2, working, wrong, lo=1 if ask_n else (target if strict else target + 1)
+        ),
+    )
 
 
 def _medium_collatz(rng):
@@ -395,7 +418,7 @@ def _medium_withdrawal(rng):
         (full, "vm-ignores-final-partial-pass"),
         (key + 1, "vm-counts-wrong-passes"),
         (full - 1, "vm-counts-wrong-passes"),
-        (rest, "vm-prints-wrong-variable"),
+        (key + 2, _NEAR),
     ]
     working = [f"b falls by {r} on {full} passes to {rest}, and one more pass takes it to 0, so y = {key}."]
     return single(_stem(rng, code), fraction_part("What value of y is printed?", key, 2, working, wrong))
@@ -483,6 +506,7 @@ def _hard_newton(rng):
             2,
             working,
             wrong,
+            hi=2 * max(steps),  # Newton's method from a sensible start stays within twice its largest iterate
         ),
     )
 
@@ -498,7 +522,7 @@ def _slope_free(f, x0, passes):
     x = F(x0)
     for _ in range(passes):
         x = x - f(x)
-        if abs(x) > 10**6:
+        if not 0 < x < 2 * x0:  # only a slip that still looks like an iterate of a root search
             return None
     return x
 
@@ -558,7 +582,14 @@ def _hard_bisection(rng):
     return single(
         _stem(rng, code),
         number_part(
-            rng.choice(("What value of m is printed?", "What does the program print?")), m, passes, 2, working, wrong
+            rng.choice(("What value of m is printed?", "What does the program print?")),
+            m,
+            passes,
+            2,
+            working,
+            wrong,
+            lo=a,
+            hi=b,  # every midpoint lies inside the starting bracket
         ),
     )
 
@@ -621,7 +652,14 @@ def _hard_area(rng):
     return single(
         _stem(rng, code),
         number_part(
-            rng.choice(("What value is printed?", "What does the program print?")), key, places, 2, working, wrong
+            rng.choice(("What value is printed?", "What does the program print?")),
+            key,
+            places,
+            2,
+            working,
+            wrong,
+            lo=(b - a) * min(f(a), f(b)),  # f is monotone on [a, b], so the sum lies between the two rectangles
+            hi=(b - a) * max(f(a), f(b)),
         ),
     )
 
@@ -708,9 +746,9 @@ def _chain_newton(rng):
             (_slope_free(f, x0, 1), "vm-newton-forgets-slope"),
             (F(x0), "vm-reads-initial-value"),
             (f(F(x0)) / g(F(x0)), "vm-newton-prints-correction"),
-            (xs[1] + 1, "near-miss-value"),
-            (xs[1] - 1, "near-miss-value"),
         ],
+        lo=xs[-1] / 2,  # an iterate stays within a factor of two of the root it is closing in on
+        hi=F(x0),  # the first step from the start lands between 0 and the start
     )
     part_b = number_part(
         "Use your answer to (a) to find the value of x after the loop has run a second time, correct to 3 decimal places.",
@@ -724,6 +762,8 @@ def _chain_newton(rng):
             (xs[1] + f(xs[1]) / g(xs[1]), "vm-newton-adds-correction"),
             (_slope_free(f, xs[1], 1), "vm-newton-forgets-slope"),
         ],
+        lo=xs[-1] / 2,
+        hi=xs[1],  # the second step lands between 0 and the first
         follow_through=ft_a.format(c=c),
     )
     part_c = fraction_part(
@@ -754,6 +794,8 @@ def _chain_newton(rng):
             (F(n), "vm-prints-wrong-variable"),
             (xs[min(n + 1, len(xs) - 1)] if n + 1 < len(xs) else _extra_step(f, g, xs[-1]), "vm-iterations-miscounted"),
         ],
+        lo=xs[-1] / 2,
+        hi=F(x0),  # x only falls from the start
     )
     return dict(text=stem, parts=[part_a, part_b, part_c, part_d])
 
@@ -823,6 +865,7 @@ def _chain_bisection(rng):
             (w2 + F(1, 2), "near-miss-value"),
             (w2 - F(1, 8), "near-miss-value"),
         ],
+        hi=F(width),  # b - a only shrinks from its starting value
     )
     part_b = number_part(
         "Use your answer to (a) to find b - a after the loop has run five times, correct to 4 decimal places.",
@@ -836,6 +879,7 @@ def _chain_bisection(rng):
             (w2 / 2, "vm-iterations-miscounted"),
             (w2, "vm-iterations-miscounted"),
         ],
+        hi=w2,  # and five passes leave no more than two did
         follow_through="part_a/8",
     )
     part_c = fraction_part(
@@ -846,7 +890,6 @@ def _chain_bisection(rng):
         [
             (n - 1, "vm-counts-wrong-passes"),
             (n + 1, "vm-counts-wrong-passes"),
-            (math.ceil(width / tol), "vm-width-vs-count"),
             (n + 2, "near-miss-value"),
             (n - 2, "near-miss-value"),
         ],
@@ -863,6 +906,8 @@ def _chain_bisection(rng):
             (F(n), "vm-prints-wrong-variable"),
             (_mid_after(f, a0, b0, n + 1), "vm-iterations-miscounted"),
         ],
+        lo=F(a0),
+        hi=F(b0),  # the printed midpoint lies inside the starting bracket
     )
     return dict(text=stem, parts=[part_a, part_b, part_c, part_d])
 

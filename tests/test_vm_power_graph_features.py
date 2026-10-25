@@ -258,3 +258,86 @@ def test_key_position_in_the_option_list_varies():
     for tier in ("easy", "medium", "hard"):
         spots = {mcq_options(q).index(q.answer_text) for q in (t.question(SKILL, tier, s) for s in range(60))}
         assert len(spots) >= 2, (tier, spots)
+
+
+# -- what each stem rules out ---------------------------------------------------------------------------------------
+#
+# Every part of every tier, with what its stem implies about the answer and so about EVERY option (slips and fillers
+# alike; the key is never moved to fit).
+#
+#   part                                  constraint on every option
+#   ------------------------------------  --------------------------------------------------------------------------
+#   easy symmetry                         one of the words odd, even, neither
+#   easy value at -u (point given)        a non-zero whole number (a power function is never 0 at x != 0)
+#   easy asymptote c                      a whole number
+#   quadrants, reflection image, exam (c) a strictly increasing list of numbers from 1 to 4, as the stem asks
+#   both asymptotes "h, k"                two whole numbers
+#   hard distance between intersections   a whole number, at least 1 (a distance between two different points)
+#   hard value on the image               a non-zero whole number
+#   hard right-most x-intercept           a whole number other than h (x = h is the asymptote, not on the graph)
+#   exam (a) a, (b) y at -u               a non-zero number
+#   exam (d) positive x-intercept         a positive number
+#   every part                            no option repeats the key
+
+
+def _numbers(text: str) -> list[Fraction]:
+    return [Fraction(v) for v in re.split(r",\s*", text.strip())]
+
+
+def _check_single(q):
+    text, key, opts = q.text, q.answer_text, list(q.distractors)
+    assert key not in opts, text
+    if text.startswith("Let f(x) =") and "odd, even or neither" in text:
+        assert set(opts) <= {"odd", "even", "neither"}, (text, opts)
+        return
+    if "quadrant" in text:
+        for o in [key, *opts]:
+            vs = _numbers(o)
+            assert all(v == int(v) and 1 <= v <= 4 for v in vs) and vs == sorted(set(vs)), (text, o)
+        return
+    nums = [_numbers(o) for o in opts]
+    assert all(v == int(v) for vs in nums for v in vs), (text, opts)
+    if "Give the x-value of the vertical asymptote" in text:
+        assert all(len(vs) == 2 for vs in nums), (text, opts)
+    elif text.startswith("A function f(x) = a") or "Find the y-coordinate of the point on the image" in text:
+        assert all(vs[0] != 0 for vs in nums), (text, opts)
+    elif "distance along the x-axis" in text:
+        assert all(vs[0] >= 1 for vs in nums), (text, opts)
+    elif "right-most x-intercept" in text:
+        m = re.search(r"\(x ([-+]) (\d+)\)", text)
+        h = 0 if not m else (int(m.group(2)) if m.group(1) == "-" else -int(m.group(2)))
+        assert all(vs[0] != h for vs in nums), (text, opts, h)
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_no_option_is_ruled_out_by_the_stem(tier):
+    for seed in range(300):
+        _check_single(t.question(SKILL, tier, seed))
+
+
+def test_no_option_of_an_exam_part_is_ruled_out_by_the_stem():
+    for seed in range(300):
+        q = sup.exam_question(CHAIN, seed)
+        parts = {p.label: p for p in q.parts}
+        for p in parts.values():
+            assert p.answer_text not in p.distractors, (seed, p.label)
+        for label in ("a", "b", "d"):
+            assert all(Fraction(o) != 0 for o in parts[label].distractors), (seed, label)
+        assert all(Fraction(o) > 0 for o in parts["d"].distractors), (seed, parts["d"].distractors)
+        for o in [parts["c"].answer_text, *parts["c"].distractors]:
+            vs = _numbers(o)
+            assert all(v == int(v) and 1 <= v <= 4 for v in vs) and vs == sorted(set(vs)), (seed, o)
+
+
+def test_text_has_no_double_signs():
+    """A negative number is never written after a sign (`--3`, `+ -3`, `- -3`), nor as `(+ ...)` or `+ (-3)`."""
+    pattern = re.compile(r"--|\+ -|- -|\+ \(-\d")
+    for seed in range(300):
+        texts = []
+        for tier in ("easy", "medium", "hard"):
+            q = t.question(SKILL, tier, seed)
+            texts += [q.text, *q.working]
+        ex = sup.exam_question(CHAIN, seed)
+        texts += [ex.stem, *(w for p in ex.parts for w in [p.prompt, *p.working])]
+        for text in texts:
+            assert not pattern.search(text), (seed, text)

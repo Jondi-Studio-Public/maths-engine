@@ -313,3 +313,119 @@ def test_key_position_in_the_option_list_varies():
     for tier in ("easy", "medium", "hard"):
         spots = {mcq_options(q).index(q.answer_text) for q in (t.question(SKILL, tier, s) for s in range(60))}
         assert len(spots) >= 2, (tier, spots)
+
+
+# -- what each stem rules out ---------------------------------------------------------------------------------------
+#
+# Every part of every tier, with what its stem implies about the answer and so about EVERY option (slips and fillers
+# alike; the key is never moved to fit). `lo`/`hi` are inclusive and given to within the last printed place.
+#
+#   part                              constraint on every option
+#   --------------------------------  ------------------------------------------------------------------------------
+#   easy sum / squares / product/pair whole number, at least 1
+#   medium, print n (a pass count)    whole number, at least 1 (a loop that is asked about runs at least once)
+#   medium, print s (while s < T)     whole number, at least T (the loop ends once the test fails); T + 1 for s <= T
+#   medium Collatz / withdrawal       whole number, at least 1
+#   hard Newton (print x)             positive, at most twice the larger of the start and the first iterate
+#   hard bisection (print m)          inside the starting bracket [a, b]
+#   hard area (print h * s)           between (b - a) f(a) and (b - a) f(b), f being monotone on [a, b]
+#   exam Newton (a), (d)              positive, at most the start x0 (Newton falls from a start above the root)
+#   exam Newton (b)                   positive, at most the answer to (a) (and at least the answer's last place)
+#   exam bisection (a)                positive, at most the starting width
+#   exam bisection (b)                positive, at most the width after two passes
+#   exam (c), both families           whole number, at least 1
+#   exam bisection (d)                inside the starting bracket [a0, b0]
+#   every part                        no option repeats the key
+
+
+def _opts(part_or_q):
+    return [Fraction(d.replace(" ", "")) for d in part_or_q.distractors]
+
+
+def _slack(prompt: str) -> Fraction:
+    m = re.search(r"correct to (\d) decimal", prompt)
+    return Fraction(1, 10 ** int(m.group(1))) if m else Fraction(0)
+
+
+def _inside(opts, lo, hi, slack, context):
+    for v in opts:
+        assert lo is None or v >= lo - slack, (context, v, lo, opts)
+        assert hi is None or v <= hi + slack, (context, v, hi, opts)
+
+
+def _first_iterate(code: str) -> Fraction:
+    return run_program(re.sub(r"for i from 1 to \d+", "for i from 1 to 1", code))[1][0]
+
+
+def _constraints_single(q):
+    code = program_in(q.text)
+    opts = _opts(q)
+    slack = _slack(q.text)
+    key = Fraction(q.answer_text)
+    assert key not in opts, q.text
+    if "g(x)" in code:  # Newton
+        x0 = Fraction(re.search(r"set x to (\d+)", code).group(1))
+        _inside(opts, Fraction(0), 2 * max(x0, _first_iterate(code), key), slack, code)
+        assert all(v > 0 for v in opts), (code, opts)
+    elif "set a to" in code and "set m to" in code:  # bisection
+        a = Fraction(re.search(r"set a to (\d+)", code).group(1))
+        b = Fraction(re.search(r"set b to (\d+)", code).group(1))
+        _inside(opts, a, b, slack, code)
+    elif "set h to" in code:  # area
+        a = Fraction(re.search(r"set a to (\d+)", code).group(1))
+        b = Fraction(re.search(r"set b to (\d+)", code).group(1))
+        ftext = re.search(r"let f\(x\) = ([^;]+);", code).group(1)
+        fa, fb = (expr(ftext, {"x": Fraction(v)}) for v in (a, b))
+        _inside(opts, (b - a) * min(fa, fb), (b - a) * max(fa, fb), slack, code)
+    else:
+        assert all(v == int(v) and v >= 1 for v in opts), (code, opts)
+        w = re.search(r"while s (<|≤) (\d+)", code)
+        if w and "print s" in code:
+            assert all(v >= int(w.group(2)) + (w.group(1) == "≤") for v in opts), (code, opts)
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_no_option_is_ruled_out_by_the_stem(tier):
+    for seed in range(300):
+        _constraints_single(t.question(SKILL, tier, seed))
+
+
+def test_no_option_of_an_exam_part_is_ruled_out_by_the_stem():
+    for seed in range(300):
+        q = sup.exam_question(CHAIN, seed)
+        code = chain_program(q)
+        parts = {p.label: p for p in q.parts}
+        for p in parts.values():
+            assert Fraction(p.answer_text) not in _opts(p), (seed, p.label)
+        assert all(v == int(v) and v >= 1 for v in _opts(parts["c"])), (seed, parts["c"].distractors)
+        if "g(x)" in code:
+            x0 = Fraction(re.search(r"set x to (\d+)", code).group(1))
+            a_key = Fraction(parts["a"].answer_text)
+            for label, hi in (("a", x0), ("b", a_key), ("d", x0)):
+                opts = _opts(parts[label])
+                _inside(opts, Fraction(0), hi, _slack(parts[label].prompt), (seed, label, code))
+                assert all(v > 0 for v in opts), (seed, label, opts)
+        else:
+            a0 = Fraction(re.search(r"set a to (\d+)", code).group(1))
+            b0 = Fraction(re.search(r"set b to (\d+)", code).group(1))
+            width = b0 - a0
+            two = Fraction(parts["a"].answer_text)
+            for label, hi in (("a", width), ("b", two)):
+                opts = _opts(parts[label])
+                _inside(opts, Fraction(0), hi, _slack(parts[label].prompt), (seed, label, code))
+                assert all(v > 0 for v in opts), (seed, label, opts)
+            _inside(_opts(parts["d"]), a0, b0, _slack(parts["d"].prompt), (seed, "d", code))
+
+
+def test_working_text_has_no_double_signs_or_empty_terms():
+    """Negative constants are rendered with a minus sign, never `+ (-3)` or `--`; a coefficient of 1 or a constant of 0
+    is not written out."""
+    pattern = re.compile(r"--|\+ -|- -|\(-\d+\)|\b1 ×|\+ 0\b|× 1\b")
+    for seed in range(300):
+        qs = [t.question(SKILL, tier, seed) for tier in ("easy", "medium", "hard")]
+        texts = [(q.text, *q.working) for q in qs]
+        ex = sup.exam_question(CHAIN, seed)
+        texts.append((ex.stem, *(w for p in ex.parts for w in p.working)))
+        for group in texts:
+            for text in group:
+                assert not pattern.search(text), (seed, text)

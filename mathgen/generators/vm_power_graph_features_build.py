@@ -86,16 +86,19 @@ def reflect(qs, axis: str) -> list[int]:
     return sorted(_REFLECT[axis][v] for v in qs)
 
 
-def _spread(value, wrong, lo=None, hi=None, zero_ok=False):
+def _spread(value, wrong, lo=None, hi=None, zero_ok=False, exclude=()):
     """Wrong answers for a single number, reordered so that the first three hold a random number below the key and the
     rest above it (`_spread_kit.mixed`), with plain near misses to make up a side that is short. A value of a power
     function at a non-zero x is never 0, so 0 is left out of the options unless `zero_ok`."""
     near = [
         (value + d, "near-miss-value")
         for d in (-4, -3, -2, -1, 1, 2, 3, 4)
-        if (lo is None or value + d >= lo) and (hi is None or value + d <= hi) and (zero_ok or value + d != 0)
+        if (lo is None or value + d >= lo)
+        and (hi is None or value + d <= hi)
+        and (zero_ok or value + d != 0)
+        and value + d not in exclude
     ]
-    wrong = [w for w in wrong if zero_ok or w[0] != 0]
+    wrong = [w for w in wrong if (zero_ok or w[0] != 0) and w[0] not in exclude]
     return mixed(
         value,
         list(wrong),
@@ -115,11 +118,12 @@ def one_word(prompt, word, marks, working, wrong):
     return words_part(prompt, [word], marks, working, [([w], t) for w, t in wrong])
 
 
-def nums(prompt, values, marks, working, wrong, lo=None, hi=None, zero_ok=False):
+def nums(prompt, values, marks, working, wrong, lo=None, hi=None, zero_ok=False, exclude=(), choice=False):
+    """`choice` marks a set of labels (quadrant numbers), not a quantity: no plain near misses are invented for it."""
     values = [int(v) for v in values]
     wrong = [([int(x) for x in vs], t) for vs, t in wrong if vs is not None]
-    if len(values) == 1:
-        pairs = _spread(values[0], [(vs[0], t) for vs, t in wrong if len(vs) == 1], lo, hi, zero_ok)
+    if len(values) == 1 and not choice:
+        pairs = _spread(values[0], [(vs[0], t) for vs, t in wrong if len(vs) == 1], lo, hi, zero_ok, exclude)
         wrong = [([int(v)], t) for v, t in pairs]
     elif _RNG.get() is not None:
         _RNG.get().shuffle(wrong)
@@ -268,6 +272,7 @@ def _medium_quadrants(rng):
             2,
             [f"For x > 0 the sign of y is the sign of {a}; {why}."],
             wrong,
+            choice=True,
         ),
     )
 
@@ -328,6 +333,7 @@ def _medium_reflection(rng):
             3,
             [f"The original lies in quadrants {num_text(base)}; the reflection sends them to {num_text(key)}."],
             wrong,
+            choice=True,
         ),
     )
 
@@ -465,6 +471,7 @@ def _hard_intercepts(rng):
                 + f". The right-most intercept is x = {key}."
             ],
             [([v], t) for v, t in wrong],
+            exclude=(h,),  # the line x = h is an asymptote, so no point of the graph has this x-coordinate
         ),
     )
 
@@ -540,9 +547,7 @@ def _chain(rng):
         f"Use your value of a to find the y-coordinate of the point on the graph with x-coordinate -{u}.",
         at_neg,
         2,
-        [
-            f"y = {a} × (-{u})^(-{n}) = {at_neg}; the function is {'odd' if n % 2 else 'even'}, so this is {'-' if n % 2 else ''}{v}."
-        ],
+        [f"y = {a} × (-{u})^(-{n}) = {at_neg}; the function is {'odd' if n % 2 else 'even'}, so f(-{u}) = {at_neg}."],
         [
             (-at_neg, "vm-pf-symmetry-sign-wrong"),
             (a * -u, "vm-pf-a-index-ignored"),
@@ -565,6 +570,7 @@ def _chain(rng):
             (quads(1, -n, 1), "vm-pf-quadrant-ignores-sign-of-a"),
             (quads(sign, -n, 1)[:1], "vm-pf-quadrant-right-branch-only"),
         ],
+        choice=True,
     )
     root = Fraction(u * m) if grow else Fraction(u, m)
     direction = "up" if k > 0 else "down"

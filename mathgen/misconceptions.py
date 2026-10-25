@@ -60038,11 +60038,6 @@ _ENTRIES += (
         area="algorithms",
     ),
     CatalogueEntry(
-        "vm-prints-value-before-last-pass",
-        "Giving the value of the variable before the last pass of a while-loop, as if the loop had stopped one pass early.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
         "vm-prints-wrong-variable",
         "Printing a different variable from the one the print statement names.",
         area="algorithms",
@@ -60105,11 +60100,6 @@ _ENTRIES += (
     CatalogueEntry(
         "vm-width-halved-once",
         "Halving the interval width only once when more than one pass has been run.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-width-vs-count",
-        "Giving the number of intervals of the tolerance's width instead of the number of times the loop halves the interval.",
         area="algorithms",
     ),
     CatalogueEntry(

@@ -44,7 +44,6 @@ misconceptions:
 - {id: vm-power-as-product, description: "Reading repeated multiplication by m as multiplying the start by m and by the number of passes."}
 - {id: vm-power-as-sum, description: "Reading repeated multiplication by m as adding m on each pass."}
 - {id: vm-prints-threshold, description: "Printing the number in the while-loop test instead of the value the variable has when the loop stops."}
-- {id: vm-prints-value-before-last-pass, description: "Giving the value of the variable before the last pass of a while-loop, as if the loop had stopped one pass early."}
 - {id: vm-prints-wrong-variable, description: "Printing a different variable from the one the print statement names."}
 - {id: vm-reads-initial-value, description: "Giving the starting value as the answer without running the loop."}
 - {id: vm-rect-right-for-left, description: "Using the right-hand ends of the strips when the program sums the left-hand ends."}
@@ -58,7 +57,6 @@ misconceptions:
 - {id: vm-while-boundary-misread, description: "Treating a strict test as inclusive, or an inclusive test as strict, so the loop runs one pass more or less."}
 - {id: vm-width-halved-extra, description: "Halving the interval width too many times when finding its width after a number of passes."}
 - {id: vm-width-halved-once, description: "Halving the interval width only once when more than one pass has been run."}
-- {id: vm-width-vs-count, description: "Giving the number of intervals of the tolerance's width instead of the number of times the loop halves the interval."}
 - {id: vm-trap-right-rectangle-confused, description: "Giving the right-rectangle sum when the program is a trapezium sum."}
 - {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
 difficulty_progression:
