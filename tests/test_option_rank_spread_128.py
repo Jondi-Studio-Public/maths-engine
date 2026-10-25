@@ -272,6 +272,12 @@ def _kind(text: str) -> str:
     return " ".join(words[:4])
 
 
+def _is_vocabulary(answer, shown) -> bool:
+    """True for options that are words or sets (even / odd / neither, the quadrants "1, 3"), which have no numeric order."""
+    texts = [str(answer), *shown]
+    return all(re.search(r"[A-Za-z]{3,}", t) or re.fullmatch(r"[1-4](, [1-4])*|none", t) for t in texts)
+
+
 def _units(q):
     if q.parts:
         return [(f"p{i}", p.answer_text, p.distractors, p.prompt) for i, p in enumerate(q.parts)]
@@ -297,6 +303,7 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
     problems: list[str] = []
     unranked: Counter = Counter()
     seen: Counter = Counter()
+    vocab: dict = defaultdict(Counter)
     for seed in seeds:
         q = make(topic, seed=seed, difficulty=tier)
         for label, answer, options, text in _units(q):
@@ -321,6 +328,11 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
                         problems.append(f"{topic} {tier} {label} seed {seed}: impossible option {bad} for {answer}")
             found, nothing = ranks(answer, options)
             seen[label] += 1
+            if nothing and _is_vocabulary(answer, shown):
+                # words (odd / even / neither, a set of quadrants) have no numeric order; what matters is that the key is
+                # not the same word on every seed
+                vocab[(label, _kind(text), len(shown) + 1)][str(answer)] += 1
+                continue
             if nothing:
                 unranked[label] += 1
                 if unranked[label] <= 2:
@@ -334,6 +346,10 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
                 if filled:
                     kinds[(label, _kind(text) + " +fillers", len(shown) + 1, name)][rank] += 1
                     parts[(label, " +fillers", len(shown) + 1, name)][rank] += 1
+    for (label, kind, n_options), keys in vocab.items():
+        total = sum(keys.values())
+        if total >= MIN_GROUP and max(keys.values()) / total > _limit(n_options, total, 4.5):
+            problems.append(f"{topic} {tier} {label} [{kind}]: the key is the same word too often: {dict(keys)}")
     for label, count in unranked.items():
         if count > seen[label] // 10:
             problems.append(
