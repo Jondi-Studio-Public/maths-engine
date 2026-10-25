@@ -212,6 +212,21 @@ def _unasked_percent(question, given: str) -> bool:
     return _PERCENT_WORD_RE.search(_asking_text(question)) is None
 
 
+# -- a decimal where a fraction is asked ------------------------------------------------------------------------
+
+_FRACTION_KEY_RE = re.compile(r"^\s*-?\d+\s*/\s*\d+\s*$")
+_ASKS_FOR_A_FRACTION_RE = re.compile(r"\bas an? (?:common |simple |proper )?fraction\b|\bwhich fraction\b", _FLAGS)
+_PLAIN_DECIMAL_REPLY_RE = re.compile(r"^\s*[+-]?\d*\.\d+\s*$")
+
+
+def _decimal_for_a_fraction(question, given: str) -> bool:
+    """A decimal reply (0.89) where the stem asks for a fraction and the key is one (89/100): the skill is the conversion.
+    Only reached for a `number` grader, which would otherwise take the decimal by value."""
+    if _PLAIN_DECIMAL_REPLY_RE.match(given or "") is None or _FRACTION_KEY_RE.match(_key(question)) is None:
+        return False
+    return _ASKS_FOR_A_FRACTION_RE.search(_asking_text(question)) is not None
+
+
 # -- mixed numerals -----------------------------------------------------------------------------------------------
 
 _MIXED_KEY_RE = re.compile(r"^\s*-?\s*\d+\s+\d+\s*/\s*\d+\s*$")
@@ -372,6 +387,8 @@ def refuses(kind: str, question, given: str) -> bool:
             return True
         if _unasked_percent(question, given):
             return True
+    if kind == "number" and _decimal_for_a_fraction(question, given):
+        return True
     if kind in ("number", "fraction") and _pi_after_a_decimal(question, given):
         return True
     if kind in ("fraction", "number") and _not_a_mixed_numeral(question, given):
@@ -390,7 +407,7 @@ def rewrite_reply(kind: str, question, given: str) -> str:
     if kind == "expression" and _NUMERIC_KEY_RE.match(key):
         given = _SPACE_OR_COMMA_THOUSANDS(given)
     if kind == "expression" and _PI_WORD_RE.search(key):
-        given = re.sub(r"(\w+)\s+over\s+(\w+)", r"\1/\2", given, flags=_FLAGS)
+        given = re.sub(r"(?<!\w)(\w+)\s+over\s+(\w+)", r"\1/\2", given, flags=_FLAGS)
         given = re.sub(
             r"([¼½¾⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞])\s*(π|pi)\b",
             lambda m: "(" + str(Fraction(typed._VULGAR_FRACTIONS[m.group(1)])) + ")" + m.group(2),

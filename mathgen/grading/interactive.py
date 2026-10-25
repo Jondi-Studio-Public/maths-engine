@@ -905,11 +905,12 @@ def _typed_bars(text: str, cats: list[str]) -> list[Fraction] | None:
         if m is None or value is None:
             return None
         if m.group(1):
-            labelled[m.group(1).strip()] = value
+            labelled[m.group(1).strip().casefold()] = value
         else:
             plain.append(value)
-    if labelled and not plain and set(labelled) == set(cats) and len(labelled) == len(cats):
-        return [labelled[c] for c in cats]
+    folded = [c.strip().casefold() for c in cats]
+    if labelled and not plain and set(labelled) == set(folded) and len(labelled) == len(folded):
+        return [labelled[c] for c in folded]
     return plain if plain and not labelled else None
 
 

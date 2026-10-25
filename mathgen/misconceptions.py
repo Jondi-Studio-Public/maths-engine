@@ -60211,6 +60211,1085 @@ _ENTRIES += (
         "Gives the next prime after the largest listed prime as the new prime, without testing whether it divides M.",
         area="senior-use-proof-by-contradiction",
     ),
+    # -- VCE pseudocode tracing (vm-) ----------------------------------------------------------------------
+    CatalogueEntry(
+        "vm-bisect-reports-endpoint",
+        "Printing an end point a or b of the interval instead of the midpoint m the program prints.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-bisect-wrong-half",
+        "Keeping the wrong half of the interval at a bisection step, reversing which end point m replaces.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-counts-one-branch",
+        "Counting only the passes that take the even branch when asked how many passes the loop makes.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-counts-wrong-passes",
+        "Miscounting the passes of a while-loop by one, by counting the failed test or missing the last pass.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-forgets-initial-value",
+        "Leaving out the starting value of the running total, so it begins at 0 instead of the value that is set.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-ignores-final-partial-pass",
+        "Counting only the full passes of a loop and leaving out the last pass that takes the amount below the limit.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-iterations-miscounted",
+        "Running a numerical method one pass too many or one pass too few.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-last-term-only",
+        "Printing the last term added instead of the running total after the whole loop.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-loop-extra-pass",
+        "Running a for-loop one pass too many, by counting the end value as one beyond the last.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-loop-missing-pass",
+        "Running a for-loop one pass too few, by leaving out the pass for the last value of the counter.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-newton-adds-correction",
+        "Adding f(x) divided by g(x) to x in a Newton step instead of subtracting it.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-newton-forgets-slope",
+        "Subtracting f(x) from x in a Newton step without dividing by the slope g(x).",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-newton-prints-correction",
+        "Giving the size of the last Newton correction, f(x) divided by g(x), instead of the new value of x.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-power-as-product",
+        "Reading repeated multiplication by m as multiplying the start by m and by the number of passes.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-power-as-sum",
+        "Reading repeated multiplication by m as adding m on each pass.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-prints-threshold",
+        "Printing the number in the while-loop test instead of the value the variable has when the loop stops.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-prints-wrong-variable",
+        "Printing a different variable from the one the print statement names.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-reads-initial-value",
+        "Giving the starting value as the answer without running the loop.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-rect-right-for-left",
+        "Using the right-hand ends of the strips when the program sums the left-hand ends.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-rect-trapezium-confused",
+        "Giving the trapezium sum when the program adds only the left-hand rectangles.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-squares-sum-confused",
+        "Squaring the sum of the counter values instead of summing the squares of the counter values.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-stops-after-first-pass",
+        "Stopping after the first pass of a loop and reporting the value then.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-stops-one-pass-early",
+        "Giving the value of x from the pass before the one that met the stopping rule.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-sum-forgets-width",
+        "Printing the sum of the heights without multiplying by the strip width h.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-trap-ends-not-halved",
+        "Adding the two end values in the trapezium sum in full instead of taking half of them.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-trap-left-rectangle-confused",
+        "Giving the left-rectangle sum when the program is a trapezium sum.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-while-boundary-misread",
+        "Treating a strict test as inclusive, or an inclusive test as strict, so the loop runs one pass more or less.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-width-halved-extra",
+        "Halving the interval width too many times when finding its width after a number of passes.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-width-halved-once",
+        "Halving the interval width only once when more than one pass has been run.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-divides",
+        "Dividing the y-value by u^n as well, so that the constant a comes out as v divided by u^n instead of v times u^n.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-forgets-power",
+        "Reading the y-coordinate of the given point as the constant a, without undoing the power of x.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-index-ignored",
+        "Treating x^(-n) as if the index were 1, multiplying by x instead of dividing by x^n.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-asymptote-axes-swapped",
+        "Giving the vertical asymptote as the shift in y, or the horizontal asymptote as the shift in x.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-asymptote-reads-zero",
+        "Giving 0 as the asymptote of a translated graph, as if x = 0 and y = 0 never moved.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-asymptote-sign-of-shift",
+        "Reading the horizontal shift in (x - h) or the vertical shift k with the opposite sign.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-asymptote-takes-dilation",
+        "Adding the dilation factor a into the equation of the horizontal asymptote.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-dilation-applied-to-x",
+        "Applying the dilation factor to x inside the function instead of multiplying the y-value by it.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-dilation-forgotten",
+        "Leaving out the dilation factor and reporting the y-value of the unstretched graph.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-index-inverted",
+        "Inverting the root of an intercept, giving m divided by u where u divided by m is required.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-shift-forgotten",
+        "Ignoring the translation when finding an intercept, so the intercept is not moved.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-other-root",
+        "Giving the left-most x-intercept when the right-most was asked, taking the negative root of the shifted graph.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-sign-of-shift",
+        "Moving an x-intercept by the horizontal shift in the wrong direction.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-index-not-undone",
+        "Giving the factor in a as the intersection, without raising it to the power that undoes the index.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-misses-negative-root",
+        "Missing the intersection at negative x on an odd function, although the graph is symmetric about the origin.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-symmetry-assumed",
+        "Assuming a mirror intersection at negative x when the function is even, neither, or its sign of a rules it out.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-unit-assumed",
+        "Assuming the graph meets y = x only at 0 and 1, whatever the constant a.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-neither-for-defined-function",
+        "Calling a function neither odd nor even although its root is odd and so it is defined for negative x.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-odd-even-swapped",
+        "Swapping odd and even: calling the function odd when the power is even, or even when the power is odd.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-parity-from-numerator-only",
+        "Deciding odd or even from the numerator of the index alone, ignoring that an even root limits the domain.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-parity-guess",
+        "Choosing odd, even or neither without using the parity of the root and the power.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-ignores-even-root-domain",
+        "Placing a graph in the left-hand quadrants when an even root means it exists only for x > 0.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-ignores-sign-of-a",
+        "Ignoring that a negative constant a turns the graph upside down.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-parity-swapped",
+        "Swapping the quadrants of an odd function with those of an even function.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-sign-of-a-reversed",
+        "Using the quadrants for the opposite sign of a.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-reflection-forgotten",
+        "Leaving out the reflection and reporting the original graph.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-reflection-sign-lost",
+        "Losing the minus sign of a reflection, or putting one in where there is none.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-reflection-wrong-axis",
+        "Reflecting in the other axis, or in both, so that the quadrants or values are those of a different reflection.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-root-not-taken",
+        "Stopping at the power of x and not taking the root to find the intercept.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-symmetry-doubled",
+        "Doubling the y-value instead of using the symmetry of the graph.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-symmetry-sign-wrong",
+        "Using the symmetry of the wrong kind: negating the y-value of an even function, or keeping the sign for an odd one.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "nx-angle-complement-taken",
+        "Takes the complement of the angle (90 degrees minus it) from the argument of the ratio, mixing up the real and imaginary parts.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-angle-doubled",
+        "Doubles the argument of the ratio when reading off the angle at the vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-angle-halved",
+        "Halves the argument of the ratio when reading off the angle at the vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-angle-supplement-taken",
+        "Gives 180 degrees minus the angle, using the argument of the wrong ratio or the wrong side of the vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-collinear-imaginary-offset-ignored",
+        "Uses the imaginary part of C itself instead of its difference from A when finding how far along the line C lies.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-collinear-parts-swapped",
+        "Applies the ratio found from the imaginary parts to the imaginary step of the line when finding the real part.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-collinear-sign-slip",
+        "Subtracts instead of adds the scaled real step from A, giving the point on the wrong side of A.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-collinear-wrong-base-point",
+        "Measures the scaled step from B instead of from A, though the ratio was found from A.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-distance-adds-the-parts",
+        "Finds the distance between two points as the sum of the real and imaginary differences instead of using Pythagoras.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-distance-forgets-square-root",
+        "Gives the sum of the squares of the real and imaginary differences without taking the square root.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-distance-subtracts-the-parts",
+        "Subtracts the real and imaginary differences instead of using Pythagoras.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-distance-takes-the-larger-part",
+        "Takes the larger of the real and imaginary differences as the distance.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-adds-before-multiplying",
+        "Adds the constant to z first and then multiplies the sum by a, so the constant is multiplied too.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-constant-dropped",
+        "Multiplies z by a but leaves out the constant added in w = az + b.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-constant-subtracted",
+        "Subtracts the constant b where w = az + b adds it.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-multiplier-dropped",
+        "Adds the constant to z but forgets to multiply by a.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-multiplies-parts-separately",
+        "Multiplies the real parts together and the imaginary parts together instead of expanding the complex product.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-midpoint-half-the-difference",
+        "Halves the difference of the two points instead of their sum when finding the midpoint.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-midpoint-halves-real-part-only",
+        "Halves only the real part of the sum when finding the midpoint.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-midpoint-parts-swapped",
+        "Swaps the real and imaginary parts of the midpoint.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-midpoint-sum-not-halved",
+        "Gives the sum of the two points as the midpoint, forgetting to halve it.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-difference-not-divided",
+        "Takes the difference of the two images as a without dividing by the difference of the two original points.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-difference-of-differences",
+        "Subtracts the difference of the originals from the difference of the images instead of dividing.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-from-one-point-only",
+        "Divides one image by its original point, ignoring that the constant b also contributes.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-ratio-inverted",
+        "Divides the original difference by the image difference, finding 1/a.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-sums-not-differences",
+        "Divides the sum of the images by the sum of the originals, which leaves the constant b in the working.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-opposite-vertex-adds-b",
+        "Adds B to twice the midpoint instead of subtracting it when finding the opposite vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-opposite-vertex-midpoint-taken",
+        "Gives the midpoint M as the fourth vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-opposite-vertex-reflected-wrongly",
+        "Subtracts B from M once instead of reflecting B in M (twice M minus B).",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-opposite-vertex-sum-of-a-and-c",
+        "Gives A + C as the fourth vertex, forgetting to subtract B.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-perp-base-point-ignored",
+        "Leaves out the real part of B when turning the perpendicular condition into a value of k.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-perp-measured-from-the-wrong-vertex",
+        "Measures the perpendicular step from A instead of from B.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-perp-parts-swapped",
+        "Swaps the real and imaginary parts of the side BA when writing the perpendicular direction.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-perp-uses-parallel-condition",
+        "Uses the condition for parallel sides (the sign of the step reversed) instead of the dot product being zero.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-ratio-conjugated",
+        "Gives the complex conjugate of the ratio, with the wrong sign on the imaginary part.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-ratio-difference-reversed",
+        "Reverses one of the differences, for example using B minus C, so the ratio has the wrong sign.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-ratio-inverted",
+        "Divides BA by BC instead of BC by BA, giving the reciprocal of the ratio.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-ratio-subtracted-not-divided",
+        "Subtracts the two difference vectors instead of dividing one by the other.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-tsub-a-multiplied-not-divided",
+        "Multiplies by the constant a where the substitution divides by it (or the reverse), giving a times the angle difference instead of the angle difference over a.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-amplitude-cubed",
+        "Raises the constant to the third power: multiplies the a squared from the root and the a squared from the sine or cosine squared, instead of the root's a and dx's a.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-amplitude-not-squared",
+        "Gives a where a squared is needed: the root and dx each carry a factor a, but only one of them is counted.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-complement-angle",
+        "Takes the angle from the wrong side of the right triangle, giving 90 degrees minus the correct angle (the angle whose cosine, not sine, or cotangent, not tangent, matches).",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-constant-inverted",
+        "Divides the integral of cos squared by the constant k instead of multiplying by it.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-constant-not-applied",
+        "Gives the integral of cos squared theta alone, leaving out the constant k carried over from the substitution.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-derivative-factor-wrong",
+        "Writes the wrong constant in dx, a squared in place of a or 1 in place of a, forgetting that x = a times a trig function has derivative a times the derivative of that function.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-dx-factor-a-dropped",
+        "Leaves the factor a out of dx = a sec squared theta dtheta (or a cos theta dtheta), so the answer has one factor of a too few in the numerator.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-double-angle-not-halved",
+        "Integrates cos 2 theta to sin 2 theta, forgetting to divide by 2, so the sin 2 theta term is twice its size.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-half-dropped",
+        "Leaves out the factor 1/2 from cos squared theta = (1 + cos 2 theta)/2 (or sin squared theta), doubling the integral.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-identity-sign",
+        "Gets the sign of the sin 2 theta term wrong when integrating cos squared theta or sin squared theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-identity-term-dropped",
+        "Integrates cos squared or sin squared as theta/2 and leaves out the sin 2 theta term.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limit-double-angle",
+        "Doubles the angle for the new limit of theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limit-half-angle",
+        "Halves the angle for the new limit of theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limit-not-converted",
+        "Keeps the x-value as the limit for theta instead of finding the angle that gives it.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limits-not-changed",
+        "Integrates in theta but substitutes the original x-limits into the antiderivative.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limits-swapped",
+        "Subtracts the limits the wrong way round, giving the negative of the integral.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only, forgetting to subtract its value at the non-zero lower limit.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-power-not-squared",
+        "Squares the denominator a squared plus x squared but then treats it as a single power of sec squared theta, so the integrand stays 1/a times 1 instead of cos squared theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-power-of-a-wrong",
+        "Uses the wrong power of a in front of the integral, for example a to the first power where a cubed or a squared arises.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-reciprocal-a-added",
+        "Divides by a in an integral whose substitution leaves no factor of a, such as 1/sqrt(a squared minus x squared).",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-reciprocal-a-dropped",
+        "Leaves out the factor of 1/a (or 1/a squared) that comes from the substitution, giving the bare angle difference.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-sec-squared-integrated-as-sin",
+        "Integrates sec squared theta to sin theta instead of tan theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-sec-squared-integrated-as-theta",
+        "Integrates sec squared theta to theta, as if it were a constant.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-substitution-not-squared",
+        "Gives a squared where a (or a where a squared) belongs, by squaring the constant in the substitution only part of the time.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-sign-of-a-ignored",
+        "Ignoring the sign of a, so the intersection is placed on the wrong side of the origin.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-sign-lost",
+        "Losing the sign of a when it is found from the given point.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-reads-given-point",
+        "Giving the x-coordinate of the given point as the intercept of the translated graph.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-scaled-wrong-way",
+        "Multiplying the given x-coordinate by the scale factor of the intercept instead of dividing by it.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-trap-right-rectangle-confused",
+        "Giving the right-rectangle sum when the program is a trapezium sum.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-extra-power",
+        "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-right-branch-only",
+        "Giving only the quadrant to the right of the y-axis and leaving out the branch for x < 0.",
+        area="graph-features",
+    ),
+    # nv-bits-hex block
+    CatalogueEntry(
+        "nv-bits-log-rounded-down",
+        "Takes the bits needed for a number as the whole part of its base-2 logarithm, one too few.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-counts-decimal-digits",
+        "Gives the number of decimal digits of the number as the number of bits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-one-extra",
+        "Adds a bit for the number zero or for a sign, giving one bit too many.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-power-boundary",
+        "Gives the exponent when the number is a power of two (256 as 8 bits), forgetting that 256 itself needs a ninth bit.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-bits-divides-by-eight",
+        "Divides the number by 8, treating the number of bits as the number of bytes.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-is-power",
+        "Gives 2 to the power n as the largest value n bits can hold, which is the number of values (the largest is one less).",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-half",
+        "Gives 2 to the power (n - 1) as the largest value n bits can hold, the value of the top bit alone.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-linear",
+        "Gives 2n - 1 as the largest value, doubling the number of bits instead of using powers of two.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-squares",
+        "Gives n squared as the number of different values n bits can hold.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-doubles-bits",
+        "Gives 2n as the number of different values n bits can hold.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-forgets-zero",
+        "Gives 2 to the power n, less one, as the number of values, leaving out the value zero.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-remainders-reversed",
+        "Writes the remainders of repeated division by 16 in the order found, not from the last to the first.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-letter-misvalue",
+        "Gives a hexadecimal letter the wrong value (for example B as 12), so a digit is one out.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-decimal-digits",
+        "Writes the decimal digits of the number as if they were already hexadecimal digits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-groups-from-left",
+        "Groups the binary digits in fours from the left, so the groups do not line up with the place values.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-groups-of-three",
+        "Groups the binary digits in threes (octal digits) when writing a hexadecimal numeral.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-digits-rounded-down",
+        "Divides the number of bits by 4 and rounds down, one hexadecimal digit too few.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-digits-bits-over-three",
+        "Divides the number of bits by 3 (octal grouping) to count hexadecimal digits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-codes-multiply",
+        "Multiplies the number of digits by 16 instead of using 16 to that power.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-codes-base-ten",
+        "Uses 10 to the power of the digit count, as if the digits were decimal.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-bit-extra",
+        "Counts the values of one more bit than there is, giving twice as many.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-codes-place-extra",
+        "Counts one more hexadecimal place than the code has.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-groups-reversed",
+        "Reads the groups of four bits from right to left, so the hexadecimal digits come out in reverse order.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-padding-wrong-side",
+        "Pads a short numeral with zeros on the right, changing its value.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-top-digit-f",
+        "Writes the largest n-bit number with every hexadecimal digit as F, ignoring that the top digit holds fewer bits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-top-digit-power",
+        "Uses 2 to the power of the leftover bits as the top digit instead of one less.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-unused-off-by-one",
+        "Counts the unused values of a bit pattern as 2 to the power n minus the largest reading, forgetting that zero is a value.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-colour-channels-swapped",
+        "Writes the colour channels in the wrong order in the hexadecimal code.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-two-less",
+        "Takes two away from 2 to the power n, not one, to get the largest n-bit value.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-values-half",
+        "Gives 2 to the power (n - 1) as the number of values, leaving out the two choices of one bit.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-last-digit-dropped",
+        "Stops the repeated division by 16 one step early, leaving off the leading digit (the last one found).",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-digits-bits-over-two",
+        "Divides the number of bits by 2 to count hexadecimal digits.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-digits-one-extra",
+        "Adds one hexadecimal digit to the count that is needed.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-largest-top-place",
+        "Gives the place value of the leading hexadecimal place (16 to the power k - 1) as the largest number.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-hex-top-digit-count",
+        "Uses the number of leftover bits as the top hexadecimal digit instead of the largest value they hold.",
+        area="bits-hex-and-digit-counts",
+    ),
+    CatalogueEntry(
+        "nv-unused-gives-reading",
+        "Gives the largest reading as the number of unused values.",
+        area="bits-hex-and-digit-counts",
+    ),
+    # nv-bits-hex block end
+    # nv-summary block
+    CatalogueEntry(
+        "nv-mean-of-categories",
+        "Treats the categories of a nominal variable as numbers that can be averaged.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-of-unordered-categories",
+        "Looks for the middle category of a nominal variable, which has no order.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-range-as-centre",
+        "Gives a measure of spread (the range, interquartile range or standard deviation) where a measure of centre was asked for.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-for-skewed",
+        "Uses the mean for data with one extreme value, although the extreme value drags the mean away from a typical value.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mode-ignores-order",
+        "Gives the most common rating where the middle rating was needed.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-for-total",
+        "Uses the median where a total is wanted; the total comes from the mean times the number of values.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-removes-outlier",
+        "Throws away the extreme value and averages the rest, instead of using the median of all the values.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-for-most-common",
+        "Gives the mean where the most common value was needed.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-for-most-common",
+        "Gives the median where the most common value was needed.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-largest-as-centre",
+        "Gives the largest value as the typical value.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-of-codes",
+        "Gives the count for the category nearest the mean code, as if the mean code named a category.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-of-codes",
+        "Gives the count for the category at the middle code, as if the middle code named a category.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-count-of-another-category",
+        "Gives the count of a category that is not the most common one.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-unsorted",
+        "Takes the middle of the list as written, without putting the values in order first.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-one-middle",
+        "Takes one of the two middle values of an even count instead of the number halfway between them.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-median-wrong-position",
+        "Takes the value one place away from the middle of the ordered list.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-mean-wrong-count",
+        "Divides the total by a count that is one out.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-wrong-measure",
+        "Works out a different measure of centre from the one that was asked for.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-difference-reversed",
+        "Subtracts in the wrong order, giving the median minus the mean.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-total-of-sample",
+        "Gives the total of the listed values as the total for the larger number of items.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-percent-of-mean",
+        "Finds the excess as a percentage of the mean instead of the median.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-difference-not-percent",
+        "Gives the difference itself where a percentage of the median was asked.",
+        area="choose-summary-statistic",
+    ),
+    CatalogueEntry(
+        "nv-ratio-not-excess",
+        "Gives the mean as a percentage of the median, not the excess over it.",
+        area="choose-summary-statistic",
+    ),
+    # nv-summary block end
+)
+
+# -- causation versus correlation exam chain ------------------------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "cc-r-for-r-squared",
+        "Giving the size of the correlation coefficient r, as a percentage, for the coefficient of determination r².",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-unexplained-for-explained",
+        "Swapping the percentage of variation explained by the explanatory variable with the percentage not explained.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-unexplained-from-r",
+        "Taking 100% minus the size of r as a percentage for a percentage of variation, instead of using r².",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-large-r-proves-cause",
+        "Concluding that one variable causes the other because the correlation is strong, whatever the study design.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-no-cause-without-perfect-r",
+        "Believing causation can only be claimed when the correlation coefficient is 1 or -1.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-experiment-cannot-show-cause",
+        "Believing no study, even a randomised experiment, can show that one variable causes another.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-measured-confounder-fixes-design",
+        "Treating an observational study as controlled because the third variable was measured.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "cc-r-squared-as-causal-share",
+        "Reading r² as the share of the changes in the response that the explanatory variable causes.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
+        "est-rounds-one-factor-only",
+        "Rounding only one of the two numbers to 1 significant figure before multiplying, so the estimate is not a quick mental one.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-adds-rounded-factors",
+        "Adding the two rounded numbers instead of multiplying them to estimate a product.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-rounds-to-nearest-ten",
+        "Rounding each number to the nearest ten where 1 significant figure was asked for, which leaves a hard multiplication.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-truncates-instead-of-rounding",
+        "Cutting each number down to its first digit followed by zeros instead of rounding to the nearest, so every estimate is too small.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-estimate-zeros-miscounted",
+        "Multiplying the rounded numbers with a zero too many or too few, so the estimate is a power of ten out.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-demands-exact-match",
+        "Calling a stated answer wrong because its digits are not the same as the estimate's, when it is the right size.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-needs-exact-answer",
+        "Saying a stated answer cannot be judged until the exact calculation is done, when an estimate is enough to judge its size.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-accepts-wrong-magnitude",
+        "Accepting a stated answer that is about ten times too large or too small because its digits look right.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-reverses-direction",
+        "Seeing that a stated answer is out by a factor of ten but naming the wrong direction, too large for too small or the reverse.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-exact-place-value-shift",
+        "Working out a product with the whole answer a power of ten out, a place-value slip in the final step.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-adds-instead-of-multiplying",
+        "Adding the two numbers where the calculation multiplies them.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-estimate-given-as-exact",
+        "Giving the rounded estimate where the exact value of the product was asked for.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-partial-product-unshifted",
+        "Adding the partial products of a long multiplication without shifting the tens partial product one place to the left.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-percent-of-estimate",
+        "Finding the difference as a percentage of the estimate instead of the exact value the question names.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-ratio-for-difference",
+        "Giving the estimate as a percentage of the exact value, not the percentage by which it differs.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-raw-difference-for-percent",
+        "Giving the plain difference between the estimate and the exact value where a percentage was asked for.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "est-percentage-decimal-shift",
+        "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
+        area="estimation",
+    ),
 )
 
 #: Every entry, by id.

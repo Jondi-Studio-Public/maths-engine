@@ -1,0 +1,67 @@
+id: pseudocode-trace-output
+name: Trace pseudocode by hand and give the value it prints
+domain: functions-sequences
+year_level: ['12']
+description: Read short VCE-style pseudocode (set, for, while, if, print) and give the value it prints. A for-loop that
+  accumulates a total, a while-loop that counts passes or stops on a condition, a numerical method run for a stated
+  number of passes (bisection, Newton's method, a left-rectangle or trapezium sum) to a stated precision, and an exam
+  chain that follows a stopping rule through the first passes, the number of passes and the final value.
+status: active
+placement_eligible: false
+prerequisites: [function-notation]
+answer: number
+sources:
+- topic: vm_pseudocode_trace
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: vm_pseudocode_trace
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: vm_pseudocode_trace
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: vm_pseudocode_trace_exam
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- {id: vm-bisect-reports-endpoint, description: "Printing an end point a or b of the interval instead of the midpoint m the program prints."}
+- {id: vm-bisect-wrong-half, description: "Keeping the wrong half of the interval at a bisection step, reversing which end point m replaces."}
+- {id: vm-counts-one-branch, description: "Counting only the passes that take the even branch when asked how many passes the loop makes."}
+- {id: vm-counts-wrong-passes, description: "Miscounting the passes of a while-loop by one, by counting the failed test or missing the last pass."}
+- {id: vm-forgets-initial-value, description: "Leaving out the starting value of the running total, so it begins at 0 instead of the value that is set."}
+- {id: vm-ignores-final-partial-pass, description: "Counting only the full passes of a loop and leaving out the last pass that takes the amount below the limit."}
+- {id: vm-iterations-miscounted, description: "Running a numerical method one pass too many or one pass too few."}
+- {id: vm-last-term-only, description: "Printing the last term added instead of the running total after the whole loop."}
+- {id: vm-loop-extra-pass, description: "Running a for-loop one pass too many, by counting the end value as one beyond the last."}
+- {id: vm-loop-missing-pass, description: "Running a for-loop one pass too few, by leaving out the pass for the last value of the counter."}
+- {id: vm-newton-adds-correction, description: "Adding f(x) divided by g(x) to x in a Newton step instead of subtracting it."}
+- {id: vm-newton-forgets-slope, description: "Subtracting f(x) from x in a Newton step without dividing by the slope g(x)."}
+- {id: vm-newton-prints-correction, description: "Giving the size of the last Newton correction, f(x) divided by g(x), instead of the new value of x."}
+- {id: vm-power-as-product, description: "Reading repeated multiplication by m as multiplying the start by m and by the number of passes."}
+- {id: vm-power-as-sum, description: "Reading repeated multiplication by m as adding m on each pass."}
+- {id: vm-prints-threshold, description: "Printing the number in the while-loop test instead of the value the variable has when the loop stops."}
+- {id: vm-prints-wrong-variable, description: "Printing a different variable from the one the print statement names."}
+- {id: vm-reads-initial-value, description: "Giving the starting value as the answer without running the loop."}
+- {id: vm-rect-right-for-left, description: "Using the right-hand ends of the strips when the program sums the left-hand ends."}
+- {id: vm-rect-trapezium-confused, description: "Giving the trapezium sum when the program adds only the left-hand rectangles."}
+- {id: vm-squares-sum-confused, description: "Squaring the sum of the counter values instead of summing the squares of the counter values."}
+- {id: vm-stops-after-first-pass, description: "Stopping after the first pass of a loop and reporting the value then."}
+- {id: vm-stops-one-pass-early, description: "Giving the value of x from the pass before the one that met the stopping rule."}
+- {id: vm-sum-forgets-width, description: "Printing the sum of the heights without multiplying by the strip width h."}
+- {id: vm-trap-ends-not-halved, description: "Adding the two end values in the trapezium sum in full instead of taking half of them."}
+- {id: vm-trap-left-rectangle-confused, description: "Giving the left-rectangle sum when the program is a trapezium sum."}
+- {id: vm-while-boundary-misread, description: "Treating a strict test as inclusive, or an inclusive test as strict, so the loop runs one pass more or less."}
+- {id: vm-width-halved-extra, description: "Halving the interval width too many times when finding its width after a number of passes."}
+- {id: vm-width-halved-once, description: "Halving the interval width only once when more than one pass has been run."}
+- {id: vm-trap-right-rectangle-confused, description: "Giving the right-rectangle sum when the program is a trapezium sum."}
+- {id: near-miss-value, description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method behind the slip.'}
+difficulty_progression:
+  easy: {steps: 3, demand: 'Run a for-loop pass by pass, keeping a running total or product, and report the printed value.'}
+  medium: {steps: 4, demand: 'Run a while-loop until its test fails, taking care over a strict or inclusive test, a branch inside the loop and a pass that ends the loop part-way.'}
+  hard: {steps: 5, demand: 'Run a numerical method written as pseudocode (bisection, a Newton step or a rectangle or trapezium sum) for a stated number of passes and round the printed value to the stated precision.'}
+  exam: {steps: 7, demand: 'Follow a numerical method with a stopping rule: the first pass, the next pass from that value, the number of passes before the loop stops, then the printed value.'}
+tags: [vce-methods, algorithms, pseudocode, numerical-methods]

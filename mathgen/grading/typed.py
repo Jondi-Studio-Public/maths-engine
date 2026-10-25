@@ -1950,20 +1950,32 @@ def _resolve_constants(expr, expected):
     """
     if expr is None or expected is None:
         return expr
+    # An ordered tuple or list ("(0, -2, 3e^-2 + 1)") is read element by element; `.free_symbols` exists only on a
+    # SymPy expression, and the error used to be swallowed below, leaving `e` a plain symbol.
+    exprs = list(expr) if isinstance(expr, (tuple, list)) else [expr]
+    expecteds = list(expected) if isinstance(expected, (tuple, list)) else [expected]
+    if not all(isinstance(part, sympy.Basic) for part in exprs + expecteds):
+        return expr
     try:
-        free = expected.free_symbols
+        free = set().union(*(part.free_symbols for part in expecteds))
+        has_i = any(part.has(sympy.I) for part in expecteds)
+        given_free = set().union(*(part.free_symbols for part in exprs))
         swaps = {}
-        if _E_SYMBOL in expr.free_symbols and _E_SYMBOL not in free:
+        if _E_SYMBOL in given_free and _E_SYMBOL not in free:
             swaps[_E_SYMBOL] = sympy.E
-        if _I_SYMBOL in expr.free_symbols and _I_SYMBOL not in free and expected.has(sympy.I):
+        if _I_SYMBOL in given_free and _I_SYMBOL not in free and has_i:
             swaps[_I_SYMBOL] = sympy.I
-        swaps.update(_greek_swaps(expr, free))
+        for part in exprs:
+            swaps.update(_greek_swaps(part, free))
         if not swaps:
             return expr
-        resolved = expr.xreplace(swaps)
+        resolved = [part.xreplace(swaps) for part in exprs]
         if sympy.E in swaps.values() or sympy.I in swaps.values():
-            check_expression_cost(resolved)
-        return resolved
+            for part in resolved:
+                check_expression_cost(part)
+        if isinstance(expr, (tuple, list)):
+            return type(expr)(resolved)
+        return resolved[0]
     except (TooCostly, ValueError):  # ValueError: `Max(e*I, 2)` cannot be built once `e` is a number
         return None
     except (AttributeError, TypeError):
@@ -2554,9 +2566,15 @@ def _factorised_as_far_as(stripped: str, question) -> bool:
     if given is None:
         return True
     constant, factors = given
+    # Never `.equals(1)`: on a hostile constant such as `sec((E - 2)^6)` it runs trigsimp and factor for minutes.
+    # An exact rational is compared exactly; anything else by a bounded numeric evaluation.
     try:
-        trivial_constant = bool(abs(constant).equals(1))
-    except (TypeError, ValueError):
+        magnitude = abs(constant)
+        if magnitude.is_Rational:
+            trivial_constant = magnitude == 1
+        else:
+            trivial_constant = bool(abs(complex(magnitude.evalf(15)) - 1) < 1e-12)
+    except (TypeError, ValueError, ArithmeticError):
         trivial_constant = False
     if len(factors) + (0 if trivial_constant else 1) < 2:
         return False
@@ -2968,7 +2986,9 @@ def _set_item_matches(expected, given: str) -> bool:
         return len(parts) == len(expected) and all(_set_item_matches(e, part) for e, part in zip(expected, parts))
     if _is_numeric_cell(expected):
         return _table_cell_correct(expected, given)
-    return _label_key(given) == _label_key(expected)
+    # The page shows an item key "pi/6" as "π/6" (`display_question`) and the stem may say "typed like 5π/6":
+    # either spelling of the constant is the same item.
+    return _label_key(given).replace("π", "pi") == _label_key(expected).replace("π", "pi")
 
 
 @_multi_part_aware
