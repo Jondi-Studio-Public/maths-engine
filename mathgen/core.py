@@ -2085,6 +2085,29 @@ _LETTER_X_CHAIN_RE = re.compile(r"( \u00d7 [a-z]{3,}) x (?=[a-z]{3})")
 _TIMES_NO_SPACE_RE = re.compile(r"(?<=\d)\u00d7(?=\d)")
 
 
+_TRIG_POWER_END_RE = re.compile(r"(?:sin|cos|tan|cot|sec|csc|sinh|cosh|tanh)\^\d+$")
+
+
+def _name_times(match, text):
+    """` x ` before a function name is a times sign, unless the `)` before it closes a limit's `(x\u2192a)`, where
+    the x is the variable being multiplied ("lim(x\u2192\u221e) x ln(...)")."""
+    before = text[: match.start()]
+    if _TRIG_POWER_END_RE.search(before):  # "tan^2 x sec^4 x": the x is the argument of tan^2
+        return match.group()
+    if before.endswith(")"):
+        depth = 0
+        for i in range(len(before) - 1, -1, -1):
+            if before[i] == ")":
+                depth += 1
+            elif before[i] == "(":
+                depth -= 1
+                if depth == 0:
+                    if "\u2192" in before[i:]:
+                        return match.group()
+                    break
+    return " \u00d7 "
+
+
 def _bracket_fractions(text):
     """Bracket a numeric fraction that sits beside another in a product or quotient, or is a divisor."""
     pieces = []
@@ -2143,11 +2166,11 @@ def _learner_text(text, *, working=False, keep=()):
         text = _LETTER_X_WORD_TIMES_RE.sub(" \u00d7 ", text)
         for _ in range(3):  # a bracket that held an x only reads as a plain bracket once the inner x is a times sign
             text = _LETTER_X_BRACKET_TIMES_RE.sub(" \u00d7 ", text)
-        text = _LETTER_X_TERM_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_TERM_TIMES_RE.sub(lambda m: _name_times(m, text), text)
         text = _LETTER_X_CHAIN_LETTER_RE.sub(" \u00d7 ", text)
         text = _LETTER_X_SIGNED_TIMES_RE.sub(" \u00d7 ", text)
         text = _LETTER_X_VARIABLE_TIMES_RE.sub(" \u00d7 ", text)
-        text = _LETTER_X_NAME_TIMES_RE.sub(" \u00d7 ", text)
+        text = _LETTER_X_NAME_TIMES_RE.sub(lambda m: _name_times(m, text), text)
         text = _LETTER_X_CHAIN_RE.sub("\\1 \u00d7 ", text)
     if "\u00b7" in text:
         text = _DIGIT_DOT_LETTER_RE.sub("", text)

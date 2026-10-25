@@ -18,6 +18,33 @@ Each question's id (below) tells you when the question behind it has changed.
   A `cartesian` or `number_line` figure may carry a `canvas` key naming the reply kind, the tools and the snap step.
   Six skills use them: plot a point, draw a line, an inequality on a number line, shade an inequality region, transform
   a shape on a grid and draw a parabola. The schemas are in `docs/design/interactive-graph-answers.md`.
+- **43 more skills and drawn networks** (#120). The school-year coverage tail adds 43 skills. A `network` figure kind
+  (labelled vertices at fixed positions, undirected or directed edges, edge labels, highlighted edges and vertices)
+  has an SVG renderer, and the graph and network generators now draw the network their text describes; the text is
+  unchanged. Exam chains were added or widened for scale drawings, floor-plan, site-plan and map conventions, and
+  for the product-to-sum, De Moivre, sinusoid, simple-harmonic-motion and linear-combination skills.
+- **26 more skills** (#128): graph transformations (equation, f(x) squared, square root of a function, modulus,
+  inverse trigonometry), conditional counts, simulated sample proportions, tan and sec integrals, complex exponential
+  form, seven data-display and graph skills (graph terms from a network, constructing column, picture, dot and
+  stem-and-leaf displays, comparing displays, real-data graphs, a grid map) and ten early-years skills (twos facts,
+  estimating a collection, angles, chance, solids, symmetry). Each has easy, medium and hard tiers and a
+  follow-through exam chain.
+
+### Fixed
+
+- Seven rounds of a content bug hunt (#121, #124, #125, #126, #127, #130) changed some questions for the same seed, so
+  their ids change. Fixed: a wrong key in the cosine and sine ratio angle question (arcsin was keyed for an adjacent
+  leg); multiple-choice generators that offered a different number of options from draw to draw (they now always
+  offer the same number); a divisibility generator that gave zero answers; a function-concept key that did not match
+  its displayed square root; a quartile method the stem did not state; impossible triangles and quadrilaterals; and a
+  time-zone working line with the wrong sign.
+- Student-visible text: placeholder `answer: N` working, leaked tokens, raw braces, SymPy's `I`, Python notation and
+  dicts in worked solutions now read as plain maths. Plurals and articles agree ("1 part", "an 8"), `^1`, `1x`,
+  `1.0x`, `X = X` and unbracketed negative factors are gone from working and stems, and implausible contexts
+  (a brick lighter than a banana, half-way prices, negative durations) are redrawn. (#121, #125, #126, #127, #130)
+- About 25 skills raised an error on some seeds (empty distractor candidates, a distractor that collapsed onto the
+  key, a costed graph draw whose total was one printed cost); they now redraw. (#126, #127, #130)
+- The variance multiplier in the linear-transform working printed `60.0^2` instead of `60^2`. (#129)
 
 ## [0.2.0] - 2026-10-19
 
