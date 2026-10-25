@@ -59956,6 +59956,331 @@ _ENTRIES += (
         "Finding solutions of (f(x))^2 = c for a negative c, as if a square could be negative.",
         area="graph-features",
     ),
+    CatalogueEntry(
+        "nx-angle-complement-taken",
+        "Takes the complement of the angle (90 degrees minus it) from the argument of the ratio, mixing up the real and imaginary parts.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-angle-doubled",
+        "Doubles the argument of the ratio when reading off the angle at the vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-angle-halved",
+        "Halves the argument of the ratio when reading off the angle at the vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-angle-reflex-taken",
+        "Gives the reflex angle (360 degrees minus the angle) where the angle at the vertex was asked.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-angle-supplement-taken",
+        "Gives 180 degrees minus the angle, using the argument of the wrong ratio or the wrong side of the vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-collinear-imaginary-offset-ignored",
+        "Uses the imaginary part of C itself instead of its difference from A when finding how far along the line C lies.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-collinear-parts-swapped",
+        "Applies the ratio found from the imaginary parts to the imaginary step of the line when finding the real part.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-collinear-sign-slip",
+        "Subtracts instead of adds the scaled real step from A, giving the point on the wrong side of A.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-collinear-wrong-base-point",
+        "Measures the scaled step from B instead of from A, though the ratio was found from A.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-distance-adds-the-parts",
+        "Finds the distance between two points as the sum of the real and imaginary differences instead of using Pythagoras.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-distance-forgets-square-root",
+        "Gives the sum of the squares of the real and imaginary differences without taking the square root.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-distance-subtracts-the-parts",
+        "Subtracts the real and imaginary differences instead of using Pythagoras.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-distance-takes-the-larger-part",
+        "Takes the larger of the real and imaginary differences as the distance.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-adds-before-multiplying",
+        "Adds the constant to z first and then multiplies the sum by a, so the constant is multiplied too.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-constant-dropped",
+        "Multiplies z by a but leaves out the constant added in w = az + b.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-constant-subtracted",
+        "Subtracts the constant b where w = az + b adds it.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-multiplier-dropped",
+        "Adds the constant to z but forgets to multiply by a.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-map-multiplies-parts-separately",
+        "Multiplies the real parts together and the imaginary parts together instead of expanding the complex product.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-midpoint-half-the-difference",
+        "Halves the difference of the two points instead of their sum when finding the midpoint.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-midpoint-halves-real-part-only",
+        "Halves only the real part of the sum when finding the midpoint.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-midpoint-parts-swapped",
+        "Swaps the real and imaginary parts of the midpoint.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-midpoint-sum-not-halved",
+        "Gives the sum of the two points as the midpoint, forgetting to halve it.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-difference-not-divided",
+        "Takes the difference of the two images as a without dividing by the difference of the two original points.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-difference-of-differences",
+        "Subtracts the difference of the originals from the difference of the images instead of dividing.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-from-one-point-only",
+        "Divides one image by its original point, ignoring that the constant b also contributes.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-ratio-inverted",
+        "Divides the original difference by the image difference, finding 1/a.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-multiplier-sums-not-differences",
+        "Divides the sum of the images by the sum of the originals, which leaves the constant b in the working.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-opposite-vertex-adds-b",
+        "Adds B to twice the midpoint instead of subtracting it when finding the opposite vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-opposite-vertex-midpoint-taken",
+        "Gives the midpoint M as the fourth vertex.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-opposite-vertex-reflected-wrongly",
+        "Subtracts B from M once instead of reflecting B in M (twice M minus B).",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-opposite-vertex-sum-of-a-and-c",
+        "Gives A + C as the fourth vertex, forgetting to subtract B.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-perp-base-point-ignored",
+        "Leaves out the real part of B when turning the perpendicular condition into a value of k.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-perp-measured-from-the-wrong-vertex",
+        "Measures the perpendicular step from A instead of from B.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-perp-parts-swapped",
+        "Swaps the real and imaginary parts of the side BA when writing the perpendicular direction.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-perp-uses-parallel-condition",
+        "Uses the condition for parallel sides (the sign of the step reversed) instead of the dot product being zero.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-ratio-conjugated",
+        "Gives the complex conjugate of the ratio, with the wrong sign on the imaginary part.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-ratio-difference-reversed",
+        "Reverses one of the differences, for example using B minus C, so the ratio has the wrong sign.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-ratio-inverted",
+        "Divides BA by BC instead of BC by BA, giving the reciprocal of the ratio.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-ratio-subtracted-not-divided",
+        "Subtracts the two difference vectors instead of dividing one by the other.",
+        area="complex-arg-ratio-geometry",
+    ),
+    CatalogueEntry(
+        "nx-tsub-a-multiplied-not-divided",
+        "Multiplies by the constant a where the substitution divides by it (or the reverse), giving a times the angle difference instead of the angle difference over a.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-amplitude-cubed",
+        "Raises the constant to the third power: multiplies the a squared from the root and the a squared from the sine or cosine squared, instead of the root's a and dx's a.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-amplitude-not-squared",
+        "Gives a where a squared is needed: the root and dx each carry a factor a, but only one of them is counted.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-complement-angle",
+        "Takes the angle from the wrong side of the right triangle, giving 90 degrees minus the correct angle (the angle whose cosine, not sine, or cotangent, not tangent, matches).",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-constant-inverted",
+        "Divides the integral of cos squared by the constant k instead of multiplying by it.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-constant-not-applied",
+        "Gives the integral of cos squared theta alone, leaving out the constant k carried over from the substitution.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-derivative-factor-wrong",
+        "Writes the wrong constant in dx, a squared in place of a or 1 in place of a, forgetting that x = a times a trig function has derivative a times the derivative of that function.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-dx-factor-a-dropped",
+        "Leaves the factor a out of dx = a sec squared theta dtheta (or a cos theta dtheta), so the answer has one factor of a too few in the numerator.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-half-dropped",
+        "Leaves out the factor 1/2 from cos squared theta = (1 + cos 2 theta)/2 (or sin squared theta), doubling the integral.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-identity-sign",
+        "Gets the sign of the sin 2 theta term wrong when integrating cos squared theta or sin squared theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-identity-term-dropped",
+        "Integrates cos squared or sin squared as theta/2 and leaves out the sin 2 theta term.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limit-double-angle",
+        "Doubles the angle for the new limit of theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limit-half-angle",
+        "Halves the angle for the new limit of theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limit-inverse-without-dividing",
+        "Takes the inverse tangent or sine of the x-limit itself, forgetting to divide by a first.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limit-not-converted",
+        "Keeps the x-value as the limit for theta instead of finding the angle that gives it.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limits-not-changed",
+        "Integrates in theta but substitutes the original x-limits into the antiderivative.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-limits-swapped",
+        "Subtracts the limits the wrong way round, giving the negative of the integral.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-lower-limit-ignored",
+        "Evaluates the antiderivative at the upper limit only, forgetting to subtract its value at the non-zero lower limit.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-power-not-squared",
+        "Squares the denominator a squared plus x squared but then treats it as a single power of sec squared theta, so the integrand stays 1/a times 1 instead of cos squared theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-power-of-a-wrong",
+        "Uses the wrong power of a in front of the integral, for example a to the first power where a cubed or a squared arises.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-power-rule-on-trig",
+        "Integrates cos squared theta by the power rule, as if it were u squared with u = cos theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-reciprocal-a-added",
+        "Divides by a in an integral whose substitution leaves no factor of a, such as 1/sqrt(a squared minus x squared).",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-reciprocal-a-dropped",
+        "Leaves out the factor of 1/a (or 1/a squared) that comes from the substitution, giving the bare angle difference.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-sec-squared-integrated-as-sin",
+        "Integrates sec squared theta to sin theta instead of tan theta.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-sec-squared-integrated-as-theta",
+        "Integrates sec squared theta to theta, as if it were a constant.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
+        "nx-tsub-substitution-not-squared",
+        "Gives a squared where a (or a where a squared) belongs, by squaring the constant in the substitution only part of the time.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
 )
 
 #: Every entry, by id.
