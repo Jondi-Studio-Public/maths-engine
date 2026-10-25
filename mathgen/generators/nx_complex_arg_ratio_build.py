@@ -54,6 +54,12 @@ NEAR = "near-miss-value"
 _OFFSETS = [complex(a, b) for a in (-3, -2, -1, 0, 1, 2, 3) for b in (-3, -2, -1, 0, 1, 2, 3) if (a, b) != (0, 0)]
 
 
+def _gaussian(z) -> bool:
+    """Whether both parts of z are whole numbers."""
+    z = sympy.expand(z)
+    return bool(sympy.re(z).is_integer and sympy.im(z).is_integer)
+
+
 def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, step=(1, 2, 3)):
     """`n` wrong options with the key's place among them drawn at random, not left to the order of the slips.
 
@@ -62,12 +68,14 @@ def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, s
     cands = [c for c in cands if c is not None]
     if key is None:
         named = need(answer_text, cands, len(cands))
+        if keyz is not None:  # the options share the key's shape: Gaussian-integer keys get Gaussian-integer options
+            named = [d for d in named if _gaussian(sympy.sympify(d.value)) == _gaussian(keyz)]
         rng.shuffle(named)
         if keyz is None:
             return named[:n]
         # a complex option has no order, but its real and imaginary parts each have a rank among the options: the named
         # slips sit at fixed places, so one or two of them are mixed with near misses at random offsets
-        keep = named[: rng.randint(1, min(2, n - 1, len(named)))]
+        keep = named[: rng.randint(1, min(2, n - 1, len(named)))] if named else []
         used = {d.text for d in keep} | {answer_text}
         offsets = rng.sample(_OFFSETS, len(_OFFSETS))
         for off in offsets:
@@ -127,17 +135,30 @@ def _kc(c: int) -> str:
 
 
 def _br(z) -> str:
-    """The complex number as text, bracketed unless it is a non-negative whole number or i."""
+    """The multiplier as text: a whole number (any sign) or i as it stands, anything else bracketed."""
     t = cx_text(z)
-    return t if t == "i" or (sympy.im(z) == 0 and sympy.re(z) >= 0) else f"({t})"
+    return t if t == "i" or sympy.im(z) == 0 else f"({t})"
+
+
+def _term(z) -> str:
+    """The constant as a signed term after ``z``: ``+ 3``, ``- 3i``, ``+ (2 - i)``, ``- (1 + 3i)`` (never ``+ (-3)``)."""
+    re_, im_ = sympy.re(z), sympy.im(z)
+    if re_ <= 0 and im_ <= 0:
+        return f"- {_br_abs(-z)}"
+    return f"+ {_br_abs(z)}"
+
+
+def _br_abs(z) -> str:
+    t = cx_text(z)
+    return t if sympy.im(z) == 0 or t == "i" or (sympy.re(z) == 0) else f"({t})"
 
 
 # -- easy -----------------------------------------------------------------------------------------------------
 
 _MAP_STEMS = (
-    "A transformation of the complex plane is w = {a}z + {b}. Find the image of the point {z} under this transformation.",
-    "The point P represents z = {z}. P is mapped to P' by w = {a}z + {b}. Which complex number does P' represent?",
-    "Under the map z -> {a}z + {b} of the Argand diagram, where does the point {z} go? Give the complex number "
+    "A transformation of the complex plane is w = {a}z {b}. Find the image of the point {z} under this transformation.",
+    "The point P represents z = {z}. P is mapped to P' by w = {a}z {b}. Which complex number does P' represent?",
+    "Under the map z -> {a}z {b} of the Argand diagram, where does the point {z} go? Give the complex number "
     "that its image represents.",
 )
 _MID_STEMS = (
@@ -180,7 +201,7 @@ def _easy_map(rng):
         f"Add the constant: {cx_text(a * z)} {plus(cx_text(b))} = {cx_text(w)}." if b != 0 else "No constant to add.",
     ]
     return dict(
-        text=phrase(rng, _MAP_STEMS, a=_br(a), b=_br(b), z=cx_text(z)),
+        text=phrase(rng, _MAP_STEMS, a=_br(a), b=_term(b), z=cx_text(z)),
         working=working,
         distractors=pick(rng, cx_text(w), cands, 3, keyz=w),
         **_expr_fields(w),
@@ -437,7 +458,7 @@ def _hard_angle(rng):
     return dict(
         text=phrase(rng, _ANGLE_STEMS, a=cx_text(a), b=cx_text(b), c=cx_text(c)),
         working=working,
-        distractors=pick(rng, str(theta), cands, 3, key=theta, lo=0, hi=180, step=(15, 30)),
+        distractors=pick(rng, str(theta), cands, 3, key=theta, lo=0, hi=180, step=(5, 10, 15, 30)),
         **_deg_fields(theta),
     )
 
@@ -459,7 +480,7 @@ def _hard_perp(rng):
     check(abs(u.real * w.real + u.imag * w.imag) < 1e-9, "sides are not perpendicular")
     want(c != 0 and k != 0)
     cands = [
-        _num(bx + s * q, "nx-perp-uses-parallel-condition"),
+        _num(bx + s * p, "nx-perp-uses-parallel-condition"),
         _num(bx - s * p, "nx-perp-parts-swapped"),
         _num(bx + p - s * q, "nx-perp-measured-from-the-wrong-vertex"),
         _num(-s * q, "nx-perp-base-point-ignored"),
@@ -589,7 +610,7 @@ def _exam(rng):
                 follow_through="abs(arg(Subs(part_a,(i,),(I,))))*180/pi",
                 sensible_range=(0, 180),
                 working=[f"Angle ABC is the size of arg((c - b)/(a - b)), that is {theta}°."],
-                distractors=pick(rng, str(theta), angle_cands, 3, key=theta, lo=0, hi=180, step=(15, 30)),
+                distractors=pick(rng, str(theta), angle_cands, 3, key=theta, lo=0, hi=180, step=(5, 10, 15, 30)),
             ),
             dict(
                 prompt="Find the complex number that represents M, the midpoint of AC.",

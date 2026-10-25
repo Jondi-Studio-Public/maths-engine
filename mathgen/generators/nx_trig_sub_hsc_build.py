@@ -242,26 +242,28 @@ def _pick_values(key, cands):
     return out
 
 
-def _angle_options(key, cands):
-    """Three wrong angles for a limit of theta: between 0 and a quarter turn (a limit past pi/2 cannot arise from
-    x = a tan or a sin of a positive angle that the question allows), with the key's place among them drawn at random."""
+def _angle_options(key, cands, *, lo=R(1, 100), hi=pi / 2):
+    """Three wrong angles for a limit of theta, all strictly between `lo` and `hi` (the stem rules out anything else:
+    below the other limit, past a quarter turn), with the key's place among them drawn at random."""
     key = sympy.sympify(key)
-    near = [
-        Cand(key + d, NEAR, const=False)
-        for d in (pi / 12, -pi / 12, pi / 6, -pi / 6, pi / 24, -pi / 24, pi / 8, -pi / 8)
-    ]
+    steps = (pi / 12, pi / 6, pi / 24, pi / 8, pi / 36, pi / 18, pi / 15)
+    near = [Cand(key + d, NEAR, const=False) for step in steps for d in (step, -step)]
     cands = [Cand(c.expr, c.tag, const=False) for c in cands if c.expr != 0]
-    return pick_expr(key, False, mixed(key, cands, fillers=near, lo=0, hi=pi / 2))
+    return pick_expr(key, False, mixed(key, cands, fillers=near, lo=lo, hi=hi))
 
 
 def _no_const(cands):
     return [Cand(c.expr, c.tag, const=False) for c in cands if c is not None]
 
 
-def _options(key, cands, rng, *, lo, hi):
+def _options(key, cands, rng, *, lo, hi, room=()):
     key = sympy.sympify(key)
     near = [Cand(key + R(k, d), NEAR, const=False) for d in (2, 3, 4, 6, 8, 12) for k in (-1, 1)]
-    near += [Cand(key * m, NEAR, const=False) for m in (R(1, 2), R(2, 3), R(3, 2), 2)]
+    near += [
+        Cand(key * m, NEAR, const=False)
+        for m in (R(1, 4), R(1, 3), R(1, 2), R(2, 3), R(3, 4), R(4, 5), R(5, 4), R(3, 2), 2)
+    ]
+    near += [Cand(v, NEAR, const=False) for v in room]  # values spread over the space the stem leaves above the key
     return pick_expr(key, False, mixed(key, _no_const(cands), fillers=near, lo=lo, hi=hi))
 
 
@@ -437,14 +439,24 @@ _PIECES = (
         "dx = k sec^2(θ) dθ.",
         r"\(\mathrm{d}x = k\sec^2\theta\,\mathrm{d}\theta\).",
         lambda a: a,
-        [("a2", "nx-tsub-substitution-not-squared"), ("one", "nx-tsub-derivative-factor-wrong")],
+        [
+            ("a2", "nx-tsub-substitution-not-squared"),
+            ("one", "nx-tsub-derivative-factor-wrong"),
+            ("2a", "nx-tsub-derivative-factor-wrong"),
+            ("a+1", "nx-tsub-derivative-factor-wrong"),
+        ],
     ),
     (
         "sin",
         "dx = k cos(θ) dθ.",
         r"\(\mathrm{d}x = k\cos\theta\,\mathrm{d}\theta\).",
         lambda a: a,
-        [("a2", "nx-tsub-substitution-not-squared"), ("one", "nx-tsub-derivative-factor-wrong")],
+        [
+            ("a2", "nx-tsub-substitution-not-squared"),
+            ("one", "nx-tsub-derivative-factor-wrong"),
+            ("2a", "nx-tsub-derivative-factor-wrong"),
+            ("a+1", "nx-tsub-derivative-factor-wrong"),
+        ],
     ),
     (
         "tan",
@@ -465,14 +477,14 @@ _PIECES = (
         "√({S} - x^2) = k cos(θ).",
         r"\(\sqrt{{S} - x^2} = k\cos\theta\).",
         lambda a: a,
-        [("a2", "nx-tsub-substitution-not-squared"), ("one", "nx-tsub-derivative-factor-wrong")],
+        [("a2", "nx-tsub-substitution-not-squared")],
     ),
     (
         "tan",
         "√({S} + x^2) = k sec(θ).",
         r"\(\sqrt{{S} + x^2} = k\sec\theta\).",
         lambda a: a,
-        [("a2", "nx-tsub-substitution-not-squared"), ("one", "nx-tsub-derivative-factor-wrong")],
+        [("a2", "nx-tsub-substitution-not-squared")],
     ),
 )
 
@@ -488,9 +500,8 @@ def _easy_piece(rng):
     pattern = rng.choice(_PIECE_STEMS)
     text = pattern.format(H=H[0], P=claim)
     latex = latex_from_inline(pattern.format(H=H[1], P=lclaim))
-    values = {"a2": a * a, "one": R(1), "a": a, "a3": a**3}
-    cands = [(values[v] if v != "a" or k != a else None, t) for v, t in wrong]
-    cands += [(2 * a, "nx-tsub-derivative-factor-wrong"), (a + 1, "nx-tsub-derivative-factor-wrong")]
+    values = {"a2": a * a, "one": R(1), "a": a, "a3": a**3, "2a": 2 * a, "a+1": a + 1}
+    cands = [(values[v], t) for v, t in wrong]
     sub = f"x = {a}{'tan' if fam == 'tan' else 'sin'}(θ)"
     working = [f"With {sub}: x^2 = {a * a}{'tan' if fam == 'tan' else 'sin'}^2(θ).", f"So k = {k}."]
     if "dx" in claim:
@@ -542,6 +553,11 @@ def _easy_limit(rng):
     text, latex = say(rng, _LIMIT_STEMS, {"I": I_text, "H": H[0]}, {"I": I_math, "H": H[1]}, {"which": which})
     key = sympy.sympify(ask_a)
     comp = pi / 2 - key
+    # the other limit bounds the options: an upper limit lies beyond the lower one, a lower limit below the upper one;
+    # x = a tan(theta) cannot reach a quarter turn
+    top = pi / 2 - R(1, 100) if fam == "tan" else pi / 2
+    lo_bound = lo_a + R(1, 100) if which == "upper" else R(1, 100)
+    hi_bound = top if which == "upper" else hi_a - R(1, 100)
     cands = [
         Cand(comp, "nx-tsub-complement-angle"),
         Cand(sympy.sympify(ask_x), "nx-tsub-limit-not-converted"),
@@ -559,7 +575,7 @@ def _easy_limit(rng):
         text=text,
         latex=latex,
         working=[_tidy(w) for w in working],
-        distractors=_angle_options(key, cands),
+        distractors=_angle_options(key, cands, lo=lo_bound, hi=hi_bound),
         **exact_fields(key),
     )
 
@@ -679,7 +695,7 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         Cand(beta / 2 - sin(2 * beta) / 4, "nx-tsub-identity-sign"),
         Cand(beta + sin(2 * beta) / 2, "nx-tsub-half-dropped"),
         Cand(beta / 2, "nx-tsub-identity-term-dropped"),
-        Cand(cos(beta) ** 3 / 3 - R(1, 3), "nx-tsub-power-rule-on-trig"),
+        Cand(beta / 2 + sin(2 * beta) / 2, "nx-tsub-double-angle-not-halved"),
     ]
     d_cands = [
         Cand(inner, "nx-tsub-constant-not-applied"),
@@ -687,6 +703,7 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         Cand(k * (beta / 2 - sin(2 * beta) / 4), "nx-tsub-identity-sign"),
         Cand(k * beta / 2, "nx-tsub-identity-term-dropped"),
         Cand(k * (beta + sin(2 * beta) / 2), "nx-tsub-half-dropped"),
+        Cand(k * (beta / 2 + sin(2 * beta) / 2), "nx-tsub-double-angle-not-halved"),
     ]
     c_cands = [Cand(c.expr, c.tag, const=False) for c in c_cands]
     pa = part(
@@ -708,7 +725,7 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         1,
         [_tidy(f"{trig}(θ) = x/{a} = {_lim(sympy.nsimplify(hi_x / a))}, so θ = {_lim(beta)}.")],
         exact_fields(beta),
-        _angle_options(beta, b_cands),
+        _angle_options(beta, b_cands, hi=pi / 2 - R(1, 100) if fam == "tan" else pi / 2),
     )
     pc = part(
         "Using your upper limit from the previous part, find the exact value of the integral of cos^2(θ) dθ from 0 to that limit.",
@@ -719,7 +736,15 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
             _tidy(f"= {_lim(inner)}."),
         ],
         exact_fields(inner),
-        _options(inner, c_cands, rng, lo=-1, hi=pi / 2),
+        _options(
+            inner,
+            c_cands,
+            rng,
+            lo=R(1, 1000),
+            hi=beta,
+            room=[inner + (beta - inner) * t for t in (R(1, 4), R(1, 2), R(3, 4))]
+            + [inner * t for t in (R(1, 4), R(1, 2), R(3, 4))],
+        ),
         follow_through="part_b/2 + sin(2*part_b)/4",
     )
     pd = part(
@@ -728,7 +753,7 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         1,
         [_tidy(f"The value is k × (the integral of cos^2): {k} × ({_lim(inner)}) = {_lim(value)}.")],
         exact_fields(value),
-        _options(value, [Cand(c.expr, c.tag, False) for c in d_cands], rng, lo=-1, hi=100),
+        _options(value, [Cand(c.expr, c.tag, False) for c in d_cands], rng, lo=0, hi=None),
         follow_through="part_a*part_c",
     )
     check(isinstance(pa, dict), "")

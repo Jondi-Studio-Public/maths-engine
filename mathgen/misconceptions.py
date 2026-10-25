@@ -60493,6 +60493,11 @@ _ENTRIES += (
         area="trig-substitution-hsc-tan-and-convert",
     ),
     CatalogueEntry(
+        "nx-tsub-double-angle-not-halved",
+        "Integrates cos 2 theta to sin 2 theta, forgetting to divide by 2, so the sin 2 theta term is twice its size.",
+        area="trig-substitution-hsc-tan-and-convert",
+    ),
+    CatalogueEntry(
         "nx-tsub-half-dropped",
         "Leaves out the factor 1/2 from cos squared theta = (1 + cos 2 theta)/2 (or sin squared theta), doubling the integral.",
         area="trig-substitution-hsc-tan-and-convert",
@@ -60545,11 +60550,6 @@ _ENTRIES += (
     CatalogueEntry(
         "nx-tsub-power-of-a-wrong",
         "Uses the wrong power of a in front of the integral, for example a to the first power where a cubed or a squared arises.",
-        area="trig-substitution-hsc-tan-and-convert",
-    ),
-    CatalogueEntry(
-        "nx-tsub-power-rule-on-trig",
-        "Integrates cos squared theta by the power rule, as if it were u squared with u = cos theta.",
         area="trig-substitution-hsc-tan-and-convert",
     ),
     CatalogueEntry(

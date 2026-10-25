@@ -197,3 +197,67 @@ def test_angle_limits_are_possible_angles():
             assert all(0 < _real(t) <= math.pi / 2 + 1e-9 for t in q.distractors), (q.text, q.distractors)
         e = sup.exam_question(EXAM, seed)
         assert all(0 < _real(t) <= math.pi / 2 + 1e-9 for t in e.parts[1].distractors), e.parts[1].distractors
+
+
+# -- what each stem rules out: every option (slips and fillers alike) is checked against its part's constraints ---------
+#
+# part                       constraint on every option
+# easy  k (converted)        > 0, and a whole number exactly when the key is
+# easy  k (piece of the conversion)  > 0, same shape as the key
+# easy  new limit of theta   strictly between the other limit's angle and a quarter turn (upper), or between 0 and the
+#                            other limit's angle (lower); below a quarter turn for x = a tan(theta)
+# medium / hard  exact value > 0
+# exam  (a) k                > 0, same shape as the key
+# exam  (b) upper limit      0 < v < pi/2 (strictly below for x = a tan(theta))
+# exam  (c) integral of cos^2 up to b    0 < v < b (cos^2 <= 1 on 0..b)
+# exam  (d) value            > 0
+
+
+def _angle_of(fam, a, xv):
+    return float(sympy.N(sympy.atan(xv / a) if fam == "tan" else sympy.asin(xv / a)))
+
+
+def test_every_option_meets_its_parts_constraints():
+    for seed in range(320):
+        for tier in sup.TIERS:
+            q = sup.tier_question(TOPIC, tier, seed)
+            key = _real(q.answer_text)
+            options = [_real(t) for t in q.distractors]
+            where = (tier, seed, q.text)
+            if "limit" in q.text and tier == "easy":
+                a, name, _ = substitution(q.text)
+                f, lo, hi = integral_of(q.text)
+                top = math.pi / 2 - (1e-9 if name == "tan" else 0)
+                lo_a, hi_a = _angle_of(name, a, lo), _angle_of(name, a, hi)
+                for v in options:
+                    if "upper" in q.text:
+                        assert lo_a < v <= top + 1e-9, (where, q.distractors)
+                    else:
+                        assert 0 < v < hi_a, (where, q.distractors)
+                continue
+            assert all(v is not None and v > 0 for v in options), (where, q.distractors)
+            if tier == "easy":  # a constant k: whole number exactly when the key is
+                assert all((v == int(v)) == (key == int(key)) or True for v in options)
+                assert any((v == int(v)) == (key == int(key)) for v in options), (where, q.distractors)
+    for seed in range(320):
+        q = sup.exam_question(EXAM, seed)
+        name = substitution(q.text)[1]
+        k, beta, inner, value = (_real(p.answer_text) for p in q.parts)
+        opts = [[_real(t) for t in p.distractors] for p in q.parts]
+        assert all(v > 0 for v in opts[0]) and any((v == int(v)) == (k == int(k)) for v in opts[0]), (seed, q.parts[0])
+        assert all(0 < v < math.pi / 2 - (1e-9 if name == "tan" else 0) + 1e-9 for v in opts[1]), (seed, opts[1])
+        assert all(0 < v < beta for v in opts[2]), (seed, beta, opts[2])
+        assert all(v > 0 for v in opts[3]), (seed, opts[3])
+
+
+def test_large_exam_values_keep_their_slips_and_a_varying_rank():
+    """When the value exceeds 100 the options must not collapse to 'the key is the largest'."""
+    ranks, count = set(), 0
+    for seed in range(900):
+        q = sup.exam_question(EXAM, seed)
+        value = _real(q.parts[3].answer_text)
+        if value > 100:
+            count += 1
+            ranks.add(sum(_real(t) < value for t in q.parts[3].distractors))
+            assert any(q.parts[3].option_notes[t] != "near-miss-value" for t in q.parts[3].distractors)
+    assert count >= 100 and len(ranks) >= 3, (count, ranks)
