@@ -24,12 +24,13 @@ Every key is re-derived a second way: sizes by comparing powers of two, hexadeci
 from __future__ import annotations
 
 import math
+from fractions import Fraction
 
 from ..answers import Distractor
 from ..core import attempts, check, generator, latex_answer, phrase
 from ..grading import GRADERS
 from ._exd_distinct_parts import distinct_part_answers
-from ._nv_kit import spread_order
+from ._nv_kit import is_multiple_of_ten, is_power_of_two, lone_property_fix, spread_order
 from ._spread_kit import _RNG, NEAR, uses_rng
 from ._w6a_kit import TooFewDistractors, enough, num_dist, num_fields, part, retry_draw
 from types import SimpleNamespace
@@ -111,6 +112,8 @@ MISCONCEPTIONS = [
     ),
     ("nv-hex-codes-multiply", "Multiplies the number of digits by 16 instead of using 16 to that power.", AREA),
     ("nv-hex-codes-base-ten", "Uses 10 to the power of the digit count, as if the digits were decimal.", AREA),
+    ("nv-values-bit-extra", "Counts the values of one more bit than there is, giving twice as many.", AREA),
+    ("nv-hex-codes-place-extra", "Counts one more hexadecimal place than the code has.", AREA),
     (
         "nv-hex-groups-reversed",
         "Reads the groups of four bits from right to left, so the hexadecimal digits come out in reverse order.",
@@ -142,11 +145,6 @@ MISCONCEPTIONS = [
     ),
     ("nv-hex-digits-bits-over-two", "Divides the number of bits by 2 to count hexadecimal digits.", AREA),
     ("nv-hex-digits-one-extra", "Adds one hexadecimal digit to the count that is needed.", AREA),
-    (
-        "nv-hex-codes-swapped",
-        "Swaps the base and the exponent, working out the digit count to the power 16 instead of 16 to the power of the digit count.",
-        AREA,
-    ),
     (
         "nv-largest-top-place",
         "Gives the place value of the leading hexadecimal place (16 to the power k - 1) as the largest number.",
@@ -252,7 +250,20 @@ def hex_spread(key: str, candidates, count: int = 3, *, exact: bool = False) -> 
     ordered = [c for _, c in spread_order(kv, named, fillers, count)]
     if ties and rng.random() < 0.3:
         ordered[rng.randrange(min(count, len(ordered)))] = rng.choice(ties)
-    return hex_dist(key, ordered + usable, count)
+    dist = hex_dist(key, ordered + usable, count)
+    return _letters_fix(key, dist, near, exact)
+
+
+def _letters_fix(key: str, dist: list[Distractor], near, exact: bool) -> list[Distractor]:
+    """A key with a hexadecimal letter in it is not the only option that has one: a near numeral that has one takes the
+    place of the last digit-only wrong option (the draw is made again when there is none)."""
+    if not any(c.isalpha() for c in key) or any(any(c.isalpha() for c in d.text) for d in dist):
+        return dist
+    taken = {d.text.upper() for d in dist} | {key.upper()}
+    spare = next((c[0] for c in near if any(ch.isalpha() for ch in c[0]) and c[0].upper() not in taken), None)
+    if spare is None:
+        raise TooFewDistractors("no wrong hexadecimal numeral with a letter")
+    return [*dist[:-1], Distractor(spare, NEAR, [spare])]
 
 
 def _hex(n: int, width: int = 0) -> str:
@@ -272,6 +283,11 @@ def _dist(key, cands, lo=1, hi=None):
 def _spread(key, cands, lo=1, hi=None, count=3):
     fillers = [(key + d, NEAR) for d in (-4, -3, -2, -1, 1, 2, 3, 4)]
     ordered = spread_order(key, cands, fillers, count, lo=lo, hi=hi)
+    if len(ordered) >= count:  # the key is never the only power of two, or the only multiple of ten, among its options
+        inside = lambda pool: [(v, NEAR) for v in pool if v >= (lo or 1) and (hi is None or v <= hi) and v != key]  # noqa: E731
+        pow2 = inside([key * 4, key * 2, key // 2, key // 4]) if is_power_of_two(Fraction(key)) else []
+        tens = inside([key + 10, key - 10, key + 20, key - 20])
+        ordered = lone_property_fix(key, ordered, [(is_power_of_two, pow2), (is_multiple_of_ten, tens)], count)
     dist = num_dist(key, ordered, n=count)
     enough(dist)
     return dist
@@ -348,6 +364,7 @@ def _easy_values(rng):
         (2 * n, "nv-values-doubles-bits"),
         (2**n - 1, "nv-values-forgets-zero"),
         (2 ** (n - 1), "nv-values-half"),
+        (2 ** (n + 1), "nv-values-bit-extra"),
     ]
     dist = _dist(value, cands)
     stem = _num(
@@ -502,7 +519,7 @@ def _medium_hex_codes(rng):
         (16 * k, "nv-hex-codes-multiply"),
         (10**k, "nv-hex-codes-base-ten"),
         (16**k - 1, "nv-values-forgets-zero"),
-        (k**16 if k**16 < 10**7 else None, "nv-hex-codes-swapped"),
+        (16 ** (k + 1), "nv-hex-codes-place-extra"),
     ]
     dist = _dist(value, cands)
     stem = _num(
@@ -780,6 +797,7 @@ def _exam_chain(rng):
             (2 * bits, "nv-values-doubles-bits"),
             (values - 1, "nv-values-forgets-zero"),
             (values // 2, "nv-values-half"),
+            (values * 2, "nv-values-bit-extra"),
         ],
         lo=2,
     )

@@ -388,3 +388,66 @@ def test_exam_options_respect_each_part():
             if not signed and any(n <= 0 for n in nums):
                 bad.append(f"seed {seed} ({label}): non-positive option in {nums}")
     assert not bad, bad[:5]
+
+
+def _lone_properties(key, options, listed_values=()):
+    """Names of the properties the key has and no wrong option has."""
+    k, wrong = Fraction(key), [Fraction(o) for o in options]
+    checks = {
+        "a whole number": lambda v: v.denominator == 1,
+        "a multiple of 10": lambda v: v.denominator == 1 and v != 0 and v % 10 == 0,
+    }
+    if listed_values:
+        checks["a listed value"] = lambda v: v in {Fraction(x) for x in listed_values}
+    return [n for n, has in checks.items() if has(k) and not any(has(w) for w in wrong)]
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_key_is_never_the_only_option_with_a_property(tier):
+    bad = []
+    for seed in range(1000):
+        q = sup.tier_question(TOPIC, tier, seed)
+        if q.answer_text in NAMES:
+            continue
+        try:
+            values = () if "coded" in q.text else listed(q.text)  # the codes of a coded count are not its answer
+        except AttributeError:
+            values = ()
+        bad += [
+            f"seed {seed}: {n} {q.answer_text} {q.distractors}"
+            for n in _lone_properties(q.answer_text, q.distractors, values)
+        ]
+    assert not bad, bad[:5]
+
+
+def test_exam_key_is_never_the_only_option_with_a_property():
+    bad = []
+    for seed in range(1000):
+        q = sup.exam_question(EXAM, seed)
+        values = listed(q.text)
+        for label, p in zip("abcd", q.parts):
+            vals = values if label in "ab" else ()
+            bad += [f"seed {seed} ({label}): {n}" for n in _lone_properties(p.answer_text, p.distractors, vals)]
+    assert not bad, bad[:5]
+
+
+def test_mode_near_misses_come_from_the_printed_list():
+    """A plain near miss for a mode question is another value from the list; only the named slips may be unlisted."""
+    from mathgen.core import REGISTRY
+
+    checked = 0
+    for tier in ("easy", "medium", "hard"):
+        for seed in range(400):
+            q = sup.tier_question(TOPIC, tier, seed)
+            if q.answer_text in NAMES or not LIST.search(q.text):
+                continue
+            v = listed(q.text)
+            if modal(v) is None or Fraction(modal(v)) != Fraction(q.answer_text):
+                continue
+            raw = REGISTRY[TOPIC][1](random.Random(f"{TOPIC}:{tier}:{seed}"), tier=tier)
+            assert raw["text"] == q.text
+            for d in raw["distractors"]:
+                if d.misconception == "near-miss-value":
+                    assert int(Fraction(d.text)) in v, (seed, d.text, v)
+                    checked += 1
+    assert checked >= 50, checked

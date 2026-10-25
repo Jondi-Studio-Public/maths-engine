@@ -54,3 +54,46 @@ def spread_order(key, cands, fillers=(), count: int = 3, *, lo=None, hi=None):
 
     chosen = take(below, below_near, b) + take(above, above_near, count - b)
     return chosen + [c for c in named + nearer if c not in chosen]
+
+
+def lone_property_fix(key, ordered, props, count: int = 3, view=lambda v: v):
+    """`ordered` ([(value, tag)], the first `count` are the options shown) changed so the key is never the ONLY option
+    with a property: for each `(pred, pool)` in `props`, when `pred(key)` holds and none of the shown wrong values has it,
+    a wrong value that has it (from the rest of `ordered`, else from `pool`, a list of `(value, tag)`) takes the place of
+    one shown, never of the last shown value that gives another property its second holder.
+
+    `view` turns a value into what the learner sees (rounded to the stated places) before a property is tested.
+
+    Raises `TooFewDistractors` when no such value exists, so the caller's draw is made again."""
+    from ._w6a_kit import TooFewDistractors
+
+    k = Fraction(key)
+    pv = lambda v: view(Fraction(v))  # noqa: E731
+    shown, rest = list(ordered[:count]), list(ordered[count:])
+    for pred, pool in props:
+        if not pred(view(k)) or any(pred(pv(v)) for v, _ in shown):
+            continue
+        have = {pv(v) for v, _ in shown} | {view(k)}
+        options = [c for c in rest + list(pool) if pred(pv(c[0])) and pv(c[0]) not in have]
+        if not options:
+            raise TooFewDistractors("no wrong value shares the key's property")
+        pick = _RNG.get().choice(options) if _RNG.get() else options[0]  # any of them, so a side is not favoured
+        sole = [
+            i
+            for i, (v, _) in enumerate(shown)
+            if any(
+                pred2(k) and sum(pred2(Fraction(w)) for w, _ in shown) == 1 and pred2(Fraction(v)) for pred2, _ in props
+            )
+        ]
+        free = [i for i in range(len(shown)) if i not in sole] or list(range(len(shown)))
+        victim = _RNG.get().choice(free) if _RNG.get() else free[-1]
+        shown[victim] = pick
+    return shown + [c for c in ordered[count:] if c not in shown]
+
+
+def is_power_of_two(v: Fraction) -> bool:
+    return v.denominator == 1 and v >= 1 and (int(v) & (int(v) - 1)) == 0
+
+
+def is_multiple_of_ten(v: Fraction) -> bool:
+    return v.denominator == 1 and v != 0 and int(v) % 10 == 0
