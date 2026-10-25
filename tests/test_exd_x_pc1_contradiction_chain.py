@@ -181,3 +181,19 @@ def test_text_is_clean_and_deterministic(questions):
     for q in questions[:100]:
         assert find_text_defects(q) == [], q.text
     assert _exam(7).to_json() == _exam(7).to_json()
+
+
+def test_no_wrong_option_is_impossible_for_what_the_part_asks(questions):
+    for q in questions:
+        kind = family(q)
+        if kind == "linear":
+            d = int(q.parts[0].answer_text)
+            assert all(int(x) < d for x in q.parts[1].distractors), (q.text, q.parts[1].distractors)
+        if kind == "residue":
+            m = int(q.parts[0].prompt.split("divided by ")[1].rstrip("?"))
+            for p in (q.parts[0], q.parts[1], q.parts[2]):
+                assert all(int(x) < m for x in p.distractors), (q.text, p.label, p.distractors)
+        if kind == "euclid":
+            listed = [int(x) for x in re.search(r"(\d+(?:, \d+)+)", q.stem).group(1).split(", ")]
+            assert all(int(x) > 1 for x in q.parts[2].distractors)
+            assert all(str(p) != q.parts[1].answer_text for p in listed)

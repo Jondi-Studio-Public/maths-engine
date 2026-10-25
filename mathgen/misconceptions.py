@@ -60241,6 +60241,11 @@ _ENTRIES += (
         "Adds the x-coordinates of the minimum points when the maximum points were asked for.",
         area="senior-recognise-the-graphs-of-y-sin-x-y",
     ),
+    CatalogueEntry(
+        "tgx-halves-the-wrong-count",
+        "Gives half of the x-intercept count as the number of maximum points, instead of taking alternate turning points.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
 )
 
 #: Every entry, by id.

@@ -27,6 +27,7 @@ from sympy import factorint, isprime
 
 from ..core import attempts, check, generator
 from ._exd_x_pc_kit import count_part
+from ._spread_kit import uses_rng
 
 _PRIMES = (2, 3, 5, 7, 11, 13, 17, 19, 23)
 
@@ -76,7 +77,6 @@ def _euclid(rng: random.Random) -> dict:
             (sum(listed) + 1, "pcx-adds-instead-of-multiplying"),
             (product - 1, "pcx-subtracts-one"),
             (product + 2, None),
-            (m + product, None),
         ],
     )
     b = count_part(
@@ -168,13 +168,17 @@ def _linear(rng: random.Random) -> dict:
         1,
         [f"{const} = {count} × {d} + {r}, so the remainder is {r}."],
         [
-            (d - r, "pcx-remainder-from-above"),
-            (count, "pcx-quotient-for-remainder"),
-            (d, "pcx-takes-the-divisor-as-the-remainder"),
-            (r + 1, None),
-            (r + 2, None),
-            (max(r - 1, 0), None),
+            (v, tag)
+            for v, tag in (
+                (d - r, "pcx-remainder-from-above"),
+                (count, "pcx-quotient-for-remainder"),
+                (r + 1, None),
+                (r + 2, None),
+                (r - 1, None),
+            )
+            if 0 < v < d  # a remainder on division by d is always less than d
         ],
+        hi=d - 1,
         follow=f"{const} - part_a*floor({const}/part_a)",
     )
     c = count_part(
@@ -255,6 +259,7 @@ def _residue(rng: random.Random) -> dict:
             )
             if v < m
         ],
+        hi=m - 1,
     )
     b = count_part(
         f"How many different remainders can a perfect square leave when divided by {m}?",
@@ -265,13 +270,18 @@ def _residue(rng: random.Random) -> dict:
             f"That is {s} different remainders.",
         ],
         [
-            (m // 2 + 1, "pcx-assumes-half-the-residues-occur"),
-            (m, "pcx-assumes-every-remainder-occurs"),
-            (s + 1, "pcx-miscounts-the-residues"),
-            (s - 1, "pcx-miscounts-the-residues"),
-            (missing, "pcx-counts-the-missing-residues"),
-            (s + 2, None),
+            (v, tag)
+            for v, tag in (
+                (m // 2 + 1, "pcx-assumes-half-the-residues-occur"),
+                (s + 1, "pcx-miscounts-the-residues"),
+                (s - 1, "pcx-miscounts-the-residues"),
+                (missing, "pcx-counts-the-missing-residues"),
+                (s + 2, None),
+                (s - 2, None),
+            )
+            if v < m  # the remainder that makes the claim true is never a square remainder, so s < m
         ],
+        hi=m - 1,
     )
     c_part = count_part(
         f"Using your answer to part (b), how many of the remainders from 0 to {m - 1} can a perfect square never leave "
@@ -280,12 +290,16 @@ def _residue(rng: random.Random) -> dict:
         1,
         [f"{m} possible remainders, {s} of which occur, so {m} - {s} = {missing} never occur."],
         [
-            (s, "pcx-counts-the-possible-not-impossible"),
-            (m, "pcx-ignores-the-given-count"),
-            (missing + 1, None),
-            (missing - 1, None),
-            (missing + 2, None),
+            (v, tag)
+            for v, tag in (
+                (s, "pcx-counts-the-possible-not-impossible"),
+                (missing + 1, None),
+                (missing - 1, None),
+                (missing + 2, None),
+            )
+            if v < m  # remainder 0 is always a square remainder, so fewer than m remainders are impossible
         ],
+        hi=m - 1,
         follow=f"{m} - part_b",
     )
     d_part = count_part(
@@ -314,11 +328,12 @@ _BUILDERS = (_euclid, _linear, _residue)
 
 
 @generator("exd_x_pc1_contradiction_chain", level=13, presets={"exam": dict(tier="exam")})
+@uses_rng
 def exd_x_pc1_contradiction_chain(rng: random.Random, tier: str = "exam") -> dict:
     """See the module docstring. Only the exam tier exists."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    family = rng.choice(_BUILDERS)
+    family = rng.choice(_BUILDERS)  # noqa
     for _ in attempts(60, "a family draw with three usable wrong options per part"):
         try:
             return family(rng)

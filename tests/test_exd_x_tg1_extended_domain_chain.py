@@ -203,3 +203,17 @@ def test_text_is_clean_and_deterministic(questions):
     for q in questions[:100]:
         assert find_text_defects(q) == [], q.text
     assert _exam(7).to_json() == _exam(7).to_json()
+
+
+def test_no_wrong_option_is_impossible_for_what_the_part_asks(questions):
+    for q in questions:
+        a, b, c, d, e = q.parts
+        name = read(q)[0]
+        # maxima among alternating turning points: never all of them, and never more than the turning points
+        if name != "tan":
+            assert all(int(x) < int(b.answer_text) for x in c.distractors), (q.text, c.distractors)
+        else:
+            # pieces = asymptotes + 1, so the asymptote count itself is never a piece count worth offering
+            assert b.answer_text not in c.distractors, (q.text, c.distractors)
+        for p in q.parts[:4]:
+            assert all(int(x) > 0 for x in p.distractors)

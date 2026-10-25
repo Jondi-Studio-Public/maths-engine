@@ -7,11 +7,13 @@ from __future__ import annotations
 
 from ..answers import Distractor
 from ..core import GRADER_TOLERANCE, latex_answer, pick_distractors
+from ._spread_kit import mixed
 
 
-def count_part(prompt, key, marks, working, wrong, *, follow=None, want=3, signed=False):
+def count_part(prompt, key, marks, working, wrong, *, follow=None, want=3, signed=False, hi=None, exclude=()):
     """A ``number`` part whose key is a positive whole number (any non-zero whole number when ``signed``).
 
+    The caller's generator must be wrapped in ``uses_rng`` so the option split varies by seed.
     ``wrong`` lists ``(value, misconception id)`` in priority order. A value that is not a whole number (or not positive, unless ``signed``), or
     that the grader would accept for ``key``, is dropped. Returns None when fewer than ``want`` survive, so the
     caller draws again.
@@ -19,8 +21,18 @@ def count_part(prompt, key, marks, working, wrong, *, follow=None, want=3, signe
     key = int(key)
     text = str(key)
     cands = [
-        Distractor(str(int(v)), tag, int(v)) for v, tag in wrong if v is not None and (v > 0 or signed) and v == int(v)
+        Distractor(str(int(v)), tag, int(v))
+        for v, tag in wrong
+        if v is not None and (v > 0 or signed) and v == int(v) and int(v) not in exclude
     ]
+    # Spread the key's rank among the options: a random number of the named slips sit below it, the rest above it, with
+    # plain near misses filling a side that has too few (`hi` is the greatest value the part can take, if it has one).
+    near = [
+        Distractor(str(key + d), None, key + d)
+        for d in (-3, -2, -1, 1, 2, 3)
+        if (signed or key + d > 0) and key + d not in exclude
+    ]
+    cands = mixed(key, cands, want, near, lo=-(10**6) if signed else 1, hi=hi)
     picked = pick_distractors(text, cands, want, tolerance=GRADER_TOLERANCE)
     if len(picked) < want:
         return None

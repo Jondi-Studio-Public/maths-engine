@@ -52,6 +52,10 @@ CAP = {n: _cap(n) for n in range(3, 13)}
 
 _GEN = Path(__file__).resolve().parent.parent / "mathgen" / "generators"
 _FILES = {Path(f).name for f in glob.glob(str(_GEN / "*_build.py")) if re.match(r"(dg|eyz|gt|sc)_", Path(f).name)}
+# the two typed exam chains for proof by contradiction and for sin/cos/tan graphs (each family is judged on its own)
+_FILES |= {
+    Path(f).name for f in glob.glob(str(_GEN / "exd_x_*_chain.py")) if re.match(r"exd_x_(pc1|tg1)_", Path(f).name)
+}
 TOPICS = sorted(
     t
     for t, (_, fn) in REGISTRY.items()
@@ -251,9 +255,22 @@ def _kind(text: str) -> str:
     return " ".join(words[:4])
 
 
+def _family(q) -> str:
+    """The variant of a pc1/tg1 chain, read from its stem, so each family's parts are ranked apart from the others'."""
+    stem = q.text
+    if q.topic.startswith("exd_x_pc1"):
+        return "euclid" if "primes" in stem else "linear" if re.search(r"\d+m \+ \d+n", stem) else "residue"
+    if q.topic.startswith("exd_x_tg1"):
+        if "y = sin x" in stem or "greatest value of 1" in stem:
+            return "sine"
+        return "cosine" if "y = cos x" in stem or "crosses the y-axis" in stem else "tangent"
+    return ""
+
+
 def _units(q):
     if q.parts:
-        return [(f"p{i}", p.answer_text, p.distractors, p.prompt) for i, p in enumerate(q.parts)]
+        tag = _family(q)
+        return [(f"p{i}", p.answer_text, p.distractors, f"{tag} {p.prompt}".strip()) for i, p in enumerate(q.parts)]
     return [("q", q.answer_text, q.distractors, q.text)]
 
 

@@ -26,6 +26,7 @@ from fractions import Fraction
 
 from ..core import VerificationError, attempts, check, generator
 from ._exd_x_pc_kit import count_part
+from ._spread_kit import uses_rng
 from ._r3d_kit import pi_text
 
 _EPS = 1e-9
@@ -109,12 +110,12 @@ def _intro(rng: random.Random, name: str, domain: str) -> str:
 
 
 def _wave(rng: random.Random, name: str) -> dict:
-    for _ in attempts(1000, "a domain with at least three turning points"):
+    for _ in attempts(1000, "a domain with at least nine turning points"):
         lo2 = rng.randint(-16, 4)
-        hi2 = lo2 + rng.randint(6, 22)
-        if hi2 <= 14:
+        hi2 = lo2 + rng.randint(10, 22)
+        if hi2 <= 16:
             c = _wave_counts(name, lo2, hi2)
-            if c["turning"] >= 3 and c["zeros"] >= 3:
+            if c["turning"] >= 9 and c["zeros"] >= 3:
                 break
     lo, hi = Fraction(lo2, 2), Fraction(hi2, 2)
     width_periods = (hi2 - lo2) // 4
@@ -167,12 +168,15 @@ def _wave(rng: random.Random, name: str) -> dict:
         ],
         [
             (turning - maxima, "tgx-counts-minima-not-maxima"),
-            (turning, "tgx-counts-all-turning-points"),
+            (zeros // 2, "tgx-halves-the-wrong-count"),
             (maxima + 1, "tgx-rounds-the-alternation-the-wrong-way"),
             (turning // 2 + (0 if c["first_is_max"] else 1), None),
             (maxima - 1, None),
+            (maxima - 2, None),
+            (maxima + 2, None),
         ],
         follow=ft_max,
+        hi=turning - 1,  # turning points alternate, so some are minima
     )
     d = count_part(
         "How many points on the graph have y = 1/2?",
@@ -263,13 +267,14 @@ def _tan(rng: random.Random) -> dict:
         2,
         ["Each asymptote starts a new piece, and the piece before the first asymptote is also drawn."],
         [
-            (asym, "tgx-counts-asymptotes-not-pieces"),
+            (periods + 1, "tgx-counts-periods-not-features"),
             (asym + 2, "tgx-adds-one-per-end"),
             (zeros, "tgx-uses-the-zero-count"),
             (asym * 2, None),
             (pieces + 2, None),
         ],
         follow="part_b + 1",
+        exclude=(asym,),  # pieces = asymptotes + 1, so the asymptote count is never a piece count
     )
     d = count_part(
         "How many points on the graph have y = 1?",
@@ -315,6 +320,7 @@ def _tan(rng: random.Random) -> dict:
 
 
 @generator("exd_x_tg1_extended_domain_chain", level=13, presets={"exam": dict(tier="exam")})
+@uses_rng
 def exd_x_tg1_extended_domain_chain(rng: random.Random, tier: str = "exam") -> dict:
     """See the module docstring. Only the exam tier exists."""
     if tier != "exam":
