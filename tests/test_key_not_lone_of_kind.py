@@ -22,6 +22,10 @@ A key of 0 is exempt (it is the only 0 by construction; the same test checks the
 Parts whose options are fixed vocabulary words (odd / even / neither) are exempt. Complex kind is guarded outright: no
 draw may leave the key alone in its kind. Each feature is judged per value and also summed over its values ("*").
 
+Only the too-often rows, complex kind, the zero key and the strategy-edge bound are gates. The per-feature "key too
+rarely" rows are diagnostic only: they are printed and appended to $KEY_LONE_REPORT, never asserted. Seeds come from two
+disjoint windows (0-599 and 6400-6999, half the budget each) so a fix tuned to one range of seeds cannot pass.
+
 The same test plays the learner outright (strategies: eliminate the odd ones out, pick the most central, pick the most
 outlying) and bounds each at 6 points from chance. The too-rare side is a printed diagnostic, not an assert. Elimination: discard every option that is the only one with
 some feature, guess among the rest, and compare with chance (review 7 measured +10.7 points median on these skills, +3.3
@@ -46,6 +50,20 @@ from tests.test_option_rank_spread_128 import _complex, _number, _units
 
 SEEDS = 1200
 SEEDS_FOR = {"exd_nx_trig_sub_hsc": 700}  # 130 ms a call: fewer seeds keep the run under four minutes at -n 8
+# Two disjoint windows of seeds (half of SEEDS each), so that a fix tuned to one range of seeds cannot pass. The windows
+# can be moved for a held-out check: KEY_LONE_WINDOWS="3200,5200" starts the two windows there.
+WINDOW_STARTS = (0, 6400)
+
+
+def seeds_for(topic: str, starts=None) -> list:
+    """The seeds a source is judged on: two windows that share the budget (SEEDS_FOR, else SEEDS) between them."""
+    if starts is None:
+        env = os.environ.get("KEY_LONE_WINDOWS")
+        starts = tuple(int(x) for x in env.split(",")) if env else WINDOW_STARTS
+    each = SEEDS_FOR.get(topic, SEEDS) // len(starts)
+    return [s for start in starts for s in range(start, start + each)]
+
+
 MIN_KEY_COUNT = 5  # fewer lone-key draws than this is not evidence
 MIN_EXCESS = 0.01  # the key's lone count must beat the chance count by at least this share of the draws
 P_MAX = 1e-4  # ... and the binomial tail of the key's count under 1/n_options must be this small.
@@ -239,7 +257,8 @@ def _elimination(feats: list, texts: list) -> float:
     return 1 / len(alive) if 0 in alive else 0.0
 
 
-def _survey_uncached(topic: str, difficulty: str, params: dict, seeds=range(SEEDS)) -> dict:
+def _survey_uncached(topic: str, difficulty: str, params: dict, seeds=None) -> dict:
+    seeds = range(SEEDS) if seeds is None else seeds
     n_seen: Counter = Counter()
     n_opts: Counter = Counter()
     key_lone: dict = defaultdict(list)
@@ -404,7 +423,7 @@ def test_key_is_not_the_lone_option_of_its_kind(skill, src):
     chance in a part; a key of 0 is also offered as a wrong option. Diagnostic only, not asserted: the key being the lone
     holder too RARELY (the odd one out is almost never the key), printed under -s and appended to $KEY_LONE_REPORT."""
     topic, params = src["topic"], dict(src.get("params") or {})
-    result = survey(topic, src["difficulty"], params, range(SEEDS_FOR.get(topic, SEEDS)))
+    result = survey(topic, src["difficulty"], params, seeds_for(topic))
     name = f"{skill} / {topic} {src['difficulty']}"
     rows = tells(result)
     lines = [_fmt(r) for r in rows if r[3] != "key too rarely"]

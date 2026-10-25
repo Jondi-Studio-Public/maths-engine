@@ -26,12 +26,17 @@ sys.path.insert(0, str(ROOT))
 from tests import test_key_not_lone_of_kind as T  # noqa: E402
 
 SEEDS_ARG: int | None = None
+STARTS_ARG: tuple | None = None
 
 
 def _one(job):
     skill, src = job
-    seeds = SEEDS_ARG or T.SEEDS_FOR.get(src["topic"], T.SEEDS)
-    result = T.survey(src["topic"], src.get("difficulty"), dict(src.get("params") or {}), range(seeds))
+    if SEEDS_ARG:  # one window of this many seeds from each start (default: the test's own windows)
+        starts = STARTS_ARG or T.WINDOW_STARTS
+        seeds = [x for st in starts for x in range(st, st + SEEDS_ARG // len(starts))]
+    else:
+        seeds = T.seeds_for(src["topic"], STARTS_ARG)
+    result = T.survey(src["topic"], src.get("difficulty"), dict(src.get("params") or {}), seeds)
     rows = []
     for (label, strategy), (total, squares, draws) in sorted(result["elim"].items()):
         if draws >= 100:
@@ -51,12 +56,14 @@ def _jobs(skills: list[str] | None) -> list:
 
 
 def main() -> None:
-    global SEEDS_ARG
+    global SEEDS_ARG, STARTS_ARG
     ap = argparse.ArgumentParser()
     ap.add_argument("--skills", help="comma-separated skill ids (default: the six PR skills)")
     ap.add_argument("--seeds", type=int, help="seeds per source (default: the test's own)")
     ap.add_argument("--summary", action="store_true", help="also print the distribution of the per-part best edge")
+    ap.add_argument("--starts", help="comma-separated first seeds of the windows (default: the test's own)")
     args = ap.parse_args()
+    STARTS_ARG = tuple(int(x) for x in args.starts.split(",")) if args.starts else None
     SEEDS_ARG = args.seeds
     edges = []
     with Pool() as pool:

@@ -346,7 +346,7 @@ def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=No
     return ordered
 
 
-def _company(key, ordered, step, ok, view=None, custom=None, shift_cost=1.5, must=("mult5",)):
+def _company(key, ordered, step, ok, view=None, custom=None, shift_cost=1.5, must=("mult5", "near1", "near2")):
     """`ordered` with the key sharing, with a wrong option, its count of other options within 1 and within 2 and its being
     a multiple of 5 (`_company_kit`); the draw is made again when no wrong value can share the multiple of 5."""
     key = Fraction(key)

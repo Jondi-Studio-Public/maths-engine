@@ -252,7 +252,66 @@ def hex_spread(key: str, candidates, count: int = 3, *, exact: bool = False) -> 
     if ties and rng.random() < 0.3:
         ordered[rng.randrange(min(count, len(ordered)))] = rng.choice(ties)
     dist = hex_dist(key, ordered + usable, count)
-    return _letters_fix(key, dist, near, exact)
+    return _text_company(key, _letters_fix(key, dist, near, exact), n, width, exact, rng)
+
+
+def _text_features(text: str) -> tuple:
+    """What a learner sees of a numeral at a glance: its decimal digits, how it starts, whether it has a letter."""
+    lead = "numeric" if text.isdigit() else "coef" if text[0].isdigit() else "bare"
+    return (min(sum(c.isdigit() for c in text), 8), lead, any(c.isalpha() for c in text))
+
+
+def _text_company(key, dist, n, width, exact, rng, count=3):
+    """The key shares each of those three things with a wrong numeral: one or two wrong numerals are replaced, on the same
+    side of the key where possible, by nearby numerals that give it company (the draw is made again when none can)."""
+    kf = _text_features(key)
+
+    def lone(texts):
+        return [i for i in range(3) if not any(_text_features(t)[i] == kf[i] for t in texts)]
+
+    shown = list(dist)
+    if len(shown) < count or not lone([d.text for d in shown]):
+        return dist
+    taken = {d.text.upper() for d in shown} | {key.upper()}
+    kv = _test_value(key)
+    pool = []
+    for d in (1, 2, 3, 4, 5, 6, 7, 8, 16, 17, 32, 48, 64, 255, 256, 257, 512):
+        for sign in (-1, 1):
+            if n + sign * d > 0:
+                t = _hex(n + sign * d, width)
+                if t.upper() not in taken and not _reads_as_number(t) and _shape_ok(key, t, exact):
+                    if not _hex_accepts(key, t) and not _same_number(key, t):
+                        pool.append(t)
+    pool = list(dict.fromkeys(pool))
+    options = []
+    for i in range(count):
+        for t in pool:
+            options.append(((i,), (t,)))
+    for i, j in ((0, 1), (0, 2), (1, 2)):
+        for a in pool:
+            for b in pool:
+                if a != b:
+                    options.append(((i, j), (a, b)))
+    best, best_score = [], None
+    base_below = sum(_test_value(d.text) < kv for d in shown)
+    for idx, new in options:
+        texts = [d.text for d in shown]
+        for i, t in zip(idx, new):
+            texts[i] = t
+        if lone(texts):
+            continue
+        score = len(idx) * 3 + 4 * abs(sum(_test_value(t) < kv for t in texts) - base_below)
+        if best_score is None or score < best_score:
+            best, best_score = [(idx, new)], score
+        elif score == best_score:
+            best.append((idx, new))
+    if not best:
+        raise TooFewDistractors("no wrong numeral keeps the key company in digits, start and letters")
+    idx, new = rng.choice(best)
+    out = list(shown)
+    for i, t in zip(idx, new):
+        out[i] = Distractor(t, NEAR, [t])
+    return out
 
 
 def _letters_fix(key: str, dist: list[Distractor], near, exact: bool) -> list[Distractor]:
@@ -321,7 +380,7 @@ def _company(key, ordered, lo, hi, shift_cost=1.5):
         shift_cost=shift_cost,
         extra=NEAR_FEATURES,
         ok=lambda v: Fraction(v) != key and (lo or 1) <= v and (hi is None or v <= hi),
-        must=("mult5",),
+        must=("mult5", "ndigits", "near1", "near2"),
         balance=True,
         max_pool=14,
     )
