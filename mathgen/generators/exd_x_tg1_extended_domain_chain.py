@@ -224,10 +224,10 @@ def _wave(rng: random.Random, name: str) -> dict:
 def _tan(rng: random.Random) -> dict:
     for _ in attempts(1000, "a tangent domain with end points clear of the asymptotes"):
         lo4 = rng.randint(-24, 8)
-        hi4 = lo4 + rng.randint(8, 30)
+        hi4 = lo4 + rng.randint(16, 36)
         if lo4 % 4 != 2 and hi4 % 4 != 2 and hi4 <= 24:
             c = _tan_counts(lo4, hi4)
-            if c["asymptotes"] >= 2 and c["zeros"] >= 2 and c["one"] >= 2:
+            if c["asymptotes"] >= 5 and c["zeros"] >= 4 and c["one"] >= 4:
                 break
     lo, hi = Fraction(lo4, 4), Fraction(hi4, 4)
     domain = _domain_text(lo, hi)
@@ -272,6 +272,8 @@ def _tan(rng: random.Random) -> dict:
             (zeros, "tgx-uses-the-zero-count"),
             (asym * 2, None),
             (pieces + 2, None),
+            (pieces - 4, None),
+            (pieces - 5, None),
         ],
         follow="part_b + 1",
         exclude=(asym,),  # pieces = asymptotes + 1, so the asymptote count is never a piece count

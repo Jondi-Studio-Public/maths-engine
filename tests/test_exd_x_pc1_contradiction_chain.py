@@ -62,8 +62,8 @@ def oracle(q) -> dict[str, str]:
     mod = int(re.search(r"divided by (\d+)", q.parts[0].prompt).group(1))
     squares = {(n * n) % mod for n in range(2 * mod)}
     needed = next(r for r in range(mod) if (r + c) % mod == 0)
-    k = next(k for k in range(1, mod + 1) if any((n * n + k) % mod == 0 for n in range(mod)))
-    return {"a": str(needed), "b": str(len(squares)), "c": str(mod - len(squares)), "d": str(k)}
+    ks = [k for k in range(1, mod + 1) if any((n * n + k) % mod == 0 for n in range(mod))]
+    return {"a": str(needed), "b": str(len(squares)), "c": str(mod - len(squares)), "d": str(ks[0] + ks[1])}
 
 
 @pytest.fixture(scope="module")
@@ -197,3 +197,6 @@ def test_no_wrong_option_is_impossible_for_what_the_part_asks(questions):
             listed = [int(x) for x in re.search(r"(\d+(?:, \d+)+)", q.stem).group(1).split(", ")]
             assert all(int(x) > 1 for x in q.parts[2].distractors)
             assert all(str(p) != q.parts[1].answer_text for p in listed)
+            # part (b) says the answer is a prime outside the list, so no option may be a listed prime or a non-prime
+            for x in q.parts[1].distractors:
+                assert _is_prime(int(x)) and int(x) not in listed, (q.text, q.parts[1].distractors)

@@ -59972,11 +59972,6 @@ _ENTRIES += (
         area="senior-use-proof-by-contradiction",
     ),
     CatalogueEntry(
-        "pcx-assumes-every-remainder-occurs",
-        "Takes a perfect square to leave every possible remainder on division by m, so no remainder is ruled out.",
-        area="senior-use-proof-by-contradiction",
-    ),
-    CatalogueEntry(
         "pcx-assumes-half-the-residues-occur",
         "Takes about half of the remainders mod m to be square remainders without squaring the residues to see which occur.",
         area="senior-use-proof-by-contradiction",
@@ -60017,18 +60012,8 @@ _ENTRIES += (
         area="senior-use-proof-by-contradiction",
     ),
     CatalogueEntry(
-        "pcx-ignores-the-given-count",
-        "Answers with the modulus m, as though no remainder were excluded, without using the number of square remainders from the earlier part.",
-        area="senior-use-proof-by-contradiction",
-    ),
-    CatalogueEntry(
         "pcx-miscounts-the-residues",
         "Misses or double counts one of the square remainders when squaring the residues mod m.",
-        area="senior-use-proof-by-contradiction",
-    ),
-    CatalogueEntry(
-        "pcx-picks-a-listed-prime",
-        "Gives the smallest prime of the assumed list as the smallest prime factor of M, although every listed prime leaves remainder 1.",
         area="senior-use-proof-by-contradiction",
     ),
     CatalogueEntry(
@@ -60082,11 +60067,6 @@ _ENTRIES += (
         area="senior-use-proof-by-contradiction",
     ),
     CatalogueEntry(
-        "pcx-takes-m-as-the-prime",
-        "Gives M itself as the smallest prime factor of M, without testing the smaller primes.",
-        area="senior-use-proof-by-contradiction",
-    ),
-    CatalogueEntry(
         "pcx-takes-the-cofactor",
         "Gives the cofactor M divided by its smallest prime factor, when the smallest prime factor itself was asked for.",
         area="senior-use-proof-by-contradiction",
@@ -60094,11 +60074,6 @@ _ENTRIES += (
     CatalogueEntry(
         "pcx-takes-the-difference",
         "Gives the difference of the coefficients as the number dividing A m + B n for every m and n.",
-        area="senior-use-proof-by-contradiction",
-    ),
-    CatalogueEntry(
-        "pcx-takes-the-divisor-as-the-remainder",
-        "Gives the divisor itself as the remainder, as though the division were exact up to one more unit.",
         area="senior-use-proof-by-contradiction",
     ),
     CatalogueEntry(
@@ -60122,11 +60097,6 @@ _ENTRIES += (
         area="senior-use-proof-by-contradiction",
     ),
     CatalogueEntry(
-        "pcx-takes-the-trivial-multiple",
-        "Gives k = m, the trivial value (n = 0 works for it), without looking for a smaller k that a square remainder allows.",
-        area="senior-use-proof-by-contradiction",
-    ),
-    CatalogueEntry(
         "tgx-adds-a-partial-cycle-solution",
         "Counts one solution too many by treating the part of a cycle cut off at an end of the domain as if it still held both solutions of the equation.",
         area="senior-recognise-the-graphs-of-y-sin-x-y",
@@ -60134,16 +60104,6 @@ _ENTRIES += (
     CatalogueEntry(
         "tgx-adds-one-per-end",
         "Adds one piece for each end of the domain on top of the pieces the asymptotes make, so counts the pieces at the ends twice.",
-        area="senior-recognise-the-graphs-of-y-sin-x-y",
-    ),
-    CatalogueEntry(
-        "tgx-counts-all-turning-points",
-        "Gives the number of all the turning points when only the maximum points were asked for.",
-        area="senior-recognise-the-graphs-of-y-sin-x-y",
-    ),
-    CatalogueEntry(
-        "tgx-counts-asymptotes-not-pieces",
-        "Gives the number of asymptotes as the number of separate pieces of the graph, forgetting that n asymptotes cut the graph into n + 1 pieces.",
         area="senior-recognise-the-graphs-of-y-sin-x-y",
     ),
     CatalogueEntry(
@@ -60245,6 +60205,21 @@ _ENTRIES += (
         "tgx-halves-the-wrong-count",
         "Gives half of the x-intercept count as the number of maximum points, instead of taking alternate turning points.",
         area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "pcx-adds-the-trivial-multiple",
+        "Adds k = m, the trivial value that always works (n = 0), to the smallest k, instead of the second smallest k that works.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-gives-only-the-smallest",
+        "Gives one of the two values of k asked for, instead of their sum.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-next-prime-after-the-list",
+        "Gives the next prime after the largest listed prime as the new prime, without testing whether it divides M.",
+        area="senior-use-proof-by-contradiction",
     ),
 )
 

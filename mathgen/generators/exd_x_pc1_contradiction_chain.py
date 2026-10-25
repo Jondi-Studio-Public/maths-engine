@@ -23,13 +23,13 @@ import math
 import random
 from itertools import combinations
 
-from sympy import factorint, isprime
+from sympy import factorint, isprime, nextprime as next_prime
 
 from ..core import attempts, check, generator
 from ._exd_x_pc_kit import count_part
 from ._spread_kit import uses_rng
 
-_PRIMES = (2, 3, 5, 7, 11, 13, 17, 19, 23)
+_PRIMES = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31)
 
 
 def _list_text(values) -> str:
@@ -43,20 +43,25 @@ def _smallest_factor(m: int) -> int:
 def _euclid(rng: random.Random) -> dict:
     for _ in attempts(1000, "a prime list whose product plus one is composite"):
         size = rng.choice((3, 3, 4, 4, 5))
-        if rng.random() < 0.3:
+        if rng.random() < 0.15:
             listed = _PRIMES[:size]
         else:
-            listed = (2, *sorted(rng.sample(_PRIMES[1:8], size - 1)))
+            listed = (2, *sorted(rng.sample(_PRIMES[1:], size - 1)))
         product = math.prod(listed)
         m = product + 1
         if not isprime(m):
-            break
+            below = [p for p in range(2, _smallest_factor(m)) if isprime(p) and p not in listed]
+            if len(below) >= 3:  # room below the key for wrong primes, so its rank is not fixed
+                break
     low = _smallest_factor(m)
     cofactor = m // low
     check(low not in listed and cofactor > 1, "the smallest factor of M must be new")
     check(all(m % p == 1 for p in listed), "M must leave remainder 1 on division by every listed prime")
     factors = factorint(m)
     largest = max(factors)
+    # primes outside the list near the key: the options of a "smallest prime factor" are primes, none of them listed
+    nearby = [p for p in range(2, low) if isprime(p) and p not in listed][-3:]
+    nearby += [p for p in range(low + 1, low + 80) if isprime(p) and p not in listed][:3]
     stem = rng.choice(
         (
             f"To prove by contradiction that there are infinitely many primes, suppose that the only primes are "
@@ -88,13 +93,12 @@ def _euclid(rng: random.Random) -> dict:
             f"Trial division of {m}: the smallest prime factor is {low}, a prime that was not on the list.",
         ],
         [
-            (listed[0], "pcx-picks-a-listed-prime"),
             (largest, "pcx-takes-the-largest-factor"),
-            (m, "pcx-takes-m-as-the-prime"),
+            (next_prime(max(listed)), "pcx-takes-the-next-prime-after-the-list"),
             (cofactor, "pcx-takes-the-cofactor"),
-            (low + 1, None),
-            (low + 2, None),
+            *[(p, None) for p in nearby],
         ],
+        ok=lambda v: isprime(v) and v not in listed,  # the part says the answer is a prime outside the list
     )
     c = count_part(
         "Write M = p × q, where p is your answer to part (b). Find q.",
@@ -226,12 +230,13 @@ def _residue(rng: random.Random) -> dict:
         c = rng.randint(1, 3 * m)
         squares = {(n * n) % m for n in range(m)}
         if c % m and (-c) % m not in squares and len(squares) < m - 1:
-            if next(k for k in range(1, m + 1) if (-k) % m in squares) >= 2:
+            good = [k for k in range(1, m + 1) if (-k) % m in squares]
+            if good[0] + good[1] >= 7:
                 break
     needed = (-c) % m
     s = len(squares)
     missing = m - s
-    k = next(k for k in range(1, m + 1) if (-k) % m in squares)
+    k1, k2 = [k for k in range(1, m + 1) if (-k) % m in squares][:2]
     check(needed not in squares and 0 in squares, "the needed remainder must be one a square cannot leave")
     stem = rng.choice(
         (
@@ -303,20 +308,21 @@ def _residue(rng: random.Random) -> dict:
         follow=f"{m} - part_b",
     )
     d_part = count_part(
-        f"What is the smallest positive integer k for which {m} could divide n² + k for some integer n?",
-        k,
+        f"What is the sum of the two smallest positive integers k for which {m} could divide n² + k "
+        "for some integer n?",
+        k1 + k2,
         2,
         [
             f"We need -k mod {m} to be a remainder a square can leave: one of {_list_text(sorted(squares))}.",
-            f"The smallest k that works is {k}.",
+            f"The two smallest k that work are {k1} and {k2}, which add to {k1 + k2}.",
         ],
         [
-            (m, "pcx-takes-the-trivial-multiple"),
-            (needed, "pcx-reuses-the-earlier-remainder"),
+            (k1, "pcx-gives-only-the-smallest"),
+            (k1 + m, "pcx-adds-the-trivial-multiple"),
+            (needed + k1, "pcx-reuses-the-earlier-remainder"),
             (c, "pcx-reuses-the-claim-constant"),
-            (k + 1, None),
-            (k + 2, None),
-            (k - 1, None),
+            (k2, "pcx-gives-only-the-smallest"),
+            (m + k2, "pcx-adds-the-trivial-multiple"),
         ],
     )
     if a is None or b is None or c_part is None or d_part is None:
