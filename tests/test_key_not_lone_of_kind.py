@@ -110,11 +110,14 @@ def _items(text: str) -> list | None:
 
 @functools.lru_cache(maxsize=None)
 def _num(t: str):
-    v = _number(t)
-    if v is not None:
-        return complex(v)
-    if re.search(r"(?<![A-Za-z])\d*i\b", t) and re.fullmatch(r"[0-9a-z()*/+\-.^ −√]*", t):
-        return _complex(t)
+    try:
+        v = _number(t)
+        if v is not None:
+            return complex(v)
+        if re.search(r"(?<![A-Za-z])\d*i\b", t) and re.fullmatch(r"[0-9a-z()*/+\-.^ −√]*", t):
+            return _complex(t)
+    except Exception:  # noqa: BLE001 - text the readers cannot parse (tokenizer errors) is simply not a number
+        return None
     return None
 
 
