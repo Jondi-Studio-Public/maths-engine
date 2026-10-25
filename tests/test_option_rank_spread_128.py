@@ -1,5 +1,5 @@
 """Where the key sits among the wrong options, for every topic of the data-display, early-years, graph-transformation
-and senior-statistics builds (`dg_*`, `eyz_*`, `gt_*`, `sc_*`), and whether the wrong options are possible at all.
+and senior-statistics builds (`dg_*`, `eyz_*`, `gt_*`, `sc_*`, `nv_*`, `nx_*`, `vm_*`), and whether the wrong options are possible at all.
 
 A generator that lists its slips "likeliest first" gives the key the same rank on every seed (always the smallest
 option, always second-largest), so a learner can pick it without the maths. `mathgen/generators/_spread_kit.py` draws a
@@ -51,7 +51,9 @@ def _cap(n_options: int) -> float:
 CAP = {n: _cap(n) for n in range(3, 13)}
 
 _GEN = Path(__file__).resolve().parent.parent / "mathgen" / "generators"
-_FILES = {Path(f).name for f in glob.glob(str(_GEN / "*_build.py")) if re.match(r"(dg|eyz|gt|sc)_", Path(f).name)}
+_FILES = {
+    Path(f).name for f in glob.glob(str(_GEN / "*_build.py")) if re.match(r"(dg|eyz|gt|sc|nv|nx|vm)_", Path(f).name)
+}
 TOPICS = sorted(
     t
     for t, (_, fn) in REGISTRY.items()
@@ -150,6 +152,17 @@ def _expression(text):
         return None
 
 
+def _complex(text):
+    """The value of a complex number written ``a + bi`` (with fractions and surds), else None."""
+    t = re.sub(r"(?<=[\d)])i\b", "*I", text.replace("\u221a", "sqrt"))
+    t = re.sub(r"(?<![\w*])i\b", "I", t)
+    try:
+        value = parse_expr(t, local_dict={"I": sp.I, "sqrt": sp.sqrt}, transformations=_TRANSFORMS)
+        return complex(value)
+    except (sp.SympifyError, TypeError, ValueError, SyntaxError, ZeroDivisionError):
+        return None
+
+
 def features(text) -> dict | None:
     """What an option stands for as numbers, so that the key's place among the options can be ranked for ANY answer kind.
 
@@ -160,6 +173,8 @@ def features(text) -> dict | None:
     text = str(text).strip()
     if (v := _number(text)) is not None:
         return {"value": v}
+    if re.fullmatch(r"[0-9A-F]*[A-F][0-9A-F]*", text):  # a hexadecimal numeral with a letter: ordered by its value
+        return {"value": float(int(text, 16))}
     if m := re.fullmatch(r"x = (\S+), y = (\S+)", text):
         x, y = _frac(m.group(1)), _frac(m.group(2))
         return {"y": y, "x": x} if x is not None and y is not None else None
@@ -193,6 +208,12 @@ def features(text) -> dict | None:
     if re.fullmatch(r"-?[\d./]+(, -?[\d./]+)+", text):
         nums = [_frac(i) for i in text.split(", ")]
         return {"size": float(len(nums)), "greatest": max(nums), "least": min(nums)}
+    if re.fullmatch(r"[0-9a-z()*/+\-.^ ]*\d*i\)?|-?\d+", text) and re.search(
+        r"(?<![a-z])\d*i\b|\bi\b", text
+    ):  # a complex number
+        z = _complex(text)
+        if z is not None:
+            return {"re": z.real, "im": z.imag}
     if re.search(r"\bx\b", text):  # an expression in x: its values at two points, and its length
         if (at := _expression(text)) is None:
             return None
