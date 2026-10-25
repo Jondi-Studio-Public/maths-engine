@@ -148,7 +148,7 @@ def nums(prompt, values, marks, working, wrong, lo=None, hi=None, zero_ok=False,
         wrong = [
             (list(v), t)
             for v, t in keep_company(
-                key, [(tuple(vs), t) for vs, t in wrong], _choice_or_perturbed(key, choice, exclude)
+                key, [(tuple(vs), t) for vs, t in wrong], _choice_or_perturbed(key, choice, exclude), near=not choice
             )
         ]
     return words_part(prompt, values, marks, working, wrong)
