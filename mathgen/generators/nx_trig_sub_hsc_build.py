@@ -25,6 +25,8 @@ import math
 import re
 from fractions import Fraction
 
+import random
+
 import sympy
 from sympy import Rational as R
 from sympy import atan, cos, pi, sin, sqrt, tan
@@ -35,6 +37,7 @@ from ._r3b_kit import (
     Itg,
     Redraw,
     exact_fields,
+    expr_dist,
     integral_math,
     integral_text,
     part,
@@ -229,6 +232,47 @@ def _span(f, lo, hi):
     return R(0), R(int(float(top) * 300), 100) + 1
 
 
+_TWIN_FACTORS = tuple(R(a, b) for a in range(1, 10) for b in range(1, 10) if a != b)
+
+
+def _digits(text: str) -> int:
+    return sum(ch.isdigit() for ch in text)
+
+
+def _with_digit_twin(key, out, rng, *, lo, hi, room=None):
+    """Make sure one wrong option prints with as many digits as the key (so the key is not the lone one-digit, or
+    six-digit, option): a wrong option is swapped for the key times a small ratio of the same digit count and shape."""
+    key = sympy.sympify(key)
+    want_digits = _digits(expr_dist(key, NEAR, False).text)
+    if any(_digits(d.text) == want_digits for d in out):
+        return out
+    taken = {sympy.nsimplify(sympy.sympify(d.text)) for d in out} | {key}
+    pool = []
+    for m in _TWIN_FACTORS:
+        v = key * m
+        d = expr_dist(v, NEAR, False)
+        if _digits(d.text) != want_digits or v in taken:
+            continue
+        if (lo is not None and v < lo) or (hi is not None and v > hi):
+            continue
+        if room is not None and _denominator(v) > room:
+            continue
+        if _shape(sympy.sympify(d.text)) != _shape(key):
+            continue
+        pool.append(d)
+    if not pool:
+        raise Redraw("no wrong option with the key's digit count")
+    out = list(out)
+    out[rng.randrange(len(out))] = rng.choice(pool)
+    return out
+
+
+def _spread_rng(key):
+    from ._spread_kit import _RNG
+
+    return _RNG.get() or random.Random(str(key))
+
+
 def _pick_values(key, cands):
     """Three wrong exact values (value, tag pairs) for a constant such as 1/a^3."""
     key = sympy.sympify(key)
@@ -239,7 +283,7 @@ def _pick_values(key, cands):
     # the key must not be the only whole number (or the only fraction) among its options
     if not any((sympy.sympify(d.text).is_integer) == key.is_integer for d in out):
         raise Redraw("the key is the only option of its shape")
-    return out
+    return _with_digit_twin(key, out, _spread_rng(key), lo=0, hi=None)
 
 
 _STANDARD_ANGLES = (pi / 12, pi / 6, pi / 4, pi / 3, 5 * pi / 12, pi / 2, pi / 8, 3 * pi / 8)
@@ -292,7 +336,7 @@ def _options(key, cands, rng, *, lo, hi, ceiling_value=None):
     out = pick_expr(key, False, mixed(key, cands, fillers=near, lo=lo, hi=hi))
     if not any(_shape(sympy.sympify(d.text)) == _shape(key) for d in out):
         raise Redraw("the key is the only option of its shape")
-    return out
+    return _with_digit_twin(key, out, rng, lo=lo, hi=hi, room=room)
 
 
 def _value_slips(kind, a, alpha, beta, lo_x, hi_x):

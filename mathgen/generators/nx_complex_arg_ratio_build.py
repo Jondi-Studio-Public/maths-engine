@@ -22,6 +22,8 @@ from __future__ import annotations
 import cmath
 import math
 
+import re
+
 import sympy
 
 from ..core import attempts, check, generator, paren_negative, phrase, pick_distractors
@@ -95,6 +97,14 @@ def _gaussian(z) -> bool:
     return bool(sympy.re(z).is_integer and sympy.im(z).is_integer)
 
 
+def _signature(text: str, z):
+    """What a learner can read off an option without working: its kind and how many digits it prints."""
+    return _kind(z), len(re.findall(r"\d", text))
+
+
+_STANDARD_DEGREES = (30, 45, 60, 90, 120, 135, 150)
+
+
 def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, step=(1, 2, 3)):
     """`n` wrong options with the key's place among them drawn at random, not left to the order of the slips.
 
@@ -121,17 +131,19 @@ def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, s
             if f.text not in used:
                 used.add(f.text)
                 keep.append(f)
-        # a real key must not be the only real option, nor a pure-imaginary key the only pure-imaginary one
-        kind = _kind(keyz)
-        if kind != "mixed" and not any(_kind(sympy.sympify(d.value)) == kind for d in keep):
-            step = [gaussian(o, 0) if kind == "real" else gaussian(0, o) for o in rng.sample([-3, -2, -1, 1, 2, 3], 6)]
-            for delta in step:
-                z = keyz + delta
+        # a twin: one wrong option of the key's own kind and digit count, so the key is never the lone real / imaginary /
+        # mixed option nor the lone one-digit (or digit-free) option
+        sig = _signature(answer_text, keyz)
+        if not any(_signature(d.text, sympy.sympify(d.value)) == sig for d in keep):
+            for off in rng.sample(_OFFSETS, len(_OFFSETS)):
+                z = keyz + gaussian(int(off.real), int(off.imag))
                 f = cdist(z, NEAR)
-                if f.text not in used and _kind(z) == kind and _gaussian(z) == _gaussian(keyz):
+                if f.text not in used and _signature(f.text, z) == sig and _gaussian(z) == _gaussian(keyz):
                     drop = next((d for d in reversed(keep) if d.misconception == NEAR), keep[-1])
                     keep[keep.index(drop)] = f
                     break
+            else:
+                want(False, "no twin for the key")
         rng.shuffle(keep)
         want(len(keep) >= 2, "too few options")
         return keep
@@ -159,6 +171,16 @@ def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, s
     want(low <= high, "no split")
     below = rng.randint(low, high)
     out = pool_b[:below] + pool_a[: n - below]
+    if (
+        lo is not None
+        and hi is not None
+        and key in _STANDARD_DEGREES
+        and not any(d.value in _STANDARD_DEGREES for d in out)
+    ):
+        # an angle key that is a standard angle keeps company: one wrong option is a standard angle too
+        twins = [v for v in _STANDARD_DEGREES if v != key and lo < v < hi and v not in {d.value for d in out}]
+        want(bool(twins), "no standard-angle twin")
+        out[rng.randrange(len(out))] = _num(rng.choice(twins), NEAR)
     rng.shuffle(out)
     return out
 
