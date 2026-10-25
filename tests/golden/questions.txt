@@ -6262,18 +6262,18 @@
 {"answer": "1.2", "id": "position-time-graph-velocity/medium/0/d7b9b198cd26", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
 {"answer": "5.4", "id": "position-time-graph-velocity/medium/1/44046c140fb2", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
 {"answer": "1.8", "id": "position-time-graph-velocity/medium/2/2720e67747e6", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
-{"answer": "1", "id": "power-function-graph-features/easy/0/e91a2a8fb6f1", "text": "Let f(x) = 3x^(-4/3). Write 1 if f is even, 2 if f is odd and 3 if f is neither."}
-{"answer": "3", "id": "power-function-graph-features/easy/1/63f3a3f0b7e3", "text": "Let f(x) = -2x^(3/2). Write 1 if f is even, 2 if f is odd and 3 if f is neither."}
-{"answer": "3", "id": "power-function-graph-features/easy/2/5687e9b0939d", "text": "Let f(x) = x^(-3/4). Write 1 if f is even, 2 if f is odd and 3 if f is neither."}
-{"answer": "(a) -128; (b) 2; (c) 6; (d) 4/3", "id": "power-function-graph-features/exam/0/a26814777abd", "text": "The graph of y = ax^(-3), where a is a constant, passes through the point (4, -…"}
-{"answer": "(a) -2592; (b) -32; (c) 7; (d) 6", "id": "power-function-graph-features/exam/1/c5b4a9c67684", "text": "A function has the rule y = ax^(-4), where a is a constant. Its graph passes th…"}
-{"answer": "(a) -144; (b) -9; (c) 7; (d) 12", "id": "power-function-graph-features/exam/2/d862d26f2ac5", "text": "The graph of y = ax^(-2), where a is a constant, passes through the point (4, -…"}
+{"answer": "neither", "id": "power-function-graph-features/easy/0/224111f3fc46", "text": "Let f(x) = -2x^(5/2). Is f odd, even or neither? Answer with one of the words o…"}
+{"answer": "odd", "id": "power-function-graph-features/easy/1/7f610082c2b0", "text": "Let f(x) = 4x^(-1/3). Is f odd, even or neither? Answer with one of the words o…"}
+{"answer": "neither", "id": "power-function-graph-features/easy/2/90359d2cbdc2", "text": "Let f(x) = -x^(1/2). Is f odd, even or neither? Answer with one of the words od…"}
+{"answer": "(a) -128; (b) 2; (c) 2, 4; (d) 4/3", "id": "power-function-graph-features/exam/0/392ae2488840", "text": "The graph of y = ax^(-3), where a is a constant, passes through the point (4, -…"}
+{"answer": "(a) -2592; (b) -32; (c) 3, 4; (d) 6", "id": "power-function-graph-features/exam/1/4203e35114f7", "text": "A function has the rule y = ax^(-4), where a is a constant. Its graph passes th…"}
+{"answer": "(a) -144; (b) -9; (c) 3, 4; (d) 12", "id": "power-function-graph-features/exam/2/b0b25e70bc26", "text": "The graph of y = ax^(-2), where a is a constant, passes through the point (4, -…"}
 {"answer": "1", "id": "power-function-graph-features/hard/0/8db8a3100412", "text": "Let y = 8(x - 3)^(-3) + 1. Find the x-coordinate of the right-most x-intercept."}
-{"answer": "1", "id": "power-function-graph-features/hard/1/ab0764d66bb6", "text": "Starting from y = x^(-1), the graph is stretched by a factor of 3 away from the…"}
+{"answer": "1", "id": "power-function-graph-features/hard/1/c357350bda65", "text": "Starting from y = x^(-1), the graph is stretched by a factor of 3 away from the…"}
 {"answer": "54", "id": "power-function-graph-features/hard/2/ae25e15e6c4a", "text": "Let f(x) = 9x^(1/3). The graph of y = f(x) meets the line y = x at several poin…"}
-{"answer": "7", "id": "power-function-graph-features/medium/0/9a2553dbf33e", "text": "Let y = -x^(4/3). The graph lies in some of the four quadrants. Add together th…"}
-{"answer": "7", "id": "power-function-graph-features/medium/1/29eb3c771422", "text": "Let y = -3x^(2/3). The graph lies in some of the four quadrants. Add together t…"}
-{"answer": "2", "id": "power-function-graph-features/medium/2/6ad34999b963", "text": "Let y = -(x + 2)^(-2) - 4. Its vertical asymptote is x = h and its horizontal a…"}
+{"answer": "1", "id": "power-function-graph-features/medium/0/9ba37d23a825", "text": "Let y = 3x^(3/4). State the quadrants in which the graph lies, as quadrant numb…"}
+{"answer": "1, 2", "id": "power-function-graph-features/medium/1/517f76e7f78a", "text": "Let y = 4x^(4/3). State the quadrants in which the graph lies, as quadrant numb…"}
+{"answer": "-2, -4", "id": "power-function-graph-features/medium/2/3323b995f92c", "text": "Let y = -(x + 2)^(-2) - 4. Give the x-value of the vertical asymptote x = h, th…"}
 {"answer": "9", "id": "power-functions-rational-index/easy/0/97c5a2ea0d63", "text": "The function f is defined by f(x) = x^(2/3). Find f(27)."}
 {"answer": "25", "id": "power-functions-rational-index/easy/1/40e73e8ea403", "text": "Let f(x) = x^(2/3). Find f(125)."}
 {"answer": "8", "id": "power-functions-rational-index/easy/2/fccacc8aee30", "text": "The function f is defined by f(x) = x^(3/2). Find f(4)."}
@@ -11905,9 +11905,9 @@
 {"answer": "3", "id": "trig-substitution-hsc-tan-and-convert/easy/0/33cea81376f8", "text": "The substitution x = 3tan(θ) gives √(9 + x^2) = k sec(θ). What is the constant …"}
 {"answer": "4", "id": "trig-substitution-hsc-tan-and-convert/easy/1/a96b49380a58", "text": "The substitution x = 2sin(θ) turns ∫ √(4 - x^2) dx into ∫ k cos^2(θ) dθ for a c…"}
 {"answer": "7", "id": "trig-substitution-hsc-tan-and-convert/easy/2/107740f05356", "text": "With the substitution x = 7sin(θ), √(49 - x^2) = k cos(θ). Find k."}
-{"answer": "(a) 1/512; (b) pi/4; (c) (pi + 2)/8; (d) (pi + 2)/4096", "id": "trig-substitution-hsc-tan-and-convert/exam/0/04e9b46faec9", "text": "The integral ∫ from 0 to 8 of 1/(64 + x^2)^2 dx is to be found using the substi…"}
-{"answer": "(a) 1/512; (b) pi/6; (c) (2*pi + 3*sqrt(3))/24; (d) (2*pi +…", "id": "trig-substitution-hsc-tan-and-convert/exam/1/1ec1af15df40", "text": "The integral ∫ from 0 to 8√3/3 of 1/(64 + x^2)^2 dx is to be found using the su…"}
-{"answer": "(a) 16; (b) pi/3; (c) (4*pi + 3*sqrt(3))/24; (d) 2*(4*pi/3 …", "id": "trig-substitution-hsc-tan-and-convert/exam/2/ecc6a047a58b", "text": "The integral ∫ from 0 to 2√3 of √(16 - x^2) dx is to be found using the substit…"}
+{"answer": "(a) 1/3375; (b) pi/4; (c) (pi + 2)/8; (d) (pi + 2)/27000", "id": "trig-substitution-hsc-tan-and-convert/exam/0/5d7aa46caa30", "text": "The integral ∫ from 0 to 15 of 1/(225 + x^2)^2 dx is to be found using the subs…"}
+{"answer": "(a) 1/3375; (b) pi/6; (c) (2*pi + 3*sqrt(3))/24; (d) (2*pi …", "id": "trig-substitution-hsc-tan-and-convert/exam/1/97916bee233f", "text": "The integral ∫ from 0 to 5√3 of 1/(225 + x^2)^2 dx is to be found using the sub…"}
+{"answer": "(a) 64; (b) pi/3; (c) (4*pi + 3*sqrt(3))/24; (d) 8*(4*pi/3 …", "id": "trig-substitution-hsc-tan-and-convert/exam/2/4e72634124f2", "text": "The integral ∫ from 0 to 4√3 of √(64 - x^2) dx is to be found using the substit…"}
 {"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/0/0119c9c36408", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
 {"answer": "(3 - sqrt(3))/48", "id": "trig-substitution-hsc-tan-and-convert/hard/1/81c3169fc50f", "text": "By a suitable trigonometric substitution, find the exact value of ∫ from 2 to 2…"}
 {"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/2/0e1a5fe4262f", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}

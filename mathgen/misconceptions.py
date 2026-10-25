@@ -60952,36 +60952,6 @@ _ENTRIES += (
     ),
     # nv-summary block end
     CatalogueEntry(
-        "vm-pf-a-sign-lost",
-        "Losing the sign of a when it is found from the given point.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-negative-index-as-positive",
-        "Reading x^(-n) as x^n, multiplying by the power of x instead of dividing by it.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-intercept-reads-given-point",
-        "Giving the x-coordinate of the given point as the intercept of the translated graph.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-intercept-scaled-wrong-way",
-        "Multiplying the given x-coordinate by the scale factor of the intercept instead of dividing by it.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-trap-right-rectangle-confused",
-        "Giving the right-rectangle sum when the program is a trapezium sum.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-a-extra-power",
-        "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a.",
-        area="graph-features",
-    ),
-    CatalogueEntry(
         "vm-pf-quadrant-right-branch-only",
         "Giving only the quadrant to the right of the y-axis and leaving out the branch for x < 0.",
         area="graph-features",
