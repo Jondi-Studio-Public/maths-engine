@@ -214,6 +214,8 @@ def _wave(rng: random.Random, name: str) -> dict:
             (ksum - 2, None),
         ],
         signed=True,
+        ok=lambda v: v % 4 == ksum % 4,  # maxima sit at 4n or 4n + 1 half-pi, so the sum's class mod 4 is fixed
+        step=4,
     )
     if None in (a, b, c_part, d, e):
         raise ValueError("retry")
@@ -314,6 +316,8 @@ def _tan(rng: random.Random) -> dict:
             (usum - 4, None),
         ],
         signed=True,
+        ok=lambda v: v % 4 == usum % 4,  # the points are 1 + 4n quarter-pi, so the sum is the count mod 4
+        step=4,
     )
     if None in (a, b, c_part, d, e):
         raise ValueError("retry")

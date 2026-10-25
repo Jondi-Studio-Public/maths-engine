@@ -113,6 +113,8 @@ def _euclid(rng: random.Random) -> dict:
             (cofactor - 1, None),
         ],
         follow=f"{m}/part_b",
+        lo=2,
+        hi=m // 2,  # M = p × q with p a prime, so q is at most M / 2
     )
     if a is None or b is None or c is None:
         raise ValueError("retry")
@@ -121,13 +123,13 @@ def _euclid(rng: random.Random) -> dict:
 
 def _linear(rng: random.Random) -> dict:
     for _ in attempts(1000, "coefficients with a common factor that misses the constant"):
-        g = rng.choice((2, 3, 4, 5, 6, 7, 8, 9))
-        p, q = rng.sample(range(1, 10), 2)
+        g = rng.choice((8, 9, 10, 11, 12))
+        p, q = rng.sample(range(3, 10), 2)
         if math.gcd(p, q) != 1:
             continue
         a_coef, b_coef = g * p, g * q
-        const = rng.randint(15, 220)
-        if const % g == 0:
+        const = rng.randint(60, 300)
+        if not 4 <= const % g <= g - 4:  # room on both sides of the remainder, and below the next multiple of g
             continue
         break
     # The largest whole number dividing A m + B n for every integer m, n is found from the values themselves.
@@ -159,11 +161,11 @@ def _linear(rng: random.Random) -> dict:
         ],
         [
             (min(a_coef, b_coef), "pcx-takes-the-smaller-coefficient"),
-            (math.lcm(a_coef, b_coef), "pcx-takes-lcm-for-gcd"),
             (abs(a_coef - b_coef) if abs(a_coef - b_coef) != d else None, "pcx-takes-the-difference"),
             (d + 1, None),
             (d * 2, None),
         ],
+        hi=min(a_coef, b_coef),  # a number dividing A m + B n for every m, n divides A (m = 1, n = 0), so is at most A
     )
     b = count_part(
         f"If the assumption were true, {const} would be divisible by your answer to part (a). "
@@ -202,6 +204,7 @@ def _linear(rng: random.Random) -> dict:
             (count + 2, None),
         ],
         follow=f"floor({const}/part_a)",
+        hi=const // 2,  # the divisor is at least 2, so at most half of 1..C are multiples of it
     )
     e = count_part(
         f"What is the smallest integer greater than {const} that can be written in the form {expr}?",
@@ -211,13 +214,13 @@ def _linear(rng: random.Random) -> dict:
             f"It must be a multiple of {d}. The multiples of {d} either side of {const} are {count * d} and {least_above}."
         ],
         [
-            (count * d, "pcx-takes-the-multiple-below"),
             (const + 1, "pcx-takes-the-next-integer"),
             (const + r, "pcx-adds-the-remainder"),
             (const + d, "pcx-adds-the-divisor"),
             (least_above + d, None),
         ],
         follow=f"(floor({const}/part_a) + 1)*part_a",
+        lo=const + 1,  # the stem asks for an integer greater than C
     )
     if a is None or b is None or c is None or e is None:
         raise ValueError("retry")
@@ -286,6 +289,7 @@ def _residue(rng: random.Random) -> dict:
             )
             if v < m  # the remainder that makes the claim true is never a square remainder, so s < m
         ],
+        lo=2,  # 0 and 1 are always square remainders
         hi=m - 1,
     )
     c_part = count_part(
@@ -304,7 +308,7 @@ def _residue(rng: random.Random) -> dict:
             )
             if v < m  # remainder 0 is always a square remainder, so fewer than m remainders are impossible
         ],
-        hi=m - 1,
+        hi=m - 2,  # 0 and 1 are always square remainders, so at most m - 2 remainders are impossible
         follow=f"{m} - part_b",
     )
     d_part = count_part(
@@ -324,6 +328,8 @@ def _residue(rng: random.Random) -> dict:
             (k2, "pcx-gives-only-the-smallest"),
             (m + k2, "pcx-adds-the-trivial-multiple"),
         ],
+        lo=3,  # two different positive integers
+        hi=2 * m - 1,  # k never exceeds m, so the two smallest add to at most (m - 1) + m
     )
     if a is None or b is None or c_part is None or d_part is None:
         raise ValueError("retry")

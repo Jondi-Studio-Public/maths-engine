@@ -60062,11 +60062,6 @@ _ENTRIES += (
         area="senior-use-proof-by-contradiction",
     ),
     CatalogueEntry(
-        "pcx-takes-lcm-for-gcd",
-        "Gives the lowest common multiple of the coefficients as the number dividing A m + B n for every m and n.",
-        area="senior-use-proof-by-contradiction",
-    ),
-    CatalogueEntry(
         "pcx-takes-the-cofactor",
         "Gives the cofactor M divided by its smallest prime factor, when the smallest prime factor itself was asked for.",
         area="senior-use-proof-by-contradiction",
@@ -60079,11 +60074,6 @@ _ENTRIES += (
     CatalogueEntry(
         "pcx-takes-the-largest-factor",
         "Gives the largest prime factor of M as the smallest.",
-        area="senior-use-proof-by-contradiction",
-    ),
-    CatalogueEntry(
-        "pcx-takes-the-multiple-below",
-        "Gives the multiple of the divisor just below C instead of the one just above it.",
         area="senior-use-proof-by-contradiction",
     ),
     CatalogueEntry(
