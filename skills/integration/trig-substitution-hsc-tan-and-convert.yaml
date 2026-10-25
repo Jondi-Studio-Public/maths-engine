@@ -1,0 +1,115 @@
+id: trig-substitution-hsc-tan-and-convert
+name: 'Trigonometric substitution: convert the integral, then evaluate with x = a tan(theta) or a sin(theta)'
+domain: integration
+year_level:
+- '12'
+description: 'Use x = a sin(theta) and x = a tan(theta) on integrals of 1/(a^2 + x^2), 1/(a^2 + x^2)^2, sqrt(a^2 - x^2), x^2/sqrt(a^2
+  - x^2), 1/sqrt(a^2 - x^2) and 1/(a^2 - x^2)^(3/2): convert the integrand, dx and the limits, then find the exact value of
+  the definite integral.'
+status: active
+placement_eligible: false
+prerequisites:
+- integrate-substitution-rewrite-x
+- integrate-trig-powers
+- definite-integral-substitution-changed-limits
+answer: expression
+sources:
+- topic: nx_trig_sub_hsc
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: nx_trig_sub_hsc
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: nx_trig_sub_hsc
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_nx_trig_sub_hsc
+  params: {tier: exam}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: nx-tsub-a-multiplied-not-divided
+  description: Multiplies by the constant a where the substitution divides by it (or the reverse), giving a times the angle
+    difference instead of the angle difference over a.
+- id: nx-tsub-amplitude-cubed
+  description: 'Raises the constant to the third power: multiplies the a squared from the root and the a squared from the
+    sine or cosine squared, instead of the root''s a and dx''s a.'
+- id: nx-tsub-amplitude-not-squared
+  description: 'Gives a where a squared is needed: the root and dx each carry a factor a, but only one of them is counted.'
+- id: nx-tsub-complement-angle
+  description: Takes the angle from the wrong side of the right triangle, giving 90 degrees minus the correct angle (the angle
+    whose cosine, not sine, or cotangent, not tangent, matches).
+- id: nx-tsub-constant-inverted
+  description: Divides the integral of cos squared by the constant k instead of multiplying by it.
+- id: nx-tsub-constant-not-applied
+  description: Gives the integral of cos squared theta alone, leaving out the constant k carried over from the substitution.
+- id: nx-tsub-derivative-factor-wrong
+  description: Writes the wrong constant in dx, a squared in place of a or 1 in place of a, forgetting that x = a times a
+    trig function has derivative a times the derivative of that function.
+- id: nx-tsub-double-angle-not-halved
+  description: Integrates cos 2 theta to sin 2 theta, forgetting to divide by 2, so the sin 2 theta term is twice its size.
+- id: nx-tsub-dx-factor-a-dropped
+  description: Leaves the factor a out of dx = a sec squared theta dtheta (or a cos theta dtheta), so the answer has one factor
+    of a too few in the numerator.
+- id: nx-tsub-half-dropped
+  description: Leaves out the factor 1/2 from cos squared theta = (1 + cos 2 theta)/2 (or sin squared theta), doubling the
+    integral.
+- id: nx-tsub-identity-sign
+  description: Gets the sign of the sin 2 theta term wrong when integrating cos squared theta or sin squared theta.
+- id: nx-tsub-identity-term-dropped
+  description: Integrates cos squared or sin squared as theta/2 and leaves out the sin 2 theta term.
+- id: nx-tsub-limit-double-angle
+  description: Doubles the angle for the new limit of theta.
+- id: nx-tsub-limit-half-angle
+  description: Halves the angle for the new limit of theta.
+- id: nx-tsub-limit-not-converted
+  description: Keeps the x-value as the limit for theta instead of finding the angle that gives it.
+- id: nx-tsub-limits-not-changed
+  description: Integrates in theta but substitutes the original x-limits into the antiderivative.
+- id: nx-tsub-limits-swapped
+  description: Subtracts the limits the wrong way round, giving the negative of the integral.
+- id: nx-tsub-lower-limit-ignored
+  description: Evaluates the antiderivative at the upper limit only, forgetting to subtract its value at the non-zero lower
+    limit.
+- id: nx-tsub-power-not-squared
+  description: Squares the denominator a squared plus x squared but then treats it as a single power of sec squared theta,
+    so the integrand stays 1/a times 1 instead of cos squared theta.
+- id: nx-tsub-power-of-a-wrong
+  description: Uses the wrong power of a in front of the integral, for example a to the first power where a cubed or a squared
+    arises.
+- id: nx-tsub-reciprocal-a-added
+  description: Divides by a in an integral whose substitution leaves no factor of a, such as 1/sqrt(a squared minus x squared).
+- id: nx-tsub-reciprocal-a-dropped
+  description: Leaves out the factor of 1/a (or 1/a squared) that comes from the substitution, giving the bare angle difference.
+- id: nx-tsub-sec-squared-integrated-as-sin
+  description: Integrates sec squared theta to sin theta instead of tan theta.
+- id: nx-tsub-sec-squared-integrated-as-theta
+  description: Integrates sec squared theta to theta, as if it were a constant.
+- id: nx-tsub-substitution-not-squared
+  description: Gives a squared where a (or a where a squared) belongs, by squaring the constant in the substitution only part
+    of the time.
+difficulty_progression: 'Easy gives the substitution and asks for one step of the conversion: the constant in the converted
+  integrand, in dx or in a piece such as the root, or the new upper or lower limit of theta. Medium gives the substitution
+  and asks for an exact value of 1/(a^2 + x^2), 1/sqrt(a^2 - x^2) or the quarter circle sqrt(a^2 - x^2) between limits. Hard
+  gives no substitution and uses 1/(a^2 + x^2)^2, sqrt(a^2 - x^2) and x^2/sqrt(a^2 - x^2) with non-zero lower limits, and
+  1/(a^2 - x^2)^(3/2), where cos squared and sec squared must be integrated. The exam chain finds k, the new upper limit,
+  the integral of cos squared up to it (following through from the limit) and the value (following through from k and that
+  integral).'
+tags:
+- integration
+- trigonometric-substitution
+- definite-integrals
+- nsw-extension-2
+- exact-values

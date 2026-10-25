@@ -320,6 +320,14 @@ bisection-interval-update:
     module: mathgen/generators/university_scientific_computing.py
   - topic: exd_x_u4_bisection_steps
     module: mathgen/generators/exd_x_u4_bisection_steps.py
+bits-hex-and-digit-counts:
+  domain: number-theory
+  status: active
+  sources:
+  - topic: nv_bits_hex_counts
+    module: mathgen/generators/nv_bits_hex_build.py
+  - topic: exd_x_nv_bits_hex_counts
+    module: mathgen/generators/nv_bits_hex_build.py
 bnpl-fees-and-instalments:
   domain: financial-discrete
   status: active
@@ -438,6 +446,14 @@ choose-sampling-method:
     module: mathgen/generators/ir2a_choose_sampling_method_build.py
   - topic: exd_x_ir2a_choose_sampling_method
     module: mathgen/generators/ir2a_choose_sampling_method_build.py
+choose-summary-statistic-for-data:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: nv_summary_choice
+    module: mathgen/generators/nv_summary_choice_build.py
+  - topic: exd_x_nv_summary_choice
+    module: mathgen/generators/nv_summary_choice_build.py
 circle-area-to-diameter-and-circumference:
   domain: measurement
   status: active
@@ -646,6 +662,14 @@ completing-square-and-discriminant:
     module: mathgen/generators/r3g_quadratic_forms_build.py
   - topic: r3g_exam_quadratic_forms
     module: mathgen/generators/r3g_quadratic_forms_build.py
+complex-arg-ratio-geometry:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: nx_complex_arg_ratio
+    module: mathgen/generators/nx_complex_arg_ratio_build.py
+  - topic: exd_nx_complex_arg_ratio
+    module: mathgen/generators/nx_complex_arg_ratio_build.py
 complex-conjugate:
   domain: senior-mathematics
   status: active
@@ -4344,6 +4368,14 @@ position-time-graph-velocity:
     module: mathgen/generators/sr2b_position_time_build.py
   - topic: sr2b_exam_position_time
     module: mathgen/generators/sr2b_position_time_build.py
+power-function-graph-features:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: vm_power_graph_features
+    module: mathgen/generators/vm_power_graph_features_build.py
+  - topic: vm_power_graph_features_exam
+    module: mathgen/generators/vm_power_graph_features_build.py
 power-functions-rational-index:
   domain: functions-sequences
   status: active
@@ -4500,6 +4532,14 @@ propositional-truth-evaluation:
     module: mathgen/generators/university_foundations.py
   - topic: exd_x_sc4_prop_eval
     module: mathgen/generators/exd_x_sc4_propositional.py
+pseudocode-trace-output:
+  domain: functions-sequences
+  status: active
+  sources:
+  - topic: vm_pseudocode_trace
+    module: mathgen/generators/vm_pseudocode_trace_build.py
+  - topic: vm_pseudocode_trace_exam
+    module: mathgen/generators/vm_pseudocode_trace_build.py
 pythagoras-truss-chain:
   domain: trigonometry
   status: active
@@ -7982,6 +8022,14 @@ trig-equations-radians-list:
     module: mathgen/generators/r3g_trig_equations_build.py
   - topic: r3g_exam_trig_equations
     module: mathgen/generators/r3g_trig_equations_build.py
+trig-substitution-hsc-tan-and-convert:
+  domain: integration
+  status: active
+  sources:
+  - topic: nx_trig_sub_hsc
+    module: mathgen/generators/nx_trig_sub_hsc_build.py
+  - topic: exd_nx_trig_sub_hsc
+    module: mathgen/generators/nx_trig_sub_hsc_build.py
 two-by-two-eigenvalues:
   domain: linear-algebra
   status: active

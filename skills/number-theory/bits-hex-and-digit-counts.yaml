@@ -1,0 +1,122 @@
+id: bits-hex-and-digit-counts
+name: Bits, hexadecimal and digit counts
+domain: number-theory
+year_level:
+- '10'
+- '11'
+- '12'
+description: Find how many bits a number needs, the largest value and the number of different values that n bits can hold,
+  and write numbers in hexadecimal as typed text (letters in either case, leading zeros kept when a width is stated), including
+  six-digit colour codes and the largest n-bit number in hexadecimal.
+status: active
+placement_eligible: false
+prerequisites:
+- number-bases-primes-and-divisors
+answer: mcq
+sources:
+- topic: nv_bits_hex_counts
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: nv_bits_hex_counts
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: nv_bits_hex_counts
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_nv_bits_hex_counts
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: nv-bits-log-rounded-down
+  description: Takes the bits needed for a number as the whole part of its base-2 logarithm, one too few.
+- id: nv-bits-counts-decimal-digits
+  description: Gives the number of decimal digits of the number as the number of bits.
+- id: nv-bits-one-extra
+  description: Adds a bit for the number zero or for a sign, giving one bit too many.
+- id: nv-bits-power-boundary
+  description: Gives the exponent when the number is a power of two (256 as 8 bits), forgetting that 256 itself needs a ninth
+    bit.
+- id: nv-bits-divides-by-eight
+  description: Divides the number by 8, treating the number of bits as the number of bytes.
+- id: nv-largest-is-power
+  description: Gives 2 to the power n as the largest value n bits can hold, which is the number of values (the largest is
+    one less).
+- id: nv-largest-half
+  description: Gives 2 to the power (n - 1) as the largest value n bits can hold, the value of the top bit alone.
+- id: nv-largest-linear
+  description: Gives 2n - 1 as the largest value, doubling the number of bits instead of using powers of two.
+- id: nv-values-squares
+  description: Gives n squared as the number of different values n bits can hold.
+- id: nv-values-doubles-bits
+  description: Gives 2n as the number of different values n bits can hold.
+- id: nv-values-forgets-zero
+  description: Gives 2 to the power n, less one, as the number of values, leaving out the value zero.
+- id: nv-hex-remainders-reversed
+  description: Writes the remainders of repeated division by 16 in the order found, not from the last to the first.
+- id: nv-hex-letter-misvalue
+  description: Gives a hexadecimal letter the wrong value (for example B as 12), so a digit is one out.
+- id: nv-hex-decimal-digits
+  description: Writes the decimal digits of the number as if they were already hexadecimal digits.
+- id: nv-hex-groups-from-left
+  description: Groups the binary digits in fours from the left, so the groups do not line up with the place values.
+- id: nv-hex-groups-of-three
+  description: Groups the binary digits in threes (octal digits) when writing a hexadecimal numeral.
+- id: nv-hex-digits-rounded-down
+  description: Divides the number of bits by 4 and rounds down, one hexadecimal digit too few.
+- id: nv-hex-digits-bits-over-three
+  description: Divides the number of bits by 3 (octal grouping) to count hexadecimal digits.
+- id: nv-hex-codes-multiply
+  description: Multiplies the number of digits by 16 instead of using 16 to that power.
+- id: nv-hex-codes-base-ten
+  description: Uses 10 to the power of the digit count, as if the digits were decimal.
+- id: nv-values-bit-extra
+  description: Counts the values of one more bit than there is, giving twice as many.
+- id: nv-hex-codes-place-extra
+  description: Counts one more hexadecimal place than the code has.
+- id: nv-hex-groups-reversed
+  description: Reads the groups of four bits from right to left, so the hexadecimal digits come out in reverse order.
+- id: nv-hex-padding-wrong-side
+  description: Pads a short numeral with zeros on the right, changing its value.
+- id: nv-hex-top-digit-f
+  description: Writes the largest n-bit number with every hexadecimal digit as F, ignoring that the top digit holds fewer
+    bits.
+- id: nv-hex-top-digit-power
+  description: Uses 2 to the power of the leftover bits as the top digit instead of one less.
+- id: nv-unused-off-by-one
+  description: Counts the unused values of a bit pattern as 2 to the power n minus the largest reading, forgetting that zero
+    is a value.
+- id: nv-colour-channels-swapped
+  description: Writes the colour channels in the wrong order in the hexadecimal code.
+- id: nv-largest-two-less
+  description: Takes two away from 2 to the power n, not one, to get the largest n-bit value.
+- id: nv-values-half
+  description: Gives 2 to the power (n - 1) as the number of values, leaving out the two choices of one bit.
+- id: nv-hex-last-digit-dropped
+  description: Stops the repeated division by 16 one step early, leaving off the leading digit (the last one found).
+- id: nv-hex-digits-bits-over-two
+  description: Divides the number of bits by 2 to count hexadecimal digits.
+- id: nv-hex-digits-one-extra
+  description: Adds one hexadecimal digit to the count that is needed.
+- id: nv-largest-top-place
+  description: Gives the place value of the leading hexadecimal place (16 to the power k - 1) as the largest number.
+- id: nv-hex-top-digit-count
+  description: Uses the number of leftover bits as the top hexadecimal digit instead of the largest value they hold.
+- id: nv-unused-gives-reading
+  description: Gives the largest reading as the number of unused values.
+- id: near-miss-value
+  description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method
+    behind the slip.'

@@ -1,0 +1,97 @@
+id: choose-summary-statistic-for-data
+name: Choose a summary statistic for data
+domain: statistics-probability
+year_level:
+- '10'
+- '11'
+- '12'
+description: Choose the mode, median or mean from the type of variable, the shape of the data and what the figure is for (nominal
+  categories, ordered ratings, skewed values with an outlier, balanced values when a total is wanted, a repeated count), work
+  out the value of the chosen measure, and find the better measure when a claimed one does not suit the data.
+status: active
+placement_eligible: false
+prerequisites:
+- classify-data
+- calculate-mean
+- calculate-median
+- calculate-mode
+answer: mcq
+sources:
+- topic: nv_summary_choice
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: nv_summary_choice
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: nv_summary_choice
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_nv_summary_choice
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: nv-mean-of-categories
+  description: Treats the categories of a nominal variable as numbers that can be averaged.
+- id: nv-median-of-unordered-categories
+  description: Looks for the middle category of a nominal variable, which has no order.
+- id: nv-range-as-centre
+  description: Gives a measure of spread (the range, interquartile range or standard deviation) where a measure of centre
+    was asked for.
+- id: nv-mean-for-skewed
+  description: Uses the mean for data with one extreme value, although the extreme value drags the mean away from a typical
+    value.
+- id: nv-mode-ignores-order
+  description: Gives the most common rating where the middle rating was needed.
+- id: nv-median-for-total
+  description: Uses the median where a total is wanted; the total comes from the mean times the number of values.
+- id: nv-removes-outlier
+  description: Throws away the extreme value and averages the rest, instead of using the median of all the values.
+- id: nv-mean-for-most-common
+  description: Gives the mean where the most common value was needed.
+- id: nv-median-for-most-common
+  description: Gives the median where the most common value was needed.
+- id: nv-largest-as-centre
+  description: Gives the largest value as the typical value.
+- id: nv-mean-of-codes
+  description: Gives the count for the category nearest the mean code, as if the mean code named a category.
+- id: nv-median-of-codes
+  description: Gives the count for the category at the middle code, as if the middle code named a category.
+- id: nv-count-of-another-category
+  description: Gives the count of a category that is not the most common one.
+- id: nv-median-unsorted
+  description: Takes the middle of the list as written, without putting the values in order first.
+- id: nv-median-one-middle
+  description: Takes one of the two middle values of an even count instead of the number halfway between them.
+- id: nv-median-wrong-position
+  description: Takes the value one place away from the middle of the ordered list.
+- id: nv-mean-wrong-count
+  description: Divides the total by a count that is one out.
+- id: nv-wrong-measure
+  description: Works out a different measure of centre from the one that was asked for.
+- id: nv-difference-reversed
+  description: Subtracts in the wrong order, giving the median minus the mean.
+- id: nv-total-of-sample
+  description: Gives the total of the listed values as the total for the larger number of items.
+- id: nv-percent-of-mean
+  description: Finds the excess as a percentage of the mean instead of the median.
+- id: nv-difference-not-percent
+  description: Gives the difference itself where a percentage of the median was asked.
+- id: nv-ratio-not-excess
+  description: Gives the mean as a percentage of the median, not the excess over it.
+- id: near-miss-value
+  description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method
+    behind the slip.'

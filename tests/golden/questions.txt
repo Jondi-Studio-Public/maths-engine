@@ -415,6 +415,18 @@
 {"answer": "left = 5/2, right = 5", "id": "bisection-interval-update/medium/0/e0d66a7f9ae1", "text": "For f(x) = x² − 19, the current positive bracket is [0, 5]. Perform one bisecti…"}
 {"answer": "left = 5/2, right = 5", "id": "bisection-interval-update/medium/1/f261b3900ddf", "text": "For f(x) = x² − 22, the current positive bracket is [0, 5]. Perform one bisecti…"}
 {"answer": "left = 5/2, right = 5", "id": "bisection-interval-update/medium/2/12da0b1cd4bc", "text": "For f(x) = x² − 17, the current positive bracket is [0, 5]. Perform one bisecti…"}
+{"answer": "11", "id": "bits-hex-and-digit-counts/easy/0/2159116bec1f", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
+{"answer": "11", "id": "bits-hex-and-digit-counts/easy/1/de8d5a19f3d7", "text": "A counter stores a whole number in binary. How many bits does it need to be abl…"}
+{"answer": "11", "id": "bits-hex-and-digit-counts/easy/2/a2a748fc573a", "text": "A scoreboard counts whole numbers from 0 up to 1181, stored in binary. What is …"}
+{"answer": "(a) 14; (b) 16384; (c) 246; (d) 3F09", "id": "bits-hex-and-digit-counts/exam/0/0aea5034b01d", "text": "The logger in a pedometer that reports a whole number of steps stores each read…"}
+{"answer": "(a) 14; (b) 16384; (c) 6690; (d) 4", "id": "bits-hex-and-digit-counts/exam/1/1a7f11b3b8ed", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
+{"answer": "(a) 14; (b) 16384; (c) 6580; (d) 264B", "id": "bits-hex-and-digit-counts/exam/2/5185a32ead94", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
+{"answer": "4095", "id": "bits-hex-and-digit-counts/hard/0/0da7e9caf828", "text": "What is the largest whole number (in decimal) that can be written with 3 hexade…"}
+{"answer": "071", "id": "bits-hex-and-digit-counts/hard/1/2bf30d896364", "text": "Write 113 in hexadecimal using exactly 3 digits (put zeros in front if needed).…"}
+{"answer": "0AA", "id": "bits-hex-and-digit-counts/hard/2/0d1d5e3f6d04", "text": "A serial number is stored as a 3-digit hexadecimal numeral. What is the serial …"}
+{"answer": "8", "id": "bits-hex-and-digit-counts/medium/0/4b252a3f3893", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
+{"answer": "7", "id": "bits-hex-and-digit-counts/medium/1/5894a46c1a95", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
+{"answer": "3", "id": "bits-hex-and-digit-counts/medium/2/a41783baa9fb", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
 {"answer": "91.50", "id": "bnpl-fees-and-instalments/easy/0/e50861e21c66", "text": "Sophie buys a set of bike lights and a helmet for $360 using a buy-now-pay-late…"}
 {"answer": "96.50", "id": "bnpl-fees-and-instalments/easy/1/347d0de65b29", "text": "Sophie buys a robot vacuum cleaner for $380 using a buy-now-pay-later plan. The…"}
 {"answer": "107.00", "id": "bnpl-fees-and-instalments/easy/2/ac46872e4622", "text": "Liam buys a games console controller bundle for $420 using a buy-now-pay-later …"}
@@ -559,6 +571,18 @@
 {"answer": "(a) Census; (b) 9", "id": "choose-sampling-method/medium/0/95b86d02813a", "text": "The Wattle Park Sports Club has 45 members. Isla arranges to interview each of …"}
 {"answer": "(a) Census; (b) 39", "id": "choose-sampling-method/medium/1/4748fc245992", "text": "The Shire of Marlow has 234 residents. Liam arranges to interview each of them …"}
 {"answer": "(a) Stratified random sample; (b) 4", "id": "choose-sampling-method/medium/2/604358746e22", "text": "Banksia Secondary College has 80 students, split by year levels into 20 in Year…"}
+{"answer": "647.0", "id": "choose-summary-statistic-for-data/easy/0/70174fe0781e", "text": "Here are the sale prices, in thousands of dollars, of five houses on one street…"}
+{"answer": "18.0", "id": "choose-summary-statistic-for-data/easy/1/e941f2bde936", "text": "A newspaper lists the weekly pocket money, in dollars, of five students: 8, 143…"}
+{"answer": "3.0", "id": "choose-summary-statistic-for-data/easy/2/1f8c406ca376", "text": "Here are the numbers of goals scored by a team in five games: 3, 3, 1, 8, 7. Wh…"}
+{"answer": "(a) 26.5; (b) 26.0; (c) 1590.0; (d) 30.0", "id": "choose-summary-statistic-for-data/exam/0/59bd504275c5", "text": "A planner lists the distances, in kilometres, cycled by a club member on ten ri…"}
+{"answer": "(a) 21.0; (b) 21.5; (c) 1260.0; (d) -30.0", "id": "choose-summary-statistic-for-data/exam/1/a351fdeb6494", "text": "A planner lists the daily rainfall, in millimetres, recorded over ten days at a…"}
+{"answer": "(a) 99.0; (b) 78.5; (c) 20.5; (d) 26.1", "id": "choose-summary-statistic-for-data/exam/2/b67e3f0797d7", "text": "A researcher lists the annual salaries, in thousands of dollars, of ten staff a…"}
+{"answer": "5", "id": "choose-summary-statistic-for-data/hard/0/1d4f8f2f4d07", "text": "A survey recorded the flavour of pie chosen at a bakery, coded 1 = beef, 2 = ch…"}
+{"answer": "4", "id": "choose-summary-statistic-for-data/hard/1/297010134c67", "text": "A school asks eleven parents how satisfied they are with a camp, from 1 (very d…"}
+{"answer": "18.5", "id": "choose-summary-statistic-for-data/hard/2/f9bc54409934", "text": "A report says the typical weekly pocket money is 28.0, taken from the weekly po…"}
+{"answer": "610.0", "id": "choose-summary-statistic-for-data/medium/0/1e4c17a7f94e", "text": "These are the sale prices, in thousands of dollars, of ten houses on one street…"}
+{"answer": "211.5", "id": "choose-summary-statistic-for-data/medium/1/ea94be88508a", "text": "Data on the weekly grocery bills, in dollars, of ten households: 205, 228, 188,…"}
+{"answer": "19.0", "id": "choose-summary-statistic-for-data/medium/2/684aa779c114", "text": "Data on the waiting times, in minutes, of ten patients at a clinic: 18, 10, 20,…"}
 {"answer": "diameter = 10.0, circumference = 31.4", "id": "circle-area-to-diameter-and-circumference/easy/0/272524798a68", "text": "A circular plate has an area of 78.54 cm². Work out its diameter and its circum…"}
 {"answer": "diameter = 24.0, circumference = 75.4", "id": "circle-area-to-diameter-and-circumference/easy/1/5c655a6b5dd8", "text": "A circle has an area of 452.39 cm². Find its diameter and its circumference. Gi…"}
 {"answer": "diameter = 18.0, circumference = 56.5", "id": "circle-area-to-diameter-and-circumference/easy/2/8a286a1c1cd9", "text": "A circle has an area of 254.47 cm². Find its diameter and its circumference. Gi…"}
@@ -853,6 +877,18 @@
 {"answer": "x < 5 - 3*√(2) or x > 3*√(2) + 5", "id": "completing-square-and-discriminant/medium/0/0802103fdfec", "text": "Solve x² - 10x + 7 > 0 by completing the square. Write your answer as an inequa…"}
 {"answer": "7 - √(13) ≤ x ≤ √(13) + 7", "id": "completing-square-and-discriminant/medium/1/6a647b678ed2", "text": "Solve x² - 14x + 36 ≤ 0 by completing the square. Write your answer as an inequ…"}
 {"answer": "4 - √(3) < x < √(3) + 4", "id": "completing-square-and-discriminant/medium/2/6cc0e3a525d9", "text": "Solve x² - 8x + 13 < 0 by completing the square. Write your answer as an inequa…"}
+{"answer": "4 - i", "id": "complex-arg-ratio-geometry/easy/0/ed2cadba96b2", "text": "A transformation of the complex plane is w = iz + (6 + i). Find the image of th…"}
+{"answer": "-18 + 2i", "id": "complex-arg-ratio-geometry/easy/1/e5169ad9a1f8", "text": "A transformation of the complex plane is w = (2i)z + (-6 + 4i). Find the image …"}
+{"answer": "-4 - 2i", "id": "complex-arg-ratio-geometry/easy/2/a055ae3b0286", "text": "On an Argand diagram, A represents -1 + 2i and B represents -7 - 6i. Find the c…"}
+{"answer": "(a) 2 - 2i; (b) 45; (c) -2i; (d) 1 - 7i", "id": "complex-arg-ratio-geometry/exam/0/4c72c26dc4c6", "text": "Triangle ABC is drawn on the complex plane with A at 1 + i, B at -1 + 3i and C …"}
+{"answer": "(a) 3i; (b) 90; (c) -1 - 6i; (d) -1 - 11i", "id": "complex-arg-ratio-geometry/exam/1/2cdf8458ae38", "text": "The points A, B and C on an Argand diagram represent the complex numbers -4 - 2…"}
+{"answer": "(a) -i; (b) 90; (c) 6 - 3i; (d) 8 - 3i", "id": "complex-arg-ratio-geometry/exam/2/574fced55d2c", "text": "On an Argand diagram the vertices of triangle ABC are A = 6 - i, B = 4 - 3i and…"}
+{"answer": "150", "id": "complex-arg-ratio-geometry/hard/0/4bb260855150", "text": "Triangle ABC has A(1 + i), B(1 - i) and C(3 - (1 + 2√3)i) on an Argand diagram.…"}
+{"answer": "60", "id": "complex-arg-ratio-geometry/hard/1/b3e27647be41", "text": "Triangle ABC has A(3 - i), B(2 - i) and C(3 - (1 + √3)i) on an Argand diagram. …"}
+{"answer": "150", "id": "complex-arg-ratio-geometry/hard/2/d134bf8a1c17", "text": "On an Argand diagram, A, B and C represent 3 - 3i, 3 - 4i and 4 - (4 + √3)i. Us…"}
+{"answer": "2i", "id": "complex-arg-ratio-geometry/medium/0/8289b7a407f2", "text": "Suppose w = az + b sends -2 + 3i to -12 - 2i and -4 + 3i to -12 - 6i. Work out …"}
+{"answer": "1 + i", "id": "complex-arg-ratio-geometry/medium/1/19480255f0a7", "text": "A transformation w = az + b, where a and b are complex constants, maps 5 - 3i t…"}
+{"answer": "2 - i", "id": "complex-arg-ratio-geometry/medium/2/4536abfcae94", "text": "Suppose w = az + b sends 5 - 2i to 6 - 11i and 1 + 5i to 5 + 7i. Work out the c…"}
 {"answer": "−5 + 4i", "id": "complex-conjugate/easy/0/d74f37249f5c", "text": "Find the conjugate of −5 − 4i."}
 {"answer": "4 + 5i", "id": "complex-conjugate/easy/1/cacea0e8b078", "text": "Find the conjugate of 4 − 5i."}
 {"answer": "4 − 6i", "id": "complex-conjugate/easy/2/56ab10bc5e60", "text": "Find the conjugate of 4 + 6i."}
@@ -6226,6 +6262,18 @@
 {"answer": "1.2", "id": "position-time-graph-velocity/medium/0/d7b9b198cd26", "text": "The graph shows the position of a cyclist on a straight east-west path, in kilo…"}
 {"answer": "5.4", "id": "position-time-graph-velocity/medium/1/44046c140fb2", "text": "The graph shows the position of a skateboarder on a straight boardwalk, in metr…"}
 {"answer": "1.8", "id": "position-time-graph-velocity/medium/2/2720e67747e6", "text": "The graph shows the position of a remote-controlled car on a straight track, in…"}
+{"answer": "neither", "id": "power-function-graph-features/easy/0/224111f3fc46", "text": "Let f(x) = -2x^(5/2). Is f odd, even or neither? Answer with one of the words o…"}
+{"answer": "odd", "id": "power-function-graph-features/easy/1/7f610082c2b0", "text": "Let f(x) = 4x^(-1/3). Is f odd, even or neither? Answer with one of the words o…"}
+{"answer": "neither", "id": "power-function-graph-features/easy/2/90359d2cbdc2", "text": "Let f(x) = -x^(1/2). Is f odd, even or neither? Answer with one of the words od…"}
+{"answer": "(a) -128; (b) 2; (c) 2, 4; (d) 4/3", "id": "power-function-graph-features/exam/0/63516f22eeda", "text": "The graph of y = ax^(-3), where a is a constant, passes through the point (4, -…"}
+{"answer": "(a) -2592; (b) -32; (c) 3, 4; (d) 6", "id": "power-function-graph-features/exam/1/5bb39a810487", "text": "A function has the rule y = ax^(-4), where a is a constant. Its graph passes th…"}
+{"answer": "(a) -144; (b) -9; (c) 3, 4; (d) 12", "id": "power-function-graph-features/exam/2/4b072cc240dd", "text": "The graph of y = ax^(-2), where a is a constant, passes through the point (4, -…"}
+{"answer": "1", "id": "power-function-graph-features/hard/0/4c159fdab44d", "text": "Let y = 8(x - 3)^(-3) + 1. Find the x-coordinate of the right-most x-intercept."}
+{"answer": "1", "id": "power-function-graph-features/hard/1/89cf019dd2ca", "text": "Starting from y = x^(-1), the graph is stretched by a factor of 3 away from the…"}
+{"answer": "54", "id": "power-function-graph-features/hard/2/467d74d53f8b", "text": "Let f(x) = 9x^(1/3). The graph of y = f(x) meets the line y = x at several poin…"}
+{"answer": "1", "id": "power-function-graph-features/medium/0/f8a0b8972ddd", "text": "Let y = 3x^(3/4). State the quadrants in which the graph lies, as quadrant numb…"}
+{"answer": "1, 2", "id": "power-function-graph-features/medium/1/5c4282c6339a", "text": "Let y = 4x^(4/3). State the quadrants in which the graph lies, as quadrant numb…"}
+{"answer": "-2, -4", "id": "power-function-graph-features/medium/2/b98c96b147dc", "text": "Let y = -(x + 2)^(-2) - 4. Give the x-value of the vertical asymptote x = h, th…"}
 {"answer": "9", "id": "power-functions-rational-index/easy/0/97c5a2ea0d63", "text": "The function f is defined by f(x) = x^(2/3). Find f(27)."}
 {"answer": "25", "id": "power-functions-rational-index/easy/1/40e73e8ea403", "text": "Let f(x) = x^(2/3). Find f(125)."}
 {"answer": "8", "id": "power-functions-rational-index/easy/2/fccacc8aee30", "text": "The function f is defined by f(x) = x^(3/2). Find f(4)."}
@@ -6451,6 +6499,18 @@
 {"answer": "True", "id": "propositional-truth-evaluation/medium/0/59b10950cb4b", "text": "Given p = True, q = True, r = True, evaluate ((p ∧ q) ∨ ¬r)."}
 {"answer": "False", "id": "propositional-truth-evaluation/medium/1/e5a4f969fcdb", "text": "Given p = False, q = False, r = False, evaluate (¬p ∧ (q ∨ r))."}
 {"answer": "True", "id": "propositional-truth-evaluation/medium/2/46b909dddfeb", "text": "Given p = False, q = False, r = False, evaluate ((p → q) ∧ ¬r)."}
+{"answer": "5", "id": "pseudocode-trace-output/easy/0/751486b1c5ad", "text": "Here is a short program written in pseudocode: set a to 0; set b to 1; for i fr…"}
+{"answer": "15", "id": "pseudocode-trace-output/easy/1/dabf05915baa", "text": "A program is written in pseudocode as follows: set t to 1; for k from 1 to 3: s…"}
+{"answer": "135", "id": "pseudocode-trace-output/easy/2/a65edaa2ff07", "text": "Here is a short program written in pseudocode: set t to 5; for k from 1 to 3: s…"}
+{"answer": "(a) 8.833; (b) 8.832; (c) 3; (d) 8.8318", "id": "pseudocode-trace-output/exam/0/e1fa5d149be0", "text": "The following pseudocode applies Newton's method to f and stops when the change…"}
+{"answer": "(a) 4.750; (b) 4.586; (c) 4; (d) 4.5826", "id": "pseudocode-trace-output/exam/1/e07fdf950587", "text": "The following pseudocode applies Newton's method to f and stops when the change…"}
+{"answer": "(a) 3.333; (b) 3.182; (c) 4; (d) 3.1748", "id": "pseudocode-trace-output/exam/2/d83e2ca2512f", "text": "A program uses Newton's method and a stopping rule: let f(x) = x^3 - 32; let g(…"}
+{"answer": "7.50", "id": "pseudocode-trace-output/hard/0/f0d5fd5265d6", "text": "Here is a short program written in pseudocode: let f(x) = x^2 - 52; set a to 6;…"}
+{"answer": "3.1623", "id": "pseudocode-trace-output/hard/1/b125db290c30", "text": "The following pseudocode is run: let f(x) = x^2 - 10; let g(x) = 2 × x; set x t…"}
+{"answer": "1.8125", "id": "pseudocode-trace-output/hard/2/f6339f25c927", "text": "Trace this pseudocode by hand: let f(x) = x^3 + x - 8; set a to 1; set b to 2; …"}
+{"answer": "4", "id": "pseudocode-trace-output/medium/0/344aba3b1ce8", "text": "Here is a short program written in pseudocode: set b to 20; set y to 0; while b…"}
+{"answer": "44", "id": "pseudocode-trace-output/medium/1/c0eb4f769942", "text": "The following pseudocode is run: set s to 8; set n to 0; while s < 44: set s to…"}
+{"answer": "7", "id": "pseudocode-trace-output/medium/2/db6d2a68b0d8", "text": "Here is a short program written in pseudocode: set s to 1; set n to 0; while s …"}
 {"answer": "105", "id": "pythagoras-truss-chain/easy/0/73efbd914a60", "text": "A support truss is modelled as a chain of right-angled triangles. Triangle 1: o…"}
 {"answer": "51", "id": "pythagoras-truss-chain/easy/1/bad44605e966", "text": "A support truss is modelled as a chain of right-angled triangles. Triangle 1: o…"}
 {"answer": "34", "id": "pythagoras-truss-chain/easy/2/df742b96edf9", "text": "A support truss is modelled as a chain of right-angled triangles. Triangle 1: o…"}
@@ -11842,6 +11902,18 @@
 {"answer": "{2pi/3, 5pi/3}", "id": "trig-equations-radians-list/medium/0/a0793cd117d5", "text": "Solve tan x = -√3 for 0 ≤ x < 2π. Give the exact solutions in radians as multip…"}
 {"answer": "{3pi/4, 7pi/4}", "id": "trig-equations-radians-list/medium/1/dbfab9246a83", "text": "Solve tan θ = -1 for 0 ≤ θ < 2π. Give the exact solutions in radians as multipl…"}
 {"answer": "{pi/6, pi/3, 7pi/6, 4pi/3}", "id": "trig-equations-radians-list/medium/2/c6d50373edc5", "text": "Solve sin 2x = √3/2 for 0 ≤ x < 2π. Give the exact solutions in radians as mult…"}
+{"answer": "3", "id": "trig-substitution-hsc-tan-and-convert/easy/0/554b71fdfac0", "text": "The substitution x = 3tan(θ) gives √(9 + x^2) = k sec(θ). What is the constant …"}
+{"answer": "4", "id": "trig-substitution-hsc-tan-and-convert/easy/1/965fb3a2364d", "text": "The substitution x = 2sin(θ) turns ∫ √(4 - x^2) dx into ∫ k cos^2(θ) dθ for a c…"}
+{"answer": "7", "id": "trig-substitution-hsc-tan-and-convert/easy/2/97ecab0c81c7", "text": "With the substitution x = 7sin(θ), √(49 - x^2) = k cos(θ). Find k."}
+{"answer": "(a) 1/3375; (b) pi/4; (c) (pi + 2)/8; (d) (pi + 2)/27000", "id": "trig-substitution-hsc-tan-and-convert/exam/0/9bee8af210fd", "text": "The integral ∫ from 0 to 15 of 1/(225 + x^2)^2 dx is to be found using the subs…"}
+{"answer": "(a) 1/3375; (b) pi/6; (c) (2*pi + 3*sqrt(3))/24; (d) (2*pi …", "id": "trig-substitution-hsc-tan-and-convert/exam/1/b0bf633de0c7", "text": "The integral ∫ from 0 to 5√3 of 1/(225 + x^2)^2 dx is to be found using the sub…"}
+{"answer": "(a) 64; (b) pi/3; (c) (4*pi + 3*sqrt(3))/24; (d) 8*(4*pi/3 …", "id": "trig-substitution-hsc-tan-and-convert/exam/2/e87a0e4529de", "text": "The integral ∫ from 0 to 4√3 of √(64 - x^2) dx is to be found using the substit…"}
+{"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/0/faa0b0861aeb", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
+{"answer": "(3 - sqrt(3))/48", "id": "trig-substitution-hsc-tan-and-convert/hard/1/5cb0cc75e5a2", "text": "By a suitable trigonometric substitution, find the exact value of ∫ from 2 to 2…"}
+{"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/2/833f7b433a8a", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
+{"answer": "pi/36", "id": "trig-substitution-hsc-tan-and-convert/medium/0/8b52d9ebcecb", "text": "Evaluate ∫ from 0 to 2√3 of 1/(36 + x^2) dx exactly. Use the substitution x = 6…"}
+{"answer": "pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/1/a5ec1a1306cd", "text": "Find the exact value of ∫ from 0 to √2 of 1/√(4 - x^2) dx by using the substitu…"}
+{"answer": "25*pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/2/4a6dcf1c873e", "text": "Evaluate ∫ from 0 to 5 of √(25 - x^2) dx exactly. Use the substitution x = 5sin…"}
 {"answer": "-2, 4", "id": "two-by-two-eigenvalues/easy/0/e938e9a435d0", "text": "For A = [[-2, -1], [0, 4]], use det(λI − A) = 0 to find the eigenvalues."}
 {"answer": "0, 2", "id": "two-by-two-eigenvalues/easy/1/8019b127c70a", "text": "For A = [[0, -2], [0, 2]], use det(λI − A) = 0 to find the eigenvalues."}
 {"answer": "-3, 3", "id": "two-by-two-eigenvalues/easy/2/12efbf9d249f", "text": "For A = [[3, -1], [0, -3]], use det(λI − A) = 0 to find the eigenvalues."}

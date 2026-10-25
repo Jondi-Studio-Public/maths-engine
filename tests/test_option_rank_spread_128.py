@@ -1,5 +1,5 @@
 """Where the key sits among the wrong options, for every topic of the data-display, early-years, graph-transformation
-and senior-statistics builds (`dg_*`, `eyz_*`, `gt_*`, `sc_*`), and whether the wrong options are possible at all.
+and senior-statistics builds (`dg_*`, `eyz_*`, `gt_*`, `sc_*`, `nv_*`, `nx_*`, `vm_*`), and whether the wrong options are possible at all.
 
 A generator that lists its slips "likeliest first" gives the key the same rank on every seed (always the smallest
 option, always second-largest), so a learner can pick it without the maths. `mathgen/generators/_spread_kit.py` draws a
@@ -51,7 +51,9 @@ def _cap(n_options: int) -> float:
 CAP = {n: _cap(n) for n in range(3, 13)}
 
 _GEN = Path(__file__).resolve().parent.parent / "mathgen" / "generators"
-_FILES = {Path(f).name for f in glob.glob(str(_GEN / "*_build.py")) if re.match(r"(dg|eyz|gt|sc)_", Path(f).name)}
+_FILES = {
+    Path(f).name for f in glob.glob(str(_GEN / "*_build.py")) if re.match(r"(dg|eyz|gt|sc|nv|nx|vm)_", Path(f).name)
+}
 TOPICS = sorted(
     t
     for t, (_, fn) in REGISTRY.items()
@@ -150,6 +152,17 @@ def _expression(text):
         return None
 
 
+def _complex(text):
+    """The value of a complex number written ``a + bi`` (with fractions and surds), else None."""
+    t = re.sub(r"(?<=[\d)])i\b", "*I", text.replace("\u221a", "sqrt"))
+    t = re.sub(r"(?<![\w*])i\b", "I", t)
+    try:
+        value = parse_expr(t, local_dict={"I": sp.I, "sqrt": sp.sqrt}, transformations=_TRANSFORMS)
+        return complex(value)
+    except (sp.SympifyError, TypeError, ValueError, SyntaxError, ZeroDivisionError):
+        return None
+
+
 def features(text) -> dict | None:
     """What an option stands for as numbers, so that the key's place among the options can be ranked for ANY answer kind.
 
@@ -160,6 +173,8 @@ def features(text) -> dict | None:
     text = str(text).strip()
     if (v := _number(text)) is not None:
         return {"value": v}
+    if re.fullmatch(r"[0-9A-F]*[A-F][0-9A-F]*", text):  # a hexadecimal numeral with a letter: ordered by its value
+        return {"value": float(int(text, 16))}
     if m := re.fullmatch(r"x = (\S+), y = (\S+)", text):
         x, y = _frac(m.group(1)), _frac(m.group(2))
         return {"y": y, "x": x} if x is not None and y is not None else None
@@ -193,6 +208,12 @@ def features(text) -> dict | None:
     if re.fullmatch(r"-?[\d./]+(, -?[\d./]+)+", text):
         nums = [_frac(i) for i in text.split(", ")]
         return {"size": float(len(nums)), "greatest": max(nums), "least": min(nums)}
+    if re.fullmatch(r"[0-9a-z()*/+\-.^ ]*\d*i\)?|-?\d+", text) and re.search(
+        r"(?<![a-z])\d*i\b|\bi\b", text
+    ):  # a complex number
+        z = _complex(text)
+        if z is not None:
+            return {"re": z.real, "im": z.imag}
     if re.search(r"\bx\b", text):  # an expression in x: its values at two points, and its length
         if (at := _expression(text)) is None:
             return None
@@ -251,6 +272,12 @@ def _kind(text: str) -> str:
     return " ".join(words[:4])
 
 
+def _is_vocabulary(answer, shown) -> bool:
+    """True for options that are words or sets (even / odd / neither, the quadrants "1, 3"), which have no numeric order."""
+    texts = [str(answer), *shown]
+    return all(re.search(r"[A-Za-z]{3,}", t) or re.fullmatch(r"[1-4](, [1-4])*|none", t) for t in texts)
+
+
 def _units(q):
     if q.parts:
         return [(f"p{i}", p.answer_text, p.distractors, p.prompt) for i, p in enumerate(q.parts)]
@@ -276,6 +303,7 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
     problems: list[str] = []
     unranked: Counter = Counter()
     seen: Counter = Counter()
+    vocab: dict = defaultdict(Counter)
     for seed in seeds:
         q = make(topic, seed=seed, difficulty=tier)
         for label, answer, options, text in _units(q):
@@ -300,6 +328,11 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
                         problems.append(f"{topic} {tier} {label} seed {seed}: impossible option {bad} for {answer}")
             found, nothing = ranks(answer, options)
             seen[label] += 1
+            if nothing and _is_vocabulary(answer, shown):
+                # words (odd / even / neither, a set of quadrants) have no numeric order; what matters is that the key is
+                # not the same word on every seed
+                vocab[(label, len(shown) + 1)][str(answer)] += 1
+                continue
             if nothing:
                 unranked[label] += 1
                 if unranked[label] <= 2:
@@ -313,6 +346,10 @@ def survey(topic: str, tier: str, seeds=range(SEEDS)):
                 if filled:
                     kinds[(label, _kind(text) + " +fillers", len(shown) + 1, name)][rank] += 1
                     parts[(label, " +fillers", len(shown) + 1, name)][rank] += 1
+    for (label, n_options), keys in vocab.items():
+        total = sum(keys.values())
+        if total >= MIN_GROUP and max(keys.values()) / total > _limit(n_options, total, 4.5):
+            problems.append(f"{topic} {tier} {label}: the key is the same word too often: {dict(keys)}")
     for label, count in unranked.items():
         if count > seen[label] // 10:
             problems.append(
@@ -343,8 +380,16 @@ def lopsided(topic: str, tier: str, seeds=range(SEEDS)) -> tuple[list[str], list
     return found, problems
 
 
-@pytest.mark.parametrize("topic", TOPICS)
-def test_key_has_no_fixed_rank_among_the_options_and_no_option_is_impossible(topic):
+def _topics_of(*prefixes):
+    """The TOPICS whose generator file starts with one of the prefixes (the sweep is split by family so CI can balance it)."""
+    return [
+        t
+        for t in TOPICS
+        if Path(inspect.getsourcefile(inspect.unwrap(REGISTRY[t][1]))).name.startswith(tuple(f"{x}_" for x in prefixes))
+    ]
+
+
+def _check_key_rank_and_options(topic):
     unfair, broken = [], []
     for tier in TIERS:
         try:
@@ -356,6 +401,26 @@ def test_key_has_no_fixed_rank_among_the_options_and_no_option_is_impossible(top
         broken += problems
     assert not broken, broken[:3]
     assert not unfair, unfair
+
+
+@pytest.mark.parametrize("topic", _topics_of("dg", "eyz"))
+def test_key_has_no_fixed_rank_dg_eyz(topic):
+    _check_key_rank_and_options(topic)
+
+
+@pytest.mark.parametrize("topic", _topics_of("gt", "sc"))
+def test_key_has_no_fixed_rank_gt_sc(topic):
+    _check_key_rank_and_options(topic)
+
+
+@pytest.mark.parametrize("topic", _topics_of("nv", "nx"))
+def test_key_has_no_fixed_rank_nv_nx(topic):
+    _check_key_rank_and_options(topic)
+
+
+@pytest.mark.parametrize("topic", _topics_of("vm"))
+def test_key_has_no_fixed_rank_vm(topic):
+    _check_key_rank_and_options(topic)
 
 
 def test_a_round_key_is_not_usually_the_lone_round_option():
