@@ -9410,8 +9410,8 @@
 {"answer": "y = tan x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/easy/1/eda890050e54", "text": "The curve shown is the graph of y = sin x, y = cos x or y = tan x, with x marke…"}
 {"answer": "y = sin x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/easy/2/f9f4ac68d64e", "text": "One of the functions y = sin x, y = cos x and y = tan x has the graph shown, wi…"}
 {"answer": "(a) 6; (b) 5; (c) 6; (d) 6; (e) 18", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam-single/0/176a8d1efd06", "text": "A curve passes through the origin with gradient 1, has a vertical asymptote at …"}
-{"answer": "(a) 11; (b) 10; (c) 5; (d) 10; (e) -20", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam-single/1/4f2db5db81f7", "text": "A curve crosses the y-axis at (0, 1), falls to a least value of -1 at x = π and…"}
-{"answer": "(a) 11; (b) 10; (c) 5; (d) 10; (e) 20", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam-single/2/7ed61528d4df", "text": "The graph of y = cos x is drawn for -7π/2 ≤ x ≤ 7π. (a) How many times does the…"}
+{"answer": "(a) 11; (b) 10; (c) 5; (d) 10; (e) -20", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam-single/1/25ab6d328ce7", "text": "A curve crosses the y-axis at (0, 1), falls to a least value of -1 at x = π and…"}
+{"answer": "(a) 11; (b) 10; (c) 5; (d) 10; (e) 20", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam-single/2/65fa20db553a", "text": "The graph of y = cos x is drawn for -7π/2 ≤ x ≤ 7π. (a) How many times does the…"}
 {"answer": "y = cos x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam/0/1151f10518a9", "text": "All three of the functions y = sin x, y = cos x and y = tan x are graphed on th…"}
 {"answer": "y = tan x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam/1/1265b118330d", "text": "Three curves, one for each of y = sin x, y = cos x and y = tan x, are drawn tog…"}
 {"answer": "y = sin x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam/2/d6861f229a30", "text": "The graphs of all of y = sin x, y = cos x and y = tan x are drawn on one grid, …"}
