@@ -58,7 +58,7 @@ def count_oracle(q):
 
 
 def test_wired():
-    sup.assert_wired(SKILL, TOPIC, EXAM, "mcq", ["number-bases-primes-and-divisors"])
+    sup.assert_wired(SKILL, TOPIC, EXAM, "mcq", ["number-bases-primes-and-divisors"], {"tier": "exam"})
 
 
 @pytest.mark.parametrize("tier", ["easy", "medium", "hard"])

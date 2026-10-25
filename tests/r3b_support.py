@@ -141,7 +141,9 @@ def assert_definite_key(q, rel=1e-6) -> None:
 # -- wiring, cleanliness, grading ---------------------------------------------------------------------------------
 
 
-def assert_wired(skill_id: str, topic: str, exam_topic: str, answer: str, prerequisites: list[str]) -> None:
+def assert_wired(
+    skill_id: str, topic: str, exam_topic: str, answer: str, prerequisites: list[str], exam_params: dict | None = None
+) -> None:
     data = skill_yaml(skill_id)
     assert data["answer"] == answer
     assert data["prerequisites"] == prerequisites
@@ -151,7 +153,7 @@ def assert_wired(skill_id: str, topic: str, exam_topic: str, answer: str, prereq
         assert not by_difficulty[tier]["params"]
     assert by_difficulty["exam"]["topic"] == exam_topic
     assert by_difficulty["exam"]["stages"] == ["exam"]
-    assert by_difficulty["exam"]["params"] in ({}, {"tier": "exam"})
+    assert by_difficulty["exam"]["params"] == (exam_params or {})
     assert skill_object(skill_id).status == "active"
 
 

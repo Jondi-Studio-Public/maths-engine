@@ -43,7 +43,12 @@ def mode(v):
 
 def test_wired():
     sup.assert_wired(
-        SKILL, TOPIC, EXAM, "mcq", ["classify-data", "calculate-mean", "calculate-median", "calculate-mode"]
+        SKILL,
+        TOPIC,
+        EXAM,
+        "mcq",
+        ["classify-data", "calculate-mean", "calculate-median", "calculate-mode"],
+        {"tier": "exam"},
     )
 
 
