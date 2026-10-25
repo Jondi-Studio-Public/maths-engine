@@ -46,6 +46,7 @@ from ._r3b_kit import (
     say,
     x,
 )
+from ._nx_company_kit import company
 from ._spread_kit import NEAR, mixed, uses_rng
 
 th = sympy.Symbol("th", positive=True)
@@ -267,6 +268,31 @@ def _with_digit_twin(key, out, rng, *, lo, hi, room=None):
     return out
 
 
+_VALUE_CACHE: dict = {}
+
+
+def _value_of(text: str):
+    if text not in _VALUE_CACHE:
+        _VALUE_CACHE[text] = float(sympy.N(sympy.sympify(text)))
+    return _VALUE_CACHE[text]
+
+
+def _with_company(key, ordered, keep=3, below=None):
+    """The first `keep` of `ordered` (all candidates, already drawn in the random order of `mixed`), improved so that
+    the key is not the lone holder of anything a learner can see and the wrong options are not easy to eliminate."""
+    key = sympy.sympify(key)
+    full = pick_expr(key, False, ordered, count=len(ordered) + 1)
+    if below is not None:  # the stem rules out the bound itself
+        full = [d for d in full if _value_of(d.text) < float(below)]
+    if len(full) < 2:
+        raise Redraw("fewer than two distinct wrong expressions")
+    head, pool = full[:keep], full[keep:]
+    if not pool:
+        return head
+    key_text = expr_dist(key, NEAR, False).text
+    return company(key_text, _value_of(key_text), head, pool, _spread_rng(key), _value_of)
+
+
 def _spread_rng(key):
     from ._spread_kit import _RNG
 
@@ -279,7 +305,7 @@ def _pick_values(key, cands):
     near = [Cand(key * m, NEAR, const=False) for m in (R(1, 2), R(2), R(3), R(1, 3), R(3, 2), R(2, 3), R(4))]
     near += [Cand(key + d, NEAR, const=False) for d in (R(1, 2), R(1), R(2), R(1, 3))]
     named = [Cand(v, t, const=False) for v, t in cands if v is not None]
-    out = pick_expr(key, False, mixed(key, named, fillers=near, lo=0, hi=None))
+    out = _with_company(key, mixed(key, named, fillers=near, lo=0, hi=None))
     # the key must not be the only whole number (or the only fraction) among its options
     if not any((sympy.sympify(d.text).is_integer) == key.is_integer for d in out):
         raise Redraw("the key is the only option of its shape")
@@ -296,7 +322,7 @@ def _angle_options(key, cands, *, lo=R(1, 100), hi=pi / 2):
     # plain near misses are standard angles too, so the key is never the lone standard angle among its options
     near = [Cand(angle, NEAR, const=False) for angle in _STANDARD_ANGLES if angle != key]
     cands = [Cand(c.expr, c.tag, const=False) for c in cands if c.expr != 0]
-    return pick_expr(key, False, mixed(key, cands, fillers=near, lo=lo, hi=hi))
+    return _with_company(key, mixed(key, cands, fillers=near, lo=lo, hi=hi))
 
 
 def _no_const(cands):
@@ -333,7 +359,7 @@ def _options(key, cands, rng, *, lo, hi, ceiling_value=None):
     room = 4 * _denominator(key)
     near = [c for c in near if _denominator(sympy.sympify(c.expr)) <= room]
     cands = [c for c in _no_const(cands) if _denominator(sympy.sympify(c.expr)) <= room]
-    out = pick_expr(key, False, mixed(key, cands, fillers=near, lo=lo, hi=hi))
+    out = _with_company(key, mixed(key, cands, fillers=near, lo=lo, hi=hi), below=hi)
     if not any(_shape(sympy.sympify(d.text)) == _shape(key) for d in out):
         raise Redraw("the key is the only option of its shape")
     return _with_digit_twin(key, out, rng, lo=lo, hi=hi, room=room)
