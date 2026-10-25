@@ -44,7 +44,7 @@ misconceptions:
   description: Draws six squares in which two faces would land on the same side of the cube, such as four squares round a corner or two flaps on the same side of a row of four.
 - id: net-has-wrong-number-of-faces
   description: Draws five squares, a face missing, or seven squares.
-tags: [acara-f10-v9, primary-geometry-time, grid_plan_views, ac9m3sp02, ac9m5sp01, nets, plan-view, drawn-answer]
+tags: [acara-f10-v9, primary-geometry-time, grid_plan_views, ac9m3sp01, ac9m5sp01, nets, plan-view, drawn-answer]
 difficulty_progression:
   easy:
     steps: 1
