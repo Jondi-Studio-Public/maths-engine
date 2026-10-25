@@ -72,8 +72,6 @@ misconceptions:
   description: Doubles the angle for the new limit of theta.
 - id: nx-tsub-limit-half-angle
   description: Halves the angle for the new limit of theta.
-- id: nx-tsub-limit-inverse-without-dividing
-  description: Takes the inverse tangent or sine of the x-limit itself, forgetting to divide by a first.
 - id: nx-tsub-limit-not-converted
   description: Keeps the x-value as the limit for theta instead of finding the angle that gives it.
 - id: nx-tsub-limits-not-changed

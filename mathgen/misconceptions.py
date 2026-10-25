@@ -60303,11 +60303,6 @@ _ENTRIES += (
         area="complex-arg-ratio-geometry",
     ),
     CatalogueEntry(
-        "nx-angle-reflex-taken",
-        "Gives the reflex angle (360 degrees minus the angle) where the angle at the vertex was asked.",
-        area="complex-arg-ratio-geometry",
-    ),
-    CatalogueEntry(
         "nx-angle-supplement-taken",
         "Gives 180 degrees minus the angle, using the argument of the wrong ratio or the wrong side of the vertex.",
         area="complex-arg-ratio-geometry",
@@ -60545,11 +60540,6 @@ _ENTRIES += (
     CatalogueEntry(
         "nx-tsub-limit-half-angle",
         "Halves the angle for the new limit of theta.",
-        area="trig-substitution-hsc-tan-and-convert",
-    ),
-    CatalogueEntry(
-        "nx-tsub-limit-inverse-without-dividing",
-        "Takes the inverse tangent or sine of the x-limit itself, forgetting to divide by a first.",
         area="trig-substitution-hsc-tan-and-convert",
     ),
     CatalogueEntry(

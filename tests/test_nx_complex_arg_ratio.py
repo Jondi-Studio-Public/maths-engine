@@ -171,3 +171,58 @@ def test_exam_follow_through_from_a_wrong_midpoint():
         return str(sympy.expand(2 * wrong_mid - b)).replace("I", "i").replace("*", "")
 
     assert check_follow_through(SK, EXAM, "c", wrong, "d", follow, n=40) >= 20
+
+
+def _real(text):
+    """The real number an option stands for, else None (a complex option has no order)."""
+    try:
+        value = sympy.sympify(text.replace("√", "sqrt").replace("^", "**"), rational=True)
+        return float(value) if value.is_real else None
+    except (sympy.SympifyError, TypeError, ValueError):
+        return None
+
+
+def _ranks(units):
+    ranks, firsts = set(), set()
+    for answer, options in units:
+        firsts.add(options[0])
+        values = [_real(t) for t in (answer, *options)]
+        if all(v is not None for v in values):
+            ranks.add(sum(v < values[0] for v in values[1:]))
+    return ranks, firsts
+
+
+@pytest.mark.parametrize("tier", TIERS)
+def test_key_rank_and_position_vary(tier):
+    """Over 240 seeds the key's rank among numeric options takes at least 3 values, and no option is always first."""
+    units = [(q.answer_text, q.distractors) for q in (q_of(TOPIC, tier, s) for s in range(240))]
+    ranks, firsts = _ranks(units)
+    assert len(firsts) >= 3, firsts
+    if tier != "easy":  # easy mixes complex answers with a distance; the numeric ones are checked below
+        assert len(ranks) >= 3 or not ranks, ranks
+    else:
+        dist = [
+            u
+            for q, u in zip((q_of(TOPIC, tier, s) for s in range(240)), units)
+            if "apart" in q.text or "distance" in q.text.lower() or "segment" in q.text
+        ]
+        assert len(_ranks(dist)[0]) >= 3, _ranks(dist)
+
+
+def test_exam_key_rank_and_position_vary():
+    qs = [make(EXAM, seed=s, difficulty="exam") for s in range(240)]
+    for index in range(4):
+        units = [(q.parts[index].answer_text, q.parts[index].distractors) for q in qs]
+        ranks, firsts = _ranks(units)
+        assert len(firsts) >= 3, (index, firsts)
+        if index == 1:
+            assert len(ranks) >= 3, ranks
+
+
+def test_no_angle_option_exceeds_a_straight_angle():
+    for seed in range(240):
+        q = q_of(TOPIC, "hard", seed)
+        if "angle" in q.text and "right angle" not in q.text:
+            assert all(0 < float(t) < 180 for t in q.distractors), (q.text, q.distractors)
+        e = make(EXAM, seed=seed, difficulty="exam")
+        assert all(0 < float(t) < 180 for t in e.parts[1].distractors), e.parts[1].distractors

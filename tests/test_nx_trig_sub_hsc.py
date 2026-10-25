@@ -145,3 +145,49 @@ def test_exam_oracle():
         assert math.isclose(k * inner, value, rel_tol=1e-9)
         k_expr = f.subs(X, xs) * sympy.diff(xs, TH) / sympy.cos(TH) ** 2
         assert math.isclose(ratio_at(k_expr), k, rel_tol=1e-9)
+
+
+def _real(text):
+    try:
+        value = sympy.sympify(text.replace("^", "**").replace("arctan", "atan"), rational=True)
+        return float(value.evalf()) if value.is_real else None
+    except (sympy.SympifyError, TypeError, ValueError):
+        return None
+
+
+def _distribution(units):
+    ranks, firsts = set(), set()
+    for answer, options in units:
+        firsts.add(options[0])
+        values = [_real(t) for t in (answer, *options)]
+        if all(v is not None for v in values):
+            ranks.add(sum(v < values[0] for v in values[1:]))
+    return ranks, firsts
+
+
+@pytest.mark.parametrize("tier", sup.TIERS)
+def test_key_rank_and_position_vary(tier):
+    """Over 240 seeds the key's rank among its options takes at least 3 values and no option is always first."""
+    ranks, firsts = _distribution(
+        [(q.answer_text, q.distractors) for q in (sup.tier_question(TOPIC, tier, s) for s in range(240))]
+    )
+    assert len(ranks) >= 3, ranks
+    assert len(firsts) >= 3, firsts
+
+
+def test_exam_key_rank_and_position_vary():
+    qs = [sup.exam_question(EXAM, s) for s in range(240)]
+    for index in range(4):
+        ranks, firsts = _distribution([(q.parts[index].answer_text, q.parts[index].distractors) for q in qs])
+        assert len(ranks) >= 3, (index, ranks)
+        assert len(firsts) >= 3, (index, firsts)
+
+
+def test_angle_limits_are_possible_angles():
+    """A limit of theta from x = a tan or a sin of a positive angle lies between 0 and a quarter turn."""
+    for seed in range(240):
+        q = sup.tier_question(TOPIC, "easy", seed)
+        if "limit" in q.text:
+            assert all(0 < _real(t) <= math.pi / 2 + 1e-9 for t in q.distractors), (q.text, q.distractors)
+        e = sup.exam_question(EXAM, seed)
+        assert all(0 < _real(t) <= math.pi / 2 + 1e-9 for t in e.parts[1].distractors), e.parts[1].distractors
