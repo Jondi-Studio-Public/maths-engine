@@ -416,14 +416,14 @@
 {"answer": "left = 5/2, right = 5", "id": "bisection-interval-update/medium/1/f261b3900ddf", "text": "For f(x) = x² − 22, the current positive bracket is [0, 5]. Perform one bisecti…"}
 {"answer": "left = 5/2, right = 5", "id": "bisection-interval-update/medium/2/12da0b1cd4bc", "text": "For f(x) = x² − 17, the current positive bracket is [0, 5]. Perform one bisecti…"}
 {"answer": "11", "id": "bits-hex-and-digit-counts/easy/0/2159116bec1f", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
-{"answer": "9", "id": "bits-hex-and-digit-counts/easy/1/ec97e911dd26", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
+{"answer": "11", "id": "bits-hex-and-digit-counts/easy/1/de8d5a19f3d7", "text": "A counter stores a whole number in binary. How many bits does it need to be abl…"}
 {"answer": "11", "id": "bits-hex-and-digit-counts/easy/2/a2a748fc573a", "text": "A scoreboard counts whole numbers from 0 up to 1181, stored in binary. What is …"}
 {"answer": "(a) 14; (b) 16384; (c) 246; (d) 3F09", "id": "bits-hex-and-digit-counts/exam/0/0aea5034b01d", "text": "The logger in a pedometer that reports a whole number of steps stores each read…"}
 {"answer": "(a) 14; (b) 16384; (c) 6690; (d) 4", "id": "bits-hex-and-digit-counts/exam/1/1a7f11b3b8ed", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
 {"answer": "(a) 14; (b) 16384; (c) 6580; (d) 264B", "id": "bits-hex-and-digit-counts/exam/2/5185a32ead94", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
 {"answer": "4095", "id": "bits-hex-and-digit-counts/hard/0/0da7e9caf828", "text": "What is the largest whole number (in decimal) that can be written with 3 hexade…"}
 {"answer": "071", "id": "bits-hex-and-digit-counts/hard/1/2bf30d896364", "text": "Write 113 in hexadecimal using exactly 3 digits (put zeros in front if needed).…"}
-{"answer": "0AA", "id": "bits-hex-and-digit-counts/hard/2/8126868e009e", "text": "A memory address is shown as exactly 3 hexadecimal digits, with leading zeros a…"}
+{"answer": "0AA", "id": "bits-hex-and-digit-counts/hard/2/0d1d5e3f6d04", "text": "A serial number is stored as a 3-digit hexadecimal numeral. What is the serial …"}
 {"answer": "8", "id": "bits-hex-and-digit-counts/medium/0/4b252a3f3893", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
 {"answer": "7", "id": "bits-hex-and-digit-counts/medium/1/5894a46c1a95", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
 {"answer": "3", "id": "bits-hex-and-digit-counts/medium/2/a41783baa9fb", "text": "Each hexadecimal digit stands for 4 bits. How many hexadecimal digits are neede…"}
