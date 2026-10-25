@@ -49,15 +49,14 @@ MISCONCEPTIONS = [
         "Looks for the middle category of a nominal variable, which has no order.",
         AREA,
     ),
-    ("nv-range-as-centre", "Gives the range, a measure of spread, where a measure of centre was asked for.", AREA),
     (
-        "nv-mean-for-skewed",
-        "Uses the mean for data with one extreme value, although the extreme value drags the mean away from a typical value.",
+        "nv-range-as-centre",
+        "Gives a measure of spread (the range, interquartile range or standard deviation) where a measure of centre was asked for.",
         AREA,
     ),
     (
-        "nv-mean-for-ordinal",
-        "Gives the mean of ordered ratings coded 1 to 5, where the middle rating was needed.",
+        "nv-mean-for-skewed",
+        "Uses the mean for data with one extreme value, although the extreme value drags the mean away from a typical value.",
         AREA,
     ),
     ("nv-mode-ignores-order", "Gives the most common rating where the middle rating was needed.", AREA),
@@ -120,10 +119,10 @@ _BALANCED = [
 ]
 # (what is listed, low, high, what the most common value is used for)
 _COUNTS = [
-    ("the shoe sizes of ten players in a netball club", 5, 11, "the size the club should order most of"),
-    ("the numbers of pets in each of ten households", 0, 5, "the pet count that most households have"),
-    ("the numbers of goals scored by a team in ten games", 0, 6, "the score the team reaches most often"),
-    ("the numbers of passengers in each of ten cars at a toll gate", 1, 6, "the passenger count that most cars carry"),
+    ("the shoe sizes of ten players in a netball club", 4, 12, "the size the club should order most of"),
+    ("the numbers of pets in each of ten households", 0, 7, "the pet count that most households have"),
+    ("the numbers of goals scored by a team in ten games", 0, 8, "the score the team reaches most often"),
+    ("the numbers of passengers in each of ten cars at a toll gate", 1, 8, "the passenger count that most cars carry"),
 ]
 # (scene, what the answers are called)
 _ORDINAL = [
@@ -251,11 +250,14 @@ def _counts(rng, ctx, n=10):
         if tally[0] < least or (len(tally) > 1 and tally[1] == tally[0]):
             continue
         mean, median = _mean(values), _median(values)
+        # two whole numbers either side of the mode inside the data (zero is never offered): the key is not at an end
+        if top - max(min(values), 1) < 2 or max(values) - top < 2:
+            continue
         if (
             (n == 5 or sum(values) % 5 == 0)
-            and len({mean, median, Fraction(top)}) == 3
-            and abs(mean - median) >= Fraction(3, 10)
-            and abs(median - top) >= Fraction(1, 2)
+            and (n == 5 or len({mean, median, Fraction(top)}) == 3)  # five values: the median may be the mode
+            and (n == 5 or abs(mean - median) >= Fraction(3, 10))
+            and (n == 5 or abs(median - top) >= Fraction(1, 2))
             and abs(mean - top) >= Fraction(1, 2)
         ):
             _check_stats(values, mean, median)
@@ -267,14 +269,30 @@ def _counts(rng, ctx, n=10):
 # -- wrong values -----------------------------------------------------------------------------------------------------
 
 
-def _ordered(key, slips):
+def _ordered(key, slips, values=None, *, exclude=(), whole=False, lo=None, hi=None):
     """`slips` reordered so that a random number of the first three wrong values are below the key (plain near misses
-    make up a side that has too few), so the key's rank among the options is not fixed."""
+    make up a side that has too few), so the key's rank among the options is not fixed.
+
+    What the stem rules out is dropped here, from the slips and the near misses alike (the key is never moved):
+    `values` (the printed data) bounds every option to [min, max] of the data (without it, `lo`/`hi` do, from 1 up);
+    `whole` (a mode question, whose key is a listed whole value) allows whole numbers only; `exclude` holds figures the stem names as wrong (a claim)."""
     key = Fraction(key)
-    fillers = [(key + Fraction(d, 2), NEAR) for d in (-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6)]
+    steps = (-3, -2, -1, 1, 2, 3) if whole else (-6, -5, -4, -3, -2, -1, 1, 2, 3, 4, 5, 6)
+    fillers = [(key + (d if whole else Fraction(d, 2)), NEAR) for d in steps]
+    if values:
+        lo, hi = min(values), max(values)
+    else:
+        lo, hi = (1 if lo is None else lo), (10**6 if hi is None else hi)
+    banned = {Fraction(x) for x in exclude}
+
+    def fits(c):
+        v = Fraction(c[0])
+        return v not in banned and (not whole or v.denominator == 1)
+
     # the answer kit drops a wrong value far from the key (and a zero): drop it here so it cannot take a place in the order
-    slips, fillers = sane(slips, key, 15), sane(fillers, key, 15)
-    return spread_order(key, slips, fillers, 3, lo=-(10**6), hi=10**6)
+    slips = [c for c in sane(slips, key, 15) if fits(c)]
+    fillers = [c for c in sane(fillers, key, 15) if fits(c)]
+    return spread_order(key, slips, fillers, 3, lo=lo, hi=hi)
 
 
 def _median_slips(values, mean, median):
@@ -317,7 +335,8 @@ def _mode_slips(values, mean, median):
 def _easy_measure(rng):
     """Which measure of centre suits a variable or a purpose: the answer is a word (Mode, Median or Mean)."""
     kind = rng.choice(["nominal", "skewed", "total"])
-    options = ("Mean", "Median", "Mode", "Range")
+    spread = rng.choice(("Range", "Interquartile range", "Standard deviation"))
+    options = ("Mean", "Median", "Mode", spread)
     if kind == "nominal":
         scene, thing = rng.choice(_NOMINAL)
         key = "Mode"
@@ -325,11 +344,11 @@ def _easy_measure(rng):
         slips = [
             ("Mean", "nv-mean-of-categories"),
             ("Median", "nv-median-of-unordered-categories"),
-            ("Range", "nv-range-as-centre"),
+            (spread, "nv-range-as-centre"),
         ]
         working = [
             "The categories have no order and are not numbers, so they cannot be averaged or put in order.",
-            "Only the most common category, the mode, can be found. The range measures spread, not centre.",
+            f"Only the most common category, the mode, can be found. The {spread.lower()} measures spread, not centre.",
         ]
     elif kind == "skewed":
         ctx = rng.choice(_SKEWED)
@@ -340,7 +359,7 @@ def _easy_measure(rng):
         )
         slips = [
             ("Mean", "nv-mean-for-skewed"),
-            ("Range", "nv-range-as-centre"),
+            (spread, "nv-range-as-centre"),
             ("Mode", "nv-wrong-measure"),
         ]
         working = [
@@ -358,7 +377,7 @@ def _easy_measure(rng):
         slips = [
             ("Median", "nv-median-for-total"),
             ("Mode", "nv-wrong-measure"),
-            ("Range", "nv-range-as-centre"),
+            (spread, "nv-range-as-centre"),
         ]
         working = [
             "A total is the sum of all the values, and the mean is the sum shared equally.",
@@ -387,7 +406,7 @@ def _easy_median(rng):
         f"The middle value is {_fmt(median)}.",
         f"The mean ({_fmt(mean)}) is pulled up by {s[-1]}.",
     ]
-    return single_number(text, median, 1, working, _ordered(median, _median_slips(values, mean, median)))
+    return single_number(text, median, 1, working, _ordered(median, _median_slips(values, mean, median), values))
 
 
 def _easy_mean(rng):
@@ -409,7 +428,7 @@ def _easy_mean(rng):
     working = [
         f"A total comes from the mean: the sum is {sum(values)}, so the mean is {sum(values)} / 5 = {_fmt(mean)}."
     ]
-    return single_number(text, mean, 1, working, _ordered(mean, _mean_slips(values, mean, median)))
+    return single_number(text, mean, 1, working, _ordered(mean, _mean_slips(values, mean, median), values))
 
 
 def _easy_mode(rng):
@@ -426,7 +445,13 @@ def _easy_mode(rng):
         use=ctx[3],
     )
     working = [f"The value {mode} is listed {values.count(mode)} times, more than any other value: it is the mode."]
-    return single_number(text, Fraction(mode), 1, working, _ordered(Fraction(mode), _mode_slips(values, mean, median)))
+    return single_number(
+        text,
+        Fraction(mode),
+        1,
+        working,
+        _ordered(Fraction(mode), _mode_slips(values, mean, median), values, whole=True),
+    )
 
 
 _EASY = (_easy_measure, _easy_measure, _easy_median, _easy_median, _easy_mean, _easy_mean, _easy_mode)
@@ -454,7 +479,7 @@ def _medium_median(rng):
         f"Ten values, so the median is halfway between the 5th ({s[4]}) and 6th ({s[5]}): {_fmt(median)}.",
         f"The mean ({_fmt(mean)}) is pulled up by {s[-1]}.",
     ]
-    return single_number(text, median, 1, working, _ordered(median, _median_slips(values, mean, median)))
+    return single_number(text, median, 1, working, _ordered(median, _median_slips(values, mean, median), values))
 
 
 def _medium_mean(rng):
@@ -476,7 +501,7 @@ def _medium_mean(rng):
         f"A total comes from the mean: the sum is {sum(values)} and there are 10 values, so the mean is {_fmt(mean)}.",
         f"The median ({_fmt(median)}) does not give the total.",
     ]
-    return single_number(text, mean, 1, working, _ordered(mean, _mean_slips(values, mean, median)))
+    return single_number(text, mean, 1, working, _ordered(mean, _mean_slips(values, mean, median), values))
 
 
 def _medium_mode(rng):
@@ -496,7 +521,13 @@ def _medium_mode(rng):
         f"Count how often each value is listed: the value {mode} is listed {values.count(mode)} times, more than any other.",
         f"The mode is {mode}; the mean ({_fmt(mean)}) and median ({_fmt(median)}) are not the most common value.",
     ]
-    return single_number(text, Fraction(mode), 1, working, _ordered(Fraction(mode), _mode_slips(values, mean, median)))
+    return single_number(
+        text,
+        Fraction(mode),
+        1,
+        working,
+        _ordered(Fraction(mode), _mode_slips(values, mean, median), values, whole=True),
+    )
 
 
 _MEDIUM = (_medium_median, _medium_median, _medium_mean, _medium_mean, _medium_mode)
@@ -516,7 +547,9 @@ def _hard_claim_skewed(rng):
         f"The claim is the mean, {_fmt(mean)}, which one very large value has pulled up.",
         f"Ordered: {_shown(sorted(values))}. The median is {_fmt(median)}.",
     ]
-    return single_number(text, median, 1, working, _ordered(median, _median_slips(values, mean, median)))
+    return single_number(
+        text, median, 1, working, _ordered(median, _median_slips(values, mean, median), values, exclude=[mean])
+    )
 
 
 def _hard_claim_total(rng):
@@ -531,7 +564,9 @@ def _hard_claim_total(rng):
         f"The sum of the values is {sum(values)}, so the mean is {_fmt(mean)}.",
         "A total for many items is the mean times the number of items.",
     ]
-    return single_number(text, mean, 1, working, _ordered(mean, _mean_slips(values, mean, median)))
+    return single_number(
+        text, mean, 1, working, _ordered(mean, _mean_slips(values, mean, median), values, exclude=[median])
+    )
 
 
 def _hard_claim_common(rng):
@@ -546,20 +581,25 @@ def _hard_claim_common(rng):
         f"The value {mode} is listed {values.count(mode)} times, more than any other value.",
     ]
     slips = [(median, "nv-median-for-most-common"), (mean + 1, NEAR)] + _mode_slips(values, mean, median)[2:]
-    return single_number(text, Fraction(mode), 1, working, _ordered(Fraction(mode), slips))
+    return single_number(
+        text, Fraction(mode), 1, working, _ordered(Fraction(mode), slips, values, whole=True, exclude=[mean])
+    )
 
 
 def _hard_claim_ordinal(rng):
     scene = rng.choice(
         [
-            "A cafe asks eleven customers to rate its service from 1 (poor) to 5 (excellent).",
-            "A school asks eleven parents how satisfied they are with a camp, from 1 (very dissatisfied) to 5 (very satisfied).",
-            "A council asks eleven residents how safe they feel at night, from 1 (very unsafe) to 5 (very safe).",
+            "A cafe asks eleven customers to rate its service from 1 (poor) to 7 (excellent).",
+            "A school asks eleven parents how satisfied they are with a camp, from 1 (very dissatisfied) to 7 (very satisfied).",
+            "A council asks eleven residents how safe they feel at night, from 1 (very unsafe) to 7 (very safe).",
         ]
     )
-    for _ in attempts(2000, "ordered ratings whose mean rounds away from the median"):
-        codes = [rng.randint(1, 5) for _ in range(11)]
+    want = rng.choice([2, 3, 4, 5, 6])  # the middle rating, so the key is not always beside the same ratings
+    for _ in attempts(20000, "ordered ratings whose mean rounds away from the median"):
+        codes = [rng.randint(1, 7) for _ in range(11)]
         mean, median = _mean(codes), _median(codes)
+        if int(median) != want:
+            continue
         tally = sorted((codes.count(c) for c in set(codes)), reverse=True)
         top = max(set(codes), key=codes.count)
         if (
@@ -578,19 +618,22 @@ def _hard_claim_ordinal(rng):
         f"Ordered: {_shown(sorted(codes))}. The middle (6th) rating is {int(median)}.",
     ]
     slips = [
-        (Fraction(round(mean)), "nv-mean-for-ordinal"),
         (Fraction(top), "nv-mode-ignores-order"),
         (Fraction(int(median) + 1), NEAR),
         (Fraction(int(median) - 1), NEAR),
         (Fraction(_median_unsorted(codes)), "nv-median-unsorted"),
     ]
-    return single_number(text, median, 0, working, _ordered_whole(median, slips))
+    return single_number(text, median, 0, working, _ordered_whole(median, slips, exclude=[round(mean), mean]))
 
 
-def _ordered_whole(key, slips):
+def _ordered_whole(key, slips, exclude=()):
+    """Whole ratings from 1 to 7, other than the figures the stem names as wrong."""
     key = Fraction(key)
-    fillers = [(key + d, NEAR) for d in (-2, -1, 1, 2)]
-    return spread_order(key, slips, fillers, 3, lo=1, hi=5)
+    banned = {Fraction(x) for x in exclude}
+    fillers = [(key + d, NEAR) for d in (-4, -3, -2, -1, 1, 2, 3, 4)]
+    slips = [c for c in slips if Fraction(c[0]) not in banned]
+    fillers = [c for c in fillers if Fraction(c[0]) not in banned]
+    return spread_order(key, slips, fillers, 3, lo=1, hi=7)
 
 
 def _hard_coded_count(rng):
@@ -682,7 +725,7 @@ def _exam_chain(rng):
             (mean, "nv-wrong-measure"),
             (median, "nv-wrong-measure"),
         ]
-        c_ft, c_range = "part_a - part_b", (None, None)
+        c_ft, c_range, c_lo = "part_a - part_b", (None, None), -(10**6)  # a signed difference
         d_prompt = "The median is the better measure of a typical value here. By what percentage of the median does the mean overstate it?"
         d_value = c_value / median * 100
         d_working = [f"({_fmt(mean)} - {_fmt(median)}) / {_fmt(median)} x 100 = {float(d_value):.1f}%."]
@@ -692,7 +735,7 @@ def _exam_chain(rng):
             (mean / median * 100, "nv-ratio-not-excess"),
             (median / mean * 100, NEAR),
         ]
-        d_ft, d_range = "part_c / part_b * 100", (0, None)
+        d_ft, d_range, d_lo = "part_c / part_b * 100", (0, None), 1  # an overstatement is positive
     else:
         ctx = rng.choice(_BALANCED)
         values, mean, median = _balanced(rng, ctx)
@@ -708,7 +751,7 @@ def _exam_chain(rng):
             (median * k, "nv-median-for-total"),
             (Fraction(sum(values)), "nv-total-of-sample"),
         ]
-        c_ft, c_range = f"part_a * {k}", (0, None)
+        c_ft, c_range, c_lo = f"part_a * {k}", (0, None), 1  # a total is positive
         d_prompt = f"The same estimate made from the median instead would differ from the mean's estimate. Find (estimate from the mean) minus (estimate from the median) for the {k} {_plural(ctx[3])}."
         d_value = (mean - median) * k
         d_working = [f"({_fmt(mean)} - {_fmt(median)}) x {k} = {float(d_value):.1f}."]
@@ -718,7 +761,7 @@ def _exam_chain(rng):
             (median * k, NEAR),
             (Fraction(sum(values)) - median * k, NEAR),
         ]
-        d_ft, d_range = f"(part_a - part_b) * {k}", (None, None)
+        d_ft, d_range, d_lo = f"(part_a - part_b) * {k}", (None, None), -(10**6)  # a signed difference
     s = sorted(values)
     check(sum(s) == sum(values) and mean == Fraction(sum(values), 10), "mean differs")
     a = number_part(
@@ -734,6 +777,7 @@ def _exam_chain(rng):
                 (Fraction(sum(values), 11), "nv-mean-wrong-count"),
                 (median, "nv-wrong-measure"),
             ],
+            values,
         ),
     )
     b = number_part(
@@ -750,6 +794,7 @@ def _exam_chain(rng):
                 (Fraction(s[5]), "nv-median-one-middle"),
                 (mean, "nv-wrong-measure"),
             ],
+            values,
         ),
     )
     c = number_part(
@@ -758,7 +803,7 @@ def _exam_chain(rng):
         1,
         2,
         c_working,
-        _ordered(c_value, c_slips),
+        _ordered(c_value, c_slips, lo=c_lo),
         follow_through=c_ft,
         sensible_range=c_range,
     )
@@ -768,7 +813,7 @@ def _exam_chain(rng):
         1,
         2,
         d_working,
-        _ordered(d_value, d_slips),
+        _ordered(d_value, d_slips, lo=d_lo),
         follow_through=d_ft,
         sensible_range=d_range,
     )

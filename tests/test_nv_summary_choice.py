@@ -67,7 +67,7 @@ def test_easy_measure_name_follows_the_situation():
         else:
             assert "estimate the total" in t and q.answer_text == "Mean", t
         options = set(mcq_options(q))
-        assert options == {"Mean", "Median", "Mode", "Range"}, options
+        assert {"Mean", "Median", "Mode"} <= options and len(options) == 4, options
         seen[q.answer_text] += 1
     assert set(seen) == {"Mode", "Median", "Mean"} and min(seen.values()) >= 15, seen
 
@@ -300,3 +300,91 @@ def test_unknown_tier_raises():
         nv_summary_choice(random.Random(1), tier="exam")
     with pytest.raises(ValueError):
         exd_x_nv_summary_choice(random.Random(1), tier="hard")
+
+
+# -- what each stem rules out ---------------------------------------------------------------------------------------
+# One row per part: (where it is asked, what its stem implies about every option, the key's own value included).
+#   easy / medium median and mean (listed data): between the smallest and the largest listed value
+#   easy / medium / hard mode (listed data):     a whole number inside the data's range, at least 1 (the mode is a whole count)
+#   hard claim (skewed / total / common):        never the figure the stem calls wrong; the median / mean also within the data
+#   hard claim (ordinal):                        a whole rating 1 to 7, and neither the printed mean nor its rounding
+#   hard coded count:                            a whole number of people, at least 1 and below the group size
+#   easy naming question:                        the four named measures, once each, the key among them
+#   exam (a), (b):                               between the smallest and the largest listed value
+#   exam (c), (d):                               a total or an overstatement is positive; the signed differences may be negative
+CLAIM = re.compile(
+    r"typical [a-z ]+ is (\d+\.\d)|used the median, (\d+\.\d)|reports (\d+\.\d) as|mean rating is (\d+\.\d)"
+)
+NAMES = {"Mean", "Median", "Mode", "Range", "Interquartile range", "Standard deviation"}
+
+
+def modal(values):
+    counts = Counter(values)
+    top = max(counts.values())
+    winners = [v for v, c in counts.items() if c == top]
+    return winners[0] if top > 1 and len(winners) == 1 else None
+
+
+def violations(q, parts=None):
+    """Every way an option of a tier question breaks what its stem implies (a list of strings)."""
+    out = []
+    t = q.text
+    options = [q.answer_text, *q.distractors]
+    if q.answer_text in NAMES:
+        if len(set(options)) != 4 or not set(options) <= NAMES or len(set(options) & {"Mean", "Median", "Mode"}) < 3:
+            out.append(f"naming options {options}")
+        return out
+    try:
+        values = listed(t)
+    except AttributeError:
+        values = None
+    nums = [Fraction(o) for o in options]
+    claim = CLAIM.search(t)
+    if claim:
+        said = Fraction(next(g for g in claim.groups() if g))
+        if said in nums:
+            out.append(f"offers the claimed figure {said}")
+        if "mean rating is" in t and Fraction(round(said)) in nums:
+            out.append("offers the rounded claim")
+    if "1 (poor)" in t or "1 (very" in t:  # the ordinal ratings
+        if any(n.denominator != 1 or not 1 <= n <= 7 for n in nums):
+            out.append(f"rating options {options}")
+    elif "coded" in t:
+        size = len(listed(t))
+        if any(n.denominator != 1 or not 1 <= n < size for n in nums):
+            out.append(f"count options {options}")
+    elif values:
+        if any(not min(values) <= n <= max(values) for n in nums):
+            out.append(f"option outside the data {min(values)}..{max(values)}: {options}")
+        m = modal(values)
+        if m is not None and Fraction(m) == Fraction(q.answer_text):
+            if any(n.denominator != 1 or n < 1 for n in nums):
+                out.append(f"mode option not a whole number from 1: {options} for {sorted(values)}")
+    return out
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_no_option_is_ruled_out_by_the_stem(tier):
+    bad = []
+    for seed in range(400):
+        q = sup.tier_question(TOPIC, tier, seed)
+        bad += [f"seed {seed}: {v}" for v in violations(q)]
+    assert not bad, bad[:5]
+
+
+def test_exam_options_respect_each_part():
+    bad = []
+    for seed in range(400):
+        q = sup.exam_question(EXAM, seed)
+        v = listed(q.text)
+        skewed = "percentage" in q.parts[3].prompt
+        for label, p in zip("ab", q.parts[:2]):
+            nums = [Fraction(o) for o in [p.answer_text, *p.distractors]]
+            if any(not min(v) <= n <= max(v) for n in nums):
+                bad.append(f"seed {seed} ({label}): {nums} outside {min(v)}..{max(v)}")
+        for label, p in zip("cd", q.parts[2:]):
+            nums = [Fraction(o) for o in [p.answer_text, *p.distractors]]
+            signed = (label == "c" and skewed) or (label == "d" and not skewed)
+            if not signed and any(n <= 0 for n in nums):
+                bad.append(f"seed {seed} ({label}): non-positive option in {nums}")
+    assert not bad, bad[:5]

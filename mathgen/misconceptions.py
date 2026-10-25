@@ -60602,6 +60602,11 @@ _ENTRIES += (
         "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a.",
         area="graph-features",
     ),
+    CatalogueEntry(
+        "vm-pf-quadrant-right-branch-only",
+        "Giving only the quadrant to the right of the y-axis and leaving out the branch for x < 0.",
+        area="graph-features",
+    ),
     # nv-bits-hex block
     CatalogueEntry(
         "nv-bits-log-rounded-down",
@@ -60621,11 +60626,6 @@ _ENTRIES += (
     CatalogueEntry(
         "nv-bits-power-boundary",
         "Gives the exponent when the number is a power of two (256 as 8 bits), forgetting that 256 itself needs a ninth bit.",
-        area="bits-hex-and-digit-counts",
-    ),
-    CatalogueEntry(
-        "nv-bits-round-to-nearest",
-        "Rounds the base-2 logarithm to the nearest whole number instead of up.",
         area="bits-hex-and-digit-counts",
     ),
     CatalogueEntry(
@@ -60689,11 +60689,6 @@ _ENTRIES += (
         area="bits-hex-and-digit-counts",
     ),
     CatalogueEntry(
-        "nv-hex-no-padding",
-        "Leaves a short group of binary digits unpadded, reading it with the wrong place values.",
-        area="bits-hex-and-digit-counts",
-    ),
-    CatalogueEntry(
         "nv-hex-digits-rounded-down",
         "Divides the number of bits by 4 and rounds down, one hexadecimal digit too few.",
         area="bits-hex-and-digit-counts",
@@ -60714,8 +60709,8 @@ _ENTRIES += (
         area="bits-hex-and-digit-counts",
     ),
     CatalogueEntry(
-        "nv-hex-padding-dropped",
-        "Drops the leading zeros of a numeral that was to be written to a stated width.",
+        "nv-hex-groups-reversed",
+        "Reads the groups of four bits from right to left, so the hexadecimal digits come out in reverse order.",
         area="bits-hex-and-digit-counts",
     ),
     CatalogueEntry(
@@ -60739,11 +60734,6 @@ _ENTRIES += (
         area="bits-hex-and-digit-counts",
     ),
     CatalogueEntry(
-        "nv-unused-total-values",
-        "Gives the total number of values rather than the number that are unused.",
-        area="bits-hex-and-digit-counts",
-    ),
-    CatalogueEntry(
         "nv-colour-channels-swapped",
         "Writes the colour channels in the wrong order in the hexadecimal code.",
         area="bits-hex-and-digit-counts",
@@ -60760,7 +60750,7 @@ _ENTRIES += (
     ),
     CatalogueEntry(
         "nv-hex-last-digit-dropped",
-        "Stops the repeated division by 16 one step early, leaving off the last digit.",
+        "Stops the repeated division by 16 one step early, leaving off the leading digit (the last one found).",
         area="bits-hex-and-digit-counts",
     ),
     CatalogueEntry(
@@ -60806,33 +60796,13 @@ _ENTRIES += (
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
-        "nv-mean-of-ordinal-labels",
-        "Averages ordered labels such as poor to excellent as if they were equally spaced numbers.",
-        area="choose-summary-statistic",
-    ),
-    CatalogueEntry(
-        "nv-mode-only-for-ordinal",
-        "Thinks only the mode can be found for ordered categories.",
-        area="choose-summary-statistic",
-    ),
-    CatalogueEntry(
-        "nv-fewer-measures-than-possible",
-        "Thinks fewer measures of centre can be found for a numerical variable than can.",
-        area="choose-summary-statistic",
-    ),
-    CatalogueEntry(
         "nv-range-as-centre",
-        "Gives the range, a measure of spread, where a measure of centre was asked for.",
+        "Gives a measure of spread (the range, interquartile range or standard deviation) where a measure of centre was asked for.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
         "nv-mean-for-skewed",
         "Uses the mean for data with one extreme value, although the extreme value drags the mean away from a typical value.",
-        area="choose-summary-statistic",
-    ),
-    CatalogueEntry(
-        "nv-mean-for-ordinal",
-        "Gives the mean of ordered ratings coded 1 to 5, where the middle rating was needed.",
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
@@ -60911,16 +60881,6 @@ _ENTRIES += (
         area="choose-summary-statistic",
     ),
     CatalogueEntry(
-        "nv-total-not-scaled",
-        "Gives the mean itself where the total for many items was asked.",
-        area="choose-summary-statistic",
-    ),
-    CatalogueEntry(
-        "nv-total-divided",
-        "Divides the mean by the number of items where the total was asked.",
-        area="choose-summary-statistic",
-    ),
-    CatalogueEntry(
         "nv-total-of-sample",
         "Gives the total of the listed values as the total for the larger number of items.",
         area="choose-summary-statistic",
@@ -60941,11 +60901,6 @@ _ENTRIES += (
         area="choose-summary-statistic",
     ),
     # nv-summary block end
-    CatalogueEntry(
-        "vm-pf-quadrant-right-branch-only",
-        "Giving only the quadrant to the right of the y-axis and leaving out the branch for x < 0.",
-        area="graph-features",
-    ),
 )
 
 #: Every entry, by id.
