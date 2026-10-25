@@ -81,6 +81,14 @@ NEAR = "near-miss-value"
 _OFFSETS = [complex(a, b) for a in (-3, -2, -1, 0, 1, 2, 3) for b in (-3, -2, -1, 0, 1, 2, 3) if (a, b) != (0, 0)]
 
 
+def _kind(z) -> str:
+    """``real``, ``imaginary`` (pure) or ``mixed``."""
+    z = sympy.expand(z)
+    if sympy.im(z) == 0:
+        return "real"
+    return "imaginary" if sympy.re(z) == 0 else "mixed"
+
+
 def _gaussian(z) -> bool:
     """Whether both parts of z are whole numbers."""
     z = sympy.expand(z)
@@ -113,6 +121,17 @@ def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, s
             if f.text not in used:
                 used.add(f.text)
                 keep.append(f)
+        # a real key must not be the only real option, nor a pure-imaginary key the only pure-imaginary one
+        kind = _kind(keyz)
+        if kind != "mixed" and not any(_kind(sympy.sympify(d.value)) == kind for d in keep):
+            step = [gaussian(o, 0) if kind == "real" else gaussian(0, o) for o in rng.sample([-3, -2, -1, 1, 2, 3], 6)]
+            for delta in step:
+                z = keyz + delta
+                f = cdist(z, NEAR)
+                if f.text not in used and _kind(z) == kind and _gaussian(z) == _gaussian(keyz):
+                    drop = next((d for d in reversed(keep) if d.misconception == NEAR), keep[-1])
+                    keep[keep.index(drop)] = f
+                    break
         rng.shuffle(keep)
         want(len(keep) >= 2, "too few options")
         return keep

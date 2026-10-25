@@ -326,3 +326,22 @@ def test_exam_value_options_do_not_exceed_k_times_beta():
         e = sup.exam_question(EXAM, seed)
         k, beta = _real(e.parts[0].answer_text), _real(e.parts[1].answer_text)
         assert all(0 < _real(t) <= k * beta + 1e-12 for t in e.parts[3].distractors), (seed, e.parts[3].distractors)
+
+
+def _lead_and_denominator(text: str):
+    lead = bool(re.match(r"\d+\*\(", text))
+    return lead, int(sympy.fraction(sympy.together(sympy.sympify(text)))[1])
+
+
+def test_exam_c_and_d_options_are_drawn_in_the_keys_form():
+    """Over 1000 seeds, an option has no leading coefficient or bigger denominator that the key lacks."""
+    for seed in range(1000):
+        e = sup.exam_question(EXAM, seed)
+        for index in (2, 3):
+            part = e.parts[index]
+            key_lead, key_den = _lead_and_denominator(part.answer_text)
+            for t in part.distractors:
+                lead, den = _lead_and_denominator(t)
+                where = (seed, index, part.answer_text, t)
+                assert key_lead or not lead, where
+                assert key_lead or den <= 4 * key_den, where
