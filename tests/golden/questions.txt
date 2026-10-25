@@ -418,9 +418,9 @@
 {"answer": "11", "id": "bits-hex-and-digit-counts/easy/0/d2892523c762", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
 {"answer": "9", "id": "bits-hex-and-digit-counts/easy/1/dc8e97c3b371", "text": "What is the least number of binary digits (bits) needed to write the whole numb…"}
 {"answer": "11", "id": "bits-hex-and-digit-counts/easy/2/02037cf18ed2", "text": "A scoreboard counts whole numbers from 0 up to 1181, stored in binary. What is …"}
-{"answer": "(a) 14; (b) 16384; (c) 246; (d) 3F09", "id": "bits-hex-and-digit-counts/exam/0/3f08352fef8c", "text": "The logger in a pedometer that reports a whole number of steps stores each read…"}
-{"answer": "(a) 14; (b) 16384; (c) 6690; (d) 4", "id": "bits-hex-and-digit-counts/exam/1/256537e97c55", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
-{"answer": "(a) 14; (b) 16384; (c) 6580; (d) 264B", "id": "bits-hex-and-digit-counts/exam/2/a0917938374a", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
+{"answer": "(a) 14; (b) 16384; (c) 246; (d) 3F09", "id": "bits-hex-and-digit-counts/exam/0/6fcc417576bd", "text": "The logger in a pedometer that reports a whole number of steps stores each read…"}
+{"answer": "(a) 14; (b) 16384; (c) 6690; (d) 4", "id": "bits-hex-and-digit-counts/exam/1/90d119879554", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
+{"answer": "(a) 14; (b) 16384; (c) 6580; (d) 264B", "id": "bits-hex-and-digit-counts/exam/2/cdff7e34edaf", "text": "The logger in a rainfall gauge that reports whole millimetres stores each readi…"}
 {"answer": "4095", "id": "bits-hex-and-digit-counts/hard/0/b2a272cfb41b", "text": "What is the largest whole number (in decimal) that can be written with 3 hexade…"}
 {"answer": "071", "id": "bits-hex-and-digit-counts/hard/1/2bf30d896364", "text": "Write 113 in hexadecimal using exactly 3 digits (put zeros in front if needed).…"}
 {"answer": "0AA", "id": "bits-hex-and-digit-counts/hard/2/8126868e009e", "text": "A memory address is shown as exactly 3 hexadecimal digits, with leading zeros a…"}
@@ -881,7 +881,7 @@
 {"answer": "-18 + 2i", "id": "complex-arg-ratio-geometry/easy/1/e5169ad9a1f8", "text": "A transformation of the complex plane is w = (2i)z + (-6 + 4i). Find the image …"}
 {"answer": "-4 - 2i", "id": "complex-arg-ratio-geometry/easy/2/a055ae3b0286", "text": "On an Argand diagram, A represents -1 + 2i and B represents -7 - 6i. Find the c…"}
 {"answer": "(a) 2 - 2i; (b) 45; (c) -2i; (d) 1 - 7i", "id": "complex-arg-ratio-geometry/exam/0/e7652c6f0eba", "text": "Triangle ABC is drawn on the complex plane with A at 1 + i, B at -1 + 3i and C …"}
-{"answer": "(a) 3i; (b) 90; (c) -1 - 6i; (d) -1 - 11i", "id": "complex-arg-ratio-geometry/exam/1/36772026dab3", "text": "The points A, B and C on an Argand diagram represent the complex numbers -4 - 2…"}
+{"answer": "(a) 3i; (b) 90; (c) -1 - 6i; (d) -1 - 11i", "id": "complex-arg-ratio-geometry/exam/1/0fd41a17767d", "text": "The points A, B and C on an Argand diagram represent the complex numbers -4 - 2…"}
 {"answer": "(a) -i; (b) 90; (c) 6 - 3i; (d) 8 - 3i", "id": "complex-arg-ratio-geometry/exam/2/2dc4bd2e5c76", "text": "On an Argand diagram the vertices of triangle ABC are A = 6 - i, B = 4 - 3i and…"}
 {"answer": "150", "id": "complex-arg-ratio-geometry/hard/0/7477459c0101", "text": "Triangle ABC has A(1 + i), B(1 - i) and C(3 - (1 + 2√3)i) on an Argand diagram.…"}
 {"answer": "60", "id": "complex-arg-ratio-geometry/hard/1/75bb7844baeb", "text": "Triangle ABC has A(3 - i), B(2 - i) and C(3 - (1 + √3)i) on an Argand diagram. …"}
@@ -6269,7 +6269,7 @@
 {"answer": "(a) -2592; (b) -32; (c) 3, 4; (d) 6", "id": "power-function-graph-features/exam/1/95337fe20115", "text": "A function has the rule y = ax^(-4), where a is a constant. Its graph passes th…"}
 {"answer": "(a) -144; (b) -9; (c) 3, 4; (d) 12", "id": "power-function-graph-features/exam/2/b3116d0631bd", "text": "The graph of y = ax^(-2), where a is a constant, passes through the point (4, -…"}
 {"answer": "1", "id": "power-function-graph-features/hard/0/dea24c0fde30", "text": "Let y = 8(x - 3)^(-3) + 1. Find the x-coordinate of the right-most x-intercept."}
-{"answer": "1", "id": "power-function-graph-features/hard/1/c357350bda65", "text": "Starting from y = x^(-1), the graph is stretched by a factor of 3 away from the…"}
+{"answer": "1", "id": "power-function-graph-features/hard/1/3f92577be00e", "text": "Starting from y = x^(-1), the graph is stretched by a factor of 3 away from the…"}
 {"answer": "54", "id": "power-function-graph-features/hard/2/ae25e15e6c4a", "text": "Let f(x) = 9x^(1/3). The graph of y = f(x) meets the line y = x at several poin…"}
 {"answer": "1", "id": "power-function-graph-features/medium/0/07655795c61c", "text": "Let y = 3x^(3/4). State the quadrants in which the graph lies, as quadrant numb…"}
 {"answer": "1, 2", "id": "power-function-graph-features/medium/1/517f76e7f78a", "text": "Let y = 4x^(4/3). State the quadrants in which the graph lies, as quadrant numb…"}
@@ -11905,15 +11905,15 @@
 {"answer": "3", "id": "trig-substitution-hsc-tan-and-convert/easy/0/a99a27f1343b", "text": "The substitution x = 3tan(θ) gives √(9 + x^2) = k sec(θ). What is the constant …"}
 {"answer": "4", "id": "trig-substitution-hsc-tan-and-convert/easy/1/a96b49380a58", "text": "The substitution x = 2sin(θ) turns ∫ √(4 - x^2) dx into ∫ k cos^2(θ) dθ for a c…"}
 {"answer": "7", "id": "trig-substitution-hsc-tan-and-convert/easy/2/0beb8b2cdc4b", "text": "With the substitution x = 7sin(θ), √(49 - x^2) = k cos(θ). Find k."}
-{"answer": "(a) 1/3375; (b) pi/4; (c) (pi + 2)/8; (d) (pi + 2)/27000", "id": "trig-substitution-hsc-tan-and-convert/exam/0/02d4f6fbb291", "text": "The integral ∫ from 0 to 15 of 1/(225 + x^2)^2 dx is to be found using the subs…"}
-{"answer": "(a) 1/3375; (b) pi/6; (c) (2*pi + 3*sqrt(3))/24; (d) (2*pi …", "id": "trig-substitution-hsc-tan-and-convert/exam/1/0f79d7066f37", "text": "The integral ∫ from 0 to 5√3 of 1/(225 + x^2)^2 dx is to be found using the sub…"}
-{"answer": "(a) 64; (b) pi/3; (c) (4*pi + 3*sqrt(3))/24; (d) 8*(4*pi/3 …", "id": "trig-substitution-hsc-tan-and-convert/exam/2/f710dce466bc", "text": "The integral ∫ from 0 to 4√3 of √(64 - x^2) dx is to be found using the substit…"}
-{"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/0/fd296ab21756", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
-{"answer": "(3 - sqrt(3))/48", "id": "trig-substitution-hsc-tan-and-convert/hard/1/82aefe9fe6e4", "text": "By a suitable trigonometric substitution, find the exact value of ∫ from 2 to 2…"}
-{"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/2/3ecbc9f09ecb", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
-{"answer": "pi/36", "id": "trig-substitution-hsc-tan-and-convert/medium/0/4af2fc29c698", "text": "Evaluate ∫ from 0 to 2√3 of 1/(36 + x^2) dx exactly. Use the substitution x = 6…"}
-{"answer": "pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/1/858e38d9b7db", "text": "Find the exact value of ∫ from 0 to √2 of 1/√(4 - x^2) dx by using the substitu…"}
-{"answer": "25*pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/2/24714b2986f2", "text": "Evaluate ∫ from 0 to 5 of √(25 - x^2) dx exactly. Use the substitution x = 5sin…"}
+{"answer": "(a) 1/3375; (b) pi/4; (c) (pi + 2)/8; (d) (pi + 2)/27000", "id": "trig-substitution-hsc-tan-and-convert/exam/0/4891b1a07e9b", "text": "The integral ∫ from 0 to 15 of 1/(225 + x^2)^2 dx is to be found using the subs…"}
+{"answer": "(a) 1/3375; (b) pi/6; (c) (2*pi + 3*sqrt(3))/24; (d) (2*pi …", "id": "trig-substitution-hsc-tan-and-convert/exam/1/06d0d03a2b90", "text": "The integral ∫ from 0 to 5√3 of 1/(225 + x^2)^2 dx is to be found using the sub…"}
+{"answer": "(a) 64; (b) pi/3; (c) (4*pi + 3*sqrt(3))/24; (d) 8*(4*pi/3 …", "id": "trig-substitution-hsc-tan-and-convert/exam/2/187521b34f02", "text": "The integral ∫ from 0 to 4√3 of √(64 - x^2) dx is to be found using the substit…"}
+{"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/0/faa0b0861aeb", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
+{"answer": "(3 - sqrt(3))/48", "id": "trig-substitution-hsc-tan-and-convert/hard/1/5cb0cc75e5a2", "text": "By a suitable trigonometric substitution, find the exact value of ∫ from 2 to 2…"}
+{"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/2/833f7b433a8a", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
+{"answer": "pi/36", "id": "trig-substitution-hsc-tan-and-convert/medium/0/5097659fc2ac", "text": "Evaluate ∫ from 0 to 2√3 of 1/(36 + x^2) dx exactly. Use the substitution x = 6…"}
+{"answer": "pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/1/199bf75e1287", "text": "Find the exact value of ∫ from 0 to √2 of 1/√(4 - x^2) dx by using the substitu…"}
+{"answer": "25*pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/2/4a6dcf1c873e", "text": "Evaluate ∫ from 0 to 5 of √(25 - x^2) dx exactly. Use the substitution x = 5sin…"}
 {"answer": "-2, 4", "id": "two-by-two-eigenvalues/easy/0/e938e9a435d0", "text": "For A = [[-2, -1], [0, 4]], use det(λI − A) = 0 to find the eigenvalues."}
 {"answer": "0, 2", "id": "two-by-two-eigenvalues/easy/1/8019b127c70a", "text": "For A = [[0, -2], [0, 2]], use det(λI − A) = 0 to find the eigenvalues."}
 {"answer": "-3, 3", "id": "two-by-two-eigenvalues/easy/2/12efbf9d249f", "text": "For A = [[3, -1], [0, -3]], use det(λI − A) = 0 to find the eigenvalues."}
