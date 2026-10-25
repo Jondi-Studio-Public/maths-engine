@@ -440,6 +440,12 @@ def test_key_has_no_fixed_rank_vm(topic):
     _check_key_rank_and_options(topic)
 
 
+@pytest.mark.parametrize("topic", _topics_of("exd_x_pc1", "exd_x_tg1"))
+def test_key_has_no_fixed_rank_exd_chains(topic):
+    """The proof-by-contradiction and sin/cos/tan exam chains, each family and part judged on its own (`_family`)."""
+    _check_key_rank_and_options(topic)
+
+
 def test_a_round_key_is_not_usually_the_lone_round_option():
     """With one multiple of 10 among the options the learner picks it. Over every question kind that has such a set the
     key must be the lone multiple of 10 no more than half the time (a chance draw gives about a quarter)."""
