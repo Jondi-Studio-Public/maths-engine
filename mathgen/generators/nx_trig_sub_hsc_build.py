@@ -242,12 +242,15 @@ def _pick_values(key, cands):
     return out
 
 
+_STANDARD_ANGLES = (pi / 12, pi / 6, pi / 4, pi / 3, 5 * pi / 12, pi / 2, pi / 8, 3 * pi / 8)
+
+
 def _angle_options(key, cands, *, lo=R(1, 100), hi=pi / 2):
     """Three wrong angles for a limit of theta, all strictly between `lo` and `hi` (the stem rules out anything else:
     below the other limit, past a quarter turn), with the key's place among them drawn at random."""
     key = sympy.sympify(key)
-    steps = (pi / 12, pi / 6, pi / 24, pi / 8, pi / 36, pi / 18, pi / 15)
-    near = [Cand(key + d, NEAR, const=False) for step in steps for d in (step, -step)]
+    # plain near misses are standard angles too, so the key is never the lone standard angle among its options
+    near = [Cand(angle, NEAR, const=False) for angle in _STANDARD_ANGLES if angle != key]
     cands = [Cand(c.expr, c.tag, const=False) for c in cands if c.expr != 0]
     return pick_expr(key, False, mixed(key, cands, fillers=near, lo=lo, hi=hi))
 
@@ -256,15 +259,41 @@ def _no_const(cands):
     return [Cand(c.expr, c.tag, const=False) for c in cands if c is not None]
 
 
-def _options(key, cands, rng, *, lo, hi, room=()):
+def _shape(value):
+    """Which of pi, a surd and a bare rational term an exact value holds, and its number of terms."""
+    expr = sympy.expand(sympy.sympify(value))
+    terms = sympy.Add.make_args(expr)
+    return (
+        expr.has(pi),
+        bool(expr.atoms(sympy.Pow) - {pi}),
+        any(t.is_Rational for t in terms) and len(terms) > 1,
+        len(terms),
+    )
+
+
+def _options(key, cands, rng, *, lo, hi):
+    """Three wrong exact values. Plain near misses are the key with its coefficient changed (as a wrong coefficient
+    would), so they have the key's shape; no extra constant term appears in any of them."""
     key = sympy.sympify(key)
-    near = [Cand(key + R(k, d), NEAR, const=False) for d in (2, 3, 4, 6, 8, 12) for k in (-1, 1)]
-    near += [
-        Cand(key * m, NEAR, const=False)
-        for m in (R(1, 4), R(1, 3), R(1, 2), R(2, 3), R(3, 4), R(4, 5), R(5, 4), R(3, 2), 2)
-    ]
-    near += [Cand(v, NEAR, const=False) for v in room]  # values spread over the space the stem leaves above the key
-    return pick_expr(key, False, mixed(key, _no_const(cands), fillers=near, lo=lo, hi=hi))
+    multipliers = (
+        R(1, 4),
+        R(1, 3),
+        R(1, 2),
+        R(2, 3),
+        R(3, 4),
+        R(4, 5),
+        R(9, 10),
+        R(21, 20),
+        R(11, 10),
+        R(9, 8),
+        R(6, 5),
+    )
+    multipliers += (R(5, 4), R(4, 3), R(3, 2), 2, 3)
+    near = [Cand(key * m, NEAR, const=False) for m in multipliers]
+    out = pick_expr(key, False, mixed(key, _no_const(cands), fillers=near, lo=lo, hi=hi))
+    if not any(_shape(sympy.sympify(d.text)) == _shape(key) for d in out):
+        raise Redraw("the key is the only option of its shape")
+    return out
 
 
 def _value_slips(kind, a, alpha, beta, lo_x, hi_x):
@@ -742,8 +771,6 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
             rng,
             lo=R(1, 1000),
             hi=beta,
-            room=[inner + (beta - inner) * t for t in (R(1, 4), R(1, 2), R(3, 4))]
-            + [inner * t for t in (R(1, 4), R(1, 2), R(3, 4))],
         ),
         follow_through="part_b/2 + sin(2*part_b)/4",
     )
@@ -753,7 +780,7 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
         1,
         [_tidy(f"The value is k × (the integral of cos^2): {k} × ({_lim(inner)}) = {_lim(value)}.")],
         exact_fields(value),
-        _options(value, [Cand(c.expr, c.tag, False) for c in d_cands], rng, lo=0, hi=None),
+        _options(value, [Cand(c.expr, c.tag, False) for c in d_cands], rng, lo=0, hi=k * beta),
         follow_through="part_a*part_c",
     )
     check(isinstance(pa, dict), "")
