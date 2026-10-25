@@ -111,7 +111,11 @@ MISCONCEPTIONS = [
     ),
     ("nv-hex-codes-multiply", "Multiplies the number of digits by 16 instead of using 16 to that power.", AREA),
     ("nv-hex-codes-base-ten", "Uses 10 to the power of the digit count, as if the digits were decimal.", AREA),
-    ("nv-hex-padding-dropped", "Drops the leading zeros of a numeral that was to be written to a stated width.", AREA),
+    (
+        "nv-hex-groups-reversed",
+        "Reads the groups of four bits from right to left, so the hexadecimal digits come out in reverse order.",
+        AREA,
+    ),
     ("nv-hex-padding-wrong-side", "Pads a short numeral with zeros on the right, changing its value.", AREA),
     (
         "nv-hex-top-digit-f",
@@ -124,7 +128,6 @@ MISCONCEPTIONS = [
         "Counts the unused values of a bit pattern as 2 to the power n minus the largest reading, forgetting that zero is a value.",
         AREA,
     ),
-    ("nv-unused-total-values", "Gives the total number of values rather than the number that are unused.", AREA),
     ("nv-colour-channels-swapped", "Writes the colour channels in the wrong order in the hexadecimal code.", AREA),
     ("nv-largest-two-less", "Takes two away from 2 to the power n, not one, to get the largest n-bit value.", AREA),
     (
@@ -134,7 +137,7 @@ MISCONCEPTIONS = [
     ),
     (
         "nv-hex-last-digit-dropped",
-        "Stops the repeated division by 16 one step early, leaving off the last digit.",
+        "Stops the repeated division by 16 one step early, leaving off the leading digit (the last one found).",
         AREA,
     ),
     ("nv-hex-digits-bits-over-two", "Divides the number of bits by 2 to count hexadecimal digits.", AREA),
@@ -220,21 +223,29 @@ def _test_value(text: str) -> int:
     return int(text) if text.isdigit() else int(text, 16)
 
 
-def hex_spread(key: str, candidates, count: int = 3) -> list[Distractor]:
+def _shape_ok(key: str, text: str, exact: bool) -> bool:
+    """What the stem allows of a hexadecimal option: no leading zero unless the key has one (it would read as a different
+    width), and the key's exact width when the stem states one."""
+    if exact and len(text) != len(key):
+        return False
+    return not (text.startswith("0") and not key.startswith("0"))
+
+
+def hex_spread(key: str, candidates, count: int = 3, *, exact: bool = False) -> list[Distractor]:
     """`hex_dist` over candidates ordered so that a random number of the chosen wrong numerals are below the key in value.
 
     Plain near misses (the number a little more or less, same width) make up a side the named slips leave short. A slip
     equal in value to the key (the decimal digits written as hexadecimal) can be neither below nor above it; it takes
     one of the places now and then."""
     rng = _RNG.get()
-    usable = [c for c in candidates if c[0] and not _reads_as_number(c[0])]
+    usable = [c for c in candidates if c[0] and not _reads_as_number(c[0]) and _shape_ok(key, c[0], exact)]
     if rng is None:
         return hex_dist(key, usable, count)
     kv = _test_value(key)
     width = len(key) if key.startswith("0") else 0
     n = int(key, 16)
     near = [(_hex(n + d, width), NEAR) for d in (-256, -16, -2, -1, 1, 2, 16, 256) if n + d > 0]
-    near = [c for c in near if not _reads_as_number(c[0])]
+    near = [c for c in near if not _reads_as_number(c[0]) and _shape_ok(key, c[0], exact)]
     named = [(_test_value(c[0]), c) for c in usable if _test_value(c[0]) != kv]
     ties = [c for c in usable if _test_value(c[0]) == kv and c[0].upper() != key.upper()]
     fillers = [(_test_value(c[0]), c) for c in near]
@@ -287,7 +298,7 @@ def _easy_bits_needed(rng):
         (bits + 1, "nv-bits-one-extra"),
         (n // 8, "nv-bits-divides-by-eight"),
     ]
-    dist = _dist(bits, cands)
+    dist = _dist(bits, cands, hi=3 * bits)
     stem = _num(
         rng,
         (
@@ -364,8 +375,14 @@ def _hex_with_letter(rng, lo, hi, digits=None):
     raise AssertionError  # pragma: no cover
 
 
+def _digit_only_hex(rng, lengths, first="123456789"):
+    """A hexadecimal numeral written with the digits 0 to 9 only, so that a letter is not a sign of the right answer."""
+    h = rng.choice(first) + "".join(rng.choice("0123456789") for _ in range(rng.choice(lengths) - 1))
+    return int(h, 16), h
+
+
 def _medium_dec_to_hex(rng):
-    n, h = _hex_with_letter(rng, 60, 4000)
+    n, h = _digit_only_hex(rng, (2, 3)) if rng.random() < 0.3 else _hex_with_letter(rng, 60, 4000)
     check(_from_hex(h) == n, "hex value differs")
     steps, q = [], n
     remainders = []
@@ -379,7 +396,7 @@ def _medium_dec_to_hex(rng):
         (h[::-1], "nv-hex-remainders-reversed"),
         (wrong_letter, "nv-hex-letter-misvalue"),
         (_hex(n + 16 if n % 16 != 15 else n - 16), NEAR),
-        (h[:-1] if len(h) > 2 else "", "nv-hex-last-digit-dropped"),
+        (h[1:] if len(h) > 2 else "", "nv-hex-last-digit-dropped"),
         (str(n), "nv-hex-decimal-digits"),
     ]
     dist = hex_spread(h, cands)
@@ -404,12 +421,16 @@ def _medium_dec_to_hex(rng):
 
 
 def _medium_bin_to_hex(rng):
-    for _ in attempts(500, "a binary numeral that does not group into fours"):
-        length = rng.choice((9, 10, 11, 13, 14))
-        bits = "1" + "".join(rng.choice("01") for _ in range(length - 1))
-        h = _hex(int(bits, 2))
-        if any(c.isalpha() for c in h):
-            break
+    if rng.random() < 0.3:  # sometimes a numeral with no letter in it
+        _, h = _digit_only_hex(rng, (3, 4), "1234567")
+        bits = format(int(h, 16), "b")
+    else:
+        for _ in attempts(500, "a binary numeral that does not group into fours"):
+            length = rng.choice((9, 10, 11, 13, 14))
+            bits = "1" + "".join(rng.choice("01") for _ in range(length - 1))
+            h = _hex(int(bits, 2))
+            if any(c.isalpha() for c in h):
+                break
     pad = (-len(bits)) % 4
     padded = "0" * pad + bits
     groups = [padded[i : i + 4] for i in range(0, len(padded), 4)]
@@ -421,7 +442,7 @@ def _medium_bin_to_hex(rng):
     cands = [
         (left_text, "nv-hex-groups-from-left"),
         (threes, "nv-hex-groups-of-three"),
-        (h[::-1], "nv-hex-remainders-reversed"),
+        (h[::-1], "nv-hex-groups-reversed"),
         (_hex(int(bits, 2) + 1), NEAR),
         (_hex(max(int(bits, 2) - 1, 1)), NEAR),
     ]
@@ -511,7 +532,7 @@ def _hard_bits_boundary(rng):
         (bits + 1, "nv-bits-one-extra"),
         (len(str(n)), "nv-bits-counts-decimal-digits"),
     ]
-    dist = _dist(bits, cands)
+    dist = _dist(bits, cands, hi=3 * bits)
     stem = _num(
         rng,
         (
@@ -539,7 +560,7 @@ def _hard_codes_for_items(rng):
         (m.bit_length() if m.bit_length() != bits else None, "nv-bits-power-boundary"),
         (m // 8, "nv-bits-divides-by-eight"),
     ]
-    dist = _dist(bits, cands)
+    dist = _dist(bits, cands, hi=3 * bits)
     stem = _num(
         rng,
         (
@@ -562,14 +583,15 @@ def _hard_padded_hex(rng):
     h = _hex(n, width)
     check(len(h) == width and _from_hex(h) == n and h.startswith("0"), "padded numeral differs")
     short = _hex(n)
+    # every option has exactly `width` digits, as the stem says: an unpadded numeral is not offered
     cands = [
-        (short, "nv-hex-padding-dropped"),
         (short.ljust(width, "0"), "nv-hex-padding-wrong-side"),
         (_hex(n + 1, width), NEAR),
         (str(n).rjust(width, "0"), "nv-hex-decimal-digits"),
         (h[::-1], "nv-hex-remainders-reversed"),
+        (_hex(n - 1, width), NEAR),
     ]
-    dist = hex_spread(h, cands)
+    dist = hex_spread(h, cands, exact=True)
     enough(dist)
     stem = _num(
         rng,
@@ -592,17 +614,20 @@ def _hard_colour(rng):
     for _ in attempts(200, "a colour with a zero-padded channel"):
         r, g, b = (rng.choice([rng.randint(0, 15), rng.randint(16, 255)]) for _ in range(3))
         h = f"{r:02X}{g:02X}{b:02X}"
-        if any(c.isalpha() for c in h) and len({r, g, b}) == 3 and min(r, g, b) < 16:
+        if (any(c.isalpha() for c in h) or rng.random() < 0.25) and len({r, g, b}) == 3 and min(r, g, b) < 16:
             break
     check(h == format((r << 16) | (g << 8) | b, "06X"), "colour code differs")
     unpadded = "".join(f"{v:X}" for v in (r, g, b))
+    # every option is six digits, as the stem says: a numeral of the wrong length is not offered
     cands = [
-        (unpadded, "nv-hex-padding-dropped"),
+        (unpadded.ljust(6, "0"), "nv-hex-padding-wrong-side"),
         (f"{b:02X}{g:02X}{r:02X}", "nv-colour-channels-swapped"),
         (f"{r:02X}{b:02X}{g:02X}", "nv-colour-channels-swapped"),
         (f"{r:02X}{g:02X}{min(b + 1, 255):02X}", NEAR),
+        (f"{r:02X}{g:02X}{max(b - 1, 0):02X}", NEAR),
+        (f"{min(r + 1, 255):02X}{g:02X}{b:02X}", NEAR),
     ]
-    dist = hex_spread(h, cands)
+    dist = hex_spread(h, cands, exact=True)
     enough(dist)
     stem = _num(
         rng,
@@ -746,6 +771,7 @@ def _exam_chain(rng):
             (bits + 1, "nv-bits-one-extra"),
             (top // 8, "nv-bits-divides-by-eight"),
         ],
+        hi=3 * bits,
     )
     b_dist = _spread(
         values,
@@ -755,16 +781,16 @@ def _exam_chain(rng):
             (values - 1, "nv-values-forgets-zero"),
             (values // 2, "nv-values-half"),
         ],
+        lo=2,
     )
     c_dist = _spread(
         unused,
         [
             (unused + 1, "nv-unused-off-by-one"),
-            (unused - 1, "nv-unused-off-by-one"),
-            (values, "nv-unused-total-values"),
-            (values - top - 2, "nv-unused-off-by-one"),
+            (unused - 1, NEAR),
             (top, "nv-unused-gives-reading"),
         ],
+        hi=values - 1,  # fewer values are unused than there are values
     )
     for d in (a_dist, b_dist, c_dist):
         enough(d)
@@ -811,7 +837,7 @@ def _exam_chain(rng):
             (h[::-1], "nv-hex-remainders-reversed"),
             (str(top), "nv-hex-decimal-digits"),
             (format(top + 16, "X") if top % 16 < 15 else format(top - 16, "X"), NEAR),
-            (h[:-1], "nv-hex-last-digit-dropped"),
+            (h[1:], "nv-hex-last-digit-dropped"),
         ]
         d_dist = hex_spread(h, cands)
         enough(d_dist)

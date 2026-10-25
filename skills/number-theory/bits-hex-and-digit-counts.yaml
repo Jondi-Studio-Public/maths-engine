@@ -83,8 +83,8 @@ misconceptions:
   description: Multiplies the number of digits by 16 instead of using 16 to that power.
 - id: nv-hex-codes-base-ten
   description: Uses 10 to the power of the digit count, as if the digits were decimal.
-- id: nv-hex-padding-dropped
-  description: Drops the leading zeros of a numeral that was to be written to a stated width.
+- id: nv-hex-groups-reversed
+  description: Reads the groups of four bits from right to left, so the hexadecimal digits come out in reverse order.
 - id: nv-hex-padding-wrong-side
   description: Pads a short numeral with zeros on the right, changing its value.
 - id: nv-hex-top-digit-f
@@ -95,8 +95,6 @@ misconceptions:
 - id: nv-unused-off-by-one
   description: Counts the unused values of a bit pattern as 2 to the power n minus the largest reading, forgetting that zero
     is a value.
-- id: nv-unused-total-values
-  description: Gives the total number of values rather than the number that are unused.
 - id: nv-colour-channels-swapped
   description: Writes the colour channels in the wrong order in the hexadecimal code.
 - id: nv-largest-two-less
@@ -104,7 +102,7 @@ misconceptions:
 - id: nv-values-half
   description: Gives 2 to the power (n - 1) as the number of values, leaving out the two choices of one bit.
 - id: nv-hex-last-digit-dropped
-  description: Stops the repeated division by 16 one step early, leaving off the last digit.
+  description: Stops the repeated division by 16 one step early, leaving off the leading digit (the last one found).
 - id: nv-hex-digits-bits-over-two
   description: Divides the number of bits by 2 to count hexadecimal digits.
 - id: nv-hex-digits-one-extra

@@ -49,12 +49,11 @@ misconceptions:
 - id: nv-median-of-unordered-categories
   description: Looks for the middle category of a nominal variable, which has no order.
 - id: nv-range-as-centre
-  description: Gives the range, a measure of spread, where a measure of centre was asked for.
+  description: Gives a measure of spread (the range, interquartile range or standard deviation) where a measure of centre
+    was asked for.
 - id: nv-mean-for-skewed
   description: Uses the mean for data with one extreme value, although the extreme value drags the mean away from a typical
     value.
-- id: nv-mean-for-ordinal
-  description: Gives the mean of ordered ratings coded 1 to 5, where the middle rating was needed.
 - id: nv-mode-ignores-order
   description: Gives the most common rating where the middle rating was needed.
 - id: nv-median-for-total

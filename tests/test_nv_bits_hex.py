@@ -277,3 +277,104 @@ def test_key_rank_does_not_follow_the_stem_kind():
         n = sum(counts.values())
         if n >= 40:
             assert max(counts.values()) / n <= 0.6, (kind, counts)
+
+
+# -- what each stem rules out ---------------------------------------------------------------------------------------
+# One row per part: (where it is asked, what its stem implies about every option, the key's value included).
+#   bits needed (easy, hard boundary, hard codes, exam a):  a whole number of bits, at least 1, no more than 3 x the key
+#   digits needed (medium, exam d):                         a whole number of digits, at least 1
+#   largest value / number of values / codes (easy..hard):  a whole number, at least 1
+#   exam b (values those bits hold):                        a whole number, at least 2
+#   exam c (values left unused):                            a whole number from 0 to (values - 1): fewer than the values
+#   hex numeral (medium, hard, exam d):                     digits 0-9 A-F only, no leading zero unless the key has one
+#   hex numeral with a stated width (padded, colour):       exactly that many digits
+BITS_COUNT = re.compile(
+    r"smallest number of bits|least number of binary digits|How many bits does it need|last ticket|fewest bits|age field"
+    r"|different binary code|binary barcode|smallest number of bits for which"
+)
+WIDTH = re.compile(
+    r"exactly (\d) hexadecimal digits|using exactly (\d) digits|a (\d)-digit hexadecimal|six-digit|six hexadecimal digits"
+)
+
+
+def hex_violations(text, key, options):
+    out = []
+    width = None
+    if m := WIDTH.search(text):
+        width = 6 if "six" in m.group(0) else int(next(g for g in m.groups() if g))
+        if len(key) != width:
+            out.append(f"key {key} is not {width} digits")
+    for o in options:
+        if not re.fullmatch(r"[0-9A-F]+", o.upper()):
+            out.append(f"{o} is not hexadecimal")
+        if width is not None and len(o) != width:
+            out.append(f"{o} is not exactly {width} digits")
+        if o.startswith("0") and not key.startswith("0"):
+            out.append(f"{o} starts with 0 beside {key}")
+    return out
+
+
+def number_violations(text, key, options, *, part=None, context=None):
+    out = []
+    k = int(key)
+    nums = [int(o) for o in options]
+    if any(n < 1 for n in nums):
+        out.append(f"option below 1: {options}")
+    if BITS_COUNT.search(text) and any(n > 3 * k for n in nums):
+        out.append(f"magnitude leak beside bits {k}: {options}")
+    return out
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_no_option_is_ruled_out_by_the_stem(tier):
+    bad, seen = [], {"hex": 0, "num": 0, "width": 0}
+    for seed in range(400):
+        q = sup.tier_question(TOPIC, tier, seed)
+        options = list(q.distractors)
+        if q.answer_kind == "ordered_list" or not q.answer_text.isdigit() or FORMAT in q.text:
+            seen["hex"] += 1
+            seen["width"] += bool(WIDTH.search(q.text))
+            found = hex_violations(q.text, q.answer_text, options)
+        else:
+            seen["num"] += 1
+            found = number_violations(q.text, q.answer_text, options)
+        bad += [f"seed {seed}: {f}" for f in found]
+    assert not bad, bad[:5]
+    assert seen["hex" if tier != "easy" else "num"] > 0
+
+
+def test_exam_options_respect_each_part():
+    bad = []
+    for seed in range(400):
+        q = sup.exam_question(EXAM, seed)
+        top = int(re.search(r"record is (\d+)", q.text).group(1))
+        a, b, c, d = q.parts
+        bits, values = int(a.answer_text), int(b.answer_text)
+        if any(not 1 <= int(o) <= 3 * bits for o in a.distractors):
+            bad.append(f"seed {seed} (a): {a.distractors} beside {bits}")
+        if any(int(o) < 2 for o in b.distractors):
+            bad.append(f"seed {seed} (b): {b.distractors}")
+        if any(not 0 <= int(o) < values for o in c.distractors):
+            bad.append(f"seed {seed} (c): {c.distractors} for {values} values")
+        if FORMAT in d.prompt:
+            bad += [f"seed {seed} (d): {v}" for v in hex_violations(d.prompt, d.answer_text, d.distractors)]
+        elif any(int(o) < 1 for o in d.distractors):
+            bad.append(f"seed {seed} (d): {d.distractors}")
+        assert top >= 1
+    assert not bad, bad[:5]
+
+
+def test_hex_options_are_mixed_in_shape():
+    """The key is not the only option with a letter in it, and keys without a letter turn up."""
+    letterless_keys = key_only_letters = 0
+    for seed in range(600):
+        q = sup.tier_question(TOPIC, "medium", seed)
+        if FORMAT not in q.text:
+            continue
+        has = [any(c.isalpha() for c in o) for o in q.distractors]
+        if not any(c.isalpha() for c in q.answer_text):
+            letterless_keys += 1
+        elif not any(has):
+            key_only_letters += 1
+    assert letterless_keys >= 30, letterless_keys
+    assert key_only_letters <= 60, key_only_letters
