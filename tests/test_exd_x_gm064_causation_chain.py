@@ -90,7 +90,7 @@ def test_a_survey_names_a_third_variable_and_an_experiment_does_not(questions):
     for q in questions[:120]:
         _, _, randomised = oracle(q)
         c = canonical(q)["c"]
-        assert (" may explain it" in c) != randomised
+        assert (" may explain the association" in c) != randomised
 
 
 def test_answer_space_and_shapes():

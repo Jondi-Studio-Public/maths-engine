@@ -62,7 +62,7 @@ _SURVEYS = (
     ("ice-cream sales", "the number of swimmers", "summer days", 1, "the daily temperature"),
     ("shoe size", "reading score", "primary school students", 1, "the child's age"),
     ("the number of fire trucks at a fire", "the amount of damage", "house fires", 1, "the size of the fire"),
-    ("household heater use", "the number of colds reported", "suburbs", 1, "the time of year"),
+    ("household heater use", "the number of colds reported", "weeks", 1, "the time of year"),
     ("the number of lifeguards on duty", "the number of rescues", "beaches", 1, "the number of swimmers"),
     ("sunscreen sales", "the number of sunburn cases", "weeks", 1, "the UV index"),
     ("umbrella sales", "the number of traffic accidents", "days", 1, "the amount of rainfall"),
@@ -168,7 +168,7 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
             c_key = "Yes: the levels of the variable were randomly assigned, so a causal claim is possible"
             c_wrong = [
                 (
-                    "No: a correlation coefficient smaller than 1 in size can never show causation",
+                    "No: a correlation coefficient smaller than 1 in size can never show causation, however it was found",
                     "cc-no-cause-without-perfect-r",
                 ),
                 (
@@ -176,7 +176,7 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
                     "cc-experiment-cannot-show-cause",
                 ),
                 (
-                    "Yes: a strong correlation coefficient shows cause, whatever the design",
+                    "Yes: a strong correlation coefficient shows that one variable causes the other, whatever the design",
                     "cc-large-r-proves-cause",
                 ),
             ]
@@ -202,10 +202,10 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
             ]
             d_note = f"The design supports causation and r² = {explained}%, so the first statement is justified."
         else:
-            c_key = f"No: the data were only observed, so this shows an association and {z} may explain it"
+            c_key = f"No: the data were only observed, so {z} may explain the association"
             c_wrong = [
                 (
-                    "Yes: a correlation coefficient this large shows that one variable causes the other",
+                    "Yes: a correlation coefficient this large shows that one variable must be causing the other",
                     "cc-large-r-proves-cause",
                 ),
                 (

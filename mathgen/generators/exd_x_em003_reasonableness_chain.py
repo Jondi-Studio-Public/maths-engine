@@ -145,9 +145,9 @@ _EST_ASK = (
     "Without a calculator, estimate the {total}: round each number to 1 significant figure and multiply.",
 )
 _VERDICT_ASK = (
-    "A colleague's calculator shows {s}. Using your estimate, is that answer reasonable?",
-    "The calculator gives {s}. Judging by your estimate, which statement is correct?",
-    "A student's answer to the calculation is {s}. Compare this with your estimate: is it reasonable?",
+    "A colleague's answer to the calculation is {s}. Using your estimate, is that answer reasonable?",
+    "A student's answer to the calculation is {s}. Judging by your estimate, which statement is correct?",
+    "A friend works the calculation out as {s}. Compare this with your estimate: is it reasonable?",
 )
 _EXACT_ASK = (
     "Work out the exact {total}, {unit}.",
