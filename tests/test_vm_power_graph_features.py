@@ -73,15 +73,15 @@ def show_list(vs):
 
 def oracle(q):
     text = q.text
-    m = re.match(r"Let [fy](?:\(x\))? = (.+?)\. Write 1 if f is even", text)
+    m = re.match(r"Let [fy](?:\(x\))? = (.+?)\. Is f odd", text)
     if m:
         rule = parse_rule(m.group(1))
         pairs = [(evaluate(rule, v), evaluate(rule, -v)) for v in (1.5, 2.5, 7.0)]
         if any(b is None for _, b in pairs):
-            return "3"
+            return "neither"
         if all(math.isclose(b, a_) for a_, b in pairs):
-            return "1"
-        return "2" if all(math.isclose(b, -a_) for a_, b in pairs) else "3"
+            return "even"
+        return "odd" if all(math.isclose(b, -a_) for a_, b in pairs) else "neither"
     m = re.match(r"A function f\(x\) = a(x\^\S+) has a graph through the point \((\d+), (-?\d+)\)", text)
     if m:
         p, qq = index(m.group(1)[2:].strip("()"))
@@ -95,24 +95,24 @@ def oracle(q):
             return str(h)
         expr = a * sympy.Pow(x - h, sympy.Rational(p, qq)) + k
         return str(sympy.limit(expr, x, sympy.oo))
-    m = re.match(r"Let y = (.+?)\. Its vertical asymptote is x = h", text)
+    m = re.match(r"Let y = (.+?)\. Give the x-value of the vertical", text)
     if m:
         a, h, p, qq, k = parse_rule(m.group(1))
         expr = a * sympy.Pow(x - h, sympy.Rational(p, qq)) + k
-        return str(h - sympy.limit(expr, x, sympy.oo))
-    m = re.match(r"Let y = (.+?)\. The graph lies in some", text)
+        return f"{h}, {sympy.limit(expr, x, sympy.oo)}"
+    m = re.match(r"Let y = (.+?)\. State the quadrants", text)
     if m:
         rule = parse_rule(m.group(1))
-        return str(sum(quadrants(lambda v: evaluate(rule, v))))
+        return show_list(quadrants(lambda v: evaluate(rule, v)))
     m = re.match(
-        r"The graph of y = (.+?) is reflected in (the x-axis|the y-axis|both axes[^.]*)\. The image lies", text
+        r"The graph of y = (.+?) is reflected in (the x-axis|the y-axis|both axes[^.]*)\. State the quadrants", text
     )
     if m:
         rule = parse_rule(m.group(1))
         kind = m.group(2)
         sx = -1 if kind.startswith(("the y-axis", "both")) else 1
         sy = -1 if kind.startswith(("the x-axis", "both")) else 1
-        return str(sum(quadrants(lambda v: (lambda r: None if r is None else sy * r)(evaluate(rule, sx * v)))))
+        return show_list(quadrants(lambda v: (lambda r: None if r is None else sy * r)(evaluate(rule, sx * v))))
     m = re.match(r"Let f\(x\) = (.+?)\. The graph of y = f\(x\) meets", text)
     if m:
         a, _, p, qq, _ = parse_rule(m.group(1))
@@ -166,7 +166,7 @@ def test_unknown_tier_is_rejected():
 
 def test_easy_covers_each_symmetry_word():
     words = {t.question(SKILL, "easy", s).answer_text for s in range(80)}
-    assert {"1", "2", "3"} <= words
+    assert {"odd", "even", "neither"} <= words
 
 
 def test_hard_covers_each_kind():
@@ -198,7 +198,7 @@ def test_chain_key_matches_independent_derivation():
         got = {p.label: p.answer_text for p in q.parts}
         assert got["a"] == str(a)
         assert sympy.Rational(got["b"]) == a * sympy.Integer(-u) ** (-n)
-        assert got["c"] == str(sum(quadrants(lambda val: rpow(val, -n, 1) * float(a))))
+        assert got["c"] == show_list(quadrants(lambda val: rpow(val, -n, 1) * float(a)))
         k = int(re.search(r"(up|down)", q.parts[3].prompt).group(1) == "up") * 2 - 1
         shift = int(re.search(r"translated (\d+) units?", q.parts[3].prompt).group(1)) * k
         roots = [r for r in sympy.solve(a * x ** (-n) + shift, x) if r.is_real and r > 0]
@@ -234,3 +234,27 @@ def test_key_rank_varies_power_graph():
             parts.setdefault(p.label, Counter())[_rank(p.answer_text, p.distractors)] += 1
     for label, ranks in parts.items():
         assert len(ranks) >= 3, (label, ranks)
+
+
+def test_no_option_is_zero_for_a_value_of_a_power_function():
+    """a x^(p/q) at a non-zero x is never 0, so no option of these value questions may be 0 (it gives the key away)."""
+    for seed in range(300):
+        q = t.question(SKILL, "easy", seed)
+        if q.text.startswith("A function f(x) = a"):
+            assert "0" not in q.distractors, (seed, q.text, q.distractors)
+        q = t.question(SKILL, "hard", seed)
+        if " image " in q.text or "image with" in q.text:
+            assert "0" not in q.distractors, (seed, q.text, q.distractors)
+    for seed in range(300):
+        q = sup.exam_question(CHAIN, seed)
+        for label in ("a", "b", "d"):
+            part = next(p for p in q.parts if p.label == label)
+            assert "0" not in part.distractors, (seed, label, part.distractors)
+
+
+def test_key_position_in_the_option_list_varies():
+    from mathgen.core import mcq_options
+
+    for tier in ("easy", "medium", "hard"):
+        spots = {mcq_options(q).index(q.answer_text) for q in (t.question(SKILL, tier, s) for s in range(60))}
+        assert len(spots) >= 2, (tier, spots)

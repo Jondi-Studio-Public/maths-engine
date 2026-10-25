@@ -86,14 +86,16 @@ def reflect(qs, axis: str) -> list[int]:
     return sorted(_REFLECT[axis][v] for v in qs)
 
 
-def _spread(value, wrong, lo=None, hi=None):
+def _spread(value, wrong, lo=None, hi=None, zero_ok=False):
     """Wrong answers for a single number, reordered so that the first three hold a random number below the key and the
-    rest above it (`_spread_kit.mixed`), with plain near misses to make up a side that is short."""
+    rest above it (`_spread_kit.mixed`), with plain near misses to make up a side that is short. A value of a power
+    function at a non-zero x is never 0, so 0 is left out of the options unless `zero_ok`."""
     near = [
         (value + d, "near-miss-value")
         for d in (-4, -3, -2, -1, 1, 2, 3, 4)
-        if (lo is None or value + d >= lo) and (hi is None or value + d <= hi)
+        if (lo is None or value + d >= lo) and (hi is None or value + d <= hi) and (zero_ok or value + d != 0)
     ]
+    wrong = [w for w in wrong if zero_ok or w[0] != 0]
     return mixed(
         value,
         list(wrong),
@@ -105,19 +107,19 @@ def _spread(value, wrong, lo=None, hi=None):
     )
 
 
-def fraction_part(prompt, value, marks, working, wrong, lo=None, **kw):
-    return _fraction_part(prompt, value, marks, working, _spread(Fraction(value), wrong, lo), **kw)
+def fraction_part(prompt, value, marks, working, wrong, lo=None, zero_ok=False, **kw):
+    return _fraction_part(prompt, value, marks, working, _spread(Fraction(value), wrong, lo, zero_ok=zero_ok), **kw)
 
 
 def one_word(prompt, word, marks, working, wrong):
     return words_part(prompt, [word], marks, working, [([w], t) for w, t in wrong])
 
 
-def nums(prompt, values, marks, working, wrong, lo=None, hi=None):
+def nums(prompt, values, marks, working, wrong, lo=None, hi=None, zero_ok=False):
     values = [int(v) for v in values]
     wrong = [([int(x) for x in vs], t) for vs, t in wrong if vs is not None]
     if len(values) == 1:
-        pairs = _spread(values[0], [(vs[0], t) for vs, t in wrong if len(vs) == 1], lo, hi)
+        pairs = _spread(values[0], [(vs[0], t) for vs, t in wrong if len(vs) == 1], lo, hi, zero_ok)
         wrong = [([int(v)], t) for v, t in pairs]
     elif _RNG.get() is not None:
         _RNG.get().shuffle(wrong)
@@ -132,10 +134,9 @@ def num_text(values) -> str:
 
 
 def _easy_symmetry(rng):
-    p, q = rng.choice(_INDICES)
+    key = rng.choice(("odd", "even", "neither"))  # drawn first so that no answer is the usual one
+    p, q = rng.choice([i for i in _INDICES if parity(*i) == key])
     a = rng.choice((1, 1, 2, 3, -1, -2, 4))
-    code = {"even": 1, "odd": 2, "neither": 3}
-    key = parity(p, q)
     others = [w for w in ("odd", "even", "neither") if w != key]
     by_p = "even" if p % 2 == 0 else "odd"
     swapped = {"odd": "even", "even": "odd"}.get(key)
@@ -146,21 +147,20 @@ def _easy_symmetry(rng):
         (others[0], "vm-pf-parity-guess"),
         (others[1], "vm-pf-parity-guess"),
     ]
-    wrong = [(code[w], t) for w, t in wrong if w]
+    wrong = [(w, t) for w, t in wrong if w]
     why = {
         "neither": "an even root means f(x) is not defined for x < 0",
         "odd": "the root is odd and the power is odd, so f(-x) = -f(x)",
         "even": "the root is odd and the power is even, so f(-x) = f(x)",
     }[key]
-    stem = f"Let f(x) = {fx_text(a, p, q)}."
     return single(
-        stem,
-        words_part(
-            "Write 1 if f is even, 2 if f is odd and 3 if f is neither.",
-            [code[key]],
+        f"Let f(x) = {fx_text(a, p, q)}.",
+        one_word(
+            "Is f odd, even or neither? Answer with one of the words odd, even or neither.",
+            key,
             2,
-            [f"In lowest terms the index is {index_text(p, q)}: {why}, so the answer is {code[key]}."],
-            [([w], t) for w, t in wrong],
+            [f"In lowest terms the index is {index_text(p, q)}: {why}."],
+            wrong,
         ),
     )
 
@@ -229,7 +229,7 @@ def _easy_asymptote(rng):
             (h + 1, "near-miss-value"),
         ]
     working = ["Translating by (h, k) moves the asymptotes from x = 0 and y = 0 to x = h and y = k."]
-    return single(f"Let y = {rule}.", nums(prompt, [key], 2, working, [([w], t) for w, t in wrong]))
+    return single(f"Let y = {rule}.", nums(prompt, [key], 2, working, [([w], t) for w, t in wrong], zero_ok=True))
 
 
 # -- medium --------------------------------------------------------------------------------------------------------
@@ -242,25 +242,18 @@ def _quad_wrongs(sign, p, q):
         (quads(1, p, q), "vm-pf-quadrant-ignores-sign-of-a"),
         (quads(sign, p, q, swap=True), "vm-pf-quadrant-parity-swapped"),
         (quads(sign, p, q, ignore_root=True), "vm-pf-quadrant-ignores-even-root-domain"),
-        ([1, 2, 3, 4], "vm-pf-quadrant-all-four"),
+        (right[:1], "vm-pf-quadrant-right-branch-only"),
     ], right
 
 
-def _qsum(qs) -> int:
-    return sum(qs)
-
-
-_QUAD_ASK = "Add together the numbers of the quadrants it lies in."
+_QUAD_ASK = "State the quadrants in which the graph lies, as quadrant numbers from smallest to largest."
 
 
 def _medium_quadrants(rng):
-    p, q = rng.choice(_INDICES)
-    if (
-        q % 2 == 0 and rng.random() < 0.5
-    ):  # an even root puts the graph in one quadrant, a short sum with little room below
-        p, q = rng.choice([i for i in _INDICES if i[1] % 2])
-    a = rng.choice((1, 2, 3, 4, -1, -2, -3, 5))
-    sign = 1 if a > 0 else -1
+    sign = rng.choice((1, -1))
+    kind = rng.choice(("odd", "even", "neither"))  # drawn first, so every quadrant set comes up about equally often
+    p, q = rng.choice([i for i in _INDICES if parity(*i) == kind])
+    a = sign * rng.choice((1, 2, 3, 4, 5))
     wrong, key = _quad_wrongs(sign, p, q)
     why = (
         "the graph is only defined for x > 0"
@@ -268,17 +261,13 @@ def _medium_quadrants(rng):
         else ("it has a mirror image in the origin (odd)" if p % 2 else "it is symmetric about the y-axis (even)")
     )
     return single(
-        f"Let y = {fx_text(a, p, q)}. The graph lies in some of the four quadrants.",
+        f"Let y = {fx_text(a, p, q)}.",
         nums(
             _QUAD_ASK,
-            [_qsum(key)],
+            key,
             2,
-            [
-                f"For x > 0 the sign of y is the sign of {a}; {why}. The quadrants are {num_text(key)}, which add to {_qsum(key)}."
-            ],
-            [([_qsum(w)], t) for w, t in wrong],
-            lo=1,
-            hi=10,
+            [f"For x > 0 the sign of y is the sign of {a}; {why}."],
+            wrong,
         ),
     )
 
@@ -291,31 +280,30 @@ def _medium_both_asymptotes(rng):
     k = rng.choice((-4, -3, -2, -1, 1, 2, 3, 5))
     rule = fx_text(a, p, q, h, k)
     wrong = [
-        (-h - k, "vm-pf-asymptote-sign-of-shift"),
-        (-h + k, "vm-pf-asymptote-sign-of-shift"),
-        (h + k, "vm-pf-asymptote-sign-of-shift"),
-        (k - h, "vm-pf-asymptote-axes-swapped"),
-        (0, "vm-pf-asymptote-reads-zero"),
-        (h - a - k, "vm-pf-asymptote-takes-dilation"),
+        ([-h, k], "vm-pf-asymptote-sign-of-shift"),
+        ([h, -k], "vm-pf-asymptote-sign-of-shift"),
+        ([-h, -k], "vm-pf-asymptote-sign-of-shift"),
+        ([k, h], "vm-pf-asymptote-axes-swapped"),
+        ([0, 0], "vm-pf-asymptote-reads-zero"),
+        ([h, a + k], "vm-pf-asymptote-takes-dilation"),
     ]
     return single(
-        f"Let y = {rule}. Its vertical asymptote is x = h and its horizontal asymptote is y = k.",
+        f"Let y = {rule}.",
         nums(
-            "Find the value of h - k.",
-            [h - k],
+            "Give the x-value of the vertical asymptote x = h, then the y-value of the horizontal asymptote y = k, as h, k.",
+            [h, k],
             2,
-            [
-                f"The asymptotes of y = a x^(-n) are x = 0 and y = 0; the shifts move them to x = {h} and y = {k}, so h - k = {h - k}."
-            ],
-            [([v], t) for v, t in wrong],
+            [f"The asymptotes of y = a x^(-n) are x = 0 and y = 0; the shifts move them to x = {h} and y = {k}."],
+            wrong,
         ),
     )
 
 
 def _medium_reflection(rng):
-    p, q = rng.choice(_INDICES)
-    a = rng.choice((1, 2, 3, -1, -2))
-    sign = 1 if a > 0 else -1
+    sign = rng.choice((1, -1))
+    kind = rng.choice(("odd", "even", "neither"))
+    p, q = rng.choice([i for i in _INDICES if parity(*i) == kind])
+    a = sign * rng.choice((1, 2, 3))
     axis = rng.choice(("x-axis", "y-axis", "origin"))
     base = quads(sign, p, q)
     key = reflect(base, axis)
@@ -335,16 +323,11 @@ def _medium_reflection(rng):
     return single(
         f"The graph of y = {fx_text(a, p, q)} is reflected {target}.",
         nums(
-            "The image lies in some of the four quadrants. Add together the numbers of the quadrants it lies in.",
-            [_qsum(key)],
+            "State the quadrants in which the image lies, as quadrant numbers from smallest to largest.",
+            key,
             3,
-            [
-                f"The original lies in quadrants {num_text(base)}; the reflection sends them to {num_text(key)}, "
-                f"which add to {_qsum(key)}."
-            ],
-            [([_qsum(w)], t) for w, t in wrong],
-            lo=1,
-            hi=10,
+            [f"The original lies in quadrants {num_text(base)}; the reflection sends them to {num_text(key)}."],
+            wrong,
         ),
     )
 
@@ -375,7 +358,7 @@ def _hard_meets_line(rng):
     key = key_points[-1] - key_points[0]
     mirror = -root in key_points
     wrong = [
-        (root, "vm-pf-intersection-misses-negative-root" if mirror else "vm-pf-intersection-misses-origin"),
+        (root, "vm-pf-intersection-misses-negative-root"),
         (2 * root, "vm-pf-intersection-symmetry-assumed"),
         (w ** (q - p), "vm-pf-intersection-index-not-undone"),
         (root + 1, "near-miss-value"),
@@ -465,7 +448,7 @@ def _hard_intercepts(rng):
     wrong = [
         (h - max(t_values), "vm-pf-intercept-sign-of-shift"),
         (max(t_values), "vm-pf-intercept-shift-forgotten"),
-        (h + min(t_values) if len(t_values) == 2 else h + 2 * s * t0, "near-miss-value"),
+        (h + 2 * max(t_values), "near-miss-value"),
         (h - min(t_values), "vm-pf-intercept-sign-of-shift"),
         (h + max(t_values) + 1, "near-miss-value"),
     ]
@@ -539,6 +522,7 @@ def _chain(rng):
         v=v,
     )
     at_neg = v * (-1) ** n
+    key_c = quads(sign, -n, 1)
     part_a = fraction_part(
         "Find the value of a.",
         a,
@@ -568,23 +552,19 @@ def _chain(rng):
         ],
         follow_through=f"part_a*(-{u})**(-{n})",
     )
-    key_c = quads(sign, -n, 1)
     part_c = nums(
-        "The graph lies in some of the four quadrants. Add together the numbers of the quadrants it lies in.",
-        [_qsum(key_c)],
+        _QUAD_ASK,
+        key_c,
         2,
         [
             f"a is {'positive' if sign > 0 else 'negative'} and n = {n} is {'odd' if n % 2 else 'even'}: quadrants {num_text(key_c)}."
         ],
         [
-            ([_qsum(quads(-sign, -n, 1))], "vm-pf-quadrant-sign-of-a-reversed"),
-            ([_qsum(quads(sign, -n, 1, swap=True))], "vm-pf-quadrant-parity-swapped"),
-            ([_qsum(quads(1, -n, 1))], "vm-pf-quadrant-ignores-sign-of-a"),
-            ([10], "vm-pf-quadrant-all-four"),
-            ([_qsum(quads(sign, -n, 1)[:1])], "vm-pf-quadrant-ignores-even-root-domain"),
+            (quads(-sign, -n, 1), "vm-pf-quadrant-sign-of-a-reversed"),
+            (quads(sign, -n, 1, swap=True), "vm-pf-quadrant-parity-swapped"),
+            (quads(1, -n, 1), "vm-pf-quadrant-ignores-sign-of-a"),
+            (quads(sign, -n, 1)[:1], "vm-pf-quadrant-right-branch-only"),
         ],
-        lo=1,
-        hi=10,
     )
     root = Fraction(u * m) if grow else Fraction(u, m)
     direction = "up" if k > 0 else "down"
