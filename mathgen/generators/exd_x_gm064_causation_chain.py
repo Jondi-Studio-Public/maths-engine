@@ -114,26 +114,38 @@ def cap(text: str) -> str:
     return text[0].upper() + text[1:]
 
 
-# Neutral tails of four lengths. Each option of (c) and (d) gets one at random, a different one each, so the length of
-# an option says nothing about which one is the key.
-_TAILS = ("", " in this study", " from the data collected here", " on the evidence of the study described above")
+# Neutral tails of eight lengths. The options of (c) and (d) are given tails so that the key's length rank, the number of
+# wrong options shorter than it, is drawn uniformly per seed: the length of an option says nothing about the key.
+_TAILS = (
+    "",
+    " (see the study)",
+    " (judging from the study described)",
+    " (judging from the study described above)",
+    " (judging from all of the study described above)",
+    " (judging from all of the information about the study described above)",
+    " (judging from all of the information given about the study described above in this question)",
+    " (judging from all of the information and the numbers given about the study described above in this question)",
+)
 
 
 def pad_options(rng, key, wrong):
-    """``key`` and the ``(text, misconception)`` pairs in ``wrong`` with a distinct tail each, assigned at random.
+    """``key`` and the ``(text, misconception)`` pairs in ``wrong``, each with a tail chosen so that exactly ``target``
+    of the first three wrong options are shorter than the key, ``target`` drawn uniformly from 0 to 3 and no option
+    the same length as the key. Returns None if no choice of tails reaches the target.
 
     ``wrong`` is shuffled first, so the option that a four-candidate part leaves out is not always the same one.
     """
     wrong = list(wrong)
     rng.shuffle(wrong)
-    levels = rng.sample(range(len(_TAILS)), len(_TAILS))
-    extra = [rng.randrange(len(_TAILS)) for _ in range(len(wrong))]
-    key = key + _TAILS[levels[0]]
-    padded = []
-    for i, (text, tag) in enumerate(wrong):
-        level = levels[i + 1] if i + 1 < len(levels) else extra[i]
-        padded.append((text + _TAILS[level], tag))
-    return key, padded
+    target = rng.randrange(4)
+    for _ in range(2000):
+        key_tail = rng.choice(_TAILS)
+        tails = [rng.choice(_TAILS) for _ in wrong]
+        key_len = len(key + key_tail)
+        lengths = [len(text + tail) for (text, _), tail in zip(wrong[:3], tails)]
+        if key_len not in lengths and sum(n < key_len for n in lengths) == target:
+            return key + key_tail, [(text + tail, tag) for (text, tag), tail in zip(wrong, tails)]
+    return None
 
 
 @generator(TOPIC, level=13, presets={"exam": {"tier": "exam"}})
@@ -266,8 +278,11 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
                 ),
             ]
             d_note = f"The study is observational, so only an association can be concluded; r² = {explained}%."
-        c_key, c_wrong = pad_options(rng, c_key, c_wrong)
-        d_key, d_wrong = pad_options(rng, d_key, d_wrong)
+        c_padded = pad_options(rng, c_key, c_wrong)
+        d_padded = pad_options(rng, d_key, d_wrong)
+        if None in (c_padded, d_padded):
+            continue
+        (c_key, c_wrong), (d_key, d_wrong) = c_padded, d_padded
         part_c = mcq_part(phrase(rng, _ASK_C, x=x, y=y), c_key, 1, [c_note], c_wrong)
         part_d = mcq_part(phrase(rng, _ASK_D, x=x, y=y), d_key, 2, [d_note], d_wrong)
         if None in (part_a, part_b, part_c, part_d):

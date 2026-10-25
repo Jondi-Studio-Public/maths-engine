@@ -119,9 +119,11 @@ def _key_length_rank(part) -> int:
     return sum(len(str(getattr(d, "text", d))) < len(part.answer_text) for d in part.distractors)
 
 
+@pytest.mark.parametrize("randomised", [True, False], ids=["experiment", "survey"])
 @pytest.mark.parametrize("label", ["c", "d"])
-def test_key_length_gives_nothing_away(questions, label):
-    """Over 300 seeds the key lands at every length rank, and no rank takes more than about 40%."""
-    ranks = Counter(_key_length_rank(next(p for p in q.parts if p.label == label)) for q in questions[:300])
+def test_key_length_gives_nothing_away(questions, label, randomised):
+    """Within each design, over 300 seeds, the key lands at every length rank and no rank takes more than 40%."""
+    mine = [q for q in questions[:300] if oracle(q)[2] == randomised]
+    ranks = Counter(_key_length_rank(next(p for p in q.parts if p.label == label)) for q in mine)
     assert set(ranks) == {0, 1, 2, 3}, ranks
-    assert max(ranks.values()) <= 0.4 * 300, ranks
+    assert max(ranks.values()) <= 0.4 * len(mine), ranks
