@@ -35,7 +35,8 @@ sources:
   - 6
   - maintenance
 - topic: exd_nx_complex_arg_ratio
-  params: {}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
