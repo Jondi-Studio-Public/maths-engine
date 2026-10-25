@@ -880,12 +880,12 @@
 {"answer": "4 - i", "id": "complex-arg-ratio-geometry/easy/0/ed2cadba96b2", "text": "A transformation of the complex plane is w = iz + (6 + i). Find the image of th…"}
 {"answer": "-18 + 2i", "id": "complex-arg-ratio-geometry/easy/1/e5169ad9a1f8", "text": "A transformation of the complex plane is w = (2i)z + (-6 + 4i). Find the image …"}
 {"answer": "-4 - 2i", "id": "complex-arg-ratio-geometry/easy/2/a055ae3b0286", "text": "On an Argand diagram, A represents -1 + 2i and B represents -7 - 6i. Find the c…"}
-{"answer": "(a) 2 - 2i; (b) 45; (c) -2i; (d) 1 - 7i", "id": "complex-arg-ratio-geometry/exam/0/e7652c6f0eba", "text": "Triangle ABC is drawn on the complex plane with A at 1 + i, B at -1 + 3i and C …"}
-{"answer": "(a) 3i; (b) 90; (c) -1 - 6i; (d) -1 - 11i", "id": "complex-arg-ratio-geometry/exam/1/ac53d5324daf", "text": "The points A, B and C on an Argand diagram represent the complex numbers -4 - 2…"}
-{"answer": "(a) -i; (b) 90; (c) 6 - 3i; (d) 8 - 3i", "id": "complex-arg-ratio-geometry/exam/2/577d1cc0259b", "text": "On an Argand diagram the vertices of triangle ABC are A = 6 - i, B = 4 - 3i and…"}
-{"answer": "150", "id": "complex-arg-ratio-geometry/hard/0/7477459c0101", "text": "Triangle ABC has A(1 + i), B(1 - i) and C(3 - (1 + 2√3)i) on an Argand diagram.…"}
-{"answer": "60", "id": "complex-arg-ratio-geometry/hard/1/75bb7844baeb", "text": "Triangle ABC has A(3 - i), B(2 - i) and C(3 - (1 + √3)i) on an Argand diagram. …"}
-{"answer": "150", "id": "complex-arg-ratio-geometry/hard/2/b9e632b1cee5", "text": "On an Argand diagram, A, B and C represent 3 - 3i, 3 - 4i and 4 - (4 + √3)i. Us…"}
+{"answer": "(a) 2 - 2i; (b) 45; (c) -2i; (d) 1 - 7i", "id": "complex-arg-ratio-geometry/exam/0/4c72c26dc4c6", "text": "Triangle ABC is drawn on the complex plane with A at 1 + i, B at -1 + 3i and C …"}
+{"answer": "(a) 3i; (b) 90; (c) -1 - 6i; (d) -1 - 11i", "id": "complex-arg-ratio-geometry/exam/1/2cdf8458ae38", "text": "The points A, B and C on an Argand diagram represent the complex numbers -4 - 2…"}
+{"answer": "(a) -i; (b) 90; (c) 6 - 3i; (d) 8 - 3i", "id": "complex-arg-ratio-geometry/exam/2/574fced55d2c", "text": "On an Argand diagram the vertices of triangle ABC are A = 6 - i, B = 4 - 3i and…"}
+{"answer": "150", "id": "complex-arg-ratio-geometry/hard/0/4bb260855150", "text": "Triangle ABC has A(1 + i), B(1 - i) and C(3 - (1 + 2√3)i) on an Argand diagram.…"}
+{"answer": "60", "id": "complex-arg-ratio-geometry/hard/1/b3e27647be41", "text": "Triangle ABC has A(3 - i), B(2 - i) and C(3 - (1 + √3)i) on an Argand diagram. …"}
+{"answer": "150", "id": "complex-arg-ratio-geometry/hard/2/d134bf8a1c17", "text": "On an Argand diagram, A, B and C represent 3 - 3i, 3 - 4i and 4 - (4 + √3)i. Us…"}
 {"answer": "2i", "id": "complex-arg-ratio-geometry/medium/0/8289b7a407f2", "text": "Suppose w = az + b sends -2 + 3i to -12 - 2i and -4 + 3i to -12 - 6i. Work out …"}
 {"answer": "1 + i", "id": "complex-arg-ratio-geometry/medium/1/19480255f0a7", "text": "A transformation w = az + b, where a and b are complex constants, maps 5 - 3i t…"}
 {"answer": "2 - i", "id": "complex-arg-ratio-geometry/medium/2/4536abfcae94", "text": "Suppose w = az + b sends 5 - 2i to 6 - 11i and 1 + 5i to 5 + 7i. Work out the c…"}
@@ -6265,15 +6265,15 @@
 {"answer": "neither", "id": "power-function-graph-features/easy/0/224111f3fc46", "text": "Let f(x) = -2x^(5/2). Is f odd, even or neither? Answer with one of the words o…"}
 {"answer": "odd", "id": "power-function-graph-features/easy/1/7f610082c2b0", "text": "Let f(x) = 4x^(-1/3). Is f odd, even or neither? Answer with one of the words o…"}
 {"answer": "neither", "id": "power-function-graph-features/easy/2/90359d2cbdc2", "text": "Let f(x) = -x^(1/2). Is f odd, even or neither? Answer with one of the words od…"}
-{"answer": "(a) -128; (b) 2; (c) 2, 4; (d) 4/3", "id": "power-function-graph-features/exam/0/b0d15236d077", "text": "The graph of y = ax^(-3), where a is a constant, passes through the point (4, -…"}
-{"answer": "(a) -2592; (b) -32; (c) 3, 4; (d) 6", "id": "power-function-graph-features/exam/1/d09d3e6ac215", "text": "A function has the rule y = ax^(-4), where a is a constant. Its graph passes th…"}
-{"answer": "(a) -144; (b) -9; (c) 3, 4; (d) 12", "id": "power-function-graph-features/exam/2/e74998e57e25", "text": "The graph of y = ax^(-2), where a is a constant, passes through the point (4, -…"}
-{"answer": "1", "id": "power-function-graph-features/hard/0/dea24c0fde30", "text": "Let y = 8(x - 3)^(-3) + 1. Find the x-coordinate of the right-most x-intercept."}
-{"answer": "1", "id": "power-function-graph-features/hard/1/a6bbae3713cb", "text": "Starting from y = x^(-1), the graph is stretched by a factor of 3 away from the…"}
-{"answer": "54", "id": "power-function-graph-features/hard/2/ae25e15e6c4a", "text": "Let f(x) = 9x^(1/3). The graph of y = f(x) meets the line y = x at several poin…"}
-{"answer": "1", "id": "power-function-graph-features/medium/0/07655795c61c", "text": "Let y = 3x^(3/4). State the quadrants in which the graph lies, as quadrant numb…"}
-{"answer": "1, 2", "id": "power-function-graph-features/medium/1/369f9dab48c7", "text": "Let y = 4x^(4/3). State the quadrants in which the graph lies, as quadrant numb…"}
-{"answer": "-2, -4", "id": "power-function-graph-features/medium/2/3323b995f92c", "text": "Let y = -(x + 2)^(-2) - 4. Give the x-value of the vertical asymptote x = h, th…"}
+{"answer": "(a) -128; (b) 2; (c) 2, 4; (d) 4/3", "id": "power-function-graph-features/exam/0/63516f22eeda", "text": "The graph of y = ax^(-3), where a is a constant, passes through the point (4, -…"}
+{"answer": "(a) -2592; (b) -32; (c) 3, 4; (d) 6", "id": "power-function-graph-features/exam/1/5bb39a810487", "text": "A function has the rule y = ax^(-4), where a is a constant. Its graph passes th…"}
+{"answer": "(a) -144; (b) -9; (c) 3, 4; (d) 12", "id": "power-function-graph-features/exam/2/4b072cc240dd", "text": "The graph of y = ax^(-2), where a is a constant, passes through the point (4, -…"}
+{"answer": "1", "id": "power-function-graph-features/hard/0/4c159fdab44d", "text": "Let y = 8(x - 3)^(-3) + 1. Find the x-coordinate of the right-most x-intercept."}
+{"answer": "1", "id": "power-function-graph-features/hard/1/89cf019dd2ca", "text": "Starting from y = x^(-1), the graph is stretched by a factor of 3 away from the…"}
+{"answer": "54", "id": "power-function-graph-features/hard/2/467d74d53f8b", "text": "Let f(x) = 9x^(1/3). The graph of y = f(x) meets the line y = x at several poin…"}
+{"answer": "1", "id": "power-function-graph-features/medium/0/f8a0b8972ddd", "text": "Let y = 3x^(3/4). State the quadrants in which the graph lies, as quadrant numb…"}
+{"answer": "1, 2", "id": "power-function-graph-features/medium/1/5c4282c6339a", "text": "Let y = 4x^(4/3). State the quadrants in which the graph lies, as quadrant numb…"}
+{"answer": "-2, -4", "id": "power-function-graph-features/medium/2/b98c96b147dc", "text": "Let y = -(x + 2)^(-2) - 4. Give the x-value of the vertical asymptote x = h, th…"}
 {"answer": "9", "id": "power-functions-rational-index/easy/0/97c5a2ea0d63", "text": "The function f is defined by f(x) = x^(2/3). Find f(27)."}
 {"answer": "25", "id": "power-functions-rational-index/easy/1/40e73e8ea403", "text": "Let f(x) = x^(2/3). Find f(125)."}
 {"answer": "8", "id": "power-functions-rational-index/easy/2/fccacc8aee30", "text": "The function f is defined by f(x) = x^(3/2). Find f(4)."}
@@ -6499,18 +6499,18 @@
 {"answer": "True", "id": "propositional-truth-evaluation/medium/0/59b10950cb4b", "text": "Given p = True, q = True, r = True, evaluate ((p ∧ q) ∨ ¬r)."}
 {"answer": "False", "id": "propositional-truth-evaluation/medium/1/e5a4f969fcdb", "text": "Given p = False, q = False, r = False, evaluate (¬p ∧ (q ∨ r))."}
 {"answer": "True", "id": "propositional-truth-evaluation/medium/2/46b909dddfeb", "text": "Given p = False, q = False, r = False, evaluate ((p → q) ∧ ¬r)."}
-{"answer": "5", "id": "pseudocode-trace-output/easy/0/64851d2fba71", "text": "Here is a short program written in pseudocode: set a to 0; set b to 1; for i fr…"}
-{"answer": "15", "id": "pseudocode-trace-output/easy/1/482f01d0e0b8", "text": "A program is written in pseudocode as follows: set t to 1; for k from 1 to 3: s…"}
+{"answer": "5", "id": "pseudocode-trace-output/easy/0/751486b1c5ad", "text": "Here is a short program written in pseudocode: set a to 0; set b to 1; for i fr…"}
+{"answer": "15", "id": "pseudocode-trace-output/easy/1/dabf05915baa", "text": "A program is written in pseudocode as follows: set t to 1; for k from 1 to 3: s…"}
 {"answer": "135", "id": "pseudocode-trace-output/easy/2/a65edaa2ff07", "text": "Here is a short program written in pseudocode: set t to 5; for k from 1 to 3: s…"}
-{"answer": "(a) 8.833; (b) 8.832; (c) 3; (d) 8.8318", "id": "pseudocode-trace-output/exam/0/0b74370ace7c", "text": "The following pseudocode applies Newton's method to f and stops when the change…"}
-{"answer": "(a) 4.750; (b) 4.586; (c) 4; (d) 4.5826", "id": "pseudocode-trace-output/exam/1/c89a6da2cf7e", "text": "The following pseudocode applies Newton's method to f and stops when the change…"}
-{"answer": "(a) 3.229; (b) 3.016; (c) 4; (d) 3.0000", "id": "pseudocode-trace-output/exam/2/81d15beefcac", "text": "The following pseudocode applies Newton's method to f and stops when the change…"}
-{"answer": "7.50", "id": "pseudocode-trace-output/hard/0/d49ed4cfe5cf", "text": "Here is a short program written in pseudocode: let f(x) = x^2 - 52; set a to 6;…"}
-{"answer": "3.1623", "id": "pseudocode-trace-output/hard/1/48b2d5a0ced6", "text": "The following pseudocode is run: let f(x) = x^2 - 10; let g(x) = 2 × x; set x t…"}
+{"answer": "(a) 8.833; (b) 8.832; (c) 3; (d) 8.8318", "id": "pseudocode-trace-output/exam/0/e1fa5d149be0", "text": "The following pseudocode applies Newton's method to f and stops when the change…"}
+{"answer": "(a) 4.750; (b) 4.586; (c) 4; (d) 4.5826", "id": "pseudocode-trace-output/exam/1/e07fdf950587", "text": "The following pseudocode applies Newton's method to f and stops when the change…"}
+{"answer": "(a) 3.333; (b) 3.182; (c) 4; (d) 3.1748", "id": "pseudocode-trace-output/exam/2/d83e2ca2512f", "text": "A program uses Newton's method and a stopping rule: let f(x) = x^3 - 32; let g(…"}
+{"answer": "7.50", "id": "pseudocode-trace-output/hard/0/f0d5fd5265d6", "text": "Here is a short program written in pseudocode: let f(x) = x^2 - 52; set a to 6;…"}
+{"answer": "3.1623", "id": "pseudocode-trace-output/hard/1/b125db290c30", "text": "The following pseudocode is run: let f(x) = x^2 - 10; let g(x) = 2 × x; set x t…"}
 {"answer": "1.8125", "id": "pseudocode-trace-output/hard/2/f6339f25c927", "text": "Trace this pseudocode by hand: let f(x) = x^3 + x - 8; set a to 1; set b to 2; …"}
-{"answer": "4", "id": "pseudocode-trace-output/medium/0/e698a5447703", "text": "Here is a short program written in pseudocode: set b to 20; set y to 0; while b…"}
-{"answer": "44", "id": "pseudocode-trace-output/medium/1/a4fcb5f9dbe0", "text": "The following pseudocode is run: set s to 8; set n to 0; while s < 44: set s to…"}
-{"answer": "7", "id": "pseudocode-trace-output/medium/2/e1c2ed36668a", "text": "Here is a short program written in pseudocode: set s to 1; set n to 0; while s …"}
+{"answer": "4", "id": "pseudocode-trace-output/medium/0/344aba3b1ce8", "text": "Here is a short program written in pseudocode: set b to 20; set y to 0; while b…"}
+{"answer": "44", "id": "pseudocode-trace-output/medium/1/c0eb4f769942", "text": "The following pseudocode is run: set s to 8; set n to 0; while s < 44: set s to…"}
+{"answer": "7", "id": "pseudocode-trace-output/medium/2/db6d2a68b0d8", "text": "Here is a short program written in pseudocode: set s to 1; set n to 0; while s …"}
 {"answer": "105", "id": "pythagoras-truss-chain/easy/0/73efbd914a60", "text": "A support truss is modelled as a chain of right-angled triangles. Triangle 1: o…"}
 {"answer": "51", "id": "pythagoras-truss-chain/easy/1/bad44605e966", "text": "A support truss is modelled as a chain of right-angled triangles. Triangle 1: o…"}
 {"answer": "34", "id": "pythagoras-truss-chain/easy/2/df742b96edf9", "text": "A support truss is modelled as a chain of right-angled triangles. Triangle 1: o…"}
@@ -11902,17 +11902,17 @@
 {"answer": "{2pi/3, 5pi/3}", "id": "trig-equations-radians-list/medium/0/a0793cd117d5", "text": "Solve tan x = -√3 for 0 ≤ x < 2π. Give the exact solutions in radians as multip…"}
 {"answer": "{3pi/4, 7pi/4}", "id": "trig-equations-radians-list/medium/1/dbfab9246a83", "text": "Solve tan θ = -1 for 0 ≤ θ < 2π. Give the exact solutions in radians as multipl…"}
 {"answer": "{pi/6, pi/3, 7pi/6, 4pi/3}", "id": "trig-equations-radians-list/medium/2/c6d50373edc5", "text": "Solve sin 2x = √3/2 for 0 ≤ x < 2π. Give the exact solutions in radians as mult…"}
-{"answer": "3", "id": "trig-substitution-hsc-tan-and-convert/easy/0/a99a27f1343b", "text": "The substitution x = 3tan(θ) gives √(9 + x^2) = k sec(θ). What is the constant …"}
-{"answer": "4", "id": "trig-substitution-hsc-tan-and-convert/easy/1/a96b49380a58", "text": "The substitution x = 2sin(θ) turns ∫ √(4 - x^2) dx into ∫ k cos^2(θ) dθ for a c…"}
-{"answer": "7", "id": "trig-substitution-hsc-tan-and-convert/easy/2/594456b1f556", "text": "With the substitution x = 7sin(θ), √(49 - x^2) = k cos(θ). Find k."}
-{"answer": "(a) 1/3375; (b) pi/4; (c) (pi + 2)/8; (d) (pi + 2)/27000", "id": "trig-substitution-hsc-tan-and-convert/exam/0/903767930428", "text": "The integral ∫ from 0 to 15 of 1/(225 + x^2)^2 dx is to be found using the subs…"}
-{"answer": "(a) 1/3375; (b) pi/6; (c) (2*pi + 3*sqrt(3))/24; (d) (2*pi …", "id": "trig-substitution-hsc-tan-and-convert/exam/1/b4bbc792e30d", "text": "The integral ∫ from 0 to 5√3 of 1/(225 + x^2)^2 dx is to be found using the sub…"}
-{"answer": "(a) 64; (b) pi/3; (c) (4*pi + 3*sqrt(3))/24; (d) 8*(4*pi/3 …", "id": "trig-substitution-hsc-tan-and-convert/exam/2/77638d70affa", "text": "The integral ∫ from 0 to 4√3 of √(64 - x^2) dx is to be found using the substit…"}
+{"answer": "3", "id": "trig-substitution-hsc-tan-and-convert/easy/0/554b71fdfac0", "text": "The substitution x = 3tan(θ) gives √(9 + x^2) = k sec(θ). What is the constant …"}
+{"answer": "4", "id": "trig-substitution-hsc-tan-and-convert/easy/1/965fb3a2364d", "text": "The substitution x = 2sin(θ) turns ∫ √(4 - x^2) dx into ∫ k cos^2(θ) dθ for a c…"}
+{"answer": "7", "id": "trig-substitution-hsc-tan-and-convert/easy/2/97ecab0c81c7", "text": "With the substitution x = 7sin(θ), √(49 - x^2) = k cos(θ). Find k."}
+{"answer": "(a) 1/3375; (b) pi/4; (c) (pi + 2)/8; (d) (pi + 2)/27000", "id": "trig-substitution-hsc-tan-and-convert/exam/0/9bee8af210fd", "text": "The integral ∫ from 0 to 15 of 1/(225 + x^2)^2 dx is to be found using the subs…"}
+{"answer": "(a) 1/3375; (b) pi/6; (c) (2*pi + 3*sqrt(3))/24; (d) (2*pi …", "id": "trig-substitution-hsc-tan-and-convert/exam/1/b0bf633de0c7", "text": "The integral ∫ from 0 to 5√3 of 1/(225 + x^2)^2 dx is to be found using the sub…"}
+{"answer": "(a) 64; (b) pi/3; (c) (4*pi + 3*sqrt(3))/24; (d) 8*(4*pi/3 …", "id": "trig-substitution-hsc-tan-and-convert/exam/2/e87a0e4529de", "text": "The integral ∫ from 0 to 4√3 of √(64 - x^2) dx is to be found using the substit…"}
 {"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/0/faa0b0861aeb", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
 {"answer": "(3 - sqrt(3))/48", "id": "trig-substitution-hsc-tan-and-convert/hard/1/5cb0cc75e5a2", "text": "By a suitable trigonometric substitution, find the exact value of ∫ from 2 to 2…"}
 {"answer": "25*(2*pi + 3*sqrt(3))/24", "id": "trig-substitution-hsc-tan-and-convert/hard/2/833f7b433a8a", "text": "Evaluate ∫ from 0 to 5/2 of √(25 - x^2) dx, giving an exact answer. A trigonome…"}
-{"answer": "pi/36", "id": "trig-substitution-hsc-tan-and-convert/medium/0/5097659fc2ac", "text": "Evaluate ∫ from 0 to 2√3 of 1/(36 + x^2) dx exactly. Use the substitution x = 6…"}
-{"answer": "pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/1/199bf75e1287", "text": "Find the exact value of ∫ from 0 to √2 of 1/√(4 - x^2) dx by using the substitu…"}
+{"answer": "pi/36", "id": "trig-substitution-hsc-tan-and-convert/medium/0/8b52d9ebcecb", "text": "Evaluate ∫ from 0 to 2√3 of 1/(36 + x^2) dx exactly. Use the substitution x = 6…"}
+{"answer": "pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/1/a5ec1a1306cd", "text": "Find the exact value of ∫ from 0 to √2 of 1/√(4 - x^2) dx by using the substitu…"}
 {"answer": "25*pi/4", "id": "trig-substitution-hsc-tan-and-convert/medium/2/4a6dcf1c873e", "text": "Evaluate ∫ from 0 to 5 of √(25 - x^2) dx exactly. Use the substitution x = 5sin…"}
 {"answer": "-2, 4", "id": "two-by-two-eigenvalues/easy/0/e938e9a435d0", "text": "For A = [[-2, -1], [0, 4]], use det(λI − A) = 0 to find the eigenvalues."}
 {"answer": "0, 2", "id": "two-by-two-eigenvalues/easy/1/8019b127c70a", "text": "For A = [[0, -2], [0, 2]], use det(λI − A) = 0 to find the eigenvalues."}
