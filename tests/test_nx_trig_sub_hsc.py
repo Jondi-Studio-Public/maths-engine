@@ -57,13 +57,19 @@ def ratio_at(expr, t=0.7):
 
 
 def test_wired():
-    sup.assert_wired(
-        SKILL,
-        TOPIC,
-        EXAM,
-        "expression",
-        ["integrate-substitution-rewrite-x", "integrate-trig-powers", "definite-integral-substitution-changed-limits"],
-    )
+    data = sup.skill_yaml(SKILL)
+    assert data["answer"] == "expression"
+    assert data["prerequisites"] == [
+        "integrate-substitution-rewrite-x",
+        "integrate-trig-powers",
+        "definite-integral-substitution-changed-limits",
+    ]
+    by_difficulty = {s["difficulty"]: s for s in data["sources"]}
+    for tier in sup.TIERS:
+        assert by_difficulty[tier]["topic"] == TOPIC
+    assert by_difficulty["exam"]["topic"] == EXAM
+    assert by_difficulty["exam"]["stages"] == ["exam"]
+    assert sup.skill_object(SKILL).status == "active"
 
 
 @pytest.mark.parametrize("tier", sup.TIERS)

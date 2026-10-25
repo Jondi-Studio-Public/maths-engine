@@ -634,10 +634,10 @@ def exd_nx_trig_sub_hsc(rng, tier="exam"):
     fam_kind = rng.choice(["tan2", "sinroot"])
     fam = _FAMILY[fam_kind]
     if fam == "tan":
-        a = sympy.Integer(rng.choice([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+        a = sympy.Integer(rng.randint(1, 20))
         beta = rng.choice([pi / 4, pi / 3, pi / 6])
     else:
-        a = sympy.Integer(rng.choice([1, 2, 3, 4, 5, 6, 7, 8, 9]))
+        a = sympy.Integer(rng.randint(1, 20))
         beta = rng.choice([pi / 6, pi / 4, pi / 3])
     f, f_text = _integrand(fam_kind, a)
     _check_converted(fam_kind, a)
