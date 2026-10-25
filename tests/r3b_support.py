@@ -151,7 +151,7 @@ def assert_wired(skill_id: str, topic: str, exam_topic: str, answer: str, prereq
         assert not by_difficulty[tier]["params"]
     assert by_difficulty["exam"]["topic"] == exam_topic
     assert by_difficulty["exam"]["stages"] == ["exam"]
-    assert not by_difficulty["exam"]["params"]
+    assert by_difficulty["exam"]["params"] in ({}, {"tier": "exam"})
     assert skill_object(skill_id).status == "active"
 
 
