@@ -845,6 +845,8 @@ OPTION_NOTES_TOPICS = frozenset(
         "w9_parabola_draw",
         "vm_pseudocode_trace",
         "vm_pseudocode_trace_exam",
+        "vm_power_graph_features",
+        "vm_power_graph_features_exam",
     }
 )
 

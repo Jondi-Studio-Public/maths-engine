@@ -60112,6 +60112,181 @@ _ENTRIES += (
         "Giving the number of intervals of the tolerance's width instead of the number of times the loop halves the interval.",
         area="algorithms",
     ),
+    CatalogueEntry(
+        "vm-pf-a-divides",
+        "Dividing the y-value by u^n as well, so that the constant a comes out as v divided by u^n instead of v times u^n.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-forgets-power",
+        "Reading the y-coordinate of the given point as the constant a, without undoing the power of x.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-index-ignored",
+        "Treating x^(-n) as if the index were 1, multiplying by x instead of dividing by x^n.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-asymptote-axes-swapped",
+        "Giving the vertical asymptote as the shift in y, or the horizontal asymptote as the shift in x.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-asymptote-reads-zero",
+        "Giving 0 as the asymptote of a translated graph, as if x = 0 and y = 0 never moved.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-asymptote-sign-of-shift",
+        "Reading the horizontal shift in (x - h) or the vertical shift k with the opposite sign.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-asymptote-takes-dilation",
+        "Adding the dilation factor a into the equation of the horizontal asymptote.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-dilation-applied-to-x",
+        "Applying the dilation factor to x inside the function instead of multiplying the y-value by it.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-dilation-forgotten",
+        "Leaving out the dilation factor and reporting the y-value of the unstretched graph.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-index-inverted",
+        "Inverting the root of an intercept, giving m divided by u where u divided by m is required.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-misses-negative-root",
+        "Giving only the positive x-intercept when an even power gives a second intercept to the left of the asymptote.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-shift-forgotten",
+        "Ignoring the translation when finding an intercept, so the intercept is not moved.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-sign-of-shift",
+        "Moving an x-intercept by the horizontal shift in the wrong direction.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-spurious-root",
+        "Giving a second x-intercept for an odd power, which has only one.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-index-not-undone",
+        "Giving the factor in a as the intersection, without raising it to the power that undoes the index.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-misses-negative-root",
+        "Missing the intersection at negative x on an odd function, although the graph is symmetric about the origin.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-misses-origin",
+        "Leaving out the origin as an intersection of y = x with a power function whose index is positive.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-symmetry-assumed",
+        "Assuming a mirror intersection at negative x when the function is even, neither, or its sign of a rules it out.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-intersection-unit-assumed",
+        "Assuming the graph meets y = x only at 0 and 1, whatever the constant a.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-neither-for-defined-function",
+        "Calling a function neither odd nor even although its root is odd and so it is defined for negative x.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-odd-even-swapped",
+        "Swapping odd and even: calling the function odd when the power is even, or even when the power is odd.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-parity-from-numerator-only",
+        "Deciding odd or even from the numerator of the index alone, ignoring that an even root limits the domain.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-parity-guess",
+        "Choosing odd, even or neither without using the parity of the root and the power.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-all-four",
+        "Saying the graph of a power function lies in all four quadrants.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-ignores-even-root-domain",
+        "Placing a graph in the left-hand quadrants when an even root means it exists only for x > 0.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-ignores-sign-of-a",
+        "Ignoring that a negative constant a turns the graph upside down.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-parity-swapped",
+        "Swapping the quadrants of an odd function with those of an even function.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-quadrant-sign-of-a-reversed",
+        "Using the quadrants for the opposite sign of a.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-reflection-forgotten",
+        "Leaving out the reflection and reporting the original graph.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-reflection-sign-lost",
+        "Losing the minus sign of a reflection, or putting one in where there is none.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-reflection-wrong-axis",
+        "Reflecting in the other axis, or in both, so that the quadrants or values are those of a different reflection.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-root-not-taken",
+        "Stopping at the power of x and not taking the root to find the intercept.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-symmetry-doubled",
+        "Doubling the y-value instead of using the symmetry of the graph.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-symmetry-sign-wrong",
+        "Using the symmetry of the wrong kind: negating the y-value of an even function, or keeping the sign for an odd one.",
+        area="graph-features",
+    ),
+    CatalogueEntry(
+        "vm-pf-symmetry-zero",
+        "Saying the y-value at a negative x is 0, as if the graph vanished there.",
+        area="graph-features",
+    ),
 )
 
 #: Every entry, by id.
