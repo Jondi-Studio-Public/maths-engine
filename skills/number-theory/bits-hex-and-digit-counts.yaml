@@ -35,7 +35,8 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_nv_bits_hex_counts
-  params: {}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
@@ -49,8 +50,6 @@ misconceptions:
 - id: nv-bits-power-boundary
   description: Gives the exponent when the number is a power of two (256 as 8 bits), forgetting that 256 itself needs a ninth
     bit.
-- id: nv-bits-round-to-nearest
-  description: Rounds the base-2 logarithm to the nearest whole number instead of up.
 - id: nv-bits-divides-by-eight
   description: Divides the number by 8, treating the number of bits as the number of bytes.
 - id: nv-largest-is-power
@@ -76,8 +75,6 @@ misconceptions:
   description: Groups the binary digits in fours from the left, so the groups do not line up with the place values.
 - id: nv-hex-groups-of-three
   description: Groups the binary digits in threes (octal digits) when writing a hexadecimal numeral.
-- id: nv-hex-no-padding
-  description: Leaves a short group of binary digits unpadded, reading it with the wrong place values.
 - id: nv-hex-digits-rounded-down
   description: Divides the number of bits by 4 and rounds down, one hexadecimal digit too few.
 - id: nv-hex-digits-bits-over-three
@@ -121,3 +118,6 @@ misconceptions:
   description: Uses the number of leftover bits as the top hexadecimal digit instead of the largest value they hold.
 - id: nv-unused-gives-reading
   description: Gives the largest reading as the number of unused values.
+- id: near-miss-value
+  description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method
+    behind the slip.'

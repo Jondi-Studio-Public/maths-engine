@@ -15,7 +15,7 @@ prerequisites:
 - calculate-mean
 - calculate-median
 - calculate-mode
-answer: number
+answer: mcq
 sources:
 - topic: nv_summary_choice
   params: {}
@@ -38,7 +38,8 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_nv_summary_choice
-  params: {}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
@@ -47,12 +48,6 @@ misconceptions:
   description: Treats the categories of a nominal variable as numbers that can be averaged.
 - id: nv-median-of-unordered-categories
   description: Looks for the middle category of a nominal variable, which has no order.
-- id: nv-mean-of-ordinal-labels
-  description: Averages ordered labels such as poor to excellent as if they were equally spaced numbers.
-- id: nv-mode-only-for-ordinal
-  description: Thinks only the mode can be found for ordered categories.
-- id: nv-fewer-measures-than-possible
-  description: Thinks fewer measures of centre can be found for a numerical variable than can.
 - id: nv-range-as-centre
   description: Gives the range, a measure of spread, where a measure of centre was asked for.
 - id: nv-mean-for-skewed
@@ -90,10 +85,6 @@ misconceptions:
   description: Works out a different measure of centre from the one that was asked for.
 - id: nv-difference-reversed
   description: Subtracts in the wrong order, giving the median minus the mean.
-- id: nv-total-not-scaled
-  description: Gives the mean itself where the total for many items was asked.
-- id: nv-total-divided
-  description: Divides the mean by the number of items where the total was asked.
 - id: nv-total-of-sample
   description: Gives the total of the listed values as the total for the larger number of items.
 - id: nv-percent-of-mean
@@ -102,3 +93,6 @@ misconceptions:
   description: Gives the difference itself where a percentage of the median was asked.
 - id: nv-ratio-not-excess
   description: Gives the mean as a percentage of the median, not the excess over it.
+- id: near-miss-value
+  description: 'Gives a value a little way from the right one: out by one or two in a count or a reading, with no single method
+    behind the slip.'

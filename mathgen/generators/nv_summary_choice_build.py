@@ -1,15 +1,16 @@
 """Generates `nv_summary_choice` questions (easy, medium, hard) and the exam chain `exd_x_nv_summary_choice`.
 
-``choose-summary-statistic-for-data`` (``statistics-probability``, answer ``number``): choosing mode, median or mean from the
+``choose-summary-statistic-for-data`` (``statistics-probability``, answer ``mcq``): choosing mode, median or mean from the
 type of variable, the shape of the data and what the figure is for, and then working out the one chosen. ``classify-data``
 sorts variables into types and ``calculate-mean`` / ``calculate-median`` / ``calculate-mode`` work out a named measure;
 this skill is the step between them. The existing open-response ``wa_centre_suitability`` asks for an explanation that
-a rubric marks; here the choice is graded through the number it leads to, so every answer is a number and a wrong measure
-is always a different number.
+a rubric marks; the easy naming question is a multiple-choice question; everywhere else the choice is graded through the number it
+leads to, so a wrong measure is always a different number.
 
-* easy: how many of the mean, median and mode can be found for a variable (a nominal one: 1; ordered ratings: 2; a
-  numerical one: 3), or the value that suits a purpose for five listed values (the median when one value is far larger, the
-  mean when a total is wanted, the mode when the most common value is wanted).
+* easy: which measure of centre suits a situation, answered by name (Mode for a nominal variable, Median when a few values
+  are far larger, Mean when a total is wanted; the other options include the range), or the value that suits a purpose for
+  five listed values (the median when one value is far larger, the mean when a total is wanted, the mode when the most
+  common value is wanted).
 * medium: the same purposes for ten listed values (to 1 decimal place).
 * hard: a figure has been claimed that does not suit the data. The learner works out the value of the measure that does:
   the median instead of the mean for a skewed set, the mean instead of the median when a total is wanted, the mode instead
@@ -32,7 +33,8 @@ from fractions import Fraction
 from ..core import attempts, check, generator, phrase
 from ._exd_distinct_parts import distinct_part_answers
 from ._nv_kit import spread_order
-from ._r3j_kit import number_part, sane, single_number
+from ._exd_r3f_parts import clear_of_boundary
+from ._r3j_kit import choice_question, number_part, sane, single_number
 from ._spread_kit import NEAR, uses_rng
 from ._w6a_kit import retry_draw
 
@@ -45,17 +47,6 @@ MISCONCEPTIONS = [
     (
         "nv-median-of-unordered-categories",
         "Looks for the middle category of a nominal variable, which has no order.",
-        AREA,
-    ),
-    (
-        "nv-mean-of-ordinal-labels",
-        "Averages ordered labels such as poor to excellent as if they were equally spaced numbers.",
-        AREA,
-    ),
-    ("nv-mode-only-for-ordinal", "Thinks only the mode can be found for ordered categories.", AREA),
-    (
-        "nv-fewer-measures-than-possible",
-        "Thinks fewer measures of centre can be found for a numerical variable than can.",
         AREA,
     ),
     ("nv-range-as-centre", "Gives the range, a measure of spread, where a measure of centre was asked for.", AREA),
@@ -104,8 +95,6 @@ MISCONCEPTIONS = [
     ("nv-mean-wrong-count", "Divides the total by a count that is one out.", AREA),
     ("nv-wrong-measure", "Works out a different measure of centre from the one that was asked for.", AREA),
     ("nv-difference-reversed", "Subtracts in the wrong order, giving the median minus the mean.", AREA),
-    ("nv-total-not-scaled", "Gives the mean itself where the total for many items was asked.", AREA),
-    ("nv-total-divided", "Divides the mean by the number of items where the total was asked.", AREA),
     ("nv-total-of-sample", "Gives the total of the listed values as the total for the larger number of items.", AREA),
     ("nv-percent-of-mean", "Finds the excess as a percentage of the mean instead of the median.", AREA),
     ("nv-difference-not-percent", "Gives the difference itself where a percentage of the median was asked.", AREA),
@@ -325,45 +314,58 @@ def _mode_slips(values, mean, median):
 # -- easy -------------------------------------------------------------------------------------------------------------
 
 
-def _easy_how_many(rng):
-    """How many of the mean, median and mode can be found for a variable."""
-    kind = rng.choice(["nominal", "ordinal", "numerical"])
+def _easy_measure(rng):
+    """Which measure of centre suits a variable or a purpose: the answer is a word (Mode, Median or Mean)."""
+    kind = rng.choice(["nominal", "skewed", "total"])
+    options = ("Mean", "Median", "Mode", "Range")
     if kind == "nominal":
         scene, thing = rng.choice(_NOMINAL)
-        key = 1
-        slips = [(2, "nv-median-of-unordered-categories"), (3, "nv-mean-of-categories")]
-        working = [
-            "The categories have no order and are not numbers, so only the most common one, the mode, can be found."
+        key = "Mode"
+        text = f"{scene} Which of these is a sensible measure of centre for {thing}?"
+        slips = [
+            ("Mean", "nv-mean-of-categories"),
+            ("Median", "nv-median-of-unordered-categories"),
+            ("Range", "nv-range-as-centre"),
         ]
-    elif kind == "ordinal":
-        scene, thing = rng.choice(_ORDINAL)
-        key = 2
-        slips = [(1, "nv-mode-only-for-ordinal"), (3, "nv-mean-of-ordinal-labels")]
         working = [
-            "The ratings can be put in order, so the median and the mode can be found.",
-            "Labels cannot be added, so no mean exists.",
+            "The categories have no order and are not numbers, so they cannot be averaged or put in order.",
+            "Only the most common category, the mode, can be found. The range measures spread, not centre.",
+        ]
+    elif kind == "skewed":
+        ctx = rng.choice(_SKEWED)
+        key = "Median"
+        text = (
+            f"A researcher lists {ctx[0]}. A few of the values are far larger than all the others. "
+            f"Which measure of centre best represents a typical {ctx[5]}?"
+        )
+        slips = [
+            ("Mean", "nv-mean-for-skewed"),
+            ("Range", "nv-range-as-centre"),
+            ("Mode", "nv-wrong-measure"),
+        ]
+        working = [
+            "A few very large values drag the mean upwards, away from a typical value.",
+            "The median is the middle value, so it is hardly moved by the extreme ones.",
         ]
     else:
-        scene = rng.choice(_NUMERICAL)
-        thing = "the values"
-        key = 3
-        slips = [(1, "nv-fewer-measures-than-possible"), (2, "nv-fewer-measures-than-possible")]
-        working = [
-            "The values are numbers, so they can be added, ordered and counted: the mean, median and mode can all be found."
-        ]
-    text = (
-        scene
-        + " "
-        + phrase(
-            rng,
-            (
-                "How many of the mean, the median and the mode could sensibly be found for {t}?",
-                "Of the three measures of centre (mean, median and mode), how many make sense for {t}?",
-            ),
-            t=thing,
+        ctx = rng.choice(_BALANCED)
+        key = "Mean"
+        text = (
+            f"A planner lists {ctx[0]}. The values are all close together. "
+            f"The planner wants to estimate the total {ctx[4]} for many {_plural(ctx[3])} of the same kind. "
+            "Which measure of centre should be scaled up for the estimate?"
         )
-    )
-    return single_number(text, key, 0, working, [(v, g) for v, g in slips], keep=2)
+        slips = [
+            ("Median", "nv-median-for-total"),
+            ("Mode", "nv-wrong-measure"),
+            ("Range", "nv-range-as-centre"),
+        ]
+        working = [
+            "A total is the sum of all the values, and the mean is the sum shared equally.",
+            "So the mean multiplied by the number of items gives the total; the median does not.",
+        ]
+    check(key in options and all(w in options for w, _ in slips), "unknown option")
+    return choice_question(text, key, working, slips)
 
 
 def _easy_median(rng):
@@ -427,7 +429,7 @@ def _easy_mode(rng):
     return single_number(text, Fraction(mode), 1, working, _ordered(Fraction(mode), _mode_slips(values, mean, median)))
 
 
-_EASY = (_easy_how_many, _easy_how_many, _easy_median, _easy_median, _easy_mean, _easy_mean, _easy_mode)
+_EASY = (_easy_measure, _easy_measure, _easy_median, _easy_median, _easy_mean, _easy_mean, _easy_mode)
 
 
 # -- medium -----------------------------------------------------------------------------------------------------------
@@ -543,9 +545,7 @@ def _hard_claim_common(rng):
         f"The question asks for the most common value, not the mean ({_fmt(mean)}).",
         f"The value {mode} is listed {values.count(mode)} times, more than any other value.",
     ]
-    slips = [(median, "nv-median-for-most-common"), (mean + 1, "nv-mean-for-most-common")] + _mode_slips(
-        values, mean, median
-    )[2:]
+    slips = [(median, "nv-median-for-most-common"), (mean + 1, NEAR)] + _mode_slips(values, mean, median)[2:]
     return single_number(text, Fraction(mode), 1, working, _ordered(Fraction(mode), slips))
 
 
@@ -580,8 +580,8 @@ def _hard_claim_ordinal(rng):
     slips = [
         (Fraction(round(mean)), "nv-mean-for-ordinal"),
         (Fraction(top), "nv-mode-ignores-order"),
-        (Fraction(int(median) + 1), "nv-median-wrong-position"),
-        (Fraction(int(median) - 1), "nv-median-wrong-position"),
+        (Fraction(int(median) + 1), NEAR),
+        (Fraction(int(median) - 1), NEAR),
         (Fraction(_median_unsorted(codes)), "nv-median-unsorted"),
     ]
     return single_number(text, median, 0, working, _ordered_whole(median, slips))
@@ -669,7 +669,10 @@ def _exam_chain(rng):
     kind = "skewed" if rng.random() < 0.5 else "total"
     if kind == "skewed":
         ctx = rng.choice(_SKEWED)
-        values, mean, median = _skewed(rng, ctx)
+        for _ in attempts(400, "a skewed set whose percentage is clear of a rounding boundary"):
+            values, mean, median = _skewed(rng, ctx)
+            if clear_of_boundary((mean - median) / median * 100, 1):
+                break
         intro = f"A researcher lists {ctx[0]}: {_shown(values)}. The aim is to report a typical {ctx[5]}."
         c_prompt = "Find the mean minus the median."
         c_value = mean - median
@@ -687,7 +690,7 @@ def _exam_chain(rng):
             (c_value / mean * 100, "nv-percent-of-mean"),
             (c_value, "nv-difference-not-percent"),
             (mean / median * 100, "nv-ratio-not-excess"),
-            (median / mean * 100, "nv-ratio-not-excess"),
+            (median / mean * 100, NEAR),
         ]
         d_ft, d_range = "part_c / part_b * 100", (0, None)
     else:
@@ -703,8 +706,6 @@ def _exam_chain(rng):
         c_working = [f"{_fmt(mean)} x {k} = {float(c_value):.1f}."]
         c_slips = [
             (median * k, "nv-median-for-total"),
-            (mean, "nv-total-not-scaled"),
-            (mean / k, "nv-total-divided"),
             (Fraction(sum(values)), "nv-total-of-sample"),
         ]
         c_ft, c_range = f"part_a * {k}", (0, None)
@@ -713,9 +714,9 @@ def _exam_chain(rng):
         d_working = [f"({_fmt(mean)} - {_fmt(median)}) x {k} = {float(d_value):.1f}."]
         d_slips = [
             ((median - mean) * k, "nv-difference-reversed"),
-            (mean - median, "nv-total-not-scaled"),
-            (median * k, "nv-median-for-total"),
-            (Fraction(sum(values)) - median * k, "nv-total-of-sample"),
+            (mean - median, NEAR),
+            (median * k, NEAR),
+            (Fraction(sum(values)) - median * k, NEAR),
         ]
         d_ft, d_range = f"(part_a - part_b) * {k}", (None, None)
     s = sorted(values)
