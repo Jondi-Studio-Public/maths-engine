@@ -2712,7 +2712,7 @@ f10-terminating-recurring-decimals:
     module: mathgen/generators/exd_x_n4_recurring_decimals.py
 f10-tessellation-transform-combinations:
   domain: geometry
-  status: deferred
+  status: active
   sources:
   - topic: grid_tessellation_images
     module: mathgen/generators/grid_shading_build.py
@@ -2812,7 +2812,7 @@ f10-turn-shapes-on-a-grid:
     module: mathgen/generators/w7f_space_exams.py
 f10-two-dimensional-object-representations:
   domain: primary-geometry-time
-  status: deferred
+  status: active
   sources:
   - topic: grid_plan_views
     module: mathgen/generators/grid_shading_build.py
