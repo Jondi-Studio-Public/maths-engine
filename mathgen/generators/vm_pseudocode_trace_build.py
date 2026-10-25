@@ -26,7 +26,7 @@ from ..core import VerificationError, attempts, check, generator, phrase
 from ..answers import Distractor, exact_value
 from ..core import latex_answer, round_half_up, stated_precision_string
 from .exd_x_r2b_support import Redraw, _finish, _first_wrong, _number_value, clear_of_boundary, draw
-from ._company_kit import keep_company, numeric_pool
+from ._company_kit import keep_company, nudge_rank, numeric_pool
 from ._spread_kit import mixed, uses_rng
 from .r4e_common import fraction_part as _fraction_part
 from .r4e_common import single
@@ -34,7 +34,11 @@ from .r4e_common import single
 F = Fraction
 
 
-def _spread(value, wrong, step, lo, hi):
+COMPANY_SHIFT_COST = 0.9  # a companion may move the key down a rank ...
+NUDGE = 0.3  # ... which `nudge_rank` pays back by spreading the ranks of other draws
+
+
+def _spread(value, wrong, step, lo, hi, *, nudge=False):
     """The wrong-answer candidates reordered so that the first three hold a random number below the key and the rest above
     it (`_spread_kit.mixed`), with plain near misses a multiple of `step` away to make up a side that is short.
 
@@ -53,12 +57,16 @@ def _spread(value, wrong, step, lo, hi):
     ordered = mixed(
         key, list(wrong), fillers=near, lo=lo, hi=hi, unbounded="open" if lo is None and hi is None else None
     )
-    return keep_company(key, ordered, numeric_pool(key, step, lo, hi))
+    pool = numeric_pool(key, step, lo, hi)
+    if not nudge:
+        return keep_company(key, ordered, pool)
+    ordered = keep_company(key, ordered, pool, shift_cost=COMPANY_SHIFT_COST)
+    return nudge_rank(key, ordered, pool, p=NUDGE) if key.denominator == 1 else ordered
 
 
-def fraction_part(prompt, value, marks, working, wrong, *, lo=1, hi=None, **kw):
+def fraction_part(prompt, value, marks, working, wrong, *, lo=1, hi=None, nudge=False, **kw):
     """A whole-number answer. Counts and printed values are at least 1 unless the part says otherwise."""
-    return _fraction_part(prompt, value, marks, working, _spread(value, wrong, 1, lo, hi), **kw)
+    return _fraction_part(prompt, value, marks, working, _spread(value, wrong, 1, lo, hi, nudge=nudge), **kw)
 
 
 def number_part(
@@ -794,6 +802,7 @@ def _chain_newton(rng):
             (n + 3, _NEAR),
         ],
         lo=NEWTON_PASSES_ASKED,  # part (b) has already run the loop a second time, so it ran at least twice
+        nudge=True,
     )
     part_d = number_part(
         "What value of x is printed last, correct to 4 decimal places?",
@@ -910,6 +919,7 @@ def _chain_bisection(rng):
             (n - 2, "near-miss-value"),
         ],
         lo=BISECTION_PASSES_ASKED,  # part (b) has already run the loop five times
+        nudge=True,
     )
     part_d = number_part(
         "What value is printed last, correct to 4 decimal places?",

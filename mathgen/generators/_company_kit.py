@@ -57,7 +57,7 @@ def lone_features(key, shown) -> set:
     return {n for n in names if all(o[n] != fk[n] for o in others)}
 
 
-def keep_company(key, ordered, pool=(), count: int = 3):
+def keep_company(key, ordered, pool=(), count: int = 3, shift_cost: float = SHIFT_COST):
     """`ordered` ([(value, tag)]; the first `count` are shown) changed so the key has company in as many features as
     possible. Candidates are the rest of `ordered` and `pool`; a swap keeps the number below the key where it can."""
     shown = list(ordered[:count])
@@ -89,7 +89,7 @@ def keep_company(key, ordered, pool=(), count: int = 3):
             pick = [cands[i] for i in (*old, *new)]
             score = (
                 sum(WEIGHT.get(n, 1) for n in lone_features(key, [v for v, _ in pick]))
-                + SHIFT_COST * abs(sum(1 for v, _ in pick if below(v)) - base_below),
+                + shift_cost * abs(sum(1 for v, _ in pick if below(v)) - base_below),
             )
             if best_score is None or score < best_score:
                 best, best_score = [pick], score
@@ -132,3 +132,31 @@ def numeric_pool(key, step=1, lo=None, hi=None, ok=lambda v: True):
         keep.append((int(v) if isinstance(key, int) and v.denominator == 1 else v, "near-miss-value"))
     keep.sort(key=lambda c: abs(Fraction(c[0]) - k))
     return keep
+
+
+def nudge_rank(key, ordered, pool=(), count: int = 3, *, p: float = 0.2, from_below: int = 1):
+    """Companion swaps move a small key down a rank, which crowds the middle ranks. When exactly `from_below` shown wrong
+    options lie below the key, with probability `p` one shown option above it gives its place to a plain near miss below
+    it (one that leaves the key no more alone in any feature than before), so the key's rank is spread back out."""
+    shown = list(ordered[:count])
+    plain = lambda v: all(isinstance(x, (int, Fraction)) for x in _tuple(v))  # noqa: E731
+    if len(shown) < count or not plain(key) or not all(plain(v) for v, _ in shown):
+        return ordered
+    rng = random.Random(repr(("nudge", str(key), [str(v) for v, _ in ordered])))
+    k = _tuple(key)
+    if sum(1 for v, _ in shown if _tuple(v) < k) != from_below or rng.random() >= p:
+        return ordered
+    taken = {k} | {_tuple(v) for v, _ in shown}
+    below = [c for c in list(ordered[count:]) + list(pool) if _tuple(c[0]) < k and _tuple(c[0]) not in taken]
+    above = [i for i, (v, _) in enumerate(shown) if _tuple(v) > k]
+    if not below or not above:
+        return ordered
+    before = len(lone_features(key, [v for v, _ in shown]))
+    rng.shuffle(below)
+    rng.shuffle(above)
+    for cand in below:
+        for i in above:
+            new = shown[:i] + [cand] + shown[i + 1 :]
+            if len(lone_features(key, [v for v, _ in new])) <= before:
+                return new + [c for c in ordered if not any(c is x or c == x for x in new)]
+    return ordered
