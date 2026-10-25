@@ -20,6 +20,10 @@ sources:
 - topic: causality_correlation_classify
   difficulty: hard
   stages: [6, maintenance]
+- topic: exd_x_gm064_causation_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: conflates-correlation-with-causation
   description: Assumes that a strong correlation implies causation without random assignment.
@@ -31,4 +35,20 @@ misconceptions:
   description: Thinks random assignment is optional or that description alone proves causation.
 - id: assumes-both-are-always-possible
   description: Selects "both" when a study shows only one structural marker, misreading "both supported equally" as "both present".
+- id: cc-r-for-r-squared
+  description: Gives the size of r as a percentage where the coefficient of determination r squared was asked for.
+- id: cc-unexplained-for-explained
+  description: Swaps the percentage of variation explained by the explanatory variable with the percentage not explained.
+- id: cc-unexplained-from-r
+  description: Subtracts the size of r, as a percentage, from 100% instead of using r squared.
+- id: cc-large-r-proves-cause
+  description: Concludes causation from a strong correlation whatever the study design.
+- id: cc-no-cause-without-perfect-r
+  description: Believes causation can only be claimed when r is 1 or -1.
+- id: cc-experiment-cannot-show-cause
+  description: Believes that even a randomised experiment cannot show that one variable causes another.
+- id: cc-measured-confounder-fixes-design
+  description: Treats an observational study as controlled because the third variable was measured.
+- id: cc-r-squared-as-causal-share
+  description: Reads r squared as the share of the changes in the response that the explanatory variable causes.
 tags: [acara-senior-v8-4, statistics-probability, causality_correlation_classify, causality-correlation, acmem147]
