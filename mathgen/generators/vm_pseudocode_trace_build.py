@@ -34,11 +34,12 @@ from .r4e_common import single
 F = Fraction
 
 
+PLAIN_SHIFT_COST = 1.5  # ... and elsewhere only where one swap clears a feature the key holds alone
 COMPANY_SHIFT_COST = 0.9  # a companion may move the key down a rank ...
 NUDGE = 0.3  # ... which `nudge_rank` pays back by spreading the ranks of other draws
 
 
-def _spread(value, wrong, step, lo, hi, *, nudge=False):
+def _spread(value, wrong, step, lo, hi, *, nudge=False, places=None):
     """The wrong-answer candidates reordered so that the first three hold a random number below the key and the rest above
     it (`_spread_kit.mixed`), with plain near misses a multiple of `step` away to make up a side that is short.
 
@@ -59,8 +60,11 @@ def _spread(value, wrong, step, lo, hi, *, nudge=False):
     )
     pool = numeric_pool(key, step, lo, hi)
     if not nudge:
-        return keep_company(key, ordered, pool)
-    ordered = keep_company(key, ordered, pool, shift_cost=COMPANY_SHIFT_COST)
+        ordered = keep_company(key, ordered, pool, shift_cost=PLAIN_SHIFT_COST, places=places)
+        if places is not None and key.denominator == 1 and not any(F(v).denominator == 1 for v, _ in ordered[:3] if v):
+            raise Redraw("a whole key beside decimals only: the stem leaves no whole-number option")
+        return ordered
+    ordered = keep_company(key, ordered, pool, shift_cost=COMPANY_SHIFT_COST, places=places)
     return nudge_rank(key, ordered, pool, p=NUDGE) if key.denominator == 1 else ordered
 
 
@@ -97,7 +101,7 @@ def number_part(
     hi = None if hi is None else hi + unit_in_last_place
     wrong = [(v, t) for v, t in wrong if v is not None and not same(v)]  # before the split, so it is not skewed
     options = _first_wrong(
-        key_text, _spread(rounded, wrong, step or F(1, 10 ** max(places - 1, 0)), lo, hi), same, build
+        key_text, _spread(rounded, wrong, step or F(1, 10 ** max(places - 1, 0)), lo, hi, places=places), same, build
     )
     return _finish(
         dict(
