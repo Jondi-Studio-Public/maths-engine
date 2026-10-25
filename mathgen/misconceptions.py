@@ -59956,6 +59956,162 @@ _ENTRIES += (
         "Finding solutions of (f(x))^2 = c for a negative c, as if a square could be negative.",
         area="graph-features",
     ),
+    # -- VCE pseudocode tracing (vm-) ----------------------------------------------------------------------
+    CatalogueEntry(
+        "vm-bisect-reports-endpoint",
+        "Printing an end point a or b of the interval instead of the midpoint m the program prints.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-bisect-wrong-half",
+        "Keeping the wrong half of the interval at a bisection step, reversing which end point m replaces.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-counts-one-branch",
+        "Counting only the passes that take the even branch when asked how many passes the loop makes.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-counts-wrong-passes",
+        "Miscounting the passes of a while-loop by one, by counting the failed test or missing the last pass.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-forgets-initial-value",
+        "Leaving out the starting value of the running total, so it begins at 0 instead of the value that is set.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-ignores-final-partial-pass",
+        "Counting only the full passes of a loop and leaving out the last pass that takes the amount below the limit.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-iterations-miscounted",
+        "Running a numerical method one pass too many or one pass too few.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-last-term-only",
+        "Printing the last term added instead of the running total after the whole loop.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-loop-extra-pass",
+        "Running a for-loop one pass too many, by counting the end value as one beyond the last.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-loop-missing-pass",
+        "Running a for-loop one pass too few, by leaving out the pass for the last value of the counter.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-newton-adds-correction",
+        "Adding f(x) divided by g(x) to x in a Newton step instead of subtracting it.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-newton-forgets-slope",
+        "Subtracting f(x) from x in a Newton step without dividing by the slope g(x).",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-newton-prints-correction",
+        "Giving the size of the last Newton correction, f(x) divided by g(x), instead of the new value of x.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-power-as-product",
+        "Reading repeated multiplication by m as multiplying the start by m and by the number of passes.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-power-as-sum",
+        "Reading repeated multiplication by m as adding m on each pass.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-prints-threshold",
+        "Printing the number in the while-loop test instead of the value the variable has when the loop stops.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-prints-value-before-last-pass",
+        "Giving the value of the variable before the last pass of a while-loop, as if the loop had stopped one pass early.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-prints-wrong-variable",
+        "Printing a different variable from the one the print statement names.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-reads-initial-value",
+        "Giving the starting value as the answer without running the loop.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-rect-right-for-left",
+        "Using the right-hand ends of the strips when the program sums the left-hand ends.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-rect-trapezium-confused",
+        "Giving the trapezium sum when the program adds only the left-hand rectangles.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-squares-sum-confused",
+        "Squaring the sum of the counter values instead of summing the squares of the counter values.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-stops-after-first-pass",
+        "Stopping after the first pass of a loop and reporting the value then.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-stops-one-pass-early",
+        "Giving the value of x from the pass before the one that met the stopping rule.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-sum-forgets-width",
+        "Printing the sum of the heights without multiplying by the strip width h.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-trap-ends-not-halved",
+        "Adding the two end values in the trapezium sum in full instead of taking half of them.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-trap-left-rectangle-confused",
+        "Giving the left-rectangle sum when the program is a trapezium sum.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-while-boundary-misread",
+        "Treating a strict test as inclusive, or an inclusive test as strict, so the loop runs one pass more or less.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-width-halved-extra",
+        "Halving the interval width too many times when finding its width after a number of passes.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-width-halved-once",
+        "Halving the interval width only once when more than one pass has been run.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-width-vs-count",
+        "Giving the number of intervals of the tolerance's width instead of the number of times the loop halves the interval.",
+        area="algorithms",
+    ),
 )
 
 #: Every entry, by id.

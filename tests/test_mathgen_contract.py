@@ -843,6 +843,8 @@ OPTION_NOTES_TOPICS = frozenset(
         "w9_shade_region",
         "w9_transform_shape",
         "w9_parabola_draw",
+        "vm_pseudocode_trace",
+        "vm_pseudocode_trace_exam",
     }
 )
 
