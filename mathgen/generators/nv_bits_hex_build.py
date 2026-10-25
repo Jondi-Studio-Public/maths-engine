@@ -51,7 +51,6 @@ MISCONCEPTIONS = [
         "Gives the exponent when the number is a power of two (256 as 8 bits), forgetting that 256 itself needs a ninth bit.",
         AREA,
     ),
-    ("nv-bits-round-to-nearest", "Rounds the base-2 logarithm to the nearest whole number instead of up.", AREA),
     ("nv-bits-divides-by-eight", "Divides the number by 8, treating the number of bits as the number of bytes.", AREA),
     (
         "nv-largest-is-power",
@@ -98,11 +97,6 @@ MISCONCEPTIONS = [
     (
         "nv-hex-groups-of-three",
         "Groups the binary digits in threes (octal digits) when writing a hexadecimal numeral.",
-        AREA,
-    ),
-    (
-        "nv-hex-no-padding",
-        "Leaves a short group of binary digits unpadded, reading it with the wrong place values.",
         AREA,
     ),
     (
@@ -291,7 +285,6 @@ def _easy_bits_needed(rng):
         (bits - 1, "nv-bits-log-rounded-down"),
         (len(str(n)), "nv-bits-counts-decimal-digits"),
         (bits + 1, "nv-bits-one-extra"),
-        (round(math.log2(n)) if round(math.log2(n)) != bits else None, "nv-bits-round-to-nearest"),
         (n // 8, "nv-bits-divides-by-eight"),
     ]
     dist = _dist(bits, cands)
@@ -425,12 +418,10 @@ def _medium_bin_to_hex(rng):
     left_text = "".join(_DIGITS[int(g, 2)] for g in left)
     threes_pad = "0" * ((-len(bits)) % 3) + bits
     threes = "".join(str(int(threes_pad[i : i + 3], 2)) for i in range(0, len(threes_pad), 3))
-    unpadded = "".join(_DIGITS[int(g, 2)] for g in [bits[: len(bits) - 4 * (len(groups) - 1)]] + groups[1:])
     cands = [
         (left_text, "nv-hex-groups-from-left"),
         (threes, "nv-hex-groups-of-three"),
         (h[::-1], "nv-hex-remainders-reversed"),
-        (unpadded, "nv-hex-no-padding"),
         (_hex(int(bits, 2) + 1), NEAR),
         (_hex(max(int(bits, 2) - 1, 1)), NEAR),
     ]
@@ -519,7 +510,6 @@ def _hard_bits_boundary(rng):
         (bits - 1, "nv-bits-power-boundary" if n == 2**k else "nv-bits-log-rounded-down"),
         (bits + 1, "nv-bits-one-extra"),
         (len(str(n)), "nv-bits-counts-decimal-digits"),
-        (round(math.log2(n)) if round(math.log2(n)) != bits else None, "nv-bits-round-to-nearest"),
     ]
     dist = _dist(bits, cands)
     stem = _num(

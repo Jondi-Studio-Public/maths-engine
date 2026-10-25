@@ -60602,6 +60602,41 @@ _ENTRIES += (
         "Gives a squared where a (or a where a squared) belongs, by squaring the constant in the substitution only part of the time.",
         area="trig-substitution-hsc-tan-and-convert",
     ),
+    CatalogueEntry(
+        "vm-pf-intersection-sign-of-a-ignored",
+        "Ignoring the sign of a, so the intersection is placed on the wrong side of the origin.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-sign-lost",
+        "Losing the sign of a when it is found from the given point.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-negative-index-as-positive",
+        "Reading x^(-n) as x^n, multiplying by the power of x instead of dividing by it.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-reads-given-point",
+        "Giving the x-coordinate of the given point as the intercept of the translated graph.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-intercept-scaled-wrong-way",
+        "Multiplying the given x-coordinate by the scale factor of the intercept instead of dividing by it.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-trap-right-rectangle-confused",
+        "Giving the right-rectangle sum when the program is a trapezium sum.",
+        area="algorithms",
+    ),
+    CatalogueEntry(
+        "vm-pf-a-extra-power",
+        "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a.",
+        area="graph-features",
+    ),
     # nv-bits-hex block
     CatalogueEntry(
         "nv-bits-log-rounded-down",
@@ -60941,41 +60976,6 @@ _ENTRIES += (
         area="choose-summary-statistic",
     ),
     # nv-summary block end
-    CatalogueEntry(
-        "vm-pf-intersection-sign-of-a-ignored",
-        "Ignoring the sign of a, so the intersection is placed on the wrong side of the origin.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-a-sign-lost",
-        "Losing the sign of a when it is found from the given point.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-negative-index-as-positive",
-        "Reading x^(-n) as x^n, multiplying by the power of x instead of dividing by it.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-intercept-reads-given-point",
-        "Giving the x-coordinate of the given point as the intercept of the translated graph.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-intercept-scaled-wrong-way",
-        "Multiplying the given x-coordinate by the scale factor of the intercept instead of dividing by it.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-trap-right-rectangle-confused",
-        "Giving the right-rectangle sum when the program is a trapezium sum.",
-        area="algorithms",
-    ),
-    CatalogueEntry(
-        "vm-pf-a-extra-power",
-        "Multiplying the y-coordinate by one power of the x-coordinate too many when finding a.",
-        area="graph-features",
-    ),
 )
 
 #: Every entry, by id.

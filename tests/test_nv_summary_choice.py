@@ -43,26 +43,83 @@ def mode(v):
 
 def test_wired():
     sup.assert_wired(
-        SKILL, TOPIC, EXAM, "number", ["classify-data", "calculate-mean", "calculate-median", "calculate-mode"]
+        SKILL, TOPIC, EXAM, "mcq", ["classify-data", "calculate-mean", "calculate-median", "calculate-mode"]
     )
 
 
-def test_easy_how_many_measures_follows_the_type_of_variable():
+def test_easy_measure_name_follows_the_situation():
+    """The named measure is Mode for categories, Median when a few values are far larger, Mean when a total is wanted."""
     seen = Counter()
-    for seed in range(300):
+    for seed in range(400):
         q = sup.tier_question(TOPIC, "easy", seed)
+        if q.answer_text not in ("Mode", "Median", "Mean"):
+            continue
         t = q.text
-        if "how many" in t.lower() and "sensibly" in t or "how many make sense" in t:
-            if re.search(
-                r"records the (lunch|type of dwelling|main sport|country)|breed of each dog|flavour of cake", t
-            ):
-                assert q.answer_text == "1" and not re.search(r"\d", t.split(".")[0])
-            elif re.search(r"rate the service|how safe|how satisfied|how tiring|their pain|how often they visit", t):
-                assert q.answer_text == "2"
-            else:
-                assert q.answer_text == "3"
-            seen[q.answer_text] += 1
-    assert set(seen) == {"1", "2", "3"} and min(seen.values()) >= 15, seen
+        if "sensible measure of centre" in t:
+            assert q.answer_text == "Mode"
+        elif "far larger than all the others" in t:
+            assert q.answer_text == "Median"
+        else:
+            assert "estimate the total" in t and q.answer_text == "Mean", t
+        options = set(mcq_options(q))
+        assert options == {"Mean", "Median", "Mode", "Range"}, options
+        seen[q.answer_text] += 1
+    assert set(seen) == {"Mode", "Median", "Mean"} and min(seen.values()) >= 15, seen
+
+
+def test_key_word_and_position_vary_in_the_naming_question():
+    words, places = Counter(), Counter()
+    for seed in range(400):
+        q = sup.tier_question(TOPIC, "easy", seed)
+        if q.answer_text in ("Mode", "Median", "Mean"):
+            words[q.answer_text] += 1
+            places[mcq_options(q).index(q.answer_text)] += 1
+    assert len(words) == 3 and len(places) == 4, (words, places)
+
+
+def _tags(topic, tiers, seeds=1500):
+    from mathgen.core import REGISTRY
+
+    out = set()
+    for tier in tiers:
+        for seed in range(seeds):
+            q = REGISTRY[topic][1](random.Random(seed), tier=tier)
+            for unit in q.get("parts") or [q]:
+                out |= {d.misconception for d in unit["distractors"]}
+    return out
+
+
+def test_skill_misconceptions_are_exactly_the_tags_emitted():
+    """The YAML lists every tag the generators emit (with the plain near-miss tag) and nothing they never emit."""
+    import yaml
+
+    from mathgen.generators.nv_summary_choice_build import MISCONCEPTIONS
+
+    emitted = _tags(TOPIC, ("easy", "medium", "hard")) | _tags(EXAM, ("exam",))
+    with open(f"skills/statistics-probability/{SKILL}.yaml", encoding="utf-8") as fh:
+        listed_ids = {m["id"] for m in yaml.safe_load(fh)["misconceptions"]}
+    assert emitted == listed_ids, (emitted - listed_ids, listed_ids - emitted)
+    assert {m[0] for m in MISCONCEPTIONS} | {"near-miss-value"} == listed_ids
+
+
+def test_no_key_sits_on_a_rounding_boundary():
+    """Every number key is exact at its stated places or clear of a rounding tie (0 over 1000 seeds)."""
+    from mathgen.generators._exd_r3f_parts import clear_of_boundary
+
+    bad = []
+    for seed in range(1000):
+        q = sup.exam_question(EXAM, seed)
+        v = listed(q.text)
+        m, md = mean(v), median(v)
+        c, d = q.parts[2], q.parts[3]
+        exact = (
+            (m - md) / md * 100
+            if "percentage" in d.prompt
+            else (m - md) * int(re.search(r"for (\d+)", c.prompt).group(1))
+        )
+        if not clear_of_boundary(exact, 1):
+            bad.append(seed)
+    assert not bad, bad[:5]
 
 
 @pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
@@ -194,6 +251,8 @@ def test_exam_follow_through():
 
 def _rank_and_position(unit):
     key, wrong = unit.answer_text, list(unit.distractors)
+    if not re.fullmatch(r"-?[\d.]+", key):  # a measure named in words has no numeric order
+        return 0, mcq_options(unit).index(key)
     return sum(float(w) < float(key) for w in wrong), mcq_options(unit).index(key)
 
 
@@ -217,6 +276,8 @@ def test_key_rank_is_not_fixed_for_any_question_kind():
     for tier in ("easy", "medium", "hard"):
         for seed in range(400):
             q = sup.tier_question(TOPIC, tier, seed)
+            if not re.fullmatch(r"-?[\d.]+", q.answer_text):
+                continue  # a measure named in words has no numeric rank
             kinds[(tier, " ".join(re.sub(r"\d+", "#", q.text).split()[:3]))][_rank_and_position(q)[0]] += 1
     checked = 0
     for kind, counts in kinds.items():
