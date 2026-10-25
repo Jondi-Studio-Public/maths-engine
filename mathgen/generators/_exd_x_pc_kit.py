@@ -26,7 +26,7 @@ def count_part(
     ok=None,
     step=1,
 ):
-    """A ``number`` part whose key is a whole number: positive, or any non-zero whole number when ``signed``.
+    """A ``number`` part whose key is a whole number: positive, or any whole number (0 included) when ``signed``.
 
     The caller's generator must be wrapped in ``uses_rng`` so the option split varies by seed.
     ``wrong`` lists ``(value, misconception id)`` in priority order. Every option, named slip or plain near miss

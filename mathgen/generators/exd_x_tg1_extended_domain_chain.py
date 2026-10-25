@@ -214,6 +214,9 @@ def _wave(rng: random.Random, name: str) -> dict:
             (ksum - 2, None),
         ],
         signed=True,
+        lo=maxima
+        * lo2,  # each maximum is at x between lo2 and hi2 half-pi, so the sum is between maxima * lo2 and maxima * hi2
+        hi=maxima * hi2,
         ok=lambda v: v % 4 == ksum % 4,  # maxima sit at 4n or 4n + 1 half-pi, so the sum's class mod 4 is fixed
         step=4,
     )
@@ -316,6 +319,8 @@ def _tan(rng: random.Random) -> dict:
             (usum - 4, None),
         ],
         signed=True,
+        lo=one * lo4,  # each point is between lo4 and hi4 quarter-pi, so the sum is between one * lo4 and one * hi4
+        hi=one * hi4,
         ok=lambda v: v % 4 == usum % 4,  # the points are 1 + 4n quarter-pi, so the sum is the count mod 4
         step=4,
     )

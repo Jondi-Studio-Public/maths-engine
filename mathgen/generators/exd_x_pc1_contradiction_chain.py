@@ -50,8 +50,18 @@ def _euclid(rng: random.Random) -> dict:
         product = math.prod(listed)
         m = product + 1
         if not isprime(m):
-            below = [p for p in range(2, _smallest_factor(m)) if isprime(p) and p not in listed]
-            if len(below) >= 3:  # room below the key for wrong primes, so its rank is not fixed
+            low = _smallest_factor(m)
+            below = [p for p in range(2, low) if isprime(p) and p not in listed]
+            above = [p for p in range(low + 1, math.isqrt(m) + 1) if isprime(p) and p not in listed]
+            q = m // low
+            # M is odd and leaves remainder 1 on division by each listed prime, so its factor q is odd and coprime
+            # to the list; q is at least p, and at most M / 2
+            window = range(max(low, q - 300), min(m // 2, q + 300) + 1)
+            q_ok = [v for v in window if v % 2 and all(v % p for p in listed)]
+            q_below = [v for v in q_ok if v < q]
+            q_above = [v for v in q_ok if v > q]
+            # room on both sides of the key for wrong primes, so its rank is not fixed
+            if len(below) >= 3 and len(above) >= 3 and len(q_below) >= 3 and len(q_above) >= 3:
                 break
     low = _smallest_factor(m)
     cofactor = m // low
@@ -61,7 +71,8 @@ def _euclid(rng: random.Random) -> dict:
     largest = max(factors)
     # primes outside the list near the key: the options of a "smallest prime factor" are primes, none of them listed
     nearby = [p for p in range(2, low) if isprime(p) and p not in listed][-3:]
-    nearby += [p for p in range(low + 1, low + 80) if isprime(p) and p not in listed][:3]
+    nearby += [p for p in range(low + 1, math.isqrt(m) + 1) if isprime(p) and p not in listed][:3]
+    q_near = [(v, None) for v in q_below[-4:] + q_above[:4]]
     stem = rng.choice(
         (
             f"To prove by contradiction that there are infinitely many primes, suppose that the only primes are "
@@ -99,6 +110,7 @@ def _euclid(rng: random.Random) -> dict:
             *[(p, None) for p in nearby],
         ],
         ok=lambda v: isprime(v) and v not in listed,  # the part says the answer is a prime outside the list
+        hi=math.isqrt(m),  # the smallest prime factor of M is at most the square root of M
     )
     c = count_part(
         "Write M = p × q, where p is your answer to part (b). Find q.",
@@ -109,12 +121,12 @@ def _euclid(rng: random.Random) -> dict:
             (low, "pcx-repeats-the-previous-answer"),
             (m - low, "pcx-subtracts-instead-of-dividing"),
             (m // largest if largest != low else None, "pcx-divides-by-the-wrong-factor"),
-            (cofactor + 1, None),
-            (cofactor - 1, None),
+            *q_near,
         ],
         follow=f"{m}/part_b",
-        lo=2,
+        lo=low,  # every prime factor of q is at least p, the smallest prime factor of M
         hi=m // 2,  # M = p × q with p a prime, so q is at most M / 2
+        ok=lambda v: v % 2 == 1 and all(v % p for p in listed),  # M is odd and leaves remainder 1 on each listed prime
     )
     if a is None or b is None or c is None:
         raise ValueError("retry")

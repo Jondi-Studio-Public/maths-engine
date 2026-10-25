@@ -13,8 +13,9 @@ pc1, residue:  (a) from 1 to m - 1 ("from 0 to m - 1", and not 0 since the claim
                always square remainders and the needed remainder never is); (c) from 1 to m - 2 (same reason);
                (d) from 3 to 2m - 1 (a sum of two different positive integers k, each at most m).
 tg1:           every option of (a)-(d) is a positive whole number; sine/cosine (c) is below (b)'s key (turning points
-               alternate, so some are minima); tangent (c) is not (b)'s key (pieces = asymptotes + 1); (e) is in the
-               key's class mod 4 (the maxima of sine and cosine sit at 4n or 4n + 1 half-pi, the tan x = 1 points at
+               alternate, so some are minima); tangent (c) is not (b)'s key (pieces = asymptotes + 1); (e) is between n*lo and n*hi (n = the
+               count from (c) or (d), lo and hi the domain ends in half-pi or quarter-pi), has the sign of a one-sided
+               domain (0 is a legitimate option), and is in the key's class mod 4 (the maxima of sine and cosine sit at 4n or 4n + 1 half-pi, the tan x = 1 points at
                1 + 4n quarter-pi).
 All: no option repeats the key, all options are whole numbers.
 """
@@ -33,6 +34,16 @@ SEEDS = range(900)
 
 def _prime(n):
     return n > 1 and all(n % d for d in range(2, math.isqrt(n) + 1))
+
+
+def _pi(text):
+    """'-3π/2' -> Fraction(-3, 2); '0' -> 0."""
+    from fractions import Fraction
+
+    if text == "0":
+        return Fraction(0)
+    m = re.fullmatch(r"(-?)(\d*)π(?:/(\d+))?", text)
+    return (-1 if m.group(1) else 1) * Fraction(int(m.group(2) or 1), int(m.group(3) or 1))
 
 
 def _opts(part):
@@ -69,7 +80,11 @@ def test_every_pc1_option_meets_the_stem_constraints(pc1):
             m = int(q.parts[0].answer_text)
             assert all(x > 1 for x in _opts(q.parts[0])), q.text
             assert all(_prime(x) and x not in listed for x in _opts(q.parts[1])), q.text
-            assert all(2 <= x <= m // 2 for x in _opts(q.parts[2])), q.text
+            low = int(q.parts[1].answer_text)
+            # q = M / p: at least p (all its prime factors are), at most M / 2, odd (M is odd) and coprime to the list
+            assert all(low <= x <= m // 2 for x in _opts(q.parts[2])), q.text
+            assert all(x % 2 == 1 and all(x % p for p in listed) for x in _opts(q.parts[2])), q.text
+            assert all(x * x <= m for x in _opts(q.parts[1])), q.text  # the smallest prime factor is at most sqrt(M)
         elif kind == "linear":
             a_coef, b_coef, const = (int(x) for x in re.search(r"(\d+)m \+ (\d+)n = (\d+)", q.stem).groups())
             g = int(q.parts[0].answer_text)
@@ -109,4 +124,32 @@ def test_every_tg1_option_meets_the_stem_constraints(tg1):
             assert all(x < int(b.answer_text) for x in _opts(c)), q.text
         key = int(e.answer_text)
         assert all(x % 4 == key % 4 for x in _opts(e)), (q.text, key, e.distractors)
+        # (e) is a sum of n x-coordinates, each between the ends of the domain, in units of pi/2 (sine, cosine, n = the
+        # maxima counted in (c)) or pi/4 (tangent, n = the points counted in (d)): so n*lo <= sum <= n*hi
+        lo_t, hi_t = re.search(r"(0|-?\d*π(?:/\d+)?) ≤ x ≤ (0|-?\d*π(?:/\d+)?)", stem).groups()
+        unit, n = (4, int(d.answer_text)) if name == "tan" else (2, int(c.answer_text))
+        lo_u, hi_u = _pi(lo_t) * unit, _pi(hi_t) * unit
+        assert lo_u.denominator == hi_u.denominator == 1
+        assert all(n * lo_u <= x <= n * hi_u for x in [key, *_opts(e)]), (q.text, key, e.distractors)
+        if lo_u >= 0:  # a one-sided domain: every x-coordinate, so the sum, has that sign (0 is a legitimate option)
+            assert all(x >= 0 for x in _opts(e)), (q.text, e.distractors)
+        if hi_u <= 0:
+            assert all(x <= 0 for x in _opts(e)), (q.text, e.distractors)
     assert names == {"sin", "cos", "tan"}
+
+
+def test_the_one_sided_tangent_domain_of_seed_1347_offers_no_negative_sum():
+    """Reviewer case: tan on 0 <= x <= 6π (key 66) once offered -66."""
+    q = make("exd_x_tg1_extended_domain_chain", seed=1347, difficulty="exam")
+    if "tan x" in q.stem and re.search(r"0 ≤ x ≤", q.stem):
+        assert all(int(x) >= 0 for x in q.parts[4].distractors)
+    # and the same on every one-sided tangent domain among many seeds
+    checked = 0
+    for seed in range(1500):
+        q = make("exd_x_tg1_extended_domain_chain", seed=seed, difficulty="exam")
+        m = re.search(r"(0|-?\d*π(?:/\d+)?) ≤ x ≤ (0|-?\d*π(?:/\d+)?)", q.stem)
+        if "asymptote at x" in q.stem or "y = tan x" in q.stem:
+            if _pi(m.group(1)) >= 0:
+                checked += 1
+                assert all(int(x) >= 0 for x in q.parts[4].distractors), (seed, q.parts[4].distractors)
+    assert checked >= 20
