@@ -1,0 +1,135 @@
+id: complex-arg-ratio-geometry
+name: Use the ratio of two vectors, midpoints and w = az + b in the complex plane
+domain: senior-mathematics
+year_level:
+- '12'
+description: 'Use the complex plane for geometry beyond rotation: find the image of a point under w = az + b, the midpoint
+  and distance of two points, the ratio (c - b)/(a - b) and its argument as the angle at a vertex, and the tests for collinear
+  and perpendicular points.'
+status: active
+placement_eligible: false
+prerequisites:
+- complex-rotation-and-vertex-completion
+- senior-consider-complex-numbers-as-points-in-a-plane
+- senior-define-and-use-multiplication-and-division-of-complex-numbers-in-polar-form
+answer: expression
+sources:
+- topic: nx_complex_arg_ratio
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: nx_complex_arg_ratio
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: nx_complex_arg_ratio
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_nx_complex_arg_ratio
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: nx-angle-complement-taken
+  description: Takes the complement of the angle (90 degrees minus it) from the argument of the ratio, mixing up the real
+    and imaginary parts.
+- id: nx-angle-doubled
+  description: Doubles the argument of the ratio when reading off the angle at the vertex.
+- id: nx-angle-halved
+  description: Halves the argument of the ratio when reading off the angle at the vertex.
+- id: nx-angle-reflex-taken
+  description: Gives the reflex angle (360 degrees minus the angle) where the angle at the vertex was asked.
+- id: nx-angle-supplement-taken
+  description: Gives 180 degrees minus the angle, using the argument of the wrong ratio or the wrong side of the vertex.
+- id: nx-collinear-imaginary-offset-ignored
+  description: Uses the imaginary part of C itself instead of its difference from A when finding how far along the line C
+    lies.
+- id: nx-collinear-parts-swapped
+  description: Applies the ratio found from the imaginary parts to the imaginary step of the line when finding the real part.
+- id: nx-collinear-sign-slip
+  description: Subtracts instead of adds the scaled real step from A, giving the point on the wrong side of A.
+- id: nx-collinear-wrong-base-point
+  description: Measures the scaled step from B instead of from A, though the ratio was found from A.
+- id: nx-distance-adds-the-parts
+  description: Finds the distance between two points as the sum of the real and imaginary differences instead of using Pythagoras.
+- id: nx-distance-forgets-square-root
+  description: Gives the sum of the squares of the real and imaginary differences without taking the square root.
+- id: nx-distance-subtracts-the-parts
+  description: Subtracts the real and imaginary differences instead of using Pythagoras.
+- id: nx-distance-takes-the-larger-part
+  description: Takes the larger of the real and imaginary differences as the distance.
+- id: nx-map-adds-before-multiplying
+  description: Adds the constant to z first and then multiplies the sum by a, so the constant is multiplied too.
+- id: nx-map-constant-dropped
+  description: Multiplies z by a but leaves out the constant added in w = az + b.
+- id: nx-map-constant-subtracted
+  description: Subtracts the constant b where w = az + b adds it.
+- id: nx-map-multiplier-dropped
+  description: Adds the constant to z but forgets to multiply by a.
+- id: nx-map-multiplies-parts-separately
+  description: Multiplies the real parts together and the imaginary parts together instead of expanding the complex product.
+- id: nx-midpoint-half-the-difference
+  description: Halves the difference of the two points instead of their sum when finding the midpoint.
+- id: nx-midpoint-halves-real-part-only
+  description: Halves only the real part of the sum when finding the midpoint.
+- id: nx-midpoint-parts-swapped
+  description: Swaps the real and imaginary parts of the midpoint.
+- id: nx-midpoint-sum-not-halved
+  description: Gives the sum of the two points as the midpoint, forgetting to halve it.
+- id: nx-multiplier-difference-not-divided
+  description: Takes the difference of the two images as a without dividing by the difference of the two original points.
+- id: nx-multiplier-difference-of-differences
+  description: Subtracts the difference of the originals from the difference of the images instead of dividing.
+- id: nx-multiplier-from-one-point-only
+  description: Divides one image by its original point, ignoring that the constant b also contributes.
+- id: nx-multiplier-ratio-inverted
+  description: Divides the original difference by the image difference, finding 1/a.
+- id: nx-multiplier-sums-not-differences
+  description: Divides the sum of the images by the sum of the originals, which leaves the constant b in the working.
+- id: nx-opposite-vertex-adds-b
+  description: Adds B to twice the midpoint instead of subtracting it when finding the opposite vertex.
+- id: nx-opposite-vertex-midpoint-taken
+  description: Gives the midpoint M as the fourth vertex.
+- id: nx-opposite-vertex-reflected-wrongly
+  description: Subtracts B from M once instead of reflecting B in M (twice M minus B).
+- id: nx-opposite-vertex-sum-of-a-and-c
+  description: Gives A + C as the fourth vertex, forgetting to subtract B.
+- id: nx-perp-base-point-ignored
+  description: Leaves out the real part of B when turning the perpendicular condition into a value of k.
+- id: nx-perp-measured-from-the-wrong-vertex
+  description: Measures the perpendicular step from A instead of from B.
+- id: nx-perp-parts-swapped
+  description: Swaps the real and imaginary parts of the side BA when writing the perpendicular direction.
+- id: nx-perp-uses-parallel-condition
+  description: Uses the condition for parallel sides (the sign of the step reversed) instead of the dot product being zero.
+- id: nx-ratio-conjugated
+  description: Gives the complex conjugate of the ratio, with the wrong sign on the imaginary part.
+- id: nx-ratio-difference-reversed
+  description: Reverses one of the differences, for example using B minus C, so the ratio has the wrong sign.
+- id: nx-ratio-inverted
+  description: Divides BA by BC instead of BC by BA, giving the reciprocal of the ratio.
+- id: nx-ratio-subtracted-not-divided
+  description: Subtracts the two difference vectors instead of dividing one by the other.
+difficulty_progression: Easy applies w = az + b to a point, finds the midpoint of two points and the distance between them.
+  Medium divides one side vector by another to get the ratio as x + yi, recovers the multiplier a from the images of two points,
+  and finds the real k that puts a point on the line through two others. Hard reads the angle at a vertex from the argument
+  of the ratio (including 30, 60, 120 and 150 degrees with surd coordinates) and finds k for a right angle. The exam chain
+  finds the ratio, the angle from it (following through), the midpoint of AC and the fourth vertex of a parallelogram (following
+  through from the midpoint).
+tags:
+- complex-numbers
+- argand-diagram
+- geometry-of-complex-numbers
+- collinearity
+- perpendicular
+- nsw-extension-2
