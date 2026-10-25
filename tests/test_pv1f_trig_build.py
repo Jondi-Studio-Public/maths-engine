@@ -48,8 +48,8 @@ def test_skill_loads_with_the_figure_stimulus_shape():
     assert skill.needs_figure is True and skill.capability_gates == ["figure_stimulus"]
     assert load_capability_gates()["figure_stimulus"]["status"] == "passed"
     assert skill.placement_eligible is False and skill.mental is None
-    assert [s.difficulty for s in skill.sources] == TIERS
-    assert [list(s.stages) for s in skill.sources] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]
+    assert [s.difficulty for s in skill.sources][:4] == TIERS  # a typed exam source follows (exd_x_tg1)
+    assert [list(s.stages) for s in skill.sources][:4] == [[0, 1, 2], [3, 4], [5, 6, "maintenance"], ["exam"]]
     assert skill.misconceptions
 
 

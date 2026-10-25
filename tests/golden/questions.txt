@@ -9409,6 +9409,9 @@
 {"answer": "y = tan x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/easy/0/c1f5a189a163", "text": "The graph of one of y = sin x, y = cos x and y = tan x is drawn, with x marked …"}
 {"answer": "y = tan x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/easy/1/eda890050e54", "text": "The curve shown is the graph of y = sin x, y = cos x or y = tan x, with x marke…"}
 {"answer": "y = sin x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/easy/2/f9f4ac68d64e", "text": "One of the functions y = sin x, y = cos x and y = tan x has the graph shown, wi…"}
+{"answer": "(a) 6; (b) 5; (c) 6; (d) 6; (e) 18", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam-single/0/c04bc0b434ab", "text": "A curve passes through the origin with gradient 1, has a vertical asymptote at …"}
+{"answer": "(a) 6; (b) 5; (c) 3; (d) 6; (e) 12", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam-single/1/33d5d1411e10", "text": "The graph of y = cos x is drawn for -π ≤ x ≤ 5π. (a) How many times does the gr…"}
+{"answer": "(a) 8; (b) 7; (c) 4; (d) 8; (e) 24", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam-single/2/2f5608677a3b", "text": "Consider the function y = cos x on the domain -π ≤ x ≤ 7π. (a) How many times d…"}
 {"answer": "y = cos x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam/0/1151f10518a9", "text": "All three of the functions y = sin x, y = cos x and y = tan x are graphed on th…"}
 {"answer": "y = tan x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam/1/1265b118330d", "text": "Three curves, one for each of y = sin x, y = cos x and y = tan x, are drawn tog…"}
 {"answer": "y = sin x", "id": "senior-recognise-the-graphs-of-y-sin-x-y/exam/2/d6861f229a30", "text": "The graphs of all of y = sin x, y = cos x and y = tan x are drawn on one grid, …"}
@@ -10678,6 +10681,9 @@
 {"answer": "2 is positive", "id": "senior-use-proof-by-contradiction/easy/0/e6efa7fdd26e", "text": "Claim: 2 is negative. Suppose, for contradiction, that this claim is true — tha…"}
 {"answer": "10 is even", "id": "senior-use-proof-by-contradiction/easy/1/262c8b03f8e2", "text": "Claim: 10 is odd. Suppose, for contradiction, that this claim is true — that is…"}
 {"answer": "6 is positive", "id": "senior-use-proof-by-contradiction/easy/2/1c25c61d440f", "text": "Claim: 6 is negative. Suppose, for contradiction, that this claim is true — tha…"}
+{"answer": "(a) 6; (b) 5; (c) 18; (d) 114", "id": "senior-use-proof-by-contradiction/exam/0/43f462a8c407", "text": "Suppose, for contradiction, that 30m + 48n = 113 for some integers m and n. (a)…"}
+{"answer": "(a) 10011; (b) 3; (c) 3337", "id": "senior-use-proof-by-contradiction/exam/1/0e1d1c13e32a", "text": "To prove by contradiction that there are infinitely many primes, suppose that t…"}
+{"answer": "(a) 22; (b) 6; (c) 18; (d) 8", "id": "senior-use-proof-by-contradiction/exam/2/1fc4149dbc2f", "text": "Suppose, for contradiction, that n² + 26 is a multiple of 24 for some integer n…"}
 {"answer": "The first clause ('3 is negative')", "id": "senior-use-proof-by-contradiction/hard/0/44670a76ad85", "text": "Claim: 3 is negative and 3 is a multiple of 3. Assume this compound claim for c…"}
 {"answer": "The second clause ('36 is not a multiple of 4')", "id": "senior-use-proof-by-contradiction/hard/1/004d1f4e05fb", "text": "Claim: 36 is positive and 36 is not a multiple of 4. Assume this compound claim…"}
 {"answer": "The second clause ('24 is not a multiple of 3')", "id": "senior-use-proof-by-contradiction/hard/2/1a65779d78bf", "text": "Claim: 24 is a multiple of 4 and 24 is not a multiple of 3. Assume this compoun…"}
