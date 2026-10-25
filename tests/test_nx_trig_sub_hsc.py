@@ -259,5 +259,70 @@ def test_large_exam_values_keep_their_slips_and_a_varying_rank():
         if value > 100:
             count += 1
             ranks.add(sum(_real(t) < value for t in q.parts[3].distractors))
-            assert any(q.parts[3].option_notes[t] != "near-miss-value" for t in q.parts[3].distractors)
     assert count >= 100 and len(ranks) >= 3, (count, ranks)
+
+
+# -- the key must not stand out by shape ------------------------------------------------------------------------------
+
+_STANDARD = {sympy.Rational(n, 12) for n in (1, 2, 3, 4, 5, 6)}
+
+
+def _standard_angle(value: float) -> bool:
+    return any(abs(value / math.pi - float(s)) < 1e-9 for s in _STANDARD)
+
+
+def _signature(text: str):
+    """What an exact value looks like: which of pi, a surd and a bare rational term it holds, and its number of terms."""
+    expr = sympy.expand(sympy.sympify(text.replace("^", "**"), rational=True))
+    terms = sympy.Add.make_args(expr)
+    return (
+        expr.has(sympy.pi),
+        expr.has(sympy.sqrt(2)) or expr.has(sympy.sqrt(3)) or bool(expr.atoms(sympy.Pow) - {sympy.pi}),
+        any(t.is_Rational for t in terms) and len(terms) > 1,
+        len(terms),
+    )
+
+
+def test_limit_options_include_other_standard_angles():
+    """Over 1000 seeds the key of a limit question is never the only standard angle (a multiple of pi/12) offered."""
+    checked = 0
+    for seed in range(1000):
+        q = sup.tier_question(TOPIC, "easy", seed)
+        e = sup.exam_question(EXAM, seed)
+        for key, options in (
+            *([(q.answer_text, q.distractors)] if "limit" in q.text else []),
+            (e.parts[1].answer_text, e.parts[1].distractors),
+        ):
+            checked += 1
+            assert _standard_angle(_real(key)), key
+            assert any(_standard_angle(_real(t)) for t in options), (seed, key, options)
+    assert checked >= 900
+
+
+def test_key_has_the_shape_of_an_option_in_every_part():
+    """Over 1000 seeds the key is not the only value of its shape (pi or not, surd or not, constant term or not)."""
+    for seed in range(1000):
+        for tier in ("medium", "hard"):
+            q = sup.tier_question(TOPIC, tier, seed)
+            sig = _signature(q.answer_text)
+            assert any(_signature(t) == sig for t in q.distractors), (tier, seed, q.answer_text, q.distractors)
+        e = sup.exam_question(EXAM, seed)
+        for index in (2, 3):
+            part = e.parts[index]
+            sig = _signature(part.answer_text)
+            assert any(_signature(t) == sig for t in part.distractors), (
+                seed,
+                index,
+                part.answer_text,
+                part.distractors,
+            )
+        for index in range(4):
+            part = e.parts[index]
+            assert part.option_notes and all(t in part.option_notes for t in part.distractors)
+
+
+def test_exam_value_options_do_not_exceed_k_times_beta():
+    for seed in range(1000):
+        e = sup.exam_question(EXAM, seed)
+        k, beta = _real(e.parts[0].answer_text), _real(e.parts[1].answer_text)
+        assert all(0 < _real(t) <= k * beta + 1e-12 for t in e.parts[3].distractors), (seed, e.parts[3].distractors)

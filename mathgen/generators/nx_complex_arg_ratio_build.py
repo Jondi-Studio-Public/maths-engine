@@ -25,7 +25,7 @@ import math
 import sympy
 
 from ..core import attempts, check, generator, paren_negative, phrase, pick_distractors
-from ._w6b_kit import I, cdist, cx_text, cx_value, dist, gaussian, need, plus, retry, want
+from ._w6b_kit import I, cdist, cx_text, cx_value, dist, gaussian, need, num_text, plus, retry, want
 
 _MULTIPLIERS = (2, 3, -1, -2, I, -I, 1 + I, 1 - I, 2 * I, 2 + I, 1 + 2 * I)
 _PYTHAGOREAN = ((3, 4), (4, 3), (5, 12), (12, 5), (6, 8), (8, 6), (8, 15), (15, 8), (9, 12), (12, 9))
@@ -42,6 +42,33 @@ def _g(rng, span, *, parts_nonzero=True):
 
 def _cmp(z) -> complex:
     return complex(sympy.N(z))
+
+
+def _signed_terms(mag) -> str:
+    """A positive two-term sum with its positive term first: ``√3 - 1``, ``2 + √3``."""
+    terms = sorted(sympy.Add.make_args(sympy.expand(mag)), key=lambda t: (not t.is_positive, str(t)))
+    out = ""
+    for t in terms:
+        text = num_text(abs(t))
+        out += text if not out else (" + " if t.is_positive else " - ") + text
+    return ("-" if terms[0].is_negative else "") + out
+
+
+def _cx(z) -> str:
+    """`cx_text`, except that an imaginary part with two terms prints as a signed bracket: ``3 - (1 + 2√3)i`` and not
+    ``3 + (-1 - 2√3)i``."""
+    z = sympy.expand(z)
+    im_ = sympy.expand(sympy.im(z))
+    if not isinstance(im_, sympy.Add):
+        return cx_text(z)
+    negative = bool(im_.is_negative)
+    mag = sympy.expand(-im_ if negative else im_)
+    # the larger term first and a leading minus kept inside the bracket only when the terms differ in sign
+    imag = f"({_signed_terms(mag)})i"
+    re_ = sympy.re(z)
+    if re_ == 0:
+        return f"-{imag}" if negative else imag
+    return f"{cx_text(re_)} {'-' if negative else '+'} {imag}"
 
 
 def _num(value, tag):
@@ -118,7 +145,7 @@ def pick(rng, answer_text, cands, n, *, key=None, keyz=None, lo=None, hi=None, s
 
 
 def _expr_fields(z):
-    return dict(answer_kind="expression", answer=cx_value(z), answer_text=cx_text(z))
+    return dict(answer_kind="expression", answer=cx_value(z), answer_text=_cx(z))
 
 
 def _num_fields(v):
@@ -131,12 +158,17 @@ def _deg_fields(v):
 
 def _kc(c: int) -> str:
     """The imaginary part of k + ci as it follows the k: ``+ 3i`` or ``- 7i``."""
-    return f"{'+' if c > 0 else '-'} {abs(c)}i"
+    return f"{'+' if c > 0 else '-'} {abs(c) if abs(c) != 1 else ''}i"
+
+
+def _kminus(v: int) -> str:
+    """``k - 3`` or ``k + 3`` (``k`` for 0), never ``k - (-3)``."""
+    return "k" if v == 0 else f"k - {v}" if v > 0 else f"k + {-v}"
 
 
 def _br(z) -> str:
     """The multiplier as text: a whole number (any sign) or i as it stands, anything else bracketed."""
-    t = cx_text(z)
+    t = _cx(z)
     return t if t == "i" or sympy.im(z) == 0 else f"({t})"
 
 
@@ -149,7 +181,7 @@ def _term(z) -> str:
 
 
 def _br_abs(z) -> str:
-    t = cx_text(z)
+    t = _cx(z)
     return t if sympy.im(z) == 0 or t == "i" or (sympy.re(z) == 0) else f"({t})"
 
 
@@ -175,7 +207,7 @@ _DIST_STEMS = (
 
 
 def _bracket_free(z) -> str:
-    return cx_text(z)
+    return _cx(z)
 
 
 def _easy_map(rng):
@@ -197,13 +229,13 @@ def _easy_map(rng):
         ),
     ]
     working = [
-        f"Multiply: ({cx_text(a)})({cx_text(z)}) = {cx_text(a * z)}.",
-        f"Add the constant: {cx_text(a * z)} {plus(cx_text(b))} = {cx_text(w)}." if b != 0 else "No constant to add.",
+        f"Multiply: ({_cx(a)})({_cx(z)}) = {_cx(a * z)}.",
+        f"Add the constant: {_cx(a * z)} {plus(_cx(b))} = {_cx(w)}." if b != 0 else "No constant to add.",
     ]
     return dict(
-        text=phrase(rng, _MAP_STEMS, a=_br(a), b=_term(b), z=cx_text(z)),
+        text=phrase(rng, _MAP_STEMS, a=_br(a), b=_term(b), z=_cx(z)),
         working=working,
-        distractors=pick(rng, cx_text(w), cands, 3, keyz=w),
+        distractors=pick(rng, _cx(w), cands, 3, keyz=w),
         **_expr_fields(w),
     )
 
@@ -221,13 +253,13 @@ def _easy_mid(rng):
         cdist(sympy.expand(sympy.im(a + b) / 2 + I * sympy.re(a + b) / 2), "nx-midpoint-parts-swapped"),
     ]
     working = [
-        f"The midpoint is (a + b)/2 = ({cx_text(a)} {plus(cx_text(b))})/2.",
-        f"= ({cx_text(a + b)})/2 = {cx_text(m)}.",
+        f"The midpoint is (a + b)/2 = ({_cx(a)} {plus(_cx(b))})/2.",
+        f"= ({_cx(a + b)})/2 = {_cx(m)}.",
     ]
     return dict(
-        text=phrase(rng, _MID_STEMS, a=cx_text(a), b=cx_text(b)),
+        text=phrase(rng, _MID_STEMS, a=_cx(a), b=_cx(b)),
         working=working,
-        distractors=pick(rng, cx_text(m), cands, 3, keyz=m),
+        distractors=pick(rng, _cx(m), cands, 3, keyz=m),
         **_expr_fields(m),
     )
 
@@ -246,11 +278,11 @@ def _easy_dist(rng):
         _num(abs(p - q) if abs(p) != abs(q) else abs(p), "nx-distance-subtracts-the-parts"),
     ]
     working = [
-        f"a - b = {cx_text(a - b)}.",
+        f"a - b = {_cx(a - b)}.",
         f"|a - b| = √({paren_negative(p)}² + {paren_negative(q)}²) = √{p * p + q * q} = {d}.",
     ]
     return dict(
-        text=phrase(rng, _DIST_STEMS, a=cx_text(a), b=cx_text(b)),
+        text=phrase(rng, _DIST_STEMS, a=_cx(a), b=_cx(b)),
         working=working,
         distractors=pick(rng, str(d), cands, 3, key=d, lo=0),
         **_num_fields(d),
@@ -302,15 +334,15 @@ def _medium_ratio(rng):
     ]
     den = sympy.expand(d * sympy.conjugate(d))
     working = [
-        f"c - b = {cx_text(c - b)} and a - b = {cx_text(a - b)}.",
-        f"({cx_text(c - b)})/({cx_text(a - b)}): multiply top and bottom by the conjugate {cx_text(sympy.conjugate(d))}"
+        f"c - b = {_cx(c - b)} and a - b = {_cx(a - b)}.",
+        f"({_cx(c - b)})/({_cx(a - b)}): multiply top and bottom by the conjugate {_cx(sympy.conjugate(d))}"
         f" so the denominator becomes {den}.",
-        f"The ratio is {cx_text(q)}.",
+        f"The ratio is {_cx(q)}.",
     ]
     return dict(
-        text=phrase(rng, _RATIO_STEMS, a=cx_text(a), b=cx_text(b), c=cx_text(c)),
+        text=phrase(rng, _RATIO_STEMS, a=_cx(a), b=_cx(b), c=_cx(c)),
         working=working,
-        distractors=pick(rng, cx_text(q), cands, 3, keyz=q),
+        distractors=pick(rng, _cx(q), cands, 3, keyz=q),
         **_expr_fields(q),
     )
 
@@ -334,13 +366,13 @@ def _medium_multiplier(rng):
     ]
     working = [
         f"Subtracting the two equations removes b: w1 - w2 = a(z1 - z2).",
-        f"w1 - w2 = {cx_text(dw)} and z1 - z2 = {cx_text(dz)}.",
-        f"a = ({cx_text(dw)})/({cx_text(dz)}) = {cx_text(a)}.",
+        f"w1 - w2 = {_cx(dw)} and z1 - z2 = {_cx(dz)}.",
+        f"a = ({_cx(dw)})/({_cx(dz)}) = {_cx(a)}.",
     ]
     return dict(
-        text=phrase(rng, _MULT_STEMS, z1=cx_text(z1), w1=cx_text(w1), z2=cx_text(z2), w2=cx_text(w2)),
+        text=phrase(rng, _MULT_STEMS, z1=_cx(z1), w1=_cx(w1), z2=_cx(z2), w2=_cx(w2)),
         working=working,
-        distractors=pick(rng, cx_text(a), cands, 3, keyz=a),
+        distractors=pick(rng, _cx(a), cands, 3, keyz=a),
         **_expr_fields(a),
     )
 
@@ -373,12 +405,12 @@ def _medium_collinear(rng):
         _num(ax + (c * dx) // dy, "nx-collinear-imaginary-offset-ignored") if (c * dx) % dy == 0 else None,
     ]
     working = [
-        f"(C - A)/(B - A) is real, where C - A = (k - ({ax})) {_kc(c - ay)} and B - A = {cx_text(d)}.",
-        f"Use the cross product: ({dx})({c - ay}) = ({dy})(k - ({ax})), so k - ({ax}) = {t * dx}.",
+        f"(C - A)/(B - A) is real, where C - A = ({_kminus(ax)}) {_kc(c - ay)} and B - A = {_cx(d)}.",
+        f"Use the cross product: ({dx})({c - ay}) = ({dy})({_kminus(ax)}), so {_kminus(ax)} = {t * dx}.",
         f"k = {k}.",
     ]
     return dict(
-        text=phrase(rng, _COLL_STEMS, a=cx_text(a), b=cx_text(b), c=_kc(c)),
+        text=phrase(rng, _COLL_STEMS, a=_cx(a), b=_cx(b), c=_kc(c)),
         working=working,
         distractors=pick(rng, str(k), cands, 3, key=k),
         answer_kind="number",
@@ -452,11 +484,11 @@ def _hard_angle(rng):
         _num(2 * theta, "nx-angle-doubled") if 2 * theta < 180 else None,
     ]
     working = [
-        f"(c - b)/(a - b) = ({cx_text(c - b)})/({cx_text(a - b)}) = {cx_text(q)}.",
+        f"(c - b)/(a - b) = ({_cx(c - b)})/({_cx(a - b)}) = {_cx(q)}.",
         f"The angle at B is |arg of this ratio| = {theta}°.",
     ]
     return dict(
-        text=phrase(rng, _ANGLE_STEMS, a=cx_text(a), b=cx_text(b), c=cx_text(c)),
+        text=phrase(rng, _ANGLE_STEMS, a=_cx(a), b=_cx(b), c=_cx(c)),
         working=working,
         distractors=pick(rng, str(theta), cands, 3, key=theta, lo=0, hi=180, step=(5, 10, 15, 30)),
         **_deg_fields(theta),
@@ -486,12 +518,12 @@ def _hard_perp(rng):
         _num(-s * q, "nx-perp-base-point-ignored"),
     ]
     working = [
-        f"BA = {cx_text(a - b)}. C - B = (k - ({bx})) {_kc(c - by)}.",
-        f"BA is perpendicular to BC, so the dot product is zero: ({p})(k - ({bx})) + ({q})({c - by}) = 0.",
-        f"k - ({bx}) = {-s * q}, so k = {k}.",
+        f"BA = {_cx(a - b)}. C - B = ({_kminus(bx)}) {_kc(c - by)}.",
+        f"BA is perpendicular to BC, so the dot product is zero: ({p})({_kminus(bx)}) + ({q})({c - by}) = 0.",
+        f"{_kminus(bx)} = {-s * q}, so k = {k}.",
     ]
     return dict(
-        text=phrase(rng, _PERP_STEMS, a=cx_text(a), b=cx_text(b), c=_kc(c)),
+        text=phrase(rng, _PERP_STEMS, a=_cx(a), b=_cx(b), c=_kc(c)),
         working=working,
         distractors=pick(rng, str(k), cands, 3, key=k),
         answer_kind="number",
@@ -534,7 +566,7 @@ def _sym(z) -> str:
 
 
 def _xfields(z, marks, **extra):
-    return dict(answer_kind="expression", answer=_sym(z), answer_text=cx_text(z), marks=marks, **extra)
+    return dict(answer_kind="expression", answer=_sym(z), answer_text=_cx(z), marks=marks, **extra)
 
 
 @generator("exd_nx_complex_arg_ratio", level=17, presets={"exam": dict(tier="exam")})
@@ -588,17 +620,17 @@ def _exam(rng):
         cdist(sympy.expand(2 * mid + b), "nx-opposite-vertex-adds-b"),
         cdist(sympy.expand(a + c), "nx-opposite-vertex-sum-of-a-and-c"),
     ]
-    stem = phrase(rng, _EXAM_STEMS, a=cx_text(a), b=cx_text(b), c=cx_text(c))
+    stem = phrase(rng, _EXAM_STEMS, a=_cx(a), b=_cx(b), c=_cx(c))
     return dict(
         text=stem,
         parts=[
             dict(
                 prompt="Find (c - b)/(a - b) in the form x + yi.",
                 working=[
-                    f"c - b = {cx_text(c - b)}, a - b = {cx_text(a - b)}.",
-                    f"The ratio is ({cx_text(c - b)})/({cx_text(a - b)}) = {cx_text(q_ratio)}.",
+                    f"c - b = {_cx(c - b)}, a - b = {_cx(a - b)}.",
+                    f"The ratio is ({_cx(c - b)})/({_cx(a - b)}) = {_cx(q_ratio)}.",
                 ],
-                distractors=pick(rng, cx_text(q_ratio), ratio_cands, 3, keyz=q_ratio),
+                distractors=pick(rng, _cx(q_ratio), ratio_cands, 3, keyz=q_ratio),
                 **_xfields(q_ratio, 2),
             ),
             dict(
@@ -614,8 +646,8 @@ def _exam(rng):
             ),
             dict(
                 prompt="Find the complex number that represents M, the midpoint of AC.",
-                working=[f"M = (a + c)/2 = ({cx_text(a + c)})/2 = {cx_text(mid)}."],
-                distractors=pick(rng, cx_text(mid), mid_cands, 3, keyz=mid),
+                working=[f"M = (a + c)/2 = ({_cx(a + c)})/2 = {_cx(mid)}."],
+                distractors=pick(rng, _cx(mid), mid_cands, 3, keyz=mid),
                 **_xfields(mid, 1),
             ),
             dict(
@@ -624,9 +656,9 @@ def _exam(rng):
                 follow_through=f"2*part_c - ({bx} + ({by})*i)",
                 working=[
                     "M is the midpoint of BD, so d = 2m - b.",
-                    f"d = 2({cx_text(mid)}) - ({cx_text(b)}) = {cx_text(dd)}.",
+                    f"d = 2({_cx(mid)}) - ({_cx(b)}) = {_cx(dd)}.",
                 ],
-                distractors=pick(rng, cx_text(dd), d_cands, 3, keyz=dd),
+                distractors=pick(rng, _cx(dd), d_cands, 3, keyz=dd),
                 **_xfields(dd, 2),
             ),
         ],

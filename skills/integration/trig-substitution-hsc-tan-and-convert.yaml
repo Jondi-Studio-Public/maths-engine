@@ -35,7 +35,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_nx_trig_sub_hsc
-  params: {tier: exam}
+  params: {}
   difficulty: exam
   stages:
   - exam

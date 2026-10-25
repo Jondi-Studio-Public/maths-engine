@@ -96,12 +96,12 @@ def test_medium_oracle():
     seen = set()
     for seed in range(250):
         q = q_of(TOPIC, "medium", seed)
-        found = re.search(r"k ([+-]) (\d+)i", q.text)
+        found = re.search(r"k ([+-]) (\d*)i", q.text)
         if found:
             a, b = complexes(q.text[: found.start()])[:2]
             sign, c = found.groups()
             k = sympy.Symbol("k", real=True)
-            point = k + (1 if sign == "+" else -1) * int(c) * I
+            point = k + (1 if sign == "+" else -1) * int(c or 1) * I
             ratio = sympy.expand((point - a) * sympy.conjugate(b - a))
             (sol,) = sympy.solve(sympy.im(ratio), k)
             assert sol == int(q.answer_text), (seed, q.text, q.answer_text)
@@ -121,17 +121,17 @@ def test_hard_oracle():
     seen = set()
     for seed in range(250):
         q = q_of(TOPIC, "hard", seed)
-        if not re.search(r"k [+-] \d+i", q.text):
+        if not re.search(r"k [+-] \d*i", q.text):
             a, b, c = three_points(q.text)
             assert math.isclose(deg((c - b) / (a - b)), float(q.answer_text), abs_tol=1e-6), (seed, q.text)
             seen.add("angle")
         else:
-            found = re.search(r"k ([+-]) (\d+)i", q.text)
+            found = re.search(r"k ([+-]) (\d*)i", q.text)
             sign, c = found.groups()
             pts = complexes(q.text[: found.start()].replace("Find the real number k", ""))[:2]
             a, b = (pts[1], pts[0]) if "line from" in q.text else pts
             k = sympy.Symbol("k", real=True)
-            point = k + (1 if sign == "+" else -1) * int(c) * I
+            point = k + (1 if sign == "+" else -1) * int(c or 1) * I
             dot = sympy.expand(sympy.re(sympy.expand((a - b) * sympy.conjugate(point - b))))
             (sol,) = sympy.solve(dot, k)
             assert sol == int(q.answer_text), (seed, q.text, q.answer_text)
@@ -268,7 +268,7 @@ def test_every_option_meets_its_parts_constraints():
             q = q_of(TOPIC, tier, seed)
             where = (tier, seed, q.text)
             if q.answer_kind == "number":
-                angle = tier == "hard" and not re.search(r"k [+-] \d+i", q.text)
+                angle = tier == "hard" and not re.search(r"k [+-] \d*i", q.text)
                 _check_whole(q.answer_text, q.distractors, where, *((0, 180) if angle else (None, None)))
                 if "distance" in q.text.lower() or "apart" in q.text or "length of the segment" in q.text:
                     _check_whole(q.answer_text, q.distractors, where, 0, None)
@@ -300,3 +300,23 @@ def test_stems_never_show_a_bracketed_negative_constant():
     for seed in range(320):
         text = q_of(TOPIC, "easy", seed).text
         assert not re.search(r"\+ \(-\d+i?\)", text), text
+
+
+def test_key_is_not_distinguishable_by_shape():
+    """Over 1000 seeds, in every part some option has the key's shape (whole-part complex or not, whole number or not)."""
+    for seed in range(1000):
+        for tier in TIERS:
+            q = q_of(TOPIC, tier, seed)
+            if q.answer_kind == "number":
+                assert all(float(t) == int(float(t)) for t in q.distractors) and float(q.answer_text) == int(
+                    float(q.answer_text)
+                )
+            else:
+                shape = _whole(parse_cx(q.answer_text))
+                assert any(_whole(parse_cx(t)) == shape for t in q.distractors), (tier, seed, q.answer_text)
+
+
+def test_hard_stems_print_signed_surd_brackets():
+    for seed in range(300):
+        text = q_of(TOPIC, "hard", seed).text
+        assert "+ (-" not in text and "- (-" not in text, text
