@@ -73,6 +73,13 @@ class Config:
     #: Worker-seconds one batch may spend on replies that time out; past it the rest come back as `timeout` unrun.
     #: None: `timeout * 3`.
     batch_budget: float | None = None
+    #: Timeouts one client (an API key, or the address when running open) may cause within `cooldown` seconds before
+    #: its grading calls get a 503 until the window ends. 0: off. None: `cooldown_strikes * 2`. A key shared by a
+    #: whole school may want this raised or off.
+    client_strikes: int | None = None
+    #: Name clients by the first `X-Forwarded-For` address when running open (MATHS_API_TRUST_FORWARDED=1). Only behind
+    #: a proxy that sets it; otherwise anyone could pick their own address.
+    trust_forwarded: bool = False
     #: Requests running or queued at once; more get a 503. None: twice the workers.
     max_in_flight: int | None = None
     #: After `cooldown_strikes` timeouts on one (skill, source) within `cooldown` seconds, further calls on it
@@ -108,6 +115,10 @@ class Config:
             self.batch_budget = self.timeout * 3
         if not math.isfinite(self.batch_budget) or self.batch_budget <= 0:
             raise ValueError(f"batch_budget must be a finite number of seconds above 0, got {self.batch_budget!r}")
+        if self.client_strikes is None:
+            self.client_strikes = self.cooldown_strikes * 2
+        if self.client_strikes < 0:
+            raise ValueError("client_strikes must be 0 (off) or more")
         if self.max_in_flight is None:
             self.max_in_flight = self.workers * 2
         if self.max_in_flight < 1 or self.cooldown_strikes < 1 or self.max_body_bytes < 1:
@@ -149,6 +160,8 @@ class Config:
             queue_timeout=_float("MATHS_API_QUEUE_TIMEOUT", 30.0),
             batch_timeout=float(batch) if batch else None,
             batch_budget=float(budget) if budget else None,
+            client_strikes=_int("MATHS_API_CLIENT_STRIKES", -1) if os.environ.get("MATHS_API_CLIENT_STRIKES") else None,
+            trust_forwarded=_flag("MATHS_API_TRUST_FORWARDED"),
             max_in_flight=int(in_flight) if in_flight else None,
             cooldown=_float("MATHS_API_COOLDOWN", 30.0),
             cooldown_strikes=_int("MATHS_API_COOLDOWN_STRIKES", 3),

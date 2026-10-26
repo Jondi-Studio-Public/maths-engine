@@ -30,6 +30,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import operator
 import re
 
 from . import make
@@ -152,8 +153,15 @@ def question_id(skill: Skill, source: Source | int | str | None, seed: int, ques
 
 def make_with_id(skill: Skill, seed: int | None, *, source: Source | int | str | None = None):
     """Build one question for `skill` and its id: `(question, question_id)`. Same question as `make_for_skill`."""
-    if seed is not None and (isinstance(seed, bool) or not isinstance(seed, int)):
-        raise TypeError(f"seed must be a whole number (or None for a random one), not {type(seed).__name__}")
+    if seed is not None:
+        if isinstance(seed, bool):
+            raise TypeError("seed must be a whole number (or None for a random one), not a bool")
+        try:
+            seed = operator.index(seed)  # an int, or an integer type such as a NumPy one; not a float or a string
+        except TypeError:
+            raise TypeError(
+                f"seed must be a whole number (or None for a random one), not {type(seed).__name__}"
+            ) from None
     src = pick_source(skill, source)
     question = make_for_skill(skill, seed, source=src)
     # `question.seed` is the seed actually used, so a random one (None) still names a question `regenerate` can rebuild.

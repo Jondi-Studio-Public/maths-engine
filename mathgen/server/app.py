@@ -30,9 +30,6 @@ log = logging.getLogger("mathgen.server")
 MAX_REPLY_CHARS = 2000
 #: Replies in one batch. Each is graded with its own deadline, so a batch can hold a worker for a while.
 MAX_BATCH = 100
-#: Timeouts one client may cause, as a multiple of `cooldown_strikes`, within the cool-down window before all its
-#: grading calls are refused for a while. Replies that hang under many different ids still add up here.
-CLIENT_STRIKE_FACTOR = 2
 #: Parts (or keys) in a multi-part reply.
 MAX_REPLY_PARTS = 20
 MAX_SEED = 2**63 - 1
@@ -251,7 +248,8 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
             header = request.headers.get("authorization", "")
             given = header[7:].strip() if header.lower().startswith("bearer ") else request.headers.get("x-api-key", "")
             return "key:" + hashlib.sha256(given.encode()).hexdigest()[:16]
-        return "addr:" + (request.client.host if request.client else "?")
+        forwarded = request.headers.get("x-forwarded-for", "").split(",")[0].strip() if config.trust_forwarded else ""
+        return "addr:" + (forwarded or (request.client.host if request.client else "?"))
 
     Client = Annotated[str, Depends(client)]
 
@@ -316,7 +314,8 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
             raise HTTPException(409, {"error": "question_changed", "detail": str(exc), "new_id": exc.new_id}) from None
         except Timeout as exc:
             strike(key)
-            strike(who, config.cooldown_strikes * CLIENT_STRIKE_FACTOR)
+            if config.client_strikes:
+                strike(who, config.client_strikes)
             raise HTTPException(504, str(exc)) from None
         except Unavailable as exc:
             raise HTTPException(503, str(exc), headers={"Retry-After": "1"}) from None
@@ -452,7 +451,13 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
                     if left <= 0:  # past the batch deadline: not run, so a batch cannot hold a worker for long
                         results.append({"id": item.id, "error": "timeout", "detail": "the batch ran out of time"})
                         continue
-                    allowed = min(config.timeout, left, config.batch_budget - spent)
+                    allowed = min(config.timeout, left)
+                    if config.batch_budget - spent < allowed:  # not enough budget for a full deadline: never a sliver
+                        results.append(
+                            {"id": item.id, "error": "timeout", "detail": "the batch had too many slow replies"}
+                        )
+                        continue
+                    started = time.monotonic()
                     try:
                         results.append(
                             run(
@@ -466,6 +471,9 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
                                 reveal=body.reveal,
                             )
                         )
+                        took = time.monotonic() - started
+                        if took > allowed / 2:  # a reply that nearly timed out costs what it held a worker for
+                            spent += took
                     except HTTPException as exc:
                         spent += allowed if exc.status_code == 504 else 0
                         detail = exc.detail if isinstance(exc.detail, dict) else {"detail": exc.detail}

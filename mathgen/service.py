@@ -130,8 +130,8 @@ def curriculum_codes(skill: Skill) -> list[str]:
 
 
 def year_levels(skill: Skill) -> list[str]:
-    """The school years a skill belongs to ("F", "1" ... "10", "10A", or "university"), from its own `year_level` when the library
-    has one, else from its ACARA v9 codes and year tags. Empty when nothing says (senior and university skills)."""
+    """The school years a skill belongs to ("F", "1" ... "10", "10A", or "university"), from its own `year_level` when the
+    library has one, else from its ACARA v9 codes and year tags. Empty when nothing says (some senior skills)."""
     own = getattr(skill, "year_level", None)
     if own:
         return [str(y) for y in (own if isinstance(own, (list, tuple)) else [own])]

@@ -45,6 +45,12 @@ def test_make_with_id_refuses_seeds_it_cannot_name_and_names_a_random_one():
     for bad in (True, 1.5, "7", b"7", float("nan")):
         with pytest.raises(TypeError):
             engine.make_with_id(skill, bad)
+
+    class Index:
+        def __index__(self):
+            return 7
+
+    assert engine.make_with_id(skill, Index())[1].split("/")[2] == "7"
     question, qid = engine.make_with_id(skill, None)
     assert f"/{question.seed}/" in qid
     assert engine.regenerate(qid, [skill]).text == question.text

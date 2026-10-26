@@ -97,6 +97,54 @@ def test_one_client_cycling_ids_is_cooled_down_across_batches():
     assert r2.status_code == 503 and _SlowPool.calls == calls  # no worker was used
 
 
+def test_client_strikes_zero_turns_the_client_cool_down_off():
+    _SlowPool.calls = 0
+    config = Config(keys=[(AUTHOR, "author")], client_strikes=0)
+    with TestClient(create_app(config, pool=_SlowPool())) as client:
+        for _ in range(4):
+            assert _batch(client, 20).status_code == 200
+
+
+def test_open_mode_names_clients_by_address_and_forwarded_only_when_trusted():
+    def attempt(trust):
+        _SlowPool.calls = 0
+        config = Config(open=True, cooldown_strikes=1, trust_forwarded=trust)  # 2 timeouts start a cool-down
+        with TestClient(create_app(config, pool=_SlowPool())) as client:
+            first = {"X-Forwarded-For": "1.1.1.1"}
+            other = {"X-Forwarded-For": "2.2.2.2"}
+            client.post(
+                "/v1/grade/batch",
+                json={"items": [{"id": f"s{i}/b/1/h", "reply": "x"} for i in range(3)]},
+                headers=first,
+            )
+            return client.post("/v1/grade", json={"id": "z/y/1/h", "reply": "x"}, headers=other).status_code
+
+    assert attempt(False) == 503  # same address however it claims to be forwarded
+    assert attempt(True) == 504  # a different forwarded address is a different client
+
+
+def test_a_reply_that_nearly_times_out_spends_budget():
+    class _Slow(_SlowPool):
+        def run(self, name, timeout, **kwargs):
+            type(self).calls += 1
+            time.sleep(timeout * 0.8)
+            return {"correct": True}
+
+    _Slow.calls = 0
+    config = Config(keys=[(AUTHOR, "author")], timeout=0.5, batch_budget=1.0)
+    with TestClient(create_app(config, pool=_Slow())) as client:
+        results = _batch(client, 6).json()["results"]
+    assert _Slow.calls == 2 and sum("error" in r for r in results) == 4
+
+
+def test_a_budget_smaller_than_a_deadline_is_not_spent_in_slivers():
+    _SlowPool.calls = 0
+    config = Config(keys=[(AUTHOR, "author")], timeout=5.0, batch_budget=12.0)
+    with TestClient(create_app(config, pool=_SlowPool())) as client:
+        _batch(client, 6)
+    assert _SlowPool.calls == 2  # 10 s spent, 2 s left is under a deadline, so the rest are not run
+
+
 def test_batches_leave_half_the_workers_for_single_grades():
     import threading
 
@@ -117,6 +165,10 @@ def test_batches_leave_half_the_workers_for_single_grades():
         t.start()
         entered.wait(5)
         second = _batch(client, 1)  # a second batch while the first holds the only batch place
+        single = client.post(
+            "/v1/grade", json={"id": "a/b/1/h", "reply": "x"}, headers={"Authorization": f"Bearer {AUTHOR}"}
+        )
         gate.set()
         t.join()
     assert second.status_code == 503 and out["first"].status_code == 200
+    assert single.status_code == 200  # a single grade is not held up by the batch
