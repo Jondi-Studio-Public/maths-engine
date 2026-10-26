@@ -367,6 +367,14 @@ def _build_exact(rng, fn, a, b, lo, hi, *, allow_special, tier_name):
     )
 
 
+def _x_of_u(a):
+    """x in terms of u when u = a(x - b): u/a, which is 2u for a = 1/2."""
+    a = Fraction(a)
+    if a == 1:
+        return "u"
+    return f"u/{a.numerator}" if a.denominator == 1 else f"{a.denominator}u"
+
+
 def _working_exact(fn, disp, t0, a, b, sols):
     first = {
         "sin": "sin u = c gives u = α and u = π - α",
@@ -376,7 +384,7 @@ def _working_exact(fn, disp, t0, a, b, sols):
     line = f"Put u = {_unit_text(a, b)}. Then {first}, where α = {pi_text(t0)} is the angle in the first period, each plus whole periods."
     return [
         line,
-        f"Solve x = u{'/' + str(a.numerator) if a.denominator == 1 and a != 1 else ''}{' + ' + pi_text(b) if b else ''} and keep the values inside the interval.",
+        f"Solve x = {_x_of_u(a)}{' + ' + pi_text(b) if b else ''} and keep the values inside the interval.",
         "The solutions are x = " + ", ".join(pi_text(s) for s in sols) + ".",
     ]
 
