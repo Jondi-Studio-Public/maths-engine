@@ -1,0 +1,107 @@
+id: f10-display-choice-then-read
+name: Choose a display, then work out how it is built
+domain: statistics-probability
+year_level: ['9']
+naplan_domain: [statistics]
+description: 'A described data set and a purpose decide the display, and the answer is a number that only the right display gives: how many sectors, columns, points or stems it needs, the angle of a sector, the top of its axis. The display is never named. Easy counts the marks for shares of a whole, change over time, two groups across categories or two measured variables. Medium takes one construction step on the display the purpose points to (the angle of the largest sector, the columns of a histogram with a given class width, the top of a counting axis, the segments of a line graph). Hard disguises or chains: shirt numbers that are labels against measurements with the same range, a missing share found before its angle, the highest balance found from monthly changes before the axis is sized, and a shared stem column for two groups with gaps. Writing out why the display suits the data stays rubric work and is not asked here.'
+status: active
+placement_eligible: false
+prerequisites:
+- classify-data
+- f10-data-display-selection
+answer: number
+sources:
+- topic: ds_display_choice_easy
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ds_display_choice_medium
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ds_display_choice_hard
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ds-dc-adds-categories-and-groups
+  description: Adds the number of answers to the number of groups where a column is needed for every group within every answer.
+- id: ds-dc-adds-series-to-points
+  description: Adds the number of data sets to the number of readings instead of multiplying to count the plotted points.
+- id: ds-dc-adds-variables-to-points
+  description: Adds two to the number of pairs, as if the two variables were extra points.
+- id: ds-dc-angles-of-given-shares
+  description: Gives the angle taken up by the shares already stated, where the angle of the remaining share was asked for.
+- id: ds-dc-axis-extra-step
+  description: Adds a further step above the first axis mark that is high enough to reach the largest value.
+- id: ds-dc-axis-shows-frequency
+  description: Treats the vertical axis as a count of readings, though a line graph's axis shows the values themselves.
+- id: ds-dc-axis-too-short
+  description: Stops the axis at the mark below the largest value, so the largest value would not fit.
+- id: ds-dc-axis-top-is-max
+  description: Ends the axis exactly at the largest value, though the axis stops at a marked step.
+- id: ds-dc-axis-total
+  description: Gives the total of all the counts as the top of a counting axis that only has to reach the tallest column.
+- id: ds-dc-class-start-at-minimum
+  description: Counts classes from the least value instead of from the multiple of the class width at or below it.
+- id: ds-dc-column-per-possible-value
+  description: Counts every whole number from the least to the greatest value as a column, ignoring the class width.
+- id: ds-dc-count-not-angle
+  description: Gives the number of people in the category where the angle of its sector was asked for.
+- id: ds-dc-counts-gaps-not-points
+  description: Counts the gaps between the readings, one fewer than the readings, where the points were asked for.
+- id: ds-dc-counts-groups-only
+  description: Counts the groups and ignores the answers when counting columns.
+- id: ds-dc-counts-items-not-marks
+  description: Gives the total number of people surveyed where the number of sectors was asked for.
+- id: ds-dc-equal-sectors
+  description: Divides 360 degrees equally between the categories, though sector angles follow the shares.
+- id: ds-dc-extra-total-mark
+  description: Adds one more mark for the total, though a total is not drawn as a sector, column or point.
+- id: ds-dc-ignores-groups
+  description: Counts one column for each answer and forgets that every group needs its own column within each answer.
+- id: ds-dc-ignores-second-set
+  description: Counts the points for one data set only when two sets of readings share the display.
+- id: ds-dc-labels-as-measurements
+  description: Groups numeric labels such as shirt numbers into classes, as if they were measurements.
+- id: ds-dc-measurements-as-labels
+  description: Gives each measured value its own column, as if measurements were separate categories.
+- id: ds-dc-misses-one-category
+  description: Leaves one category out when counting the marks.
+- id: ds-dc-one-column-per-value
+  description: Gives every recorded value its own column, though a histogram groups them into classes.
+- id: ds-dc-percent-not-angle
+  description: Gives the percentage share where the angle of the sector, in degrees, was asked for.
+- id: ds-dc-percent-times-three
+  description: Multiplies the percentage by 3 instead of 3.6 to turn it into degrees.
+- id: ds-dc-points-for-each-value
+  description: Counts a point for each of the two values in a pair, where each pair is one point.
+- id: ds-dc-points-not-segments
+  description: Gives the number of points where the number of segments joining them was asked for.
+- id: ds-dc-range-over-width
+  description: Divides the range by the class width and stops there, so the class holding the greatest value is lost.
+- id: ds-dc-rest-of-circle
+  description: Gives the angle of everything except the category, 360 degrees less its sector.
+- id: ds-dc-second-largest-sector
+  description: Gives the angle of the second most common category instead of the most common one.
+- id: ds-dc-share-of-wrong-total
+  description: Finds the share as a fraction of the total plus the category, not of the total.
+- id: ds-dc-skips-empty-classes
+  description: Counts only the classes that hold data and leaves out empty classes between them, though they are still columns.
+- id: ds-dc-skips-empty-stems
+  description: Counts only the stems that have a leaf, though every stem from least to greatest is written.
+- id: ds-dc-stems-for-each-group
+  description: Adds the stems of the two groups, though both groups share one column of stems.
+- id: ds-dc-stems-from-values
+  description: Gives the number of values where the number of stems was asked for.
+- id: ds-dc-stems-one-group
+  description: Counts the stems of one group only, though the shared stems must cover both groups.
+- id: ds-dc-stems-range-not-inclusive
+  description: Subtracts the least stem from the greatest and does not count the first stem.
+- id: ds-dc-two-marks-per-category
+  description: Counts two marks for each category, as if a count and a label were each drawn.
+- id: ds-dc-uses-last-value
+  description: Sizes the axis from the final value instead of the largest value, so an earlier peak would not fit.
+- id: ds-dc-whole-year-of-months
+  description: Uses all 12 months of the year where only the months recorded count.
+tags: [acara-f10-v9, statistics-probability, ds_display_choice, AC9M9ST04]
