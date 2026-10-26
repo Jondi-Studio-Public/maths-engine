@@ -643,6 +643,7 @@ def _reply_negates_the_answer(question, given: str) -> bool:
 # Syntax the canonical answer itself uses is never held against a reply (a "%" answer, "y = 2x + 1").
 
 # A label such as "x =", "y1 =" or "f(3) =": one name, optionally with a bracketed argument, then "=".
+_HSPACE_RUN_RE = re.compile(r"[ \t]{2,}")
 _VALUE_LABEL_RE = re.compile(r"(?<![\w)])[^\W\d_]\w*(?:[ \t]*\([^()]*\))?[ \t]*=(?!=)")
 # A word character or ")" directly followed by "(": a function call ("f(9)", "sqrt(9)") or implicit product ("2(9)").
 _FUNCTION_CALL_RE = re.compile(r"[\w)]\(")
@@ -668,7 +669,10 @@ _PERCENT_WORD_RE = re.compile(r"%|per[ \t]?cent", re.IGNORECASE)
 def _expression_marks(text: str) -> frozenset[str]:
     """The operator and function syntax left in `text` once its labels and decoration are tidied away."""
     # An en or em dash between values is a range ("5–9" is two numbers), not a subtraction.
-    tidy = _tidy_reply_text(_RANGE_DASH_RE.sub(", ", _VALUE_LABEL_RE.sub(" ", text or "")))
+    # Each label becomes a space; a reply of repeated labels ("x=x=x=...") is then a long run of them, which
+    # several tidy patterns scan quadratically. One space says the same.
+    labelled = _HSPACE_RUN_RE.sub(" ", _VALUE_LABEL_RE.sub(" ", text or ""))
+    tidy = _tidy_reply_text(_RANGE_DASH_RE.sub(", ", labelled))
     tidy = _DIGITLESS_BRACKET_RE.sub(" ", tidy)
     first_end = _first_number_end(tidy)
     tidy = _UNIT_EXPONENT_RE.sub(lambda match: _drop_unit_exponent(match, first_end), tidy)

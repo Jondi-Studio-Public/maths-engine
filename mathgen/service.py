@@ -130,7 +130,7 @@ def curriculum_codes(skill: Skill) -> list[str]:
 
 
 def year_levels(skill: Skill) -> list[str]:
-    """The school years a skill belongs to ("F", "1" ... "10", "10A"), from its own `year_level` when the library
+    """The school years a skill belongs to ("F", "1" ... "10", "10A", or "university"), from its own `year_level` when the library
     has one, else from its ACARA v9 codes and year tags. Empty when nothing says (senior and university skills)."""
     own = getattr(skill, "year_level", None)
     if own:
@@ -226,7 +226,7 @@ def find_skills(
     include_deferred: bool = False,
 ) -> list[Skill]:
     """Skills matching every filter given, in library order. `text` matches the id, name or description, ignoring
-    case; `code` is an ACARA code or a prefix of one (`AC9M8` for every Year 8 code); `year` is "F", "1" ... "10A"."""
+    case; `code` is an ACARA code or a prefix of one (`AC9M8` for every Year 8 code); `year` is "F", "1" ... "10", "10A" or "university", in any case."""
     needle = text.casefold() if text else None
     code_prefix = code.upper() if code else None
     hits = []
@@ -235,7 +235,7 @@ def find_skills(
             continue
         if domain and skill.domain != domain:
             continue
-        if year and str(year).upper() not in year_levels(skill):
+        if year and str(year).strip().casefold() not in {y.casefold() for y in year_levels(skill)}:
             continue
         if code_prefix and not any(c.startswith(code_prefix) for c in curriculum_codes(skill)):
             continue

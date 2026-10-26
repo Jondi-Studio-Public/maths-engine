@@ -3,6 +3,7 @@
 # No `from __future__ import annotations`: FastAPI reads these annotations at run time, and `Role` is local.
 
 import contextlib
+import hashlib
 import hmac
 import logging
 import math
@@ -16,7 +17,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi import Depends, FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, Response
-from pydantic import BaseModel, Field, StringConstraints
+from pydantic import BaseModel, Field, StrictInt, StringConstraints
 
 from .. import service
 from .config import Config
@@ -29,8 +30,9 @@ log = logging.getLogger("mathgen.server")
 MAX_REPLY_CHARS = 2000
 #: Replies in one batch. Each is graded with its own deadline, so a batch can hold a worker for a while.
 MAX_BATCH = 100
-#: Timeouts a batch may spend before its remaining items come back as `timeout` without being run.
-BATCH_MAX_TIMEOUTS = 3
+#: Timeouts one client may cause, as a multiple of `cooldown_strikes`, within the cool-down window before all its
+#: grading calls are refused for a while. Replies that hang under many different ids still add up here.
+CLIENT_STRIKE_FACTOR = 2
 #: Parts (or keys) in a multi-part reply.
 MAX_REPLY_PARTS = 20
 MAX_SEED = 2**63 - 1
@@ -131,7 +133,7 @@ class QuestionsRequest(BaseModel):
 
 class GradeRequest(BaseModel):
     id: str = Field(max_length=300, description="The question id, as returned with the question.")
-    reply: str | int | dict[str, str | int] = Field(
+    reply: str | StrictInt | dict[str, str | StrictInt] = Field(
         description="The learner's answer: text; an option index for multiple choice; an object keyed by part "
         "label for a multi-part question."
     )
@@ -140,7 +142,7 @@ class GradeRequest(BaseModel):
 
 class GradeItem(BaseModel):
     id: str = Field(max_length=300)
-    reply: str | int | dict[str, str | int]
+    reply: str | StrictInt | dict[str, str | StrictInt]
 
 
 class GradeManyRequest(BaseModel):
@@ -198,6 +200,8 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
         )
         # At most this many requests running or waiting for a worker; the rest are told to retry.
         state["slots"] = threading.BoundedSemaphore(config.max_in_flight or state["pool"].size * 2)
+        # Batches may use at most half the workers at once, so single grades always have one left.
+        state["batch_slots"] = threading.BoundedSemaphore(max(1, state["pool"].size // 2))
         if not config.keys:
             log.warning("no API keys set (MATHS_API_OPEN): every caller is treated as role %r", config.open_role)
         yield
@@ -241,6 +245,16 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
 
     Role = Annotated[str, Depends(role)]
 
+    def client(request: Request) -> str:
+        """Who is calling, for the cool-down: the API key (hashed) or, with no keys, the network address."""
+        if config.keys:
+            header = request.headers.get("authorization", "")
+            given = header[7:].strip() if header.lower().startswith("bearer ") else request.headers.get("x-api-key", "")
+            return "key:" + hashlib.sha256(given.encode()).hexdigest()[:16]
+        return "addr:" + (request.client.host if request.client else "?")
+
+    Client = Annotated[str, Depends(client)]
+
     def need_author(who: str, what: str):
         if who != "author":
             raise HTTPException(403, f"{what} needs an author key")
@@ -264,8 +278,8 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
             entry = strikes.get(key)
             return max(0, math.ceil(entry[2] - time.monotonic())) if entry else 0
 
-    def strike(key: str | None):
-        """Count a timeout on `key`; enough of them within the window start a cool-down."""
+    def strike(key: str | None, limit: int | None = None):
+        """Count a timeout on `key`; `limit` (default `cooldown_strikes`) of them within the window start a cool-down."""
         if key is None:
             return
         now = time.monotonic()
@@ -277,18 +291,20 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
             if entry is None or now - entry[0] > config.cooldown:
                 entry = strikes[key] = [now, 0, 0.0]
             entry[1] += 1
-            if entry[1] >= config.cooldown_strikes:
+            if entry[1] >= (limit or config.cooldown_strikes):
                 entry[2] = now + config.cooldown
                 entry[0], entry[1] = now, 0
 
-    def run(name: str, timeout: float, *, key: str | None = None, held: bool = False, **kwargs):
-        """Run a job in the pool. `key` names the (skill, source) for the cool-down; `held` says the caller
-        already holds a place (a batch holds one for all its items)."""
-        left = cooled_down(key)
-        if left:
-            raise HTTPException(
-                503, f"{key} timed out repeatedly; try again in {left} s", headers={"Retry-After": str(left)}
-            )
+    def run(name: str, timeout: float, *, key: str | None = None, held: bool = False, who: str | None = None, **kwargs):
+        """Run a job in the pool. `key` names the (skill, source) for the cool-down and `who` the caller, which
+        has a cool-down of its own across all its ids; `held` says the caller already holds a place (a batch
+        holds one for all its items)."""
+        for name_, cool in ((key, key), (who, "this client")):
+            left = cooled_down(name_)
+            if left:
+                raise HTTPException(
+                    503, f"{cool} timed out repeatedly; try again in {left} s", headers={"Retry-After": str(left)}
+                )
         try:
             with contextlib.nullcontext() if held else slot():
                 return state["pool"].run(name, timeout, wait=config.queue_timeout, **kwargs)
@@ -300,6 +316,7 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
             raise HTTPException(409, {"error": "question_changed", "detail": str(exc), "new_id": exc.new_id}) from None
         except Timeout as exc:
             strike(key)
+            strike(who, config.cooldown_strikes * CLIENT_STRIKE_FACTOR)
             raise HTTPException(504, str(exc)) from None
         except Unavailable as exc:
             raise HTTPException(503, str(exc), headers={"Retry-After": "1"}) from None
@@ -325,7 +342,7 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
         _: Role,
         text: str | None = Query(None, max_length=100, description="Matches id, name or description."),
         domain: str | None = None,
-        year: str | None = Query(None, description="F, 1 ... 10, 10A."),
+        year: str | None = Query(None, description="F, 1 ... 10, 10A, university."),
         code: str | None = Query(None, description="An ACARA code or prefix: AC9M8 is every Year 8 code."),
         framework: str | None = None,
         answer_kind: str | None = None,
@@ -392,51 +409,69 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
             raise HTTPException(413, f"a reply may be at most {MAX_REPLY_CHARS} characters")
 
     @app.post("/v1/grade", tags=["grading"])
-    def grade(body: GradeRequest, who: Role):
+    def grade(body: GradeRequest, role_: Role, who: Client):
         if body.reveal:
-            need_author(who, "reveal")
+            need_author(role_, "reveal")
         check_reply(body.reply)
-        return run("grade", config.timeout, key=id_key(body.id), qid=body.id, reply=body.reply, reveal=body.reveal)
+        return run(
+            "grade", config.timeout, key=id_key(body.id), who=who, qid=body.id, reply=body.reply, reveal=body.reveal
+        )
 
     @app.post("/v1/grade/batch", tags=["grading"])
-    def grade_many(body: GradeManyRequest, who: Role):
-        """Several replies, as when marking a whole test. Each is graded with its own deadline within one total deadline; one that cannot
-        be marked gets an `error` (`question_changed`, `bad_request`, `timeout`) and the rest are still marked."""
+    def grade_many(body: GradeManyRequest, role_: Role, who: Client):
+        """Several replies, as when marking a whole test. Each is graded with its own deadline within one total deadline,
+        and replies that time out may use only `batch_budget` worker-seconds between them; one that cannot be marked
+        gets an `error` (`question_changed`, `bad_request`, `timeout`) and the rest are still marked."""
         if body.reveal:
-            need_author(who, "reveal")
+            need_author(role_, "reveal")
         for item in body.items:
             check_reply(item.reply)
+        left = cooled_down(who)
+        if left:
+            raise HTTPException(
+                503, f"this client timed out repeatedly; try again in {left} s", headers={"Retry-After": str(left)}
+            )
         results = []
         deadline = time.monotonic() + config.batch_timeout
         kind = {404: "bad_request", 422: "bad_request", 409: "question_changed", 504: "timeout"}
-        slow = 0
-        with slot():  # one place for the whole batch
-            for item in body.items:
-                if (
-                    slow >= BATCH_MAX_TIMEOUTS
-                ):  # a batch of hanging replies must not hold a worker for the whole deadline
-                    results.append({"id": item.id, "error": "timeout", "detail": "the batch had too many slow replies"})
-                    continue
-                left = deadline - time.monotonic()
-                if left <= 0:  # past the batch deadline: not run, so a batch cannot hold a worker for long
-                    results.append({"id": item.id, "error": "timeout", "detail": "the batch ran out of time"})
-                    continue
-                try:
-                    results.append(
-                        run(
-                            "grade",
-                            min(config.timeout, left),
-                            key=id_key(item.id),
-                            held=True,
-                            qid=item.id,
-                            reply=item.reply,
-                            reveal=body.reveal,
+        spent = 0.0  # worker-seconds given to replies that timed out
+        batch_slots = state["batch_slots"]
+        if not batch_slots.acquire(
+            blocking=False
+        ):  # batches share half the workers, so a single grade is never starved
+            raise HTTPException(503, "another test is being marked; try again shortly", headers={"Retry-After": "1"})
+        try:
+            with slot():  # one place for the whole batch
+                for item in body.items:
+                    if spent >= config.batch_budget:  # hanging replies must not hold a worker for the whole deadline
+                        results.append(
+                            {"id": item.id, "error": "timeout", "detail": "the batch had too many slow replies"}
                         )
-                    )
-                except HTTPException as exc:
-                    slow += exc.status_code == 504
-                    detail = exc.detail if isinstance(exc.detail, dict) else {"detail": exc.detail}
-                    results.append({"id": item.id, "error": kind.get(exc.status_code, "unavailable"), **detail})
+                        continue
+                    left = deadline - time.monotonic()
+                    if left <= 0:  # past the batch deadline: not run, so a batch cannot hold a worker for long
+                        results.append({"id": item.id, "error": "timeout", "detail": "the batch ran out of time"})
+                        continue
+                    allowed = min(config.timeout, left, config.batch_budget - spent)
+                    try:
+                        results.append(
+                            run(
+                                "grade",
+                                allowed,
+                                key=id_key(item.id),
+                                held=True,
+                                who=who,
+                                qid=item.id,
+                                reply=item.reply,
+                                reveal=body.reveal,
+                            )
+                        )
+                    except HTTPException as exc:
+                        spent += allowed if exc.status_code == 504 else 0
+                        detail = exc.detail if isinstance(exc.detail, dict) else {"detail": exc.detail}
+                        results.append({"id": item.id, "error": kind.get(exc.status_code, "unavailable"), **detail})
+        finally:
+            batch_slots.release()
         return {"results": results}
 
     @app.post("/v1/papers", tags=["papers"])

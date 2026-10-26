@@ -70,6 +70,9 @@ class Config:
     queue_timeout: float = 30.0  # seconds a call may wait for a free worker before a 503
     #: One total deadline for a whole grade/batch call. None: `timeout * 10`.
     batch_timeout: float | None = None
+    #: Worker-seconds one batch may spend on replies that time out; past it the rest come back as `timeout` unrun.
+    #: None: `timeout * 3`.
+    batch_budget: float | None = None
     #: Requests running or queued at once; more get a 503. None: twice the workers.
     max_in_flight: int | None = None
     #: After `cooldown_strikes` timeouts on one (skill, source) within `cooldown` seconds, further calls on it
@@ -101,6 +104,10 @@ class Config:
             self.batch_timeout = self.timeout * 10
         if not math.isfinite(self.batch_timeout) or self.batch_timeout <= 0:
             raise ValueError(f"batch_timeout must be a finite number of seconds above 0, got {self.batch_timeout!r}")
+        if self.batch_budget is None:
+            self.batch_budget = self.timeout * 3
+        if not math.isfinite(self.batch_budget) or self.batch_budget <= 0:
+            raise ValueError(f"batch_budget must be a finite number of seconds above 0, got {self.batch_budget!r}")
         if self.max_in_flight is None:
             self.max_in_flight = self.workers * 2
         if self.max_in_flight < 1 or self.cooldown_strikes < 1 or self.max_body_bytes < 1:
@@ -125,6 +132,9 @@ class Config:
         timeout = _float("MATHS_API_TIMEOUT", 5.0)
         batch = os.environ.get("MATHS_API_BATCH_TIMEOUT")
         in_flight = os.environ.get("MATHS_API_MAX_IN_FLIGHT")
+        budget = os.environ.get("MATHS_API_BATCH_BUDGET")
+        if budget:
+            _float("MATHS_API_BATCH_BUDGET", 0.0)
         if batch:
             _float("MATHS_API_BATCH_TIMEOUT", 0.0)
         if in_flight:
@@ -138,6 +148,7 @@ class Config:
             paper_timeout=_float("MATHS_API_PAPER_TIMEOUT", 60.0),
             queue_timeout=_float("MATHS_API_QUEUE_TIMEOUT", 30.0),
             batch_timeout=float(batch) if batch else None,
+            batch_budget=float(budget) if budget else None,
             max_in_flight=int(in_flight) if in_flight else None,
             cooldown=_float("MATHS_API_COOLDOWN", 30.0),
             cooldown_strikes=_int("MATHS_API_COOLDOWN_STRIKES", 3),

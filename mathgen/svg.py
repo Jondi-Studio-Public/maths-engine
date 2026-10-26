@@ -3502,7 +3502,10 @@ def figure_svg(spec: dict, *, width: int = 400) -> str:
     if not isinstance(width, int) or isinstance(width, bool) or width < 1:
         raise ValueError("width must be a positive integer")
     ids = _Ids()
-    body, height = _RENDERERS[spec["kind"]](spec, ids)
+    try:
+        body, height = _RENDERERS[spec["kind"]](spec, ids)
+    except (OverflowError, ZeroDivisionError) as exc:  # a numeric spec far outside any sane range
+        raise ValueError(f"cannot render this {spec['kind']!r} figure: a number is out of range ({exc})") from None
     heading = ""
     if spec.get("title"):
         lines = _wrap_title(str(spec["title"]), 15, CANVAS - 24)

@@ -74,8 +74,9 @@ source key, or a difficulty label (see `pick_source`).
 |---|---|
 | `load_skills(root=None, extra_roots=None) -> (list[Domain], list[Skill])` | Re-exported from `mathgen.skills`. |
 | `make_for_skill(skill, seed=None, *, source=None)` | Build one verified `Question` for the skill. With no `source`, uses the first. `seed=None` picks a random seed. Raises `ValueError` if the skill has no sources and `KeyError` for an unknown `source`. |
-| `make_with_id(skill, seed, *, source=None)` | Returns `(question, question_id)`. The same question as `make_for_skill`. |
+| `make_with_id(skill, seed, *, source=None)` | Returns `(question, question_id)`. The same question as `make_for_skill`. `seed` must be a whole number, or `None` for a random one (the id then carries the seed actually used); anything else raises `TypeError`. |
 | `grade(skill, question, given: str \| dict) -> GradeResult` | Grades `given` with the grader the skill's `answer` kind names. A multi-part question is marked part by part and `given` may be a dict keyed by part label. For an `mcq` skill, `given` is the 0-based index (an `int` or a string of digits) into `mathgen.core.mcq_options(question)`. |
+| `grade_with_deadline(skill, question, given, *, timeout=None) -> GradeResult` | `grade` in a worker process stopped after `timeout` seconds (2 by default); a reply that runs out of time is graded wrong. **Use this, not `grade`, for replies from people you do not trust.** `grade` runs in your process with no time limit, and a crafted reply can keep SymPy busy for minutes. Concurrent calls are queued behind the deadline's single worker, so budget for that on a busy service. The HTTP server and MCP tools already do this. |
 | `question_id(skill, source, seed, question) -> str` | `<skill id>/<source key>/<seed>/<hash>`. The first three parts say how to rebuild the question; the hash pins its content. |
 | `content_hash(question) -> str` | First 12 hex characters of SHA-256 over `question.to_dict()` (sorted keys, compact JSON). |
 | `parse_question_id(qid) -> (skill_id, source_key, seed, hash)` | Splits an id. Raises `ValueError` if malformed. |

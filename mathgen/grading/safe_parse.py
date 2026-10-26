@@ -847,7 +847,7 @@ def sympify_safely(value, *, evaluate: bool = True):
 
     For the strings *generators* write (a canonical answer, a distractor): the same token allow-list and
     namespace as a learner's reply, so nothing in the text can be run, but no cost guard, because those
-    strings are small and ours. Lists and tuples are read item by item. Raises `SympifyError`, as
+    strings are small and ours. Lists, tuples, dicts and sets are read item by item. Raises `SympifyError`, as
     `sympify` does, for text it cannot read; learner text should go through `parse_expression_safely`.
     """
     if isinstance(value, str):
@@ -867,5 +867,10 @@ def sympify_safely(value, *, evaluate: bool = True):
         except Exception as exc:  # noqa: BLE001 - sympify reports every unreadable text as a SympifyError
             raise sympy.SympifyError(value) from exc
     if isinstance(value, (tuple, list)):
+        return type(value)(sympify_safely(item, evaluate=evaluate) for item in value)
+    # SymPy `eval`s every string inside a dict or a set, so those go through the safe reader item by item too.
+    if isinstance(value, dict):
+        return {sympify_safely(k, evaluate=evaluate): sympify_safely(v, evaluate=evaluate) for k, v in value.items()}
+    if isinstance(value, (set, frozenset)):
         return type(value)(sympify_safely(item, evaluate=evaluate) for item in value)
     return sympy.sympify(value, evaluate=evaluate)
