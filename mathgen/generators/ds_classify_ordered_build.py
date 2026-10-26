@@ -75,5 +75,6 @@ def _build(rng, n, min_classes, twists):
 def ds_classify_ordered(rng, tier="medium"):
     if tier == "medium":
         return _build(rng, 3, 2, 0)
-    check(tier == "hard", f"unknown tier {tier!r}")
+    if tier != "hard":
+        raise ValueError(f"unknown tier {tier!r}")
     return _build(rng, 4, 3, 2)
