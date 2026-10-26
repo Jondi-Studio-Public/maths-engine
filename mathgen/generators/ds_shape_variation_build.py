@@ -300,7 +300,7 @@ def _single_figure(rng, ctx, d, kind):
 
 
 _STD_DEGREES = (30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330, 360)
-WEIGHTS = (0.5, 1, 0.5, 0.5, 2, 0.5, 0.5, 0.5)
+WEIGHTS = (0.5, 2.5, 0.5, 0.5, 2, 0.5, 0.5, 0.5)
 
 
 def _lone_count(values):
