@@ -1354,6 +1354,8 @@ def _series_exam(rng):
     cycles = 3 if p <= 5 else 2
     ys, offsets, delta = _seasonal(rng, p, cycles, (-4, -3, -2, 2, 3, 4, 5))
     n = len(ys)
+    if any(len({ys[i + k] - ys[i] for i in range(n - k)}) == 1 for k in range(1, p) if n >= 2 * k):
+        raise TooFewDistractors("a shorter cycle fits the series too")  # the key must be the only cycle length
     pts = list(zip(range(1, n + 1), ys))
     forecast = ys[n - p] + delta
     if forecast < 2:

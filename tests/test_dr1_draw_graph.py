@@ -310,3 +310,12 @@ def test_scatter_options_are_a_two_by_two_and_series_answers_vary():
 def test_practical_exam_rates_vary():
     qs = [sup.exam("exd_x_dr1_graph_from_data", s) for s in range(300)]
     assert len({q.parts[2].answer_text for q in qs}) >= 4
+
+
+def test_time_series_exam_cycle_length_is_the_only_one_that_fits():
+    for s in range(1200):
+        q = sup.exam("exd_x_dr1_time_series", s)
+        ys = [y for _, y in q.parts[0].answer["vertices"]]
+        n, p = len(ys), int(q.parts[1].answer_text)
+        fits = [k for k in range(1, n // 2 + 1) if len({ys[i + k] - ys[i] for i in range(n - k)}) == 1]
+        assert fits and min(fits) == p, (s, ys, fits)
