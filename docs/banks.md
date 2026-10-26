@@ -38,11 +38,11 @@ py scripts/build_banks.py --jobs 8
 ```
 
 That writes `dist/banks/` (`dist/` is ignored by git): the per-skill files, and the two archives named with the
-installed engine version. It takes a few minutes for the whole library (about 1,340 skills and 100,000
+installed engine version. It takes a few minutes for the whole library (about 1,350 skills and 100,000
 questions as of this writing; the archives are roughly 17 MB for Moodle and 110 MB for QTI) and prints one line like:
 
 ```
-<skills> skills, <questions> questions; moodle <MB> MB, qti <MB> MB; <n> failed; <seconds> s
+1352 skills, 102120 questions; moodle 16.9 MB, qti 110.4 MB; 0 failed; 168 s
 ```
 
 A skill whose bank cannot be built is listed on stderr and left out, and the exit status is 1. That includes a
