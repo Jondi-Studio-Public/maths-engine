@@ -14917,9 +14917,9 @@
 {"answer": "(1, 3)", "id": "ucv1-span-membership/easy/0/a0b473dc022d", "text": "Write v = (1, -6, 3) as a linear combination a·u + b·w of u = (1, -3, 0) and w …"}
 {"answer": "(1, 2)", "id": "ucv1-span-membership/easy/1/87f33c2248f6", "text": "Let u = (1, 0, -3), w = (0, 1, -3) and v = (1, 2, -9) in ℝ³. The vector v is a …"}
 {"answer": "(-3, 1)", "id": "ucv1-span-membership/easy/2/6d2fbd2277e8", "text": "Write v = (-3, -3, 1) as a linear combination a·u + b·w of u = (1, 2, 0) and w …"}
-{"answer": "(a) 2k + 2; (b) -1; (c) (-3, -2); (d) No pair (a, b)", "id": "ucv1-span-membership/exam/0/2b35b740a312", "text": "Let u = (-1, -1, -1), w = (2, 0, 2) and v = (-1, 3, k) in ℝ³, where k is a cons…"}
-{"answer": "(a) 2k - 4; (b) 2; (c) (1, 1); (d) Exactly one pair (a, b)", "id": "ucv1-span-membership/exam/1/2a32d0612d1b", "text": "Let u = (2, -1, -1), w = (0, 3, 1) and v = (k, 2, 0) in ℝ³, where k is a consta…"}
-{"answer": "(a) 4k + 8; (b) -2; (c) (2, 1); (d) No pair (a, b)", "id": "ucv1-span-membership/exam/2/1efa11beca2e", "text": "Let u = (-2, 0, 1), w = (2, -2, 1) and v = (-2, k, 3) in ℝ³, where k is a const…"}
+{"answer": "(a) 2k + 2; (b) -1; (c) (-3, -2); (d) No pair (a, b)", "id": "ucv1-span-membership/exam/0/9ed8ad16730d", "text": "Let u = (-1, -1, -1), w = (2, 0, 2) and v = (-1, 3, k) in ℝ³, where k is a cons…"}
+{"answer": "(a) 2k - 4; (b) 2; (c) (1, 1); (d) No pair (a, b)", "id": "ucv1-span-membership/exam/1/5449881748a7", "text": "Let u = (2, -1, -1), w = (0, 3, 1) and v = (k, 2, 0) in ℝ³, where k is a consta…"}
+{"answer": "(a) 4k + 8; (b) -2; (c) (2, 1); (d) No pair (a, b)", "id": "ucv1-span-membership/exam/2/3cc02033aa16", "text": "Let u = (-2, 0, 1), w = (2, -2, 1) and v = (-2, k, 3) in ℝ³, where k is a const…"}
 {"answer": "(1, 2)", "id": "ucv1-span-membership/hard/0/bf81591f5128", "text": "Let u = (-1, -3, -3, -1), w = (2, 1, 0, -2) and v = (3, -1, -3, -5) in ℝ⁴. The …"}
 {"answer": "(-1, -3)", "id": "ucv1-span-membership/hard/1/9db5a30bea97", "text": "Let u = (0, -2, 1, 3), w = (3, 3, 0, 1) and v = (-9, -7, -1, -6) in ℝ⁴. The vec…"}
 {"answer": "(3, 2)", "id": "ucv1-span-membership/hard/2/0691afe410a1", "text": "Let u = (1, 3, -2, 0), w = (1, -3, -1, 2) and v = (5, 3, -8, 4) in ℝ⁴. The vect…"}
