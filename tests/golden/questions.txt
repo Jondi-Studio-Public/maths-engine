@@ -851,7 +851,7 @@
 {"answer": "11", "id": "compare-two-data-displays/hard/1/a68dbc101917", "text": "The dot plot shows the time, in seconds, each student took to solve a puzzle fo…"}
 {"answer": "11", "id": "compare-two-data-displays/hard/2/ff86fa984c09", "text": "The dot plot shows the number of minutes each student spent on homework last ni…"}
 {"answer": "3", "id": "compare-two-data-displays/medium/0/83f79eb8434c", "text": "The dot plot shows the number of points each team scored in a game for Team Red…"}
-{"answer": "7.5", "id": "compare-two-data-displays/medium/1/d84c6cc38343", "text": "The dot plot shows the number of points each team scored in a game for Team Red…"}
+{"answer": "7.5", "id": "compare-two-data-displays/medium/1/60b3da3dc02a", "text": "The dot plot shows the number of points each team scored in a game for Team Red…"}
 {"answer": "4", "id": "compare-two-data-displays/medium/2/b8200a7f6d0b", "text": "The dot plot shows the number of sit-ups each student did in one minute for Gro…"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/0/c95fc8d15d5b", "text": "Pack A: 368 grams for $12.29. Pack B: 485 grams for $28.65. Which is the cheape…"}
 {"answer": "Pack A", "id": "compare-unit-prices/easy/1/943da520c9f4", "text": "Pack A: 946 grams for $17.49. Pack B: 347 grams for $29.16. Which is the cheape…"}
@@ -1093,7 +1093,7 @@
 {"answer": "1 = 3, 2 = 2, 3 = 1, 4 = 2, 5 = 2, 6 = 2", "id": "construct-dot-plots-from-data/easy/0/c61ad30995bd", "text": "Students in a Year 7 class were asked how many brothers and sisters they have. …"}
 {"answer": "0 = 1, 1 = 1, 2 = 3, 3 = 5, 4 = 1, 5 = 3, 6 = 3", "id": "construct-dot-plots-from-data/easy/1/5624435d44ce", "text": "A netballer recorded how many goals she scored in each game of the season: 0, 5…"}
 {"answer": "0 = 3, 1 = 2, 2 = 3, 3 = 1, 4 = 2, 5 = 4, 6 = 4", "id": "construct-dot-plots-from-data/easy/2/3852c5bd1488", "text": "Students in a Year 7 class were asked how many brothers and sisters they have. …"}
-{"answer": "(a) 1 = 2, 2 = 1, 3 = 4, 4 = 4, 5 = 4, 6 = 1, 7 = 5, 8 = 1;…", "id": "construct-dot-plots-from-data/exam/0/d43823629dd6", "text": "A netballer recorded how many goals she scored in each game of the season: 1, 5…"}
+{"answer": "(a) 1 = 2, 2 = 1, 3 = 4, 4 = 4, 5 = 4, 6 = 1, 7 = 5, 8 = 1;…", "id": "construct-dot-plots-from-data/exam/0/5febecfe0237", "text": "A netballer recorded how many goals she scored in each game of the season: 1, 5…"}
 {"answer": "(a) 0 = 4, 1 = 3, 2 = 1, 3 = 2, 4 = 2, 5 = 5; (b) 5; (c) 3;…", "id": "construct-dot-plots-from-data/exam/1/ce1cba069d40", "text": "Students in a Year 7 class were asked how many brothers and sisters they have. …"}
 {"answer": "(a) 2 = 5, 3 = 1, 4 = 2, 5 = 4, 6 = 3, 7 = 2, 8 = 2, 9 = 1;…", "id": "construct-dot-plots-from-data/exam/2/98a5b09cd5d8", "text": "A bus company recorded how many minutes late the morning bus was on each school…"}
 {"answer": "0 = 4, 1 = 5, 2 = 3, 3 = 2, 4 = 0, 5 = 0, 6 = 0, 7 = 0, 8 =…", "id": "construct-dot-plots-from-data/hard/0/2275121a9d4a", "text": "A teacher recorded how many questions each student got wrong in a ten-question …"}
@@ -1106,8 +1106,8 @@
 {"answer": "5 Leaf = 4 6, 6 Leaf = 0 6 8 9, 7 Leaf = 0 3 4 9, 8 Leaf = …", "id": "construct-stem-and-leaf-plots/easy/1/0a69475891f1", "text": "A class recorded the number of pages each student read last weekend: 79, 73, 56…"}
 {"answer": "3 Leaf = 7 9, 4 Leaf = 0 1 4 9, 5 Leaf = 0 7 8, 6 Leaf = 0 9", "id": "construct-stem-and-leaf-plots/easy/2/ba25f178f4ed", "text": "A class recorded the number of pages each student read last weekend: 50, 39, 49…"}
 {"answer": "(a) 5 Leaf = 0 1 3 4 6, 6 Leaf = 1 5 6 9 9, 7 Leaf = 2 5 7;…", "id": "construct-stem-and-leaf-plots/exam/0/b22f372116e0", "text": "A shop recorded the number of customers each hour: 61, 77, 51, 66, 65, 56, 72, …"}
-{"answer": "(a) 6 Leaf = 0 0 4 6 8, 7 Leaf = 9 9, 8 Leaf = 4 6 8 8 9, 9…", "id": "construct-stem-and-leaf-plots/exam/1/15f487e2080a", "text": "The number of points a team scored in each game was: 84, 95, 95, 60, 89, 64, 88…"}
-{"answer": "(a) 5 Leaf = 4 6 6 8 9, 6 Leaf = 0 3 6 6, 7 Leaf = 1 1 7 8 …", "id": "construct-stem-and-leaf-plots/exam/2/ae5787c273d4", "text": "The ages of the people at a swimming lesson were: 78, 58, 71, 71, 56, 59, 60, 6…"}
+{"answer": "(a) 6 Leaf = 0 0 4 6 8, 7 Leaf = 9 9, 8 Leaf = 4 6 8 8 9, 9…", "id": "construct-stem-and-leaf-plots/exam/1/cfb6fccd5b54", "text": "The number of points a team scored in each game was: 84, 95, 95, 60, 89, 64, 88…"}
+{"answer": "(a) 5 Leaf = 4 6 6 8 9, 6 Leaf = 0 3 6 6, 7 Leaf = 1 1 7 8 …", "id": "construct-stem-and-leaf-plots/exam/2/793b3eaf7698", "text": "The ages of the people at a swimming lesson were: 78, 58, 71, 71, 56, 59, 60, 6…"}
 {"answer": "14 Leaf = 1 3, 15 Leaf = 0 2 2 6, 16 Leaf = 0 2 6 7 8, 17 L…", "id": "construct-stem-and-leaf-plots/hard/0/1cf01d0ebf78", "text": "A walking group recorded the steps each member took in one morning, in tens: 15…"}
 {"answer": "14 Leaf = 5 8, 15 Leaf = 0 1 5, 16 Leaf = 6 6 9, 17 Leaf = …", "id": "construct-stem-and-leaf-plots/hard/1/9a8cfe55f953", "text": "The heights, in centimetres, of the students in a Year 7 class were: 150, 145, …"}
 {"answer": "12 Leaf = 3 5 8, 13 Leaf = 2 4 9, 14 Leaf = 1 4 5 7 9, 15 L…", "id": "construct-stem-and-leaf-plots/hard/2/d6a318936349", "text": "The heights, in centimetres, of the students in a Year 7 class were: 141, 147, …"}
