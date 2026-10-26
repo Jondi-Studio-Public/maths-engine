@@ -47,6 +47,8 @@ misconceptions:
   description: Believes causation can only be claimed when r is 1 or -1.
 - id: cc-experiment-cannot-show-cause
   description: Believes that even a randomised experiment cannot show that one variable causes another.
+- id: cc-ignores-sample-size
+  description: Claims a firm causal conclusion from a randomised experiment without checking that enough took part.
 - id: cc-measured-confounder-fixes-design
   description: Treats an observational study as controlled because the third variable was measured.
 - id: cc-r-squared-as-causal-share
