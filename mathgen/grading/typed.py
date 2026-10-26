@@ -489,6 +489,10 @@ def _has_no_extra_figures(question, given: str) -> bool:
 def _shows_the_places_asked(question, places: int) -> bool:
     """Whether the key is one number written to exactly the `places` the stem asks for (a decimal: "4.0" for the
     nearest tenth). Money is left to the value: "$5" for "to the nearest cent" is the same amount."""
+    if getattr(question, "follow_through", None):  # a value carried from an earlier reply: its form is not asked
+        return False
+    if not re.search(r"\bnearest\b", getattr(question, "text", "") or "", re.IGNORECASE):
+        return False  # "to 1 decimal place" on a measured length: 28 is 28.0; only a stem that rounds names the form
     if places < 1 or re.search(r"\bcents?\b|\$", getattr(question, "text", "") or "", re.IGNORECASE):
         return False
     shown = _NUMERIC_LITERAL_RE.findall(getattr(question, "answer_text", "") or "")
