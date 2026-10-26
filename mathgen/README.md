@@ -9,7 +9,7 @@ graders that check replies. For install and a first run, see the top-level
 | Path | What it is |
 |---|---|
 | `core.py` | `Question`, the `@generator` decorator, `make()`, and the shared helpers |
-| `generators/` | The generators, one decorated function each, in about 1,000 modules |
+| `generators/` | The generators, one decorated function each, in about 1,700 modules |
 | `grading/typed.py` | The graders and the `GRADERS` registry (`number`, `fraction`, `pair`, `list`, `ordered_list`, `expression`, `mcq`, and a few structured kinds) |
 | `grading/spoken.py` | Number and expression parsing the typed graders share, and `check_answer` for transcripts of spoken answers. For a single-number answer a transcript must state one value and not negate or hedge it ("not twelve", "twelve or thirteen" and "twelve and a half" are wrong for 12) |
 | `answers.py` | The typed answer contract: `answer_spec()`, `Distractor`, the answer kinds and forms |
@@ -40,7 +40,7 @@ python -m mathgen --all -n 50 --difficulty easy --out bank.jsonl
 ```
 
 With `--level` or `--all`, a topic that has presets but not the one you named is skipped, and
-the command says which on stderr (as of this writing 855 of the 2,015 topics have no `easy`; `python -m mathgen --all -n 1 --difficulty easy` names them). `--topic` with a
+the command says which on stderr (as of this writing 1,122 of the 2,540 topics have no `easy`; `python -m mathgen --all -n 1 --difficulty easy` names them). `--topic` with a
 preset the topic lacks is an error that lists the presets it has, and a difficulty name that no
 topic has (a typo) is an error that lists the valid names.
 

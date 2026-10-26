@@ -2,7 +2,7 @@
 
 Two [Agent Plugins](https://agent-plugins.org/specification) (v1.0.0) that give an AI agent the maths engine:
 verified questions, deterministic marking and worksheets, aligned to the Australian Curriculum from early years to
-first-year university.
+second-year university.
 
 | Plugin | For | Skills inside | Server role |
 |---|---|---|---|

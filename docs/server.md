@@ -50,8 +50,8 @@ default; set `MATHS_API_DOCS=1` to serve them. They need no key, so leave them o
   (skill, source) that has just timed out repeatedly fails fast for a short cool-down instead of killing another worker, and
   a batch that runs past `MATHS_API_BATCH_TIMEOUT` marks its remaining items with the error `timeout`.
   Marking a whole test cannot starve single grades: a batch may spend only `MATHS_API_BATCH_BUDGET` worker-seconds on
-  its replies (the time each held a worker; the rest come back as `timeout` unrun), batches together use at most half the workers, and at least one (another
-  batch gets `503` with `Retry-After`; with a single worker nothing can be kept back, so run two or more), and, if you set `MATHS_API_CLIENT_STRIKES`, a client (an API key, or the address when running open) whose replies time
+  its replies (the time each held a worker; the rest come back as `timeout` unrun), batches together use at most half the workers, so at least one worker stays free for single grades
+  (another batch gets `503` with `Retry-After`; with a single worker nothing can be kept back, so run two or more), and, if you set `MATHS_API_CLIENT_STRIKES`, a client (an API key, or the address when running open) whose replies time
   out that many times in the cool-down window gets `503` on grading calls until it ends, however
   many different ids it cycles through.
 - **Load is shed, not queued for ever.** When more calls are in flight than `MATHS_API_MAX_IN_FLIGHT`, the excess

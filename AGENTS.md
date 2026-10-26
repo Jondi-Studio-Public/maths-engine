@@ -35,7 +35,7 @@ Review a fork's pull request from its diff or through the API (`gh pr diff`). Ne
 
 ## Commits
 
-Every commit carries `Signed-off-by:` (the Developer Certificate of Origin, see `CONTRIBUTING.md`). Use `git commit -s` with the identity of the person who directs the work and answers for it. CI fails a pull request with an unsigned commit, a merge commit included (`scripts/check_dco.py`): bring `main` in with `git merge --signoff`, or rebase.
+Every commit carries `Signed-off-by:` (the Developer Certificate of Origin, see `CONTRIBUTING.md`). Use `git commit -s` with the identity of the person who directs the work and answers for it. CI fails a pull request with an unsigned commit, a merge commit included (`scripts/check_dco.py`): bring `main` in with `git merge --signoff`, or rebase. Do not put session or tool URLs (such as a `Claude-Session:` trailer) in commit messages; the public history should carry only the work and the sign-off.
 
 ## Before you push
 
