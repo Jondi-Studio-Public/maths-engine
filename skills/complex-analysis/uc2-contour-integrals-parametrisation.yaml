@@ -1,0 +1,111 @@
+id: uc2-contour-integrals-parametrisation
+name: Contour integrals by parametrisation
+domain: complex-analysis
+year_level: [university]
+description: >-
+  Evaluate a contour integral by writing the path as z = z(t), substituting into the integrand and integrating, for integrands such as
+  conj(z), Re(z), Im(z) and |z| that have no antiderivative, along segments, arcs and two-segment paths; compare two routes and bound an
+  integral with the ML inequality.
+status: active
+placement_eligible: false
+prerequisites:
+- ucv1-complex-exponential-form
+- ucv1-cr-equations-check
+answer: expression
+sources:
+- topic: w5b_contour_param
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5b_contour_param
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5b_contour_param
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5b_contour_param
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: cx2-orientation-ignored
+  description: >-
+    Giving the anticlockwise value when the contour is traversed clockwise, or the reverse: the sign of the integral is wrong.
+- id: cx2-param-area-factor-slip
+  description: >-
+    Giving the signed area between two routes, or the area with the wrong constant, as the difference of the two integrals, without the
+    factor from Green's theorem (2i for conj(z), i for Re(z), -1 for Im(z)).
+- id: cx2-param-closed-loop-assumed-zero
+  description: >-
+    Taking every integral round a closed curve to be 0, as for an analytic integrand, although the integrand here is not analytic or has a
+    pole inside.
+- id: cx2-param-conjugate-held-constant
+  description: >-
+    Integrating z^p conj(z)^q as if conj(z)^q were a constant, giving conj(z)^q z^(p+1)/(p+1) between the end points.
+- id: cx2-param-dz-dropped
+  description: >-
+    Substituting z(t) into the integrand but leaving out the factor z'(t) dt, so the integral is taken with respect to t.
+- id: cx2-param-every-power-gives-2-pi-i
+  description: >-
+    Giving 2*pi*i times the coefficient as the value of the integral round a circle for every power, when only the power for which the
+    exponent of e^(it) cancels leaves a non-zero value.
+- id: cx2-param-ml-length-chord
+  description: >-
+    Using the length of the straight chord in the ML bound where the length of the arc was needed.
+- id: cx2-param-ml-length-circle
+  description: >-
+    Using the whole circumference, or twice the arc length, as the length L in the ML bound.
+- id: cx2-param-ml-max-omitted
+  description: >-
+    Leaving the maximum of |f| out of the ML bound (or leaving out the length), so only one of the two factors is given.
+- id: cx2-param-ml-slack-sign
+  description: >-
+    Subtracting the wrong way round, or giving the modulus or the bound itself, where the amount by which the bound exceeds the modulus of
+    the integral was asked.
+- id: cx2-param-modulus-held-constant
+  description: >-
+    Treating |z| as the constant |b| (its value at the end point) along a segment, when it changes linearly along the ray.
+- id: cx2-param-nonanalytic-as-z
+  description: >-
+    Replacing conj(z), Re(z), Im(z) or |z| by z itself and using the antiderivative z^(n+1)/(n+1) between the end points.
+- id: cx2-param-path-independence-assumed
+  description: >-
+    Assuming the integral depends only on the end points for an integrand that is not analytic, so a straight chord (or a difference of
+    zero) is used in place of the stated path.
+- id: cx2-param-power-rule-slip
+  description: >-
+    Integrating z^n by dividing by n, or by not raising the power, instead of dividing by n + 1.
+- id: cx2-param-radius-dropped-from-dz
+  description: >-
+    Writing dz = i e^(it) dt on a circle of radius r, leaving out the factor r.
+- id: cx2-param-radius-power-slip
+  description: >-
+    Getting the power of the radius wrong in the value of an integral round the circle |z - c| = r, so the answer is out by a factor r or
+    r^2.
+- id: cx2-param-re-im-swapped
+  description: >-
+    Swapping Re(z) and Im(z): integrating the imaginary part where the real part was asked, or the reverse.
+- id: cx2-param-wrong-arc
+  description: >-
+    Integrating along the other arc between the same two points: the direction of travel round the circle is reversed.
+- id: forgets-i-in-residue-theorem
+  description: >-
+    Multiplying the residue by 2*pi but leaving out the factor i.
+tags: [university-core-v1, university-year-2, complex-analysis, contour-integrals, parametrisation]
+framework_areas: [complex-analysis]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: complex-analysis
+difficulty_progression:
+  easy: {steps: 3, demand: "Substitute the stated parametrisation of a segment or a quarter or half circle into z^n, conj(z), Re(z), Im(z) or |z|, multiply by z'(t) and integrate."}
+  medium: {steps: 4, demand: "Choose the parametrisation of an arc or a two-segment path, rewrite conj(z) (or Re z, Im z, |z|) along it, and integrate where the antiderivative, the chord and the other arc all give a different value."}
+  hard: {steps: 5, demand: "Integrate a non-analytic power round a full circle (only the power with exponent -1 survives), or find the difference of the integrals along two routes between the same points as a signed area."}
+  exam: {steps: 6, demand: "Integrate along a chord and an arc between the same points, then bound the arc integral by M L and find how far the modulus falls short of the bound."}

@@ -1,0 +1,150 @@
+id: uc2-interior-closure-boundary
+name: Interior, closure, boundary and limit points of subsets of R and the plane
+domain: metric-spaces-and-topology
+year_level: [university]
+description: >-
+  Find the interior, closure, boundary points and limit points of subsets of R built from intervals, isolated
+  points, sequences such as 1/n and rational intervals, and classify points against simple planar sets (discs,
+  annuli, half-planes, rectangles). The exam chain finds the interior, the boundary points, their number, their sum
+  and their mean by follow-through.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-metrics-and-balls-in-rn
+answer: set
+sources:
+- topic: w5b_interior_closure
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5b_interior_closure
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5b_interior_closure
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5b_interior_closure
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: calc-sign-slip
+  description: >-
+    Getting the right size of answer with the wrong sign: a minus sign lost or gained while differentiating, integrating or substituting.
+- id: dg-near-miss-value
+  description: >-
+    Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.
+- id: ic-boundary-counts-interior-points
+  description: >-
+    Counting the points inside an interval as boundary points, or listing extra points between the endpoints.
+- id: ic-boundary-counts-pieces
+  description: >-
+    Counting the pieces of the set, one per piece, instead of the boundary points they contribute.
+- id: ic-boundary-endpoints-in-set-only
+  description: >-
+    Taking as boundary points only the endpoints that belong to the set, so open ends are missed.
+- id: ic-boundary-misses-isolated-point
+  description: >-
+    Leaving an isolated point of the set out of the boundary, as if only interval endpoints could be boundary points.
+- id: ic-boundary-misses-open-left-end
+  description: >-
+    Missing the open left end of an interval when listing the boundary points.
+- id: ic-closure-drops-a-piece
+  description: >-
+    Leaving one of the pieces out of the closure.
+- id: ic-closure-drops-open-ends
+  description: >-
+    Giving the interior, with open ends, where the closure was asked.
+- id: ic-closure-fills-the-gaps
+  description: >-
+    Joining the pieces of the closure into one interval, filling the gaps between them.
+- id: ic-closure-interior-confused
+  description: >-
+    Giving the count for the closure where the interior was asked, or for the boundary where the closure was asked.
+- id: ic-closure-is-the-set
+  description: >-
+    Taking the closure to be the set itself, with the open ends left open.
+- id: ic-closure-keeps-open-end
+  description: >-
+    Closing only one end of each interval when forming the closure.
+- id: ic-closure-not-merged
+  description: >-
+    Writing the closure interval by interval without joining closed intervals that now meet at a shared endpoint.
+- id: ic-count-membership-not-region
+  description: >-
+    Counting the points that belong to the set instead of those in the interior, closure or boundary asked for.
+- id: ic-interior-drops-a-piece
+  description: >-
+    Leaving one of the intervals out of the interior.
+- id: ic-interior-keeps-endpoints
+  description: >-
+    Keeping the endpoints of the intervals in the interior, as if closed ends were interior points.
+- id: ic-isolated-point-interior
+  description: >-
+    Treating an isolated point of the set as an interior point.
+- id: ic-isolated-point-limit-point
+  description: >-
+    Calling an isolated point of the set, or a term of a sequence, a limit point.
+- id: ic-isolated-point-touching-interval
+  description: >-
+    Calling a listed single point isolated when it sits at the end of an interval of the set, which joins it to that interval.
+- id: ic-limit-point-must-belong
+  description: >-
+    Thinking a limit point must belong to the set, so the limit of a sequence is left out.
+- id: ic-mean-inverted
+  description: >-
+    Dividing the number of points by their sum instead of the sum by the number.
+- id: ic-mean-midrange
+  description: >-
+    Giving the average of the least and greatest points instead of the mean of all of them.
+- id: ic-mean-sum-not-divided
+  description: >-
+    Giving the sum of the points where the mean was asked.
+- id: ic-mean-wrong-divisor
+  description: >-
+    Dividing the sum by one more or one fewer than the number of points.
+- id: ic-open-end-missed
+  description: >-
+    Leaving the open ends of the intervals out of the closure points that are not in the set.
+- id: ic-punctured-centre-not-boundary
+  description: >-
+    Forgetting that the removed centre of a punctured disc is a boundary point.
+- id: ic-rational-closure-itself
+  description: >-
+    Taking the closure of the rationals in an interval to be the set of rationals itself, or leaving the piece out.
+- id: ic-rational-interior
+  description: >-
+    Thinking the rationals in an interval have the whole interval as their interior.
+- id: ic-sequence-limit-missed
+  description: >-
+    Leaving out the limit of a sequence such as 1/n when listing the limit points.
+- id: ic-sequence-terms-limit-points
+  description: >-
+    Listing the terms of a sequence as limit points instead of its limit.
+- id: ic-touching-intervals-merged
+  description: >-
+    Merging two intervals that meet at a point the set does not contain, so the shared endpoint is wrongly an interior point.
+- id: ic-touching-intervals-not-merged
+  description: >-
+    Keeping two intervals apart when a point of the set at the shared endpoint joins them, so the shared endpoint is wrongly listed.
+- id: mb-counted-outside
+  description: >-
+    Counting the points outside the ball, or all of the points, instead of those inside it.
+tags: [university-core-v1, university-year-2, metric-spaces-and-topology, interior-closure-boundary, limit-points]
+framework_areas: [metric-spaces-and-topology]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: metric-spaces-and-topology
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: metric-spaces-and-topology
+difficulty_progression:
+  easy: {steps: 2, demand: "Find the interior or closure of one interval, or count or add the boundary points of an interval with an isolated point."}
+  medium: {steps: 3, demand: "Merge or separate touching intervals, then find the interior, closure, boundary set or isolated points of a union with isolated points."}
+  hard: {steps: 4, demand: "Find the limit points of sequences such as 1/n, the interior and closure of sets of rationals in an interval, the length of their boundary, or classify points against a disc, annulus, half-plane or rectangle."}
+  exam: {steps: 6, demand: "Find the interior, the boundary points (or the closure points missing from the set), their number and their sum, then their mean by follow-through."}

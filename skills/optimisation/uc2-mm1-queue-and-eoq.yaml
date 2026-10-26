@@ -1,0 +1,220 @@
+id: uc2-mm1-queue-and-eoq
+name: M/M/1 queue measures and the economic order quantity
+domain: optimisation
+year_level: [university]
+description: >-
+  Operations-research formulas with exact answers. For an M/M/1 queue: utilisation, the mean number in the system and in the queue, the mean wait and time
+  in the system (with Little's law), P(n customers) and the tail probability, and the largest arrival rate or smallest service rate that meets a target.
+  For inventory: the economic order quantity, the minimum annual cost, orders per year, the reorder point and the best lot when orders come in multiples
+  of a stated size. The exam chains follow an answer through three parts in either model.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-geometric-negative-binomial
+- uc2-lp-formulation-and-corner-points
+answer: fraction
+sources:
+- topic: w5b_mm1_queue
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5b_eoq_inventory
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+  key: easy-eoq
+- topic: w5b_mm1_queue
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5b_eoq_inventory
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+  key: medium-eoq
+- topic: w5b_mm1_queue
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: w5b_eoq_inventory
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+  key: hard-eoq
+- topic: exd_x_w5b_mm1_queue_eoq
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: eoq-cost-at-lot-not-extra
+  description: >-
+    Giving the whole cost of the stated lot size where the extra over the minimum was asked.
+- id: eoq-cost-at-optimum-not-lot
+  description: >-
+    Giving the minimum annual cost, at the economic order quantity, where the cost of the stated lot size was asked.
+- id: eoq-cost-only-holding
+  description: >-
+    Giving only the annual holding cost HQ/2 as the total of ordering plus holding.
+- id: eoq-cost-only-ordering
+  description: >-
+    Giving only the annual ordering cost DS/Q as the total of ordering plus holding.
+- id: eoq-drops-factor-two
+  description: >-
+    Dropping the 2 in the economic order quantity formula, or dividing 2DS by H and not taking the root.
+- id: eoq-extra-holding-only
+  description: >-
+    Counting only the change in the holding cost as the extra cost of a non-optimal lot size.
+- id: eoq-extra-ordering-only
+  description: >-
+    Counting only the change in the ordering cost as the extra cost of a non-optimal lot size.
+- id: eoq-forgets-purchase-cost
+  description: >-
+    Leaving the purchase cost of the parts out of the total annual cost.
+- id: eoq-halves-instead
+  description: >-
+    Using the square root of DS/(2H) as the order quantity.
+- id: eoq-holding-without-half
+  description: >-
+    Charging holding cost on the full lot size, HQ, instead of on the average stock Q/2.
+- id: eoq-ignores-multiple-constraint
+  description: >-
+    Giving the economic order quantity itself when orders must be in multiples of a stated size.
+- id: eoq-inverse-doubles
+  description: >-
+    Doubling the annual demand found from the minimum annual cost.
+- id: eoq-inverse-drops-two
+  description: >-
+    Forgetting the factor 2 when finding the annual demand from the minimum cost.
+- id: eoq-inverse-stops-at-Q
+  description: >-
+    Giving the order quantity found from the minimum cost where the annual demand was asked.
+- id: eoq-nearest-lot-not-cheapest
+  description: >-
+    Picking the feasible lot size nearest to the economic order quantity, though the other neighbour is cheaper.
+- id: eoq-no-square-root
+  description: >-
+    Giving 2DS/H without taking the square root.
+- id: eoq-orders-halved
+  description: >-
+    Halving the number of orders per year D/Q.
+- id: eoq-orders-inverted
+  description: >-
+    Giving Q/D, the fraction of a year's demand in one order, as the number of orders per year.
+- id: eoq-other-neighbour
+  description: >-
+    Taking the cost, or the size, of the other feasible lot beside the economic order quantity.
+- id: eoq-rop-forgets-lead-time
+  description: >-
+    Giving one day's demand as the reorder point without multiplying by the lead time.
+- id: eoq-rop-uses-eoq
+  description: >-
+    Building the reorder point from the order quantity instead of from the annual demand.
+- id: eoq-rop-wrong-days
+  description: >-
+    Using a 365-day year for daily demand when the question states the working days in the year.
+- id: eoq-swaps-S-and-H
+  description: >-
+    Swapping the ordering cost S and the holding cost H in the economic order quantity formula.
+- id: mm1-L-as-Lq
+  description: >-
+    Giving the mean number waiting in the queue, rho squared over 1 - rho, as the mean number in the system.
+- id: mm1-L-as-utilisation
+  description: >-
+    Giving the utilisation rho as the mean number in the system, forgetting to divide by 1 - rho.
+- id: mm1-L-one-too-many
+  description: >-
+    Adding one to the mean number in the system, or using mu/(mu - lambda), so the customer in service is counted twice.
+- id: mm1-L-target-adds-ell
+  description: >-
+    Adding the target value of L to the arrival rate to get the service rate needed.
+- id: mm1-L-target-inverted
+  description: >-
+    Using lambda times the target L as the smallest service rate, instead of lambda (1 + 1/L).
+- id: mm1-Lq-as-L
+  description: >-
+    Giving the mean number in the system where the mean number waiting in the queue was asked.
+- id: mm1-Lq-as-utilisation
+  description: >-
+    Giving the utilisation as the mean number waiting in the queue.
+- id: mm1-Lq-minus-one
+  description: >-
+    Subtracting one from L to get Lq, instead of subtracting the utilisation rho.
+- id: mm1-W-as-L
+  description: >-
+    Giving the mean number in the system as the mean time in the system, skipping the division by the arrival rate in Little's law.
+- id: mm1-W-as-Wq
+  description: >-
+    Giving the mean wait in the queue as the mean time in the system, leaving out the service time.
+- id: mm1-W-as-service-time
+  description: >-
+    Taking the mean service time 1/mu as the mean time in the system, leaving out the waiting.
+- id: mm1-Wq-W-swapped
+  description: >-
+    Giving the mean time in the system where the mean wait in the queue was asked, or the reverse.
+- id: mm1-idle-as-busy
+  description: >-
+    Giving the utilisation rho where the probability the system is empty, 1 - rho, was asked.
+- id: mm1-idle-inverted
+  description: >-
+    Giving 1/(1 - rho) as the probability the system is empty, a value above 1.
+- id: mm1-idle-squared
+  description: >-
+    Squaring the idle probability 1 - rho.
+- id: mm1-pn-exponent-off-by-one
+  description: >-
+    Using rho^(n-1) or rho^(n+1) in the probability of n customers.
+- id: mm1-pn-forgets-idle-factor
+  description: >-
+    Giving rho^n as the probability of n customers, leaving out the factor 1 - rho.
+- id: mm1-pn-swaps-rho-and-complement
+  description: >-
+    Raising 1 - rho to the power n and multiplying by rho, the wrong way round.
+- id: mm1-tail-as-complement
+  description: >-
+    Giving 1 - rho^n, the probability of fewer than n customers, where at least n was asked.
+- id: mm1-tail-as-point-probability
+  description: >-
+    Giving the probability of exactly n customers where at least n was asked.
+- id: mm1-tail-exponent-off-by-one
+  description: >-
+    Using the wrong power of rho for the probability of at least n customers.
+- id: mm1-target-edge-of-stability
+  description: >-
+    Taking the service rate minus one as the largest arrival rate, ignoring the wait target.
+- id: mm1-target-rounds-down
+  description: >-
+    Rounding a boundary for a smallest needed rate down, so the target is just missed.
+- id: mm1-target-rounds-up
+  description: >-
+    Rounding a boundary for a largest allowed rate up, or a smallest needed rate one too high.
+- id: mm1-target-uses-W-not-Wq
+  description: >-
+    Using the formula for the mean time in the system where the target is on the wait in the queue.
+- id: mm1-time-unit-not-converted
+  description: >-
+    Leaving a time in hours (or a number scaled by the wrong factor of 60) when the answer was asked in minutes.
+- id: mm1-utilisation-as-L
+  description: >-
+    Giving the mean number in the system L = rho/(1 - rho) where the utilisation or the idle probability was asked.
+- id: mm1-utilisation-complement
+  description: >-
+    Giving 1 - rho, the idle fraction, where the utilisation rho was asked.
+- id: mm1-utilisation-inverted
+  description: >-
+    Giving the service rate over the arrival rate, mu/lambda, as the utilisation, so a value above 1 for a stable queue.
+- id: mm1-utilisation-sum-denominator
+  description: >-
+    Dividing the arrival rate by the sum of the two rates instead of by the service rate to find the utilisation.
+difficulty_progression: >-
+  Easy reads one standard measure from clean rates or from Q* (utilisation, L, the idle probability; Q*, the cost at Q*, orders per year). Medium chains two formulas and converts units (Wq and W in minutes, Lq through Little's law, a point or tail probability; the reorder point, the time between orders, the cost of a stated lot size and its excess over the minimum). Hard works backwards from a target to a whole-number rate or lot size by checking the boundary on both sides (the largest arrival rate for a wait target, the smallest service rate for L, W or a tail target, the best lot among multiples of m), or recovers the demand from the minimum cost or adds the purchase cost under a price-based holding rate. The exam chain follows a result through three parts in either model.
+tags: [university-core-v1, university-year-2, optimisation, operations-research, queueing, inventory]
+framework_areas: [optimisation]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: optimisation
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: optimisation

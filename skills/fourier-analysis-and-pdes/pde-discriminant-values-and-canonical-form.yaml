@@ -1,0 +1,106 @@
+id: pde-discriminant-values-and-canonical-form
+name: PDE discriminant values and canonical form
+domain: fourier-analysis-and-pdes
+year_level: [university]
+description: >-
+  Compute the discriminant B^2 - 4AC of a second-order PDE, find the parameter value or the integer parameter values at which it changes
+  type, and for a hyperbolic equation find its characteristic slopes and the mixed coefficient of its canonical form.
+status: active
+placement_eligible: false
+prerequisites:
+- classify-constant-coefficient-pde
+answer: number
+sources:
+- topic: w5b_pde_discriminant
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5b_pde_discriminant
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5b_pde_discriminant
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5b_pde_discriminant
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dropped-factor-4-in-discriminant
+  description: >-
+    Using B squared minus AC in place of B squared minus 4AC.
+- id: forgot-parameter-in-discriminant
+  description: >-
+    Using the coefficient of the mixed term without its parameter when substituting into the discriminant.
+- id: forgot-square-root
+  description: >-
+    Stopping at k squared, so the square of the answer is given instead of the answer.
+- id: forgot-to-square-coefficient
+  description: >-
+    Squaring the parameter but not the number multiplying it in the mixed term's coefficient.
+- id: included-the-parabolic-value
+  description: >-
+    Counting the boundary value as elliptic, so the largest whole number below a boundary is given as the boundary itself.
+- id: pde-4ac-added
+  description: >-
+    Adding 4AC to B squared instead of subtracting it.
+- id: pde-b-not-squared
+  description: >-
+    Forgetting to square the coefficient of the mixed term in B squared minus 4AC.
+- id: pde-canonical-coefficient-sign
+  description: >-
+    Getting the sign of the mixed coefficient of the canonical form wrong: it is minus the discriminant over A, not plus.
+- id: pde-canonical-coefficient-undivided
+  description: >-
+    Giving the discriminant itself as the coefficient of the mixed term in the canonical form, without dividing by -A.
+- id: pde-lower-order-in-discriminant
+  description: >-
+    Bringing the coefficient of a first-order or zero-order term into the discriminant, which depends only on the coefficients of the second
+    derivatives.
+- id: pde-mixed-coefficient-convention
+  description: >-
+    Using the coefficient of u_xy where half of it was needed (or the half where all of it was), so the discriminant is out by a factor of
+    4.
+- id: pde-parameter-negative-values-missed
+  description: >-
+    Listing only the positive values of the parameter that satisfy a condition on its square, missing the negative ones.
+- id: pde-slope-denominator-c
+  description: >-
+    Dividing by 2C instead of 2A in the characteristic slopes, so the slopes are out by the factor A over C.
+- id: pde-slope-factor-2a-dropped
+  description: >-
+    Stopping at B plus or minus the square root of the discriminant, without dividing by 2A.
+- id: pde-slope-reciprocal
+  description: >-
+    Giving dx/dy where dy/dx was asked: each characteristic slope is inverted.
+- id: pde-slope-sign-flipped
+  description: >-
+    Taking the characteristic slopes as (-B plus or minus the square root of the discriminant) over 2A, which negates both slopes.
+- id: pde-slope-wrong-root
+  description: >-
+    Giving the other characteristic slope: the smaller where the larger was asked, or the reverse, from taking the wrong sign of the square
+    root.
+- id: pde-type-condition-reversed
+  description: >-
+    Swapping the conditions for hyperbolic and elliptic, so the set of parameter values for one type is given for the other.
+- id: reversed-discriminant-sign
+  description: >-
+    Computing 4AC minus B squared, which reverses the sign of the discriminant.
+tags: [university-core-v1, pde, discriminant, characteristics, canonical-form]
+framework_areas: [fourier-analysis-and-pdes]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes
+- source_id: oxford-later-years
+  status: candidate
+  framework: university-core-v1
+  area: fourier-analysis-and-pdes
+difficulty_progression:
+  easy: {steps: 2, demand: "Read A, B and C off an equation written in any order, ignoring the lower-order terms and any overall sign, and evaluate B^2 - 4AC (or b^2 - AC for a mixed term written 2b)."}
+  medium: {steps: 4, demand: "Set up B^2 - 4AC with a parameter in one or two coefficients and find the positive value where it vanishes, or the set of integer values giving a stated type, watching for a boundary value that is exactly parabolic."}
+  hard: {steps: 5, demand: "For a hyperbolic equation find the two characteristic slopes from the quadratic A m^2 - B m + C = 0 (sometimes after substituting a parameter), or the coefficient of the mixed term after changing to characteristic variables."}
+  exam: {steps: 6, demand: "At a stated parameter value find the discriminant, count the integer parameter values that make the equation elliptic and hyperbolic, then find the characteristic slopes at a value that gives a perfect-square discriminant."}

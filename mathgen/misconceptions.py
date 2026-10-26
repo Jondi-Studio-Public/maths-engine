@@ -61292,6 +61292,829 @@ _ENTRIES += (
     ),
 )
 
+# -- metrics and balls in R^n (uc2-metrics-and-balls-in-rn) -----------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "mb-wrong-norm-formula",
+        "Using the formula of a different metric (taxicab, Euclidean or maximum) from the one the question names.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-dropped-absolute-values",
+        "Subtracting coordinates without taking absolute values, so differences of opposite sign cancel.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-dropped-coordinate",
+        "Leaving the third coordinate out of a distance in R^3.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-max-min-swap",
+        "Taking the smallest coordinate difference where the maximum metric uses the largest.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-weights-swapped",
+        "Pairing each weight of a weighted taxicab metric with the other coordinate's difference.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-closed-ball-count",
+        "Counting points at distance exactly r as inside the open ball, so the ball is treated as closed.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-counted-outside",
+        "Counting the points outside the ball, or all of the points, instead of those inside it.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-inverted-comparison-constant",
+        "Multiplying by the norm-comparison constant where the question needs a division by it, or the reverse.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-ball-radius-not-scaled",
+        "Giving the same radius for a ball of another metric, as if all the balls about a centre had one size.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-dimension-constant-wrong",
+        "Using the norm-comparison constant for the wrong number of dimensions, such as the square root of 2 in R^3.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-diameter-radius",
+        "Mixing up the radius and the diameter of a ball: halving where the diameter was asked, or doubling where the radius was.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-area-wrong-shape",
+        "Using the area or volume formula of a ball of another metric (a disc, a diamond or a square).",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-area-side-not-diameter",
+        "Using the radius where the whole width of the ball is needed, or the width where the radius is, in an area or volume.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-area-diamond-no-half",
+        "Forgetting the factor of one half in the area of a diamond: base times height instead of half of it.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-weights-multiplied",
+        "Multiplying by the weights instead of dividing by them when finding the size of a weighted ball.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-weights-added",
+        "Adding the two weights where the area of a weighted diamond uses their product.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-shell-difference-squared",
+        "Squaring the difference of the two radii of a shell instead of taking the difference of their squares.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-shell-outer-only",
+        "Giving the area of the outer ball for the shell between two balls.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-containment-nearest-point",
+        "Giving the distance to the nearest point as the radius needed to contain the whole set.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-containment-sum",
+        "Adding the distances to all the points instead of taking the largest.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-containment-open-closed",
+        "Adding one to the largest distance to get an open ball that contains the set, instead of the exact bound.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-radius-from-side",
+        "Giving the side, the half-diagonal or the full width of the figure as the radius of the ball.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "mb-ball-shape-mixup",
+        "Reading a diamond as a maximum-metric ball or an axis-parallel square as a taxicab ball.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
+        "sylow-order-prime-only",
+        "Giving the prime p as the order of a Sylow p-subgroup, ignoring that the full power of p dividing the group order is wanted.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-order-cofactor",
+        "Giving the part of the group order that p does not divide (the index) as the order of the Sylow p-subgroup.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-order-exponent-only",
+        "Giving the exponent k of the largest power p^k dividing the group order instead of the order p^k.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-order-n-over-p",
+        "Dividing the group order by p once to get the Sylow p-subgroup order, whatever the power of p in the order.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-np-skips-congruence",
+        "Listing every divisor of the cofactor as a possible number of Sylow subgroups and forgetting that it must also be 1 mod p.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-np-omits-one",
+        "Leaving out n_p = 1 from the possible numbers of Sylow subgroups, though a single normal Sylow subgroup is always allowed.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-np-wrong-residue",
+        "Keeping the divisors that are -1 mod p instead of the ones that are 1 mod p.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-np-congruent-mod-pk",
+        "Asking for n_p to be 1 mod p^k, the whole Sylow order, instead of 1 mod p.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-np-largest-divisor",
+        "Taking the whole cofactor of the group order as the largest n_p without checking that it is 1 mod p.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-np-second-largest",
+        "Giving the second largest allowed value of n_p where the largest was asked.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-elements-include-identity",
+        "Counting p elements in each Sylow p-subgroup of order p, identity included, so the identity is counted once for every subgroup.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-elements-one-per-subgroup",
+        "Counting one element of order p for each Sylow p-subgroup instead of p - 1.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-elements-count-identity",
+        "Adding the identity to the count n_p(p - 1) of elements of order p.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-elements-complement",
+        "Giving the number of elements that are not of order p where the number of elements of order p was asked.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-elements-count-complement",
+        "Giving the number of elements of order p where the number that are not of order p was asked.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-leftover-forgets-identity",
+        "Forgetting to remove the identity when counting what is left after the elements of prime order are taken out.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-leftover-counts-np-times-p",
+        "Taking p elements in each Sylow subgroup of order p, so the identity is subtracted once per subgroup.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-leftover-one-per-subgroup",
+        "Subtracting only one element for each Sylow subgroup instead of p - 1 of them.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-leftover-ignores-second-prime",
+        "Removing the elements of only one of the two primes when finding the elements left over.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-surplus-total-not-excess",
+        "Giving the total number of elements counted rather than by how much it exceeds the group order.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-forced-normal-all",
+        "Taking the Sylow subgroup to be forced normal for every prime dividing the group order.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-forced-normal-two-values",
+        "Counting the primes with only two allowed values of n_p instead of those with only n_p = 1.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-fixed-points-quotient",
+        "Giving the integer quotient |X| / p instead of the remainder |X| mod p as the number of fixed points.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-fixed-points-mod-group-order",
+        "Reducing the size of the set modulo the group order p^k instead of modulo p.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-fixed-points-complement",
+        "Giving p minus the remainder |X| mod p as the number of fixed points.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-fixed-points-adds-p",
+        "Adding a whole p to the remainder |X| mod p for the fewest fixed points, though that remainder can be reached.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "cx2-param-dz-dropped",
+        "Substituting z(t) into the integrand but leaving out the factor z'(t) dt, so the integral is taken with respect to t.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-nonanalytic-as-z",
+        "Replacing conj(z), Re(z), Im(z) or |z| by z itself and using the antiderivative z^(n+1)/(n+1) between the end points.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-conjugate-held-constant",
+        "Integrating z^p conj(z)^q as if conj(z)^q were a constant, giving conj(z)^q z^(p+1)/(p+1) between the end points.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-modulus-held-constant",
+        "Treating |z| as the constant |b| (its value at the end point) along a segment, when it changes linearly along the ray.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-path-independence-assumed",
+        "Assuming the integral depends only on the end points for an integrand that is not analytic, so a straight chord (or a difference of zero) is used in place of the stated path.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-wrong-arc",
+        "Integrating along the other arc between the same two points: the direction of travel round the circle is reversed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-re-im-swapped",
+        "Swapping Re(z) and Im(z): integrating the imaginary part where the real part was asked, or the reverse.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-radius-dropped-from-dz",
+        "Writing dz = i e^(it) dt on a circle of radius r, leaving out the factor r.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-closed-loop-assumed-zero",
+        "Taking every integral round a closed curve to be 0, as for an analytic integrand, although the integrand here is not analytic or has a pole inside.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-radius-power-slip",
+        "Getting the power of the radius wrong in the value of an integral round the circle |z - c| = r, so the answer is out by a factor r or r^2.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-every-power-gives-2-pi-i",
+        "Giving 2*pi*i times the coefficient as the value of the integral round a circle for every power, when only the power for which the exponent of e^(it) cancels leaves a non-zero value.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-area-factor-slip",
+        "Giving the signed area between two routes, or the area with the wrong constant, as the difference of the two integrals, without the factor from Green's theorem (2i for conj(z), i for Re(z), -1 for Im(z)).",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-power-rule-slip",
+        "Integrating z^n by dividing by n, or by not raising the power, instead of dividing by n + 1.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-ml-length-chord",
+        "Using the length of the straight chord in the ML bound where the length of the arc was needed.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-ml-length-circle",
+        "Using the whole circumference, or twice the arc length, as the length L in the ML bound.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-ml-max-omitted",
+        "Leaving the maximum of |f| out of the ML bound (or leaving out the length), so only one of the two factors is given.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "cx2-param-ml-slack-sign",
+        "Subtracting the wrong way round, or giving the modulus or the bound itself, where the amount by which the bound exceeds the modulus of the integral was asked.",
+        area="complex-analysis",
+    ),
+    CatalogueEntry(
+        "pde-b-not-squared",
+        "Forgetting to square the coefficient of the mixed term in B squared minus 4AC.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-4ac-added",
+        "Adding 4AC to B squared instead of subtracting it.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-lower-order-in-discriminant",
+        "Bringing the coefficient of a first-order or zero-order term into the discriminant, which depends only on the coefficients of the second derivatives.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-mixed-coefficient-convention",
+        "Using the coefficient of u_xy where half of it was needed (or the half where all of it was), so the discriminant is out by a factor of 4.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-slope-sign-flipped",
+        "Taking the characteristic slopes as (-B plus or minus the square root of the discriminant) over 2A, which negates both slopes.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-slope-denominator-c",
+        "Dividing by 2C instead of 2A in the characteristic slopes, so the slopes are out by the factor A over C.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-slope-factor-2a-dropped",
+        "Stopping at B plus or minus the square root of the discriminant, without dividing by 2A.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-slope-reciprocal",
+        "Giving dx/dy where dy/dx was asked: each characteristic slope is inverted.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-canonical-coefficient-sign",
+        "Getting the sign of the mixed coefficient of the canonical form wrong: it is minus the discriminant over A, not plus.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-canonical-coefficient-undivided",
+        "Giving the discriminant itself as the coefficient of the mixed term in the canonical form, without dividing by -A.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-parameter-negative-values-missed",
+        "Listing only the positive values of the parameter that satisfy a condition on its square, missing the negative ones.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "pde-type-condition-reversed",
+        "Swapping the conditions for hyperbolic and elliptic, so the set of parameter values for one type is given for the other.",
+        area="pde",
+    ),
+    CatalogueEntry(
+        "mm1-utilisation-inverted",
+        "Giving the service rate over the arrival rate, mu/lambda, as the utilisation, so a value above 1 for a stable queue.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-utilisation-complement",
+        "Giving 1 - rho, the idle fraction, where the utilisation rho was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-utilisation-as-L",
+        "Giving the mean number in the system L = rho/(1 - rho) where the utilisation or the idle probability was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-utilisation-sum-denominator",
+        "Dividing the arrival rate by the sum of the two rates instead of by the service rate to find the utilisation.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-L-as-utilisation",
+        "Giving the utilisation rho as the mean number in the system, forgetting to divide by 1 - rho.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-L-as-Lq",
+        "Giving the mean number waiting in the queue, rho squared over 1 - rho, as the mean number in the system.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-L-one-too-many",
+        "Adding one to the mean number in the system, or using mu/(mu - lambda), so the customer in service is counted twice.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-idle-as-busy",
+        "Giving the utilisation rho where the probability the system is empty, 1 - rho, was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-idle-inverted",
+        "Giving 1/(1 - rho) as the probability the system is empty, a value above 1.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-idle-squared",
+        "Squaring the idle probability 1 - rho.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-Wq-W-swapped",
+        "Giving the mean time in the system where the mean wait in the queue was asked, or the reverse.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-W-as-service-time",
+        "Taking the mean service time 1/mu as the mean time in the system, leaving out the waiting.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-W-as-Wq",
+        "Giving the mean wait in the queue as the mean time in the system, leaving out the service time.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-W-as-L",
+        "Giving the mean number in the system as the mean time in the system, skipping the division by the arrival rate in Little's law.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-time-unit-not-converted",
+        "Leaving a time in hours (or a number scaled by the wrong factor of 60) when the answer was asked in minutes.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-Lq-as-L",
+        "Giving the mean number in the system where the mean number waiting in the queue was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-Lq-as-utilisation",
+        "Giving the utilisation as the mean number waiting in the queue.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-Lq-minus-one",
+        "Subtracting one from L to get Lq, instead of subtracting the utilisation rho.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-pn-forgets-idle-factor",
+        "Giving rho^n as the probability of n customers, leaving out the factor 1 - rho.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-pn-exponent-off-by-one",
+        "Using rho^(n-1) or rho^(n+1) in the probability of n customers.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-pn-swaps-rho-and-complement",
+        "Raising 1 - rho to the power n and multiplying by rho, the wrong way round.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-tail-exponent-off-by-one",
+        "Using the wrong power of rho for the probability of at least n customers.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-tail-as-point-probability",
+        "Giving the probability of exactly n customers where at least n was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-tail-as-complement",
+        "Giving 1 - rho^n, the probability of fewer than n customers, where at least n was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-target-rounds-up",
+        "Rounding a boundary for a largest allowed rate up, or a smallest needed rate one too high.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-target-rounds-down",
+        "Rounding a boundary for a smallest needed rate down, so the target is just missed.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-target-uses-W-not-Wq",
+        "Using the formula for the mean time in the system where the target is on the wait in the queue.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-target-edge-of-stability",
+        "Taking the service rate minus one as the largest arrival rate, ignoring the wait target.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-L-target-inverted",
+        "Using lambda times the target L as the smallest service rate, instead of lambda (1 + 1/L).",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-L-target-adds-ell",
+        "Adding the target value of L to the arrival rate to get the service rate needed.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-drops-factor-two",
+        "Dropping the 2 in the economic order quantity formula, or dividing 2DS by H and not taking the root.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-no-square-root",
+        "Giving 2DS/H without taking the square root.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-swaps-S-and-H",
+        "Swapping the ordering cost S and the holding cost H in the economic order quantity formula.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-halves-instead",
+        "Using the square root of DS/(2H) as the order quantity.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-cost-only-ordering",
+        "Giving only the annual ordering cost DS/Q as the total of ordering plus holding.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-cost-only-holding",
+        "Giving only the annual holding cost HQ/2 as the total of ordering plus holding.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-holding-without-half",
+        "Charging holding cost on the full lot size, HQ, instead of on the average stock Q/2.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-orders-inverted",
+        "Giving Q/D, the fraction of a year's demand in one order, as the number of orders per year.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-orders-halved",
+        "Halving the number of orders per year D/Q.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-rop-forgets-lead-time",
+        "Giving one day's demand as the reorder point without multiplying by the lead time.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-rop-wrong-days",
+        "Using a 365-day year for daily demand when the question states the working days in the year.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-rop-uses-eoq",
+        "Building the reorder point from the order quantity instead of from the annual demand.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-cost-at-optimum-not-lot",
+        "Giving the minimum annual cost, at the economic order quantity, where the cost of the stated lot size was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-cost-at-lot-not-extra",
+        "Giving the whole cost of the stated lot size where the extra over the minimum was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-extra-ordering-only",
+        "Counting only the change in the ordering cost as the extra cost of a non-optimal lot size.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-extra-holding-only",
+        "Counting only the change in the holding cost as the extra cost of a non-optimal lot size.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-other-neighbour",
+        "Taking the cost, or the size, of the other feasible lot beside the economic order quantity.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-nearest-lot-not-cheapest",
+        "Picking the feasible lot size nearest to the economic order quantity, though the other neighbour is cheaper.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-ignores-multiple-constraint",
+        "Giving the economic order quantity itself when orders must be in multiples of a stated size.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-inverse-drops-two",
+        "Forgetting the factor 2 when finding the annual demand from the minimum cost.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-inverse-stops-at-Q",
+        "Giving the order quantity found from the minimum cost where the annual demand was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-inverse-doubles",
+        "Doubling the annual demand found from the minimum annual cost.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "eoq-forgets-purchase-cost",
+        "Leaving the purchase cost of the parts out of the total annual cost.",
+        area="queueing-inventory",
+    ),
+)
+
+# -- interior, closure and boundary (uc2-interior-closure-boundary) ---------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "ic-boundary-counts-interior-points",
+        "Counting the points inside an interval as boundary points, or listing extra points between the endpoints.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-boundary-counts-pieces",
+        "Counting the pieces of the set, one per piece, instead of the boundary points they contribute.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-boundary-endpoints-in-set-only",
+        "Taking as boundary points only the endpoints that belong to the set, so open ends are missed.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-boundary-misses-isolated-point",
+        "Leaving an isolated point of the set out of the boundary, as if only interval endpoints could be boundary points.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-boundary-misses-open-left-end",
+        "Missing the open left end of an interval when listing the boundary points.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-closure-drops-a-piece",
+        "Leaving one of the pieces out of the closure.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-closure-drops-open-ends",
+        "Giving the interior, with open ends, where the closure was asked.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-closure-fills-the-gaps",
+        "Joining the pieces of the closure into one interval, filling the gaps between them.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-closure-interior-confused",
+        "Giving the count for the closure where the interior was asked, or for the boundary where the closure was asked.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-closure-is-the-set",
+        "Taking the closure to be the set itself, with the open ends left open.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-closure-keeps-open-end",
+        "Closing only one end of each interval when forming the closure.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-count-membership-not-region",
+        "Counting the points that belong to the set instead of those in the interior, closure or boundary asked for.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-interior-drops-a-piece",
+        "Leaving one of the intervals out of the interior.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-interior-keeps-endpoints",
+        "Keeping the endpoints of the intervals in the interior, as if closed ends were interior points.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-isolated-point-interior",
+        "Treating an isolated point of the set as an interior point.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-isolated-point-limit-point",
+        "Calling an isolated point of the set, or a term of a sequence, a limit point.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-limit-point-must-belong",
+        "Thinking a limit point must belong to the set, so the limit of a sequence is left out.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-mean-inverted",
+        "Dividing the number of points by their sum instead of the sum by the number.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-mean-midrange",
+        "Giving the average of the least and greatest points instead of the mean of all of them.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-mean-sum-not-divided",
+        "Giving the sum of the points where the mean was asked.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-mean-wrong-divisor",
+        "Dividing the sum by one more or one fewer than the number of points.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-open-end-missed",
+        "Leaving the open ends of the intervals out of the closure points that are not in the set.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-punctured-centre-not-boundary",
+        "Forgetting that the removed centre of a punctured disc is a boundary point.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-rational-closure-itself",
+        "Taking the closure of the rationals in an interval to be the set of rationals itself, or leaving the piece out.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-rational-interior",
+        "Thinking the rationals in an interval have the whole interval as their interior.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-sequence-limit-missed",
+        "Leaving out the limit of a sequence such as 1/n when listing the limit points.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-sequence-terms-limit-points",
+        "Listing the terms of a sequence as limit points instead of its limit.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-touching-intervals-merged",
+        "Merging two intervals that meet at a point the set does not contain, so the shared endpoint is wrongly an interior point.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-closure-not-merged",
+        "Writing the closure interval by interval without joining closed intervals that now meet at a shared endpoint.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-isolated-point-touching-interval",
+        "Calling a listed single point isolated when it sits at the end of an interval of the set, which joins it to that interval.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-touching-intervals-not-merged",
+        "Keeping two intervals apart when a point of the set at the shared endpoint joins them, so the shared endpoint is wrongly listed.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "pde-slope-wrong-root",
+        "Giving the other characteristic slope: the smaller where the larger was asked, or the reverse, from taking the wrong sign of the square root.",
+        area="pde",
+    ),
+)
+
 #: Every entry, by id.
 CATALOGUE: dict[str, CatalogueEntry] = {entry.id: entry for entry in _ENTRIES}
 
