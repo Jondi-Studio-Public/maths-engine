@@ -10,7 +10,7 @@ capability_gates: [figure_stimulus]
 needs_figure: true
 read_aloud: true
 placement_eligible: false
-prerequisites: []
+prerequisites: [ey-position-words-scene]
 answer: grid_cells
 sources:
 - topic: ey_place_objects

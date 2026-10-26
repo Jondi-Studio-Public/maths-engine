@@ -27,7 +27,6 @@ sources:
 - topic: pw1_piecewise_cost_graph
   params: {tier: exam}
   difficulty: exam
-  key: exam-single
   stages: [exam]
 misconceptions:
 - id: pwg-leaves-out-the-fixed-charge

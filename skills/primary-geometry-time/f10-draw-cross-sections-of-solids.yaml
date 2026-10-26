@@ -5,7 +5,7 @@ name: Draw the cross-section of a prism cut parallel to a face
 domain: primary-geometry-time
 year_level: ['6']
 naplan_domain: [space]
-description: "Compare parallel cross-sections of a prism and relate them to right prisms by drawing the cut face. A solid made of unit cubes is drawn on isometric dot paper and cut by a flat plane parallel to one of its faces; the learner shades the cut face on a blank grid. Easy cuts a rectangular prism, so the two edges of the named face are read from the picture. Medium cuts a prism with an L-shaped end parallel to that end, where every layer gives the same L. Hard cuts a prism with a stepped end, where the cut depends on which column or layer it passes through, or compares two parallel cuts and shades the one with the greater or smaller area."
+description: "Compare parallel cross-sections of a prism and relate them to right prisms by drawing the cut face. A solid made of unit cubes is drawn on isometric dot paper and cut by a flat plane parallel to one of its faces; the learner shades the cut face on a blank grid. Easy cuts a rectangular prism, so the two edges of the named face are read from the picture. Medium cuts a prism with an L-shaped end parallel to that end, where every layer gives the same L. Hard cuts a stepped solid (not a prism), where the cut depends on which column or layer it passes through, or compares two parallel cuts and shades the one with the greater or smaller area."
 status: active
 capability_gates: [figure_stimulus]
 needs_figure: true
@@ -53,4 +53,4 @@ difficulty_progression:
     demand: "Cut a prism with an L-shaped end parallel to that end and shade the L, seeing that every layer gives the same shape."
   hard:
     steps: 3
-    demand: "Cut a stepped prism parallel to a side or the base, or compare two parallel cuts, where the cut face depends on the column or layer it passes through."
+    demand: "Cut a stepped solid (not a prism) parallel to a side or the base, or compare two parallel cuts, where the cut face depends on the column or layer it passes through."

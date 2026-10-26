@@ -37,7 +37,7 @@ def _make(tier, seed):
 
 
 def _chain(fig):
-    return [tuple(Fraction(v) for v in (*s["from"], *s["to"])) for s in fig["segments"]]
+    return [tuple(Fraction(str(v)) for v in (*s["from"], *s["to"])) for s in fig["segments"]]
 
 
 def _at(chain, x):
@@ -56,8 +56,8 @@ def _oracle(q):
     if "continues" in t:
         return _at(chain, n[0])
     if "$" in t:
-        c = int(re.search(r"\$(\d+)", t).group(1))
-        hits = [x for x in range(0, 40) if _at(chain, x) == c]
+        c = Fraction(re.search(r"\$(\d+(?:\.\d+)?)", t).group(1))
+        hits = [x for x in range(0, int(chain[-1][2]) + 1) if _at(chain, x) == c]
         assert len(hits) == 1
         return hits[0]
     if "different rate" in t:
@@ -108,11 +108,18 @@ def test_figure_valid_no_leak_and_shows_no_answer(tier):
         answers = [p.answer_text for p in q.parts] if q.parts else [q.answer_text, *q.distractors]
         figures.assert_no_leak(q.figure, answers)
         assert all("label" not in p for p in q.figure["points"])
-        # every vertex and every whole-usage point sits on the gridlines
-        chain = _chain(q.figure)
-        gy = q.figure["y_grid"]
-        for x in range(int(chain[-1][2]) + 1):
-            assert _at(chain, x) % gy == 0, (tier, seed, x)
+        # every vertex of the plan(s) read sits on the gridlines (the right-hand end of Plan A on the exam need not)
+        gx, gy = q.figure["x_grid"], q.figure["y_grid"]
+        segs = q.figure["segments"]
+        for s in segs[1 if q.parts else 0 :]:
+            for x, y in (s["from"], s["to"]):
+                assert Fraction(str(x)) % gx == 0, (tier, seed, x)
+                # on the single-line tiers every vertex is on the cost gridlines; on the exam only Plan B's fixed charge
+                # and Plan A's fixed charge (the kink and the right-hand ends need not be)
+                if not q.parts or x == 0:
+                    assert Fraction(str(y)) % Fraction(str(gy)) == 0, (tier, seed, x, y)
+        if q.parts:
+            assert Fraction(str(segs[0]["from"][1])) % Fraction(str(gy)) == 0
 
 
 @pytest.mark.parametrize("tier", TIERS)
@@ -135,7 +142,7 @@ def test_key_accepted_wrong_values_rejected(tier):
     sk = _skill()
     for seed in SEEDS:
         q = _make(tier, seed)
-        assert grade(sk, q, q.answer_text).correct and grade(sk, q, f"{q.answer}.0").correct
+        assert grade(sk, q, q.answer_text).correct and grade(sk, q, str(q.answer)).correct
         assert len(q.distractors) >= 2
         for d in q.distractors:
             assert not grade(sk, q, d).correct, (tier, seed, d)
@@ -187,11 +194,11 @@ def test_exam_shape_and_follow_through():
         canon = _canon(q)
         assert grade(sk, q, q.answer_text).correct
         # (d) follows through from the learner's own (b) and (c)
-        fa = int(re.search(r"fixed charge of \$(\d+)", q.text).group(1))
-        wrong_b, wrong_c = int(canon["b"]) + 1, int(canon["c"]) + 1
-        carried = fa + wrong_b * wrong_c
-        res = grade(sk, q, {**canon, "b": str(wrong_b), "c": str(wrong_c), "d": str(carried)})
-        if str(carried) in q.parts[3].distractors or str(carried) == canon["d"]:
+        fa = Fraction(re.search(r"\$(\d+(?:\.\d+)?)", q.text).group(1))
+        wrong_b, wrong_c = Fraction(canon["b"]) + 1, int(canon["c"]) + 1
+        carried = f"{float(fa + wrong_b * wrong_c):.2f}"
+        res = grade(sk, q, {**canon, "b": f"{float(wrong_b):.2f}", "c": str(wrong_c), "d": carried})
+        if carried in q.parts[3].distractors or carried == canon["d"]:
             continue
         assert res.parts["b"].marks == 0 and res.parts["c"].marks == 0
         assert res.parts["d"].marks == q.parts[3].marks and res.parts["d"].follow_through is True
@@ -227,6 +234,21 @@ def test_exam_plans_meet_exactly_once_and_a_is_straight():
         # both crossing orders occur (the crossing before and after B's kink)
     orders = {int(_canon(_make("exam", s))["c"]) < _chain(_make("exam", s).figure)[2][0] for s in range(200)}
     assert orders == {True, False}
+
+
+def test_exam_parts_have_many_distinct_answers_over_300_seeds():
+    for window in (0, 300):
+        qs = [_make("exam", s) for s in range(window, window + 300)]
+        for i, label in enumerate("abcd"):
+            counts = collections.Counter(q.parts[i].answer_text for q in qs)
+            # (a) and (d) are costs on many cost steps; (b) and (c) are rates and usages that must stay realistic
+            assert len(counts) >= (100 if label in "ad" else 80 if label == "b" else 70), (window, label, len(counts))
+            assert max(counts.values()) <= 0.1 * 300, (window, label)
+
+
+def test_medium_answers_are_widely_spread():
+    counts = collections.Counter(_make("medium", s).answer_text for s in range(300))
+    assert len(counts) >= 45 and max(counts.values()) <= 0.08 * 300
 
 
 def test_exam_contract():

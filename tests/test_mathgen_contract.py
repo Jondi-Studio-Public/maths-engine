@@ -301,6 +301,7 @@ def test_backward_compatible_outputs_pinned(topic):
 OPTION_NOTES_TOPICS = frozenset(
     {
         "grid_latlong_typed",
+        "pw1_piecewise_cost_graph",
         "nv_bits_hex_counts",
         "nv_summary_choice",
         "w3_flat_depreciation",

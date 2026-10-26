@@ -9259,18 +9259,18 @@
 {"answer": "$301.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/medium/0/b7d7e51b9287", "text": "A person earns $556.00 per week. Their fixed weekly expenses are $23.00 for ren…"}
 {"answer": "$184.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/medium/1/4a16cdc8c261", "text": "A person earns $551.00 per week. Their fixed weekly expenses are $25.00 for ren…"}
 {"answer": "$352.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/medium/2/ae99f3ed2c2e", "text": "A person earns $764.00 per week. Their fixed weekly expenses are $84.00 for ren…"}
-{"answer": "18", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/0/321dbf3be3a8", "text": "The graph shows the fare for a taxi trip. What is the fare, in dollars, for 6 k…"}
-{"answer": "11", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/1/ef65125a5d83", "text": "The graph shows the cost of hiring a trailer. According to the graph, how many …"}
-{"answer": "5", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/2/58f05efe2b62", "text": "The graph shows the monthly cost of a mobile data plan. According to the graph,…"}
-{"answer": "(a) 22; (b) 2; (c) 3; (d) 14", "id": "senior-read-a-piece-wise-linear-cost-graph/exam-single/0/a60fab9ef81c", "text": "The graph shows the cost of hiring a trailer from two companies. Company A char…"}
-{"answer": "(a) 9; (b) 1; (c) 5; (d) 13", "id": "senior-read-a-piece-wise-linear-cost-graph/exam-single/1/98fe59a64c84", "text": "The graph shows the monthly cost of two mobile data plans. Plan A has a fixed c…"}
-{"answer": "(a) 18; (b) 2; (c) 3; (d) 14", "id": "senior-read-a-piece-wise-linear-cost-graph/exam-single/2/cbf8a0d73740", "text": "The graph shows the fare charged by two taxi companies. Company A charges $8 pl…"}
-{"answer": "86", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/0/862704ce5460", "text": "The graph shows the monthly cost of a mobile data plan. The last section contin…"}
-{"answer": "5", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/1/0dc58149a6e7", "text": "The graph shows the cost of hiring a trailer. For how many days of hire is the …"}
-{"answer": "100", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/2/13f71de98496", "text": "The graph shows the fare for a taxi trip. Suppose the last section continues at…"}
-{"answer": "15", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/0/46cbed4afa6d", "text": "The graph shows a household's electricity bill for one quarter. Find the rate, …"}
-{"answer": "3", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/1/49aa520dec82", "text": "The graph shows a household's electricity bill for one quarter. For electricity…"}
-{"answer": "4", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/2/3e751df954fa", "text": "The graph shows the cost of hiring a trailer. Find the hire time, in days, at w…"}
+{"answer": "50.00", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/0/7691ee9a3791", "text": "The graph shows the charge for road freight of a load. Find the booking fee, in…"}
+{"answer": "60.00", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/1/70bbe79538e2", "text": "The graph shows a household's water bill for one quarter. Use the graph to find…"}
+{"answer": "20.00", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/2/441f5e986579", "text": "The graph shows the fare for a taxi trip. According to the graph, how many doll…"}
+{"answer": "(a) 320.00; (b) 2.10; (c) 150; (d) 395.00", "id": "senior-read-a-piece-wise-linear-cost-graph/exam/0/2d97ef2958f9", "text": "The graph shows the quarterly water bill from two water suppliers. Supplier A h…"}
+{"answer": "(a) 150.00; (b) 2.00; (c) 20; (d) 80.00", "id": "senior-read-a-piece-wise-linear-cost-graph/exam/1/27e2ee57e33c", "text": "The graph shows the monthly cost of two mobile data plans. Plan A has a fixed c…"}
+{"answer": "(a) 220.00; (b) 0.16; (c) 375; (d) 90.00", "id": "senior-read-a-piece-wise-linear-cost-graph/exam/2/ac75258da87b", "text": "The graph shows the quarterly bill from two electricity retailers. Retailer A c…"}
+{"answer": "82.50", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/0/53d410dc9a0b", "text": "The graph shows the monthly cost of a mobile data plan. If the last section con…"}
+{"answer": "297.50", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/1/0dc1f3c309fa", "text": "The graph shows a household's water bill for one quarter. The last section cont…"}
+{"answer": "1000", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/2/54681a93747a", "text": "The graph shows a household's electricity bill for one quarter. The bill was $3…"}
+{"answer": "10", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/0/18bd90f8fdd1", "text": "The graph shows the charge for sending a parcel by courier. At what parcel mass…"}
+{"answer": "40", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/1/017d0654a9f3", "text": "The graph shows a household's water bill for one quarter. Find the water used, …"}
+{"answer": "250", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/2/91fc50191387", "text": "The graph shows a household's gas bill for one quarter. Find the gas used, in m…"}
 {"answer": "-6", "id": "senior-recognise-acceleration-as-the-second-derivative-of-position/easy/0/ec5480fce37c", "text": "A motion sensor records the position of a particle moving along a straight line…"}
 {"answer": "8", "id": "senior-recognise-acceleration-as-the-second-derivative-of-position/easy/1/0024606d8b8c", "text": "At time t seconds, a lift (elevator) moving up and down a shaft has position s(…"}
 {"answer": "4", "id": "senior-recognise-acceleration-as-the-second-derivative-of-position/easy/2/cc88c5dfc859", "text": "The position of a small robot moving along a straight track at time t seconds i…"}
