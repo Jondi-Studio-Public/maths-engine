@@ -11974,6 +11974,18 @@
 {"answer": "{2pi/3, 5pi/3}", "id": "trig-equations-radians-list/medium/0/a0793cd117d5", "text": "Solve tan x = -√3 for 0 ≤ x < 2π. Give the exact solutions in radians as multip…"}
 {"answer": "{3pi/4, 7pi/4}", "id": "trig-equations-radians-list/medium/1/dbfab9246a83", "text": "Solve tan θ = -1 for 0 ≤ θ < 2π. Give the exact solutions in radians as multipl…"}
 {"answer": "{pi/6, pi/3, 7pi/6, 4pi/3}", "id": "trig-equations-radians-list/medium/2/c6d50373edc5", "text": "Solve sin 2x = √3/2 for 0 ≤ x < 2π. Give the exact solutions in radians as mult…"}
+{"answer": "3/4, 5/4", "id": "trig-equations-solutions-in-radians/easy/0/88a48f7e9dc9", "text": "List every solution of the equation cos(x) = -√2/2 in the interval 0 ≤ x ≤ 2π. …"}
+{"answer": "1/3, 5/3", "id": "trig-equations-solutions-in-radians/easy/1/ef4fdddf6f1d", "text": "Solve cos(x) = 1/2 for 0 ≤ x ≤ 2π. Give each solution as a multiple of π (for e…"}
+{"answer": "4/3, 5/3", "id": "trig-equations-solutions-in-radians/easy/2/0d27d19622ed", "text": "Solve sin(x) = -√3/2 for 0 ≤ x ≤ 2π. Give each solution as a multiple of π (for…"}
+{"answer": "(a) 4; (b) 8; (c) 1/8; (d) -7/8, -19/24, -3/8, -7/24, 1/8, …", "id": "trig-equations-solutions-in-radians/exam/0/3ce1813b85f5", "text": "Consider the equation cos(4(x - π/6)) = √3/2 for -π ≤ x ≤ π. (a) How many compl…"}
+{"answer": "(a) 4; (b) 8; (c) 7/24; (d) 7/24, 3/8, 19/24, 7/8, 31/24, 1…", "id": "trig-equations-solutions-in-radians/exam/1/1899026969d2", "text": "Consider the equation cos(4(x - π/3)) = √3/2 for 0 ≤ x ≤ 2π. (a) How many compl…"}
+{"answer": "(a) 3; (b) 6; (c) 1/4; (d) -11/12, -5/12, -1/4, 1/4, 5/12, …", "id": "trig-equations-solutions-in-radians/exam/2/533b658cdf1f", "text": "Consider the equation sin(3(x - π/6)) = √2/2 for -π ≤ x ≤ π. (a) How many compl…"}
+{"answer": "-3/4, -1/12, 1/4, 11/12", "id": "trig-equations-solutions-in-radians/hard/0/35ad8ea199d4", "text": "Solve sin(2(x - π/3)) = -1/2 for -π ≤ x ≤ π. Give each solution as a multiple o…"}
+{"answer": "1/6, 1/4, 2/3, 3/4, 7/6, 5/4, 5/3, 7/4", "id": "trig-equations-solutions-in-radians/hard/1/2a12376369c8", "text": "The equation sin(4(x - π/3)) = -√3/2 is to be solved over 0 ≤ x ≤ 2π. State all…"}
+{"answer": "-11/12, -7/12, -1/4, 1/12, 5/12, 3/4", "id": "trig-equations-solutions-in-radians/hard/2/ad083b7f93dc", "text": "Solve tan(3(x - π/3)) = 1 for -π ≤ x ≤ π. Give each solution as a multiple of π…"}
+{"answer": "1/6, 1/2", "id": "trig-equations-solutions-in-radians/medium/0/60e31fd5d3d2", "text": "List every solution of the equation cos(x - π/3) = √3/2 in the interval 0 ≤ x ≤…"}
+{"answer": "1/12, 7/12, 13/12, 19/12", "id": "trig-equations-solutions-in-radians/medium/1/668bbdb5fb3c", "text": "Find all values of x with 0 ≤ x ≤ 2π that satisfy tan(2x) = √3/3. Give each sol…"}
+{"answer": "1/3, 2/3, 4/3, 5/3", "id": "trig-equations-solutions-in-radians/medium/2/87f3a3ea868b", "text": "Solve cos(2x) = -1/2 for 0 ≤ x ≤ 2π. Give each solution as a multiple of π (for…"}
 {"answer": "3", "id": "trig-substitution-hsc-tan-and-convert/easy/0/554b71fdfac0", "text": "The substitution x = 3tan(θ) gives √(9 + x^2) = k sec(θ). What is the constant …"}
 {"answer": "4", "id": "trig-substitution-hsc-tan-and-convert/easy/1/965fb3a2364d", "text": "The substitution x = 2sin(θ) turns ∫ √(4 - x^2) dx into ∫ k cos^2(θ) dθ for a c…"}
 {"answer": "7", "id": "trig-substitution-hsc-tan-and-convert/easy/2/97ecab0c81c7", "text": "With the substitution x = 7sin(θ), √(49 - x^2) = k cos(θ). Find k."}

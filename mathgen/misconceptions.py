@@ -61295,6 +61295,36 @@ _ENTRIES += (
         "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
         area="estimation",
     ),
+    CatalogueEntry(
+        "trig-eq-special-angle-mixed-up",
+        "Mixing up the special angles, such as using π/3 where the value belongs to π/6, so every solution is wrong.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-sine-second-solution-uses-two-pi-minus",
+        "Using 2π - α, the second solution of a cosine equation, as the second solution of a sine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-cosine-second-solution-uses-pi-plus",
+        "Using π + α instead of 2π - α (that is, -α) as the second solution of a cosine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-negative-value-treated-as-positive",
+        "Ignoring the minus sign of the value, so the angles found are those for the positive value.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-shift-scaled-by-the-multiple",
+        "Dividing the horizontal shift by the multiple as well, giving a shift of b/a where the shift is b.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-cycles-off-by-one",
+        "Being out by a few in the number of periods that fit in the interval, such as counting the end of the interval as a new period.",
+        area="trigonometry",
+    ),
     # -- latitude and longitude (typed positions) --------------------------------------------------------------------
     CatalogueEntry(
         "llt-coordinates-swapped",

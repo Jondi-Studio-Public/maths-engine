@@ -8054,6 +8054,14 @@ trig-equations-radians-list:
     module: mathgen/generators/r3g_trig_equations_build.py
   - topic: r3g_exam_trig_equations
     module: mathgen/generators/r3g_trig_equations_build.py
+trig-equations-solutions-in-radians:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: w6b_trig_equation_interval
+    module: mathgen/generators/w6b_trig_equation_interval_build.py
+  - topic: exd_x_w6b_trig_equation_interval
+    module: mathgen/generators/w6b_trig_equation_interval_build.py
 trig-substitution-hsc-tan-and-convert:
   domain: integration
   status: active
