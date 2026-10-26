@@ -1,0 +1,102 @@
+id: trig-equations-solutions-in-radians
+name: Solve trigonometric equations over an interval in radians
+domain: trigonometry
+year_level:
+- '11'
+description: 'Find every solution, in radians, of f(a(x - b)) = c on a stated interval, for f one of sine, cosine or tangent:
+  as multiples of π when c is an exact value, or to 2 decimal places when c needs a calculator. The exam chain gives the number
+  of periods in the interval, the number of solutions (following through from the periods), the smallest solution and the
+  full list.'
+status: active
+placement_eligible: false
+prerequisites:
+- senior-solve-equations-involving-trigonometric-functions-using-technology-and
+- senior-understand-the-unit-circle-definition-of-cos-theta-acmmm034
+answer: list
+sources:
+- topic: w6b_trig_equation_interval
+  params: {}
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: w6b_trig_equation_interval
+  params: {}
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: w6b_trig_equation_interval
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: exd_x_w6b_trig_equation_interval
+  params:
+    tier: exam
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: trig-eq-calculator-in-degree-mode
+  description: Using a calculator in degree mode, so the solutions are in degrees and not in radians.
+- id: trig-eq-cosine-second-solution-uses-pi-minus
+  description: Using π - α instead of -α (that is, 2π - α) as the second solution of a cosine equation.
+- id: trig-eq-cosine-second-solution-uses-pi-plus
+  description: Using π + α instead of 2π - α (that is, -α) as the second solution of a cosine equation.
+- id: trig-eq-count-off-by-one
+  description: Being out by one to three in the number of solutions, such as counting a solution at the end of the interval
+    that is not there.
+- id: trig-eq-cycles-off-by-one
+  description: Being out by one to three in the number of periods that fit in the interval.
+- id: trig-eq-multiple-angle-not-divided
+  description: Solving for the angle inside the brackets but not dividing by the multiple, so the answers are not values of
+    x.
+- id: trig-eq-negative-value-treated-as-positive
+  description: Ignoring the minus sign of the value, so the angles found are those for the positive value.
+- id: trig-eq-second-solution-uses-the-wrong-quadrant
+  description: Taking the second solution from the wrong quadrant, such as π + α for sine or π - α for cosine.
+- id: trig-eq-shift-ignored
+  description: Leaving out the horizontal shift, solving f(ax) = c in place of f(a(x - b)) = c.
+- id: trig-eq-shift-scaled-by-the-multiple
+  description: Dividing the horizontal shift by the multiple as well, giving a shift of b/a where the shift is b.
+- id: trig-eq-shift-wrong-way
+  description: Subtracting the horizontal shift where it should be added, moving the solutions the wrong way.
+- id: trig-eq-sine-second-solution-uses-pi-plus
+  description: Using π + α instead of π - α as the second solution of a sine equation.
+- id: trig-eq-sine-second-solution-uses-two-pi-minus
+  description: Using 2π - α, the second solution of a cosine equation, as the second solution of a sine equation.
+- id: trig-eq-smallest-solution-is-the-principal-angle
+  description: Giving the principal angle α of the basic equation as the smallest solution, without dividing by the multiple
+    and adding the shift.
+- id: trig-eq-smallest-solution-is-the-second
+  description: Giving the second smallest solution in place of the smallest.
+- id: trig-eq-solutions-miss-second-family
+  description: Giving only one of the two solution families, for example α + 2πn without π - α + 2πn for sine.
+- id: trig-eq-solutions-stop-at-first-period
+  description: Giving only the solutions from the first turn of the angle inside the brackets, so the later solutions of a
+    multiple-angle equation are missing.
+- id: trig-eq-special-angle-mixed-up
+  description: Mixing up the special angles, such as using π/3 where the value belongs to π/6, so every solution is wrong.
+- id: trig-eq-tangent-period-is-two-pi
+  description: Adding 2π instead of π to find the other solutions of a tangent equation.
+- id: trig-eq-tangent-sign-of-angle-lost
+  description: Losing the sign of the angle when the value of the tangent is negative, so the solutions are reflected.
+- id: trig-eq-tangent-solved-like-sine
+  description: Solving a tangent equation as if it were a sine equation, with the second solution π - α and a period of 2π.
+difficulty_progression: Easy solves sin x, cos x or tan x equal to an exact value on 0 to 2π, where the two solution families
+  give two answers. Medium puts a multiple angle or a shift inside the brackets, so more solutions appear or the solutions
+  move, and allows the values 0 and ±1. Hard combines the multiple and the shift, uses intervals that run through negative
+  values, and includes values that need a calculator, answered to 2 decimal places in radians. The exam chain finds the number
+  of periods that fit in the interval, the number of solutions (following through), the smallest solution and all of them.
+tags:
+- trigonometry
+- trigonometric-equations
+- radians
+- solution-sets
+- specialist-mathematics
+- multiple-angle
+- list-answer
