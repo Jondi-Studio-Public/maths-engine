@@ -219,7 +219,9 @@ def test_scatter_exam_oracles():
         assert len(pts) == 8 and len({x for x, _ in pts}) == 8
         r = correlation([x for x, _ in pts], [y for _, y in pts])
         band = "strong" if abs(r) >= 0.75 else "moderate" if abs(r) >= 0.5 else "weak"
-        assert 0.55 <= abs(r) <= 0.7 or abs(r) >= 0.82, r  # clear of the 0.5 and 0.75 band edges
+        assert 0.15 <= abs(r) <= 0.4 or 0.55 <= abs(r) <= 0.7 or abs(r) >= 0.82, (
+            r
+        )  # clear of the 0.5 and 0.75 band edges
         assert q.parts[1].answer_text == f"{band} {'positive' if r > 0 else 'negative'}"
         assert "line of best fit" not in q.text.split("(a)")[0] and "line of best fit" in q.parts[2].prompt
         rising = re.search(r"y = (\d*)x \+ (\d+)", q.parts[2].prompt)
@@ -281,7 +283,7 @@ def test_polyline_key_needs_every_reading():
 
 def test_scatter_exam_strengths_vary_and_cycle_is_not_in_the_stem():
     bands = {sup.exam("exd_x_dr1_scatterplot", s).parts[1].answer_text.split()[0] for s in range(80)}
-    assert bands == {"strong", "moderate"}
+    assert bands == {"strong", "moderate", "weak"}
     for s in range(40):
         q = sup.exam("exd_x_dr1_time_series", s)
         assert "repeats every" not in q.text.split("(a)")[0] and f"Every {q.parts[1].answer_text} " not in q.text
@@ -290,3 +292,21 @@ def test_scatter_exam_strengths_vary_and_cycle_is_not_in_the_stem():
 @pytest.mark.parametrize("tier", ["easy", "medium"])
 def test_practical_data_questions_vary(tier):
     assert len({sup.single("dr1_graph_from_data", tier, s).text for s in range(300)}) >= 150
+
+
+def test_scatter_options_are_a_two_by_two_and_series_answers_vary():
+    from collections import Counter
+
+    for s in range(60):
+        q = sup.exam("exd_x_dr1_scatterplot", s)
+        opts = [q.parts[1].answer_text, *q.parts[1].distractors]
+        words = Counter(w for o in opts for w in o.split())
+        assert len(opts) == 4 and all(c == 2 for c in words.values()), (s, opts)
+    qs = [sup.exam("exd_x_dr1_time_series", s) for s in range(300)]
+    assert len({q.parts[1].answer_text for q in qs}) >= 4 and len({q.parts[2].answer_text for q in qs}) >= 4
+    assert not any("from year" in q.text or "year to" in q.text for q in qs)
+
+
+def test_practical_exam_rates_vary():
+    qs = [sup.exam("exd_x_dr1_graph_from_data", s) for s in range(300)]
+    assert len({q.parts[2].answer_text for q in qs}) >= 4

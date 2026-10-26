@@ -31,7 +31,7 @@ import statistics
 from math import ceil
 
 from .. import figures
-from ..core import attempts, check, generator, phrase
+from ..core import VerificationError, attempts, check, generator, phrase
 from ..figure_kinds.canvas import canvas as _canvas
 from ..grading.typed import polyline_answer_text
 from ._sr2a_kit import corr, mcq_part
@@ -691,7 +691,7 @@ def _data_hard_tiered(rng):
         n = rng.randint(5, 6)
         xs = list(range(n + 1))
         pts = [(x, fixed + r1 * min(x, cap) + r2 * max(x - cap, 0)) for x in xs]
-        if max(y for _, y in pts) <= 36:
+        if max(y for _, y in pts) <= 30:
             break
     story = (
         f"The cost of {rule['item']} is a fixed ${fixed}, plus ${r1} for each {rule['x_one']} up to {_cnt(cap, rule)}, "
@@ -770,8 +770,8 @@ def exd_x_dr1_graph_from_data(rng, tier="exam"):
 
 
 def _data_exam(rng):
-    rule, fixed, rate, _ = _rule_draw(rng, 6, 6)
-    xs = sorted(rng.sample(range(1, 7), 3))
+    rule, fixed, rate, _ = _rule_draw(rng, 5, 5)
+    xs = sorted(rng.sample(range(1, 6), 3))
     pts = [(x, fixed + rate * x) for x in xs]
     target = rng.choice([x for x in range(7, 11) if fixed + rate * x <= 40] or [7])
     check(
@@ -1101,8 +1101,11 @@ def exd_x_dr1_scatterplot(rng, tier="exam"):
 
 
 def _scatter_exam(rng):
-    band = rng.choice(("strong", "moderate", "moderate"))
-    ctx, pts, slope, intercept, r = _scatter_data(rng, 8, band=band)
+    band = rng.choice(("strong", "moderate", "weak"))
+    try:
+        ctx, pts, slope, intercept, r = _scatter_data(rng, 8, band=band)
+    except VerificationError:  # some context and band pairs have no data that fits the stated line: draw again
+        raise TooFewDistractors("no data for this context and band") from None
     direction = "positive" if slope > 0 else "negative"
     other = "negative" if slope > 0 else "positive"
     x0 = rng.choice([x for x in range(2, 12) if x not in {p[0] for p in pts}] or [13])
@@ -1110,7 +1113,7 @@ def _scatter_exam(rng):
     if not 1 <= predicted <= ctx["hi"] + 4:
         raise TooFewDistractors("the prediction is off the grid")
     key = f"{band} {direction}"
-    bands = [b for b in ("strong", "moderate", "weak") if b != band]
+    band2 = rng.choice([b for b in ("strong", "moderate", "weak") if b != band])
     mcq = mcq_part(
         "Describe the association shown by the scatterplot.",
         key,
@@ -1118,8 +1121,8 @@ def _scatter_exam(rng):
         [f"The points {'rise' if slope > 0 else 'fall'} and r = {r:.2f}, which is {band}."],
         [
             (f"{band} {other}", "dr1-association-direction-reversed"),
-            (f"{bands[0]} {direction}", "dr1-strength-one-band-off"),
-            (f"{bands[1]} {direction}", "dr1-strength-one-band-off"),
+            (f"{band2} {direction}", "dr1-strength-one-band-off"),
+            (f"{band2} {other}", "dr1-strength-one-band-off"),
         ],
     )
     if mcq is None:
@@ -1190,6 +1193,14 @@ _SERIES = (
         cycle="week",
     ),
     dict(
+        intro="The number of library books borrowed by a class was recorded each school day.",
+        x_word="Day",
+        x_label="Day",
+        y_label="Books borrowed",
+        p=5,
+        cycle="week",
+    ),
+    dict(
         intro="The sales of a surf shop, in thousands of dollars, were recorded each quarter.",
         x_word="Quarter",
         x_label="Quarter",
@@ -1208,13 +1219,13 @@ _SERIES = (
 )
 
 
-def _seasonal(rng, p, cycles):
+def _seasonal(rng, p, cycles, delta_pool=(-3, -2, 2, 3, 4)):
     """(values, offsets, delta): value = base + delta per cycle + offsets[season], whole numbers in 2..22."""
     for _ in attempts(2000, "a seasonal series that fits the grid"):
         offsets = rng.sample(range(0, p + 4), p)
         if max(offsets) - min(offsets) < 4:
             continue
-        delta = rng.choice((-3, -2, 2, 3, 4))
+        delta = rng.choice(delta_pool)
         base = rng.randint(2, 6) + (abs(delta) * (cycles - 1) if delta < 0 else 0)
         ys = [base + delta * (t // p) + offsets[t % p] for t in range(p * cycles)]
         if min(ys) >= 2 and max(ys) <= 22:
@@ -1338,10 +1349,10 @@ def exd_x_dr1_time_series(rng, tier="exam"):
 
 
 def _series_exam(rng):
-    ctx = rng.choice([c for c in _SERIES if c["p"] in (4, 6)])
+    ctx = rng.choice([c for c in _SERIES if c["p"] in (4, 5, 6, 7)])
     p = ctx["p"]
-    cycles = 12 // p if 12 % p == 0 else 2
-    ys, offsets, delta = _seasonal(rng, p, cycles)
+    cycles = 3 if p <= 5 else 2
+    ys, offsets, delta = _seasonal(rng, p, cycles, (-4, -3, -2, 2, 3, 4, 5))
     n = len(ys)
     pts = list(zip(range(1, n + 1), ys))
     forecast = ys[n - p] + delta
@@ -1389,18 +1400,17 @@ def _series_exam(rng):
         rng,
         (
             "{intro} The {n} values were {listed}. The pattern repeats regularly and the "
-            "level changes by the same amount from one {cycle} to the next.",
+            "level changes by the same amount from one cycle to the next.",
             "{intro} A series of {n} values is {listed}. It follows a pattern that repeats, "
-            "and each {cycle} is higher or lower than the last by the same amount.",
+            "and each cycle is higher or lower than the last by the same amount.",
             "Look at this series: {listed}. {intro} The pattern starts again at regular intervals, "
-            "and the level moves by a fixed amount from {cycle} to {cycle}.",
+            "and the level moves by a fixed amount from cycle to cycle.",
         ),
         intro=ctx["intro"],
         n=n,
         unit=unit,
         listed=listed,
         p=p,
-        cycle=ctx["cycle"],
     )
     fig = _blank(
         "A blank grid for a time series plot.",
@@ -1434,7 +1444,7 @@ def _series_exam(rng):
                 sensible_range=(1, None),
             ),
             part(
-                f"By how much does the level change from one {ctx['cycle']} to the next? Give the size of the change.",
+                f"By how much does the level change from one cycle to the next? Give the size of the change.",
                 "number",
                 num_fields(abs(delta)),
                 2,
