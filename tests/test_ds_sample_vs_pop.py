@@ -254,7 +254,7 @@ def test_exam_keys_are_rederived_from_the_stem():
         assert a == p.pop
         assert b == p.gap("random") and c == p.gap("convenience")
         if p.numeric:
-            assert d == abs(c - b)
+            assert d == c * p.N
         else:
             assert d == c * p.N / 100
 
@@ -311,3 +311,8 @@ def test_exam_answers_are_varied():
     assert len(answers) >= 100
     shapes = {prompt_shape(exam(s)) for s in range(60)}
     assert len(shapes) >= 3 or len({tuple(p.prompt[:20] for p in exam(s).parts) for s in range(60)}) >= 2
+
+
+def test_exam_part_d_is_varied():
+    distinct = {exam(s).parts[3].answer_text for s in range(300)}
+    assert len(distinct) >= 120, len(distinct)

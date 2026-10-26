@@ -64,7 +64,7 @@ def _company(rng, key, places: int, slips: list) -> list:
     low = max(low, 3 - len(above))
     chosen = below[:low] + above[: 3 - low]
     rest = [c for c in ordered if c not in chosen]
-    return keep_company(key, chosen + rest, pool, 3, places=places, max_pool=30)
+    return keep_company(key, chosen + rest, pool, 3, places=places, max_pool=24)
 
 
 def single_number(rng, text, value, places, working, slips, **kw):
@@ -294,7 +294,7 @@ def _prop_scenario(rng: random.Random) -> Scenario:
     ctx = rng.choice(_PROP_CTX)
     target = rng.choice(sorted(ctx["targets"]))
     who, conv, bias = ctx["targets"][target]
-    N, n = rng.choice((100, 200)), 20
+    N, n = rng.choice((100, 200, 300, 400, 500)), 20
     cats = ctx["cats"]
     for _ in attempts(3000, "a population and two samples with whole-number percentages"):
         pct = rng.randint(12, 45)
@@ -667,16 +667,20 @@ def _exam_chain(rng: random.Random) -> dict:
             )
         )
     if mean:
-        d_prompt = "One sample's mean is nearer the whole-school mean than the other's. By how much is it nearer?"
-        d_value = abs(s.g_cnv - s.g_rnd)
+        d_prompt = (
+            f"A teacher multiplies the convenience sample's mean by {s.N} to estimate the total number of "
+            f"{s.ctx['total']} for the whole school. By how many does this estimate differ from the true total?"
+        )
+        d_value = s.g_cnv * s.N
         d_slips = [
-            (s.g_rnd + s.g_cnv, "ds-svp-sum-of-gaps"),
-            (abs(s.cnv - s.rnd), "ds-svp-gap-between-samples"),
-            (max(s.g_rnd, s.g_cnv), "ds-svp-one-gap-only"),
+            (s.g_cnv * s.n, "ds-svp-scales-by-sample-size"),
+            (s.g_cnv, "ds-svp-gap-not-scaled"),
+            (s.cnv * s.N, "ds-svp-estimate-not-error"),
+            (s.pop * s.N, "ds-svp-true-total-not-error"),
         ]
-        d_ft = "Abs(Abs(part_b) - Abs(part_c))"
-        d_places = places
-        d_work = [f"|{float(s.g_cnv):g} - {float(s.g_rnd):g}| = {float(d_value):g}."]
+        d_ft = f"Abs(part_c) * {s.N}"
+        d_places = 0
+        d_work = [f"{float(s.g_cnv):g} x {s.N} = {float(d_value):g}."]
     else:
         d_prompt = (
             f"The school applies the convenience sample's percentage to all {s.N} students to estimate how many "
