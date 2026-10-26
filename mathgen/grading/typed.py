@@ -112,6 +112,14 @@ def _label_text(label: str) -> str:
     return re.sub(r"\s+", "", label).replace("[", "(").replace("]", ")").replace("\u2019", "'").replace("\u2032", "'")
 
 
+def _call_label_key(label: str) -> str:
+    """`_label_text` with the name before the bracket folded to lower case ("F(1)" is "f(1)"); the argument inside
+    the bracket is compared as written, so "f(2)" and "g(1)" stay other labels than "f(1)"."""
+    text = _label_text(label)
+    name, bracket, rest = text.partition("(")
+    return name.casefold() + bracket + rest
+
+
 def _event_label_fits(label: str, text: str) -> bool:
     """ "P(green)" for a question that asks the probability of green: every word inside is one the sentence that asks
     for the probability uses. "P(red)" is not, when red is only among the data."""
@@ -132,7 +140,7 @@ def _answer_label_fits(question, canonical: str | None, label: str) -> bool:
     a gradient's "m", or a single variable the question names."""
     canonical_label = _ANSWER_LABEL_RE.match(canonical or "")
     if canonical_label is not None:
-        return _label_text(canonical_label.group(1)) == _label_text(label)
+        return _call_label_key(canonical_label.group(1)) == _call_label_key(label)
     text = getattr(question, "text", None) or ""
     if re.search(r"[(\[']", label):
         return _label_text(label) in _label_text(text) or _event_label_fits(label, text)
@@ -147,7 +155,7 @@ def _names_another_call(question, given: str) -> bool:
     written = _ANSWER_LABEL_RE.match(given or "")
     if wanted is None or written is None or "(" not in wanted.group(1) or "(" not in written.group(1):
         return False
-    return _label_text(wanted.group(1)) != _label_text(written.group(1))
+    return _call_label_key(wanted.group(1)) != _call_label_key(written.group(1))
 
 
 def _without_fitting_label(question, given: str) -> str:
@@ -3318,7 +3326,9 @@ def _table_given_cells(answer: dict, given: str) -> dict[str, str] | None:
     return dict(zip(keys, segments))
 
 
-def _table_cell_correct(expected, given: str) -> bool:
+def _table_cell_correct(expected, given: str, *, fragment: bool = False) -> bool:
+    """Whether a cell's reply matches its key. `fragment` says the text is one piece of a longer reply (a set item
+    cut out of "x = {0, 6}"), whose brackets the whole reply balances, not the piece."""
     # a "%" or "!" the key cell does not show is a different reply (74.0% for 74.0)
     if any(c in given and c not in str(expected) for c in "%!"):
         return False
@@ -3328,7 +3338,7 @@ def _table_cell_correct(expected, given: str) -> bool:
         except Exception:  # noqa: BLE001 - normalisation is best-effort
             logger.warning("extract_values failed for table cell %.200r", given, exc_info=True)
             return False
-        if len(values) != 1 or _reply_has_stray_marks(_cell_text(expected), given):
+        if len(values) != 1 or _reply_has_stray_marks(_cell_text(expected), given, fragment=fragment):
             return False
         value = _as_fraction(expected.replace(" ", "")) if isinstance(expected, str) else expected
         return _component_target(_cell_text(expected), value).matches(values[0])
@@ -3408,7 +3418,7 @@ def _set_item_matches(expected, given: str) -> bool:
         parts = [part.strip() for part in inner.split(",")]
         return len(parts) == len(expected) and all(_set_item_matches(e, part) for e, part in zip(expected, parts))
     if _is_numeric_cell(expected):
-        return _table_cell_correct(expected, given)
+        return _table_cell_correct(expected, given, fragment=True)
     # The page shows an item key "pi/6" as "π/6" (`display_question`) and the stem may say "typed like 5π/6":
     # either spelling of the constant is the same item.
     return _label_key(given).replace("π", "pi") == _label_key(expected).replace("π", "pi")
@@ -3430,7 +3440,7 @@ def grade_set(question, given: str) -> GradeResult:
         # "1 2 3 4 5 6" for a key of single digits or letters: the items are one character each, so spaces separate them
         items = given.strip().strip("{}").split()
     given_normalised = "{" + ", ".join(items) + "}"
-    if _reply_is_an_expression(question, given):
+    if _reply_is_an_expression(question, given) or _is_unfinished(canonical, given):
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
     if len(items) != len(expected):
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
@@ -3996,20 +4006,29 @@ def _unit_letter_is_named(word: str, *texts: str) -> bool:
     return any(alone.search(text or "") for text in texts)
 
 
-def _is_unfinished(answer_text: str, given: str) -> bool:
-    """Whether `given` ends on an operator ("9+"), opens a bracket it never closes ("(9") or doubles an "=" ("== 9")."""
+def _is_unfinished(answer_text: str, given: str, *, fragment: bool = False) -> bool:
+    """Whether `given` ends on an operator ("9+"), opens a bracket it never closes ("(9") or doubles an "=" ("== 9").
+    A `fragment` (one item cut from a set reply) is not tested for brackets: its set braces are in the text around it."""
     text = (given or "").rstrip()
     tail = text[-1:]
     if tail and tail in _DANGLING_END and not (answer_text or "").rstrip().endswith(tail):
         return True
     key = answer_text or ""
+    if fragment:
+        return "==" in text
     return "==" in text or any(
         text.count(o) > text.count(c) and key.count(o) == key.count(c) for o, c in zip(_OPENERS, _CLOSERS)
     )
 
 
 def _reply_has_stray_marks(
-    answer_text: str, given: str, *, single_value: bool = False, vector: bool = False, question_text: str = ""
+    answer_text: str,
+    given: str,
+    *,
+    single_value: bool = False,
+    vector: bool = False,
+    question_text: str = "",
+    fragment: bool = False,
 ) -> bool:
     """Whether a typed reply carries a letter or a minus that is part of no number (see the block comment above).
     `answer_text` is the canonical it is judged against; `single_value` reads only the side after the last "=",
@@ -4022,8 +4041,9 @@ def _reply_has_stray_marks(
         # An answer such as "y = -x + 7" is written "-x + 7" by a learner who leaves the label off.
         return re.match(r"-[ \t]*[^\d.$£€¥\s]", _value_side(answer_text).lstrip()) is None
     canonical = _canonical_letters(answer_text, single_value)
+    canonical_folded = frozenset(letter.casefold() for letter in canonical)  # "(h, 1)" for the key's "(H, 1)"
     # A dangling operator ("9+", "9-"), an unclosed bracket ("(9") and a doubled "==" state nothing finished.
-    if _is_unfinished(answer_text, text):
+    if _is_unfinished(answer_text, text, fragment=fragment):
         return True
     if single_value:
         text = _value_side(text)  # "area = 3 x 3 = 9" states 9
@@ -4034,10 +4054,13 @@ def _reply_has_stray_marks(
             return True
     for run in _LETTER_RUN_RE.finditer(text):
         word = run.group(0)
-        if len(word) != 1 or word in canonical or _NAMES_A_BRACKET_RE.match(text, run.end()):
+        if len(word) != 1 or _NAMES_A_BRACKET_RE.match(text, run.end()):
             continue
-        if text[run.end() : run.end() + 1] == "$":
-            continue  # "A$9": a currency prefix
+        # a letter the canonical shows, in either case ("t" for "T"); before "$" only the key's own case ("a$9" is no "A$9")
+        if word in canonical or (word.casefold() in canonical_folded and text[run.end() : run.end() + 1] != "$"):
+            continue
+        if word in "AC" and text[run.end() : run.end() + 1] == "$":
+            continue  # "A$9", "C$9": the currency prefixes the library uses (US, AU, NZ, CA are longer runs)
         if (
             _APOSTROPHE_RE.match(text, run.end())
             or text[max(run.start() - 1, 0) : run.start()] in ("'", "\u2019")

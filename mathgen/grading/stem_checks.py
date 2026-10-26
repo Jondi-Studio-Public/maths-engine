@@ -105,12 +105,17 @@ def _angle_unit_conflicts(question, given: str) -> bool:
         # "7 degrees" or "8 t" for an answer in cm or kg: words the unit table has no id for.
         unit_asked = units._asked_unit(question)
         if (
-            unit_asked in (None, "celsius", "fahrenheit", "kelvin", "tonne")  # "5 t" is a tonne
+            unit_asked in (None, "celsius", "fahrenheit", "kelvin")
             or unit_asked.startswith("unlisted:")
             or _PLAIN_VALUE_KEY_RE.match(key) is None
         ):
             return False
-        return bool(_DEGREE_WORD_RE.match(after) or _RADIAN_WORD_RE.match(after) or after.lower() == "t")
+        # "5 t" is a tonne where the stem asks for tonnes; degrees and radians are no mass
+        return bool(
+            _DEGREE_WORD_RE.match(after)
+            or _RADIAN_WORD_RE.match(after)
+            or (after.lower() == "t" and unit_asked != "tonne")
+        )
     if _PI_WORD_RE.search(after) and asked == "degrees":
         return True  # "80.3π" for an angle in degrees
     if after:

@@ -410,3 +410,74 @@ def test_single_character_outcomes_may_be_separated_by_spaces():
     _refuses("ey-list-possible-outcomes", 2, 3, "A B M O T")
     # not for longer items: "red green" is not two outcomes
     _refuses("ey-list-possible-outcomes", 0, 2, "orange yellow")
+
+
+# -- review of PR 147: labelled sets, currency prefixes, tonnes and degrees, letter case --------------------
+
+
+def test_a_labelled_set_with_trailing_punctuation_is_read_as_the_set():
+    _accepts(
+        "uc2-units-and-zero-divisors-zn",
+        0,
+        0,
+        "{0, 10, 20, 30, 40}",
+        "x = {0, 10, 20, 30, 40}",
+        "A = {0, 10, 20, 30, 40}",
+        "x ∈ {0, 10, 20, 30, 40}",
+        "S = {0, 10, 20, 30, 40}",
+        "the set is {0, 10, 20, 30, 40}",
+        "{0, 10, 20, 30, 40},",
+    )
+    _refuses(
+        "uc2-units-and-zero-divisors-zn",
+        0,
+        0,
+        "{0, 10, 20, 30",
+        "x = {0, 10, 20, 30",
+        "x = {0, 10, 20, 30, 40,",
+        "{0, 10, 20, 30, 40+",
+    )
+    _accepts(
+        "uc2-permutation-cycle-notation",
+        0,
+        0,
+        "x = {(1, 5, 2, 4), (3, 6)}",
+        "x = (1, 5, 2, 4), (3, 6)",
+        "x = (1,5,2,4),(3,6)",
+        "{(1, 5, 2, 4), (3, 6)},",
+    )
+    _refuses("uc2-permutation-cycle-notation", 0, 0, "x = (1, 5, 2, 4), (3, 6", "x = (1, 5, 2, 4), (3, 7)")
+    _accepts("f10-partition-one-two-digit-numbers", 0, 0, "x = {(3, 3), (2, 13), (1, 23), (0, 33)}")
+
+
+def test_only_the_currency_prefixes_the_library_uses_pass_before_a_dollar_sign():
+    skill_id = "senior-use-currency-exchange-rates-to-determine-the-cost"
+    _accepts(skill_id, 0, 0, "A$138.00", "C$138.00", "AU$138.00", "$138.00", "138")
+    _refuses(skill_id, 0, 0, "a$138.00", "Q$138.00", "x$138.00", "z$138.00")
+
+
+def test_degrees_are_no_mass_even_where_the_stem_asks_for_tonnes():
+    tonnes = _synthetic("number", 5, "5", "Convert 5000 kg to tonnes.")
+    for good in ("5", "5 t", "5 tonnes"):
+        assert grade_kind("number", tonnes, good).correct, good
+    for bad in ("5°", "5 °", "5 degrees", "5 radians"):
+        assert not grade_kind("number", tonnes, bad).correct, bad
+    skill = _skills()["senior-estimate-the-mass-of-different-objects"]
+    question = engine.make_for_skill(skill, 0, source=3)
+    for bad in ("0.297°", "0.297 °", "0.297 degrees"):
+        assert not engine.grade(skill, question, bad).correct, bad
+
+
+def test_a_reply_may_write_a_canonical_letter_in_either_case_but_unit_letters_stay_refused():
+    _accepts("build-sample-space", 0, 0, "{(H, 1), (H, 2), (H, 3), (T, 1), (T, 2), (T, 3)}")
+    _accepts("build-sample-space", 0, 0, "{(h, 1), (h, 2), (h, 3), (t, 1), (t, 2), (t, 3)}")
+    _refuses("build-sample-space", 0, 0, "{(h, 1), (h, 2), (h, 3), (t, 1), (t, 2), (t, 4)}")
+    group = _synthetic("number", 9, "9", "What is the order of the group?")
+    for bad in ("9 t", "9 T", "9 A", "9 d"):
+        assert not grade_kind("number", group, bad).correct, bad
+
+
+def test_a_function_letter_may_be_written_in_either_case_but_not_another_call_or_letter():
+    for skill_id, source, seed in (("function-notation", 0, 0),):
+        _accepts(skill_id, source, seed, "f(1) = -6", "F(1) = -6", "F (1) = -6", "-6")
+        _refuses(skill_id, source, seed, "f(2) = -6", "F(2) = -6", "g(1) = -6", "G(1) = -6")
