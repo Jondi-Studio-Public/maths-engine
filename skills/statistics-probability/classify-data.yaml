@@ -20,13 +20,6 @@ sources:
   stages:
   - 3
   - 4
-- topic: r3j_classify_variable
-  params: {}
-  difficulty: hard
-  stages:
-  - 5
-  - 6
-  - maintenance
 - topic: ds_classify_ordered
   key: ordered-medium
   params: {}
@@ -34,6 +27,13 @@ sources:
   stages:
   - 3
   - 4
+- topic: r3j_classify_variable
+  params: {}
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
 - topic: ds_classify_ordered
   key: ordered-hard
   params: {}
