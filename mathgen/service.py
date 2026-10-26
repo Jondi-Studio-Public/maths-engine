@@ -34,7 +34,7 @@ from dataclasses import asdict, dataclass, field
 from fractions import Fraction
 
 from . import __version__, engine, misconceptions
-from .core import display_question, mcq_options, paper_notation
+from .core import _learner_text, display_question, mcq_options, paper_notation
 from .engine import QuestionChanged  # noqa: F401  (re-exported for callers of grade_reply)
 from .grading.typed import table_prompt
 from .skills import Skill
@@ -623,7 +623,12 @@ def _option_reply(item, reply):
     if text in options:
         return options.index(text)
     folded = [i for i, option in enumerate(options) if option.casefold() == text.casefold()]
-    return folded[0] if len(folded) == 1 else reply
+    if len(folded) == 1:
+        return folded[0]
+    # The text as the page showed it (en dash, ×, superscripts, ≥), when it names exactly one option.
+    shown = [" ".join(str(option).split()).casefold() for option in [_learner_text(o) for o in mcq_options(item)]]
+    seen = [i for i, option in enumerate(shown) if option == text.casefold()]
+    return seen[0] if len(seen) == 1 else reply
 
 
 def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:
