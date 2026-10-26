@@ -15,6 +15,9 @@ bottom, both from 0.
 A reply is canonical JSON from a client, ``{"cells": [[0, 0], [1, 0]]}`` or a bare ``[[0, 0], [1, 0]]``, or the
 typed form ``(0, 0) (1, 0)``, which may sit inside one pair of [] or {}, ``[(0, 0), (1, 0)]``.
 The JSON is read with `json.loads` and nothing else: no reply is ever evaluated.
+A question whose stem names squares by grid reference (``place-features-on-a-grid-map``) sets ``"refs": true`` in its
+answer; its reply may then also be typed as grid references, ``D4 C2`` (the letter is the column counted from A, the
+number the row counted from 1 at the bottom), in either case and not mixed with ``(x, y)`` pairs.
 A cell listed twice counts once. Any cell off the canvas, a coordinate that is not a whole number, more than
 :data:`MAX_CELLS` cells, or anything else in the text makes the reply wrong.
 """
@@ -37,6 +40,7 @@ Cell = tuple[int, int]
 
 _CELL_RE = re.compile(r"\(\s*(-?\d{1,4})\s*,\s*(-?\d{1,4})\s*\)")
 _FILLER_RE = re.compile(r"^(?:[\s,;]|\band\b)*$", re.IGNORECASE)
+_REF_RE = re.compile(r"(?<![A-Za-z0-9])([A-Za-z])\s*0*([1-9]\d?)(?![A-Za-z0-9])")
 
 
 def _is_int(v) -> bool:
@@ -58,12 +62,23 @@ def _cells(values) -> set[Cell] | None:
     return out
 
 
-def _given_cells(given) -> set[Cell] | None:
+def _ref_cells(text: str) -> set[Cell] | None:
+    """Cells from grid references such as ``D4`` or ``d4, C2``; None unless the whole reply is references."""
+    found = [(ord(m.group(1).upper()) - ord("A"), int(m.group(2)) - 1) for m in _REF_RE.finditer(text)]
+    leftover = _REF_RE.sub(" ", text).rstrip(" .")
+    if not found or len(found) > MAX_CELLS or not _FILLER_RE.fullmatch(leftover):
+        return None
+    return set(found)
+
+
+def _given_cells(given, refs: bool = False) -> set[Cell] | None:
     if not isinstance(given, str):
         return None
     text = given.strip()
     if not text or len(text) > MAX_GRID_REPLY_LENGTH:
         return None
+    if refs and text[0] not in "[{" and "(" not in text:
+        return _ref_cells(text)
     if text[0] in "[{":
         try:
             return _cells(json.loads(text))
@@ -83,15 +98,26 @@ def cell_text(cells) -> str:
     return " ".join(f"({x}, {y})" for x, y in sorted({tuple(c) for c in cells}, key=lambda c: (c[1], c[0])))
 
 
-def cells_answer(cells, grid, match: str = "exact") -> dict:
-    """`Question.answer` for a grid_cells question. Generators call this."""
+def ref_text(cells) -> str:
+    """Cells as grid references, sorted by row then column: ``A1 B1 A2``. Columns past Z cannot be written."""
+    cells = sorted({tuple(c) for c in cells}, key=lambda c: (c[1], c[0]))
+    if any(not 0 <= x < 26 for x, _ in cells):
+        raise ValueError("a grid reference needs a column from A to Z")
+    return " ".join(f"{chr(65 + x)}{y + 1}" for x, y in cells)
+
+
+def cells_answer(cells, grid, match: str = "exact", refs: bool = False) -> dict:
+    """`Question.answer` for a grid_cells question. Generators call this. ``refs`` also accepts typed grid references."""
     if match not in MATCH_MODES:
         raise ValueError(f"unknown match mode {match!r}")
     width, height = grid
     cells = sorted({(int(x), int(y)) for x, y in cells}, key=lambda c: (c[1], c[0]))
     if not cells or any(not (0 <= x < width and 0 <= y < height) for x, y in cells):
         raise ValueError("every answer cell must be on the grid")
-    return {"cells": [list(c) for c in cells], "grid": [width, height], "match": match}
+    out = {"cells": [list(c) for c in cells], "grid": [width, height], "match": match}
+    if refs:
+        out["refs"] = True
+    return out
 
 
 # ---------------------------------------------------------------- shape comparison
@@ -212,10 +238,11 @@ def grade_grid_cells(question, given: str) -> GradeResult:
     grid = answer.get("grid")
     if not expected or not (isinstance(grid, (list, tuple)) and len(grid) == 2 and all(_is_int(v) for v in grid)):
         return GradeResult(correct=False, canonical=canonical)
-    cells = _given_cells(given)
+    refs = answer.get("refs") is True
+    cells = _given_cells(given, refs)
     if cells is None:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     width, height = grid
     on_grid = bool(cells) and all(0 <= x < width and 0 <= y < height for x, y in cells)
     correct = on_grid and _matches(answer.get("match", "exact"), expected, cells)
-    return GradeResult(correct=correct, canonical=canonical, given_normalised=cell_text(cells))
+    return GradeResult(correct=correct, canonical=canonical, given_normalised=(ref_text if refs else cell_text)(cells))

@@ -11,7 +11,7 @@ columns.
   the rank).
 * exam (``exd_x_fy1la_column_space``): a 3×4 matrix of rank 2 whose first column is a pivot column. (a) its rank,
   (b) its nullity (follows through from (a)), (c) which columns of A form a basis of its column space (a list of
-  column numbers), (d) the coefficients that write the first non-pivot column in terms of the basis columns.
+  column numbers; the pivot columns are the key but any two independent columns are accepted), (d) the coefficients that write the first non-pivot column in terms of the basis columns.
 
 Every matrix is built from a known rank (as `B C`, or as `E R` for a target RREF `R`) and re-derived by Gauss-Jordan
 elimination in exact fractions and by SymPy's `rank()`, `columnspace()` and `rref()`.
@@ -20,6 +20,7 @@ elimination in exact fractions and by SymPy's `rank()`, `columnspace()` and `rre
 from __future__ import annotations
 
 from ..core import VerificationError, attempts, check, generator, phrase
+from ..grading.matrix import column_basis_answer, is_column_basis, read_column_numbers
 from ._fy1la_kit import (
     column,
     fm,
@@ -283,8 +284,15 @@ def exd_x_fy1la_column_space(rng, tier="exam"):
             (pair_text(p1, free[0]), "basis-mixes-pivot-and-free-columns"),
             (pair_text(p2, free[-1]), "basis-mixes-pivot-and-free-columns"),
             (pair_text(1, 2), "first-columns-assumed-independent"),
+            # Sets of the wrong size are never a basis, whatever the columns: the wrong-size slips that remain.
+            ("1, 2, 3, 4", "rank-counts-all-columns"),
+            (", ".join(str(c + 1) for c in sorted({p1, p2, free[0]})), "dimension-counts-dependent-vector"),
+            (str(p1 + 1), "rank-misses-a-pivot"),
         ]
-        dist_c = text_distractors(basis_text, cands)
+        basis_answer = column_basis_answer(mat, [p1 + 1, p2 + 1])
+        # Any two independent columns are a basis, so a candidate that happens to be one is a right answer, not a slip.
+        wrong_cands = [(t, tag) for t, tag in cands if not is_column_basis(basis_answer, read_column_numbers(t))]
+        dist_c = text_distractors(basis_text, wrong_cands)
         dist_a = num_distractors(
             2, [(3, "rank-counts-all-rows"), (4, "rank-counts-all-columns"), (1, "rank-misses-a-pivot")]
         )
@@ -302,11 +310,11 @@ def exd_x_fy1la_column_space(rng, tier="exam"):
         )
         if None in (dist_a, dist_b, dist_c, dist_d):
             continue
-        # The list answer is the pivot columns; the grader reads it as a list of numbers.
+        # The key is the pivot columns, but the grader accepts any two independent columns (`column_basis`).
         part_c = dict(
             prompt="Which columns of A (by column number) form a basis for the column space of A?",
-            answer_kind="list",
-            answer=[p1 + 1, p2 + 1],
+            answer_kind="column_basis",
+            answer=basis_answer,
             answer_text=basis_text,
             answer_latex="plain:" + basis_text,
             marks=2,

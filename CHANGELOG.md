@@ -45,6 +45,17 @@ Each question's id (below) tells you when the question behind it has changed.
 - About 25 skills raised an error on some seeds (empty distractor candidates, a distractor that collapsed onto the
   key, a costed graph draw whose total was one printed cost); they now redraw. (#126, #127, #130)
 - The variance multiplier in the linear-transform working printed `60.0^2` instead of `60^2`. (#129)
+- Marking, round 4 (grader and display). Correct replies that were marked wrong now pass: the answer as the page shows
+  it (Greek letters, `m³`, an en dash or `×` in a multiple-choice option), dot-plot labels such as `2` for `2.0`, stem
+  and leaf as `2 | 3 7 8 9`, a grid reference such as `D4` (the grid-map skills now show the reference as the key), a
+  mixed number in a pair, any valid basis of the column space, `ln|u|` where `u` is positive, a `π` item in a list.
+  Replies that were wrongly accepted are now refused: `-4i` for -4, hedge words such as "at least 9", "nearly 9" or
+  "idk 9", a false equation before the last `=` ("10 = 9"), a mismatched label ("f(2) = -6" for f(1)), a trailing
+  `+`, `-` or open bracket, a `%` on a dollar or unit answer, a decimal copied from the stem as a fraction, a duplicated
+  root outside polynomial equations, and a bare ratio decimal. A form the stem names (the nearest tenth) is now
+  enforced. Spoken answers must give one value per component in order, with no negation, and the tolerance for a key
+  with two or more decimal places is ±0.005 instead of ±0.051. Question ids change for the grid-map, stem-and-leaf and
+  column-space skills.
 
 ## [0.2.0] - 2026-10-19
 

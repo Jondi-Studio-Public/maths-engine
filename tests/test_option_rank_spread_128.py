@@ -177,6 +177,10 @@ def features(text) -> dict | None:
     text = str(text).strip()
     if (v := _number(text)) is not None:
         return {"value": v}
+    if re.fullmatch(r"([A-J]\d+)( [A-J]\d+)*", text):  # grid references: the count and the summed column and row
+        refs = text.split()
+        cols, rows = [ord(r[0]) - 65 for r in refs], [int(r[1:]) for r in refs]
+        return {"count": float(len(refs)), "row": sum(rows) / len(rows), "column": sum(cols) / len(cols)}
     if re.fullmatch(r"[0-9A-F]*[A-F][0-9A-F]*", text):  # a hexadecimal numeral with a letter: ordered by its value
         return {"value": float(int(text, 16))}
     if m := re.fullmatch(r"x = (\S+), y = (\S+)", text):
@@ -196,6 +200,9 @@ def features(text) -> dict | None:
         return {"size": float(len(items)), "_items": frozenset(items)}
     if "Leaf =" in text:
         rows = tuple(tuple(int(d) for d in part.split("=")[1].split()) for part in text.split(", "))
+        return {"rows": rows}
+    if re.fullmatch(r"\d+ \| [\d ]*(, \d+ \| [\d ]*)*", text):  # a stem plot in `stem | leaves` notation
+        rows = tuple(tuple(int(d) for d in part.split("|")[1].split()) for part in text.split(", "))
         return {"rows": rows}
     if re.fullmatch(r"[^,=]+ = -?[\d./]+(, [^,=]+ = -?[\d./]+)*", text):
         return {"bars": tuple(_frac(part.split(" = ")[1]) for part in text.split(", "))}

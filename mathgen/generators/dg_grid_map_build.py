@@ -4,7 +4,7 @@
 column letters, row numbers (counted from the bottom, as on the coordinate plane), a north arrow and landmark symbols
 with a legend. The learner shades squares on the map's own grid to place a feature by its grid reference, by a move from
 a landmark, or as a region. The answer is the set of shaded squares, matched exactly by the `grid_cells` grader; a square
-is typed as ``(column, row)`` counting from 0 at the bottom left.
+is typed as a grid reference such as ``D4`` (the answer text shows it that way); the old ``(column, row)`` form from 0 still grades.
 
 * easy: shade the square with a stated grid reference such as ``C4``.
 * medium: shade the square a stated number of squares east or west and north or south of a named landmark.
@@ -27,7 +27,7 @@ from .. import figures
 from ..core import attempts, check, generator
 from ._spread_kit import _RNG, uses_rng
 from ..figure_kinds import grid
-from ..grading.grid import cell_text, cells_answer
+from ..grading.grid import cells_answer, ref_text
 from ._dg_kit import NEAR, draw_ranked, numd, p_number
 from ._w9_graph_kit import dist
 
@@ -199,15 +199,17 @@ def _cells_part(cells, w, h, wrong):
     across (the mean row and mean column), whichever way the named slips happen to lie."""
     rng = _RNG.get() or random.Random(str(sorted(cells)))
     key = {tuple(c) for c in cells}
-    ans = cells_answer(sorted(key), (w, h))
-    text = cell_text(key)
+    ans = cells_answer(sorted(key), (w, h), refs=True)
+    text = ref_text(key)
     usable, seen = [], set()
     for named, group in ((True, wrong), (False, [(f, NEAR) for f in _fillers(key, w, h)])):
         for got, tag in group:
             got = {tuple(c) for c in got}
             if not got or got == key or not all(_inside(c, w, h) for c in got) or frozenset(got) in seen:
                 continue
-            kept = dist("grid_cells", ans, text, [(cell_text(got), cells_answer(sorted(got), (w, h)), tag)], n=1)
+            kept = dist(
+                "grid_cells", ans, text, [(ref_text(got), cells_answer(sorted(got), (w, h), refs=True), tag)], n=1
+            )
             if kept:
                 seen.add(frozenset(got))
                 usable.append((_features(got), named, kept[0]))
@@ -582,10 +584,10 @@ def _read_map(question) -> str:
     fig, text = question.figure, question.text
     m = re.search(r"grid reference ([A-J]\d+)|in square ([A-J]\d+)\. Shade|Shade square ([A-J]\d+),", text)
     if m is not None:
-        return cell_text({_cell_of(next(g for g in m.groups() if g))})
+        return ref_text({_cell_of(next(g for g in m.groups() if g))})
     if (m := re.search(r"corners ([A-J]\d+) and ([A-J]\d+)", text)) is not None:
         (c0, r0), (c1, r1) = _cell_of(m.group(1)), _cell_of(m.group(2))
-        return cell_text(
+        return ref_text(
             {(c, r) for c in range(min(c0, c1), max(c0, c1) + 1) for r in range(min(r0, r1), max(r0, r1) + 1)}
         )
     if "between the two landmarks" in text:
@@ -593,9 +595,9 @@ def _read_map(question) -> str:
         a, b = _named(fig, m.group(1)), _named(fig, m.group(2))
         if m.group(3) == "row":
             lo, hi = sorted((a[0], b[0]))
-            return cell_text({(c, a[1]) for c in range(lo + 1, hi)})
+            return ref_text({(c, a[1]) for c in range(lo + 1, hi)})
         lo, hi = sorted((a[1], b[1]))
-        return cell_text({(a[0], r) for r in range(lo + 1, hi)})
+        return ref_text({(a[0], r) for r in range(lo + 1, hi)})
     m = re.search(
         r"will go ((?:\d+ squares? (?:east|west|north|south))(?: and \d+ squares? (?:east|west|north|south))?) of the (.+?)\. Shade",
         text,
@@ -612,7 +614,7 @@ def _read_map(question) -> str:
     for count, way in re.findall(r"(\d+) squares? (east|west|north|south)", move):
         dx, dy = _DIRS[way]
         x, y = x + dx * int(count), y + dy * int(count)
-    return cell_text({(x, y)})
+    return ref_text({(x, y)})
 
 
 figures.register_reader("dg_grid_map", _read_map)
