@@ -61290,6 +61290,105 @@ _ENTRIES += (
         "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
         area="estimation",
     ),
+)
+
+# -- shape and variation of a display (AC9M4ST02) --------------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "ds-sv-mode-as-frequency",
+        "Gives how many times the mode occurs (the height of the tallest stack or column) instead of the mode itself.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-mode-as-highest",
+        "Takes the highest value shown as the mode instead of the value that occurs most often.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-range-as-highest",
+        "Gives the highest value as the range instead of taking the lowest away from it.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-range-counts-columns",
+        "Counts the stacks or columns shown as the range, which also miscounts when a value in between has none.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-total-as-columns",
+        "Counts the stacks or columns as the number of values, instead of adding up how many each one holds.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-kept",
+        "Includes the outlier when the range of the rest of the values was asked for.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-gap-as-range",
+        "Gives the gap between the outlier and the rest as the range of the rest of the values.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-as-neighbour",
+        "Names the value next to the outlier, at the edge of the main group, instead of the outlier itself.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-extreme-as-outlier",
+        "Calls the highest or lowest value an outlier even though it sits next to the other values.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-symmetric-assumed",
+        "Calls the data symmetric because the tallest column is near the middle, without checking both sides match.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-bunch-side-swapped",
+        "Mixes up which end the values are bunched at: the tall columns, not the long tail, show where they bunch.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-above-includes-mode",
+        "Counts the values equal to the mode as well as the values above it, when only values above it were asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-below-for-above",
+        "Counts the values below the mode where the values above it were asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-spread-as-count",
+        "Judges which group has the greater spread by which has more values, not by the distance from lowest to highest.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-spread-as-mode",
+        "Judges spread by the difference between the modes, which measures centre, not how spread out the values are.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-ranges-added",
+        "Adds the two ranges where how much greater one range is than the other was asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-totals-added",
+        "Adds the two numbers of values where how many more one group has than the other was asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-combined-range-of-one",
+        "Gives the larger of the two ranges as the range of both groups together.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-missed-true-statement",
+        "Leaves out a statement that is true of the display.",
+        area="shape-and-variation-of-a-display",
+    ),
     # ds-census-sample block
     CatalogueEntry(
         "ds-cs-observation-shows-cause",
