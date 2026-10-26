@@ -358,7 +358,7 @@ def number_algorithms_decisions(rng, tier="easy"):
                 outputs.append(odd_op(inp))
 
         # Question text
-        question_text = f"If the number is even, {even_op_name}. If the number is odd, {odd_op_name}. For inputs {', '.join(map(str, inputs))}, what are the outputs?"
+        question_text = f"If the number is even, {even_op_name}. If the number is odd, {odd_op_name}. For inputs {', '.join(map(str, inputs))}, what are the outputs? The order you give them in does not matter."
 
         # Independent check using different evenness test
         def check_algorithm(n):
@@ -404,7 +404,7 @@ def number_algorithms_decisions(rng, tier="easy"):
             else:
                 outputs.append(odd_op(inp))
 
-        question_text = f"If the number is even, {even_op_name}. If the number is odd, {odd_op_name}. For inputs {', '.join(map(str, inputs))}, what are the outputs?"
+        question_text = f"If the number is even, {even_op_name}. If the number is odd, {odd_op_name}. For inputs {', '.join(map(str, inputs))}, what are the outputs? The order you give them in does not matter."
 
         # Independent check
         def check_algorithm(n):
@@ -479,7 +479,7 @@ def number_algorithms_decisions(rng, tier="easy"):
                 f"even operations commute: {true_even_result} == {wrong_order_even}",
             )
 
-        question_text = f"If the number is even, {even_op_name}. If the number is odd, {odd_op_name}. For inputs {', '.join(map(str, inputs))}, what are the outputs?"
+        question_text = f"If the number is even, {even_op_name}. If the number is odd, {odd_op_name}. For inputs {', '.join(map(str, inputs))}, what are the outputs? The order you give them in does not matter."
 
         # Independent check with different code paths
         def check_algorithm(n):

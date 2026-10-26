@@ -23,7 +23,7 @@ from __future__ import annotations
 
 from fractions import Fraction
 
-from ..core import attempts, check, generator, phrase
+from ..core import attempts, check, generator, paren_negative, phrase, rational_text
 from ._w6a_kit import num_dist, num_fields
 from ._w9_graph_kit import HALF, dist, enough, part, plane, point_text, points_text, retry_draw
 from ..grading import interactive as ia
@@ -728,7 +728,10 @@ def _exam(rng):
                 num_fields(twice),
                 2,
                 [
-                    "A translation keeps the size and shape, so the area is the area of ABC: half of |(x_B - x_A)(y_C - y_A) - (x_C - x_A)(y_B - y_A)|."
+                    "A translation keeps the size and shape, so the area is the area of ABC.",
+                    f"Area of ABC = half of |{paren_negative(shape[1][0] - shape[0][0])} × {paren_negative(shape[2][1] - shape[0][1])}"
+                    f" - {paren_negative(shape[2][0] - shape[0][0])} × {paren_negative(shape[1][1] - shape[0][1])}|"
+                    f" = half of {area2(shape)} = {rational_text(twice)}.",
                 ],
                 d_area,
                 sensible_range=(0, None),
