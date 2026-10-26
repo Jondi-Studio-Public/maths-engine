@@ -85,6 +85,8 @@ SIX = (
     "choose-summary-statistic-for-data",
     "bits-hex-and-digit-counts",
 )
+# Later skills judged by the same gate; the six above are the NSW/VCE/QCE PR the test was written for.
+GATED = SIX + ("trig-equations-solutions-in-radians",)
 SLOW_FIRST = "trig-substitution-hsc-tan-and-convert"
 _SKILLS = Path(__file__).resolve().parent.parent / "skills"
 KNOWN_WORDS = {"pi", "sqrt", "ln", "log", "exp", "sin", "cos", "tan", "sec", "cot", "csc"}
@@ -94,7 +96,7 @@ STD_DEG = {30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330
 
 def _sources():
     out = []
-    for skill in SIX:
+    for skill in GATED:
         path = next(_SKILLS.glob(f"*/{skill}.yaml"))
         for i, src in enumerate(yaml.safe_load(path.read_text(encoding="utf-8"))["sources"]):
             out.append(pytest.param(skill, src, id=f"{skill}-{i}-{src['difficulty']}"))
