@@ -81,12 +81,12 @@ _SCENES = (
         xs=range(3, 13),
         step=range(1, 6),
         stem=(
-            "A cafe pays its casual staff by the hour, with no fixed payment. A {x1} hour shift pays ${y1}, a {x2} "
-            "hour shift pays ${y2} and a {x3} hour shift pays ${y3}.",
+            "A cafe pays its casual staff by the hour, with no fixed payment. A {x1}-hour shift pays ${y1}, a {x2}-"
+            "hour shift pays ${y2} and a {x3}-hour shift pays ${y3}.",
         ),
         a="In the rule pay = k × hours, find the constant k, in dollars per hour.",
-        b="Using your answer to (a), find the pay for a {xn} hour shift, in dollars.",
-        c="Using your answer to (b), a different shift pays ${delta} more than the {xn} hour shift. How many hours is "
+        b="Using your answer to (a), find the pay for a {xn}-hour shift, in dollars.",
+        c="Using your answer to (b), a different shift pays ${delta} more than the {xn}-hour shift. How many hours is "
         "that shift?",
         money=True,
         unit_x="h",

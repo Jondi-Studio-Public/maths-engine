@@ -312,6 +312,7 @@ OPTION_NOTES_TOPICS = frozenset(
         "ds_shape_var_shape",
         "ds_freq_table_derived",
         "ds_shape_var_compare",
+        "w6b_trig_equation_interval",
         "grid_latlong_typed",
         "pw1_piecewise_cost_graph",
         "nv_bits_hex_counts",
