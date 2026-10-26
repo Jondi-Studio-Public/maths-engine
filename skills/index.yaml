@@ -526,6 +526,8 @@ classify-data:
     module: mathgen/generators/w3_fixes_build.py
   - topic: r3j_classify_variable
     module: mathgen/generators/r3j_classify_build.py
+  - topic: ds_classify_ordered
+    module: mathgen/generators/ds_classify_ordered_build.py
   - topic: exd_x_r3j_classify_variables
     module: mathgen/generators/r3j_classify_build.py
 classify-polynomials:
@@ -1604,6 +1606,12 @@ f10-capacity-mass-informal-units:
   sources:
   - topic: fr2c_informal_capacity_mass
     module: mathgen/generators/fr2c_informal_capacity_mass_build.py
+f10-census-sample-experiment-practicalities:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_census_sample_statements
+    module: mathgen/generators/ds_census_sample_build.py
 f10-chance-language-and-outcomes:
   domain: statistics-probability
   status: active
@@ -1810,6 +1818,16 @@ f10-direct-proportion-scale-model:
     module: mathgen/generators/p13a_direct_proportion_scale_build.py
   - topic: exd_x_r2x_direct_proportion_table
     module: mathgen/generators/exd_x_r2x_direct_proportion_table.py
+f10-display-choice-then-read:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_display_choice_easy
+    module: mathgen/generators/ds_display_choice_build.py
+  - topic: ds_display_choice_medium
+    module: mathgen/generators/ds_display_choice_build.py
+  - topic: ds_display_choice_hard
+    module: mathgen/generators/ds_display_choice_build.py
 f10-division-remainder-context:
   domain: primary-number
   status: active
@@ -1996,6 +2014,16 @@ f10-fractions-half-quarter-eighth:
     module: mathgen/generators/primary_number_fraction_decimal_build.py
   - topic: exd_x_pr5_halving_paddock
     module: mathgen/generators/exd_x_pr5_halving_paddock.py
+f10-frequency-table-discrete-data:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_freq_table_easy
+    module: mathgen/generators/ds_freq_table_build.py
+  - topic: ds_freq_table_derived
+    module: mathgen/generators/ds_freq_table_build.py
+  - topic: ds_freq_table_cumulative
+    module: mathgen/generators/ds_freq_table_build.py
 f10-geometric-construction-algorithm:
   domain: geometry
   status: active
@@ -2502,6 +2530,14 @@ f10-random-equal-likelihood-outcomes:
   sources:
   - topic: random_equal_likelihood_outcomes
     module: mathgen/generators/p6d_probability_build.py
+f10-random-versus-convenience-sample:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_sample_vs_pop_gap
+    module: mathgen/generators/ds_sample_vs_pop_build.py
+  - topic: ds_sample_vs_pop_exam
+    module: mathgen/generators/ds_sample_vs_pop_build.py
 f10-ratio-rate-financial-model:
   domain: measurement
   status: active
@@ -2636,6 +2672,16 @@ f10-sequence-days-times:
   sources:
   - topic: day_time_sequencing
     module: mathgen/generators/ordered_sequence_build.py
+f10-shape-and-variation-of-a-display:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_shape_var_read
+    module: mathgen/generators/ds_shape_variation_build.py
+  - topic: ds_shape_var_shape
+    module: mathgen/generators/ds_shape_variation_build.py
+  - topic: ds_shape_var_compare
+    module: mathgen/generators/ds_shape_variation_build.py
 f10-shape-features-classification:
   domain: primary-geometry-time
   status: active

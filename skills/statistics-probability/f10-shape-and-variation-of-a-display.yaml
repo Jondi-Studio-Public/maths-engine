@@ -1,0 +1,79 @@
+id: f10-shape-and-variation-of-a-display
+name: Shape and variation of a display
+domain: statistics-probability
+year_level: ['4']
+naplan_domain: [statistics]
+description: >-
+  Read the shape and spread of one drawn display (a dot plot, or a column graph of how often each value occurs) and
+  of two groups drawn together in one column graph. easy reads one feature as a number: the mode, the range, how many
+  values are shown, how many have the mode value, or the value that is the outlier. medium names the true statements
+  about a display (mode, range, number of values, symmetric, bunched at one end, an outlier) by their letters, finds
+  the range once the outlier is left out, or counts the values above the mode. hard compares two groups on one
+  variable: the true comparing statements (spread, mode, outlier, symmetry, number of values), how much greater one
+  range is than the other, how many more values one group has, or the range of both groups together. Not asked: the
+  written discussion of why one display suits a purpose or of what a shape means in context, which stays open-response
+  (rubric) work. Answers are numbers or sets of statement letters.
+status: active
+needs_figure: true
+capability_gates: [figure_stimulus]
+placement_eligible: false
+prerequisites: [f3-read-a-column-graph]
+answer: number
+sources:
+- topic: ds_shape_var_read
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ds_shape_var_shape
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ds_shape_var_compare
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: ds-sv-mode-as-frequency
+  description: "Gives how many times the mode occurs (the height of the tallest stack or column) instead of the mode itself."
+- id: ds-sv-mode-as-highest
+  description: "Takes the highest value shown as the mode instead of the value that occurs most often."
+- id: ds-sv-range-as-highest
+  description: "Gives the highest value as the range instead of taking the lowest away from it."
+- id: ds-sv-range-counts-columns
+  description: "Counts the stacks or columns shown as the range, which also miscounts when a value in between has none."
+- id: ds-sv-total-as-columns
+  description: "Counts the stacks or columns as the number of values, instead of adding up how many each one holds."
+- id: ds-sv-outlier-kept
+  description: "Includes the outlier when the range of the rest of the values was asked for."
+- id: ds-sv-outlier-gap-as-range
+  description: "Gives the gap between the outlier and the rest as the range of the rest of the values."
+- id: ds-sv-outlier-as-neighbour
+  description: "Names the value next to the outlier, at the edge of the main group, instead of the outlier itself."
+- id: ds-sv-extreme-as-outlier
+  description: "Calls the highest or lowest value an outlier even though it sits next to the other values."
+- id: ds-sv-symmetric-assumed
+  description: "Calls the data symmetric because the tallest column is near the middle, without checking both sides match."
+- id: ds-sv-bunch-side-swapped
+  description: "Mixes up which end the values are bunched at: the tall columns, not the long tail, show where they bunch."
+- id: ds-sv-above-includes-mode
+  description: "Counts the values equal to the mode as well as the values above it, when only values above it were asked."
+- id: ds-sv-below-for-above
+  description: "Counts the values below the mode where the values above it were asked."
+- id: ds-sv-spread-as-count
+  description: "Judges which group has the greater spread by which has more values, not by the distance from lowest to highest."
+- id: ds-sv-spread-as-mode
+  description: "Judges spread by the difference between the modes, which measures centre, not how spread out the values are."
+- id: ds-sv-ranges-added
+  description: "Adds the two ranges where how much greater one range is than the other was asked."
+- id: ds-sv-totals-added
+  description: "Adds the two numbers of values where how many more one group has than the other was asked."
+- id: ds-sv-combined-range-of-one
+  description: "Gives the larger of the two ranges as the range of both groups together."
+- id: ds-sv-missed-true-statement
+  description: "Leaves out a statement that is true of the display."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
+difficulty_progression:
+  easy: {steps: 2, demand: "Read one feature of a single display (mode, range, number of values, number at the mode, or the isolated outlier) and give it as a number."}
+  medium: {steps: 3, demand: "Decide the shape of the data (symmetric, bunched at one end, an outlier) and test five statements against the display, or leave the outlier out and find the range of the rest, or count the values above the mode."}
+  hard: {steps: 4, demand: "Read two groups from one column graph, find each one's range, mode, shape and number of values, then compare them: which statements about the two groups are true, or how much greater or how many more."}
+tags: [acara-f10-v9, ac9m4st02, statistics-probability, dot-plot, column-graph, shape, spread, outlier, figure]
