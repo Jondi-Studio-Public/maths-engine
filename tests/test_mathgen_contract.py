@@ -847,6 +847,10 @@ OPTION_NOTES_TOPICS = frozenset(
         "w9_shade_region",
         "w9_transform_shape",
         "w9_parabola_draw",
+        "dr1_line_graph",
+        "dr1_graph_from_data",
+        "dr1_scatterplot",
+        "dr1_time_series",
         "vm_pseudocode_trace",
         "vm_power_graph_features",
     }

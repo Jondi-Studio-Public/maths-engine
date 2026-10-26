@@ -61290,6 +61290,146 @@ _ENTRIES += (
         "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
         area="estimation",
     ),
+    CatalogueEntry(
+        "dr1-data-point-omitted",
+        "Leaves out one of the readings, so the graph has a point fewer than the data.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-time-axis-offset",
+        "Starts the time axis one step late, so every point is plotted one place to the right.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-joined-by-height",
+        "Joins the points in order of their height instead of in time order.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-direction-of-change-reversed",
+        "Reverses a rise and a fall: plots a fall where the quantity rises, or the other way round.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-flat-stage-missed",
+        "Misses the stage where the quantity stays the same, so the flat part of the graph is left out.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-start-value-ignored",
+        "Starts the graph from zero instead of from the stated starting value.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-off-by-one",
+        "Reads or counts one unit too many or too few.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-stage-start-read",
+        "Gives the value at the start of the stage instead of the value at the time asked for.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-wrong-axis-read",
+        "Reads from the wrong axis, giving a time where a quantity was asked for or the reverse.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-all-changes-added",
+        "Adds the amounts that went in as well as the amounts that came out.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-rate-for-total",
+        "Gives a rate where a total amount was asked for.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-net-change-for-total",
+        "Gives the net change between start and end instead of the total of the changes in one direction.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-fixed-charge-omitted",
+        "Leaves out the fixed starting amount and uses only the rate multiplied by the input.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-rate-and-fixed-swapped",
+        "Swaps the fixed amount and the rate, using the rate as the starting amount and the fixed amount as the rate.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-pairs-mismatched",
+        "Pairs a value with the wrong partner, so the points do not match the data.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-first-reading-for-intercept",
+        "Gives the first reading as the starting amount instead of working back to the value at zero.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-total-change-for-rate",
+        "Gives the change between two readings without dividing by the gap between them.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-last-reading-restarted",
+        "Adds the full prediction on to the last reading instead of from the starting amount.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-whole-series-for-cycle",
+        "Gives the length of the whole series as the length of one cycle.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-two-cycles-for-cycle",
+        "Gives the length or change of two cycles where one was asked for.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-count-for-length",
+        "Gives the number of cycles shown instead of how many time points make up one cycle.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-first-to-last-for-change",
+        "Gives the change from the first value to the last instead of the change from one cycle to the next.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-no-trend-added",
+        "Forecasts the value from the same point one cycle ago without adding the change of level.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-last-value-for-season",
+        "Adds the change of level to the latest value instead of the value at the same point in the cycle.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-trend-added-twice",
+        "Adds the change of level for two cycles when the forecast is one cycle on.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-association-direction-reversed",
+        "Reads the direction of an association the wrong way round, calling a rising pattern negative or a falling one positive.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-strength-one-band-off",
+        "Judges the strength of an association one step too weak or too strong for how closely the points follow the pattern.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-negative-as-weak",
+        "Treats a negative association as a weak one, mixing up direction with strength.",
+        area="draw-a-graph",
+    ),
 )
 
 #: Every entry, by id.

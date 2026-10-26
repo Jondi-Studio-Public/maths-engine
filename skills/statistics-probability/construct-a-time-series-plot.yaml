@@ -1,0 +1,61 @@
+id: construct-a-time-series-plot
+name: Construct a time series plot
+domain: statistics-probability
+year_level: ['12']
+description: 'Plot every value of a time series against time and join the points in time order. Easy: six values. Medium: two cycles of a seasonal pattern. Hard: a starting value and the change from each value to the next. The exam chain plots twelve values, then finds the length of the cycle, the change of level from one cycle to the next and a forecast. Distinct from time-series-features, which reads a drawn plot.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-line-graph-change-over-time]
+answer: polyline
+sources:
+- topic: dr1_time_series
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dr1_time_series
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [3, 4]
+- topic: dr1_time_series
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_dr1_time_series
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dr1-data-point-omitted
+  description: Leaves out one of the readings, so the graph has a point fewer than the data.
+- id: dr1-time-axis-offset
+  description: Starts the time axis one step late, so every point is plotted one place to the right.
+- id: dr1-joined-by-height
+  description: Joins the points in order of their height instead of in time order.
+- id: dr1-off-by-one
+  description: Reads or counts one unit too many or too few.
+- id: dr1-whole-series-for-cycle
+  description: Gives the length of the whole series as the length of one cycle.
+- id: dr1-two-cycles-for-cycle
+  description: Gives the length or change of two cycles where one was asked for.
+- id: dr1-count-for-length
+  description: Gives the number of cycles shown instead of how many time points make up one cycle.
+- id: dr1-first-to-last-for-change
+  description: Gives the change from the first value to the last instead of the change from one cycle to the next.
+- id: dr1-no-trend-added
+  description: Forecasts the value from the same point one cycle ago without adding the change of level.
+- id: dr1-last-value-for-season
+  description: Adds the change of level to the latest value instead of the value at the same point in the cycle.
+- id: dr1-trend-added-twice
+  description: Adds the change of level for two cycles when the forecast is one cycle on.
+difficulty_progression:
+  easy: {steps: 1, demand: 'Plot six consecutive values and join them in time order.'}
+  medium: {steps: 2, demand: 'Plot two cycles of a seasonal pattern.'}
+  hard: {steps: 3, demand: 'Build each value from a starting value and the changes, then plot.'}
+  exam: {steps: 5, demand: 'Chain the plot, the cycle length, the change of level per cycle and a forecast.'}
+tags: [acara-senior-v8-4, statistics-probability, time-series, construct, drawn-answer, figure, dr1_time_series, acmgm087]
