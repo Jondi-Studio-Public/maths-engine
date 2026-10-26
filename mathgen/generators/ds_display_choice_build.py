@@ -28,6 +28,7 @@ from fractions import Fraction
 
 from ..answers import Distractor
 from ..core import attempts, check, generator
+from ._company_kit import keep_company, numeric_pool
 
 MONTHS = (
     "January",
@@ -53,22 +54,33 @@ def _build(rng, answer: int, candidates, stem: str, working: list[str]) -> dict:
     """Assemble the question dict. `candidates` is a list of `(value, misconception_id)`; the ones that equal the
     answer, repeat a value or are not positive whole numbers are dropped, and three of the rest are kept."""
     seen = {answer}
-    kept: list[Distractor] = []
+    valid: list[tuple[int, str]] = []
     for value, tag in candidates:
         value = int(value) if float(value).is_integer() else value
         if isinstance(value, int) and value > 0 and value not in seen:
             seen.add(value)
-            kept.append(Distractor(str(value), tag, value))
-    if len(kept) < 3:
+            valid.append((value, tag))
+    top = max([answer] + [v for v, _ in valid] + [360]) * 2
+    pool = [c for c in numeric_pool(answer, lo=1, hi=top) if c[0] not in {v for v, _ in valid} and c[0] != answer]
+    # the key's rank among the shown wrong options is drawn uniformly, then the key is given company in parity and
+    # near-miss structure (`_company_kit`), so no feature picks it out
+    below = [c for c in valid + pool if c[0] < answer]
+    above = [c for c in valid + pool if c[0] > answer]
+    low = max(min(rng.randrange(4), len(below)), 3 - len(above))
+    if low > len(below) or 3 - low > len(above):
         raise _Short
-    chosen = rng.sample(kept, 3)
+    chosen = below[:low] + above[: 3 - low]
+    rest = [c for c in valid if c not in chosen]
+    ordered = keep_company(answer, chosen + rest, pool, 3, max_pool=40)
+    shown = [Distractor(str(v), tag, v) for v, tag in ordered[:3]]
+    check(len({d.text for d in shown}) == 3 and str(answer) not in {d.text for d in shown}, "three distinct wrong")
     return dict(
         text=stem,
         answer_kind="number",
         answer=int(answer),
         answer_text=str(int(answer)),
         working=working,
-        distractors=chosen,
+        distractors=shown,
     )
 
 

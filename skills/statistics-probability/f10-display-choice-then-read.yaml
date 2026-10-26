@@ -24,6 +24,8 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:
+- id: near-miss-value
+  description: Gives a value a little way from the right one, out by one or two, with no single method behind the slip.
 - id: ds-dc-adds-categories-and-groups
   description: Adds the number of answers to the number of groups where a column is needed for every group within every answer.
 - id: ds-dc-adds-series-to-points
