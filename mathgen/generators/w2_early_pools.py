@@ -107,7 +107,7 @@ def _inverse(rng):
         simulated *= Fraction(1, 2)
     check(simulated == target, "inverse halving key wrong")  # second route
     cut = "in half" if steps == 1 else "in half, then in half again"
-    what = "a whole" if original == 1 else "a piece of the"
+    what = "a" if original == 1 else "a piece of the"
     if original == 1:
         ask = f"What fraction of the whole {item} did {name} start with?"
     else:

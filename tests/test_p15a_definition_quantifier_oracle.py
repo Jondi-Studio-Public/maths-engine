@@ -67,19 +67,15 @@ def _get_relation(text: str):
 
 
 def _oracle_domain(text: str) -> str:
+    # The domain of a relation is the set of first coordinates that appear in R (Ruling by Jondi, 2026-10-26, round 4 C5).
     A, B, R = _get_relation(text)
+    active = sorted({a for a, _ in R})
     opts = _split_options(text)
     for letter, opt_text in opts.items():
-        parsed = re.findall(r"[\w]+", opt_text)
-        # An option is a set literal like "{1, 2, 3}" or "{a, b}".
         vals = re.findall(r"[\w]+", opt_text)
-        if set(str(v) for v in A) == set(vals) and all(re.match(r"^\d+$", v) for v in vals) and len(vals) == len(A):
-            # candidate numeric match -- confirm it's really A, not a
-            # numeric-looking coincidence with a different numeric decoy
-            option_set = [int(v) for v in vals]
-            if sorted(option_set) == sorted(A):
-                return letter
-    raise AssertionError(f"could not find domain option matching A={A} in {opts}")
+        if vals and all(re.match(r"^\d+$", v) for v in vals) and sorted(int(v) for v in vals) == active:
+            return letter
+    raise AssertionError(f"could not find domain option matching {active} in {opts}")
 
 
 def _oracle_codomain(text: str) -> str:

@@ -127,7 +127,11 @@ def _easy(rng):
     p = rng.choice(_PS)
     n = rng.choice(_NS)
     if rng.random() < 0.5:
-        c = max(5, min(n - 5, round(n * float(p) + rng.randint(-6, 6) * math.sqrt(n) / 4)))
+        sigma = math.sqrt(n * float(p) * float(1 - p))
+        for _ in attempts(500, "a believable single sample"):
+            c = max(5, min(n - 5, round(n * float(p) + rng.randint(-6, 6) * math.sqrt(n) / 4)))
+            if abs(c - n * float(p)) <= 2 * sigma:  # a simulated sample lies within about 2 SD of p
+                break
         value = F(c, n)
         text = (
             f"{_intro(ctx, p, n)} In one simulated sample, {c} of the {n} {unit} {trait}. "

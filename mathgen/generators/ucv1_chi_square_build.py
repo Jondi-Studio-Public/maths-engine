@@ -572,7 +572,7 @@ def _medium_independence(rng):
         text=(
             f"{ctx['intro']} Observed counts by {ctx['row_var']} and {ctx['col_var']}: {_table_text(ctx, table, ctx['cols2'])} "
             f"Test H0: {ctx['row_var']} and {ctx['col_var']} are independent. "
-            "Calculate the chi-square statistic, correct to 2 decimal places."
+            "Calculate the chi-square statistic without Yates' continuity correction, correct to 2 decimal places."
         ),
         answer=float(answer_text),
         answer_text=answer_text,
@@ -835,6 +835,7 @@ def _exam_build(rng: random.Random) -> dict:
             f"{ctx['intro']} Observed counts by {ctx['row_var']} and {ctx['col_var']}: {_table_text(ctx, table, names)} "
             f"A chi-square test of independence of {ctx['row_var']} and {ctx['col_var']} is carried out at the {level} level. "
             f"Upper-tail critical values of χ²: {_critical_row(level, df)}."
+            + (" Calculate the statistic without Yates' continuity correction." if cols_n == 2 else "")
         )
         a_prompt = f"Find the expected count for the cell ({ctx['rows'][i]}, {names[j]}), correct to 2 decimal places."
         n = sum(obs)

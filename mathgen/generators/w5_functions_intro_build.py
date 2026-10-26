@@ -763,7 +763,9 @@ def _dr_hard_excluded(rng):
         ],
     )
     enough(cands)
-    den = f"({join_terms([(1, 'x'), (-r1, '')])})({join_terms([(1, 'x'), (-r2, '')])})"
+    den = "".join(
+        factor if factor == "x" else f"({factor})" for factor in (join_terms([(1, "x"), (-r, "")]) for r in (r1, r2))
+    )
     stem = f"The function f(x) = 1/({den}) cannot take an input that makes the denominator zero. List the integers from {lo} to {hi} that are NOT in its domain."
     work = [
         f"The denominator is zero when x = {r1} or x = {r2}.",
