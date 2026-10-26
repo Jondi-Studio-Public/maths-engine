@@ -61292,6 +61292,210 @@ _ENTRIES += (
     ),
 )
 
+# -- Year 9 display choice made numeric (f10-display-choice-then-read) -------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "ds-dc-adds-categories-and-groups",
+        "Adds the number of answers to the number of groups where a column is needed for every group within every answer.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-adds-series-to-points",
+        "Adds the number of data sets to the number of readings instead of multiplying to count the plotted points.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-adds-variables-to-points",
+        "Adds two to the number of pairs, as if the two variables were extra points.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-angles-of-given-shares",
+        "Gives the angle taken up by the shares already stated, where the angle of the remaining share was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-extra-step",
+        "Adds a further step above the first axis mark that is high enough to reach the largest value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-shows-frequency",
+        "Treats the vertical axis as a count of readings, though a line graph's axis shows the values themselves.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-too-short",
+        "Stops the axis at the mark below the largest value, so the largest value would not fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-top-is-max",
+        "Ends the axis exactly at the largest value, though the axis stops at a marked step.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-total",
+        "Gives the total of all the counts as the top of a counting axis that only has to reach the tallest column.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-class-start-at-minimum",
+        "Counts classes from the least value instead of from the multiple of the class width at or below it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-column-per-possible-value",
+        "Counts every whole number from the least to the greatest value as a column, ignoring the class width.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-count-not-angle",
+        "Gives the number of people in the category where the angle of its sector was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-gaps-not-points",
+        "Counts the gaps between the readings, one fewer than the readings, where the points were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-groups-only",
+        "Counts the groups and ignores the answers when counting columns.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-items-not-marks",
+        "Gives the total number of people surveyed where the number of sectors was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-equal-sectors",
+        "Divides 360 degrees equally between the categories, though sector angles follow the shares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-extra-total-mark",
+        "Adds one more mark for the total, though a total is not drawn as a sector, column or point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-ignores-groups",
+        "Counts one column for each answer and forgets that every group needs its own column within each answer.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-ignores-second-set",
+        "Counts the points for one data set only when two sets of readings share the display.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-labels-as-measurements",
+        "Groups numeric labels such as shirt numbers into classes, as if they were measurements.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-measurements-as-labels",
+        "Gives each measured value its own column, as if measurements were separate categories.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-misses-one-category",
+        "Leaves one category out when counting the marks.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-one-column-per-value",
+        "Gives every recorded value its own column, though a histogram groups them into classes.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-percent-not-angle",
+        "Gives the percentage share where the angle of the sector, in degrees, was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-percent-times-three",
+        "Multiplies the percentage by 3 instead of 3.6 to turn it into degrees.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-points-for-each-value",
+        "Counts a point for each of the two values in a pair, where each pair is one point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-points-not-segments",
+        "Gives the number of points where the number of segments joining them was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-range-over-width",
+        "Divides the range by the class width and stops there, so the class holding the greatest value is lost.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-rest-of-circle",
+        "Gives the angle of everything except the category, 360 degrees less its sector.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-second-largest-sector",
+        "Gives the angle of the second most common category instead of the most common one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-share-of-wrong-total",
+        "Finds the share as a fraction of the total plus the category, not of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-skips-empty-classes",
+        "Counts only the classes that hold data and leaves out empty classes between them, though they are still columns.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-skips-empty-stems",
+        "Counts only the stems that have a leaf, though every stem from least to greatest is written.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-for-each-group",
+        "Adds the stems of the two groups, though both groups share one column of stems.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-from-values",
+        "Gives the number of values where the number of stems was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-one-group",
+        "Counts the stems of one group only, though the shared stems must cover both groups.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-range-not-inclusive",
+        "Subtracts the least stem from the greatest and does not count the first stem.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-two-marks-per-category",
+        "Counts two marks for each category, as if a count and a label were each drawn.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-uses-last-value",
+        "Sizes the axis from the final value instead of the largest value, so an earlier peak would not fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-whole-year-of-months",
+        "Uses all 12 months of the year where only the months recorded count.",
+        area="statistics",
+    ),
+)
+
 #: Every entry, by id.
 CATALOGUE: dict[str, CatalogueEntry] = {entry.id: entry for entry in _ENTRIES}
 
