@@ -145,3 +145,28 @@ def test_key_length_gives_nothing_away(questions, label, randomised):
     ranks = Counter(_key_length_rank(next(p for p in q.parts if p.label == label)) for q in mine)
     assert set(ranks) == {0, 1, 2, 3}, ranks
     assert max(ranks.values()) <= 0.4 * len(mine), ranks
+
+
+def _small_experiments(questions):
+    for q in questions[:300]:
+        if ("randomly assigned" in q.text or "chosen at random" in q.text) and int(
+            re.search(r"\d+", q.text).group()
+        ) < 30:
+            yield q
+
+
+def test_small_n_key_is_not_the_only_option_with_the_number_or_the_hedge(questions):
+    """In a small-n experiment the key must not stand out by holding the sample size or the firm-conclusion hedge."""
+    seen = 0
+    for q in _small_experiments(questions):
+        n = re.search(r"\d+", q.text).group()
+        for label in "cd":
+            part = next(p for p in q.parts if p.label == label)
+            others = [str(getattr(d, "text", d)) for d in part.distractors]
+            assert all(re.search(rf"\b{n}\b", o) for o in others) or label == "d", (label, others)
+            assert sum(bool(re.search(rf"\b{n}\b", o)) for o in others) >= 2, (label, others)
+        d = next(p for p in q.parts if p.label == "d")
+        hedged = [o for o in (str(getattr(x, "text", x)) for x in d.distractors) if "not justified" in o]
+        assert len(hedged) in (1, 2) and "not justified" in d.answer_text, d.distractors
+        seen += 1
+    assert seen > 20

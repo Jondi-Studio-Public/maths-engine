@@ -210,15 +210,15 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
             )
             c_wrong = [
                 (
-                    "Yes: random assignment is enough to show cause, however few took part",
+                    f"Yes: random assignment is enough to show cause, even with only {n} taking part",
                     "cc-ignores-sample-size",
                 ),
                 (
-                    "No: no study design can ever show that one variable causes the other",
+                    f"No: no study design can ever show that one variable causes the other, even with {n} taking part",
                     "cc-experiment-cannot-show-cause",
                 ),
                 (
-                    "Yes: a strong correlation coefficient shows that one variable causes the other, whatever the design",
+                    f"Yes: a strong correlation coefficient shows that one variable causes the other, with only {n} taking part",
                     "cc-large-r-proves-cause",
                 ),
             ]
@@ -229,7 +229,7 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
             )
             d_wrong = [
                 (
-                    f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}",
+                    f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}, even with only {n} taking part",
                     "cc-ignores-sample-size",
                 ),
                 (
@@ -238,11 +238,12 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
                     "cc-unexplained-for-explained",
                 ),
                 (
-                    f"{cx} and {y} are only associated, because a correlation never shows cause, though {explained}% of the variation in {y} is explained by {x}",
+                    f"{cx} and {y} are only associated, because a correlation never shows cause, though {explained}% of the variation in {y} is explained by {x}, with only {n} taking part",
                     "cc-experiment-cannot-show-cause",
                 ),
                 (
-                    f"Changes in {x} cause {explained}% of the changes in {y}, and the other {unexplained}% of the changes have no cause at all",
+                    f"Changes in {x} may cause {explained}% of the changes in {y}, and the other {unexplained}% of the changes have no cause at all, "
+                    f"but a firm causal conclusion is not justified with only {n} taking part",
                     "cc-r-squared-as-causal-share",
                 ),
             ]
