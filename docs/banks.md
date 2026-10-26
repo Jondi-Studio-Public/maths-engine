@@ -42,7 +42,7 @@ installed engine version. It takes a few minutes for the whole library (about 1,
 questions as of this writing; the archives are roughly 17 MB for Moodle and 110 MB for QTI) and prints one line like:
 
 ```
-1341 skills, 101380 questions; moodle 16.6 MB, qti 109.3 MB; 0 failed; 318 s
+<skills> skills, <questions> questions; moodle <MB> MB, qti <MB> MB; <n> failed; <seconds> s
 ```
 
 A skill whose bank cannot be built is listed on stderr and left out, and the exit status is 1. That includes a

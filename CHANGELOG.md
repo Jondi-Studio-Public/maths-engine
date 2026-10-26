@@ -68,7 +68,7 @@ Each question's id (below) tells you when the question behind it has changed.
   the full limit).
 - Robustness and service fixes (#137):
   - A batch to `/v1/grade/batch` may spend at most `MATHS_API_BATCH_BUDGET` worker-seconds (default three times
-    `MATHS_API_TIMEOUT`); an item that would not get a full deadline is not run. Batches together use at most half
+    `MATHS_API_TIMEOUT`); every outcome of an item, success or not, is charged to the budget, and an item that would not get a full deadline is not run. Batches together use at most half
     the workers, and another batch gets `503` with `Retry-After`, so single grades keep a worker (this needs two or
     more workers). An opt-in per-client cool-down, `MATHS_API_CLIENT_STRIKES` (default `0`, off), names clients by API
     key or, when the server is open, by address.
