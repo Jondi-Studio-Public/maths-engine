@@ -64,8 +64,21 @@ Each question's id (below) tells you when the question behind it has changed.
   asks. `f10-fraction-decimal-links` no longer accepts the decimal in the stem as the answer to "write it as a
   fraction". The bar-chart grader matches category names without regard to case. Two slow replies are fixed: a long
   reply with `over` in it took minutes to read, and a reply such as `cos((E-2)^6)` hung the factorising graders. A
-  batch to the HTTP grading endpoint stops running replies after three have timed out, so one client's slow batch
-  cannot hold a worker for the whole batch deadline.
+  batch to the HTTP grading endpoint first stopped running replies after three had timed out (see the next entry for
+  the full limit).
+- Robustness and service fixes (#137):
+  - A batch to `/v1/grade/batch` may spend at most `MATHS_API_BATCH_BUDGET` worker-seconds (default three times
+    `MATHS_API_TIMEOUT`); an item that would not get a full deadline is not run. Batches together use at most half
+    the workers, and another batch gets `503` with `Retry-After`, so single grades keep a worker (this needs two or
+    more workers). An opt-in per-client cool-down, `MATHS_API_CLIENT_STRIKES` (default `0`, off), names clients by API
+    key or, when the server is open, by address.
+  - A reply of repeated labels (`x=x=...`) is collapsed before it is tidied: 40,000 characters grade in about 10 ms.
+  - `sympify_safely` and `core._sympify` read a dict or set item by item through the safe parser.
+  - `grade_with_deadline` is exported from `mathgen.engine` and documented.
+  - `year=university` (any case) now matches in the HTTP API, the MCP server and `mathgen.service`.
+  - JSON `true`, `false` and `2.0` are no longer a multiple-choice option index over HTTP and MCP; send an integer.
+  - `make_with_id` refuses a seed that is not an integer, and an id's seed must be written `-?[0-9]+`.
+  - A figure renderer that overflows or divides by zero raises the documented `ValueError`.
 
 ## [0.2.0] - 2026-10-19
 
