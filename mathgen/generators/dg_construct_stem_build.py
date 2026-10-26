@@ -202,8 +202,8 @@ _THEMES = (
 )
 _DEC_THEMES = (
     "The lengths of the bean seedlings in a school garden, in centimetres, were: {data}.",
-    "Students recorded how long their walk to school takes, in kilometres: {data}.",
-    "The masses of the apples picked by a class, in hundreds of grams, were: {data}.",
+    "Students recorded how far they live from school, in kilometres: {data}.",
+    "The masses of the pumpkins picked by a class, in kilograms, were: {data}.",
 )
 _BIG_THEMES = (
     "The heights, in centimetres, of the students in a Year 7 class were: {data}.",
@@ -452,7 +452,7 @@ def dg_construct_stem_chain(rng, tier="exam"):
                     "At which position in the ordered list is the median?",
                     pos,
                     1,
-                    [f"The median is at position ({n} + 1) / 2 = {numtext(pos)}."],
+                    [f"The median is at position ({n} + 1) ÷ 2 = {numtext(pos)}."],
                     dc,
                     follow_through="(part_b + 1) / 2",
                     sensible_range=(1, 60),

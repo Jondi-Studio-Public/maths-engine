@@ -440,6 +440,7 @@ def dg_grid_map_chain(rng, tier="exam"):
             continue
         fig = _figure(rng, cells, w, h)
         feature = rng.choice(_FEATURES)
+        later = "bike rack" if feature != "bike rack" else "kiosk"  # (e) never re-places the feature of (a)
         fa, da = _cells_part(
             {(ref_c, ref_r)},
             w,
@@ -541,7 +542,7 @@ def dg_grid_map_chain(rng, tier="exam"):
                 sensible_range=(0, w + h),
             ),
             dict(
-                prompt=f"A bike rack is {_move_text(mx, my)} of the {_name(z)}. Shade the square for the bike rack.",
+                prompt=f"{_a(later).capitalize()} is {_move_text(mx, my)} of the {_name(z)}. Shade the square for the {later}.",
                 answer_kind="grid_cells",
                 marks=2,
                 working=[

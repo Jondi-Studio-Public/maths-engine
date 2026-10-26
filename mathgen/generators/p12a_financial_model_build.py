@@ -632,7 +632,7 @@ _RR_UNIT_WORDS = (("kg", "kg"), ("litre", "litres"), ("hour", "hours"), ("metre"
 # of genuinely sensible retail/trade pairings for the rate branch's flavour
 # text (easy/medium/hard tiers only). Deliberately NOT `mathgen.slots.OBJECTS`:
 # that generic flavour-noun list (apple, marble, sticker, pencil, cupcake,
-# balloon, ribbon, ticket, coin, button, biscuit, chair, box, cookie, crayon,
+# balloon, ribbon, ticket, coin, button, biscuit, chair, box, muffin, crayon,
 # bead, shell, bottle) was never designed for per-unit-rate framing and drawing
 # it independently of the unit produced nonsense like "crayons cost $2.00 per
 # metre" or "chairs cost $1.80 per kg". Every entry below is something that is

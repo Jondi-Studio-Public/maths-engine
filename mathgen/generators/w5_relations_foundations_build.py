@@ -1280,7 +1280,7 @@ def _ineq_substitute(rng):
         # two statements such as 'a > b' and 'a < b' always split, so exactly one of each pair is true
         check(all(not s[1](a, b) for s in wrongs) and key[1](a, b), "statement truth differs")
         work = [
-            f"With a = {a} and b = {b}: a > b is {a > b}, a^2 and b^2 are {a * a} and {b * b}, and ab = {a * b}.",
+            f"With a = {a} and b = {b}: a > b is {'true' if a > b else 'false'}, a^2 and b^2 are {a * a} and {b * b}, and ab = {a * b}.",
             f"So {key[0]} is true and the others are false.",
         ]
         return _mc(
