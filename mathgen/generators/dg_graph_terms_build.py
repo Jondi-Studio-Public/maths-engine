@@ -602,7 +602,7 @@ def _hard(rng):
             ]
             working = [
                 f"{_pl(nonloop, 'edge')} join{'s' if nonloop == 1 else ''} {LETTERS[x]} to other vertices.",
-                f"Each loop at {LETTERS[x]} adds 2, so the degree is {nonloop} + 2 x {(answer - nonloop) // 2} = {answer}.",
+                f"Each loop at {LETTERS[x]} adds 2, so the degree is {nonloop} + 2 × {(answer - nonloop) // 2} = {answer}.",
             ]
         # what each count can reach: the loops are edges; the extra copies and the repeated pairs come from the
         # non-loop edges (a repeated pair has at least two of them, an extra copy needs a first copy to follow); a

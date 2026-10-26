@@ -481,26 +481,43 @@ def _plane(fam, ops, tier_key: str):
     return fig
 
 
+def _passes_marked(fam, fig, text: str) -> bool:
+    """True when the equation passes through every marked point of the figure."""
+    from ._gt_kit import typed_function
+
+    fn = typed_function(text)
+    for pt in fig["points"]:
+        x, y = pt["at"]
+        u = math.pi * x if fam.trig else x
+        try:
+            if abs(fn(u) - y) > 1e-7:
+                return False
+        except (ArithmeticError, ValueError):
+            return False
+    return True
+
+
 def _hard(rng):
-    for _ in attempts(400, "a drawn image with three marked points"):
+    for _ in attempts(400, "a drawn image whose marked points decide between the key and every option"):
         fam = FAMILIES[rng.choice(_DRAWN_BASES)]
         ops = _draw_chain(rng, fam, "hard")
         p = compose(ops)
         if abs(p[1]) not in (Frac(1), Frac(2), Frac(1, 2)):
             continue
         fig = _plane(fam, ops, fam.key)
-        if fig is not None:
-            break
-    key = equation_text(fam, p)
-    check_by_points(fam, ops, key)
-    options = _need(_wrong_equations(fam, ops, key), key=key)
+        if fig is None:
+            continue
+        key = equation_text(fam, p)
+        check_by_points(fam, ops, key)
+        # the stem says the marked points identify g: an option through all three would not be ruled out by them
+        wrong = [d for d in _wrong_equations(fam, ops, key) if not _passes_marked(fam, fig, d.text)]
+        try:
+            options = _need(wrong, key=key)
+        except TooFewDistractors:
+            continue
+        break
     # the marked points lie on the key (a third route, from the figure's own labels)
-    for pt in fig["points"]:
-        x, y = pt["at"]
-        u = math.pi * x if fam.trig else x
-        from ._gt_kit import typed_function
-
-        check(abs(typed_function(key)(u) - y) < 1e-7, "a marked point is not on the key")
+    check(_passes_marked(fam, fig, key), "a marked point is not on the key")
     figures.assert_no_leak(fig, [key, *[d.text for d in options]])
     stem = phrase(
         rng,

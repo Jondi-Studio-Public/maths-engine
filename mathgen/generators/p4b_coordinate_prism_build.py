@@ -277,10 +277,23 @@ def prism_cross_sections(rng, shape_pool=SHAPES, num_measurements=2):
     candidates = [opt for opt in fixed_options if opt != answer]
     check(len(candidates) == 2, f"expected exactly 2 distractors, got {len(candidates)}")
 
-    working = [
-        f"Based on the description: {text}",
-        f"Answer: {answer}",
-    ]
+    working = ["A right prism has the same cross-section, in shape and size, all the way along its length."]
+    if num_measurements == 1:
+        working.append(
+            f"Every cross-section is the same {shape} shape and size, so it is a right prism."
+            if is_constant
+            else "These cross-sections get smaller along the length, so they are not all the same size: it is not a right prism."
+        )
+    else:
+        working.append(
+            f"The measurements are {', '.join(str(m) for m in measurements)} cm, "
+            + (
+                "all equal, so it is a right prism."
+                if is_constant
+                else "not all equal, so the cross-sections change and it is not a right prism."
+            )
+        )
+    working.append(f"Answer: {answer}")
 
     return dict(
         text=text,

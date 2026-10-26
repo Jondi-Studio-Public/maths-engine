@@ -1,0 +1,56 @@
+# Name and description adapted from the Australian Curriculum: Mathematics (Version 9.0),
+# (c) ACARA, https://v9.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: f10-draw-cross-sections-of-solids
+name: Draw the cross-section of a prism cut parallel to a face
+domain: primary-geometry-time
+year_level: ['6']
+naplan_domain: [space]
+description: "Compare parallel cross-sections of a prism and relate them to right prisms by drawing the cut face. A solid made of unit cubes is drawn on isometric dot paper and cut by a flat plane parallel to one of its faces; the learner shades the cut face on a blank grid. Easy cuts a rectangular prism, so the two edges of the named face are read from the picture. Medium cuts a prism with an L-shaped end parallel to that end, where every layer gives the same L. Hard cuts a stepped solid (not a prism), where the cut depends on which column or layer it passes through, or compares two parallel cuts and shades the one with the greater or smaller area."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+learner_band: primary
+prerequisites: [f10-nets-build-solids]
+answer: grid_cells
+sources:
+- topic: grid_solid_cross_sections
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_solid_cross_sections
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_solid_cross_sections
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: cross-section-edges-swapped
+  description: Reads the right two edges of the face but draws the rectangle turned, with the across and up measurements the wrong way round.
+- id: cross-section-from-wrong-face
+  description: Draws the face that is not parallel to the cut, using the edges of a different face of the solid.
+- id: cross-section-size-off-by-one
+  description: Miscounts the cubes along an edge of the solid in the picture, so the cut face is a cell too long or too short.
+- id: cross-section-mirrored-or-flipped
+  description: Draws the L-shaped cut face mirrored or upside down, or with the corner cut away from the wrong place.
+- id: cross-section-bounding-rectangle
+  description: Draws the whole rectangle around the L or stepped end instead of the shape of the cut face.
+- id: cross-section-uses-tallest-column
+  description: Takes the height of the tallest part of a stepped solid for a cut that goes through a lower column or layer.
+- id: cross-section-counted-from-wrong-end
+  description: Counts the layer or column to cut through from the wrong end of the solid.
+- id: cross-section-varies-in-a-prism
+  description: Thinks the cross-section of a prism changes shape for each parallel cut, instead of seeing that cuts parallel to the end are all the same shape and size.
+tags: [acara-f10-v9, primary-geometry-time, grid_solid_cross_sections, ac9m6sp01, cross-section, prism, drawn-answer, figure]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: "Read the two edges of a named face of a rectangular prism from the picture and shade the cut face parallel to it."
+  medium:
+    steps: 2
+    demand: "Cut a prism with an L-shaped end parallel to that end and shade the L, seeing that every layer gives the same shape."
+  hard:
+    steps: 3
+    demand: "Cut a stepped solid (not a prism) parallel to a side or the base, or compare two parallel cuts, where the cut face depends on the column or layer it passes through."

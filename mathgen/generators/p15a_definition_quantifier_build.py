@@ -80,8 +80,9 @@ def _build_domain_codomain(rng, m: int, n: int):
 def _domain_or_codomain_question(rng, m, n, which: str):
     A, B, R, active_domain, active_codomain = _build_domain_codomain(rng, m, n)
     if which == "domain":
-        correct = A
-        decoys = [B, active_domain, active_codomain]
+        # Dom(R) = {a : there is a b with (a, b) in R}, the set of first coordinates (Velleman, Enderton, Halmos)
+        correct = active_domain
+        decoys = [A, B, active_codomain]
     else:
         correct = B
         decoys = [A, active_domain, active_codomain]
@@ -93,9 +94,9 @@ def _domain_or_codomain_question(rng, m, n, which: str):
     shuffled = [options_sets[i] for i in order]
     answer_idx = shuffled.index(correct)
     opts_text = "   ".join(f"{labels[i]}: {_set_text(shuffled[i])}" for i in range(4))
-    # No convention sentence here. "R is a relation from A to B" already fixes domain=A, codomain=B
-    # by the standard convention; the decoys (active_domain/active_codomain, the *projections* of R)
-    # are what actually test whether the learner knows that convention.
+    # No convention sentence here: the domain of R is the standard one, the set of first coordinates that appear in R
+    # (so it can be smaller than A); the codomain of a relation from A to B is B. The decoys include A itself (the stated
+    # source set, the old "ambient domain" reading) and the set of second coordinates that appear.
     text = (
         f"Let A = {_set_text(A)} and B = {_set_text(B)}, and let R = {_rel_text(R)} "
         f"be a relation from A to B. What is the {which} of R? {opts_text}"
@@ -267,8 +268,8 @@ def _exam_question(rng, m, n):
     if aspect in ("domain", "codomain"):
         A, B, R, active_domain, active_codomain = _build_domain_codomain(rng, m, n)
         if aspect == "domain":
-            correct = A
-            decoys = [B, active_domain, active_codomain]
+            correct = active_domain  # the set of first coordinates, as in the other tiers
+            decoys = [A, B, active_codomain]
         else:
             correct = B
             decoys = [A, active_domain, active_codomain]
@@ -280,7 +281,7 @@ def _exam_question(rng, m, n):
         shuffled = [options_sets[i] for i in order]
         answer_idx = shuffled.index(correct)
         opts_text = "   ".join(f"{labels[i]}: {_set_text(shuffled[i])}" for i in range(4))
-        # No convention sentence (see _domain_or_codomain_question above).
+        # No convention sentence (see _domain_or_codomain_question above): domain = set of first coordinates.
         text = (
             f"Let A = {_set_text(A)} and B = {_set_text(B)}. A relation R from A to B is "
             f"given by the grid below (X marks a pair (a, b) in R, row a, column b): "

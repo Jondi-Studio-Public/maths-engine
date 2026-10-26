@@ -61290,6 +61290,288 @@ _ENTRIES += (
         "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
         area="estimation",
     ),
+    # -- latitude and longitude (typed positions) --------------------------------------------------------------------
+    CatalogueEntry(
+        "llt-coordinates-swapped",
+        "Writing the longitude first and the latitude second, when a position is written as latitude then longitude.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-wrong-hemisphere-latitude",
+        "Giving the right size of latitude with the wrong sign, so the place is on the wrong side of the equator.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-wrong-side-of-meridian",
+        "Giving the right size of longitude with the wrong sign, so the place is on the wrong side of the prime meridian.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-one-line-out",
+        "Reading the line next to the right one, so a coordinate is 10 degrees too far north, south, east or west.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-roles-swapped",
+        "Taking the latitude from the wrong place and the longitude from the wrong place, so the two are the wrong way round.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-copies-one-place",
+        "Giving the position of one of the marked places instead of combining a coordinate from each.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-sum-not-halved",
+        "Adding the two latitudes and the two longitudes to find the midpoint but not halving the totals.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-averages-sizes-across-zero",
+        "Averaging the sizes of the two coordinates and ignoring their signs, so the midpoint of places on opposite "
+        "sides of the equator or the prime meridian is wrong.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-half-the-difference",
+        "Halving the difference of the two coordinates instead of halving their sum.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-one-coordinate-halved",
+        "Finding the midpoint of only one coordinate and keeping the other from one of the places.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-direction-reversed",
+        "Moving the stated number of degrees the opposite way, south for north or west for east.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-no-crossing-zero",
+        "Stopping at the equator or the prime meridian when a move goes past it, keeping the old sign for the "
+        "left-over degrees.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-offsets-on-wrong-axis",
+        "Applying the north or south move to the longitude and the east or west move to the latitude.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-moves-one-way-only",
+        "Making only one of the two moves, north or south or east or west, and leaving the other coordinate unchanged.",
+        area="latitude-longitude",
+    ),
+    # -- place objects from position words (shaded squares) ------------------------------------------------------
+    CatalogueEntry(
+        "epo-opposite-side",
+        "Puts the picture on the opposite side, such as below when the clue says above.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-covers-a-picture",
+        "Shades the square of a picture that is already there instead of an empty square beside or between.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-one-square-too-far",
+        "Goes one square too far, leaving a gap instead of putting the picture just beside the other.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-beside-not-between",
+        "Shades a square beside one of the two pictures, outside them or off the line between them, not in the square between.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-wrong-reference",
+        "Uses the right position word about the wrong picture, such as above the second picture named instead of the first.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-wrong-axis",
+        "Goes left or right when the clue says above or below, or the other way round.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-places-only-one",
+        "Shades the square of only the first new picture and leaves out the second.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-second-from-wrong-picture",
+        "Puts the second picture beside a picture already drawn instead of beside the first new picture.",
+        area="f10-place-objects-from-position-words",
+    ),
+)
+
+_ENTRIES += (
+    CatalogueEntry(
+        "pwg-breakpoint-for-the-cost",
+        "Gives the usage at the first kink where the cost at no usage, or at a stated usage, was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-breakpoint-for-the-usage",
+        "Gives the usage at the start of the section, the kink, instead of the usage that gives the stated cost.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-average-rate-for-gradient",
+        "Divides the cost at the end of the section by the usage, the average cost per unit, instead of the rise over the run of that section.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-breakpoint-for-the-cost",
+        "Reads the cost at the kink nearest the stated usage instead of the cost at the stated usage.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-breakpoint-for-the-start",
+        "Gives the cost at the first kink where the fixed charge, the cost at no usage, was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-change-for-usage",
+        "Gives the cost at the kink where the usage at the kink was asked, reading up the wrong axis.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-end-for-rate",
+        "Gives the cost at the end of the section where the rate of the section was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-crossing-cost-for-usage",
+        "Gives the cost at the point where the two plans meet where the usage at that point was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-crossing-usage-for-cost",
+        "Gives the usage at the point where the two plans meet where the common cost was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-divides-cost-by-rate",
+        "Divides the stated cost by the rate of a section to find the usage, ignoring the fixed charge or the cost already built up at the kink.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-end-of-graph-for-breakpoint",
+        "Gives the right-hand end of the drawing where a kink or a crossing was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-at-the-wrong-rate",
+        "Continues the last section at the rate of the first section instead of the rate of the last one.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-from-the-fixed-charge",
+        "Continues the line from the fixed charge, adding the last rate for every unit of usage, ignoring the earlier sections.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-from-the-origin",
+        "Multiplies the last rate by the whole usage, as if the graph started at the origin with no fixed charge.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-one-unit-too-far",
+        "Extends the last section by one unit too many or too few.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extra-units-not-multiplied-by-rate",
+        "Adds the number of extra units to the last cost read, instead of the extra units times the rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-first-rate-for-all-units",
+        "Applies the rate of the first section to all of the usage, though part of it lies in a later section with a different rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-fixed-charge-for-breakpoint",
+        "Gives the fixed charge where the usage at which the rate changes was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-fixed-charge-for-rate",
+        "Gives the fixed charge where the rate of a section was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-forgets-the-breakpoint-offset",
+        "Finds only the extra units beyond the kink and does not add the usage at the kink back on.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-kink-for-crossing",
+        "Takes the kink of the two-section plan for the point where the two plans cost the same.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-leaves-out-the-fixed-charge",
+        "Leaves the fixed charge out of a cost read from, or built on, a graph that starts above zero.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-other-breakpoint",
+        "Gives the second kink of a three-section graph where the first change of rate was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-other-section-rate",
+        "Gives the rate of a different section from the one between the stated usages.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-rate-for-one-unit-only",
+        "Adds the rate for one unit to the fixed charge, not the rate times the usage at the crossing.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-rate-left-out",
+        "Adds the usage to the fixed charge, forgetting to multiply the usage by the rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-cost-for-the-usage",
+        "Gives the stated cost back where the usage that gives it was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-neighbouring-gridline",
+        "Reads the graph one gridline away, the neighbouring usage, instead of the stated one.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-other-plan",
+        "Reads the line of the other plan where the plan named in the question was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-rate-for-the-cost",
+        "Gives the rate of the section where a cost was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-usage-for-the-cost",
+        "Gives the stated usage back where the cost at that usage was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-run-for-rate",
+        "Gives the width of the section, the run, where the rise for each extra unit was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-total-change-for-rate",
+        "Gives the total rise in cost over the section instead of the rise for each extra unit.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
 )
 
 # -- shape and variation of a display (AC9M4ST02) --------------------------------------------------------------

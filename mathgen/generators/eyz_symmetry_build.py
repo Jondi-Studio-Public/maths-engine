@@ -373,7 +373,7 @@ def _lines_question(rng, name: str) -> dict:
         (
             "How many lines of symmetry does this shape have?",
             "Count the lines of symmetry of this shape.",
-            "A mirror line makes both halves match. How many does the shape have?",
+            "A mirror line makes both halves match. How many mirror lines does the shape have?",
         )
     )
     working = [_lines_working(lines)]
