@@ -1,0 +1,55 @@
+id: trapezium-rule-estimate
+name: Estimate a definite integral with the trapezium rule
+domain: integration
+year_level: ['12']
+description: Estimate an integral or an area with the trapezium rule on 2 to 5 equal strips from a formula (e^x, 1/x, sqrt(x), sin x) or a table of measurements, recover an unknown ordinate or the number of strips from a stated result, and compare an estimate with the exact value, signed and absolute.
+status: active
+placement_eligible: false
+prerequisites:
+- definite-integral
+answer: number
+sources:
+- topic: sc_trapezium
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sc_trapezium
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sc_trapezium
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sc_trapezium_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: trapezium-multiplier-h-not-half
+  description: Multiplies the weighted sum by h instead of h/2.
+- id: trapezium-inner-weight-1
+  description: Gives every ordinate the weight 1, so the inner ordinates are counted once instead of twice.
+- id: trapezium-ends-doubled
+  description: Doubles every ordinate, including the first and last.
+- id: trapezium-end-ordinate-omitted
+  description: Leaves the last ordinate out of the sum.
+- id: trapezium-strips-counted-as-ordinates
+  description: Counts the n + 1 ordinates as the number of strips, so the strip width is the interval length over n + 1.
+- id: trapezium-uses-interval-length-as-h
+  description: Uses the whole interval length as the strip width h.
+- id: trapezium-simpson-weights
+  description: Uses Simpson's weights 1, 4, 2, ..., 4, 1 and h/3 when the trapezium rule was asked for.
+- id: trapezium-missing-ordinate-weight
+  description: Divides by the wrong weight when solving for an unknown ordinate, which has weight 1 at an end and 2 inside.
+- id: trapezium-error-sign-reversed
+  description: Finds estimate minus exact value when exact value minus estimate was asked.
+- id: trapezium-sign-dropped
+  description: Gives the size of the error where a signed difference was asked, losing whether the rule over- or under-estimated.
+- id: trapezium-strips-from-error-squared
+  description: Stops at n squared when solving for the number of strips, without taking the square root.
+- id: trapezium-strip-width-for-strips
+  description: Gives the strip width where the number of strips was asked.
+- id: trapezium-strips-off-by-one
+  description: Is one strip out, mixing up the number of strips and the number of ordinates.
+tags: [senior, integration, trapezium-rule, numerical-integration, nsw-advanced, year-12]
