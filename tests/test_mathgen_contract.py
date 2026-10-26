@@ -300,6 +300,7 @@ def test_backward_compatible_outputs_pinned(topic):
 # shrinks: a topic that stops tagging must be removed (see the test below it).
 OPTION_NOTES_TOPICS = frozenset(
     {
+        "w6b_trig_equation_interval",
         "grid_latlong_typed",
         "pw1_piecewise_cost_graph",
         "nv_bits_hex_counts",
