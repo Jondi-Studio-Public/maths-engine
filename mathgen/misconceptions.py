@@ -21808,18 +21808,6 @@ _ENTRIES = (
         area="linear-algebra",
     ),
     CatalogueEntry(
-        "zero-determinant-means-no-solution",
-        "Saying no pair works because det[u w v] = 0: a zero determinant means v is in the span, and since u and w are "
-        "independent exactly one pair works.",
-        area="linear-algebra",
-    ),
-    CatalogueEntry(
-        "inconsistent-system-has-free-choice",
-        "Saying infinitely many pairs work when the equations are inconsistent: an inconsistent system has no "
-        "solution at all, not a free choice.",
-        area="linear-algebra",
-    ),
-    CatalogueEntry(
         "linear-system-exactly-two-solutions",
         "Saying a linear system has exactly two solutions, as a quadratic equation can: a linear system has none, one "
         "or infinitely many.",

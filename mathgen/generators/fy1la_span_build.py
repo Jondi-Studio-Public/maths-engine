@@ -227,42 +227,13 @@ def exd_x_fy1la_span(rng, tier="exam"):
         dist_c = vector_distractors(wrong_a_b, [a, b])
         if None in (dist_a, dist_b, dist_c):
             continue
+        v_text = "(" + ", ".join("k" if x == "k" else str(x) for x in shape) + ")"
         options = (
             "No pair (a, b)",
             "Exactly one pair (a, b)",
             "Infinitely many pairs (a, b)",
             "Exactly two pairs (a, b)",
         )
-        # (d) is asked at k0 (exactly one pair) about as often as at another k (no pair), so the answer cannot be guessed
-        # from the part alone. Each wrong option carries a misconception whose note describes that very reply.
-        if rng.random() < 0.5:
-            part_d = mcq_part(
-                f"How many pairs (a, b) satisfy v = a·u + b·w when k = {k0}?",
-                options[1],
-                [
-                    Distractor(options[0], "zero-determinant-means-no-solution"),
-                    Distractor(options[2], "span-dependence-means-infinite"),
-                    Distractor(options[3], "linear-system-exactly-two-solutions"),
-                ],
-                marks=2,
-                working=[
-                    f"At k = {k0}, det[u w v] = 0, so v is in the span of u and w. Since u and w are independent, the "
-                    f"pair is unique: exactly one pair, (a, b) = ({a}, {b}), works."
-                ],
-            )
-        else:
-            part_d = mcq_part(
-                f"How many pairs (a, b) satisfy v = a·u + b·w when k = {k1}?",
-                options[0],
-                [
-                    Distractor(options[1], "span-membership-assumed"),
-                    Distractor(options[2], "inconsistent-system-has-free-choice"),
-                    Distractor(options[3], "linear-system-exactly-two-solutions"),
-                ],
-                marks=2,
-                working=[f"{k1} is not {k0}, so det[u w v] is not zero and v is outside the span: no pair works."],
-            )
-        v_text = "(" + ", ".join("k" if x == "k" else str(x) for x in shape) + ")"
         return dict(
             text=f"Let u = {vec_str(u)}, w = {vec_str(w)} and v = {v_text} in ℝ³, where k is a constant.",
             parts=[
@@ -291,7 +262,17 @@ def exd_x_fy1la_span(rng, tier="exam"):
                     vector=True,
                     working=[f"With k = {k0}, v = {vec_str(v0)}; elimination gives a = {a} and b = {b}."],
                 ),
-                part_d,
+                mcq_part(
+                    f"How many pairs (a, b) satisfy v = a·u + b·w when k = {k1}?",
+                    options[0],
+                    [
+                        Distractor(options[1], "span-membership-assumed"),
+                        Distractor(options[2], "span-dependence-means-infinite"),
+                        Distractor(options[3], "linear-system-exactly-two-solutions"),
+                    ],
+                    marks=2,
+                    working=[f"{k1} is not {k0}, so det[u w v] is not zero and v is outside the span: no pair works."],
+                ),
             ],
         )
     raise VerificationError("unreachable")  # pragma: no cover

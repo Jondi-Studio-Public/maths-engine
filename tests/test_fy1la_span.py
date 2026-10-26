@@ -74,17 +74,11 @@ def _exam_oracle(q):
     v0 = [x.subs(K, k_part.answer) for x in vs["v"]]
     assert column(coeff_part.answer) == _coefficients(vs["u"], vs["w"], v0)
     k1 = int(re.search(r"when k = (-?\d+)", count_part.prompt).group(1))
+    assert k1 != k_part.answer
     v1 = sympy.Matrix([x.subs(K, k1) for x in vs["v"]])
-    uw = sympy.Matrix.hstack(sympy.Matrix(vs["u"]), sympy.Matrix(vs["w"]))
-    assert uw.rank() == 2
-    # Part (d) is asked at the k of part (b) (v in the span: exactly one pair, u and w being independent) or at another k
-    # (v outside the span: no pair); round 4 item C6 varied it so the answer cannot be guessed from the part alone.
-    if k1 == k_part.answer:
-        assert sympy.Matrix.hstack(uw, v1).rank() == 2
-        assert count_part.answer == "Exactly one pair (a, b)"
-    else:
-        assert sympy.Matrix.hstack(uw, v1).rank() == 3
-        assert count_part.answer == "No pair (a, b)"
+    assert sympy.Matrix.hstack(sympy.Matrix(vs["u"]), sympy.Matrix(vs["w"])).rank() == 2
+    assert sympy.Matrix.hstack(sympy.Matrix(vs["u"]), sympy.Matrix(vs["w"]), v1).rank() == 3
+    assert count_part.answer == "No pair (a, b)"
 
 
 def test_exam_chain_matches_the_oracle_and_marks():

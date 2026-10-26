@@ -42,8 +42,6 @@ misconceptions:
     equation can: a linear system has none, one or infinitely many.'}
 - {id: span-dependence-means-infinite, description: 'Saying there are infinitely many combinations because the three vectors
     are dependent, when the first two vectors are independent and so any combination that exists is unique.'}
-- {id: zero-determinant-means-no-solution, description: 'Saying no pair works because det[u w v] = 0: a zero determinant means v is in the span, and since u and w are independent exactly one pair works.'}
-- {id: inconsistent-system-has-free-choice, description: 'Saying infinitely many pairs work when the equations are inconsistent: an inconsistent system has no solution at all, not a free choice.'}
 difficulty_progression: 'Easy uses two vectors with a 1 and a 0 in shared coordinates, so the coefficients can be read off
   and checked. Medium uses general vectors, so two of the three equations must be solved by elimination and the third checked.
   Hard moves to R^4, where four equations in two unknowns are consistent only because v is in the span. The exam chain makes
