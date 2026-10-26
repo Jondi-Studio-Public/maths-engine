@@ -117,7 +117,7 @@ The `--topic` command prints, for its first question:
 
 ```
 [L9 quadratic #42]
-  Q: Solve x**2 - 5*x - 36 = 0
+  Q: Solve x^2 - 5x - 36 = 0
   A: x = -4 or x = 9
   wrong: x = -9 or x = 4 | x = 4 or x = 9 | x = -9 or x = -4
 ```
@@ -142,7 +142,9 @@ False
 ```
 
 `text` and `answer_text` are plain text in Python-style syntax (`x**2`,
-`6*sqrt(21)`); `latex` and `answer_latex` are there for rendering. For a
+`6*sqrt(21)`); `latex` and `answer_latex` are there for rendering. The command line
+prints (and writes to JSONL) the same text rewritten as on paper (`x^2`, `6√21`), as
+`engine.display_question` does. For a
 multiple-choice skill (`skill.answer == "mcq"`), `engine.grade` takes the 0-based
 index of the chosen option in `mathgen.core.mcq_options(q)`, sent as an `int` (an
 index out of range, or a bool, is wrong). A string is matched against the option
@@ -270,7 +272,7 @@ gives a different question for the same seed in any release, and the question id
 
 - Code: MIT (`LICENSE`).
 - Skill definitions in `skills/`: CC BY 4.0 (`LICENSE-CONTENT`).
-- The `senior-*` skills (about 40% of the library) adapt content descriptors
+- The `senior-*` skills (about 28% of the library) adapt content descriptors
   from the Australian Curriculum (Senior Secondary, Version 8.4), modified, and
   some code comments and tests quote descriptors too. ACARA licenses these
   under CC BY 4.0. See `NOTICE` for the required attribution.

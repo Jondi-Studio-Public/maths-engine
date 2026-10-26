@@ -22,6 +22,9 @@ That appends `Signed-off-by: Your Name <you@example.com>`. CI fails the pull
 request if any commit in it is unsigned. A merge commit needs a sign-off too
 (`git merge --signoff`); or rebase your branch instead of merging into it.
 
+Keep commit messages to the change itself: no session or tool URLs, which would put
+links to private pages in the public history.
+
 Do not submit text copied from textbooks, exam papers or other sources you
 do not have the right to relicense. Questions should be original templates.
 Text under a licence that requires attribution (CC BY, for example) is
@@ -50,7 +53,7 @@ python -m pytest tests/test_my_generator.py -q -n 8
 
 `tests/public/` is a small, fast set (`python -m pytest tests/public -q`) that
 covers the command line, skill loading, packaging and the public API. The whole
-suite has about 90,000 tests, so expect tens of minutes on four cores. Run it once
+suite has about 169,000 tests, so expect an hour or more on four cores. Run it once
 before opening a pull request, or let CI do it:
 
 ```

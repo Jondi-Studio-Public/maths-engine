@@ -91,8 +91,8 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
   question says "lowest terms", "simplest form" or "simplify", a written a/b must be reduced. A `pair`
   reply's labels must be the answer's own (in any case, without a subscript, or spelled out).
   `grade_expression` accepts a leading `name =`, a derivative label (`f'(x) =`, `dy/dx =`) or
-  `Answer:`, and reads `÷`. An `mcq` reply is an option's index, its letter or its whole text; digits
-  are always an index. `inequality` (`mathgen/grading/inequality.py`) compares solution sets, so
+  `Answer:`, and reads `÷`. An `mcq` reply is an option's index (an `int`), its letter or its whole text; a string of digits
+  equal to an option's text picks that option, so send an index as an `int` ("text wins"). `inequality` (`mathgen/grading/inequality.py`) compares solution sets, so
   `3 < x` and `(3, ∞)` are both `x > 3`. `matrix` (`mathgen/grading/matrix.py`) compares exact
   entries; its `answer_form` `scalar_multiple` or `column_scalar_multiple` accepts any non-zero
   multiple of the answer, or of each of its columns, for answers such as eigenvectors.

@@ -38,7 +38,7 @@ py scripts/build_banks.py --jobs 8
 ```
 
 That writes `dist/banks/` (`dist/` is ignored by git): the per-skill files, and the two archives named with the
-installed engine version. It takes a couple of minutes for the whole library (about 1,080 skills and 80,000
+installed engine version. It takes a couple of minutes for the whole library (about 1,340 skills and 100,000
 questions as of this writing; the archives are roughly 13 MB for Moodle and 85 MB for QTI) and prints one line like:
 
 ```

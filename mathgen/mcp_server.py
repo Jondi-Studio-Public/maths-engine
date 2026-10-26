@@ -59,7 +59,7 @@ _SLUG = re.compile(r"[^a-z0-9]+")
 
 INSTRUCTIONS = """\
 maths-engine generates maths questions with verified answers and marks learners' replies deterministically.
-Skills cover early years to first-year university, tagged with Australian Curriculum (ACARA) codes and years.
+Skills cover early years to second-year university, tagged with Australian Curriculum (ACARA) codes and years.
 Find a skill with find_skills, set questions with make_questions, and mark every reply with grade_answer: it
 accepts equivalent forms and applies each question's own precision, so do not mark replies yourself.
 Skills with gradeable=false (proofs, explanations) are marked by a person, not the engine.

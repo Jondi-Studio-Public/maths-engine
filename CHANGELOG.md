@@ -29,6 +29,14 @@ Each question's id (below) tells you when the question behind it has changed.
   stem-and-leaf displays, comparing displays, real-data graphs, a grid map) and ten early-years skills (twos facts,
   estimating a collection, angles, chance, solids, symmetry). Each has easy, medium and hard tiers and a
   follow-through exam chain.
+- **6 more skills** (#133), closing gaps found against the NSW, Victorian and Queensland senior courses: tracing
+  pseudocode (`pseudocode-trace-output`), features of power-function graphs (`power-function-graph-features`),
+  complex-plane geometry with ratios, midpoints and w = az + b (`complex-arg-ratio-geometry`), trigonometric
+  substitution integrals (`trig-substitution-hsc-tan-and-convert`), choosing mode, median or mean (`choose-summary-statistic-for-data`) and
+  bits, hexadecimal and digit counts (`bits-hex-and-digit-counts`, hexadecimal typed as text). Each has an exam chain.
+- **New exam chains** (#132, #135): reasonableness of an answer and causation versus correlation (General and
+  Essential courses), and typed multi-part chains for proof by contradiction and for sin, cos and tan graphs on an
+  extended domain (a second exam source on `senior-recognise-the-graphs-of-y-sin-x-y`).
 
 ### Fixed
 
@@ -45,6 +53,15 @@ Each question's id (below) tells you when the question behind it has changed.
 - About 25 skills raised an error on some seeds (empty distractor candidates, a distractor that collapsed onto the
   key, a costed graph draw whose total was one printed cost); they now redraw. (#126, #127, #130)
 - The variance multiplier in the linear-transform working printed `60.0^2` instead of `60^2`. (#129)
+- A fourth round of review fixes (#134) changes some questions and replies. The displayed stem of
+  `ucv1-lhopital-rule` and `integrate-tan-sec-powers` showed the variable x as a times sign (`lim(x→∞) × ln(...)`),
+  which changed the limit; it now reads as the variable. An answer holding `e` inside a tuple (`uc2-curl-of-field`)
+  was marked wrong although it matched the displayed key. `trig-equations-radians-list` now accepts `π` as the stem
+  asks. `f10-fraction-decimal-links` no longer accepts the decimal in the stem as the answer to "write it as a
+  fraction". The bar-chart grader matches category names without regard to case. Two slow replies are fixed: a long
+  reply with `over` in it took minutes to read, and a reply such as `cos((E-2)^6)` hung the factorising graders. A
+  batch to the HTTP grading endpoint stops running replies after three have timed out, so one client's slow batch
+  cannot hold a worker for the whole batch deadline.
 
 ## [0.2.0] - 2026-10-19
 
