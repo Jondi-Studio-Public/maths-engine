@@ -77,7 +77,8 @@ def oracle_medium(q):
         if "horizontal" in text:
             s = 0
         elif "parallel" in text:
-            s = int(re.search(rf"y = {INT}x \+ 4", text).group(1))
+            coef = re.search(r"y = (-?\d*)x \+ 4", text).group(1)
+            s = {"": 1, "-": -1}.get(coef) or int(coef)
         else:
             s = int(re.search(rf"slope {INT}\.", text).group(1))
         sol = sympy.solve(sympy.Eq(at(rhs(f), px, py), s), k)
