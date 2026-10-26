@@ -170,14 +170,14 @@ def number_part(prompt, value, places, marks, working, wrong, **kw):
 
 
 def exact_number_part(prompt, value, marks, working, wrong, **kw):
+    """Every option is printed to the same number of decimal places as the key (a whole-number key gets whole numbers,
+    a key with one decimal place gets options like 207.0), as the skill contract requires of a `number` skill."""
     value = Fraction(value)
-    places = decimal_places(value, 8)
-    wrong = [
-        (v, t) for v, t in wrong if v is not None and decimal_places(Fraction(v), kw.get("max_places", 8)) is not None
-    ]
-    whole = kw.pop("whole", False)
-    fixed = kw.get("min_places") if kw.get("min_places") == kw.get("max_places") else None
-    wrong = _company(value, wrong, fixed, lo=kw.pop("lo", None), whole=whole, decimals=True)
+    places = max(decimal_places(value, 8) or 0, kw.get("min_places", 0))
+    kw["min_places"] = places
+    whole = kw.pop("whole", False) or places == 0
+    wrong = [(v, t) for v, t in wrong if v is not None]
+    wrong = _company(value, wrong, places or None, lo=kw.pop("lo", None), whole=whole, decimals=False)
     return _exact_number_part(prompt, value, marks, working, wrong, **kw)
 
 

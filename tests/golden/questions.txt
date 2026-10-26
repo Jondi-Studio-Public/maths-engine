@@ -11569,8 +11569,8 @@
 {"answer": "0.3", "id": "slope-field-readings/hard/0/754217204ce4", "text": "A path follows the slope field of dy/dx = 2xy + 3. Starting at (1, 0), every st…"}
 {"answer": "17", "id": "slope-field-readings/hard/1/70b217449550", "text": "Consider the slope field of dy/dx = -2xy. Segments are drawn only at points who…"}
 {"answer": "-2.232", "id": "slope-field-readings/hard/2/b070b6ea6f7a", "text": "Trace a path on the slope field of dy/dx = -2x + y^2 + 1. The path starts at th…"}
-{"answer": "-3", "id": "slope-field-readings/medium/0/c996833ae779", "text": "Consider the slope field of dy/dx = kxy + 2x - 1. The segment at the point (-3,…"}
-{"answer": "3", "id": "slope-field-readings/medium/1/a91685feabe8", "text": "Consider the slope field of dy/dx = kx^2 + 3xy - 2. The segment at the point (3…"}
+{"answer": "-3", "id": "slope-field-readings/medium/0/24afb6fd61eb", "text": "Consider the slope field of dy/dx = kxy + 2x - 1. The segment at the point (-3,…"}
+{"answer": "3", "id": "slope-field-readings/medium/1/c598dcffca6f", "text": "Consider the slope field of dy/dx = kx^2 + 3xy - 2. The segment at the point (3…"}
 {"answer": "-3", "id": "slope-field-readings/medium/2/3ee921619126", "text": "Readings from a slope field show a slope of -6 at (3, 1), 10 at (-2, -1) and 14…"}
 {"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/0/910ba3650faf", "text": "Does x = 7 make 5x + 9 = 39 true? Show how you decide whether it is a solution."}
 {"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/1/88621a614207", "text": "Does x = 7 make 3x + 2 = 26 true? Show how you decide whether it is a solution."}
@@ -11927,7 +11927,7 @@
 {"answer": "16t - 9", "id": "translate-word-problems-to-equations/medium/1/a983883d24b4", "text": "Each ticket to a show costs $16. Maya buys some tickets and uses a $9 voucher, …"}
 {"answer": "8n - 17", "id": "translate-word-problems-to-equations/medium/2/50e2907b1769", "text": "Notebooks cost $8 each. With a $17 coupon taken off the bill, Sam pays $7 for s…"}
 {"answer": "7", "id": "trapezium-rule-estimate/easy/0/178e5ebeedfc", "text": "The function f is given by f(x) = -3x^3 + 3x^2 + 2x + 2. Use the trapezium rule…"}
-{"answer": "24", "id": "trapezium-rule-estimate/easy/1/d5ea81bb3ef1", "text": "Use the trapezium rule with 2 strips to approximate the integral of f(x) = 2x^2…"}
+{"answer": "24", "id": "trapezium-rule-estimate/easy/1/c3c88d90f02b", "text": "Use the trapezium rule with 2 strips to approximate the integral of f(x) = 2x^2…"}
 {"answer": "125", "id": "trapezium-rule-estimate/easy/2/d43fe39eefd3", "text": "A function g has the values 12, 15, 19, 14, 17 at x = -1, 1, 3, 5, 7. Use the t…"}
 {"answer": "(a) 1; (b) 1.0333; (c) 0.5167; (d) -0.0059; (e) 0.0059", "id": "trapezium-rule-estimate/exam/0/f2adaf25445d", "text": "The area under y = 1/x from x = 3 to x = 5 has exact value 0.5108, correct to 4…"}
 {"answer": "(a) 5/4; (b) 2.5885; (c) 1.6178; (d) 0.2498; (e) 0.2498", "id": "trapezium-rule-estimate/exam/1/71e985967264", "text": "Let f(x) = sin(x). The trapezium rule with 2 equal strips is used to estimate t…"}

@@ -50,7 +50,12 @@ def _company(key, wrong, places, lo=None):
     seen_values = {key}
     cands = []
     for v, t in wrong:
-        if v is not None and Fraction(v) not in seen_values and (lo is None or v >= lo):
+        if (
+            v is not None
+            and Fraction(v) not in seen_values
+            and (lo is None or v >= lo)
+            and (key.denominator != 1 or places or Fraction(v).denominator == 1)
+        ):
             seen_values.add(Fraction(v))
             cands.append((Fraction(v), t))
     shown = max([places] + [decimal_places(v, 4) or 0 for v, _ in cands[:6]])
@@ -69,6 +74,7 @@ def _company(key, wrong, places, lo=None):
         if decimal_places(Fraction(v), places) is not None
         and abs(Fraction(v) - key) > max(Fraction(51, 1000), step)
         and (lo is None or Fraction(v) >= lo)
+        and (key.denominator != 1 or places or Fraction(v).denominator == 1)
     ]
     random.Random(repr((str(key), places))).shuffle(pool)
     places_arg = places if places else None
