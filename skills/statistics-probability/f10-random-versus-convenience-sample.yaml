@@ -1,0 +1,100 @@
+id: f10-random-versus-convenience-sample
+name: Compare random and convenience samples with the population
+domain: statistics-probability
+year_level: ['8']
+naplan_domain: [statistics]
+description: 'Read a random sample and a convenience sample against a school population given as a table. Work out a sample''s
+  mean or percentage, or the whole school''s from the table, then how far each sample is from the whole school (typed number:
+  a gap in the variable''s units or in percentage points). Harder tiers compare the two samples (how much nearer one is),
+  pool them into one group, or scale the convenience sample''s error up to a whole-school total. Every figure is exact.
+  Naming the sampling method, spotting bias in a described survey and writing the report on what a sample shows are not
+  asked; the written report stays with the rubric skills.'
+status: active
+placement_eligible: false
+prerequisites:
+- calculate-mean
+- percentage-of-quantity
+answer: number
+sources:
+- topic: ds_sample_vs_pop_gap
+  params:
+    tier: easy
+  difficulty: easy
+  stages:
+  - 0
+  - 1
+  - 2
+- topic: ds_sample_vs_pop_gap
+  params:
+    tier: medium
+  difficulty: medium
+  stages:
+  - 3
+  - 4
+- topic: ds_sample_vs_pop_gap
+  params:
+    tier: hard
+  difficulty: hard
+  stages:
+  - 5
+  - 6
+  - maintenance
+- topic: ds_sample_vs_pop_exam
+  params: {}
+  difficulty: exam
+  stages:
+  - exam
+misconceptions:
+- id: ds-svp-total-not-mean
+  description: Gives the total of the listed values where the mean was asked for, without dividing by how many values there are.
+- id: ds-svp-divides-by-wrong-count
+  description: Divides the total of the sample by a count that is one out.
+- id: ds-svp-uses-population-value
+  description: Gives the whole-school value where the value for the sample was asked for.
+- id: ds-svp-other-sample
+  description: Works out the value for the other sample, not the one the question names.
+- id: ds-svp-count-not-percent
+  description: Gives the number of students in the group where a percentage of the students was asked for.
+- id: ds-svp-percent-of-population-size
+  description: Finds the sample's percentage out of the whole school's number of students instead of out of the sample's.
+- id: ds-svp-percent-of-sample-size
+  description: Finds the whole school's percentage out of the sample's number of students instead of the school's.
+- id: ds-svp-complement
+  description: Gives the percentage of students who do not, where the percentage who do was asked for.
+- id: ds-svp-ignores-frequencies
+  description: Averages the values in the table as if each were held by one student, ignoring how many students hold it.
+- id: ds-svp-divides-by-number-of-rows
+  description: Adds value times number of students, then divides by the number of rows in the table instead of the number of students.
+- id: ds-svp-most-common-for-mean
+  description: Gives the most common value in the table where the mean was asked for.
+- id: ds-svp-sample-value-as-gap
+  description: Gives the sample's own value where its gap from the whole school was asked for.
+- id: ds-svp-population-value-as-gap
+  description: Gives the whole-school value where the gap between the sample and the whole school was asked for.
+- id: ds-svp-adds-instead-of-subtracting
+  description: Adds the sample's value to the whole school's instead of finding the gap between them.
+- id: ds-svp-other-samples-gap
+  description: Gives the gap for the other sample, not the one the question names.
+- id: ds-svp-gap-as-relative-percent
+  description: Gives the gap as a percentage of the whole-school value instead of the gap itself.
+- id: ds-svp-sum-of-gaps
+  description: Adds the two samples' gaps where the difference between them was asked for.
+- id: ds-svp-gap-between-samples
+  description: Finds how far apart the two samples' values are instead of how far each is from the whole school.
+- id: ds-svp-one-gap-only
+  description: Gives one sample's gap alone where a comparison or a combination of the gaps was asked for.
+- id: ds-svp-averages-the-gaps
+  description: Averages the two gaps instead of finding the gap of the combined sample, so a sample above and a sample below are not allowed to cancel.
+- id: ds-svp-scales-by-sample-size
+  description: Scales the gap up by the number of students in the sample instead of the number in the whole school.
+- id: ds-svp-gap-not-scaled
+  description: Stops at the gap in the sample and does not scale it up to the whole school.
+- id: ds-svp-estimate-not-error
+  description: Gives the estimated whole-school total where the amount it is out by was asked for.
+- id: ds-svp-true-total-not-error
+  description: Gives the true whole-school total where the amount the estimate is out by was asked for.
+tags:
+- acara-f10-v9
+- statistics-probability
+- ds_sample_vs_pop_gap
+- AC9M8ST02

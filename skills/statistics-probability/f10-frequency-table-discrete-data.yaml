@@ -1,0 +1,52 @@
+id: f10-frequency-table-discrete-data
+name: Frequency tables for discrete numerical data
+domain: statistics-probability
+year_level: ['3']
+naplan_domain: [statistics]
+description: Given data about a discrete numerical variable (pets at home, goals in a game, shoe sizes), supplied as a jumbled list, a column of tally marks or named observations, complete the blank cells of a frequency table. Easy counts how often each value occurs and totals the counts; medium also finds a row that adds the counts for values such as "at least 3" or "fewer than 3"; hard builds a running total or a "this many or more" column, or finds a missing count from a stated total. The data and the table are always given. Choosing a question, collecting the data and drawing a graph are not asked, and written explanations are not graded.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-collect-sort-compare-categorical-data
+answer: table
+sources:
+- topic: ds_freq_table_easy
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ds_freq_table_derived
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ds_freq_table_cumulative
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+misconceptions:
+- id: dsft-misses-an-observation
+  description: Leaves one observation out when counting how many times a value occurs, so a count is one too low.
+- id: dsft-double-counts-an-observation
+  description: Counts one observation twice when counting how many times a value occurs, so a count is one too high.
+- id: dsft-swaps-two-values
+  description: Writes the count of one value in the row of another.
+- id: dsft-reads-the-value-as-the-count
+  description: Writes the value itself in the Count column (a row for 3 pets gets a count of 3) instead of how many times it occurred.
+- id: dsft-tally-gate-as-one
+  description: Reads each group of five tally marks as a single mark and adds the loose marks, instead of counting five for each group.
+- id: dsft-total-is-number-of-rows
+  description: Gives the number of rows in the frequency table as the total instead of adding the counts.
+- id: dsft-total-adds-the-values
+  description: Adds the values listed in the rows (such as the shoe sizes) to get the total instead of adding how often each occurred.
+- id: dsft-leaves-out-the-boundary
+  description: When adding the counts for a phrase such as 'at least 3', leaves out the count of the value named in the phrase itself.
+- id: dsft-includes-the-boundary
+  description: When adding the counts for a phrase such as 'more than 3', includes the count of the value named in the phrase itself.
+- id: dsft-miscount-carries-into-totals
+  description: Miscounts one value by one and then adds from the wrong count, so the total or the running total is wrong as well.
+- id: dsft-running-total-copies-the-count
+  description: Writes each row's own count in the running-total column instead of adding it to the counts before it.
+- id: dsft-accumulates-from-the-wrong-end
+  description: Adds the counts from the wrong end of the table, so a running total or a 'this many or more' column is built in the opposite direction.
+- id: dsft-reports-the-known-sum-as-the-missing-count
+  description: Writes the sum of the counts that are given as the missing count, instead of subtracting that sum from the total.
+tags: [acara-f10-v9, statistics-probability, ds_freq_table, AC9M3ST01]

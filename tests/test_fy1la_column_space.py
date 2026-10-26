@@ -76,7 +76,7 @@ def _exam_oracle(q):
     assert rank_part.answer == a.rank() == 2
     assert nullity_part.answer == len(a.nullspace()) == a.cols - a.rank()
     pivots = a.rref()[1]
-    assert basis_part.answer == [p + 1 for p in pivots]
+    assert basis_part.answer["pivots"] == [p + 1 for p in pivots]
     f, p1, p2 = (
         int(x)
         for x in re.search(r"column (\d+) of A as a·\(column (\d+)\) \+ b·\(column (\d+)\)", coeff_part.prompt).groups()
@@ -101,7 +101,9 @@ def test_the_basis_reply_is_graded_as_a_set_of_column_numbers():
         q = make(EXAM, seed=seed, difficulty="exam")
         a = matrix_in(q.stem, "A")
         reduced_pivots = a.rref()[1]
-        assert grade("list", q.parts[2], ", ".join(str(p + 1) for p in reduced_pivots[::-1])).correct, "order is free"
+        assert grade("column_basis", q.parts[2], ", ".join(str(p + 1) for p in reduced_pivots[::-1])).correct, (
+            "order is free"
+        )
 
 
 def test_variety_over_200_seeds():

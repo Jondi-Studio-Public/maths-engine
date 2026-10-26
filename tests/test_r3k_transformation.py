@@ -29,7 +29,15 @@ x = sympy.Symbol("x", real=True)
 y = sympy.Symbol("y", positive=True)
 s = sympy.Symbol("s", positive=True)
 _TRANSFORMS = standard_transformations + (implicit_multiplication_application,)
-mpmath.mp.dps = 25
+
+
+@pytest.fixture(autouse=True)
+def _mpmath_precision():
+    """25 digits for this file's checks, restored afterwards: the precision is process-wide, and a bare
+    `mpmath.mp.dps = 25` at import changed every later test in the same worker (the shard-17 failure of
+    tests/test_p12c_trig_apply_implicit_diff_oracle.py, whose findroot tolerance assumes the default)."""
+    with mpmath.workdps(25):
+        yield
 
 
 def _q(tier, seed):

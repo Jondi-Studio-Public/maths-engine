@@ -30,6 +30,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import operator
+import re
 
 from . import make
 from .core import display_question, paper_notation  # noqa: F401  (re-exported)
@@ -47,6 +49,7 @@ __all__ = [
     "regenerate",
     "pick_source",
     "grade",
+    "grade_with_deadline",
     "QuestionChanged",
     "Skill",
     "Source",
@@ -148,11 +151,21 @@ def question_id(skill: Skill, source: Source | int | str | None, seed: int, ques
     return f"{skill.id}/{_key_of(skill, src)}/{seed}/{content_hash(question)}"
 
 
-def make_with_id(skill: Skill, seed: int, *, source: Source | int | str | None = None):
+def make_with_id(skill: Skill, seed: int | None, *, source: Source | int | str | None = None):
     """Build one question for `skill` and its id: `(question, question_id)`. Same question as `make_for_skill`."""
+    if seed is not None:
+        if isinstance(seed, bool):
+            raise TypeError("seed must be a whole number (or None for a random one), not a bool")
+        try:
+            seed = operator.index(seed)  # an int, or an integer type such as a NumPy one; not a float or a string
+        except TypeError:
+            raise TypeError(
+                f"seed must be a whole number (or None for a random one), not {type(seed).__name__}"
+            ) from None
     src = pick_source(skill, source)
     question = make_for_skill(skill, seed, source=src)
-    return question, question_id(skill, src, seed, question)
+    # `question.seed` is the seed actually used, so a random one (None) still names a question `regenerate` can rebuild.
+    return question, question_id(skill, src, question.seed if seed is None else seed, question)
 
 
 class QuestionChanged(Exception):
@@ -169,6 +182,9 @@ class QuestionChanged(Exception):
         self.question = question
 
 
+_SEED_TEXT_RE = re.compile(r"-?[0-9]+")  # ASCII digits only: "1_0", " 1" and Arabic-Indic digits are not seeds
+
+
 def parse_question_id(qid: str) -> tuple[str, str, int, str]:
     """Split an id into (skill id, source key, seed, hash). Raises ValueError if it is not well formed."""
     parts = qid.split("/") if isinstance(qid, str) else []
@@ -176,6 +192,8 @@ def parse_question_id(qid: str) -> tuple[str, str, int, str]:
         raise ValueError(f"not a question id (want <skill>/<source key>/<seed>/<hash>): {qid!r}")
     skill_id, key, seed_text, digest = parts
     try:
+        if not _SEED_TEXT_RE.fullmatch(seed_text):
+            raise ValueError
         seed = int(seed_text)
     except ValueError:
         raise ValueError(f"not a question id: seed {seed_text!r} is not an integer in {qid!r}") from None
