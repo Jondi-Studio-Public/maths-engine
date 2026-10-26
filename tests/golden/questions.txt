@@ -3664,18 +3664,18 @@
 {"answer": "11:01", "id": "f10-read-time-to-the-minute/medium/0/08b769cbbe80", "text": "The long hand of this clock is between two numerals. Which digital time does it…"}
 {"answer": "1:31", "id": "f10-read-time-to-the-minute/medium/1/457f540959dd", "text": "This clock has a mark for every minute. Say the time as a digital time."}
 {"answer": "5:47", "id": "f10-read-time-to-the-minute/medium/2/43d85c5504c8", "text": "This clock has a mark for every minute. Which digital time does it show?"}
-{"answer": "17*pi/2 + 63", "id": "f10-real-number-applied-problems/easy/0/a371b8a95714", "text": "A swimming lane is bounded by two straight sides of length 23 m, one straight e…"}
-{"answer": "9*pi/2 + 25", "id": "f10-real-number-applied-problems/easy/1/3c7e46810b5f", "text": "A swimming lane is bounded by two straight sides of length 8 m, one straight en…"}
-{"answer": "17*pi/2 + 45", "id": "f10-real-number-applied-problems/easy/2/7600a288917f", "text": "A running track is shaped like a rectangle 14 m by 17 m, but one of the 17 m en…"}
+{"answer": "17*pi/2 + 63", "id": "f10-real-number-applied-problems/easy/0/f00bb78b614b", "text": "A swimming lane is bounded by two straight sides of length 23 m, one straight e…"}
+{"answer": "9*pi/2 + 25", "id": "f10-real-number-applied-problems/easy/1/44e6b593bc21", "text": "A swimming lane is bounded by two straight sides of length 8 m, one straight en…"}
+{"answer": "17*pi/2 + 45", "id": "f10-real-number-applied-problems/easy/2/3f2e29864cca", "text": "A running track is shaped like a rectangle 14 m by 17 m, but one of the 17 m en…"}
 {"answer": "31/2", "id": "f10-real-number-applied-problems/exam/0/c64089e41a5c", "text": "A running track has two straight sides, each of length L metres, open at the fa…"}
 {"answer": "35/2", "id": "f10-real-number-applied-problems/exam/1/11de3a7948a0", "text": "A running track has two straight sides, each of length L metres, open at the fa…"}
 {"answer": "43/2", "id": "f10-real-number-applied-problems/exam/2/5451375806c9", "text": "A cycling track consists of two straight sides, each of length L metres, closed…"}
 {"answer": "92.55", "id": "f10-real-number-applied-problems/hard/0/07234fbe7edb", "text": "A cycling track has two straight sides, each 32.9 m long, and no other straight…"}
 {"answer": "115.55", "id": "f10-real-number-applied-problems/hard/1/cd30bf12bc63", "text": "A running lane has two straight sides, each 38.6 m long, open at the far end ex…"}
 {"answer": "79.98", "id": "f10-real-number-applied-problems/hard/2/3cb719b09ee6", "text": "A running lane has two straight sides, each 23.8 m long, open at the far end ex…"}
-{"answer": "2*sqrt(193) + 38", "id": "f10-real-number-applied-problems/medium/0/4544756c9153", "text": "Fencing is needed along the diagonal of a rectangular block 14 m by 24 m, plus …"}
-{"answer": "sqrt(290) + 24", "id": "f10-real-number-applied-problems/medium/1/80cc40354b92", "text": "A cable runs along the diagonal of a rectangular field 13 m by 11 m, then two m…"}
-{"answer": "sqrt(442) + 28", "id": "f10-real-number-applied-problems/medium/2/87775d124287", "text": "Fencing is needed along the diagonal of a rectangular block 19 m by 9 m, plus i…"}
+{"answer": "2*sqrt(193) + 38", "id": "f10-real-number-applied-problems/medium/0/ffc7b4796a44", "text": "Fencing is needed along the diagonal of a rectangular block 14 m by 24 m, plus …"}
+{"answer": "sqrt(290) + 24", "id": "f10-real-number-applied-problems/medium/1/f149e94206bc", "text": "A cable runs along the diagonal of a rectangular field 13 m by 11 m, then two m…"}
+{"answer": "sqrt(442) + 28", "id": "f10-real-number-applied-problems/medium/2/5f7939233cbc", "text": "Fencing is needed along the diagonal of a rectangular block 19 m by 9 m, plus i…"}
 {"answer": "hundreds = 1, tens = 6, ones = 6", "id": "f10-regroup-zero-place-value/easy/0/ac0eeb22c8b7", "text": "16 tens and 6 ones make a number. Write its hundreds, tens and ones. Give your …"}
 {"answer": "hundreds = 1, tens = 0, ones = 1", "id": "f10-regroup-zero-place-value/easy/1/f1e41105970c", "text": "Leo has 10 tens and 1 one. Regroup this into hundreds, tens and ones. Give your…"}
 {"answer": "hundreds = 1, tens = 4, ones = 3", "id": "f10-regroup-zero-place-value/easy/2/89d7d7c36b0b", "text": "14 tens and 3 ones make a number. Write its hundreds, tens and ones. Give your …"}

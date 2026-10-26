@@ -158,11 +158,11 @@ def _easy(rng):
         answer_text = str(answer)
         text = phrase(rng, _EASY_TEMPLATES, L=L, W=W)
         distractors = pick_distractors(answer_text, [str(c) for c in candidates])
+        arc = f"{W}π/2" if W % 2 else f"{W // 2}π"
         working = [
             f"The two straight sides and the straight end add to 2 × {L} + {W} = {a} m.",
-            f"The semicircular end is half a circle of diameter {W} m, so its length is (1/2) × π × {W} = "
-            f"{f'{W}π/2' if W % 2 else f'{W // 2}π'} m.",
-            f"Total distance = {answer_text} m.",
+            f"The semicircular end is half a circle of diameter {W} m, so its length is (1/2) × π × {W} = {arc} m.",
+            f"Total distance = {a} + {arc} m.",
         ]
         return dict(
             text=text,
@@ -265,7 +265,7 @@ def _medium(rng):
         distractors = pick_distractors(answer_text, [str(c) for c in candidates])
         working = [
             f"The diagonal is √({p}² + {q}²) = √{p * p + q * q} m.",
-            f"The two sides are {p} m and {q} m, so the total length is {p} + {q} + √{p * p + q * q} = {answer_text} m.",
+            f"The two sides are {p} m and {q} m, so the total length is {p} + {q} + √{p * p + q * q} = {p + q} + √{p * p + q * q} m.",
         ]
         return dict(
             text=text,
