@@ -61290,6 +61290,97 @@ _ENTRIES += (
         "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
         area="estimation",
     ),
+    # ds-census-sample block
+    CatalogueEntry(
+        "ds-cs-observation-shows-cause",
+        "Takes a census, a sample survey or an observation as showing that one thing causes another.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-experiment-shows-no-cause",
+        "Thinks a well-designed experiment, like an observation, can show only a link and never a cause.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-sample-covers-everyone",
+        "Takes a sample, or any study of part of the group, as collecting data from every member.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-census-leaves-out",
+        "Thinks a census leaves some members of the population out.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-observer-changes-things",
+        "Counts an observation, a survey or a census as changing something for the units studied.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-experiment-changes-nothing",
+        "Thinks an experiment leaves the units as they were, like an observation.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-sample-gives-exact",
+        "Treats the result of a sample as the exact value for the whole population.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-census-may-differ",
+        "Thinks a census with every record correct can still differ from the value for the population.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ignores-destructive-test",
+        "Overlooks that checking a unit can use it up, so that checking every unit is not practical.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-assumes-testing-destroys",
+        "Thinks a check that leaves the unit as it was uses the unit up.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-volunteers-as-random",
+        "Treats volunteers as if they had been picked at random, so bias from self-selection is missed.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-random-as-volunteers",
+        "Treats a random selection as if the units had chosen themselves.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ratio-as-difference",
+        "Gives how many MORE units a census uses (the difference) for how many TIMES as many.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-cost-of-sample",
+        "Gives the time or cost for the sample, or for the part left out, for the whole census.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-adds-instead-of-multiplies",
+        "Adds the number of units to the time, cost or days each takes instead of multiplying.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ignores-the-split",
+        "Gives the whole group as the size of each of two equal groups, or halves it twice.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-total-from-one-day",
+        "Gives one day's count, or the mean or the greatest count, for the total over all the days.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-rejects-correct-figure",
+        "Rejects a correct figure, usually after working it out a different, wrong way.",
+        area="data-collection-census-sample",
+    ),
 )
 
 #: Every entry, by id.
