@@ -1,0 +1,65 @@
+id: slope-field-readings
+name: Read numbers from a slope field of dy/dx = f(x, y)
+domain: differential-equations
+year_level: ['12']
+description: Find the slope of the segment at a grid point of dy/dx = f(x, y), recover a rule or a parameter k from stated slopes, walk along the field in steps of width h, count the grid points of a given slope, and compare a two-step walk with the exact solution of a separable equation. Every answer is a typed number.
+status: active
+placement_eligible: false
+prerequisites:
+- senior-examine-slope-direction-or-gradient-fields-of-a
+answer: number
+sources:
+- topic: sc_slope_field
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sc_slope_field
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sc_slope_field
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sc_slope_field_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: slope-field-square-sign-lost
+  description: Squaring a negative coordinate and keeping the minus sign, so (-3)^2 is read as -9 when the slope at a grid point is worked out.
+- id: slope-field-product-as-sum
+  description: Reading the xy term of dy/dx as x + y when finding the slope at a grid point.
+- id: slope-field-table-nearest-reading
+  description: Giving the slope read at the nearest tabulated grid point instead of working out the rule and applying it at the stated point.
+- id: slope-field-table-averages-readings
+  description: Averaging the tabulated slopes to estimate the slope at a new grid point instead of finding the rule.
+- id: slope-field-parameter-not-divided
+  description: Finding the unknown parameter k by subtracting the other terms from the slope but not dividing by the coefficient of k at that point.
+- id: slope-field-parameter-rest-dropped
+  description: Finding k by dividing the stated slope by the coefficient of k, forgetting to subtract the other terms of the equation.
+- id: slope-field-zero-slope-sign-slip
+  description: For a horizontal segment, setting the terms equal to zero and solving for y with the wrong sign (y = g/b instead of y = -g/b).
+- id: slope-field-zero-slope-coefficient-dropped
+  description: For a horizontal segment, solving for y without dividing by the coefficient of y.
+- id: slope-field-reads-x-as-y
+  description: Giving the stated x-coordinate where the y-coordinate of the point was asked for.
+- id: slope-field-slope-read-at-step-end
+  description: Taking a step along the slope field using the slope at the end of the step (the new x-value with the old y-value) instead of at the start.
+- id: slope-field-stops-after-one-step
+  description: Giving the y-coordinate after the first step when two steps were asked for.
+- id: slope-field-window-boundary-dropped
+  description: Counting only the grid points strictly inside the window and leaving out those on its edges.
+- id: slope-field-counts-columns-not-points
+  description: Counting the x-values (columns of the grid) that contain a point of the required slope instead of the grid points themselves.
+- id: slope-field-wrong-condition-counted
+  description: Counting the grid points where the slope is greater than, or different from, the stated value instead of equal to it.
+- id: slope-field-grid-points-miscounted
+  description: Missing one point, or counting one twice, when listing the grid points that satisfy a condition in a window.
+- id: slope-field-euler-reported-as-exact
+  description: Giving the value reached by stepping along the slope field as the exact value of the solution.
+- id: slope-field-exact-at-wrong-x
+  description: Evaluating the exact solution at the x-value of the first step instead of the end of the path.
+- id: slope-field-constant-not-fixed
+  description: Solving a separable equation but leaving the constant of integration unfixed by the starting point, so the solution passes through the wrong value.
+tags: [senior, differential-equations, slope-fields, direction-fields, euler-method, vce-specialist, year-12]
