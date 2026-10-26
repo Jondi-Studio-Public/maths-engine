@@ -248,8 +248,7 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
             header = request.headers.get("authorization", "")
             given = header[7:].strip() if header.lower().startswith("bearer ") else request.headers.get("x-api-key", "")
             return "key:" + hashlib.sha256(given.encode()).hexdigest()[:16]
-        forwarded = request.headers.get("x-forwarded-for", "").split(",")[-1].strip() if config.trust_forwarded else ""
-        return "addr:" + (forwarded or (request.client.host if request.client else "?"))
+        return "addr:" + (request.client.host if request.client else "?")
 
     Client = Annotated[str, Depends(client)]
 
@@ -471,9 +470,7 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
                                 reveal=body.reveal,
                             )
                         )
-                        took = time.monotonic() - started
-                        if took > allowed / 2:  # a reply that nearly timed out costs what it held a worker for
-                            spent += took
+                        spent += time.monotonic() - started  # every reply costs the time it held a worker
                     except HTTPException as exc:
                         spent += allowed if exc.status_code == 504 else 0
                         detail = exc.detail if isinstance(exc.detail, dict) else {"detail": exc.detail}

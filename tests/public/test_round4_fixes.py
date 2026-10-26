@@ -84,7 +84,7 @@ def test_the_batch_budget_is_worker_seconds_not_a_count():
 
 def test_one_client_cycling_ids_is_cooled_down_across_batches():
     _SlowPool.calls = 0
-    config = Config(keys=[(AUTHOR, "author")], cooldown_strikes=3)  # 6 timeouts across any ids start the client's
+    config = Config(keys=[(AUTHOR, "author")], client_strikes=6)  # 6 timeouts across any ids start the client's
     with TestClient(create_app(config, pool=_SlowPool())) as client:
         assert _batch(client, 20).status_code == 200  # 3 timeouts
         assert _batch(client, 20).status_code == 200  # 6 timeouts
@@ -105,22 +105,44 @@ def test_client_strikes_zero_turns_the_client_cool_down_off():
             assert _batch(client, 20).status_code == 200
 
 
-def test_open_mode_names_clients_by_address_and_forwarded_only_when_trusted():
-    def attempt(trust):
-        _SlowPool.calls = 0
-        config = Config(open=True, cooldown_strikes=1, trust_forwarded=trust)  # 2 timeouts start a cool-down
-        with TestClient(create_app(config, pool=_SlowPool())) as client:
-            first = {"X-Forwarded-For": "9.9.9.9, 1.1.1.1"}  # a spoofed entry, then the proxy's
-            other = {"X-Forwarded-For": "9.9.9.9, 2.2.2.2"}
-            client.post(
-                "/v1/grade/batch",
-                json={"items": [{"id": f"s{i}/b/1/h", "reply": "x"} for i in range(3)]},
-                headers=first,
-            )
-            return client.post("/v1/grade", json={"id": "z/y/1/h", "reply": "x"}, headers=other).status_code
+def test_the_client_cool_down_is_off_by_default():
+    assert Config().client_strikes == 0
 
-    assert attempt(False) == 503  # same address however it claims to be forwarded
-    assert attempt(True) == 504  # a different forwarded address is a different client
+
+def test_open_mode_names_clients_by_the_peer_address_and_ignores_the_forwarded_header():
+    _SlowPool.calls = 0
+    config = Config(open=True, cooldown_strikes=1, client_strikes=2)
+    with TestClient(create_app(config, pool=_SlowPool())) as client:
+        spoof = {"X-Forwarded-For": "10.0.0.50"}
+        items = [{"id": f"s{i}/b/1/h", "reply": "x"} for i in range(3)]
+        client.post("/v1/grade/batch", json={"items": items}, headers=spoof)
+        # a different claimed address does not make a different client: the peer is the same
+        r = client.post("/v1/grade", json={"id": "z/y/1/h", "reply": "x"}, headers={"X-Forwarded-For": "10.0.0.51"})
+    assert r.status_code == 503
+
+
+def test_two_keys_are_two_clients():
+    other = "b" * 24
+    _SlowPool.calls = 0
+    config = Config(keys=[(AUTHOR, "author"), (other, "learner")], client_strikes=2)
+    with TestClient(create_app(config, pool=_SlowPool())) as client:
+        _batch(client, 3)
+        r = client.post("/v1/grade", json={"id": "z/y/1/h", "reply": "x"}, headers={"Authorization": f"Bearer {other}"})
+    assert r.status_code == 504  # not 503: the second key has its own count
+
+
+def test_replies_just_under_half_the_deadline_still_spend_the_budget():
+    class _Brisk(_SlowPool):
+        def run(self, name, timeout, **kwargs):
+            type(self).calls += 1
+            time.sleep(0.45)
+            return {"correct": True}
+
+    _Brisk.calls = 0
+    config = Config(keys=[(AUTHOR, "author")], timeout=1.0, batch_budget=3.0)
+    with TestClient(create_app(config, pool=_Brisk())) as client:
+        results = _batch(client, 20).json()["results"]
+    assert _Brisk.calls <= 6 and len(results) == 20
 
 
 def test_a_reply_that_nearly_times_out_spends_budget():
