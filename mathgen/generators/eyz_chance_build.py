@@ -99,9 +99,8 @@ def _outcome_question(
         f.pop("text")
     picked = draw_ranked(usable, _features(answer), 4, rng, joint=True)
     check(len(picked) >= 3, "an outcomes question needs three wrong lists")
-    # each list is written in order or not, by a coin: otherwise the key (the one list made from the sorted outcomes)
-    # is always the in-order one, and the options that are not in order are the wrong ones
-    shown = lambda items: _set_text(_ordered(items) if rng.random() < 0.5 else rng.sample(list(items), len(items)))  # noqa: E731
+    # every option is written in increasing order, the key included: no option is the only one out of order
+    shown = lambda items: _set_text(_ordered(items))  # noqa: E731
     key_text = shown(answer)
     picked = [replace(d, text=shown(d.value)) for d in picked]
     return dict(

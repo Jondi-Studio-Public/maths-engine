@@ -591,8 +591,10 @@ def _hard_strips(rng):
         (Fraction(n - 1), _OFF),
         (Fraction(2 * n), _SQUARED),
     ]
+    coef = "" if lead == 1 else str(lead)
+    times = "" if lead == 1 else f"{lead} x "
     working = [
-        f"On one strip of width h the rule overestimates {lead}x^2 by {lead}h^3/6, so over n strips the overestimate is {lead} x {length}^3/(6n^2).",
+        f"On one strip of width h the rule overestimates {coef}x^2 by {coef}h^3/6, so over n strips the overestimate is {times}{length}^3/(6n^2).",
         f"{decimal_text(err)} = {lead * length**3}/(6n^2), so n^2 = {n * n} and n = {n}.",
     ]
     return single(

@@ -539,7 +539,12 @@ def gt_sqrt_function_exam(rng, tier="exam"):
         dict(
             prompt="Find the exact value of y when x = 0 on the graph of y = sqrt(f(x)).",
             marks=1,
-            working=[f"f(0) = {t} - ({-h})^2 = {c0}.", f"y = sqrt({c0}) = {ans.replace('*', '')}."],
+            working=[
+                f"f(0) = {t} - ({-h})^2 = {c0}.",
+                f"y = sqrt({c0})."
+                if ans.replace("*", "") == f"sqrt({c0})"
+                else f"y = sqrt({c0}) = {ans.replace('*', '')}.",
+            ],
             # y(0) is positive and no more than the greatest value; the slip of leaving the root off gives f(0) itself, which
             # is as large as the greatest value of f
             distractors=pick(ans, d_wrong, lo=1, hi=s_, fillers=_surd_near(c0), slip_range=(1, t)),

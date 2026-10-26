@@ -345,7 +345,7 @@ _MONO_POOL = ((1, 0), (0, 1), (1, 1), (2, 0), (0, 2))
 _PARAM_STEMS = (
     "Consider the slope field of dy/dx = {rule}. The segment at the point ({px}, {py}) has slope {s}. Find the value of k.",
     "Consider the slope field of dy/dx = {rule}. The segment at the point ({px}, {py}) is {shape}. Find the value of k.",
-    "Consider the slope field of dy/dx = {rule}. The segment drawn at ({px}, {py}) is parallel to the line y = {s}x + 4. What is k?",
+    "Consider the slope field of dy/dx = {rule}. The segment drawn at ({px}, {py}) is parallel to the line y = {sx} + 4. What is k?",
 )
 
 
@@ -382,7 +382,9 @@ def _medium_param(rng):
         variant = 0
     if variant == 2 and s == 0:
         variant = 1
-    stem = _PARAM_STEMS[variant].format(rule=rule, s=int(s), px=px, py=py, shape="horizontal")
+    stem = _PARAM_STEMS[variant].format(
+        rule=rule, s=int(s), sx={1: "x", -1: "-x"}.get(int(s), f"{int(s)}x"), px=px, py=py, shape="horizontal"
+    )
     swapped_fk = Fraction(py) ** k_mono[0] * Fraction(px) ** k_mono[1]
     swapped_rest = o * Fraction(py) ** other[0] * Fraction(px) ** other[1] + c
     wrong = [
