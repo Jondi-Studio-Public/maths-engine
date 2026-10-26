@@ -28,7 +28,7 @@ from collections import Counter
 from fractions import Fraction
 from types import SimpleNamespace
 
-from mathgen.core import generator, latex_answer
+from mathgen.core import generator, latex_answer, ordinal
 from mathgen.grading.typed import grade_number
 
 TIERS = ("easy", "medium", "hard")
@@ -386,7 +386,11 @@ def _medium_once(rng: random.Random) -> dict:
                 (Fraction(max(values) + min(values), 2), "midrange-not-median"),
             ]
         answer = med
-        working = [f"In order, the middle is position {mid_pos}", f"Median: {_fmt(med)}"]
+        if mid_pos.denominator == 1:
+            where = f"position {mid_pos}"
+        else:
+            where = f"between the {ordinal(mid_pos.numerator // 2)} and {ordinal(mid_pos.numerator // 2 + 1)} values"
+        working = [f"In order, the middle is {where}", f"Median: {_fmt(med)}"]
     elif kind == "range":
         rng_ = max(values) - min(values)
         avoid = {max(values), min(values)}

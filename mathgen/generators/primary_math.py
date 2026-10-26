@@ -436,7 +436,12 @@ def percentage_quantity(
                 quantity,
                 [portion, units, max(0, quantity - units), quantity + units],
                 working=[
-                    f"{percent}% = {rational_text(fraction)}; {portion} ÷ {fraction.numerator} = {units} for one part.",
+                    f"{percent}% = {rational_text(fraction)}; "
+                    + (
+                        f"{portion} is 1 part."
+                        if fraction.numerator == 1
+                        else f"{portion} ÷ {fraction.numerator} = {units} for one part."
+                    ),
                     f"The whole is {fraction.denominator} parts: {fraction.denominator} × {units} = {quantity}.",
                 ],
             )

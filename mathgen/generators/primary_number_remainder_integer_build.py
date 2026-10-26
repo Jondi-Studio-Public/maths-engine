@@ -280,7 +280,7 @@ def _groups_needed(rng, total_range=(20, 99), divisor_range=(2, 9)):
             f"{quotient} groups exactly fit everything, so no extra group is needed: {answer}.",
         ]
 
-    text = f"{total} eggs need to be packed into cartons that each hold {divisor} eggs. How many cartons are needed to fit all the eggs, with none left uncontained?"
+    text = f"{total} eggs need to be packed into cartons that each hold {divisor} eggs. How many cartons are needed to fit all the eggs, with no eggs left out?"
     return dict(
         text=text,
         latex=f"plain:{text}",
