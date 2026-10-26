@@ -41,6 +41,15 @@ Each question's id (below) tells you when the question behind it has changed.
   `f10-two-dimensional-object-representations` were deferred and are now practised like the box-nets and
   turn-shapes skills. The plan-views exam chain now draws the key's rank at random among the options, and plan
   views of cube stacks are tagged AC9M3SP01, so their ids change.
+- **Coverage-gap skills** (#139, #142, #143, #146):
+  - `trig-equations-solutions-in-radians`: solve sin, cos and tan equations over an interval, with an exam chain (#139).
+  - Four figure and spatial skills (#142): placing objects from position words, drawn cross-sections of solids, typed
+    latitude and longitude, and reading a piece-wise linear cost graph.
+  - Five data and statistics skills (#143): a discrete frequency table, choosing a display and then reading it,
+    census, sample and experiment practicalities, random versus convenience samples, and the shape and variation of
+    a display. `classify-data` gains ordered-list tiers for three or four variables; its existing ids are unchanged.
+  - Three senior calculus and applied skills (#146): the trapezium rule, reading a slope field, and whole units
+    needed (round up) or made (round down).
 
 ### Fixed
 
@@ -79,6 +88,15 @@ Each question's id (below) tells you when the question behind it has changed.
   - JSON `true`, `false` and `2.0` are no longer a multiple-choice option index over HTTP and MCP; send an integer.
   - `make_with_id` refuses a seed that is not an integer, and an id's seed must be written `-?[0-9]+`.
   - A figure renderer that overflows or divides by zero raises the documented `ValueError`.
+- Content fixes from the fourth review (#140, #145) change some questions, so their ids change. The grid-map exam no
+  longer puts the same feature in two squares; transformation distractors no longer pass through all the marked
+  points; stem-and-leaf contexts use plausible units; the domain of a relation is the set of first coordinates;
+  2x2 chi-square stems state that no Yates correction is used; number-algorithm stems say the order does not matter;
+  the Year 10 cubic exam gives the x-coordinate of the turning point; `ey-prism-pyramid-counts` is also tagged
+  Year 6; senior calculus slips are tagged with a named misconception instead of a generic near-miss; and
+  `hecs-help-repayment` no longer raises on a debt that never clears, which had stopped `build_banks.py`. The
+  reasonableness and causation exam chains now draw stated answers that are clearly reasonable or not, and a
+  causation verdict depends on the number taking part. About ten wording and working-text defects were fixed.
 - Marking, round 4 (grader and display). Correct replies that were marked wrong now pass: the answer as the page shows
   it (Greek letters, `m³`, an en dash or `×` in a multiple-choice option), dot-plot labels such as `2` for `2.0`, stem
   and leaf as `2 | 3 7 8 9`, a grid reference such as `D4` (the grid-map skills now show the reference as the key), a
