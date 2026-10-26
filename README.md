@@ -92,9 +92,9 @@ python -m mathgen --skill add-within-10 --seed 1 --answer B
 ```
 [add-within-10 #1]
   Q: 3 + 5 = ?
-     A) 10
+     A) 5
      B) 8
-     C) 9
+     C) 6
      D) 7
   A: B) 8
   given 'B': correct
