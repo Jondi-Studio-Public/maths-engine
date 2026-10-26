@@ -33,6 +33,7 @@ FIGURE_SKILLS = {
     "senior-construct-scale-drawings-by-hand-and-by-using": ("grid_scale_plan", ["easy", "medium", "hard"]),
     "f10-tessellation-transform-combinations": ("grid_tessellation_images", ["easy", "medium", "hard"]),
 }
+LIVE_FIGURE_SKILLS = {"f10-two-dimensional-object-representations", "f10-tessellation-transform-combinations"}
 ENLARGEMENT = "f10-enlargement-invariants"
 CASES = [(sid, tier) for sid, (_t, tiers) in FIGURE_SKILLS.items() for tier in tiers]
 
@@ -78,11 +79,15 @@ def _canvas_size(q):
 
 
 @pytest.mark.parametrize("skill_id", FIGURE_SKILLS)
-def test_the_shading_skills_are_deferred_behind_the_visual_gate_with_working_sources(skill_id):
+def test_the_shading_skills_have_working_sources_and_the_right_gate(skill_id):
     topic, tiers = FIGURE_SKILLS[skill_id]
     skill = _skills()[skill_id]
-    assert skill.status == "deferred" and skill.deferred_reason == "visual"
-    assert skill.capability_gates == ["visual_construction"]
+    if skill_id in LIVE_FIGURE_SKILLS:  # the shaded-cell answer has its renderer, reader and grader, like the box nets
+        assert skill.status == "active" and skill.deferred_reason is None
+        assert skill.capability_gates == ["figure_stimulus"]
+    else:
+        assert skill.status == "deferred" and skill.deferred_reason == "visual"
+        assert skill.capability_gates == ["visual_construction"]
     assert skill.answer == "grid_cells" and skill.needs_figure is True and skill.placement_eligible is False
     assert [s.difficulty for s in skill.sources if s.topic == topic] == tiers
     assert skill.misconceptions and skill.prerequisites

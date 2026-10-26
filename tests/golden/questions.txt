@@ -3952,6 +3952,15 @@
 {"answer": "323/400", "id": "f10-terminating-recurring-decimals/medium/0/48a0f7f57887", "text": "Write 0.8075 as a fraction in lowest terms."}
 {"answer": "69/625", "id": "f10-terminating-recurring-decimals/medium/1/79ca5497c99a", "text": "Write 0.1104 as a fraction in lowest terms."}
 {"answer": "38/99", "id": "f10-terminating-recurring-decimals/medium/2/6636abc3722f", "text": "Write 0.383838... as a fraction in lowest terms."}
+{"answer": "(5, 3) (5, 4) (6, 4)", "id": "f10-tessellation-transform-combinations/easy/0/d39b4febd9e9", "text": "The hatched squares on the grid are a tile. Translate the tile 3 squares to the…"}
+{"answer": "(5, 1) (6, 1) (5, 2) (6, 2) (6, 3)", "id": "f10-tessellation-transform-combinations/easy/1/55b5753a8caf", "text": "A tile is drawn on the grid in hatched squares. Reflect the tile in the mirror …"}
+{"answer": "(3, 3) (4, 3) (3, 4)", "id": "f10-tessellation-transform-combinations/easy/2/140f6b0d0e82", "text": "Look at the tile drawn in hatched squares on the grid. Reflect the tile in the …"}
+{"answer": "(2, 2) (2, 3) (3, 3) (4, 4) (4, 5) (5, 5)", "id": "f10-tessellation-transform-combinations/hard/0/660b698658fd", "text": "Each tile in this pattern is the tile before it moved the same way along the gr…"}
+{"answer": "(6, 9) (6, 10) (7, 10) (7, 11) (8, 11) (8, 12) (8, 13) (9, …", "id": "f10-tessellation-transform-combinations/hard/1/7b1482cc240b", "text": "Each tile in this pattern is the tile before it moved the same way along the gr…"}
+{"answer": "(18, 1) (19, 1) (13, 2) (14, 2) (17, 2) (18, 2) (19, 2) (12…", "id": "f10-tessellation-transform-combinations/hard/2/39a4b358ba65", "text": "Each tile in this pattern is the tile before it moved the same way along the gr…"}
+{"answer": "(1, 9) (2, 9) (2, 10)", "id": "f10-tessellation-transform-combinations/medium/0/bf22dcd711bf", "text": "The hatched squares on the grid are a tile. Reflect the tile in mirror line 1, …"}
+{"answer": "(1, 4) (1, 5) (2, 5)", "id": "f10-tessellation-transform-combinations/medium/1/184786edc8b9", "text": "Look at the tile drawn in hatched squares on the grid. Reflect the tile in the …"}
+{"answer": "(2, 5) (3, 5) (3, 6)", "id": "f10-tessellation-transform-combinations/medium/2/ba00c7a455f8", "text": "The hatched squares on the grid are a tile. Reflect the tile in mirror line 1, …"}
 {"answer": "135", "id": "f10-tessellation-vertex-angles/easy/0/caf05b29c747", "text": "One corner of a regular octagon is cut from a tile. What is the size of the int…"}
 {"answer": "144", "id": "f10-tessellation-vertex-angles/easy/1/5929fed2bc19", "text": "A tiler is choosing between shapes. What is the size of one interior angle of a…"}
 {"answer": "3", "id": "f10-tessellation-vertex-angles/easy/2/436db06fc51f", "text": "Regular hexagons are fitted together round a point with no gaps and no overlaps…"}
@@ -4099,6 +4108,18 @@
 {"answer": "(1, 3) (2, 3) (3, 3) (3, 4)", "id": "f10-turn-shapes-on-a-grid/medium/0/d329d33c6afa", "text": "The shape drawn in shaded squares is turned a quarter turn anticlockwise about …"}
 {"answer": "(3, 1) (4, 1) (5, 1) (6, 1) (4, 2)", "id": "f10-turn-shapes-on-a-grid/medium/1/09803217f2ed", "text": "The shaded shape is turned a quarter turn clockwise about the point P. Show the…"}
 {"answer": "(3, 1) (4, 1) (5, 1) (6, 1) (6, 2)", "id": "f10-turn-shapes-on-a-grid/medium/2/bef50701ddbe", "text": "The shaded shape is turned a quarter turn clockwise about the point P. Shade th…"}
+{"answer": "(0, 0) (0, 1) (0, 2) (1, 2) (2, 2) (3, 2)", "id": "f10-two-dimensional-object-representations/easy/0/405d4f1829e4", "text": "The picture shows a stack of unit cubes on isometric dot paper, seen from the f…"}
+{"answer": "(0, 0) (1, 0) (0, 1) (1, 1) (2, 1)", "id": "f10-two-dimensional-object-representations/easy/1/0c31ab3dccab", "text": "A stack of unit cubes is drawn on isometric dot paper, seen from the front righ…"}
+{"answer": "(0, 0) (1, 0) (0, 1) (1, 1) (2, 1) (3, 1)", "id": "f10-two-dimensional-object-representations/easy/2/141d0a304bd9", "text": "A stack of unit cubes is drawn on isometric dot paper, seen from the front righ…"}
+{"answer": "(a) 41; (b) Column heights, left to right: 4, 4, 4, 3, 1; (…", "id": "f10-two-dimensional-object-representations/exam/0/76052841bad4", "text": "The plan of a stack of unit cubes is shown, seen from above. The number in a sq…"}
+{"answer": "(a) 36; (b) Column heights, left to right: 4, 4, 3, 3, 3; (…", "id": "f10-two-dimensional-object-representations/exam/1/01df0b59def8", "text": "The plan of a stack of unit cubes is shown, seen from above. The number in a sq…"}
+{"answer": "(a) 15; (b) Column heights, left to right: 4, 3, 3; (c) Col…", "id": "f10-two-dimensional-object-representations/exam/2/c2f389472b95", "text": "The plan of a stack of unit cubes is shown, seen from above. The number in a sq…"}
+{"answer": "(0, 0) (1, 0) (1, 1) (2, 1) (3, 1) (2, 2)", "id": "f10-two-dimensional-object-representations/hard/0/afbd912eeca6", "text": "Draw a net for the cube shown, using one cell of the canvas (5 cells wide, 3 ce…"}
+{"answer": "(1, 2) (0, 3) (1, 3) (2, 3) (3, 3) (2, 4)", "id": "f10-two-dimensional-object-representations/hard/1/f961110a99c1", "text": "A cube is shown. On the canvas, 6 cells wide and 6 cells tall, shade six cells …"}
+{"answer": "(1, 2) (2, 2) (2, 3) (3, 3) (3, 4) (4, 4)", "id": "f10-two-dimensional-object-representations/hard/2/6e61b3e7f3d3", "text": "The picture shows a cube. Shade a net of this cube on the canvas, which is 6 ce…"}
+{"answer": "(0, 0) (1, 0) (2, 0) (3, 0) (0, 1) (1, 1) (2, 1) (3, 1) (0,…", "id": "f10-two-dimensional-object-representations/medium/0/2899ac6741d9", "text": "From above, a stack of cubes looks like the plan shown. The number in a square …"}
+{"answer": "(0, 0) (1, 0) (2, 0) (3, 0) (0, 1) (1, 1) (2, 1) (3, 1) (0,…", "id": "f10-two-dimensional-object-representations/medium/1/f011ea9fb548", "text": "From above, a stack of cubes looks like the plan shown. The number in a square …"}
+{"answer": "(0, 0) (1, 0) (2, 0) (3, 0) (0, 1) (1, 1) (2, 1) (3, 1) (0,…", "id": "f10-two-dimensional-object-representations/medium/2/6e2eadb72887", "text": "This plan shows how many cubes are in each column of a stack, seen from above w…"}
 {"answer": "Adult Free swim = 4, Adult Laps = 1, Adult Total = 5, Teen …", "id": "f10-two-way-table-relationship/easy/0/fc310f63ecae", "text": "For each of the people at a pool, the age group and the activity were noted as …"}
 {"answer": "Child Returned = 4, Child Total = 7, Student Studied = 3, S…", "id": "f10-two-way-table-relationship/easy/1/b9615cca40c6", "text": "For each of the library visitors, the visitor type and the activity were noted …"}
 {"answer": "Child Borrowed = 5, Child Studied = 1, Student Borrowed = 4…", "id": "f10-two-way-table-relationship/easy/2/8e177111fc5d", "text": "The visitor type and the activity of each of the library visitors were recorded…"}

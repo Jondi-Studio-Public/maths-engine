@@ -4,9 +4,8 @@ domain: primary-geometry-time
 year_level: ['3', '5']
 naplan_domain: [space]
 description: Represent a stack of cubes on a grid. Easy shades the plan view (the view from above) of a stack drawn on isometric dot paper. Medium is given a plan with the number of cubes written on each column and shades the front, right or left view. Hard shades a net of a cube on a canvas, any six squares that fold up into the cube, with a tight canvas leaving only a few nets that fit.
-status: deferred
-deferred_reason: visual
-capability_gates: [visual_construction]
+status: active
+capability_gates: [figure_stimulus]
 needs_figure: true
 placement_eligible: false
 prerequisites: [f10-shape-features-classification, f10-position-location-language]
@@ -45,7 +44,7 @@ misconceptions:
   description: Draws six squares in which two faces would land on the same side of the cube, such as four squares round a corner or two flaps on the same side of a row of four.
 - id: net-has-wrong-number-of-faces
   description: Draws five squares, a face missing, or seven squares.
-tags: [acara-f10-v9, primary-geometry-time, grid_plan_views, ac9m3sp02, ac9m5sp01, nets, plan-view, drawn-answer]
+tags: [acara-f10-v9, primary-geometry-time, grid_plan_views, ac9m3sp01, ac9m5sp01, nets, plan-view, drawn-answer]
 difficulty_progression:
   easy:
     steps: 1
