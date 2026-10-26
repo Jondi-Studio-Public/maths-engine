@@ -61292,6 +61292,75 @@ _ENTRIES += (
     ),
 )
 
+_ENTRIES += (
+    CatalogueEntry(
+        "dsft-misses-an-observation",
+        "Leaves one observation out when counting how many times a value occurs, so a count is one too low.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-double-counts-an-observation",
+        "Counts one observation twice when counting how many times a value occurs, so a count is one too high.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-swaps-two-values",
+        "Writes the count of one value in the row of another.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-reads-the-value-as-the-count",
+        "Writes the value itself in the Count column (a row for 3 pets gets a count of 3) instead of how many times it occurred.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-tally-gate-as-one",
+        "Reads each group of five tally marks as a single mark and adds the loose marks, instead of counting five for each group.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-total-is-number-of-rows",
+        "Gives the number of rows in the frequency table as the total instead of adding the counts.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-total-adds-the-values",
+        "Adds the values listed in the rows (such as the shoe sizes) to get the total instead of adding how often each occurred.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-leaves-out-the-boundary",
+        "When adding the counts for a phrase such as 'at least 3', leaves out the count of the value named in the phrase itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-includes-the-boundary",
+        "When adding the counts for a phrase such as 'more than 3', includes the count of the value named in the phrase itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-miscount-carries-into-totals",
+        "Miscounts one value by one and then adds from the wrong count, so the total or the running total is wrong as well.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-running-total-copies-the-count",
+        "Writes each row's own count in the running-total column instead of adding it to the counts before it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-accumulates-from-the-wrong-end",
+        "Adds the counts from the wrong end of the table, so a running total or a 'this many or more' column is built in the opposite direction.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-reports-the-known-sum-as-the-missing-count",
+        "Writes the sum of the counts that are given as the missing count, instead of subtracting that sum from the total.",
+        area="statistics",
+    ),
+)
+
+
 #: Every entry, by id.
 CATALOGUE: dict[str, CatalogueEntry] = {entry.id: entry for entry in _ENTRIES}
 
