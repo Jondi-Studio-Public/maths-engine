@@ -2232,13 +2232,13 @@
 {"answer": "15", "id": "f10-capacity-mass-informal-units/medium/2/ffb31ddd7ed9", "text": "The pear balances 5 cubes. The lunchbox balances 5 cubes more than the pear. Ho…"}
 {"answer": "{C, D}", "id": "f10-census-sample-experiment-practicalities/easy/0/c669ec0f3963", "text": "A cannery fills 1000 tins in a shift. To find out whether its tinned soup is to…"}
 {"answer": "{B, C, D, F}", "id": "f10-census-sample-experiment-practicalities/easy/1/d9961ea3033f", "text": "A volunteer stands at a crossing for 3 hours each afternoon for 5 afternoons an…"}
-{"answer": "{A, E, F}", "id": "f10-census-sample-experiment-practicalities/easy/2/0ecd9f6bd823", "text": "A cannery fills 200 tins in a shift. To find out whether its tinned soup is too…"}
-{"answer": "{B, D, E, H}", "id": "f10-census-sample-experiment-practicalities/hard/0/26c25580a321", "text": "A school has 750 students. To find out how its students usually travel to schoo…"}
+{"answer": "{A, D, E, F}", "id": "f10-census-sample-experiment-practicalities/easy/2/5cf450f5215f", "text": "A cannery fills 200 tins in a shift. To find out whether its tinned soup is too…"}
+{"answer": "{B, D, E, H}", "id": "f10-census-sample-experiment-practicalities/hard/0/2625ceaa3841", "text": "A school has 750 students. To find out how its students usually travel to schoo…"}
 {"answer": "{D, E}", "id": "f10-census-sample-experiment-practicalities/hard/1/c930f3469b7a", "text": "A teacher watches the playground for 2 hours each lunchtime for 5 school days a…"}
-{"answer": "{A, C, D, F, H}", "id": "f10-census-sample-experiment-practicalities/hard/2/ad29232eb964", "text": "A cannery fills 400 tins in a shift. To find out whether its tinned soup is too…"}
+{"answer": "{C, E, G}", "id": "f10-census-sample-experiment-practicalities/hard/2/213f8cb79f6e", "text": "A cannery fills 400 tins in a shift. To find out whether its tinned soup is too…"}
 {"answer": "{B, D, G}", "id": "f10-census-sample-experiment-practicalities/medium/0/26bbd057716e", "text": "A factory makes 250 light globes in a production run. To find out how long its …"}
 {"answer": "{E, F}", "id": "f10-census-sample-experiment-practicalities/medium/1/0267f7148415", "text": "A teacher watches the playground for 4 hours each lunchtime for 5 school days a…"}
-{"answer": "{D, G}", "id": "f10-census-sample-experiment-practicalities/medium/2/5d679bf74550", "text": "A school has 480 students. To find out how its students usually travel to schoo…"}
+{"answer": "{D, G}", "id": "f10-census-sample-experiment-practicalities/medium/2/ee859880e39f", "text": "A school has 480 students. To find out how its students usually travel to schoo…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/6172bec54640", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/408ac8af0bdd", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
 {"answer": "certain", "id": "f10-chance-language-and-outcomes/easy/2/98f8a7cf8206", "text": "A bag contains 3 black. Event X: drawing a black. How would you classify the li…"}
@@ -3597,15 +3597,15 @@
 {"answer": "Spinner C: red, green, blue, green, blue, red, blue, red, g…", "id": "f10-random-equal-likelihood-outcomes/medium/2/27f917b1c64f", "text": "Which of these four spinners has equally likely outcomes? Spinner A: green, gre…"}
 {"answer": "7.3", "id": "f10-random-versus-convenience-sample/easy/0/dce12da52c38", "text": "All 100 students at a school recorded how many books they read this term. Books…"}
 {"answer": "2.90", "id": "f10-random-versus-convenience-sample/easy/1/f7e1f74f49ac", "text": "All 100 students at a school recorded how many days a week they ride a bike. Da…"}
-{"answer": "34", "id": "f10-random-versus-convenience-sample/easy/2/6eaa64a1d581", "text": "A school has 200 students. Each was asked about their main activity after schoo…"}
-{"answer": "(a) 2.86; (b) 1.64; (c) 2.44; (d) 0.80", "id": "f10-random-versus-convenience-sample/exam/0/ee74300329de", "text": "All 200 students at a school recorded their screen time yesterday. Hours of scr…"}
-{"answer": "(a) 3.47; (b) 0.43; (c) 3.83; (d) 3.40", "id": "f10-random-versus-convenience-sample/exam/1/0e04001ead65", "text": "All 100 students at a school recorded how many books they read this term. Books…"}
-{"answer": "(a) 27.40; (b) 3.10; (c) 9.60; (d) 6.50", "id": "f10-random-versus-convenience-sample/exam/2/dd0be0ab5c23", "text": "All 100 students at a school recorded how long their trip to school takes. Minu…"}
+{"answer": "34", "id": "f10-random-versus-convenience-sample/easy/2/8b14d04a34ad", "text": "A school has 400 students. Each was asked about their main activity after schoo…"}
+{"answer": "(a) 2.86; (b) 1.64; (c) 2.44; (d) 488", "id": "f10-random-versus-convenience-sample/exam/0/dde4d37448f3", "text": "All 200 students at a school recorded their screen time yesterday. Hours of scr…"}
+{"answer": "(a) 3.47; (b) 0.43; (c) 3.83; (d) 383", "id": "f10-random-versus-convenience-sample/exam/1/06608e21e8ae", "text": "All 100 students at a school recorded how many books they read this term. Books…"}
+{"answer": "(a) 27.40; (b) 3.10; (c) 9.60; (d) 960", "id": "f10-random-versus-convenience-sample/exam/2/fe0cfb1419a1", "text": "All 100 students at a school recorded how long their trip to school takes. Minu…"}
 {"answer": "0.70", "id": "f10-random-versus-convenience-sample/hard/0/c89f5d6cc063", "text": "All 100 students at a school recorded how many days a week they ride a bike. Da…"}
-{"answer": "23.0", "id": "f10-random-versus-convenience-sample/hard/1/446b12925c55", "text": "A school has 200 students. Each was asked where they usually get lunch. Where s…"}
+{"answer": "20", "id": "f10-random-versus-convenience-sample/hard/1/0d711ddd322a", "text": "A school has 400 students. Each was asked where they usually get lunch. Where s…"}
 {"answer": "10", "id": "f10-random-versus-convenience-sample/hard/2/3d8dfcede694", "text": "A school has 100 students. Each was asked how they usually travel to school. Ho…"}
-{"answer": "5", "id": "f10-random-versus-convenience-sample/medium/0/41d0a420e870", "text": "A school has 200 students. Each was asked where they usually get lunch. Where s…"}
-{"answer": "8", "id": "f10-random-versus-convenience-sample/medium/1/45c9aa9b449b", "text": "A school has 100 students. Each was asked about their main activity after schoo…"}
+{"answer": "52", "id": "f10-random-versus-convenience-sample/medium/0/22c84ff1056a", "text": "A school has 400 students. Each was asked where they usually get lunch. Where s…"}
+{"answer": "27", "id": "f10-random-versus-convenience-sample/medium/1/c2a32dc7c9a0", "text": "A school has 200 students. Each was asked about their main activity after schoo…"}
 {"answer": "2.22", "id": "f10-random-versus-convenience-sample/medium/2/c72c92108b27", "text": "All 100 students at a school recorded how many hours of sport they played last …"}
 {"answer": "42.00", "id": "f10-ratio-rate-financial-model/easy/0/61c8f0fdfb5d", "text": "A $112 bill is split between Amir and Beatrice in the ratio 3:5. How much does …"}
 {"answer": "100.00", "id": "f10-ratio-rate-financial-model/easy/1/5d1fd1e1c22c", "text": "At the market, cheese costs $2.50 per kg. Beatrice buys 40 kg. What is the tota…"}
