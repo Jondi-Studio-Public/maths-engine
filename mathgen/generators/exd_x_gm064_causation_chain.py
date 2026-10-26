@@ -17,7 +17,8 @@ variable) or an observational survey that names a third variable associated with
 one design only, because an experiment needs a variable a researcher can assign and a survey needs a pair whose
 association is real but not causal, with the third variable that explains it. r has one decimal place so that
 r^2 as a percentage is a whole number, and r = 0.5 is left out because then r as a percentage is exactly half of
-(b)'s distractor set and collides with it. The sign of r follows the pair. Both verdicts occur, and the reader
+(b)'s distractor set and collides with it. The sign of r follows the pair. An experiment with fewer than 30 taking part is too small for a firm causal claim, and its stem says so, so the
+verdict of (c) and (d) depends on n as well as on the design. Both verdicts occur, and the reader
 registered in the tests re-derives all four answers from the rendered text.
 
 ## Distractors, each one named error of its own part
@@ -77,13 +78,17 @@ _SURVEYS = (
 # r has one decimal place, so r^2 as a percentage is a whole number. 0.5 would make r as a percentage equal 2 x r^2.
 _TENTHS = (3, 4, 6, 7, 8, 9)
 
-_N = (24, 30, 36, 40, 48, 50, 60, 80, 120)
+# A sample of fewer than _SMALL_N is too small for a firm conclusion, and an experiment's stem says so.
+_SMALL_N = 30
+_N = (12, 16, 20, 24, 30, 40, 50, 80, 120)
 
 _LEAD_EXPERIMENT = (
     "A study of {n} {subj} looked at {x} and {y}. Researchers randomly assigned each one to a different level of "
-    "{x}, then measured {y}. The correlation coefficient between {x} and {y} was r = {r}.",
+    "{x}, then measured {y}. The correlation coefficient between {x} and {y} was r = {r}. "
+    "Treat a sample of fewer than 30 as too small for a firm conclusion.",
     "{n} {subj} took part in an experiment. The level of {x} given to each was chosen at random, and {y} was then "
-    "measured. The correlation coefficient was r = {r}.",
+    "measured. The correlation coefficient was r = {r}. "
+    "Treat a sample of fewer than 30 as too small for a firm conclusion.",
 )
 _LEAD_SURVEY = (
     "Researchers surveyed {n} {subj} and recorded {x} and {y} for each. They did not control either variable, and "
@@ -198,7 +203,51 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
         )
 
         cx, cy = cap(x), cap(y)
-        if experiment:
+        small = experiment and n < _SMALL_N
+        if experiment and small:
+            c_key = (
+                f"No: the levels were randomly assigned, but only {n} took part, too few to support a firm causal claim"
+            )
+            c_wrong = [
+                (
+                    "Yes: random assignment is enough to show cause, however few took part",
+                    "cc-ignores-sample-size",
+                ),
+                (
+                    "No: no study design can ever show that one variable causes the other",
+                    "cc-experiment-cannot-show-cause",
+                ),
+                (
+                    "Yes: a strong correlation coefficient shows that one variable causes the other, whatever the design",
+                    "cc-large-r-proves-cause",
+                ),
+            ]
+            c_note = f"Random assignment allows a causal claim, but a sample of {n} is fewer than {_SMALL_N}, so it is too small to support one firmly."
+            d_key = (
+                f"Changes in {x} may cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}, "
+                f"but a firm causal conclusion is not justified with only {n} taking part"
+            )
+            d_wrong = [
+                (
+                    f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}",
+                    "cc-ignores-sample-size",
+                ),
+                (
+                    f"Changes in {x} may cause changes in {y}, and {unexplained}% of the variation in {y} is explained by {x}, "
+                    f"but a firm causal conclusion is not justified with only {n} taking part",
+                    "cc-unexplained-for-explained",
+                ),
+                (
+                    f"{cx} and {y} are only associated, because a correlation never shows cause, though {explained}% of the variation in {y} is explained by {x}",
+                    "cc-experiment-cannot-show-cause",
+                ),
+                (
+                    f"Changes in {x} cause {explained}% of the changes in {y}, and the other {unexplained}% of the changes have no cause at all",
+                    "cc-r-squared-as-causal-share",
+                ),
+            ]
+            d_note = f"Only {n} took part, fewer than {_SMALL_N}, so causation is possible but not firmly supported; r² = {explained}%."
+        elif experiment:
             c_key = "Yes: the levels of the variable were randomly assigned, so a causal claim is possible"
             c_wrong = [
                 (
@@ -214,7 +263,7 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
                     "cc-large-r-proves-cause",
                 ),
             ]
-            c_note = "Random assignment controls other variables, so the experiment can support a causal claim."
+            c_note = f"Random assignment controls other variables and {n} is at least {_SMALL_N}, so the experiment can support a causal claim."
             d_key = f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}"
             d_wrong = [
                 (
@@ -234,7 +283,7 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
                     "cc-r-squared-as-causal-share",
                 ),
             ]
-            d_note = f"The design supports causation and r² = {explained}%, so the first statement is justified."
+            d_note = f"The design supports causation, {n} is at least {_SMALL_N}, and r² = {explained}%, so the first statement is justified."
         else:
             c_key = f"No: the data were only observed, so {z} may explain the association"
             c_wrong = [
