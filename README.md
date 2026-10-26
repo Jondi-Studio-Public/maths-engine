@@ -272,7 +272,7 @@ gives a different question for the same seed in any release, and the question id
 
 - Code: MIT (`LICENSE`).
 - Skill definitions in `skills/`: CC BY 4.0 (`LICENSE-CONTENT`).
-- The `senior-*` skills (about 28% of the library) adapt content descriptors
+- The `senior-*` skills (about 26% of the library) adapt content descriptors
   from the Australian Curriculum (Senior Secondary, Version 8.4), modified, and
   some code comments and tests quote descriptors too. ACARA licenses these
   under CC BY 4.0. See `NOTICE` for the required attribution.

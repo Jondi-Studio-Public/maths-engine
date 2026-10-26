@@ -37,6 +37,10 @@ Each question's id (below) tells you when the question behind it has changed.
 - **New exam chains** (#132, #135): reasonableness of an answer and causation versus correlation (General and
   Essential courses), and typed multi-part chains for proof by contradiction and for sin, cos and tan graphs on an
   extended domain (a second exam source on `senior-recognise-the-graphs-of-y-sin-x-y`).
+- **Two grid skills now active** (#136): `f10-tessellation-transform-combinations` and
+  `f10-two-dimensional-object-representations` were deferred and are now practised like the box-nets and
+  turn-shapes skills. The plan-views exam chain now draws the key's rank at random among the options, and plan
+  views of cube stacks are tagged AC9M3SP01, so their ids change.
 
 ### Fixed
 
