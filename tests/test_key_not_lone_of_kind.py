@@ -84,6 +84,9 @@ SIX = (
     "trig-substitution-hsc-tan-and-convert",
     "choose-summary-statistic-for-data",
     "bits-hex-and-digit-counts",
+    "trapezium-rule-estimate",
+    "slope-field-readings",
+    "whole-units-needed-round-up-down",
 )
 SLOW_FIRST = "trig-substitution-hsc-tan-and-convert"
 _SKILLS = Path(__file__).resolve().parent.parent / "skills"

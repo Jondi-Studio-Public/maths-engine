@@ -2097,3 +2097,6 @@
 0.0 tests/test_t4_dms_oracle.py
 0.0 tests/test_t4_pi_form_oracle.py
 0.0 tests/test_text_quality_not_plural.py
+60.0 tests/test_sc_trapezium.py
+40.0 tests/test_sc_slope_field.py
+40.0 tests/test_sc_whole_units.py

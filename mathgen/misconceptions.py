@@ -61290,6 +61290,256 @@ _ENTRIES += (
         "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
         area="estimation",
     ),
+    CatalogueEntry(
+        "trapezium-multiplier-h-not-half",
+        "Multiplying the weighted sum by h instead of h/2 in the trapezium rule.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-inner-weight-1",
+        "Giving every ordinate the weight 1, forgetting that the inner ordinates are counted twice.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-ends-doubled",
+        "Doubling every ordinate, the first and last included, when only the inner ordinates are doubled.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-end-ordinate-omitted",
+        "Leaving the last ordinate out of the trapezium sum.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-strips-counted-as-ordinates",
+        "Counting the n + 1 ordinates as the number of strips, so the strip width is the interval length over n + 1.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-uses-interval-length-as-h",
+        "Using the whole interval length as the strip width h in the trapezium rule.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-simpson-weights",
+        "Using Simpson's weights 1, 4, 2, ..., 4, 1 (and h/3) when the trapezium rule was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-missing-ordinate-weight",
+        "Dividing by the wrong weight when solving for an unknown ordinate (2 where it is 1, or 1 where it is 2), or not dividing at all.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-error-sign-reversed",
+        "Giving estimate minus exact value where exact value minus estimate was asked, so the sign is the wrong way round.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-sign-dropped",
+        "Giving the size of the error where a signed difference was asked, so the sign that shows over- or under-estimate is lost.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-strips-from-error-squared",
+        "Stopping at the number of strips squared (or doubled) without taking the square root when solving for the number of strips.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-strip-width-for-strips",
+        "Giving the strip width where the number of strips was asked.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-strips-off-by-one",
+        "Counting one strip too many or too few: the number of strips and the number of ordinates differ by one.",
+        area="integration",
+    ),
+    # -- slope field readings (slope-field-readings) ---------------------------------------------------------------
+    CatalogueEntry(
+        "slope-field-square-sign-lost",
+        "Squaring a negative coordinate and keeping the minus sign, so (-3)^2 is read as -9 when the slope at a grid point is worked out.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-product-as-sum",
+        "Reading the xy term of dy/dx as x + y when finding the slope at a grid point.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-table-nearest-reading",
+        "Giving the slope read at the nearest tabulated grid point instead of working out the rule and applying it at the stated point.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-table-averages-readings",
+        "Averaging the tabulated slopes to estimate the slope at a new grid point instead of finding the rule.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-parameter-not-divided",
+        "Finding the unknown parameter k by subtracting the other terms from the slope but not dividing by the coefficient of k at that point.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-parameter-rest-dropped",
+        "Finding k by dividing the stated slope by the coefficient of k, forgetting to subtract the other terms of the equation.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-zero-slope-sign-slip",
+        "For a horizontal segment, setting the terms equal to zero and solving for y with the wrong sign (y = g/b instead of y = -g/b).",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-zero-slope-coefficient-dropped",
+        "For a horizontal segment, solving for y without dividing by the coefficient of y.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-reads-x-as-y",
+        "Giving the stated x-coordinate where the y-coordinate of the point was asked for.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-slope-read-at-step-end",
+        "Taking a step along the slope field using the slope at the end of the step (the new x-value with the old y-value) instead of at the start.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-stops-after-one-step",
+        "Giving the y-coordinate after the first step when two steps were asked for.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-window-boundary-dropped",
+        "Counting only the grid points strictly inside the window and leaving out those on its edges.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-counts-columns-not-points",
+        "Counting the x-values (columns of the grid) that contain a point of the required slope instead of the grid points themselves.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-wrong-condition-counted",
+        "Counting the grid points where the slope is greater than, or different from, the stated value instead of equal to it.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-grid-points-miscounted",
+        "Missing one point, or counting one twice, when listing the grid points that satisfy a condition in a window.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-euler-reported-as-exact",
+        "Giving the value reached by stepping along the slope field as the exact value of the solution.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-exact-at-wrong-x",
+        "Evaluating the exact solution at the x-value of the first step instead of the end of the path.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-constant-not-fixed",
+        "Solving a separable equation but leaving the constant of integration unfixed by the starting point, so the solution passes through the wrong value.",
+        area="differential-equations",
+    ),
+)
+
+# -- whole units needed (round up) versus full groups made (round down) --------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "wu-rounds-to-nearest",
+        "Rounds the quotient to the nearest whole number whichever way the situation needs, so a part-pack is dropped when it must be bought or counted when it cannot be made.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-rounds-down-when-covering",
+        "Drops the fractional part of the quotient when everything must be covered or carried, so the last part-pack is left out and there is not enough.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-rounds-up-when-only-full",
+        "Rounds the quotient up when only complete groups count, counting a part-group that cannot actually be made or fitted.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-adds-extra-unit",
+        "Takes one more than the count the situation needs, adding a spare on top of the correct rounding.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-drops-a-full-group",
+        "Takes one fewer than the count the situation allows, leaving out a group that can in fact be made.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-reports-remainder",
+        "Gives the remainder of the division where the number of whole units was asked for.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-leftover-is-remainder",
+        "Gives the remainder of the division as the amount left over after buying whole packs, instead of the unused part of the last pack.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-leftover-from-rounded-up",
+        "Works out what is left after full groups as the shortfall to the next whole group, using the count rounded up instead of down.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-reports-count-not-leftover",
+        "Gives the number of whole packs or groups where the amount left over was asked for.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-costs-fractional-pack",
+        "Prices the exact fractional number of packs, paying for part of a pack that cannot be bought on its own.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-one-pack-size-only",
+        "Prices the order with only one pack size when a mix of the two sizes is cheaper.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-greedy-largest-pack",
+        "Buys as many of the large pack as fit, then covers the rest with small packs, without checking whether another mix costs less.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-ignores-limiting-resource",
+        "Counts how many can be made from one supply only, ignoring that the other supply runs out sooner.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-ignores-gaps",
+        "Divides the length by the width of one item alone, forgetting the gaps that must also fit between the items.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-gap-counted-after-last",
+        "Gives every item a gap after it, including the last one, so one item too few is fitted.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-ignores-offcuts",
+        "Divides the total length needed by the length of one board, ignoring that the short end of each board cannot be used.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-rounds-pieces-per-board-up",
+        "Rounds the number of pieces one board gives up instead of down, counting a piece that does not fit.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-total-built-wrongly",
+        "Builds the total with a slip, leaving out one of the quantities or one of the repeats, so every later step starts from the wrong number.",
+        area="estimation",
+    ),
 )
 
 #: Every entry, by id.

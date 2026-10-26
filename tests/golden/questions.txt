@@ -11500,6 +11500,18 @@
 {"answer": "95", "id": "skip-count-2-5-10/easy/0/568cf7debbcf", "text": "What comes next? 80, 85, 90, __"}
 {"answer": "95", "id": "skip-count-2-5-10/easy/1/5db1d9934b05", "text": "What comes next? 80, 85, 90, __"}
 {"answer": "70", "id": "skip-count-2-5-10/easy/2/fc9d122f638b", "text": "What comes next? 55, 60, 65, __"}
+{"answer": "8", "id": "slope-field-readings/easy/0/8e9cf4ac90aa", "text": "Consider the slope field of dy/dx = xy + 2, drawn on a grid. What is the slope …"}
+{"answer": "23", "id": "slope-field-readings/easy/1/cc5251c55779", "text": "Consider the slope field of dy/dx = 2x + y^2 + 1, drawn on a grid. What is the …"}
+{"answer": "-9", "id": "slope-field-readings/easy/2/b7a979c38fdc", "text": "The point (-3, -4) lies on a solution curve of dy/dx = x + y - 2. Find the grad…"}
+{"answer": "(a) -3; (b) 2.4; (c) -2.88; (d) 1.824; (e) 1.856; (f) 0.032", "id": "slope-field-readings/exam/0/2d1b0a36b37f", "text": "The point (1, 3) lies on the solution curve of dy/dx = -xy. To trace the curve,…"}
+{"answer": "(a) 3; (b) 1.6; (c) 5.76; (d) 2.752; (e) 4.221; (f) 1.469", "id": "slope-field-readings/exam/1/7f61719d76a2", "text": "Consider a curve through (1, 1) that satisfies dy/dx = 3xy. Its slope field is …"}
+{"answer": "(a) -2; (b) 0.6; (c) -1.44; (d) 0.312; (e) 0.383; (f) 0.071", "id": "slope-field-readings/exam/2/fe7cc10d0c8c", "text": "Consider a curve through (1, 1) that satisfies dy/dx = -2xy. Its slope field is…"}
+{"answer": "0.3", "id": "slope-field-readings/hard/0/c17b2a33e1a0", "text": "A path follows the slope field of dy/dx = 2xy + 3. Starting at (1, 0), every st…"}
+{"answer": "17", "id": "slope-field-readings/hard/1/2599b1f1c2b0", "text": "Consider the slope field of dy/dx = -2xy. Segments are drawn only at points who…"}
+{"answer": "-2.232", "id": "slope-field-readings/hard/2/01d7ed46ba65", "text": "Trace a path on the slope field of dy/dx = -2x + y^2 + 1. The path starts at th…"}
+{"answer": "-3", "id": "slope-field-readings/medium/0/b4c40b7c3006", "text": "Consider the slope field of dy/dx = kxy + 2x - 1. The segment at the point (-3,…"}
+{"answer": "3", "id": "slope-field-readings/medium/1/565cdc169b8c", "text": "Consider the slope field of dy/dx = kx^2 + 3xy - 2. The segment at the point (3…"}
+{"answer": "-3", "id": "slope-field-readings/medium/2/aa2c5ea816ab", "text": "Readings from a slope field show a slope of -6 at (3, 1), 10 at (-2, -1) and 14…"}
 {"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/0/910ba3650faf", "text": "Does x = 7 make 5x + 9 = 39 true? Show how you decide whether it is a solution."}
 {"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/1/88621a614207", "text": "Does x = 7 make 3x + 2 = 26 true? Show how you decide whether it is a solution."}
 {"answer": "A solution is a value of x that makes the equation true. Su…", "id": "solution-and-solution-set-explain/easy/2/14879ed67597", "text": "Kim thinks 2 is a solution of the equation 4x + 9 = 17. Test Kim's idea and exp…"}
@@ -11854,6 +11866,18 @@
 {"answer": "7n - 17", "id": "translate-word-problems-to-equations/medium/0/35b189108e49", "text": "Notebooks cost $7 each. With a $17 coupon taken off the bill, Sam pays $32 for …"}
 {"answer": "16t - 9", "id": "translate-word-problems-to-equations/medium/1/a983883d24b4", "text": "Each ticket to a show costs $16. Maya buys some tickets and uses a $9 voucher, …"}
 {"answer": "8n - 17", "id": "translate-word-problems-to-equations/medium/2/50e2907b1769", "text": "Notebooks cost $8 each. With a $17 coupon taken off the bill, Sam pays $7 for s…"}
+{"answer": "7", "id": "trapezium-rule-estimate/easy/0/5eeb2575d4a8", "text": "The function f is given by f(x) = -3x^3 + 3x^2 + 2x + 2. Use the trapezium rule…"}
+{"answer": "24", "id": "trapezium-rule-estimate/easy/1/082e5e0c5813", "text": "Use the trapezium rule with 2 strips to approximate the integral of f(x) = 2x^2…"}
+{"answer": "125", "id": "trapezium-rule-estimate/easy/2/6c4958ae0251", "text": "A function g has the values 12, 15, 19, 14, 17 at x = -1, 1, 3, 5, 7. Use the t…"}
+{"answer": "(a) 1; (b) 1.0333; (c) 0.5167; (d) -0.0059; (e) 0.0059", "id": "trapezium-rule-estimate/exam/0/51dc8c795881", "text": "The area under y = 1/x from x = 3 to x = 5 has exact value 0.5108, correct to 4…"}
+{"answer": "(a) 5/4; (b) 2.5885; (c) 1.6178; (d) 0.2498; (e) 0.2498", "id": "trapezium-rule-estimate/exam/1/2870c7f375ad", "text": "Let f(x) = sin(x). The trapezium rule with 2 equal strips is used to estimate t…"}
+{"answer": "(a) 1/2; (b) 3.1599; (c) 0.7900; (d) 0.0168; (e) 0.0168", "id": "trapezium-rule-estimate/exam/2/46d8bd24a80b", "text": "The area under y = sin(x) from x = 0.5 to x = 1.5 has exact value 0.8068, corre…"}
+{"answer": "-0.1257", "id": "trapezium-rule-estimate/hard/0/566d1726560d", "text": "Let f(x) = 1/x. The exact value of the integral of f from x = 1 to x = 5 is 1.6…"}
+{"answer": "20.0", "id": "trapezium-rule-estimate/hard/1/990e79e54595", "text": "The values of a function f are 8.5, 6, 14, k at x = 2, 2.5, 3, 3.5. Using the t…"}
+{"answer": "-7.7147", "id": "trapezium-rule-estimate/hard/2/ba2edfcdca4f", "text": "Let f(x) = e^x. The exact value of the integral of f from x = 0 to x = 4 is 53.…"}
+{"answer": "40.50", "id": "trapezium-rule-estimate/medium/0/4c37b71b6d6f", "text": "A surveyor measures the depth of a river every 2 m across its 10 m width. The d…"}
+{"answer": "1.896", "id": "trapezium-rule-estimate/medium/1/31e4fbaa75a2", "text": "The function f is given by f(x) = sin(x). Use the trapezium rule with 4 equal s…"}
+{"answer": "99.58", "id": "trapezium-rule-estimate/medium/2/4f3c074f7740", "text": "During a storm the rainfall rate, in millimetres per hour, is recorded every 4 …"}
 {"answer": "9", "id": "triangle-area-base-height/easy/0/d0797706775d", "text": "Determine the area of triangle ABC in the diagram, in cm²."}
 {"answer": "4", "id": "triangle-area-base-height/easy/1/d4b49c60228f", "text": "The diagram shows triangle ABC. What is its area, in cm²?"}
 {"answer": "4", "id": "triangle-area-base-height/easy/2/4a8a0c7f6c62", "text": "Determine the area of triangle LMN in the diagram, in cm²."}
@@ -15385,6 +15409,18 @@
 {"answer": "1", "id": "whole-number-division-facts/easy/0/6a37504db03f", "text": "Share 5 things equally between 5 children. How many each?"}
 {"answer": "1", "id": "whole-number-division-facts/easy/1/7d5697c0a4cb", "text": "Share 10 things equally between 10 children. How many each?"}
 {"answer": "9", "id": "whole-number-division-facts/easy/2/2ec63c04bd35", "text": "Share 36 things equally between 4 children. How many each?"}
+{"answer": "8", "id": "whole-units-needed-round-up-down/easy/0/2e7815572ce8", "text": "Maya has $312 to spend on concert tickets that cost $35 each. How many tickets …"}
+{"answer": "12", "id": "whole-units-needed-round-up-down/easy/1/18fae06a621d", "text": "A removalist must move 155 boxes and the van holds 14 boxes at a time. How many…"}
+{"answer": "6", "id": "whole-units-needed-round-up-down/easy/2/f9dbc32f6b2f", "text": "A tank holds 1317 litres of water. A water cart is filled from it only in compl…"}
+{"answer": "(a) 116; (b) 3; (c) 540; (d) 40", "id": "whole-units-needed-round-up-down/exam/0/278dcbb35182", "text": "Three year groups of 51, 41 and 24 students are going to a sports carnival. Eac…"}
+{"answer": "(a) 41; (b) 6; (c) 90; (d) 5", "id": "whole-units-needed-round-up-down/exam/1/3e2898611ea5", "text": "A camp has 21 boys and 20 girls. They are put into teams of 6 for a relay. (a) …"}
+{"answer": "(a) 56; (b) 12; (c) 336; (d) 4", "id": "whole-units-needed-round-up-down/exam/2/8b645489f569", "text": "A builder is tiling 2 identical rooms, each 7 m by 4 m. A pack of tiles covers …"}
+{"answer": "9", "id": "whole-units-needed-round-up-down/hard/0/c1c88d662232", "text": "A shelf is 488 centimetres long. Display stands 39 centimetres wide are placed …"}
+{"answer": "234", "id": "whole-units-needed-round-up-down/hard/1/276277737d45", "text": "For an event, at least 140 stickers are needed. Small bags of 12 cost $24 and l…"}
+{"answer": "464", "id": "whole-units-needed-round-up-down/hard/2/1d8b3820295f", "text": "For an event, at least 128 stickers are needed. Small bags of 12 cost $48 and l…"}
+{"answer": "6", "id": "whole-units-needed-round-up-down/medium/0/d8dc01c8cb1a", "text": "A bakery makes 4 trays of cookies with 24 cookies on each tray. The cookies are…"}
+{"answer": "10", "id": "whole-units-needed-round-up-down/medium/1/b8821e1b333e", "text": "A ute delivers 62 bags of mulch and 36 bags of soil to a garden. It carries 18 …"}
+{"answer": "4", "id": "whole-units-needed-round-up-down/medium/2/309c46af886a", "text": "A camp has 26 boys and 15 girls. They are put into teams of 9 for a relay. How …"}
 {"answer": "4*x + 3", "id": "write-expressions-from-words/easy/0/b302dd5dadc3", "text": "Write an expression for: 4 times a number, plus 3"}
 {"answer": "5*x - 3", "id": "write-expressions-from-words/easy/1/63d7552586e4", "text": "Write an expression for: 3 less than 5 times a number"}
 {"answer": "2*x - 2", "id": "write-expressions-from-words/easy/2/c326a6a25421", "text": "Write an expression for: 2 times a number, minus 2"}
