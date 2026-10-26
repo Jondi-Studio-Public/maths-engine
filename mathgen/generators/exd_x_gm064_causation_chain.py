@@ -205,20 +205,18 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
         cx, cy = cap(x), cap(y)
         small = experiment and n < _SMALL_N
         if experiment and small:
-            c_key = (
-                f"No: the levels were randomly assigned, but only {n} took part, too few to support a firm causal claim"
-            )
+            c_key = f"No: the levels were randomly assigned, but there are too few for a firm causal claim with only {n} taking part"
             c_wrong = [
                 (
-                    f"Yes: random assignment is enough to show cause, even with only {n} taking part",
+                    f"Yes: the levels were randomly assigned, but that alone is enough for a firm causal claim with only {n} taking part",
                     "cc-ignores-sample-size",
                 ),
                 (
-                    f"No: no study design can ever show that one variable causes the other, even with {n} taking part",
+                    f"No: the levels were randomly assigned, but no study design can ever show cause, with only {n} taking part",
                     "cc-experiment-cannot-show-cause",
                 ),
                 (
-                    f"Yes: a strong correlation coefficient shows that one variable causes the other, with only {n} taking part",
+                    f"Yes: the levels were randomly assigned, but it is the strong correlation coefficient that shows cause, with only {n} taking part",
                     "cc-large-r-proves-cause",
                 ),
             ]
@@ -229,7 +227,8 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
             )
             d_wrong = [
                 (
-                    f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}, even with only {n} taking part",
+                    f"Changes in {x} cause changes in {y}, and {explained}% of the variation in {y} is explained by {x}, "
+                    f"but a firm causal conclusion is justified even with only {n} taking part",
                     "cc-ignores-sample-size",
                 ),
                 (
@@ -238,11 +237,17 @@ def exd_x_gm064_causation_chain(rng, tier: str = "exam"):
                     "cc-unexplained-for-explained",
                 ),
                 (
-                    f"{cx} and {y} are only associated, because a correlation never shows cause, though {explained}% of the variation in {y} is explained by {x}, with only {n} taking part",
+                    f"Changes in {x} cause changes in {y}, and {unexplained}% of the variation in {y} is explained by {x}, "
+                    f"but a firm causal conclusion is justified even with only {n} taking part",
+                    "cc-unexplained-for-explained",
+                ),
+                (
+                    f"{cx} and {y} are only associated, and {explained}% of the variation in {y} is explained by {x}, "
+                    f"but a firm causal conclusion is not justified because a correlation never shows cause, with only {n} taking part",
                     "cc-experiment-cannot-show-cause",
                 ),
                 (
-                    f"Changes in {x} may cause {explained}% of the changes in {y}, and the other {unexplained}% of the changes have no cause at all, "
+                    f"Changes in {x} cause {explained}% of the changes in {y}, and the other {unexplained}% of the changes have no cause at all, "
                     f"but a firm causal conclusion is not justified with only {n} taking part",
                     "cc-r-squared-as-causal-share",
                 ),

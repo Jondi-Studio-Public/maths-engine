@@ -167,6 +167,18 @@ def test_small_n_key_is_not_the_only_option_with_the_number_or_the_hedge(questio
             assert sum(bool(re.search(rf"\b{n}\b", o)) for o in others) >= 2, (label, others)
         d = next(p for p in q.parts if p.label == "d")
         hedged = [o for o in (str(getattr(x, "text", x)) for x in d.distractors) if "not justified" in o]
-        assert len(hedged) in (1, 2) and "not justified" in d.answer_text, d.distractors
+        assert len(hedged) in (1, 2, 3) and "not justified" in d.answer_text, d.distractors
         seen += 1
     assert seen > 20
+
+
+def test_small_n_key_shares_the_refrain_and_the_but_clause_with_its_distractors(questions):
+    """Part (c) small-n options come from one template: each names n with the refrain, and " but " is not the key's alone."""
+    for q in _small_experiments(questions):
+        n = re.search(r"\d+", q.text).group()
+        for label in "cd":
+            part = next(p for p in q.parts if p.label == label)
+            options = [part.answer_text] + [str(getattr(d, "text", d)) for d in part.distractors]
+            assert all(f"with only {n} taking part" in o for o in options[:1] + options[1:]) or label == "d", options
+            assert sum(" but " in o for o in options[1:]) >= 2, (label, options)
+            assert " but " in options[0]
