@@ -262,3 +262,13 @@ def test_all_wrong_earns_zero():
     for seed in range(40):
         q = _make("exam", seed)
         assert grade(sk, q, {p.label: "999" for p in q.parts}).marks == 0
+
+
+def test_every_kink_changes_the_slope_by_at_least_a_fifth():
+    for tier, seeds in (("exam", 600), ("easy", 200), ("medium", 200), ("hard", 200)):
+        for seed in range(seeds):
+            segs = _chain(_make(tier, seed).figure)
+            segs = segs[1:] if tier == "exam" else segs
+            slopes = [(y1 - y0) / (x1 - x0) for x0, y0, x1, y1 in segs]
+            for a, b in zip(slopes, slopes[1:]):
+                assert abs(a - b) >= max(a, b) / 5, (tier, seed, a, b)

@@ -386,6 +386,11 @@ class Shape:
         return len(self.rates) - 1
 
 
+def _bends(a, b):
+    """The rate changes by at least a fifth, so the kink can be seen."""
+    return abs(a - b) * 5 >= max(a, b)
+
+
 def _rate_choices(ctx, gy, dx):
     """Rates (cents per unit) in the context's range for which a section dx units wide rises by whole cost steps."""
     step = gy // math.gcd(gy, dx)
@@ -418,7 +423,7 @@ def _draw_shape(rng, ctx, nseg):
             if not options:
                 break
             rates.append(rng.choice(options))
-        if len(rates) < nseg or any(a == b for a, b in zip(rates, rates[1:])):
+        if len(rates) < nseg or not all(_bends(a, b) for a, b in zip(rates, rates[1:])):
             continue
         sh = Shape.from_rates([m * gx for m in ms], rng.choice(fees), rates, gx, gy)
         if K_MIN <= max(sh.ys) // gy <= K_MAX:
@@ -869,6 +874,7 @@ def _try_exam(rng, ctx, gx, n, m):
                 v
                 for v in band
                 if v > r
+                and _bends(rb1, v)
                 and gy <= cstar - rb1 * x1 - v * (xc - x1) < fa
                 and (cstar - rb1 * x1 - v * (xc - x1)) % gy == 0
             ]
@@ -880,7 +886,8 @@ def _try_exam(rng, ctx, gx, n, m):
         steep = [v for v in band if v > r and gy <= cstar - v * xc < fa and (cstar - v * xc) % gy == 0]
         if steep:
             rb1 = rng.choice(steep)
-            found = (cstar - rb1 * xc, x1, rb1, rng.choice(band))
+            bent = [v for v in band if _bends(rb1, v)]
+            found = (cstar - rb1 * xc, x1, rb1, rng.choice(bent)) if bent else None
     if found is None:
         return None
     fb, x1, rb1, rb2 = found
