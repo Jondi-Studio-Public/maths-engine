@@ -64,7 +64,7 @@ def _company(rng, key, places: int, slips: list) -> list:
     low = max(low, 3 - len(above))
     chosen = below[:low] + above[: 3 - low]
     rest = [c for c in ordered if c not in chosen]
-    return keep_company(key, chosen + rest, pool, 3, places=places, max_pool=20)
+    return keep_company(key, chosen + rest, pool, 3, places=places, max_pool=30)
 
 
 def single_number(rng, text, value, places, working, slips, **kw):
@@ -260,7 +260,7 @@ def _mean_scenario(rng: random.Random) -> Scenario:
         up = 1 if ctx["bias"] == "high" else -1
         if (cnv - pop) * up < Fraction(15 * span, 100):
             continue
-        if abs(rnd - pop) < Fraction(ctx["step"], 20) or abs(rnd - pop) == abs(cnv - pop):
+        if rnd == 0 or cnv == 0 or abs(rnd - pop) < Fraction(ctx["step"], 20) or abs(rnd - pop) == abs(cnv - pop):
             continue
         if len({abs(rnd - pop), abs(cnv - pop), abs(rnd - cnv), abs(rnd - pop) + abs(cnv - pop)}) < 4:
             continue
@@ -315,7 +315,7 @@ def _prop_scenario(rng: random.Random) -> Scenario:
         pop = Fraction(pct)
         if (cnv - pop) * up < 15:
             continue
-        if abs(rnd - pop) < 5 or abs(rnd - pop) == abs(cnv - pop):
+        if rnd == 0 or cnv == 0 or abs(rnd - pop) < 5 or abs(rnd - pop) == abs(cnv - pop):
             continue
         if len({abs(rnd - pop), abs(cnv - pop), abs(rnd - cnv), abs(rnd - pop) + abs(cnv - pop)}) < 4:
             continue
