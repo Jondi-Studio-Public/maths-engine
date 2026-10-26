@@ -183,6 +183,26 @@ def _heights_line(heights) -> str:
     return "Column heights, left to right: " + ", ".join(str(v) for v in heights)
 
 
+def _ranked(rng, key, wrong):
+    """The wrong answers ordered so that three of them, with the key at a random rank among the four, come first.
+
+    ``wrong`` is ``(value, misconception id)``. A number part keeps the first wrong answers that survive, so a fixed
+    order would put the key at the same rank every time, which a learner could learn without the maths.
+    """
+    seen, lo, hi = set(), [], []
+    for value, tag in wrong:
+        if value is None or value == key or value in seen:
+            continue
+        seen.add(value)
+        (lo if value < key else hi).append((value, tag))
+    rng.shuffle(lo)
+    rng.shuffle(hi)
+    ranks = [r for r in range(4) if r <= len(lo) and 3 - r <= len(hi)]
+    r = rng.choice(ranks) if ranks else 0
+    head = lo[:r] + hi[: 3 - r]
+    return head + [w for w in lo + hi if w not in head]
+
+
 def _plan_views_chain(rng):
     w, d = rng.randint(3, 5), rng.randint(2, 4)
     h = {(x, y): (0 if rng.random() < 0.25 else rng.randint(1, 4)) for x in range(w) for y in range(d)}
@@ -222,13 +242,20 @@ def _plan_views_chain(rng):
         n,
         1,
         [f"Add the numbers: {' + '.join(str(v) for v in h.values() if v)} = {n}."],
-        [
-            (len(footprint), "plan-counts-the-squares-not-the-cubes"),
-            (max(h.values()) * len(footprint), "plan-makes-every-stack-the-tallest"),
-            (max(h.values()) * w * d, "plan-makes-every-stack-the-tallest"),
-            (n + 1, "stk-count-off-by-one"),
-            (n - 1, "stk-count-off-by-one"),
-        ],
+        _ranked(
+            rng,
+            n,
+            [
+                (len(footprint), "plan-counts-the-squares-not-the-cubes"),
+                (max(h.values()) * len(footprint), "plan-makes-every-stack-the-tallest"),
+                (max(h.values()) * w * d, "plan-makes-every-stack-the-tallest"),
+                (n + 1, "stk-count-off-by-one"),
+                (n - 1, "stk-count-off-by-one"),
+                (n + 2, "stk-count-off-by-one"),
+                (n - 2, "stk-count-off-by-one"),
+                (n - 3, "stk-count-off-by-one"),
+            ],
+        ),
     )
     part_b = mcq_part(
         _PLAN_FRONT,
@@ -261,13 +288,20 @@ def _plan_views_chain(rng):
         sum(front),
         1,
         [f"Add the column heights of the front view: {' + '.join(map(str, front))} = {sum(front)}."],
-        [
-            (n, "elev-counts-every-cube-for-a-view"),
-            (len(front), "stk-counts-the-columns"),
-            (sum(right), "elev-gives-the-side-view"),
-            (max(front) * w, "plan-makes-every-stack-the-tallest"),
-            (sum(front) + 1, "stk-count-off-by-one"),
-        ],
+        _ranked(
+            rng,
+            sum(front),
+            [
+                (n, "elev-counts-every-cube-for-a-view"),
+                (len(front), "stk-counts-the-columns"),
+                (sum(right), "elev-gives-the-side-view"),
+                (max(front) * w, "plan-makes-every-stack-the-tallest"),
+                (sum(front) + 1, "stk-count-off-by-one"),
+                (sum(front) - 1, "stk-count-off-by-one"),
+                (sum(front) + 2, "stk-count-off-by-one"),
+                (sum(front) - 2, "stk-count-off-by-one"),
+            ],
+        ),
     )
     return finish_parts(fig, stem, [part_a, part_b, part_c, part_d])
 
