@@ -457,7 +457,7 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
                         )
                         continue
                     started = time.monotonic()
-                    try:
+                    try:  # every outcome costs the time the reply held a worker (a timeout, the full deadline)
                         results.append(
                             run(
                                 "grade",
@@ -470,9 +470,9 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
                                 reveal=body.reveal,
                             )
                         )
-                        spent += time.monotonic() - started  # every reply costs the time it held a worker
+                        spent += time.monotonic() - started
                     except HTTPException as exc:
-                        spent += allowed if exc.status_code == 504 else 0
+                        spent += allowed if exc.status_code == 504 else time.monotonic() - started
                         detail = exc.detail if isinstance(exc.detail, dict) else {"detail": exc.detail}
                         results.append({"id": item.id, "error": kind.get(exc.status_code, "unavailable"), **detail})
         finally:

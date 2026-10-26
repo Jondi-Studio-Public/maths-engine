@@ -194,3 +194,19 @@ def test_batches_leave_half_the_workers_for_single_grades():
         t.join()
     assert second.status_code == 503 and out["first"].status_code == 200
     assert single.status_code == 200  # a single grade is not held up by the batch
+
+
+def test_a_reply_refused_after_running_still_spends_the_budget():
+    from mathgen.server.pool import Changed
+
+    class _Changed(_SlowPool):
+        def run(self, name, timeout, **kwargs):
+            type(self).calls += 1
+            time.sleep(0.4)
+            raise Changed("changed", "a/b/1/new")
+
+    _Changed.calls = 0
+    config = Config(keys=[(AUTHOR, "author")], timeout=1.0, batch_budget=2.0)
+    with TestClient(create_app(config, pool=_Changed())) as client:
+        results = _batch(client, 20).json()["results"]
+    assert _Changed.calls <= 5 and len(results) == 20

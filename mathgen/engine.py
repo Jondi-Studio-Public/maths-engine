@@ -182,7 +182,7 @@ class QuestionChanged(Exception):
         self.question = question
 
 
-_SEED_TEXT_RE = re.compile(r"-?[0-9]{1,30}")  # ASCII digits only: "1_0", " 1" and Arabic-Indic digits are not seeds
+_SEED_TEXT_RE = re.compile(r"-?[0-9]+")  # ASCII digits only: "1_0", " 1" and Arabic-Indic digits are not seeds
 
 
 def parse_question_id(qid: str) -> tuple[str, str, int, str]:

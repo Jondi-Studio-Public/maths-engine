@@ -89,3 +89,11 @@ def test_a_renderer_overflow_is_the_documented_value_error(monkeypatch, error):
     monkeypatch.setitem(svg._RENDERERS, "bar_chart", boom)
     with pytest.raises(ValueError, match="out of range"):
         svg.figure_svg(spec)
+
+
+@pytest.mark.parametrize("seed", [10**29, 10**30, 10**100, -(10**40)])
+def test_big_seeds_round_trip_through_their_ids(seed):
+    skill = SKILLS["simplify-surds"]
+    question, qid = engine.make_with_id(skill, seed)
+    assert engine.parse_question_id(qid)[2] == seed
+    assert engine.regenerate(qid, [skill]).text == question.text
