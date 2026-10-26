@@ -61196,6 +61196,11 @@ _ENTRIES += (
         area="statistics and time",
     ),
     CatalogueEntry(
+        "cc-ignores-sample-size",
+        "Claiming a firm causal conclusion from a randomised experiment without checking that enough took part.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
         "cc-measured-confounder-fixes-design",
         "Treating an observational study as controlled because the third variable was measured.",
         area="statistics and time",

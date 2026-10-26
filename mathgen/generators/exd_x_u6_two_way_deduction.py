@@ -55,6 +55,7 @@ _CONTEXTS = [
         "failed the safety check",
     ),
 ]
+_PEOPLE = ("students", "members", "people")
 _TEMPLATES = [
     "A survey of {N} {whole} found that {rowA} of them {inA}. Also, {colX} of them {hasX}, and {J} of those who {inA} "
     "also {hasX}.",
@@ -81,7 +82,7 @@ def _build(rng: random.Random):
     p2 = f"Find how many of the {noun} {not_a} but {has_x}."
     p3 = f"Using your answers to (a) and (b), find how many of the {noun} {not_a} and {lacks_x}."
     p4 = (
-        f"Using your answer to (b), write the fraction of the {noun} who {not_a} that {has_x}, "
+        f"Using your answer to (b), write the fraction of the {noun} {'who' if noun in _PEOPLE else 'that'} {not_a} that {has_x}, "
         "as a simplified fraction."
     )
     if not keys_clear(" ".join([stem, p1, p2, p3, p4]), [a, b, c, cond]):
