@@ -2100,3 +2100,6 @@
 60.0 tests/test_sc_trapezium.py
 40.0 tests/test_sc_slope_field.py
 40.0 tests/test_sc_whole_units.py
+19 tests/test_ds_freq_table.py
+37 tests/test_ds_sample_vs_pop.py
+11 tests/test_ds_shape_variation.py

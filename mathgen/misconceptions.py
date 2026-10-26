@@ -61859,6 +61859,589 @@ _ENTRIES += (
     ),
 )
 
+# -- shape and variation of a display (AC9M4ST02) --------------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "ds-sv-mode-as-frequency",
+        "Gives how many times the mode occurs (the height of the tallest stack or column) instead of the mode itself.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-mode-as-highest",
+        "Takes the highest value shown as the mode instead of the value that occurs most often.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-range-as-highest",
+        "Gives the highest value as the range instead of taking the lowest away from it.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-range-counts-columns",
+        "Counts the stacks or columns shown as the range, which also miscounts when a value in between has none.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-total-as-columns",
+        "Counts the stacks or columns as the number of values, instead of adding up how many each one holds.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-kept",
+        "Includes the outlier when the range of the rest of the values was asked for.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-gap-as-range",
+        "Gives the gap between the outlier and the rest as the range of the rest of the values.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-as-neighbour",
+        "Names the value next to the outlier, at the edge of the main group, instead of the outlier itself.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-extreme-as-outlier",
+        "Calls the highest or lowest value an outlier even though it sits next to the other values.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-symmetric-assumed",
+        "Calls the data symmetric because the tallest column is near the middle, without checking both sides match.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-bunch-side-swapped",
+        "Mixes up which end the values are bunched at: the tall columns, not the long tail, show where they bunch.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-above-includes-mode",
+        "Counts the values equal to the mode as well as the values above it, when only values above it were asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-below-for-above",
+        "Counts the values below the mode where the values above it were asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-spread-as-count",
+        "Judges which group has the greater spread by which has more values, not by the distance from lowest to highest.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-spread-as-mode",
+        "Judges spread by the difference between the modes, which measures centre, not how spread out the values are.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-ranges-added",
+        "Adds the two ranges where how much greater one range is than the other was asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-totals-added",
+        "Adds the two numbers of values where how many more one group has than the other was asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-combined-range-of-one",
+        "Gives the larger of the two ranges as the range of both groups together.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-missed-true-statement",
+        "Leaves out a statement that is true of the display.",
+        area="shape-and-variation-of-a-display",
+    ),
+    # ds-census-sample block
+    CatalogueEntry(
+        "ds-cs-observation-shows-cause",
+        "Takes a census, a sample survey or an observation as showing that one thing causes another.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-experiment-shows-no-cause",
+        "Thinks a well-designed experiment, like an observation, can show only a link and never a cause.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-sample-covers-everyone",
+        "Takes a sample, or any study of part of the group, as collecting data from every member.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-census-leaves-out",
+        "Thinks a census leaves some members of the population out.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-observer-changes-things",
+        "Counts an observation, a survey or a census as changing something for the units studied.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-experiment-changes-nothing",
+        "Thinks an experiment leaves the units as they were, like an observation.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-sample-gives-exact",
+        "Treats the result of a sample as the exact value for the whole population.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-census-may-differ",
+        "Thinks a census with every record correct can still differ from the value for the population.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ignores-destructive-test",
+        "Overlooks that checking a unit can use it up, so that checking every unit is not practical.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-assumes-testing-destroys",
+        "Thinks a check that leaves the unit as it was uses the unit up.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-volunteers-as-random",
+        "Treats volunteers as if they had been picked at random, so bias from self-selection is missed.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-random-as-volunteers",
+        "Treats a random selection as if the units had chosen themselves.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ratio-as-difference",
+        "Gives how many MORE units a census uses (the difference) for how many TIMES as many.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-cost-of-sample",
+        "Gives the time or cost for the sample, or for the part left out, for the whole census.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-adds-instead-of-multiplies",
+        "Adds the number of units to the time, cost or days each takes instead of multiplying.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ignores-the-split",
+        "Gives the whole group as the size of each of two equal groups, or halves it twice.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-total-from-one-day",
+        "Gives one day's count, or the mean or the greatest count, for the total over all the days.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-rejects-correct-figure",
+        "Rejects a correct figure, usually after working it out a different, wrong way.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-svp-total-not-mean",
+        "Gives the total of the listed values where the mean was asked for, without dividing by how many values there are.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-divides-by-wrong-count",
+        "Divides the total of the sample by a count that is one out.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-uses-population-value",
+        "Gives the whole-school value where the value for the sample was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-other-sample",
+        "Works out the value for the other sample, not the one the question names.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-count-not-percent",
+        "Gives the number of students in the group where a percentage of the students was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-percent-of-population-size",
+        "Finds the sample's percentage out of the whole school's number of students instead of out of the sample's.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-percent-of-sample-size",
+        "Finds the whole school's percentage out of the sample's number of students instead of the school's.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-complement",
+        "Gives the percentage of students who do not, where the percentage who do was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-ignores-frequencies",
+        "Averages the values in the table as if each were held by one student, ignoring how many students hold it.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-divides-by-number-of-rows",
+        "Adds value times number of students, then divides by the number of rows in the table instead of the number of students.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-most-common-for-mean",
+        "Gives the most common value in the table where the mean was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-sample-value-as-gap",
+        "Gives the sample's own value where its gap from the whole school was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-population-value-as-gap",
+        "Gives the whole-school value where the gap between the sample and the whole school was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-adds-instead-of-subtracting",
+        "Adds the sample's value to the whole school's instead of finding the gap between them.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-other-samples-gap",
+        "Gives the gap for the other sample, not the one the question names.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-as-relative-percent",
+        "Gives the gap as a percentage of the whole-school value instead of the gap itself.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-sum-of-gaps",
+        "Adds the two samples' gaps where the difference between them was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-between-samples",
+        "Finds how far apart the two samples' values are instead of how far each is from the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-one-gap-only",
+        "Gives one sample's gap alone where a comparison or a combination of the gaps was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-averages-the-gaps",
+        "Averages the two gaps instead of finding the gap of the combined sample, so a sample above and a sample below are not allowed to cancel.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-scales-by-sample-size",
+        "Scales the gap up by the number of students in the sample instead of the number in the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-not-scaled",
+        "Stops at the gap in the sample and does not scale it up to the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-estimate-not-error",
+        "Gives the estimated whole-school total where the amount it is out by was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-true-total-not-error",
+        "Gives the true whole-school total where the amount the estimate is out by was asked for.",
+        area="sample-versus-population",
+    ),
+)
+
+# -- Year 9 display choice made numeric (f10-display-choice-then-read) -------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "ds-dc-adds-categories-and-groups",
+        "Adds the number of answers to the number of groups where a column is needed for every group within every answer.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-adds-series-to-points",
+        "Adds the number of data sets to the number of readings instead of multiplying to count the plotted points.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-adds-variables-to-points",
+        "Adds two to the number of pairs, as if the two variables were extra points.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-angles-of-given-shares",
+        "Gives the angle taken up by the shares already stated, where the angle of the remaining share was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-extra-step",
+        "Adds a further step above the first axis mark that is high enough to reach the largest value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-shows-frequency",
+        "Treats the vertical axis as a count of readings, though a line graph's axis shows the values themselves.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-too-short",
+        "Stops the axis at the mark below the largest value, so the largest value would not fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-top-is-max",
+        "Ends the axis exactly at the largest value, though the axis stops at a marked step.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-total",
+        "Gives the total of all the counts as the top of a counting axis that only has to reach the tallest column.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-class-start-at-minimum",
+        "Counts classes from the least value instead of from the multiple of the class width at or below it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-column-per-possible-value",
+        "Counts every whole number from the least to the greatest value as a column, ignoring the class width.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-count-not-angle",
+        "Gives the number of people in the category where the angle of its sector was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-gaps-not-points",
+        "Counts the gaps between the readings, one fewer than the readings, where the points were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-groups-only",
+        "Counts the groups and ignores the answers when counting columns.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-items-not-marks",
+        "Gives the total number of people surveyed where the number of sectors was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-equal-sectors",
+        "Divides 360 degrees equally between the categories, though sector angles follow the shares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-extra-total-mark",
+        "Adds one more mark for the total, though a total is not drawn as a sector, column or point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-ignores-groups",
+        "Counts one column for each answer and forgets that every group needs its own column within each answer.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-ignores-second-set",
+        "Counts the points for one data set only when two sets of readings share the display.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-labels-as-measurements",
+        "Groups numeric labels such as shirt numbers into classes, as if they were measurements.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-measurements-as-labels",
+        "Gives each measured value its own column, as if measurements were separate categories.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-misses-one-category",
+        "Leaves one category out when counting the marks.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-one-column-per-value",
+        "Gives every recorded value its own column, though a histogram groups them into classes.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-percent-not-angle",
+        "Gives the percentage share where the angle of the sector, in degrees, was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-percent-times-three",
+        "Multiplies the percentage by 3 instead of 3.6 to turn it into degrees.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-points-for-each-value",
+        "Counts a point for each of the two values in a pair, where each pair is one point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-points-not-segments",
+        "Gives the number of points where the number of segments joining them was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-range-over-width",
+        "Divides the range by the class width and stops there, so the class holding the greatest value is lost.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-rest-of-circle",
+        "Gives the angle of everything except the category, 360 degrees less its sector.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-second-largest-sector",
+        "Gives the angle of the second most common category instead of the most common one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-share-of-wrong-total",
+        "Finds the share as a fraction of the total plus the category, not of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-skips-empty-classes",
+        "Counts only the classes that hold data and leaves out empty classes between them, though they are still columns.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-skips-empty-stems",
+        "Counts only the stems that have a leaf, though every stem from least to greatest is written.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-for-each-group",
+        "Adds the stems of the two groups, though both groups share one column of stems.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-from-values",
+        "Gives the number of values where the number of stems was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-one-group",
+        "Counts the stems of one group only, though the shared stems must cover both groups.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-range-not-inclusive",
+        "Subtracts the least stem from the greatest and does not count the first stem.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-two-marks-per-category",
+        "Counts two marks for each category, as if a count and a label were each drawn.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-uses-last-value",
+        "Sizes the axis from the final value instead of the largest value, so an earlier peak would not fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-whole-year-of-months",
+        "Uses all 12 months of the year where only the months recorded count.",
+        area="statistics",
+    ),
+)
+
+_ENTRIES += (
+    CatalogueEntry(
+        "dsft-misses-an-observation",
+        "Leaves one observation out when counting how many times a value occurs, so a count is one too low.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-double-counts-an-observation",
+        "Counts one observation twice when counting how many times a value occurs, so a count is one too high.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-swaps-two-values",
+        "Writes the count of one value in the row of another.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-reads-the-value-as-the-count",
+        "Writes the value itself in the Count column (a row for 3 pets gets a count of 3) instead of how many times it occurred.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-tally-gate-as-one",
+        "Reads each group of five tally marks as a single mark and adds the loose marks, instead of counting five for each group.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-total-is-number-of-rows",
+        "Gives the number of rows in the frequency table as the total instead of adding the counts.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-total-adds-the-values",
+        "Adds the values listed in the rows (such as the shoe sizes) to get the total instead of adding how often each occurred.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-leaves-out-the-boundary",
+        "When adding the counts for a phrase such as 'at least 3', leaves out the count of the value named in the phrase itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-includes-the-boundary",
+        "When adding the counts for a phrase such as 'more than 3', includes the count of the value named in the phrase itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-miscount-carries-into-totals",
+        "Miscounts one value by one and then adds from the wrong count, so the total or the running total is wrong as well.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-running-total-copies-the-count",
+        "Writes each row's own count in the running-total column instead of adding it to the counts before it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-accumulates-from-the-wrong-end",
+        "Adds the counts from the wrong end of the table, so a running total or a 'this many or more' column is built in the opposite direction.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-reports-the-known-sum-as-the-missing-count",
+        "Writes the sum of the counts that are given as the missing count, instead of subtracting that sum from the total.",
+        area="statistics",
+    ),
+)
+
+
 #: Every entry, by id.
 CATALOGUE: dict[str, CatalogueEntry] = {entry.id: entry for entry in _ENTRIES}
 

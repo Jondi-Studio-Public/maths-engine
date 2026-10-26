@@ -104,7 +104,7 @@ def _done(text, fig, key_cells, w, h, wrong, working):
     if text is None:
         return None
     wrong = [({got} if isinstance(got, tuple) else got, tag) for got, tag in wrong]  # a lone square or a set
-    fields, ds = _cells_part(set(key_cells), w, h, wrong)
+    fields, ds = _cells_part(set(key_cells), w, h, wrong, refs=False)
     return _question(text, fig, fields, ds, working)
 
 

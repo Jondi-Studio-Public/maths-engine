@@ -1061,7 +1061,7 @@ def _sympify(value, *, evaluate: bool = True):
     not apply the cost guard (the strings are the generators' own and small), so a reply must still go
     through `parse_expression_safely`, which does.
     """
-    if isinstance(value, (str, tuple, list)):  # a tuple or list of strings is text too
+    if isinstance(value, (str, tuple, list, dict, set, frozenset)):  # a container of strings is text too
         from mathgen.grading.safe_parse import sympify_safely  # lazy: mathgen.grading imports this module
 
         return sympify_safely(value, evaluate=evaluate)

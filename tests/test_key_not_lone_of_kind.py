@@ -87,6 +87,11 @@ SIX = (
     "trapezium-rule-estimate",
     "slope-field-readings",
     "whole-units-needed-round-up-down",
+    "f10-frequency-table-discrete-data",
+    "f10-shape-and-variation-of-a-display",
+    "f10-census-sample-experiment-practicalities",
+    "f10-random-versus-convenience-sample",
+    "f10-display-choice-then-read",
 )
 # Later skills judged by the same gate; the six above are the NSW/VCE/QCE PR the test was written for.
 GATED = SIX + ("trig-equations-solutions-in-radians",)

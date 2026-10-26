@@ -28,7 +28,7 @@ from ..answers import Distractor, same_value
 from ..core import attempts, check, generator
 from ._spread_kit import _RNG, uses_rng
 from ..grading import GRADERS
-from ..grading.typed import table_answer_text
+from ..grading.typed import _table_key
 from ._dg_kit import NEAR, balanced, numd, numtext, p_number
 
 AREA = "construct-stem-and-leaf-plots"
@@ -106,6 +106,12 @@ def _table(rows):
         "rows": [[s, None] for s in stems],
         "blanks": {f"{i},1": _leaves(rows[s]) for i, s in enumerate(stems)},
     }
+
+
+def table_answer_text(answer):
+    """The plot as it is written on paper, ``2 | 3 7 8 9, 3 | 1 4``: one ``stem | leaves`` per row, in reading order."""
+    rows = sorted(answer["blanks"], key=_table_key)
+    return ", ".join(f"{answer['rows'][_table_key(k)[0]][0]} | {answer['blanks'][k]}" for k in rows)
 
 
 def _probe(answer, text):
@@ -266,7 +272,7 @@ def _question(rng, values, mode, theme, tail):
 
 
 def _ask_tail(first):
-    return f"Give the leaves of each row, written like ({first} Leaf = x y z), with one row for each stem."
+    return f"Give the leaves of each row, written like {first} | x y z, with one row for each stem."
 
 
 def _build(rng, values, mode, theme, working_note):
@@ -423,7 +429,7 @@ def dg_construct_stem_chain(rng, tier="exam"):
             continue
         ans_text = table_answer_text(answer)
         part_a = dict(
-            prompt=f"Give the leaves of each row of the plot, written like ({a} Leaf = x y z).",
+            prompt=f"Give the leaves of each row of the plot, written like {a} | x y z.",
             answer_kind="table",
             answer=answer,
             answer_text=ans_text,

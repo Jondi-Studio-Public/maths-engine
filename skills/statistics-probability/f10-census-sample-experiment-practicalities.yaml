@@ -1,0 +1,72 @@
+id: f10-census-sample-experiment-practicalities
+name: Judge census, sample, experiment and observation
+domain: statistics-probability
+year_level: ['8']
+naplan_domain: [statistics]
+description: 'For a described study (a school surveyed in full, batteries run until they go flat, a recipe tried on volunteers, birds counted at a feeder), type the letters of the true statements from a pool of lettered statements about the four ways of collecting data. The statements cover what each method collects and changes, what it can and cannot show (only an experiment can test a cause), how practical it is (cost, time, a test that uses the unit up, population size, with figures to work out on the harder tiers) and what the result implies (volunteers against a random pick, a sample against a census). Every statement is true or false by construction from the facts and figures given. Written explanation of a choice is NOT asked here and stays a rubric (R) task.'
+status: active
+placement_eligible: false
+prerequisites:
+- choose-sampling-method
+answer: set
+sources:
+- topic: ds_census_sample_statements
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ds_census_sample_statements
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ds_census_sample_statements
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy:
+    steps: 1
+    demand: Match each of six claims to the method it describes (what it collects, what it changes, what it can show, whether its result is exact), including that only an experiment can show a cause.
+  medium:
+    steps: 2
+    demand: Judge seven claims, using the facts of this study (whether a check uses the unit up, whether the units were picked at random or volunteered and what that implies) as well as the properties of each method.
+  hard:
+    steps: 4
+    demand: Work out the figures a claim rests on (how many times as many checks a census needs, the total time or cost, the size of each group, the hours watched, the total counted), then judge eight claims that mix those figures, the facts of the study and the properties of each method.
+misconceptions:
+- id: ds-cs-observation-shows-cause
+  description: Takes a census, a sample survey or an observation as showing that one thing causes another.
+- id: ds-cs-experiment-shows-no-cause
+  description: Thinks a well-designed experiment, like an observation, can show only a link and never a cause.
+- id: ds-cs-sample-covers-everyone
+  description: Takes a sample, or any study of part of the group, as collecting data from every member.
+- id: ds-cs-census-leaves-out
+  description: Thinks a census leaves some members of the population out.
+- id: ds-cs-observer-changes-things
+  description: Counts an observation, a survey or a census as changing something for the units studied.
+- id: ds-cs-experiment-changes-nothing
+  description: Thinks an experiment leaves the units as they were, like an observation.
+- id: ds-cs-sample-gives-exact
+  description: Treats the result of a sample as the exact value for the whole population.
+- id: ds-cs-census-may-differ
+  description: Thinks a census with every record correct can still differ from the value for the population.
+- id: ds-cs-ignores-destructive-test
+  description: Overlooks that checking a unit can use it up, so that checking every unit is not practical.
+- id: ds-cs-assumes-testing-destroys
+  description: Thinks a check that leaves the unit as it was uses the unit up.
+- id: ds-cs-volunteers-as-random
+  description: Treats volunteers as if they had been picked at random, so bias from self-selection is missed.
+- id: ds-cs-random-as-volunteers
+  description: Treats a random selection as if the units had chosen themselves.
+- id: ds-cs-ratio-as-difference
+  description: Gives how many MORE units a census uses (the difference) for how many TIMES as many.
+- id: ds-cs-cost-of-sample
+  description: Gives the time or cost for the sample, or for the part left out, for the whole census.
+- id: ds-cs-adds-instead-of-multiplies
+  description: Adds the number of units to the time, cost or days each takes instead of multiplying.
+- id: ds-cs-ignores-the-split
+  description: Gives the whole group as the size of each of two equal groups, or halves it twice.
+- id: ds-cs-total-from-one-day
+  description: Gives one day's count, or the mean or the greatest count, for the total over all the days.
+- id: ds-cs-rejects-correct-figure
+  description: Rejects a correct figure, usually after working it out a different, wrong way.
+tags: [acara-f10-v9, statistics-probability, ds_census_sample_statements, AC9M8ST01]

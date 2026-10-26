@@ -68,6 +68,40 @@ DENOMINATORS = {
     "elevenths": 11,
     "twelfth": 12,
     "twelfths": 12,
+    "thirteenth": 13,
+    "thirteenths": 13,
+    "fourteenth": 14,
+    "fourteenths": 14,
+    "fifteenth": 15,
+    "fifteenths": 15,
+    "sixteenth": 16,
+    "sixteenths": 16,
+    "seventeenth": 17,
+    "seventeenths": 17,
+    "eighteenth": 18,
+    "eighteenths": 18,
+    "nineteenth": 19,
+    "nineteenths": 19,
+    "twentieth": 20,
+    "twentieths": 20,
+    "thirtieth": 30,
+    "thirtieths": 30,
+    "fortieth": 40,
+    "fortieths": 40,
+    "fiftieth": 50,
+    "fiftieths": 50,
+    "sixtieth": 60,
+    "sixtieths": 60,
+    "seventieth": 70,
+    "seventieths": 70,
+    "eightieth": 80,
+    "eightieths": 80,
+    "ninetieth": 90,
+    "ninetieths": 90,
+    "hundredth": 100,
+    "hundredths": 100,
+    "thousandth": 1000,
+    "thousandths": 1000,
 }
 NUMBER_WORDS = set(UNITS) | set(TEENS) | set(TENS) | set(SCALES) | set(DENOMINATORS) | {"point"}
 
@@ -421,16 +455,52 @@ def spoken_to_expr(text: str):
 
 
 _TOLERANCE = 0.051  # spoken answers are accepted to the same 1 d.p. the questions ask for
+#: The tolerance for a key shown to two or more decimal places, or a small non-terminating one: half a unit in
+#: the hundredths place. It is the floor: a recogniser that drops the last digit of "zero point zero three"
+#: still passes, but "zero" and "zero point zero eight" no longer do for 0.03.
+_FINE_TOLERANCE = Fraction(5, 1000)
+_COARSE_TOLERANCE = Fraction(51, 1000)
+
+
+def _exact(expected) -> Fraction:
+    """`expected` as the decimal it is shown as (a float by its shortest repr, so 0.03 is 3/100)."""
+    return Fraction(repr(expected)) if isinstance(expected, float) else Fraction(expected)
+
+
+def _decimal_places(expected):
+    """The decimal places `expected` is displayed to, or None when it does not end (1/3, 2/7)."""
+    exact = _exact(expected)
+    denominator = exact.denominator
+    for factor in (2, 5):
+        while denominator % factor == 0:
+            denominator //= factor
+    if denominator != 1:
+        return None
+    k = 0
+    while (exact * 10**k).denominator != 1:
+        k += 1
+    return k
+
+
+def _tolerance_for(expected) -> Fraction:
+    """The absolute tolerance a spoken value gets against `expected`, relative to the key's displayed places.
+
+    A key of 0 or 1 decimal places (12, 7.5) keeps the flat +/-0.051, which is within half a unit there. A key of
+    two or more places (0.03, 12.34) gets half a hundredth, +/-0.005. A key that does not end (1/3, 2/3) keeps
+    +/-0.051 from one half upwards and gets +/-0.005 below it, where 0.051 would be a tenth of the key or more."""
+    places = _decimal_places(expected)
+    if places is None:
+        return _COARSE_TOLERANCE if abs(_exact(expected)) >= Fraction(1, 2) else _FINE_TOLERANCE
+    return _COARSE_TOLERANCE if places <= 1 else _FINE_TOLERANCE
+
+
+def _close(value, expected) -> bool:
+    """Whether the spoken `value` equals `expected` or is within its tolerance."""
+    return value == expected or abs(Fraction(value) - _exact(expected)) <= _tolerance_for(expected)
 
 
 def _matches_number(values: list, expected) -> bool:
-    expected_f = float(expected)
-    for v in values:
-        if v == expected:
-            return True
-        if abs(float(v) - expected_f) <= _TOLERANCE:
-            return True
-    return False
+    return any(_close(v, expected) for v in values)
 
 
 # Words and signs that negate or hedge a value ("not twelve", "isn't twelve", "twelve plus or minus one").
@@ -457,6 +527,23 @@ def _matches_one_value(values: list, text: str, expected) -> bool:
     return _matches_number(values, expected)
 
 
+def _matches_components(values: list, text: str, expected: list, *, ordered: bool) -> bool:
+    """Whether `text` states exactly one value per component of `expected`, not negated or hedged, each within
+    tolerance: position by position when `ordered` (a pair, an ordered list), in any order otherwise (a set).
+    So "fifteen nine" is not (9, 15), and neither is "not nine not fifteen" or a count up to fifteen."""
+    if not expected or len(values) != len(expected) or _NEGATION_RE.search(text):
+        return False
+    if ordered:
+        return all(_close(v, e) for v, e in zip(values, expected))
+    remaining = list(values)
+    for e in expected:
+        hit = next((v for v in remaining if _close(v, e)), None)
+        if hit is None:
+            return False
+        remaining.remove(hit)
+    return True
+
+
 def check_answer(question, transcript: str, fallback: str = None) -> bool:
     """Check a spoken transcript against a mathgen Question's structured answer.
 
@@ -465,8 +552,10 @@ def check_answer(question, transcript: str, fallback: str = None) -> bool:
 
     For a single-number answer (an int, a float or a {"p", "q"} fraction) a transcript must state exactly one
     value and must not negate or hedge it, so "not twelve", "twelve or thirteen" and "twelve and a half" are
-    all wrong for 12; the +/-0.051 tolerance and the number-word reading are unchanged. Answers of several
-    values (a dict of components, a list) still match on each component being present."""
+    all wrong for 12. A value is within +/-0.051 of the key, or +/-0.005 when the key is shown to two or more
+    decimal places (see `_tolerance_for`). An answer of several values (a dict of components, a list) must be
+    stated with exactly one value per component, unnegated: in order for a pair or an `ordered_list`, in any
+    order for other lists."""
     for text in [t for t in (transcript, fallback) if t]:
         if _check_one(question, text):
             return True
@@ -486,25 +575,12 @@ def _check_one(question, text: str) -> bool:
         if keys == {"p", "q"}:
             target = Fraction(answer["p"], answer["q"])
             return _matches_one_value(values, text, target)
-        # Pairs like {x, y} or {R_A, R_B}: every component must be present.
-        remaining = list(values)
-        for expected in answer.values():
-            hit = next((v for v in remaining if v == expected or abs(float(v) - float(expected)) <= _TOLERANCE), None)
-            if hit is None:
-                return False
-            remaining.remove(hit)
-        return True
+        # Pairs like {x, y} or {R_A, R_B}: one value per component, in order, none negated or hedged.
+        return _matches_components(values, text, list(answer.values()), ordered=True)
     if isinstance(answer, list):
         if all(isinstance(a, (int, float)) for a in answer):
-            remaining = list(values)
-            for expected in answer:
-                hit = next(
-                    (v for v in remaining if v == expected or abs(float(v) - float(expected)) <= _TOLERANCE), None
-                )
-                if hit is None:
-                    return False
-                remaining.remove(hit)
-            return True
+            ordered = getattr(question, "answer_kind", None) == "ordered_list"
+            return _matches_components(values, text, answer, ordered=ordered)
         return False  # lists of expressions (gradients) are not graded from a transcript yet
     if isinstance(answer, str):
         import sympy

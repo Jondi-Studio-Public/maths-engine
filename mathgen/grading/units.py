@@ -177,10 +177,11 @@ _ASKING_RE = re.compile(
 )
 
 
-#: Capital letters that are a unit only when written, in capitals, after a space that follows the number
-#: ("20 J", "300 K", "30 F"): lower case is a variable or a vector component ("-4j"), so these stay out of the
-#: case-blind table above.
-_CAPITAL_UNITS = {"J": "j", "K": "kelvin", "F": "fahrenheit", "C": "celsius", "V": "volt"}
+#: Letters that are a unit only when written, in this case, after a space that follows the number ("20 J", "300 K",
+#: "30 F", "5 t"): lower case is a variable or a vector component ("-4j"), so these stay out of the case-blind table
+#: above. The lower-case "t" (tonne) is the one exception, because the metric symbol is lower case; the grader only
+#: lets it stand where the question or the key spells tonnes out (see `typed._reply_has_stray_marks`).
+_CAPITAL_UNITS = {"t": "tonne", "J": "j", "K": "kelvin", "F": "fahrenheit", "C": "celsius", "V": "volt"}
 # Longest text after the number that is read as a unit at all; the longest real one is "metres per second squared".
 _MAX_UNIT_TEXT = 40
 _EXPONENT_WORDS = (("squared", "2"), ("cubed", "3"))
