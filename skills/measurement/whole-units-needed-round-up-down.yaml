@@ -1,0 +1,58 @@
+id: whole-units-needed-round-up-down
+name: Whole units needed (round up) or made (round down) in real situations
+domain: measurement
+year_level: ['11', '12']
+description: Decide from the situation whether a quotient must be rounded up (whole packs, trips or tickets needed) or down (full groups or items that can be made, carried or fitted), then use the whole-number count to find a cost, a leftover or the cheapest purchase.
+status: active
+placement_eligible: false
+prerequisites:
+- f10-division-remainder-context
+answer: number
+sources:
+- topic: sc_whole_units
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: sc_whole_units
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: sc_whole_units
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: sc_whole_units_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: wu-rounds-to-nearest
+  description: Rounds the quotient to the nearest whole number whichever way the situation needs, so a part-pack is dropped when it must be bought or counted when it cannot be made.
+- id: wu-rounds-down-when-covering
+  description: Drops the fractional part of the quotient when everything must be covered or carried, so the last part-pack is left out and there is not enough.
+- id: wu-rounds-up-when-only-full
+  description: Rounds the quotient up when only complete groups count, counting a part-group that cannot actually be made or fitted.
+- id: wu-adds-extra-unit
+  description: Takes one more than the count the situation needs, adding a spare on top of the correct rounding.
+- id: wu-leftover-is-remainder
+  description: Gives the remainder of the division as the amount left over after buying whole packs, instead of the unused part of the last pack.
+- id: wu-costs-fractional-pack
+  description: Prices the exact fractional number of packs, paying for part of a pack that cannot be bought on its own.
+- id: wu-ignores-limiting-resource
+  description: Counts how many can be made from one supply only, ignoring that the other supply runs out sooner.
+- id: wu-ignores-offcuts
+  description: Divides the total length needed by the length of one board, ignoring that the short end of each board cannot be used.
+tags: [measurement, estimation, rounding-up, rounding-down, division-with-remainder, whole-units, cost, vce-foundation, year-11, year-12]
+difficulty_progression:
+  easy:
+    steps: 2
+    demand: "Divide a total by the size of one pack, group or trip and decide from the situation whether the part-unit is bought (round up) or left out (round down)."
+  medium:
+    steps: 3
+    demand: "Build the total from an area, several groups, a rate or earnings, divide, take the whole-unit count in the right direction, and give the count, the cost of the packs bought or what is left over."
+  hard:
+    steps: 5
+    demand: "Choose the cheapest whole-pack mix of two sizes, take the smaller of two whole-number counts when two supplies run out, fit items with gaps between them, or round down the pieces per board and then round up the boards."
+  exam:
+    steps: 6
+    demand: "Chain the total needed, the whole packs bought or full groups made, their cost or value, and the leftover for one situation, each part following through."

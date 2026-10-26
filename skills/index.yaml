@@ -7828,6 +7828,14 @@ skip-count-2-5-10:
   sources:
   - topic: skip_count
     module: mathgen/generators/early_math.py
+slope-field-readings:
+  domain: differential-equations
+  status: active
+  sources:
+  - topic: sc_slope_field
+    module: mathgen/generators/sc_slope_field_build.py
+  - topic: sc_slope_field_chain
+    module: mathgen/generators/sc_slope_field_build.py
 solution-and-solution-set:
   domain: equations
   status: active
@@ -8092,6 +8100,14 @@ translate-word-problems-to-equations:
     module: mathgen/generators/fpm_modelling_build.py
   - topic: fpm_translate_equation_exam
     module: mathgen/generators/fpm_modelling_build.py
+trapezium-rule-estimate:
+  domain: integration
+  status: active
+  sources:
+  - topic: sc_trapezium
+    module: mathgen/generators/sc_trapezium_build.py
+  - topic: sc_trapezium_chain
+    module: mathgen/generators/sc_trapezium_build.py
 triangle-area-base-height:
   domain: measurement
   status: active
@@ -10448,6 +10464,14 @@ whole-number-division-facts:
   sources:
   - topic: fair_sharing
     module: mathgen/generators/early_math.py
+whole-units-needed-round-up-down:
+  domain: measurement
+  status: active
+  sources:
+  - topic: sc_whole_units
+    module: mathgen/generators/sc_whole_units_build.py
+  - topic: sc_whole_units_chain
+    module: mathgen/generators/sc_whole_units_build.py
 write-expressions-from-words:
   domain: language-formulas
   status: active
