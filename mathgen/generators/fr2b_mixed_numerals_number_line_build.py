@@ -128,6 +128,8 @@ def _pair_candidates(p: Fraction, q: Fraction):
         _mixed_dist(q, "fr2b-gives-the-position-not-the-distance"),
         _mixed_dist(Fraction(int(whole_q - whole_p)), "fr2b-ignores-the-fractions"),
         _mixed_dist(p + q, "fr2b-adds-the-two-readings"),
+        # One step short of the distance: the only wrong answer below the key, so the key is not always the smallest.
+        _mixed_dist(diff - Fraction(1, diff.denominator), "near-miss-value"),
     ], diff
 
 
@@ -147,6 +149,7 @@ def _hard(rng):
         cands, diff = _pair_candidates(p, q)
         if diff.denominator == 1 or diff < 1:
             continue
+        rng.shuffle(cands)  # which three are shown varies, so the key's rank does
         if len({c.text for c in cands} - {mixed_text(diff)}) >= 3:
             break
     fig = _figure(first, last, n, [("P", p), ("Q", q)], [first, last])

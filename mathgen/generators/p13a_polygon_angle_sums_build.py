@@ -314,7 +314,7 @@ def _build_numeral_grouped(rng):
 
     text = (
         f"A polygon has {n} sides. {g} of the angles measure {v} degrees each, "
-        f"and the rest measure {_format_list(rest)}. One more angle is unknown. {_CLOSER}"
+        f"and the rest measure {_format_list(rest)}. One further angle, not one of these, is unknown. {_CLOSER}"
     )
     answer_text = str(missing)
     _check_medium(text, answer_text)
@@ -393,7 +393,7 @@ def _build_name_grouped(rng):
 
     text = (
         f"{_article(name)} {name} has {g} angles measuring {v} degrees each and the rest measuring "
-        f"{_format_list(rest)}. One more angle is unknown. {_CLOSER}"
+        f"{_format_list(rest)}. One further angle, not one of these, is unknown. {_CLOSER}"
     )
     answer_text = str(missing)
     _check_exam(text, answer_text)

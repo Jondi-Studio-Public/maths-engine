@@ -1,6 +1,7 @@
 id: graph-terms-from-a-network
 name: Use the words of graph theory on a network
 domain: financial-discrete
+year_level: ['12']
 description: >-
   Use the vocabulary of graphs on a network that is drawn, and on a multigraph given as an edge list: adjacent vertices,
   degree, connected components, subgraphs, loops, multiple edges and simple graphs. easy counts the edges, the vertices
@@ -84,4 +85,4 @@ difficulty_progression:
   medium: {steps: 2, demand: "Find the connected components (or the thick subgraph's vertices) first, then turn that into the number of edges needed to join the pieces or the edges the subgraph leaves out."}
   hard: {steps: 3, demand: "Work from an edge list with no picture, separating loops from repeated edges and handling a loop's double contribution to a degree or the removal of both kinds of edge to leave a simple graph."}
   exam: {steps: 5, demand: "Chain a degree, a typed set of neighbours, an edge count, the edges left after deleting the vertex and the components of what remains."}
-tags: [graph-theory, networks, gm078, graph-terms, loops, multiple-edges, subgraph, connected, figure-stimulus]
+tags: [acara-senior-v8-4, graph-theory, networks, acmgm078, graph-terms, loops, multiple-edges, subgraph, connected, figure-stimulus]

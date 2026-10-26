@@ -75,7 +75,7 @@ OBJECTS: tuple[tuple[str, str], ...] = (
     ("biscuit", "biscuits"),
     ("chair", "chairs"),
     ("box", "boxes"),
-    ("cookie", "cookies"),
+    ("muffin", "muffins"),
     ("crayon", "crayons"),
     ("bead", "beads"),
     ("shell", "shells"),

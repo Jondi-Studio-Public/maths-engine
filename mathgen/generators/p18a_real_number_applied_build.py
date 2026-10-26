@@ -158,12 +158,19 @@ def _easy(rng):
         answer_text = str(answer)
         text = phrase(rng, _EASY_TEMPLATES, L=L, W=W)
         distractors = pick_distractors(answer_text, [str(c) for c in candidates])
+        working = [
+            f"The two straight sides and the straight end add to 2 × {L} + {W} = {a} m.",
+            f"The semicircular end is half a circle of diameter {W} m, so its length is (1/2) × π × {W} = "
+            f"{f'{W}π/2' if W % 2 else f'{W // 2}π'} m.",
+            f"Total distance = {answer_text} m.",
+        ]
         return dict(
             text=text,
             latex=f"plain:{text}",
             answer=answer_text,
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text, evaluate=False),
+            working=working,
             distractors=distractors,
         )
     check(False, "could not draw a non-degenerate easy real-number-applied seed")
@@ -256,12 +263,17 @@ def _medium(rng):
         answer_text = str(answer)
         text = phrase(rng, _MEDIUM_TEMPLATES, p=p, q=q)
         distractors = pick_distractors(answer_text, [str(c) for c in candidates])
+        working = [
+            f"The diagonal is √({p}² + {q}²) = √{p * p + q * q} m.",
+            f"The two sides are {p} m and {q} m, so the total length is {p} + {q} + √{p * p + q * q} = {answer_text} m.",
+        ]
         return dict(
             text=text,
             latex=f"plain:{text}",
             answer=answer_text,
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text, evaluate=False),
+            working=working,
             distractors=distractors,
         )
     check(False, "could not draw a non-degenerate medium real-number-applied seed")
@@ -358,12 +370,18 @@ def _hard(rng):
         distractor_texts = [stated_precision_string(c, d) for c in candidates]
         text = phrase(rng, _HARD_TEMPLATES, L=stated_precision_string(L, 1), a=a, b=b, d=d)
         distractors = pick_distractors(answer_text, distractor_texts)
+        working = [
+            f"The diameter is the diagonal: √({a}² + {b}²) = √{a * a + b * b} m, so the radius is √{a * a + b * b}/2 m.",
+            f"The curved end is half a circle: π × √{a * a + b * b}/2 m. The straight sides are 2 × {stated_precision_string(L, 1)} m.",
+            f"Total = 2 × {stated_precision_string(L, 1)} + π × √{a * a + b * b}/2 = {answer_text} m, using the unrounded π.",
+        ]
         return dict(
             text=text,
             latex=f"plain:{text}",
             answer=answer_text,
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text, evaluate=False),
+            working=working,
             distractors=distractors,
         )
     check(False, "could not draw a non-degenerate hard real-number-applied seed")
@@ -436,12 +454,17 @@ def _exam(rng):
         R_text = str(R)
         text = phrase(rng, _EXAM_TEMPLATES, C=C, R=R_text)
         distractors = pick_distractors(answer_text, [str(c) for c in candidates])
+        working = [
+            f"The total is 2L + {C}π = {R_text} + {C}π, so the parts without π must match: 2L = {R_text}.",
+            f"L = {R_text} ÷ 2 = {answer_text} m.",
+        ]
         return dict(
             text=text,
             latex=f"plain:{text}",
             answer=answer_text,
             answer_text=answer_text,
             answer_latex=latex_answer(answer_text, evaluate=False),
+            working=working,
             distractors=distractors,
         )
     check(False, "could not draw a non-degenerate exam real-number-applied seed")

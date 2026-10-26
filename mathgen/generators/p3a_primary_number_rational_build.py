@@ -152,8 +152,12 @@ def _rational_four_operations_easy(rng):
     # mixed-representation-error: add numerator only (1/4 + 0.5 -> 1.5)
     mixed_repr = Fraction(num + decimal_int, 10)
 
-    # No percent term at easy, so no percent misconceptions
-    candidates = [mixed_repr]
+    # No percent term at easy, so no percent misconceptions. The mixed-representation slip and subtracting instead of
+    # adding both fall below the key; reading n/d as the decimal n.d falls above it, so the key's rank varies.
+    below = rng.choice([mixed_repr, abs(fraction_term - decimal_term)])
+    above = num + Fraction(denom, 10) + decimal_term
+    candidates = [above, below] if rng.random() < 0.5 else [below, above]
+    shown = 1  # two options, the key above or below the wrong one equally often
 
     fraction_display = f"{num}/{denom}"
     decimal_display = f"0.{decimal_int}"
@@ -166,7 +170,7 @@ def _rational_four_operations_easy(rng):
         answer_text=answer_text,
         answer_latex=answer_text,
         working=[f"{fraction_display} + {decimal_display} = {answer_text}."],
-        distractors=pick_distractors(answer_text, [f"{float(c):.2f}" for c in candidates]),
+        distractors=pick_distractors(answer_text, [f"{float(c):.2f}" for c in candidates], n=shown),
     )
 
 

@@ -59,8 +59,7 @@ def numd(
     answer, candidates, n: int = 3, *, lo=REQUIRED, hi=REQUIRED, unbounded=None, nonzero=False, step=None
 ) -> list[Distractor]:
     """Tagged distractors for a whole or half-step number answer. ``candidates`` is ``[(value, tag), ...]``; a value
-    equal to the answer, repeated, outside ``[lo, hi]`` or not a whole or half number is skipped. Every option has
-    the same number of decimal places as the answer (``7.0`` stands for 7 beside an answer of 7.5)."""
+    equal to the answer, repeated, outside ``[lo, hi]`` or not a whole or half number is skipped. A whole value is written as a whole number (``7`` beside an answer of 7.5, never ``7.0``)."""
     check_bounds(lo, hi, unbounded)
     answer = Fraction(answer)
     seen = {answer}
@@ -109,7 +108,7 @@ def numd(
         ):
             continue
         seen.add(value)
-        text = numtext(value) if answer.denominator == 1 and value.denominator == 1 else f"{float(value):.1f}"
+        text = numtext(value)  # a whole option is "4", not "4.0"
         if answer.denominator == 1 and value.denominator != 1:
             continue  # a half beside a whole-number answer would give the answer away by its shape
         out.append(Distractor(text, tag, _py(value)))
