@@ -61290,6 +61290,126 @@ _ENTRIES += (
         "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
         area="estimation",
     ),
+    CatalogueEntry(
+        "ds-svp-total-not-mean",
+        "Gives the total of the listed values where the mean was asked for, without dividing by how many values there are.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-divides-by-wrong-count",
+        "Divides the total of the sample by a count that is one out.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-uses-population-value",
+        "Gives the whole-school value where the value for the sample was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-other-sample",
+        "Works out the value for the other sample, not the one the question names.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-count-not-percent",
+        "Gives the number of students in the group where a percentage of the students was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-percent-of-population-size",
+        "Finds the sample's percentage out of the whole school's number of students instead of out of the sample's.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-percent-of-sample-size",
+        "Finds the whole school's percentage out of the sample's number of students instead of the school's.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-complement",
+        "Gives the percentage of students who do not, where the percentage who do was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-ignores-frequencies",
+        "Averages the values in the table as if each were held by one student, ignoring how many students hold it.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-divides-by-number-of-rows",
+        "Adds value times number of students, then divides by the number of rows in the table instead of the number of students.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-most-common-for-mean",
+        "Gives the most common value in the table where the mean was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-sample-value-as-gap",
+        "Gives the sample's own value where its gap from the whole school was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-population-value-as-gap",
+        "Gives the whole-school value where the gap between the sample and the whole school was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-adds-instead-of-subtracting",
+        "Adds the sample's value to the whole school's instead of finding the gap between them.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-other-samples-gap",
+        "Gives the gap for the other sample, not the one the question names.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-as-relative-percent",
+        "Gives the gap as a percentage of the whole-school value instead of the gap itself.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-sum-of-gaps",
+        "Adds the two samples' gaps where the difference between them was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-between-samples",
+        "Finds how far apart the two samples' values are instead of how far each is from the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-one-gap-only",
+        "Gives one sample's gap alone where a comparison or a combination of the gaps was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-averages-the-gaps",
+        "Averages the two gaps instead of finding the gap of the combined sample, so a sample above and a sample below are not allowed to cancel.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-scales-by-sample-size",
+        "Scales the gap up by the number of students in the sample instead of the number in the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-not-scaled",
+        "Stops at the gap in the sample and does not scale it up to the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-estimate-not-error",
+        "Gives the estimated whole-school total where the amount it is out by was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-true-total-not-error",
+        "Gives the true whole-school total where the amount the estimate is out by was asked for.",
+        area="sample-versus-population",
+    ),
 )
 
 #: Every entry, by id.
