@@ -239,3 +239,29 @@ def test_no_distractor_is_a_correct_answer_in_any_part():
             q = t.question(SKILL, tier, seed)
             for d in q.distractors:
                 assert not grade(sk, q, d).correct, (tier, seed, d)
+
+
+def test_difference_stems_say_to_use_the_exact_value_given():
+    seen = 0
+    for seed in range(200):
+        text = t.question(SKILL, "hard", seed).text
+        if "exact value minus" in text:
+            seen += 1
+            assert "using the exact value given" in text, text
+    assert seen >= 30
+
+
+def test_non_terminating_widths_ask_for_a_fraction():
+    seen = 0
+    for seed in range(100):
+        q = sup.exam_question(CHAIN, seed)
+        prompt = q.parts[0].prompt
+        terminating = all(
+            c in "0.123456789" for c in sup.dp(sympy.Rational(q.parts[0].answer_text), 8).rstrip("0")
+        ) and (sympy.Rational(q.parts[0].answer_text).q in (1, 2, 4, 5, 8, 10, 20, 25, 40, 50, 100))
+        if sympy.Rational(q.parts[0].answer_text).q % 3 == 0 or sympy.Rational(q.parts[0].answer_text).q % 7 == 0:
+            seen += 1
+            assert "fraction in simplest form" in prompt, (seed, prompt)
+        elif terminating:
+            assert "fraction" not in prompt, (seed, prompt)
+    assert seen >= 10

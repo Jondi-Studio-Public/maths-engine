@@ -403,19 +403,20 @@ def _b_tickets(rng):
 
 
 def _b_shelves(rng):
-    n, length = rng.randint(3, 6), rng.choice((60, 75, 80, 90, 120))
+    length, k, w = rng.choice((90, 120, 150, 180)), rng.randint(5, 12), rng.choice((3, 4, 5))
     s = rng.choice((4, 5, 6, 7))
+    free = length - k * w
     return dict(
-        story=f"A bookcase has {n} shelves, each {length} centimetres long. Every book is {s} centimetres thick, and no book is stood on a shelf unless it fits completely.",
-        T=n * length,
-        alt=[length, n + length],
+        story=f"A shelf is {length} centimetres long and already holds {k} books that are each {w} centimetres thick. More books, each {s} centimetres thick, are to be added, and a book is not stood on the shelf unless it fits completely.",
+        T=free,
+        alt=[length, k * w],
         s=s,
         up=False,
         sing="book",
         plur="books",
-        count_q="How many books can the bookcase hold?",
-        left_q="How many centimetres of shelf are left empty in total?",
-        total_q="What is the total length of shelf, in centimetres?",
+        count_q="How many more books can be added?",
+        left_q="How many centimetres of the shelf are left empty after that?",
+        total_q="How many centimetres of the shelf are still free?",
         val_q=None,
         price=None,
     )
@@ -742,14 +743,12 @@ def _chain(rng):
         wrong_d = [
             (r, "wu-leftover-is-remainder"),
             ((n + 1) * s - t, "wu-adds-extra-unit"),
-            (n, "wu-reports-count-not-leftover"),
             ((n + 2) * s - t, "wu-adds-extra-unit"),
         ]
     else:
         ft_d = f"part_a - part_b*{s}"
         wrong_d = [
             (s - r, "wu-leftover-from-rounded-up"),
-            (n, "wu-reports-count-not-leftover"),
             (t - (n - 1) * s, "wu-drops-a-full-group"),
             (t - (n - 2) * s, "wu-drops-a-full-group"),
         ]

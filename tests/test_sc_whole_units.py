@@ -72,9 +72,10 @@ _STORIES = (
         False,
     ),
     (
-        r"has (\d+) shelves, each (\d+) centimetres long\. Every book is (\d+) centimetres",
-        lambda g: g[0] * g[1],
-        2,
+        r"shelf is (\d+) centimetres long and already holds (\d+) books that are each (\d+) centimetres thick\. "
+        r"More books, each (\d+) centimetres thick",
+        lambda g: g[0] - g[1] * g[2],
+        3,
         False,
     ),
 )
@@ -347,3 +348,43 @@ def test_chain_follows_through_from_wrong_earlier_answers():
 def test_chain_direction_is_balanced():
     ups = sum(read_story(sup.exam_question(CHAIN, s).text)[2] for s in range(200))
     assert 70 <= ups <= 130, ups
+
+
+def _family(text):
+    for i, (pattern, *_rest) in enumerate(_STORIES):
+        if re.search(pattern, text):
+            return i
+    raise AssertionError(text)
+
+
+def test_every_story_family_is_audited_against_the_oracle():
+    """Each of the ten story families is hit many times, and its key is recomputed from the rendered numbers."""
+    from collections import Counter
+
+    hits = Counter()
+    for seed in range(300):
+        q = t.question(SKILL, "medium", seed)
+        hits[_family(q.text)] += 1
+        assert medium_oracle(q) == q.answer_text, (seed, q.text)
+    assert set(hits) == set(range(len(_STORIES))) and min(hits.values()) >= 3, hits
+
+
+def test_shelf_story_counts_books_one_at_a_time():
+    """The shelf keys by stacking books until one no longer fits, not by the formula under test."""
+    for seed in range(300):
+        q = t.question(SKILL, "medium", seed)
+        m = re.search(
+            r"shelf is (\d+) centimetres long and already holds (\d+) books that are each (\d+) centimetres", q.text
+        )
+        if not m:
+            continue
+        length, k, w = (int(v) for v in m.groups())
+        s = int(re.search(r"More books, each (\d+) centimetres", q.text).group(1))
+        free, books = length - k * w, 0
+        while free >= s:
+            free, books = free - s, books + 1
+        ask = ask_of(q.text)
+        if ask == "count":
+            assert q.answer_text == str(books), (seed, q.text)
+        elif ask == "left":
+            assert q.answer_text == str(free), (seed, q.text)

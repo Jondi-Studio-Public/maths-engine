@@ -42,7 +42,7 @@ misconceptions:
   description: Counts how many can be made from one supply only, ignoring that the other supply runs out sooner.
 - id: wu-ignores-offcuts
   description: Divides the total length needed by the length of one board, ignoring that the short end of each board cannot be used.
-tags: [measurement, estimation, rounding-up, rounding-down, division-with-remainder, whole-units, cost, vcal-foundation, year-11, year-12]
+tags: [measurement, estimation, rounding-up, rounding-down, division-with-remainder, whole-units, cost, vce-foundation, year-11, year-12]
 difficulty_progression:
   easy:
     steps: 2

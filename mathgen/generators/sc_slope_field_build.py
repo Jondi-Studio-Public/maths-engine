@@ -334,9 +334,7 @@ def _medium_table(rng):
     stem = _TABLE_STEMS[shape].format(readings=reading_text, rule=rule, consts=consts, qx=qx, qy=qy)
     working = [
         f"The readings give a = {a}, b = {b}" + (f" and c = {c}." if with_c else "."),
-        f"At ({qx}, {qy}): {a}({qx}) + {b}({qy})"
-        + (f" + {c}" if with_c and c > 0 else (f" - {-c}" if with_c else ""))
-        + f" = {int(key)}.",
+        f"At ({qx}, {qy}): " + join_terms([(a, f"({qx})"), (b, f"({qy})"), (c, "")]) + f" = {int(key)}.",
     ]
     part = exact_number_part("", key, 2, working, wrong, suffix="Give a whole number.")
     part["prompt"] = "Give a whole number."
@@ -396,7 +394,7 @@ def _medium_param(rng):
     ]
     wrong = [w for w in wrong if w[0] is not None]
     working = [
-        f"At ({px}, {py}) the slope is k({int(fk)}) + {int(rest)} = {int(s)}.",
+        f"At ({px}, {py}) the slope is " + join_terms([(1, f"k({int(fk)})"), (int(rest), "")]) + f" = {int(s)}.",
         f"So k = ({int(s)} - {paren_negative(int(rest))})/{paren_negative(int(fk))} = {k}.",
     ]
     part = exact_number_part("", k, 2, working, wrong, suffix="Give a whole number.")
@@ -734,7 +732,7 @@ def _chain(rng):
             miss,
             3,
             2,
-            [f"|{float(exact):.3f} - {_decimal(y2)}| = {float(miss3):.3f}."],
+            [f"|{float(exact):.3f} - {_neg(y2)}| = {float(miss3):.3f}."],
             [
                 (exact - y2 if exact < y2 else y2 - exact, "error-sign-not-absolute"),
                 (y2, "reports-estimate-not-error"),

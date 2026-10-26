@@ -246,6 +246,12 @@ def _poly_values(coeffs, start, h, n):
     return [sum(Fraction(c) * (start + i * h) ** (deg - j) for j, c in enumerate(coeffs)) for i in range(n + 1)]
 
 
+def _bracketed(v, places=None) -> str:
+    """A number as text that may follow a minus sign: negative values in brackets."""
+    text = decimal_text(v) if places is None else f"{float(v):.{places}f}"
+    return f"({text})" if v < 0 else text
+
+
 def decimal_text(v: Fraction) -> str:
     places = decimal_places(v, 8) or 0
     return f"{float(v):.{places}f}"
@@ -477,7 +483,7 @@ def _medium_formula(rng):
         r=" (x is in radians.)" if text == "sin(x)" else "",
     )
     working = [
-        f"h = ({decimal_text(b)} - {decimal_text(a)})/{n} = {_frac_text(h)}; the ordinates are {', '.join(f'{float(y):.4f}' for y in ys)}.",
+        f"h = ({decimal_text(b)} - {_bracketed(a)})/{n} = {_frac_text(h)}; the ordinates are {', '.join(f'{float(y):.4f}' for y in ys)}.",
         f"Estimate = (h/2) x {float(total):.4f} = {float(est):.4f}.",
     ]
     return single(
@@ -537,7 +543,7 @@ def _hard_missing(rng):
     ]
     working = [
         f"The weighted sum is 2 x {decimal_text(est)} / {decimal_text(h)} = {decimal_text(target)}.",
-        f"Ordinate {j} has weight {ws[j]}: {ws[j]}k = {decimal_text(target)} - {decimal_text(rest)}, so k = {decimal_text(ys[j])}.",
+        f"Ordinate {j} has weight {ws[j]}: {ws[j]}k = {decimal_text(target)} - {_bracketed(rest)}, so k = {decimal_text(ys[j])}.",
     ]
     wrong = [(v, t) for v, t in wrong if (Fraction(v) * 10).denominator == 1]  # one decimal place, like the key
     return single(stem, exact_number_part("Find the value of k.", ys[j], 2, working, wrong, min_places=1, max_places=1))
@@ -636,12 +642,12 @@ def _hard_difference(rng):
     ]
     working = [
         f"h = {_frac_text(h)}; the weighted sum is {float(total):.4f}, so the estimate is {float(est):.4f}.",
-        f"Exact minus estimate = {float(exact4):.4f} - {float(est):.4f} = {float(diff):.4f}.",
+        f"Exact minus estimate = {float(exact4):.4f} - {_bracketed(est, 4)} = {float(diff):.4f}.",
     ]
     return single(
         stem,
         number_part(
-            "Find the exact value minus the trapezium rule estimate, correct to 4 decimal places.",
+            "Find the exact value minus the trapezium rule estimate, using the exact value given, correct to 4 decimal places.",
             diff,
             4,
             2,
@@ -713,12 +719,11 @@ def _chain(rng):
     length = b - a
     simpson_like = sum((w * y for w, y in zip([1] + [4 if i % 2 else 2 for i in range(1, n)] + [1], ys)), Fraction(0))
     part_a = fraction_part(
-        "Find the width h of each strip.",
+        "Find the width h of each strip."
+        + (" Give your answer as a fraction in simplest form." if decimal_places(h, 8) is None else ""),
         h,
         1,
-        [
-            f"h = ({decimal_text(b)} - {decimal_text(a) if a >= 0 else '(' + decimal_text(a) + ')'})/{n} = {_frac_text(h)}."
-        ],
+        [f"h = ({decimal_text(b)} - {_bracketed(a)})/{n} = {_frac_text(h)}."],
         _shuffled(
             rng,
             [
@@ -768,7 +773,7 @@ def _chain(rng):
         4,
         2,
         [
-            f"{float(exact4):.4f} - {float(est):.4f} = {float(diff):.4f}.",
+            f"{float(exact4):.4f} - {_bracketed(est, 4)} = {float(diff):.4f}.",
             "A negative result means the rule overestimated; a positive one, that it underestimated.",
         ],
         _shuffled(
