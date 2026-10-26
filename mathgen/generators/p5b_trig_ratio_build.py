@@ -198,17 +198,30 @@ def sine_cosine_ratio_triangle(rng, variant="side_from_angle"):
         if _values_differ_enough(answer_text, swapped_str, tol):
             candidates.append(swapped_str)
 
-        # Misconception 2: reads hypotenuse as the leg
-        hyp_str = f"{hyp:.1f}"
-        if _values_differ_enough(answer_text, hyp_str, tol):
-            candidates.append(hyp_str)
+        # Misconception 2: the calculator is in radian mode. Only a value a leg can take (positive, shorter than the
+        # hypotenuse) is offered: the hypotenuse itself, or anything longer, is ruled out by sight.
+        radian = hyp * (math.sin(theta) if ask_opposite else math.cos(theta))
+        radian_str = f"{radian:.1f}"
+        if 0 < radian < hyp and _values_differ_enough(answer_text, radian_str, tol):
+            candidates.append(radian_str)
 
         # Misconception 3: uses tangent (note: only applies to opposite case)
         if ask_opposite:
             tangent = hyp * math.tan(theta_rad)
             tangent_str = f"{tangent:.1f}"
-            if _values_differ_enough(answer_text, tangent_str, tol):
+            if tangent < hyp and _values_differ_enough(answer_text, tangent_str, tol):
                 candidates.append(tangent_str)
+
+        # Misconception 4: takes the side as the same fraction of the hypotenuse as the angle is of 90 degrees.
+        # Misconception 5 (adjacent): divides the hypotenuse by the tangent, again only when that is shorter than the
+        # hypotenuse.
+        proportion = hyp * theta / 90
+        if proportion < hyp and _values_differ_enough(answer_text, f"{proportion:.1f}", tol):
+            candidates.append(f"{proportion:.1f}")
+        if not ask_opposite:
+            over_tan = hyp / math.tan(theta_rad)
+            if over_tan < hyp and _values_differ_enough(answer_text, f"{over_tan:.1f}", tol):
+                candidates.append(f"{over_tan:.1f}")
 
         # Pick distractors from available candidates
         distractors = pick_distractors(answer_text, candidates)

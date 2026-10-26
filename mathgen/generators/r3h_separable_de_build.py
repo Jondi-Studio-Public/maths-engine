@@ -243,6 +243,21 @@ def _stem(eq: _Eq, rng) -> tuple[str, str]:
     )
 
 
+def _validity_note(eq: _Eq) -> list[str]:
+    """The interval of validity as a working line: where the solution formula is defined (the interval containing x0 on
+    which the inner expression stays in range). Working text only; the key and the options are unchanged."""
+    u = plain(eq.G + eq.c)
+    where = {
+        "tan": f"-π/2 < {u} < π/2, because tan is undefined at ±π/2 and y blows up there",
+        "recip": f"{u} > 0, so that the square root is real",
+        "exp": f"{u} > 0, so that the logarithm is defined",
+        "sq": f"{u} ≠ 0, because y = -1/({u}) blows up there",
+    }.get(eq.fam.name)
+    if where is None:
+        return []
+    return [f"The solution is valid on the interval containing x = {eq.x0} on which {where}."]
+
+
 @generator(
     "r3h_separable_de",
     level=18,
@@ -269,6 +284,7 @@ def r3h_separable_de(rng, tier="easy"):
         working=[
             f"Separate the variables and integrate: H(y) = {plain(eq.G)} + C.",
             f"Use the point ({eq.x0}, {frac_text(eq.y0)}) to find C = {plain(eq.c)}, so y = {plain(sol)}.",
+            *_validity_note(eq),
         ],
     )
 

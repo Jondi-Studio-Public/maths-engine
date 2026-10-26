@@ -112,7 +112,7 @@ def _hard(rng):
         )
         working = ["The bottom and top slices match, but the slices between them were not measured."]
     else:
-        measured = f"All {k} slices were measured and each is {m} cm across."
+        measured = f"All {k} slices were measured and they are identical: each is {m} cm across."
         working = [f"All {k} slices are the same {m} cm {shape} shape stacked directly on top of each other."]
     if family in ("all_equal", "ends_only"):
         intro_shape = f"Every slice is a {shape} shape."
