@@ -1,0 +1,50 @@
+id: f10-place-objects-from-position-words
+name: Place objects from position words by shading squares
+domain: primary-geometry-time
+year_level: ['F', '1']
+naplan_domain: [space]
+learner_band: early
+description: "Read position words (just left of, just above, between) and shade the empty square where a new picture goes on a small grid of pictures, from one line of five squares up to two pictures where the second is placed beside the first."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+read_aloud: true
+placement_eligible: false
+prerequisites: []
+answer: grid_cells
+sources:
+- topic: ey_place_objects
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: ey_place_objects
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: ey_place_objects
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Shade the empty square just beside one picture, or between two pictures, in one line of five squares."}
+  medium: {steps: 2, demand: "Shade the one empty square that fits two clues at once (just above one picture and just left of another), or sits between two pictures, in a scene with pictures all around."}
+  hard: {steps: 3, demand: "Shade two squares: find where the first new picture goes, then place the second just beside that new picture, which is not drawn."}
+misconceptions:
+- id: epo-opposite-side
+  description: "Puts the picture on the opposite side, such as below when the clue says above."
+- id: epo-covers-a-picture
+  description: "Shades the square of a picture that is already there instead of an empty square beside or between."
+- id: epo-one-square-too-far
+  description: "Goes one square too far, leaving a gap instead of putting the picture just beside the other."
+- id: epo-beside-not-between
+  description: "Shades a square beside one of the two pictures, outside them or off the line between them, not in the square between."
+- id: epo-wrong-reference
+  description: "Uses the right position word about the wrong picture, such as above the second picture named instead of the first."
+- id: epo-wrong-axis
+  description: "Goes left or right when the clue says above or below, or the other way round."
+- id: epo-places-only-one
+  description: "Shades the square of only the first new picture and leaves out the second."
+- id: epo-second-from-wrong-picture
+  description: "Puts the second picture beside a picture already drawn instead of beside the first new picture."
+- {id: dg-near-miss-value, description: 'Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.'}
+tags: [acara-f10-v9, early, space, position, ac9mfsp02, ac9m1sp02, drawn-answer, figure]

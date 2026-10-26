@@ -1,0 +1,59 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-read-a-piece-wise-linear-cost-graph
+name: Read a piece-wise linear cost graph
+domain: linear-relations
+year_level: ['11']
+description: Given a drawn cost graph made of two or three straight sections (for example a data, taxi or electricity charge with a fixed charge and a rate that changes at a kink), read the cost at a stated usage, the fixed charge, the rate of a section and the usage where the rate changes. Hard finds the usage that gives a stated cost and continues the last section beyond the drawing. The exam question puts two plans on one graph and finds the cost of one, the rate of the other, the usage where they cost the same and that common cost, with follow-through.
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [rate-of-change, senior-interpret-piece-wise-linear-and-step-graphs-used]
+answer: number
+sources:
+- topic: pw1_piecewise_cost_graph
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: pw1_piecewise_cost_graph
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: pw1_piecewise_cost_graph
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: pw1_piecewise_cost_graph
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages: [exam]
+misconceptions:
+- id: pwg-leaves-out-the-fixed-charge
+  description: Leaves the fixed charge out of a cost read from, or built on, a graph that starts above zero.
+- id: pwg-first-rate-for-all-units
+  description: Applies the rate of the first section to all of the usage, though part of it lies in a later section with a different rate.
+- id: pwg-reads-the-neighbouring-gridline
+  description: Reads the graph one gridline away, the neighbouring usage, instead of the stated one.
+- id: pwg-reads-the-rate-for-the-cost
+  description: Gives the rate of the section where a cost was asked.
+- id: pwg-reads-the-usage-for-the-cost
+  description: Gives the stated usage back where the cost at that usage was asked.
+- id: pwg-total-change-for-rate
+  description: Gives the total rise in cost over the section instead of the rise for each extra unit.
+- id: pwg-average-rate-for-gradient
+  description: Divides the cost at the end of the section by the usage, the average cost per unit, instead of the rise over the run of that section.
+- id: pwg-other-section-rate
+  description: Gives the rate of a different section from the one between the stated usages.
+- id: pwg-forgets-the-breakpoint-offset
+  description: Finds only the extra units beyond the kink and does not add the usage at the kink back on.
+- id: pwg-extends-from-the-origin
+  description: Multiplies the last rate by the whole usage, as if the graph started at the origin with no fixed charge.
+- id: pwg-kink-for-crossing
+  description: Takes the kink of the two-section plan for the point where the two plans cost the same.
+- id: pwg-reads-the-other-plan
+  description: Reads the line of the other plan where the plan named in the question was asked.
+- id: pwg-crossing-cost-for-usage
+  description: Gives the cost at the point where the two plans meet where the usage at that point was asked.
+tags: [acara-senior-v8-4, linear-relations, piece-wise-linear, cost-graph, piecewise, acmgm047, figure]
