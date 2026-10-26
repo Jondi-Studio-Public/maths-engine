@@ -11911,9 +11911,9 @@
 {"answer": "3/4, 5/4", "id": "trig-equations-solutions-in-radians/easy/0/88a48f7e9dc9", "text": "List every solution of the equation cos(x) = -√2/2 in the interval 0 ≤ x ≤ 2π. …"}
 {"answer": "1/3, 5/3", "id": "trig-equations-solutions-in-radians/easy/1/ef4fdddf6f1d", "text": "Solve cos(x) = 1/2 for 0 ≤ x ≤ 2π. Give each solution as a multiple of π (for e…"}
 {"answer": "4/3, 5/3", "id": "trig-equations-solutions-in-radians/easy/2/0d27d19622ed", "text": "Solve sin(x) = -√3/2 for 0 ≤ x ≤ 2π. Give each solution as a multiple of π (for…"}
-{"answer": "(a) 4; (b) 8; (c) 1/6; (d) 1/6, 1/3, 2/3, 5/6, 7/6, 4/3, 5/…", "id": "trig-equations-solutions-in-radians/exam/0/33a778776795", "text": "The function f is defined by f(x) = cos(4x) on 0 ≤ x ≤ 2π, and f(x) = -1/2 is t…"}
-{"answer": "(a) 3; (b) 6; (c) 1/9; (d) 1/9, 5/9, 7/9, 11/9, 13/9, 17/9", "id": "trig-equations-solutions-in-radians/exam/1/48ce67f92246", "text": "A trigonometric equation, cos(3x) = 1/2, is set on the interval 0 ≤ x ≤ 2π. (a)…"}
-{"answer": "(a) 4; (b) 8; (c) 1/3; (d) 1/3, 5/12, 5/6, 11/12, 4/3, 17/1…", "id": "trig-equations-solutions-in-radians/exam/2/1b068494d837", "text": "The function f is defined by f(x) = sin(4x) on 0 ≤ x ≤ 2π, and f(x) = -√3/2 is …"}
+{"answer": "(a) 4; (b) 8; (c) 1/8; (d) -7/8, -19/24, -3/8, -7/24, 1/8, …", "id": "trig-equations-solutions-in-radians/exam/0/3ce1813b85f5", "text": "Consider the equation cos(4(x - π/6)) = √3/2 for -π ≤ x ≤ π. (a) How many compl…"}
+{"answer": "(a) 4; (b) 8; (c) 7/24; (d) 7/24, 3/8, 19/24, 7/8, 31/24, 1…", "id": "trig-equations-solutions-in-radians/exam/1/1899026969d2", "text": "Consider the equation cos(4(x - π/3)) = √3/2 for 0 ≤ x ≤ 2π. (a) How many compl…"}
+{"answer": "(a) 3; (b) 6; (c) 1/4; (d) -11/12, -5/12, -1/4, 1/4, 5/12, …", "id": "trig-equations-solutions-in-radians/exam/2/533b658cdf1f", "text": "Consider the equation sin(3(x - π/6)) = √2/2 for -π ≤ x ≤ π. (a) How many compl…"}
 {"answer": "-3/4, -1/12, 1/4, 11/12", "id": "trig-equations-solutions-in-radians/hard/0/35ad8ea199d4", "text": "Solve sin(2(x - π/3)) = -1/2 for -π ≤ x ≤ π. Give each solution as a multiple o…"}
 {"answer": "1/6, 1/4, 2/3, 3/4, 7/6, 5/4, 5/3, 7/4", "id": "trig-equations-solutions-in-radians/hard/1/2a12376369c8", "text": "The equation sin(4(x - π/3)) = -√3/2 is to be solved over 0 ≤ x ≤ 2π. State all…"}
 {"answer": "-11/12, -7/12, -1/4, 1/12, 5/12, 3/4", "id": "trig-equations-solutions-in-radians/hard/2/ad083b7f93dc", "text": "Solve tan(3(x - π/3)) = 1 for -π ≤ x ≤ π. Give each solution as a multiple of π…"}

@@ -7,9 +7,9 @@
   are asked as multiples of π (write 7/10 for 7π/10), which keeps the reply exact and typed.
 * medium: either a multiple angle, ``f(ax) = c`` with a = 2, 3, 4 or 1/2, or a shift, ``f(x - b) = c``, on 0 ≤ x ≤ 2π,
   with exact c (zero and ±1 included).
-* hard: ``f(a(x - b)) = c`` with both a stretch and a shift on 0 ≤ x ≤ 2π, -π ≤ x ≤ π or 0 ≤ x ≤ 4π, or an inexact c
+* hard: ``f(a(x - b)) = c`` with both a stretch and a shift on 0 ≤ x ≤ 2π, -π ≤ x ≤ π or an inexact c
   (a calculator value) solved to 2 decimal places in radians, with the interval stated.
-* exam (``exd_x_w6b_trig_equation_interval``): ``f(a(x - b)) = c`` for sin or cos on 0 ≤ x ≤ 2π: the number of complete
+* exam (``exd_x_w6b_trig_equation_interval``): ``f(a(x - b)) = c`` for sin or cos on 0 ≤ x ≤ 2π or -π ≤ x ≤ π: the number of complete
   periods in the interval, the number of solutions (following through from the periods), the smallest solution and all
   of them.
 
@@ -628,28 +628,39 @@ _EXAM_STEMS = (
 
 def _exam(rng):
     fn = rng.choice(["sin", "cos"])
-    a = Fraction(rng.choice([3, 4, 4]))
-    b = Fraction(rng.choice([0, 1, 1, 2]), rng.choice([6, 4, 3])) if rng.random() < 0.8 else Fraction(0)
+    a = Fraction(rng.choice([2, 3, 4]))
+    b = Fraction(rng.randrange(1, 12), 12) if rng.random() < 0.85 else Fraction(0)
     key = rng.choice([k for k in _TABLE[fn] if k not in ("0", "1")])
     negative = rng.random() < 0.5
     disp, t0, c_value = _exact_c(fn, key, negative)
-    lo, hi = Fraction(0), Fraction(2)
+    lo, hi = rng.choice([(Fraction(0), Fraction(2)), (Fraction(-1), Fraction(1))])
     sols = _solutions(fn, t0, a, b, lo, hi)
     want(len(sols) == 2 * int(a), "a solution sits on the end of the interval")
     _verify(fn, c_value, a, b, lo, hi, sols)
     cand = _candidates_exact(fn, t0, a, b, lo, hi, sols, _TABLE[fn][key][0] if negative else None)
     n_a = int(a)
-    first_of = {d.misconception: Fraction(d.text.split(",")[0]) for d in reversed(cand)}
-    smallest_cands = [_kfdist(v, tag) for tag, v in first_of.items() if tag != "trig-eq-solutions-miss-second-family"]
-    smallest_cands.append(_kfdist(sols[1], "trig-eq-smallest-solution-is-the-second"))
+
+    # the smallest solution that is not negative: a negative key or option would stand out on an interval below zero
+    def first_nonneg(values):
+        return next((v for v in values if v >= 0), None)
+
+    non_neg = first_nonneg(sols)
+    want(non_neg is not None and non_neg > 0, "no positive solution to ask for")
+    first_of = {}
+    for d in reversed(cand):
+        v = first_nonneg([Fraction(x) for x in d.text.split(",")])
+        if v is not None and d.misconception != "trig-eq-solutions-miss-second-family":
+            first_of[d.misconception] = v
+    smallest_cands = [_kfdist(v, tag) for tag, v in first_of.items()]
+    smallest_cands.append(_kfdist(sols[sols.index(non_neg) + 1], "trig-eq-smallest-solution-is-the-second"))
     smallest_cands.append(_kfdist(t0, "trig-eq-smallest-solution-is-the-principal-angle"))
     smallest_cands.append(_kfdist(t0 * a, "trig-eq-multiple-angle-not-divided"))
     smallest_cands = [
-        d for d in smallest_cands if 0 < Fraction(d.text) <= 2
-    ]  # a negative or out-of-range value is a giveaway
+        d for d in smallest_cands if 0 < Fraction(d.text) <= hi
+    ]  # a value outside the interval is a giveaway
     count = len(sols)
     texts, joined = _list_answer(sols)
-    smallest = sols[0]
+    smallest = non_neg
     eq = _equation_text(fn, a, b)
     return dict(
         text=phrase(rng, _EXAM_STEMS, eq=eq, c=disp, interval=_interval_text(lo, hi)),
@@ -679,7 +690,7 @@ def _exam(rng):
                 distractors=_offset_options(rng, count, "trig-eq-count-off-by-one"),
             ),
             dict(
-                prompt="Find the smallest solution, as a multiple of π.",
+                prompt=f"Find the smallest {'' if lo == 0 else 'non-negative '}solution, as a multiple of π.",
                 answer_kind="fraction",
                 answer=exact_value(smallest),
                 answer_text=k_text(smallest),

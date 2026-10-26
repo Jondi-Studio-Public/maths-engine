@@ -199,7 +199,9 @@ def test_exam_oracle():
         assert q.parts[0].answer == round(a) == int(q.parts[0].answer_text)
         assert "complete periods" in q.parts[0].prompt
         assert q.parts[1].answer == len(roots) == 2 * round(a)
-        assert abs(float(Fraction(q.parts[2].answer_text)) * math.pi - roots[0]) < 1e-3
+        first = next(r for r in roots if r > -1e-9)  # the smallest solution that is not negative
+        assert abs(float(Fraction(q.parts[2].answer_text)) * math.pi - first) < 1e-3
+        assert ("non-negative" in q.parts[2].prompt) == (lo < 0)
         listed = sorted(float(Fraction(t.strip())) for t in q.parts[3].answer_text.split(","))
         assert len(listed) == len(roots)
         assert all(abs(r - k * math.pi) < 1e-3 for r, k in zip(roots, listed))
