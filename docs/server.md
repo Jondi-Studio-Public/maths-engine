@@ -143,9 +143,9 @@ equivalent form is marked wrong there. For those, grade through `/v1/grade`, or 
 | `MATHS_API_DOCS` | off | `1` serves `/docs`, `/redoc` and `/openapi.json` |
 | `MATHS_API_TIMEOUT` | `5` | seconds for one question or one grade |
 | `MATHS_API_BATCH_TIMEOUT` | 10 x `MATHS_API_TIMEOUT` | seconds for a whole batch; items still waiting past it get the error `timeout` |
-| `MATHS_API_BATCH_BUDGET` | 3 x `MATHS_API_TIMEOUT` | worker-seconds one batch may spend on replies that time out or nearly do (over half the timeout); items after that get the error `timeout` without being run |
+| `MATHS_API_BATCH_BUDGET` | 3 x `MATHS_API_TIMEOUT` | worker-seconds one batch may spend on replies that time out or nearly do (over half the timeout); items after that get the error `timeout` without being run. The time includes any wait for a free worker, so a very busy server cuts batches short sooner |
 | `MATHS_API_CLIENT_STRIKES` | 2 x `MATHS_API_COOLDOWN_STRIKES` | timeouts one client (API key, or address when open) may cause per window before its grading calls get `503`; `0` is off |
-| `MATHS_API_TRUST_FORWARDED` | off | `1` names clients by the first `X-Forwarded-For` address when running open; only behind a proxy that sets it |
+| `MATHS_API_TRUST_FORWARDED` | off | `1` names clients by the last (rightmost) `X-Forwarded-For` address, the one your own proxy appended, when running open; only behind exactly one proxy that appends the client's address |
 | `MATHS_API_PAPER_TIMEOUT` | `60` | seconds for a paper |
 | `MATHS_API_QUEUE_TIMEOUT` | `30` | seconds a call may wait for a free worker before `503` |
 | `MATHS_API_MAX_BODY` | `262144` | bytes in a request body |

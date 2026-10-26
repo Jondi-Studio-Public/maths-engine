@@ -77,7 +77,7 @@ class Config:
     #: its grading calls get a 503 until the window ends. 0: off. None: `cooldown_strikes * 2`. A key shared by a
     #: whole school may want this raised or off.
     client_strikes: int | None = None
-    #: Name clients by the first `X-Forwarded-For` address when running open (MATHS_API_TRUST_FORWARDED=1). Only behind
+    #: Name clients by the last `X-Forwarded-For` address when running open (MATHS_API_TRUST_FORWARDED=1). Only behind
     #: a proxy that sets it; otherwise anyone could pick their own address.
     trust_forwarded: bool = False
     #: Requests running or queued at once; more get a 503. None: twice the workers.

@@ -110,8 +110,8 @@ def test_open_mode_names_clients_by_address_and_forwarded_only_when_trusted():
         _SlowPool.calls = 0
         config = Config(open=True, cooldown_strikes=1, trust_forwarded=trust)  # 2 timeouts start a cool-down
         with TestClient(create_app(config, pool=_SlowPool())) as client:
-            first = {"X-Forwarded-For": "1.1.1.1"}
-            other = {"X-Forwarded-For": "2.2.2.2"}
+            first = {"X-Forwarded-For": "9.9.9.9, 1.1.1.1"}  # a spoofed entry, then the proxy's
+            other = {"X-Forwarded-For": "9.9.9.9, 2.2.2.2"}
             client.post(
                 "/v1/grade/batch",
                 json={"items": [{"id": f"s{i}/b/1/h", "reply": "x"} for i in range(3)]},

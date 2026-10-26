@@ -248,7 +248,7 @@ def create_app(config: Config | None = None, *, pool: WorkerPool | None = None) 
             header = request.headers.get("authorization", "")
             given = header[7:].strip() if header.lower().startswith("bearer ") else request.headers.get("x-api-key", "")
             return "key:" + hashlib.sha256(given.encode()).hexdigest()[:16]
-        forwarded = request.headers.get("x-forwarded-for", "").split(",")[0].strip() if config.trust_forwarded else ""
+        forwarded = request.headers.get("x-forwarded-for", "").split(",")[-1].strip() if config.trust_forwarded else ""
         return "addr:" + (forwarded or (request.client.host if request.client else "?"))
 
     Client = Annotated[str, Depends(client)]
