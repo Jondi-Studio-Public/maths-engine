@@ -360,7 +360,7 @@ def _build_exact(rng, fn, a, b, lo, hi, *, allow_special, tier_name):
             how=_INSTRUCTION,
         ),
         answer_kind="list",
-        answer=texts,
+        answer=[Fraction(t) for t in texts],
         answer_text=joined,
         working=working,
         distractors=_list_options(rng, joined, cand, 4),
@@ -608,11 +608,12 @@ def _hard(rng):
 )
 def w6b_trig_equation_interval(rng, tier="easy"):
     """Trigonometric equations solved over an interval, answered as a list; see the module docstring."""
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     if tier == "easy":
         return retry(rng, _easy)
     if tier == "medium":
         return retry(rng, _medium)
-    check(tier == "hard", f"unknown tier {tier!r}")
     return retry(rng, _hard)
 
 
@@ -690,7 +691,7 @@ def _exam(rng):
             dict(
                 prompt="Find all the solutions. " + _INSTRUCTION.strip(),
                 answer_kind="list",
-                answer=texts,
+                answer=[Fraction(t) for t in texts],
                 answer_text=joined,
                 marks=3,
                 working=_working_exact(fn, disp, t0, a, b, sols),
@@ -712,5 +713,6 @@ def _intdist(value, tag):
 @generator("exd_x_w6b_trig_equation_interval", level=16, presets={"exam": dict(tier="exam")})
 def exd_x_w6b_trig_equation_interval(rng, tier="exam"):
     """Exam chain: number of periods, number of solutions (following through), smallest solution and every solution."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if tier != "exam":
+        raise ValueError(f"unknown tier {tier!r}")
     return retry(rng, _exam, 300)

@@ -35,7 +35,8 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_w6b_trig_equation_interval
-  params: {}
+  params:
+    tier: exam
   difficulty: exam
   stages:
   - exam
