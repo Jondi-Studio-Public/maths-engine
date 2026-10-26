@@ -246,3 +246,33 @@ def test_misconceptions_listed_and_catalogued():
 def test_answer_space():
     for tier in sup.TIERS:
         sup.assert_answer_space(TOPIC, tier, seeds=range(200), distinct=min(12, 2 ** (SIZE[tier] - 2)), top=0.25)
+
+
+NON_ASSIGNABLE = ("how far", "the size of", "lives from")
+
+
+def test_volunteers_are_people_only_and_every_scene_reads_sensibly():
+    seen = Counter()
+    for tier in sup.TIERS:
+        for seed in range(300):
+            q = sup.tier_question(TOPIC, tier, seed)
+            scene, statements = parse(q.text)
+            if "volunteers" in scene:
+                assert re.search(r"(volunteers from the|asks for \d+ volunteers and)", scene)
+                assert any(w in scene for w in ("students", "people")), scene
+                seen["volunteer"] += 1
+            for st in statements.values():
+                if "chose themselves" in st or "volunteering" in st:
+                    assert any(w in st for w in ("students", "people")), (scene, st)
+            seen[re.sub(r"\d+", "#", scene)[:25]] += 1
+    assert seen["volunteer"] > 20
+
+
+def test_cause_statements_use_assignable_variables_only():
+    for tier in sup.TIERS:
+        for seed in range(300):
+            q = sup.tier_question(TOPIC, tier, seed)
+            _, statements = parse(q.text)
+            for st in statements.values():
+                if "show that" in st:
+                    assert not any(w in st for w in NON_ASSIGNABLE), st

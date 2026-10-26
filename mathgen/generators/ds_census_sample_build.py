@@ -196,7 +196,7 @@ CS = [
         whole="the whole school",
         lead="A school has {N} students.",
         what="how its students usually travel to school",
-        x="how far a student lives from school",
+        x="whether a student is given a free bus pass",
         y="how the student travels",
         check="Asking a student the question",
         destroys=False,
@@ -218,7 +218,7 @@ CS = [
         inpop="in the council area",
         whole="the whole council area",
         what="how its households dispose of garden waste",
-        x="the size of a household's garden",
+        x="whether a household is given a free green-waste bin",
         y="how the household disposes of garden waste",
         check="Posting a survey form to a household",
         destroys=False,
@@ -502,7 +502,7 @@ def _build_cs(rng, kind):
     sit = rng.choice([s for s in CS if kind in s["kinds"]])
     n, k, m = rng.choice(sit["ns"]), rng.choice(sit["ks"]), rng.choice(sit["ms"])
     N = n * k
-    how = rng.choice(("random", "volunteer")) if kind == "sample" else None
+    how = (rng.choice(("random", "volunteer")) if sit["unit"] == "student" else "random") if kind == "sample" else None
     key = "census" if kind == "census" else f"sample_{how}"
     scene = CS_SCENE[key].format(
         lead=sit["lead"].format(N=N), N=N, n=n, units=sit["units"], what=sit["what"], each=sit["each"].format(m=m)
@@ -522,7 +522,7 @@ def _build_cs(rng, kind):
     # does a check use the unit up (a fact of the situation)
     destroys = sit["destroys"]
     facts.append(("spoil", destroys))
-    if kind == "sample":
+    if kind == "sample" and sit["unit"] == "student":
         facts += [("how", how == "random"), ("impl", how == "random")]
     figs = []
     ratio_tpl = f"Checking all {N} {sit['units']} would need {{V}} times as many {sit['work']} as checking the {n} in the sample."
