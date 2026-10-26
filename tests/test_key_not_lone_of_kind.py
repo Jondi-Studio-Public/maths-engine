@@ -84,6 +84,11 @@ SIX = (
     "trig-substitution-hsc-tan-and-convert",
     "choose-summary-statistic-for-data",
     "bits-hex-and-digit-counts",
+    "f10-frequency-table-discrete-data",
+    "f10-shape-and-variation-of-a-display",
+    "f10-census-sample-experiment-practicalities",
+    "f10-random-versus-convenience-sample",
+    "f10-display-choice-then-read",
 )
 SLOW_FIRST = "trig-substitution-hsc-tan-and-convert"
 _SKILLS = Path(__file__).resolve().parent.parent / "skills"

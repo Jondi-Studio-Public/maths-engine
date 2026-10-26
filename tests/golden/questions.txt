@@ -694,6 +694,12 @@
 {"answer": "Nominal categorical", "id": "classify-data/medium/0/adc7e3809cc8", "text": "In a study, the variable is the country of birth of each resident. What type of…"}
 {"answer": "Nominal categorical", "id": "classify-data/medium/1/e2ccad9bb0d1", "text": "A survey records the make of each car sold at a dealership. How is this variabl…"}
 {"answer": "Continuous numerical", "id": "classify-data/medium/2/7be39fd0752d", "text": "A survey records the temperature at noon on each day. How is this variable best…"}
+{"answer": "nominal, continuous, ordinal, continuous", "id": "classify-data/ordered-hard/0/44490e20e19c", "text": "A study collects these variables: (A) the student ID number of each student; (B…"}
+{"answer": "nominal, discrete, continuous, continuous", "id": "classify-data/ordered-hard/1/b76d25bb9eb9", "text": "A study collects these variables: (A) the student ID number of each student; (B…"}
+{"answer": "continuous, nominal, ordinal, continuous", "id": "classify-data/ordered-hard/2/9a6a691d23ea", "text": "A study collects these variables: (A) the distance each student travels to scho…"}
+{"answer": "continuous, discrete, discrete", "id": "classify-data/ordered-medium/0/5421c58c2adb", "text": "A study collects these variables: (A) the diameter of each ball bearing made by…"}
+{"answer": "discrete, nominal, ordinal", "id": "classify-data/ordered-medium/1/0c7d75b6f037", "text": "A study collects these variables: (A) the number of books borrowed from a libra…"}
+{"answer": "continuous, nominal, discrete", "id": "classify-data/ordered-medium/2/8e8d42a5fdd1", "text": "A survey records these variables: (A) the reaction time of each driver; (B) the…"}
 {"answer": "No - the variable is in the denominator", "id": "classify-polynomials/easy/0/73a22a006433", "text": "Is this a polynomial? If not, why not: 4/x"}
 {"answer": "Yes, it is a polynomial", "id": "classify-polynomials/easy/1/586dea6a45c2", "text": "Is this a polynomial? If not, why not: x^3 - 5x"}
 {"answer": "No - the variable is in the denominator", "id": "classify-polynomials/easy/2/8690da7f3327", "text": "Is this a polynomial? If not, why not: -8/x"}
@@ -2224,6 +2230,15 @@
 {"answer": "8", "id": "f10-capacity-mass-informal-units/medium/0/a50813b54863", "text": "The watering can holds 23 scoops of water. Leila pours in 8 scoops and then 7 m…"}
 {"answer": "9", "id": "f10-capacity-mass-informal-units/medium/1/7d2419158d47", "text": "The melon balances 24 cubes. The teapot balances 8 cubes and the tin of beans b…"}
 {"answer": "15", "id": "f10-capacity-mass-informal-units/medium/2/ffb31ddd7ed9", "text": "The pear balances 5 cubes. The lunchbox balances 5 cubes more than the pear. Ho…"}
+{"answer": "{C, D}", "id": "f10-census-sample-experiment-practicalities/easy/0/c669ec0f3963", "text": "A cannery fills 1000 tins in a shift. To find out whether its tinned soup is to…"}
+{"answer": "{B, C, D, F}", "id": "f10-census-sample-experiment-practicalities/easy/1/d9961ea3033f", "text": "A volunteer stands at a crossing for 3 hours each afternoon for 5 afternoons an…"}
+{"answer": "{A, E, F}", "id": "f10-census-sample-experiment-practicalities/easy/2/0ecd9f6bd823", "text": "A cannery fills 200 tins in a shift. To find out whether its tinned soup is too…"}
+{"answer": "{B, D, E, H}", "id": "f10-census-sample-experiment-practicalities/hard/0/26c25580a321", "text": "A school has 750 students. To find out how its students usually travel to schoo…"}
+{"answer": "{D, E}", "id": "f10-census-sample-experiment-practicalities/hard/1/c930f3469b7a", "text": "A teacher watches the playground for 2 hours each lunchtime for 5 school days a…"}
+{"answer": "{A, C, D, F, H}", "id": "f10-census-sample-experiment-practicalities/hard/2/ad29232eb964", "text": "A cannery fills 400 tins in a shift. To find out whether its tinned soup is too…"}
+{"answer": "{B, D, G}", "id": "f10-census-sample-experiment-practicalities/medium/0/26bbd057716e", "text": "A factory makes 250 light globes in a production run. To find out how long its …"}
+{"answer": "{E, F}", "id": "f10-census-sample-experiment-practicalities/medium/1/0267f7148415", "text": "A teacher watches the playground for 4 hours each lunchtime for 5 school days a…"}
+{"answer": "{D, G}", "id": "f10-census-sample-experiment-practicalities/medium/2/5d679bf74550", "text": "A school has 480 students. To find out how its students usually travel to schoo…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/0/6172bec54640", "text": "A bag contains 5 black, 2 blue. Event X: drawing a purple. How would you classi…"}
 {"answer": "impossible", "id": "f10-chance-language-and-outcomes/easy/1/408ac8af0bdd", "text": "A bag contains 3 blue, 5 yellow. Event X: drawing a green. How would you classi…"}
 {"answer": "certain", "id": "f10-chance-language-and-outcomes/easy/2/98f8a7cf8206", "text": "A bag contains 3 black. Event X: drawing a black. How would you classify the li…"}
@@ -2527,6 +2542,15 @@
 {"answer": "Yes, directly proportional -- you can buy 18 metres.", "id": "f10-direct-proportion-scale-model/medium/0/47a589b33f7c", "text": "Fabric costs $0.75 per metre. Is this relationship directly proportional, and h…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- you …", "id": "f10-direct-proportion-scale-model/medium/1/6eb28af0ed69", "text": "Fabric is priced at $1.00 per metre, with a one-off $20.00 delivery fee added t…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/medium/2/5e2c11265182", "text": "Buying 10 kg of flour costs $45.00 altogether. There is also a one-off $30.00 d…"}
+{"answer": "7", "id": "f10-display-choice-then-read/easy/0/55e4508ba51c", "text": "A survey of 203 people asked about the favourite sport of students: 32 tennis, …"}
+{"answer": "9", "id": "f10-display-choice-then-read/easy/1/d6445d61b9a0", "text": "For each of 9 saplings, the age and the height were both measured. The aim is t…"}
+{"answer": "8", "id": "f10-display-choice-then-read/easy/2/623c1b317006", "text": "Class 9A and Class 9B were each asked about the favourite sport of students. Th…"}
+{"answer": "325", "id": "f10-display-choice-then-read/hard/0/0162c19e827c", "text": "At the end of January, the stock of a shop's best-selling item (in units) was 7…"}
+{"answer": "180", "id": "f10-display-choice-then-read/hard/1/02c4b925bb13", "text": "At the end of April, the water stored in a tank (in kilolitres) was 40. In the …"}
+{"answer": "10", "id": "f10-display-choice-then-read/hard/2/7acdb86ef28e", "text": "10 different players scored goals this season, wearing these shirt numbers: 10,…"}
+{"answer": "95", "id": "f10-display-choice-then-read/medium/0/21d39a92bd61", "text": "A survey about the kind of fruit students pack for lunch gave these counts: 74 …"}
+{"answer": "8", "id": "f10-display-choice-then-read/medium/1/4aa74124f43a", "text": "Once a month from February to October, the mass of a growing puppy, in kilogram…"}
+{"answer": "132", "id": "f10-display-choice-then-read/medium/2/78c5854fa702", "text": "A survey of 60 people asked about the favourite sport of students: 18 basketbal…"}
 {"answer": "1", "id": "f10-division-remainder-context/easy/0/2499d800b6c2", "text": "22 counters are shared into groups of 7, with any leftover counters set aside. …"}
 {"answer": "1", "id": "f10-division-remainder-context/easy/1/803c5f26ef53", "text": "56 counters are shared into groups of 5, with any leftover counters set aside. …"}
 {"answer": "3", "id": "f10-division-remainder-context/easy/2/ca2a848fc0f7", "text": "59 counters are shared into groups of 4, with any leftover counters set aside. …"}
@@ -2803,6 +2827,15 @@
 {"answer": "1/4", "id": "f10-fractions-half-quarter-eighth/medium/0/054f287b629d", "text": "Mia cuts a whole garden bed in half, then in half again. What fraction of the w…"}
 {"answer": "1/4", "id": "f10-fractions-half-quarter-eighth/medium/1/a16314520478", "text": "Kai cuts a whole ribbon in half, then in half again. What fraction of the whole…"}
 {"answer": "1/8", "id": "f10-fractions-half-quarter-eighth/medium/2/58f6ac2b35a9", "text": "Zara cuts the shaded half in half, then in half again. What fraction of the who…"}
+{"answer": "1 Count = 1, 4 Count = 3", "id": "f10-frequency-table-discrete-data/easy/0/e970a2f6f5a2", "text": "Children in a Year 3 class were each asked how many pets they have at home. The…"}
+{"answer": "1 Count = 4, 3 Count = 3, 4 Count = 2", "id": "f10-frequency-table-discrete-data/easy/1/1da539df4339", "text": "Children in a Year 3 class were each asked how many brothers and sisters they h…"}
+{"answer": "2 Count = 3, 3 Count = 0, 4 Count = 6, 5 Count = 7, Total C…", "id": "f10-frequency-table-discrete-data/easy/2/01733168ffc6", "text": "Children in a class counted the books they borrowed from the school library thi…"}
+{"answer": "2 Running total = 5, 4 Running total = 10, 5 Running total …", "id": "f10-frequency-table-discrete-data/hard/0/95ac930427a6", "text": "The shoe sizes of the children in a Year 3 class were recorded. 14 children wer…"}
+{"answer": "0 Count = 3, 0 Running total = 3, 2 Running total = 14, 4 R…", "id": "f10-frequency-table-discrete-data/hard/1/78936c6845cf", "text": "Children in a Year 3 class were each asked how many brothers and sisters they h…"}
+{"answer": "1 Count = 3, 1 This many or more = 17, 3 This many or more …", "id": "f10-frequency-table-discrete-data/hard/2/a61fc8153fda", "text": "The shoe sizes of the children in a Year 3 class were recorded. Priya wears siz…"}
+{"answer": "0 Count = 5, 1 Count = 1, 2 Count = 0, Total Count = 12, 1 …", "id": "f10-frequency-table-discrete-data/medium/0/344313fd0349", "text": "Children in a class were each asked how many pieces of fruit they ate yesterday…"}
+{"answer": "0 Count = 3, 1 Count = 6, 2 Count = 2, 4 Count = 7, Total C…", "id": "f10-frequency-table-discrete-data/medium/1/efd38343e240", "text": "Children in a class were each asked how many pieces of fruit they ate yesterday…"}
+{"answer": "0 Count = 6, 1 Count = 0, 2 Count = 5, 3 Count = 6, 2 or fe…", "id": "f10-frequency-table-discrete-data/medium/2/4d4788d378ca", "text": "Children in a class were each asked how many pieces of fruit they ate yesterday…"}
 {"answer": "60", "id": "f10-geometric-construction-algorithm/easy/0/2a6216f39e2e", "text": "A construction algorithm marks a point on a semicircle. Step 1: Draw segment AB…"}
 {"answer": "9", "id": "f10-geometric-construction-algorithm/easy/1/4f1ac4ffe329", "text": "A construction algorithm finds the perpendicular bisector of a segment. Step 1:…"}
 {"answer": "9", "id": "f10-geometric-construction-algorithm/easy/2/71f52d8e8654", "text": "A construction algorithm finds the perpendicular bisector of a segment. Step 1:…"}
@@ -3562,6 +3595,18 @@
 {"answer": "Spinner D: purple, red, yellow, red, yellow, purple, red, p…", "id": "f10-random-equal-likelihood-outcomes/medium/0/a69c8b12ad91", "text": "Which of these four spinners has equally likely outcomes? Spinner A: blue, purp…"}
 {"answer": "Spinner B: orange, blue, blue, orange, yellow, yellow", "id": "f10-random-equal-likelihood-outcomes/medium/1/15d928a6b714", "text": "Which of these four spinners has equally likely outcomes? Spinner A: purple, pu…"}
 {"answer": "Spinner C: red, green, blue, green, blue, red, blue, red, g…", "id": "f10-random-equal-likelihood-outcomes/medium/2/27f917b1c64f", "text": "Which of these four spinners has equally likely outcomes? Spinner A: green, gre…"}
+{"answer": "7.3", "id": "f10-random-versus-convenience-sample/easy/0/dce12da52c38", "text": "All 100 students at a school recorded how many books they read this term. Books…"}
+{"answer": "2.90", "id": "f10-random-versus-convenience-sample/easy/1/f7e1f74f49ac", "text": "All 100 students at a school recorded how many days a week they ride a bike. Da…"}
+{"answer": "34", "id": "f10-random-versus-convenience-sample/easy/2/6eaa64a1d581", "text": "A school has 200 students. Each was asked about their main activity after schoo…"}
+{"answer": "(a) 2.86; (b) 1.64; (c) 2.44; (d) 0.80", "id": "f10-random-versus-convenience-sample/exam/0/ee74300329de", "text": "All 200 students at a school recorded their screen time yesterday. Hours of scr…"}
+{"answer": "(a) 3.47; (b) 0.43; (c) 3.83; (d) 3.40", "id": "f10-random-versus-convenience-sample/exam/1/155dfbf7f370", "text": "All 100 students at a school recorded how many books they read this term. Books…"}
+{"answer": "(a) 27.40; (b) 3.10; (c) 9.60; (d) 6.50", "id": "f10-random-versus-convenience-sample/exam/2/3dbcf11122eb", "text": "All 100 students at a school recorded how long their trip to school takes. Minu…"}
+{"answer": "0.70", "id": "f10-random-versus-convenience-sample/hard/0/c89f5d6cc063", "text": "All 100 students at a school recorded how many days a week they ride a bike. Da…"}
+{"answer": "23.0", "id": "f10-random-versus-convenience-sample/hard/1/7b3fef0ce645", "text": "A school has 200 students. Each was asked where they usually get lunch. Where s…"}
+{"answer": "10", "id": "f10-random-versus-convenience-sample/hard/2/fcb516724113", "text": "A school has 100 students. Each was asked how they usually travel to school. Ho…"}
+{"answer": "5", "id": "f10-random-versus-convenience-sample/medium/0/41d0a420e870", "text": "A school has 200 students. Each was asked where they usually get lunch. Where s…"}
+{"answer": "8", "id": "f10-random-versus-convenience-sample/medium/1/45c9aa9b449b", "text": "A school has 100 students. Each was asked about their main activity after schoo…"}
+{"answer": "2.22", "id": "f10-random-versus-convenience-sample/medium/2/229ada95290b", "text": "All 100 students at a school recorded how many hours of sport they played last …"}
 {"answer": "42.00", "id": "f10-ratio-rate-financial-model/easy/0/61c8f0fdfb5d", "text": "A $112 bill is split between Amir and Beatrice in the ratio 3:5. How much does …"}
 {"answer": "100.00", "id": "f10-ratio-rate-financial-model/easy/1/5d1fd1e1c22c", "text": "At the market, cheese costs $2.50 per kg. Beatrice buys 40 kg. What is the tota…"}
 {"answer": "64.00", "id": "f10-ratio-rate-financial-model/easy/2/669d8b5a40c3", "text": "A $320 bill is split between Yuki and Kai in the ratio 1:4. How much does Yuki …"}
@@ -3769,6 +3814,15 @@
 {"answer": "Thursday, Friday, Saturday, Sunday", "id": "f10-sequence-days-times/medium/0/003f34d88888", "text": "Put these days of the week in order, earliest first: Sunday (packing the school…"}
 {"answer": "Wednesday, Thursday, Friday, Saturday", "id": "f10-sequence-days-times/medium/1/3004244194f4", "text": "Put these days of the week in order, earliest first: Wednesday (swimming lesson…"}
 {"answer": "Wednesday, Thursday, Friday, Saturday", "id": "f10-sequence-days-times/medium/2/6b9003e26356", "text": "Put these days of the week in order, earliest first: Wednesday (swimming lesson…"}
+{"answer": "15", "id": "f10-shape-and-variation-of-a-display/easy/0/bc67c18b2edb", "text": "The column graph shows the number of pets each child has at home. The height of…"}
+{"answer": "6", "id": "f10-shape-and-variation-of-a-display/easy/1/a6e4fb4f48c1", "text": "The dot plot shows the number of goals each player scored this season. Each dot…"}
+{"answer": "6", "id": "f10-shape-and-variation-of-a-display/easy/2/16540579d545", "text": "The dot plot shows the number of times each student was late to school this ter…"}
+{"answer": "3", "id": "f10-shape-and-variation-of-a-display/hard/0/bfb2445cac72", "text": "The column graph shows the number of pets each child has at home for Class 4C a…"}
+{"answer": "(a) {B}", "id": "f10-shape-and-variation-of-a-display/hard/1/ab6363311ef6", "text": "The column graph shows the number of pets each child has at home for Class 4C a…"}
+{"answer": "2", "id": "f10-shape-and-variation-of-a-display/hard/2/b64bbfe41f6b", "text": "The column graph shows the number of books each student read last month for Cla…"}
+{"answer": "7", "id": "f10-shape-and-variation-of-a-display/medium/0/79eecedd4703", "text": "The dot plot shows the number of stickers each child collected at the fair. Eac…"}
+{"answer": "2", "id": "f10-shape-and-variation-of-a-display/medium/1/260f35125d84", "text": "The dot plot shows the number of books each student read last month. Each dot i…"}
+{"answer": "(a) {C, D, E}", "id": "f10-shape-and-variation-of-a-display/medium/2/a5839dffaa6a", "text": "The column graph shows the number of books each student read last month. The he…"}
 {"answer": "octagon", "id": "f10-shape-features-classification/easy/0/f15a91225959", "text": "Which of these shapes is made only of straight lines?"}
 {"answer": "octagon", "id": "f10-shape-features-classification/easy/1/90b9938cb40a", "text": "Which one of these shapes has no curved edge?"}
 {"answer": "square", "id": "f10-shape-features-classification/easy/2/9ac66450057d", "text": "Which one of these shapes has no curved edge?"}
