@@ -301,7 +301,10 @@ def _draw_read(rng, tier):
         x=_fmt(x),
     )
     cand = [n * pct // 100, n // 2, n // 4, n * 3 // 4, n - key + 10]
-    working = [f"{_fmt(x)} is the {name}, so about {100 - pct}% of the {n} values are above it."]
+    working = [
+        f"{_fmt(x)} is the {name}, so about {100 - pct}% of the {n} values are above it.",
+        f"{100 - pct}% of {n} = {key}.",
+    ]
     return fig, f"{lead} {ask}", key, cand, working
 
 

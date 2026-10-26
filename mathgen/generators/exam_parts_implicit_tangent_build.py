@@ -210,7 +210,18 @@ def _frac(sign, num, den) -> str:
 
 
 def _line_text(slope, intercept) -> str:
-    return "y = " + _typed(slope * x + intercept)
+    """The line in the order the stem asks for, y = mx + c ("y = -8x/5 + 36/5", not SymPy's constant-first order)."""
+    mx = _typed(sympy.Rational(slope) * x)
+    c = sympy.Rational(intercept)
+    if c == 0:
+        return "y = " + mx
+    return f"y = {mx} {'-' if c < 0 else '+'} {_typed(abs(c))}"
+
+
+def _expr_line_text(expr) -> str:
+    """`_line_text` of a linear expression in x."""
+    poly = sympy.Poly(sympy.expand(expr), x)
+    return _line_text(poly.coeff_monomial(x), poly.coeff_monomial(1))
 
 
 def _fraction_part(prompt, value, marks, working, candidates, follow_through=None):
@@ -314,7 +325,7 @@ def exam_parts_implicit_tangent(rng):
     ]
     c_cands = [(k, sympy.expand(e)) for k, e in c_cands]
     check(all(sympy.expand(tangent - e) != 0 for _, e in c_cands), "a tangent distractor equals the answer")
-    c_dist = pick_distractors(c_text, ["y = " + _typed(e) for _, e in c_cands])
+    c_dist = pick_distractors(c_text, [_expr_line_text(e) for _, e in c_cands])
     part_c = dict(
         prompt=f"Hence find the equation of the tangent to the curve at P({x0}, {y0}), in the form y = mx + c.",
         answer_kind="expression",

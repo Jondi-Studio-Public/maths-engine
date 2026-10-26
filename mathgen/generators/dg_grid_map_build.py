@@ -27,7 +27,7 @@ from .. import figures
 from ..core import attempts, check, generator
 from ._spread_kit import _RNG, uses_rng
 from ..figure_kinds import grid
-from ..grading.grid import cells_answer, ref_text
+from ..grading.grid import cell_text, cells_answer, ref_text
 from ._dg_kit import NEAR, draw_ranked, numd, p_number
 from ._w9_graph_kit import dist
 
@@ -192,24 +192,23 @@ def _fillers(key, w, h):
     return [f for f in out if f and f != key and all(_inside(c, w, h) for c in f)]
 
 
-def _cells_part(cells, w, h, wrong):
+def _cells_part(cells, w, h, wrong, refs=True):
     """``(answer fields, distractors)`` for a grid_cells answer from ``wrong = [(set of cells, tag), ...]``.
 
     The key's place among the options is drawn on each of its three features: how many squares, how far up and how far
     across (the mean row and mean column), whichever way the named slips happen to lie."""
     rng = _RNG.get() or random.Random(str(sorted(cells)))
     key = {tuple(c) for c in cells}
-    ans = cells_answer(sorted(key), (w, h), refs=True)
-    text = ref_text(key)
+    show = ref_text if refs else cell_text  # `ey_place_objects` still names squares as (column, row)
+    ans = cells_answer(sorted(key), (w, h), refs=refs)
+    text = show(key)
     usable, seen = [], set()
     for named, group in ((True, wrong), (False, [(f, NEAR) for f in _fillers(key, w, h)])):
         for got, tag in group:
             got = {tuple(c) for c in got}
             if not got or got == key or not all(_inside(c, w, h) for c in got) or frozenset(got) in seen:
                 continue
-            kept = dist(
-                "grid_cells", ans, text, [(ref_text(got), cells_answer(sorted(got), (w, h), refs=True), tag)], n=1
-            )
+            kept = dist("grid_cells", ans, text, [(show(got), cells_answer(sorted(got), (w, h), refs=refs), tag)], n=1)
             if kept:
                 seen.add(frozenset(got))
                 usable.append((_features(got), named, kept[0]))
@@ -442,6 +441,7 @@ def dg_grid_map_chain(rng, tier="exam"):
             continue
         fig = _figure(rng, cells, w, h)
         feature = rng.choice(_FEATURES)
+        later = "bike rack" if feature != "bike rack" else "kiosk"  # (e) never re-places the feature of (a)
         fa, da = _cells_part(
             {(ref_c, ref_r)},
             w,
@@ -543,7 +543,7 @@ def dg_grid_map_chain(rng, tier="exam"):
                 sensible_range=(0, w + h),
             ),
             dict(
-                prompt=f"A bike rack is {_move_text(mx, my)} of the {_name(z)}. Shade the square for the bike rack.",
+                prompt=f"{_a(later).capitalize()} is {_move_text(mx, my)} of the {_name(z)}. Shade the square for the {later}.",
                 answer_kind="grid_cells",
                 marks=2,
                 working=[
