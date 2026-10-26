@@ -2539,6 +2539,15 @@
 {"answer": "20", "id": "f10-division-remainder-context/medium/0/7ac8e6fbfef5", "text": "79 eggs need to be packed into cartons that each hold 4 eggs. How many cartons …"}
 {"answer": "26", "id": "f10-division-remainder-context/medium/1/e7ae55f1adb3", "text": "52 eggs need to be packed into cartons that each hold 2 eggs. How many cartons …"}
 {"answer": "11", "id": "f10-division-remainder-context/medium/2/c49a41171a9f", "text": "83 eggs need to be packed into cartons that each hold 8 eggs. How many cartons …"}
+{"answer": "(0, 0) (1, 0) (2, 0) (3, 0) (0, 1) (1, 1) (2, 1) (3, 1)", "id": "f10-draw-cross-sections-of-solids/easy/0/64e425f48dfa", "text": "This solid is built from unit cubes. Slice it with a plane parallel to its righ…"}
+{"answer": "(0, 1) (1, 1) (0, 2) (1, 2) (0, 3) (1, 3)", "id": "f10-draw-cross-sections-of-solids/easy/1/593555eaad24", "text": "Cut the solid in the picture parallel to its right face, through the second lay…"}
+{"answer": "(1, 2) (2, 2) (3, 2) (4, 2) (1, 3) (2, 3) (3, 3) (4, 3)", "id": "f10-draw-cross-sections-of-solids/easy/2/9c3ce49da45b", "text": "A solid made of unit cubes is drawn on isometric dot paper. A flat cut parallel…"}
+{"answer": "(1, 0) (2, 0) (3, 0) (4, 0) (1, 1) (2, 1) (3, 1) (4, 1) (1,…", "id": "f10-draw-cross-sections-of-solids/hard/0/929dc425d5da", "text": "Cut the solid in the picture parallel to its top face, through the second layer…"}
+{"answer": "(3, 0) (4, 0)", "id": "f10-draw-cross-sections-of-solids/hard/1/79963eb3514a", "text": "Cut the solid in the picture parallel to its right face, through the third laye…"}
+{"answer": "(1, 2) (2, 2) (3, 2) (4, 2)", "id": "f10-draw-cross-sections-of-solids/hard/2/f92171ee8400", "text": "Slice the solid twice, parallel to its right face, through the second layer and…"}
+{"answer": "(3, 3) (4, 3) (5, 3) (3, 4) (4, 4) (5, 4) (4, 5) (5, 5)", "id": "f10-draw-cross-sections-of-solids/medium/0/24a8530f8d03", "text": "A solid made of unit cubes is drawn on isometric dot paper. A flat cut parallel…"}
+{"answer": "(1, 1) (2, 1) (3, 1) (1, 2) (2, 2) (3, 2) (1, 3) (2, 3) (3,…", "id": "f10-draw-cross-sections-of-solids/medium/1/531d79c29af0", "text": "This solid is built from unit cubes. Slice it with a plane parallel to its fron…"}
+{"answer": "(1, 3) (2, 3) (3, 3) (1, 4) (2, 4) (3, 4) (1, 5) (2, 5)", "id": "f10-draw-cross-sections-of-solids/medium/2/47b6f2aff3db", "text": "This solid is built from unit cubes. Slice it with a plane parallel to its fron…"}
 {"answer": "40", "id": "f10-enlargement-invariants/easy/0/ab07fe3243ef", "text": "A scale factor of 3 is used to enlarge a hexagon from a centre of enlargement O…"}
 {"answer": "55", "id": "f10-enlargement-invariants/easy/1/a89a1f6f570d", "text": "A parallelogram is enlarged from a centre of enlargement O with a scale factor …"}
 {"answer": "48", "id": "f10-enlargement-invariants/easy/2/101f43e76585", "text": "A triangle is enlarged from a centre of enlargement O with a scale factor of 3.…"}
@@ -3403,6 +3412,15 @@
 {"answer": "Option A", "id": "f10-pick-the-matching-view/medium/0/721f94f1a1f2", "text": "The plan view of Priya's building is shown, with the number of cubes stacked in…"}
 {"answer": "Option C", "id": "f10-pick-the-matching-view/medium/1/34d9d0ed0164", "text": "Leila builds a tower from identical cubes. The plan view shows the number of cu…"}
 {"answer": "Option D", "id": "f10-pick-the-matching-view/medium/2/3fd81cfeedd5", "text": "The plan view of Kofi's block model is shown, with the number of cubes stacked …"}
+{"answer": "(0, 0)", "id": "f10-place-objects-from-position-words/easy/0/5492204ac8a8", "text": "The lighthouse goes just left of the church. Shade its square."}
+{"answer": "(1, 0)", "id": "f10-place-objects-from-position-words/easy/1/fd818ac15418", "text": "The school goes between the aeroplane and the hospital. Shade its square."}
+{"answer": "(0, 1)", "id": "f10-place-objects-from-position-words/easy/2/0ba8236b36c2", "text": "Where does the aeroplane go? Just above the school. Shade it."}
+{"answer": "(2, 2) (3, 2)", "id": "f10-place-objects-from-position-words/hard/0/c2b8f4fb8b15", "text": "Shade the tent just below the church, and the school just right of the tent."}
+{"answer": "(4, 1) (4, 2)", "id": "f10-place-objects-from-position-words/hard/1/de86363b144c", "text": "Shade both: the tent just below the school, the church just below the tent."}
+{"answer": "(3, 0) (3, 1)", "id": "f10-place-objects-from-position-words/hard/2/3fdac1bd005c", "text": "Shade the tent just right of the hospital, then the church just below the tent."}
+{"answer": "(0, 2)", "id": "f10-place-objects-from-position-words/medium/0/3be8c5b91a2f", "text": "Shade the lighthouse. It is between the tent and the house."}
+{"answer": "(4, 1)", "id": "f10-place-objects-from-position-words/medium/1/0c0c6129b1fd", "text": "Shade the tent. It is just above the lighthouse and just right of the school."}
+{"answer": "(0, 0)", "id": "f10-place-objects-from-position-words/medium/2/475e8b43927d", "text": "Shade the church. It is just left of the tent and just below the lighthouse."}
 {"answer": "21", "id": "f10-plan-views-cube-stacks/easy/0/9e3f36a3a51a", "text": "A wall is made of identical cubes stacked in columns. The plan view shows the n…"}
 {"answer": "25", "id": "f10-plan-views-cube-stacks/easy/1/255eb310af91", "text": "Aiko stacks identical cubes to make a structure. Each number on the plan view i…"}
 {"answer": "20", "id": "f10-plan-views-cube-stacks/easy/2/4faccaee6616", "text": "The plan view of Marcus's block model is shown. The number in each square is th…"}
@@ -9169,6 +9187,15 @@
 {"answer": "Place A", "id": "senior-latitude-longitude-grid-places/medium/0/09857544a896", "text": "Each square on the map grid is 10 degrees. Which place is at 10°N, 20°E?"}
 {"answer": "Place B", "id": "senior-latitude-longitude-grid-places/medium/1/b3fffeaaa430", "text": "Find the place at latitude 10°N and longitude 20°W. Each square is 10 degrees."}
 {"answer": "Place D", "id": "senior-latitude-longitude-grid-places/medium/2/1984a1871ac2", "text": "Four places are marked on the map grid, which has a line every 10 degrees. Whic…"}
+{"answer": "(-40, 160)", "id": "senior-latitude-longitude-typed-coordinates/easy/0/d29f59526144", "text": "A map has a line every 10 degrees. Type the latitude and longitude of place B. …"}
+{"answer": "(-50, 70)", "id": "senior-latitude-longitude-typed-coordinates/easy/1/6b1b0530eecd", "text": "Find place C on the map grid. Which latitude and longitude is it at? Answer as …"}
+{"answer": "(-30, 110)", "id": "senior-latitude-longitude-typed-coordinates/easy/2/1ecb7ad4d6b6", "text": "Find place A on the map grid. Which latitude and longitude is it at? Answer as …"}
+{"answer": "(-40, 60)", "id": "senior-latitude-longitude-typed-coordinates/hard/0/999dfb831e20", "text": "A map has a line every 10 degrees. Starting from place A, go 50 degrees south a…"}
+{"answer": "(-10, 0)", "id": "senior-latitude-longitude-typed-coordinates/hard/1/3d107cae77fe", "text": "Each square on the map grid is 10 degrees. What is the position of the place ha…"}
+{"answer": "(0, -10)", "id": "senior-latitude-longitude-typed-coordinates/hard/2/d0860a83c826", "text": "Places A and B are marked on a map grid with a line every 10 degrees. Find the …"}
+{"answer": "(40, 0)", "id": "senior-latitude-longitude-typed-coordinates/medium/0/bf32575b8593", "text": "Place B and place A are marked on the map grid. What is the position of the pla…"}
+{"answer": "(-10, -20)", "id": "senior-latitude-longitude-typed-coordinates/medium/1/adefd92cf6c9", "text": "A map has a line every 10 degrees. Give the position of the place with the lati…"}
+{"answer": "(40, -10)", "id": "senior-latitude-longitude-typed-coordinates/medium/2/9bfe74378cab", "text": "Each square on the map grid is 10 degrees. A new place is on the same line of l…"}
 {"answer": "x = 1, y = 5", "id": "senior-midpoints-of-the-sides-of-a-quadrilateral-join/easy/0/beba2f9c7155", "text": "Quadrilateral ABCD has vertices A(1, 5), B(5, 1) and C(3, 1); the fourth vertex…"}
 {"answer": "x = -1, y = 5", "id": "senior-midpoints-of-the-sides-of-a-quadrilateral-join/easy/1/306c3588c4d3", "text": "Quadrilateral ABCD has vertices A(1, 2), B(5, 0) and C(3, 0); the fourth vertex…"}
 {"answer": "x = 3, y = 5", "id": "senior-midpoints-of-the-sides-of-a-quadrilateral-join/easy/2/15d191947eb9", "text": "Quadrilateral ABCD has vertices A(2, 4), B(2, 0) and C(4, 2); the fourth vertex…"}
@@ -9253,6 +9280,18 @@
 {"answer": "$301.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/medium/0/b7d7e51b9287", "text": "A person earns $556.00 per week. Their fixed weekly expenses are $23.00 for ren…"}
 {"answer": "$184.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/medium/1/4a16cdc8c261", "text": "A person earns $551.00 per week. Their fixed weekly expenses are $25.00 for ren…"}
 {"answer": "$352.00", "id": "senior-prepare-a-personal-budget-for-a-given-income/medium/2/ae99f3ed2c2e", "text": "A person earns $764.00 per week. Their fixed weekly expenses are $84.00 for ren…"}
+{"answer": "270.00", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/0/68b9d1ff9d06", "text": "The graph shows a household's gas bill for one quarter. According to the graph,…"}
+{"answer": "580.00", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/1/5a8abdfc74de", "text": "Use the graph. The graph shows a household's water bill for one quarter. Find t…"}
+{"answer": "20.00", "id": "senior-read-a-piece-wise-linear-cost-graph/easy/2/441f5e986579", "text": "The graph shows the fare for a taxi trip. According to the graph, how many doll…"}
+{"answer": "(a) 320.00; (b) 2.10; (c) 150; (d) 395.00", "id": "senior-read-a-piece-wise-linear-cost-graph/exam/0/2bf46e49236e", "text": "The graph shows the quarterly water bill from two water suppliers. Supplier A h…"}
+{"answer": "(a) 230.00; (b) 1.75; (c) 15; (d) 76.25", "id": "senior-read-a-piece-wise-linear-cost-graph/exam/1/ca4b6a8a4e02", "text": "The graph shows the monthly cost of two mobile data plans. Plan A charges $50 p…"}
+{"answer": "(a) 220.00; (b) 0.16; (c) 375; (d) 90.00", "id": "senior-read-a-piece-wise-linear-cost-graph/exam/2/ac75258da87b", "text": "The graph shows the quarterly bill from two electricity retailers. Retailer A c…"}
+{"answer": "170.00", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/0/b1bed711b81f", "text": "The graph shows the monthly cost of a mobile data plan. Suppose the last sectio…"}
+{"answer": "1040", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/1/7ff72cdb59b2", "text": "The graph shows the monthly cost of a mobile phone plan, by the call time used.…"}
+{"answer": "1000", "id": "senior-read-a-piece-wise-linear-cost-graph/hard/2/54681a93747a", "text": "The graph shows a household's electricity bill for one quarter. The bill was $3…"}
+{"answer": "10", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/0/18bd90f8fdd1", "text": "The graph shows the charge for sending a parcel by courier. At what parcel mass…"}
+{"answer": "5.00", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/1/525d5a5a3089", "text": "The graph shows a household's water bill for one quarter. For water used from 5…"}
+{"answer": "250", "id": "senior-read-a-piece-wise-linear-cost-graph/medium/2/91fc50191387", "text": "The graph shows a household's gas bill for one quarter. Find the gas used, in m…"}
 {"answer": "-6", "id": "senior-recognise-acceleration-as-the-second-derivative-of-position/easy/0/ec5480fce37c", "text": "A motion sensor records the position of a particle moving along a straight line…"}
 {"answer": "8", "id": "senior-recognise-acceleration-as-the-second-derivative-of-position/easy/1/0024606d8b8c", "text": "At time t seconds, a lift (elevator) moving up and down a shaft has position s(…"}
 {"answer": "4", "id": "senior-recognise-acceleration-as-the-second-derivative-of-position/easy/2/cc88c5dfc859", "text": "The position of a small robot moving along a straight track at time t seconds i…"}
