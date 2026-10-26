@@ -1,0 +1,57 @@
+id: construct-a-scatterplot
+name: Construct a scatterplot from paired data
+domain: statistics-probability
+year_level: ['12']
+description: 'Plot paired data as a scatterplot on a blank grid. Easy: six pairs listed. Medium: the two variables listed separately, paired by position. Hard: ten pairs with an outlier, or only the pairs that meet a condition. The exam chain plots eight pairs, describes the association, and predicts from a stated line. Distinct from scatterplot-describe-association, which describes a drawn plot.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [plot-a-point-from-coordinates]
+answer: points
+sources:
+- topic: dr1_scatterplot
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dr1_scatterplot
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [3, 4]
+- topic: dr1_scatterplot
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_dr1_scatterplot
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dr1-data-point-omitted
+  description: Leaves out one of the readings, so the graph has a point fewer than the data.
+- id: dr1-pairs-mismatched
+  description: Pairs a value with the wrong partner, so the points do not match the data.
+- id: dr1-association-direction-reversed
+  description: Reads the direction of an association the wrong way round, calling a rising pattern negative or a falling one positive.
+- id: dr1-strength-one-band-off
+  description: Judges the strength of an association one step too weak or too strong for how closely the points follow the pattern.
+- id: dr1-negative-as-weak
+  description: Treats a negative association as a weak one, mixing up direction with strength.
+- id: dr1-fixed-charge-omitted
+  description: Leaves out the fixed starting amount and uses only the rate multiplied by the input.
+- id: dr1-off-by-one
+  description: Reads or counts one unit too many or too few.
+- id: dr1-rate-and-fixed-swapped
+  description: Swaps the fixed amount and the rate, using the rate as the starting amount and the fixed amount as the rate.
+- id: dr1-direction-of-change-reversed
+  description: 'Reverses a rise and a fall: plots a fall where the quantity rises, or the other way round.'
+difficulty_progression:
+  easy: {steps: 1, demand: 'Plot six listed pairs.'}
+  medium: {steps: 2, demand: 'Pair two separate lists by position and plot eight points.'}
+  hard: {steps: 3, demand: 'Plot ten pairs including an outlier, or select the pairs that meet a condition before plotting.'}
+  exam: {steps: 5, demand: 'Chain the scatterplot, a description of the association and a prediction from a stated line.'}
+tags: [acara-senior-v8-4, statistics-probability, scatterplot, bivariate, construct, drawn-answer, figure, dr1_scatterplot, acmgm052]

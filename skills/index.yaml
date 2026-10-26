@@ -820,6 +820,22 @@ constants-coefficients-terms:
     module: mathgen/generators/foundations_algebra.py
   - topic: exd_x_sc3_coefficients_chain
     module: mathgen/generators/exd_x_sc3_coefficients_chain.py
+construct-a-scatterplot:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dr1_scatterplot
+    module: mathgen/generators/dr1_draw_graph_build.py
+  - topic: exd_x_dr1_scatterplot
+    module: mathgen/generators/dr1_draw_graph_build.py
+construct-a-time-series-plot:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dr1_time_series
+    module: mathgen/generators/dr1_draw_graph_build.py
+  - topic: exd_x_dr1_time_series
+    module: mathgen/generators/dr1_draw_graph_build.py
 construct-column-and-picture-graphs:
   domain: statistics-probability
   status: active
@@ -1196,6 +1212,22 @@ dominance-matrix-ranking:
     module: mathgen/generators/r3c_dominance_build.py
   - topic: r3c_dominance_chain
     module: mathgen/generators/r3c_dominance_build.py
+draw-a-graph-from-practical-data:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: dr1_graph_from_data
+    module: mathgen/generators/dr1_draw_graph_build.py
+  - topic: exd_x_dr1_graph_from_data
+    module: mathgen/generators/dr1_draw_graph_build.py
+draw-a-line-graph-from-continuous-data:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dr1_line_graph
+    module: mathgen/generators/dr1_draw_graph_build.py
+  - topic: exd_x_dr1_line_graph
+    module: mathgen/generators/dr1_draw_graph_build.py
 e-as-a-limit-from-a-table:
   domain: differentiation
   status: active
