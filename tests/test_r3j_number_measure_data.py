@@ -115,7 +115,9 @@ def test_deepened_skills_keep_their_old_sources_and_gain_new_ones():
     assert [(s.topic, s.difficulty) for s in classify.sources] == [
         ("w3_classify_easy", "easy"),  # w3 replaced the guessable easy tier
         ("r3j_classify_variable", "medium"),
+        ("ds_classify_ordered", "medium"),  # typed ordered_list tiers, 64 and 256 possible replies
         ("r3j_classify_variable", "hard"),
+        ("ds_classify_ordered", "hard"),
         ("exd_x_r3j_classify_variables", "exam"),
     ]
     ratio = SKILLS["divide-quantity-in-ratio"]

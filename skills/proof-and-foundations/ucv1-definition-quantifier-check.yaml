@@ -27,8 +27,8 @@ sources:
   difficulty: exam
   stages: [exam]
 misconceptions:
-- id: confuses-domain-with-active-domain
-  description: Answers with the set of elements that actually appear as a first coordinate in R, instead of the stated ambient domain A.
+- id: takes-domain-as-whole-source-set
+  description: Answers with the whole set A the relation is from, instead of the set of first coordinates that actually appear in R (the domain of a relation).
 - id: confuses-domain-and-codomain
   description: Swaps the domain and codomain sets when asked for one of them.
 - id: treats-shared-output-as-non-function

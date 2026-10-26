@@ -2097,3 +2097,6 @@
 0.0 tests/test_t4_dms_oracle.py
 0.0 tests/test_t4_pi_form_oracle.py
 0.0 tests/test_text_quality_not_plural.py
+19 tests/test_ds_freq_table.py
+37 tests/test_ds_sample_vs_pop.py
+11 tests/test_ds_shape_variation.py

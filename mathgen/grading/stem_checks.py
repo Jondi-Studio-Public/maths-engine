@@ -21,7 +21,7 @@ Refusals, by what the question or key says:
 Rewrites, for replies that are right but typed in a way the graders do not read:
 
 * thousands separators in a plain numeric key's reply on the expression kind;
-* a root typed twice for a one-root list key, `3, 3` for `x = 3`;
+* a root typed twice for a one-root list key of a polynomial equation (a double root), `3, 3` for `x = 3`;
 * `%` on each item of a list when the question asks for percentages;
 * spaced thousands inside a list whose key has them;
 * `*`, `·` between a number and a letter in a pair-kind equation: `y = -9*x + 4`;
@@ -110,7 +110,12 @@ def _angle_unit_conflicts(question, given: str) -> bool:
             or _PLAIN_VALUE_KEY_RE.match(key) is None
         ):
             return False
-        return bool(_DEGREE_WORD_RE.match(after) or _RADIAN_WORD_RE.match(after) or after.lower() == "t")
+        # "5 t" is a tonne where the stem asks for tonnes; degrees and radians are no mass
+        return bool(
+            _DEGREE_WORD_RE.match(after)
+            or _RADIAN_WORD_RE.match(after)
+            or (after.lower() == "t" and unit_asked != "tonne")
+        )
     if _PI_WORD_RE.search(after) and asked == "degrees":
         return True  # "80.3π" for an angle in degrees
     if after:
@@ -187,7 +192,7 @@ def _dollar_sign_for_cents(question, given: str) -> bool:
 
 # -- percent ----------------------------------------------------------------------------------------------------
 
-_PERCENT_WORD_RE = re.compile(r"%|per[ \t]?cent", _FLAGS)
+_PERCENT_WORD_RE = re.compile(r"%|per[ \t]?cent(?!ile)", _FLAGS)  # "percentile" is no percentage
 _PERCENT_SIGN_END_RE = re.compile(r"(?<=\d)[ \t]*(?:%|per[ \t]?cent)\s*$", _FLAGS)
 _ASKING_ANYWHERE_RE = re.compile(
     r"\b(?:find|calculate|determine|work\s+out|convert|express|estimate|state|give|write|what|how|which|"
@@ -203,13 +208,36 @@ def _asking_text(question) -> str:
     return " ".join(asking) if asking else (sentences[-1] if sentences else "")
 
 
+_MONEY_WORDS_RE = re.compile(
+    r"\$|\bdollars?\b|\bhow\s+much\b|\b(?:cost|price|earn|earned|pay|paid|spend|spent)\b", _FLAGS
+)
+
+
+def _answer_is_money_or_unit(question) -> bool:
+    """Whether the key is an amount of money or a quantity in a unit, whatever percentages the stem quotes."""
+    key = _key(question)
+    if _currency_of(key, key=True) is not None or "$" in key:
+        return True
+    asked = units._asked_unit(question)
+    if asked is not None and asked != "%":
+        return True
+    last = " ".join(_text(question).split("?")[-2:]) if "?" in _text(question) else ""
+    return bool(last) and _MONEY_WORDS_RE.search(last) is not None and "$" in _text(question)
+
+
 def _unasked_percent(question, given: str) -> bool:
-    """ "5%" for the number 5 when the sentences that ask for the answer do not ask for a percentage."""
+    """ "5%" for the number 5 when the sentences that ask for the answer do not ask for a percentage. A money or unit
+    answer judges only the last sentence: "a further 40% ... How much did Ravi earn?" asks for dollars."""
     if _PERCENT_SIGN_END_RE.search(given or "") is None:
         return False
     if _PERCENT_WORD_RE.search(_key(question)):
         return False
-    return _PERCENT_WORD_RE.search(_asking_text(question)) is None
+    if _PERCENT_WORD_RE.search(_asking_text(question)) is None:
+        return True
+    if not _answer_is_money_or_unit(question):
+        return False
+    sentences = [s.strip() for s in units._SENTENCE_RE.findall(_text(question)) if s.strip()]
+    return bool(sentences) and _PERCENT_WORD_RE.search(sentences[-1]) is None
 
 
 # -- a decimal where a fraction is asked ------------------------------------------------------------------------
@@ -444,14 +472,16 @@ def _SPACE_OR_COMMA_THOUSANDS(given: str) -> str:
     return typed._SPACE_GROUP_RE.sub(lambda m: re.sub(r"[^\d.]", "", m.group(0)), text)
 
 
+# An equation of degree two or more, where a root can be double: "x**2 + 18*x + 81 = 0", "(x - 3)(x - 3) = 0".
+_POLYNOMIAL_EQUATION_RE = re.compile(r"\*\*\s*[2-9]|\^\s*[2-9]|[²³⁴]|quadratic|\)\s*\*?\s*\(", re.IGNORECASE)
 _ROOT_SEPARATOR_RE = re.compile(r"\s*(?:,|;|\bor\b|\band\b)\s*", _FLAGS)
 
 
 def _collapse_repeated_root(question, given: str) -> str:
     """ "x = 3 or x = 3", "3, 3" as "x = 3" when the key has the one value: a double root typed twice."""
     key = _key(question)
-    if _ROOT_SEPARATOR_RE.search(key):
-        return given
+    if _ROOT_SEPARATOR_RE.search(key) or not _POLYNOMIAL_EQUATION_RE.search(getattr(question, "text", "") or ""):
+        return given  # a repeated value is a second answer, unless the equation can have a double root
     typed = _typed()
     items = [typed._strip_label(item) for item in _ROOT_SEPARATOR_RE.split(given) if item.strip()]
     if len(items) < 2:

@@ -34,7 +34,7 @@ from dataclasses import asdict, dataclass, field
 from fractions import Fraction
 
 from . import __version__, engine, misconceptions
-from .core import display_question, mcq_options, paper_notation
+from .core import _learner_text, display_question, mcq_options, paper_notation
 from .engine import QuestionChanged  # noqa: F401  (re-exported for callers of grade_reply)
 from .grading.typed import table_prompt
 from .skills import Skill
@@ -130,8 +130,8 @@ def curriculum_codes(skill: Skill) -> list[str]:
 
 
 def year_levels(skill: Skill) -> list[str]:
-    """The school years a skill belongs to ("F", "1" ... "10", "10A"), from its own `year_level` when the library
-    has one, else from its ACARA v9 codes and year tags. Empty when nothing says (senior and university skills)."""
+    """The school years a skill belongs to ("F", "1" ... "10", "10A", or "university"), from its own `year_level` when the
+    library has one, else from its ACARA v9 codes and year tags. Empty when nothing says (some senior skills)."""
     own = getattr(skill, "year_level", None)
     if own:
         return [str(y) for y in (own if isinstance(own, (list, tuple)) else [own])]
@@ -226,7 +226,7 @@ def find_skills(
     include_deferred: bool = False,
 ) -> list[Skill]:
     """Skills matching every filter given, in library order. `text` matches the id, name or description, ignoring
-    case; `code` is an ACARA code or a prefix of one (`AC9M8` for every Year 8 code); `year` is "F", "1" ... "10A"."""
+    case; `code` is an ACARA code or a prefix of one (`AC9M8` for every Year 8 code); `year` is "F", "1" ... "10", "10A" or "university", in any case."""
     needle = text.casefold() if text else None
     code_prefix = code.upper() if code else None
     hits = []
@@ -235,7 +235,7 @@ def find_skills(
             continue
         if domain and skill.domain != domain:
             continue
-        if year and str(year).upper() not in year_levels(skill):
+        if year and str(year).strip().casefold() not in {y.casefold() for y in year_levels(skill)}:
             continue
         if code_prefix and not any(c.startswith(code_prefix) for c in curriculum_codes(skill)):
             continue
@@ -623,7 +623,12 @@ def _option_reply(item, reply):
     if text in options:
         return options.index(text)
     folded = [i for i, option in enumerate(options) if option.casefold() == text.casefold()]
-    return folded[0] if len(folded) == 1 else reply
+    if len(folded) == 1:
+        return folded[0]
+    # The text as the page showed it (en dash, ×, superscripts, ≥), when it names exactly one option.
+    shown = [" ".join(str(option).split()).casefold() for option in [_learner_text(o) for o in mcq_options(item)]]
+    seen = [i for i, option in enumerate(shown) if option == text.casefold()]
+    return seen[0] if len(seen) == 1 else reply
 
 
 def grade_reply(lib: Library, qid: str, reply, *, reveal: bool = False) -> dict:

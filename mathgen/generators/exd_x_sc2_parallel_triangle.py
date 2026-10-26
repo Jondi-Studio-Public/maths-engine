@@ -136,7 +136,7 @@ def exd_x_sc2_parallel_triangle(rng: random.Random, tier: str = "exam") -> dict:
                 marks=1,
                 sensible_range=(0, 180),
                 follow_through=f"{c}*part_a + ({d})",
-                working=[f"Angle PQR = {_expr(c, d)} = {c}({x}) + ({d}) = {alpha}°."],
+                working=[f"Angle PQR = {_expr(c, d)} = {c}({x}) {'+' if d >= 0 else '−'} {abs(d)} = {alpha}°."],
                 distractors=alpha_dis,
             ),
             dict(

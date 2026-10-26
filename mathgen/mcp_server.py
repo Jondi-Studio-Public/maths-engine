@@ -241,7 +241,7 @@ def build_server(
     @server.tool(annotations=read_only)
     def find_skills(
         text: Annotated[Text, Field(description="Words in the skill's id, name or description.")] = None,
-        year: Annotated[Text, Field(description='School year: "F", "1" ... "10", "10A".')] = None,
+        year: Annotated[Text, Field(description='School year: "F", "1" ... "10", "10A", or "university".')] = None,
         code: Annotated[
             Text,
             Field(description='An ACARA code or its start: "AC9M8N01", "AC9M8" for all of Year 8, "ACMMM092".'),
@@ -291,7 +291,7 @@ def build_server(
         str | None, Field(description="One of the skill's `sources` (a difficulty or source key).", max_length=100)
     ]
     Typed = Annotated[str, Field(max_length=2000)]
-    Index = Annotated[int, Field(ge=-(10**15), le=10**15)]
+    Index = Annotated[int, Field(ge=-(10**15), le=10**15, strict=True)]  # strict: `true` is not option 1
     Reply = Annotated[
         Typed | Index | Annotated[dict[Annotated[str, Field(max_length=20)], Typed | Index], Field(max_length=26)],
         Field(

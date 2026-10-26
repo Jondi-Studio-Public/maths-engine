@@ -369,7 +369,7 @@ def _hard_surd(rng):
     enough(cands)
     expr = f"{join_terms([(A, 'x^2'), (B, 'x'), (C, '')])} {op} 0"
     work = [
-        f"Divide by {A} if needed and complete the square: (x {'-' if h > 0 else '+'} {abs(h)})^2 = {d} gives x = {h} ± √{d}."
+        f"{'Complete' if A == 1 else f'Divide by {A} if needed and complete'} the square: (x {'-' if h > 0 else '+'} {abs(h)})^2 = {d} gives x = {h} ± √{d}."
         if h
         else f"x^2 = {d} gives x = ±√{d}.",
         f"The parabola opens upward, so the relation {op} 0 gives: {fields['answer_text']}.",

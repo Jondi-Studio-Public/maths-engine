@@ -204,7 +204,7 @@ def read_matrix(text: str) -> list[list] | None:
     text = _LATEX_END_RE.sub("]", _LATEX_BEGIN_RE.sub("[", _LATEX_SIZING_RE.sub(" ", text)))
     text = _LATEX_FRAC_RE.sub(r"(\1)/(\2)", text)
     text = text.replace("\\\\", ";").replace("&", ",").replace("\\cdot", "*").replace("\\times", "×")
-    text = text.translate(_ANGLE_BRACKETS).strip().rstrip(".")
+    text = text.replace("\u2013", "-").translate(_ANGLE_BRACKETS).strip().rstrip(".")  # an en dash is a minus here
     text = _LABEL_RE.sub("", text, count=1)
     transposed = _TRANSPOSE_SUFFIX_RE.search(text) is not None
     if transposed:
@@ -305,4 +305,83 @@ def grade_matrix(question, given: str) -> GradeResult:
     return GradeResult(correct=matrices_match(read, expected, form), canonical=canonical, given_normalised=normalised)
 
 
-__all__ = ["grade_matrix", "matrices_match", "matrix_latex", "matrix_text", "read_matrix", "vector_text"]
+# ---------------------------------------------------------------------------------------------- column basis
+#
+# "Which columns of A form a basis for its column space?" has many right answers: any rank-many linearly independent
+# columns, not only the pivot columns. `question.answer` is {"matrix": rows, "rank": r, "pivots": [1, 3]}: the matrix
+# the question shows (exact ints, Fractions or {"p", "q"}), its rank, and the pivot columns (1-based) as the worked
+# key. A reply names columns by number, in any order: `1, 3`, `{1, 3}`, `columns 1 and 3`, `c1, c3`.
+
+_COLUMN_WORD_RE = re.compile(r"(?<![A-Za-z])(?:columns?|cols?|and|the|c)(?![A-Za-z])", re.IGNORECASE)
+_COLUMN_LIST_RE = re.compile(r"\d{1,3}(?:[\s,;]+\d{1,3})*")
+
+
+def column_basis_answer(rows, pivots) -> dict:
+    """`Question.answer` for a ``column_basis`` question: the matrix, its rank and the pivot columns (1-based)."""
+    rows = answer_rows(rows)
+    matrix = sympy.Matrix(rows)
+    rank = matrix.rank()
+    pivots = [int(c) for c in pivots]
+    if not pivots or len(pivots) != rank or not _independent(rows, pivots) or max(pivots) > matrix.cols:
+        raise ValueError("the pivot columns must be rank-many independent columns of the matrix")
+    return {
+        "matrix": [[int(v) if v.is_Integer else str(v) for v in row] for row in rows],
+        "rank": int(rank),
+        "pivots": sorted(pivots),
+    }
+
+
+def _independent(rows, columns: list[int]) -> bool:
+    """Whether the 1-based `columns` of the matrix are linearly independent (exact)."""
+    picked = sympy.Matrix([[row[c - 1] for c in columns] for row in rows])
+    return picked.rank() == len(columns)
+
+
+def is_column_basis(answer, columns: list[int]) -> bool:
+    """Whether `columns` (1-based, no repeats) are a basis of the column space of the answer's matrix."""
+    rows = answer_rows(answer["matrix"])
+    n = len(rows[0])
+    return (
+        len(columns) == answer["rank"]
+        and len(set(columns)) == len(columns)
+        and all(1 <= c <= n for c in columns)
+        and _independent(rows, columns)
+    )
+
+
+def read_column_numbers(text: str) -> list[int] | None:
+    """The column numbers a reply names, in the order written, or None if it is anything but a list of them."""
+    if not isinstance(text, str) or not text.strip() or len(text) > 200:
+        return None
+    text = _COLUMN_WORD_RE.sub(" ", text.replace("\u2212", "-"))
+    text = text.translate({ord(c): " " for c in "{}[]()<>"}).strip().rstrip(".").strip()
+    if not _COLUMN_LIST_RE.fullmatch(text):
+        return None
+    return [int(v) for v in re.findall(r"\d+", text)]
+
+
+@_multi_part_aware
+def grade_column_basis(question, given: str) -> GradeResult:
+    canonical = getattr(question, "answer_text", "")
+    answer = question.answer
+    if not (isinstance(answer, dict) and {"matrix", "rank"} <= set(answer)):
+        raise ValueError("a column_basis answer needs a matrix and its rank")
+    columns = read_column_numbers(given)
+    if columns is None:
+        return GradeResult(correct=False, canonical=canonical)
+    return GradeResult(
+        correct=is_column_basis(answer, columns),
+        canonical=canonical,
+        given_normalised=", ".join(map(str, sorted(columns))),
+    )
+
+
+__all__ = [
+    "grade_column_basis",
+    "grade_matrix",
+    "matrices_match",
+    "matrix_latex",
+    "matrix_text",
+    "read_matrix",
+    "vector_text",
+]

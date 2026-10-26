@@ -18,7 +18,7 @@ from .interactive import (
     grade_number_line_set,
     grade_polygon,
 )
-from .matrix import grade_matrix
+from .matrix import grade_column_basis, grade_matrix
 from .open_response import grade_open_response
 from .chain import grade_step_chain
 
@@ -26,6 +26,7 @@ from .chain import grade_step_chain
 GRADERS["grid_cells"] = grade_grid_cells
 GRADERS["inequality"] = grade_inequality
 GRADERS["matrix"] = grade_matrix
+GRADERS["column_basis"] = grade_column_basis  # any rank-many independent columns of a matrix: matrix.py
 GRADERS["half_planes"] = grade_half_planes
 GRADERS["line_graph"] = grade_line_graph
 GRADERS["number_line_set"] = grade_number_line_set

@@ -14,8 +14,8 @@ context. Set the way a school exam sets it:
 
 Both numbers are two or three digits and are drawn so that neither rounds on a tie. The estimate is between
 5% and 40% out, so the percentage in (d) is a real calculation and the stated answer in (b) is judged by size, not
-by matching digits. The stated answer in (b) is one of three kinds, each equally likely: close to the exact value
-(reasonable), about ten times the exact value, or about a tenth of it. The oracle in the test re-derives the
+by matching digits. The stated answer in (b) is one of three kinds, each equally likely: within 8% of the estimate
+(reasonable), or about ten times the estimate, or about a tenth of it. The oracle in the test re-derives the
 verdict from the estimate alone.
 
 ## Distractors, each one error of its own part
@@ -232,13 +232,16 @@ def _draw(rng, ctx):
         return a, b, exact, est, int(round_half_up(pct))
 
 
-def _stated(rng, kind: str, exact: int) -> int:
-    """A calculator answer of the given kind: close to the exact value, but not equal to it."""
-    nudge = rng.choice((-1, 1)) * rng.randint(2, 8)
-    base = {"ok": Fraction(exact), "large": Fraction(exact * 10), "small": Fraction(exact, 10)}[kind]
-    value = int(round_half_up(base * (100 + nudge) / 100))
-    check(value != exact and value >= 10, "the stated answer is not a distinct two-figure value")
-    return value
+def _stated(rng, kind: str, exact: int, est: int) -> int:
+    """A calculator answer of the given kind, within 2% to 8% of the estimate (reasonable), of ten times it or of a
+    tenth of it, and never equal to the exact value. Every reasonable answer is within 8% of the estimate, and every
+    other is at least 8 times or at most an eighth of it, so no stated answer is a borderline call."""
+    base = {"ok": Fraction(est), "large": Fraction(est * 10), "small": Fraction(est, 10)}[kind]
+    for _ in attempts(100, "a stated answer that is not the exact value"):
+        nudge = rng.choice((-1, 1)) * rng.randint(2, 8)
+        value = int(round_half_up(base * (100 + nudge) / 100))
+        if value != exact and value >= 10:
+            return value
 
 
 def _money(ctx, n: int) -> str:
@@ -254,7 +257,7 @@ def exd_x_em003_reasonableness_chain(rng, tier: str = "exam"):
         ctx = rng.choice(_CONTEXTS)
         a, b, exact, est, pct = _draw(rng, ctx)
         kind = rng.choice(("ok", "large", "small"))
-        stated = _stated(rng, kind, exact)
+        stated = _stated(rng, kind, exact, est)
         key = {"ok": _REASONABLE, "large": _LARGE, "small": _SMALL}[kind]
         ra, rb = _round1(a), _round1(b)
         gap = abs(est - exact)

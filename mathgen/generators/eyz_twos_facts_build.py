@@ -252,7 +252,7 @@ _SCENES = (
         stem="{name} has {p} pairs of {things}. There are 2 {things} in each pair.",
         a="How many {things} does {name} have?",
         b="{name} buys {q} more pairs. How many {things} now?",
-        c="{name} shares them equally with a sister. How many each?",
+        c="{name} puts them equally into 2 drawers. How many in each drawer?",
         things=("socks", "gloves", "shoes", "earrings"),
     ),
     dict(

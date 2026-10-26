@@ -49,6 +49,7 @@ ANSWER_KINDS = frozenset(
         "edges",
         "open_response",
         "step_chain",
+        "column_basis",
     }
 )
 
