@@ -219,19 +219,28 @@ jobs:
     if: needs.changes.outputs.code == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    # 3.12 is the version the full suite runs on. 3.13 is also claimed in pyproject.toml, so the fast public
+    # tests and the generator speed check run on it too; ci-ok reads this job's result as one.
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13"]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: |
             pyproject.toml
             .github/requirements-ci.txt
       - run: pip install -e ".[dev]"
       - run: python scripts/check_generator_speed.py
+      - name: Public tests on this Python
+        if: matrix.python-version != '3.12'
+        run: python -m pytest tests/public -q -n auto
 
   secrets:
     # gitleaks over the whole history and then over the final tree. A pull request must not be able
