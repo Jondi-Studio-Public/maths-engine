@@ -218,10 +218,12 @@ def test_scatter_exam_oracles():
         pts = q.parts[0].answer
         assert len(pts) == 8 and len({x for x, _ in pts}) == 8
         r = correlation([x for x, _ in pts], [y for _, y in pts])
-        assert abs(r) >= 0.82
-        assert q.parts[1].answer_text == ("strong positive" if r > 0 else "strong negative")
-        rising = re.search(r"y = (\d*)x \+ (\d+)", q.text)
-        falling = re.search(r"y = (\d+) - (\d*)x", q.text)
+        band = "strong" if abs(r) >= 0.75 else "moderate" if abs(r) >= 0.5 else "weak"
+        assert 0.55 <= abs(r) <= 0.7 or abs(r) >= 0.82, r  # clear of the 0.5 and 0.75 band edges
+        assert q.parts[1].answer_text == f"{band} {'positive' if r > 0 else 'negative'}"
+        assert "line of best fit" not in q.text.split("(a)")[0] and "line of best fit" in q.parts[2].prompt
+        rising = re.search(r"y = (\d*)x \+ (\d+)", q.parts[2].prompt)
+        falling = re.search(r"y = (\d+) - (\d*)x", q.parts[2].prompt)
         if rising:
             m, c = int(rising.group(1) or 1), int(rising.group(2))
         else:
@@ -275,3 +277,16 @@ def test_polyline_key_needs_every_reading():
         assert grade(sup.skill_of("construct-a-time-series-plot"), q, text(pts[::-1])).correct
         assert not grade(sup.skill_of("construct-a-time-series-plot"), q, text(pts[:-1])).correct
         assert not grade(sup.skill_of("construct-a-time-series-plot"), q, text([pts[1], pts[0], *pts[2:]])).correct
+
+
+def test_scatter_exam_strengths_vary_and_cycle_is_not_in_the_stem():
+    bands = {sup.exam("exd_x_dr1_scatterplot", s).parts[1].answer_text.split()[0] for s in range(80)}
+    assert bands == {"strong", "moderate"}
+    for s in range(40):
+        q = sup.exam("exd_x_dr1_time_series", s)
+        assert "repeats every" not in q.text.split("(a)")[0] and f"Every {q.parts[1].answer_text} " not in q.text
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium"])
+def test_practical_data_questions_vary(tier):
+    assert len({sup.single("dr1_graph_from_data", tier, s).text for s in range(300)}) >= 150

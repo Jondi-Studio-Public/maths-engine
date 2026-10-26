@@ -27,6 +27,7 @@ changes, a correlation recomputed). Every wrong reply is checked against the rea
 
 from __future__ import annotations
 
+import statistics
 from math import ceil
 
 from .. import figures
@@ -63,7 +64,7 @@ def _unknown_tier(tier: str):
 
 
 def _grid_step(top: int) -> int:
-    return 1 if top <= 20 else 2 if top <= 40 else 5
+    return 1 if top <= 30 else 2 if top <= 50 else 5
 
 
 def _blank(alt, x_max, y_max, *, reply, tool, x_label, y_label, count):
@@ -507,8 +508,8 @@ _RULES = (
         x_one="kilometre",
         y_label="Fare ($)",
         x_label="Distance (km)",
-        fixed=(2, 3, 4, 5, 6),
-        rate=(2, 3, 4),
+        fixed=(2, 3, 4, 5, 6, 7, 8),
+        rate=(2, 3, 4, 5),
         story="A taxi charges a flagfall of ${fixed} plus ${rate} for each kilometre.",
     ),
     dict(
@@ -520,8 +521,8 @@ _RULES = (
         x_one="hour",
         y_label="Cost ($)",
         x_label="Time (hours)",
-        fixed=(4, 5, 6, 8),
-        rate=(3, 4, 5),
+        fixed=(3, 4, 5, 6, 7, 8, 9),
+        rate=(2, 3, 4, 5),
         story="A kayak hire shop charges a booking fee of ${fixed} plus ${rate} for each hour.",
     ),
     dict(
@@ -533,9 +534,48 @@ _RULES = (
         x_one="gigabyte",
         y_label="Bill ($)",
         x_label="Data used (GB)",
-        fixed=(5, 6, 8, 10),
-        rate=(2, 3, 4),
+        fixed=(5, 6, 7, 8, 9, 10),
+        rate=(2, 3, 4, 5),
         story="A phone plan has a monthly fee of ${fixed} plus ${rate} for each gigabyte of data used.",
+    ),
+    dict(
+        item="a plumber's visit",
+        fixed_word="call-out fee",
+        fixed_unit="$",
+        x_name="time",
+        x_unit="hours",
+        x_one="hour",
+        y_label="Charge ($)",
+        x_label="Time (hours)",
+        fixed=(5, 6, 8, 9, 10),
+        rate=(2, 3, 4, 5),
+        story="A plumber charges a call-out fee of ${fixed} plus ${rate} for each hour of work.",
+    ),
+    dict(
+        item="printing posters",
+        fixed_word="set-up fee",
+        fixed_unit="$",
+        x_name="posters",
+        x_unit="posters",
+        x_one="poster",
+        y_label="Cost ($)",
+        x_label="Posters printed",
+        fixed=(3, 4, 6, 7, 9),
+        rate=(2, 3, 4, 5),
+        story="A print shop charges a set-up fee of ${fixed} plus ${rate} for each poster printed.",
+    ),
+    dict(
+        item="a gym visit pass",
+        fixed_word="entry fee",
+        fixed_unit="$",
+        x_name="visits",
+        x_unit="visits",
+        x_one="visit",
+        y_label="Total cost ($)",
+        x_label="Visits",
+        fixed=(4, 5, 7, 8, 10),
+        rate=(2, 3, 4, 5),
+        story="A gym charges a joining fee of ${fixed} plus ${rate} for each visit.",
     ),
 )
 
@@ -587,9 +627,10 @@ def _data_question(rng, text, pts, fixed, rate, xs, alt, rule, working):
 
 def _data_easy(rng):
     rule, fixed, rate, n = _rule_draw(rng)
-    xs = list(range(n + 1))
+    gap = rng.choice((1, 1, 2))
+    xs = [gap * i for i in range(n + 1)] if fixed + rate * gap * n <= 30 else list(range(n + 1))
     pts = [(x, fixed + rate * x) for x in xs]
-    check(all(y2 - y1 == rate for (_, y1), (_, y2) in zip(pts, pts[1:])), "the table is not linear")
+    check(len({y2 - y1 for (_, y1), (_, y2) in zip(pts, pts[1:])}) == 1, "the table is not linear")
     x_row = ", ".join(str(x) for x in xs)
     y_row = ", ".join(str(y) for _, y in pts)
     text = phrase(
@@ -888,9 +929,10 @@ _PAIRS = (
 )
 
 
-def _scatter_data(rng, n, *, strong=True, falling=None, ctx=None, outlier=False):
+def _scatter_data(rng, n, *, strong=True, falling=None, ctx=None, outlier=False, band=None):
     """``n`` (x, y) pairs with distinct x. Returns (ctx, pairs, slope, intercept, r)."""
     ctx = ctx or rng.choice(_PAIRS)
+    band = band or ("strong" if strong else "weak")
     if falling is None:
         falling = bool(ctx.get("falling"))
     for _ in attempts(2000, "paired data with a clear association"):
@@ -898,7 +940,7 @@ def _scatter_data(rng, n, *, strong=True, falling=None, ctx=None, outlier=False)
         slope = rng.choice((-1, -1, -2) if falling else (1, 2))
         top = ctx["hi"] if strong else ctx["hi"]
         intercept = rng.randint(1, 4) if slope > 0 else rng.randint(top - 4, top - 1)
-        noise = 1 if strong else 6
+        noise = {"strong": 1, "moderate": 4, "weak": 6}[band]
         ys = [intercept + slope * x + rng.randint(-noise, noise) for x in xs]
         if outlier:
             k = rng.randrange(1, n - 1)
@@ -906,12 +948,13 @@ def _scatter_data(rng, n, *, strong=True, falling=None, ctx=None, outlier=False)
         if not all(1 <= y <= top + (9 if outlier else 4) for y in ys) or len(set(ys)) < max(4, n - 3):
             continue
         r = corr(xs, ys)
-        if strong and abs(r) >= 0.82 and not outlier:
+        if band == "strong" and outlier and abs(r) >= 0.5:
             return ctx, list(zip(xs, ys)), slope, intercept, r
-        if strong and outlier and abs(r) >= 0.5:
-            return ctx, list(zip(xs, ys)), slope, intercept, r
-        if not strong and 0.15 <= abs(r) <= 0.4:
-            return ctx, list(zip(xs, ys)), slope, intercept, r
+        lo, hi = {"strong": (0.82, 1), "moderate": (0.55, 0.7), "weak": (0.15, 0.4)}[band]
+        if not outlier and lo <= abs(r) <= hi:
+            ls = corr(xs, ys) * statistics.pstdev(ys) / statistics.pstdev(xs)
+            if abs(ls - slope) <= 0.5:  # the line the stem quotes is a fair best fit
+                return ctx, list(zip(xs, ys)), slope, intercept, r
     raise AssertionError  # pragma: no cover
 
 
@@ -1058,23 +1101,25 @@ def exd_x_dr1_scatterplot(rng, tier="exam"):
 
 
 def _scatter_exam(rng):
-    ctx, pts, slope, intercept, r = _scatter_data(rng, 8)
+    band = rng.choice(("strong", "moderate", "moderate"))
+    ctx, pts, slope, intercept, r = _scatter_data(rng, 8, band=band)
     direction = "positive" if slope > 0 else "negative"
     other = "negative" if slope > 0 else "positive"
     x0 = rng.choice([x for x in range(2, 12) if x not in {p[0] for p in pts}] or [13])
     predicted = intercept + slope * x0
     if not 1 <= predicted <= ctx["hi"] + 4:
         raise TooFewDistractors("the prediction is off the grid")
-    key = f"strong {direction}"
+    key = f"{band} {direction}"
+    bands = [b for b in ("strong", "moderate", "weak") if b != band]
     mcq = mcq_part(
         "Describe the association shown by the scatterplot.",
         key,
         1,
-        [f"The points rise" if slope > 0 else "The points fall", f"and lie close to a line: r = {r:.2f}."],
+        [f"The points {'rise' if slope > 0 else 'fall'} and r = {r:.2f}, which is {band}."],
         [
-            (f"strong {other}", "dr1-association-direction-reversed"),
-            (f"weak {direction}", "dr1-strength-one-band-off"),
-            (f"weak {other}", "dr1-negative-as-weak"),
+            (f"{band} {other}", "dr1-association-direction-reversed"),
+            (f"{bands[0]} {direction}", "dr1-strength-one-band-off"),
+            (f"{bands[1]} {direction}", "dr1-strength-one-band-off"),
         ],
     )
     if mcq is None:
@@ -1096,10 +1141,7 @@ def _scatter_exam(rng):
     enough(dp)
     xt = "x" if abs(slope) == 1 else f"{abs(slope)}x"
     line = f"y = {xt} + {intercept}" if slope > 0 else f"y = {intercept} - {xt}"
-    text = (
-        f"Eight {ctx['pop']} were measured. The pairs ({ctx['x']}, {ctx['y']}) are {_pair_list(pts)}. "
-        f"A line of best fit for the data is {line}."
-    )
+    text = f"Eight {ctx['pop']} were measured. The pairs ({ctx['x']}, {ctx['y']}) are {_pair_list(pts)}."
     fig = _blank(
         f"A blank grid for a scatterplot of {ctx['y']} against {ctx['x']}.",
         x_max,
@@ -1124,7 +1166,7 @@ def _scatter_exam(rng):
             ),
             mcq,
             part(
-                f"Use the line of best fit to predict {ctx['y']} when x = {x0}, where x is the {ctx['x']}.",
+                f"A line of best fit for the data is {line}. Use it to predict {ctx['y']} when x = {x0}, where x is the {ctx['x']}.",
                 "number",
                 num_fields(predicted),
                 2,
@@ -1346,12 +1388,12 @@ def _series_exam(rng):
     text = phrase(
         rng,
         (
-            "{intro} The {n} values were {listed}. The pattern repeats every {p} {unit}s and the "
+            "{intro} The {n} values were {listed}. The pattern repeats regularly and the "
             "level changes by the same amount from one {cycle} to the next.",
-            "{intro} A series of {n} values is {listed}. It follows a pattern of {p} {unit}s "
-            "that repeats, and each {cycle} is higher or lower than the last by the same amount.",
-            "Look at this series: {listed}. {intro} Every {p} {unit}s the pattern "
-            "starts again, and the level moves by a fixed amount from {cycle} to {cycle}.",
+            "{intro} A series of {n} values is {listed}. It follows a pattern that repeats, "
+            "and each {cycle} is higher or lower than the last by the same amount.",
+            "Look at this series: {listed}. {intro} The pattern starts again at regular intervals, "
+            "and the level moves by a fixed amount from {cycle} to {cycle}.",
         ),
         intro=ctx["intro"],
         n=n,
