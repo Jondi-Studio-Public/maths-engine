@@ -29,6 +29,7 @@
 250 tests/test_option_rank_spread_128.py::test_key_has_no_fixed_rank_gt_sc
 350 tests/test_option_rank_spread_128.py::test_key_has_no_fixed_rank_nv_nx
 150 tests/test_option_rank_spread_128.py::test_key_has_no_fixed_rank_vm
+60 tests/test_option_rank_spread_128.py::test_key_has_no_fixed_rank_exd_chains
 300 tests/test_key_not_lone_of_kind.py
 282.5 tests/test_mathgen_sweep_default_part_2.py
 272.6 tests/test_mathgen_sweep_default_part_1.py
