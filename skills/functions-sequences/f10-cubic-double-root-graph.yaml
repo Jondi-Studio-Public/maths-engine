@@ -54,7 +54,7 @@ difficulty_progression:
     demand: As the medium tier, and find k from a marked point.
   exam:
     steps: 4
-    demand: Classify the intercepts, find the y-intercept, find the second turning point with the derivative, then its height.
+    demand: Classify the intercepts, find the y-intercept, pick out the turning point that is not on the x-axis from the two given, then find its height.
 misconceptions:
 - id: fr2c-double-root-swapped
   description: Squaring the factor for the x-intercept where the graph crosses the axis instead of the one where it touches.

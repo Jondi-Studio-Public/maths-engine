@@ -110,6 +110,25 @@ WRONG = {
     ],
 }
 
+# One readable reason for each wrong-display tag, for the working lines (the tag itself stays the option note).
+WHY_NOT = {
+    "line-graph-for-categories": "a line graph joins points in order, and categories have no order to join",
+    "histogram-for-categories": "a histogram groups numbers into intervals, and these data are categories, not numbers",
+    "scatterplot-for-one-variable": "a scatterplot needs two variables, and there is only one here",
+    "two-group-display-for-one-group": "a back-to-back display compares two groups, and there is only one group here",
+    "pie-chart-for-numerical-data": "a pie chart shows shares of categories, not a spread of measured numbers",
+    "line-graph-without-a-time-axis": "a line graph suits change over time, and there is no time here",
+    "distribution-display-ignores-time": "a display of the spread of values hides the order in time, which is the point of the question",
+    "histogram-for-two-variables": "a histogram shows one variable, and there are two variables here",
+    "column-graph-for-numerical-pairs": "a column graph shows one value per category, not the link between two measured variables",
+    "scatterplot-for-groups": "a scatterplot shows pairs of numbers, and these data are two groups to compare",
+    "column-graph-hides-individual-values": "a column graph shows only totals and hides the individual values and their spread",
+    "numeric-label-treated-as-measurement": "the numbers are only labels for categories, so they are not measurements to group",
+    "line-graph-because-data-has-dates": "dates alone do not make a line graph suit: the data are a spread of values, not a change over time",
+    "time-treated-as-ordinary-variable": "time is the order along the axis, so it should not be plotted as an ordinary variable against another",
+    "line-graph-for-ordered-pairs-not-time": "the pairs are not in time order, so there is no change over time to follow with a line",
+}
+
 KEY = {
     "A": COLUMN,
     "B": PIE,
@@ -386,7 +405,7 @@ def f10a_data_display_selection(rng: random.Random, tier: str = "easy") -> dict:
         f"The most appropriate display is a {key}.",
     ]
     for d, m in picked:
-        working.append(f"A {d} would not suit: {m.replace('-', ' ')}.")
+        working.append(f"A {d} would not suit: {WHY_NOT[m]}.")
     return dict(
         text=text,
         answer=key,

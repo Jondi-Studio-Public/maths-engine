@@ -59956,6 +59956,261 @@ _ENTRIES += (
         "Finding solutions of (f(x))^2 = c for a negative c, as if a square could be negative.",
         area="graph-features",
     ),
+    CatalogueEntry(
+        "pcx-adds-instead-of-multiplying",
+        "Forms M from the sum of the listed primes plus 1 instead of their product plus 1.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-adds-the-divisor",
+        "Adds the divisor g to C instead of rounding up to the next multiple of g, overshooting the least integer above C that can be written in the form.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-adds-the-remainder",
+        "Adds the remainder to C instead of the amount needed to reach the next multiple of the divisor.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-assumes-half-the-residues-occur",
+        "Takes about half of the remainders mod m to be square remainders without squaring the residues to see which occur.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-counts-the-complement",
+        "Gives C minus the number of multiples of the divisor, the count of integers that cannot be written in the form, when the count that can was asked for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-counts-the-missing-residues",
+        "Gives the number of remainders a square never leaves when the number it can leave was asked for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-counts-the-possible-not-impossible",
+        "Gives the number of remainders a square can leave when the number it can never leave was asked for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-divides-by-a-coefficient",
+        "Divides C by one of the coefficients A or B, as if only multiples of that coefficient could be written in the form, instead of dividing by their common divisor.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-divides-by-the-wrong-factor",
+        "Divides M by the largest prime factor instead of by the smallest prime factor found in the earlier part.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-does-not-reduce-the-remainder",
+        "States the constant c itself as the remainder n squared must leave, without reducing it to a remainder less than m or taking its negative.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-forgets-to-add-one",
+        "Stops at the product of the listed primes, forgetting the plus 1 that makes M leave remainder 1 on division by each of them.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-miscounts-the-residues",
+        "Misses or double counts one of the square remainders when squaring the residues mod m.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-quotient-for-remainder",
+        "Gives the quotient of the division as the remainder.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-remainder-from-above",
+        "Measures the remainder up from the lower multiple of the divisor to C as the gap down from the next multiple, giving the divisor minus the remainder.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-repeats-the-previous-answer",
+        "Writes the earlier part's answer again instead of carrying out the division the part asks for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-reuses-the-claim-constant",
+        "Gives the constant c from the claim as the smallest k, without testing smaller values of k against the square remainders.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-reuses-the-earlier-remainder",
+        "Gives the remainder n squared would need under the assumption as the least k, confusing the remainder with the constant that creates it.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-rounds-up-the-count",
+        "Rounds the number of multiples up instead of down, counting a multiple of the divisor beyond C.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-sign-error-in-congruence",
+        "Moves the constant across the congruence without changing its sign, so n squared is taken to leave remainder c instead of minus c.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-subtracts-instead-of-dividing",
+        "Subtracts the smallest prime factor from M instead of dividing M by it.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-subtracts-one",
+        "Subtracts 1 from the product of the listed primes instead of adding 1.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-cofactor",
+        "Gives the cofactor M divided by its smallest prime factor, when the smallest prime factor itself was asked for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-difference",
+        "Gives the difference of the coefficients as the number dividing A m + B n for every m and n.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-largest-factor",
+        "Gives the largest prime factor of M as the smallest.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-next-integer",
+        "Gives C + 1 as the least integer above C that can be written in the form, without checking that it is a multiple of the divisor.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-smaller-coefficient",
+        "Gives the smaller coefficient as the number dividing A m + B n for every m and n, instead of the largest common divisor of both.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "tgx-adds-a-partial-cycle-solution",
+        "Counts one solution too many by treating the part of a cycle cut off at an end of the domain as if it still held both solutions of the equation.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-adds-one-per-end",
+        "Adds one piece for each end of the domain on top of the pieces the asymptotes make, so counts the pieces at the ends twice.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-asymptotes-not-solutions",
+        "Gives the number of vertical asymptotes as the number of points where tan x = 1.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-minima-not-maxima",
+        "Counts the minimum points when the maximum points were asked for, or rounds the alternation of maxima and minima the other way.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-periods-not-features",
+        "Divides the length of the domain by the period and gives that as the number of points, instead of counting every point of the stated kind including the partial cycles at the ends.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-pieces-for-asymptotes",
+        "Gives the number of separate pieces of the graph as the number of asymptotes, one too many.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-the-end-points",
+        "Includes the end points of the domain among the turning points, although the question asks for x strictly between them.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-turning-points-for-zeros",
+        "Gives the number of turning points as the number of x-intercepts.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-zeros-for-turning-points",
+        "Gives the number of x-intercepts as the number of turning points.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-drops-endpoint-zeros",
+        "Leaves out an x-intercept that lies exactly at an end of the domain, although the question says to count it.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-one-solution-per-piece",
+        "Gives the number of pieces as the number of points where tan x = 1, although the piece cut off at an end of the domain may not reach y = 1.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-rounds-the-alternation-the-wrong-way",
+        "Takes the first and last turning points both to be maxima when counting how many maximum points there are among alternating maxima and minima.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-swaps-sine-and-cosine",
+        "Counts the points for the other of sine and cosine, whose zeros and turning points sit at the other multiples of pi/2.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-swaps-zeros-and-asymptotes",
+        "Swaps the x-intercepts and the vertical asymptotes of the tangent graph, giving the count of one for the other.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-uses-the-maximum-line",
+        "Gives the number of maximum points as the number of points where y = 1/2, mistaking the line y = 1/2 for the line y = 1.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-uses-the-sine-period",
+        "Doubles the number of asymptotes, as though tangent repeated only every 2 pi like sine and cosine instead of every pi.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-uses-the-zero-count",
+        "Repeats the earlier count of x-intercepts, as if the line y = 1/2 or y = 1 met the graph as often as the x-axis does.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-reports-the-sum-in-wrong-units",
+        "Writes the sum of the x-coordinates in the wrong multiple of pi, giving it as a multiple of pi, pi/2 or pi/4 other than the one the question names.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-sign-slip-in-the-sum",
+        "Gives the sum of the x-coordinates with the wrong sign, adding the negative x-values as positive or the reverse.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-sums-the-intercepts-instead",
+        "Adds the x-coordinates of the x-intercepts when the points where y = 1 were asked for.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-sums-the-minima",
+        "Adds the x-coordinates of the minimum points when the maximum points were asked for.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-halves-the-wrong-count",
+        "Gives half of the x-intercept count as the number of maximum points, instead of taking alternate turning points.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "pcx-adds-the-trivial-multiple",
+        "Adds k = m, the trivial value that always works (n = 0), to the smallest k, instead of the second smallest k that works.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-gives-only-the-smallest",
+        "Gives one of the two values of k asked for, instead of their sum.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-next-prime-after-the-list",
+        "Gives the next prime after the largest listed prime as the new prime, without testing whether it divides M.",
+        area="senior-use-proof-by-contradiction",
+    ),
     # -- VCE pseudocode tracing (vm-) ----------------------------------------------------------------------
     CatalogueEntry(
         "vm-bisect-reports-endpoint",
@@ -61064,6 +61319,288 @@ _ENTRIES += (
         "trig-eq-cycles-off-by-one",
         "Being out by a few in the number of periods that fit in the interval, such as counting the end of the interval as a new period.",
         area="trigonometry",
+    ),
+    # -- latitude and longitude (typed positions) --------------------------------------------------------------------
+    CatalogueEntry(
+        "llt-coordinates-swapped",
+        "Writing the longitude first and the latitude second, when a position is written as latitude then longitude.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-wrong-hemisphere-latitude",
+        "Giving the right size of latitude with the wrong sign, so the place is on the wrong side of the equator.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-wrong-side-of-meridian",
+        "Giving the right size of longitude with the wrong sign, so the place is on the wrong side of the prime meridian.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-one-line-out",
+        "Reading the line next to the right one, so a coordinate is 10 degrees too far north, south, east or west.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-roles-swapped",
+        "Taking the latitude from the wrong place and the longitude from the wrong place, so the two are the wrong way round.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-copies-one-place",
+        "Giving the position of one of the marked places instead of combining a coordinate from each.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-sum-not-halved",
+        "Adding the two latitudes and the two longitudes to find the midpoint but not halving the totals.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-averages-sizes-across-zero",
+        "Averaging the sizes of the two coordinates and ignoring their signs, so the midpoint of places on opposite "
+        "sides of the equator or the prime meridian is wrong.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-half-the-difference",
+        "Halving the difference of the two coordinates instead of halving their sum.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-one-coordinate-halved",
+        "Finding the midpoint of only one coordinate and keeping the other from one of the places.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-direction-reversed",
+        "Moving the stated number of degrees the opposite way, south for north or west for east.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-no-crossing-zero",
+        "Stopping at the equator or the prime meridian when a move goes past it, keeping the old sign for the "
+        "left-over degrees.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-offsets-on-wrong-axis",
+        "Applying the north or south move to the longitude and the east or west move to the latitude.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-moves-one-way-only",
+        "Making only one of the two moves, north or south or east or west, and leaving the other coordinate unchanged.",
+        area="latitude-longitude",
+    ),
+    # -- place objects from position words (shaded squares) ------------------------------------------------------
+    CatalogueEntry(
+        "epo-opposite-side",
+        "Puts the picture on the opposite side, such as below when the clue says above.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-covers-a-picture",
+        "Shades the square of a picture that is already there instead of an empty square beside or between.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-one-square-too-far",
+        "Goes one square too far, leaving a gap instead of putting the picture just beside the other.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-beside-not-between",
+        "Shades a square beside one of the two pictures, outside them or off the line between them, not in the square between.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-wrong-reference",
+        "Uses the right position word about the wrong picture, such as above the second picture named instead of the first.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-wrong-axis",
+        "Goes left or right when the clue says above or below, or the other way round.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-places-only-one",
+        "Shades the square of only the first new picture and leaves out the second.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-second-from-wrong-picture",
+        "Puts the second picture beside a picture already drawn instead of beside the first new picture.",
+        area="f10-place-objects-from-position-words",
+    ),
+)
+
+_ENTRIES += (
+    CatalogueEntry(
+        "pwg-breakpoint-for-the-cost",
+        "Gives the usage at the first kink where the cost at no usage, or at a stated usage, was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-breakpoint-for-the-usage",
+        "Gives the usage at the start of the section, the kink, instead of the usage that gives the stated cost.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-average-rate-for-gradient",
+        "Divides the cost at the end of the section by the usage, the average cost per unit, instead of the rise over the run of that section.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-breakpoint-for-the-cost",
+        "Reads the cost at the kink nearest the stated usage instead of the cost at the stated usage.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-breakpoint-for-the-start",
+        "Gives the cost at the first kink where the fixed charge, the cost at no usage, was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-change-for-usage",
+        "Gives the cost at the kink where the usage at the kink was asked, reading up the wrong axis.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-end-for-rate",
+        "Gives the cost at the end of the section where the rate of the section was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-crossing-cost-for-usage",
+        "Gives the cost at the point where the two plans meet where the usage at that point was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-crossing-usage-for-cost",
+        "Gives the usage at the point where the two plans meet where the common cost was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-divides-cost-by-rate",
+        "Divides the stated cost by the rate of a section to find the usage, ignoring the fixed charge or the cost already built up at the kink.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-end-of-graph-for-breakpoint",
+        "Gives the right-hand end of the drawing where a kink or a crossing was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-at-the-wrong-rate",
+        "Continues the last section at the rate of the first section instead of the rate of the last one.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-from-the-fixed-charge",
+        "Continues the line from the fixed charge, adding the last rate for every unit of usage, ignoring the earlier sections.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-from-the-origin",
+        "Multiplies the last rate by the whole usage, as if the graph started at the origin with no fixed charge.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-one-unit-too-far",
+        "Extends the last section by one unit too many or too few.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extra-units-not-multiplied-by-rate",
+        "Adds the number of extra units to the last cost read, instead of the extra units times the rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-first-rate-for-all-units",
+        "Applies the rate of the first section to all of the usage, though part of it lies in a later section with a different rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-fixed-charge-for-breakpoint",
+        "Gives the fixed charge where the usage at which the rate changes was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-fixed-charge-for-rate",
+        "Gives the fixed charge where the rate of a section was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-forgets-the-breakpoint-offset",
+        "Finds only the extra units beyond the kink and does not add the usage at the kink back on.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-kink-for-crossing",
+        "Takes the kink of the two-section plan for the point where the two plans cost the same.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-leaves-out-the-fixed-charge",
+        "Leaves the fixed charge out of a cost read from, or built on, a graph that starts above zero.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-other-breakpoint",
+        "Gives the second kink of a three-section graph where the first change of rate was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-other-section-rate",
+        "Gives the rate of a different section from the one between the stated usages.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-rate-for-one-unit-only",
+        "Adds the rate for one unit to the fixed charge, not the rate times the usage at the crossing.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-rate-left-out",
+        "Adds the usage to the fixed charge, forgetting to multiply the usage by the rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-cost-for-the-usage",
+        "Gives the stated cost back where the usage that gives it was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-neighbouring-gridline",
+        "Reads the graph one gridline away, the neighbouring usage, instead of the stated one.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-other-plan",
+        "Reads the line of the other plan where the plan named in the question was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-rate-for-the-cost",
+        "Gives the rate of the section where a cost was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-usage-for-the-cost",
+        "Gives the stated usage back where the cost at that usage was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-run-for-rate",
+        "Gives the width of the section, the run, where the rise for each extra unit was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-total-change-for-rate",
+        "Gives the total rise in cost over the section instead of the rise for each extra unit.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
     ),
 )
 

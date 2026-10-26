@@ -419,7 +419,7 @@ def _rate_q(rng, ctx, g, fig, intercept):
     first = f"From the first gridline to the last, the line goes from {g['ys'][0]} to {y_end} over {x1}."
     work = [
         first,
-        f"{abs(y_end - g['ys'][0])} / {x1} = {numtext(r / ctx['xs'])} per unit"
+        f"{abs(y_end - g['ys'][0])} ÷ {x1} = {numtext(r / ctx['xs'])} per unit"
         if ctx["xs"] == 1
         else f"The line changes by {g['step']} for each {ctx['gx']}, so by {numtext(r)} for every {ctx['xs']}.",
     ]
@@ -596,7 +596,7 @@ def _journey_q(rng, shape=None):
         ]
         work = [
             f"The total distance is {y3} km and the total time, including the stop, is {t3} hour{'' if t3 == 1 else 's'}.",
-            f"{y3} / {t3} = {numtext(ans)} km/h.",
+            f"{y3} ÷ {t3} = {numtext(ans)} km/h.",
         ]
     return _wrap(text, fig, ans, work, _num_dist(ans, cands))
 
@@ -713,7 +713,7 @@ def dg_real_data_graphs_chain(rng, tier="exam"):
                     r,
                     2,
                     [
-                        f"From 0 to {edge} the value goes from {g['c']} to {y_end}: ({y_end} - {g['c']}) / {edge} = {numtext(r)}."
+                        f"From 0 to {edge} the value goes from {g['c']} to {y_end}: ({y_end} - {g['c']}) ÷ {edge} = {numtext(r)}."
                     ],
                     db,
                     sensible_range=(0, 100),
@@ -722,7 +722,7 @@ def dg_real_data_graphs_chain(rng, tier="exam"):
                     _text(ctx, "extra", edge=edge, X=X),
                     cost,
                     2,
-                    [f"{cur(c)} + {cur(r)} x {X} = {cur(cost)}."],
+                    [f"{cur(c)} + {cur(r)} × {X} = {cur(cost)}."],
                     dc,
                     follow_through=f"part_a + part_b * {X}",
                     sensible_range=(0, 1000),
@@ -733,7 +733,7 @@ def dg_real_data_graphs_chain(rng, tier="exam"):
                     2,
                     [
                         f"Take away the starting charge: {int(budget)} - {numtext(c)} = {numtext(budget - c)}.",
-                        f"{numtext(budget - c)} / {numtext(r)} = {far_x} {noun}.",
+                        f"{numtext(budget - c)} ÷ {numtext(r)} = {far_x} {noun}.",
                     ],
                     dd,
                     follow_through=f"({int(budget)} - part_a) / part_b",
