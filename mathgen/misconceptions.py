@@ -59956,6 +59956,261 @@ _ENTRIES += (
         "Finding solutions of (f(x))^2 = c for a negative c, as if a square could be negative.",
         area="graph-features",
     ),
+    CatalogueEntry(
+        "pcx-adds-instead-of-multiplying",
+        "Forms M from the sum of the listed primes plus 1 instead of their product plus 1.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-adds-the-divisor",
+        "Adds the divisor g to C instead of rounding up to the next multiple of g, overshooting the least integer above C that can be written in the form.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-adds-the-remainder",
+        "Adds the remainder to C instead of the amount needed to reach the next multiple of the divisor.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-assumes-half-the-residues-occur",
+        "Takes about half of the remainders mod m to be square remainders without squaring the residues to see which occur.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-counts-the-complement",
+        "Gives C minus the number of multiples of the divisor, the count of integers that cannot be written in the form, when the count that can was asked for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-counts-the-missing-residues",
+        "Gives the number of remainders a square never leaves when the number it can leave was asked for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-counts-the-possible-not-impossible",
+        "Gives the number of remainders a square can leave when the number it can never leave was asked for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-divides-by-a-coefficient",
+        "Divides C by one of the coefficients A or B, as if only multiples of that coefficient could be written in the form, instead of dividing by their common divisor.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-divides-by-the-wrong-factor",
+        "Divides M by the largest prime factor instead of by the smallest prime factor found in the earlier part.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-does-not-reduce-the-remainder",
+        "States the constant c itself as the remainder n squared must leave, without reducing it to a remainder less than m or taking its negative.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-forgets-to-add-one",
+        "Stops at the product of the listed primes, forgetting the plus 1 that makes M leave remainder 1 on division by each of them.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-miscounts-the-residues",
+        "Misses or double counts one of the square remainders when squaring the residues mod m.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-quotient-for-remainder",
+        "Gives the quotient of the division as the remainder.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-remainder-from-above",
+        "Measures the remainder up from the lower multiple of the divisor to C as the gap down from the next multiple, giving the divisor minus the remainder.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-repeats-the-previous-answer",
+        "Writes the earlier part's answer again instead of carrying out the division the part asks for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-reuses-the-claim-constant",
+        "Gives the constant c from the claim as the smallest k, without testing smaller values of k against the square remainders.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-reuses-the-earlier-remainder",
+        "Gives the remainder n squared would need under the assumption as the least k, confusing the remainder with the constant that creates it.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-rounds-up-the-count",
+        "Rounds the number of multiples up instead of down, counting a multiple of the divisor beyond C.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-sign-error-in-congruence",
+        "Moves the constant across the congruence without changing its sign, so n squared is taken to leave remainder c instead of minus c.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-subtracts-instead-of-dividing",
+        "Subtracts the smallest prime factor from M instead of dividing M by it.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-subtracts-one",
+        "Subtracts 1 from the product of the listed primes instead of adding 1.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-cofactor",
+        "Gives the cofactor M divided by its smallest prime factor, when the smallest prime factor itself was asked for.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-difference",
+        "Gives the difference of the coefficients as the number dividing A m + B n for every m and n.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-largest-factor",
+        "Gives the largest prime factor of M as the smallest.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-next-integer",
+        "Gives C + 1 as the least integer above C that can be written in the form, without checking that it is a multiple of the divisor.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-smaller-coefficient",
+        "Gives the smaller coefficient as the number dividing A m + B n for every m and n, instead of the largest common divisor of both.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "tgx-adds-a-partial-cycle-solution",
+        "Counts one solution too many by treating the part of a cycle cut off at an end of the domain as if it still held both solutions of the equation.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-adds-one-per-end",
+        "Adds one piece for each end of the domain on top of the pieces the asymptotes make, so counts the pieces at the ends twice.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-asymptotes-not-solutions",
+        "Gives the number of vertical asymptotes as the number of points where tan x = 1.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-minima-not-maxima",
+        "Counts the minimum points when the maximum points were asked for, or rounds the alternation of maxima and minima the other way.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-periods-not-features",
+        "Divides the length of the domain by the period and gives that as the number of points, instead of counting every point of the stated kind including the partial cycles at the ends.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-pieces-for-asymptotes",
+        "Gives the number of separate pieces of the graph as the number of asymptotes, one too many.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-the-end-points",
+        "Includes the end points of the domain among the turning points, although the question asks for x strictly between them.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-turning-points-for-zeros",
+        "Gives the number of turning points as the number of x-intercepts.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-counts-zeros-for-turning-points",
+        "Gives the number of x-intercepts as the number of turning points.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-drops-endpoint-zeros",
+        "Leaves out an x-intercept that lies exactly at an end of the domain, although the question says to count it.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-one-solution-per-piece",
+        "Gives the number of pieces as the number of points where tan x = 1, although the piece cut off at an end of the domain may not reach y = 1.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-rounds-the-alternation-the-wrong-way",
+        "Takes the first and last turning points both to be maxima when counting how many maximum points there are among alternating maxima and minima.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-swaps-sine-and-cosine",
+        "Counts the points for the other of sine and cosine, whose zeros and turning points sit at the other multiples of pi/2.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-swaps-zeros-and-asymptotes",
+        "Swaps the x-intercepts and the vertical asymptotes of the tangent graph, giving the count of one for the other.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-uses-the-maximum-line",
+        "Gives the number of maximum points as the number of points where y = 1/2, mistaking the line y = 1/2 for the line y = 1.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-uses-the-sine-period",
+        "Doubles the number of asymptotes, as though tangent repeated only every 2 pi like sine and cosine instead of every pi.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-uses-the-zero-count",
+        "Repeats the earlier count of x-intercepts, as if the line y = 1/2 or y = 1 met the graph as often as the x-axis does.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-reports-the-sum-in-wrong-units",
+        "Writes the sum of the x-coordinates in the wrong multiple of pi, giving it as a multiple of pi, pi/2 or pi/4 other than the one the question names.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-sign-slip-in-the-sum",
+        "Gives the sum of the x-coordinates with the wrong sign, adding the negative x-values as positive or the reverse.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-sums-the-intercepts-instead",
+        "Adds the x-coordinates of the x-intercepts when the points where y = 1 were asked for.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-sums-the-minima",
+        "Adds the x-coordinates of the minimum points when the maximum points were asked for.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "tgx-halves-the-wrong-count",
+        "Gives half of the x-intercept count as the number of maximum points, instead of taking alternate turning points.",
+        area="senior-recognise-the-graphs-of-y-sin-x-y",
+    ),
+    CatalogueEntry(
+        "pcx-adds-the-trivial-multiple",
+        "Adds k = m, the trivial value that always works (n = 0), to the smallest k, instead of the second smallest k that works.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-gives-only-the-smallest",
+        "Gives one of the two values of k asked for, instead of their sum.",
+        area="senior-use-proof-by-contradiction",
+    ),
+    CatalogueEntry(
+        "pcx-takes-the-next-prime-after-the-list",
+        "Gives the next prime after the largest listed prime as the new prime, without testing whether it divides M.",
+        area="senior-use-proof-by-contradiction",
+    ),
     # -- VCE pseudocode tracing (vm-) ----------------------------------------------------------------------
     CatalogueEntry(
         "vm-bisect-reports-endpoint",

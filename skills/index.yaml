@@ -6436,6 +6436,8 @@ senior-recognise-the-graphs-of-y-sin-x-y:
   sources:
   - topic: pv1f_trig_graph_id
     module: mathgen/generators/pv1f_trig_build.py
+  - topic: exd_x_tg1_extended_domain_chain
+    module: mathgen/generators/exd_x_tg1_extended_domain_chain.py
 senior-recognise-the-need-for-milligrams:
   domain: senior-mathematics
   status: active
@@ -7230,6 +7232,8 @@ senior-use-proof-by-contradiction:
   sources:
   - topic: proof_by_contradiction_identify
     module: mathgen/generators/p9a_quantifiers_contradiction_build.py
+  - topic: exd_x_pc1_contradiction_chain
+    module: mathgen/generators/exd_x_pc1_contradiction_chain.py
 senior-use-radicals-and-convert-to-and-from-fractional:
   domain: functions-sequences
   status: active

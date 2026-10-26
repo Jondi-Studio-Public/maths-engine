@@ -26,6 +26,11 @@ sources:
 - topic: pv1f_trig_graph_id
   difficulty: exam
   stages: [exam]
+- topic: exd_x_tg1_extended_domain_chain
+  params: {tier: exam}
+  difficulty: exam
+  key: exam-single
+  stages: [exam]
 misconceptions:
 - id: sin-as-cos
   description: Takes the curve that passes through the origin for cosine, or the curve that peaks at x = 0 for sine, mixing up the starting point of the two waves.

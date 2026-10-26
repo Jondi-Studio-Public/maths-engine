@@ -23,6 +23,10 @@ sources:
   params: {variant: compound_claim}
   difficulty: hard
   stages: [5, 6, maintenance]
+- topic: exd_x_pc1_contradiction_chain
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
 misconceptions:
 - id: guesses-plausible-sounding-option
   description: Selects a distractor built from an unrelated property family (parity, sign, multiple-of-3, multiple-of-4, perfect-square) without checking whether the stated fact is actually true of n, mistaking a real, checkable numeric property for the correct contradiction.
