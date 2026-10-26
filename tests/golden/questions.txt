@@ -2542,15 +2542,15 @@
 {"answer": "Yes, directly proportional -- you can buy 18 metres.", "id": "f10-direct-proportion-scale-model/medium/0/47a589b33f7c", "text": "Fabric costs $0.75 per metre. Is this relationship directly proportional, and h…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- you …", "id": "f10-direct-proportion-scale-model/medium/1/6eb28af0ed69", "text": "Fabric is priced at $1.00 per metre, with a one-off $20.00 delivery fee added t…"}
 {"answer": "No, not directly proportional (a fixed fee applies) -- the …", "id": "f10-direct-proportion-scale-model/medium/2/5e2c11265182", "text": "Buying 10 kg of flour costs $45.00 altogether. There is also a one-off $30.00 d…"}
-{"answer": "7", "id": "f10-display-choice-then-read/easy/0/55e4508ba51c", "text": "A survey of 203 people asked about the favourite sport of students: 32 tennis, …"}
-{"answer": "9", "id": "f10-display-choice-then-read/easy/1/d6445d61b9a0", "text": "For each of 9 saplings, the age and the height were both measured. The aim is t…"}
-{"answer": "8", "id": "f10-display-choice-then-read/easy/2/623c1b317006", "text": "Class 9A and Class 9B were each asked about the favourite sport of students. Th…"}
-{"answer": "325", "id": "f10-display-choice-then-read/hard/0/0162c19e827c", "text": "At the end of January, the stock of a shop's best-selling item (in units) was 7…"}
-{"answer": "180", "id": "f10-display-choice-then-read/hard/1/02c4b925bb13", "text": "At the end of April, the water stored in a tank (in kilolitres) was 40. In the …"}
-{"answer": "10", "id": "f10-display-choice-then-read/hard/2/7acdb86ef28e", "text": "10 different players scored goals this season, wearing these shirt numbers: 10,…"}
-{"answer": "95", "id": "f10-display-choice-then-read/medium/0/21d39a92bd61", "text": "A survey about the kind of fruit students pack for lunch gave these counts: 74 …"}
-{"answer": "8", "id": "f10-display-choice-then-read/medium/1/4aa74124f43a", "text": "Once a month from February to October, the mass of a growing puppy, in kilogram…"}
-{"answer": "132", "id": "f10-display-choice-then-read/medium/2/78c5854fa702", "text": "A survey of 60 people asked about the favourite sport of students: 18 basketbal…"}
+{"answer": "7", "id": "f10-display-choice-then-read/easy/0/aec944989be1", "text": "A survey of 203 people asked about the favourite sport of students: 32 tennis, …"}
+{"answer": "9", "id": "f10-display-choice-then-read/easy/1/298c179c156b", "text": "For each of 9 saplings, the age and the height were both measured. The aim is t…"}
+{"answer": "8", "id": "f10-display-choice-then-read/easy/2/f57212ba65c8", "text": "Class 9A and Class 9B were each asked about the favourite sport of students. Th…"}
+{"answer": "325", "id": "f10-display-choice-then-read/hard/0/5b865ab246a9", "text": "At the end of January, the stock of a shop's best-selling item (in units) was 7…"}
+{"answer": "180", "id": "f10-display-choice-then-read/hard/1/aead8faa837e", "text": "At the end of April, the water stored in a tank (in kilolitres) was 40. In the …"}
+{"answer": "10", "id": "f10-display-choice-then-read/hard/2/7ef6c3619104", "text": "10 different players scored goals this season, wearing these shirt numbers: 10,…"}
+{"answer": "95", "id": "f10-display-choice-then-read/medium/0/5660c7ae32e8", "text": "A survey about the kind of fruit students pack for lunch gave these counts: 74 …"}
+{"answer": "8", "id": "f10-display-choice-then-read/medium/1/e7496a277f01", "text": "Once a month from February to October, the mass of a growing puppy, in kilogram…"}
+{"answer": "132", "id": "f10-display-choice-then-read/medium/2/e180a996062d", "text": "A survey of 60 people asked about the favourite sport of students: 18 basketbal…"}
 {"answer": "1", "id": "f10-division-remainder-context/easy/0/2499d800b6c2", "text": "22 counters are shared into groups of 7, with any leftover counters set aside. …"}
 {"answer": "1", "id": "f10-division-remainder-context/easy/1/803c5f26ef53", "text": "56 counters are shared into groups of 5, with any leftover counters set aside. …"}
 {"answer": "3", "id": "f10-division-remainder-context/easy/2/ca2a848fc0f7", "text": "59 counters are shared into groups of 4, with any leftover counters set aside. …"}
@@ -3599,14 +3599,14 @@
 {"answer": "2.90", "id": "f10-random-versus-convenience-sample/easy/1/f7e1f74f49ac", "text": "All 100 students at a school recorded how many days a week they ride a bike. Da…"}
 {"answer": "34", "id": "f10-random-versus-convenience-sample/easy/2/6eaa64a1d581", "text": "A school has 200 students. Each was asked about their main activity after schoo…"}
 {"answer": "(a) 2.86; (b) 1.64; (c) 2.44; (d) 0.80", "id": "f10-random-versus-convenience-sample/exam/0/ee74300329de", "text": "All 200 students at a school recorded their screen time yesterday. Hours of scr…"}
-{"answer": "(a) 3.47; (b) 0.43; (c) 3.83; (d) 3.40", "id": "f10-random-versus-convenience-sample/exam/1/155dfbf7f370", "text": "All 100 students at a school recorded how many books they read this term. Books…"}
-{"answer": "(a) 27.40; (b) 3.10; (c) 9.60; (d) 6.50", "id": "f10-random-versus-convenience-sample/exam/2/3dbcf11122eb", "text": "All 100 students at a school recorded how long their trip to school takes. Minu…"}
+{"answer": "(a) 3.47; (b) 0.43; (c) 3.83; (d) 3.40", "id": "f10-random-versus-convenience-sample/exam/1/0e04001ead65", "text": "All 100 students at a school recorded how many books they read this term. Books…"}
+{"answer": "(a) 27.40; (b) 3.10; (c) 9.60; (d) 6.50", "id": "f10-random-versus-convenience-sample/exam/2/dd0be0ab5c23", "text": "All 100 students at a school recorded how long their trip to school takes. Minu…"}
 {"answer": "0.70", "id": "f10-random-versus-convenience-sample/hard/0/c89f5d6cc063", "text": "All 100 students at a school recorded how many days a week they ride a bike. Da…"}
-{"answer": "23.0", "id": "f10-random-versus-convenience-sample/hard/1/7b3fef0ce645", "text": "A school has 200 students. Each was asked where they usually get lunch. Where s…"}
-{"answer": "10", "id": "f10-random-versus-convenience-sample/hard/2/fcb516724113", "text": "A school has 100 students. Each was asked how they usually travel to school. Ho…"}
+{"answer": "23.0", "id": "f10-random-versus-convenience-sample/hard/1/446b12925c55", "text": "A school has 200 students. Each was asked where they usually get lunch. Where s…"}
+{"answer": "10", "id": "f10-random-versus-convenience-sample/hard/2/3d8dfcede694", "text": "A school has 100 students. Each was asked how they usually travel to school. Ho…"}
 {"answer": "5", "id": "f10-random-versus-convenience-sample/medium/0/41d0a420e870", "text": "A school has 200 students. Each was asked where they usually get lunch. Where s…"}
 {"answer": "8", "id": "f10-random-versus-convenience-sample/medium/1/45c9aa9b449b", "text": "A school has 100 students. Each was asked about their main activity after schoo…"}
-{"answer": "2.22", "id": "f10-random-versus-convenience-sample/medium/2/229ada95290b", "text": "All 100 students at a school recorded how many hours of sport they played last …"}
+{"answer": "2.22", "id": "f10-random-versus-convenience-sample/medium/2/c72c92108b27", "text": "All 100 students at a school recorded how many hours of sport they played last …"}
 {"answer": "42.00", "id": "f10-ratio-rate-financial-model/easy/0/61c8f0fdfb5d", "text": "A $112 bill is split between Amir and Beatrice in the ratio 3:5. How much does …"}
 {"answer": "100.00", "id": "f10-ratio-rate-financial-model/easy/1/5d1fd1e1c22c", "text": "At the market, cheese costs $2.50 per kg. Beatrice buys 40 kg. What is the tota…"}
 {"answer": "64.00", "id": "f10-ratio-rate-financial-model/easy/2/669d8b5a40c3", "text": "A $320 bill is split between Yuki and Kai in the ratio 1:4. How much does Yuki …"}
@@ -3817,7 +3817,7 @@
 {"answer": "15", "id": "f10-shape-and-variation-of-a-display/easy/0/bc67c18b2edb", "text": "The column graph shows the number of pets each child has at home. The height of…"}
 {"answer": "6", "id": "f10-shape-and-variation-of-a-display/easy/1/a6e4fb4f48c1", "text": "The dot plot shows the number of goals each player scored this season. Each dot…"}
 {"answer": "6", "id": "f10-shape-and-variation-of-a-display/easy/2/16540579d545", "text": "The dot plot shows the number of times each student was late to school this ter…"}
-{"answer": "3", "id": "f10-shape-and-variation-of-a-display/hard/0/bfb2445cac72", "text": "The column graph shows the number of pets each child has at home for Class 4C a…"}
+{"answer": "3", "id": "f10-shape-and-variation-of-a-display/hard/0/cf19e00abadd", "text": "The column graph shows the number of pets each child has at home for Class 4C a…"}
 {"answer": "(a) {B}", "id": "f10-shape-and-variation-of-a-display/hard/1/ab6363311ef6", "text": "The column graph shows the number of pets each child has at home for Class 4C a…"}
 {"answer": "2", "id": "f10-shape-and-variation-of-a-display/hard/2/b64bbfe41f6b", "text": "The column graph shows the number of books each student read last month for Cla…"}
 {"answer": "7", "id": "f10-shape-and-variation-of-a-display/medium/0/79eecedd4703", "text": "The dot plot shows the number of stickers each child collected at the fair. Eac…"}
