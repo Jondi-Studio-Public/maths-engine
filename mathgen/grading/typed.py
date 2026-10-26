@@ -2200,20 +2200,28 @@ def _greek_swaps(expr, expected_free) -> dict:
     return swaps
 
 
-def _capital_swaps(expr, expected_free, given_free) -> dict:
+def _capital_swaps(expr, expected_free, given_free, question_text: str = "") -> dict:
     """A capital letter for the question's lower-case variable ("X" for x): the same variable, unless the reply also
-    uses the lower-case one or the question itself uses the capital."""
+    uses a lower-case variable of the question's or the question itself uses the capital."""
     swaps = {}
+    if any(len(getattr(sym, "name", "")) == 1 and sym.name.islower() for sym in given_free & set(expected_free)):
+        return swaps  # capitals mixed with the question's own lower-case letters ("(y - b)/A"): not one variable
     for sym in expr.free_symbols:
         name = getattr(sym, "name", "")
         if len(name) == 1 and name.isupper() and sym not in expected_free:
             lower = sympy.Symbol(name.lower())
-            if lower in expected_free and lower not in given_free:
+            if lower in expected_free and lower not in given_free and not _stands_alone_in(name, question_text):
                 swaps[sym] = lower
     return swaps
 
 
-def _resolve_constants(expr, expected):
+def _stands_alone_in(letter: str, text: str) -> bool:
+    """Whether the question writes the capital `letter` as a name of its own or inside a capital name: alone ("B" in
+    "points A and B"), starting a word, or after another capital ("A" in "OA", "AB"). The "x" inside "box" does not."""
+    return re.search(rf"(?<![a-z]){re.escape(letter)}", text or "") is not None
+
+
+def _resolve_constants(expr, expected, question_text: str = ""):
     """Read a learner's `e` and `i` as Euler's number and the imaginary unit
     whenever the question does not itself use them as variables.
 
@@ -2245,7 +2253,7 @@ def _resolve_constants(expr, expected):
             swaps[_I_SYMBOL] = sympy.I
         for part in exprs:
             swaps.update(_greek_swaps(part, free))
-            swaps.update(_capital_swaps(part, free, given_free))
+            swaps.update(_capital_swaps(part, free, given_free, question_text))
         if not swaps:
             return expr
         resolved = [part.xreplace(swaps) for part in exprs]
@@ -2802,7 +2810,7 @@ def _decimal_as_quotient(match: re.Match) -> str:
     return f"({int(whole + places or '0')}/1{'0' * len(places)})"
 
 
-def _exact_decimals(given_expr, expected, text: str):
+def _exact_decimals(given_expr, expected, text: str, question_text: str = ""):
     """The reply re-read with each typed decimal as the exact number it spells ("x^0.5" as x^(5/10)), when the
     expected answer has no decimal of its own. sympy keeps a typed decimal as a float, so "x^0.5" and "0.5x" never
     simplified to match sqrt(x) and x/2: a right answer marked wrong. The decimals are rewritten in the text, before
@@ -2816,7 +2824,7 @@ def _exact_decimals(given_expr, expected, text: str):
     reread = _parse_expression(_DECIMAL_LITERAL_RE.sub(_decimal_as_quotient, text))
     if reread is None:
         return given_expr
-    reread = _resolve_constants(reread, expected)
+    reread = _resolve_constants(reread, expected, question_text)
     if reread is None:
         return given_expr
     return _match_constant_of_integration(reread, expected)
@@ -2967,7 +2975,7 @@ def grade_expression(question, given: str) -> GradeResult:
     given_expr = _parse_expression(stripped)
     if given_expr is None:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
-    given_expr = _resolve_constants(given_expr, expected)
+    given_expr = _resolve_constants(given_expr, expected, getattr(question, "text", None) or "")
     if given_expr is None:  # `e` as Euler's number made it too costly to compare
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     given_normalised = str(given_expr)
@@ -3046,7 +3054,12 @@ def grade_expression(question, given: str) -> GradeResult:
         # ~35 ms simplify spends exhausting its rewrites first. It can only ever
         # short-circuit to False, never to True.
         if expected is not None:
-            given_expr = _exact_decimals(_match_constant_of_integration(given_expr, expected), expected, stripped)
+            given_expr = _exact_decimals(
+                _match_constant_of_integration(given_expr, expected),
+                expected,
+                stripped,
+                getattr(question, "text", None) or "",
+            )
         correct = expected is not None and symbolically_equal(expected, given_expr)
         if not correct and expected is not None and _logs_may_drop_their_bars(question, expected, given_expr):
             correct = _equal_where_log_arguments_are_positive(question, expected, given_expr)
@@ -4021,6 +4034,16 @@ def _is_unfinished(answer_text: str, given: str, *, fragment: bool = False) -> b
     )
 
 
+_UNIT_JOINERS = "·•⋅*×/^.-"
+
+
+def _may_be_a_unit_symbol(text: str, start: int) -> bool:
+    """Whether the letter at `start` follows a unit joiner or a number ("kN·M", "5 M"): there its case is a unit's
+    case (milli and mega differ), so it is judged by the unit table, not folded onto the key's letter."""
+    before = text[:start].rstrip()[-1:]
+    return before.isdigit() or before in _UNIT_JOINERS
+
+
 def _reply_has_stray_marks(
     answer_text: str,
     given: str,
@@ -4057,7 +4080,11 @@ def _reply_has_stray_marks(
         if len(word) != 1 or _NAMES_A_BRACKET_RE.match(text, run.end()):
             continue
         # a letter the canonical shows, in either case ("t" for "T"); before "$" only the key's own case ("a$9" is no "A$9")
-        if word in canonical or (word.casefold() in canonical_folded and text[run.end() : run.end() + 1] != "$"):
+        if word in canonical or (
+            word.casefold() in canonical_folded
+            and text[run.end() : run.end() + 1] != "$"
+            and not _may_be_a_unit_symbol(text, run.start())
+        ):
             continue
         if word in "AC" and text[run.end() : run.end() + 1] == "$":
             continue  # "A$9", "C$9": the currency prefixes the library uses (US, AU, NZ, CA are longer runs)

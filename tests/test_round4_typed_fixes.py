@@ -481,3 +481,31 @@ def test_a_function_letter_may_be_written_in_either_case_but_not_another_call_or
     for skill_id, source, seed in (("function-notation", 0, 0),):
         _accepts(skill_id, source, seed, "f(1) = -6", "F(1) = -6", "F (1) = -6", "-6")
         _refuses(skill_id, source, seed, "f(2) = -6", "F(2) = -6", "g(1) = -6", "G(1) = -6")
+
+
+# -- re-review of PR 147: unit case after a joiner, capitals the question uses ------------------------------
+
+
+def test_a_capital_after_a_unit_joiner_is_no_label_letter():
+    _accepts("bending-moment-point-load", 0, 0, "M = 90 kN·m", "90 kN·m")
+    _refuses("bending-moment-point-load", 0, 0, "M = 90 kN·M", "90 kN·M")
+    _accepts("moment-of-a-force", 0, 0, "M = 10.0 N·m")
+    _refuses("moment-of-a-force", 0, 0, "M = 10.0 N·M")
+    _accepts("max-bending-moment-udl", 0, 0, "M_max = 144 kN·m")
+    _refuses("max-bending-moment-udl", 0, 0, "M_max = 144 kN·M")
+
+
+def test_a_capital_for_a_lower_case_symbol_is_refused_where_the_question_uses_the_capital():
+    _accepts("vector-proof-geometry", 0, 0, "-a + b")
+    _refuses("vector-proof-geometry", 0, 0, "-A + B", "-A + b")
+    _refuses("uc2-conditional-density-expectation", 0, 0, "1/(1 - Y)")
+    _refuses("uc2-transformation-of-random-variable", 0, 0, "-Y^3/64 + 9*Y^2/64 - 27*Y/64 + 27/64")
+    _refuses("newton-cooling-shifted-exponential", 0, 0, "28 - 24e^(-3T/20)")
+
+
+def test_a_capital_mixed_with_the_questions_own_lower_case_letters_is_refused():
+    _accepts("rearrange-simple-formulas", 1, 1, "(-b + y)/a", "(y - b)/a")
+    _refuses("rearrange-simple-formulas", 1, 1, "(-b + y)/A")
+    _accepts("rearrange-simple-formulas", 2, 1, "(E - m*v**2/2)/(h*m)")
+    _refuses("rearrange-simple-formulas", 2, 1, "(E - m*V**2/2)/(h*m)", "(E - m*v**2/2)/(H*m)")
+    _accepts("ucv1-quotient-ring-operation", 0, 7, "-8*X", "-8x")
