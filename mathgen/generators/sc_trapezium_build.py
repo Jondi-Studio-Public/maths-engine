@@ -23,20 +23,22 @@ tie, also when the ordinates are first rounded to six decimal places.
 
 from __future__ import annotations
 
+import random
 from fractions import Fraction
 
 import sympy
 
 from ..core import attempts, check, generator, join_terms, paren_negative, phrase, round_half_up
-from .exd_x_r2b_support import decimal_places
+from ._company_kit import keep_company, numeric_pool
+from .exd_x_r2b_support import GRADER_TOLERANCE, decimal_places
+from .exd_x_r2b_support import exact_number_part as _exact_number_part
+from .exd_x_r2b_support import fraction_part as _fraction_part
+from .exd_x_r2b_support import number_part as _number_part
 from .r4e_common import (
     Redraw,
     clear_of_boundary,
     definite,
     draw,
-    exact_number_part,
-    fraction_part,
-    number_part,
     real,
     single,
 )
@@ -56,6 +58,131 @@ _ABS = "trapezium-sign-dropped"
 _SQUARED = "trapezium-strips-from-error-squared"
 _WIDTH = "trapezium-strip-width-for-strips"
 _OFF = "trapezium-strips-off-by-one"
+
+
+#: the question being built draws from this, so the choices `_company` makes follow the seed
+_RNG: list = [None]
+
+
+def _company(key, wrong, places, *, lo=None, whole=False, decimals=False, skew=False):
+    """`wrong` re-ordered, and padded from a pool of plain near misses, so the key is never the only option with some
+    feature a learner can see (decimal style, parity, how many other options lie close). `places` is how many decimal
+    places the options are printed to (None: as whole numbers or fractions)."""
+    key = Fraction(key)
+    tol = max(GRADER_TOLERANCE, Fraction(1, 10**places)) if places is not None else Fraction(0)
+    unit = Fraction(1, 10**places) if places else Fraction(1)
+
+    def snap(v):
+        v = Fraction(v)
+        return round_half_up(v, places) if places is not None else v
+
+    def usable(v):
+        return abs(snap(v) - key) > tol and (not whole or Fraction(v).denominator == 1)
+
+    ordered, seen = [], {key}
+    for v, tag in wrong:
+        if v is None:
+            continue
+        v = snap(v)
+        if v not in seen and usable(v):
+            seen.add(v)
+            ordered.append((v, tag))
+    step = Fraction(1, 10) if abs(key) < 1 else Fraction(1, 2) if abs(key) < 3 else Fraction(1)
+    if places is not None:
+        step = max(step, unit)
+    pool = [(snap(v), t) for v, t in numeric_pool(key, step, lo, None, usable)]
+    if abs(key) >= 10:  # wider misses of the same shape, so the key can share its digit count with a distant option
+        seen_pool = {v for v, _ in pool} | seen
+        for d in (3, 5, 7, 12, 25, 40):
+            for v in (key + d * step * 2, key - d * step * 2):
+                if v not in seen_pool and usable(v) and (lo is None or v >= lo):
+                    seen_pool.add(v)
+                    pool.append((snap(v), "near-miss-value"))
+    # a uniformly random rank for the key among its options: choose how many of the three shown wrong options lie below
+    # it, taking the tagged slips first and plain near misses from the pool to fill the sides they leave short
+    rng = _RNG[0] or random.Random(repr(("rank", str(key), [str(v) for v, _ in ordered])))
+    below = [c for c in ordered if c[0] < key]
+    above = [c for c in ordered if c[0] > key]
+    below_pool = [c for c in pool if c[0] < key and c[0] not in {v for v, _ in ordered}]
+    above_pool = [c for c in pool if c[0] > key and c[0] not in {v for v, _ in ordered}]
+
+    def picked(t):
+        return (below + below_pool)[:t] + (above + above_pool)[: 3 - t]
+
+    def sign(v):
+        return (v > 0) - (v < 0)
+
+    feasible = [
+        t
+        for t in range(4)
+        if len(below) + len(below_pool) >= t
+        and len(above) + len(above_pool) >= 3 - t
+        and (key == 0 or any(sign(c[0]) == sign(key) for c in picked(t)))  # not the only option on its side of zero
+    ]
+    if feasible:
+        t = rng.choices(feasible, weights=[(1.6, 0.6, 1.0, 1.0)[t] if skew else 1.0 for t in feasible])[0]
+        pick = picked(t)
+        if places is None and not decimals and not whole:
+            # fractions: the key shares being whole (or not) with one of its options, replacing a pick on the same side
+            same = [c for c in ordered + pool if (c[0].denominator == 1) == (key.denominator == 1) and c not in pick]
+            if same and not any((c[0].denominator == 1) == (key.denominator == 1) for c in pick):
+                i = rng.randrange(3)
+                twins = [c for c in same if (c[0] < key) == (pick[i][0] < key)] or same
+                pick[i] = twins[0]
+        ordered = pick + [c for c in ordered if c not in pick]
+    custom = None
+    if decimals and places is None:
+        # exact decimals print to as many places as they need: measure what the learner reads, not the fraction
+        def read(v):
+            n = decimal_places(Fraction(v), 8)
+            return f"{float(v):.{n}f}" if n is not None else str(v)
+
+        def digits(v):
+            return min(sum(c.isdigit() for c in read(v)), 8)
+
+        def style(v):
+            tail = read(v).partition(".")[2]
+            return "none" if not tail else "zeros" if not tail.strip("0") else "nonzero"
+
+        custom = {"ndigits": digits, "decimal_style": style}
+    chosen = keep_company(key, ordered, pool, count=3, places=places, custom=custom, shift_cost=1.5)
+    # a key far smaller than every wrong option is the one that stands out: give it a close, plainly wrong companion
+    shown = chosen[:3]
+    if key != 0 and all(abs(v) > 4 * abs(key) + tol for v, _ in shown):
+        near = [c for c in pool if tol < abs(c[0] - key) < 8 * max(tol, abs(key)) and c[0] not in {v for v, _ in shown}]
+        if near:
+            shown[rng.randrange(3)] = near[rng.randrange(min(len(near), 4))]
+            chosen = shown + chosen[3:]
+    return chosen
+
+
+def number_part(prompt, value, places, marks, working, wrong, **kw):
+    key = round_half_up(Fraction(value), places)
+    return _number_part(
+        prompt,
+        value,
+        places,
+        marks,
+        working,
+        _company(key, wrong, places, lo=kw.pop("lo", None), skew=kw.pop("skew", False)),
+        **kw,
+    )
+
+
+def exact_number_part(prompt, value, marks, working, wrong, **kw):
+    value = Fraction(value)
+    places = decimal_places(value, 8)
+    wrong = [
+        (v, t) for v, t in wrong if v is not None and decimal_places(Fraction(v), kw.get("max_places", 8)) is not None
+    ]
+    whole = kw.pop("whole", False)
+    fixed = kw.get("min_places") if kw.get("min_places") == kw.get("max_places") else None
+    wrong = _company(value, wrong, fixed, lo=kw.pop("lo", None), whole=whole, decimals=True)
+    return _exact_number_part(prompt, value, marks, working, wrong, **kw)
+
+
+def fraction_part(prompt, value, marks, working, wrong, **kw):
+    return _fraction_part(prompt, value, marks, working, _company(value, wrong, None, lo=Fraction(1, 100)), **kw)
 
 
 def weights(n: int) -> list[int]:
@@ -419,7 +546,7 @@ def _hard_missing(rng):
 def _hard_strips(rng):
     """The rule overestimates a quadratic by a stated amount; find the number of strips."""
     for _ in attempts(500, "a quadratic whose overestimate is a short decimal"):
-        n = rng.randint(2, 8)
+        n = rng.randint(4, 10)
         lead = rng.choice((1, 1, 2, 3, 4))
         length = rng.choice((2, 3, 4, 5, 6))
         coeffs = [lead, rng.choice((-6, -3, -2, 0, 1, 2, 4)), rng.choice((0, 1, 2, 5))]
@@ -465,7 +592,14 @@ def _hard_strips(rng):
     return single(
         stem,
         exact_number_part(
-            "Find the number of strips n.", Fraction(n), 2, working, wrong, suffix="Give your answer as a whole number."
+            "Find the number of strips n.",
+            Fraction(n),
+            2,
+            working,
+            wrong,
+            suffix="Give your answer as a whole number.",
+            whole=True,
+            lo=1,
         ),
     )
 
@@ -524,6 +658,7 @@ def _hard_difference(rng):
 )
 def sc_trapezium(rng, tier: str = "easy"):
     """The trapezium rule on 2 to 5 strips; see the module docstring for the ladder."""
+    _RNG[0] = rng
     if tier == "easy":
         return draw(_easy_table if rng.random() < 0.5 else _easy_poly, rng)
     if tier == "medium":
@@ -662,6 +797,7 @@ def _chain(rng):
             (abs(exact4 - h * sum(ys) / 2), _INNER1),
         ],
         follow_through="abs(part_d)",
+        skew=True,  # a tiny positive key has few options below it, and the kit moves it up a rank
     )
     return dict(text=stem, parts=[part_a, part_b, part_c, part_d, part_e])
 
@@ -671,4 +807,5 @@ def sc_trapezium_chain(rng, tier: str = "exam"):
     """The trapezium rule on 2 to 5 strips for a stated curve: width, weighted sum, estimate, difference, error."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
+    _RNG[0] = rng
     return draw(_chain, rng)

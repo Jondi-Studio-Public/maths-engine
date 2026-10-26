@@ -28,6 +28,7 @@ from fractions import Fraction
 
 import sympy
 
+from ._company_kit import keep_company, numeric_pool
 from ..core import attempts, check, generator, round_half_up
 from .r4e_common import Redraw, draw, exact_number_part, single
 
@@ -92,9 +93,31 @@ def _part(question, value, marks, working, wrong, suffix, rng=None, **kw):
 
     With `rng`, the wrong values are shuffled before the first three are taken, so the key sits at a different rank
     among the options from one question to the next (never reliably the central one)."""
-    wrong = [w for w in wrong if w[0] >= 0]
+    seen = {value}
+    wrong = [w for w in wrong if w[0] >= 0 and not (w[0] in seen or seen.add(w[0]))]  # drop the key and repeats
+    pool = numeric_pool(int(value), ok=lambda v: v >= 0 and v.denominator == 1)
+    pool = [c for c in pool if c[0] not in seen]
     if rng is not None:
         wrong = rng.sample(wrong, len(wrong))
+        # a uniformly random rank for the key: t of the three shown wrong values lie below it
+        taken = {w[0] for w in wrong}
+        below = [c for c in wrong if c[0] < value] + [c for c in pool if c[0] < value and c[0] not in taken]
+        above = [c for c in wrong if c[0] > value] + [c for c in pool if c[0] > value and c[0] not in taken]
+        same_width = lambda c: len(str(c[0])) != len(str(value))  # noqa: E731  (False sorts first)
+        below, above = sorted(below, key=same_width), sorted(above, key=same_width)
+        feasible = [
+            t
+            for t in range(4)
+            if len(below) >= t
+            and len(above) >= 3 - t
+            and not all(same_width(c) for c in below[:t] + above[: 3 - t])  # the key keeps a digit-count twin
+        ] or [t for t in range(4) if len(below) >= t and len(above) >= 3 - t]
+        if feasible:
+            t = rng.choice(feasible)
+            pick = below[:t] + above[: 3 - t]
+            wrong = pick + [c for c in wrong if c not in pick]
+    wrong += [c for c in pool[:3] if c[0] not in {w[0] for w in wrong}]
+    wrong = keep_company(int(value), wrong, pool=pool, shift_cost=1.5)
     part = exact_number_part("x", value, marks, working, wrong, suffix=suffix, **kw)
     part["prompt"] = f"{question} {suffix}".strip()
     return part
@@ -547,7 +570,7 @@ def _hard_packs(rng):
         f"Try each number of large packs. {b} large and {a} small packs hold {b * s2 + a * s1} (at least {need}).",
         f"Cost = {b} x {p2} + {a} x {p1} = {cost}, less than {all_large} (large only), {all_small} (small only) and {greedy} (largest first).",
     ]
-    return single(stem, _part("", cost, 3, working, wrong, _DOLLARS))
+    return single(stem, _part("", cost, 3, working, wrong, _DOLLARS, rng))
 
 
 _H_LIMIT = (
@@ -586,7 +609,7 @@ def _hard_limit(rng):
         f"First supply: {A} / {a} gives {f1} whole sets. Second supply: {B} / {b} gives {f2} whole sets.",
         f"The scarcer supply decides, so {key}.",
     ]
-    return single(stem, _part("", key, 3, working, wrong, _WHOLE))
+    return single(stem, _part("", key, 3, working, wrong, _WHOLE, rng))
 
 
 _H_GAP = (
@@ -618,7 +641,7 @@ def _hard_gap(rng):
         f"n items need n x {w} + (n - 1) x {g} <= {length}, so n(w + g) <= {length} + {g}.",
         f"({length} + {g}) / {w + g} = {(length + g) / (w + g):.2f}, so at most {key} fit.",
     ]
-    return single(stem, _part("", key, 3, working, wrong, _WHOLE))
+    return single(stem, _part("", key, 3, working, wrong, _WHOLE, rng))
 
 
 _H_CUT = (
@@ -650,7 +673,7 @@ def _hard_cut(rng):
         f"Each {B} cm length gives {B} / {p} = {B / p:.2f}, so only {per} whole pieces.",
         f"{need} pieces need {need} / {per} = {need / per:.2f} lengths, so {key}.",
     ]
-    return single(stem, _part("", key, 3, working, wrong, _WHOLE))
+    return single(stem, _part("", key, 3, working, wrong, _WHOLE, rng))
 
 
 @generator(

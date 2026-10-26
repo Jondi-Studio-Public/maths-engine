@@ -26,13 +26,145 @@ satisfies the equation and the starting condition.
 
 from __future__ import annotations
 
+import itertools
+import random
 from fractions import Fraction
 
 import sympy
 
 from ..core import attempts, check, generator, join_terms, paren_negative, phrase, round_half_up
+from ._company_kit import keep_company, lone_sets, numeric_pool
 from .exd_x_r2b_support import decimal_places
-from .r4e_common import Redraw, clear_of_boundary, draw, exact_number_part, number_part, real, single
+from .exd_x_r2b_support import exact_number_part as _exact_number_part
+from .exd_x_r2b_support import number_part as _number_part
+from .r4e_common import Redraw, clear_of_boundary, draw, real, single
+
+
+#: the question being built draws from this, so the key's rank among the options follows the seed
+_RNG: list = [None]
+
+
+def _company(key, wrong, places, lo=None):
+    """`wrong` reordered so the key is never the only option with a visible feature (`_company_kit`)."""
+    key = Fraction(key)
+    seen_values = {key}
+    cands = []
+    for v, t in wrong:
+        if v is not None and Fraction(v) not in seen_values and (lo is None or v >= lo):
+            seen_values.add(Fraction(v))
+            cands.append((Fraction(v), t))
+    shown = max([places] + [decimal_places(v, 4) or 0 for v, _ in cands[:6]])
+    places = min(shown, 4)
+    step = Fraction(1, 10**places)
+    pool = numeric_pool(key, step if places else 1)
+    for off in (3, 5, 7, 10, 12, 15, 20, 25, 30, 40, 50):  # plain misses at mixed distances, near and far
+        for sign in (-1, 1):
+            v = key + sign * Fraction(off, 10) * (1 if places else 1)
+            if places == 0:
+                v = key + sign * (off // 5 + 1)
+            pool.append((v, "near-miss-value"))
+    pool = [
+        (v, t)
+        for v, t in pool
+        if decimal_places(Fraction(v), places) is not None
+        and abs(Fraction(v) - key) > max(Fraction(51, 1000), step)
+        and (lo is None or Fraction(v) >= lo)
+    ]
+    random.Random(repr((str(key), places))).shuffle(pool)
+    places_arg = places if places else None
+    for item in pool:  # a part with fewer than three distinct slips is topped up from the plain near misses
+        if len(cands) >= 3:
+            break
+        if Fraction(item[0]) not in seen_values:
+            seen_values.add(Fraction(item[0]))
+            cands.append(item)
+    # a uniformly random rank for the key: how many of the three shown wrong options lie below it
+    rng = _RNG[0] or random.Random(repr(("rank", str(key), [str(v) for v, _ in cands])))
+    seen_c = {Fraction(v) for v, _ in cands}
+    below = [c for c in cands if c[0] < key] + [c for c in pool if c[0] < key and Fraction(c[0]) not in seen_c]
+    above = [c for c in cands if c[0] > key] + [c for c in pool if c[0] > key and Fraction(c[0]) not in seen_c]
+
+    def has_company(t):  # not the only option on its side of zero
+        return key == 0 or any((c[0] > 0) == (key > 0) and c[0] != 0 for c in below[:t] + above[: 3 - t])
+
+    feasible = [t for t in range(4) if len(below) >= t and len(above) >= 3 - t and has_company(t)]
+    target = rng.choice(feasible) if feasible else None
+    if target is not None:
+        pick = below[:target] + above[: 3 - target]
+        # every question carries a plain near miss, whatever the rank, so the fillers do not mark one rank
+        if not any(t == "near-miss-value" for _, t in pick):
+            pool_below = [c for c in pool if c[0] < key and c not in pick]
+            pool_above = [c for c in pool if c[0] > key and c not in pick]
+            sides = [(i, f) for i, f in ((0, pool_below), (1, pool_above)) if f and (target if i == 0 else 3 - target)]
+            if sides:
+                side, fill = sides[rng.randrange(len(sides))]
+                at = (target - 1) if side == 0 else (target + (3 - target) - 1)
+                pick[at] = fill[0]
+        cands = pick + [c for c in cands if c not in pick]
+    ordered = keep_company(key, cands, pool, places=places_arg, max_pool=40, shift_cost=6.0)
+    return _resample(key, ordered, cands, pool, places_arg, target)
+
+
+def _resample(key, ordered, cands, pool, places, target=None):
+    """If the key still has a feature to itself, try many triples of options (tagged slips preferred) and keep the best."""
+    tagged = {Fraction(v) for v, _ in cands}
+    shown = ordered[:3]
+    if len(shown) < 3 or not lone_sets([key, *(v for v, _ in shown)])[0]:
+        return ordered
+    if target is None:
+        target = sum(1 for v, _ in shown if v < key)
+    from ._company_kit import _PLACES
+
+    rng = random.Random(repr(("resample", str(key), places)))
+    everything = list({Fraction(v): (v, t) for v, t in [*cands, *pool] if Fraction(v) != key}.values())
+
+    def score(trio):
+        _PLACES[0] = places
+        try:
+            sets = lone_sets([key, *(v for v, _ in trio)])
+        finally:
+            _PLACES[0] = None
+        return (
+            10 * len(sets[0])
+            + 0.4 * sum(len(x) for x in sets[1:])
+            + 0.3 * sum(Fraction(v) not in tagged for v, _ in trio)
+            + 8 * abs(sum(1 for v, _ in trio if v < key) - target)
+        )
+
+    best, best_score = list(shown), score(shown)
+    close = sorted((c for c in everything if abs(Fraction(c[0]) - key) <= 1), key=lambda c: abs(Fraction(c[0]) - key))[
+        :12
+    ]
+    trials = [rng.sample(everything, 3) for _ in range(120)]
+    trials += [list(t) for t in itertools.combinations(close, 3)]
+    trials += [[a, b, c] for a, b in itertools.combinations(close, 2) for c in cands if c not in (a, b)]
+    for trio in trials:
+        if len({Fraction(v) for v, _ in trio}) < 3:
+            continue
+        sc = score(trio)
+        if sc < best_score - 1e-9:
+            best, best_score = trio, sc
+    return best + [c for c in ordered if not any(c is x or c == x for x in best)]
+
+
+def exact_number_part(prompt, value, marks, working, wrong, lo=None, **kw):
+    places = decimal_places(Fraction(value), kw.get("max_places", 8)) or 0
+    return _exact_number_part(prompt, value, marks, working, _company(value, wrong, places, lo), **kw)
+
+
+def _fixed_part(prompt, value, marks, working, wrong, **kw):
+    """A decimal answer stated to the places it needs (at least one), so every option is printed to the same places."""
+    kw.pop("max_places", None)
+    kw.pop("suffix", None)
+    places = max(decimal_places(Fraction(value), 4) or 0, 1)
+    return number_part(prompt, value, places, marks, working, wrong, **kw)
+
+
+def number_part(prompt, value, places, marks, working, wrong, **kw):
+    rounded = round_half_up(Fraction(value), places)
+    wrong = [(round_half_up(Fraction(v), places), t) for v, t in wrong if v is not None]
+    return _number_part(prompt, value, places, marks, working, _company(rounded, wrong, places), **kw)
+
 
 x, y = sympy.symbols("x y")
 
@@ -364,8 +496,8 @@ def _hard_walk(rng):
         f"Step {i + 1}: from ({_decimal(xs[i])}, {_decimal(ys[i])}) the slope is {_decimal(ss[i])}, so y becomes {_decimal(ys[i + 1])}."
         for i in range(n)
     ]
-    part = exact_number_part("", key, 3, working, wrong, max_places=4)
-    part["prompt"] = "Give the exact decimal value."
+    part = _fixed_part("", key, 3, working, wrong)
+    part["prompt"] = part["prompt"].lstrip(", ").capitalize()
     return single(stem, part)
 
 
@@ -405,7 +537,7 @@ def _hard_count(rng):
         (differs, "slope-field-wrong-condition-counted"),
     ]
     working = [f"Solving {_text(terms)} = {m} over the window gives the {key} points {', '.join(map(str, hits))}."]
-    part = exact_number_part("", key, 2, working, wrong, suffix="Give a whole number.")
+    part = exact_number_part("", key, 2, working, wrong, lo=0, suffix="Give a whole number.")
     part["prompt"] = "Give a whole number."
     return single(stem, part)
 
@@ -417,6 +549,7 @@ def _hard_count(rng):
 )
 def sc_slope_field(rng, tier: str = "easy"):
     """Slope readings from dy/dx = f(x, y); see the module docstring for the ladder."""
+    _RNG[0] = rng
     if tier == "easy":
         return draw(_easy, rng)
     if tier == "medium":
@@ -470,7 +603,7 @@ _CHAIN_STEMS = (
 
 
 def _chain(rng):
-    name = rng.choice(("ky", "ky", "axy", "axy", "x/y", "y/x", "ax2"))
+    name = rng.choice(("ky", "ky", "axy", "axy", "x/y", "y/x"))
     k = rng.choice((-2, -1, 1, 2, 3)) if name in ("ky", "axy", "ax2") else rng.choice((1, -1))
     text, f, f_sym, sol = _families()[name](k)
     if name == "y/x":
@@ -517,7 +650,7 @@ def _chain(rng):
         "axy": f"({k})*({x1})*part_b",
         "x/y": f"({k})*({x1})/part_b",
         "y/x": f"part_b/({x1})",
-        "ax2": f"({k})*({x1})**2",
+        "ax2": f"({k})*({x1})**2 + 0*part_b",
     }[name]
     wrong_const = None
     if name in ("ky", "axy", "ax2"):
@@ -535,7 +668,7 @@ def _chain(rng):
         (_val_swap(name, k, x0, y0), "ode-coordinates-swapped"),
     ]
     parts = [
-        exact_number_part(
+        _fixed_part(
             f"Find the slope of the segment at ({x0}, {y0}).",
             s0,
             1,
@@ -544,7 +677,7 @@ def _chain(rng):
             max_places=4,
             suffix="Give the exact decimal value.",
         ),
-        exact_number_part(
+        _fixed_part(
             f"Following that segment across by {hs}, find the y-coordinate of the path at x = {_decimal(x1)}.",
             y1,
             1,
@@ -558,7 +691,7 @@ def _chain(rng):
             max_places=4,
             suffix="Give the exact decimal value.",
         ),
-        exact_number_part(
+        _fixed_part(
             f"Find the slope of the segment at the point ({_decimal(x1)}, y) where y is your answer to the previous part.",
             s1,
             1,
@@ -572,7 +705,7 @@ def _chain(rng):
             max_places=4,
             suffix="Give the exact decimal value.",
         ),
-        exact_number_part(
+        _fixed_part(
             f"Take a second step of width {hs} along that segment. Find the y-coordinate of the path at x = {_decimal(x2)}.",
             y2,
             2,
@@ -635,6 +768,7 @@ def _val_swap(name, k, x0, y0) -> Fraction:
 @generator("sc_slope_field_chain", level=17, presets={"exam": dict(tier="exam")})
 def sc_slope_field_chain(rng, tier: str = "exam"):
     """Slope, two-step walk, exact separable solution and the miss, for a separable dy/dx through a point."""
+    _RNG[0] = rng
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
     return draw(_chain, rng)

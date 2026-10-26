@@ -235,7 +235,7 @@ def test_every_tagged_wrong_answer_is_catalogued_and_listed_in_the_skill_or_cata
         for part in sup.exam_question(CHAIN, seed).parts:
             seen |= set(part.option_notes.values())
     assert seen <= set(CATALOGUE)
-    assert all(i.startswith("wu-") for i in seen)
+    assert all(i.startswith("wu-") or i == "near-miss-value" for i in seen)
     assert {"wu-rounds-to-nearest", "wu-rounds-down-when-covering", "wu-rounds-up-when-only-full"} <= seen
 
 
