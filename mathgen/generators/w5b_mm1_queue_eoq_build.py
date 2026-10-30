@@ -14,11 +14,15 @@ Lq = rho^2 / (1 - rho); W = 1 / (mu - lam); Wq = rho / (mu - lam); P(wait > 0) =
 EOQ (annual demand D, ordering cost S per order, holding cost H per unit per year, Q* = sqrt(2 D S / H)) is built
 backwards from Q*, S and H with D = Q*^2 H / (2 S) a whole number:
 
-* easy: Q*, the annual cost at Q*, the number of orders per year.
+* easy: Q*, the annual cost at Q*, the number of orders per year (a whole number).
 * medium: the reorder point (daily demand over the lead time, on 250 working days), the time between orders, the
   annual cost of a stated lot size and the extra cost over the optimum.
-* hard: the best lot size and its cost when lots come in multiples of m, the demand D from the minimum annual cost, and
-  the total annual cost including purchases when holding cost is a share of the unit price.
+* hard: the best lot size and its cost when lots come in multiples of m (in about 45% of the items the multiple nearer to
+  Q* is not the cheaper one, and every option is a multiple of m), the demand D from the minimum annual cost, and the
+  total annual cost including purchases when holding cost is a share of the unit price.
+
+The reorder point is a whole number of units (the demand D is a multiple of 25 and the lead time is chosen to suit), and
+a key of 1000 or more says "no commas" because the typed-fraction grader reads a comma-grouped number as a list.
 * exam: typed three-part chains with follow-through, drawn from both models.
 
 Every value is an exact Fraction. Each queue quantity is checked against a numeric sum of the geometric
@@ -46,15 +50,20 @@ def ftext(v):
     return str(v.numerator) if v.denominator == 1 else f"{v.numerator}/{v.denominator}"
 
 
-def frac_options(value, slips, keep=4, *, lo=None, hi=None):
+def frac_options(value, slips, keep=4, *, lo=None, hi=None, step=None):
     """Wrong options for an exact answer, placed by `balanced` so the key has no fixed rank among them."""
-    return balanced(Fraction(value), slips, keep, kind="fraction", lo=lo, hi=hi)
+    return balanced(Fraction(value), slips, keep, kind="fraction", lo=lo, hi=hi, step=step)
 
 
-def frac_q(text, value, working, slips, *, keep=4, lo=0, hi=None, suffix=SUFFIX):
+NO_COMMAS = " Do not use commas in the answer."
+
+
+def frac_q(text, value, working, slips, *, keep=4, lo=0, hi=None, suffix=SUFFIX, step=None):
+    if Fraction(value) >= 1000:
+        suffix += NO_COMMAS  # the typed-answer grader reads a comma-grouped number as a list, so say how to type it
     if hi is None and Fraction(value) <= 1 and re.search(r"probab|utilisation|fraction of time|P\(", text):
         hi = 1  # a probability or a utilisation never exceeds 1
-    options = frac_options(value, slips, keep, lo=lo, hi=hi)
+    options = frac_options(value, slips, keep, lo=lo, hi=hi, step=step)
     check(len(options) >= 2, "too few distractors")
     return dict(
         text=text + suffix,
@@ -73,7 +82,7 @@ def frac_part(prompt, value, marks, working, slips, *, follow_through=None, sens
     options = frac_options(value, slips, keep, lo=lo, hi=hi)
     check(len(options) >= 2, f"fewer than two distractors for {prompt!r}")
     part = dict(
-        prompt=prompt + " (lowest terms)",
+        prompt=prompt + (" (lowest terms, no commas)" if Fraction(value) >= 1000 else " (lowest terms)"),
         answer_kind="fraction",
         answer=exact_value(value),
         answer_text=ftext(value),
@@ -213,7 +222,6 @@ def _queue_easy(rng):
             q["rho"],
             [f"ρ = λ/μ = {lam}/{mu} = {ftext(q['rho'])}."],
             [
-                (Fraction(mu, lam), "mm1-utilisation-inverted"),
                 (q["p0"], "mm1-utilisation-complement"),
                 (q["L"], "mm1-utilisation-as-l"),
                 (Fraction(lam, lam + mu), "mm1-utilisation-sum-denominator"),
@@ -238,7 +246,6 @@ def _queue_easy(rng):
         [f"P(0) = 1 - ρ = 1 - {ftext(q['rho'])} = {ftext(q['p0'])}."],
         [
             (q["rho"], "mm1-idle-as-busy"),
-            (1 / q["p0"], "mm1-idle-inverted"),
             (q["p0"] ** 2, "mm1-idle-squared"),
             (q["L"], "mm1-utilisation-as-l"),
         ],
@@ -283,7 +290,7 @@ def _queue_medium(rng):
         other = q["W" if kind == "Wq" else "Wq"]
         slips = [
             (_time(other, unit), "mm1-wq-w-swapped"),
-            (_time(Fraction(1, mu), unit), "mm1-w-as-service-time"),
+            (_time(Fraction(1, mu), unit), "mm1-w-as-service-time" if kind == "W" else None),
             (_time(hours, "hours" if unit == "minutes" else "minutes"), "mm1-time-unit-not-converted"),
             (_time(q["L"] / mu, unit), None),
         ]
@@ -578,9 +585,10 @@ def _tidy_lot(rng, D, S, H, Q, max_den=20):
     """A lot size away from Q whose annual cost has a small denominator (so the answer is a readable fraction): a
     divisor of 2 D S between half and double the EOQ, at least 15 units from it. Any lot size away from Q otherwise."""
     near = [x for x in range(max(10, Q // 2), 2 * Q + 1) if abs(x - Q) >= 15 and (2 * D * S) % x == 0]
-    near = [x for x in near if total_cost(D, S, H, x).denominator <= max_den]
-    if near:
-        return rng.choice(near)
+    for limit in (1, 2, max_den):  # a whole-dollar cost if one exists, then half dollars
+        tidy = [x for x in near if total_cost(D, S, H, x).denominator <= limit]
+        if tidy:
+            return rng.choice(tidy)
     fallback = None
     for _ in range(400):
         Q2 = max(10, Q + rng.choice((-1, 1)) * rng.choice((20, 25, 30, 40, 50, 60, 75, 100)))
@@ -591,14 +599,36 @@ def _tidy_lot(rng, D, S, H, Q, max_den=20):
     return fallback
 
 
-def _draw_eoq(rng, lo=Fraction(800), hi=Fraction(60000)):
-    """(Q, S, H, D) with D = Q^2 H / (2 S) a whole number."""
-    for _ in attempts(5000, "an EOQ with a whole-number demand"):
-        Q = rng.randint(30, 600)
-        S = rng.choice(_SS)
-        H = rng.randint(2, 40)
-        if (Q * Q * H) % (2 * S) == 0 and lo <= Fraction(Q * Q * H, 2 * S) <= hi:
-            return Q, S, H, Q * Q * H // (2 * S)
+def _draw_eoq(rng, lo=Fraction(800), hi=Fraction(30000), ok=None):
+    """(Q, S, H, D) with D = Q^2 H / (2 S) a whole number. With `ok`, a draw that passes it if one turns up in a few
+    thousand tries, else any draw: the preference (a whole number of orders, say) never blocks the question."""
+    for wanted in (ok, None) if ok else (None,):
+        for _ in range(4000 if wanted else 6000):
+            Q = rng.randint(30, 600)
+            S = rng.choice(_SS)
+            H = rng.randint(2, 40)
+            if (Q * Q * H) % (2 * S) == 0 and lo <= Fraction(Q * Q * H, 2 * S) <= hi:
+                draw = (Q, S, H, Q * Q * H // (2 * S))
+                if wanted is None or wanted(*draw):
+                    return draw
+    raise VerificationError("no EOQ with a whole-number demand")
+
+
+def _whole_orders(Q, S, H, D):
+    return D % Q == 0
+
+
+def _daily_ok(Q, S, H, D):
+    """Demand over some lead time of 3 to 21 working days is a whole number of units."""
+    return bool(_leads(D))
+
+
+def _leads(D):
+    return [lead for lead in range(3, 22) if (D * lead) % WORKING_DAYS == 0]
+
+
+def _whole_cycle(Q, S, H, D):
+    return (WORKING_DAYS * Q) % D == 0
 
 
 _E_SETUP = (
@@ -626,7 +656,7 @@ _E_N = (
 
 def _eoq_easy(rng):
     kind = rng.choice(("Q", "TC", "N"))
-    Q, S, H, D = _draw_eoq(rng)
+    Q, S, H, D = _draw_eoq(rng, ok=_whole_orders if kind == "N" else None)
     best = checked_eoq(D, S, H, Q)
     setup = phrase(rng, _E_SETUP, D=D, S=S, H=H)
     if kind == "Q":
@@ -706,18 +736,13 @@ _E_EXTRA = (
 
 def _eoq_medium(rng):
     kind = rng.choice(("rop", "cycle", "lot", "extra"))
-    Q, S, H, D = _draw_eoq(rng)
+    Q, S, H, D = _draw_eoq(rng, ok={"rop": _daily_ok, "cycle": _whole_cycle}.get(kind))
     best = checked_eoq(D, S, H, Q)
     setup = phrase(rng, _E_SETUP, D=D, S=S, H=H)
     days = WORKING_DAYS
     if kind == "rop":
-        for _ in range(60):
-            lead = rng.randint(3, 21)
-            if (D * lead) % days == 0 or rng.random() < 0.15:
-                break
-            Q, S, H, D = _draw_eoq(rng)
-            best = checked_eoq(D, S, H, Q)
-            setup = phrase(rng, _E_SETUP, D=D, S=S, H=H)
+        leads = _leads(D)
+        lead = rng.choice(leads) if leads else rng.randint(3, 21)
         value = Fraction(D, days) * lead
         return frac_q(
             phrase(rng, _E_ROP, setup=setup, days=days, lead=lead),
@@ -737,7 +762,7 @@ def _eoq_medium(rng):
             value,
             [f"Orders per year = D/Q* = {D}/{Q}; the time between orders is {days} × {Q}/{D} = {ftext(value)} days."],
             [
-                (Fraction(D, Q), "eoq-orders-inverted"),
+                (Fraction(D, Q), "eoq-cycle-as-orders-per-year"),
                 (Fraction(365 * Q, D), "eoq-rop-wrong-days"),
                 (Fraction(days * D, Q), None),
                 (Fraction(days * Q, 2 * D), None),
@@ -769,7 +794,7 @@ def _eoq_medium(rng):
             (cost2, "eoq-cost-at-lot-not-extra"),
             (abs(Fraction(D * S, Q2) - Fraction(D * S, Q)), "eoq-extra-ordering-only"),
             (abs(Fraction(H * Q2, 2) - Fraction(H * Q, 2)), "eoq-extra-holding-only"),
-            (best, "eoq-cost-at-optimum-not-lot"),
+            (best, None),
         ],
     )
 
@@ -803,37 +828,70 @@ _E_PRICE = (
 )
 
 
+def _draw_multiple(rng, whole_cost=False):
+    """(Q, S, H, D, m) for 'orders come in multiples of m', with Q* not a multiple of m. In about 45% of the draws the
+    multiple nearer to Q* is NOT the cheaper one: the cost is lower at the lot l when Q*^2 < l (l + m), so that happens
+    when Q*^2 lies between the geometric and the arithmetic mean of the two multiples (the nearer is the lower one)."""
+    want_trap = rng.random() < 0.45
+    for _ in range(20000):
+        m = rng.choice((25, 40, 50, 60, 75, 80, 100))
+        k = rng.randint(1, 12)
+        lo_lot, hi_lot = k * m, (k + 1) * m
+        if want_trap:
+            window = [x for x in range(lo_lot + 1, hi_lot) if x * x > lo_lot * hi_lot and 2 * x < lo_lot + hi_lot]
+            if not window:
+                continue
+            Q = rng.choice(window)
+        else:
+            Q = rng.randint(lo_lot + 1, hi_lot - 1)
+            if Q * Q > lo_lot * hi_lot and 2 * Q < lo_lot + hi_lot:
+                continue
+        if not 30 <= Q <= 1500:
+            continue
+        for _ in range(30):
+            S, H = rng.choice(_SS), rng.randint(2, 40)
+            if (Q * Q * H) % (2 * S) or not 800 <= Fraction(Q * Q * H, 2 * S) <= 30000:
+                continue
+            D = Q * Q * H // (2 * S)
+            if whole_cost:
+                winner = min((lo_lot, hi_lot), key=lambda x: (total_cost(D, S, H, x), x))
+                if total_cost(D, S, H, winner).denominator != 1:
+                    continue
+            return Q, S, H, D, m
+    raise VerificationError("no lot-multiple draw")
+
+
 def _eoq_hard(rng):
     kind = rng.choice(("mult_q", "mult_cost", "inverse", "price"))
     if kind in ("mult_q", "mult_cost"):
-        for _ in attempts(3000, "a multiple that straddles the EOQ"):
-            Q, S, H, D = _draw_eoq(rng)
-            m = rng.choice((25, 40, 50, 60, 75, 80, 100))
-            if Q % m != 0 and Q > m:
-                break
+        Q, S, H, D, m = _draw_multiple(rng, whole_cost=(kind == "mult_cost"))
         best = checked_eoq(D, S, H, Q)
         lo_lot, hi_lot = (Q // m) * m, (Q // m + 1) * m
         by_scan = min(range(m, 3 * Q + m, m), key=lambda x: (total_cost(D, S, H, x), x))
         winner = min((lo_lot, hi_lot), key=lambda x: (total_cost(D, S, H, x), x))
         check(by_scan == winner, "the best feasible lot is not one of the two multiples around Q*")
         nearer = lo_lot if Q - lo_lot <= hi_lot - Q else hi_lot
+        loser = hi_lot if winner == lo_lot else lo_lot
         setup = phrase(rng, _E_SETUP, D=D, S=S, H=H)
         if kind == "mult_q":
-            other = hi_lot if winner == lo_lot else lo_lot
+            below = lo_lot - m if lo_lot - m >= m else None
             return frac_q(
                 phrase(rng, _E_MULT, setup=setup, m=m),
                 winner,
                 [
                     f"Q* = {Q} lies between {lo_lot} and {hi_lot}. Costs: {ftext(total_cost(D, S, H, lo_lot))} and {ftext(total_cost(D, S, H, hi_lot))}.",
-                    f"The cheaper is {winner}.",
+                    f"The cheaper is {winner}"
+                    + (f", although {nearer} is the multiple nearer to Q*." if winner != nearer else "."),
                 ],
                 [
-                    (other, "eoq-nearest-lot-not-cheapest" if winner != nearer else "eoq-other-neighbour"),
-                    (nearer, "eoq-nearest-lot-not-cheapest"),
-                    (Q, "eoq-ignores-multiple-constraint"),
+                    (loser, "eoq-nearest-lot-not-cheapest" if loser == nearer else "eoq-other-neighbour"),
+                    (below, None),
                     (hi_lot + m, None),
+                    (hi_lot + 2 * m, None),
+                    (below - m if below and below - m >= m else None, None),
                 ],
-                lo=1,
+                lo=m,
+                step=m,
             )
         value = total_cost(D, S, H, winner)
         return frac_q(
@@ -842,9 +900,12 @@ def _eoq_hard(rng):
             [f"The best multiple is {winner}, with cost {D} × {S}/{winner} + {H} × {winner}/2 = {ftext(value)}."],
             [
                 (best, "eoq-cost-at-optimum-not-lot"),
-                (total_cost(D, S, H, hi_lot if winner == lo_lot else lo_lot), "eoq-other-neighbour"),
+                (
+                    total_cost(D, S, H, loser),
+                    "eoq-nearest-lot-not-cheapest" if loser == nearer else "eoq-other-neighbour",
+                ),
                 (value + (value - best), None),
-                (value - best, "eoq-cost-at-lot-not-extra"),
+                (value - best, None),
             ],
         )
     if kind == "inverse":
@@ -866,11 +927,11 @@ def _eoq_hard(rng):
     for _ in attempts(5000, "a unit price and holding share giving a whole-number EOQ"):
         Q = rng.randint(30, 400)
         S = rng.choice(_SS)
-        c = rng.choice((5, 8, 10, 12, 15, 20, 25, 30, 40, 50))
+        c = rng.choice((5, 8, 10, 12, 15, 20, 25, 30))
         pct = rng.choice((10, 12, 15, 20, 25, 30))
         H = Fraction(c * pct, 100)
         D2 = Fraction(Q * Q) * H / (2 * S)
-        if D2.denominator == 1 and 800 <= D2 <= 40000:
+        if D2.denominator == 1 and 800 <= D2 <= 9000:
             D = int(D2)
             break
     check(2 * D * S == H * Q * Q, "the price-based EOQ is not Q")
@@ -928,7 +989,7 @@ def _queue_exam(rng):
                     rho,
                     2,
                     [f"ρ = λ/μ = {ftext(rho)}."],
-                    [(q["p0"], "mm1-utilisation-complement"), (Fraction(mu, lam), "mm1-utilisation-inverted")],
+                    [(q["p0"], "mm1-utilisation-complement"), (q["L"], "mm1-utilisation-as-l")],
                     sensible_range=(0, 1),
                 ),
                 frac_part(
@@ -970,7 +1031,7 @@ def _queue_exam(rng):
                     [
                         (60 * q["W"], "mm1-wq-w-swapped"),
                         (q["Wq"], "mm1-time-unit-not-converted"),
-                        (Fraction(60, mu), "mm1-w-as-service-time"),
+                        (Fraction(60, mu), None),
                     ],
                     sensible_range=(0, None),
                 ),
@@ -1011,7 +1072,7 @@ def _queue_exam(rng):
                 q["p0"],
                 2,
                 [f"P(0) = 1 - ρ = {ftext(q['p0'])}."],
-                [(rho, "mm1-idle-as-busy"), (1 / q["p0"], "mm1-idle-inverted"), (q["p0"] ** 2, "mm1-idle-squared")],
+                [(rho, "mm1-idle-as-busy"), (q["L"], "mm1-utilisation-as-l"), (q["p0"] ** 2, "mm1-idle-squared")],
                 sensible_range=(0, 1),
             ),
             frac_part(
@@ -1046,7 +1107,7 @@ def _queue_exam(rng):
 
 def _eoq_exam(rng):
     shape = rng.choice(("Q_TC_N", "Q_cycle_rop", "Q_cost_saving"))
-    Q, S, H, D = _draw_eoq(rng)
+    Q, S, H, D = _draw_eoq(rng, ok={"Q_TC_N": _whole_orders, "Q_cycle_rop": _daily_ok}.get(shape))
     best = checked_eoq(D, S, H, Q)
     setup = phrase(rng, _E_SETUP, D=D, S=S, H=H)
     q_part = frac_part(
@@ -1092,11 +1153,8 @@ def _eoq_exam(rng):
             ],
         )
     if shape == "Q_cycle_rop":
-        lead = rng.randint(3, 21)
-        for _ in range(60):
-            if (D * lead) % WORKING_DAYS == 0:
-                break
-            lead = rng.randint(3, 21)
+        leads = _leads(D)
+        lead = rng.choice(leads) if leads else rng.randint(3, 21)
         rop = Fraction(D * lead, WORKING_DAYS)
         cycle = Fraction(WORKING_DAYS * Q, D)
         return dict(
@@ -1109,7 +1167,7 @@ def _eoq_exam(rng):
                     3,
                     [f"{WORKING_DAYS} × Q*/D = {WORKING_DAYS} × {Q}/{D} = {ftext(cycle)}."],
                     [
-                        (Fraction(D, Q), "eoq-orders-inverted"),
+                        (Fraction(D, Q), "eoq-cycle-as-orders-per-year"),
                         (Fraction(365 * Q, D), "eoq-rop-wrong-days"),
                         (Fraction(WORKING_DAYS * D, Q), None),
                     ],
@@ -1156,8 +1214,9 @@ def _eoq_exam(rng):
                 [f"Cost at {Q2}: {D * S}/{Q2} + {H} × {Q2}/2 = {ftext(cost2)}; excess {ftext(cost2 - best)}."],
                 [
                     (cost2, "eoq-cost-at-lot-not-extra"),
-                    (best, "eoq-cost-at-optimum-not-lot"),
+                    (best, None),
                     (abs(Fraction(D * S, Q2) - Fraction(D * S, Q)), "eoq-extra-ordering-only"),
+                    (abs(Fraction(H * Q2, 2) - Fraction(H * Q, 2)), "eoq-extra-holding-only"),
                 ],
                 follow_through=f"{ftext(cost2)} - part_b",
                 sensible_range=(0, None),

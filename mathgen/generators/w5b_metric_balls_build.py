@@ -335,7 +335,7 @@ def _medium_count(rng: random.Random) -> dict:
     c = _rand_pt(rng, n, -4, 4)
     total = 6
     if kind == "disc":
-        r = rng.choice((Fr(1, 2), Fr(1), Fr(3, 2), Fr(2)))
+        r = Fr(1)  # a point other than the centre is at distance 1, so it is on the boundary
         extra = 1 if rng.random() < 0.6 else 0
         others = set()
         for _ in attempts(200, "distinct points"):
@@ -347,7 +347,9 @@ def _medium_count(rng: random.Random) -> dict:
         rng.shuffle(pts)
     else:
         r = Fr(rng.randint(2, 4 if n == 3 else 7))
-        n_on = rng.choice((1, 1, 2, 2, 0))
+        if kind == "w":  # a radius the weighted sphere reaches: w0*i + w1*j
+            r = Fr(sum(wi * rng.randint(0, 2) for wi in m[1]) or m[1][0])
+        n_on = rng.choice((1, 1, 2, 2))
         pts = _sample_points(rng, m, n, r, min(rng.choice((0, 1, 2, 2, 3, 4)), total - 1 - n_on), n_on, total, c)
     key = _count_in(m, pts, c, r)
     closed = _count_closed(m, pts, c, r)
@@ -362,7 +364,7 @@ def _medium_count(rng: random.Random) -> dict:
         (key + 2, "dg-near-miss-value"),
         (key - 2, "dg-near-miss-value"),
     ]
-    wrongs = [(v, t) for v, t in wrongs if v >= 0]
+    wrongs = [(v, t) for v, t in wrongs if 0 <= v <= total]
     dists = [str(dist(m, p, c)) if kind != "2" else atext(dist(m, p, c)) for p in pts]
     working = [
         "Distances from c: " + ", ".join(f"{_pt(p).p} is {d}" for p, d in zip(pts, dists)) + ".",
@@ -425,7 +427,7 @@ def _medium_count(rng: random.Random) -> dict:
         answer_latex=str(key),
         answer_kind="number",
         working=working,
-        distractors=int_dist(key, balanced(key, wrongs, whole=True)),
+        distractors=int_dist(key, balanced(key, wrongs, whole=True, hi=total)),
     )
     check(len(out["distractors"]) >= 3, "too few distractors for a count")
     return out
@@ -789,6 +791,18 @@ def _medium(rng: random.Random) -> dict:
 # -- the generators ------------------------------------------------------------------------------------------------------------
 
 
+def _say_how_to_write(d: dict) -> dict:
+    """A key that is not a whole number is typed exactly (a surd, a multiple of pi or a fraction), so the stem says so."""
+    v = sympy.sympify(d["answer"])
+    text = d["text"].lower()
+    if v.is_Integer or "exact" in text or "fraction" in text:
+        return d
+    note = " Give the answer as a whole number or an exact fraction." if v.is_Rational else " Give the exact value."
+    d["text"] += note
+    d["latex"] += "\\text{" + note + "}"
+    return d
+
+
 @generator(
     TOPIC,
     level=19,
@@ -796,19 +810,21 @@ def _medium(rng: random.Random) -> dict:
 )
 @uses_rng
 def w5b_metric_balls(rng: random.Random, tier: str = "easy") -> dict:
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
-    return {"easy": _easy, "medium": _medium, "hard": _hard}[tier](rng)
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
+    return _say_how_to_write({"easy": _easy, "medium": _medium, "hard": _hard}[tier](rng))
 
 
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
 @uses_rng
 def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
     """A five-part chain: two distances, a membership count, a containment radius and the measure of that ball."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     n = 3 if rng.random() < 0.35 else 2
     m1, m2, m3 = (rng.sample(_BASIC, 2) + [rng.choice(_BASIC)])[:3]
     m4 = rng.choice([k for k in _BASIC if k != m3] if rng.random() < 0.7 else list(_BASIC))
-    if m4 != "2" and rng.random() < 0.4:
+    if m4 != "2" and rng.random() < 0.5:
         m4 = "2"
     P = _rand_pt(rng, n, -20, 20)
     for _ in attempts(100, "P distinct from Q"):
@@ -817,7 +833,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
             break
     r_c = Fr(rng.randint(3, 6 if n == 3 else 14))
     mm3 = (m3, None)
-    n_on = rng.choice((1, 1, 2, 0))
+    n_on = rng.choice((1, 1, 2))
     pts = _sample_points(
         rng, mm3, n, r_c, min(rng.choice((0, 1, 2, 2, 3)), 4 - n_on), n_on, 5, P, extra=6 if n == 3 else 12
     )
@@ -914,7 +930,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
         (key_c - 1, "dg-near-miss-value"),
         (key_c + 2, "dg-near-miss-value"),
     ]
-    wrongs_c = [(v, t) for v, t in wrongs_c if v >= 0]
+    wrongs_c = [(v, t) for v, t in wrongs_c if 0 <= v <= 5]
     c_part = Link(
         msay("How many points of S lie in ", _ball(m3, "P", str(r_c)), "?"),
         sympy.Integer(key_c),
@@ -923,7 +939,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
         [
             f"Distances from P under {t[m3]} are {', '.join(atext(dist(mm3, p, P)) for p in pts)}; those strictly below {r_c} count."
         ],
-        balanced(key_c, wrongs_c, whole=True),
+        balanced(key_c, wrongs_c, whole=True, hi=5),
     )
     wrongs_d = [(min(ds4), "mb-containment-nearest-point")]
     wrongs_d += [(max(dist((o, None), p, P) for p in pts), "mb-wrong-norm-formula") for o in _BASIC if o != m4]

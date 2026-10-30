@@ -57,6 +57,9 @@ from ._w5b_pde_cp_balance_kit import fair
 TOPIC = "w5b_pde_discriminant"
 EXAM_TOPIC = "exd_x_w5b_pde_discriminant"
 
+FRACTION_FORMAT = " Give your answer as a fraction in lowest terms or a whole number."
+SET_FORMAT = " Give each slope as a fraction in lowest terms or a whole number."
+
 Lin = tuple  # (c0, c1): c0 + c1 k
 
 _RHS = ["0", "0", "0", "0", "x + y", "sin(x)", "e^y", "x y"]
@@ -237,6 +240,7 @@ def _easy(rng: random.Random) -> dict:
     coefs.update({k: (v[0], 0) for k, v in _noise(rng).items()})
     lhs, rhs = equation(coefs, layout)
     xx, xy, yy = _syms(layout)
+    shown = -1 if layout["negate"] else 1  # the sign of B as it is printed: a negated layout prints -b
     if half:
         value = Fr(b * b - 4 * a * c, 4)
         bb = b // 2
@@ -252,7 +256,7 @@ def _easy(rng: random.Random) -> dict:
             (Fr(b * b - a * c), "pde-mixed-coefficient-convention"),
             (Fr(4 * a * c - bb * bb), "reversed-discriminant-sign"),
             (Fr(bb * bb + a * c), "pde-4ac-added"),
-            (Fr(bb - a * c), "pde-b-not-squared"),
+            (Fr(shown * bb - a * c), "pde-b-not-squared"),
         ]
     else:
         value = Fr(b * b - 4 * a * c)
@@ -266,7 +270,7 @@ def _easy(rng: random.Random) -> dict:
         wrongs = [
             (Fr(b * b - a * c), "dropped-factor-4-in-discriminant"),
             (Fr(4 * a * c - b * b), "reversed-discriminant-sign"),
-            (Fr(b - 4 * a * c), "pde-b-not-squared"),
+            (Fr(shown * b - 4 * a * c), "pde-b-not-squared"),
             (Fr(b * b + 4 * a * c), "pde-4ac-added"),
             (Fr(b * b - 4 * a * (e1 if e1 else d1)), "pde-lower-order-in-discriminant"),
             (Fr(b * b - 4 * d1 * c), "pde-lower-order-in-discriminant"),
@@ -654,7 +658,7 @@ def _hard_slopes(rng: random.Random, with_k: bool) -> dict:
         f"B² - 4AC = {b * b - 4 * a * c} = {int(root)}², so dy/dx = ({b} ± {int(root)})/{_den(2 * a)}, giving {rational_text(small)} and {rational_text(big)}; the {which} is {text_key}.",
     ]
     return dict(
-        text=ask[rng.randrange(3)],
+        text=ask[rng.randrange(3)] + FRACTION_FORMAT,
         latex="",
         answer=exact_value(value),
         answer_text=text_key,
@@ -714,7 +718,7 @@ def _hard_canonical(rng: random.Random) -> dict:
     dist = pick_distractors(text_key, out, 4)
     check(len(dist) >= 3, "fewer than three distractors")
     return dict(
-        text=ask[rng.randrange(3)],
+        text=ask[rng.randrange(3)] + FRACTION_FORMAT,
         latex="",
         answer=exact_value(key),
         answer_text=text_key,
@@ -890,7 +894,7 @@ def exd_x_w5b_pde_discriminant(rng: random.Random, tier: str = "exam") -> dict:
             distractors=dc,
         ),
         dict(
-            prompt=f"{chars} For k = {k2}, find the two slopes dy/dx of the characteristics as a set.",
+            prompt=f"{chars} For k = {k2}, find the two slopes dy/dx of the characteristics as a set.{SET_FORMAT}",
             marks=3,
             working=[
                 f"At k = {k2}: A = {a}, B = {p * k2}, C = {c}; B² - 4AC = {(p * k2) ** 2 - 4 * a * c} = {root}².",

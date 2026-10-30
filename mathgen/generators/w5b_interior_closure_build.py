@@ -48,7 +48,7 @@ from ..grading import GRADERS
 from ..grading.inequality import read_solution_set
 from ..grading.inequality import _same_set as _same_real_set  # noqa: PLC2701
 from ._r3j_kit import set_part, single_set
-from ._spread_kit import uses_rng
+from ._spread_kit import _RNG, uses_rng
 from ._w5b_balance import balanced
 from ._w5a_support import Link, X, ineq_part, join_signed, link_part, msay as _msay
 
@@ -185,6 +185,9 @@ def analyse(pieces) -> SimpleNamespace:
         has_iso_or_seq=bool(iso or seqs),
         has_q=bool(qs),
         has_seq=bool(seqs),
+        stem=frozenset(
+            {p[1] for p in pieces if p[0] in ("I", "P", "Q", "S")} | {p[2] for p in pieces if p[0] in ("I", "Q")}
+        ),
     )
 
 
@@ -262,10 +265,6 @@ def _shuffled(rng, pieces):
     return pieces
 
 
-def _probe(kind: str, answer, text: str):
-    return SimpleNamespace(answer=answer, answer_text=text, answer_kind=kind, text="S")
-
-
 def _ineq_wrongs(key: str, cands):
     """Wrong interval answers, as (text, tag), dropped when the grader reads them as the key or cannot read them."""
     expected = read_solution_set(key)
@@ -288,8 +287,17 @@ def _ineq_question(prompt, key, working, cands):
     return _as_question(part)
 
 
+def _fit_form(prompt, n: int):
+    """The (text, latex) prompt with its example set, {a, b} or {a, b, c}, written with as many letters as the key has."""
+    letters = ", ".join("abcde"[:n]) if n <= 5 else "a, b, c, …"
+    text = re.sub(r"\{a(?:, [b-e])*\}", "{" + letters + "}", prompt[0])
+    latex = re.sub(r"\\\{\\text\{a(?:, [b-e])*\}\\\}", lambda _m: "\\{\\text{" + letters + "}\\}", prompt[1])
+    return text, latex
+
+
 def _set_question(prompt, items, working, slips, *, single=False):
     """A question whose answer is a set of numbers; `prompt` is a (text, latex) pair."""
+    prompt = _fit_form(prompt, len(items))
     if single:
         q = single_set(prompt[0], items, working, slips, keep=3)
         q["latex"] = prompt[1]
@@ -339,41 +347,9 @@ def _interior_cands(an):
     return cands
 
 
-def _closure_cands(an):
-    cl = an.closure
-    cands = [
-        (union_text(an.interior), "ic-closure-drops-open-ends"),
-        (union_text([(a, b, False, False) for a, b, _l, _r in cl]), "ic-closure-drops-open-ends"),
-        (union_text([(a, b, True, False) for a, b, _l, _r in cl]), "ic-closure-keeps-open-end"),
-        (union_text([(a, b, False, True) for a, b, _l, _r in cl]), "ic-closure-keeps-open-end"),
-    ]
-    comps = [c for c in an.comps if c[0] < c[1]]
-    cands.append((union_text([(a, b, lc, rc) for a, b, lc, rc in comps]), "ic-closure-is-the-set"))
-    if len(cl) >= 2:
-        cands.append((union_text([(cl[0][0], cl[-1][1], True, True)]), "ic-closure-fills-the-gaps"))
-        cands.append((union_text(cl[:-1]), "ic-closure-drops-a-piece"))
-    return cands
-
-
-def _int_part_key(value: int) -> str:
-    return str(value)
-
-
-# -- wrong-answer builders for the exam counts and sums ----------------------------------------------------------------------------
-
-
 def _members(comps):
-    """The boundary-candidate points that belong to the set itself: closed ends and isolated points."""
-    out = set()
-    for a, b, lc, rc in comps:
-        if a == b:
-            out.add(a)
-            continue
-        if lc:
-            out.add(a)
-        if rc:
-            out.add(b)
-    return sorted(out)
+    """The end points of the components that belong to S (the closed ends and the isolated points)."""
+    return sorted({x for a, b, lc, rc in comps for x, closed in ((a, lc), (b, rc)) if closed})
 
 
 def _bd_wrongs(an):
@@ -416,22 +392,51 @@ def _ends(ivs):
     return sorted({x for a, b, _l, _r in ivs for x in (a, b)})
 
 
-def _slips(key_points, cands):
-    """(items, tag) slips as text, dropping empty ones and any equal to the key; a near miss or two is always added."""
+def _slips(key_points, cands, an=None):
+    """(items, tag) slips as text, ordered so that the shown three do not single the key out.
+
+    Dropped: empty slips and any equal to the key. Near misses built from the numbers in the stem are added (a point
+    of the key left out, or swapped for another stem number). The first three then hold, in random order, two slips built
+    wholly from stem numbers (as the key is), and one at least as large as the key most of the time, so the key is
+    neither the only set made of stem numbers nor usually the largest."""
     key = sorted(key_points)
-    out, seen = [], {tuple(key)}
-    fallback = [
+    rng = _RNG.get() or random.Random(repr(key))
+    stem = set(an.stem) if an is not None else set(key)
+    spare = sorted(stem - set(key))
+    fallback = [(key[:i] + key[i + 1 :], "dg-near-miss-value") for i in range(len(key)) if len(key) > 1]
+    fallback += [(key[:i] + [y] + key[i + 1 :], "dg-near-miss-value") for i in range(len(key)) for y in spare]
+    fallback += [(key + [y], "dg-near-miss-value") for y in spare]
+    fallback += [
         ([x + 1 if i == 0 else x for i, x in enumerate(key)], "dg-near-miss-value"),
-        ([x - 1 if i == len(key) - 1 else x for i, x in enumerate(key)], "dg-near-miss-value"),
         (key + [key[-1] + 1], "dg-near-miss-value"),
     ]
+    named, seen = [], {tuple(key)}
     for pts, tag in list(cands) + fallback:
         pts = sorted(set(pts))
         if not pts or tuple(pts) in seen:
             continue
         seen.add(tuple(pts))
-        out.append((_texts(pts), tag))
-    return out
+        named.append((pts, tag))
+    rng.shuffle(named)
+    own = [c for c in named if all(x in stem for x in c[0])]
+    big = [c for c in named if len(c[0]) >= len(key)]
+    chosen = []
+
+    def take(pool):
+        for c in pool:
+            if not any(c is d for d in chosen):
+                chosen.append(c)
+                return
+
+    if big and rng.random() < 0.7:
+        take([c for c in big if c in own] or big)
+    take(own)
+    take(own)
+    take(named)
+    take(named)
+    rest = [c for c in named if not any(c is d for d in chosen)]
+    rng.shuffle(chosen)
+    return [(_texts(pts), tag) for pts, tag in chosen + rest]
 
 
 def _bd_set_slips(an):
@@ -448,7 +453,7 @@ def _bd_set_slips(an):
         (pts[:-1], "dg-near-miss-value"),
         (pts[1:], "dg-near-miss-value"),
     ]
-    return _slips(pts, cands)
+    return _slips(pts, cands, an)
 
 
 # -- single-part questions, all answered with a set of numbers ------------------------------------------------------------------
@@ -518,7 +523,7 @@ def _form_interior_ends(rng, pieces, an):
         f"The pieces merge into the components {union_text(an.comps)}.",
         f"Dropping the isolated points and the endpoints leaves {union_text(an.interior)}, whose endpoints are {{{', '.join(_texts(key))}}}.",
     ]
-    return _set_question(prompt, _texts(key), working, _slips(key, cands), single=True)
+    return _set_question(prompt, _texts(key), working, _slips(key, cands, an), single=True)
 
 
 def _form_closure_ends(rng, pieces, an):
@@ -551,13 +556,15 @@ def _form_closure_ends(rng, pieces, an):
     naive = _ends([(p[1], p[2], True, True) for p in listed])
     cands = [
         (naive, "ic-closure-not-merged"),
-        (_members(wide), "ic-closure-drops-open-ends"),
+        ([c[0] for c in cl], "ic-closure-keeps-open-end"),
+        ([c[1] for c in cl], "ic-closure-keeps-open-end"),
         ([key[0], key[-1]], "ic-closure-fills-the-gaps"),
         (
             _ends([c for c in cl if not any(c[0] == p[1] and c[1] == p[2] for p in qs)]) if qs else key[:-2],
             "ic-rational-closure-itself" if qs else "ic-closure-drops-a-piece",
         ),
         (key[2:], "ic-closure-drops-a-piece"),
+        (_members(wide) + list(an.iso), "ic-closure-is-the-set"),
         ([x + 1 if i == 0 else x for i, x in enumerate(key)], "dg-near-miss-value"),
         ([-x for x in key], "calc-sign-slip"),
     ]
@@ -565,7 +572,7 @@ def _form_closure_ends(rng, pieces, an):
         "Each interval component keeps all its points and gains its endpoints; rational intervals are dense in their closed interval; closed intervals that meet merge.",
         f"The closure is {union_text(cl)}, with endpoints {{{', '.join(_texts(key))}}}.",
     ]
-    return _set_question(prompt, _texts(key), working, _slips(key, cands), single=True)
+    return _set_question(prompt, _texts(key), working, _slips(key, cands, an), single=True)
 
 
 def _form_iso_set(rng, pieces, an):
@@ -595,7 +602,7 @@ def _form_iso_set(rng, pieces, an):
     cands = [
         (listed, "ic-isolated-point-touching-interval"),
         ([c[0] for c in an.comps if c[0] < c[1] and c[2]] + key, "ic-isolated-point-limit-point"),
-        (set(_ends([c for c in an.comps if c[0] < c[1]])) | set(key), "ic-boundary-counts-pieces"),
+        (set(_ends([c for c in an.comps if c[0] < c[1]])) | set(key), "ic-isolated-point-boundary-point"),
         (key[:-1], "dg-near-miss-value"),
         ([-x for x in key], "calc-sign-slip"),
         ([x + 1 for x in key], "dg-near-miss-value"),
@@ -603,7 +610,7 @@ def _form_iso_set(rng, pieces, an):
     working = [
         f"The components are {union_text(an.comps)}; the degenerate ones are the isolated points {{{', '.join(_texts(key))}}}. A listed point that sits at an end of an interval is joined to it."
     ]
-    return _set_question(prompt, _texts(key), working, _slips(key, cands), single=True)
+    return _set_question(prompt, _texts(key), working, _slips(key, cands, an), single=True)
 
 
 def _easy_pieces(rng):
@@ -699,7 +706,7 @@ def _form_limits(rng, pieces, an):
         "Each sequence c ± 1/n has terms that get arbitrarily close to c without equalling it, so c is a limit point; the terms themselves and the single points are isolated.",
         f"The limit points are {{{', '.join(_texts(key))}}}.",
     ]
-    return _set_question(prompt, _texts(key), working, _slips(key, cands), single=True)
+    return _set_question(prompt, _texts(key), working, _slips(key, cands, an), single=True)
 
 
 def _form_missing_set(rng, pieces, an):
@@ -734,7 +741,7 @@ def _form_missing_set(rng, pieces, an):
         "An open end of an interval and the limit of a sequence are in the closure; they are missing from S when S does not contain them.",
         f"These points are {{{', '.join(_texts(key))}}}.",
     ]
-    return _set_question(prompt, _texts(key), working, _slips(key, cands), single=True)
+    return _set_question(prompt, _texts(key), working, _slips(key, cands, an), single=True)
 
 
 def _sequence_pieces(rng):
@@ -901,7 +908,10 @@ def _planar_points(rng, sh: Planar, n_in: int, n_bd: int):
             where, _ = sh.classify((x, y))
             (ints if where == "int" else bds if where == "bd" else exts).append((x, y))
     n_bd, n_in = min(n_bd, len(bds)), min(n_in, len(ints))
-    pts = rng.sample(ints, n_in) + rng.sample(bds, n_bd) + rng.sample(exts, 6 - n_in - n_bd)
+    on_edge = rng.sample(bds, n_bd)
+    if sh.kind == "punct" and n_bd and tuple(sh.c) in bds and tuple(sh.c) not in on_edge and rng.random() < 0.7:
+        on_edge[0] = tuple(sh.c)  # the removed centre is a boundary point
+    pts = rng.sample(ints, n_in) + on_edge + rng.sample(exts, 6 - n_in - n_bd)
     rng.shuffle(pts)
     return pts
 
@@ -955,14 +965,13 @@ def _form_planar_set(rng):
     boundary = [p for p, (w, _m) in zip(pts, cls) if w == "bd"]
     other = {"interior": closure, "closure": interior, "boundary": interior}[ask]
     cands = [
+        ([p for p in key if p != sh.c] if sh.kind == "punct" else [], "ic-punctured-centre-not-boundary"),
         (members, "ic-count-membership-not-region"),
         (other, "ic-closure-interior-confused"),
         (boundary if ask != "boundary" else members, "ic-closure-interior-confused"),
         (key[:-1], "dg-near-miss-value"),
         (key[1:], "dg-near-miss-value"),
-        ([p for p in key if p != sh.c], "ic-punctured-centre-not-boundary")
-        if sh.kind == "punct"
-        else (set(key) | set(boundary), "ic-closure-interior-confused"),
+        (set(key) | set(boundary), "ic-closure-interior-confused"),
         (set(key) | {p for p in pts if p not in key}, "mb-counted-outside"),
     ]
     items = [(x, y) for x, y in key]
@@ -993,8 +1002,10 @@ def _hard(rng: random.Random) -> dict:
     level=19,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 def w5b_interior_closure(rng: random.Random, tier: str = "easy") -> dict:
-    check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
+    if tier not in ("easy", "medium", "hard"):
+        raise ValueError(f"unknown tier {tier!r}")
     return {"easy": _easy, "medium": _medium, "hard": _hard}[tier](rng)
 
 
@@ -1017,7 +1028,8 @@ def _exam_pieces(rng):
 @uses_rng
 def exd_x_w5b_interior_closure(rng: random.Random, tier: str = "exam") -> dict:
     """A five-part chain: interior, the boundary points (or closure points missing from S), their count, sum and mean."""
-    check(tier == "exam", f"unknown tier {tier!r}")
+    if not (tier == "exam"):
+        raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(300, "an exam set"):
         flavour, pieces = _exam_pieces(rng)
         an = analyse(pieces)
@@ -1065,14 +1077,17 @@ def exd_x_w5b_interior_closure(rng: random.Random, tier: str = "exam") -> dict:
         ]
         seq_limits = sorted({p[1] for p in pieces if p[0] == "S"})
         open_ends = sorted(set(pts) - set(seq_limits))
-        set_slips = [
-            ([set_item(x) for x in open_ends], "ic-sequence-limit-missed"),
-            ([set_item(x) for x in seq_limits], "ic-open-end-missed"),
-            ([set_item(x) for x in sorted(set(pts) | set(an.iso))], "ic-isolated-point-limit-point"),
-            ([set_item(x) for x in pts[:-1]], "dg-near-miss-value"),
-            ([set_item(-x) for x in pts], "calc-sign-slip"),
-        ]
-        set_slips = [(a, t) for a, t in set_slips if a and sorted(a) != sorted(items)]
+        set_slips = _slips(
+            pts,
+            [
+                (open_ends, "ic-sequence-limit-missed"),
+                (seq_limits, "ic-open-end-missed"),
+                (sorted(set(pts) | set(an.iso)), "ic-isolated-point-limit-point"),
+                (pts[:-1], "dg-near-miss-value"),
+                ([-x for x in pts], "calc-sign-slip"),
+            ],
+            an,
+        )
         count_wrongs = [
             (len(seq_limits), "ic-open-end-missed"),
             (len(open_ends), "ic-sequence-limit-missed"),
@@ -1100,8 +1115,9 @@ def exd_x_w5b_interior_closure(rng: random.Random, tier: str = "exam") -> dict:
         ],
         _ineq_wrongs(int_key, _interior_cands(an)),
     )
-    set_p = set_part(msay(set_prompt)[0], items, 2, set_working, set_slips)
-    set_p["prompt_latex"] = msay(set_prompt)[1]
+    fitted = _fit_form(msay(set_prompt), len(items))
+    set_p = set_part(fitted[0], items, 2, set_working, set_slips)
+    set_p["prompt_latex"] = fitted[1]
     count_link = Link(
         msay(count_prompt),
         n,

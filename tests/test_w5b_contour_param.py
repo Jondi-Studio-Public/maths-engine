@@ -184,7 +184,8 @@ def test_exam_parts_are_recomputed_from_the_stem():
         m_max = max(abs(f(centre + r * cmath.exp(1j * (t0 + (t1 - t0) * k / 2000)))) for k in range(2001))
         bound = m_max * r * abs(t1 - t0)
         assert abs(float(c) - bound) <= 0.0051, (q.text, c, bound)
-        assert abs(float(d) - (bound - abs(i_arc))) <= 0.0101, (q.text, d, bound - abs(i_arc))
+        # part (d) starts from the 2 d.p. M L the stem tells the learner to use, i.e. the answer to part (c)
+        assert abs(float(d) - (float(c) - abs(i_arc))) <= 0.0051, (q.text, c, d, abs(i_arc))
         assert bound >= abs(i_arc)
         assert [p.answer_kind for p in q.parts] == ["expression", "expression", "number", "number"]
 
@@ -270,3 +271,65 @@ def test_distractor_tags_are_in_the_skill():
             for p in q.parts or ():
                 used |= set(p.option_notes.values())
     assert used <= listed, used - listed
+
+
+def test_exam_part_d_follows_the_rounded_bound_of_part_c():
+    """The stem says to take M L from part (c) to 2 d.p.; the key and its working must subtract that value."""
+    for seed in range(300):
+        q = _q("exam", seed)
+        c, d = q.parts[2], q.parts[3]
+        assert "2 decimal place value from the previous part" in d.prompt
+        i_arc = abs(numeric(parse(q.parts[1].answer_text)))
+        assert abs(float(d.answer_text) - (float(c.answer_text) - i_arc)) <= 0.00501, (
+            seed,
+            c.answer_text,
+            d.answer_text,
+        )
+        assert f"{c.answer_text} - " in d.working[0], d.working
+
+
+def test_exam_decimal_parts_do_not_hand_the_key_a_fixed_rank():
+    from collections import Counter
+
+    for idx in (2, 3):
+        ranks, steps = Counter(), 0
+        for seed in range(300):
+            part = _q("exam", seed).parts[idx]
+            vals = sorted([float(part.answer_text), *(float(x) for x in part.distractors)])
+            ranks[vals.index(float(part.answer_text))] += 1
+            gaps = [round(b - a, 2) for a, b in zip(vals, vals[1:])]
+            steps += len(set(gaps)) == 1
+        assert max(ranks.values()) <= 0.4 * 300, ranks
+        assert len(ranks) == 5, ranks
+        assert steps <= 0.1 * 300, steps  # evenly spaced options are rare
+        structural = sum(
+            1
+            for s in range(60)
+            if len(set(_q("exam", s).parts[idx].option_notes.values()) - {"cx2-arithmetic-slip"}) >= 1
+        )
+        assert structural >= 55, (
+            structural
+        )  # a named slip (M L alone, |I| alone, the chord length...) is always among the options
+
+
+def test_closed_loop_zero_option_is_offered_wherever_it_is_a_slip():
+    seen = 0
+    for seed in range(1, 300):
+        q = _q("hard", seed)
+        ps = paths_in(q.text)
+        if len(ps) != 1 or ps[0][0] != "arc" or abs(ps[0][4] - ps[0][3]) < 6.2:
+            continue
+        if q.answer_text == "0":
+            continue
+        seen += 1
+        assert "cx2-param-closed-loop-assumed-zero" in q.option_notes.values(), (seed, q.text)
+    assert seen >= 20
+
+
+def test_unit_steps_read_plus_t_and_values_put_pi_last():
+    for seed in range(300):
+        for tier in ("easy", "medium", "hard"):
+            q = _q(tier, seed)
+            assert "1t" not in q.text.replace("11t", "").replace("21t", ""), q.text
+            assert "Evaluate the exact value of" not in q.text
+            assert not re.search(r"π[a-z]* [+-] \d", q.answer_text), q.answer_text  # rational part comes first

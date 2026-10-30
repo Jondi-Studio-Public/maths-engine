@@ -296,3 +296,37 @@ def test_distractor_tags_are_in_the_skill():
             for p in q.parts or ():
                 used |= set(p.option_notes.values())
     assert used <= listed, used - listed
+
+
+def test_hard_and_exam_slope_and_q_prompts_state_the_answer_format():
+    for seed in range(1, 120):
+        q = _q("hard", seed)
+        assert q.answer_kind == "fraction"
+        assert q.text.endswith("Give your answer as a fraction in lowest terms or a whole number."), q.text
+    for seed in range(1, 120):
+        q = _q("exam", seed)
+        assert "as a fraction in lowest terms or a whole number" in q.parts[3].prompt
+
+
+def test_hard_fraction_keys_are_accepted_as_instructed():
+    sk = next(s for s in load_skills()[1] if s.id == SKILL)
+    for seed in range(1, 120):
+        q = _q("hard", seed)
+        assert skill_grade(sk, q, q.answer_text).correct, (seed, q.answer_text)
+
+
+def test_b_not_squared_distractor_is_b_as_printed():
+    """B - 4AC with B read off the printed equation: a negated layout prints -b, so the slip changes with it."""
+    checked = 0
+    for seed in range(1, 400):
+        q = _q("easy", seed)
+        if "2b" in q.text:
+            continue
+        slip = [d for d in q.distractors if q.option_notes.get(d) == "pde-b-not-squared"]
+        if not slip:
+            continue
+        eq = read_equation(q.text)
+        a, b, c = (eq[key] for key in ("XX", "XY", "YY"))
+        assert Fraction(str(slip[0])) == Fraction(str(b - 4 * a * c)), (seed, q.text, slip, b - 4 * a * c)
+        checked += 1
+    assert checked >= 20

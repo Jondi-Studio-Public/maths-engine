@@ -527,3 +527,42 @@ def test_interior_stems_do_not_claim_separated_intervals():
                 shared += 1
                 assert read_items(q.answer_text) == endpoints(interior), (seed, q.text, q.answer_text)
     assert shared >= 5, shared
+
+
+def test_every_declared_misconception_is_emitted_by_some_distractor():
+    """No tag in the skill file is dead: each one is attached to a distractor somewhere across the tiers and the exam."""
+    import yaml
+    from pathlib import Path
+
+    declared = {
+        m["id"]
+        for m in yaml.safe_load(
+            Path("skills/metric-spaces-and-topology/uc2-interior-closure-boundary.yaml").read_text(encoding="utf-8")
+        )["misconceptions"]
+    }
+    seen: set = set()
+
+    def scan(item):
+        seen.update(item.option_notes.values())
+        for part in getattr(item, "parts", None) or []:
+            scan(part)
+
+    for tier in ("easy", "medium", "hard"):
+        for seed in range(600):
+            scan(tier_q(tier, seed))
+    for seed in range(300):
+        scan(tier_q("exam", seed))
+    assert declared - seen == set(), sorted(declared - seen)
+
+
+def test_planar_punctured_centre_slip_drops_the_centre():
+    hits = 0
+    for seed in range(600):
+        q = tier_q("hard", seed)
+        for text, note in q.option_notes.items():
+            if note == "ic-punctured-centre-not-boundary":
+                hits += 1
+                key = set(read_points(q.answer_text))
+                wrong = set(read_points(text))
+                assert wrong < key and len(key - wrong) == 1, (seed, q.text, q.answer_text, text)
+    assert hits >= 5, hits

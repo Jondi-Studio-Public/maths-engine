@@ -117,6 +117,6 @@ alignments:
   area: metric-spaces-and-topology
 difficulty_progression:
   easy: {steps: 2, demand: "Find the exact distance between two points of R^2 or R^3 under a named metric: taxicab, Euclidean, maximum or a weighted taxicab metric."}
-  medium: {steps: 3, demand: "Decide which of six points lie strictly inside an open ball, with points on the sphere as the trap, or compare balls of two metrics using the norm-comparison constant."}
+  medium: {steps: 3, demand: "Count which of six points lie strictly inside an open ball of a taxicab, Euclidean, maximum, weighted or discrete metric, with points on the sphere as the trap; or use the norm-comparison constant to find the largest radius of one metric's ball inside another's, the least radius of one that contains another's, or the diameter of a ball measured in the other metric."}
   hard: {steps: 4, demand: "Find the least upper bound of the radii whose ball misses part of a set, the exact area or volume of a ball or a shell between balls, or the radius of the ball with listed vertices."}
   exam: {steps: 6, demand: "Find two distances, count the points of a set inside a ball, find the least radius whose ball contains the set, then the area or volume of that ball by follow-through."}

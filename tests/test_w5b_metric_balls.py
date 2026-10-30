@@ -299,8 +299,8 @@ def test_oracle_forms_all_appear():
 
 def test_open_ball_trap_is_present():
     """Many medium counts have a point exactly on the sphere, so the open-versus-closed slip is a live distractor."""
-    on_sphere = 0
-    for seed in range(60):
+    on_sphere = counts = 0
+    for seed in range(200):
         q = tier_q("medium", seed)
         if "How many" not in q.text and "how many" not in q.text and "Count" not in q.text:
             continue
@@ -308,8 +308,34 @@ def test_open_ball_trap_is_present():
         c, *pts = points_in(q.text)
         m = re.search(r"\br = (\d+(?:/\d+)?)", q.text) or re.search(r"radius (\d+(?:/\d+)?) about", q.text)
         rad = sympy.Rational(m.group(1))
+        counts += 1
         on_sphere += any(d(kind, w, p, c) == rad for p in pts)
-    assert on_sphere >= 12
+        assert all(0 <= int(x) <= len(pts) for x in q.distractors), (seed, q.text, q.distractors)
+    assert counts >= 60 and on_sphere == counts, (counts, on_sphere)
+
+
+def test_exam_count_has_a_boundary_point_and_possible_distractors():
+    for seed in range(300):
+        q = tier_q("exam", seed)
+        part = q.parts[2]
+        assert all(0 <= int(x) <= 5 for x in part.distractors), (seed, part.distractors)
+        m = re.search(r"B_(1|2|∞)\(P, (\d+)\)", part.prompt)
+        kind = {"1": "1", "2": "2", "∞": "inf"}[m.group(1)]
+        P = points_in(re.search(r"P = (\([^)]*\))", q.text).group(1))[0]
+        pts = points_in(re.search(r"S = \{(.*?)\}", q.text).group(1))
+        assert len(pts) == 5
+        assert any(d(kind, None, p, P) == int(m.group(2)) for p in pts), (seed, part.prompt, q.text)
+
+
+@pytest.mark.parametrize("tier", ["easy", "medium", "hard"])
+def test_non_whole_keys_say_how_to_type_them(tier):
+    for seed in range(150):
+        q = tier_q(tier, seed)
+        v = sympy.sympify(q.answer.replace("^", "**")) if isinstance(q.answer, str) else sympy.sympify(q.answer)
+        if v.is_Integer:
+            continue
+        lowered = q.text.lower()
+        assert "exact" in lowered or "fraction" in lowered, (seed, q.text, q.answer_text)
 
 
 @pytest.mark.parametrize("tier", ["easy", "medium", "hard", "exam"])

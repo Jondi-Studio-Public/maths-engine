@@ -64,6 +64,8 @@ def oracle_single(question):
     tier = question.difficulty
     if tier == "easy":
         n = _n(text)
+        if "index [G : P]" in text or "left cosets" in text:
+            return n // _sylow_order(n, _first_prime_before_subgroup(text))
         if "sum of these orders" in text or "total" in text:
             return sum(_sylow_order(n, p) for p in sympy.factorint(n))
         if "sum of all of them" in text or "What is the sum" in text:
@@ -77,22 +79,24 @@ def oracle_single(question):
         return _sylow_order(n, p)
     if tier == "medium":
         n = _n(text)
-        if "For how many of the primes" in text or "Count the primes" in text:
+        if "For how many of the primes" in text or "Count the primes" in text or "For how many of these primes" in text:
             return sum(1 for p in sympy.factorint(n) if _np_set(n, p) == [1])
         p = _first_prime_before_subgroup(text)
-        if "how many possibilities" in text or "how many different values" in text:
+        if "sum of all of them" in text or "What is the sum" in text or "What is their total" in text:
+            return sum(_np_set(n, p))
+        if "how many possibilities" in text or "how many different values" in text.lower():
             return len(_np_set(n, p))
-        if "largest value" in text or "greatest" in text:
+        if "largest value" in text or "greatest" in text or "biggest" in text:
             return max(_np_set(n, p))
         x = int(re.search(r"(?:exactly|n_\d+ =) (\d+)", text).group(1))
         assert x in _np_set(n, p)
         return x * (p - 1)
     n = _n(text)
-    if "acts on a set" in text or "act on a finite set" in text:
+    if "acts on a set" in text or "act on a finite set" in text or "permutes the points" in text:
         N = int(re.search(r"(?:\|X\| = |set X with )(\d+)", text).group(1))
         p = next(iter(sympy.factorint(n)))
         return _min_fixed_points(N, p, sympy.factorint(n)[p])
-    if "do not have order" in text or "not of order" in text:
+    if re.search(r"not (?:have|be of) order|not of order", text):
         q = int(re.search(r"Sylow (\d+)-subgroups", text).group(1))
         x = int(re.search(r"(?:exactly|n_\d+ =) (\d+)", text).group(1))
         assert x in _np_set(n, q)
@@ -101,7 +105,7 @@ def oracle_single(question):
     counts = {int(p): int(x) for p, x in re.findall(r"n_(\d+) = (\d+)", text)}
     assert len(counts) == 2 and set(counts) <= set(primes) and all(counts[p] in _np_set(n, p) for p in counts)
     used = sum(x * (p - 1) for p, x in counts.items())
-    if "how many more elements" in text or "exceed" in text:
+    if "how many more elements" in text or "exceed" in text or "outnumber" in text:
         return 1 + used - n
     return n - 1 - used
 
@@ -263,3 +267,112 @@ def test_part_c_leaves_room_for_the_remaining_subgroup():
         n = _n(q.stem)
         assert int(q.parts[2].answer_text) > 0
         assert int(q.parts[2].answer_text) < n
+
+
+# -- round 3: hypothetical wording, typed sets, tags --------------------------------------------------------------------
+
+_HYPOTHETICAL = ("Suppose", "suppose", "Imagine", "Assume", " had ", "would", "hypothetical")
+
+
+def test_stems_that_state_n_p_are_hypothetical():
+    """A stated n_p = x need not occur in any group of that order (order 30 with 6 Sylow 5-subgroups), so the stem
+    supposes it rather than asserting it."""
+    stated = re.compile(r"n_\d+ = \d+|exactly \d+ Sylow")
+    seen = 0
+    for tier in ("medium", "hard"):
+        for seed in range(150):
+            q = make(TOPIC, seed=seed, difficulty=tier)
+            if stated.search(q.text):
+                seen += 1
+                assert any(mark in q.text for mark in _HYPOTHETICAL), (tier, seed, q.text)
+                assert "has exactly" not in q.text and "has n_" not in q.text, (tier, seed, q.text)
+    assert seen > 100
+    for seed in range(200):
+        q = exam(EXAM, seed)
+        for part in q.parts:
+            if stated.search(part.prompt):
+                assert any(mark in part.prompt for mark in _HYPOTHETICAL), (seed, part.prompt)
+
+
+def test_exam_set_is_typeable_without_spaces_and_says_how_to_type_it():
+    """The typed-set grader reads `1,111` as the number 1111, so no possible n_q may have exactly three digits, and the
+    prompt asks for a space after each comma. Every spelling of every key is graded by the real grader."""
+    s = skill(SKILL)
+    for seed in range(300):
+        q = exam(EXAM, seed)
+        part = q.parts[0]
+        assert "space" in part.prompt and "{a, b, c}" in part.prompt.replace("{{", "{").replace("}}", "}")
+        values = sorted(int(v) for v in re.findall(r"\d+", part.answer_text))
+        assert not any(100 <= v <= 999 for v in values), (seed, values)
+        spellings = (
+            "{" + ",".join(map(str, values)) + "}",
+            "{" + ", ".join(map(str, values)) + "}",
+            "{" + ",".join(map(str, reversed(values))) + "}",
+            ",".join(map(str, values)),
+        )
+        for text in spellings:
+            result = grade(s, q, {"a": text, "b": "0", "c": "0"})
+            assert result.parts["a"].marks == part.marks, (seed, text, part.answer_text)
+
+
+def test_forced_normal_count_is_never_zero_or_all_and_has_options():
+    seen = 0
+    for seed in range(400):
+        q = make(TOPIC, seed=seed, difficulty="medium")
+        if "primes" in q.text and "n_p" in q.text or "Sylow subgroups to be 1" in q.text:
+            seen += 1
+            assert int(q.answer_text) >= 1 and len(q.distractors) >= 3, (seed, q.text, q.answer_text)
+    assert seen > 40
+
+
+def test_medium_and_hard_stems_vary():
+    for tier, floor in (("medium", 140), ("hard", 140)):
+        assert len({make(TOPIC, seed=s, difficulty=tier).text for s in range(150)}) >= floor, tier
+
+
+def test_every_declared_tag_fires_and_is_declared():
+    """Each sylow- id in the YAML is attached to some distractor, and every tag that is attached is declared."""
+    import yaml
+    from pathlib import Path
+
+    declared = {
+        m["id"]
+        for m in yaml.safe_load(Path("skills/abstract-algebra/uc2-sylow-counting.yaml").read_text())["misconceptions"]
+    }
+    fired = set()
+    for tier in ("easy", "medium", "hard"):
+        for seed in range(400):
+            fired |= {t for t in make(TOPIC, seed=seed, difficulty=tier).option_notes.values() if t}
+    for seed in range(400):
+        for part in exam(EXAM, seed).parts:
+            fired |= {t for t in (part.option_notes or {}).values() if t}
+    assert fired == declared, (sorted(declared - fired), sorted(fired - declared))
+
+
+def test_exam_tags_sit_on_the_slip_they_name():
+    """The tagged option's value is the named slip, re-derived from the rendered prompt."""
+    checked = 0
+    for seed in range(200):
+        q = exam(EXAM, seed)
+        n = _n(q.stem)
+        _a, b, c = q.parts
+        q_prime = int(re.search(r"n_(\d+)", q.parts[0].prompt).group(1))
+        x = int(re.search(r"(?:n_\d+ =|exactly) (\d+)", b.prompt).group(1))
+        meaning = {
+            "sylow-elements-include-identity": x * q_prime,
+            "sylow-elements-one-per-subgroup": x,
+            "sylow-elements-count-identity": x * (q_prime - 1) + 1,
+            "sylow-elements-complement": n - x * (q_prime - 1),
+        }
+        for text, tag in (b.option_notes or {}).items():
+            assert tag in meaning and int(text) == meaning[tag], (seed, text, tag)
+            checked += 1
+        if "other than 1" not in c.prompt:
+            for text, tag in (c.option_notes or {}).items():
+                if tag == "sylow-elements-count-complement":
+                    assert int(text) == x * (q_prime - 1)
+                if tag == "sylow-elements-one-per-subgroup":
+                    assert int(text) == n - x
+                if tag == "sylow-elements-include-identity":
+                    assert int(text) == n - x * q_prime
+    assert checked > 300

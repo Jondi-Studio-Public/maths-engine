@@ -42,8 +42,8 @@ def _shape(v: Fraction) -> str:
     return "int" if v.denominator == 1 else "frac"
 
 
-def _filler(rng: random.Random, key: Fraction, below: bool, lo, hi, taken) -> Fraction | None:
-    """A neutral value on one side of the key, of the key's shape, within [lo, hi]."""
+def _filler(rng: random.Random, key: Fraction, below: bool, lo, hi, taken, step=None) -> Fraction | None:
+    """A neutral value on one side of the key, of the key's shape, within [lo, hi]; a multiple of `step` when given."""
     shape = _shape(key)
     for _ in range(60):
         if below:
@@ -52,6 +52,8 @@ def _filler(rng: random.Random, key: Fraction, below: bool, lo, hi, taken) -> Fr
             target = key * Fraction(rng.randint(108, 260), 100)
         if shape == "int":
             v = Fraction(round(target) + rng.choice((-1, 0, 0, 1)))
+            if step:
+                v = Fraction(step * max(1, round(v / step)))
         else:
             d = key.denominator * rng.choice((1, 1, 2, 3))
             v = Fraction(round(target * d), d)
@@ -65,12 +67,12 @@ def _filler(rng: random.Random, key: Fraction, below: bool, lo, hi, taken) -> Fr
     return None
 
 
-def balanced(key, slips, keep, *, kind="fraction", lo=None, hi=None) -> list[Distractor]:
+def balanced(key, slips, keep, *, kind="fraction", lo=None, hi=None, step=None) -> list[Distractor]:
     """`keep` wrong options for `key`: (value, misconception id) slips first, then fillers, the key's rank uniform.
 
     A slip equal to the key, outside [lo, hi] or accepted by the `kind` grader is dropped. A slip of the other shape (a
     fraction beside a whole key) is used only when no slip of the key's shape is left, so the key is never the only
-    whole number or the only fraction."""
+    whole number or the only fraction. With `step`, a filler is a multiple of it (lot sizes that the supplier ships)."""
     rng = _RNG.get() or random.Random(repr((str(key), [str(s[0]) for s in slips if s])))
     key = Fraction(key)
     seen = {key}
@@ -95,7 +97,7 @@ def balanced(key, slips, keep, *, kind="fraction", lo=None, hi=None) -> list[Dis
         got = pool[:want]
         chosen += got
         for _ in range(want - len(got)):
-            v = _filler(rng, key, side_below, lo, hi, taken)
+            v = _filler(rng, key, side_below, lo, hi, taken, step)
             if v is None:
                 break
             taken.add(v)
@@ -105,7 +107,7 @@ def balanced(key, slips, keep, *, kind="fraction", lo=None, hi=None) -> list[Dis
         for _ in range(keep):
             if len(chosen) >= keep:
                 break
-            v = _filler(rng, key, side_below, lo, hi, taken)
+            v = _filler(rng, key, side_below, lo, hi, taken, step)
             if v is None:
                 break
             taken.add(v)

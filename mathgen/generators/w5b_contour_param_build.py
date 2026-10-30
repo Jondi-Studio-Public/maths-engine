@@ -55,7 +55,7 @@ from ._w5a_support import (
     I_,
     X,
     astr,
-    atext,
+    atext as _atext_plain,
     cx_paren,
     cx_x,
     dist_list,
@@ -92,6 +92,21 @@ def v_sub(x: V, y: V) -> V:
 
 def v_scale(x: V, s) -> V:
     return (x[0] * s, x[1] * s)
+
+
+def atext(v) -> str:
+    """An exact value written with its rational part first and the multiple of pi after it: -3 - 3i - 9πi/2."""
+    v = sympy.expand(sympy.sympify(v))
+    rat = v.subs(sympy.pi, 0) if v.has(sympy.pi) else v
+    if rat == 0 or rat == v:
+        return _atext_plain(v)
+    multiple = sympy.expand((v - rat) / sympy.pi)
+    pre = _atext_plain(rat)
+    if sympy.re(multiple) != 0 and sympy.im(multiple) != 0:
+        tail = f"({_atext_plain(multiple)})π"
+    else:
+        tail = _atext_plain(sympy.expand(multiple * sympy.pi))
+    return f"{pre} - {tail[1:]}" if tail.startswith("-") else f"{pre} + {tail}"
 
 
 def vsym(x: V):
@@ -303,6 +318,11 @@ def _pi_mult(n: int) -> str:
 
 def _lin(a: C, d: C) -> str:
     """a + d t as text: 1 + (2 - i)t, (3 + 4i)t, 2t."""
+    if d.im == 0 and abs(d.re) == 1:  # a unit step reads "+ t" or "- t", never "+ 1t"
+        step = "t" if d.re > 0 else "-t"
+        if a.is_zero():
+            return step
+        return f"{cx_x(a).p} {'+' if d.re > 0 else '-'} t"
     dd = cx_x(d).p
     dt = dd if (d.im == 0 and d.re > 0 and d.re.denominator == 1) else f"({dd})"
     if a.is_zero():
@@ -588,6 +608,7 @@ def _finish(rng, f: F, path, hint: str = "", way: str = "Find the exact value"):
         working,
         wrongs_for(f, path, true),
         dist=_spread(value, wrongs_for(f, path, true), rng),
+        answer_text=atext(value),
     )
 
 
@@ -701,6 +722,8 @@ def _hard_closed(rng):
         if (m, k) == (0, 0):
             continue
         c = rng.choice([C(0), C(1), C(-1), C(0, 1), C(1, 1), C(2), C(-1, -1), C(0, -2)])
+        if c.is_zero() and (m, k) in ((0, 1), (-1, 0)):
+            continue  # conj(z) round |z| = r alone is no harder than the medium arcs
         r = Fr(rng.choice([1, 2, 3]))
         lam = rng.choice([1, 1, 2, 3, -1, -2])
         if resonant and abs(lam) == 1 and rng.random() < 0.5:
@@ -742,7 +765,15 @@ def _hard_closed(rng):
             f"On the circle z - c = {r.numerator}e^(it), so the integrand times dz is a constant times e^(i(m - k + 1)t) with m - k + 1 = {m - k + 1}, not 0.",
             "The integral of e^(int) over a full turn is 0 for n not 0, so the integral is 0 whichever way the circle is traversed.",
         ]
-    return single(_ask(rng, f, path, "", "Evaluate the exact value"), value, working, wr, dist=_spread(value, wr, rng))
+    must = ("cx2-param-closed-loop-assumed-zero",) if value != 0 else ()
+    return single(
+        _ask(rng, f, path, "", "Find the exact value"),
+        value,
+        working,
+        wr,
+        dist=_spread(value, wr, rng, must),
+        answer_text=atext(value),
+    )
 
 
 def _signed_area_loop(path2, a: C, b: C) -> tuple:
@@ -843,7 +874,7 @@ def _hard_routes(rng):
         f"So I1 - I2 = {atext(value)}. Equivalently it is the integral round the closed loop (C1 out, C2 back): "
         "only the non-analytic part contributes, and it equals a constant times the signed area enclosed.",
     ]
-    return single(stem, value, working, wr, dist=_spread(value, wr, rng))
+    return single(stem, value, working, wr, dist=_spread(value, wr, rng), answer_text=atext(value))
 
 
 def _hard(rng):
@@ -869,7 +900,7 @@ def w5b_contour_param(rng: random.Random, tier: str = "easy") -> dict:
 # -- exam ------------------------------------------------------------------------------------------------------------
 
 
-def _spread(answer, cands: list, rng) -> list:
+def _spread(answer, cands: list, rng, must_tags=()) -> list:
     """Four wrong expressions chosen from a dozen so that no learner trick finds the key: the slips first, then the key
     reflected or rotated (a sign or a quarter turn wrong) as fillers that are written like the key."""
     a = sympy.sympify(answer)
@@ -883,7 +914,11 @@ def _spread(answer, cands: list, rng) -> list:
         (a / 2, "cx2-arithmetic-slip"),
     ]
     pool = dist_list(a, [*cands, *fillers], 10)
-    return fair(atext(a), pool, 4, rng)
+    if must_tags:
+        extra = dist_list(a, [c for c in cands if c[1] in must_tags], 1)
+        pool = [*extra, *(d for d in pool if all(d.text != e.text for e in extra))]
+    pool = [Distractor(atext(sympy.sympify(d.value)), d.misconception, d.value) for d in pool]
+    return fair(atext(a), pool, 4, rng, must_tags=must_tags)
 
 
 def _dec_dist(value: Fr, cands: list, dp: int = 2) -> list:
@@ -894,13 +929,21 @@ def _dec_dist(value: Fr, cands: list, dp: int = 2) -> list:
         v = Fr(v).limit_denominator(10**9)
         out.append(Distractor(stated_precision_string(round_half_up(v, dp), dp), tag, float(round_half_up(v, dp))))
     key = stated_precision_string(round_half_up(value, dp), dp)
-    for off in (1, -1, 2, -2, 3, -3, 5, -5):
+    rng = _RNG.get()
+    if rng is None:
+        return pick_distractors(key, out, 4, tolerance=tol + Fr(1, 1000))
+    # fillers at irregular distances from the key (a share of it, or a few units): never an evenly spaced run
+    for _ in range(7):
+        if rng.random() < 0.5:
+            off = value * Fr(rng.choice([-1, 1]) * rng.randrange(8, 60), 100)
+        else:
+            off = Fr(rng.choice([-1, 1]) * rng.randrange(30, 700), 100)
         v = round_half_up(value + off, dp)
         if v > 0:
             out.append(Distractor(stated_precision_string(v, dp), "cx2-arithmetic-slip", float(v)))
-    chosen = pick_distractors(key, out, 10, tolerance=tol + Fr(1, 1000))
-    rng = _RNG.get()
-    return chosen[:4] if rng is None else fair(key, chosen, 4, rng)
+    chosen = pick_distractors(key, out, 12, tolerance=tol + Fr(1, 1000))
+    structural = {tag for _, tag in cands if tag and tag != "cx2-arithmetic-slip"}
+    return fair(key, chosen, 4, rng, max_pool=12, must_tags=structural, rank_cost=2.5)
 
 
 def _exam_f(lam: int, m: int, k: int) -> F:
@@ -940,7 +983,8 @@ def exd_x_w5b_contour_param(rng: random.Random, tier: str = "exam") -> dict:
         mod_f = abs(lam) * r ** (m + k)
         bound = float(mod_f * r * Fr(span, 2)) * math.pi
         ival = abs(vcomplex(i_arc))
-        slack = bound - ival
+        bound_2dp = float(round_half_up(Fr(bound).limit_denominator(10**9), 2))  # part (d) starts from the stated M L
+        slack = bound_2dp - ival
         ties = [abs((v * 100) % 1 - 0.5) > 2e-3 for v in (bound, slack)]
         if all(ties) and slack > 0.05 and vsym(i_chord) != 0 and vsym(i_arc) != 0 and vsym(i_chord) != vsym(i_arc):
             break
@@ -948,6 +992,7 @@ def exd_x_w5b_contour_param(rng: random.Random, tier: str = "exam") -> dict:
     pi_fr = Fr(314159265358979, 10**14)
     bound_fr = Fr(bound).limit_denominator(10**9)
     slack_fr = Fr(slack).limit_denominator(10**9)
+    bound_st = round_half_up(bound_fr, 2)  # the M L the learner is told to use in part (d)
     ival_fr = Fr(ival).limit_denominator(10**9)
     bound_t = stated_precision_string(round_half_up(bound_fr, 2), 2)
     slack_t = stated_precision_string(round_half_up(slack_fr, 2), 2)
@@ -993,8 +1038,8 @@ def exd_x_w5b_contour_param(rng: random.Random, tier: str = "exam") -> dict:
     cands_d = [
         (-slack_fr, "cx2-param-ml-slack-sign"),
         (ival_fr, "cx2-param-ml-slack-sign"),
-        (bound_fr, "cx2-param-ml-slack-sign"),
-        (bound_fr + ival_fr, "cx2-param-ml-slack-sign"),
+        (bound_st, "cx2-param-ml-slack-sign"),
+        (bound_st + ival_fr, "cx2-param-ml-slack-sign"),
         (slack_fr + 1, None),
         (slack_fr * 2, None),
     ]
@@ -1042,7 +1087,7 @@ def exd_x_w5b_contour_param(rng: random.Random, tier: str = "exam") -> dict:
             distractors=dc,
         ),
         dict(
-            prompt="By how much does the bound M L from the previous part exceed the modulus of your answer to the integral along C2? Give your answer correct to 2 decimal places.",
+            prompt="Take M L to be your 2 decimal place value from the previous part. By how much does it exceed the modulus of the integral along C2? Give your answer correct to 2 decimal places.",
             answer_kind="number",
             answer=float(round_half_up(slack_fr, 2)),
             answer_text=slack_t,
@@ -1050,7 +1095,7 @@ def exd_x_w5b_contour_param(rng: random.Random, tier: str = "exam") -> dict:
             marks=2,
             sensible_range=(0, None),
             working=[
-                f"|integral| = {ival:.4f}, so M L - |integral| = {bound_t} - {ival:.4f}, which is {slack_t} to 2 decimal places."
+                f"|integral| = {ival:.4f}, so M L - |integral| = {bound_t} - {ival:.4f} = {slack:.4f}, which is {slack_t} to 2 decimal places."
             ],
             distractors=dd,
         ),

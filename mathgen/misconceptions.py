@@ -62979,11 +62979,6 @@ _ENTRIES += (
         area="pde",
     ),
     CatalogueEntry(
-        "mm1-utilisation-inverted",
-        "Giving the service rate over the arrival rate, mu/lambda, as the utilisation, so a value above 1 for a stable queue.",
-        area="queueing-inventory",
-    ),
-    CatalogueEntry(
         "mm1-utilisation-complement",
         "Giving 1 - rho, the idle fraction, where the utilisation rho was asked.",
         area="queueing-inventory",
@@ -63016,11 +63011,6 @@ _ENTRIES += (
     CatalogueEntry(
         "mm1-idle-as-busy",
         "Giving the utilisation rho where the probability the system is empty, 1 - rho, was asked.",
-        area="queueing-inventory",
-    ),
-    CatalogueEntry(
-        "mm1-idle-inverted",
-        "Giving 1/(1 - rho) as the probability the system is empty, a value above 1.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
@@ -63130,7 +63120,7 @@ _ENTRIES += (
     ),
     CatalogueEntry(
         "eoq-drops-factor-two",
-        "Dropping the 2 in the economic order quantity formula, or dividing 2DS by H and not taking the root.",
+        "Giving DS/H, dropping the factor 2 and the square root together, as the economic order quantity.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
@@ -63180,7 +63170,7 @@ _ENTRIES += (
     ),
     CatalogueEntry(
         "eoq-rop-wrong-days",
-        "Using a 365-day year for daily demand when the question states the working days in the year.",
+        "Using a 365-day year where the question states the working days in the year (for daily demand or for the time between orders).",
         area="queueing-inventory",
     ),
     CatalogueEntry(
@@ -63219,11 +63209,6 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "eoq-ignores-multiple-constraint",
-        "Giving the economic order quantity itself when orders must be in multiples of a stated size.",
-        area="queueing-inventory",
-    ),
-    CatalogueEntry(
         "eoq-inverse-drops-two",
         "Forgetting the factor 2 when finding the annual demand from the minimum cost.",
         area="queueing-inventory",
@@ -63235,7 +63220,7 @@ _ENTRIES += (
     ),
     CatalogueEntry(
         "eoq-inverse-doubles",
-        "Doubling the annual demand found from the minimum annual cost.",
+        "Multiplying by 2 instead of dividing by 2 when finding the annual demand from the minimum annual cost, so four times too large.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
@@ -63278,18 +63263,13 @@ _ENTRIES += (
         area="interior-closure-boundary",
     ),
     CatalogueEntry(
-        "ic-closure-drops-open-ends",
-        "Giving the interior, with open ends, where the closure was asked.",
-        area="interior-closure-boundary",
-    ),
-    CatalogueEntry(
         "ic-closure-fills-the-gaps",
         "Joining the pieces of the closure into one interval, filling the gaps between them.",
         area="interior-closure-boundary",
     ),
     CatalogueEntry(
         "ic-closure-interior-confused",
-        "Giving the count for the closure where the interior was asked, or for the boundary where the closure was asked.",
+        "Giving the points of the closure where the interior was asked, or the interior or closure where the boundary was asked.",
         area="interior-closure-boundary",
     ),
     CatalogueEntry(
@@ -63320,6 +63300,11 @@ _ENTRIES += (
     CatalogueEntry(
         "ic-isolated-point-interior",
         "Treating an isolated point of the set as an interior point.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-isolated-point-boundary-point",
+        "Listing the endpoints of the intervals as isolated points, because they are boundary points of the set.",
         area="interior-closure-boundary",
     ),
     CatalogueEntry(
@@ -63406,6 +63391,21 @@ _ENTRIES += (
         "pde-slope-wrong-root",
         "Giving the other characteristic slope: the smaller where the larger was asked, or the reverse, from taking the wrong sign of the square root.",
         area="pde",
+    ),
+    CatalogueEntry(
+        "sylow-index-as-order",
+        "Giving the order of a Sylow p-subgroup where its index in the group was asked.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "sylow-index-divides-by-p-once",
+        "Dividing the group order by p once to get the index of a Sylow p-subgroup, whatever the power of p in the order.",
+        area="sylow-counting",
+    ),
+    CatalogueEntry(
+        "eoq-cycle-as-orders-per-year",
+        "Giving the number of orders per year D/Q where the time in working days between orders was asked.",
+        area="queueing-inventory",
     ),
 )
 

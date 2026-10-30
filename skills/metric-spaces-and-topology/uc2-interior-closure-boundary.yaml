@@ -54,15 +54,12 @@ misconceptions:
 - id: ic-closure-drops-a-piece
   description: >-
     Leaving one of the pieces out of the closure.
-- id: ic-closure-drops-open-ends
-  description: >-
-    Giving the interior, with open ends, where the closure was asked.
 - id: ic-closure-fills-the-gaps
   description: >-
     Joining the pieces of the closure into one interval, filling the gaps between them.
 - id: ic-closure-interior-confused
   description: >-
-    Giving the count for the closure where the interior was asked, or for the boundary where the closure was asked.
+    Giving the points of the closure where the interior was asked, or the interior or closure where the boundary was asked.
 - id: ic-closure-is-the-set
   description: >-
     Taking the closure to be the set itself, with the open ends left open.
@@ -84,6 +81,9 @@ misconceptions:
 - id: ic-isolated-point-interior
   description: >-
     Treating an isolated point of the set as an interior point.
+- id: ic-isolated-point-boundary-point
+  description: >-
+    Listing the endpoints of the intervals as isolated points, because they are boundary points of the set.
 - id: ic-isolated-point-limit-point
   description: >-
     Calling an isolated point of the set, or a term of a sequence, a limit point.
@@ -144,7 +144,7 @@ alignments:
   framework: university-core-v1
   area: metric-spaces-and-topology
 difficulty_progression:
-  easy: {steps: 2, demand: "Find the interior or closure of one interval, or count or add the boundary points of an interval with an isolated point."}
+  easy: {steps: 2, demand: "Name the endpoints of the interior, of the closure, or of the boundary of a union of one or two intervals and an isolated point."}
   medium: {steps: 3, demand: "Merge or separate touching intervals, then find the interior, closure, boundary set or isolated points of a union with isolated points."}
-  hard: {steps: 4, demand: "Find the limit points of sequences such as 1/n, the interior and closure of sets of rationals in an interval, the length of their boundary, or classify points against a disc, annulus, half-plane or rectangle."}
+  hard: {steps: 4, demand: "Find the limit points of a sequence such as 1/n, the endpoints of the closure points missing from a set, or the interior or closure of a set of rationals in an interval; or pick out which lattice points lie in the interior, closure or boundary of a disc, punctured disc, annulus, half-plane or rectangle."}
   exam: {steps: 6, demand: "Find the interior, the boundary points (or the closure points missing from the set), their number and their sum, then their mean by follow-through."}

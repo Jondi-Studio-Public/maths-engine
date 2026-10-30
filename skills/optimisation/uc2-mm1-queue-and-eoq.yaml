@@ -58,9 +58,12 @@ misconceptions:
 - id: eoq-cost-only-ordering
   description: >-
     Giving only the annual ordering cost DS/Q as the total of ordering plus holding.
+- id: eoq-cycle-as-orders-per-year
+  description: >-
+    Giving the number of orders per year D/Q where the time in working days between orders was asked.
 - id: eoq-drops-factor-two
   description: >-
-    Dropping the 2 in the economic order quantity formula, or dividing 2DS by H and not taking the root.
+    Giving DS/H, dropping the factor 2 and the square root together, as the economic order quantity.
 - id: eoq-extra-holding-only
   description: >-
     Counting only the change in the holding cost as the extra cost of a non-optimal lot size.
@@ -76,12 +79,9 @@ misconceptions:
 - id: eoq-holding-without-half
   description: >-
     Charging holding cost on the full lot size, HQ, instead of on the average stock Q/2.
-- id: eoq-ignores-multiple-constraint
-  description: >-
-    Giving the economic order quantity itself when orders must be in multiples of a stated size.
 - id: eoq-inverse-doubles
   description: >-
-    Doubling the annual demand found from the minimum annual cost.
+    Multiplying by 2 instead of dividing by 2 when finding the annual demand from the minimum annual cost, so four times too large.
 - id: eoq-inverse-drops-two
   description: >-
     Forgetting the factor 2 when finding the annual demand from the minimum cost.
@@ -111,7 +111,7 @@ misconceptions:
     Building the reorder point from the order quantity instead of from the annual demand.
 - id: eoq-rop-wrong-days
   description: >-
-    Using a 365-day year for daily demand when the question states the working days in the year.
+    Using a 365-day year where the question states the working days in the year (for daily demand or for the time between orders).
 - id: eoq-swaps-s-and-h
   description: >-
     Swapping the ordering cost S and the holding cost H in the economic order quantity formula.
@@ -154,9 +154,6 @@ misconceptions:
 - id: mm1-idle-as-busy
   description: >-
     Giving the utilisation rho where the probability the system is empty, 1 - rho, was asked.
-- id: mm1-idle-inverted
-  description: >-
-    Giving 1/(1 - rho) as the probability the system is empty, a value above 1.
 - id: mm1-idle-squared
   description: >-
     Squaring the idle probability 1 - rho.
@@ -199,9 +196,6 @@ misconceptions:
 - id: mm1-utilisation-complement
   description: >-
     Giving 1 - rho, the idle fraction, where the utilisation rho was asked.
-- id: mm1-utilisation-inverted
-  description: >-
-    Giving the service rate over the arrival rate, mu/lambda, as the utilisation, so a value above 1 for a stable queue.
 - id: mm1-utilisation-sum-denominator
   description: >-
     Dividing the arrival rate by the sum of the two rates instead of by the service rate to find the utilisation.

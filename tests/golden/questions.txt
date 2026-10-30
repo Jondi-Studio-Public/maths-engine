@@ -6187,18 +6187,18 @@
 {"answer": "1948.00", "id": "payg-payslip-reading/medium/0/8058c5665376", "text": "Liam is a bus driver. Here is part of Liam's fortnightly payslip, where year to…"}
 {"answer": "1967.00", "id": "payg-payslip-reading/medium/1/74a48e86a624", "text": "Ben is a surveyor. Here is part of Ben's fortnightly payslip, where year to dat…"}
 {"answer": "2170.00", "id": "payg-payslip-reading/medium/2/a8f9bbd58af1", "text": "Jack is a diesel mechanic. Here is part of Jack's fortnightly payslip, where ye…"}
-{"answer": "-64", "id": "pde-discriminant-values-and-canonical-form/easy/0/279aac35f867", "text": "Consider -5u_yy + 4u_xy - 4u_xx - 2u_y - 4u_x + 3u = e^y. Here A, B and C are t…"}
+{"answer": "-64", "id": "pde-discriminant-values-and-canonical-form/easy/0/3f9fad5bcec4", "text": "Consider -5u_yy + 4u_xy - 4u_xx - 2u_y - 4u_x + 3u = e^y. Here A, B and C are t…"}
 {"answer": "9", "id": "pde-discriminant-values-and-canonical-form/easy/1/e3df3795f972", "text": "Compute the discriminant B² - 4AC of the second-order part of -5u_x - 3u_xy - 4…"}
-{"answer": "-19", "id": "pde-discriminant-values-and-canonical-form/easy/2/52e9adb5f676", "text": "Consider -∂²u/∂x² + ∂²u/∂x∂y - 5∂²u/∂y² + 4∂u/∂x + 2∂u/∂y = e^y. Here A, B and …"}
-{"answer": "(a) -104; (b) 7; (c) 8; (d) {-7, -5}", "id": "pde-discriminant-values-and-canonical-form/exam/0/37e9ed3710e5", "text": "A second-order equation is -∂²u/∂x² + 3k ∂²u/∂x∂y - 35∂²u/∂y² - 5∂u/∂x + 2∂u/∂y…"}
-{"answer": "(a) -144; (b) 11; (c) 6; (d) {3/4, 6}", "id": "pde-discriminant-values-and-canonical-form/exam/1/cc84e2f07059", "text": "The equation -18u_yy + 3k u_xy - 4u_xx - 4u_y + 4u_x - u = 0 involves a whole-n…"}
-{"answer": "(a) -36; (b) 5; (c) 10; (d) {3, 6}", "id": "pde-discriminant-values-and-canonical-form/exam/2/554598ecc227", "text": "Consider -18∂²u/∂y² - 3k ∂²u/∂x∂y - ∂²u/∂x² + 2∂u/∂x - 2u = 0, where k is a con…"}
-{"answer": "-25", "id": "pde-discriminant-values-and-canonical-form/hard/0/1f2356758b81", "text": "After the change of variables ξ = y - x, η = y - 7x/2, the equation 4∂²u/∂x² + …"}
-{"answer": "-3", "id": "pde-discriminant-values-and-canonical-form/hard/1/d3a3a1c3e04e", "text": "Consider -4u_xx + 2u_xy + 30u_yy - 3u_x - u_y + 2u = 0. The characteristic curv…"}
-{"answer": "-2", "id": "pde-discriminant-values-and-canonical-form/hard/2/c321bdc578b2", "text": "The characteristic curves y = y(x) satisfy A(dy/dx)² - B(dy/dx) + C = 0, where …"}
-{"answer": "9", "id": "pde-discriminant-values-and-canonical-form/medium/0/7f957342aa42", "text": "Consider (k - 8)u_yy - 6u_xy + k u_xx + 5u_y + 2u_x + 2u = 0, with B² - 4AC com…"}
-{"answer": "8", "id": "pde-discriminant-values-and-canonical-form/medium/1/20f3719f3a7f", "text": "Consider 8u_xy - k u_xx - 2u_yy - 6u + 2u_x + 2u_y = x + y. The discriminant B²…"}
-{"answer": "12", "id": "pde-discriminant-values-and-canonical-form/medium/2/3d2c8bb1c920", "text": "Consider 2u_xx + 3k u_xy + 6u_yy + 4u_x - 2u_y = 0. Use B² - 4AC with A, B, C t…"}
+{"answer": "-19", "id": "pde-discriminant-values-and-canonical-form/easy/2/af321749c2fb", "text": "Consider -∂²u/∂x² + ∂²u/∂x∂y - 5∂²u/∂y² + 4∂u/∂x + 2∂u/∂y = e^y. Here A, B and …"}
+{"answer": "(a) -104; (b) 7; (c) 8; (d) {-7, -5}", "id": "pde-discriminant-values-and-canonical-form/exam/0/f54e159c8beb", "text": "A second-order equation is -∂²u/∂x² + 3k ∂²u/∂x∂y - 35∂²u/∂y² - 5∂u/∂x + 2∂u/∂y…"}
+{"answer": "(a) -144; (b) 11; (c) 6; (d) {3/4, 6}", "id": "pde-discriminant-values-and-canonical-form/exam/1/6caa08189ad5", "text": "A second-order equation is -18u_yy + 3k u_xy - 4u_xx - 4u_y + 4u_x - u = 0, wit…"}
+{"answer": "(a) -36; (b) 5; (c) 10; (d) {3, 6}", "id": "pde-discriminant-values-and-canonical-form/exam/2/43fad11cdb5e", "text": "Consider -18∂²u/∂y² - 3k ∂²u/∂x∂y - ∂²u/∂x² + 2∂u/∂x - 2u = 0, where k is a con…"}
+{"answer": "-25", "id": "pde-discriminant-values-and-canonical-form/hard/0/0ee03cdc289e", "text": "After the change of variables ξ = y - x, η = y - 7x/2, the equation 4∂²u/∂x² + …"}
+{"answer": "-3", "id": "pde-discriminant-values-and-canonical-form/hard/1/8093c433c99d", "text": "Consider -4u_xx + 2u_xy + 30u_yy - 3u_x - u_y + 2u = 0. The characteristic curv…"}
+{"answer": "-2", "id": "pde-discriminant-values-and-canonical-form/hard/2/000b6edeb9ba", "text": "The characteristic curves y = y(x) satisfy A(dy/dx)² - B(dy/dx) + C = 0, where …"}
+{"answer": "9", "id": "pde-discriminant-values-and-canonical-form/medium/0/7b8e707d1476", "text": "In (k - 8)u_yy - 6u_xy + k u_xx + 5u_y + 2u_x + 2u = 0, the constant k appears …"}
+{"answer": "8", "id": "pde-discriminant-values-and-canonical-form/medium/1/486a4a3f4c40", "text": "The equation 8u_xy - k u_xx - 2u_yy - 6u + 2u_x + 2u_y = x + y has a constant k…"}
+{"answer": "12", "id": "pde-discriminant-values-and-canonical-form/medium/2/00dbbb782a66", "text": "Consider 2u_xx + 3k u_xy + 6u_yy + 4u_x - 2u_y = 0. Use B² - 4AC with A, B, C t…"}
 {"answer": "-3(x - 6)(x - 2)/32", "id": "pdf-cdf-from-polynomial/easy/0/9af123b47a56", "text": "The cumulative distribution function of a continuous random variable X is F(x) …"}
 {"answer": "-3x(x - 4)/32", "id": "pdf-cdf-from-polynomial/easy/1/54ec9b0f91c0", "text": "The cumulative distribution function of a continuous random variable X is F(x) …"}
 {"answer": "3(x - 4)^2/8", "id": "pdf-cdf-from-polynomial/easy/2/bf4ab11ee9fc", "text": "The cumulative distribution function of a continuous random variable X is F(x) …"}
@@ -12330,15 +12330,15 @@
 {"answer": "4*x^2*y - 4*x*y^2*z - 3*z^3 + z^2", "id": "uc2-conservative-field-potential/medium/2/b6ca604d12a0", "text": "The vector field F(x, y, z) = ⟨8xy - 4y²z, 4x² - 8xyz, -4xy² - 9z² + 2z⟩ is con…"}
 {"answer": "-16/3", "id": "uc2-contour-integrals-parametrisation/easy/0/d3267fe0bf16", "text": "Let f(z) = z². Evaluate ∫_C f(z) dz exactly, where C is the arc of the circle |…"}
 {"answer": "-1", "id": "uc2-contour-integrals-parametrisation/easy/1/965e2f6b9c85", "text": "The contour C is the arc of the circle |z| = 1 from 1 to i, traversed anticlock…"}
-{"answer": "28/3", "id": "uc2-contour-integrals-parametrisation/easy/2/224d540d33bf", "text": "Let f(z) = z². Evaluate ∫_C f(z) dz exactly, where C is the arc of the circle |…"}
-{"answer": "(a) 5103/5; (b) 2187; (c) 10305.99; (d) 8118.99", "id": "uc2-contour-integrals-parametrisation/exam/0/153bb5b3cda6", "text": "Take f(z) = 3z³ conj(z)², with C1 = the straight line segment from -3i to -3 an…"}
-{"answer": "(a) 2/7; (b) -2; (c) 3.14; (d) 1.14", "id": "uc2-contour-integrals-parametrisation/exam/1/8c738846189b", "text": "Take f(z) = z² conj(z)⁴, with C1 = the straight line segment from -1 to 1 and C…"}
-{"answer": "(a) -18432i/5; (b) 6144i; (c) 28952.92; (d) 22808.92", "id": "uc2-contour-integrals-parametrisation/exam/2/fed569efeb78", "text": "Let f(z) = -9 conj(z)⁴. Let C1 be the straight line segment from -4i to 4i and …"}
-{"answer": "54πi", "id": "uc2-contour-integrals-parametrisation/hard/0/1fd82105d2fc", "text": "Evaluate the exact value of ∫_C 3 conj(z) dz, where C is the circle |z| = 3, tr…"}
-{"answer": "18πi", "id": "uc2-contour-integrals-parametrisation/hard/1/f72c8471ee1b", "text": "The contour C is the circle |z| = 3, traversed once clockwise. Calculate the ex…"}
-{"answer": "2πi", "id": "uc2-contour-integrals-parametrisation/hard/2/9464795072c2", "text": "The contour C is the circle |z - 1| = 1, traversed once anticlockwise. Calculat…"}
-{"answer": "40 - 85i/2", "id": "uc2-contour-integrals-parametrisation/medium/0/a7163b2a8bba", "text": "The contour C is the path made of the straight segment from 5i to 0 followed by…"}
-{"answer": "2 - 3i/2", "id": "uc2-contour-integrals-parametrisation/medium/1/97eb97ca0bc1", "text": "Find the exact value of ∫_C Im(z) dz, where C is the path made of the straight …"}
+{"answer": "28/3", "id": "uc2-contour-integrals-parametrisation/easy/2/82c6316db5b4", "text": "Let f(z) = z². Evaluate ∫_C f(z) dz exactly, where C is the arc of the circle |…"}
+{"answer": "(a) 5103/5; (b) 2187; (c) 10305.99; (d) 8118.99", "id": "uc2-contour-integrals-parametrisation/exam/0/1e83ca186b1a", "text": "Take f(z) = 3z³ conj(z)², with C1 = the straight line segment from -3i to -3 an…"}
+{"answer": "(a) 2/7; (b) -2; (c) 3.14; (d) 1.14", "id": "uc2-contour-integrals-parametrisation/exam/1/37838b667e8b", "text": "Take f(z) = z² conj(z)⁴, with C1 = the straight line segment from -1 to 1 and C…"}
+{"answer": "(a) -18432i/5; (b) 6144i; (c) 28952.92; (d) 22808.92", "id": "uc2-contour-integrals-parametrisation/exam/2/26fdd1ce0cf5", "text": "Let f(z) = -9 conj(z)⁴. Let C1 be the straight line segment from -4i to 4i and …"}
+{"answer": "4374πi", "id": "uc2-contour-integrals-parametrisation/hard/0/9e62d255a694", "text": "Let f(z) = 3(z + 2i)² conj(z + 2i)³. Evaluate ∫_C f(z) dz exactly, where C is t…"}
+{"answer": "-54πi", "id": "uc2-contour-integrals-parametrisation/hard/1/85d4cf18745d", "text": "Let f(z) = 3 conj(z + 1). Evaluate ∫_C f(z) dz exactly, where C is the circle |…"}
+{"answer": "2πi", "id": "uc2-contour-integrals-parametrisation/hard/2/9086c1339ac3", "text": "The contour C is the circle |z - 1| = 1, traversed once anticlockwise. Calculat…"}
+{"answer": "40 - 85i/2", "id": "uc2-contour-integrals-parametrisation/medium/0/d46e3a3e3824", "text": "The contour C is the path made of the straight segment from 5i to 0 followed by…"}
+{"answer": "2 - 3i/2", "id": "uc2-contour-integrals-parametrisation/medium/1/f1575cba73b4", "text": "Find the exact value of ∫_C Im(z) dz, where C is the path made of the straight …"}
 {"answer": "-1 + 4i", "id": "uc2-contour-integrals-parametrisation/medium/2/db69f39e023a", "text": "The contour C is the path made of the straight segment from (-2 - i) to (-3 + 3…"}
 {"answer": "4π/3", "id": "uc2-contour-integrals-residue-theorem/easy/0/f506ca72b343", "text": "Let f(z) = (2z + 2)/((z + 1 - i)(z - 2 - i)) and let C be the circle |z + 1| = …"}
 {"answer": "32π/29 + 80πi/29", "id": "uc2-contour-integrals-residue-theorem/easy/1/531eee922f37", "text": "Evaluate ∮_C f(z) dz, where f(z) = (2z - 2)/((z + 3)(z - 2 - 2i)) and C is the …"}
@@ -12856,18 +12856,18 @@
 {"answer": "-8π", "id": "uc2-integral-theorem-verification/medium/0/c8fb5e5adddf", "text": "Verify Stokes' theorem for F(x, y, z) = (xy + y) i + (-x² - 3yz - y) j + (2xz -…"}
 {"answer": "-8π", "id": "uc2-integral-theorem-verification/medium/1/3fb7b1968235", "text": "Verify the divergence theorem for F(x, y, z) = (x² - 3y) i + (x³ - 3z) j - 2x²z…"}
 {"answer": "9π/2", "id": "uc2-integral-theorem-verification/medium/2/4f86373d6c82", "text": "Check the divergence theorem for the velocity field F(x, y, z) = 3y² i + yz j +…"}
-{"answer": "{-7, -5}", "id": "uc2-interior-closure-boundary/easy/0/2498820e9696", "text": "Let S = [-7, -5) as a subset of R. The closure of S is a union of closed interv…"}
-{"answer": "{-8, -5}", "id": "uc2-interior-closure-boundary/easy/1/5f957bbe94f4", "text": "What is the boundary of S = [-8, -5] in R? Write it as a set of numbers {a, b, …"}
-{"answer": "{-2, -1}", "id": "uc2-interior-closure-boundary/easy/2/06a019bb335d", "text": "What is the boundary of S = [-2, -1) in R? Write it as a set of numbers {a, b, …"}
-{"answer": "(a) (-40, -32) ∪ (-18, 1); (b) {-40, -32, -18, 1, 7, 12}; (…", "id": "uc2-interior-closure-boundary/exam/0/02f9f8d97326", "text": "Let S = [-40, -32) ∪ (-18, 1] ∪ {7} ∪ {12} be a subset of R with the usual metr…"}
-{"answer": "(a) (22, 42); (b) {22, 42, 43, 45}; (c) 4; (d) 152; (e) 38", "id": "uc2-interior-closure-boundary/exam/1/e98f5b016255", "text": "Let S = {45} ∪ [40, 42] ∪ {43} ∪ [22, 40) be a subset of R with the usual metri…"}
-{"answer": "(a) (-48, -43) ∪ (-43, -29); (b) {-48, -43, -29}; (c) 3; (d…", "id": "uc2-interior-closure-boundary/exam/2/e3b444ce4504", "text": "The set S = (-48, -43) ∪ (-43, -29) ∪ {-29} lies in R. (a) Find the interior of…"}
-{"answer": "{0, 2, 3, 6}", "id": "uc2-interior-closure-boundary/hard/0/cd407c5d176a", "text": "Find the limit points of S = (0, 2) ∪ {6 + 1/n : n = 1, 2, 3, …} ∪ (3, 5] that …"}
-{"answer": "{-4, -2, 1, 3}", "id": "uc2-interior-closure-boundary/hard/1/12040a2b6529", "text": "Let S = [-4, -2] ∪ (ℚ ∩ (1, 3)) as a subset of R. The closure of S is a union o…"}
-{"answer": "{-7, -6, -5, -2}", "id": "uc2-interior-closure-boundary/hard/2/1d905599e19d", "text": "Consider S = [-7, -6) ∪ (ℚ ∩ (-5, -2)) with the usual metric on R. Its closure …"}
-{"answer": "{6}", "id": "uc2-interior-closure-boundary/medium/0/66bb13c8f014", "text": "Let S = {6} ∪ [-3, -2) ∪ [1, 3) in R. Give the set of isolated points of S, in …"}
-{"answer": "{-5, 1}", "id": "uc2-interior-closure-boundary/medium/1/d889e3348f50", "text": "Let S = (-5, -3) ∪ (-3, 1) ∪ {-3} as a subset of R. The closure of S is a union…"}
-{"answer": "{2}", "id": "uc2-interior-closure-boundary/medium/2/599c579824b2", "text": "A point p of S = [-5, -3) ∪ (-2, 0) ∪ {0} ∪ {2} is isolated when some interval …"}
+{"answer": "{-7, -5}", "id": "uc2-interior-closure-boundary/easy/0/4d904d49411d", "text": "Let S = [-7, -5) as a subset of R. The closure of S is a union of closed interv…"}
+{"answer": "{-8, -5}", "id": "uc2-interior-closure-boundary/easy/1/4e3f8527d95a", "text": "What is the boundary of S = [-8, -5] in R? Write it as a set of numbers {a, b}."}
+{"answer": "{-2, -1}", "id": "uc2-interior-closure-boundary/easy/2/95f249c0fc2b", "text": "What is the boundary of S = [-2, -1) in R? Write it as a set of numbers {a, b}."}
+{"answer": "(a) (-40, -32) ∪ (-18, 1); (b) {-40, -32, -18, 1, 7, 12}; (…", "id": "uc2-interior-closure-boundary/exam/0/831cdaf72138", "text": "Let S = [-40, -32) ∪ (-18, 1] ∪ {7} ∪ {12} be a subset of R with the usual metr…"}
+{"answer": "(a) (22, 42); (b) {22, 42, 43, 45}; (c) 4; (d) 152; (e) 38", "id": "uc2-interior-closure-boundary/exam/1/1706f7d31003", "text": "Let S = {45} ∪ [40, 42] ∪ {43} ∪ [22, 40) be a subset of R with the usual metri…"}
+{"answer": "(a) (-48, -43) ∪ (-43, -29); (b) {-48, -43, -29}; (c) 3; (d…", "id": "uc2-interior-closure-boundary/exam/2/f2c48d7792a7", "text": "The set S = (-48, -43) ∪ (-43, -29) ∪ {-29} lies in R. (a) Find the interior of…"}
+{"answer": "{0, 2, 3, 6}", "id": "uc2-interior-closure-boundary/hard/0/cfd7cbbd0909", "text": "Find the limit points of S = (0, 2) ∪ {6 + 1/n : n = 1, 2, 3, …} ∪ (3, 5] that …"}
+{"answer": "{-4, -2, 1, 3}", "id": "uc2-interior-closure-boundary/hard/1/7c2aaf47c96c", "text": "Let S = [-4, -2] ∪ (ℚ ∩ (1, 3)) as a subset of R. The closure of S is a union o…"}
+{"answer": "{-7, -6, -5, -2}", "id": "uc2-interior-closure-boundary/hard/2/16ca3af8db95", "text": "Consider S = [-7, -6) ∪ (ℚ ∩ (-5, -2)) with the usual metric on R. Its closure …"}
+{"answer": "{6}", "id": "uc2-interior-closure-boundary/medium/0/0389ea2d1058", "text": "Let S = {6} ∪ [-3, -2) ∪ [1, 3) in R. Give the set of isolated points of S, in …"}
+{"answer": "{-5, 1}", "id": "uc2-interior-closure-boundary/medium/1/617e46860805", "text": "Let S = (-5, -3) ∪ (-3, 1) ∪ {-3} as a subset of R. The closure of S is a union…"}
+{"answer": "{2}", "id": "uc2-interior-closure-boundary/medium/2/ea8eb3f0f1dc", "text": "A point p of S = [-5, -3) ∪ (-2, 0) ∪ {0} ∪ {2} is isolated when some interval …"}
 {"answer": "1/16", "id": "uc2-interpolation-error-bound/easy/0/281a6e1bedef", "text": "Interpolate f(x) = sin 2x at the nodes x = 2, 2.5, 3 with a polynomial p of deg…"}
 {"answer": "1/2", "id": "uc2-interpolation-error-bound/easy/1/e6e0b61b8848", "text": "A polynomial p of degree at most 2 agrees with f(x) = sin 4x at x = 1, 1.5, 2. …"}
 {"answer": "27/128", "id": "uc2-interpolation-error-bound/easy/2/d688831e70d3", "text": "A polynomial p of degree at most 2 agrees with f(x) = sin 3x at x = 1, 1.5, 2. …"}
@@ -13183,15 +13183,15 @@
 {"answer": "5", "id": "uc2-metrics-and-balls-in-rn/easy/0/9a2d2ee11db8", "text": "Find the distance d_∞(x, y) between x = (0, -3, 0) and y = (5, -6, 4) in R³ und…"}
 {"answer": "11", "id": "uc2-metrics-and-balls-in-rn/easy/1/a57871376da4", "text": "Find the distance d_∞(x, y) between x = (-2, -1, -6) and y = (5, 5, 5) in R³ un…"}
 {"answer": "9", "id": "uc2-metrics-and-balls-in-rn/easy/2/83977e474273", "text": "Two points of R³ are (4, -6, 6) and (5, 3, 0). Using the maximum metric d_∞, de…"}
-{"answer": "(a) √433; (b) 29; (c) 2; (d) √521; (e) 521π", "id": "uc2-metrics-and-balls-in-rn/exam/0/f39ca2c78f17", "text": "Consider the points P = (5, -17) and Q = (-7, 0) of R² and the set S = {(6, -21…"}
-{"answer": "(a) √1914; (b) 74; (c) 2; (d) √89; (e) 356π(√89)/3", "id": "uc2-metrics-and-balls-in-rn/exam/1/b57c1a8ba7ed", "text": "A set S = {(14, 6, -13), (19, 5, -8), (22, 2, -12), (15, 6, -15), (14, 6, -12)}…"}
-{"answer": "(a) 28; (b) √366; (c) 2; (d) 17; (e) 19652/3", "id": "uc2-metrics-and-balls-in-rn/exam/2/79c4ca2686ff", "text": "A set S = {(-11, -16, -7), (-3, -6, -7), (-1, -7, -9), (-5, -2, -6), (-4, -5, -…"}
+{"answer": "(a) √433; (b) 29; (c) 0; (d) 3√61; (e) 549π", "id": "uc2-metrics-and-balls-in-rn/exam/0/75d90d1f5734", "text": "Consider the points P = (5, -17) and Q = (-7, 0) of R² and the set S = {(11, -2…"}
+{"answer": "(a) √1914; (b) 74; (c) 2; (d) √89; (e) 356π(√89)/3", "id": "uc2-metrics-and-balls-in-rn/exam/1/47e6b6f78922", "text": "A set S = {(14, 6, -13), (19, 5, -8), (22, 2, -12), (15, 6, -15), (14, 6, -12)}…"}
+{"answer": "(a) 28; (b) √366; (c) 2; (d) 17; (e) 19652/3", "id": "uc2-metrics-and-balls-in-rn/exam/2/a9f379e2335b", "text": "A set S = {(-11, -16, -7), (-3, -6, -7), (-1, -7, -9), (-5, -2, -6), (-4, -5, -…"}
 {"answer": "48", "id": "uc2-metrics-and-balls-in-rn/hard/0/905c120864ac", "text": "In R² under the taxicab metric d_1, let A be the set of points x with 1 ≤ d_1(x…"}
 {"answer": "8", "id": "uc2-metrics-and-balls-in-rn/hard/1/1dea1ff612a2", "text": "In R² with the maximum metric d_∞, let c = (-3, -1) and S = {(-4, -6), (-3, 6),…"}
 {"answer": "9π/4", "id": "uc2-metrics-and-balls-in-rn/hard/2/36454729e119", "text": "In R² under the Euclidean metric d_2, find the area of the open ball {x : d_2(x…"}
-{"answer": "11√2", "id": "uc2-metrics-and-balls-in-rn/medium/0/cb12c4eb25d5", "text": "Let c = (0, 5) in R². Write B_∞(c, r) for the open ball of radius r = 11 about …"}
+{"answer": "11√2", "id": "uc2-metrics-and-balls-in-rn/medium/0/7756f1768ded", "text": "Let c = (0, 5) in R². Write B_∞(c, r) for the open ball of radius r = 11 about …"}
 {"answer": "2", "id": "uc2-metrics-and-balls-in-rn/medium/1/f3e7a337c515", "text": "The open ball of radius 7 about c = (-4, -2) in the maximum metric d_∞ is the s…"}
-{"answer": "2√2", "id": "uc2-metrics-and-balls-in-rn/medium/2/f3c02d3ca694", "text": "Let c = (1, -2) in R². Write B_2(c, s) for the open ball of radius s about c un…"}
+{"answer": "2√2", "id": "uc2-metrics-and-balls-in-rn/medium/2/8e5df000f497", "text": "Let c = (1, -2) in R². Write B_2(c, s) for the open ball of radius s about c un…"}
 {"answer": "16", "id": "uc2-mgf-moments-identify/easy/0/337f834a300a", "text": "The random variable X has moment generating function M(t) = (1 - 4t)^(-4). Find…"}
 {"answer": "3", "id": "uc2-mgf-moments-identify/easy/1/f3181564a6d2", "text": "The random variable X has moment generating function M(t) = (e^t/3)/(1 - 2e^t/3…"}
 {"answer": "5", "id": "uc2-mgf-moments-identify/easy/2/c24ec8b877d5", "text": "A random variable X has moment generating function M_X(t) = e^(5(e^t - 1)), val…"}
@@ -13216,23 +13216,23 @@
 {"answer": "n/(T - n)", "id": "uc2-mle-method-of-moments/medium/0/ea7f64eff2d7", "text": "Independent observations x_1, x_2, ..., x_n are drawn from the distribution wit…"}
 {"answer": "n/L", "id": "uc2-mle-method-of-moments/medium/1/54e3a77e477c", "text": "A sample x_1, x_2, ..., x_n of independent values comes from the distribution w…"}
 {"answer": "T/(2*n)", "id": "uc2-mle-method-of-moments/medium/2/f5e55fa8c9a5", "text": "The observations x_1, x_2, ..., x_n form a random sample from the distribution …"}
-{"answer": "79/2", "id": "uc2-mm1-queue-and-eoq/easy-eoq/0/a8ace67e127b", "text": "Annual demand for an item is 6241 units. Placing an order costs $30, and it cos…"}
-{"answer": "209/5", "id": "uc2-mm1-queue-and-eoq/easy-eoq/1/1436e7ac209e", "text": "Annual demand for an item is 7942 units. Placing an order costs $50, and it cos…"}
-{"answer": "400", "id": "uc2-mm1-queue-and-eoq/easy-eoq/2/c48e07122513", "text": "Annual demand for an item is 32000 units. Placing an order costs $80, and it co…"}
+{"answer": "52", "id": "uc2-mm1-queue-and-eoq/easy-eoq/0/4aa1188d5b2b", "text": "A shop sells 24336 units of a product each year, ordering costs $45 per order a…"}
+{"answer": "10", "id": "uc2-mm1-queue-and-eoq/easy-eoq/1/b55869c0812b", "text": "A shop sells 3000 units of a product each year, ordering costs $30 per order an…"}
+{"answer": "208", "id": "uc2-mm1-queue-and-eoq/easy-eoq/2/0747f2accf52", "text": "Annual demand for an item is 9464 units. Placing an order costs $80, and it cos…"}
 {"answer": "5/6", "id": "uc2-mm1-queue-and-eoq/easy/0/8ff0bef032d3", "text": "Customers reach a single-server desk at 5 per hour (Poisson arrivals), and each…"}
 {"answer": "5/12", "id": "uc2-mm1-queue-and-eoq/easy/1/00708f761b8f", "text": "In an M/M/1 queue customers arrive at rate λ = 14 per hour and the server works…"}
 {"answer": "7/18", "id": "uc2-mm1-queue-and-eoq/easy/2/65d0988e112f", "text": "A single-server queue is modelled as M/M/1 with arrival rate λ = 14 per hour an…"}
-{"answer": "(a) 384; (b) 11520; (c) 1296", "id": "uc2-mm1-queue-and-eoq/exam/0/87da0d434b3e", "text": "A shop sells 49152 units of a product each year, ordering costs $45 per order a…"}
-{"answer": "(a) 345; (b) 2760; (c) 230", "id": "uc2-mm1-queue-and-eoq/exam/1/5ddeb480a2ee", "text": "A firm uses 10580 units of a part a year. Each order costs $45 to place and hol…"}
-{"answer": "(a) 560; (b) 125/7; (c) 4704/25", "id": "uc2-mm1-queue-and-eoq/exam/2/bacdbf0e7d44", "text": "A firm uses 7840 units of a part a year. Each order costs $100 to place and hol…"}
-{"answer": "520", "id": "uc2-mm1-queue-and-eoq/hard-eoq/0/a2e32881ee19", "text": "Annual demand for an item is 52020 units. Placing an order costs $100, and it c…"}
-{"answer": "25221/5", "id": "uc2-mm1-queue-and-eoq/hard-eoq/1/394d828351d4", "text": "Annual demand for an item is 6048 units. Placing an order costs $100, and it co…"}
-{"answer": "291255/32", "id": "uc2-mm1-queue-and-eoq/hard-eoq/2/8b6e4f32da52", "text": "Annual demand for an item is 30603 units. Placing an order costs $75, and it co…"}
+{"answer": "(a) 348; (b) 8700; (c) 2175", "id": "uc2-mm1-queue-and-eoq/exam/0/c6c762cb9239", "text": "A firm uses 25230 units of a part a year. Each order costs $60 to place and hol…"}
+{"answer": "(a) 345; (b) 2760; (c) 256", "id": "uc2-mm1-queue-and-eoq/exam/1/0b5db68e197f", "text": "A firm uses 10580 units of a part a year. Each order costs $45 to place and hol…"}
+{"answer": "(a) 600; (b) 75/2; (c) 80", "id": "uc2-mm1-queue-and-eoq/exam/2/c876257b32c2", "text": "A firm uses 4000 units of a part a year. Each order costs $90 to place and hold…"}
+{"answer": "100", "id": "uc2-mm1-queue-and-eoq/hard-eoq/0/49be332427eb", "text": "Annual demand for an item is 8379 units. Placing an order costs $25, and it cos…"}
+{"answer": "6001", "id": "uc2-mm1-queue-and-eoq/hard-eoq/1/fd21889b5c71", "text": "A firm uses 7203 units of a part a year. Each order costs $80 to place and hold…"}
+{"answer": "2441", "id": "uc2-mm1-queue-and-eoq/hard-eoq/2/4765d0d67d01", "text": "A shop sells 1682 units of a product each year, ordering costs $80 per order an…"}
 {"answer": "52", "id": "uc2-mm1-queue-and-eoq/hard/0/25dc1996def8", "text": "An M/M/1 queue has arrival rate λ = 24 per hour. The probability of 3 or more c…"}
 {"answer": "83", "id": "uc2-mm1-queue-and-eoq/hard/1/d1facc5070da", "text": "An M/M/1 queue has arrival rate λ = 26 per hour. The probability of 4 or more c…"}
 {"answer": "24", "id": "uc2-mm1-queue-and-eoq/hard/2/63e03109bdb9", "text": "A single server works at rate μ = 29 per hour (an M/M/1 queue). Arrivals are Po…"}
-{"answer": "85/2", "id": "uc2-mm1-queue-and-eoq/medium-eoq/0/80cf2943c528", "text": "Annual demand for an item is 1275 units. Placing an order costs $75, and it cos…"}
-{"answer": "4608", "id": "uc2-mm1-queue-and-eoq/medium-eoq/1/00f82b06be97", "text": "Annual demand for an item is 57600 units. Placing an order costs $60, and it co…"}
+{"answer": "192", "id": "uc2-mm1-queue-and-eoq/medium-eoq/0/2520c978351f", "text": "Annual demand for an item is 1275 units. Placing an order costs $75, and it cos…"}
+{"answer": "1029", "id": "uc2-mm1-queue-and-eoq/medium-eoq/1/ba45b4b3711f", "text": "A shop sells 25725 units of a product each year, ordering costs $50 per order a…"}
 {"answer": "32", "id": "uc2-mm1-queue-and-eoq/medium-eoq/2/2f4909374276", "text": "Annual demand for an item is 1000 units. Placing an order costs $45, and it cos…"}
 {"answer": "343/1728", "id": "uc2-mm1-queue-and-eoq/medium/0/0491879e7518", "text": "Customers reach a single-server desk at 7 per hour (Poisson arrivals), and each…"}
 {"answer": "15", "id": "uc2-mm1-queue-and-eoq/medium/1/ca10b7448987", "text": "Customers reach a single-server desk at 11 per hour (Poisson arrivals), and eac…"}
@@ -13765,18 +13765,18 @@
 {"answer": "1", "id": "uc2-svd-small-matrices/medium/0/0e188d6c7670", "text": "In a singular value decomposition A = UΣVᵀ of A = [[0, 2, -2], [-2, -4, 3]], fi…"}
 {"answer": "3", "id": "uc2-svd-small-matrices/medium/1/9b1ce487b644", "text": "Find the smaller non-zero singular value of the 2×3 matrix A = [[-2, -4, -5], […"}
 {"answer": "3", "id": "uc2-svd-small-matrices/medium/2/cc43b755882b", "text": "The 2×3 matrix A = [[-2, -3, -2], [2, -2, -3]] has rank 2. Find its smallest no…"}
-{"answer": "3", "id": "uc2-sylow-counting/easy/0/d793427014b1", "text": "A finite group G has order 159. What is the order of a Sylow 3-subgroup of G?"}
-{"answer": "40", "id": "uc2-sylow-counting/easy/1/55a903de5a30", "text": "A group G has order 696. For each prime dividing 696 take the order of a Sylow …"}
-{"answer": "9", "id": "uc2-sylow-counting/easy/2/e2dd238a587d", "text": "Let |G| = 333. Find the order of a Sylow 3-subgroup P of G."}
-{"answer": "(a) {1, 111}; (b) 1110; (c) 19868", "id": "uc2-sylow-counting/exam/0/c3b4a7208621", "text": "G is a group of order 21978 = 2 × 11 × 999, where 2 and 11 are distinct primes …"}
-{"answer": "(a) {1, 93}; (b) 2046; (c) 17205", "id": "uc2-sylow-counting/exam/1/ca38e39dea43", "text": "G is a group of order 19251 = 23 × 837, where 23 is a prime that does not divid…"}
-{"answer": "(a) {1, 53}; (b) 636; (c) 13144", "id": "uc2-sylow-counting/exam/2/7388bbd7135f", "text": "G is a group of order 13780 = 13 × 1060, where 13 is a prime that does not divi…"}
-{"answer": "64", "id": "uc2-sylow-counting/hard/0/48912b62e498", "text": "A group G of order 112 has exactly 8 Sylow 7-subgroups, each of prime order 7. …"}
-{"answer": "133", "id": "uc2-sylow-counting/hard/1/503eb948a81e", "text": "A group G of order 147 has exactly 7 Sylow 3-subgroups, each of prime order 3. …"}
-{"answer": "462", "id": "uc2-sylow-counting/hard/2/c128d4cca251", "text": "Suppose |G| = 483 = 3 × 7 × 23, with n_3 = 7 and n_7 = 1 and prime-order Sylow …"}
-{"answer": "3", "id": "uc2-sylow-counting/medium/0/3091100c5de4", "text": "Let |G| = 484. Counting every value that Sylow's theorems allow for the number …"}
-{"answer": "4", "id": "uc2-sylow-counting/medium/1/e6ae1088e599", "text": "A group G has order 576. By Sylow's theorems, how many different values can n_3…"}
-{"answer": "164", "id": "uc2-sylow-counting/medium/2/819133b20af7", "text": "A group G of order 205 has exactly 41 Sylow 5-subgroups, each of prime order 5.…"}
+{"answer": "16", "id": "uc2-sylow-counting/easy/0/35a205f6bcb3", "text": "Let |G| = 240. Find the order of a Sylow 2-subgroup P of G."}
+{"answer": "669", "id": "uc2-sylow-counting/easy/1/9da6d2a30926", "text": "A finite group G has order 1338. What is the index [G : P] of a Sylow 2-subgrou…"}
+{"answer": "8", "id": "uc2-sylow-counting/easy/2/ea753b604ea6", "text": "Let |G| = 632. Find the order of a Sylow 2-subgroup P of G."}
+{"answer": "(a) {1, 1008, 11952}; (b) 18144; (c) 1564583", "id": "uc2-sylow-counting/exam/0/d23c8f4e6923", "text": "A group G has order 1589616, the product 83 × 19 × 1008 with the primes 83 and …"}
+{"answer": "(a) {1, 43, 92, 3956}; (b) 258; (c) 27434", "id": "uc2-sylow-counting/exam/1/1755d01e18df", "text": "Let |G| = 27692, which is 7 × 3956 for a prime 7 not dividing 3956; a Sylow 7-s…"}
+{"answer": "(a) {1, 32}; (b) 960; (c) 8960", "id": "uc2-sylow-counting/exam/2/3771606dbe44", "text": "Let |G| = 9920, which is 31 × 320 for a prime 31 not dividing 320; a Sylow 31-s…"}
+{"answer": "676", "id": "uc2-sylow-counting/hard/0/e6625dfd6ce9", "text": "Let |G| = 780 and suppose n_5 = 26, where the Sylow 5-subgroups have order 5. F…"}
+{"answer": "456", "id": "uc2-sylow-counting/hard/1/4a38273cf968", "text": "Suppose a group G of order 480 had exactly 6 Sylow 5-subgroups, each of prime o…"}
+{"answer": "84", "id": "uc2-sylow-counting/hard/2/0fddcea2aa19", "text": "Suppose a group G of order 455 = 5 × 7 × 13 had n_5 = 91 and n_7 = 1, with each…"}
+{"answer": "4", "id": "uc2-sylow-counting/medium/0/fdf1a6d44cff", "text": "A group G has order 406. By Sylow's theorems, how many different values can n_2…"}
+{"answer": "3", "id": "uc2-sylow-counting/medium/1/c626378f5417", "text": "Sylow's theorems restrict n_3, the number of Sylow 3-subgroups, for a group of …"}
+{"answer": "120", "id": "uc2-sylow-counting/medium/2/cfd9d23fad53", "text": "Let |G| = 380. Using Sylow's theorems, find every value that the number n_2 of …"}
 {"answer": "1680", "id": "uc2-symmetric-group-conjugacy/easy/0/e51ea9459ead", "text": "In the symmetric group S_8, let σ = (8 6 7)(4 1)(5 3) (points not listed are fi…"}
 {"answer": "15", "id": "uc2-symmetric-group-conjugacy/easy/1/b3e2359e445d", "text": "Let σ = (1 6)(2 5)(3 4) be a permutation in S_6; points not written are fixed. …"}
 {"answer": "15", "id": "uc2-symmetric-group-conjugacy/easy/2/36705a38c195", "text": "In the symmetric group S_6, let σ = (6 3)(2 1)(4 5) (points not listed are fixe…"}

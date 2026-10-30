@@ -64,6 +64,12 @@ misconceptions:
 - id: sylow-forced-normal-two-values
   description: >-
     Counting the primes with only two allowed values of n_p instead of those with only n_p = 1.
+- id: sylow-index-as-order
+  description: >-
+    Giving the order of a Sylow p-subgroup where its index in the group was asked.
+- id: sylow-index-divides-by-p-once
+  description: >-
+    Dividing the group order by p once to get the index of a Sylow p-subgroup, whatever the power of p in the order.
 - id: sylow-leftover-counts-np-times-p
   description: >-
     Taking p elements in each Sylow subgroup of order p, so the identity is subtracted once per subgroup.
@@ -110,7 +116,7 @@ misconceptions:
   description: >-
     Giving the total number of elements counted rather than by how much it exceeds the group order.
 difficulty_progression: >-
-  Easy applies the divisor and congruence conditions once: the order of a Sylow subgroup, then the sum of the allowed n_p or of the Sylow orders. Medium counts or ranks the allowed values of n_p, turns a given n_p into a number of elements of order p, and decides for how many primes counting alone forces normality. Hard combines two primes in one element count (the elements left over for a third prime, or an impossible pair of counts), sets a p-group acting on a set against N mod p, and counts elements that are not of order q. The exam chain asks for the set of allowed n_q, the elements of order q for a stated n_q and the elements left over, following the second answer into the third.
+  Easy uses only the power of p dividing the group order, with no congruence condition: the order of a Sylow subgroup, its index in the group, or the sum of the Sylow orders over the primes dividing n. Medium adds Sylow's counting conditions (n_p divides the cofactor and is 1 mod p): list the allowed values of n_p and count them, find the largest or add them up, turn a supposed n_p into a number of elements of order p, and decide for how many primes counting alone forces normality. Hard combines two primes in one element count for a supposed pair of counts (the elements left over for a third prime, or the surplus that shows the pair is impossible), sets a p-group acting on a set against N mod p, and counts the elements that are not of order q. The exam chain asks for the set of allowed n_q, the elements of order q for a supposed n_q and the elements left over, following the second answer into the third.
 tags: [university-core-v1, university-year-2, abstract-algebra, sylow-theorems, group-theory]
 framework_areas: [abstract-algebra]
 alignments:

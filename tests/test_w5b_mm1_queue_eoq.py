@@ -473,3 +473,145 @@ def test_exam_follow_through_from_a_wrong_part_a():
 
 def test_exam_all_wrong_earns_nothing():
     check_all_wrong_earns_nothing(SKILL, EXAM, {"a": "99/7", "b": "905/3", "c": "907/11"})
+
+
+# -- round 3: typed commas, reorder points, lot multiples, tags ---------------------------------------------------------
+
+
+def _all_keys():
+    """(question or part, text, key) for every single question and exam part over many seeds."""
+    for topic in (QUEUE, EOQ):
+        for tier in TIERS:
+            for seed in range(150):
+                q = make(topic, seed=seed, difficulty=tier)
+                yield (topic, tier, seed), q.text, q.answer_text
+    for seed in range(200):
+        q = exam(EXAM, seed)
+        for part in q.parts:
+            yield ("exam", seed, part.label), part.prompt, part.answer_text
+
+
+def test_large_keys_say_not_to_use_commas_and_are_graded_without_them():
+    """The fraction grader reads `1,128,000` as a list, so a key of 1000 or more says how to type it, and the plain
+    digits are accepted by the real grader."""
+    s = skill(SKILL)
+    big = 0
+    for where, text, key in _all_keys():
+        if Fraction(key) >= 1000:
+            big += 1
+            assert "commas" in text, (where, text)
+    assert big > 100
+    for topic in (QUEUE, EOQ):
+        for tier in TIERS:
+            for seed in range(60):
+                q = make(topic, seed=seed, difficulty=tier)
+                if Fraction(q.answer_text) >= 1000:
+                    assert grade(s, q, q.answer_text).correct
+
+
+def test_eoq_figures_are_whole_where_the_question_invites_it():
+    reorder = orders = dollars = lots = whole_dollars = 0
+    for tier in TIERS:
+        for seed in range(150):
+            q = make(EOQ, seed=seed, difficulty=tier)
+            if "reorder" in q.text:
+                reorder += 1
+                assert Fraction(q.answer_text).denominator == 1, q.text
+            if "How many orders per year" in q.text or "number of orders placed in a year" in q.text:
+                orders += 1
+                assert Fraction(q.answer_text).denominator == 1, q.text
+            if "units each time" in q.text or "units at a time" in q.text or "every order is for" in q.text:
+                lots += 1
+                whole_dollars += Fraction(q.answer_text).denominator == 1
+    for seed in range(300):
+        e = exam(EXAM, seed)
+        for part in e.parts:
+            if "reorder point" in part.prompt:
+                reorder += 1
+                assert Fraction(part.answer_text).denominator == 1, part.prompt
+            if "orders placed per year" in part.prompt:
+                orders += 1
+                assert Fraction(part.answer_text).denominator == 1, part.prompt
+    assert reorder > 30 and orders > 30 and lots > 20
+    assert whole_dollars >= 0.9 * lots
+
+
+def test_lot_multiples_have_feasible_options_and_the_nearest_lot_often_loses():
+    asked = traps = 0
+    for seed in range(500):
+        q = make(EOQ, seed=seed, difficulty="hard")
+        if not re.search(r"multiples? of \d+ units", q.text) or not (
+            "Which order quantity" in q.text or "Find the feasible order quantity" in q.text
+        ):
+            continue
+        asked += 1
+        D, S, H = three(q.text)
+        m = int(re.search(r"multiples? of (\d+)", q.text).group(1))
+        q_star, _ = eoq_minimiser(D, S, H)
+        key = int(q.answer_text)
+        assert key % m == 0 and all(int(d) % m == 0 and int(d) >= m for d in q.distractors), (
+            seed,
+            q.text,
+            q.distractors,
+        )
+        nearest = min(range(m, int(3 * q_star) + m, m), key=lambda x: (abs(x - q_star), x))
+        traps += nearest != key
+    assert asked > 40
+    assert traps >= 0.3 * asked, (traps, asked)
+
+
+def test_every_declared_tag_fires_and_is_declared():
+    import yaml
+    from pathlib import Path
+
+    declared = {
+        m["id"]
+        for m in yaml.safe_load(Path("skills/optimisation/uc2-mm1-queue-and-eoq.yaml").read_text())["misconceptions"]
+    }
+    fired = set()
+    for topic in (QUEUE, EOQ):
+        for tier in TIERS:
+            for seed in range(400):
+                fired |= {t for t in make(topic, seed=seed, difficulty=tier).option_notes.values() if t}
+    for seed in range(400):
+        for part in exam(EXAM, seed).parts:
+            fired |= {t for t in (part.option_notes or {}).values() if t}
+    assert fired == declared, (sorted(declared - fired), sorted(fired - declared))
+
+
+def test_tags_sit_on_the_slip_they_name():
+    """Spot checks, re-derived from the rendered stem: the tagged option's value is the slip named."""
+    checked = 0
+    for seed in range(300):
+        q = make(EOQ, seed=seed, difficulty="easy")
+        if "Find the economic order quantity" in q.text or "optimal order quantity" in q.text:
+            D, S, H = three(q.text)
+            for text, tag in q.option_notes.items():
+                if tag == "eoq-no-square-root":
+                    assert Fraction(text) == Fraction(2 * D * S, H)
+                    checked += 1
+                if tag == "eoq-swaps-s-and-h":
+                    assert Fraction(text) ** 2 == Fraction(2 * D * H, S)
+                    checked += 1
+        q = make(EOQ, seed=seed, difficulty="medium")
+        if "between successive orders" in q.text or "working days pass" in q.text:
+            D, S, H = three(q.text)
+            q_star, _ = eoq_minimiser(D, S, H)
+            for text, tag in q.option_notes.items():
+                if tag == "eoq-cycle-as-orders-per-year":
+                    assert Fraction(text) == Fraction(D) / Fraction(int(q_star))
+                    checked += 1
+                if tag == "eoq-rop-wrong-days":
+                    assert Fraction(text) == Fraction(365) * Fraction(int(q_star)) / D
+                    checked += 1
+        q = make(QUEUE, seed=seed, difficulty="easy")
+        if "probability that the system is empty" in q.text or "Find P(0)" in q.text:
+            lam, mu = rates(q.text)
+            for text, tag in q.option_notes.items():
+                if tag == "mm1-idle-as-busy":
+                    assert Fraction(text) == Fraction(lam, mu)
+                    checked += 1
+                if tag == "mm1-idle-squared":
+                    assert Fraction(text) == (1 - Fraction(lam, mu)) ** 2
+                    checked += 1
+    assert checked > 80

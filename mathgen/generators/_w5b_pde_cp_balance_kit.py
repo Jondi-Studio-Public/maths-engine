@@ -46,6 +46,9 @@ def balance(answer_text: str, pool: list, n: int, rng, max_pool: int = 9) -> lis
     key = _num(answer_text)
     vals = [_num(d.text) for d in pool]
     target = rng.randrange(n + 1)
+    tolerate = rng.random() < 1 / (
+        n + 1
+    )  # about once in n + 1 the key may be the central or the median option, as it is by chance
     best, best_cost = [], None
     for combo in itertools.combinations(range(len(pool)), n):
         chosen = [vals[i] for i in combo]
@@ -136,7 +139,7 @@ def _base(text: str) -> tuple[dict, complex | None]:
     return f, z
 
 
-def _gains(texts: list) -> tuple[float, float, int]:
+def _gains(texts: list) -> tuple[float, float, float, int]:
     """(the strategies' best gain over chance, the number of features the key alone holds) for options with the key first."""
     base = [_base(t) for t in texts]
     feats = [dict(b[0]) for b in base]
@@ -182,19 +185,37 @@ def _gains(texts: list) -> tuple[float, float, int]:
                 key_alone += i == 0
     alive = [i for i in range(n) if not lone[i]] or list(range(n))
     gains.append((1 / len(alive) if 0 in alive else 0.0) - 1 / n)
-    return max(gains), sum(lone[1:]), key_alone
+    return max(gains[:-1], default=0.0), gains[-1], sum(lone[1:]), key_alone
 
 
-def fair(answer_text: str, pool: list, n: int, rng, max_pool: int = 10) -> list:
-    """`n` of `pool` (objects with `.text`) to show beside `answer_text`, chosen by what a learner can read off the options:
-    least gain for eliminating odd ones out, picking the most central, the most outlying or the nearest the median."""
-    pool = list(pool)[:max_pool]
+def fair(answer_text: str, pool: list, n: int, rng, max_pool: int = 10, must_tags=(), rank_cost: float = 0.8) -> list:
+    """`n` of `pool` (objects with `.text` and `.misconception`) to show beside `answer_text`, chosen by what a learner can
+    read off the options: least gain for eliminating odd ones out, picking the most central, the most outlying or the
+    nearest the median. At least one option tagged in `must_tags` is shown. When the options are plain numbers the key's
+    rank among them is drawn from `rng` and held to with `rank_cost` per place."""
+    must_tags = set(must_tags)
+    pool = list(pool)
+    pool = [*(d for d in pool if d.misconception in must_tags), *(d for d in pool if d.misconception not in must_tags)]
+    pool = pool[:max_pool]
     if len(pool) <= n:
         return pool
+    musts = {i for i, d in enumerate(pool) if d.misconception in must_tags}
+    key_z = _complex_value(answer_text)
+    zs = [_complex_value(d.text) for d in pool]
+    real = key_z is not None and abs(key_z.imag) < 1e-9 and all(z is not None and abs(z.imag) < 1e-9 for z in zs)
+    target = rng.randrange(n + 1)
+    tolerate = rng.random() < 1 / (
+        n + 1
+    )  # about once in n + 1 the key may be the central or the median option, as it is by chance
     best, best_cost = [], None
     for combo in itertools.combinations(range(len(pool)), n):
-        gain, wrong_lone, key_alone = _gains([answer_text, *(pool[i].text for i in combo)])
-        cost = round(10 * max(gain, 0) + 0.3 * wrong_lone + 0.5 * key_alone, 6)
+        if musts and not musts.intersection(combo):
+            continue
+        other, elim, wrong_lone, key_alone = _gains([answer_text, *(pool[i].text for i in combo)])
+        cost = 10 * max(elim, 0) + (0 if tolerate else 10 * max(other, 0)) + 0.3 * wrong_lone + 0.5 * key_alone
+        if real:
+            cost += rank_cost * abs(sum(zs[i].real < key_z.real for i in combo) - target)
+        cost = round(cost, 6)
         if best_cost is None or cost < best_cost:
             best, best_cost = [combo], cost
         elif cost == best_cost:
