@@ -98,8 +98,8 @@ def _pool_orders():
 
 @lru_cache(maxsize=None)
 def _pool_orders3():
-    """Orders 30..2500 with at least three distinct prime divisors."""
-    return tuple(n for n in range(30, 2501) if len(factor(n)) >= 3)
+    """Orders 30..15000 with at least three distinct prime divisors."""
+    return tuple(n for n in range(30, 15001) if len(factor(n)) >= 3)
 
 
 @lru_cache(maxsize=None)
@@ -423,12 +423,13 @@ def _medium(rng):
             ],
             lo=1,
         )
-    # how many primes force n_p = 1: three or more primes, so the count is neither 0 nor all of them
-    for _ in attempts(2000, "an order with at least three primes, some forced and some free"):
+    # how many primes force n_p = 1: three or more primes, and a target count drawn first (1, 2 or 3) so the key spreads
+    target = rng.choice((1, 2, 3))
+    for attempt in attempts(6000, "an order with at least three primes, some forced and some free"):
         n = rng.choice(_pool_orders3())
         primes = sorted(factor(n))
         forced = sum(1 for p in primes if checked_np(n, p) == [1])
-        if 1 <= forced <= len(primes) - 1:
+        if 1 <= forced <= len(primes) - 1 and (forced == target or attempt > 2500):
             break
     return number_q(
         phrase(rng, _M4_STEMS, n=n),

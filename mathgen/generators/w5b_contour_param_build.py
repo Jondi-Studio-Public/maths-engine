@@ -747,7 +747,11 @@ def _hard_closed(rng):
         (sympy.expand(s * two_pi_i * lam * base), "cx2-param-every-power-gives-2-pi-i"),
         (sympy.expand(s * two_pi_i * lam * qsym(r) ** (m + k)), "cx2-param-radius-power-slip"),
         (sympy.expand(s * two_pi_i * lam * qsym(r) ** (m + k + 2)), "cx2-param-radius-power-slip"),
-        (sympy.expand(-s * two_pi_i * lam * base), "cx2-orientation-ignored"),
+        # the reversed orientation is the negative of the key; when the key is 0 there is no such slip
+        (
+            sympy.expand(-s * two_pi_i * lam * base),
+            "cx2-orientation-ignored" if m - k == -1 else "cx2-param-every-power-gives-2-pi-i",
+        ),
         (sympy.expand(s * 2 * sympy.pi * lam * base), "forgets-i-in-residue-theorem"),
         (sympy.expand(s * two_pi_i * base), "cx2-param-every-power-gives-2-pi-i"),
         (sympy.Integer(0), "cx2-param-closed-loop-assumed-zero"),
@@ -905,14 +909,19 @@ def _spread(answer, cands: list, rng, must_tags=()) -> list:
     reflected or rotated (a sign or a quarter turn wrong) as fillers that are written like the key."""
     a = sympy.sympify(answer)
     re_a, im_a = sympy.expand(sympy.re(a)), sympy.expand(sympy.im(a))
-    fillers = [
-        (-re_a + sympy.I * im_a, "cx2-arithmetic-slip"),
-        (re_a - sympy.I * im_a, "cx2-arithmetic-slip"),
-        (sympy.expand(sympy.I * a), "cx2-arithmetic-slip"),
-        (sympy.expand(-sympy.I * a), "cx2-arithmetic-slip"),
-        (2 * a, "cx2-arithmetic-slip"),
-        (a / 2, "cx2-arithmetic-slip"),
-    ]
+    factors = [sympy.Rational(x) for x in ("1/2", "2", "3/2", "2/3", "3", "1/3", "4", "1/4")]
+    fillers = []
+    for _ in range(6):  # the two parts of the key scaled on their own: not a reflection or a turn of the key
+        f1, f2 = rng.choice(factors), rng.choice(factors)
+        if rng.random() < 0.3:
+            f1 = sympy.Integer(1)
+        fillers.append((sympy.expand(f1 * re_a + sympy.I * f2 * im_a), "cx2-arithmetic-slip"))
+    fillers.append(
+        (
+            sympy.expand(a + rng.choice([1, -1, 2, -2]) * (sympy.I if im_a != 0 and rng.random() < 0.5 else 1)),
+            "cx2-arithmetic-slip",
+        )
+    )
     pool = dist_list(a, [*cands, *fillers], 10)
     if must_tags:
         extra = dist_list(a, [c for c in cands if c[1] in must_tags], 1)
@@ -941,6 +950,8 @@ def _dec_dist(value: Fr, cands: list, dp: int = 2) -> list:
         v = round_half_up(value + off, dp)
         if v > 0:
             out.append(Distractor(stated_precision_string(v, dp), "cx2-arithmetic-slip", float(v)))
+    gap = max(Fr(1, 2), abs(value) / 50)  # an option within 2% of the key is a misprint of it, not a mistake
+    out = [d for d in out if abs(Fr(d.text) - Fr(key)) >= gap]
     chosen = pick_distractors(key, out, 12, tolerance=tol + Fr(1, 1000))
     structural = {tag for _, tag in cands if tag and tag != "cx2-arithmetic-slip"}
     return fair(key, chosen, 4, rng, max_pool=12, must_tags=structural, rank_cost=2.5)
@@ -1029,19 +1040,19 @@ def exd_x_w5b_contour_param(rng: random.Random, tier: str = "exam") -> dict:
     cands_c = [
         (mod_f * chord_len, "cx2-param-ml-length-chord"),
         (mod_f * r * 2 * pi_fr, "cx2-param-ml-length-circle"),
-        (length * pi_fr, "cx2-param-ml-max-omitted"),
-        (mod_f * length, "cx2-param-ml-max-omitted"),
+        (length * pi_fr, "cx2-param-ml-max-omitted"),  # L alone: M left out
+        (Fr(mod_f), "cx2-param-ml-max-omitted"),  # M alone: L left out
+        (mod_f * length, "cx2-arithmetic-slip"),  # pi forgotten in L
         (mod_f * length * 2 * pi_fr, "cx2-param-ml-length-circle"),
         (mod_f * (r + 1) * length * pi_fr, None),
     ]
     dc = _dec_dist(bound_fr, cands_c)
     cands_d = [
-        (-slack_fr, "cx2-param-ml-slack-sign"),
         (ival_fr, "cx2-param-ml-slack-sign"),
         (bound_st, "cx2-param-ml-slack-sign"),
-        (bound_st + ival_fr, "cx2-param-ml-slack-sign"),
-        (slack_fr + 1, None),
+        (bound_st - 2 * ival_fr, "cx2-arithmetic-slip"),
         (slack_fr * 2, None),
+        (slack_fr / 2, None),
     ]
     dd = _dec_dist(slack_fr, cands_d)
     check(len(dc) >= 2 and len(dd) >= 2, "too few decimal distractors")

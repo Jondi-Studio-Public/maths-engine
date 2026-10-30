@@ -187,9 +187,12 @@ misconceptions:
 - id: mm1-target-uses-w-not-wq
   description: >-
     Using the formula for the mean time in the system where the target is on the wait in the queue.
+- id: mm1-time-unit-converted-needlessly
+  description: >-
+    Multiplying by 60 where no conversion to minutes was wanted: a time asked in hours given in minutes, or Little's law applied to a time already in minutes.
 - id: mm1-time-unit-not-converted
   description: >-
-    Leaving a time in hours (or a number scaled by the wrong factor of 60) when the answer was asked in minutes.
+    Leaving a time in hours when the answer was asked in minutes, so the 60 is never applied.
 - id: mm1-utilisation-as-l
   description: >-
     Giving the mean number in the system L = rho/(1 - rho) where the utilisation or the idle probability was asked.
@@ -200,7 +203,7 @@ misconceptions:
   description: >-
     Dividing the arrival rate by the sum of the two rates instead of by the service rate to find the utilisation.
 difficulty_progression: >-
-  Easy reads one standard measure from clean rates or from Q* (utilisation, L, the idle probability; Q*, the cost at Q*, orders per year). Medium chains two formulas and converts units (Wq and W in minutes, Lq through Little's law, a point or tail probability; the reorder point, the time between orders, the cost of a stated lot size and its excess over the minimum). Hard works backwards from a target to a whole-number rate or lot size by checking the boundary on both sides (the largest arrival rate for a wait target, the smallest service rate for L, W or a tail target, the best lot among multiples of m), or recovers the demand from the minimum cost or adds the purchase cost under a price-based holding rate. The exam chain follows a result through three parts in either model.
+  Easy reads one standard measure from clean rates or from Q* (utilisation, L, the idle probability; Q*, the cost at Q*, the whole number of orders per year). Medium chains two formulas and converts units (Wq or W in minutes or in hours as the stem asks, Lq through Little's law, a point or tail probability; the reorder point, the time between orders, the cost of a stated lot size and its excess over the minimum). Hard works backwards from a target to a whole-number rate or lot size by checking the boundary on both sides (the largest arrival rate for a wait target, the smallest service rate for a target L, W or tail probability), finds how many minutes a faster server saves in the mean time in the system W, picks the best lot among multiples of m (where the multiple nearest Q* is not always the cheapest) with its cost, recovers the demand from the minimum cost, or adds the purchase cost under a price-based holding rate. The exam chain follows a result through three parts in either model.
 tags: [university-core-v1, university-year-2, optimisation, operations-research, queueing, inventory]
 framework_areas: [optimisation]
 alignments:

@@ -62619,8 +62619,13 @@ _ENTRIES += (
         area="metric-balls",
     ),
     CatalogueEntry(
+        "mb-counted-all-points",
+        "Counting every point of the set instead of only those inside the ball.",
+        area="metric-balls",
+    ),
+    CatalogueEntry(
         "mb-counted-outside",
-        "Counting the points outside the ball, or all of the points, instead of those inside it.",
+        "Counting the points outside the ball instead of those inside it.",
         area="metric-balls",
     ),
     CatalogueEntry(
@@ -63040,7 +63045,7 @@ _ENTRIES += (
     ),
     CatalogueEntry(
         "mm1-time-unit-not-converted",
-        "Leaving a time in hours (or a number scaled by the wrong factor of 60) when the answer was asked in minutes.",
+        "Leaving a time in hours when the answer was asked in minutes, so the 60 is never applied.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
@@ -63268,8 +63273,33 @@ _ENTRIES += (
         area="interior-closure-boundary",
     ),
     CatalogueEntry(
-        "ic-closure-interior-confused",
-        "Giving the points of the closure where the interior was asked, or the interior or closure where the boundary was asked.",
+        "ic-all-listed-points",
+        "Giving every listed point instead of only those that satisfy the condition.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-closure-for-interior",
+        "Giving the points of the closure where the interior was asked, so the boundary points are wrongly included.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-interior-for-closure",
+        "Giving the interior points where the closure was asked, leaving the boundary points out.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-boundary-for-interior",
+        "Giving the boundary points where the interior was asked.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-boundary-for-closure",
+        "Giving only the boundary points where the closure was asked.",
+        area="interior-closure-boundary",
+    ),
+    CatalogueEntry(
+        "ic-interior-for-boundary",
+        "Giving the interior points where the boundary was asked.",
         area="interior-closure-boundary",
     ),
     CatalogueEntry(
@@ -63304,7 +63334,7 @@ _ENTRIES += (
     ),
     CatalogueEntry(
         "ic-isolated-point-boundary-point",
-        "Listing the endpoints of the intervals as isolated points, because they are boundary points of the set.",
+        "Listing endpoints of the intervals as isolated points, because they are boundary points of the set.",
         area="interior-closure-boundary",
     ),
     CatalogueEntry(
@@ -63405,6 +63435,11 @@ _ENTRIES += (
     CatalogueEntry(
         "eoq-cycle-as-orders-per-year",
         "Giving the number of orders per year D/Q where the time in working days between orders was asked.",
+        area="queueing-inventory",
+    ),
+    CatalogueEntry(
+        "mm1-time-unit-converted-needlessly",
+        "Multiplying by 60 where no conversion to minutes was wanted: a time asked in hours given in minutes, or Little's law applied to a time already in minutes.",
         area="queueing-inventory",
     ),
 )

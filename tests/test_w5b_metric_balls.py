@@ -499,3 +499,19 @@ def test_exam_answer_space_and_junk():
         assert max(values.count(v) for v in set(values)) <= 0.5 * len(values), label
     check_deterministic(EXAM)
     check_all_wrong_earns_nothing(SKILL, EXAM, {"a": "999", "b": "998", "c": "997", "d": "996", "e": "995"})
+
+
+def test_every_non_whole_key_says_how_to_type_it_in_every_tier_and_exam_part():
+    """A surd or multiple of pi is typed exactly, so every question and every exam part with such a key says so."""
+    checked = 0
+    for topic, tiers in ((TOPIC, ("easy", "medium", "hard")), (EXAM, ("exam",))):
+        for tier in tiers:
+            for seed in range(300):
+                q = make(topic, seed=seed, difficulty=tier)
+                units = [(p.prompt, p.answer) for p in q.parts] if getattr(q, "parts", None) else [(q.text, q.answer)]
+                for prompt, answer in units:
+                    if not isinstance(answer, str) or sympy.sympify(answer).is_Integer:
+                        continue
+                    checked += 1
+                    assert re.search(r"\bexact\b|fraction", prompt.lower()), (topic, tier, seed, prompt, answer)
+    assert checked >= 500, checked

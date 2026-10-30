@@ -62,11 +62,11 @@ misconceptions:
     Using the whole circumference, or twice the arc length, as the length L in the ML bound.
 - id: cx2-param-ml-max-omitted
   description: >-
-    Leaving the maximum of |f| out of the ML bound (or leaving out the length), so only one of the two factors is given.
+    Giving only one of the two factors of the ML bound: the length L alone (M left out) or the maximum M alone (L left out).
 - id: cx2-param-ml-slack-sign
   description: >-
-    Subtracting the wrong way round, or giving the modulus or the bound itself, where the amount by which the bound exceeds the modulus of
-    the integral was asked.
+    Giving the modulus of the integral or the bound itself where the amount by which the bound exceeds the modulus of the integral was
+    asked.
 - id: cx2-param-modulus-held-constant
   description: >-
     Treating |z| as the constant |b| (its value at the end point) along a segment, when it changes linearly along the ray.
@@ -108,7 +108,7 @@ alignments:
   framework: university-core-v1
   area: complex-analysis
 difficulty_progression:
-  easy: {steps: 3, demand: "Substitute the stated parametrisation of a segment or a quarter or half circle into z^n, conj(z), Re(z), Im(z) or |z|, multiply by z'(t) and integrate."}
-  medium: {steps: 4, demand: "Choose the parametrisation of an arc or a two-segment path, rewrite conj(z) (or Re z, Im z, |z|) along it, and integrate where the antiderivative, the chord and the other arc all give a different value."}
+  easy: {steps: 3, demand: "Substitute the stated parametrisation of a segment or a quarter, half or three-quarter circle into z^n, conj(z), Re(z), Im(z) or |z|, multiply by z'(t) and integrate."}
+  medium: {steps: 4, demand: "Choose the parametrisation of an arc or a two-segment path, rewrite conj(z) (or Re z, Im z, |z|) along it, and integrate; the shortcuts of an antiderivative, the chord or the other arc are not valid for these integrands in general."}
   hard: {steps: 5, demand: "Integrate a non-analytic power of z - c (the circle not always centred at 0, the multiplier not always 1) round a full circle, where only the term with exponent -1 survives and every other power gives 0, or find the difference of the integrals along two routes between the same points as a signed area."}
   exam: {steps: 6, demand: "Integrate along a chord and an arc between the same points, then give the ML bound M L for the arc to 2 decimal places and find by how much that stated value exceeds the modulus of the arc integral."}

@@ -291,7 +291,10 @@ def _queue_medium(rng):
         slips = [
             (_time(other, unit), "mm1-wq-w-swapped"),
             (_time(Fraction(1, mu), unit), "mm1-w-as-service-time" if kind == "W" else None),
-            (_time(hours, "hours" if unit == "minutes" else "minutes"), "mm1-time-unit-not-converted"),
+            (
+                _time(hours, "hours" if unit == "minutes" else "minutes"),
+                "mm1-time-unit-not-converted" if unit == "minutes" else "mm1-time-unit-converted-needlessly",
+            ),
             (_time(q["L"] / mu, unit), None),
         ]
         formula = "ρ/(μ - λ)" if kind == "Wq" else "1/(μ - λ)"
@@ -317,7 +320,7 @@ def _queue_medium(rng):
                 (q["L"], "mm1-lq-as-l"),
                 (q["rho"], "mm1-lq-as-utilisation"),
                 (q["L"] - 1, "mm1-lq-minus-one"),
-                (lam * q["Wq"] * 60, "mm1-time-unit-not-converted"),
+                (lam * q["Wq"] * 60, "mm1-time-unit-converted-needlessly"),
             ],
         )
     if kind == "pn":
@@ -625,6 +628,10 @@ def _daily_ok(Q, S, H, D):
 
 def _leads(D):
     return [lead for lead in range(3, 22) if (D * lead) % WORKING_DAYS == 0]
+
+
+def _orders_and_daily_ok(Q, S, H, D):
+    return _whole_orders(Q, S, H, D) and _daily_ok(Q, S, H, D)
 
 
 def _whole_cycle(Q, S, H, D):
@@ -1054,7 +1061,7 @@ def _queue_exam(rng):
                     3,
                     [f"L = λ W = {lam} × {ftext(w_min)}/60 = {ftext(q['L'])}."],
                     [
-                        (Fraction(lam) * w_min, "mm1-time-unit-not-converted"),
+                        (Fraction(lam) * w_min, "mm1-time-unit-converted-needlessly"),
                         (q["Lq"], "mm1-l-as-lq"),
                         (rho, "mm1-l-as-utilisation"),
                     ],
@@ -1107,7 +1114,7 @@ def _queue_exam(rng):
 
 def _eoq_exam(rng):
     shape = rng.choice(("Q_TC_N", "Q_cycle_rop", "Q_cost_saving"))
-    Q, S, H, D = _draw_eoq(rng, ok={"Q_TC_N": _whole_orders, "Q_cycle_rop": _daily_ok}.get(shape))
+    Q, S, H, D = _draw_eoq(rng, ok={"Q_TC_N": _whole_orders, "Q_cycle_rop": _orders_and_daily_ok}.get(shape))
     best = checked_eoq(D, S, H, Q)
     setup = phrase(rng, _E_SETUP, D=D, S=S, H=H)
     q_part = frac_part(
@@ -1156,22 +1163,22 @@ def _eoq_exam(rng):
         leads = _leads(D)
         lead = rng.choice(leads) if leads else rng.randint(3, 21)
         rop = Fraction(D * lead, WORKING_DAYS)
-        cycle = Fraction(WORKING_DAYS * Q, D)
+        orders = Fraction(D, Q)
         return dict(
             text=setup + f" The firm works {WORKING_DAYS} days a year.",
             parts=[
                 q_part,
                 frac_part(
-                    "Find the number of working days between orders when ordering at Q*.",
-                    cycle,
+                    "Find the number of orders placed per year when ordering at Q*.",
+                    orders,
                     3,
-                    [f"{WORKING_DAYS} × Q*/D = {WORKING_DAYS} × {Q}/{D} = {ftext(cycle)}."],
+                    [f"D/Q* = {D}/{Q} = {ftext(orders)}."],
                     [
-                        (Fraction(D, Q), "eoq-cycle-as-orders-per-year"),
-                        (Fraction(365 * Q, D), "eoq-rop-wrong-days"),
-                        (Fraction(WORKING_DAYS * D, Q), None),
+                        (Fraction(Q, D), "eoq-orders-inverted"),
+                        (Fraction(D, 2 * Q), "eoq-orders-halved"),
+                        (orders + 1, None),
                     ],
-                    follow_through=f"{WORKING_DAYS}*part_a/{D}",
+                    follow_through=f"{D}/part_a",
                     sensible_range=(0, None),
                 ),
                 frac_part(

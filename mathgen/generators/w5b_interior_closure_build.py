@@ -287,11 +287,11 @@ def _ineq_question(prompt, key, working, cands):
     return _as_question(part)
 
 
-def _fit_form(prompt, n: int):
-    """The (text, latex) prompt with its example set, {a, b} or {a, b, c}, written with as many letters as the key has."""
-    letters = ", ".join("abcde"[:n]) if n <= 5 else "a, b, c, …"
-    text = re.sub(r"\{a(?:, [b-e])*\}", "{" + letters + "}", prompt[0])
-    latex = re.sub(r"\\\{\\text\{a(?:, [b-e])*\}\\\}", lambda _m: "\\{\\text{" + letters + "}\\}", prompt[1])
+def _fit_form(prompt, n: int = 0):
+    """The (text, latex) prompt with its example set written the same way whatever the key size ({a, b, ...}), so the hint
+    does not tell the learner how many elements to give."""
+    text = re.sub(r"\{a(?:, [b-e])*\}", "{a, b, ...}", prompt[0])
+    latex = re.sub(r"\\\{\\text\{a(?:, [b-e])*\}\\\}", lambda _m: "\\{\\text{a, b, ...}\\}", prompt[1])
     return text, latex
 
 
@@ -392,6 +392,9 @@ def _ends(ivs):
     return sorted({x for a, b, _l, _r in ivs for x in (a, b)})
 
 
+_SHOWN_OFTEN = {"ic-rational-interior", "ic-rational-closure-itself"}
+
+
 def _slips(key_points, cands, an=None):
     """(items, tag) slips as text, ordered so that the shown three do not single the key out.
 
@@ -420,20 +423,31 @@ def _slips(key_points, cands, an=None):
     rng.shuffle(named)
     own = [c for c in named if all(x in stem for x in c[0])]
     big = [c for c in named if len(c[0]) >= len(key)]
-    chosen = []
+    need_big = bool(big) and rng.random() < 0.5
+    need_own = min(2, len(own))
 
-    def take(pool):
-        for c in pool:
-            if not any(c is d for d in chosen):
-                chosen.append(c)
-                return
+    def digits(pts):
+        return sum(ch.isdigit() for ch in ", ".join(_texts(pts)))
 
-    if big and rng.random() < 0.7:
-        take([c for c in big if c in own] or big)
-    take(own)
-    take(own)
-    take(named)
-    take(named)
+    def score(combo):
+        """Fewest options that are the only one with their digit count (that is a tell for the key or against a slip)."""
+        counts = [digits(key)] + [digits(c[0]) for c in combo]
+        return sum(counts.count(v) == 1 for v in counts)
+
+    combos = []
+    for combo in itertools.combinations(named, 3):
+        if not any(len(c[0]) == len(key) for c in combo):  # the key shares its size with a slip
+            continue
+        if sum(c in own for c in combo) < need_own or (need_big and not any(c in big for c in combo)):
+            continue
+        combos.append(combo)
+    if not combos:
+        combos = list(itertools.combinations(named, 3)) or [tuple(named)]
+    shown_often = [c for c in combos if any(t in _SHOWN_OFTEN for _p, t in c)]
+    if shown_often and rng.random() < 0.5:  # the slip only a set of rationals can have is worth showing when it exists
+        combos = shown_often
+    best = min(score(c) for c in combos)
+    chosen = list(rng.choice([c for c in combos if score(c) == best]))
     rest = [c for c in named if not any(c is d for d in chosen)]
     rng.shuffle(chosen)
     return [(_texts(pts), tag) for pts, tag in chosen + rest]
@@ -444,7 +458,10 @@ def _bd_set_slips(an):
     cands = [
         (_members(comps), "ic-boundary-endpoints-in-set-only"),
         ([x for x in pts if x not in an.iso], "ic-boundary-misses-isolated-point"),
-        ([x for x in pts if x != comps[0][0]], "ic-boundary-misses-open-left-end"),
+        (
+            [x for x in pts if x != comps[0][0]],
+            "ic-boundary-misses-open-left-end" if not comps[0][2] else "dg-near-miss-value",
+        ),
         (
             set(pts) | {x for c in comps if c[0] < c[1] for x in (c[0] + 1,) if c[0] + 1 < c[1]},
             "ic-boundary-counts-interior-points",
@@ -601,7 +618,7 @@ def _form_iso_set(rng, pieces, an):
     listed = [p[1] for p in pieces if p[0] == "P"]
     cands = [
         (listed, "ic-isolated-point-touching-interval"),
-        ([c[0] for c in an.comps if c[0] < c[1] and c[2]] + key, "ic-isolated-point-limit-point"),
+        ([c[0] for c in an.comps if c[0] < c[1] and c[2]] + key, "ic-isolated-point-boundary-point"),
         (set(_ends([c for c in an.comps if c[0] < c[1]])) | set(key), "ic-isolated-point-boundary-point"),
         (key[:-1], "dg-near-miss-value"),
         ([-x for x in key], "calc-sign-slip"),
@@ -916,6 +933,12 @@ def _planar_points(rng, sh: Planar, n_in: int, n_bd: int):
     return pts
 
 
+def _planar_tex(text: str) -> str:
+    """The set-builder text as maths: braces escaped, relations and powers spelled the TeX way."""
+    out = text.replace("{", r"\{").replace("}", r"\}").replace("≤", r"\le ").replace("≥", r"\ge ")
+    return out.replace("²", "^2").replace("×", r"\times ").replace("<", r"\lt ").replace(">", r"\gt ")
+
+
 def _form_planar_set(rng):
     sh = _rand_planar(rng)
     for _ in attempts(50, "a planar question with a non-trivial answer"):
@@ -932,7 +955,7 @@ def _form_planar_set(rng):
             break
     word = {"interior": "in the interior of", "closure": "in the closure of", "boundary": "on the boundary of"}[ask]
     plist = ", ".join(f"({x}, {y})" for x, y in pts)
-    s = X(sh.text, getattr(sh, "tex", None) or sh.text.replace("{", r"\{").replace("}", r"\}"))
+    s = X(sh.text, getattr(sh, "tex", None) or _planar_tex(sh.text))
     prompt = _pick(
         rng,
         [
@@ -964,15 +987,32 @@ def _form_planar_set(rng):
     closure = [p for p, (w, _m) in zip(pts, cls) if w != "ext"]
     boundary = [p for p, (w, _m) in zip(pts, cls) if w == "bd"]
     other = {"interior": closure, "closure": interior, "boundary": interior}[ask]
+    swap = {
+        "interior": ((closure, "ic-closure-for-interior"), (boundary, "ic-boundary-for-interior")),
+        "closure": ((interior, "ic-interior-for-closure"), (boundary, "ic-boundary-for-closure")),
+        "boundary": ((interior, "ic-interior-for-boundary"), (members, "ic-count-membership-not-region")),
+    }[ask]
     cands = [
         ([p for p in key if p != sh.c] if sh.kind == "punct" else [], "ic-punctured-centre-not-boundary"),
         (members, "ic-count-membership-not-region"),
-        (other, "ic-closure-interior-confused"),
-        (boundary if ask != "boundary" else members, "ic-closure-interior-confused"),
+        (  # one listed point swapped for another: a slip as long as the key
+            next(
+                (
+                    (set(key) - {k}) | {p}
+                    for k in key
+                    for p in pts
+                    if p not in key and len(set(key) - {k} | {p}) == len(key)
+                ),
+                [],
+            ),
+            "dg-near-miss-value",
+        ),
+        *swap,
         (key[:-1], "dg-near-miss-value"),
         (key[1:], "dg-near-miss-value"),
-        (set(key) | set(boundary), "ic-closure-interior-confused"),
-        (set(key) | {p for p in pts if p not in key}, "mb-counted-outside"),
+        (set(key) | {p for p in pts if p not in key}, "ic-all-listed-points"),
+        *[(set(key) | {p}, "dg-near-miss-value") for p in pts if p not in key],
+        *[((set(key) - {k}) | {p}, "dg-near-miss-value") for k in key for p in pts if p not in key],
     ]
     items = [(x, y) for x, y in key]
     seen, slips = {tuple(sorted(items))}, []

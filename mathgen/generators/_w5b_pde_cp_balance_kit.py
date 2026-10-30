@@ -204,9 +204,9 @@ def fair(answer_text: str, pool: list, n: int, rng, max_pool: int = 10, must_tag
     zs = [_complex_value(d.text) for d in pool]
     real = key_z is not None and abs(key_z.imag) < 1e-9 and all(z is not None and abs(z.imag) < 1e-9 for z in zs)
     target = rng.randrange(n + 1)
-    tolerate = rng.random() < 1 / (
-        n + 1
-    )  # about once in n + 1 the key may be the central or the median option, as it is by chance
+    tolerate = (
+        target == n // 2 or rng.random() < 0.1
+    )  # a middle key is the central or median option, as it is by chance
     best, best_cost = [], None
     for combo in itertools.combinations(range(len(pool)), n):
         if musts and not musts.intersection(combo):

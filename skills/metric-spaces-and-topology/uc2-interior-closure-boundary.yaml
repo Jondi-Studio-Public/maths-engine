@@ -57,9 +57,21 @@ misconceptions:
 - id: ic-closure-fills-the-gaps
   description: >-
     Joining the pieces of the closure into one interval, filling the gaps between them.
-- id: ic-closure-interior-confused
+- id: ic-closure-for-interior
   description: >-
-    Giving the points of the closure where the interior was asked, or the interior or closure where the boundary was asked.
+    Giving the points of the closure where the interior was asked, so the boundary points are wrongly included.
+- id: ic-interior-for-closure
+  description: >-
+    Giving the interior points where the closure was asked, leaving the boundary points out.
+- id: ic-boundary-for-interior
+  description: >-
+    Giving the boundary points where the interior was asked.
+- id: ic-boundary-for-closure
+  description: >-
+    Giving only the boundary points where the closure was asked.
+- id: ic-interior-for-boundary
+  description: >-
+    Giving the interior points where the boundary was asked.
 - id: ic-closure-is-the-set
   description: >-
     Taking the closure to be the set itself, with the open ends left open.
@@ -129,9 +141,9 @@ misconceptions:
 - id: ic-touching-intervals-not-merged
   description: >-
     Keeping two intervals apart when a point of the set at the shared endpoint joins them, so the shared endpoint is wrongly listed.
-- id: mb-counted-outside
+- id: ic-all-listed-points
   description: >-
-    Counting the points outside the ball, or all of the points, instead of those inside it.
+    Giving every listed point instead of only those that satisfy the condition.
 tags: [university-core-v1, university-year-2, metric-spaces-and-topology, interior-closure-boundary, limit-points]
 framework_areas: [metric-spaces-and-topology]
 alignments:
@@ -144,7 +156,7 @@ alignments:
   framework: university-core-v1
   area: metric-spaces-and-topology
 difficulty_progression:
-  easy: {steps: 2, demand: "Name the endpoints of the interior, of the closure, or of the boundary of a union of one or two intervals and an isolated point."}
-  medium: {steps: 3, demand: "Merge or separate touching intervals, then find the interior, closure, boundary set or isolated points of a union with isolated points."}
-  hard: {steps: 4, demand: "Find the limit points of a sequence such as 1/n, the endpoints of the closure points missing from a set, or the interior or closure of a set of rationals in an interval; or pick out which lattice points lie in the interior, closure or boundary of a disc, punctured disc, annulus, half-plane or rectangle."}
+  easy: {steps: 2, demand: "Give, as a set of numbers, the endpoints of the interior or of the closure, or the boundary points, of a set made of one or two intervals, an interval with one or two isolated points, or two isolated points."}
+  medium: {steps: 3, demand: "For a union of two to four pieces (intervals, some sharing an endpoint, and up to two isolated points), give the endpoints of the interior or closure, the boundary points, or the isolated points, merging or separating the touching intervals."}
+  hard: {steps: 4, demand: "Give the limit points of a set of sequence terms such as 1 + 1/n with isolated points; the points of the closure that are not in a set of intervals, sequences and points; or the endpoints of the interior or closure of a union of rational intervals with ordinary intervals and points; or choose which lattice points lie in the interior, closure or boundary of a disc, punctured disc, annulus, half-plane or rectangle."}
   exam: {steps: 6, demand: "Find the interior, the boundary points (or the closure points missing from the set), their number and their sum, then their mean by follow-through."}

@@ -333,3 +333,43 @@ def test_unit_steps_read_plus_t_and_values_put_pi_last():
             assert "1t" not in q.text.replace("11t", "").replace("21t", ""), q.text
             assert "Evaluate the exact value of" not in q.text
             assert not re.search(r"π[a-z]* [+-] \d", q.answer_text), q.answer_text  # rational part comes first
+
+
+def test_orientation_tag_sits_only_on_the_negative_of_the_key():
+    seen = 0
+    for seed in range(300):
+        for tier in ("hard", "easy", "medium"):
+            q = _q(tier, seed)
+            for text, tag in q.option_notes.items():
+                if tag == "cx2-orientation-ignored":
+                    seen += 1
+                    assert numeric(parse(text)) == pytest.approx(-numeric(parse(q.answer_text)), abs=1e-9), (
+                        tier,
+                        seed,
+                        text,
+                    )
+    assert seen >= 50
+
+
+def test_exam_decimal_options_are_not_the_negative_of_the_key_and_keep_a_gap():
+    mid = 0
+    for seed in range(300):
+        for idx in (2, 3):
+            part = _q("exam", seed).parts[idx]
+            key = float(part.answer_text)
+            vals = sorted([key, *(float(x) for x in part.distractors)])
+            assert all(float(x) != -key for x in part.distractors), (seed, idx)
+            assert all(abs(float(x) - key) >= max(0.5, abs(key) / 50) - 1e-9 for x in part.distractors), (seed, idx)
+            mid += vals.index(key) == 2
+    assert mid >= 0.12 * 600, mid  # the middle rank is used about as often as chance (20%)
+
+
+def test_exam_expression_fillers_are_not_reflections_or_turns_of_the_key():
+    for seed in range(300):
+        q = _q("exam", seed)
+        for part in q.parts[:2]:
+            key = numeric(parse(part.answer_text))
+            for x in part.distractors:
+                z = numeric(parse(x))
+                assert z != pytest.approx(1j * key) or key == 0, (seed, part.answer_text, x)
+                assert z != pytest.approx(-1j * key) or key == 0, (seed, part.answer_text, x)

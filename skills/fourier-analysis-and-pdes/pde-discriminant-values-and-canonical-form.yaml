@@ -101,6 +101,6 @@ alignments:
   area: fourier-analysis-and-pdes
 difficulty_progression:
   easy: {steps: 2, demand: "Read A, B and C off an equation written in any order, ignoring the lower-order terms and any overall sign, and evaluate B^2 - 4AC (or b^2 - AC for a mixed term written 2b)."}
-  medium: {steps: 4, demand: "Set up B^2 - 4AC with a parameter in one or two coefficients and find the positive value where it vanishes, or the set of integer values giving a stated type, watching for a boundary value that is exactly parabolic."}
-  hard: {steps: 5, demand: "For a hyperbolic equation find the two characteristic slopes from the quadratic A m^2 - B m + C = 0 (sometimes after substituting a parameter), or the coefficient of the mixed term after changing to characteristic variables."}
+  medium: {steps: 4, demand: "Set up B^2 - 4AC with a parameter in one or two coefficients and find the positive value where it vanishes, or the count of integers in a range that give a stated type (or the smallest or largest such integer), watching for a boundary value that is exactly parabolic."}
+  hard: {steps: 5, demand: "For a hyperbolic equation find the larger or the smaller of the two characteristic slopes from the quadratic A m^2 - B m + C = 0 (sometimes after substituting a parameter), or the coefficient of the mixed term after changing to characteristic variables."}
   exam: {steps: 6, demand: "At a stated parameter value find the discriminant, count the integer parameter values that make the equation elliptic and hyperbolic, then find the characteristic slopes at a value that gives a perfect-square discriminant."}

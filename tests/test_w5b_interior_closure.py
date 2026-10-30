@@ -566,3 +566,80 @@ def test_planar_punctured_centre_slip_drops_the_centre():
                 wrong = set(read_points(text))
                 assert wrong < key and len(key - wrong) == 1, (seed, q.text, q.answer_text, text)
     assert hits >= 5, hits
+
+
+def _notes(q):
+    """(option text, misconception id) for every tagged distractor."""
+    return list(q.option_notes.items())
+
+
+def test_open_left_end_tag_drops_an_open_left_end():
+    hits = 0
+    for tier in ("easy", "medium", "hard"):
+        for seed in range(300):
+            q = tier_q(tier, seed)
+            if "R²" in q.text or "plane" in q.text:
+                continue
+            for text, note in _notes(q):
+                if note != "ic-boundary-misses-open-left-end":
+                    continue
+                line = Line(read_set(q.text))
+                dropped = set(read_items(q.answer_text)) - set(read_items(text))
+                assert len(dropped) == 1, (seed, q.text, text)
+                (x,) = dropped
+                assert x == min(read_items(q.answer_text)) and not line.kind[x]["inside"], (seed, q.text, text)
+                hits += 1
+    assert hits >= 10, hits
+
+
+def _planar_asked(q):
+    return "interior" if "interior of S" in q.text else "closure" if "closure of S" in q.text else "boundary"
+
+
+def test_swapped_region_tags_describe_the_distractor():
+    """Each interior/closure/boundary confusion tag is attached to exactly the set it names, recomputed from the stem."""
+    want = {
+        ("interior", "ic-closure-for-interior"): lambda f: f[2],
+        ("interior", "ic-boundary-for-interior"): lambda f: f[1],
+        ("closure", "ic-interior-for-closure"): lambda f: f[0],
+        ("closure", "ic-boundary-for-closure"): lambda f: f[1],
+        ("boundary", "ic-interior-for-boundary"): lambda f: f[0],
+    }
+    seen = set()
+    for seed in range(600):
+        q = tier_q("hard", seed)
+        if not ("R²" in q.text or "plane" in q.text):
+            continue
+        pred, pts = planar_predicate(q.text), planar_points(q.text)
+        flags = {p: classify_point(pred, *p) for p in pts}
+        ask = _planar_asked(q)
+        for text, note in _notes(q):
+            if (ask, note) in want:
+                got = {p for p, f in flags.items() if want[(ask, note)](f)}
+                assert read_points(text) == got, (seed, q.text, text, note)
+                seen.add((ask, note))
+            else:
+                assert note != "ic-closure-interior-confused"
+    assert len(seen) >= 4, seen
+
+
+def test_set_hint_and_option_sizes_do_not_reveal_the_key_size():
+    for tier in ("easy", "medium", "hard"):
+        for seed in range(150):
+            q = tier_q(tier, seed)
+            hint = re.findall(r"\{a[^}]*\}", q.text)
+            assert all(h == "{a, b, ...}" for h in hint), (seed, q.text)
+            sizes = [
+                len(read_items(o)) if "(" not in o else len(read_points(o)) for o in [q.answer_text, *q.distractors]
+            ]
+            assert sizes.count(sizes[0]) >= 2, (seed, tier, q.text, q.answer_text, q.distractors)
+    for seed in range(150):
+        part = tier_q("exam", seed).parts[1]
+        sizes = [len(read_items(o)) for o in [part.answer_text, *part.distractors]]
+        assert sizes.count(sizes[0]) >= 2, (seed, part.answer_text, part.distractors)
+        assert "{a, b, ...}" in part.prompt
+
+
+def test_hard_questions_have_three_distractors():
+    for seed in range(300):
+        assert len(tier_q("hard", seed).distractors) >= 3, seed

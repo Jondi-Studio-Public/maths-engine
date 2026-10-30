@@ -3,8 +3,8 @@
 One second-year skill, ``pde-discriminant-values-and-canonical-form`` (domain ``fourier-analysis-and-pdes``). Its
 neighbour ``classify-constant-coefficient-pde`` is a three-way choice (hyperbolic / parabolic / elliptic); this skill
 asks for the VALUES behind the classification, typed rather than chosen: the discriminant itself, the parameter value
-at which the type changes, the set of integer parameter values for one type, the characteristic slopes, and the
-coefficient of the mixed term after the standard change of variables.
+at which the type changes, how many integer parameter values give one type (or the smallest or largest such integer),
+a characteristic slope, and the coefficient of the mixed term after the standard change of variables.
 
 The equation is  A u_xx + B u_xy + C u_yy + (lower-order terms) = rhs,  written in one of several surface forms
 (``u_xx`` or ``∂²u/∂x²`` notation, terms in different orders, the whole equation multiplied by -1, a right-hand side
@@ -16,10 +16,11 @@ Tiers:
 
 - ``easy``: the value of B² - 4AC (or b² - AC when the mixed term is written 2b u_xy). Integer answers.
 - ``medium``: a parameter k sits in one or two coefficients. Either the positive value of k at which the type changes
-  (a terminating decimal; for A = k, C = k + c0 it comes from a Pythagorean pair), or the SET of integers in a stated
-  range for which the equation is hyperbolic (or elliptic), where a parabolic boundary value may fall on an integer.
+  (a terminating decimal; for A = k, C = k + c0 it comes from a Pythagorean pair), or the COUNT of integers in a stated
+  range for which the equation is hyperbolic (or elliptic), or the smallest or largest such integer, where a parabolic
+  boundary value may fall on an integer.
 - ``hard``: a hyperbolic equation built backwards from two rational characteristic slopes s1, s2 (so
-  B = A(s1 + s2), C = A s1 s2): the SET of the two slopes, with the coefficients sometimes linear in a parameter k at a
+  B = A(s1 + s2), C = A s1 s2): the larger or the smaller of the two slopes, with the coefficients sometimes linear in a parameter k at a
   stated value, or the coefficient Q = -A (s1 - s2)² of w_ξη after ξ = y - s1 x, η = y - s2 x (an exact fraction).
 - ``exam`` (topic ``exd_x_w5b_pde_discriminant``): one equation with B = p k, four typed parts: the discriminant at a
   given k, how many integers in -N..N make the equation elliptic, how many make it hyperbolic, and the set of
@@ -254,7 +255,7 @@ def _easy(rng: random.Random) -> dict:
             (Fr(b * b - 4 * a * c), "pde-mixed-coefficient-convention"),
             (Fr(bb * bb - 4 * a * c), "pde-mixed-coefficient-convention"),
             (Fr(b * b - a * c), "pde-mixed-coefficient-convention"),
-            (Fr(4 * a * c - bb * bb), "reversed-discriminant-sign"),
+            (Fr(a * c - bb * bb), "reversed-discriminant-sign"),
             (Fr(bb * bb + a * c), "pde-4ac-added"),
             (Fr(shown * bb - a * c), "pde-b-not-squared"),
         ]

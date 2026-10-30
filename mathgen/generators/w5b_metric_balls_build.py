@@ -357,7 +357,7 @@ def _medium_count(rng: random.Random) -> dict:
     for other in _BASIC:
         if other != kind:
             wrongs.append((_count_in((other, None), pts, c, r), "mb-wrong-norm-formula"))
-    wrongs += [(total - key, "mb-counted-outside"), (total, "mb-counted-outside")]
+    wrongs += [(total - key, "mb-counted-outside"), (total, "mb-counted-all-points")]
     wrongs += [
         (key + 1, "dg-near-miss-value"),
         (key - 1, "dg-near-miss-value"),
@@ -791,15 +791,15 @@ def _medium(rng: random.Random) -> dict:
 # -- the generators ------------------------------------------------------------------------------------------------------------
 
 
-def _say_how_to_write(d: dict) -> dict:
-    """A key that is not a whole number is typed exactly (a surd, a multiple of pi or a fraction), so the stem says so."""
+def _say_how_to_write(d: dict, text_key: str = "text", latex_key: str = "latex") -> dict:
+    """A key that is not a whole number is typed exactly (a surd, a multiple of pi or a fraction), so the prompt says so.
+    `d` is a question, or one part of an exam (`text_key="prompt"`, `latex_key="prompt_latex"`)."""
     v = sympy.sympify(d["answer"])
-    text = d["text"].lower()
-    if v.is_Integer or "exact" in text or "fraction" in text:
+    if v.is_Integer or re.search(r"\bexact\b|fraction", d[text_key].lower()):
         return d
     note = " Give the answer as a whole number or an exact fraction." if v.is_Rational else " Give the exact value."
-    d["text"] += note
-    d["latex"] += "\\text{" + note + "}"
+    d[text_key] += note
+    d[latex_key] += "\\text{" + note + "}"
     return d
 
 
@@ -924,7 +924,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
     )
     wrongs_c = [(_count_closed(mm3, pts, P, r_c), "mb-closed-ball-count")]
     wrongs_c += [(_count_in((o, None), pts, P, r_c), "mb-wrong-norm-formula") for o in _BASIC if o != m3]
-    wrongs_c += [(5 - key_c, "mb-counted-outside"), (5, "mb-counted-outside")]
+    wrongs_c += [(5 - key_c, "mb-counted-outside"), (5, "mb-counted-all-points")]
     wrongs_c += [
         (key_c + 1, "dg-near-miss-value"),
         (key_c - 1, "dg-near-miss-value"),
@@ -977,7 +977,11 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
         balanced(area, wrongs_e),
         ft=ft,
     )
-    return exam_dict(stem, [a_part, b_part, c_part, d_part, e_part])
+    out = exam_dict(stem, [a_part, b_part, c_part, d_part, e_part])
+    for part in out["parts"]:
+        if part["answer_kind"] == "expression":
+            _say_how_to_write(part, "prompt", "prompt_latex")
+    return out
 
 
 def _distance_wrongs(kind: str, P, Q):
