@@ -67,6 +67,9 @@ from ._w5a_support import (
     zminus_x,
 )
 
+from ._spread_kit import _RNG, uses_rng
+from ._w5b_pde_cp_balance_kit import fair
+
 TOPIC = "w5b_contour_param"
 EXAM_TOPIC = "exd_x_w5b_contour_param"
 
@@ -579,7 +582,13 @@ def _finish(rng, f: F, path, hint: str = "", way: str = "Find the exact value"):
         _working_param(f, path),
         f"Substituting and integrating gives {atext(value)}.",
     ]
-    return single(_ask(rng, f, path, hint, way), value, working, wrongs_for(f, path, true))
+    return single(
+        _ask(rng, f, path, hint, way),
+        value,
+        working,
+        wrongs_for(f, path, true),
+        dist=_spread(value, wrongs_for(f, path, true), rng),
+    )
 
 
 def _retry(rng, draw):
@@ -733,7 +742,7 @@ def _hard_closed(rng):
             f"On the circle z - c = {r.numerator}e^(it), so the integrand times dz is a constant times e^(i(m - k + 1)t) with m - k + 1 = {m - k + 1}, not 0.",
             "The integral of e^(int) over a full turn is 0 for n not 0, so the integral is 0 whichever way the circle is traversed.",
         ]
-    return single(_ask(rng, f, path, "", "Evaluate the exact value"), value, working, wr)
+    return single(_ask(rng, f, path, "", "Evaluate the exact value"), value, working, wr, dist=_spread(value, wr, rng))
 
 
 def _signed_area_loop(path2, a: C, b: C) -> tuple:
@@ -834,7 +843,7 @@ def _hard_routes(rng):
         f"So I1 - I2 = {atext(value)}. Equivalently it is the integral round the closed loop (C1 out, C2 back): "
         "only the non-analytic part contributes, and it equals a constant times the signed area enclosed.",
     ]
-    return single(stem, value, working, wr)
+    return single(stem, value, working, wr, dist=_spread(value, wr, rng))
 
 
 def _hard(rng):
@@ -849,6 +858,7 @@ _TIERS = {"easy": _easy, "medium": _medium, "hard": _hard}
     level=19,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 def w5b_contour_param(rng: random.Random, tier: str = "easy") -> dict:
     """A contour integral by parametrisation z = z(t): an exact expression in i and pi."""
     if tier not in _TIERS:
@@ -859,6 +869,23 @@ def w5b_contour_param(rng: random.Random, tier: str = "easy") -> dict:
 # -- exam ------------------------------------------------------------------------------------------------------------
 
 
+def _spread(answer, cands: list, rng) -> list:
+    """Four wrong expressions chosen from a dozen so that no learner trick finds the key: the slips first, then the key
+    reflected or rotated (a sign or a quarter turn wrong) as fillers that are written like the key."""
+    a = sympy.sympify(answer)
+    re_a, im_a = sympy.expand(sympy.re(a)), sympy.expand(sympy.im(a))
+    fillers = [
+        (-re_a + sympy.I * im_a, "cx2-arithmetic-slip"),
+        (re_a - sympy.I * im_a, "cx2-arithmetic-slip"),
+        (sympy.expand(sympy.I * a), "cx2-arithmetic-slip"),
+        (sympy.expand(-sympy.I * a), "cx2-arithmetic-slip"),
+        (2 * a, "cx2-arithmetic-slip"),
+        (a / 2, "cx2-arithmetic-slip"),
+    ]
+    pool = dist_list(a, [*cands, *fillers], 10)
+    return fair(atext(a), pool, 4, rng)
+
+
 def _dec_dist(value: Fr, cands: list, dp: int = 2) -> list:
     """Decimal distractors (stated precision) that the typed number grader cannot confuse with `value`."""
     tol = stated_precision_tolerance(dp)
@@ -866,7 +893,14 @@ def _dec_dist(value: Fr, cands: list, dp: int = 2) -> list:
     for v, tag in cands:
         v = Fr(v).limit_denominator(10**9)
         out.append(Distractor(stated_precision_string(round_half_up(v, dp), dp), tag, float(round_half_up(v, dp))))
-    return pick_distractors(stated_precision_string(round_half_up(value, dp), dp), out, 4, tolerance=tol + Fr(1, 1000))
+    key = stated_precision_string(round_half_up(value, dp), dp)
+    for off in (1, -1, 2, -2, 3, -3, 5, -5):
+        v = round_half_up(value + off, dp)
+        if v > 0:
+            out.append(Distractor(stated_precision_string(v, dp), "cx2-arithmetic-slip", float(v)))
+    chosen = pick_distractors(key, out, 10, tolerance=tol + Fr(1, 1000))
+    rng = _RNG.get()
+    return chosen[:4] if rng is None else fair(key, chosen, 4, rng)
 
 
 def _exam_f(lam: int, m: int, k: int) -> F:
@@ -886,14 +920,15 @@ def _exam_f(lam: int, m: int, k: int) -> F:
 
 
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
+@uses_rng
 def exd_x_w5b_contour_param(rng: random.Random, tier: str = "exam") -> dict:
     """The chord, the arc of |z| = r, the ML bound for the arc, and how far the arc integral is under the bound."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
     for _ in attempts(800, "an exam question"):
-        r = Fr(rng.choice([1, 2, 2, 3]))
-        m, k = rng.choice([(0, 1), (1, 1), (0, 2), (2, 1), (1, 2), (2, 2), (0, 3), (3, 1)])
-        lam = rng.choice([1, 2, 3, 4, -1, -2, -3])
+        r = Fr(rng.choice([1, 2, 3, 4, 5, 6]))
+        m, k = rng.choice([(m, k) for k in range(1, 6) for m in range(0, 6) if m + k <= 6])
+        lam = rng.choice([v for v in range(-11, 12) if v])
         span = rng.choice([1, 2, 3])
         n0 = rng.randrange(4)
         sign = 1 if rng.random() < 0.65 else -1
@@ -942,8 +977,8 @@ def exd_x_w5b_contour_param(rng: random.Random, tier: str = "exam") -> dict:
     stem = stem_variants[rng.randrange(3)]()
     d = b - a
     chord_val, arc_val = vsym(i_chord), vsym(i_arc)
-    da = dist_list(chord_val, wrongs_for(f, chord, i_chord), 4)
-    db = dist_list(arc_val, wrongs_for(f, arc, i_arc), 4)
+    da = _spread(chord_val, wrongs_for(f, chord, i_chord), rng)
+    db = _spread(arc_val, wrongs_for(f, arc, i_arc), rng)
     check(len(da) >= 2 and len(db) >= 2, "too few expression distractors")
     chord_len = Fr(math.sqrt(float(d.abs2()))).limit_denominator(10**9)
     cands_c = [

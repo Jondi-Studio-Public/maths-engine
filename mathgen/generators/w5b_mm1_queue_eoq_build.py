@@ -28,12 +28,14 @@ target by scanning the whole numbers on either side of the boundary.
 
 from __future__ import annotations
 
+import re
 from fractions import Fraction
 from math import gcd
 
-from ..answers import Distractor, exact_value
+from ..answers import exact_value
 from ..core import VerificationError, attempts, check, generator, phrase
-from ._r4a_alg_kit import _accepted
+from ._spread_kit import uses_rng
+from ._w5b_uniform_rank_kit import balanced
 
 WORKING_DAYS = 250
 SUFFIX = " Give an exact answer, a whole number or a fraction in lowest terms."
@@ -44,40 +46,15 @@ def ftext(v):
     return str(v.numerator) if v.denominator == 1 else f"{v.numerator}/{v.denominator}"
 
 
-def frac_options(value, slips, keep=4, *, lo=None):
-    """Wrong options for an exact (fraction or whole-number) answer. `slips` is a list of (value, misconception id) in
-    order of likelihood; repeats, the key itself, values below `lo` and anything the fraction grader accepts go. At
-    least one kept option is a whole number when the key is, and a fraction when the key is, so the key's shape does
-    not single it out."""
-    value = Fraction(value)
-    key_text = ftext(value)
-    answer = exact_value(value)
-    valid, seen = [], {value}
-    for item in slips:
-        if item is None or item[0] is None:
-            continue
-        v, tag = item
-        v = Fraction(v)
-        if v in seen or (lo is not None and v < lo):
-            continue
-        if _accepted("fraction", answer, key_text, ftext(v)):
-            continue
-        seen.add(v)
-        valid.append(Distractor(ftext(v), tag, exact_value(v)))
-    chosen = valid[:keep]
-    same = [d for d in valid if ("/" in d.text) == ("/" in key_text)]
-    if same and not any(("/" in d.text) == ("/" in key_text) for d in chosen):
-        chosen = chosen[: keep - 1] + [same[0]]
-    return chosen
+def frac_options(value, slips, keep=4, *, lo=None, hi=None):
+    """Wrong options for an exact answer, placed by `balanced` so the key has no fixed rank among them."""
+    return balanced(Fraction(value), slips, keep, kind="fraction", lo=lo, hi=hi)
 
 
-def _fillers(value):
-    value = Fraction(value)
-    return [(value + 1, None), (value * 2, None), (value + Fraction(1, 2), None), (value - 1, None), (value + 3, None)]
-
-
-def frac_q(text, value, working, slips, *, keep=4, lo=0, suffix=SUFFIX):
-    options = frac_options(value, [*slips, *_fillers(value)], keep, lo=lo)
+def frac_q(text, value, working, slips, *, keep=4, lo=0, hi=None, suffix=SUFFIX):
+    if hi is None and Fraction(value) <= 1 and re.search(r"probab|utilisation|fraction of time|P\(", text):
+        hi = 1  # a probability or a utilisation never exceeds 1
+    options = frac_options(value, slips, keep, lo=lo, hi=hi)
     check(len(options) >= 2, "too few distractors")
     return dict(
         text=text + suffix,
@@ -90,8 +67,10 @@ def frac_q(text, value, working, slips, *, keep=4, lo=0, suffix=SUFFIX):
     )
 
 
-def frac_part(prompt, value, marks, working, slips, *, follow_through=None, sensible_range=None, keep=3, lo=0):
-    options = frac_options(value, [*slips, *_fillers(value)], keep, lo=lo)
+def frac_part(prompt, value, marks, working, slips, *, follow_through=None, sensible_range=None, keep=3, lo=0, hi=None):
+    if hi is None and sensible_range == (0, 1):
+        hi = 1
+    options = frac_options(value, slips, keep, lo=lo, hi=hi)
     check(len(options) >= 2, f"fewer than two distractors for {prompt!r}")
     part = dict(
         prompt=prompt + " (lowest terms)",
@@ -236,7 +215,7 @@ def _queue_easy(rng):
             [
                 (Fraction(mu, lam), "mm1-utilisation-inverted"),
                 (q["p0"], "mm1-utilisation-complement"),
-                (q["L"], "mm1-utilisation-as-L"),
+                (q["L"], "mm1-utilisation-as-l"),
                 (Fraction(lam, lam + mu), "mm1-utilisation-sum-denominator"),
             ],
         )
@@ -246,10 +225,10 @@ def _queue_easy(rng):
             q["L"],
             [f"ρ = {ftext(q['rho'])}, so L = ρ/(1 - ρ) = {lam}/({mu} - {lam}) = {ftext(q['L'])}."],
             [
-                (q["rho"], "mm1-L-as-utilisation"),
-                (q["Lq"], "mm1-L-as-Lq"),
-                (q["L"] + 1, "mm1-L-one-too-many"),
-                (Fraction(mu, mu - lam), "mm1-L-one-too-many"),
+                (q["rho"], "mm1-l-as-utilisation"),
+                (q["Lq"], "mm1-l-as-lq"),
+                (q["L"] + 1, "mm1-l-one-too-many"),
+                (Fraction(mu, mu - lam), "mm1-l-one-too-many"),
                 (Fraction(lam, mu + lam), None),
             ],
         )
@@ -261,7 +240,7 @@ def _queue_easy(rng):
             (q["rho"], "mm1-idle-as-busy"),
             (1 / q["p0"], "mm1-idle-inverted"),
             (q["p0"] ** 2, "mm1-idle-squared"),
-            (q["L"], "mm1-utilisation-as-L"),
+            (q["L"], "mm1-utilisation-as-l"),
         ],
     )
 
@@ -303,8 +282,8 @@ def _queue_medium(rng):
         value = _time(hours, unit)
         other = q["W" if kind == "Wq" else "Wq"]
         slips = [
-            (_time(other, unit), "mm1-Wq-W-swapped"),
-            (_time(Fraction(1, mu), unit), "mm1-W-as-service-time"),
+            (_time(other, unit), "mm1-wq-w-swapped"),
+            (_time(Fraction(1, mu), unit), "mm1-w-as-service-time"),
             (_time(hours, "hours" if unit == "minutes" else "minutes"), "mm1-time-unit-not-converted"),
             (_time(q["L"] / mu, unit), None),
         ]
@@ -328,9 +307,9 @@ def _queue_medium(rng):
                 f"Wq = ρ/(μ - λ) = {ftext(q['Wq'])} hours, so Lq = λ Wq = {lam} × {ftext(q['Wq'])} = {ftext(value)}.",
             ],
             [
-                (q["L"], "mm1-Lq-as-L"),
-                (q["rho"], "mm1-Lq-as-utilisation"),
-                (q["L"] - 1, "mm1-Lq-minus-one"),
+                (q["L"], "mm1-lq-as-l"),
+                (q["rho"], "mm1-lq-as-utilisation"),
+                (q["L"] - 1, "mm1-lq-minus-one"),
                 (lam * q["Wq"] * 60, "mm1-time-unit-not-converted"),
             ],
         )
@@ -340,7 +319,7 @@ def _queue_medium(rng):
         return frac_q(
             phrase(rng, _Q_PN, setup=setup, k=k),
             value,
-            [f"P({k}) = (1 - ρ) ρ^{k} = {ftext(q['p0'])} × {ftext(rho)}^{k} = {ftext(value)}."],
+            [f"P({k}) = (1 - ρ) ρ^{k} = ({ftext(q['p0'])})({ftext(rho)})^{k} = {ftext(value)}."],
             [
                 (rho**k, "mm1-pn-forgets-idle-factor"),
                 (q["p0"] * rho ** (k - 1), "mm1-pn-exponent-off-by-one"),
@@ -443,7 +422,7 @@ def _queue_hard(rng):
             ],
             [
                 (lam_max + 1, "mm1-target-rounds-up"),
-                (w_only, "mm1-target-uses-W-not-Wq"),
+                (w_only, "mm1-target-uses-w-not-wq"),
                 (lam_max - 1, None),
                 (mu - 1, "mm1-target-edge-of-stability"),
             ],
@@ -471,8 +450,8 @@ def _queue_hard(rng):
             ],
             [
                 (mu_min - 1, "mm1-target-rounds-down"),
-                (_ceil(lam * ell), "mm1-L-target-inverted"),
-                (lam + _ceil(ell), "mm1-L-target-adds-ell"),
+                (_ceil(lam * ell), "mm1-l-target-inverted"),
+                (lam + _ceil(ell), "mm1-l-target-adds-ell"),
                 (mu_min + 1, "mm1-target-rounds-up"),
             ],
             lo=lam + 1,
@@ -521,8 +500,8 @@ def _queue_hard(rng):
             [
                 (w1 - w2, "mm1-time-unit-not-converted"),
                 (60 * (w1 - w2) * Fraction(lam, mu), None),
-                (60 * (Fraction(1, mu) - Fraction(1, mu2)), "mm1-W-as-service-time"),
-                (60 * (mm1(lam, mu)["Wq"] - mm1(lam, mu2)["Wq"]), "mm1-Wq-W-swapped"),
+                (60 * (Fraction(1, mu) - Fraction(1, mu2)), "mm1-w-as-service-time"),
+                (60 * (mm1(lam, mu)["Wq"] - mm1(lam, mu2)["Wq"]), "mm1-wq-w-swapped"),
             ],
         )
     for _ in attempts(3000, "a W target with a non-integer boundary"):
@@ -563,6 +542,7 @@ def ftext_decimal(v: Fraction) -> str:
     level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 def w5b_mm1_queue(rng, tier="easy"):
     """M/M/1 queue questions; the tiers are described in the module docstring."""
     if tier == "easy":
@@ -657,7 +637,7 @@ def _eoq_easy(rng):
             [
                 (D * S // H if (D * S) % H == 0 else None, "eoq-drops-factor-two"),
                 (Fraction(2 * D * S, H), "eoq-no-square-root"),
-                (_isqrt_exact(2 * D * H, S), "eoq-swaps-S-and-H"),
+                (_isqrt_exact(2 * D * H, S), "eoq-swaps-s-and-h"),
                 (_isqrt_exact(D * S, 2 * H), "eoq-halves-instead"),
             ],
             lo=1,
@@ -877,7 +857,7 @@ def _eoq_hard(rng):
             [f"At the EOQ the cost is Q*H, so Q* = {ftext(best)}/{H} = {Q}; then D = Q*² H/(2S) = {D}."],
             [
                 (best * best // (S * H) if (best * best) % (S * H) == 0 else None, "eoq-inverse-drops-two"),
-                (Q, "eoq-inverse-stops-at-Q"),
+                (Q, "eoq-inverse-stops-at-q"),
                 (best // S if best % S == 0 else None, None),
                 (Fraction(2 * best * best, S * H), "eoq-inverse-doubles"),
             ],
@@ -917,6 +897,7 @@ def _eoq_hard(rng):
     level=20,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 def w5b_eoq_inventory(rng, tier="easy"):
     """Economic order quantity questions; the tiers are described in the module docstring."""
     if tier == "easy":
@@ -955,7 +936,7 @@ def _queue_exam(rng):
                     q["L"],
                     2,
                     [f"L = ρ/(1 - ρ) = {ftext(q['L'])}."],
-                    [(rho, "mm1-L-as-utilisation"), (q["Lq"], "mm1-L-as-Lq"), (q["L"] + 1, "mm1-L-one-too-many")],
+                    [(rho, "mm1-l-as-utilisation"), (q["Lq"], "mm1-l-as-lq"), (q["L"] + 1, "mm1-l-one-too-many")],
                     follow_through="part_a/(1 - part_a)",
                     sensible_range=(0, None),
                 ),
@@ -966,8 +947,8 @@ def _queue_exam(rng):
                     [f"W = L/λ = {ftext(q['L'])}/{lam} = {fmt_hours(q['L'] / lam)} = {fmt_minutes(w_min)}."],
                     [
                         (q["L"] / lam, "mm1-time-unit-not-converted"),
-                        (60 * q["Wq"], "mm1-Wq-W-swapped"),
-                        (60 * q["L"], "mm1-W-as-L"),
+                        (60 * q["Wq"], "mm1-wq-w-swapped"),
+                        (60 * q["L"], "mm1-w-as-l"),
                     ],
                     follow_through=f"60*part_b/{lam}",
                     sensible_range=(0, None),
@@ -987,9 +968,9 @@ def _queue_exam(rng):
                     2,
                     [f"Wq = ρ/(μ - λ) = {fmt_hours(q['Wq'])} = {fmt_minutes(wq_min)}."],
                     [
-                        (60 * q["W"], "mm1-Wq-W-swapped"),
+                        (60 * q["W"], "mm1-wq-w-swapped"),
                         (q["Wq"], "mm1-time-unit-not-converted"),
-                        (Fraction(60, mu), "mm1-W-as-service-time"),
+                        (Fraction(60, mu), "mm1-w-as-service-time"),
                     ],
                     sensible_range=(0, None),
                 ),
@@ -999,7 +980,7 @@ def _queue_exam(rng):
                     2,
                     [f"W = Wq + 1/μ = {ftext(wq_min)} + {ftext(Fraction(60, mu))} = {fmt_minutes(w_min)}."],
                     [
-                        (wq_min, "mm1-W-as-Wq"),
+                        (wq_min, "mm1-w-as-wq"),
                         (wq_min + Fraction(1, mu), "mm1-time-unit-not-converted"),
                         (wq_min + Fraction(60, lam), None),
                     ],
@@ -1013,8 +994,8 @@ def _queue_exam(rng):
                     [f"L = λ W = {lam} × {ftext(w_min)}/60 = {ftext(q['L'])}."],
                     [
                         (Fraction(lam) * w_min, "mm1-time-unit-not-converted"),
-                        (q["Lq"], "mm1-L-as-Lq"),
-                        (rho, "mm1-L-as-utilisation"),
+                        (q["Lq"], "mm1-l-as-lq"),
+                        (rho, "mm1-l-as-utilisation"),
                     ],
                     follow_through=f"{lam}*part_b/60",
                     sensible_range=(0, None),
@@ -1074,7 +1055,7 @@ def _eoq_exam(rng):
         2,
         [f"Q* = √(2DS/H) = √{Q * Q} = {Q}."],
         [
-            (_isqrt_exact(2 * D * H, S), "eoq-swaps-S-and-H"),
+            (_isqrt_exact(2 * D * H, S), "eoq-swaps-s-and-h"),
             (Fraction(2 * D * S, H), "eoq-no-square-root"),
             (_isqrt_exact(D * S, 2 * H), "eoq-halves-instead"),
             (D * S // H if (D * S) % H == 0 else None, "eoq-drops-factor-two"),
@@ -1186,6 +1167,7 @@ def _eoq_exam(rng):
 
 
 @generator("exd_x_w5b_mm1_queue_eoq", level=20, presets={"exam": dict(tier="exam")})
+@uses_rng
 def exd_x_w5b_mm1_queue_eoq(rng, tier="exam"):
     """Exam chains: M/M/1 (ρ, L, W by Little; Wq, W, L; P(0), P(k), tail) or EOQ (Q*, cost, orders, cycle, reorder)."""
     if tier != "exam":

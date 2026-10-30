@@ -47,6 +47,8 @@ from ..grading import GRADERS
 from ..grading.inequality import read_solution_set
 from ..grading.inequality import _same_set as _same_real_set  # noqa: PLC2701
 from ._r3j_kit import set_part, single_set
+from ._spread_kit import uses_rng
+from ._w5b_balance import balanced
 from ._w5a_support import Link, X, ineq_part, join_signed, link_part, msay
 
 TOPIC = "w5b_interior_closure"
@@ -193,7 +195,7 @@ def _moved(p, d):
     return (p[0], p[1] + d, p[2] + d) + tuple(p[3:])
 
 
-def build_set(rng: random.Random, kinds, *, halves=False, touch=0.0, limit_point=0.0, reach=9):
+def build_set(rng: random.Random, kinds, *, halves=False, touch=0.0, limit_point=0.0, reach=9, scale=1):
     """Pieces laid out left to right with gaps, then slid to a random place in [-reach, reach]; `kinds` lists the
     piece types in order ("I", "P", "Q", "S")."""
     for _ in attempts(200, "a set that fits in range"):
@@ -202,7 +204,7 @@ def build_set(rng: random.Random, kinds, *, halves=False, touch=0.0, limit_point
         prev = None
         for k in kinds:
             touching = prev in ("I", "P") and k in ("I", "P") and "I" in (prev, k) and rng.random() < touch
-            gap = Fr(0) if touching else Fr(rng.randint(1, 3))
+            gap = Fr(0) if touching else Fr(rng.randint(1, 3 * scale))
             if prev is None:
                 gap = Fr(0)
             elif prev in ("Q", "S") or k in ("Q", "S"):
@@ -211,7 +213,7 @@ def build_set(rng: random.Random, kinds, *, halves=False, touch=0.0, limit_point
             if touching and prev == "I":
                 pieces[-1] = pieces[-1][:4] + (False,)  # the point at its right end is not already in it
             if k == "I":
-                length = Fr(rng.randint(1, 4)) if not halves else Fr(rng.randint(2, 8), 2)
+                length = Fr(rng.randint(1, 4 * scale)) if not halves else Fr(rng.randint(2, 8), 2)
                 lc = False if (touching and prev == "P") else bool(_end(rng))
                 pieces.append(("I", pos, pos + length, lc, bool(_end(rng))))
                 pos += length
@@ -472,12 +474,12 @@ def _form_interior_ends(rng, pieces, an):
             lambda: msay(
                 "Find the interior of S = ",
                 s,
-                " in R, written as a union of open intervals with no two of them touching. List every endpoint of those intervals as a set {a, b, c}.",
+                " in R. Write its interior as a union of the maximal open intervals contained in S, and list every endpoint of those intervals as a set {a, b, c}.",
             ),
             lambda: msay(
                 "Consider S = ",
                 s,
-                " with the usual metric on R. Write its interior as a union of disjoint open intervals and give the set {a, b, c} of their endpoints.",
+                " with the usual metric on R. Its interior is the union of the maximal open intervals contained in S; give the set {a, b, c} of all their endpoints.",
             ),
         ],
     )
@@ -518,12 +520,12 @@ def _form_closure_ends(rng, pieces, an):
             lambda: msay(
                 "Find the closure of S = ",
                 s,
-                " in R, written as a union of disjoint closed intervals. List every endpoint of those intervals as a set {a, b, c}.",
+                " in R. Write its closure as a union of the maximal closed intervals it contains, and list every endpoint of those intervals as a set {a, b, c}.",
             ),
             lambda: msay(
                 "Consider S = ",
                 s,
-                " with the usual metric on R. Write its closure as a union of disjoint closed intervals and give the set {a, b, c} of their endpoints.",
+                " with the usual metric on R. Its closure is the union of the maximal closed intervals it contains; give the set {a, b, c} of all their endpoints.",
             ),
         ],
     )
@@ -986,15 +988,16 @@ def _exam_pieces(rng):
             (["I", "I", "P"], ["I", "P", "I"], ["I", "I", "I"], ["I", "I", "P", "P"], ["P", "I", "I"], ["I", "P", "P"])
         )
         flavour = "A"
-        pieces = build_set(rng, kinds, touch=0.4)
+        pieces = build_set(rng, kinds, touch=0.4, reach=50, scale=5)
     else:
         kinds = rng.choice((["I", "S"], ["S", "I"], ["I", "S", "P"], ["I", "I", "S"], ["I", "S", "I"], ["S", "I", "P"]))
         flavour = "B"
-        pieces = build_set(rng, kinds, touch=0.0, limit_point=0.2)
+        pieces = build_set(rng, kinds, touch=0.0, limit_point=0.2, reach=50, scale=5)
     return flavour, pieces
 
 
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
+@uses_rng
 def exd_x_w5b_interior_closure(rng: random.Random, tier: str = "exam") -> dict:
     """A five-part chain: interior, the boundary points (or closure points missing from S), their count, sum and mean."""
     check(tier == "exam", f"unknown tier {tier!r}")
@@ -1088,7 +1091,7 @@ def exd_x_w5b_interior_closure(rng: random.Random, tier: str = "exam") -> dict:
         "number",
         1,
         [f"There are {n} such points."],
-        [(int(v), t) for v, t in count_wrongs if v >= 0 and int(v) != n],
+        balanced(n, [(int(v), t) for v, t in count_wrongs if v >= 0 and int(v) != n], whole=True),
     )
     sum_link = Link(
         msay(sum_prompt),
@@ -1096,7 +1099,7 @@ def exd_x_w5b_interior_closure(rng: random.Random, tier: str = "exam") -> dict:
         "number",
         1,
         [f"{join_signed(items)} = {total}."],
-        [(int(v), t) for v, t in sum_wrongs if int(v) != total],
+        balanced(total, [(int(v), t) for v, t in sum_wrongs if int(v) != total], lo=None, whole=True),
     )
     mean_wrongs = [
         (sympy.Integer(total), "ic-mean-sum-not-divided"),
@@ -1114,7 +1117,7 @@ def exd_x_w5b_interior_closure(rng: random.Random, tier: str = "exam") -> dict:
         "fraction",
         2,
         [f"{total}/{n} = {sympy.Rational(mean.numerator, mean.denominator)}."],
-        mean_wrongs,
+        balanced(sympy.Rational(mean.numerator, mean.denominator), mean_wrongs, lo=None),
         ft="part_d/part_c",
     )
     _ = what

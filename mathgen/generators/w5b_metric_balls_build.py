@@ -31,6 +31,8 @@ import sympy
 
 from ..answers import Distractor
 from ..core import attempts, check, generator
+from ._spread_kit import uses_rng
+from ._w5b_balance import balanced
 from ._w5a_support import Link, X, astr, atext, dist_list, exam_dict, int_dist, msay, single
 
 TOPIC = "w5b_metric_balls"
@@ -175,10 +177,10 @@ def _rand_pt(rng: random.Random, n: int, lo: int, hi: int):
 # -- exact point samplers --------------------------------------------------------------------------------------------------
 
 
-def _sample_points(rng, m, n: int, r: Fr, n_in: int, n_on: int, total: int, centre):
+def _sample_points(rng, m, n: int, r: Fr, n_in: int, n_on: int, total: int, centre, extra: int = 3):
     """`total` distinct lattice points around `centre`: n_in strictly inside the open ball, n_on exactly on the sphere
     (fewer if the sphere has too few lattice points) and the rest outside it."""
-    reach = int(r) + 3
+    reach = int(r) + extra
     ins, ons, outs = [], [], []
     zero = (0,) * n
     for off in itertools.product(range(-reach, reach + 1), repeat=n):
@@ -300,7 +302,7 @@ def _easy(rng: random.Random) -> dict:
     wrongs += [(value + 1, "dg-near-miss-value"), (value + 2, "dg-near-miss-value")] + (
         [(value - 1, "dg-near-miss-value")] if value > 1 else []
     )
-    return single(prompt, value, [working], wrongs)
+    return single(prompt, value, [working], balanced(value, wrongs))
 
 
 def _sup(n: int) -> str:
@@ -407,7 +409,7 @@ def _medium_count(rng: random.Random) -> dict:
         answer_latex=str(key),
         answer_kind="number",
         working=working,
-        distractors=int_dist(key, wrongs),
+        distractors=int_dist(key, balanced(key, wrongs, whole=True)),
     )
     check(len(out["distractors"]) >= 3, "too few distractors for a count")
     return out
@@ -464,7 +466,7 @@ def _medium_compare(rng: random.Random) -> dict:
             f"So the diameter is 2·{r}·{atext(ratio)} = {atext(value)}.",
         ]
     wrongs += [(2 * value, "mb-diameter-radius"), (value / 2, "mb-diameter-radius")]
-    return single(prompt, value, working, wrongs)
+    return single(prompt, value, working, balanced(value, wrongs))
 
 
 def _pp(kind: str) -> str:
@@ -601,7 +603,7 @@ def _hard_contain(rng: random.Random) -> dict:
             *nm,
             ". What is the infimum of the radii r for which the open ball B(c, r) contains all of S?",
         )
-    return single(prompt, value, working, wrongs)
+    return single(prompt, value, working, balanced(value, wrongs))
 
 
 def _shift(var: str, v: int) -> str:
@@ -646,7 +648,7 @@ def _hard_shell(rng: random.Random) -> dict:
     working = [
         f"A ball of radius R has area {atext(unit)}R², so A has area {atext(unit)}({outer}² − {inner}²) = {atext(value)}."
     ]
-    return single(prompt, value, working, wrongs)
+    return single(prompt, value, working, balanced(value, wrongs))
 
 
 def _hard_weighted(rng: random.Random) -> dict:
@@ -677,7 +679,7 @@ def _hard_weighted(rng: random.Random) -> dict:
     working = [
         f"The ball is a diamond reaching {atext(r / w[0])} from the centre along the first axis and {atext(r / w[1])} along the second, so its area is 2·({atext(r / w[0])})({atext(r / w[1])}) = {atext(value)}."
     ]
-    return single(prompt, value, working, wrongs)
+    return single(prompt, value, working, balanced(value, wrongs))
 
 
 def _hard_ball_measure(rng: random.Random) -> dict:
@@ -719,7 +721,7 @@ def _hard_ball_measure(rng: random.Random) -> dict:
     working = [
         f"The open ball of radius r has {word} {atext(_measure(kind, n, sympy.Symbol('r')))}; with r = {rr} this is {atext(value)}."
     ]
-    return single(prompt, value, working, wrongs)
+    return single(prompt, value, working, balanced(value, wrongs))
 
 
 def _hard_vertices(rng: random.Random) -> dict:
@@ -754,7 +756,7 @@ def _hard_vertices(rng: random.Random) -> dict:
     else:
         how = "the sides are parallel to the axes and each is 2r long: a d_∞ ball is an axis-parallel square"
     working = [f"The centre is ({cx}, {cy}); {how}.", f"So r = {r}."]
-    return single(prompt, sympy.Integer(r), working, wrongs)
+    return single(prompt, sympy.Integer(r), working, balanced(r, wrongs))
 
 
 def _hard(rng: random.Random) -> dict:
@@ -776,27 +778,33 @@ def _medium(rng: random.Random) -> dict:
     level=19,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 def w5b_metric_balls(rng: random.Random, tier: str = "easy") -> dict:
     check(tier in ("easy", "medium", "hard"), f"unknown tier {tier!r}")
     return {"easy": _easy, "medium": _medium, "hard": _hard}[tier](rng)
 
 
 @generator(EXAM_TOPIC, level=19, presets={"exam": dict(tier="exam")})
+@uses_rng
 def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
     """A five-part chain: two distances, a membership count, a containment radius and the measure of that ball."""
     check(tier == "exam", f"unknown tier {tier!r}")
     n = 3 if rng.random() < 0.35 else 2
     m1, m2, m3 = (rng.sample(_BASIC, 2) + [rng.choice(_BASIC)])[:3]
     m4 = rng.choice([k for k in _BASIC if k != m3] if rng.random() < 0.7 else list(_BASIC))
-    P = _rand_pt(rng, n, -4, 4)
+    if m4 != "2" and rng.random() < 0.4:
+        m4 = "2"
+    P = _rand_pt(rng, n, -20, 20)
     for _ in attempts(100, "P distinct from Q"):
-        Q = _rand_pt(rng, n, -5, 5)
+        Q = _rand_pt(rng, n, -35, 35)
         if Q != P and dist(("1", None), P, Q) != dist(("inf", None), P, Q):
             break
-    r_c = Fr(rng.randint(2, 4 if n == 3 else 6))
+    r_c = Fr(rng.randint(3, 6 if n == 3 else 14))
     mm3 = (m3, None)
     n_on = rng.choice((1, 1, 2, 0))
-    pts = _sample_points(rng, mm3, n, r_c, min(rng.choice((0, 1, 2, 2, 3)), 4 - n_on), n_on, 5, P)
+    pts = _sample_points(
+        rng, mm3, n, r_c, min(rng.choice((0, 1, 2, 2, 3)), 4 - n_on), n_on, 5, P, extra=6 if n == 3 else 12
+    )
     key_c = _count_in(mm3, pts, P, r_c)
     mm4 = (m4, None)
     ds4 = [dist(mm4, p, P) for p in pts]
@@ -871,7 +879,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
         "expression",
         1,
         [f"Coordinate differences are {', '.join(str(d) for d in diffs)}; {t[m1]}(P, Q) = {atext(d1)}."],
-        _distance_wrongs(m1, P, Q),
+        balanced(d1, _distance_wrongs(m1, P, Q)),
         sensible=None,
     )
     b_part = Link(
@@ -880,7 +888,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
         "expression",
         1,
         [f"{t[m2]}(P, Q) = {atext(d2)}."],
-        _distance_wrongs(m2, P, Q),
+        balanced(d2, _distance_wrongs(m2, P, Q)),
     )
     wrongs_c = [(_count_closed(mm3, pts, P, r_c), "mb-closed-ball-count")]
     wrongs_c += [(_count_in((o, None), pts, P, r_c), "mb-wrong-norm-formula") for o in _BASIC if o != m3]
@@ -899,7 +907,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
         [
             f"Distances from P under {t[m3]} are {', '.join(atext(dist(mm3, p, P)) for p in pts)}; those strictly below {r_c} count."
         ],
-        wrongs_c,
+        balanced(key_c, wrongs_c, whole=True),
     )
     wrongs_d = [(min(ds4), "mb-containment-nearest-point")]
     wrongs_d += [(max(dist((o, None), p, P) for p in pts), "mb-wrong-norm-formula") for o in _BASIC if o != m4]
@@ -910,7 +918,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
         "expression",
         2,
         [f"Distances from P under {t[m4]} are {', '.join(atext(d) for d in ds4)}; the largest is {atext(r0)}."],
-        wrongs_d,
+        balanced(r0, wrongs_d),
         sensible=None,
     )
     ft = {
@@ -934,7 +942,7 @@ def exd_x_w5b_metric_balls(rng: random.Random, tier: str = "exam") -> dict:
         [
             f"The ball of radius r has {word} {atext(_measure(m4, n, sympy.Symbol('r')))}; at r = {atext(r0)} that is {atext(area)}."
         ],
-        wrongs_e,
+        balanced(area, wrongs_e),
         ft=ft,
     )
     return exam_dict(stem, [a_part, b_part, c_part, d_part, e_part])

@@ -85,7 +85,7 @@ misconceptions:
 - id: eoq-inverse-drops-two
   description: >-
     Forgetting the factor 2 when finding the annual demand from the minimum cost.
-- id: eoq-inverse-stops-at-Q
+- id: eoq-inverse-stops-at-q
   description: >-
     Giving the order quantity found from the minimum cost where the annual demand was asked.
 - id: eoq-nearest-lot-not-cheapest
@@ -112,43 +112,43 @@ misconceptions:
 - id: eoq-rop-wrong-days
   description: >-
     Using a 365-day year for daily demand when the question states the working days in the year.
-- id: eoq-swaps-S-and-H
+- id: eoq-swaps-s-and-h
   description: >-
     Swapping the ordering cost S and the holding cost H in the economic order quantity formula.
-- id: mm1-L-as-Lq
+- id: mm1-l-as-lq
   description: >-
     Giving the mean number waiting in the queue, rho squared over 1 - rho, as the mean number in the system.
-- id: mm1-L-as-utilisation
+- id: mm1-l-as-utilisation
   description: >-
     Giving the utilisation rho as the mean number in the system, forgetting to divide by 1 - rho.
-- id: mm1-L-one-too-many
+- id: mm1-l-one-too-many
   description: >-
     Adding one to the mean number in the system, or using mu/(mu - lambda), so the customer in service is counted twice.
-- id: mm1-L-target-adds-ell
+- id: mm1-l-target-adds-ell
   description: >-
     Adding the target value of L to the arrival rate to get the service rate needed.
-- id: mm1-L-target-inverted
+- id: mm1-l-target-inverted
   description: >-
     Using lambda times the target L as the smallest service rate, instead of lambda (1 + 1/L).
-- id: mm1-Lq-as-L
+- id: mm1-lq-as-l
   description: >-
     Giving the mean number in the system where the mean number waiting in the queue was asked.
-- id: mm1-Lq-as-utilisation
+- id: mm1-lq-as-utilisation
   description: >-
     Giving the utilisation as the mean number waiting in the queue.
-- id: mm1-Lq-minus-one
+- id: mm1-lq-minus-one
   description: >-
     Subtracting one from L to get Lq, instead of subtracting the utilisation rho.
-- id: mm1-W-as-L
+- id: mm1-w-as-l
   description: >-
     Giving the mean number in the system as the mean time in the system, skipping the division by the arrival rate in Little's law.
-- id: mm1-W-as-Wq
+- id: mm1-w-as-wq
   description: >-
     Giving the mean wait in the queue as the mean time in the system, leaving out the service time.
-- id: mm1-W-as-service-time
+- id: mm1-w-as-service-time
   description: >-
     Taking the mean service time 1/mu as the mean time in the system, leaving out the waiting.
-- id: mm1-Wq-W-swapped
+- id: mm1-wq-w-swapped
   description: >-
     Giving the mean time in the system where the mean wait in the queue was asked, or the reverse.
 - id: mm1-idle-as-busy
@@ -187,13 +187,13 @@ misconceptions:
 - id: mm1-target-rounds-up
   description: >-
     Rounding a boundary for a largest allowed rate up, or a smallest needed rate one too high.
-- id: mm1-target-uses-W-not-Wq
+- id: mm1-target-uses-w-not-wq
   description: >-
     Using the formula for the mean time in the system where the target is on the wait in the queue.
 - id: mm1-time-unit-not-converted
   description: >-
     Leaving a time in hours (or a number scaled by the wrong factor of 60) when the answer was asked in minutes.
-- id: mm1-utilisation-as-L
+- id: mm1-utilisation-as-l
   description: >-
     Giving the mean number in the system L = rho/(1 - rho) where the utilisation or the idle probability was asked.
 - id: mm1-utilisation-complement

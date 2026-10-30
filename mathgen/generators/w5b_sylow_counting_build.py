@@ -24,11 +24,14 @@ from __future__ import annotations
 import itertools
 import math
 import re
+from fractions import Fraction
 from functools import lru_cache
 
 from ..answers import exact_value
 from ..core import attempts, check, generator, phrase
-from ._r4a_alg_kit import int_options, number_part, set_part, with_latex
+from ._r4a_alg_kit import set_part, with_latex
+from ._spread_kit import uses_rng
+from ._w5b_uniform_rank_kit import balanced
 
 PRIMES = (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41)
 
@@ -131,14 +134,8 @@ def _pool_squarefree34():
 # -- answer plumbing -------------------------------------------------------------------------------------------
 
 
-def _fillers(value, lo=0):
-    """Untagged near misses used to top up an option list."""
-    return [(value + 1, None), (value - 1, None), (value + 2, None), (2 * value, None), (value + 10, None)]
-
-
 def number_q(text, value, working, slips, *, keep=4, lo=0):
-    options = int_options(value, [*slips, *_fillers(value)], keep, lo=lo)
-    check(len(options) >= 2, "too few distractors")
+    options = balanced(Fraction(value), slips, keep, kind="number", lo=lo)
     return dict(
         text=text,
         answer_kind="number",
@@ -148,6 +145,23 @@ def number_q(text, value, working, slips, *, keep=4, lo=0):
         working=working,
         distractors=options,
     )
+
+
+def number_part(prompt, value, marks, working, slips, *, follow_through=None, sensible_range=None, keep=3, lo=0):
+    part = dict(
+        prompt=prompt,
+        answer_kind="number",
+        answer=exact_value(value),
+        answer_text=str(value),
+        marks=marks,
+        working=working,
+        distractors=balanced(Fraction(value), slips, keep, kind="number", lo=lo),
+    )
+    if follow_through:
+        part["follow_through"] = follow_through
+    if sensible_range is not None:
+        part["sensible_range"] = sensible_range
+    return part
 
 
 def _set_candidates(n, p):
@@ -532,6 +546,7 @@ def _hard(rng):
     level=19,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 @with_latex
 def w5b_sylow_counting(rng, tier="easy"):
     """Sylow counting; the tiers are described in the module docstring."""
@@ -548,151 +563,29 @@ def w5b_sylow_counting(rng, tier="easy"):
 # -- exam ------------------------------------------------------------------------------------------------------
 
 
-_EXAM_A = (
-    "G is a group of order {n} = {fac}, so every Sylow subgroup has prime order.",
-    "Let G be a group whose order is {n} = {fac}; each of its Sylow subgroups has prime order.",
+_EXAM_X = (
+    "G is a group of order {n} = {q} × {m}, where {q} is a prime that does not divide {m}. The Sylow {q}-subgroups "
+    "have prime order {q}.",
+    "Let |G| = {n}, which is {q} × {m} for a prime {q} not dividing {m}; a Sylow {q}-subgroup has order {q}.",
 )
-_EXAM_C = (
-    "A group G has order {n} = {pk} × {q}, where {p} and {q} are primes. The Sylow {q}-subgroups have prime order {q}.",
-    "G is a finite group of order {n}, which is {pk} × {q} for the primes {p} and {q}; a Sylow {q}-subgroup has "
-    "order {q}.",
+_EXAM_Y = (
+    "G is a group of order {n} = {p} × {q} × {m}, where {p} and {q} are distinct primes that do not divide {m}. "
+    "The Sylow {p}-subgroups and Sylow {q}-subgroups have prime order.",
+    "A group G has order {n}, the product {p} × {q} × {m} with the primes {p} and {q} not dividing {m}; its Sylow "
+    "{p}-subgroups and {q}-subgroups have prime order.",
 )
-_EXAM_D = (
-    "G is a group of order {n} = {pk} × {q} × {r}, where {p}, {q} and {r} are distinct primes. The Sylow "
-    "{q}-subgroups and Sylow {r}-subgroups have prime order.",
-    "Let |G| = {n} = {pk} × {q} × {r} with {p}, {q}, {r} distinct primes; the Sylow {q}-subgroups and the Sylow "
-    "{r}-subgroups have prime order.",
-)
-
 _SET_PROMPTS = (
     "Find the set of possible values of n_{q}, the number of Sylow {q}-subgroups, typed like {{a, b, c}}.",
     "List every value that n_{q}, the number of Sylow {q}-subgroups of G, could take, as a set typed like {{a, b, c}}.",
 )
+_ELEMENTS = (
+    "Suppose n_{q} = {xq}. How many elements of G have order {q}?",
+    "If G has exactly {xq} Sylow {q}-subgroups, how many of its elements have order {q}?",
+)
 
 
-def _elements_part(q, xq, n, marks=2):
-    elems = xq * (q - 1)
-    return number_part(
-        f"Suppose n_{q} = {xq}. How many elements of G have order {q}?",
-        elems,
-        marks,
-        [f"{xq} subgroups of order {q} meeting only in the identity give {xq} × {q - 1} = {elems} elements."],
-        [
-            (xq * q, "sylow-elements-include-identity"),
-            (xq, "sylow-elements-one-per-subgroup"),
-            (elems + 1, "sylow-elements-count-identity"),
-            (n - elems, "sylow-elements-complement"),
-        ],
-        sensible_range=(0, None),
-        lo=0,
-    )
-
-
-def _leftover_part(n, p, q, xp, elems, min_left, word):
-    left = n - 1 - elems - xp * (p - 1)
-    return number_part(
-        f"Suppose also that n_{p} = {xp}. How many elements of G then have an order other than 1, {p} or {q}?{word}",
-        left,
-        3,
-        [f"{n} - 1 - {elems} - {xp} × {p - 1} = {left}."],
-        [
-            (left + 1, "sylow-leftover-forgets-identity"),
-            (n - elems - xp * p, "sylow-leftover-counts-np-times-p"),
-            (n - elems - xp, "sylow-leftover-one-per-subgroup"),
-            (n - 1 - xp * (p - 1), "sylow-leftover-ignores-second-prime"),
-        ],
-        follow_through=f"{n} - 1 - part_b - {xp * (p - 1)}",
-        sensible_range=(min_left - 1, None),
-        lo=0,
-    )
-
-
-def _exam_a(rng):
-    for _ in attempts(2000, "a squarefree order with a usable prime pair"):
-        n, combo = rng.choice(_pool_squarefree34())
-        trio = list(combo)
-        rng.shuffle(trio)
-        q, p, *others = trio
-        sq, sp = checked_np(n, q), checked_np(n, p)
-        if q >= 3 and len(sq) >= 2 and len(sp) >= 2:
-            xq = rng.choice(sq[1:])
-            xp = rng.choice(sp[1:])
-            min_left = sum(o - 1 for o in others)
-            if n - 1 - xq * (q - 1) - xp * (p - 1) >= min_left:
-                break
-    return dict(
-        text=phrase(rng, _EXAM_A, n=n, fac=" × ".join(map(str, sorted(combo)))),
-        parts=[
-            set_part_for(rng, n, q),
-            _elements_part(q, xq, n),
-            _leftover_part(n, p, q, xp, xq * (q - 1), min_left, ""),
-        ],
-    )
-
-
-def _exam_c(rng):
-    for _ in attempts(500, "a p^k q order with q > 2 whose leftover holds a Sylow p-subgroup"):
-        n, p, q = rng.choice(_pool_pkq())
-        xq = rng.choice(checked_np(n, q)[1:])
-        if q >= 3 and n - xq * (q - 1) >= n // q:
-            break
-    elems = xq * (q - 1)
-    left = n - elems
-    return dict(
-        text=phrase(rng, _EXAM_C, n=n, p=p, q=q, pk=n // q),
-        parts=[
-            set_part_for(rng, n, q),
-            _elements_part(q, xq, n),
-            number_part(
-                f"How many elements of G are then not of order {q}? These include a whole Sylow {p}-subgroup.",
-                left,
-                3,
-                [f"{n} - {elems} = {left}."],
-                [
-                    (elems, "sylow-elements-count-complement"),
-                    (left - 1, "sylow-leftover-forgets-identity"),
-                    (n - xq, "sylow-elements-one-per-subgroup"),
-                    (n - xq * q, "sylow-elements-include-identity"),
-                ],
-                follow_through=f"{n} - part_b",
-                sensible_range=(0, None),
-                lo=0,
-            ),
-        ],
-    )
-
-
-@lru_cache(maxsize=None)
-def _pool_p2qr():
-    """Orders p^2 q r with p, q, r distinct primes (n up to 1000): (n, p, q, r)."""
-    out = []
-    for p in (2, 3, 5, 7):
-        for q in PRIMES[:10]:
-            for r in PRIMES[:10]:
-                n = p * p * q * r
-                if len({p, q, r}) == 3 and q < r and n <= 2500:
-                    out.append((n, p, q, r))
-    return tuple(sorted(out))
-
-
-def _exam_d(rng):
-    for _ in attempts(2000, "a p^2 q r order with a usable prime pair"):
-        n, p, a, b = rng.choice(_pool_p2qr())
-        q, r = (a, b) if rng.random() < 0.5 else (b, a)
-        sq, sr = checked_np(n, q), checked_np(n, r)
-        if q >= 3 and len(sq) >= 2 and len(sr) >= 2:
-            xq = rng.choice(sq[1:])
-            xr = rng.choice(sr[1:])
-            if n - 1 - xq * (q - 1) - xr * (r - 1) >= p * p - 1:
-                break
-    return dict(
-        text=phrase(rng, _EXAM_D, n=n, p=p, q=q, r=r, pk=p * p),
-        parts=[
-            set_part_for(rng, n, q),
-            _elements_part(q, xq, n),
-            _leftover_part(n, r, q, xr, xq * (q - 1), p * p - 1, " They include a Sylow {p}-subgroup.".format(p=p)),
-        ],
-    )
+def _max_prime_power(m):
+    return max(p**e for p, e in factor(m).items())
 
 
 def set_part_for(rng, n, q):
@@ -707,15 +600,125 @@ def set_part_for(rng, n, q):
     )
 
 
+def _elements_part(rng, q, xq, n):
+    elems = xq * (q - 1)
+    return number_part(
+        phrase(rng, _ELEMENTS, q=q, xq=xq),
+        elems,
+        2,
+        [f"{xq} subgroups of order {q} meeting only in the identity give {xq} × {q - 1} = {elems} elements."],
+        [
+            (xq * q, "sylow-elements-include-identity"),
+            (xq, "sylow-elements-one-per-subgroup"),
+            (elems + 1, "sylow-elements-count-identity"),
+            (n - elems, "sylow-elements-complement"),
+        ],
+        sensible_range=(0, None),
+        lo=1,
+    )
+
+
+_Q_PRIMES = (3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97)
+_Q_PRIMES += (101, 103, 107, 109, 113, 127, 131, 137, 139, 149)
+
+
+def _visible(stem, parts):
+    """Whether a numeric key is a number printed in the stem or in any prompt (so it could be read off)."""
+    shown = set(re.findall(r"\d+", " ".join([stem, *(p["prompt"] for p in parts)])))
+    return any(p["answer_kind"] == "number" and p["answer_text"] in shown for p in parts)
+
+
+def _exam_x(rng):
+    """n = q m: the set of n_q, the elements of order q for a stated n_q, the elements that are not of order q."""
+    for _ in attempts(3000, "an order q m with several n_q and room for the other Sylow subgroups"):
+        q = rng.choice(_Q_PRIMES)
+        m = rng.randint(4, 30000 // q)
+        if m % q == 0:
+            continue
+        n = q * m
+        values = checked_np(n, q)
+        if not 2 <= len(values) <= 8:
+            continue
+        xq = rng.choice(values[1:])
+        left = n - xq * (q - 1)
+        if left < _max_prime_power(m):
+            continue
+        parts = [
+            set_part_for(rng, n, q),
+            _elements_part(rng, q, xq, n),
+            number_part(
+                f"How many elements of G are then not of order {q}?",
+                left,
+                3,
+                [f"{n} - {xq * (q - 1)} = {left}."],
+                [
+                    (xq * (q - 1), "sylow-elements-count-complement"),
+                    (left - 1, "sylow-leftover-forgets-identity"),
+                    (n - xq, "sylow-elements-one-per-subgroup"),
+                    (n - xq * q, "sylow-elements-include-identity"),
+                ],
+                follow_through=f"{n} - part_b",
+                sensible_range=(0, None),
+                lo=1,
+            ),
+        ]
+        stem = phrase(rng, _EXAM_X, n=n, q=q, m=m)
+        if not _visible(stem, parts):
+            return dict(text=stem, parts=parts)
+    raise AssertionError  # pragma: no cover
+
+
+def _exam_y(rng):
+    """n = p q m: the set of n_q, the elements of order q, then the elements of neither order p, q nor 1."""
+    for _ in attempts(5000, "an order p q m with several n_p and n_q and room for the rest"):
+        p, q = rng.sample(
+            (2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101), 2
+        )
+        if q == 2:
+            continue
+        if p * q > 10000:
+            continue
+        m = rng.randint(2, 30000 // (p * q))
+        if m % p == 0 or m % q == 0:
+            continue
+        n = p * q * m
+        sq, sp = checked_np(n, q), checked_np(n, p)
+        if not (2 <= len(sq) <= 8 and len(sp) >= 2):
+            continue
+        xq, xp = rng.choice(sq[1:]), rng.choice(sp[1:])
+        left = n - 1 - xq * (q - 1) - xp * (p - 1)
+        if left < _max_prime_power(m) - 1 or left < 1:
+            continue
+        parts = [
+            set_part_for(rng, n, q),
+            _elements_part(rng, q, xq, n),
+            number_part(
+                f"Suppose also that n_{p} = {xp}. How many elements of G then have an order other than 1, {p} or {q}?",
+                left,
+                3,
+                [f"{n} - 1 - {xq * (q - 1)} - {xp} × {p - 1} = {left}."],
+                [
+                    (left + 1, "sylow-leftover-forgets-identity"),
+                    (n - xq * (q - 1) - xp * p, "sylow-leftover-counts-np-times-p"),
+                    (n - xq * (q - 1) - xp, "sylow-leftover-one-per-subgroup"),
+                    (n - 1 - xp * (p - 1), "sylow-leftover-ignores-second-prime"),
+                ],
+                follow_through=f"{n} - 1 - part_b - {xp * (p - 1)}",
+                sensible_range=(0, None),
+                lo=1,
+            ),
+        ]
+        stem = phrase(rng, _EXAM_Y, n=n, p=p, q=q, m=m)
+        if not _visible(stem, parts):
+            return dict(text=stem, parts=parts)
+    raise AssertionError  # pragma: no cover
+
+
 @generator("exd_x_w5b_sylow_counting", level=19, presets={"exam": dict(tier="exam")})
+@uses_rng
 @with_latex
 def exd_x_w5b_sylow_counting(rng, tier="exam"):
-    """Exam chain: possible n_q, elements of order q for the largest n_q, then the elements left over."""
+    """Exam chain: possible n_q, elements of order q for a stated n_q, then the elements left over."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
-    shape = rng.choice(("three_primes", "three_primes", "three_primes", "p_k_q", "p2_q_r", "p2_q_r"))
-    if shape == "three_primes":
-        return _exam_a(rng)
-    if shape == "p_k_q":
-        return _exam_c(rng)
-    return _exam_d(rng)
+    return _exam_x(rng) if rng.random() < 0.5 else _exam_y(rng)

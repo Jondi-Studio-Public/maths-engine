@@ -193,7 +193,7 @@ def exam_oracle(q):
     n = _n(text)
     a, b, c = q.parts
     prime_a = int(re.search(r"n_(\d+)", a.prompt).group(1))
-    x = int(re.search(r"n_\d+ = (\d+)", b.prompt).group(1))
+    x = int(re.search(r"(?:n_\d+ =|exactly) (\d+)", b.prompt).group(1))
     cofactor_free_set = _np_set(n, prime_a)
     assert x in cofactor_free_set and x > 1
     elems = x * (prime_a - 1)

@@ -61695,7 +61695,7 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-utilisation-as-L",
+        "mm1-utilisation-as-l",
         "Giving the mean number in the system L = rho/(1 - rho) where the utilisation or the idle probability was asked.",
         area="queueing-inventory",
     ),
@@ -61705,17 +61705,17 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-L-as-utilisation",
+        "mm1-l-as-utilisation",
         "Giving the utilisation rho as the mean number in the system, forgetting to divide by 1 - rho.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-L-as-Lq",
+        "mm1-l-as-lq",
         "Giving the mean number waiting in the queue, rho squared over 1 - rho, as the mean number in the system.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-L-one-too-many",
+        "mm1-l-one-too-many",
         "Adding one to the mean number in the system, or using mu/(mu - lambda), so the customer in service is counted twice.",
         area="queueing-inventory",
     ),
@@ -61735,22 +61735,22 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-Wq-W-swapped",
+        "mm1-wq-w-swapped",
         "Giving the mean time in the system where the mean wait in the queue was asked, or the reverse.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-W-as-service-time",
+        "mm1-w-as-service-time",
         "Taking the mean service time 1/mu as the mean time in the system, leaving out the waiting.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-W-as-Wq",
+        "mm1-w-as-wq",
         "Giving the mean wait in the queue as the mean time in the system, leaving out the service time.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-W-as-L",
+        "mm1-w-as-l",
         "Giving the mean number in the system as the mean time in the system, skipping the division by the arrival rate in Little's law.",
         area="queueing-inventory",
     ),
@@ -61760,17 +61760,17 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-Lq-as-L",
+        "mm1-lq-as-l",
         "Giving the mean number in the system where the mean number waiting in the queue was asked.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-Lq-as-utilisation",
+        "mm1-lq-as-utilisation",
         "Giving the utilisation as the mean number waiting in the queue.",
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-Lq-minus-one",
+        "mm1-lq-minus-one",
         "Subtracting one from L to get Lq, instead of subtracting the utilisation rho.",
         area="queueing-inventory",
     ),
@@ -61815,7 +61815,7 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-target-uses-W-not-Wq",
+        "mm1-target-uses-w-not-wq",
         "Using the formula for the mean time in the system where the target is on the wait in the queue.",
         area="queueing-inventory",
     ),
@@ -61825,12 +61825,12 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-L-target-inverted",
+        "mm1-l-target-inverted",
         "Using lambda times the target L as the smallest service rate, instead of lambda (1 + 1/L).",
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "mm1-L-target-adds-ell",
+        "mm1-l-target-adds-ell",
         "Adding the target value of L to the arrival rate to get the service rate needed.",
         area="queueing-inventory",
     ),
@@ -61845,7 +61845,7 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "eoq-swaps-S-and-H",
+        "eoq-swaps-s-and-h",
         "Swapping the ordering cost S and the holding cost H in the economic order quantity formula.",
         area="queueing-inventory",
     ),
@@ -61935,7 +61935,7 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
-        "eoq-inverse-stops-at-Q",
+        "eoq-inverse-stops-at-q",
         "Giving the order quantity found from the minimum cost where the annual demand was asked.",
         area="queueing-inventory",
     ),

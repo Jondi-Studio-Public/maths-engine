@@ -51,6 +51,8 @@ from ..core import (
     stated_precision_string,
 )
 from ..grading.typed import set_answer_text
+from ._spread_kit import _RNG, uses_rng
+from ._w5b_pde_cp_balance_kit import fair
 
 TOPIC = "w5b_pde_discriminant"
 EXAM_TOPIC = "exd_x_w5b_pde_discriminant"
@@ -141,7 +143,7 @@ def numeric_dists(answer_text: str, cands: list, n: int = 4) -> list:
     dp = len(answer_text.partition(".")[2]) if "." in answer_text else None
     out = []
     answer = Fr(answer_text)
-    fallback = [(answer + off, None) for off in (1, -1, 2, -2, 3, -3) if answer + off >= 0 or answer < 0]
+    fallback = [(answer + off, None) for off in (1, -1, 2, -2, 3, -3, 4, -4, 6, -6) if answer + off >= 0 or answer < 0]
     for v, tag in [*cands, *fallback]:
         v = Fr(v)
         if dp is None:
@@ -151,7 +153,10 @@ def numeric_dists(answer_text: str, cands: list, n: int = 4) -> list:
         else:
             r = round_half_up(v, dp)
             out.append(Distractor(stated_precision_string(r, dp), tag, exact_value(r)))
-    return pick_distractors(answer_text, out, n, tolerance=GRADER_TOLERANCE)
+    rng = _RNG.get()
+    if rng is None:
+        return pick_distractors(answer_text, out, n, tolerance=GRADER_TOLERANCE)
+    return fair(answer_text, pick_distractors(answer_text, out, n + 6, tolerance=GRADER_TOLERANCE), n, rng)
 
 
 def _sign_pair(rng) -> int:
@@ -545,6 +550,8 @@ def _medium(rng: random.Random) -> dict:
 
 _SLOPES = [Fr(p, q) for q in (1, 2, 3) for p in range(-7, 8) if p and math.gcd(abs(p), q) == 1]
 
+_EXAM_SLOPES = [Fr(p, q) for q in (1, 2, 3, 4) for p in range(-7 * q, 7 * q + 1) if p and math.gcd(abs(p), q) == 1]
+
 
 def _hyperbolic(rng: random.Random, lo: int = 1, hi: int = 4) -> tuple:
     """(A, B, C, s1, s2) with A s^2 - B s + C = A (s - s1)(s - s2), integer coefficients, s1 != s2, s1 s2 != 0."""
@@ -738,6 +745,7 @@ _TIERS = {"easy": _easy, "medium": _medium, "hard": _hard}
     level=17,
     presets={"easy": dict(tier="easy"), "medium": dict(tier="medium"), "hard": dict(tier="hard")},
 )
+@uses_rng
 def w5b_pde_discriminant(rng: random.Random, tier: str = "easy") -> dict:
     """The value behind the classification of a second-order PDE: a number, a set, or a fraction."""
     if tier not in _TIERS:
@@ -749,22 +757,23 @@ def w5b_pde_discriminant(rng: random.Random, tier: str = "easy") -> dict:
 
 
 @generator(EXAM_TOPIC, level=17, presets={"exam": dict(tier="exam")})
+@uses_rng
 def exd_x_w5b_pde_discriminant(rng: random.Random, tier: str = "exam") -> dict:
     """B = p k: the discriminant at k, the integers k that make it elliptic and hyperbolic, the characteristic slopes."""
     if tier != "exam":
         raise ValueError(f"unknown tier {tier!r}")
     layout = _layout(rng)
     for _ in attempts(3000, "an exam equation"):
-        s1, s2 = rng.sample(_SLOPES, 2)
-        if abs(s1) > 4 or abs(s2) > 4:
+        s1, s2 = rng.sample(_EXAM_SLOPES, 2)
+        if abs(s1) > 7 or abs(s2) > 7:
             continue
-        a = rng.choice([1, 2, 3, 4, 5, -1, -2, -3])
+        a = rng.choice([1, 2, 3, 4, 5, 6, 8, 12, -1, -2, -3, -4, -5, -8])
         b2, c = a * (s1 + s2), a * s1 * s2
         if b2.denominator != 1 or c.denominator != 1 or b2 == 0:
             continue
         b2, c = int(b2), int(c)
-        divisors = [p for p in (1, 2, 3, 4, 5, 6) if b2 % p == 0 and abs(b2 // p) <= 9 and b2 // p != 0]
-        if not divisors or abs(c) > 30:
+        divisors = [p for p in (1, 2, 3, 4, 5, 6, 7, 8) if b2 % p == 0 and abs(b2 // p) <= 14 and b2 // p != 0]
+        if not divisors or abs(c) > 150:
             continue
         p = rng.choice(divisors)
         k2 = b2 // p
@@ -773,7 +782,7 @@ def exd_x_w5b_pde_discriminant(rng: random.Random, tier: str = "exam") -> dict:
         n = rng.choice([5, 6, 7, 8, 9])
         if not (1.5 <= (4 * a * c) / (p * p) < (n - 1) ** 2):
             continue
-        k1 = rng.choice([k for k in range(-5, 6) if k not in (0, k2)])
+        k1 = rng.choice([k for k in range(-7, 8) if k not in (0, k2)])
         break
     else:
         raise AssertionError("unreachable")

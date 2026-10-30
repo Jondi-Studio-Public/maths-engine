@@ -30,6 +30,9 @@ sources:
   difficulty: exam
   stages: [exam]
 misconceptions:
+- id: cx2-arithmetic-slip
+  description: >-
+    Making an arithmetic slip in the final evaluation, so the value is out by a small factor, a unit or a sign.
 - id: cx2-orientation-ignored
   description: >-
     Giving the anticlockwise value when the contour is traversed clockwise, or the reverse: the sign of the integral is wrong.

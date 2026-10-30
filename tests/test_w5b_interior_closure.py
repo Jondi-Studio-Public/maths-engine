@@ -479,25 +479,23 @@ def test_exam_follow_through_from_wrong_count_and_sum():
     for seed in range(120):
         q = tier_q("exam", seed)
         canon = {p.label: p.answer_text for p in q.parts}
-        n, total = int(canon["c"]), int(canon["d"])
-        wrong_n, wrong_total = n + 1, total + 2
-        mean = Fr(wrong_total, wrong_n)
-        if mean == Fr(total, n) or mean == 0 or len({wrong_n, wrong_total, mean}) < 3:
-            continue  # a reply that only repeats an earlier answer earns no follow-through
         e_part = next(p for p in q.parts if p.label == "e")
-        if str(mean) in {str(d) for d in e_part.distractors}:
-            continue  # a listed distractor is graded as that slip, ahead of follow-through
+        n, total = int(canon["c"]), int(canon["d"])
+        # a wrong chain whose mean is a new number (not the key, not a repeat of the replies, not a listed slip)
+        for wrong_n, wrong_total in ((n + 1, total + 2), (n + 2, total + 1), (n + 3, total - 2), (n + 1, total - 3)):
+            mean = Fr(wrong_total, wrong_n)
+            if mean != Fr(total, n) and mean != 0 and len({wrong_n, wrong_total, mean}) == 3:
+                if str(mean) not in {str(d) for d in e_part.distractors}:
+                    break
+        else:
+            raise AssertionError(f"no clean wrong chain for seed {seed}")
         reply = dict(canon, c=str(wrong_n), d=str(wrong_total), e=str(mean))
         result = grade(sk, q, reply)
         assert result.parts["c"].marks == 0 and result.parts["d"].marks == 0, (seed, reply)
-        assert result.parts["e"].marks == next(p.marks for p in q.parts if p.label == "e"), (
-            seed,
-            reply,
-            result.parts["e"],
-        )
+        assert result.parts["e"].marks == e_part.marks, (seed, reply, result.parts["e"])
         assert result.parts["e"].follow_through is True, seed
         checked += 1
-    assert checked >= 40, checked
+    assert checked == 120, checked
 
 
 def test_exam_answer_space_and_junk():
@@ -509,3 +507,23 @@ def test_exam_answer_space_and_junk():
         assert max(values.count(v) for v in set(values)) <= 0.5 * len(values), label
     check_deterministic(EXAM)
     check_all_wrong_earns_nothing(SKILL, EXAM, {"a": "(100, 101)", "b": "{100}", "c": "97", "d": "98", "e": "99"})
+
+
+def test_interior_stems_do_not_claim_separated_intervals():
+    """Intervals of the interior can share an endpoint that S misses (S = (-4,-1) ∪ (-1,2]), so a stem must not call them
+    "touching"-free; the oracle's open pieces are listed and the key is every endpoint of the maximal open intervals."""
+    shared = 0
+    for tier in ("medium", "hard", "easy"):
+        for seed in range(200):
+            q = tier_q(tier, seed)
+            if "R²" in q.text or "plane" in q.text or asks(q.text) != "interior_ends":
+                continue
+            assert "touching" not in q.text and "disjoint" not in q.text, (seed, q.text)
+            assert "interval" in q.text
+            interior = Line(read_set(q.text)).interior_set()
+            pieces = interior.args if isinstance(interior, sympy.Union) else (interior,)
+            ends = [(Fr(int(p.start.p), int(p.start.q)), Fr(int(p.end.p), int(p.end.q))) for p in pieces]
+            if any(a[1] == b[0] for a, b in zip(sorted(ends), sorted(ends)[1:])):
+                shared += 1
+                assert read_items(q.answer_text) == endpoints(interior), (seed, q.text, q.answer_text)
+    assert shared >= 5, shared
