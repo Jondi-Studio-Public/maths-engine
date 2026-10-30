@@ -1,0 +1,130 @@
+id: uc2-sylow-counting
+name: Count Sylow subgroups and the elements they account for
+domain: abstract-algebra
+year_level: [university]
+description: >-
+  Apply Sylow's theorems to a finite group of stated order n: the order of a Sylow p-subgroup, the possible values of n_p (1 mod p and dividing the
+  part of n that p does not divide), how many values are allowed, how many elements have order p when n_p is given, and the elements left over
+  once the prime-order Sylow subgroups of two primes are counted (for orders such as 12, 15, 21, 30), together with the least number of fixed points
+  of a p-group acting on a set of N points. The exam chain finds the set of possible n_q, the elements of order q and the elements left over.
+status: active
+placement_eligible: false
+prerequisites:
+- uc2-lagranges-theorem-applications
+- uc2-orbit-stabiliser-count
+answer: number
+sources:
+- topic: w5b_sylow_counting
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5b_sylow_counting
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5b_sylow_counting
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5b_sylow_counting
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: sylow-elements-complement
+  description: >-
+    Giving the number of elements that are not of order p where the number of elements of order p was asked.
+- id: sylow-elements-count-complement
+  description: >-
+    Giving the number of elements of order p where the number that are not of order p was asked.
+- id: sylow-elements-count-identity
+  description: >-
+    Adding the identity to the count n_p(p - 1) of elements of order p.
+- id: sylow-elements-include-identity
+  description: >-
+    Counting p elements in each Sylow p-subgroup of order p, identity included, so the identity is counted once for every subgroup.
+- id: sylow-elements-one-per-subgroup
+  description: >-
+    Counting one element of order p for each Sylow p-subgroup instead of p - 1.
+- id: sylow-fixed-points-adds-p
+  description: >-
+    Adding a whole p to the remainder |X| mod p for the fewest fixed points, though that remainder can be reached.
+- id: sylow-fixed-points-complement
+  description: >-
+    Giving p minus the remainder |X| mod p as the number of fixed points.
+- id: sylow-fixed-points-mod-group-order
+  description: >-
+    Reducing the size of the set modulo the group order p^k instead of modulo p.
+- id: sylow-fixed-points-quotient
+  description: >-
+    Giving the integer quotient |X| / p instead of the remainder |X| mod p as the number of fixed points.
+- id: sylow-forced-normal-all
+  description: >-
+    Taking the Sylow subgroup to be forced normal for every prime dividing the group order.
+- id: sylow-forced-normal-two-values
+  description: >-
+    Counting the primes with only two allowed values of n_p instead of those with only n_p = 1.
+- id: sylow-index-as-order
+  description: >-
+    Giving the order of a Sylow p-subgroup where its index in the group was asked.
+- id: sylow-index-divides-by-p-once
+  description: >-
+    Dividing the group order by p once to get the index of a Sylow p-subgroup, whatever the power of p in the order.
+- id: sylow-leftover-counts-np-times-p
+  description: >-
+    Taking p elements in each Sylow subgroup of order p, so the identity is subtracted once per subgroup.
+- id: sylow-leftover-forgets-identity
+  description: >-
+    Forgetting to remove the identity when counting what is left after the elements of prime order are taken out.
+- id: sylow-leftover-ignores-second-prime
+  description: >-
+    Removing the elements of only one of the two primes when finding the elements left over.
+- id: sylow-leftover-one-per-subgroup
+  description: >-
+    Subtracting only one element for each Sylow subgroup instead of p - 1 of them.
+- id: sylow-np-congruent-mod-pk
+  description: >-
+    Asking for n_p to be 1 mod p^k, the whole Sylow order, instead of 1 mod p.
+- id: sylow-np-largest-divisor
+  description: >-
+    Taking the whole cofactor of the group order as the largest n_p without checking that it is 1 mod p.
+- id: sylow-np-omits-one
+  description: >-
+    Leaving out n_p = 1 from the possible numbers of Sylow subgroups, though a single normal Sylow subgroup is always allowed.
+- id: sylow-np-second-largest
+  description: >-
+    Giving the second largest allowed value of n_p where the largest was asked.
+- id: sylow-np-skips-congruence
+  description: >-
+    Listing every divisor of the cofactor as a possible number of Sylow subgroups and forgetting that it must also be 1 mod p.
+- id: sylow-np-wrong-residue
+  description: >-
+    Keeping the divisors that are -1 mod p instead of the ones that are 1 mod p.
+- id: sylow-order-cofactor
+  description: >-
+    Giving the part of the group order that p does not divide (the index) as the order of the Sylow p-subgroup.
+- id: sylow-order-exponent-only
+  description: >-
+    Giving the exponent k of the largest power p^k dividing the group order instead of the order p^k.
+- id: sylow-order-n-over-p
+  description: >-
+    Dividing the group order by p once to get the Sylow p-subgroup order, whatever the power of p in the order.
+- id: sylow-order-prime-only
+  description: >-
+    Giving the prime p as the order of a Sylow p-subgroup, ignoring that the full power of p dividing the group order is wanted.
+- id: sylow-surplus-total-not-excess
+  description: >-
+    Giving the total number of elements counted rather than by how much it exceeds the group order.
+difficulty_progression: >-
+  Easy uses only the power of p dividing the group order, with no congruence condition: the order of a Sylow subgroup, its index in the group, or the sum of the Sylow orders over the primes dividing n. Medium adds Sylow's counting conditions (n_p divides the cofactor and is 1 mod p): list the allowed values of n_p and count them, find the largest or add them up, turn a supposed n_p into a number of elements of order p, and decide for how many primes counting alone forces normality. Hard combines two primes in one element count for a supposed pair of counts (the elements left over for a third prime, or the surplus that shows the pair is impossible), sets a p-group acting on a set against N mod p, and counts the elements that are not of order q. The exam chain asks for the set of allowed n_q, the elements of order q for a supposed n_q and the elements left over, following the second answer into the third.
+tags: [university-core-v1, university-year-2, abstract-algebra, sylow-theorems, group-theory]
+framework_areas: [abstract-algebra]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: abstract-algebra

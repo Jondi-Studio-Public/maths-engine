@@ -4304,6 +4304,14 @@ payg-payslip-reading:
     module: mathgen/generators/r3e_payg_payslip_build.py
   - topic: exd_x_r3e_payg_payslip
     module: mathgen/generators/r3e_payg_payslip_build.py
+pde-discriminant-values-and-canonical-form:
+  domain: fourier-analysis-and-pdes
+  status: active
+  sources:
+  - topic: w5b_pde_discriminant
+    module: mathgen/generators/w5b_pde_discriminant_build.py
+  - topic: exd_x_w5b_pde_discriminant
+    module: mathgen/generators/w5b_pde_discriminant_build.py
 pdf-cdf-from-polynomial:
   domain: statistics-probability
   status: active
@@ -8292,6 +8300,14 @@ uc2-conservative-field-potential:
     module: mathgen/generators/s2a2_conservative3d_build.py
   - topic: exd_x_s2a2_conservative3d
     module: mathgen/generators/s2a2_conservative3d_build.py
+uc2-contour-integrals-parametrisation:
+  domain: complex-analysis
+  status: active
+  sources:
+  - topic: w5b_contour_param
+    module: mathgen/generators/w5b_contour_param_build.py
+  - topic: exd_x_w5b_contour_param
+    module: mathgen/generators/w5b_contour_param_build.py
 uc2-contour-integrals-residue-theorem:
   domain: complex-analysis
   status: active
@@ -8636,6 +8652,14 @@ uc2-integral-theorem-verification:
     module: mathgen/generators/s2a3_theorem_verification_build.py
   - topic: exd_x_s2a3_theorem_verification
     module: mathgen/generators/s2a3_theorem_verification_build.py
+uc2-interior-closure-boundary:
+  domain: metric-spaces-and-topology
+  status: active
+  sources:
+  - topic: w5b_interior_closure
+    module: mathgen/generators/w5b_interior_closure_build.py
+  - topic: exd_x_w5b_interior_closure
+    module: mathgen/generators/w5b_interior_closure_build.py
 uc2-interpolation-error-bound:
   domain: numerical-and-computational-mathematics
   status: active
@@ -8844,6 +8868,14 @@ uc2-matrix-of-linear-map:
     module: mathgen/generators/s2b1_matrix_of_linear_map_build.py
   - topic: exd_x_s2b1_map_matrix
     module: mathgen/generators/s2b1_matrix_of_linear_map_build.py
+uc2-metrics-and-balls-in-rn:
+  domain: metric-spaces-and-topology
+  status: active
+  sources:
+  - topic: w5b_metric_balls
+    module: mathgen/generators/w5b_metric_balls_build.py
+  - topic: exd_x_w5b_metric_balls
+    module: mathgen/generators/w5b_metric_balls_build.py
 uc2-mgf-moments-identify:
   domain: probability
   status: active
@@ -8860,6 +8892,16 @@ uc2-mle-method-of-moments:
     module: mathgen/generators/r3k_mle_build.py
   - topic: exd_x_r3k_mle
     module: mathgen/generators/r3k_mle_build.py
+uc2-mm1-queue-and-eoq:
+  domain: optimisation
+  status: active
+  sources:
+  - topic: w5b_mm1_queue
+    module: mathgen/generators/w5b_mm1_queue_eoq_build.py
+  - topic: w5b_eoq_inventory
+    module: mathgen/generators/w5b_mm1_queue_eoq_build.py
+  - topic: exd_x_w5b_mm1_queue_eoq
+    module: mathgen/generators/w5b_mm1_queue_eoq_build.py
 uc2-mobius-transformations:
   domain: complex-analysis
   status: active
@@ -9212,6 +9254,14 @@ uc2-svd-small-matrices:
     module: mathgen/generators/w6c_svd_build.py
   - topic: exd_x_w6c_svd
     module: mathgen/generators/w6c_svd_build.py
+uc2-sylow-counting:
+  domain: abstract-algebra
+  status: active
+  sources:
+  - topic: w5b_sylow_counting
+    module: mathgen/generators/w5b_sylow_counting_build.py
+  - topic: exd_x_w5b_sylow_counting
+    module: mathgen/generators/w5b_sylow_counting_build.py
 uc2-symmetric-group-conjugacy:
   domain: abstract-algebra
   status: active

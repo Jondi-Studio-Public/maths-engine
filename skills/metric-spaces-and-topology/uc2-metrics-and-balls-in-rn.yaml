@@ -1,0 +1,125 @@
+id: uc2-metrics-and-balls-in-rn
+name: Distances and open balls in R^n under the taxicab, Euclidean and maximum metrics
+domain: metric-spaces-and-topology
+year_level: [university]
+description: >-
+  Compute distances in R^2 and R^3 under the taxicab, Euclidean and maximum metrics, count the points in an open
+  ball, compare balls of different metrics, and measure balls exactly. The exam chain finds two distances, a
+  membership count, the least radius whose ball contains a set, and the area or volume of that ball.
+status: active
+placement_eligible: false
+prerequisites:
+- distance-two-points
+answer: expression
+sources:
+- topic: w5b_metric_balls
+  params: {}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: w5b_metric_balls
+  params: {}
+  difficulty: medium
+  stages: [3, 4]
+- topic: w5b_metric_balls
+  params: {}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_w5b_metric_balls
+  params: {tier: exam}
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dg-near-miss-value
+  description: >-
+    Reads, counts or works out a value a little way from the right one: out by one or two, with no single method behind the slip.
+- id: forgot-square-root
+  description: >-
+    Stopping at k squared, so the square of the answer is given instead of the answer.
+- id: mb-area-diamond-no-half
+  description: >-
+    Forgetting the factor of one half in the area of a diamond: base times height instead of half of it.
+- id: mb-area-side-not-diameter
+  description: >-
+    Using the radius where the whole width of the ball is needed, or the width where the radius is, in an area or volume.
+- id: mb-area-wrong-shape
+  description: >-
+    Using the area or volume formula of a ball of another metric (a disc, a diamond or a square).
+- id: mb-ball-radius-not-scaled
+  description: >-
+    Giving the same radius for a ball of another metric, as if all the balls about a centre had one size.
+- id: mb-ball-shape-mixup
+  description: >-
+    Reading a diamond as a maximum-metric ball or an axis-parallel square as a taxicab ball.
+- id: mb-closed-ball-count
+  description: >-
+    Counting points at distance exactly r as inside the open ball, so the ball is treated as closed.
+- id: mb-containment-nearest-point
+  description: >-
+    Giving the distance to the nearest point as the radius needed to contain the whole set.
+- id: mb-containment-open-closed
+  description: >-
+    Adding one to the largest distance to get an open ball that contains the set, instead of the exact bound.
+- id: mb-containment-sum
+  description: >-
+    Adding the distances to all the points instead of taking the largest.
+- id: mb-counted-all-points
+  description: >-
+    Counting every point of the set instead of only those inside the ball.
+- id: mb-counted-outside
+  description: >-
+    Counting the points outside the ball instead of those inside it.
+- id: mb-diameter-radius
+  description: >-
+    Mixing up the radius and the diameter of a ball: halving where the diameter was asked, or doubling where the radius was.
+- id: mb-dimension-constant-wrong
+  description: >-
+    Using the norm-comparison constant for the wrong number of dimensions, such as the square root of 2 in R^3.
+- id: mb-dropped-absolute-values
+  description: >-
+    Subtracting coordinates without taking absolute values, so differences of opposite sign cancel.
+- id: mb-dropped-coordinate
+  description: >-
+    Leaving the third coordinate out of a distance in R^3.
+- id: mb-inverted-comparison-constant
+  description: >-
+    Multiplying by the norm-comparison constant where the question needs a division by it, or the reverse.
+- id: mb-max-min-swap
+  description: >-
+    Taking the smallest coordinate difference where the maximum metric uses the largest.
+- id: mb-radius-from-side
+  description: >-
+    Giving the side, the half-diagonal or the full width of the figure as the radius of the ball.
+- id: mb-shell-difference-squared
+  description: >-
+    Squaring the difference of the two radii of a shell instead of taking the difference of their squares.
+- id: mb-shell-outer-only
+  description: >-
+    Giving the area of the outer ball for the shell between two balls.
+- id: mb-weights-added
+  description: >-
+    Adding the two weights where the area of a weighted diamond uses their product.
+- id: mb-weights-multiplied
+  description: >-
+    Multiplying by the weights instead of dividing by them when finding the size of a weighted ball.
+- id: mb-weights-swapped
+  description: >-
+    Pairing each weight of a weighted taxicab metric with the other coordinate's difference.
+- id: mb-wrong-norm-formula
+  description: >-
+    Using the formula of a different metric (taxicab, Euclidean or maximum) from the one the question names.
+tags: [university-core-v1, university-year-2, metric-spaces-and-topology, metric-balls, norm-comparison]
+framework_areas: [metric-spaces-and-topology]
+alignments:
+- source_id: mit-subject-catalogue
+  status: candidate
+  framework: university-core-v1
+  area: metric-spaces-and-topology
+- source_id: cambridge-course-list
+  status: candidate
+  framework: university-core-v1
+  area: metric-spaces-and-topology
+difficulty_progression:
+  easy: {steps: 2, demand: "Find the exact distance between two points of R^2 or R^3 under a named metric: taxicab, Euclidean, maximum or a weighted taxicab metric."}
+  medium: {steps: 3, demand: "Count which of six points lie strictly inside an open ball of a taxicab, Euclidean, maximum, weighted or discrete metric, with points on the sphere as the trap; or use the norm-comparison constant to find the largest radius of one metric's ball inside another's, the least radius of one that contains another's, or the diameter of a ball measured in the other metric."}
+  hard: {steps: 4, demand: "Find the least upper bound of the radii whose ball misses part of a set, the exact area or volume of a ball or a shell between balls, or the radius of the ball with listed vertices."}
+  exam: {steps: 6, demand: "Find two distances, count the points of a set inside a ball, find the least radius whose ball contains the set, then the area or volume of that ball by follow-through."}
