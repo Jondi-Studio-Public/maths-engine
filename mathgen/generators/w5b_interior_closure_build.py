@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import itertools
 import random
+import re
 from fractions import Fraction as Fr
 from types import SimpleNamespace
 
@@ -49,10 +50,25 @@ from ..grading.inequality import _same_set as _same_real_set  # noqa: PLC2701
 from ._r3j_kit import set_part, single_set
 from ._spread_kit import uses_rng
 from ._w5b_balance import balanced
-from ._w5a_support import Link, X, ineq_part, join_signed, link_part, msay
+from ._w5a_support import Link, X, ineq_part, join_signed, link_part, msay as _msay
 
 TOPIC = "w5b_interior_closure"
 EXAM_TOPIC = "exd_x_w5b_interior_closure"
+
+
+def msay(*parts):
+    """`_w5a_support.msay` with literal braces set as maths, so no brace sits inside a `\\text{}` group."""
+    out = []
+    for part in parts:
+        if isinstance(part, str):
+            for piece in re.split(r"([{}])", part):
+                if piece in ("{", "}"):
+                    out.append(X(piece, "\\" + piece))
+                elif piece:
+                    out.append(piece)
+        else:
+            out.append(part)
+    return _msay(*out)
 
 
 # -- numbers and text ---------------------------------------------------------------------------------------------------------
@@ -866,6 +882,7 @@ def _rand_planar(rng):
         return Planar(
             "rect",
             f"the square [{a}, {b}] × [{c0}, {d0}] with its boundary removed",
+            tex=rf"\text{{the square }}[{a}, {b}] \times [{c0}, {d0}]\text{{ with its boundary removed}}",
             box=(a, b, c0, d0),
             flags=(False,) * 4,
             c=((a + b) // 2, (c0 + d0) // 2),
@@ -905,7 +922,7 @@ def _form_planar_set(rng):
             break
     word = {"interior": "in the interior of", "closure": "in the closure of", "boundary": "on the boundary of"}[ask]
     plist = ", ".join(f"({x}, {y})" for x, y in pts)
-    s = X(sh.text, sh.text)
+    s = X(sh.text, getattr(sh, "tex", None) or sh.text.replace("{", r"\{").replace("}", r"\}"))
     prompt = _pick(
         rng,
         [

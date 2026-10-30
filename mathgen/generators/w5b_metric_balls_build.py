@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import itertools
 import random
+import re
 from fractions import Fraction as Fr
 
 import sympy
@@ -33,7 +34,7 @@ from ..answers import Distractor
 from ..core import attempts, check, generator
 from ._spread_kit import uses_rng
 from ._w5b_balance import balanced
-from ._w5a_support import Link, X, astr, atext, dist_list, exam_dict, int_dist, msay, single
+from ._w5a_support import Link, X, astr, atext, dist_list, exam_dict, int_dist, msay as _msay, single
 
 TOPIC = "w5b_metric_balls"
 EXAM_TOPIC = "exd_x_w5b_metric_balls"
@@ -43,6 +44,21 @@ _TEX = {"1": "d_1", "2": "d_2", "inf": r"d_\infty", "disc": "d_0", "w": "d_w"}
 _WORD = {"1": "the taxicab metric", "2": "the Euclidean metric", "inf": "the maximum metric"}
 _TEXB = {"1": "1", "2": "2", "inf": r"\infty"}
 _BASIC = ("1", "2", "inf")
+
+
+def msay(*parts):
+    """`_w5a_support.msay` with literal braces set as maths, so no brace sits inside a `\\text{}` group."""
+    out = []
+    for part in parts:
+        if isinstance(part, str):
+            for piece in re.split(r"([{}])", part):
+                if piece in ("{", "}"):
+                    out.append(X(piece, "\\" + piece))
+                elif piece:
+                    out.append(piece)
+        else:
+            out.append(part)
+    return _msay(*out)
 
 
 # -- the metrics: exact distances ---------------------------------------------------------------------------------------

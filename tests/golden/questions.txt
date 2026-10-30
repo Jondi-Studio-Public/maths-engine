@@ -12856,18 +12856,18 @@
 {"answer": "-8π", "id": "uc2-integral-theorem-verification/medium/0/c8fb5e5adddf", "text": "Verify Stokes' theorem for F(x, y, z) = (xy + y) i + (-x² - 3yz - y) j + (2xz -…"}
 {"answer": "-8π", "id": "uc2-integral-theorem-verification/medium/1/3fb7b1968235", "text": "Verify the divergence theorem for F(x, y, z) = (x² - 3y) i + (x³ - 3z) j - 2x²z…"}
 {"answer": "9π/2", "id": "uc2-integral-theorem-verification/medium/2/4f86373d6c82", "text": "Check the divergence theorem for the velocity field F(x, y, z) = 3y² i + yz j +…"}
-{"answer": "{-7, -5}", "id": "uc2-interior-closure-boundary/easy/0/9fc22e4a6bb1", "text": "Let S = [-7, -5) as a subset of R. The closure of S is a union of closed interv…"}
-{"answer": "{-8, -5}", "id": "uc2-interior-closure-boundary/easy/1/f47a200bccc9", "text": "What is the boundary of S = [-8, -5] in R? Write it as a set of numbers {a, b, …"}
-{"answer": "{-2, -1}", "id": "uc2-interior-closure-boundary/easy/2/39c5770118f6", "text": "What is the boundary of S = [-2, -1) in R? Write it as a set of numbers {a, b, …"}
-{"answer": "(a) (-40, -32) ∪ (-18, 1); (b) {-40, -32, -18, 1, 7, 12}; (…", "id": "uc2-interior-closure-boundary/exam/0/e0512eb7c069", "text": "Let S = [-40, -32) ∪ (-18, 1] ∪ {7} ∪ {12} be a subset of R with the usual metr…"}
-{"answer": "(a) (22, 42); (b) {22, 42, 43, 45}; (c) 4; (d) 152; (e) 38", "id": "uc2-interior-closure-boundary/exam/1/a991bab79c33", "text": "Let S = {45} ∪ [40, 42] ∪ {43} ∪ [22, 40) be a subset of R with the usual metri…"}
-{"answer": "(a) (-48, -43) ∪ (-43, -29); (b) {-48, -43, -29}; (c) 3; (d…", "id": "uc2-interior-closure-boundary/exam/2/2a5110e99673", "text": "The set S = (-48, -43) ∪ (-43, -29) ∪ {-29} lies in R. (a) Find the interior of…"}
-{"answer": "{0, 2, 3, 6}", "id": "uc2-interior-closure-boundary/hard/0/65447a800a50", "text": "Find the limit points of S = (0, 2) ∪ {6 + 1/n : n = 1, 2, 3, …} ∪ (3, 5] that …"}
-{"answer": "{-4, -2, 1, 3}", "id": "uc2-interior-closure-boundary/hard/1/33ba75324992", "text": "Let S = [-4, -2] ∪ (ℚ ∩ (1, 3)) as a subset of R. The closure of S is a union o…"}
-{"answer": "{-7, -6, -5, -2}", "id": "uc2-interior-closure-boundary/hard/2/d801e19dbe97", "text": "Consider S = [-7, -6) ∪ (ℚ ∩ (-5, -2)) with the usual metric on R. Its closure …"}
-{"answer": "{6}", "id": "uc2-interior-closure-boundary/medium/0/ec777c5d4c59", "text": "Let S = {6} ∪ [-3, -2) ∪ [1, 3) in R. Give the set of isolated points of S, in …"}
-{"answer": "{-5, 1}", "id": "uc2-interior-closure-boundary/medium/1/d3c8094b7608", "text": "Let S = (-5, -3) ∪ (-3, 1) ∪ {-3} as a subset of R. The closure of S is a union…"}
-{"answer": "{2}", "id": "uc2-interior-closure-boundary/medium/2/0e9fe17a393d", "text": "A point p of S = [-5, -3) ∪ (-2, 0) ∪ {0} ∪ {2} is isolated when some interval …"}
+{"answer": "{-7, -5}", "id": "uc2-interior-closure-boundary/easy/0/2498820e9696", "text": "Let S = [-7, -5) as a subset of R. The closure of S is a union of closed interv…"}
+{"answer": "{-8, -5}", "id": "uc2-interior-closure-boundary/easy/1/5f957bbe94f4", "text": "What is the boundary of S = [-8, -5] in R? Write it as a set of numbers {a, b, …"}
+{"answer": "{-2, -1}", "id": "uc2-interior-closure-boundary/easy/2/06a019bb335d", "text": "What is the boundary of S = [-2, -1) in R? Write it as a set of numbers {a, b, …"}
+{"answer": "(a) (-40, -32) ∪ (-18, 1); (b) {-40, -32, -18, 1, 7, 12}; (…", "id": "uc2-interior-closure-boundary/exam/0/02f9f8d97326", "text": "Let S = [-40, -32) ∪ (-18, 1] ∪ {7} ∪ {12} be a subset of R with the usual metr…"}
+{"answer": "(a) (22, 42); (b) {22, 42, 43, 45}; (c) 4; (d) 152; (e) 38", "id": "uc2-interior-closure-boundary/exam/1/e98f5b016255", "text": "Let S = {45} ∪ [40, 42] ∪ {43} ∪ [22, 40) be a subset of R with the usual metri…"}
+{"answer": "(a) (-48, -43) ∪ (-43, -29); (b) {-48, -43, -29}; (c) 3; (d…", "id": "uc2-interior-closure-boundary/exam/2/e3b444ce4504", "text": "The set S = (-48, -43) ∪ (-43, -29) ∪ {-29} lies in R. (a) Find the interior of…"}
+{"answer": "{0, 2, 3, 6}", "id": "uc2-interior-closure-boundary/hard/0/cd407c5d176a", "text": "Find the limit points of S = (0, 2) ∪ {6 + 1/n : n = 1, 2, 3, …} ∪ (3, 5] that …"}
+{"answer": "{-4, -2, 1, 3}", "id": "uc2-interior-closure-boundary/hard/1/12040a2b6529", "text": "Let S = [-4, -2] ∪ (ℚ ∩ (1, 3)) as a subset of R. The closure of S is a union o…"}
+{"answer": "{-7, -6, -5, -2}", "id": "uc2-interior-closure-boundary/hard/2/1d905599e19d", "text": "Consider S = [-7, -6) ∪ (ℚ ∩ (-5, -2)) with the usual metric on R. Its closure …"}
+{"answer": "{6}", "id": "uc2-interior-closure-boundary/medium/0/66bb13c8f014", "text": "Let S = {6} ∪ [-3, -2) ∪ [1, 3) in R. Give the set of isolated points of S, in …"}
+{"answer": "{-5, 1}", "id": "uc2-interior-closure-boundary/medium/1/d889e3348f50", "text": "Let S = (-5, -3) ∪ (-3, 1) ∪ {-3} as a subset of R. The closure of S is a union…"}
+{"answer": "{2}", "id": "uc2-interior-closure-boundary/medium/2/599c579824b2", "text": "A point p of S = [-5, -3) ∪ (-2, 0) ∪ {0} ∪ {2} is isolated when some interval …"}
 {"answer": "1/16", "id": "uc2-interpolation-error-bound/easy/0/281a6e1bedef", "text": "Interpolate f(x) = sin 2x at the nodes x = 2, 2.5, 3 with a polynomial p of deg…"}
 {"answer": "1/2", "id": "uc2-interpolation-error-bound/easy/1/e6e0b61b8848", "text": "A polynomial p of degree at most 2 agrees with f(x) = sin 4x at x = 1, 1.5, 2. …"}
 {"answer": "27/128", "id": "uc2-interpolation-error-bound/easy/2/d688831e70d3", "text": "A polynomial p of degree at most 2 agrees with f(x) = sin 3x at x = 1, 1.5, 2. …"}
@@ -13183,11 +13183,11 @@
 {"answer": "5", "id": "uc2-metrics-and-balls-in-rn/easy/0/9a2d2ee11db8", "text": "Find the distance d_∞(x, y) between x = (0, -3, 0) and y = (5, -6, 4) in R³ und…"}
 {"answer": "11", "id": "uc2-metrics-and-balls-in-rn/easy/1/a57871376da4", "text": "Find the distance d_∞(x, y) between x = (-2, -1, -6) and y = (5, 5, 5) in R³ un…"}
 {"answer": "9", "id": "uc2-metrics-and-balls-in-rn/easy/2/83977e474273", "text": "Two points of R³ are (4, -6, 6) and (5, 3, 0). Using the maximum metric d_∞, de…"}
-{"answer": "(a) √433; (b) 29; (c) 2; (d) √521; (e) 521π", "id": "uc2-metrics-and-balls-in-rn/exam/0/8a9058ccee09", "text": "Consider the points P = (5, -17) and Q = (-7, 0) of R² and the set S = {(6, -21…"}
-{"answer": "(a) √1914; (b) 74; (c) 2; (d) √89; (e) 356π(√89)/3", "id": "uc2-metrics-and-balls-in-rn/exam/1/ce2b6652b8d9", "text": "A set S = {(14, 6, -13), (19, 5, -8), (22, 2, -12), (15, 6, -15), (14, 6, -12)}…"}
-{"answer": "(a) 28; (b) √366; (c) 2; (d) 17; (e) 19652/3", "id": "uc2-metrics-and-balls-in-rn/exam/2/3a24b186308a", "text": "A set S = {(-11, -16, -7), (-3, -6, -7), (-1, -7, -9), (-5, -2, -6), (-4, -5, -…"}
+{"answer": "(a) √433; (b) 29; (c) 2; (d) √521; (e) 521π", "id": "uc2-metrics-and-balls-in-rn/exam/0/f39ca2c78f17", "text": "Consider the points P = (5, -17) and Q = (-7, 0) of R² and the set S = {(6, -21…"}
+{"answer": "(a) √1914; (b) 74; (c) 2; (d) √89; (e) 356π(√89)/3", "id": "uc2-metrics-and-balls-in-rn/exam/1/b57c1a8ba7ed", "text": "A set S = {(14, 6, -13), (19, 5, -8), (22, 2, -12), (15, 6, -15), (14, 6, -12)}…"}
+{"answer": "(a) 28; (b) √366; (c) 2; (d) 17; (e) 19652/3", "id": "uc2-metrics-and-balls-in-rn/exam/2/79c4ca2686ff", "text": "A set S = {(-11, -16, -7), (-3, -6, -7), (-1, -7, -9), (-5, -2, -6), (-4, -5, -…"}
 {"answer": "48", "id": "uc2-metrics-and-balls-in-rn/hard/0/905c120864ac", "text": "In R² under the taxicab metric d_1, let A be the set of points x with 1 ≤ d_1(x…"}
-{"answer": "8", "id": "uc2-metrics-and-balls-in-rn/hard/1/5f3a03195705", "text": "In R² with the maximum metric d_∞, let c = (-3, -1) and S = {(-4, -6), (-3, 6),…"}
+{"answer": "8", "id": "uc2-metrics-and-balls-in-rn/hard/1/1dea1ff612a2", "text": "In R² with the maximum metric d_∞, let c = (-3, -1) and S = {(-4, -6), (-3, 6),…"}
 {"answer": "9π/4", "id": "uc2-metrics-and-balls-in-rn/hard/2/36454729e119", "text": "In R² under the Euclidean metric d_2, find the area of the open ball {x : d_2(x…"}
 {"answer": "11√2", "id": "uc2-metrics-and-balls-in-rn/medium/0/cb12c4eb25d5", "text": "Let c = (0, 5) in R². Write B_∞(c, r) for the open ball of radius r = 11 about …"}
 {"answer": "2", "id": "uc2-metrics-and-balls-in-rn/medium/1/f3e7a337c515", "text": "The open ball of radius 7 about c = (-4, -2) in the maximum metric d_∞ is the s…"}
