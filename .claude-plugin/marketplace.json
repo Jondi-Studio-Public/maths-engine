@@ -11,7 +11,7 @@
     {
       "name": "maths-engine-tutor",
       "source": "./plugins/maths-engine-tutor",
-      "description": "Maths practice for learners: questions from early years to first-year university, marked by the engine, with no answers given away. Australian Curriculum aligned.",
+      "description": "Maths practice for learners: questions from early years to second-year university, marked by the engine, with no answers given away. Australian Curriculum aligned.",
       "version": "0.2.0",
       "license": "MIT",
       "keywords": [
@@ -26,7 +26,7 @@
     {
       "name": "maths-engine-teacher",
       "source": "./plugins/maths-engine-teacher",
-      "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to first-year university. Australian Curriculum aligned.",
+      "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to second-year university. Australian Curriculum aligned.",
       "version": "0.2.0",
       "license": "MIT",
       "keywords": [

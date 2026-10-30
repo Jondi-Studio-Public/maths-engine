@@ -49,6 +49,11 @@ default; set `MATHS_API_DOCS=1` to serve them. They need no key, so leave them o
   carries on. Run at least two workers so a replacement starting does not hold up other calls. A grade on a
   (skill, source) that has just timed out repeatedly fails fast for a short cool-down instead of killing another worker, and
   a batch that runs past `MATHS_API_BATCH_TIMEOUT` marks its remaining items with the error `timeout`.
+  Marking a whole test cannot starve single grades: a batch may spend only `MATHS_API_BATCH_BUDGET` worker-seconds on
+  its replies (the time each held a worker; the rest come back as `timeout` unrun), batches together use at most half the workers, so at least one worker stays free for single grades
+  (another batch gets `503` with `Retry-After`; with a single worker nothing can be kept back, so run two or more), and, if you set `MATHS_API_CLIENT_STRIKES`, a client (an API key, or the address when running open) whose replies time
+  out that many times in the cool-down window gets `503` on grading calls until it ends, however
+  many different ids it cycles through.
 - **Load is shed, not queued for ever.** When more calls are in flight than `MATHS_API_MAX_IN_FLIGHT`, the excess
   get `503` with a `Retry-After` header. Retry after that many seconds.
 - **Upgrades change ids.** The library hash is part of every id's check, so after an upgrade that changes a skill,
@@ -132,12 +137,14 @@ equivalent form is marked wrong there. For those, grade through `/v1/grade`, or 
 | `MATHS_API_WORKERS` | CPUs available to the container, at most 8 | worker processes |
 | `MATHS_API_MAX_IN_FLIGHT` | workers x 2 | calls in flight at once; the excess get `503` with `Retry-After` |
 | `MATHS_API_WORKER_MEMORY_MB` | `1024` | address-space cap per worker process (Linux); `0` turns it off. A worker uses about 145 MB resident, 340 MB of address space |
-| `MATHS_API_COOLDOWN` | `30` | seconds a (skill, source) fails fast after repeated timeouts |
+| `MATHS_API_COOLDOWN` | `30` | seconds a (skill, source), or a client that causes too many timeouts, fails fast after repeated timeouts |
 | `MATHS_API_COOLDOWN_STRIKES` | `3` | timeouts within the cool-down window that start one |
 | `MATHS_API_LIMIT_CONCURRENCY` | `64` | uvicorn's cap on concurrent connections |
 | `MATHS_API_DOCS` | off | `1` serves `/docs`, `/redoc` and `/openapi.json` |
 | `MATHS_API_TIMEOUT` | `5` | seconds for one question or one grade |
 | `MATHS_API_BATCH_TIMEOUT` | 10 x `MATHS_API_TIMEOUT` | seconds for a whole batch; items still waiting past it get the error `timeout` |
+| `MATHS_API_BATCH_BUDGET` | 3 x `MATHS_API_TIMEOUT` | worker-seconds one batch may spend, counting the time every reply held a worker; items after that get the error `timeout` without being run. The time includes any wait for a free worker, so a very busy server cuts batches short sooner |
+| `MATHS_API_CLIENT_STRIKES` | `0` (off) | timeouts one client (API key, or address when open) may cause per window before its grading calls get `503`. Off because one key or proxy address is often shared by a whole class; turn it on where each client is one person. Behind a proxy, set uvicorn's `FORWARDED_ALLOW_IPS` so the real address is seen |
 | `MATHS_API_PAPER_TIMEOUT` | `60` | seconds for a paper |
 | `MATHS_API_QUEUE_TIMEOUT` | `30` | seconds a call may wait for a free worker before `503` |
 | `MATHS_API_MAX_BODY` | `262144` | bytes in a request body |

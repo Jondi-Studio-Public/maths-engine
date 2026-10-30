@@ -9,9 +9,8 @@ drawn cubic (the existing ``cartesian`` figure kind, a curve sampled every 1/8 s
 - hard: ``k`` is 2, -2, 3, 1/2 or -1/2; a marked point P gives it.
 
 ``fr2c_cubic_features_exam`` is the chain for an equation given in words and symbols: (a) which statement about the
-x-intercepts is true (mcq), (b) the y-intercept, (c) the x-coordinate of the turning point that is not on the x-axis,
-(d) its y-coordinate (follows through from (c)). The turning point is found from the derivative
-``k(x - b)(3x - 2a - b)``; the generator checks it with SymPy.
+x-intercepts is true (mcq), (b) the y-intercept, (c) which of two given turning-point x-values is the one that is not on the x-axis (no calculus: both are stated),
+(d) its y-coordinate (follows through from (c)). The turning points are given in the question; the generator checks with SymPy that they are stationary points.
 """
 
 from __future__ import annotations
@@ -279,12 +278,12 @@ def _build_features(rng):
             ],
         ),
         kit.num_part(
-            "The graph has two turning points, one on the x-axis. Find the x-coordinate of the other one.",
+            f"The graph has two turning points, at x = {min(b, xt)} and x = {max(b, xt)}. Find the x-coordinate of the one that is not on the x-axis.",
             xt,
             2,
             [
-                f"y' = {'' if k == 1 else '-' if k == -1 else k}({_sub('x', b)})({_sub('3x', 2 * a + b)}) after taking the derivative by the product rule.",
-                f"The turning points are at x = {b} and x = {xt}.",
+                f"The graph touches the x-axis at x = {b}, so the turning point at x = {b} is on the x-axis.",
+                f"The other turning point, the one that is not on the x-axis, is at x = {xt}.",
             ],
             [
                 ("fr2c-turning-point-at-midpoint", Fraction(a + b, 2)),

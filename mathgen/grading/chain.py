@@ -50,6 +50,8 @@ def _split_lines(given: str) -> list[str]:
             return []
         for piece in raw.split("="):
             piece = piece.strip()
+            if piece.endswith(".") and not piece.endswith(".."):
+                piece = piece[:-1].rstrip()  # a full stop closing the sentence, or the last line of the proof
             if piece:
                 lines.append(piece)
     return lines

@@ -59,7 +59,7 @@ _SLUG = re.compile(r"[^a-z0-9]+")
 
 INSTRUCTIONS = """\
 maths-engine generates maths questions with verified answers and marks learners' replies deterministically.
-Skills cover early years to first-year university, tagged with Australian Curriculum (ACARA) codes and years.
+Skills cover early years to second-year university, tagged with Australian Curriculum (ACARA) codes and years.
 Find a skill with find_skills, set questions with make_questions, and mark every reply with grade_answer: it
 accepts equivalent forms and applies each question's own precision, so do not mark replies yourself.
 Skills with gradeable=false (proofs, explanations) are marked by a person, not the engine.
@@ -241,7 +241,7 @@ def build_server(
     @server.tool(annotations=read_only)
     def find_skills(
         text: Annotated[Text, Field(description="Words in the skill's id, name or description.")] = None,
-        year: Annotated[Text, Field(description='School year: "F", "1" ... "10", "10A".')] = None,
+        year: Annotated[Text, Field(description='School year: "F", "1" ... "10", "10A", or "university".')] = None,
         code: Annotated[
             Text,
             Field(description='An ACARA code or its start: "AC9M8N01", "AC9M8" for all of Year 8, "ACMMM092".'),
@@ -291,7 +291,7 @@ def build_server(
         str | None, Field(description="One of the skill's `sources` (a difficulty or source key).", max_length=100)
     ]
     Typed = Annotated[str, Field(max_length=2000)]
-    Index = Annotated[int, Field(ge=-(10**15), le=10**15)]
+    Index = Annotated[int, Field(ge=-(10**15), le=10**15, strict=True)]  # strict: `true` is not option 1
     Reply = Annotated[
         Typed | Index | Annotated[dict[Annotated[str, Field(max_length=20)], Typed | Index], Field(max_length=26)],
         Field(

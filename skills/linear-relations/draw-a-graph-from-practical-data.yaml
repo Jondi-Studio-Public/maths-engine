@@ -1,0 +1,55 @@
+id: draw-a-graph-from-practical-data
+name: Draw a graph from data for a practical situation
+domain: linear-relations
+year_level: ['12']
+description: 'Plot the points of a practical relationship on a blank grid. Easy: a table of values. Medium: a fixed charge plus a rate in words, evaluated then plotted. Hard: a tiered rate, a balance that runs down, or a rule found from two readings. The exam chain plots three readings, then finds the fixed charge, the rate and a prediction. Distinct from plot-a-point-from-coordinates, which gives the coordinates.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [plot-a-point-from-coordinates]
+answer: points
+sources:
+- topic: dr1_graph_from_data
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dr1_graph_from_data
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [3, 4]
+- topic: dr1_graph_from_data
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_dr1_graph_from_data
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dr1-data-point-omitted
+  description: Leaves out one of the readings, so the graph has a point fewer than the data.
+- id: dr1-fixed-charge-omitted
+  description: Leaves out the fixed starting amount and uses only the rate multiplied by the input.
+- id: dr1-rate-and-fixed-swapped
+  description: Swaps the fixed amount and the rate, using the rate as the starting amount and the fixed amount as the rate.
+- id: dr1-pairs-mismatched
+  description: Pairs a value with the wrong partner, so the points do not match the data.
+- id: dr1-off-by-one
+  description: Reads or counts one unit too many or too few.
+- id: dr1-first-reading-for-intercept
+  description: Gives the first reading as the starting amount instead of working back to the value at zero.
+- id: dr1-total-change-for-rate
+  description: Gives the change between two readings without dividing by the gap between them.
+- id: dr1-last-reading-restarted
+  description: Adds the full prediction on to the last reading instead of from the starting amount.
+difficulty_progression:
+  easy: {steps: 1, demand: 'Plot the points of a table of values.'}
+  medium: {steps: 2, demand: 'Evaluate a fixed charge plus a rate for each input, then plot.'}
+  hard: {steps: 3, demand: 'Find the values from a tiered rate, a falling balance or two readings, then plot.'}
+  exam: {steps: 5, demand: 'Chain the plotted readings, the fixed charge, the rate and a prediction.'}
+tags: [acara-senior-v8-4, linear-relations, graphs, practical-situations, construct, drawn-answer, figure, dr1_graph_from_data, acmem125]

@@ -143,7 +143,7 @@ def _repayments_needed(debt, repayment, idx):
             break
         balance *= g
     else:
-        raise AssertionError("debt does not clear")
+        return None  # indexation outruns the repayment for years: not a question a learner can work out
     for k in range(n):  # closed form: balance after k full years, then does repayment k+1 clear it?
         after_k = Fraction(debt) * g**k - repayment * g * (g**k - 1) / (g - 1)
         cleared = after_k <= repayment
@@ -159,7 +159,7 @@ def _hard_years(rng):
         if repayment <= debt * idx / 100 * 1.3:
             continue
         n = _repayments_needed(debt, repayment, idx)
-        if 4 <= n <= 12:
+        if n is not None and 4 <= n <= 12:
             break
     name, job = rng.choice(PEOPLE)
     text = (

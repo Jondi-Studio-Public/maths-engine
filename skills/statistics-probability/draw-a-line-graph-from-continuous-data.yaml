@@ -1,0 +1,63 @@
+id: draw-a-line-graph-from-continuous-data
+name: Draw a line graph of a quantity that changes continuously
+domain: statistics-probability
+year_level: ['11']
+description: 'Draw a line graph on a blank grid by plotting and joining the points. Easy and medium: readings at equal time steps, plotted and joined in order. Hard: no readings are listed; a rate for each stage of a tank (filling, draining, held steady) gives the points where the graph changes direction. The exam chain draws the tank graph, reads a volume, finds when a volume was reached and totals the litres that left. Distinct from f10-line-graph-change-over-time, which reads a drawn line graph.'
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+prerequisites: [f10-line-graph-change-over-time]
+answer: polyline
+sources:
+- topic: dr1_line_graph
+  params:
+    tier: easy
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: dr1_line_graph
+  params:
+    tier: medium
+  difficulty: medium
+  stages: [3, 4]
+- topic: dr1_line_graph
+  params:
+    tier: hard
+  difficulty: hard
+  stages: [5, 6, maintenance]
+- topic: exd_x_dr1_line_graph
+  params:
+    tier: exam
+  difficulty: exam
+  stages: [exam]
+misconceptions:
+- id: dr1-data-point-omitted
+  description: Leaves out one of the readings, so the graph has a point fewer than the data.
+- id: dr1-time-axis-offset
+  description: Starts the time axis one step late, so every point is plotted one place to the right.
+- id: dr1-joined-by-height
+  description: Joins the points in order of their height instead of in time order.
+- id: dr1-direction-of-change-reversed
+  description: 'Reverses a rise and a fall: plots a fall where the quantity rises, or the other way round.'
+- id: dr1-flat-stage-missed
+  description: Misses the stage where the quantity stays the same, so the flat part of the graph is left out.
+- id: dr1-start-value-ignored
+  description: Starts the graph from zero instead of from the stated starting value.
+- id: dr1-off-by-one
+  description: Reads or counts one unit too many or too few.
+- id: dr1-stage-start-read
+  description: Gives the value at the start of the stage instead of the value at the time asked for.
+- id: dr1-wrong-axis-read
+  description: Reads from the wrong axis, giving a time where a quantity was asked for or the reverse.
+- id: dr1-all-changes-added
+  description: Adds the amounts that went in as well as the amounts that came out.
+- id: dr1-rate-for-total
+  description: Gives a rate where a total amount was asked for.
+- id: dr1-net-change-for-total
+  description: Gives the net change between start and end instead of the total of the changes in one direction.
+difficulty_progression:
+  easy: {steps: 1, demand: 'Plot five readings at equal time steps and join them in order.'}
+  medium: {steps: 2, demand: 'Plot six or seven readings with a rise and a fall, at time steps of 1, 2 or 5.'}
+  hard: {steps: 3, demand: 'Work out the points where a tank graph changes direction from a rate for each stage, then plot and join them.'}
+  exam: {steps: 5, demand: 'Chain the tank graph, a volume read between two points, the time a volume was reached and the total litres drained.'}
+tags: [acara-senior-v8-4, statistics-probability, line-graph, construct, drawn-answer, figure, dr1_line_graph, acmem042]

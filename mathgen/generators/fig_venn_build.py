@@ -168,7 +168,10 @@ def _hard(rng):
         shown = _shown(counts, blank)
         keep = rng.sample(range(len(shown)), 3)
         cands = [sum(shown)] + [u + shown[i] for i in keep]  # adds them; or leaves one region out
-        working = [f"The eight regions add to the total: {' + '.join(str(v) for v in shown)} + ? = {total}."]
+        working = [
+            f"The eight regions add to the total: {' + '.join(str(v) for v in shown)} + ? = {total}.",
+            f"? = {total} - {sum(shown)} = {u}.",
+        ]
     else:
         circle_total = sum(v for k, v in counts.items() if letter in k)
         text = phrase(
@@ -191,7 +194,8 @@ def _hard(rng):
         cands = [circle_total] + [u + v for v in in_circle]
         working = [
             f"Everything inside the {names[circle]} circle adds to {circle_total}: "
-            f"{' + '.join(str(v) for v in in_circle)} + ? = {circle_total}."
+            f"{' + '.join(str(v) for v in in_circle)} + ? = {circle_total}.",
+            f"? = {circle_total} - {sum(in_circle)} = {u}.",
         ]
     return fig, text, u, cands, working
 

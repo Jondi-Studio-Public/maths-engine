@@ -526,6 +526,8 @@ classify-data:
     module: mathgen/generators/w3_fixes_build.py
   - topic: r3j_classify_variable
     module: mathgen/generators/r3j_classify_build.py
+  - topic: ds_classify_ordered
+    module: mathgen/generators/ds_classify_ordered_build.py
   - topic: exd_x_r3j_classify_variables
     module: mathgen/generators/r3j_classify_build.py
 classify-polynomials:
@@ -818,6 +820,22 @@ constants-coefficients-terms:
     module: mathgen/generators/foundations_algebra.py
   - topic: exd_x_sc3_coefficients_chain
     module: mathgen/generators/exd_x_sc3_coefficients_chain.py
+construct-a-scatterplot:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dr1_scatterplot
+    module: mathgen/generators/dr1_draw_graph_build.py
+  - topic: exd_x_dr1_scatterplot
+    module: mathgen/generators/dr1_draw_graph_build.py
+construct-a-time-series-plot:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dr1_time_series
+    module: mathgen/generators/dr1_draw_graph_build.py
+  - topic: exd_x_dr1_time_series
+    module: mathgen/generators/dr1_draw_graph_build.py
 construct-column-and-picture-graphs:
   domain: statistics-probability
   status: active
@@ -1194,6 +1212,22 @@ dominance-matrix-ranking:
     module: mathgen/generators/r3c_dominance_build.py
   - topic: r3c_dominance_chain
     module: mathgen/generators/r3c_dominance_build.py
+draw-a-graph-from-practical-data:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: dr1_graph_from_data
+    module: mathgen/generators/dr1_draw_graph_build.py
+  - topic: exd_x_dr1_graph_from_data
+    module: mathgen/generators/dr1_draw_graph_build.py
+draw-a-line-graph-from-continuous-data:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: dr1_line_graph
+    module: mathgen/generators/dr1_draw_graph_build.py
+  - topic: exd_x_dr1_line_graph
+    module: mathgen/generators/dr1_draw_graph_build.py
 e-as-a-limit-from-a-table:
   domain: differentiation
   status: active
@@ -1604,6 +1638,12 @@ f10-capacity-mass-informal-units:
   sources:
   - topic: fr2c_informal_capacity_mass
     module: mathgen/generators/fr2c_informal_capacity_mass_build.py
+f10-census-sample-experiment-practicalities:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_census_sample_statements
+    module: mathgen/generators/ds_census_sample_build.py
 f10-chance-language-and-outcomes:
   domain: statistics-probability
   status: active
@@ -1810,6 +1850,16 @@ f10-direct-proportion-scale-model:
     module: mathgen/generators/p13a_direct_proportion_scale_build.py
   - topic: exd_x_r2x_direct_proportion_table
     module: mathgen/generators/exd_x_r2x_direct_proportion_table.py
+f10-display-choice-then-read:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_display_choice_easy
+    module: mathgen/generators/ds_display_choice_build.py
+  - topic: ds_display_choice_medium
+    module: mathgen/generators/ds_display_choice_build.py
+  - topic: ds_display_choice_hard
+    module: mathgen/generators/ds_display_choice_build.py
 f10-division-remainder-context:
   domain: primary-number
   status: active
@@ -1818,6 +1868,12 @@ f10-division-remainder-context:
     module: mathgen/generators/primary_number_remainder_integer_build.py
   - topic: exd_x_pr6_remainder_boxes
     module: mathgen/generators/exd_x_pr6_remainder_boxes.py
+f10-draw-cross-sections-of-solids:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: grid_solid_cross_sections
+    module: mathgen/generators/grid_cross_sections_build.py
 f10-enlargement-invariants:
   domain: geometry
   status: active
@@ -1990,6 +2046,16 @@ f10-fractions-half-quarter-eighth:
     module: mathgen/generators/primary_number_fraction_decimal_build.py
   - topic: exd_x_pr5_halving_paddock
     module: mathgen/generators/exd_x_pr5_halving_paddock.py
+f10-frequency-table-discrete-data:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_freq_table_easy
+    module: mathgen/generators/ds_freq_table_build.py
+  - topic: ds_freq_table_derived
+    module: mathgen/generators/ds_freq_table_build.py
+  - topic: ds_freq_table_cumulative
+    module: mathgen/generators/ds_freq_table_build.py
 f10-geometric-construction-algorithm:
   domain: geometry
   status: active
@@ -2382,6 +2448,12 @@ f10-pick-the-matching-view:
     module: mathgen/generators/fr2a_matching_view_build.py
   - topic: exd_x_fr2a_matching_view_chain
     module: mathgen/generators/fr2a_matching_view_build.py
+f10-place-objects-from-position-words:
+  domain: primary-geometry-time
+  status: active
+  sources:
+  - topic: ey_place_objects
+    module: mathgen/generators/ey_place_objects_build.py
 f10-plan-views-cube-stacks:
   domain: geometry
   status: active
@@ -2490,6 +2562,14 @@ f10-random-equal-likelihood-outcomes:
   sources:
   - topic: random_equal_likelihood_outcomes
     module: mathgen/generators/p6d_probability_build.py
+f10-random-versus-convenience-sample:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_sample_vs_pop_gap
+    module: mathgen/generators/ds_sample_vs_pop_build.py
+  - topic: ds_sample_vs_pop_exam
+    module: mathgen/generators/ds_sample_vs_pop_build.py
 f10-ratio-rate-financial-model:
   domain: measurement
   status: active
@@ -2624,6 +2704,16 @@ f10-sequence-days-times:
   sources:
   - topic: day_time_sequencing
     module: mathgen/generators/ordered_sequence_build.py
+f10-shape-and-variation-of-a-display:
+  domain: statistics-probability
+  status: active
+  sources:
+  - topic: ds_shape_var_read
+    module: mathgen/generators/ds_shape_variation_build.py
+  - topic: ds_shape_var_shape
+    module: mathgen/generators/ds_shape_variation_build.py
+  - topic: ds_shape_var_compare
+    module: mathgen/generators/ds_shape_variation_build.py
 f10-shape-features-classification:
   domain: primary-geometry-time
   status: active
@@ -2712,7 +2802,7 @@ f10-terminating-recurring-decimals:
     module: mathgen/generators/exd_x_n4_recurring_decimals.py
 f10-tessellation-transform-combinations:
   domain: geometry
-  status: deferred
+  status: active
   sources:
   - topic: grid_tessellation_images
     module: mathgen/generators/grid_shading_build.py
@@ -2812,7 +2902,7 @@ f10-turn-shapes-on-a-grid:
     module: mathgen/generators/w7f_space_exams.py
 f10-two-dimensional-object-representations:
   domain: primary-geometry-time
-  status: deferred
+  status: active
   sources:
   - topic: grid_plan_views
     module: mathgen/generators/grid_shading_build.py
@@ -6250,6 +6340,12 @@ senior-latitude-longitude-grid-places:
     module: mathgen/generators/grid_shapes_y36_build.py
   - topic: grid_latlong_exam
     module: mathgen/generators/grid_shapes_y36_build.py
+senior-latitude-longitude-typed-coordinates:
+  domain: senior-mathematics
+  status: active
+  sources:
+  - topic: grid_latlong_typed
+    module: mathgen/generators/grid_latlong_typed_build.py
 senior-midpoints-of-the-sides-of-a-quadrilateral-join:
   domain: senior-mathematics
   status: active
@@ -6306,6 +6402,12 @@ senior-prepare-a-personal-budget-for-a-given-income:
     module: mathgen/generators/p10c_personal_finance_build.py
   - topic: exd_x_n1_budget_to_goal
     module: mathgen/generators/exd_x_n1_budget_to_goal.py
+senior-read-a-piece-wise-linear-cost-graph:
+  domain: linear-relations
+  status: active
+  sources:
+  - topic: pw1_piecewise_cost_graph
+    module: mathgen/generators/pw1_piecewise_cost_graph_build.py
 senior-recognise-acceleration-as-the-second-derivative-of-position:
   domain: differentiation
   status: active
@@ -7734,6 +7836,14 @@ skip-count-2-5-10:
   sources:
   - topic: skip_count
     module: mathgen/generators/early_math.py
+slope-field-readings:
+  domain: differential-equations
+  status: active
+  sources:
+  - topic: sc_slope_field
+    module: mathgen/generators/sc_slope_field_build.py
+  - topic: sc_slope_field_chain
+    module: mathgen/generators/sc_slope_field_build.py
 solution-and-solution-set:
   domain: equations
   status: active
@@ -7998,6 +8108,14 @@ translate-word-problems-to-equations:
     module: mathgen/generators/fpm_modelling_build.py
   - topic: fpm_translate_equation_exam
     module: mathgen/generators/fpm_modelling_build.py
+trapezium-rule-estimate:
+  domain: integration
+  status: active
+  sources:
+  - topic: sc_trapezium
+    module: mathgen/generators/sc_trapezium_build.py
+  - topic: sc_trapezium_chain
+    module: mathgen/generators/sc_trapezium_build.py
 triangle-area-base-height:
   domain: measurement
   status: active
@@ -8038,6 +8156,14 @@ trig-equations-radians-list:
     module: mathgen/generators/r3g_trig_equations_build.py
   - topic: r3g_exam_trig_equations
     module: mathgen/generators/r3g_trig_equations_build.py
+trig-equations-solutions-in-radians:
+  domain: trigonometry
+  status: active
+  sources:
+  - topic: w6b_trig_equation_interval
+    module: mathgen/generators/w6b_trig_equation_interval_build.py
+  - topic: exd_x_w6b_trig_equation_interval
+    module: mathgen/generators/w6b_trig_equation_interval_build.py
 trig-substitution-hsc-tan-and-convert:
   domain: integration
   status: active
@@ -10388,6 +10514,14 @@ whole-number-division-facts:
   sources:
   - topic: fair_sharing
     module: mathgen/generators/early_math.py
+whole-units-needed-round-up-down:
+  domain: measurement
+  status: active
+  sources:
+  - topic: sc_whole_units
+    module: mathgen/generators/sc_whole_units_build.py
+  - topic: sc_whole_units_chain
+    module: mathgen/generators/sc_whole_units_build.py
 write-expressions-from-words:
   domain: language-formulas
   status: active

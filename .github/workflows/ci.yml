@@ -171,7 +171,7 @@ jobs:
       matrix:
         # The one place the shard count is defined: SHARDS below is this list's length.
         # tests/test_ci_workflow.py checks that the list is 0..N-1 with no gaps.
-        # 32 because the org has 60 concurrent hosted jobs and a run needs 32 of them plus the 6
+        # 32 because the org has 60 concurrent hosted jobs and a run needs 32 of them plus the 7
         # small jobs, and because ci_shard.py cannot balance finer than its largest single unit
         # (a sweep part file, about 170 s): past about 50 shards the slowest shard stops getting shorter.
         shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
@@ -219,19 +219,28 @@ jobs:
     if: needs.changes.outputs.code == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 15
+    # 3.12 is the version the full suite runs on. 3.13 is also claimed in pyproject.toml, so the fast public
+    # tests and the generator speed check run on it too; ci-ok reads this job's result as one.
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13"]
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: "3.12"
+          python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: |
             pyproject.toml
             .github/requirements-ci.txt
       - run: pip install -e ".[dev]"
       - run: python scripts/check_generator_speed.py
+      - name: Public tests on this Python
+        if: matrix.python-version != '3.12'
+        run: python -m pytest tests/public -q -n auto
 
   secrets:
     # gitleaks over the whole history and then over the final tree. A pull request must not be able

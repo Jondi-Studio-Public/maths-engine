@@ -1,7 +1,7 @@
 {
   "name": "maths-engine-teacher",
   "version": "0.2.0",
-  "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to first-year university. Australian Curriculum aligned.",
+  "description": "Maths worksheets, tests, answer keys and Moodle/QTI question banks from verified question generators, early years to second-year university. Australian Curriculum aligned.",
   "author": {
     "name": "Jondi Haynes",
     "url": "https://github.com/Jondi-Studio-Public"

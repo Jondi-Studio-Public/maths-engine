@@ -29,6 +29,27 @@ Each question's id (below) tells you when the question behind it has changed.
   stem-and-leaf displays, comparing displays, real-data graphs, a grid map) and ten early-years skills (twos facts,
   estimating a collection, angles, chance, solids, symmetry). Each has easy, medium and hard tiers and a
   follow-through exam chain.
+- **6 more skills** (#133), closing gaps found against the NSW, Victorian and Queensland senior courses: tracing
+  pseudocode (`pseudocode-trace-output`), features of power-function graphs (`power-function-graph-features`),
+  complex-plane geometry with ratios, midpoints and w = az + b (`complex-arg-ratio-geometry`), trigonometric
+  substitution integrals (`trig-substitution-hsc-tan-and-convert`), choosing mode, median or mean (`choose-summary-statistic-for-data`) and
+  bits, hexadecimal and digit counts (`bits-hex-and-digit-counts`, hexadecimal typed as text). Each has an exam chain.
+- **New exam chains** (#132, #135): reasonableness of an answer and causation versus correlation (General and
+  Essential courses), and typed multi-part chains for proof by contradiction and for sin, cos and tan graphs on an
+  extended domain (a second exam source on `senior-recognise-the-graphs-of-y-sin-x-y`).
+- **Two grid skills now active** (#136): `f10-tessellation-transform-combinations` and
+  `f10-two-dimensional-object-representations` were deferred and are now practised like the box-nets and
+  turn-shapes skills. The plan-views exam chain now draws the key's rank at random among the options, and plan
+  views of cube stacks are tagged AC9M3SP01, so their ids change.
+- **Coverage-gap skills** (#139, #142, #143, #146):
+  - `trig-equations-solutions-in-radians`: solve sin, cos and tan equations over an interval, with an exam chain (#139).
+  - Four figure and spatial skills (#142): placing objects from position words, drawn cross-sections of solids, typed
+    latitude and longitude, and reading a piece-wise linear cost graph.
+  - Five data and statistics skills (#143): a discrete frequency table, choosing a display and then reading it,
+    census, sample and experiment practicalities, random versus convenience samples, and the shape and variation of
+    a display. `classify-data` gains ordered-list tiers for three or four variables; its existing ids are unchanged.
+  - Three senior calculus and applied skills (#146): the trapezium rule, reading a slope field, and whole units
+    needed (round up) or made (round down).
 
 ### Fixed
 
@@ -45,6 +66,48 @@ Each question's id (below) tells you when the question behind it has changed.
 - About 25 skills raised an error on some seeds (empty distractor candidates, a distractor that collapsed onto the
   key, a costed graph draw whose total was one printed cost); they now redraw. (#126, #127, #130)
 - The variance multiplier in the linear-transform working printed `60.0^2` instead of `60^2`. (#129)
+- A fourth round of review fixes (#134) changes some questions and replies. The displayed stem of
+  `ucv1-lhopital-rule` and `integrate-tan-sec-powers` showed the variable x as a times sign (`lim(x→∞) × ln(...)`),
+  which changed the limit; it now reads as the variable. An answer holding `e` inside a tuple (`uc2-curl-of-field`)
+  was marked wrong although it matched the displayed key. `trig-equations-radians-list` now accepts `π` as the stem
+  asks. `f10-fraction-decimal-links` no longer accepts the decimal in the stem as the answer to "write it as a
+  fraction". The bar-chart grader matches category names without regard to case. Two slow replies are fixed: a long
+  reply with `over` in it took minutes to read, and a reply such as `cos((E-2)^6)` hung the factorising graders. A
+  batch to the HTTP grading endpoint first stopped running replies after three had timed out (see the next entry for
+  the full limit).
+- Robustness and service fixes (#137):
+  - A batch to `/v1/grade/batch` may spend at most `MATHS_API_BATCH_BUDGET` worker-seconds (default three times
+    `MATHS_API_TIMEOUT`); every outcome of an item, success or not, is charged to the budget, and an item that would not get a full deadline is not run. Batches together use at most half
+    the workers, and another batch gets `503` with `Retry-After`, so single grades keep a worker (this needs two or
+    more workers). An opt-in per-client cool-down, `MATHS_API_CLIENT_STRIKES` (default `0`, off), names clients by API
+    key or, when the server is open, by address.
+  - A reply of repeated labels (`x=x=...`) is collapsed before it is tidied: 40,000 characters grade in about 10 ms.
+  - `sympify_safely` and `core._sympify` read a dict or set item by item through the safe parser.
+  - `grade_with_deadline` is exported from `mathgen.engine` and documented.
+  - `year=university` (any case) now matches in the HTTP API, the MCP server and `mathgen.service`.
+  - JSON `true`, `false` and `2.0` are no longer a multiple-choice option index over HTTP and MCP; send an integer.
+  - `make_with_id` refuses a seed that is not an integer, and an id's seed must be written `-?[0-9]+`.
+  - A figure renderer that overflows or divides by zero raises the documented `ValueError`.
+- Content fixes from the fourth review (#140, #145) change some questions, so their ids change. The grid-map exam no
+  longer puts the same feature in two squares; transformation distractors no longer pass through all the marked
+  points; stem-and-leaf contexts use plausible units; the domain of a relation is the set of first coordinates;
+  2x2 chi-square stems state that no Yates correction is used; number-algorithm stems say the order does not matter;
+  the Year 10 cubic exam gives the x-coordinate of the turning point; `ey-prism-pyramid-counts` is also tagged
+  Year 6; senior calculus slips are tagged with a named misconception instead of a generic near-miss; and
+  `hecs-help-repayment` no longer raises on a debt that never clears, which had stopped `build_banks.py`. The
+  reasonableness and causation exam chains now draw stated answers that are clearly reasonable or not, and a
+  causation verdict depends on the number taking part. About ten wording and working-text defects were fixed.
+- Marking, round 4 (grader and display). Correct replies that were marked wrong now pass: the answer as the page shows
+  it (Greek letters, `m³`, an en dash or `×` in a multiple-choice option), dot-plot labels such as `2` for `2.0`, stem
+  and leaf as `2 | 3 7 8 9`, a grid reference such as `D4` (the grid-map skills now show the reference as the key), a
+  mixed number in a pair, any valid basis of the column space, `ln|u|` where `u` is positive, a `π` item in a list.
+  Replies that were wrongly accepted are now refused: `-4i` for -4, hedge words such as "at least 9", "nearly 9" or
+  "idk 9", a false equation before the last `=` ("10 = 9"), a mismatched label ("f(2) = -6" for f(1)), a trailing
+  `+`, `-` or open bracket, a `%` on a dollar or unit answer, a decimal copied from the stem as a fraction, a duplicated
+  root outside polynomial equations, and a bare ratio decimal. A form the stem names (the nearest tenth) is now
+  enforced. Spoken answers must give one value per component in order, with no negation, and the tolerance for a key
+  with two or more decimal places is ±0.005 instead of ±0.051. Question ids change for the grid-map, stem-and-leaf and
+  column-space skills.
 
 ## [0.2.0] - 2026-10-19
 

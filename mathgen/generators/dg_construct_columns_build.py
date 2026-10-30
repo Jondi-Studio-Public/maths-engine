@@ -276,7 +276,7 @@ def _medium(rng):
     )
     working = [
         f"Divide each count by {keyval}: "
-        + ", ".join(f"{c} / {keyval} = {key_text(h)}" for c, h in zip(counts, hs))
+        + ", ".join(f"{c} ÷ {keyval} = {key_text(h)}" for c, h in zip(counts, hs))
         + "."
     ]
     working.append("An odd number of halves needs a half symbol, shown as .5.")
@@ -487,7 +487,7 @@ def dg_construct_columns_chain(rng, tier="exam"):
                     3,
                     [
                         "Divide each count by 2: "
-                        + ", ".join(f"{c} / 2 = {numf(h)['answer_text']}" for c, h in zip(counts, hs))
+                        + ", ".join(f"{c} ÷ 2 = {numf(h)['answer_text']}" for c, h in zip(counts, hs))
                         + "."
                     ],
                     dc,
@@ -497,7 +497,7 @@ def dg_construct_columns_chain(rng, tier="exam"):
                     "How many more symbols does the longest row have than the shortest row?",
                     sym,
                     2,
-                    [f"{diff} votes is {diff} / 2 = {numf(sym)['answer_text']} symbols."],
+                    [f"A difference of {diff} in the counts is {diff} ÷ 2 = {numf(sym)['answer_text']} symbols."],
                     dd,
                     follow_through="part_b / 2",
                     sensible_range=(0, None),

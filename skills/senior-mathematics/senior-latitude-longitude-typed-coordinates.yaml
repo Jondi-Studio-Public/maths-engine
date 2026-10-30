@@ -1,0 +1,61 @@
+# Name and description adapted from the Australian Curriculum: Senior Secondary Mathematics (Version 8.4),
+# (c) ACARA, https://v8.australiancurriculum.edu.au/, CC BY 4.0. Modified; see NOTICE.
+id: senior-latitude-longitude-typed-coordinates
+name: Type the latitude and longitude of places on a map grid
+domain: senior-mathematics
+year_level: ['12']
+description: "Use latitude and longitude to describe the positions of places on a map grid with a line every 10 degrees, by typing the position as a pair of signed degrees (latitude, then longitude, with north and east positive). Easy reads the position of a marked place. Medium finds the place with the latitude of one marked place and the longitude of another. Hard finds the place halfway between two marked places, or the place a stated number of degrees north or south and east or west of one, on a map that crosses the equator or the prime meridian."
+status: active
+capability_gates: [figure_stimulus]
+needs_figure: true
+placement_eligible: false
+learner_band: general
+prerequisites: [senior-latitude-longitude-grid-places]
+answer: pair
+sources:
+- topic: grid_latlong_typed
+  params: {tier: easy}
+  difficulty: easy
+  stages: [0, 1, 2]
+- topic: grid_latlong_typed
+  params: {tier: medium}
+  difficulty: medium
+  stages: [3, 4]
+- topic: grid_latlong_typed
+  params: {tier: hard}
+  difficulty: hard
+  stages: [5, 6, maintenance]
+difficulty_progression:
+  easy: {steps: 1, demand: "Read the latitude and longitude of one marked place and type them as signed degrees."}
+  medium: {steps: 2, demand: "Take the latitude from one marked place and the longitude from another, then type the new position."}
+  hard: {steps: 3, demand: "Combine the positions of two places (halve their sums) or apply a north-south and an east-west move across the equator or prime meridian."}
+misconceptions:
+- id: llt-coordinates-swapped
+  description: Writes the longitude first and the latitude second, when a position is written as latitude then longitude.
+- id: llt-wrong-hemisphere-latitude
+  description: Gives the right size of latitude with the wrong sign, so the place is on the wrong side of the equator.
+- id: llt-wrong-side-of-meridian
+  description: Gives the right size of longitude with the wrong sign, so the place is on the wrong side of the prime meridian.
+- id: llt-one-line-out
+  description: Reads the line next to the right one, so a coordinate is 10 degrees too far north, south, east or west.
+- id: llt-roles-swapped
+  description: Takes the latitude from the wrong place and the longitude from the wrong place, so the two are the wrong way round.
+- id: llt-copies-one-place
+  description: Gives the position of one of the marked places instead of combining a coordinate from each.
+- id: llt-sum-not-halved
+  description: Adds the two latitudes and the two longitudes to find the midpoint but does not halve the totals.
+- id: llt-averages-sizes-across-zero
+  description: Averages the sizes of the two coordinates and ignores their signs, so the midpoint of places on opposite sides of the equator or prime meridian is wrong.
+- id: llt-half-the-difference
+  description: Halves the difference of the two coordinates instead of halving their sum.
+- id: llt-one-coordinate-halved
+  description: Finds the midpoint of only one coordinate and keeps the other from one of the places.
+- id: llt-direction-reversed
+  description: Moves the stated number of degrees the opposite way, south for north or west for east.
+- id: llt-no-crossing-zero
+  description: Stops at the equator or the prime meridian when a move goes past it, keeping the old sign for the left-over degrees.
+- id: llt-offsets-on-wrong-axis
+  description: Applies the north or south move to the longitude and the east or west move to the latitude.
+- id: llt-moves-one-way-only
+  description: Makes only one of the two moves, north or south or east or west, and leaves the other coordinate unchanged.
+tags: [acara-senior-v8-4, senior-mathematics, grid_latlong_typed, acmem159, latitude, longitude, map-grid, typed-answer]

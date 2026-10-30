@@ -44,8 +44,16 @@ from mathgen.grading.safe_parse import (
 )
 from mathgen.grading.spoken import NUMBER_WORDS, check_answer, extract_values, spoken_to_expr
 from mathgen.grading import stem_checks
-from mathgen.grading.units import split_unit, strip_asked_unit, unit_is_acceptable
-from mathgen.core import mcq_options, symbolically_equal  # noqa: F401
+from mathgen.grading.units import (
+    _CAPITAL_UNITS as _units_capitals,
+    _MENTION_RE as _units_mention_re,
+    _SPELLING_TO_UNIT as _units_table,
+    _resolve as _units_resolve,
+    split_unit,
+    strip_asked_unit,
+    unit_is_acceptable,
+)
+from mathgen.core import _learner_text, mcq_options, symbolically_equal  # noqa: F401
 from mathgen.misconceptions import describe as describe_misconception
 from mathgen.text_quality import requested_rounding, requested_significant_figures, significant_figure_count
 
@@ -88,6 +96,76 @@ def _label_fits(question, canonical: str | None, label: str | None) -> bool:
     if not _VARIABLE_LABEL_RE.fullmatch(label):
         return False
     return re.search(rf"(?<![^\W\d_]){re.escape(label)}(?![^\W\d_])", text) is not None
+
+
+# A label as a learner writes it before a value: "x", "m", "f(2)", "f'(-1)", "E[X]", "P(green)".
+_ANSWER_LABEL_RE = re.compile(
+    r"^\s*([^\W\d]\w*['\u2032\u2019]*(?:[ \t]*(?:\([^()=]{1,40}\)|\[[^\[\]=]{1,40}\]))?)[ \t]*=(?!=)[ \t]*"
+)
+_EVENT_LABEL_RE = re.compile(r"^[Pp]\((.{1,40})\)$")
+_SENTENCE_SPLIT_RE = re.compile(r"(?<=[.?!])\s+")
+_GRADIENT_WORD_RE = re.compile(r"\b(?:gradient|slope)\b", re.IGNORECASE)
+
+
+def _label_text(label: str) -> str:
+    """A label with spacing, bracket kind and apostrophe style ignored: "E[X]" is "E(X)", "f’(-1)" is "f'(-1)"."""
+    return re.sub(r"\s+", "", label).replace("[", "(").replace("]", ")").replace("\u2019", "'").replace("\u2032", "'")
+
+
+def _call_label_key(label: str) -> str:
+    """`_label_text` with the name before the bracket folded to lower case ("F(1)" is "f(1)"); the argument inside
+    the bracket is compared as written, so "f(2)" and "g(1)" stay other labels than "f(1)"."""
+    text = _label_text(label)
+    name, bracket, rest = text.partition("(")
+    return name.casefold() + bracket + rest
+
+
+def _event_label_fits(label: str, text: str) -> bool:
+    """ "P(green)" for a question that asks the probability of green: every word inside is one the sentence that asks
+    for the probability uses. "P(red)" is not, when red is only among the data."""
+    event = _EVENT_LABEL_RE.match(label)
+    if event is None:
+        return False
+    asking = " ".join(
+        sentence for sentence in _SENTENCE_SPLIT_RE.split(text) if re.search(r"probab|chance|likel", sentence, re.I)
+    )
+    words = re.findall(r"[^\W_]+", event.group(1).casefold())
+    have = set(re.findall(r"[^\W_]+", asking.casefold()))
+    return bool(words) and all(word in have for word in words)
+
+
+def _answer_label_fits(question, canonical: str | None, label: str) -> bool:
+    """Whether the label a reply writes before its value is the question's own: the canonical's label; else a call
+    or bracket written exactly as the question writes it ("E[X]", "f'(-1)"), the event it asks the probability of,
+    a gradient's "m", or a single variable the question names."""
+    canonical_label = _ANSWER_LABEL_RE.match(canonical or "")
+    if canonical_label is not None:
+        return _call_label_key(canonical_label.group(1)) == _call_label_key(label)
+    text = getattr(question, "text", None) or ""
+    if re.search(r"[(\[']", label):
+        return _label_text(label) in _label_text(text) or _event_label_fits(label, text)
+    if label == "m" and _GRADIENT_WORD_RE.search(text):
+        return True
+    return _label_fits(question, canonical, label)
+
+
+def _names_another_call(question, given: str) -> bool:
+    """Whether the reply opens with a call label ("f(2) =") when the canonical is labelled with another ("f(1) = -6")."""
+    wanted = _ANSWER_LABEL_RE.match(getattr(question, "answer_text", None) or "")
+    written = _ANSWER_LABEL_RE.match(given or "")
+    if wanted is None or written is None or "(" not in wanted.group(1) or "(" not in written.group(1):
+        return False
+    return _call_label_key(wanted.group(1)) != _call_label_key(written.group(1))
+
+
+def _without_fitting_label(question, given: str) -> str:
+    """`given` without the label it opens with ("E[X] = 3" -> "3"), when that label is the question's own."""
+    match = _ANSWER_LABEL_RE.match(given or "")
+    if match is None or len(given) > _MAX_EXACT_NUMBER_LENGTH * 2:
+        return given
+    if _answer_label_fits(question, getattr(question, "answer_text", None), match.group(1)):
+        return given[match.end() :]
+    return given
 
 
 _RATIO_RE = re.compile(r"^(-?)\s*(\d+)\s*:\s*(\d+)$")
@@ -416,6 +494,19 @@ def _has_no_extra_figures(question, given: str) -> bool:
     return literal is None or significant_figure_count(literal.group(0)) <= figures
 
 
+def _shows_the_places_asked(question, places: int) -> bool:
+    """Whether the key is one number written to exactly the `places` the stem asks for (a decimal: "4.0" for the
+    nearest tenth). Money is left to the value: "$5" for "to the nearest cent" is the same amount."""
+    if getattr(question, "follow_through", None):  # a value carried from an earlier reply: its form is not asked
+        return False
+    if not re.search(r"\bnearest\b", getattr(question, "text", "") or "", re.IGNORECASE):
+        return False  # "to 1 decimal place" on a measured length: 28 is 28.0; only a stem that rounds names the form
+    if places < 1 or re.search(r"\bcents?\b|\$", getattr(question, "text", "") or "", re.IGNORECASE):
+        return False
+    shown = _NUMERIC_LITERAL_RE.findall(getattr(question, "answer_text", "") or "")
+    return len(shown) == 1 and _decimal_places(shown[0]) == places
+
+
 def _is_rounded_as_asked(question, given: str) -> bool:
     """Whether a typed number has been rounded the way the question asked.
 
@@ -433,6 +524,8 @@ def _is_rounded_as_asked(question, given: str) -> bool:
     if literal is None:
         return True
     token = literal.group(0)
+    if _decimal_places(token) < places and _shows_the_places_asked(question, places):
+        return False  # "4" for "4.0 to the nearest tenth": the stem names the precision, and the key keeps it
     if _decimal_places(token) <= places:
         return True
     try:
@@ -643,6 +736,7 @@ def _reply_negates_the_answer(question, given: str) -> bool:
 # Syntax the canonical answer itself uses is never held against a reply (a "%" answer, "y = 2x + 1").
 
 # A label such as "x =", "y1 =" or "f(3) =": one name, optionally with a bracketed argument, then "=".
+_HSPACE_RUN_RE = re.compile(r"[ \t]{2,}")
 _VALUE_LABEL_RE = re.compile(r"(?<![\w)])[^\W\d_]\w*(?:[ \t]*\([^()]*\))?[ \t]*=(?!=)")
 # A word character or ")" directly followed by "(": a function call ("f(9)", "sqrt(9)") or implicit product ("2(9)").
 _FUNCTION_CALL_RE = re.compile(r"[\w)]\(")
@@ -662,13 +756,16 @@ _OPERATOR_RE = re.compile(
     r"|\)[ \t]*/|/[ \t]*[(-]|\d[ \t]*/[ \t]*\d+[ \t]*/"
 )
 _RANGE_DASH_RE = re.compile(r"(?<=\d)[ \t]*[–—‒―][ \t]*(?=\d)")
-_PERCENT_WORD_RE = re.compile(r"%|per[ \t]?cent", re.IGNORECASE)
+_PERCENT_WORD_RE = re.compile(r"%|per[ \t]?cent(?!ile)", re.IGNORECASE)
 
 
 def _expression_marks(text: str) -> frozenset[str]:
     """The operator and function syntax left in `text` once its labels and decoration are tidied away."""
     # An en or em dash between values is a range ("5–9" is two numbers), not a subtraction.
-    tidy = _tidy_reply_text(_RANGE_DASH_RE.sub(", ", _VALUE_LABEL_RE.sub(" ", text or "")))
+    # Each label becomes a space; a reply of repeated labels ("x=x=x=...") is then a long run of them, which
+    # several tidy patterns scan quadratically. One space says the same.
+    labelled = _HSPACE_RUN_RE.sub(" ", _VALUE_LABEL_RE.sub(" ", text or ""))
+    tidy = _tidy_reply_text(_RANGE_DASH_RE.sub(", ", labelled))
     tidy = _DIGITLESS_BRACKET_RE.sub(" ", tidy)
     first_end = _first_number_end(tidy)
     tidy = _UNIT_EXPONENT_RE.sub(lambda match: _drop_unit_exponent(match, first_end), tidy)
@@ -714,6 +811,29 @@ def _states_an_unasked_percent(question, given: str) -> bool:
         return False
     asked = " ".join(str(getattr(question, name, "") or "") for name in ("text", "prompt", "answer_text"))
     return _PERCENT_WORD_RE.search(asked) is None
+
+
+_PURE_NUMERIC_RE = re.compile(r"[\d.+\-*/^()\s×÷·⋅]+")
+
+
+def _false_equation_before_value(given: str, value: Fraction, tolerance: Fraction) -> bool:
+    """Whether a chain "10 = 9", "2+2 = 9" or "x = 10 = 9" has a side before the last "=" that is only numbers and
+    operators and is not the value stated at the end. "area = 3 x 3 = 9" and "f(1) = 9" have none."""
+    pieces = given.split("=")
+    if len(pieces) < 2 or len(pieces) > 5 or len(given) > 200:
+        return False
+    for piece in pieces[:-1]:
+        text = _TIMES_SIGN_RE.sub("*", piece).translate(_MULTIPLICATION_SIGNS).replace("÷", "/").replace("^", "**")
+        if not text.strip() or _PURE_NUMERIC_RE.fullmatch(text) is None or not any(c.isdigit() for c in text):
+            continue
+        try:
+            side = parse_expression_safely(text, transformations=_TRANSFORMATIONS)
+            side_value = Fraction(int(side.p), int(side.q)) if side.is_Rational else Fraction(float(side))
+        except Exception:  # noqa: BLE001 - not a readable sum: leave it to the value reader
+            continue
+        if abs(side_value - value) > max(tolerance, Fraction(1, 10**6)):
+            return True
+    return False
 
 
 @_multi_part_aware
@@ -763,10 +883,12 @@ def grade_number(question, given: str) -> GradeResult:
         correct = False  # "sqrt(9)", "9!", "2*9": an operation on the value, not the value
     if correct and _states_an_unasked_percent(question, given):
         correct = False  # "0.27 percent" for 0.27: the same refusal as "0.27%", which is an expression above
+    if correct and "=" in given and _false_equation_before_value(given, value, resolved.tolerance):
+        correct = False  # "10 = 9", "2+2 = 9": a false equation ending in the value
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
 
 
-def _ratio_form_is_acceptable(canonical: str, given: str) -> bool:
+def _ratio_form_is_acceptable(canonical: str, given: str, text: str = "") -> bool:
     """Whether a ratio-notation answer is written in the form the answer asks for.
 
     Ratio notation carries form as well as value. "Simplify the ratio 96:40"
@@ -781,6 +903,10 @@ def _ratio_form_is_acceptable(canonical: str, given: str) -> bool:
     """
     canonical_ratio = _RATIO_RE.match((canonical or "").strip())
     given_ratio = _RATIO_RE.match((given or "").strip())
+    if canonical_ratio is not None and given_ratio is None:
+        # A bare decimal ("2.4" for "12:5") is not a ratio; "12/5" stays accepted (pinned by
+        # tests/test_grading_exact_numbers.py) and a stem that asks for a decimal keeps its decimal.
+        return "." not in (given or "") or "decimal" in (text or "").lower()
     if canonical_ratio is None or given_ratio is None:
         return True
     if math.gcd(int(canonical_ratio.group(2)), int(canonical_ratio.group(3))) != 1:
@@ -843,7 +969,7 @@ def grade_fraction(question, given: str) -> GradeResult:
         expected = Fraction(answer["p"], answer["q"])
         correct = (
             parsed == expected
-            and _ratio_form_is_acceptable(canonical, given)
+            and _ratio_form_is_acceptable(canonical, given, getattr(question, "text", "") or "")
             and _in_lowest_terms_if_asked(question, given)
             and not _states_an_unasked_percent(question, given_with_unit)
         )
@@ -1085,6 +1211,18 @@ def _constant_line_equivalent(label: str, expected, parts: list[str]) -> bool | 
 _LABEL_PREFIX_RE = re.compile(r"^\s*([^\W\d]\w*)\s*=")
 
 
+_LABEL_FOLD = str.maketrans({"²": "2", "³": "3", "₂": "2", "₃": "3"})
+
+
+def _fold_label(label: str) -> str:
+    """A pair label as the page shows it, folded to the stored spelling: α -> alpha, θ -> theta, m³ -> m3, cm² -> cm2."""
+    label = label.translate(_LABEL_FOLD)
+    for char, spelled in _GREEK_NAMES.items():
+        if char in label:
+            label = label.replace(char, spelled)
+    return label
+
+
 def _split_labelled_segments(text: str) -> list[tuple[str, str]] | None:
     """Split a comma-separated pair answer into `(label, raw segment)` pairs,
     or None if `text` is not made entirely of `label = value` segments.
@@ -1112,7 +1250,7 @@ def _split_labelled_segments(text: str) -> list[tuple[str, str]] | None:
         m = _LABEL_PREFIX_RE.match(seg)
         if not m:
             return None
-        parsed.append((m.group(1), seg))
+        parsed.append((_fold_label(m.group(1)), seg))
     return parsed
 
 
@@ -1253,6 +1391,11 @@ def _component_form(given: str, count: int) -> str | None:
     return "(" + ", ".join(coefficients.get(unit, "0") for unit in units) + ")"
 
 
+def _is_component_reply(question, given: str) -> bool:
+    answer = getattr(question, "answer", None)
+    return isinstance(answer, dict) and _component_form(given, len(answer)) is not None
+
+
 # "M(4, 3)": a point written with its name, as the question names it. A capital letter (with a prime or a digit)
 # right before the bracket is a point's name, not a function, when the question uses that name on its own.
 _POINT_NAME_RE = re.compile(r"^\s*([A-Z](?:['′’]|\d)?)[ \t]*(?=\()")
@@ -1266,6 +1409,58 @@ def _without_point_name(question, given: str) -> str:
     if re.search(rf"(?<![\w'′’]){name}(?![\w'′’])", getattr(question, "text", "") or ""):
         return given[match.end() :]
     return given
+
+
+_MIXED_NUMBER_RE = re.compile(r"(?<![\w./])(-?)(\d+)\s+(\d+)/(\d+)(?![\w./])")
+
+
+def _is_exact_fraction_component(value) -> bool:
+    if isinstance(value, Fraction):
+        return value.denominator != 1
+    return isinstance(value, str) and re.fullmatch(r"\s*-?\d+\s*/\s*\d+\s*", value) is not None
+
+
+def _mixed_numbers_as_fractions(given: str, expected_values: list) -> str:
+    """Rewrite a mixed number ("-2 1/3") as the improper fraction ("-7/3") in the components whose key is an exact
+    fraction, so "(-2 1/3, 1)" is read as two components, not three. A component whose key is not a fraction is
+    left as typed."""
+    if not given or not any(_is_exact_fraction_component(v) for v in expected_values):
+        return given
+    stripped = given.strip()
+    opening, closing = ("", "")
+    if len(stripped) >= 2 and stripped[0] in "([" and stripped[-1] == {"(": ")", "[": "]"}[stripped[0]]:
+        opening, closing, stripped = stripped[0], stripped[-1], stripped[1:-1]
+    parts = _split_top_level_commas(stripped)
+    if len(parts) != len(expected_values):
+        return given
+
+    def _improper(m: re.Match) -> str:
+        whole, num, den = int(m.group(2)), int(m.group(3)), int(m.group(4))
+        if den == 0:
+            return m.group(0)
+        return f"{m.group(1)}{whole * den + num}/{den}"
+
+    out = [
+        _MIXED_NUMBER_RE.sub(_improper, part) if _is_exact_fraction_component(value) else part
+        for part, value in zip(parts, expected_values)
+    ]
+    return opening + ",".join(out) + closing
+
+
+def _split_top_level_commas(text: str) -> list[str]:
+    parts, depth, current = [], 0, []
+    for ch in text:
+        if ch in "([{":
+            depth += 1
+        elif ch in ")]}":
+            depth -= 1
+        if depth == 0 and ch == ",":
+            parts.append("".join(current))
+            current = []
+        else:
+            current.append(ch)
+    parts.append("".join(current))
+    return parts
 
 
 @_multi_part_aware
@@ -1284,6 +1479,10 @@ def grade_pair(question, given: str) -> GradeResult:
     if not isinstance(answer, dict):
         return _check_answer_kind(question, given)
     expected_values = list(answer.values())
+    if "%" in (given or "") and "%" not in (canonical or ""):
+        # a percent sign the key does not carry is a different quantity (p10 = 3% for p10 = 3)
+        return GradeResult(correct=False, canonical=canonical, given_normalised=_normalised_values(given))
+    given = _mixed_numbers_as_fractions(given, expected_values)
     given = _component_form(given, len(expected_values)) or given
     given_values = _normalised_values(given)
     if _reply_negates_the_answer(question, given) or _reply_is_an_expression(
@@ -1310,6 +1509,69 @@ def grade_pair(question, given: str) -> GradeResult:
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_values)
 
 
+# Symbols no list reply uses: the value readers step over them, so "3/4_x, 5/4" read as "3/4, 5/4".
+_JUNK_SYMBOL_RE = re.compile(r"[_~#@&|\\`]")
+
+
+def _has_junk_symbol(question, given: str) -> bool:
+    """Whether the reply holds a stray symbol the key (and the question) never uses, which the reader would skip."""
+    shown = f"{getattr(question, 'answer_text', '')} {getattr(question, 'text', '')}"
+    return any(ch not in shown for ch in _JUNK_SYMBOL_RE.findall(given or ""))
+
+
+_PI = r"(?:π|pi)"
+_PI_MULTIPLE_RES = (
+    # k/m pi, k pi/m, pi/m, k pi, pi: the coefficient is the first number (or a fraction) with an optional "*"
+    re.compile(rf"^(?P<sign>[+-]?)\(?(?P<a>\d+)\s*/\s*(?P<b>\d+)\)?\s*\*?\s*{_PI}$"),
+    re.compile(rf"^(?P<sign>[+-]?)(?P<a>\d*)\s*\*?\s*{_PI}(?:\s*/\s*(?P<b>\d+))?$"),
+)
+
+
+def _pi_coefficient(item) -> Fraction | None:
+    """The k of "k*pi" for a multiple of pi written "3pi/4", "3π/4", "pi/4", "-π", "(3/4)π" or "3/4 pi"; 0 for zero."""
+    if isinstance(item, bool):
+        return None
+    if isinstance(item, (int, Fraction)):
+        return Fraction(item) if item == 0 else None
+    if not isinstance(item, str):
+        return None
+    text = item.strip().replace(" ", "")
+    if text in ("0", "+0", "-0"):
+        return Fraction(0)
+    for pattern in _PI_MULTIPLE_RES:
+        m = pattern.match(text)
+        if m is None:
+            continue
+        a = int(m.group("a")) if m.group("a") else 1
+        b = int(m.group("b")) if m.group("b") else 1
+        if b == 0 or (a == 0 and not m.group("a")):
+            return None
+        return Fraction(-a if m.group("sign") == "-" else a, b)
+    return None
+
+
+def _pi_list_verdict(expected, given: str) -> bool | None:
+    """The verdict for a list key whose items are multiples of pi ("3pi/4"), or None when the key is not one.
+
+    Each item is compared by its multiple of pi, whichever way it is spelled; the multiset must match exactly."""
+    if not any(isinstance(e, str) and re.search(_PI, e) for e in expected):
+        return None
+    wanted = [_pi_coefficient(e) for e in expected]
+    if any(w is None for w in wanted):
+        return None
+    items = _split_set_items(given or "")
+    items = [i for i in items if i]
+    got = [_pi_coefficient(i) for i in items]
+    if len(got) != len(wanted) or any(c is None for c in got):
+        return False
+    remaining = list(wanted)
+    for c in got:
+        if c not in remaining:
+            return False
+        remaining.remove(c)
+    return not remaining
+
+
 @_multi_part_aware
 def grade_list(question, given: str) -> GradeResult:
     """Order-insensitive, but the set of values must match exactly.
@@ -1329,7 +1591,14 @@ def grade_list(question, given: str) -> GradeResult:
     expected = question.answer
     if not isinstance(expected, (list, tuple)):
         return _check_answer_kind(question, given)
-    if _reply_negates_the_answer(question, given) or _reply_is_an_expression(question, given):
+    if _reply_negates_the_answer(question, given):
+        return GradeResult(correct=False, canonical=question.answer_text, given_normalised=_normalised_values(given))
+    if _has_junk_symbol(question, given):
+        return GradeResult(correct=False, canonical=question.answer_text, given_normalised=_normalised_values(given))
+    pi_verdict = _pi_list_verdict(expected, given)  # before the expression check: "3*pi/4" is a spelling of 3π/4
+    if pi_verdict is not None:
+        return GradeResult(correct=pi_verdict, canonical=question.answer_text, given_normalised=given)
+    if _reply_is_an_expression(question, given):
         return GradeResult(correct=False, canonical=question.answer_text, given_normalised=_normalised_values(given))
     try:
         values = extract_values(given) if given else []
@@ -1935,7 +2204,28 @@ def _greek_swaps(expr, expected_free) -> dict:
     return swaps
 
 
-def _resolve_constants(expr, expected):
+def _capital_swaps(expr, expected_free, given_free, question_text: str = "") -> dict:
+    """A capital letter for the question's lower-case variable ("X" for x): the same variable, unless the reply also
+    uses a lower-case variable of the question's or the question itself uses the capital."""
+    swaps = {}
+    if any(len(getattr(sym, "name", "")) == 1 and sym.name.islower() for sym in given_free & set(expected_free)):
+        return swaps  # capitals mixed with the question's own lower-case letters ("(y - b)/A"): not one variable
+    for sym in expr.free_symbols:
+        name = getattr(sym, "name", "")
+        if len(name) == 1 and name.isupper() and sym not in expected_free:
+            lower = sympy.Symbol(name.lower())
+            if lower in expected_free and lower not in given_free and not _stands_alone_in(name, question_text):
+                swaps[sym] = lower
+    return swaps
+
+
+def _stands_alone_in(letter: str, text: str) -> bool:
+    """Whether the question writes the capital `letter` as a name of its own or inside a capital name: alone ("B" in
+    "points A and B"), starting a word, or after another capital ("A" in "OA", "AB"). The "x" inside "box" does not."""
+    return re.search(rf"(?<![a-z]){re.escape(letter)}", text or "") is not None
+
+
+def _resolve_constants(expr, expected, question_text: str = ""):
     """Read a learner's `e` and `i` as Euler's number and the imaginary unit
     whenever the question does not itself use them as variables.
 
@@ -1967,6 +2257,7 @@ def _resolve_constants(expr, expected):
             swaps[_I_SYMBOL] = sympy.I
         for part in exprs:
             swaps.update(_greek_swaps(part, free))
+            swaps.update(_capital_swaps(part, free, given_free, question_text))
         if not swaps:
             return expr
         resolved = [part.xreplace(swaps) for part in exprs]
@@ -2024,15 +2315,41 @@ def _log_bases(text: str) -> str:
         text = f"{text[: found.start()]}log({text[found.end() : i - 1]}, {found.group(1)}){text[i:]}"
 
 
+_LATEX_FRACTION = re.compile(r"\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}")
+_LATEX_SQRT = re.compile(r"\\sqrt\s*\{([^{}]*)\}")
+_LATEX_POWER = re.compile(r"\^\s*\{([^{}]*)\}")
+_LATEX_NAMES = re.compile(r"\\(pi|ln|log|exp|sin|cos|tan|sec|csc|cot|sinh|cosh|tanh|arcsin|arccos|arctan)(?![A-Za-z])")
+_LATEX_SPACING = re.compile(r"\\[,;:! ]|\\left|\\right|\\mathrm|\\operatorname")
+
+
+def _latex_to_text(text: str) -> str:
+    """The common LaTeX a learner pastes ("6\\sqrt{21}", "\\frac{1}{2}x^{2}", "\\pi", "2 \\times 3", "\\ln\\|x\\|") as
+    plain text. Every pattern is an innermost brace pair with no nesting, applied a few times, so the work is linear."""
+    if "\\" not in text:
+        return text
+    text = text.replace("\\|", "|").replace("\\times", "*").replace("\\cdot", "*")
+    text = _LATEX_SPACING.sub(" ", text)
+    for _ in range(6):
+        before = text
+        text = _LATEX_FRACTION.sub(r"((\1)/(\2))", text)
+        text = _LATEX_SQRT.sub(r"sqrt(\1)", text)
+        text = _LATEX_POWER.sub(r"^(\1)", text)
+        if text == before:
+            break
+    return _LATEX_NAMES.sub(r"\1", text)
+
+
 def _sympy_text(text: str) -> str | None:
     """`text` rewritten for sympy's parser, or None when the learner notation has no single reading."""
+    text = _latex_to_text(text)
     text = _log_bases(_mixed_numbers(_round_brackets(text)))
-    candidate = _normalize_learner_notation(text.translate(_MULTIPLICATION_SIGNS))
-    if candidate is None:
-        return None  # no single reading: never guess, never hand it to the spoken fallback
-    candidate = _bars_to_abs(candidate)
+    # Bars first: "ln|x^2 + 6|" has its argument between the bars, so it is not the ambiguous "ln x^2".
+    candidate = _bars_to_abs(text.translate(_MULTIPLICATION_SIGNS))
     if candidate is None:
         return None  # unpaired "|": never hand bars to the spoken fallback
+    candidate = _normalize_learner_notation(candidate)
+    if candidate is None:
+        return None  # no single reading: never guess, never hand it to the spoken fallback
     return _normalize_surd_notation(candidate).replace("^", "**")
 
 
@@ -2497,7 +2814,7 @@ def _decimal_as_quotient(match: re.Match) -> str:
     return f"({int(whole + places or '0')}/1{'0' * len(places)})"
 
 
-def _exact_decimals(given_expr, expected, text: str):
+def _exact_decimals(given_expr, expected, text: str, question_text: str = ""):
     """The reply re-read with each typed decimal as the exact number it spells ("x^0.5" as x^(5/10)), when the
     expected answer has no decimal of its own. sympy keeps a typed decimal as a float, so "x^0.5" and "0.5x" never
     simplified to match sqrt(x) and x/2: a right answer marked wrong. The decimals are rewritten in the text, before
@@ -2511,7 +2828,7 @@ def _exact_decimals(given_expr, expected, text: str):
     reread = _parse_expression(_DECIMAL_LITERAL_RE.sub(_decimal_as_quotient, text))
     if reread is None:
         return given_expr
-    reread = _resolve_constants(reread, expected)
+    reread = _resolve_constants(reread, expected, question_text)
     if reread is None:
         return given_expr
     return _match_constant_of_integration(reread, expected)
@@ -2620,6 +2937,8 @@ def grade_expression(question, given: str) -> GradeResult:
     if isinstance(given, str):
         given = _strip_derivative_label(question, given).replace("÷", "/")
     stripped = _round_brackets(_strip_label(given))
+    if isinstance(given, str) and _is_unfinished(canonical, given):
+        return GradeResult(correct=False, canonical=canonical, given_normalised=None)
 
     # answer_form "line_standard_form" -- graded on its own path,
     # split out here rather than as an `elif` further down: see the banner
@@ -2660,7 +2979,7 @@ def grade_expression(question, given: str) -> GradeResult:
     given_expr = _parse_expression(stripped)
     if given_expr is None:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
-    given_expr = _resolve_constants(given_expr, expected)
+    given_expr = _resolve_constants(given_expr, expected, getattr(question, "text", None) or "")
     if given_expr is None:  # `e` as Euler's number made it too costly to compare
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     given_normalised = str(given_expr)
@@ -2739,11 +3058,98 @@ def grade_expression(question, given: str) -> GradeResult:
         # ~35 ms simplify spends exhausting its rewrites first. It can only ever
         # short-circuit to False, never to True.
         if expected is not None:
-            given_expr = _exact_decimals(_match_constant_of_integration(given_expr, expected), expected, stripped)
+            given_expr = _exact_decimals(
+                _match_constant_of_integration(given_expr, expected),
+                expected,
+                stripped,
+                getattr(question, "text", None) or "",
+            )
         correct = expected is not None and symbolically_equal(expected, given_expr)
+        if not correct and expected is not None and _logs_may_drop_their_bars(question, expected, given_expr):
+            correct = _equal_where_log_arguments_are_positive(question, expected, given_expr)
     except (sympy.SympifyError, TypeError, ValueError):
         correct = False
     return GradeResult(correct=correct, canonical=canonical, given_normalised=given_normalised)
+
+
+# -- ln|u| where u > 0 ----------------------------------------------------------------------------------------
+#
+# ∫ 2x/(x²+6) dx is ln(x²+6) + C, and ln|x²+6| + C is the textbook form of the same thing: the bars change nothing
+# where the argument is positive. A reply is compared again with its bars dropped, but only from an Abs whose
+# argument is an argument of one of the key's own logarithms and is positive everywhere the question allows. Where
+# the argument can be negative (ln|x + 1|), a reply without bars stays wrong, as before.
+_SAMPLE_POINTS = tuple(Fraction(i, 5) for i in range(-60, 61))
+
+
+def _logs_may_drop_their_bars(question, expected, given_expr) -> bool:
+    return (
+        isinstance(expected, sympy.Basic)
+        and isinstance(given_expr, sympy.Basic)
+        and (given_expr.has(sympy.Abs) or given_expr.has(sympy.log))
+        and expected.has(sympy.log)
+    )
+
+
+def _positive_symbols(question, symbols) -> dict:
+    """The symbols the stem restricts to positive values ("x > 0"), each with a positive stand-in."""
+    text = getattr(question, "text", "") or ""
+    return {
+        sym: sympy.Dummy(sym.name, positive=True)
+        for sym in symbols
+        if isinstance(sym, sympy.Symbol) and re.search(rf"(?<![\w]){re.escape(sym.name)}\s*>\s*0(?!\d)", text)
+    }
+
+
+def _is_positive_everywhere(arg, positive_names) -> bool:
+    """Whether `arg` is positive for every value its symbols may take: proved by SymPy for real symbols, or else
+    positive at 121 sample points (the positive ones only, for a symbol the question restricts to x > 0)."""
+    symbols = sorted(arg.free_symbols, key=str)
+    if len(symbols) > 2:
+        return False
+    real = arg.xreplace({sym: sympy.Dummy(sym.name, real=True) for sym in symbols if sym not in positive_names})
+    if real.is_positive is True:
+        return True
+    for point in _SAMPLE_POINTS:
+        values = {}
+        for sym in symbols:
+            values[sym] = abs(point) + Fraction(1, 10) if sym in positive_names else point
+        try:
+            value = complex(
+                arg.xreplace({sym: sympy.Rational(v.numerator, v.denominator) for sym, v in values.items()})
+            )
+        except (TypeError, ValueError, ZeroDivisionError, OverflowError):
+            return False
+        if value.imag != 0 or not value.real > 1e-6:
+            return False
+    return bool(symbols)
+
+
+def _equal_where_log_arguments_are_positive(question, expected, given_expr) -> bool:
+    try:
+        check_expression_cost(given_expr)
+        free = expected.free_symbols | given_expr.free_symbols
+        stand_ins = _positive_symbols(question, free)
+        key_arguments = [a.args[0] for a in expected.atoms(sympy.log)]
+        positive_names = set(stand_ins)
+
+        def dropped(node):
+            arg = node.args[0]
+            for wanted in key_arguments:
+                if (arg == wanted or symbolically_equal(arg, wanted)) and _is_positive_everywhere(
+                    wanted, positive_names
+                ):
+                    return arg
+            return node
+
+        changed = given_expr.replace(lambda e: isinstance(e, sympy.Abs), dropped)
+        if changed == given_expr and not stand_ins:
+            return False
+        left, right = expected.xreplace(stand_ins), changed.xreplace(stand_ins)
+        if stand_ins:
+            left, right = sympy.expand_log(left, force=False), sympy.expand_log(right, force=False)
+        return symbolically_equal(left, right)
+    except (TooCostly, sympy.SympifyError, TypeError, ValueError, AttributeError):
+        return False
 
 
 _INDEX_RE = re.compile(r"\d{1,9}")
@@ -2751,13 +3157,14 @@ _INDEX_RE = re.compile(r"\d{1,9}")
 _OPTION_LETTER_RE = re.compile(r"\(([A-Za-z])\)|([A-Za-z])[).]?")
 
 
-def _mcq_choice_by_text(options: list, given: str) -> int | None:
+def _mcq_choice_by_text(options: list, given: str, shown: list | None = None) -> int | None:
     """The option a reply names by its text or its letter, or None when it names neither.
 
     Option text is matched whole, ignoring case, spacing and one trailing full stop. A letter is read only when
     no option is itself a single letter, so "x" is never mistaken for option X's position. When the options are
     themselves numbers, a reply equal to an option's text is that option, never an index; only a reply that matches
-    no option's text is read as an index by `grade_mcq`.
+    no option's text is read as an index by `grade_mcq`. `shown` is the same options as a learner reads them
+    (en dash, ×, superscripts, ≥), in the same order: a reply that copies what the page showed names that option.
     """
     reply = " ".join(given.split()).casefold()
     bare = reply.removesuffix(".").rstrip()
@@ -2767,6 +3174,11 @@ def _mcq_choice_by_text(options: list, given: str) -> int | None:
     for candidate in (reply, bare):
         if candidate in texts:
             return texts.index(candidate)
+    if shown is not None:
+        displayed = [" ".join(str(option).split()).casefold() for option in shown]
+        for candidate in (reply, bare):
+            if candidate in displayed and displayed.count(candidate) == 1:
+                return displayed.index(candidate)
     letter = _OPTION_LETTER_RE.fullmatch(reply)
     if letter and not any(len(text) == 1 and text.isalpha() for text in texts):
         index = ord((letter.group(1) or letter.group(2)).lower()) - ord("a")
@@ -2790,7 +3202,7 @@ def grade_mcq(question, given: str) -> GradeResult:
         # An int is the documented 0-based option index, never option text.
         given = str(given)
     elif isinstance(given, str):
-        chosen = _mcq_choice_by_text(options, given)
+        chosen = _mcq_choice_by_text(options, given, [_learner_text(option) for option in options])
     else:
         return GradeResult(correct=False, canonical=canonical, given_normalised=None)
     if chosen is None:
@@ -2868,6 +3280,23 @@ def table_prompt(answer: dict) -> dict:
     return {"columns": list(answer["columns"]), "rows": rows, "blanks": sorted(answer["blanks"], key=_table_key)}
 
 
+_TABLE_KEY_LINE_RE = re.compile(r"(?im)^[ \t]*key\b[^\n]*(?:\n|$)")
+_TABLE_ROW_RE = re.compile(r"^\s*(.+?)\s*[|:]\s*(.*?)\s*$")
+
+
+def _table_rows_by_label(answer: dict) -> dict[str, str] | None:
+    """Row label -> its one blank, for a table with exactly one blank per row (a stem-and-leaf plot)."""
+    by_row: dict[str, str] = {}
+    seen: set = set()
+    for k in answer["blanks"]:
+        r, _ = _table_key(k)
+        if r in seen or not 0 <= r < len(answer["rows"]) or not answer["rows"][r]:
+            return None
+        seen.add(r)
+        by_row[_label_key(answer["rows"][r][0])] = k
+    return by_row if len(by_row) == len(seen) else None
+
+
 def _table_given_cells(answer: dict, given: str) -> dict[str, str] | None:
     """The learner's text for each blank, or None if it cannot be read."""
     keys = sorted(answer["blanks"], key=_table_key)
@@ -2882,6 +3311,9 @@ def _table_given_cells(answer: dict, given: str) -> dict[str, str] | None:
         if not isinstance(data, dict):
             return None
         return {k: str(data[k]) for k in keys if data.get(k) is not None}
+    text = _TABLE_KEY_LINE_RE.sub("", text).strip()  # a "Key: 2 | 3 means 23" line is not a row
+    if text.endswith(".") and not text.endswith(".."):
+        text = text[:-1].rstrip()  # a full stop closing the reply
     segments = [seg for seg in _TABLE_SEPARATOR_RE.split(_strip_comma_groups(text)) if seg]
     if segments and all("=" in seg for seg in segments):
         by_label = {_label_key(_blank_label(answer, k)): k for k in keys}
@@ -2893,19 +3325,37 @@ def _table_given_cells(answer: dict, given: str) -> dict[str, str] | None:
                 return None
             cells[key] = value.strip()
         return cells
+    # standard stem-and-leaf notation, "2 | 3 7 8 9" or "2: 3 7 8 9": one segment per row, led by the row's label
+    by_row = _table_rows_by_label(answer) if segments else None
+    if by_row:
+        matches = [_TABLE_ROW_RE.match(seg) for seg in segments]
+        if all(matches):
+            by_stem: dict[str, str] = {}
+            for m in matches:
+                key = by_row.get(_label_key(m.group(1)))
+                if key is None or key in by_stem:
+                    break
+                by_stem[key] = m.group(2)
+            else:
+                return by_stem if len(by_stem) == len(keys) else None
     if len(segments) != len(keys):
         return None
     return dict(zip(keys, segments))
 
 
-def _table_cell_correct(expected, given: str) -> bool:
+def _table_cell_correct(expected, given: str, *, fragment: bool = False) -> bool:
+    """Whether a cell's reply matches its key. `fragment` says the text is one piece of a longer reply (a set item
+    cut out of "x = {0, 6}"), whose brackets the whole reply balances, not the piece."""
+    # a "%" or "!" the key cell does not show is a different reply (74.0% for 74.0)
+    if any(c in given and c not in str(expected) for c in "%!"):
+        return False
     if _is_numeric_cell(expected):
         try:
             values = extract_values(_strip_comma_groups(given))
         except Exception:  # noqa: BLE001 - normalisation is best-effort
             logger.warning("extract_values failed for table cell %.200r", given, exc_info=True)
             return False
-        if len(values) != 1 or _reply_has_stray_marks(_cell_text(expected), given):
+        if len(values) != 1 or _reply_has_stray_marks(_cell_text(expected), given, fragment=fragment):
             return False
         value = _as_fraction(expected.replace(" ", "")) if isinstance(expected, str) else expected
         return _component_target(_cell_text(expected), value).matches(values[0])
@@ -2985,7 +3435,7 @@ def _set_item_matches(expected, given: str) -> bool:
         parts = [part.strip() for part in inner.split(",")]
         return len(parts) == len(expected) and all(_set_item_matches(e, part) for e, part in zip(expected, parts))
     if _is_numeric_cell(expected):
-        return _table_cell_correct(expected, given)
+        return _table_cell_correct(expected, given, fragment=True)
     # The page shows an item key "pi/6" as "π/6" (`display_question`) and the stem may say "typed like 5π/6":
     # either spelling of the constant is the same item.
     return _label_key(given).replace("π", "pi") == _label_key(expected).replace("π", "pi")
@@ -2998,8 +3448,16 @@ def grade_set(question, given: str) -> GradeResult:
     if not isinstance(expected, (list, tuple)):
         return GradeResult(correct=False, canonical=canonical)
     items = _split_set_items(given)
+    if (
+        len(items) == 1
+        and len(expected) > 1
+        and all(len(str(e)) == 1 and str(e).isalnum() for e in expected)
+        and re.fullmatch(r"\{?\s*[A-Za-z0-9](?:\s+[A-Za-z0-9])+\s*\}?", given.strip())
+    ):
+        # "1 2 3 4 5 6" for a key of single digits or letters: the items are one character each, so spaces separate them
+        items = given.strip().strip("{}").split()
     given_normalised = "{" + ", ".join(items) + "}"
-    if _reply_is_an_expression(question, given):
+    if _reply_is_an_expression(question, given) or _is_unfinished(canonical, given):
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
     if len(items) != len(expected):
         return GradeResult(correct=False, canonical=canonical, given_normalised=given_normalised)
@@ -3461,7 +3919,10 @@ _COPY_CHECKED_KINDS = frozenset({"number", "fraction", "pair"})
 # refuses the reply. `inequality` reads "no solution", "none" and "≠" as answers of its own, and `matrix` has
 # its own reader.
 _HEDGE_RE = re.compile(
-    r"\b(?:not|never|neither|nor|cannot|wrong|incorrect|false|maybe|perhaps|probably|possibly|unsure|guess)\b"
+    r"\b(?:not|never|neither|nor|cannot|wrong|incorrect|false|maybe|perhaps|probably|possibly|unsure|guess|guessing)\b"
+    r"|\b(?:less|more)[ \t]+than\b|\bat[ \t]+(?:least|most)\b|\bor[ \t]+(?:more|less|fewer)\b"
+    r"|\b(?:fewer|under|over|almost|nearly|idk|dunno)\b"
+    r"|\b(?:nope|nah)(?=[ \t]+[-+−$£€.(\d])"  # "nope 9" denies; "nope, it's 9" answers, as "no, it's 9" does
     r"|\bno(?=[ \t]+[-+−$£€.(\d])"
     r"|n['’]t\b|≠|!=",
     re.IGNORECASE,
@@ -3470,7 +3931,7 @@ _HEDGE_CHECKED_KINDS = frozenset(GRADERS) - {"inequality", "matrix"}
 
 
 def _hedges(text: str) -> set[str]:
-    return {match.group(0).lower().replace("’", "'") for match in _HEDGE_RE.finditer(text or "")}
+    return {" ".join(match.group(0).lower().replace("’", "'").split()) for match in _HEDGE_RE.finditer(text or "")}
 
 
 def _reply_hedges(question, given: str) -> bool:
@@ -3515,7 +3976,9 @@ _REPLY_LABEL_RE = re.compile(
     rf"|(?:(?<=^)|(?<=[ \t,;]))\(?[{_LTR}]\)(?=[ \t]|$)"
 )
 #: Single letters that are a unit symbol or a unit abbreviation, or a constant, wherever the reply puts them.
-_LONE_LETTERS = frozenset("mglshwntdACFHJKLNSTVWΩµμπijkØø")
+# Not "i j k" (an imaginary unit or a vector component after a real value: "-4i" for -4), nor "A" (ampere) and "t"
+# (tonne) on an answer that shows neither: they pass only where the canonical itself shows that letter.
+_LONE_LETTERS = frozenset("mglshwndCFHJKLNSTVWΩµμπØø")
 # A letter before an opening bracket names a point or a function ("A(1, 2)", "M (2, 3)"); one next to an apostrophe is
 # part of a word ("o'clock", "it's"); "a" before a word is the article.
 _NAMES_A_BRACKET_RE = re.compile(r"[ \t]*\(")
@@ -3534,10 +3997,70 @@ def _canonical_letters(answer_text: str, single_value: bool) -> frozenset[str]:
     return frozenset(_LETTER_RUN_RE.findall(_REPLY_LABEL_RE.sub(" ", answer_text) if single_value else answer_text))
 
 
-def _reply_has_stray_marks(answer_text: str, given: str, *, single_value: bool = False) -> bool:
+_DANGLING_END = "+-\u2212\u2013\u2014*/^"
+_OPENERS = "([{"
+_CLOSERS = ")]}"
+
+
+def _tonnes_are_spelled_out(*texts: str) -> bool:
+    """Whether the question or the key spells out the tonne ("to tonnes", "3.5 tonnes"): the one place "t" is a unit."""
+    return any(_units_resolve(m.group(0)) == "tonne" for text in texts for m in _units_mention_re.finditer(text or ""))
+
+
+def _unit_letter_is_named(word: str, *texts: str) -> bool:
+    """Whether a lone unit letter ("L", "d", "m") is one the question or its answer uses: as a letter on its own, or
+    as the unit a word names ("litres" for L, "metres" for m). "9L" for the order of a group is no unit of anything."""
+    found = {_units_resolve(m.group(0)) for text in texts for m in _units_mention_re.finditer(text or "")}
+    wanted = _units_capitals.get(word)
+    if wanted is None:
+        try:
+            wanted = _units_resolve(word)
+        except KeyError:
+            wanted = None
+    if wanted is not None and wanted in found:
+        return True
+    alone = re.compile(rf"(?<![{_LTR}\d.]){re.escape(word)}(?![{_LTR}])")
+    return any(alone.search(text or "") for text in texts)
+
+
+def _is_unfinished(answer_text: str, given: str, *, fragment: bool = False) -> bool:
+    """Whether `given` ends on an operator ("9+"), opens a bracket it never closes ("(9") or doubles an "=" ("== 9").
+    A `fragment` (one item cut from a set reply) is not tested for brackets: its set braces are in the text around it."""
+    text = (given or "").rstrip()
+    tail = text[-1:]
+    if tail and tail in _DANGLING_END and not (answer_text or "").rstrip().endswith(tail):
+        return True
+    key = answer_text or ""
+    if fragment:
+        return "==" in text
+    return "==" in text or any(
+        text.count(o) > text.count(c) and key.count(o) == key.count(c) for o, c in zip(_OPENERS, _CLOSERS)
+    )
+
+
+_UNIT_JOINERS = "·•⋅*×/^.-"
+
+
+def _may_be_a_unit_symbol(text: str, start: int) -> bool:
+    """Whether the letter at `start` follows a unit joiner or a number ("kN·M", "5 M"): there its case is a unit's
+    case (milli and mega differ), so it is judged by the unit table, not folded onto the key's letter."""
+    before = text[:start].rstrip()[-1:]
+    return before.isdigit() or before in _UNIT_JOINERS
+
+
+def _reply_has_stray_marks(
+    answer_text: str,
+    given: str,
+    *,
+    single_value: bool = False,
+    vector: bool = False,
+    question_text: str = "",
+    fragment: bool = False,
+) -> bool:
     """Whether a typed reply carries a letter or a minus that is part of no number (see the block comment above).
     `answer_text` is the canonical it is judged against; `single_value` reads only the side after the last "=",
-    as the number grader does."""
+    as the number grader does. `vector` says the whole reply is a vector in component form ("3i - 4j"), where
+    i, j and k are unit vectors."""
     text = given or ""
     answer_text = answer_text or ""
     leading = text.lstrip()
@@ -3545,6 +4068,10 @@ def _reply_has_stray_marks(answer_text: str, given: str, *, single_value: bool =
         # An answer such as "y = -x + 7" is written "-x + 7" by a learner who leaves the label off.
         return re.match(r"-[ \t]*[^\d.$£€¥\s]", _value_side(answer_text).lstrip()) is None
     canonical = _canonical_letters(answer_text, single_value)
+    canonical_folded = frozenset(letter.casefold() for letter in canonical)  # "(h, 1)" for the key's "(H, 1)"
+    # A dangling operator ("9+", "9-"), an unclosed bracket ("(9") and a doubled "==" state nothing finished.
+    if _is_unfinished(answer_text, text, fragment=fragment):
+        return True
     if single_value:
         text = _value_side(text)  # "area = 3 x 3 = 9" states 9
     text = _REPLY_LABEL_RE.sub(" ", _TIMES_SIGN_RE.sub(" ", _DOTTED_ABBREVIATION_RE.sub(" ", text)))
@@ -3554,8 +4081,17 @@ def _reply_has_stray_marks(answer_text: str, given: str, *, single_value: bool =
             return True
     for run in _LETTER_RUN_RE.finditer(text):
         word = run.group(0)
-        if len(word) != 1 or word in canonical or _NAMES_A_BRACKET_RE.match(text, run.end()):
+        if len(word) != 1 or _NAMES_A_BRACKET_RE.match(text, run.end()):
             continue
+        # a letter the canonical shows, in either case ("t" for "T"); before "$" only the key's own case ("a$9" is no "A$9")
+        if word in canonical or (
+            word.casefold() in canonical_folded
+            and text[run.end() : run.end() + 1] != "$"
+            and not _may_be_a_unit_symbol(text, run.start())
+        ):
+            continue
+        if word in "AC" and text[run.end() : run.end() + 1] == "$":
+            continue  # "A$9", "C$9": the currency prefixes the library uses (US, AU, NZ, CA are longer runs)
         if (
             _APOSTROPHE_RE.match(text, run.end())
             or text[max(run.start() - 1, 0) : run.start()] in ("'", "\u2019")
@@ -3567,8 +4103,18 @@ def _reply_has_stray_marks(answer_text: str, given: str, *, single_value: bool =
             if not before[:-1].rstrip()[-1:].isalpha() and "/" + word not in answer_text:
                 return True
             continue
-        if word not in _LONE_LETTERS:
+        if word == "t" and _tonnes_are_spelled_out(question_text, answer_text):
+            continue  # "5 t" for a mass question that names tonnes
+        if word not in _LONE_LETTERS and not (vector and word in "ijk"):
             return True
+        if (
+            word.isascii()
+            and word.lower() not in _units_table
+            and word not in _units_capitals
+            and not (vector and word in "ijk")
+            and not _unit_letter_is_named(word, question_text, answer_text)
+        ):
+            return True  # "9 d", "9 T": a letter that is no unit the table knows and the question never mentions
     return False
 
 
@@ -3642,6 +4188,12 @@ def _cents_written_with_c(kind: str, question, given: str) -> str:
     return _CENTS_WITH_C_RE.fullmatch(given).group(1) + " cents"
 
 
+# "20 300 000", "1/122 880": thousands grouped by spaces, which the pair and fraction readers take for separate values.
+# Tried only after the reply as typed has been refused, so "1 234" typed for the pair (1, 234) still reads as that.
+_SPACE_GROUPED_KINDS = frozenset({"pair", "fraction"})
+_SPACE_GROUPED_RE = re.compile(r"(?<![\d.,])\d{1,3}(?:[ ,\u00a0\u2009\u202f]\d{3})+(?!\d)")
+
+
 def grade(kind: str, question, given, *, skill=None) -> GradeResult:
     """`skill` is optional and keyword-only: every pre-existing
     call site is unaffected. A wrong reply that matches a tagged distractor
@@ -3665,6 +4217,10 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
         given = normalise_reply(kind, given)
         given = _cents_written_with_c(kind, question, given)
         given = stem_checks.rewrite_reply(kind, question, given)
+    if isinstance(given, str) and kind in ("number", "fraction"):
+        if kind == "number" and _names_another_call(question, given):
+            return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
+        given = _without_fitting_label(question, given)
     if isinstance(given, str) and stem_checks.refuses(kind, question, given):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
     if isinstance(given, str) and kind in _DOUBLE_SIGN_KINDS and _DOUBLE_SIGN_RE.search(given):
@@ -3673,7 +4229,11 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
         isinstance(given, str)
         and kind in _STRAY_CHECKED_KINDS
         and _reply_has_stray_marks(
-            getattr(question, "answer_text", ""), given, single_value=kind in ("number", "fraction")
+            getattr(question, "answer_text", ""),
+            given,
+            single_value=kind in ("number", "fraction"),
+            vector=kind == "pair" and _is_component_reply(question, given),
+            question_text=getattr(question, "text", "") or "",
         )
     ):
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
@@ -3692,6 +4252,13 @@ def grade(kind: str, question, given, *, skill=None) -> GradeResult:
         # replaces -- this log line is what would surface that instead of hiding it.
         logger.exception("grade(kind=%r, given=%.200r) raised; grading incorrect", kind, given)
         return GradeResult(correct=False, canonical=getattr(question, "answer_text", ""))
+    if not result.correct and kind in _SPACE_GROUPED_KINDS and isinstance(given, str):
+        ungrouped = _SPACE_GROUPED_RE.sub(lambda match: re.sub(r"[ ,\u00a0\u2009\u202f]", "", match.group()), given)
+        if ungrouped != given:
+            try:
+                result = GRADERS[kind](question, ungrouped)  # "20 300 000", "1/122 880": a grouped numeral
+            except Exception:
+                logger.exception("grade(kind=%r, given=%.200r) raised on its ungrouped reading", kind, given)
     if not result.correct:
         try:
             _resolve_note(kind, question, given, result, skill)

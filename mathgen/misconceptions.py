@@ -61196,6 +61196,11 @@ _ENTRIES += (
         area="statistics and time",
     ),
     CatalogueEntry(
+        "cc-ignores-sample-size",
+        "Claiming a firm causal conclusion from a randomised experiment without checking that enough took part.",
+        area="statistics and time",
+    ),
+    CatalogueEntry(
         "cc-measured-confounder-fixes-design",
         "Treating an observational study as controlled because the third variable was measured.",
         area="statistics and time",
@@ -61289,6 +61294,1295 @@ _ENTRIES += (
         "est-percentage-decimal-shift",
         "Dividing or multiplying by 10 too often when turning a fraction into a percentage, so the percentage is a place out.",
         area="estimation",
+    ),
+    CatalogueEntry(
+        "trapezium-multiplier-h-not-half",
+        "Multiplying the weighted sum by h instead of h/2 in the trapezium rule.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-inner-weight-1",
+        "Giving every ordinate the weight 1, forgetting that the inner ordinates are counted twice.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-ends-doubled",
+        "Doubling every ordinate, the first and last included, when only the inner ordinates are doubled.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-end-ordinate-omitted",
+        "Leaving the last ordinate out of the trapezium sum.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-strips-counted-as-ordinates",
+        "Counting the n + 1 ordinates as the number of strips, so the strip width is the interval length over n + 1.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-uses-interval-length-as-h",
+        "Using the whole interval length as the strip width h in the trapezium rule.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-simpson-weights",
+        "Using Simpson's weights 1, 4, 2, ..., 4, 1 (and h/3) when the trapezium rule was asked for.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-missing-ordinate-weight",
+        "Dividing by the wrong weight when solving for an unknown ordinate (2 where it is 1, or 1 where it is 2), or not dividing at all.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-error-sign-reversed",
+        "Giving estimate minus exact value where exact value minus estimate was asked, so the sign is the wrong way round.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-sign-dropped",
+        "Giving the size of the error where a signed difference was asked, so the sign that shows over- or under-estimate is lost.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-strips-from-error-squared",
+        "Stopping at the number of strips squared (or doubled) without taking the square root when solving for the number of strips.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-strip-width-for-strips",
+        "Giving the strip width where the number of strips was asked.",
+        area="integration",
+    ),
+    CatalogueEntry(
+        "trapezium-strips-off-by-one",
+        "Counting one strip too many or too few: the number of strips and the number of ordinates differ by one.",
+        area="integration",
+    ),
+    # -- slope field readings (slope-field-readings) ---------------------------------------------------------------
+    CatalogueEntry(
+        "slope-field-square-sign-lost",
+        "Squaring a negative coordinate and keeping the minus sign, so (-3)^2 is read as -9 when the slope at a grid point is worked out.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-product-as-sum",
+        "Reading the xy term of dy/dx as x + y when finding the slope at a grid point.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-table-nearest-reading",
+        "Giving the slope read at the nearest tabulated grid point instead of working out the rule and applying it at the stated point.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-table-averages-readings",
+        "Averaging the tabulated slopes to estimate the slope at a new grid point instead of finding the rule.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-parameter-not-divided",
+        "Finding the unknown parameter k by subtracting the other terms from the slope but not dividing by the coefficient of k at that point.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-parameter-rest-dropped",
+        "Finding k by dividing the stated slope by the coefficient of k, forgetting to subtract the other terms of the equation.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-zero-slope-sign-slip",
+        "For a horizontal segment, setting the terms equal to zero and solving for y with the wrong sign (y = g/b instead of y = -g/b).",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-zero-slope-coefficient-dropped",
+        "For a horizontal segment, solving for y without dividing by the coefficient of y.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-reads-x-as-y",
+        "Giving the stated x-coordinate where the y-coordinate of the point was asked for.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-slope-read-at-step-end",
+        "Taking a step along the slope field using the slope at the end of the step (the new x-value with the old y-value) instead of at the start.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-stops-after-one-step",
+        "Giving the y-coordinate after the first step when two steps were asked for.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-window-boundary-dropped",
+        "Counting only the grid points strictly inside the window and leaving out those on its edges.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-counts-columns-not-points",
+        "Counting the x-values (columns of the grid) that contain a point of the required slope instead of the grid points themselves.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-wrong-condition-counted",
+        "Counting the grid points where the slope is greater than, or different from, the stated value instead of equal to it.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-grid-points-miscounted",
+        "Missing one point, or counting one twice, when listing the grid points that satisfy a condition in a window.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-euler-reported-as-exact",
+        "Giving the value reached by stepping along the slope field as the exact value of the solution.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-exact-at-wrong-x",
+        "Evaluating the exact solution at the x-value of the first step instead of the end of the path.",
+        area="differential-equations",
+    ),
+    CatalogueEntry(
+        "slope-field-constant-not-fixed",
+        "Solving a separable equation but leaving the constant of integration unfixed by the starting point, so the solution passes through the wrong value.",
+        area="differential-equations",
+    ),
+)
+
+# -- whole units needed (round up) versus full groups made (round down) --------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "wu-rounds-to-nearest",
+        "Rounds the quotient to the nearest whole number whichever way the situation needs, so a part-pack is dropped when it must be bought or counted when it cannot be made.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-rounds-down-when-covering",
+        "Drops the fractional part of the quotient when everything must be covered or carried, so the last part-pack is left out and there is not enough.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-rounds-up-when-only-full",
+        "Rounds the quotient up when only complete groups count, counting a part-group that cannot actually be made or fitted.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-adds-extra-unit",
+        "Takes one more than the count the situation needs, adding a spare on top of the correct rounding.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-drops-a-full-group",
+        "Takes one fewer than the count the situation allows, leaving out a group that can in fact be made.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-reports-remainder",
+        "Gives the remainder of the division where the number of whole units was asked for.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-leftover-is-remainder",
+        "Gives the remainder of the division as the amount left over after buying whole packs, instead of the unused part of the last pack.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-leftover-from-rounded-up",
+        "Works out what is left after full groups as the shortfall to the next whole group, using the count rounded up instead of down.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-reports-count-not-leftover",
+        "Gives the number of whole packs or groups where the amount left over was asked for.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-costs-fractional-pack",
+        "Prices the exact fractional number of packs, paying for part of a pack that cannot be bought on its own.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-one-pack-size-only",
+        "Prices the order with only one pack size when a mix of the two sizes is cheaper.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-greedy-largest-pack",
+        "Buys as many of the large pack as fit, then covers the rest with small packs, without checking whether another mix costs less.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-ignores-limiting-resource",
+        "Counts how many can be made from one supply only, ignoring that the other supply runs out sooner.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-ignores-gaps",
+        "Divides the length by the width of one item alone, forgetting the gaps that must also fit between the items.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-gap-counted-after-last",
+        "Gives every item a gap after it, including the last one, so one item too few is fitted.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-ignores-offcuts",
+        "Divides the total length needed by the length of one board, ignoring that the short end of each board cannot be used.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-rounds-pieces-per-board-up",
+        "Rounds the number of pieces one board gives up instead of down, counting a piece that does not fit.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "wu-total-built-wrongly",
+        "Builds the total with a slip, leaving out one of the quantities or one of the repeats, so every later step starts from the wrong number.",
+        area="estimation",
+    ),
+    CatalogueEntry(
+        "trig-eq-special-angle-mixed-up",
+        "Mixing up the special angles, such as using π/3 where the value belongs to π/6, so every solution is wrong.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-sine-second-solution-uses-two-pi-minus",
+        "Using 2π - α, the second solution of a cosine equation, as the second solution of a sine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-cosine-second-solution-uses-pi-plus",
+        "Using π + α instead of 2π - α (that is, -α) as the second solution of a cosine equation.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-negative-value-treated-as-positive",
+        "Ignoring the minus sign of the value, so the angles found are those for the positive value.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-shift-scaled-by-the-multiple",
+        "Dividing the horizontal shift by the multiple as well, giving a shift of b/a where the shift is b.",
+        area="trigonometry",
+    ),
+    CatalogueEntry(
+        "trig-eq-cycles-off-by-one",
+        "Being out by a few in the number of periods that fit in the interval, such as counting the end of the interval as a new period.",
+        area="trigonometry",
+    ),
+    # -- latitude and longitude (typed positions) --------------------------------------------------------------------
+    CatalogueEntry(
+        "llt-coordinates-swapped",
+        "Writing the longitude first and the latitude second, when a position is written as latitude then longitude.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-wrong-hemisphere-latitude",
+        "Giving the right size of latitude with the wrong sign, so the place is on the wrong side of the equator.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-wrong-side-of-meridian",
+        "Giving the right size of longitude with the wrong sign, so the place is on the wrong side of the prime meridian.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-one-line-out",
+        "Reading the line next to the right one, so a coordinate is 10 degrees too far north, south, east or west.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-roles-swapped",
+        "Taking the latitude from the wrong place and the longitude from the wrong place, so the two are the wrong way round.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-copies-one-place",
+        "Giving the position of one of the marked places instead of combining a coordinate from each.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-sum-not-halved",
+        "Adding the two latitudes and the two longitudes to find the midpoint but not halving the totals.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-averages-sizes-across-zero",
+        "Averaging the sizes of the two coordinates and ignoring their signs, so the midpoint of places on opposite "
+        "sides of the equator or the prime meridian is wrong.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-half-the-difference",
+        "Halving the difference of the two coordinates instead of halving their sum.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-one-coordinate-halved",
+        "Finding the midpoint of only one coordinate and keeping the other from one of the places.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-direction-reversed",
+        "Moving the stated number of degrees the opposite way, south for north or west for east.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-no-crossing-zero",
+        "Stopping at the equator or the prime meridian when a move goes past it, keeping the old sign for the "
+        "left-over degrees.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-offsets-on-wrong-axis",
+        "Applying the north or south move to the longitude and the east or west move to the latitude.",
+        area="latitude-longitude",
+    ),
+    CatalogueEntry(
+        "llt-moves-one-way-only",
+        "Making only one of the two moves, north or south or east or west, and leaving the other coordinate unchanged.",
+        area="latitude-longitude",
+    ),
+    # -- place objects from position words (shaded squares) ------------------------------------------------------
+    CatalogueEntry(
+        "epo-opposite-side",
+        "Puts the picture on the opposite side, such as below when the clue says above.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-covers-a-picture",
+        "Shades the square of a picture that is already there instead of an empty square beside or between.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-one-square-too-far",
+        "Goes one square too far, leaving a gap instead of putting the picture just beside the other.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-beside-not-between",
+        "Shades a square beside one of the two pictures, outside them or off the line between them, not in the square between.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-wrong-reference",
+        "Uses the right position word about the wrong picture, such as above the second picture named instead of the first.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-wrong-axis",
+        "Goes left or right when the clue says above or below, or the other way round.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-places-only-one",
+        "Shades the square of only the first new picture and leaves out the second.",
+        area="f10-place-objects-from-position-words",
+    ),
+    CatalogueEntry(
+        "epo-second-from-wrong-picture",
+        "Puts the second picture beside a picture already drawn instead of beside the first new picture.",
+        area="f10-place-objects-from-position-words",
+    ),
+)
+
+_ENTRIES += (
+    CatalogueEntry(
+        "pwg-breakpoint-for-the-cost",
+        "Gives the usage at the first kink where the cost at no usage, or at a stated usage, was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-breakpoint-for-the-usage",
+        "Gives the usage at the start of the section, the kink, instead of the usage that gives the stated cost.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-average-rate-for-gradient",
+        "Divides the cost at the end of the section by the usage, the average cost per unit, instead of the rise over the run of that section.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-breakpoint-for-the-cost",
+        "Reads the cost at the kink nearest the stated usage instead of the cost at the stated usage.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-breakpoint-for-the-start",
+        "Gives the cost at the first kink where the fixed charge, the cost at no usage, was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-change-for-usage",
+        "Gives the cost at the kink where the usage at the kink was asked, reading up the wrong axis.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-cost-at-the-end-for-rate",
+        "Gives the cost at the end of the section where the rate of the section was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-crossing-cost-for-usage",
+        "Gives the cost at the point where the two plans meet where the usage at that point was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-crossing-usage-for-cost",
+        "Gives the usage at the point where the two plans meet where the common cost was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-divides-cost-by-rate",
+        "Divides the stated cost by the rate of a section to find the usage, ignoring the fixed charge or the cost already built up at the kink.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-end-of-graph-for-breakpoint",
+        "Gives the right-hand end of the drawing where a kink or a crossing was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-at-the-wrong-rate",
+        "Continues the last section at the rate of the first section instead of the rate of the last one.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-from-the-fixed-charge",
+        "Continues the line from the fixed charge, adding the last rate for every unit of usage, ignoring the earlier sections.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-from-the-origin",
+        "Multiplies the last rate by the whole usage, as if the graph started at the origin with no fixed charge.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extends-one-unit-too-far",
+        "Extends the last section by one unit too many or too few.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-extra-units-not-multiplied-by-rate",
+        "Adds the number of extra units to the last cost read, instead of the extra units times the rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-first-rate-for-all-units",
+        "Applies the rate of the first section to all of the usage, though part of it lies in a later section with a different rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-fixed-charge-for-breakpoint",
+        "Gives the fixed charge where the usage at which the rate changes was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-fixed-charge-for-rate",
+        "Gives the fixed charge where the rate of a section was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-forgets-the-breakpoint-offset",
+        "Finds only the extra units beyond the kink and does not add the usage at the kink back on.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-kink-for-crossing",
+        "Takes the kink of the two-section plan for the point where the two plans cost the same.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-leaves-out-the-fixed-charge",
+        "Leaves the fixed charge out of a cost read from, or built on, a graph that starts above zero.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-other-breakpoint",
+        "Gives the second kink of a three-section graph where the first change of rate was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-other-section-rate",
+        "Gives the rate of a different section from the one between the stated usages.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-rate-for-one-unit-only",
+        "Adds the rate for one unit to the fixed charge, not the rate times the usage at the crossing.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-rate-left-out",
+        "Adds the usage to the fixed charge, forgetting to multiply the usage by the rate.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-cost-for-the-usage",
+        "Gives the stated cost back where the usage that gives it was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-neighbouring-gridline",
+        "Reads the graph one gridline away, the neighbouring usage, instead of the stated one.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-other-plan",
+        "Reads the line of the other plan where the plan named in the question was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-rate-for-the-cost",
+        "Gives the rate of the section where a cost was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-reads-the-usage-for-the-cost",
+        "Gives the stated usage back where the cost at that usage was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-run-for-rate",
+        "Gives the width of the section, the run, where the rise for each extra unit was asked.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+    CatalogueEntry(
+        "pwg-total-change-for-rate",
+        "Gives the total rise in cost over the section instead of the rise for each extra unit.",
+        area="senior-read-a-piece-wise-linear-cost-graph",
+    ),
+)
+
+# -- shape and variation of a display (AC9M4ST02) --------------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "ds-sv-mode-as-frequency",
+        "Gives how many times the mode occurs (the height of the tallest stack or column) instead of the mode itself.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-mode-as-highest",
+        "Takes the highest value shown as the mode instead of the value that occurs most often.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-range-as-highest",
+        "Gives the highest value as the range instead of taking the lowest away from it.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-range-counts-columns",
+        "Counts the stacks or columns shown as the range, which also miscounts when a value in between has none.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-total-as-columns",
+        "Counts the stacks or columns as the number of values, instead of adding up how many each one holds.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-kept",
+        "Includes the outlier when the range of the rest of the values was asked for.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-gap-as-range",
+        "Gives the gap between the outlier and the rest as the range of the rest of the values.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-outlier-as-neighbour",
+        "Names the value next to the outlier, at the edge of the main group, instead of the outlier itself.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-extreme-as-outlier",
+        "Calls the highest or lowest value an outlier even though it sits next to the other values.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-symmetric-assumed",
+        "Calls the data symmetric because the tallest column is near the middle, without checking both sides match.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-bunch-side-swapped",
+        "Mixes up which end the values are bunched at: the tall columns, not the long tail, show where they bunch.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-above-includes-mode",
+        "Counts the values equal to the mode as well as the values above it, when only values above it were asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-below-for-above",
+        "Counts the values below the mode where the values above it were asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-spread-as-count",
+        "Judges which group has the greater spread by which has more values, not by the distance from lowest to highest.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-spread-as-mode",
+        "Judges spread by the difference between the modes, which measures centre, not how spread out the values are.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-ranges-added",
+        "Adds the two ranges where how much greater one range is than the other was asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-totals-added",
+        "Adds the two numbers of values where how many more one group has than the other was asked.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-combined-range-of-one",
+        "Gives the larger of the two ranges as the range of both groups together.",
+        area="shape-and-variation-of-a-display",
+    ),
+    CatalogueEntry(
+        "ds-sv-missed-true-statement",
+        "Leaves out a statement that is true of the display.",
+        area="shape-and-variation-of-a-display",
+    ),
+    # ds-census-sample block
+    CatalogueEntry(
+        "ds-cs-observation-shows-cause",
+        "Takes a census, a sample survey or an observation as showing that one thing causes another.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-experiment-shows-no-cause",
+        "Thinks a well-designed experiment, like an observation, can show only a link and never a cause.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-sample-covers-everyone",
+        "Takes a sample, or any study of part of the group, as collecting data from every member.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-census-leaves-out",
+        "Thinks a census leaves some members of the population out.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-observer-changes-things",
+        "Counts an observation, a survey or a census as changing something for the units studied.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-experiment-changes-nothing",
+        "Thinks an experiment leaves the units as they were, like an observation.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-sample-gives-exact",
+        "Treats the result of a sample as the exact value for the whole population.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-census-may-differ",
+        "Thinks a census with every record correct can still differ from the value for the population.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ignores-destructive-test",
+        "Overlooks that checking a unit can use it up, so that checking every unit is not practical.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-assumes-testing-destroys",
+        "Thinks a check that leaves the unit as it was uses the unit up.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-volunteers-as-random",
+        "Treats volunteers as if they had been picked at random, so bias from self-selection is missed.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-random-as-volunteers",
+        "Treats a random selection as if the units had chosen themselves.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ratio-as-difference",
+        "Gives how many MORE units a census uses (the difference) for how many TIMES as many.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-cost-of-sample",
+        "Gives the time or cost for the sample, or for the part left out, for the whole census.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-adds-instead-of-multiplies",
+        "Adds the number of units to the time, cost or days each takes instead of multiplying.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-ignores-the-split",
+        "Gives the whole group as the size of each of two equal groups, or halves it twice.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-total-from-one-day",
+        "Gives one day's count, or the mean or the greatest count, for the total over all the days.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-cs-rejects-correct-figure",
+        "Rejects a correct figure, usually after working it out a different, wrong way.",
+        area="data-collection-census-sample",
+    ),
+    CatalogueEntry(
+        "ds-svp-total-not-mean",
+        "Gives the total of the listed values where the mean was asked for, without dividing by how many values there are.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-divides-by-wrong-count",
+        "Divides the total of the sample by a count that is one out.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-uses-population-value",
+        "Gives the whole-school value where the value for the sample was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-other-sample",
+        "Works out the value for the other sample, not the one the question names.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-count-not-percent",
+        "Gives the number of students in the group where a percentage of the students was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-percent-of-population-size",
+        "Finds the sample's percentage out of the whole school's number of students instead of out of the sample's.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-percent-of-sample-size",
+        "Finds the whole school's percentage out of the sample's number of students instead of the school's.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-complement",
+        "Gives the percentage of students who do not, where the percentage who do was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-ignores-frequencies",
+        "Averages the values in the table as if each were held by one student, ignoring how many students hold it.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-divides-by-number-of-rows",
+        "Adds value times number of students, then divides by the number of rows in the table instead of the number of students.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-most-common-for-mean",
+        "Gives the most common value in the table where the mean was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-sample-value-as-gap",
+        "Gives the sample's own value where its gap from the whole school was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-population-value-as-gap",
+        "Gives the whole-school value where the gap between the sample and the whole school was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-adds-instead-of-subtracting",
+        "Adds the sample's value to the whole school's instead of finding the gap between them.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-other-samples-gap",
+        "Gives the gap for the other sample, not the one the question names.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-as-relative-percent",
+        "Gives the gap as a percentage of the whole-school value instead of the gap itself.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-sum-of-gaps",
+        "Adds the two samples' gaps where the difference between them was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-between-samples",
+        "Finds how far apart the two samples' values are instead of how far each is from the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-one-gap-only",
+        "Gives one sample's gap alone where a comparison or a combination of the gaps was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-averages-the-gaps",
+        "Averages the two gaps instead of finding the gap of the combined sample, so a sample above and a sample below are not allowed to cancel.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-scales-by-sample-size",
+        "Scales the gap up by the number of students in the sample instead of the number in the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-gap-not-scaled",
+        "Stops at the gap in the sample and does not scale it up to the whole school.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-estimate-not-error",
+        "Gives the estimated whole-school total where the amount it is out by was asked for.",
+        area="sample-versus-population",
+    ),
+    CatalogueEntry(
+        "ds-svp-true-total-not-error",
+        "Gives the true whole-school total where the amount the estimate is out by was asked for.",
+        area="sample-versus-population",
+    ),
+)
+
+# -- Year 9 display choice made numeric (f10-display-choice-then-read) -------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "ds-dc-adds-categories-and-groups",
+        "Adds the number of answers to the number of groups where a column is needed for every group within every answer.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-adds-series-to-points",
+        "Adds the number of data sets to the number of readings instead of multiplying to count the plotted points.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-adds-variables-to-points",
+        "Adds two to the number of pairs, as if the two variables were extra points.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-angles-of-given-shares",
+        "Gives the angle taken up by the shares already stated, where the angle of the remaining share was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-extra-step",
+        "Adds a further step above the first axis mark that is high enough to reach the largest value.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-shows-frequency",
+        "Treats the vertical axis as a count of readings, though a line graph's axis shows the values themselves.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-too-short",
+        "Stops the axis at the mark below the largest value, so the largest value would not fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-top-is-max",
+        "Ends the axis exactly at the largest value, though the axis stops at a marked step.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-axis-total",
+        "Gives the total of all the counts as the top of a counting axis that only has to reach the tallest column.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-class-start-at-minimum",
+        "Counts classes from the least value instead of from the multiple of the class width at or below it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-column-per-possible-value",
+        "Counts every whole number from the least to the greatest value as a column, ignoring the class width.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-count-not-angle",
+        "Gives the number of people in the category where the angle of its sector was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-gaps-not-points",
+        "Counts the gaps between the readings, one fewer than the readings, where the points were asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-groups-only",
+        "Counts the groups and ignores the answers when counting columns.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-counts-items-not-marks",
+        "Gives the total number of people surveyed where the number of sectors was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-equal-sectors",
+        "Divides 360 degrees equally between the categories, though sector angles follow the shares.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-extra-total-mark",
+        "Adds one more mark for the total, though a total is not drawn as a sector, column or point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-ignores-groups",
+        "Counts one column for each answer and forgets that every group needs its own column within each answer.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-ignores-second-set",
+        "Counts the points for one data set only when two sets of readings share the display.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-labels-as-measurements",
+        "Groups numeric labels such as shirt numbers into classes, as if they were measurements.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-measurements-as-labels",
+        "Gives each measured value its own column, as if measurements were separate categories.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-misses-one-category",
+        "Leaves one category out when counting the marks.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-one-column-per-value",
+        "Gives every recorded value its own column, though a histogram groups them into classes.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-percent-not-angle",
+        "Gives the percentage share where the angle of the sector, in degrees, was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-percent-times-three",
+        "Multiplies the percentage by 3 instead of 3.6 to turn it into degrees.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-points-for-each-value",
+        "Counts a point for each of the two values in a pair, where each pair is one point.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-points-not-segments",
+        "Gives the number of points where the number of segments joining them was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-range-over-width",
+        "Divides the range by the class width and stops there, so the class holding the greatest value is lost.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-rest-of-circle",
+        "Gives the angle of everything except the category, 360 degrees less its sector.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-second-largest-sector",
+        "Gives the angle of the second most common category instead of the most common one.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-share-of-wrong-total",
+        "Finds the share as a fraction of the total plus the category, not of the total.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-skips-empty-classes",
+        "Counts only the classes that hold data and leaves out empty classes between them, though they are still columns.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-skips-empty-stems",
+        "Counts only the stems that have a leaf, though every stem from least to greatest is written.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-for-each-group",
+        "Adds the stems of the two groups, though both groups share one column of stems.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-from-values",
+        "Gives the number of values where the number of stems was asked for.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-one-group",
+        "Counts the stems of one group only, though the shared stems must cover both groups.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-stems-range-not-inclusive",
+        "Subtracts the least stem from the greatest and does not count the first stem.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-two-marks-per-category",
+        "Counts two marks for each category, as if a count and a label were each drawn.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-uses-last-value",
+        "Sizes the axis from the final value instead of the largest value, so an earlier peak would not fit.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ds-dc-whole-year-of-months",
+        "Uses all 12 months of the year where only the months recorded count.",
+        area="statistics",
+    ),
+)
+
+_ENTRIES += (
+    CatalogueEntry(
+        "dsft-misses-an-observation",
+        "Leaves one observation out when counting how many times a value occurs, so a count is one too low.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-double-counts-an-observation",
+        "Counts one observation twice when counting how many times a value occurs, so a count is one too high.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-swaps-two-values",
+        "Writes the count of one value in the row of another.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-reads-the-value-as-the-count",
+        "Writes the value itself in the Count column (a row for 3 pets gets a count of 3) instead of how many times it occurred.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-tally-gate-as-one",
+        "Reads each group of five tally marks as a single mark and adds the loose marks, instead of counting five for each group.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-total-is-number-of-rows",
+        "Gives the number of rows in the frequency table as the total instead of adding the counts.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-total-adds-the-values",
+        "Adds the values listed in the rows (such as the shoe sizes) to get the total instead of adding how often each occurred.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-leaves-out-the-boundary",
+        "When adding the counts for a phrase such as 'at least 3', leaves out the count of the value named in the phrase itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-includes-the-boundary",
+        "When adding the counts for a phrase such as 'more than 3', includes the count of the value named in the phrase itself.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-miscount-carries-into-totals",
+        "Miscounts one value by one and then adds from the wrong count, so the total or the running total is wrong as well.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-running-total-copies-the-count",
+        "Writes each row's own count in the running-total column instead of adding it to the counts before it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-accumulates-from-the-wrong-end",
+        "Adds the counts from the wrong end of the table, so a running total or a 'this many or more' column is built in the opposite direction.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dsft-reports-the-known-sum-as-the-missing-count",
+        "Writes the sum of the counts that are given as the missing count, instead of subtracting that sum from the total.",
+        area="statistics",
+    ),
+)
+
+
+# -- draw-a-graph skills --------------------------------------------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "dr1-data-point-omitted",
+        "Leaves out one of the readings, so the graph has a point fewer than the data.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-time-axis-offset",
+        "Starts the time axis one step late, so every point is plotted one place to the right.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-joined-by-height",
+        "Joins the points in order of their height instead of in time order.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-direction-of-change-reversed",
+        "Reverses a rise and a fall: plots a fall where the quantity rises, or the other way round.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-flat-stage-missed",
+        "Misses the stage where the quantity stays the same, so the flat part of the graph is left out.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-start-value-ignored",
+        "Starts the graph from zero instead of from the stated starting value.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-off-by-one",
+        "Reads or counts one unit too many or too few.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-stage-start-read",
+        "Gives the value at the start of the stage instead of the value at the time asked for.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-wrong-axis-read",
+        "Reads from the wrong axis, giving a time where a quantity was asked for or the reverse.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-all-changes-added",
+        "Adds the amounts that went in as well as the amounts that came out.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-rate-for-total",
+        "Gives a rate where a total amount was asked for.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-net-change-for-total",
+        "Gives the net change between start and end instead of the total of the changes in one direction.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-fixed-charge-omitted",
+        "Leaves out the fixed starting amount and uses only the rate multiplied by the input.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-rate-and-fixed-swapped",
+        "Swaps the fixed amount and the rate, using the rate as the starting amount and the fixed amount as the rate.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-pairs-mismatched",
+        "Pairs a value with the wrong partner, so the points do not match the data.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-first-reading-for-intercept",
+        "Gives the first reading as the starting amount instead of working back to the value at zero.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-total-change-for-rate",
+        "Gives the change between two readings without dividing by the gap between them.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-last-reading-restarted",
+        "Adds the full prediction on to the last reading instead of from the starting amount.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-whole-series-for-cycle",
+        "Gives the length of the whole series as the length of one cycle.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-two-cycles-for-cycle",
+        "Gives the length or change of two cycles where one was asked for.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-count-for-length",
+        "Gives the number of cycles shown instead of how many time points make up one cycle.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-first-to-last-for-change",
+        "Gives the change from the first value to the last instead of the change from one cycle to the next.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-no-trend-added",
+        "Forecasts the value from the same point one cycle ago without adding the change of level.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-last-value-for-season",
+        "Adds the change of level to the latest value instead of the value at the same point in the cycle.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-trend-added-twice",
+        "Adds the change of level for two cycles when the forecast is one cycle on.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-association-direction-reversed",
+        "Reads the direction of an association the wrong way round, calling a rising pattern negative or a falling one positive.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-strength-one-band-off",
+        "Judges the strength of an association one step too weak or too strong for how closely the points follow the pattern.",
+        area="draw-a-graph",
+    ),
+    CatalogueEntry(
+        "dr1-negative-as-weak",
+        "Treats a negative association as a weak one, mixing up direction with strength.",
+        area="draw-a-graph",
     ),
 )
 

@@ -139,6 +139,7 @@ def _indef(rng, f: Itg, F, cands, working, note=""):
     terms = Add.make_args(sympify(F))
     x = next(iter(sympify(F).free_symbols), None)
     cands = list(cands)
+    inner = "sc-tan-sec-inner-derivative-ignored" if sympify(F).has(sec) else "sc-tan-inner-derivative-ignored"
     if len(terms) > 1:  # slips with one term doubled, halved or dropped
         cands += [Cand(F - t + m * t, NEAR) for t in terms for m in (2, Rational(1, 2), 0)]
     # shorter slips: a term without its denominator, or with the power of tan or sec left at one
@@ -147,11 +148,13 @@ def _indef(rng, f: Itg, F, cands, working, note=""):
             lambda e: e.is_Pow and e.exp.is_Integer and e.exp > 1 and e.base.func in (tan, sec), lambda e: e.base
         )
         bare = flat.as_numer_denom()[0]
-        # the argument of tan or sec without its coefficient (the inner derivative ignored)
+        # the argument of tan or sec without its coefficient: the inner derivative ignored, a named slip
         plain = (
             t.replace(lambda e: e.func in (tan, sec) and e.args[0] != x, lambda e: e.func(x)) if x is not None else t
         )
-        cands += [Cand(F - t + new, NEAR) for new in (t.as_numer_denom()[0], flat, bare, plain)]
+        cands += [Cand(F - t + new, NEAR) for new in (t.as_numer_denom()[0], flat, bare)]
+        if plain != t:
+            cands.append(Cand(F - t + plain, inner))
     if x is not None:  # a stray term makes a longer slip, so the key is not always the shortest
         cands += [Cand(F + e, NEAR) for e in (x, -x)]
         cands += [Cand(F * m, NEAR) for m in (Rational(3, 2), Rational(1, 2), Rational(1, 3))]  # the whole key scaled

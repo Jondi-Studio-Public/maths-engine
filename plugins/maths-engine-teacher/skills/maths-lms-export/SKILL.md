@@ -11,7 +11,7 @@ license: MIT
 - `moodle`: a Moodle XML question bank (`.xml`).
 - `qti`: an IMS QTI 2.1 package (`.zip`), which Canvas and several other systems import.
 
-Both need answers, so they only exist in this teacher plugin. The spec format is in the `maths-worksheets` skill (`references/paper-spec.md`). Use `maths-skill-finder` to choose skills.
+Both need answers, so they only exist in this teacher plugin. The spec format is in the `maths-worksheets` skill (`../maths-worksheets/references/paper-spec.md`). Use `maths-skill-finder` to choose skills.
 
 ## When to use it
 

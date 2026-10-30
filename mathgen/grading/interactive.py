@@ -891,13 +891,24 @@ def _json_bars(value, cats: list[str]) -> list[Fraction] | None:
 _BAR_ITEM_RE = re.compile(r"^\s*(?:(.+?)\s*[=:]\s*)?(-?\d+(?:\.\d+)?(?:/\d+)?)\s*$")
 
 
+def _bar_label_key(label: str):
+    """A bar's label for matching: a numeric label by value ("2" is "2.0"), any other by case-folded text."""
+    text = label.strip().replace("\u2212", "-")
+    if _NUMBER_RE.fullmatch(text):
+        try:
+            return Fraction(text)
+        except (ValueError, ZeroDivisionError):
+            pass
+    return text.casefold()
+
+
 def _typed_bars(text: str, cats: list[str]) -> list[Fraction] | None:
     if len(text) > MAX_TYPED_LENGTH:
         return None
     items = [i for i in re.split(r"\s*[,;\n]\s*", text.strip()) if i]
     if len(items) != len(cats):
         return None
-    labelled: dict[str, Fraction] = {}
+    labelled: dict[Fraction | str, Fraction] = {}
     plain: list[Fraction] = []
     for item in items:
         m = _BAR_ITEM_RE.match(item)
@@ -905,10 +916,13 @@ def _typed_bars(text: str, cats: list[str]) -> list[Fraction] | None:
         if m is None or value is None:
             return None
         if m.group(1):
-            labelled[m.group(1).strip().casefold()] = value
+            key = _bar_label_key(m.group(1))
+            if key in labelled:
+                return None
+            labelled[key] = value
         else:
             plain.append(value)
-    folded = [c.strip().casefold() for c in cats]
+    folded = [_bar_label_key(c) for c in cats]
     if labelled and not plain and set(labelled) == set(folded) and len(labelled) == len(folded):
         return [labelled[c] for c in folded]
     return plain if plain and not labelled else None
