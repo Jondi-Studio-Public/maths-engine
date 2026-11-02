@@ -63,6 +63,19 @@ Rules the composer enforces: unknown subject or ask fails with a message listing
 the asks it `requires` fails; an ask registered for another subject fails; the part dict goes through the normal
 `make()` checks (follow-through reproduces the canonical answer, tagged distractors, answer kinds).
 
+## Generic asks (compatible with a grid-driven design)
+
+Jondi has not yet chosen between one ask set per subject type and generic asks over expression families (thread
+"Design engine to cover all papers without sampling"). The interface supports both so no subject work is wasted:
+
+- `Subject.properties: frozenset[str]` names what the subject can supply (`"quadratic_argument"`,
+  `"closed_form_antiderivative"`, ...).
+- `@ask(None, "stationary_x", needs=("differentiable",))` registers a generic ask, valid for any subject whose
+  `properties` include everything in `needs`. `@ask("log_quadratic", ...)` stays the per-subject form, and a
+  per-subject ask of the same name wins over a generic one.
+
+Status of this note: the interface is settled enough to build against; it is not final until Jondi chooses.
+
 ## Recipe YAML
 
 ```yaml
