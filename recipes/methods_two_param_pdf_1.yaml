@@ -1,0 +1,14 @@
+id: methods_two_param_pdf_1
+title: A density with two unknown constants
+level: 12
+subject: two_param_pdf
+technology_active: false
+asks:
+  - ask: normalisation_relation
+    marks: 2
+  - ask: find_d_from_mean
+    marks: 3
+  - ask: find_c
+    marks: 1
+  - ask: probability_above
+    marks: 2

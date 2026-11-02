@@ -63442,6 +63442,86 @@ _ENTRIES += (
         "Multiplying by 60 where no conversion to minutes was wanted: a time asked in hours given in minutes, or Little's law applied to a time already in minutes.",
         area="queueing-inventory",
     ),
+    CatalogueEntry(
+        "tpp-normalisation-skips-the-divisor",
+        "Setting c times d^(n + 1) equal to 1, forgetting the divisor n + 1 that integrating the power brings in.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-normalisation-drops-the-k-term",
+        "Using only the area of the sloping part, c d^2/2 = 1, and leaving out the area k d under the constant term.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-integral-of-cx-forgets-the-half",
+        "Integrating cx as c x^2, without the factor of one half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-constant-integrates-to-itself",
+        "Integrating the constant k over [0, d] as k instead of k d.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-mean-taken-as-d",
+        "Giving the stated mean as the upper end d of the interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-mean-ratio-inverted",
+        "Turning the ratio between the mean and d upside down: (n + 1)/(n + 2) times the mean where (n + 2)/(n + 1) times it was needed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-mean-ignores-the-k-term",
+        "Solving E(X) = given as if the density were only the sloping part, so the constant term never enters the equation for d.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-extraneous-root-kept",
+        "Keeping the root of the quadratic for d that makes the constant c negative, instead of rejecting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-cdf-power-not-raised",
+        "Forgetting to raise the power when integrating the density, so the cumulative distribution is (x/d)^n where (x/d)^(n + 1) was needed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-cdf-drops-the-k-term",
+        "Leaving the constant term k out when integrating the density to find a probability.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dd-sd-gives-the-variance",
+        "Giving the variance where the standard deviation was asked, with no square root taken.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dd-sd-gives-the-mean",
+        "Giving the mean of the distribution where the standard deviation was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dd-sd-root-of-the-mean",
+        "Taking the square root of the mean, as if the variance were np, where np(1 - p) is the variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ebin-arrangements-forgotten",
+        "Leaving out the binomial coefficient, the number of ways the successes can be placed among the trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "ebin-p-and-q-swapped",
+        "Swapping the powers of p and 1 - p, so the successes are given the failure probability and the reverse.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "ebin-failures-ignored",
+        "Writing the binomial coefficient times p^k and leaving out the factor (1 - p)^(n - k) for the failures.",
+        area="probability",
+    ),
 )
 
 #: Every entry, by id.
