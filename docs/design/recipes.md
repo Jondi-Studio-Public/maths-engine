@@ -23,14 +23,17 @@ the multi-part question from it.
 ```python
 from mathgen.recipes import Subject, subject
 
+
 @subject("log_quadratic")
 class LogQuadratic(Subject):
     # Subject.technology_active: bool | None is set by the composer before stem() or any ask runs.
     @classmethod
-    def draw(cls, rng, technology_active):   # build the object; use core.attempts(), draw only from rng
-        return cls(...)                     # exact facts; technology_active None/False = exact, True = decimals
-    def stem(self) -> str:                  # the shared information, plain text, goes before part (a)
+    def draw(cls, rng, technology_active):  # build the object; use core.attempts(), draw only from rng
+        return cls(...)  # exact facts; technology_active None/False = exact, True = decimals
+
+    def stem(self) -> str:  # the shared information, plain text, goes before part (a)
         ...
+
     # optional: def figure(self) -> dict | None
 ```
 
@@ -43,13 +46,17 @@ class LogQuadratic(Subject):
 ```python
 from mathgen.recipes import ask
 
-@ask("log_quadratic", "implied_domain", requires=())   # requires: ask names that must come earlier
+
+@ask("log_quadratic", "implied_domain", requires=())  # requires: ask names that must come earlier
 def implied_domain(subject, rng, ctx) -> dict:
-    return dict(                      # exactly the keys a Part takes (see multi-part-questions.md)
+    return dict(  # exactly the keys a Part takes (see multi-part-questions.md)
         prompt="Find the implied domain of f.",
-        answer_kind="expression", answer=..., answer_text="...",
-        distractors=[Distractor(...), ...],   # tagged with catalogue misconception ids
-        sensible_range=None, working=[...],
+        answer_kind="expression",
+        answer=...,
+        answer_text="...",
+        distractors=[Distractor(...), ...],  # tagged with catalogue misconception ids
+        sensible_range=None,
+        working=[...],
         # `label` and `marks` are filled by the composer (marks from the recipe, else `default_marks`).
     )
 ```
@@ -74,7 +81,12 @@ Jondi has not yet chosen between one ask set per subject type and generic asks o
   `properties` include everything in `needs`. `@ask("log_quadratic", ...)` stays the per-subject form, and a
   per-subject ask of the same name wins over a generic one.
 
-Status of this note: the interface is settled enough to build against; it is not final until Jondi chooses.
+Jondi chose this grid design (2026-11-02). Vocabulary: `mathgen/recipe_vocabulary.py` holds the closed lists of
+`FAMILIES` and `PROPERTIES` (first list for VCE Methods, extended only by PR; meanings in the plan folder's
+`subject-vocabulary.md`). `@subject` refuses names outside it. `Subject.families` and `Subject.properties` are
+declared per subject class (so which asks apply is fixed by the recipe, not by the draw), and a property can have a
+check, `@property_check("has_stationary_point")` taking the drawn subject, which `compose` runs on every draw: a
+declared property that is false fails the seed, so the declaration cannot drift from the maths.
 
 ## Recipe YAML
 
@@ -93,7 +105,12 @@ asks:
     marks: 3
 ```
 
-Recipes are scanned from `recipes/` (or `MATHS_RECIPES_DIR`) and registered when `mathgen.generators` loads.
+Recipes are scanned from `recipes/` (or `MATHS_RECIPES_DIR`) and registered when `mathgen.generators` loads. A
+malformed recipe file, or one naming an unknown subject or ask, raises then, so a bad file breaks the whole
+`mathgen` import loudly (`tests/test_recipes.py` loads the real tree so CI catches it before a merge).
+Every recipe declares both technology modes (`technology=(True, False)`) because it hands the flag to its subject.
+`Question.technology_active` records only the value passed to `make()`; a recipe's own `technology_active` field
+is the default the subject sees when `make()` was not asked.
 
 ## Testing a subject thread's work
 

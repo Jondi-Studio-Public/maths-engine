@@ -9,6 +9,7 @@ so ``make()``, ``grade()`` and skills use it unchanged. See ``docs/design/recipe
 
 from __future__ import annotations
 
+import inspect
 import os
 import re
 from collections.abc import Callable
@@ -19,6 +20,7 @@ from typing import Any, ClassVar
 import yaml
 
 from . import core
+from .recipe_vocabulary import FAMILIES, PROPERTIES, PROPERTY_CHECKS
 
 __all__ = [
     "Subject",
@@ -54,7 +56,8 @@ class Subject:
     """
 
     name: ClassVar[str] = ""
-    properties: ClassVar[frozenset[str]] = frozenset()
+    properties: ClassVar[frozenset[str]] = frozenset()  # names from mathgen.recipe_vocabulary.PROPERTIES
+    families: ClassVar[frozenset[str]] = frozenset()  # names from mathgen.recipe_vocabulary.FAMILIES
     technology_active: bool | None = None
 
     @classmethod
@@ -107,6 +110,9 @@ def subject(name: str):
     def deco(cls: type[Subject]) -> type[Subject]:
         if name in SUBJECTS:
             raise RecipeError(f"duplicate subject: {name}")
+        bad = (set(cls.properties) - PROPERTIES) | (set(cls.families) - FAMILIES)
+        if bad:
+            raise RecipeError(f"subject {name!r} uses names outside mathgen/recipe_vocabulary.py: {sorted(bad)}")
         cls.name = name
         SUBJECTS[name] = cls
         return cls
@@ -200,6 +206,8 @@ def compose(recipe: Recipe, rng, technology_active: bool | None = None) -> dict:
     tech = technology_active if technology_active is not None else recipe.technology_active
     subj = cls.draw(rng, tech)
     subj.technology_active = tech
+    for prop in sorted(cls.properties & PROPERTY_CHECKS.keys()):
+        core.check(bool(PROPERTY_CHECKS[prop](subj)), f"subject {cls.name!r} declares {prop!r} but this draw lacks it")
     parts: list[dict] = []
     ctx = AskContext(label="", index=0)
     for i, (name, marks) in enumerate(recipe.asks):
@@ -229,7 +237,10 @@ def register_recipe(recipe: Recipe) -> str:
         return compose(recipe, rng, technology_active)
 
     generate.__name__ = topic
-    core.generator(topic, level=recipe.level)(generate)
+    # A recipe passes the technology flag to its subject, so it honours both modes. `technology=` exists once the
+    # technology-flag change is in `core.generator`; before that `make()` hands the keyword through anyway.
+    extra = {"technology": (True, False)} if "technology" in inspect.signature(core.generator).parameters else {}
+    core.generator(topic, level=recipe.level, **extra)(generate)
     return topic
 
 
@@ -298,7 +309,8 @@ def conformance(recipe_id: str, seeds: int = 300, technology_active: bool | None
 
     Checks: every seed builds; every answer is present; no part's stem or prompt contains a later part's answer
     (answers of three or more characters); at least 100 distinct last-part answers per 300 seeds; at least 3
-    distinct question shapes (digits masked).
+    distinct question shapes (digits masked). Every draw also runs the registered property checks of its subject
+    (``mathgen.recipe_vocabulary``) inside ``compose``, so a declared property that is false fails the seed.
     """
     topic = topic_for(recipe_id)
     problems: list[str] = []

@@ -14,7 +14,7 @@ def toy():
 
     @subject("toy_line")
     class ToyLine(Subject):
-        properties = frozenset({"linear"})
+        properties = frozenset({"linear_argument"})
 
         def __init__(self, m, r, noun):
             self.m, self.r, self.noun = m, r, noun
@@ -49,7 +49,7 @@ def toy():
             follow_through=f"3*part_{g}",
         )
 
-    @ask(None, "is_linear", needs=("linear",))
+    @ask(None, "is_linear", needs=("linear_argument",))
     def generic(s, rng, ctx):
         return dict(prompt="Is the line straight? Answer 1 for yes.", answer_kind="number", answer=1, answer_text="1")
 
@@ -95,6 +95,8 @@ def test_technology_flag_reaches_the_subject(toy):
     core.make(topic, seed=1)
     core.make(topic, seed=1, technology_active=True)
     assert seen == [False, True]
+    if hasattr(core, "TECHNOLOGY_MODES"):  # once the technology-flag change is in, the recipe declares both modes
+        assert core.TECHNOLOGY_MODES[topic] == frozenset({True, False})
 
 
 @pytest.mark.parametrize(
@@ -120,7 +122,7 @@ def test_unknown_subject_names_the_known_ones(toy):
 def test_generic_ask_needs_subject_properties(toy):
     recipes.validate(_recipe([("is_linear", None)]))
     recipes.SUBJECTS["toy_line"].properties = frozenset()
-    with pytest.raises(RecipeError, match="needs \\['linear'\\]"):
+    with pytest.raises(RecipeError, match="needs \\['linear_argument'\\]"):
         recipes.validate(_recipe([("is_linear", None)]))
 
 
@@ -176,3 +178,28 @@ def test_malformed_recipe_files_are_refused(tmp_path, body, message):
 
 def test_no_recipes_directory_is_fine(tmp_path):
     assert recipes.load_recipes(tmp_path / "absent") == []
+
+
+def test_subject_names_outside_the_vocabulary_are_refused(toy):
+    with pytest.raises(RecipeError, match="outside mathgen/recipe_vocabulary.py.*made_up"):
+
+        @subject("bad_toy")
+        class Bad(Subject):
+            properties = frozenset({"made_up"})
+
+
+def test_a_declared_property_must_hold_on_every_draw(toy, monkeypatch):
+    from mathgen import recipe_vocabulary
+
+    monkeypatch.setitem(recipe_vocabulary.PROPERTY_CHECKS, "linear_argument", lambda s: s.m > 100)
+    recipes.SUBJECTS["toy_line"].properties = frozenset({"linear_argument"})
+    topic = recipes.register_recipe(_recipe([("gradient", None)]))
+    with pytest.raises(core.VerificationError, match="declares 'linear_argument'"):
+        core.make(topic, seed=1)
+    monkeypatch.setitem(recipe_vocabulary.PROPERTY_CHECKS, "linear_argument", lambda s: s.m > 0)
+    assert core.make(topic, seed=1).parts[0].label == "a"
+
+
+def test_the_real_recipe_tree_loads():
+    """A malformed recipe in `recipes/` breaks the package import, so CI must see it here first."""
+    recipes.load_recipes()
