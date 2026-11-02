@@ -1,6 +1,6 @@
 """Recipe subject `exact_binomial`: R ~ Bin(n, p) with n in 2..5 and p a fraction (n = 5 as well as 2..4: only 89 distinct conditional answers exist for n up to 4, fewer than the 100 per 300 seeds a recipe must show), exact answers only.
 
-The asks are generic over `DISCRETE_DISTRIBUTION` (`_recipe_kit`): a point probability, an exact standard deviation
+The asks are registered per subject (the closed vocabulary has no discrete property yet): a point probability, an exact standard deviation
 (a simplified surd) and a conditional tail probability P(R >= a | R >= b) are all worked out from the subject's
 `pmf` and `support` alone. The subject supplies the integers the question asks about and, for the point probability,
 the wrong answers its binomial working invites (`point_slips`).
@@ -16,7 +16,7 @@ import sympy
 from ..core import attempts, rational_text
 from ..recipes import Subject, ask, subject
 from ._r3f_kit import fraction_part
-from ._recipe_kit import DISCRETE_DISTRIBUTION, expression_part
+from ._recipe_kit import expression_part
 
 _P = tuple(Fraction(a, b) for b in range(2, 7) for a in range(1, b) if math.gcd(a, b) == 1)
 
@@ -47,7 +47,7 @@ def _tail(s, j) -> Fraction:
 
 @subject("exact_binomial")
 class ExactBinomial(Subject):
-    properties = frozenset({DISCRETE_DISTRIBUTION})
+    families = frozenset({"discrete_pmf"})
     rv = "R"
 
     def __init__(self, n, p, setup, k, a, b):
@@ -98,7 +98,7 @@ class ExactBinomial(Subject):
 # -- generic asks ---------------------------------------------------------------------------------------------
 
 
-@ask(None, "point_probability", needs=(DISCRETE_DISTRIBUTION,), default_marks=1)
+@ask("exact_binomial", "point_probability", default_marks=1)
 def point_probability(s, rng, ctx):
     k = s.point_k
     value = s.pmf(k)
@@ -112,7 +112,7 @@ def point_probability(s, rng, ctx):
     )
 
 
-@ask(None, "standard_deviation", needs=(DISCRETE_DISTRIBUTION,), default_marks=2)
+@ask("exact_binomial", "standard_deviation", default_marks=2)
 def standard_deviation(s, rng, ctx):
     mean = sum((j * s.pmf(j) for j in s.support), Fraction(0))
     var = sum(((j - mean) ** 2 * s.pmf(j) for j in s.support), Fraction(0))
@@ -136,7 +136,7 @@ def standard_deviation(s, rng, ctx):
     )
 
 
-@ask(None, "conditional_at_least", needs=(DISCRETE_DISTRIBUTION,), default_marks=3)
+@ask("exact_binomial", "conditional_at_least", default_marks=3)
 def conditional_at_least(s, rng, ctx):
     a, b = s.cond_a, s.cond_b
     top, bottom = _tail(s, a), _tail(s, b)

@@ -73,6 +73,7 @@ def _analyse(density, given_mean: Fraction) -> dict:
 
 @subject("two_param_pdf")
 class TwoParamPdf(Subject):
+    families = frozenset({"pdf"})
     properties = frozenset({PDF_DENSITY, UNKNOWN_PARAMETERS})
     rv = "X"
     unknowns = (C, D)

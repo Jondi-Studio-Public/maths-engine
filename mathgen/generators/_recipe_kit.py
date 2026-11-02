@@ -29,9 +29,9 @@ from ..grading import GRADERS
 from ._r3f_kit import ThinOptions
 from types import SimpleNamespace
 
-PDF_DENSITY = "pdf_density"
-UNKNOWN_PARAMETERS = "unknown_parameters"
-DISCRETE_DISTRIBUTION = "discrete_distribution"
+PDF_DENSITY = "bounded_support"
+UNKNOWN_PARAMETERS = "unknown_constants_2"
+DISCRETE_DISTRIBUTION = None  # no vocabulary property yet: the binomial asks are per-subject (exact_binomial)
 
 X = sympy.Symbol("x")
 
