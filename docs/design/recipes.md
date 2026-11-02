@@ -105,7 +105,12 @@ asks:
     marks: 3
 ```
 
-Recipes are scanned from `recipes/` (or `MATHS_RECIPES_DIR`) and registered when `mathgen.generators` loads.
+Recipes are scanned from `recipes/` (or `MATHS_RECIPES_DIR`) and registered when `mathgen.generators` loads. A
+malformed recipe file, or one naming an unknown subject or ask, raises then, so a bad file breaks the whole
+`mathgen` import loudly (`tests/test_recipes.py` loads the real tree so CI catches it before a merge).
+Every recipe declares both technology modes (`technology=(True, False)`) because it hands the flag to its subject.
+`Question.technology_active` records only the value passed to `make()`; a recipe's own `technology_active` field
+is the default the subject sees when `make()` was not asked.
 
 ## Testing a subject thread's work
 
