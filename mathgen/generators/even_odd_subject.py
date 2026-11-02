@@ -11,6 +11,7 @@ from sympy import Rational, pi, simplify
 
 from ..answers import Distractor
 from ..core import latex_answer
+from ..recipe_vocabulary import property_check
 from ..recipes import Subject, ask, subject
 from . import _even_odd_maths as m
 
@@ -74,7 +75,8 @@ def _phase_text(b: int, trig: str) -> str:
 class EvenOdd(Subject):
     """Two terms p and q (for sum and product parity), and h = a·x^n + trig(bx + c) with c unknown."""
 
-    properties = frozenset({"parity_pair", "phase_shift_parity"})
+    families = frozenset({"polynomial", "circular", "hybrid"})
+    properties = frozenset({"even_candidate", "odd_candidate", "periodic"})
 
     def __init__(self, p, q, a_term, trig, b, target, j=1):
         self.p, self.q = p, q
@@ -111,6 +113,30 @@ class EvenOdd(Subject):
         )
 
 
+@property_check("even_candidate")
+def _even_candidate(s: EvenOdd) -> bool:
+    """The declared parity of p + q and of p * q agree with an independent numeric classification."""
+    pe, qe = m.term_expr(s.p), m.term_expr(s.q)
+    return m.numeric_parity(pe + qe) == s.sum_parity and m.numeric_parity(pe * qe) == s.product_parity
+
+
+@property_check("odd_candidate")
+def _odd_candidate(s: EvenOdd) -> bool:
+    """h with c taken from the declared family has the target parity; with a stray shift it has neither."""
+    from sympy import pi as _pi
+
+    trig = m.shifted_expr
+    fam = m.phase_family(s.trig, s.target).subs(m.K, 1)
+    a = m.term_expr(s.a_term)
+    ok = m.numeric_parity(a + trig(s.trig, s.b, fam)) == s.target
+    return ok and m.numeric_parity(a + trig(s.trig, s.b, fam + _pi / 3)) == m.NEITHER
+
+
+@property_check("periodic")
+def _periodic(s: EvenOdd) -> bool:
+    return m.numeric_parity(m.shifted_expr(s.trig, s.b, 0)) in (m.EVEN, m.ODD) and s.b >= 1
+
+
 def _mcq(key: str, tags: dict[str, str], prompt: str, working: list[str]) -> dict:
     wrong = [Distractor(o, tags[o]) for o in _OPTIONS if o != key]
     return dict(
@@ -138,7 +164,7 @@ def _sum_tags(key: str) -> dict[str, str]:
     return tags
 
 
-@ask(None, "sum_parity", needs=("parity_pair",))
+@ask(None, "sum_parity", needs=("even_candidate",))
 def sum_parity(s: EvenOdd, rng, ctx) -> dict:
     key = _WORD[s.sum_parity]
     pp, qp = (m.term_parity(t[1], t[2]) for t in (s.p, s.q))
@@ -150,7 +176,7 @@ def sum_parity(s: EvenOdd, rng, ctx) -> dict:
     return _mcq(key, _sum_tags(key), "Is p(x) + q(x) even, odd, neither, or both?", working)
 
 
-@ask(None, "product_parity", needs=("parity_pair",))
+@ask(None, "product_parity", needs=("even_candidate",))
 def product_parity(s: EvenOdd, rng, ctx) -> dict:
     key = _WORD[s.product_parity]
     pp, qp = (m.term_parity(t[1], t[2]) for t in (s.p, s.q))
@@ -170,7 +196,7 @@ def product_parity(s: EvenOdd, rng, ctx) -> dict:
     return _mcq(key, tags, "Is p(x)q(x) even, odd, neither, or both?", working)
 
 
-@ask(None, "trig_term_parity", needs=("phase_shift_parity",))
+@ask(None, "trig_term_parity", needs=("odd_candidate", "periodic"))
 def trig_term_parity(s: EvenOdd, rng, ctx) -> dict:
     want = s.needed_trig_parity
     key = _WORD[want]
@@ -188,7 +214,7 @@ def trig_term_parity(s: EvenOdd, rng, ctx) -> dict:
     return _mcq(key, tags, prompt, working)
 
 
-@ask(None, "find_c", needs=("phase_shift_parity",), requires=("trig_term_parity",), default_marks=3)
+@ask(None, "find_c", needs=("odd_candidate", "periodic"), requires=("trig_term_parity",), default_marks=3)
 def find_c(s: EvenOdd, rng, ctx) -> dict:
     fam = m.phase_family_text(s.trig, s.target)
     other = m.phase_family_text(s.trig, m.ODD if s.target == m.EVEN else m.EVEN)
@@ -230,7 +256,7 @@ def _fmt(expr) -> str:
     return str(simplify(expr)).replace("**", "^")
 
 
-@ask(None, "evaluate_at_multiple_of_pi", needs=("phase_shift_parity",), requires=("find_c",), default_marks=2)
+@ask(None, "evaluate_at_multiple_of_pi", needs=("odd_candidate", "periodic"), requires=("find_c",), default_marks=2)
 def evaluate_at_multiple_of_pi(s: EvenOdd, rng, ctx) -> dict:
     trig = sympy_trig(s.trig)
     c0 = pi if m.phase_family_text(s.trig, s.target) == "k*pi" else pi / 2

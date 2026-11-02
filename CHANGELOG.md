@@ -12,6 +12,7 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ### Added
 
+- Recipe subject `even_odd` and recipe `methods_even_odd_1`: parity of a sum and a product of functions, the phase shifts `c` that make `sin(bx + c)` or `cos(bx + c)` even or odd (`c = pi/2 + k*pi` or `k*pi`), then an exact evaluation. Closes the missing 2023 VCE Methods Exam 1 Q8d shape.
 - Interactive graph answers. Seven answer kinds (`half_planes`, `line_graph`, `number_line_set`, `polygon`, `curve`, `bars`,
   `edges`) read what a learner draws on a graph, as JSON a front end sends or as a typed form. Points are compared as
   exact fractions on the figure's snap grid, with no tolerance, and unreadable or oversized replies are marked wrong.
