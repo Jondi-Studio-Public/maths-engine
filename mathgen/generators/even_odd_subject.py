@@ -243,7 +243,7 @@ def find_c(s: EvenOdd, rng, ctx) -> dict:
         Distractor(period2, "eo-phase-period-2pi"),
     ]
     return dict(
-        prompt=f"Find all values of c for which h is {s.target}. Give c in terms of the integer k.",
+        prompt="Find all values of c for which h is either an even or an odd function. Give c in terms of the integer k.",
         answer_kind="expression",
         answer=key_fam,
         answer_text=key_fam,

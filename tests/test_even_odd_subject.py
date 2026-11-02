@@ -58,7 +58,7 @@ def test_find_c_and_evaluation_against_symbolic_check(seed):
     a = parse(a_txt)
     b = int(b_txt) if b_txt else 1
     trig = sin if trig_name == "sin" else cos
-    target = m.EVEN if "h is even" in q.parts[3].prompt else m.ODD
+    target = m.EVEN if q.parts[2].answer_text == "Even" else m.ODD
     assert q.parts[2].answer_text == {m.EVEN: "Even", m.ODD: "Odd"}[target]
     fam = q.parts[3].answer_text
     c0 = pi / 2 if fam.startswith("pi/2") else 0
@@ -73,3 +73,21 @@ def test_find_c_and_evaluation_against_symbolic_check(seed):
     c_small = pi if c0 == 0 else pi / 2
     value = a.subs(X, j * pi) + trig(b * j * pi + c_small)
     assert simplify(sympify(q.parts[4].answer_text.replace("^", "**"), locals={"pi": pi}) - value) == 0
+
+
+@pytest.mark.parametrize("seed", range(40))
+def test_no_prompt_names_the_target_parity(seed):
+    q = core.make(TOPIC, seed=seed)
+    for part in q.parts:
+        assert not re.search(r"\bh is (an? )?(even|odd)\b", part.prompt), part.prompt
+    d = q.parts[3].prompt.lower()
+    assert "even" in d and "odd" in d  # the prompt is symmetric: it gives (c)'s key away for neither target
+    # exactly one of the two families is right for h: the other makes h neither even nor odd
+    a_txt, trig_name, b_txt = re.search(r"h\(x\) = (.+?) \+ (sin|cos)\((?:(\d)x|x) \+ c\)", q.stem).groups()
+    a, b = parse(a_txt), int(b_txt) if b_txt else 1
+    trig = sin if trig_name == "sin" else cos
+    answer_family = q.parts[3].answer_text
+    c_key = pi / 2 if answer_family.startswith("pi/2") else 0
+    c_other = 0 if c_key != 0 else pi / 2
+    assert m.numeric_parity(a + trig(b * X + c_key)) in (m.EVEN, m.ODD)
+    assert m.numeric_parity(a + trig(b * X + c_other)) == m.NEITHER
