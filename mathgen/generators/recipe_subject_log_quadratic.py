@@ -14,7 +14,9 @@ is the half-width, and ``q(x) = -(x - r1)(x - r2) = m^2 - (x - h)^2``. Every fac
 - ln is increasing, so the stationary point of f is the maximum of q, at ``x = h``;
 - ``f(x) = ln k`` is ``q(x) = k``, so ``(x - h)^2 = m^2 - k = d`` and ``x = h ± sqrt(d)``. ``k`` is drawn so that
   ``d`` is a square-free whole number above 1, so the roots are surds already in simplest form and the answer
-  ``x = h ± √d`` has one spelling. ``k = 1`` (``f(x) = 0``, the exam's case) is the common draw.
+  ``x = h + √d`` has one spelling. The ask is for the larger solution, because the expression grader reads
+  ``x = ± √d`` as equal to ``x = p ± √d`` for any p, so asking for both would accept a shifted answer; one value is
+  graded by symbolic equality. ``k = 1`` (``f(x) = 0``, the exam's case) is the common draw.
 
 The subject is exact only: ``technology_active=True`` is refused, since a calculator version would be a different
 question (decimals, not a hand solution).
@@ -131,20 +133,20 @@ class LogQuadratic(Subject):
         return [self.h - root, self.h + root]
 
     def solution_text(self) -> str:
+        """The larger solution, x = h + √d."""
         return self._text(self.d)
 
     def solution_value(self) -> str:
-        return f"{self.h}±sqrt({self.d})"
+        return f"{self.h}+sqrt({self.d})"
 
-    def _text(self, radicand: int) -> str:
-        return f"x = ± √{radicand}" if self.h == 0 else f"x = {self.h} ± √{radicand}"
+    def _text(self, radicand: int, h: int | None = None) -> str:
+        h = self.h if h is None else h
+        return f"x = √{radicand}" if h == 0 else f"x = {h} + √{radicand}"
 
     def level_working(self) -> list[str]:
         exponent = "e^0 = 1" if self.k == 1 else f"e^(ln {self.k}) = {self.k}"
         completed = (
             f"{join_terms([(1, 'x^2'), (-self.b, 'x'), (self.k - self.c, '')])} = 0, so (x - {self.h})^2 = {self.d}."
-            if self.h
-            else f"x^2 = {self.d}."
         )
         return [
             f"ln({self.q_text()}) = {self.level_text()}, so {self.q_text()} = {exponent}.",
@@ -153,13 +155,17 @@ class LogQuadratic(Subject):
         ]
 
     def solution_wrong(self) -> list[tuple[str, str]]:
-        out = [(f"x = {self.r1} or x = {self.r2}", "log-equation-argument-set-to-zero")]
-        shifted = self.d - 1  # q(x) = k + 1 instead of q(x) = k
+        h, d = self.h, self.d
+        out = [(f"x = {self.r2}", "log-equation-argument-set-to-zero")]
+        shifted = d - 1  # q(x) = k + 1 instead of q(x) = k
         if self.k > 1 and shifted > 1 and math.isqrt(shifted) ** 2 != shifted:
             out.append((self._text(shifted), "log-equation-exponentiated-wrongly"))
         out.append((self._text(self.m * self.m + self.k), "sign-error-moving-term"))
+        out.append((f"x = {h} + {d}", "completing-square-root-not-taken"))
+        out.append((f"x = {h} - √{d}" if h else f"x = -√{d}", "sign-flip-one-root"))
         out.append(
-            (f"x = {self.h} ± {self.d}" if self.h else f"x = ± {self.d}", "completing-square-root-not-taken"),
+            (f"x = √{d}", "completing-square-drops-the-centre")
+            if h
+            else (f"x = {d}", "completing-square-root-not-taken")
         )
-        out.append((f"x = {self.h} + √{self.d}" if self.h else f"x = √{self.d}", "missed-negative-root"))
         return out

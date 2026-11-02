@@ -96,6 +96,10 @@ def stationary_point(s, rng, ctx) -> dict:
 @ask(None, "solve_equal_constant", needs=("has_surd_roots",), default_marks=2)
 def solve_equal_constant(s, rng, ctx) -> dict:
     domain = s.domain()
+    check(
+        sp.simplify(sp.sympify(s.solution_value()) - max(s.solutions(), key=float)) == 0,
+        "the answer is not the larger solution",
+    )
     for root in s.solutions():
         check(sp.simplify(s.expr.subs(X, root) - s.level_value()) == 0, "a solution does not satisfy f(x) = c")
         check(domain.start < root < domain.end, "a solution lies outside the domain")
@@ -104,9 +108,9 @@ def solve_equal_constant(s, rng, ctx) -> dict:
     prompt = phrase(
         rng,
         (
-            "Solve {f}(x) = {rhs} for x. Give your answer in the form x = p ± √q.",
-            "Find the exact values of x for which {f}(x) = {rhs}, in the form x = p ± √q.",
-            "Solve the equation {f}(x) = {rhs}, giving exact solutions in the form x = p ± √q.",
+            "Solve {f}(x) = {rhs} for x. Give the larger solution, as an exact value.",
+            "Find the larger of the two solutions of {f}(x) = {rhs}, exactly.",
+            "Solve the equation {f}(x) = {rhs}. State the larger solution in exact form.",
         ),
         f=s.fn_text(),
         rhs=s.level_text(),

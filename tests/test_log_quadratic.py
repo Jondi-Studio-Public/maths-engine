@@ -37,7 +37,7 @@ def test_exam_q7_numbers():
     c = m.solve_equal_constant(s, rng, _ctx())
     assert a["answer_text"] == "-1 < x < 3"
     assert b["answer"] == 1
-    assert c["answer_text"] == "x = 1 ± √3" and "f(x) = 0" in c["prompt"]
+    assert c["answer_text"] == "x = 1 + √3" and "f(x) = 0" in c["prompt"]
 
 
 @pytest.mark.parametrize("seed", SEEDS)
@@ -105,3 +105,24 @@ def test_declared_properties_are_true_of_the_drawn_subject(seed):
     assert sp.N(argument.subs(x, s.r1 - 1)) < 0  # restricted_domain: ln undefined outside the roots
     assert sp.solve(sp.diff(s.expr, x), x)  # has_stationary_point
     assert all(not sol.is_rational for sol in s.solutions())  # has_surd_roots
+
+
+@pytest.mark.parametrize("seed", range(150))
+def test_a_shifted_or_wrong_solution_is_rejected(seed):
+    """Only the larger solution is accepted: a shifted p, the smaller root, a bare ± form and a bare √d are not."""
+    q = core.make(TOPIC, seed=seed)
+    part = q.parts[2]
+    h, d = q.parts[1].answer, part.answer_text.split("√")[1]
+    assert grade("expression", part, part.answer_text).correct
+    assert grade("expression", part, f"{h}+sqrt({d})").correct
+    bad = [
+        f"x = {h + 1} + √{d}",
+        f"x = {h - 1} + √{d}",
+        f"x = {h} - √{d}",
+        f"x = {h} ± √{d}",
+        f"x = ± √{d}",
+    ]
+    if h != 0:
+        bad += [f"x = √{d}", f"x = {-h} + √{d}"]
+    for reply in bad:
+        assert not grade("expression", part, reply).correct, reply

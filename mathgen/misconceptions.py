@@ -63491,6 +63491,11 @@ _ENTRIES += (
         area="log-of-a-quadratic",
     ),
     CatalogueEntry(
+        "completing-square-drops-the-centre",
+        "Solving (x - h)^2 = d as x = √d, leaving out the h that was moved across.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
         "log-equation-exponentiated-wrongly",
         "Writing ln(q(x)) = ln k as q(x) = k + 1, or q(x) = ln k, instead of q(x) = k.",
         area="log-of-a-quadratic",
