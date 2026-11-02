@@ -12,6 +12,7 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ### Added
 
+- **Log of a quadratic recipe subject.** `log_quadratic` (f(x) = ln of a quadratic with whole-number roots) with three generic asks (implied domain, x of the stationary point, solve f(x) = c) giving exact, hand-solvable answers, and the recipe `methods_ln_quadratic_1` in the shape of VCE Methods 2023 Exam 1 Q7. Nine new misconception ids (area `log-of-a-quadratic`).
 - Interactive graph answers. Seven answer kinds (`half_planes`, `line_graph`, `number_line_set`, `polygon`, `curve`, `bars`,
   `edges`) read what a learner draws on a graph, as JSON a front end sends or as a typed form. Points are compared as
   exact fractions on the figure's snap grid, with no tolerance, and unreadable or oversized replies are marked wrong.

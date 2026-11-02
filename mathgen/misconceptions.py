@@ -63444,6 +63444,59 @@ _ENTRIES += (
     ),
 )
 
+# -- log of a quadratic (recipe subject `log_quadratic`) ---------------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "log-domain-outside-the-roots",
+        "Taking the values where the quadratic inside the logarithm is negative, the outside of its roots, as the "
+        "domain, instead of the values where it is positive.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "log-domain-endpoints-included",
+        "Writing the domain of a logarithm with a non-strict inequality, so the roots of its argument, where the "
+        "logarithm is undefined, are included.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "log-domain-one-factor-only",
+        "Applying the condition from only one factor of the quadratic inside the logarithm, so the domain is a ray "
+        "instead of an interval.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "turning-point-gives-the-value",
+        "Giving the maximum value of the function where the x-coordinate of the maximum was asked.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "turning-point-sum-of-roots",
+        "Giving the sum of the roots of the quadratic as the x-coordinate of its vertex, forgetting to halve it.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "turning-point-half-width",
+        "Giving half the distance between the roots as the x-coordinate of the vertex, so the position of the "
+        "midpoint is lost.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "log-equation-argument-set-to-zero",
+        "Solving ln(q(x)) = 0 as q(x) = 0, so the roots of q are given where q(x) = 1 was needed.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "completing-square-root-not-taken",
+        "Leaving the square root out when solving (x - h)^2 = d, so x = h ± d.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "log-equation-exponentiated-wrongly",
+        "Writing ln(q(x)) = ln k as q(x) = k + 1, or q(x) = ln k, instead of q(x) = k.",
+        area="log-of-a-quadratic",
+    ),
+)
+
 #: Every entry, by id.
 CATALOGUE: dict[str, CatalogueEntry] = {entry.id: entry for entry in _ENTRIES}
 
