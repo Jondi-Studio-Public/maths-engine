@@ -36,7 +36,16 @@ import re
 from . import make
 from .core import display_question, paper_notation  # noqa: F401  (re-exported)
 from .grading import GradeResult, grade as _grade_kind
-from .skills import Domain, Skill, Source, load_skills  # noqa: F401  (re-exported)
+from .skills import (  # noqa: F401  (re-exported)
+    Domain,
+    Skill,
+    Source,
+    load_skills,
+    skills_for_technology,
+    source_technology,
+    source_usable,
+    sources_for_technology,
+)
 
 # The public names: see docs/api.md. Anything else here may change in any release.
 __all__ = [
@@ -91,10 +100,34 @@ def pick_source(skill: Skill, source: Source | int | str | None = None) -> Sourc
     )
 
 
-def make_for_skill(skill: Skill, seed: int | None = None, *, source: Source | int | str | None = None):
-    """Build one verified question for `skill`. Same (skill, source, seed) gives the same question."""
-    src = pick_source(skill, source)
-    return make(src.topic, seed=seed, difficulty=src.difficulty, **_tuplify(src.params))
+def make_for_skill(
+    skill: Skill,
+    seed: int | None = None,
+    *,
+    source: Source | int | str | None = None,
+    technology_active: bool | None = None,
+):
+    """Build one verified question for `skill`. Same (skill, source, seed) gives the same question.
+
+    `technology_active=False` asks for a hand-solvable question: it picks the first source tagged `none` or
+    `either` when no source is named, and refuses a named source that is untagged or `required`. The flag is
+    handed to the generator only for a source tagged `either`; `True` and `None` serve any source."""
+    if technology_active is not None and not isinstance(technology_active, bool):
+        raise TypeError(f"technology_active must be True, False or None, not {technology_active!r}")
+    if source is None and technology_active is False:
+        usable = sources_for_technology(skill, False)
+        if not usable:
+            raise ValueError(f"skill {skill.id!r} has no source that is usable with technology off")
+        src = usable[0]
+    else:
+        src = pick_source(skill, source)
+        if not source_usable(skill, src, technology_active):
+            raise ValueError(
+                f"skill {skill.id!r} source {src.effective_key!r} is not usable with technology off "
+                f"(technology: {source_technology(skill, src)!r})"
+            )
+    flag = technology_active if source_technology(skill, src) == "either" else None
+    return make(src.topic, seed=seed, difficulty=src.difficulty, technology_active=flag, **_tuplify(src.params))
 
 
 def grade(skill: Skill, question, given: str | dict) -> GradeResult:
