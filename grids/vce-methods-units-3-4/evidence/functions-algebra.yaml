@@ -1,0 +1,1244 @@
+# Evidence for rows U3-F01..U3-F06, U3-A01, U3-A02. Each entry was claimed after rendering that tier and reading the prompts and answers.
+evidence:
+- by: skill:graph-transformation-equation
+  tier: easy
+  families: &id001
+  - polynomial
+  - rational
+  - exponential
+  - circular
+  operations: &id002
+  - transformation
+  modes:
+  - hand
+  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard:
+    read g from marked points); exact forms'
+- by: skill:graph-transformation-equation
+  tier: medium
+  families: *id001
+  operations: *id002
+  modes:
+  - hand
+  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard:
+    read g from marked points); exact forms'
+- by: skill:graph-transformation-equation
+  tier: hard
+  families: *id001
+  operations: *id002
+  modes:
+  - hand
+  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard:
+    read g from marked points); exact forms'
+- by: skill:graph-transformation-equation
+  tier: exam
+  families: *id001
+  operations: *id002
+  modes:
+  - hand
+  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard:
+    read g from marked points); exact forms'
+- by: skill:domain-range-standard-functions
+  tier: easy
+  families:
+  - power
+  - rational
+  operations:
+  - implied_domain
+  - range
+  modes:
+  - hand
+  note: domain or range, as an inequality, of a-+sqrt(bx+c) or a/(x-h)+k
+- by: skill:domain-range-standard-functions
+  tier: medium
+  families:
+  - rational
+  operations:
+  - implied_domain
+  - range
+  modes:
+  - hand
+  note: domain or range of (ax+b)/(cx+d)
+- by: skill:domain-range-standard-functions
+  tier: medium
+  families:
+  - power
+  operations:
+  - implied_domain
+  - range
+  modes:
+  - hand
+  note: domain or range of 1/sqrt(ax+b)+c (power with index -1/2)
+- by: skill:domain-range-standard-functions
+  tier: medium
+  families:
+  - logarithmic
+  operations:
+  - implied_domain
+  modes:
+  - hand
+  note: domain of ln(ax+b)+c; LINEAR argument only
+  shapes:
+  - linear_argument
+- by: skill:domain-range-standard-functions
+  tier: medium
+  families:
+  - polynomial
+  operations:
+  - range
+  modes:
+  - hand
+  note: range of a quadratic on a closed interval
+- by: skill:domain-range-standard-functions
+  tier: hard
+  families:
+  - logarithmic
+  operations:
+  - implied_domain
+  modes:
+  - hand
+  note: domain of ln of a QUADRATIC argument, as one or two inequalities
+  shapes:
+  - quadratic_argument
+- by: skill:domain-range-standard-functions
+  tier: hard
+  families: &id003
+  - composite
+  operations:
+  - implied_domain
+  modes: &id004
+  - hand
+  note: 'domain or range of sqrt(quadratic), e.g. a*sqrt(r^2-x^2)+c: square root composed with a quadratic'
+  shapes:
+  - quadratic_argument
+- by: skill:domain-range-standard-functions
+  tier: hard
+  families: *id003
+  operations:
+  - range
+  modes: *id004
+  note: 'domain or range of sqrt(quadratic), e.g. a*sqrt(r^2-x^2)+c: square root composed with a quadratic'
+- by: skill:domain-range-standard-functions
+  tier: hard
+  families:
+  - polynomial
+  operations:
+  - range
+  modes:
+  - hand
+  note: range of a quadratic on a half-open or open interval, strict and non-strict ends
+- by: skill:domain-range-standard-functions
+  tier: exam
+  families:
+  - power
+  operations:
+  - implied_domain
+  - range
+  - solve_equation
+  modes:
+  - hand
+  note: 'g(x)=sqrt(ax+b)-c: smallest x defined, least value of g, x where g meets the axis'
+- by: skill:domain-range-standard-functions
+  tier: exam
+  families:
+  - composite
+  operations:
+  - implied_domain
+  modes:
+  - hand
+  note: 'part (d): domain of h(x)=1/g(x) with g=sqrt(ax+b)-c, i.e. x>=a0 and x not equal to the zero of g (reciprocal composed
+    with g)'
+- by: skill:composite-function-domain
+  tier: easy
+  families: &id005
+  - composite
+  operations:
+  - implied_domain
+  modes: &id006
+  - hand
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
+  shapes:
+  - linear_argument
+- by: skill:composite-function-domain
+  tier: easy
+  families: *id005
+  operations:
+  - composition
+  modes: *id006
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
+- by: skill:composite-function-domain
+  tier: medium
+  families: *id005
+  operations:
+  - implied_domain
+  modes: &id007
+  - hand
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
+  shapes:
+  - quadratic_argument
+- by: skill:composite-function-domain
+  tier: medium
+  families: *id005
+  operations:
+  - composition
+  modes: *id007
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
+- by: skill:composite-function-domain
+  tier: hard
+  families: *id005
+  operations: &id008
+  - implied_domain
+  - composition
+  modes:
+  - hand
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
+- by: skill:composite-function-domain
+  tier: exam
+  families: *id005
+  operations: *id008
+  modes:
+  - hand
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
+- by: skill:graph-sqrt-of-function-domain-range
+  tier: easy
+  families: &id009
+  - composite
+  operations: &id010
+  - implied_domain
+  modes:
+  - hand
+  note: domain of y=sqrt(f(x)) from a drawn line or parabola (answer can be 'no solution')
+  shapes:
+  - linear_argument
+- by: skill:graph-sqrt-of-function-domain-range
+  tier: medium
+  families: *id009
+  operations: *id010
+  modes:
+  - hand
+  note: domain of y=sqrt(f(x)) from a drawn line or parabola (answer can be 'no solution')
+  shapes:
+  - quadratic_argument
+- by: skill:graph-sqrt-of-function-domain-range
+  tier: hard
+  families: &id011
+  - composite
+  operations:
+  - implied_domain
+  modes: &id012
+  - hand
+  note: domain and range/greatest value of y=sqrt(f(x)) for a quadratic f; exam also an exact surd value
+  shapes:
+  - quadratic_argument
+- by: skill:graph-sqrt-of-function-domain-range
+  tier: hard
+  families: *id011
+  operations:
+  - range
+  modes: *id012
+  note: domain and range/greatest value of y=sqrt(f(x)) for a quadratic f; exam also an exact surd value
+- by: skill:graph-sqrt-of-function-domain-range
+  tier: exam
+  families: *id011
+  operations:
+  - implied_domain
+  modes: &id013
+  - hand
+  note: domain and range/greatest value of y=sqrt(f(x)) for a quadratic f; exam also an exact surd value
+  shapes:
+  - quadratic_argument
+- by: skill:graph-sqrt-of-function-domain-range
+  tier: exam
+  families: *id011
+  operations:
+  - range
+  modes: *id013
+  note: domain and range/greatest value of y=sqrt(f(x)) for a quadratic f; exam also an exact surd value
+- by: skill:power-functions-rational-index
+  tier: medium
+  families:
+  - power
+  operations:
+  - implied_domain
+  modes:
+  - hand
+  note: least x for which (x+h)^(p/q)+k is real; (also asks the least value, a range endpoint, not claimed)
+- by: skill:power-functions-rational-index
+  tier: hard
+  families: &id014
+  - power
+  operations: &id015
+  - solve_equation
+  modes:
+  - hand
+  note: solve a x^(p/q) = b exactly (hard) / find x for given y on y=a x^(p/q) (exam)
+- by: skill:power-functions-rational-index
+  tier: exam
+  families: *id014
+  operations: *id015
+  modes:
+  - hand
+  note: solve a x^(p/q) = b exactly (hard) / find x for given y on y=a x^(p/q) (exam)
+- by: skill:power-functions-rational-index
+  tier: exam
+  families:
+  - power
+  operations:
+  - implied_domain
+  - solve_unknown_constants
+  modes:
+  - hand
+  note: 'y=ax^(p/q) through a point: find a, then the largest real domain'
+- by: skill:hybrid-functions
+  tier: medium
+  families: &id016
+  - hybrid
+  operations: &id017
+  - solve_unknown_constants
+  modes:
+  - hand
+  note: constant (or k+m) making a two/three-piece function continuous at the joins
+- by: skill:hybrid-functions
+  tier: hard
+  families: *id016
+  operations: *id017
+  modes:
+  - hand
+  note: constant (or k+m) making a two/three-piece function continuous at the joins
+- by: skill:hybrid-functions
+  tier: exam
+  families: *id016
+  operations: *id017
+  modes:
+  - hand
+  note: constant (or k+m) making a two/three-piece function continuous at the joins
+- by: skill:hybrid-functions
+  tier: exam
+  families:
+  - hybrid
+  operations:
+  - implied_domain
+  - range
+  modes:
+  - hand
+  note: 'parts (c),(d): state the domain and range of the continuous hybrid function'
+- by: skill:inverse-trig-values-and-graph-features
+  tier: medium
+  families:
+  - inverse
+  operations:
+  - implied_domain
+  - range
+  modes:
+  - hand
+  note: 'f=a*arcsin(bx+c)+d / arccos: largest x in the domain, or greatest value, exact in pi (arcsin family = ''inverse'';
+    one of three shapes per seed)'
+- by: skill:inverse-trig-values-and-graph-features
+  tier: exam
+  families:
+  - inverse
+  operations:
+  - implied_domain
+  - range
+  - solve_equation
+  modes:
+  - hand
+  note: 'f=a*arcsin(bx)+c: largest x in domain, greatest value (exact in pi), f(x) at a point, x-intercept'
+- by: skill:rational-function-features
+  tier: easy
+  families: &id018
+  - rational
+  operations: &id019
+  - graph_features
+  modes:
+  - hand
+  note: vertical/horizontal/oblique asymptotes, intercepts and holes of a rational function; exact fractions
+- by: skill:rational-function-features
+  tier: medium
+  families: *id018
+  operations: *id019
+  modes:
+  - hand
+  note: vertical/horizontal/oblique asymptotes, intercepts and holes of a rational function; exact fractions
+- by: skill:rational-function-features
+  tier: hard
+  families: *id018
+  operations: *id019
+  modes:
+  - hand
+  note: vertical/horizontal/oblique asymptotes, intercepts and holes of a rational function; exact fractions
+- by: skill:rational-function-features
+  tier: exam
+  families: *id018
+  operations: *id019
+  modes:
+  - hand
+  note: vertical/horizontal/oblique asymptotes, intercepts and holes of a rational function; exact fractions
+- by: skill:power-function-graph-features
+  tier: easy
+  families: &id020
+  - power
+  operations: &id021
+  - graph_features
+  modes:
+  - hand
+  note: asymptotes (and quadrants / x-intercept after translation) of a (x-h)^n+k with negative or fractional index
+- by: skill:power-function-graph-features
+  tier: medium
+  families: *id020
+  operations: *id021
+  modes:
+  - hand
+  note: asymptotes (and quadrants / x-intercept after translation) of a (x-h)^n+k with negative or fractional index
+- by: skill:power-function-graph-features
+  tier: exam
+  families: *id020
+  operations: *id021
+  modes:
+  - hand
+  note: asymptotes (and quadrants / x-intercept after translation) of a (x-h)^n+k with negative or fractional index
+- by: skill:power-function-graph-features
+  tier: easy
+  families:
+  - power
+  operations:
+  - symmetry
+  modes:
+  - hand
+  note: is a x^(p/q) odd, even or neither (typed word)
+- by: skill:senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156
+  tier: easy
+  families: &id022
+  - logarithmic
+  operations: &id023
+  - graph_features
+  modes:
+  - hand
+  note: vertical asymptote of y=log_a(x+c) read from a drawn graph; linear argument
+- by: skill:senior-recognise-the-qualitative-features-of-the-graph-of-acmmm156
+  tier: medium
+  families: *id022
+  operations: *id023
+  modes:
+  - hand
+  note: vertical asymptote of y=log_a(x+c) read from a drawn graph; linear argument
+- by: skill:senior-recognise-the-qualitative-features-of-the-graph-of
+  tier: easy
+  families: &id024
+  - exponential
+  operations: &id025
+  - graph_features
+  modes:
+  - hand
+  note: horizontal asymptote of y=a^x+k read from a drawn graph
+- by: skill:senior-recognise-the-qualitative-features-of-the-graph-of
+  tier: medium
+  families: *id024
+  operations: *id025
+  modes:
+  - hand
+  note: horizontal asymptote of y=a^x+k read from a drawn graph
+- by: skill:sinusoid-features-from-equation
+  tier: easy
+  families: &id026
+  - circular
+  operations: &id027
+  - graph_features
+  modes:
+  - hand
+  note: amplitude, period, extreme values, midline, translation, first max/min of a sin/cos/tan equation; exact in pi
+- by: skill:sinusoid-features-from-equation
+  tier: medium
+  families: *id026
+  operations: *id027
+  modes:
+  - hand
+  note: amplitude, period, extreme values, midline, translation, first max/min of a sin/cos/tan equation; exact in pi
+- by: skill:sinusoid-features-from-equation
+  tier: hard
+  families: *id026
+  operations: *id027
+  modes:
+  - hand
+  note: amplitude, period, extreme values, midline, translation, first max/min of a sin/cos/tan equation; exact in pi
+- by: skill:sinusoid-features-from-equation
+  tier: exam
+  families: *id026
+  operations: *id027
+  modes:
+  - hand
+  note: amplitude, period, extreme values, midline, translation, first max/min of a sin/cos/tan equation; exact in pi
+- by: skill:reciprocal-and-trig-graph-features
+  tier: easy
+  families: &id028
+  - circular
+  operations: &id029
+  - graph_features
+  modes:
+  - hand
+  note: period, vertical asymptotes (position, count) and gap between branches of tan, sec, cosec graphs; exact in pi
+- by: skill:reciprocal-and-trig-graph-features
+  tier: medium
+  families: *id028
+  operations: *id029
+  modes:
+  - hand
+  note: period, vertical asymptotes (position, count) and gap between branches of tan, sec, cosec graphs; exact in pi
+- by: skill:reciprocal-and-trig-graph-features
+  tier: hard
+  families: *id028
+  operations: *id029
+  modes:
+  - hand
+  note: period, vertical asymptotes (position, count) and gap between branches of tan, sec, cosec graphs; exact in pi
+- by: skill:reciprocal-and-trig-graph-features
+  tier: exam
+  families: *id028
+  operations: *id029
+  modes:
+  - hand
+  note: period, vertical asymptotes (position, count) and gap between branches of tan, sec, cosec graphs; exact in pi
+- by: skill:graph-f-squared-features
+  tier: easy
+  families: &id030
+  - polynomial
+  operations: &id031
+  - graph_features
+  modes:
+  - hand
+  note: turning points of y=(f(x))^2, a quartic when f is quadratic, from a drawn graph or a rule
+- by: skill:graph-f-squared-features
+  tier: medium
+  families: *id030
+  operations: *id031
+  modes:
+  - hand
+  note: turning points of y=(f(x))^2, a quartic when f is quadratic, from a drawn graph or a rule
+- by: skill:graph-f-squared-features
+  tier: hard
+  families: *id030
+  operations: *id031
+  modes:
+  - hand
+  note: turning points of y=(f(x))^2, a quartic when f is quadratic, from a drawn graph or a rule
+- by: skill:graph-f-squared-features
+  tier: exam
+  families: *id030
+  operations: *id031
+  modes:
+  - hand
+  note: turning points of y=(f(x))^2, a quartic when f is quadratic, from a drawn graph or a rule
+- by: skill:quadratic-vertex
+  tier: easy
+  families: &id032
+  - polynomial
+  operations: &id033
+  - graph_features
+  modes:
+  - hand
+  note: 'turning point of a quadratic (exam: from x-intercepts and one more point)'
+- by: skill:quadratic-vertex
+  tier: medium
+  families: *id032
+  operations: *id033
+  modes:
+  - hand
+  note: 'turning point of a quadratic (exam: from x-intercepts and one more point)'
+- by: skill:quadratic-vertex
+  tier: hard
+  families: *id032
+  operations: *id033
+  modes:
+  - hand
+  note: 'turning point of a quadratic (exam: from x-intercepts and one more point)'
+- by: skill:quadratic-vertex
+  tier: exam
+  families: *id032
+  operations: *id033
+  modes:
+  - hand
+  note: 'turning point of a quadratic (exam: from x-intercepts and one more point)'
+- by: skill:senior-recognise-features-of-the-graphs-of-y-frac1x
+  tier: easy
+  families: &id034
+  - rational
+  operations: &id035
+  - graph_features
+  modes:
+  - hand
+  note: both asymptotes of y=1/(x-h)+k read from a drawn graph
+- by: skill:senior-recognise-features-of-the-graphs-of-y-frac1x
+  tier: medium
+  families: *id034
+  operations: *id035
+  modes:
+  - hand
+  note: both asymptotes of y=1/(x-h)+k read from a drawn graph
+- by: skill:senior-recognise-features-of-the-graphs-of-y-frac1x
+  tier: hard
+  families: *id034
+  operations: *id035
+  modes:
+  - hand
+  note: both asymptotes of y=1/(x-h)+k read from a drawn graph
+- by: skill:senior-recognise-features-of-the-graphs-of-y-frac1x
+  tier: exam
+  families: *id034
+  operations: *id035
+  modes:
+  - hand
+  note: both asymptotes of y=1/(x-h)+k read from a drawn graph
+- by: skill:senior-recognise-features-of-the-graphs-of-y-x-acmmm017
+  tier: easy
+  families: &id036
+  - polynomial
+  operations: &id037
+  - graph_features
+  modes:
+  - hand
+  note: y-intercept of a drawn cubic
+- by: skill:senior-recognise-features-of-the-graphs-of-y-x-acmmm017
+  tier: medium
+  families: *id036
+  operations: *id037
+  modes:
+  - hand
+  note: y-intercept of a drawn cubic
+- by: skill:senior-recognise-features-of-the-graphs-of-y-x-acmmm017
+  tier: hard
+  families: *id036
+  operations: *id037
+  modes:
+  - hand
+  note: y-intercept of a drawn cubic
+- by: skill:senior-recognise-features-of-the-graphs-of-y-x-acmmm017
+  tier: exam
+  families: *id036
+  operations: *id037
+  modes:
+  - hand
+  note: y-intercept of a drawn cubic
+- by: skill:completing-square-and-discriminant
+  tier: easy
+  families:
+  - polynomial
+  operations:
+  - range
+  modes:
+  - hand
+  note: range of a quadratic by completing the square
+- by: skill:completing-square-and-discriminant
+  tier: hard
+  families:
+  - polynomial
+  operations:
+  - solve_unknown_constants
+  modes:
+  - hand
+  note: values of k for which kx^2+bx+c=0 has 0, 1 or 2 real roots (parameter from a discriminant condition)
+- by: skill:completing-square-and-discriminant
+  tier: exam
+  families:
+  - polynomial
+  operations:
+  - graph_features
+  modes:
+  - hand
+  note: turning point x and the least/greatest value of a quadratic, parts (a),(b)
+- by: skill:senior-consider-inverses-of-one-to-one-function
+  tier: easy
+  families: &id038
+  - polynomial
+  operations: &id039
+  - inverse_function
+  modes:
+  - hand
+  note: rule of the inverse of a LINEAR function (no domain asked)
+- by: skill:senior-consider-inverses-of-one-to-one-function
+  tier: medium
+  families: *id038
+  operations: *id039
+  modes:
+  - hand
+  note: rule of the inverse of a LINEAR function (no domain asked)
+- by: skill:senior-consider-inverses-of-one-to-one-function
+  tier: hard
+  families: &id040
+  - rational
+  operations: &id041
+  - inverse_function
+  modes:
+  - hand
+  note: rule of the inverse of 1/(x+a)+b or (ax+b)/(cx+d) (no domain asked)
+- by: skill:senior-consider-inverses-of-one-to-one-function
+  tier: exam
+  families: *id040
+  operations: *id041
+  modes:
+  - hand
+  note: rule of the inverse of 1/(x+a)+b or (ax+b)/(cx+d) (no domain asked)
+- by: skill:senior-determine-if-a-function-is-one-to-one
+  tier: easy
+  families: &id042
+  - polynomial
+  operations: &id043
+  - inverse_function
+  modes:
+  - hand
+  note: greatest restriction (or parameter) making a quadratic one-to-one, i.e. when an inverse exists
+- by: skill:senior-determine-if-a-function-is-one-to-one
+  tier: exam
+  families: *id042
+  operations: *id043
+  modes:
+  - hand
+  note: greatest restriction (or parameter) making a quadratic one-to-one, i.e. when an inverse exists
+- by: skill:senior-find-the-composition-of-two-functions
+  tier: easy
+  families: &id044
+  - composite
+  operations: &id045
+  - composition
+  modes:
+  - hand
+  note: rule of f(g(x)), g(f(x)), f(f(x)) or f(g(f(x))) for 1/(x+a) and sqrt(x-b); easy also evaluates f(g(c))
+- by: skill:senior-find-the-composition-of-two-functions
+  tier: medium
+  families: *id044
+  operations: *id045
+  modes:
+  - hand
+  note: rule of f(g(x)), g(f(x)), f(f(x)) or f(g(f(x))) for 1/(x+a) and sqrt(x-b); easy also evaluates f(g(c))
+- by: skill:senior-find-the-composition-of-two-functions
+  tier: hard
+  families: *id044
+  operations: *id045
+  modes:
+  - hand
+  note: rule of f(g(x)), g(f(x)), f(f(x)) or f(g(f(x))) for 1/(x+a) and sqrt(x-b); easy also evaluates f(g(c))
+- by: skill:senior-find-the-composition-of-two-functions
+  tier: exam
+  families: *id044
+  operations: *id045
+  modes:
+  - hand
+  note: rule of f(g(x)), g(f(x)), f(f(x)) or f(g(f(x))) for 1/(x+a) and sqrt(x-b); easy also evaluates f(g(c))
+- by: skill:senior-determine-when-the-composition-of-two-functions-is
+  tier: easy
+  families: &id046
+  - composite
+  operations: &id047
+  - composition
+  modes:
+  - hand
+  note: existence and domain of f(g(x)), g(f(x)), g(g(x)) etc. (multiple-choice description of where defined)
+- by: skill:senior-determine-when-the-composition-of-two-functions-is
+  tier: medium
+  families: *id046
+  operations: *id047
+  modes:
+  - hand
+  note: existence and domain of f(g(x)), g(f(x)), g(g(x)) etc. (multiple-choice description of where defined)
+- by: skill:senior-determine-when-the-composition-of-two-functions-is
+  tier: hard
+  families: *id046
+  operations: *id047
+  modes:
+  - hand
+  note: existence and domain of f(g(x)), g(f(x)), g(g(x)) etc. (multiple-choice description of where defined)
+- by: skill:senior-determine-when-the-composition-of-two-functions-is
+  tier: exam
+  families: *id046
+  operations: *id047
+  modes:
+  - hand
+  note: existence and domain of f(g(x)), g(f(x)), g(g(x)) etc. (multiple-choice description of where defined)
+- by: skill:senior-solve-cubic-equations-using-technology-and-algebraically-in
+  tier: easy
+  families: &id048
+  - polynomial
+  operations: &id049
+  - solve_equation
+  modes:
+  - calc
+  note: largest real root of a cubic to 3 dp; exam is an open-box volume equation
+- by: skill:senior-solve-cubic-equations-using-technology-and-algebraically-in
+  tier: medium
+  families: *id048
+  operations: *id049
+  modes:
+  - calc
+  note: largest real root of a cubic to 3 dp; exam is an open-box volume equation
+- by: skill:senior-solve-cubic-equations-using-technology-and-algebraically-in
+  tier: hard
+  families: *id048
+  operations: *id049
+  modes:
+  - calc
+  note: largest real root of a cubic to 3 dp; exam is an open-box volume equation
+- by: skill:senior-solve-cubic-equations-using-technology-and-algebraically-in
+  tier: exam
+  families: *id048
+  operations: *id049
+  modes:
+  - calc
+  note: largest real root of a cubic to 3 dp; exam is an open-box volume equation
+- by: skill:senior-solve-equations-involving-exponential-functions-using-technology-and
+  tier: easy
+  families: &id050
+  - exponential
+  operations: &id051
+  - solve_equation
+  modes:
+  - calc
+  note: a e^(bx+c)+d=k, quadratics in e^x, and e^x=linear on an interval; 3 dp
+- by: skill:senior-solve-equations-involving-exponential-functions-using-technology-and
+  tier: medium
+  families: *id050
+  operations: *id051
+  modes:
+  - calc
+  note: a e^(bx+c)+d=k, quadratics in e^x, and e^x=linear on an interval; 3 dp
+- by: skill:senior-solve-equations-involving-exponential-functions-using-technology-and
+  tier: hard
+  families: *id050
+  operations: *id051
+  modes:
+  - calc
+  note: a e^(bx+c)+d=k, quadratics in e^x, and e^x=linear on an interval; 3 dp
+- by: skill:senior-solve-equations-involving-exponential-functions-using-technology-and
+  tier: exam
+  families: *id050
+  operations: *id051
+  modes:
+  - calc
+  note: a e^(bx+c)+d=k, quadratics in e^x, and e^x=linear on an interval; 3 dp
+- by: skill:senior-solve-equations-involving-indices-using-logarithms
+  tier: easy
+  families: &id052
+  - exponential
+  operations: &id053
+  - solve_equation
+  modes:
+  - calc
+  note: a^x=b, a*b^x=c, a^(x+k)=b, quadratic in 5^x, a^(x+2)=b^(x-3); 3 dp
+- by: skill:senior-solve-equations-involving-indices-using-logarithms
+  tier: medium
+  families: *id052
+  operations: *id053
+  modes:
+  - calc
+  note: a^x=b, a*b^x=c, a^(x+k)=b, quadratic in 5^x, a^(x+2)=b^(x-3); 3 dp
+- by: skill:senior-solve-equations-involving-indices-using-logarithms
+  tier: hard
+  families: *id052
+  operations: *id053
+  modes:
+  - calc
+  note: a^x=b, a*b^x=c, a^(x+k)=b, quadratic in 5^x, a^(x+2)=b^(x-3); 3 dp
+- by: skill:senior-solve-equations-involving-indices-using-logarithms
+  tier: exam
+  families: *id052
+  operations: *id053
+  modes:
+  - calc
+  note: a^x=b, a*b^x=c, a^(x+k)=b, quadratic in 5^x, a^(x+2)=b^(x-3); 3 dp
+- by: skill:senior-solve-simple-equations-involving-logarithmic-functions-algebraically-and
+  tier: easy
+  families: &id054
+  - logarithmic
+  operations: &id055
+  - solve_equation
+  modes:
+  - hand
+  note: log_a(linear)=c, differences/sums of logs, exact fraction answers
+  shapes:
+  - linear_argument
+- by: skill:senior-solve-simple-equations-involving-logarithmic-functions-algebraically-and
+  tier: medium
+  families: *id054
+  operations: *id055
+  modes:
+  - hand
+  note: log_a(linear)=c, differences/sums of logs, exact fraction answers
+  shapes:
+  - linear_argument
+- by: skill:senior-solve-simple-equations-involving-logarithmic-functions-algebraically-and
+  tier: hard
+  families: *id054
+  operations: *id055
+  modes:
+  - hand
+  note: log_a(linear)=c, differences/sums of logs, exact fraction answers
+  shapes:
+  - linear_argument
+- by: skill:senior-solve-simple-equations-involving-logarithmic-functions-algebraically-and
+  tier: exam
+  families: *id054
+  operations: *id055
+  modes:
+  - hand
+  note: log_a(linear)=c, differences/sums of logs, exact fraction answers
+  shapes:
+  - linear_argument
+- by: skill:senior-solve-equations-involving-trigonometric-functions-using-technology-and
+  tier: easy
+  families: &id056
+  - circular
+  operations: &id057
+  - solve_equation
+  modes:
+  - calc
+  note: sin/cos(kx)=c on an interval, nth solution to 1 dp (degrees); exam is a tide model in hours, 3 dp
+- by: skill:senior-solve-equations-involving-trigonometric-functions-using-technology-and
+  tier: medium
+  families: *id056
+  operations: *id057
+  modes:
+  - calc
+  note: sin/cos(kx)=c on an interval, nth solution to 1 dp (degrees); exam is a tide model in hours, 3 dp
+- by: skill:senior-solve-equations-involving-trigonometric-functions-using-technology-and
+  tier: hard
+  families: *id056
+  operations: *id057
+  modes:
+  - calc
+  note: sin/cos(kx)=c on an interval, nth solution to 1 dp (degrees); exam is a tide model in hours, 3 dp
+- by: skill:senior-solve-equations-involving-trigonometric-functions-using-technology-and
+  tier: exam
+  families: *id056
+  operations: *id057
+  modes:
+  - calc
+  note: sin/cos(kx)=c on an interval, nth solution to 1 dp (degrees); exam is a tide model in hours, 3 dp
+- by: skill:trig-equations-radians-list
+  tier: easy
+  families: &id058
+  - circular
+  operations: &id059
+  - solve_equation
+  modes:
+  - hand
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
+  shapes:
+  - has_pi_roots
+- by: skill:trig-equations-radians-list
+  tier: medium
+  families: *id058
+  operations: *id059
+  modes:
+  - hand
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
+  shapes:
+  - has_pi_roots
+- by: skill:trig-equations-radians-list
+  tier: hard
+  families: *id058
+  operations: *id059
+  modes:
+  - hand
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
+  shapes:
+  - has_pi_roots
+- by: skill:trig-equations-radians-list
+  tier: exam
+  families: *id058
+  operations: *id059
+  modes:
+  - hand
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
+  shapes:
+  - has_pi_roots
+- by: skill:trig-equations-solutions-in-radians
+  tier: easy
+  families: &id060
+  - circular
+  operations: &id061
+  - solve_equation
+  modes:
+  - hand
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
+  shapes:
+  - has_pi_roots
+- by: skill:trig-equations-solutions-in-radians
+  tier: medium
+  families: *id060
+  operations: *id061
+  modes:
+  - hand
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
+  shapes:
+  - has_pi_roots
+- by: skill:trig-equations-solutions-in-radians
+  tier: hard
+  families: *id060
+  operations: *id061
+  modes:
+  - hand
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
+  shapes:
+  - has_pi_roots
+- by: skill:trig-equations-solutions-in-radians
+  tier: exam
+  families: *id060
+  operations: *id061
+  modes:
+  - hand
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
+  shapes:
+  - has_pi_roots
+- by: skill:solve-quadratics-formula
+  tier: easy
+  families: &id062
+  - polynomial
+  operations: &id063
+  - solve_equation
+  modes:
+  - calc
+  note: quadratic by formula to 2 dp
+- by: skill:solve-quadratics-formula
+  tier: medium
+  families: *id062
+  operations: *id063
+  modes:
+  - calc
+  note: quadratic by formula to 2 dp
+- by: skill:solve-quadratics-formula
+  tier: hard
+  families: *id062
+  operations: *id063
+  modes:
+  - calc
+  note: quadratic by formula to 2 dp
+- by: skill:solve-quadratics-formula
+  tier: exam
+  families: *id062
+  operations: *id063
+  modes:
+  - calc
+  note: quadratic by formula to 2 dp
+- by: skill:solve-quadratics-formula
+  tier: exam
+  families:
+  - rational
+  operations:
+  - solve_equation
+  modes:
+  - calc
+  note: ax - b/x = c, which reduces to a quadratic; 2 dp
+- by: skill:senior-solve-quadratic-equations-using-the-quadratic-formula-and
+  tier: easy
+  families: &id064
+  - polynomial
+  operations: &id065
+  - solve_equation
+  modes:
+  - hand
+  note: larger root as an exact surd
+- by: skill:senior-solve-quadratic-equations-using-the-quadratic-formula-and
+  tier: medium
+  families: *id064
+  operations: *id065
+  modes:
+  - hand
+  note: larger root as an exact surd
+- by: skill:senior-solve-quadratic-equations-using-the-quadratic-formula-and
+  tier: hard
+  families: *id064
+  operations: *id065
+  modes:
+  - hand
+  note: larger root as an exact surd
+- by: skill:senior-solve-quadratic-equations-using-the-quadratic-formula-and
+  tier: exam
+  families: *id064
+  operations: *id065
+  modes:
+  - hand
+  note: larger root as an exact surd
+- by: skill:senior-solve-quadratic-equations-using-the-quadratic-formula-and
+  tier: exam
+  families:
+  - rational
+  operations:
+  - solve_equation
+  modes:
+  - hand
+  note: x - a/x = b, exact surd root
+- by: skill:senior-define-the-natural-logarithm-ln-x-log-ex
+  tier: hard
+  families:
+  - logarithmic
+  operations:
+  - solve_equation
+  modes:
+  - calc
+  note: ln(x)=c, x to 3 dp
+- by: skill:senior-define-the-natural-logarithm-ln-x-log-ex
+  tier: exam
+  families:
+  - exponential
+  operations:
+  - solve_equation
+  modes:
+  - calc
+  note: quadratic in e^x, or e^x + k e^-x = c; 3 dp
+- by: skill:logarithm-laws
+  tier: exam
+  families:
+  - logarithmic
+  operations:
+  - solve_equation
+  modes:
+  - hand
+  note: log_b(x+p)+log_b(x-q)=c solved through (x+p)(x-q)=b^c; integer answer
+- by: skill:senior-define-logarithms-as-indices-a-x-b-is
+  tier: easy
+  families: &id066
+  - exponential
+  operations: &id067
+  - solve_equation
+  modes:
+  - hand
+  note: a^x = b with an exact integer x (b may be 1/9)
+- by: skill:senior-define-logarithms-as-indices-a-x-b-is
+  tier: hard
+  families: *id066
+  operations: *id067
+  modes:
+  - hand
+  note: a^x = b with an exact integer x (b may be 1/9)
+- by: skill:senior-define-logarithms-as-indices-a-x-b-is
+  tier: medium
+  families: &id068
+  - logarithmic
+  operations: &id069
+  - solve_equation
+  modes:
+  - hand
+  note: log_a(b)=c for b (medium) or for the base x (exam)
+- by: skill:senior-define-logarithms-as-indices-a-x-b-is
+  tier: exam
+  families: *id068
+  operations: *id069
+  modes:
+  - hand
+  note: log_a(b)=c for b (medium) or for the base x (exam)
+- by: skill:senior-identify-contexts-suitable-for-modelling-by-logarithmic-functions
+  tier: easy
+  families: &id070
+  - logarithmic
+  operations: &id071
+  - solve_equation
+  modes:
+  - calc
+  note: solve y = a log10(x)+b or a ln(x)+b for x in context, 1 dp
+- by: skill:senior-identify-contexts-suitable-for-modelling-by-logarithmic-functions
+  tier: medium
+  families: *id070
+  operations: *id071
+  modes:
+  - calc
+  note: solve y = a log10(x)+b or a ln(x)+b for x in context, 1 dp
+- by: skill:senior-identify-contexts-suitable-for-modelling-by-logarithmic-functions
+  tier: hard
+  families: *id070
+  operations: *id071
+  modes:
+  - calc
+  note: solve y = a log10(x)+b or a ln(x)+b for x in context, 1 dp
+- by: skill:senior-identify-contexts-suitable-for-modelling-by-logarithmic-functions
+  tier: exam
+  families: *id070
+  operations: *id071
+  modes:
+  - calc
+  note: solve y = a log10(x)+b or a ln(x)+b for x in context, 1 dp
+- by: skill:senior-identify-contexts-suitable-for-modelling-by-trigonometric-functions
+  tier: exam
+  families:
+  - circular
+  operations:
+  - solve_equation
+  modes:
+  - calc
+  note: 'part (b): first time a sinusoidal tide/piston model reaches a stated value, 3 dp'
+- by: skill:senior-use-radicals-and-convert-to-and-from-fractional
+  tier: exam
+  families:
+  - power
+  operations:
+  - solve_equation
+  modes:
+  - hand
+  note: x^(-5/3)=1/243 for positive x (one of two exam shapes)
+- by: skill:line-meets-parabola-circle
+  tier: easy
+  families:
+  - polynomial
+  operations:
+  - solve_equation
+  modes:
+  - hand
+  note: intersection of a line and a parabola (a quadratic equation), exact
+- by: skill:line-meets-parabola-circle
+  tier: medium
+  families:
+  - polynomial
+  operations:
+  - solve_unknown_constants
+  modes:
+  - hand
+  note: k so that y=mx+k is tangent to a parabola (discriminant = 0)
+- by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
+  tier: easy
+  families: &id072
+  - polynomial
+  operations: &id073
+  - solve_unknown_constants
+  modes:
+  - hand
+  note: a,b,c of a quadratic from vertex, roots or three points
+- by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
+  tier: medium
+  families: *id072
+  operations: *id073
+  modes:
+  - hand
+  note: a,b,c of a quadratic from vertex, roots or three points
+- by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
+  tier: hard
+  families: *id072
+  operations: *id073
+  modes:
+  - hand
+  note: a,b,c of a quadratic from vertex, roots or three points
+- by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
+  tier: exam
+  families: *id072
+  operations: *id073
+  modes:
+  - hand
+  note: a,b,c of a quadratic from vertex, roots or three points
+- by: skill:integer-polynomial-quotient-remainder
+  tier: exam
+  families:
+  - polynomial
+  operations:
+  - solve_unknown_constants
+  modes:
+  - hand
+  note: integer a in a cubic from a stated remainder on division by (x-c)

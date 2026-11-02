@@ -1,0 +1,26 @@
+# Held-out check: 2023 VCE Mathematical Methods Exam 1 (NHT). Not a source of the grid; the grid is derived from the
+# study design first and this paper then tests it. Parts are described in a few words, not reproduced.
+# Source of the part list: the project's 2023 coverage check. A `grid-miss` verdict means the grid is wrong.
+id: vce-methods-2023-exam1-nht
+title: 2023 VCE Methods Exam 1 (NHT)
+parts:
+  - {q: 1, part: a, marks: 1, what: "derivative of x sin x", cells: [{families: [composite], operations: [differentiate], modes: [hand]}]}
+  - {q: 1, part: b, marks: 2, what: "exact definite integral needing by parts", cells: [{families: [composite], operations: [definite_integral], modes: [hand], shapes: [by_parts_integrable]}]}
+  - {q: 2, part: '', marks: 2, what: "antiderivative of a cubic in (3-x) with a condition", cells: [{families: [composite], operations: [antiderivative], modes: [hand], shapes: [with_condition]}]}
+  - {q: 3, part: a, marks: 1, what: "exact binomial probability, small n", cells: [{families: [discrete_pmf], operations: [probability_calc], modes: [hand], shapes: [binomial_count]}]}
+  - {q: 3, part: b, marks: 1, what: "exact binomial standard deviation", cells: [{families: [discrete_pmf], operations: [summary_stats], modes: [hand], shapes: [binomial_count]}]}
+  - {q: 3, part: c, marks: 3, what: "exact conditional binomial probability", cells: [{families: [discrete_pmf], operations: [probability_calc], modes: [hand], shapes: [binomial_count, conditional]}]}
+  - {q: 4, part: a, marks: 2, what: "evaluate a quadratic-in-exponential at a log point", cells: [{families: [exponential], operations: [solve_equation], modes: [hand], shapes: [quadratic_in_exponential]}]}
+  - {q: 4, part: b, marks: 2, what: "solve a quadratic in 2^x exactly", cells: [{families: [exponential], operations: [solve_equation], modes: [hand], shapes: [quadratic_in_exponential, has_log_root]}]}
+  - {q: 5, part: a, marks: 3, what: "pdf with two unknowns, relation between them", cells: [{families: [pdf], operations: [solve_unknown_constants], modes: [hand], shapes: [unknown_constants_2]}]}
+  - {q: 5, part: b, marks: 3, what: "mean given, solve both unknowns", cells: [{families: [pdf], operations: [solve_unknown_constants, summary_stats], modes: [hand], shapes: [unknown_constants_2]}]}
+  - {q: 6, part: a, marks: 1, what: "maximal domain of a rational function", cells: [{families: [rational], operations: [implied_domain], modes: [hand]}]}
+  - {q: 6, part: b, marks: 3, not_auto: "sketch with asymptotes and intercepts (typed features are cell rational/graph_features/hand)"}
+  - {q: 6, part: c, marks: 2, what: "find the outer function from a translated composite", cells: [{families: [rational], operations: [transformation], modes: [hand], shapes: [outer_function_unknown]}]}
+  - {q: 7, part: a, marks: 3, what: "implied domain of ln of a quadratic", cells: [{families: [logarithmic], operations: [implied_domain], modes: [hand], shapes: [quadratic_argument]}]}
+  - {q: 7, part: b, marks: 1, what: "x of the maximum of ln of a quadratic", cells: [{families: [logarithmic], operations: [stationary_point], modes: [hand], shapes: [quadratic_argument]}]}
+  - {q: 7, part: c, marks: 2, what: "solve ln of a quadratic equals a constant", cells: [{families: [logarithmic], operations: [solve_equation], modes: [hand], shapes: [quadratic_argument, has_surd_roots]}]}
+  - {q: 8, part: a, marks: 1, not_auto: "written reason comparing two graphs"}
+  - {q: 8, part: b, marks: 3, what: "antiderivative of a given function with g(0)=0", cells: [{families: [circular], operations: [antiderivative], modes: [hand], shapes: [with_condition]}]}
+  - {q: 8, part: c, marks: 1, not_auto: "one-line proof about even integers"}
+  - {q: 8, part: d, marks: 3, what: "parameter c making a sum with sin(x+c) even", cells: [{families: [circular], operations: [symmetry], modes: [hand], shapes: [even_candidate]}]}

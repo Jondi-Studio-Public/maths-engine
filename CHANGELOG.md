@@ -12,6 +12,10 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ### Added
 
+- Coverage grids (`grids/`, `scripts/grid_gap_report.py`). A grid crosses function family, operation and mode (hand or
+  calculator), plus finer shapes, for a study design; evidence says which skill tier produces each cell, and the script
+  lists the possible cells nothing produces. First grid: VCE Mathematical Methods Units 3 and 4 (rows provisional), with
+  the 2023 Exam 1 as a held-out check. See `grids/README.md`.
 - Interactive graph answers. Seven answer kinds (`half_planes`, `line_graph`, `number_line_set`, `polygon`, `curve`, `bars`,
   `edges`) read what a learner draws on a graph, as JSON a front end sends or as a typed form. Points are compared as
   exact fractions on the figure's snap grid, with no tolerance, and unreadable or oversized replies are marked wrong.

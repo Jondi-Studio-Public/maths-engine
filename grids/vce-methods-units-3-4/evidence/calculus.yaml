@@ -1,0 +1,115 @@
+# Evidence for the calculus rows U3-C01..U3-C04 and U4-C05..U4-C08.
+# Every claim was made after rendering the tier (12 seeds or more where shapes vary) and reading prompts and answers.
+evidence:
+  # ---- U3-C01 differentiate ----
+  - {by: "skill:differentiate-polynomial", tier: easy, families: [polynomial], operations: [differentiate], modes: [hand],
+     note: "Differentiate a cubic or quartic polynomial; exact polynomial answer"}
+  - {by: "skill:differentiate-polynomial", tier: exam, families: [polynomial], operations: [differentiate, stationary_point], modes: [hand],
+     note: "f(x) = (x - a)(quadratic): find f', then exact x-coordinate and value of the local maximum and the point of inflection"}
+  - {by: "skill:differentiate-polynomial", tier: exam, families: [power], operations: [differentiate], modes: [hand],
+     note: "Differentiate (polynomial)/x^3 or (polynomial)/sqrt(x) written as a quotient; the terms are x^(p/q) powers, exact answer"}
+  - {by: "skill:differentiate-chain-rule", tier: exam, families: [composite], operations: [differentiate, tangent_normal], modes: [hand],
+     note: "f(x) = k/(quadratic)^n or k/sqrt(quadratic): f', exact gradient at a point, tangent equation, x-intercept of the tangent"}
+  - {by: "skill:differentiate-ln-composite", tier: exam, families: [logarithmic, composite], operations: [differentiate], modes: [hand],
+     note: "f(x) = ln(x^2 + k): find k from a gradient, then f'(x) and exact gradients (the ln(x^2+k) shape only)"}
+  - {by: "skill:differentiate-product-rule", tier: exam, families: [polynomial], operations: [differentiate, tangent_normal], modes: [hand],
+     note: "Product of powers of polynomial brackets: f', exact gradient, tangent equation and the area of the triangle it cuts off"}
+  - {by: "skill:differentiate-quotient-rule", tier: easy, families: [rational], operations: [differentiate], modes: [hand],
+     note: "Differentiate (ax + b)/(cx + d); exact answer"}
+  - {by: "skill:differentiate-quotient-rule", tier: exam, families: [rational], operations: [differentiate, tangent_normal], modes: [hand],
+     note: "f(x) = (quadratic or linear)/(linear or quadratic): f', exact gradient, equation of the normal and its intercept"}
+  - {by: "skill:differentiate-trig", tier: exam, families: [circular], operations: [differentiate, stationary_point], modes: [hand],
+     note: "f(x) = ax + b sin(2x) or ax + b cos(x) on a stated domain: f', exact x of the local maximum, exact value there"}
+  - {by: "skill:differentiate-trig", tier: exam, families: [circular, composite], operations: [differentiate], modes: [hand],
+     note: "Differentiate k sin(quadratic), k cos(quadratic), k sin^n(ax); exact expression"}
+  - {by: "skill:senior-apply-the-product-quotient-and-chain-rule-to", tier: exam, families: [exponential, circular], operations: [differentiate, tangent_normal], modes: [hand],
+     note: "e^(-kx)/(quadratic), (quadratic)e^(-kx), (sin(kx) + c)/(x + d), (x + d)e^x cos(kx): f', exact gradient, tangent, its x-intercept"}
+  - {by: "skill:senior-use-the-leibniz-notation-for-the-derivative-frac", tier: exam, families: [composite], operations: [differentiate], modes: [hand],
+     note: "y = u^2 + 2u with u quadratic in x: dy/dx by the chain rule, exact value at a point"}
+  # ---- U3-C02 tangents, normals, rates of change ----
+  - {by: "skill:senior-find-the-slope-of-a-tangent-and-the", tier: hard, families: [polynomial], operations: [tangent_normal], modes: [hand],
+     note: "Equation of the tangent to a quadratic at x = a"}
+  - {by: "skill:senior-find-the-slope-of-a-tangent-and-the", tier: exam, families: [polynomial], operations: [tangent_normal], modes: [hand],
+     note: "Cubic: point where the tangent is parallel to a given line, tangent and normal equations, intercept"}
+  - {by: "skill:senior-interpret-the-derivative-as-the-instantaneous-rate-of", tier: hard, families: [polynomial], operations: [rate_of_change], modes: [hand],
+     note: "Instantaneous rate of change of a cubic model at t = a, in context; exact integer"}
+  - {by: "skill:senior-interpret-the-derivative-as-the-instantaneous-rate-of", tier: exam, families: [polynomial], operations: [rate_of_change], modes: [calc],
+     note: "Cubic D(t): average and instantaneous rate; time they agree and a percentage, to 2 and 1 decimal places (some parts are exact integers)"}
+  - {by: "skill:senior-examine-examples-of-variable-rates-of-change-of", tier: easy, families: [polynomial], operations: [rate_of_change], modes: [hand],
+     note: "Average rate of change of a quadratic over [a, b]; exact integer"}
+  - {by: "skill:senior-use-exponential-functions-and-their-derivatives-to-solve", tier: exam, families: [exponential, composite], operations: [differentiate, rate_of_change], modes: [calc],
+     note: "N(t) = A e^(kt): k from a rate (2 dp), rate at a given N, time, average rate; linear-argument exponential, all decimal"}
+  - {by: "skill:senior-use-logarithmic-functions-and-their-derivatives-to-solve", tier: exam, families: [logarithmic], operations: [differentiate, rate_of_change], modes: [calc],
+     note: "V(x) = a ln(x) + c: a from a rate, x for a given rate, V and average rate to stated decimal places"}
+  - {by: "skill:senior-use-trigonometric-functions-and-their-derivatives-to-solve", tier: exam, families: [circular, composite], operations: [differentiate, rate_of_change], modes: [calc],
+     note: "h(t) = a sin(bt) + c: greatest rate, t for a given rate (3 dp), h and d2h/dt2 at that time (linear-argument sine, all decimal)"}
+  - {by: "skill:senior-use-trigonometric-functions-and-their-derivatives-to-solve", tier: medium, families: [circular], operations: [rate_of_change], modes: [hand],
+     note: "Rate of change of a sin(bt) + c at an exact angle such as 5*pi/12; exact value"}
+  # ---- U3-C03 stationary points ----
+  - {by: "skill:stationary-points", tier: exam, families: [polynomial], operations: [stationary_point], modes: [hand],
+     note: "f(x) = a(x - p)^2(x - q) or (x + p)^3(x + q)^2: exact stationary points, second-derivative nature, stationary value"}
+  - {by: "skill:curve-features-from-derivative-signs", tier: exam, families: [polynomial], operations: [stationary_point], modes: [hand],
+     note: "Cubic: stationary points, increasing intervals, point of inflection; exact"}
+  - {by: "skill:senior-understand-and-use-the-second-derivative-test-for", tier: exam, families: [polynomial], operations: [stationary_point], modes: [hand],
+     note: "Cubic with unknown k: k from one stationary point, the other, f'' sign and nature, stationary value; exact"}
+  # ---- U3-C04 optimisation ----
+  - {by: "skill:methods-optimisation-context", tier: exam, families: [polynomial], operations: [optimisation], modes: [calc],
+     note: "Cubic daily-profit model or open-box volume: optimal q or x (2 dp), P'' sign (1 dp), greatest profit or volume (1 dp)"}
+  # ---- U4-C05 antiderivatives ----
+  - {by: "skill:integrate-polynomial", tier: exam, families: [polynomial], shapes: [with_condition], operations: [antiderivative], modes: [hand],
+     note: "f'(x) = quadratic + k, find k then f(x) from a point on the curve; also f'' with two conditions"}
+  - {by: "skill:integrate-polynomial", tier: hard, families: [power], operations: [antiderivative], modes: [hand],
+     note: "Find F(x) given F'(x) = k*sqrt(x) or k/x^3 and F(1); exact"}
+  - {by: "skill:integrate-exponential-linear-argument", tier: exam, families: [exponential], operations: [antiderivative], modes: [hand],
+     note: "f'(x) = a e^(bx) + c with conditions: a, f(x) through a point, exact f(1)"}
+  - {by: "skill:integrate-exponential-linear-argument", tier: medium, families: [exponential, composite], operations: [antiderivative], modes: [hand],
+     note: "Find the integral of a e^(bx + c) or a sum of e^(kx) terms; linear-argument exponential, exact"}
+  - {by: "skill:integrate-reciprocal-linear", tier: exam, families: [rational], operations: [antiderivative], modes: [hand],
+     note: "f'(x) = k/(ax + b) with a gradient and a point: k, then f(x) = (k/a) ln|ax + b| + c, exact f value"}
+  - {by: "skill:integrate-trig", tier: hard, families: [circular, composite], operations: [antiderivative], modes: [hand],
+     note: "Find the integral of a cos(bx + c) or a sin(bx + c); linear-argument circular, exact, + C only (no condition)"}
+  - {by: "skill:senior-use-the-notation-int-f-left-x-right", tier: exam, families: [circular, polynomial], operations: [antiderivative], modes: [hand],
+     note: "Indefinite integral of a x^2 + b cos(kx), given the derivatives of F and G; + C only (no condition)"}
+  - {by: "skill:senior-determine-f-left-x-right-given-f-x", tier: exam, families: [composite], operations: [antiderivative], modes: [hand], shapes: [with_condition],
+     note: "Given f'(x) = k(ax + b)^2 and f(c), find f(x); linear-argument power, exact, with a condition"}
+  - {by: "skill:senior-integrate-using-the-trigonometric-identities-mathrm-s-mathrm", tier: exam, families: [circular], operations: [antiderivative, definite_integral], modes: [hand],
+     note: "f(x) = a sin^2(bx) or a sin(bx)cos(bx): rewrite as a trig sum, find the indefinite integral, then the exact definite integral over a stated interval"}
+  # ---- U4-C06 definite integrals ----
+  - {by: "skill:senior-integrate-by-parts", tier: easy, families: [composite], operations: [definite_integral], modes: [hand], shapes: [by_parts_integrable],
+     note: "Exact value of the integral of k x sin(bx) from 0 to a multiple of pi: by parts. The exam shape x cos x is the same technique but is not rendered"}
+  - {by: "skill:senior-integrate-by-parts", tier: medium, families: [composite], operations: [definite_integral], modes: [hand], shapes: [by_parts_integrable],
+     note: "Exact value in terms of pi of the integral of k x sin(bx) between two multiples of pi: by parts. x cos x is not rendered"}
+  - {by: "skill:definite-integral", tier: easy, families: [polynomial], operations: [definite_integral], modes: [hand],
+     note: "Evaluate the definite integral of a cubic or quartic polynomial; exact fraction"}
+  - {by: "skill:definite-integral", tier: exam, families: [polynomial], operations: [definite_integral, area_region, average_value], modes: [hand],
+     note: "Region between a parabola and a line: intersections, exact area, exact average vertical distance (the mean value of the difference function)"}
+  - {by: "skill:definite-integral-exp-log-exact", tier: medium, families: [rational, composite], operations: [definite_integral], modes: [hand],
+     note: "Exact value of the definite integral of k/(ax + b); a ln(...) answer (reciprocal of a linear argument)"}
+  - {by: "skill:definite-integral-exp-log-exact", tier: medium, families: [exponential], operations: [definite_integral], modes: [hand],
+     note: "Exact value of the definite integral of k e^(ax); exact e-power answer"}
+  - {by: "skill:definite-integral-exp-log-exact", tier: exam, families: [exponential], operations: [definite_integral, area_region, average_value], modes: [hand],
+     note: "f(x) = a e^(bx): exact areas R1 and R2 under the graph between ln-valued limits, their ratio, exact average value"}
+  - {by: "skill:definite-integral-exp-log-exact", tier: exam, families: [power], operations: [definite_integral, area_region, average_value], modes: [hand],
+     note: "f(x) = a/x (power x^-1): exact areas R1 and R2 under the graph, ratio, exact average value; ln answers"}
+  - {by: "skill:integrate-trig", tier: exam, families: [circular], operations: [definite_integral], modes: [hand],
+     note: "f(x) = a cos^2(bx): part (b) is the exact integral of q cos(8x) over [0, pi/16] = 1/8"}
+  - {by: "skill:integrate-trig", tier: exam, families: [circular], operations: [definite_integral], modes: [calc],
+     note: "Part (c): definite integral of a cos^2(bx) or sin^2(bx) to 3 decimal places"}
+  - {by: "skill:integrate-trig-powers", tier: exam, families: [circular], operations: [definite_integral], modes: [hand],
+     note: "Exact values of integrals of sin^n(x) and cos^n(x) over [0, pi/2] and similar; fractions and multiples of pi"}
+  - {by: "skill:senior-calculate-total-change-by-integrating-instantaneous-or-marginal", tier: exam, families: [power], operations: [definite_integral], modes: [hand],
+     note: "Rate r(t) = k*sqrt(t): k from a total change, then the exact total change over another interval (the sqrt shape of exd_x_c4_total_change)"}
+  - {by: "skill:senior-calculate-total-change-by-integrating-instantaneous-or-marginal", tier: exam, families: [polynomial], operations: [definite_integral], modes: [calc],
+     note: "r(t) = k t^n + c: k from a total, total change and average rate over [a, b], each stated to 2 dp (values come out as integers printed to 2 dp)"}
+  - {by: "skill:senior-use-numerical-integration-using-technology-f-left-t", tier: exam, families: [exponential], operations: [definite_integral], modes: [calc],
+     note: "Numerical integration of the exponential density 0.4 e^(-0.4t) over given intervals, 4 dp (probability context, calculus is a numeric definite integral)"}
+  # ---- U4-C07 area ----
+  - {by: "skill:senior-calculate-the-area-between-curves-in-simple-cases", tier: medium, families: [polynomial], operations: [area_region], modes: [hand],
+     note: "Area between a line and the parabola y = x^2 for x in [0, b]; exact"}
+  - {by: "skill:senior-calculate-the-area-between-curves-in-simple-cases", tier: exam, families: [polynomial], operations: [area_region], modes: [calc],
+     note: "Region between two quadratics or a quadratic and a line: intersections, area in square metres to 2 dp, cost"}
+  # ---- U4-C08 average value ----
+  - {by: "skill:ucv1-average-value-mvt", tier: easy, families: [polynomial, power, circular], operations: [average_value], modes: [hand],
+     note: "Mean value of a polynomial, 1/x^2, 1/x or sin x over an interval; exact (x^2+x, 1/x^2 -> 1/4, sin x on [0, pi/2] -> 2/pi)"}
+  - {by: "skill:ucv1-average-value-mvt", tier: exam, families: [power], operations: [average_value], modes: [hand],
+     note: "Inflow rate f(t) = sqrt(t): exact total volume and exact average rate over [a, b]; part (d) is a 1-dp percentage"}
