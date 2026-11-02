@@ -7,7 +7,7 @@ asks:
     marks: 1
   - ask: product_parity
     marks: 1
-  - ask: trig_term_parity
+  - ask: polynomial_term_parity
     marks: 1
   - ask: find_c
     marks: 3

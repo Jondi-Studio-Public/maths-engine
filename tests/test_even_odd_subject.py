@@ -59,6 +59,7 @@ def test_find_c_and_evaluation_against_symbolic_check(seed):
     b = int(b_txt) if b_txt else 1
     trig = sin if trig_name == "sin" else cos
     target = m.EVEN if "h is even" in q.parts[3].prompt else m.ODD
+    assert q.parts[2].answer_text == {m.EVEN: "Even", m.ODD: "Odd"}[target]
     fam = q.parts[3].answer_text
     c0 = pi / 2 if fam.startswith("pi/2") else 0
     for k in (-1, 0, 2):

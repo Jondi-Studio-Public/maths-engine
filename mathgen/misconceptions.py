@@ -63473,8 +63473,8 @@ _ENTRIES += (
         area="functions",
     ),
     CatalogueEntry(
-        "eo-trig-term-parity-swapped",
-        "Saying the trig term must have the opposite parity to the polynomial term for the sum to have a given parity, instead of the same parity.",
+        "eo-power-parity-misjudged",
+        "Judging the parity of a power x^n wrongly: taking x^n odd for even n (or the reverse), or calling a single power neither.",
         area="functions",
     ),
     CatalogueEntry(

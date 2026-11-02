@@ -196,25 +196,26 @@ def product_parity(s: EvenOdd, rng, ctx) -> dict:
     return _mcq(key, tags, "Is p(x)q(x) even, odd, neither, or both?", working)
 
 
-@ask(None, "trig_term_parity", needs=("odd_candidate", "periodic"))
-def trig_term_parity(s: EvenOdd, rng, ctx) -> dict:
-    want = s.needed_trig_parity
-    key = _WORD[want]
-    other = _WORD[m.ODD if want == m.EVEN else m.EVEN]
+@ask(None, "polynomial_term_parity", needs=("odd_candidate", "periodic"))
+def polynomial_term_parity(s: EvenOdd, rng, ctx) -> dict:
+    """The parity of the power term of h. The prompt does not name it, so it has to be worked out from the exponent."""
+    key = _WORD[s.target]
+    other = _WORD[m.ODD if s.target == m.EVEN else m.EVEN]
     tags = {
-        other: "eo-trig-term-parity-swapped",
-        "Neither even nor odd": "eo-sum-parity-misjudged",
+        other: "eo-power-parity-misjudged",
+        "Neither even nor odd": "eo-power-parity-misjudged",
         "Both even and odd": "eo-both-even-and-odd",
     }
+    term = term_text(s.a_term)
+    n = s.a_term[2]
     working = [
-        f"{term_text(s.a_term)} is {want}.",
-        f"The sum of an {want} function and a function of the opposite parity is neither, so the trig term must also be {want}.",
+        f"Replace x by -x: (-x){_SUP[n] if n > 1 else ''} = {'' if n % 2 == 0 else '-'}x{_SUP[n] if n > 1 else ''}.",
+        f"So {term} is {s.target}.",
     ]
-    prompt = f"For h to be {want}, which must the term {_phase_text(s.b, s.trig)} be?"
-    return _mcq(key, tags, prompt, working)
+    return _mcq(key, tags, f"Is the term {term} of h even, odd, neither, or both?", working)
 
 
-@ask(None, "find_c", needs=("odd_candidate", "periodic"), requires=("trig_term_parity",), default_marks=3)
+@ask(None, "find_c", needs=("odd_candidate", "periodic"), requires=("polynomial_term_parity",), default_marks=3)
 def find_c(s: EvenOdd, rng, ctx) -> dict:
     fam = m.phase_family_text(s.trig, s.target)
     other = m.phase_family_text(s.trig, m.ODD if s.target == m.EVEN else m.EVEN)
