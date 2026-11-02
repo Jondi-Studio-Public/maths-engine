@@ -63477,6 +63477,16 @@ _ENTRIES += (
         area="exponentials",
     ),
     CatalogueEntry(
+        "exp-other-solution-given",
+        "Giving the other solution when the larger (or smaller) one was asked for.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-root-divided-by-base",
+        "Dividing the root of the quadratic in t = a^x by the base a, instead of taking the logarithm base a.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
         "exp-log-wrong-argument",
         "Taking the logarithm of the wrong number: the sum or the product of the roots of the quadratic in t instead of the root itself.",
         area="exponentials",

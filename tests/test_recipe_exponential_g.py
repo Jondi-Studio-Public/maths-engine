@@ -22,6 +22,10 @@ def _stem(q):
     return tuple(int(v) for v in m.groups())
 
 
+def _ln(a, text):
+    return f"ln({text.split('(')[1][:-1]})/ln({a})"
+
+
 def test_conformance():
     assert recipes.conformance(RECIPE, seeds=300) == []
 
@@ -36,16 +40,30 @@ def test_keys_are_right_and_graded_right(seed):
     assert abs(_g(a, b, c, pb.answer)) < 1e-9
     other = int(re.search(r"log_\d+\((\d+)\)", pc.answer_text).group(1))
     assert abs(_g(a, b, c, math.log(other, a))) < 1e-6
-    assert pb.answer + math.log(other, a) == pytest.approx(math.log(int(pd.answer_text.split("(")[1][:-1]), a))
-    reply = {
-        "a": str(pa.answer),
-        "b": str(pb.answer),
-        "c": f"ln({other})/ln({a})",
-        "d": f"ln({pd.answer_text.split('(')[1][:-1]})/ln({a})",
-    }
+    d0 = int(re.search(r"g\(x\) = (-?\d+)", pd.prompt).group(1))
+    big = int(re.search(r"log_\d+\((\d+)\)", pd.answer_text).group(1))
+    assert _g(a, b, c, math.log(big, a)) == pytest.approx(d0, abs=1e-6)
+    # the larger solution: the other solution of g(x) = d0 is smaller
+    small = b - big
+    assert _g(a, b, c, math.log(small, a)) == pytest.approx(d0, abs=1e-6) and small < big
+    reply = {"a": str(pa.answer), "b": str(pb.answer), "c": _ln(a, pc.answer_text), "d": _ln(a, pd.answer_text)}
     assert grade("number", q, reply).correct
     for part, label in zip(q.parts, "abcd"):
+        notes = part.option_notes or {}
         for text in part.distractors:
             wrong = dict(reply, **{label: text})
             assert not grade("number", q, wrong).parts[label].correct, (seed, label, text)
-            assert (part.option_notes or {}).get(text, "squared-as-doubled") in CATALOGUE
+            assert text in notes and notes[text] in CATALOGUE, (seed, label, text)
+
+
+@pytest.mark.parametrize("seed", range(120))
+def test_options_do_not_leak_across_parts(seed):
+    q = core.make(TOPIC, seed=seed)
+    shown = [{p.answer_text, *p.distractors} for p in q.parts]
+    for i, later in enumerate(q.parts):
+        for j in range(i):
+            # an earlier part's options never show a later part's key
+            assert later.answer_text not in shown[j], (seed, "part", j, "shows part", i, "key")
+            # and no logarithm option is repeated from an earlier part
+            repeated = {t for t in later.distractors if "log" in t} & shown[j]
+            assert not repeated, (seed, i, j, repeated)

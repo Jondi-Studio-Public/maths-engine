@@ -10,5 +10,5 @@ asks:
     marks: 1
   - ask: log_solution
     marks: 2
-  - ask: sum_of_solutions
-    marks: 1
+  - ask: solve_shifted
+    marks: 2

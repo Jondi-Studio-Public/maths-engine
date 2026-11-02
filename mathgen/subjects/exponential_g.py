@@ -15,7 +15,7 @@ from sympy import integer_log
 
 from ..core import attempts, check
 
-BASES = (2, 3, 5)
+BASES = (2, 3, 5, 7)
 _MAX_C = 300
 _MAX_R2 = 40
 
@@ -59,6 +59,20 @@ def _is_power(n: int, a: int) -> bool:
     return integer_log(n, a)[1]
 
 
+def shifted_roots(s: ExpG) -> list[tuple[int, int]]:
+    """Pairs (p, q), p < q, with p + q = b, q not a power of a and not r1 or r2, p >= 2, p*q != c.
+
+    Then g(x) = c - p*q has the roots t = p, q of the quadratic in t = a^x, so its larger solution is log_a(q), an
+    argument that appears nowhere in the stem."""
+    out = []
+    for p in range(2, s.b):
+        q = s.b - p
+        if q <= p or _is_power(q, s.a) or q in (s.r1, s.r2) or p in (s.r1, s.r2) or p * q == s.c:
+            continue
+        out.append((p, q))
+    return out
+
+
 def draw(rng: random.Random) -> ExpG:
     for _ in attempts(200, "an exponential g(x) draw"):
         a = rng.choice(BASES)
@@ -70,6 +84,8 @@ def draw(rng: random.Random) -> ExpG:
         if r1 * r2 > _MAX_C:
             continue
         s = ExpG(a, r1, r2)
+        if not shifted_roots(s):
+            continue
         check(s.c == r1 * r2 and s.b == r1 + r2)
         return s
     raise AssertionError("unreachable")
@@ -77,7 +93,8 @@ def draw(rng: random.Random) -> ExpG:
 
 def eval_k(rng: random.Random, s: ExpG) -> int:
     """k for 'evaluate g(log_a k)': not a root, not a power of a, 2..9, and g(log_a k) != 0."""
-    ks = [k for k in range(2, 10) if k not in (s.r1, s.r2) and not _is_power(k, s.a)]
+    later = {q for _, q in shifted_roots(s)}  # a later part's answer must not appear in this prompt
+    ks = [k for k in range(2, 10) if k not in (s.r1, s.r2) and k not in later and not _is_power(k, s.a)]
     check(bool(ks), "no k available")
     return rng.choice(ks)
 
@@ -93,7 +110,7 @@ def eval_wrong(s: ExpG, k: int) -> list[tuple[int, str]]:
         (k * k - b + c, "exp-middle-term-power-dropped"),
     ]
     # A value far larger than the key is not a believable slip; keep the candidates a learner could plausibly write.
-    return [(w, t) for w, t in cands if abs(w) <= 20 * max(abs(k * k), s.c)]
+    return [(w, t) for w, t in cands if w != 0 and abs(w) <= 20 * max(abs(k * k), s.c)]
 
 
 def log_root_wrong(s: ExpG) -> list[tuple[str, str]]:

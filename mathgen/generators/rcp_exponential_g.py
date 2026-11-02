@@ -6,7 +6,7 @@ Maths and wrong-answer candidates live in ``mathgen/subjects/exponential_g.py``;
 whether or not ``technology_active`` is set.
 
 Asks: ``evaluate_at_log`` (g at x = log_a k, an integer), ``integer_solution`` (the whole-number root of g(x) = 0),
-``log_solution`` (the other root, ``log_a(r)``), ``sum_of_solutions`` (their sum, ``log_a(c)``).
+``log_solution`` (the other root, ``log_a(r)``), ``solve_shifted`` (the larger solution of g(x) = d, a new log).
 """
 
 from __future__ import annotations
@@ -15,6 +15,7 @@ import math
 
 from ..answers import Distractor
 from ..core import check, latex_answer, phrase
+from ..recipe_vocabulary import property_check
 from ..recipes import Subject, ask, subject
 from ..subjects import exponential_g as eg
 from ._exd_x_w12c_kit import _accepts, int_part
@@ -35,10 +36,10 @@ _LOG = (
     "Find the other solution of g(x) = 0 as an exact logarithm, typed with natural logs, like ln(5)/ln(2).",
     "The other solution of g(x) = 0 is not a whole number. Give it exactly, typed with natural logs, like ln(5)/ln(2).",
 )
-_SUM = (
-    "Find the sum of the two solutions of g(x) = 0 as a single logarithm, typed with natural logs, like ln(20)/ln(2).",
-    "Hence write the sum of the solutions of g(x) = 0 as one logarithm, typed with natural logs, like ln(20)/ln(2).",
-    "Express the sum of both solutions as a single logarithm, typed with natural logs, like ln(20)/ln(2).",
+_SHIFT = (
+    "Now solve g(x) = {d}. Give the larger solution as an exact logarithm, typed with natural logs, like ln(5)/ln(2).",
+    "Find the larger solution of g(x) = {d} exactly, typed with natural logs, like ln(5)/ln(2).",
+    "The equation g(x) = {d} has two solutions. Give the larger one as an exact logarithm, typed like ln(5)/ln(2).",
 )
 
 
@@ -72,7 +73,8 @@ def _log_part(prompt, base, arg, marks, working, cands):
 
 @subject("exponential_g")
 class ExponentialG(Subject):
-    properties = frozenset({"exponential", "quadratic_in_exponential"})
+    families = frozenset({"exponential"})
+    properties = frozenset({"quadratic_in_exponential", "has_log_root"})
 
     def __init__(self, s: eg.ExpG):
         self.s = s
@@ -97,7 +99,13 @@ def evaluate_at_log(subject, rng, ctx):
         f"g(log_{s.a}({k})) = {k * k} - {s.b}*{k} + {s.c} = {key}.",
     ]
     return int_part(
-        phrase(rng, _EVAL, a=s.a, k=k), key, 2, working, [(w, t) for w, t in eg.eval_wrong(s, k)], lo=None, hi=None
+        phrase(rng, _EVAL, a=s.a, k=k),
+        key,
+        2,
+        working,
+        [(w, t) for w, t in eg.eval_wrong(s, k) if w != s.m],  # never show part (b)'s key
+        lo=None,
+        hi=None,
     )
 
 
@@ -111,9 +119,7 @@ def integer_solution(subject, rng, ctx):
     wrong = [
         (s.r1, "exp-quadratic-root-given-as-x"),
         (s.r2, "exp-quadratic-root-given-as-x"),
-        (s.m + 1, None),
-        (s.m + 2, None),
-        (s.m * 2, None),
+        (s.r1 // s.a, "exp-root-divided-by-base"),
     ]
     wrong = [(w, t) for w, t in wrong if w != s.m and w > 0]
     return int_part(phrase(rng, _INT), s.m, 1, working, wrong, lo=0, hi=None)
@@ -136,30 +142,43 @@ def log_solution(subject, rng, ctx):
     )
 
 
-@ask(
-    None,
-    "sum_of_solutions",
-    needs=("quadratic_in_exponential",),
-    default_marks=1,
-    requires=("integer_solution", "log_solution"),
-)
-def sum_of_solutions(subject, rng, ctx):
+@ask(None, "solve_shifted", needs=("quadratic_in_exponential",), default_marks=2, requires=("log_solution",))
+def solve_shifted(subject, rng, ctx):
     s = subject.s
+    p, q = rng.choice(eg.shifted_roots(s))
+    d0 = s.c - p * q
     working = [
-        f"The solutions are x = {s.m} and x = log_{s.a}({s.r2}).",
-        f"Their sum is log_{s.a}({s.r1}) + log_{s.a}({s.r2}) = log_{s.a}({s.c}).",
+        f"g(x) = {d0} gives t^2 - {s.b}t + {s.c - d0} = (t - {p})(t - {q}) = 0 with t = {s.a}^x.",
+        f"The larger root is t = {q}, so x = log_{s.a}({q}).",
     ]
     cands = [
-        (f"log_{s.a}({s.b})", "exp-log-wrong-argument"),
-        (f"log_{s.a}({s.r2 + s.m})", "exp-log-wrong-argument"),
-        (f"{s.m} + {s.r2}", "exp-quadratic-root-given-as-x"),
-        (f"log_{s.a}({s.r1})", "exp-log-wrong-argument"),
+        (f"log_{s.a}({p})", "exp-other-solution-given"),
+        (str(q), "exp-quadratic-root-given-as-x"),
+        (f"-log_{s.a}({q})", "exp-log-sign-dropped"),
+        (f"log_{s.a}({p * q})", "exp-log-wrong-argument"),
+        (f"log_{q}({s.a})", "log-base-and-argument-swapped"),
     ]
-    return _log_part(
-        phrase(rng, _SUM),
-        s.a,
-        s.c,
-        1,
-        working,
-        cands,
-    )
+    seen = set()
+    for part in ctx.earlier:
+        seen.add(part["answer_text"])
+        seen.update(d.text for d in part.get("distractors", ()))
+    cands = [(w, t) for w, t in cands if w not in seen]
+    return _log_part(phrase(rng, _SHIFT, a=s.a, d=d0), s.a, q, 2, working, cands)
+
+
+@property_check("quadratic_in_exponential")
+def _quadratic_in_exponential(subject) -> bool:
+    """g(x) really is t^2 - b t + c in t = a^x: g at x = 0 and x = 1 agree with the quadratic."""
+    if not isinstance(subject, ExponentialG):
+        return True
+    s = subject.s
+    return all(abs(s.a ** (2 * x) - s.b * s.a**x + s.c - (s.a**x - s.r1) * (s.a**x - s.r2)) < 1e-9 for x in (0, 1, 2))
+
+
+@property_check("has_log_root")
+def _has_log_root(subject) -> bool:
+    """One solution of g(x) = 0 is not a whole number."""
+    if not isinstance(subject, ExponentialG):
+        return True
+    x = subject.s.log_root_value()
+    return abs(x - round(x)) > 1e-9
