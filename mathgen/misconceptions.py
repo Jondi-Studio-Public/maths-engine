@@ -63442,6 +63442,71 @@ _ENTRIES += (
         "Multiplying by 60 where no conversion to minutes was wanted: a time asked in hours given in minutes, or Little's law applied to a time already in minutes.",
         area="queueing-inventory",
     ),
+    CatalogueEntry(
+        "eo-sum-parity-misjudged",
+        "Naming the wrong parity for a sum of two even or two odd functions: calling a sum of two odd functions even, or the reverse.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-mixed-sum-called-even-or-odd",
+        "Calling the sum of an even and an odd function even or odd, where it is neither.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-same-parity-sum-called-neither",
+        "Calling a sum of two even (or two odd) functions neither even nor odd, because the terms look different.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-both-even-and-odd",
+        "Choosing 'both even and odd' for a function that is only one of them; only the zero function is both.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-product-parity-misjudged",
+        "Naming the wrong parity for a product of an even and an odd function (an even function times an odd function is odd).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-product-odd-times-odd-called-odd",
+        "Calling the product of two odd functions odd, as for whole numbers; f(-x)g(-x) = f(x)g(x), so it is even.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-trig-term-parity-swapped",
+        "Saying the trig term must have the opposite parity to the polynomial term for the sum to have a given parity, instead of the same parity.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-phase-family-swapped",
+        "Swapping the two phase families: giving c = k*pi where c = pi/2 + k*pi is needed (sin and cos mixed up).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-phase-single-value",
+        "Giving one value of the phase c and not every value (no '+ k*pi').",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-phase-period-2pi",
+        "Giving the phase family with period 2*pi (2k*pi) where period pi (k*pi) is needed, missing half the solutions.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-drops-trig-term",
+        "Evaluating only the polynomial term of h and leaving out the trig term.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-evaluates-at-c-zero",
+        "Evaluating h with c = 0 instead of the value of c just found.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-evaluation-slip",
+        "Evaluating the trig term of h at the chosen point with the wrong sign or value.",
+        area="functions",
+    ),
 )
 
 #: Every entry, by id.

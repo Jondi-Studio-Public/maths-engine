@@ -5,9 +5,11 @@ import itertools
 import pytest
 from sympy import Rational, pi, simplify
 
-from mathgen.subjects import even_odd_maths as m
+from mathgen.generators import _even_odd_maths as m
 
-TERMS = [(c, kind, p) for c in (2, -3, Rational(1, 3)) for kind in ("pow", "sin", "cos") for p in (1, 2, 3)] + [(5, "const", 0)]
+TERMS = [(c, kind, p) for c in (2, -3, Rational(1, 3)) for kind in ("pow", "sin", "cos") for p in (1, 2, 3)] + [
+    (5, "const", 0)
+]
 
 
 @pytest.mark.parametrize("a,b", list(itertools.combinations(TERMS, 2))[:400])
