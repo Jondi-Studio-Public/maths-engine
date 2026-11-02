@@ -11,28 +11,32 @@ evidence:
   - transformation
   modes:
   - hand
-  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard: read g from marked points); exact forms'
+  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard:
+    read g from marked points); exact forms'
 - by: skill:graph-transformation-equation
   tier: medium
   families: *id001
   operations: *id002
   modes:
   - hand
-  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard: read g from marked points); exact forms'
+  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard:
+    read g from marked points); exact forms'
 - by: skill:graph-transformation-equation
   tier: hard
   families: *id001
   operations: *id002
   modes:
   - hand
-  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard: read g from marked points); exact forms'
+  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard:
+    read g from marked points); exact forms'
 - by: skill:graph-transformation-equation
   tier: exam
   families: *id001
   operations: *id002
   modes:
   - hand
-  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard: read g from marked points); exact forms'
+  note: 'equation of the image of y=x^2/x^3, 1/x, 2^x or sin/cos/tan after 2-3 translations, dilations and reflections (hard:
+    read g from marked points); exact forms'
 - by: skill:domain-range-standard-functions
   tier: easy
   families:
@@ -141,7 +145,8 @@ evidence:
   - implied_domain
   modes:
   - hand
-  note: 'part (d): domain of h(x)=1/g(x) with g=sqrt(ax+b)-c, i.e. x>=a0 and x not equal to the zero of g (reciprocal composed with g)'
+  note: 'part (d): domain of h(x)=1/g(x) with g=sqrt(ax+b)-c, i.e. x>=a0 and x not equal to the zero of g (reciprocal composed
+    with g)'
 - by: skill:composite-function-domain
   tier: easy
   families: &id005
@@ -150,7 +155,8 @@ evidence:
   - implied_domain
   modes: &id006
   - hand
-  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c) version
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
   shapes:
   - linear_argument
 - by: skill:composite-function-domain
@@ -159,7 +165,8 @@ evidence:
   operations:
   - composition
   modes: *id006
-  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c) version
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
 - by: skill:composite-function-domain
   tier: medium
   families: *id005
@@ -167,9 +174,9 @@ evidence:
   - implied_domain
   modes: &id007
   - hand
-  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c) version
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
   shapes:
-  - linear_argument
   - quadratic_argument
 - by: skill:composite-function-domain
   tier: medium
@@ -177,7 +184,8 @@ evidence:
   operations:
   - composition
   modes: *id007
-  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c) version
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
 - by: skill:composite-function-domain
   tier: hard
   families: *id005
@@ -186,14 +194,16 @@ evidence:
   - composition
   modes:
   - hand
-  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c) version
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
 - by: skill:composite-function-domain
   tier: exam
   families: *id005
   operations: *id008
   modes:
   - hand
-  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c) version
+  note: largest domain of g(f(x)); inner/outer from linear, quadratic, 1/(x-a), sqrt, ln and 1/x; exam is a three-part (a)-(c)
+    version
 - by: skill:graph-sqrt-of-function-domain-range
   tier: easy
   families: &id009
@@ -213,7 +223,6 @@ evidence:
   - hand
   note: domain of y=sqrt(f(x)) from a drawn line or parabola (answer can be 'no solution')
   shapes:
-  - linear_argument
   - quadratic_argument
 - by: skill:graph-sqrt-of-function-domain-range
   tier: hard
@@ -327,7 +336,8 @@ evidence:
   - range
   modes:
   - hand
-  note: 'f=a*arcsin(bx+c)+d / arccos: largest x in the domain, or greatest value, exact in pi (arcsin family = ''inverse''; one of three shapes per seed)'
+  note: 'f=a*arcsin(bx+c)+d / arccos: largest x in the domain, or greatest value, exact in pi (arcsin family = ''inverse'';
+    one of three shapes per seed)'
 - by: skill:inverse-trig-values-and-graph-features
   tier: exam
   families:
@@ -914,7 +924,8 @@ evidence:
   - solve_equation
   modes:
   - hand
-  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics in cos/sin
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
   shapes:
   - has_pi_roots
 - by: skill:trig-equations-radians-list
@@ -923,7 +934,8 @@ evidence:
   operations: *id059
   modes:
   - hand
-  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics in cos/sin
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
   shapes:
   - has_pi_roots
 - by: skill:trig-equations-radians-list
@@ -932,7 +944,8 @@ evidence:
   operations: *id059
   modes:
   - hand
-  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics in cos/sin
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
   shapes:
   - has_pi_roots
 - by: skill:trig-equations-radians-list
@@ -941,7 +954,8 @@ evidence:
   operations: *id059
   modes:
   - hand
-  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics in cos/sin
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
   shapes:
   - has_pi_roots
 - by: skill:trig-equations-solutions-in-radians
@@ -952,7 +966,8 @@ evidence:
   - solve_equation
   modes:
   - hand
-  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics in cos/sin
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
   shapes:
   - has_pi_roots
 - by: skill:trig-equations-solutions-in-radians
@@ -961,7 +976,8 @@ evidence:
   operations: *id061
   modes:
   - hand
-  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics in cos/sin
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
   shapes:
   - has_pi_roots
 - by: skill:trig-equations-solutions-in-radians
@@ -970,7 +986,8 @@ evidence:
   operations: *id061
   modes:
   - hand
-  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics in cos/sin
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
   shapes:
   - has_pi_roots
 - by: skill:trig-equations-solutions-in-radians
@@ -979,7 +996,8 @@ evidence:
   operations: *id061
   modes:
   - hand
-  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics in cos/sin
+  note: exact solutions in radians (multiples of pi) of sin/cos/tan equations incl. dilated/translated argument and quadratics
+    in cos/sin
   shapes:
   - has_pi_roots
 - by: skill:solve-quadratics-formula
@@ -1178,47 +1196,40 @@ evidence:
   note: intersection of a line and a parabola (a quadratic equation), exact
 - by: skill:line-meets-parabola-circle
   tier: medium
+  families:
+  - polynomial
+  operations:
+  - solve_unknown_constants
+  modes:
+  - hand
+  note: k so that y=mx+k is tangent to a parabola (discriminant = 0)
+- by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
+  tier: easy
   families: &id072
   - polynomial
   operations: &id073
   - solve_unknown_constants
   modes:
   - hand
-  note: k so that y=mx+k is tangent to a parabola (discriminant = 0)
-- by: skill:line-meets-parabola-circle
-  tier: exam
-  families: *id072
-  operations: *id073
-  modes:
-  - hand
-  note: k so that y=mx+k is tangent to a parabola (discriminant = 0)
-- by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
-  tier: easy
-  families: &id074
-  - polynomial
-  operations: &id075
-  - solve_unknown_constants
-  modes:
-  - hand
   note: a,b,c of a quadratic from vertex, roots or three points
 - by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
   tier: medium
-  families: *id074
-  operations: *id075
+  families: *id072
+  operations: *id073
   modes:
   - hand
   note: a,b,c of a quadratic from vertex, roots or three points
 - by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
   tier: hard
-  families: *id074
-  operations: *id075
+  families: *id072
+  operations: *id073
   modes:
   - hand
   note: a,b,c of a quadratic from vertex, roots or three points
 - by: skill:senior-find-the-equation-of-a-quadratic-given-sufficient
   tier: exam
-  families: *id074
-  operations: *id075
+  families: *id072
+  operations: *id073
   modes:
   - hand
   note: a,b,c of a quadratic from vertex, roots or three points

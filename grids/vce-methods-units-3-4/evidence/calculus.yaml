@@ -70,11 +70,15 @@ evidence:
      note: "Find the integral of a cos(bx + c) or a sin(bx + c); linear-argument circular, exact, + C only (no condition)"}
   - {by: "skill:senior-use-the-notation-int-f-left-x-right", tier: exam, families: [circular, polynomial], operations: [antiderivative], modes: [hand],
      note: "Indefinite integral of a x^2 + b cos(kx), given the derivatives of F and G; + C only (no condition)"}
-  - {by: "skill:senior-determine-f-left-x-right-given-f-x", tier: exam, families: [composite], operations: [antiderivative], modes: [hand],
+  - {by: "skill:senior-determine-f-left-x-right-given-f-x", tier: exam, families: [composite], operations: [antiderivative], modes: [hand], shapes: [with_condition],
      note: "Given f'(x) = k(ax + b)^2 and f(c), find f(x); linear-argument power, exact, with a condition"}
   - {by: "skill:senior-integrate-using-the-trigonometric-identities-mathrm-s-mathrm", tier: exam, families: [circular], operations: [antiderivative, definite_integral], modes: [hand],
      note: "f(x) = a sin^2(bx) or a sin(bx)cos(bx): rewrite as a trig sum, find the indefinite integral, then the exact definite integral over a stated interval"}
   # ---- U4-C06 definite integrals ----
+  - {by: "skill:senior-integrate-by-parts", tier: easy, families: [composite], operations: [definite_integral], modes: [hand], shapes: [by_parts_integrable],
+     note: "Exact value of the integral of k x sin(bx) from 0 to a multiple of pi: by parts. The exam shape x cos x is the same technique but is not rendered"}
+  - {by: "skill:senior-integrate-by-parts", tier: medium, families: [composite], operations: [definite_integral], modes: [hand], shapes: [by_parts_integrable],
+     note: "Exact value in terms of pi of the integral of k x sin(bx) between two multiples of pi: by parts. x cos x is not rendered"}
   - {by: "skill:definite-integral", tier: easy, families: [polynomial], operations: [definite_integral], modes: [hand],
      note: "Evaluate the definite integral of a cubic or quartic polynomial; exact fraction"}
   - {by: "skill:definite-integral", tier: exam, families: [polynomial], operations: [definite_integral, area_region, average_value], modes: [hand],
