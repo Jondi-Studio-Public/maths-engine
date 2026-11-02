@@ -125,3 +125,17 @@ def test_the_real_library_has_no_technology_errors():
 
     report = load_and_validate()[-1] if isinstance(load_and_validate(), tuple) else None
     assert report is not None and not [e for e in report.errors if "technology" in e]
+
+
+def test_ids_round_trip_with_the_mode_and_need_it_to_rebuild(probe_topics):
+    skill = _skill(sources=[Source(topic=TOPIC, difficulty="easy", technology="either")])
+    q, qid = engine.make_with_id(skill, 4, technology_active=False)
+    assert q.technology_active is False
+    assert engine.regenerate(qid, [skill], technology_active=False).to_json() == q.to_json()
+    with pytest.raises(engine.QuestionChanged):
+        engine.regenerate(qid, [skill])
+
+
+def test_engine_exports_the_filter_helpers():
+    for name in ("skills_for_technology", "sources_for_technology", "source_usable", "source_technology"):
+        assert name in engine.__all__
