@@ -1,7 +1,7 @@
 """Recipe subject `exact_binomial`: R ~ Bin(n, p) with n in 2..5 and p a fraction (n = 5 as well as 2..4: only 89 distinct conditional answers exist for n up to 4, fewer than the 100 per 300 seeds a recipe must show), exact answers only.
 
 The asks are registered per subject (the closed vocabulary has no discrete property yet): a point probability, an exact standard deviation
-(a simplified surd) and a conditional tail probability P(R >= a | R >= b) are all worked out from the subject's
+(an exact surd) and a conditional tail probability P(R >= a | R >= b) are all worked out from the subject's
 `pmf` and `support` alone. The subject supplies the integers the question asks about and, for the point probability,
 the wrong answers its binomial working invites (`point_slips`).
 """
