@@ -1,0 +1,174 @@
+# Coverage grid for VCE Mathematical Methods Units 3 and 4. Format: grids/README.md.
+# Rows are the study design's key skills, PARAPHRASED (the design is VCAA's text; this repo carries only short labels).
+# Every row is `provisional` until it has been checked line by line against the study design text.
+id: vce-methods-units-3-4
+title: VCE Mathematical Methods Units 3 and 4 coverage grid
+source:
+  name: VCAA Mathematics Study Design 2023-2027, Mathematical Methods Units 3 and 4
+  url: https://www.vcaa.vic.edu.au/sites/default/files/2025-03/2023MathematicsSD.docx
+  reconciled: false
+  note: Rows written from the published structure of the design (areas of study and outcomes), not yet reconciled
+    against its key-skill bullets. Reconcile, then set status verified row by row.
+
+families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid, composite, inverse, pdf, discrete_pmf]
+
+# hand = exact answer forms, no technology (Exam 1 style). calc = technology expected, decimal answers (Exam 2 style).
+modes: [hand, calc]
+
+operations:
+  implied_domain: state the maximal or implied domain
+  range: state the range, possibly over a restricted domain
+  graph_features: typed intercepts, asymptotes, turning points or end points (the drawing itself is not auto-markable)
+  transformation: dilations, reflections and translations, as a sequence or as the resulting rule
+  symmetry: even or odd behaviour, or a parameter chosen to make a function symmetric
+  inverse_function: existence of an inverse, its rule and its domain
+  composition: form f(g(x)), its rule, domain or existence
+  solve_equation: solve an equation exactly or numerically
+  solve_unknown_constants: find parameters from conditions (points, normalisation, mean)
+  differentiate: derivative by rule, including chain, product and quotient
+  tangent_normal: tangent or normal at a point, or a point from a stated gradient
+  rate_of_change: average or instantaneous rate of change, in context
+  stationary_point: location and nature of stationary points
+  optimisation: maximise or minimise a modelled quantity
+  antiderivative: antiderivative, with or without a condition
+  definite_integral: evaluate or set up a definite integral
+  area_region: area between curves or under a graph
+  average_value: average value of a function on an interval
+  probability_calc: probability from a pmf, pdf, binomial or normal model
+  summary_stats: mean, variance, standard deviation or median of a random variable
+  inverse_normal: find the value cutting off a stated probability
+  sampling_proportion: distribution of a sample proportion
+  confidence_interval: approximate confidence interval for a population proportion
+
+# Finer structure inside a cell. A cell can be covered for a simple shape (ln of a linear argument) and still lack the
+# one an exam asks (ln of a quadratic); shapes make that visible. Names follow the recipe vocabulary where one exists.
+shapes:
+  linear_argument: the inner expression is linear
+  quadratic_argument: the inner expression is quadratic (so the domain or turning point needs a quadratic)
+  quadratic_in_exponential: a quadratic in a^x
+  has_surd_roots: an exact root is a surd
+  has_log_root: an exact root is a logarithm
+  has_pi_roots: exact roots are multiples of pi
+  even_candidate: a parameter can be chosen to make the function even
+  odd_candidate: a parameter can be chosen to make the function odd
+  unknown_constants_1: one unknown constant fixed by one condition
+  unknown_constants_2: two unknown constants fixed by two conditions
+  by_parts_integrable: the integrand needs a product-rule or by-parts step
+  binomial_count: a binomial count, exact for small n
+  conditional: a conditional probability
+  outer_function_unknown: the outer function is the unknown (inverse framing of a transformation)
+  with_condition: the antiderivative is fixed by a stated value
+
+# Which grid operation each recipe ask counts as. A recipe ask missing here is reported, never ignored.
+ask_operations:
+  implied_domain: implied_domain
+  range: range
+  solve_equal_constant: solve_equation
+  differentiate: differentiate
+  stationary_point: stationary_point
+  antiderivative_with_condition: antiderivative
+  definite_integral_exact: definite_integral
+  tangent_or_normal: tangent_normal
+  transformation_sequence: transformation
+  find_outer_function: transformation
+  symmetry_test: symmetry
+  parameter_for_symmetry: symmetry
+  inverse_function: inverse_function
+  average_value: average_value
+  normalise_pdf: solve_unknown_constants
+  expected_value: summary_stats
+  solve_unknown_constants: solve_unknown_constants
+  binomial_pr: probability_calc
+  binomial_conditional: probability_calc
+  binomial_sd: summary_stats
+
+rows:
+  # ---- Unit 3, functions, relations and graphs ----
+  - {id: U3-F01, unit: 3, area: functions-relations-graphs, status: provisional,
+     skill: "Transformations of the graphs of the standard functions (dilation, reflection, translation) and the rules they give",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid], operations: [transformation], modes: [hand]},
+             {families: [rational], operations: [transformation], modes: [hand], shapes: [outer_function_unknown]}]}
+  - {id: U3-F02, unit: 3, area: functions-relations-graphs, status: provisional,
+     skill: "Domain and range of the standard, hybrid, composite and inverse functions",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid, composite, inverse], operations: [implied_domain, range], modes: [hand]},
+             {families: [logarithmic, composite], operations: [implied_domain], modes: [hand], shapes: [linear_argument, quadratic_argument]}]}
+  - {id: U3-F03, unit: 3, area: functions-relations-graphs, status: provisional,
+     skill: "Key features of graphs (intercepts, asymptotes, turning points, end points) of the standard and hybrid functions",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid], operations: [graph_features], modes: [hand, calc]}]}
+  - {id: U3-F04, unit: 3, area: functions-relations-graphs, status: provisional,
+     skill: "Inverse functions - when one exists, its rule and domain",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular], operations: [inverse_function], modes: [hand]}]}
+  - {id: U3-F05, unit: 3, area: functions-relations-graphs, status: provisional,
+     skill: "Composite functions - existence, rule and domain",
+     cells: [{families: [composite], operations: [composition], modes: [hand]},
+             {families: [composite], operations: [solve_equation, differentiate], modes: [hand, calc]}]}
+  - {id: U3-F06, unit: 3, area: functions-relations-graphs, status: provisional,
+     skill: "Symmetry of a function (even, odd, h(x)=h(-x)) and the parameter that produces it",
+     cells: [{families: [polynomial, power, exponential, circular, composite], operations: [symmetry], modes: [hand]},
+             {families: [circular], operations: [symmetry], modes: [hand], shapes: [even_candidate, odd_candidate]}]}
+  # ---- Unit 3, algebra ----
+  - {id: U3-A01, unit: 3, area: algebra-number-structure, status: provisional,
+     skill: "Solve equations built from the standard functions - exactly by hand, numerically with technology",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid, composite, inverse], operations: [solve_equation], modes: [hand, calc]},
+             {families: [logarithmic], operations: [solve_equation], modes: [hand], shapes: [linear_argument, quadratic_argument, has_surd_roots]},
+             {families: [exponential], operations: [solve_equation], modes: [hand], shapes: [quadratic_in_exponential, has_log_root]},
+             {families: [circular], operations: [solve_equation], modes: [hand], shapes: [has_pi_roots]}]}
+  - {id: U3-A02, unit: 3, area: algebra-number-structure, status: provisional,
+     skill: "Find unknown parameters of a function from stated conditions",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid, composite], operations: [solve_unknown_constants], modes: [hand, calc]}]}
+  # ---- Unit 3, calculus ----
+  - {id: U3-C01, unit: 3, area: calculus, status: provisional,
+     skill: "Differentiate the standard functions, including chain, product and quotient rules",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid, composite, inverse], operations: [differentiate], modes: [hand, calc]}]}
+  - {id: U3-C02, unit: 3, area: calculus, status: provisional,
+     skill: "Tangents and normals; average and instantaneous rates of change",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, composite], operations: [tangent_normal, rate_of_change], modes: [hand, calc]}]}
+  - {id: U3-C03, unit: 3, area: calculus, status: provisional,
+     skill: "Stationary points and their nature; graphs of derivatives",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid, composite], operations: [stationary_point], modes: [hand, calc]},
+             {families: [logarithmic, composite], operations: [stationary_point], modes: [hand], shapes: [linear_argument, quadratic_argument]}]}
+  - {id: U3-C04, unit: 3, area: calculus, status: provisional,
+     skill: "Optimisation of a modelled quantity",
+     cells: [{families: [polynomial, power, exponential, logarithmic, circular, composite], operations: [optimisation], modes: [hand, calc]}]}
+  # ---- Unit 4, calculus ----
+  - {id: U4-C05, unit: 4, area: calculus, status: provisional,
+     skill: "Antiderivatives of polynomial, power, exponential, circular and linear-argument composite functions, with a condition",
+     cells: [{families: [polynomial, power, rational, exponential, circular, composite], operations: [antiderivative], modes: [hand]},
+             {families: [polynomial, circular, composite], operations: [antiderivative], modes: [hand], shapes: [with_condition]}]}
+  - {id: U4-C06, unit: 4, area: calculus, status: provisional,
+     skill: "Evaluate and interpret definite integrals; the fundamental theorem and properties of integrals",
+     cells: [{families: [polynomial, power, rational, exponential, circular, composite, hybrid], operations: [definite_integral], modes: [hand, calc]},
+             {families: [composite], operations: [definite_integral], modes: [hand], shapes: [by_parts_integrable]}]}
+  - {id: U4-C07, unit: 4, area: calculus, status: provisional,
+     skill: "Area between curves and under a graph",
+     cells: [{families: [polynomial, power, rational, exponential, logarithmic, circular, hybrid], operations: [area_region], modes: [hand, calc]}]}
+  - {id: U4-C08, unit: 4, area: calculus, status: provisional,
+     skill: "Average value of a function",
+     cells: [{families: [polynomial, power, exponential, circular, composite], operations: [average_value], modes: [hand, calc]}]}
+  # ---- Unit 4, data analysis, probability and statistics ----
+  - {id: U4-P01, unit: 4, area: probability-statistics, status: provisional,
+     skill: "Discrete random variables - probability tables, expected value, variance, standard deviation, unknown constants",
+     cells: [{families: [discrete_pmf], operations: [probability_calc, summary_stats, solve_unknown_constants], modes: [hand, calc]}]}
+  - {id: U4-P02, unit: 4, area: probability-statistics, status: provisional,
+     skill: "Bernoulli trials and the binomial distribution, including conditional probability",
+     cells: [{families: [discrete_pmf], operations: [probability_calc, summary_stats], modes: [hand, calc]},
+             {families: [discrete_pmf], operations: [probability_calc], modes: [hand, calc], shapes: [binomial_count, conditional]},
+             {families: [discrete_pmf], operations: [summary_stats], modes: [hand, calc], shapes: [binomial_count]}]}
+  - {id: U4-P03, unit: 4, area: probability-statistics, status: provisional,
+     skill: "Continuous random variables - probability density functions, cumulative probability, mean, median, variance, unknown constants",
+     cells: [{families: [pdf], operations: [probability_calc, summary_stats, solve_unknown_constants], modes: [hand, calc]},
+             {families: [pdf], operations: [solve_unknown_constants, summary_stats, probability_calc], modes: [hand, calc], shapes: [unknown_constants_1, unknown_constants_2]}]}
+  - {id: U4-P04, unit: 4, area: probability-statistics, status: provisional,
+     skill: "The normal distribution - standardising, probabilities, inverse normal",
+     cells: [{families: [pdf], operations: [probability_calc, summary_stats], modes: [hand, calc]},
+             {families: [pdf], operations: [inverse_normal], modes: [calc]}]}
+  - {id: U4-P05, unit: 4, area: probability-statistics, status: provisional,
+     skill: "Sample proportions and approximate confidence intervals for a population proportion",
+     cells: [{families: [discrete_pmf], operations: [sampling_proportion, confidence_interval], modes: [hand, calc]}]}
+  # ---- not auto-markable ----
+  - {id: U3-N01, unit: 3, area: functions-relations-graphs, status: provisional, auto_markable: false,
+     not_auto_reason: "Sketching a graph by hand is a drawing; the engine marks typed features (U3-F03) not the sketch",
+     skill: "Sketch graphs of the standard functions with labelled features"}
+  - {id: U4-N01, unit: 4, area: all, status: provisional, auto_markable: false,
+     not_auto_reason: "Proofs, 'show that' arguments and written reasons or interpretations in context have no deterministic grader",
+     skill: "Justify, prove or interpret a result in words"}

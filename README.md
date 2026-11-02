@@ -165,7 +165,7 @@ translation for you.
 | `mathgen/mcp_server.py` | The MCP server for AI agents (`mathgen-mcp`); see `docs/mcp.md` |
 | `mathgen/scheduling/` | Spaced review: which sources serve each review stage, the FSRS memory model, and calibration from attempt data |
 | `skills/<domain>/<id>.yaml` | One skill definition per file |
-| `scripts/` | Speed check, regrade sweep and other build tooling |
+| `scripts/` | Speed check, regrade sweep, coverage-grid gap report and other build tooling |
 | `tests/` | The pytest suite. `tests/public/` is a small, fast set to start with |
 
 Generator file names carry historical batch prefixes (such as `p19h_`). They
