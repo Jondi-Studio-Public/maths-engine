@@ -1,9 +1,20 @@
 """Generic recipe asks: parts about any subject that declares the properties an ask needs.
 
-Each ask reads the subject's hooks (named in ``recipe_subject_log_quadratic.py``'s docstring) and checks the
-answer a second way from ``subject.expr`` with SymPy, so a subject cannot disagree with its own function. Subjects
-are thin grid cells; the asking, the grading kinds and the self-checks live here once. Property names are
-provisional while the grid vocabulary is agreed (see ``docs/design/recipes.md``).
+Ask names and the properties they need follow ``subject-vocabulary.md`` (the grid's operations table). Each ask
+reads the subject's hooks and checks the answer a second way from ``subject.expr`` (a SymPy expression in
+``X``) with SymPy, so a subject cannot disagree with its own function. Subjects are thin grid cells; the asking,
+the grading kinds and the self-checks live here once.
+
+Hooks, by ask (a subject needs the property AND the hooks; until a SymPy-expression base ``Subject`` exists the hooks
+are a convention, documented here):
+
+| Ask | Needs | Hooks |
+|---|---|---|
+| ``implied_domain`` | ``restricted_domain`` | ``domain()`` (SymPy ``Interval``), ``domain_working()``, ``domain_wrong()`` as ``[(text, tag)]``, ``fn_text()`` |
+| ``stationary_point`` | ``has_stationary_point`` | ``stationary_x()``, ``stationary_working()``, ``stationary_wrong()`` as ``[(value, tag)]``, ``fn_text()``, ``domain()`` |
+| ``solve_equal_constant`` | ``has_surd_roots`` | ``level_text()``, ``level_value()``, ``solutions()``, ``solution_text()``, ``solution_value()``, ``level_working()``, ``solution_wrong()`` as ``[(text, tag)]``, ``fn_text()``, ``domain()`` |
+
+``stationary_point`` asks for the x-coordinate (a whole-number answer) of a maximum.
 """
 
 from __future__ import annotations
@@ -17,7 +28,7 @@ from ..recipes import ask
 from .recipe_subject_log_quadratic import X
 
 
-@ask(None, "implied_domain", needs=("sympy_expression", "domain_interval"), default_marks=2)
+@ask(None, "implied_domain", needs=("restricted_domain",), default_marks=2)
 def implied_domain(s, rng, ctx) -> dict:
     domain = s.domain()
     text = set_text(domain, "x")
@@ -52,8 +63,8 @@ def implied_domain(s, rng, ctx) -> dict:
     )
 
 
-@ask(None, "stationary_x", needs=("sympy_expression", "domain_interval", "unique_stationary_x"), default_marks=1)
-def stationary_x(s, rng, ctx) -> dict:
+@ask(None, "stationary_point", needs=("has_stationary_point",), default_marks=1)
+def stationary_point(s, rng, ctx) -> dict:
     value = s.stationary_x()
     found = sp.solve(sp.diff(s.expr, X), X)
     check(found == [value], f"stationary points {found} disagree with {value}")
@@ -82,8 +93,8 @@ def stationary_x(s, rng, ctx) -> dict:
     )
 
 
-@ask(None, "solve_f_equals_c", needs=("sympy_expression", "domain_interval", "level_set_solutions"), default_marks=2)
-def solve_f_equals_c(s, rng, ctx) -> dict:
+@ask(None, "solve_equal_constant", needs=("has_surd_roots",), default_marks=2)
+def solve_equal_constant(s, rng, ctx) -> dict:
     domain = s.domain()
     for root in s.solutions():
         check(sp.simplify(s.expr.subs(X, root) - s.level_value()) == 0, "a solution does not satisfy f(x) = c")

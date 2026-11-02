@@ -33,8 +33,8 @@ def test_exam_q7_numbers():
     assert s.stem() == "Let f(x) = ln(3 + 2x - x^2)."
     rng = random.Random(0)
     a = m.implied_domain(s, rng, _ctx())
-    b = m.stationary_x(s, rng, _ctx())
-    c = m.solve_f_equals_c(s, rng, _ctx())
+    b = m.stationary_point(s, rng, _ctx())
+    c = m.solve_equal_constant(s, rng, _ctx())
     assert a["answer_text"] == "-1 < x < 3"
     assert b["answer"] == 1
     assert c["answer_text"] == "x = 1 ± √3" and "f(x) = 0" in c["prompt"]
@@ -86,3 +86,22 @@ def test_fewer_than_three_prompt_shapes_per_part_are_avoided():
 def test_technology_active_true_is_refused_clearly():
     with pytest.raises(RecipeError, match="exact only"):
         core.make(TOPIC, seed=1, technology_active=True)
+
+
+@pytest.mark.parametrize("seed", range(60))
+def test_declared_properties_are_true_of_the_drawn_subject(seed):
+    """The recipe vocabulary is closed and honest: each property the subject declares holds for the draw."""
+    s = LogQuadratic.draw(random.Random(seed), False)
+    x = sp.Symbol("x", real=True)
+    argument = s.expr.args[0]
+    assert {
+        "quadratic_argument",
+        "restricted_domain",
+        "has_stationary_point",
+        "has_surd_roots",
+    } <= LogQuadratic.properties
+    assert LogQuadratic.families == {"logarithmic"}
+    assert sp.Poly(argument, x).degree() == 2  # quadratic_argument
+    assert sp.N(argument.subs(x, s.r1 - 1)) < 0  # restricted_domain: ln undefined outside the roots
+    assert sp.solve(sp.diff(s.expr, x), x)  # has_stationary_point
+    assert all(not sol.is_rational for sol in s.solutions())  # has_surd_roots

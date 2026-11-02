@@ -1,5 +1,5 @@
 """Recipe subject ``log_quadratic``: f(x) = ln(q(x)) for a quadratic q with two whole-number roots and leading
-coefficient -1. A thin grid cell: it states its facts and its likely errors, and the generic asks in
+coefficient -1. A thin grid cell (family ``logarithmic``): it states its facts and its likely errors, and the generic asks in
 ``recipe_asks_generic.py`` do the asking and the checking.
 
 The shape is VCE Methods 2023 Exam 1 Q7: ``f(x) = ln(3 + 2x - x^2)``, with (a) the implied domain, (b) the x of the
@@ -40,7 +40,8 @@ def _squarefree(n: int) -> bool:
 class LogQuadratic(Subject):
     """f(x) = ln(q(x)), q(x) = -(x - r1)(x - r2) = m^2 - (x - h)^2."""
 
-    properties = frozenset({"sympy_expression", "domain_interval", "unique_stationary_x", "level_set_solutions"})
+    families = frozenset({"logarithmic"})
+    properties = frozenset({"quadratic_argument", "restricted_domain", "has_stationary_point", "has_surd_roots"})
 
     def __init__(self, r1: int, m: int, k: int, ascending: bool):
         self.r1, self.m, self.k, self.ascending = r1, m, k, ascending

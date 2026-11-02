@@ -6,7 +6,7 @@ technology_active: false
 asks:
   - ask: implied_domain
     marks: 3
-  - ask: stationary_x
+  - ask: stationary_point
     marks: 1
-  - ask: solve_f_equals_c
+  - ask: solve_equal_constant
     marks: 2
