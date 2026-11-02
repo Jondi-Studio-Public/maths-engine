@@ -23,14 +23,17 @@ the multi-part question from it.
 ```python
 from mathgen.recipes import Subject, subject
 
+
 @subject("log_quadratic")
 class LogQuadratic(Subject):
     # Subject.technology_active: bool | None is set by the composer before stem() or any ask runs.
     @classmethod
-    def draw(cls, rng, technology_active):   # build the object; use core.attempts(), draw only from rng
-        return cls(...)                     # exact facts; technology_active None/False = exact, True = decimals
-    def stem(self) -> str:                  # the shared information, plain text, goes before part (a)
+    def draw(cls, rng, technology_active):  # build the object; use core.attempts(), draw only from rng
+        return cls(...)  # exact facts; technology_active None/False = exact, True = decimals
+
+    def stem(self) -> str:  # the shared information, plain text, goes before part (a)
         ...
+
     # optional: def figure(self) -> dict | None
 ```
 
@@ -43,13 +46,17 @@ class LogQuadratic(Subject):
 ```python
 from mathgen.recipes import ask
 
-@ask("log_quadratic", "implied_domain", requires=())   # requires: ask names that must come earlier
+
+@ask("log_quadratic", "implied_domain", requires=())  # requires: ask names that must come earlier
 def implied_domain(subject, rng, ctx) -> dict:
-    return dict(                      # exactly the keys a Part takes (see multi-part-questions.md)
+    return dict(  # exactly the keys a Part takes (see multi-part-questions.md)
         prompt="Find the implied domain of f.",
-        answer_kind="expression", answer=..., answer_text="...",
-        distractors=[Distractor(...), ...],   # tagged with catalogue misconception ids
-        sensible_range=None, working=[...],
+        answer_kind="expression",
+        answer=...,
+        answer_text="...",
+        distractors=[Distractor(...), ...],  # tagged with catalogue misconception ids
+        sensible_range=None,
+        working=[...],
         # `label` and `marks` are filled by the composer (marks from the recipe, else `default_marks`).
     )
 ```
