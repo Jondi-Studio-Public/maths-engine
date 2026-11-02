@@ -74,7 +74,12 @@ Jondi has not yet chosen between one ask set per subject type and generic asks o
   `properties` include everything in `needs`. `@ask("log_quadratic", ...)` stays the per-subject form, and a
   per-subject ask of the same name wins over a generic one.
 
-Status of this note: the interface is settled enough to build against; it is not final until Jondi chooses.
+Jondi chose this grid design (2026-11-02). Vocabulary: `mathgen/recipe_vocabulary.py` holds the closed lists of
+`FAMILIES` and `PROPERTIES` (first list for VCE Methods, extended only by PR; meanings in the plan folder's
+`subject-vocabulary.md`). `@subject` refuses names outside it. `Subject.families` and `Subject.properties` are
+declared per subject class (so which asks apply is fixed by the recipe, not by the draw), and a property can have a
+check, `@property_check("has_stationary_point")` taking the drawn subject, which `compose` runs on every draw: a
+declared property that is false fails the seed, so the declaration cannot drift from the maths.
 
 ## Recipe YAML
 
