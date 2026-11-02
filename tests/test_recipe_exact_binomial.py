@@ -33,7 +33,7 @@ def test_recipe_is_registered_with_the_stated_marks():
     q = _q(1)
     assert [p.marks for p in q.parts] == [1, 2, 3]
     assert [p.answer_kind for p in q.parts] == ["fraction", "expression", "fraction"]
-    assert [p.answer_form for p in q.parts] == [None, "simplified_surd", None]
+    assert [p.answer_form for p in q.parts] == [None, None, None]
     assert all(p.follow_through is None for p in q.parts)
 
 
@@ -75,16 +75,28 @@ def test_canonical_earns_full_marks_and_every_distractor_none(seed):
             assert part.option_notes[text] in CATALOGUE
 
 
-def test_the_unsimplified_surd_is_refused():
+def test_standard_deviation_is_graded_as_an_exact_value_not_in_simplest_form():
+    """The prompt asks for an exact value only, because the grader's `simplified_surd` form accepts unsimplified
+    spellings (sqrt(8/9), sqrt(6)/sqrt(5)), so "in simplest form" cannot be promised. Equivalent exact spellings are
+    accepted; a rounded decimal is not."""
+    checked = 0
     for seed in range(60):
         part = _q(seed).parts[1]
+        assert "simplest" not in part.prompt and part.answer_form is None
         value = sympy.sympify(part.answer_text)
-        radicand = sympy.nsimplify(value**2)
-        if radicand.q != 1 and (radicand.p * radicand.q**2) != radicand.p:
-            reply = f"sqrt({radicand.p * 4 * radicand.q**2})/{2 * radicand.q}"  # sqrt(4m)/(2q) with an unsimplified radicand
-            assert grade("expression", part, reply).correct is False
-            return
-    pytest.fail("no question exercised the unsimplified surd")
+        var = sympy.nsimplify(value**2)
+        if var.q == 1 or sympy.sqrt(var).is_rational:
+            continue
+        spellings = [
+            f"sqrt({var.p}/{var.q})",
+            f"sqrt({var.p})/sqrt({var.q})",
+            f"sqrt({var.p * var.q})/{var.q}",
+        ]
+        for reply in spellings:
+            assert grade("expression", part, reply).correct, (seed, reply)
+        assert not grade("expression", part, str(round(float(value), 3))).correct
+        checked += 1
+    assert checked >= 5
 
 
 def test_conditional_part_is_the_ratio_of_tails_not_the_numerator_alone():

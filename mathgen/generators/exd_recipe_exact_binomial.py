@@ -126,13 +126,12 @@ def standard_deviation(s, rng, ctx):
         (sympy.sqrt(mean_r), "dd-sd-root-of-the-mean", str(sympy.sqrt(mean_r))),
     ]
     return expression_part(
-        f"Find the standard deviation of {s.rv}, as an exact value in simplest form.",
+        f"Find the standard deviation of {s.rv}, as an exact value.",
         root,
         text,
         2,
         [f"Var({s.rv}) = {rational_text(var)}, so the standard deviation is {text}."],
         slips,
-        answer_form="simplified_surd",
     )
 
 
