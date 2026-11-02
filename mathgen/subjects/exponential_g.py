@@ -15,8 +15,9 @@ from sympy import integer_log
 
 from ..core import attempts, check
 
-BASES = (2, 3)
-_MAX_C = 60
+BASES = (2, 3, 5)
+_MAX_C = 300
+_MAX_R2 = 40
 
 
 @dataclass(frozen=True)
@@ -63,7 +64,7 @@ def draw(rng: random.Random) -> ExpG:
         a = rng.choice(BASES)
         m = rng.choice((1, 2, 3))
         r1 = a**m
-        r2 = rng.randint(2, 12)
+        r2 = rng.randint(2, _MAX_R2)
         if r2 == r1 or _is_power(r2, a):
             continue
         if r1 * r2 > _MAX_C:
@@ -84,23 +85,24 @@ def eval_k(rng: random.Random, s: ExpG) -> int:
 def eval_wrong(s: ExpG, k: int) -> list[tuple[int, str]]:
     """(wrong value, slip) candidates for g(log_a k), in priority order. Caller filters against the key."""
     a, b, c = s.a, s.b, s.c
-    return [
-        (2 * k - b * k + c, "reads a^(2x) as 2*a^x"),
-        (k * k - b * k, "drops the constant"),
-        (k * k - b + c, "treats the middle term's a^x as 1"),
-        (k * k + b * k + c, "sign of the middle term"),
-        (a ** (2 * k) - b * a**k + c, "substitutes x = k"),
+    cands = [
+        (2 * k - b * k + c, "squared-as-doubled"),
+        (k * k - b * k, "dropped-constant-term"),
+        (a ** (2 * k) - b * a**k + c, "exp-log-argument-used-as-x"),
+        (k * k + b * k + c, "exp-middle-term-sign"),
+        (k * k - b + c, "exp-middle-term-power-dropped"),
     ]
+    # A value far larger than the key is not a believable slip; keep the candidates a learner could plausibly write.
+    return [(w, t) for w, t in cands if abs(w) <= 20 * max(abs(k * k), s.c)]
 
 
 def log_root_wrong(s: ExpG) -> list[tuple[str, str]]:
     """Wrong expression texts for the log solution."""
     a, r1, r2, b = s.a, s.r1, s.r2, s.b
     return [
-        (str(r2), "gives the root of the quadratic in t, not x"),
-        (f"log_{a}({b})", "uses b as the argument"),
-        (f"log_{a}({s.c})", "uses c as the argument"),
-        (f"-log_{a}({r2})", "sign slip"),
-        (f"log_{r2}({a})", "swaps base and argument"),
-        (f"log_{a}({r1 + r2 - 1})", "off by one in the root"),
+        (str(r2), "exp-quadratic-root-given-as-x"),
+        (f"log_{a}({b})", "exp-log-wrong-argument"),
+        (f"log_{a}({s.c})", "exp-log-wrong-argument"),
+        (f"-log_{a}({r2})", "exp-log-sign-dropped"),
+        (f"log_{r2}({a})", "log-base-and-argument-swapped"),
     ]
