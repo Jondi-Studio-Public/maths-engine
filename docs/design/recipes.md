@@ -123,3 +123,16 @@ an empty list, plus their own independent-oracle tests for each ask.
 
 Wheel packaging of `recipes/` (add when the first real recipe ships), a site renderer, a general way to chain
 arbitrary skills (Plan B).
+
+## Expression subjects
+
+`mathgen/recipe_expr.py` has `ExprSubject`, a Subject holding a sympy `expr`, `var`, `domain` and a `facts` dict. It
+answers `Subject.check_property(name)` from the expression itself, which `compose` calls for every declared
+property on every draw (`False` fails the seed; `None`, for a property with no generic test, is skipped). Computed:
+the three argument shapes, `quadratic_in_exponential` (one exponential base), `periodic`, `restricted_domain`,
+`differentiable_everywhere`, `has_stationary_point`, `has_inflection`, `has_asymptote`,
+`has_closed_form_antiderivative`, and the four root properties (roots found in `domain`, so give a circular subject
+a bounded interval). Not computed, so a subject that declares one overrides `check_property` itself:
+`even_candidate`, `odd_candidate`, `unknown_constants_*`, `bounded_support`, `invertible_on_domain`,
+`composite_of_translation`, `by_parts_integrable`, `substitution_integrable`. `expr_text(expr)` writes an expression
+as question text (`x^2`, not `x**2`).
