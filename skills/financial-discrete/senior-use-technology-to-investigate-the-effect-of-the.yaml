@@ -7,9 +7,6 @@ year_level: ['12']
 description: Given a stated principal, interest rate and number of compounding periods, compute the future value of the compound-interest loan or investment.
 status: active
 technology: required
-technology: required
-technology: required
-technology: required
 placement_eligible: false
 prerequisites: [simple-interest]
 answer: number

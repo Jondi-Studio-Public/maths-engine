@@ -9,11 +9,11 @@ prerequisites:
 answer: number
 sources:
 - topic: flat_loan_repayment
-  technology: none
+  technology: required
   params: {}
   difficulty: easy
 - topic: w3_flatloan_tiers
-  technology: none
+  technology: required
   params: {}
   difficulty: medium
   stages:
@@ -28,14 +28,14 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2d_flat_loan_term_chain
-  technology: none
+  technology: required
   params:
     tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_g5_flat_loan
-  technology: none
+  technology: required
   params:
     tier: exam
   difficulty: exam

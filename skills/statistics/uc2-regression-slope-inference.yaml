@@ -14,6 +14,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r4i_regression_slope
+  technology: required
   params: {}
   difficulty: easy
   stages:
@@ -21,6 +22,7 @@ sources:
   - 1
   - 2
 - topic: r4i_regression_slope
+  technology: required
   params: {}
   difficulty: medium
   stages:

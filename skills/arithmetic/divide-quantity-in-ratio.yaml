@@ -44,6 +44,7 @@ sources:
   stages:
   - exam
 - topic: exd_x_r3j_ratio_shares
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

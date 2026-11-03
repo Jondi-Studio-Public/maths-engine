@@ -12,20 +12,22 @@ prerequisites:
 answer: ordered_list
 sources:
 - topic: p19i_transport_time_compare
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p19i_transport_time_compare
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p19i_transport_time_compare
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2i_trip_compare
-  technology: required
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

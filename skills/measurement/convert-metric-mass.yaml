@@ -27,6 +27,7 @@ sources:
   stages: [5, 6, maintenance]
   difficulty: hard
 - topic: exd_x_m1_metric_mass
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

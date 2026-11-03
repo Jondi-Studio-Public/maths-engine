@@ -28,7 +28,7 @@ sources:
   - 3
   - 4
 - topic: ir2a_pick_display_for_question
-  technology: required
+  technology: none
   params:
     tier: hard
   difficulty: hard

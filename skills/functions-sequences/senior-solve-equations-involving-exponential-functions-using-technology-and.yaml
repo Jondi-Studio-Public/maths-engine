@@ -13,10 +13,12 @@ prerequisites:
 answer: number
 sources:
 - topic: p14a_solve_exp_technology
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p14a_solve_exp_technology
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]

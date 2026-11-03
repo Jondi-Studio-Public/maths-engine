@@ -20,6 +20,7 @@ sources:
   - 1
   - 2
 - topic: r3h_cooling
+  technology: required
   params: {}
   difficulty: medium
   stages:

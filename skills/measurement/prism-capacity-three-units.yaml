@@ -25,6 +25,7 @@ sources:
   - 1
   - 2
 - topic: exd_e5_prism_capacity_three_units
+  technology: none
   params:
     tier: medium
   difficulty: medium

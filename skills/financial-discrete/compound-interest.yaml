@@ -9,19 +9,19 @@ prerequisites:
 answer: number
 sources:
 - topic: financial_interest
-  technology: none
+  technology: required
   params:
     kind: compound
   difficulty: easy
 - topic: w3_ci_tiers
-  technology: none
+  technology: required
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: w3_ci_tiers
-  technology: none
+  technology: required
   params: {}
   difficulty: hard
   stages:
@@ -36,7 +36,7 @@ sources:
   stages:
   - exam
 - topic: exd_x_g5_compound_interest
-  technology: none
+  technology: required
   params:
     tier: exam
   difficulty: exam

@@ -17,6 +17,7 @@ sources:
   difficulty: easy
   stages: [6]
 - topic: natural_logarithm_define
+  technology: required
   params: {variant: ln_general}
   difficulty: medium
   stages: [6]

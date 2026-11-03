@@ -15,6 +15,7 @@ sources:
   difficulty: easy
   stages: [0, 1, 2]
 - topic: sc_trapezium
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

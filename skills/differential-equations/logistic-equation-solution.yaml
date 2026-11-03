@@ -20,13 +20,14 @@ sources:
   - 1
   - 2
 - topic: r3h_logistic
+  technology: required
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: r3h_logistic
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages:

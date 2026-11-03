@@ -13,15 +13,17 @@ prerequisites:
 answer: number
 sources:
 - topic: p19g_sinusoid_evaluate_context
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p19g_sinusoid_evaluate_context
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p19g_sinusoid_evaluate_context
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]

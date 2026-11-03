@@ -15,9 +15,6 @@ description: 'Given a stated rate parameter lambda greater than zero and stated 
   the exam tier.'
 status: active
 technology: required
-technology: required
-technology: required
-technology: required
 placement_eligible: false
 prerequisites:
 - integrate-polynomial

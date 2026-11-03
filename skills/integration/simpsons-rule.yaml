@@ -15,11 +15,12 @@ sources:
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r4e_simpsons_rule
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: r4e_simpsons_rule
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

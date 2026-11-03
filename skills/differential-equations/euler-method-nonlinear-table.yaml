@@ -12,6 +12,7 @@ prerequisites:
 answer: table
 sources:
 - topic: r3h_euler_nonlinear
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -19,6 +20,7 @@ sources:
   - 1
   - 2
 - topic: r3h_euler_nonlinear
+  technology: none
   params: {}
   difficulty: medium
   stages:

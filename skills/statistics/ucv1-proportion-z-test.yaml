@@ -15,10 +15,12 @@ prerequisites: [bernoulli-mle, z-score]
 answer: number
 sources:
 - topic: fy1ms_z_test_proportion
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fy1ms_z_test_proportion
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

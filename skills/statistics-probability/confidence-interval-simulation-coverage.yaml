@@ -9,6 +9,7 @@ prerequisites: [senior-use-the-approximate-confidence-interval-left-widehat-p, s
 answer: number
 sources:
 - topic: r3f_ci_coverage
+  technology: required
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]

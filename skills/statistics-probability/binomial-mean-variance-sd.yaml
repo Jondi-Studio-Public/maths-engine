@@ -9,10 +9,12 @@ prerequisites: [binomial-point-probability, discrete-expected-value]
 answer: number
 sources:
 - topic: r3a_binomial_moments
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3a_binomial_moments
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

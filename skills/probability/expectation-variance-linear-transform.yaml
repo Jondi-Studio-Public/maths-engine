@@ -9,10 +9,12 @@ prerequisites: [discrete-expected-value, finite-distribution-variance]
 answer: number
 sources:
 - topic: r3a_linear_transform
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3a_linear_transform
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

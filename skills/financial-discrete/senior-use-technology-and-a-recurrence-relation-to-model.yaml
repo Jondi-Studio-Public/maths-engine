@@ -7,9 +7,6 @@ year_level: ['12']
 description: Given a stated loan principal, interest rate and regular repayment amount, use the loan's recurrence relation to compute the outstanding balance after a stated number of compounding periods.
 status: active
 technology: required
-technology: required
-technology: required
-technology: required
 placement_eligible: false
 prerequisites: [simple-interest]
 answer: number

@@ -15,6 +15,7 @@ prerequisites: [bernoulli-mle]
 answer: pair
 sources:
 - topic: proportion_confidence_interval_inverse
+  technology: required
   params: {}
   difficulty: easy
   stages:

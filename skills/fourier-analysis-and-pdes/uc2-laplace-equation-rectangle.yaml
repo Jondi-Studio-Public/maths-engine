@@ -12,6 +12,7 @@ prerequisites:
 answer: number
 sources:
 - topic: s2c3_laplace_rectangle
+  technology: required
   params: {}
   difficulty: easy
   stages:
@@ -19,6 +20,7 @@ sources:
   - 1
   - 2
 - topic: s2c3_laplace_rectangle
+  technology: required
   params: {}
   difficulty: medium
   stages:

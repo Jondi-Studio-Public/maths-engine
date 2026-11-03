@@ -11,6 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r4h_richardson_extrapolation
+  technology: required
   params: {}
   difficulty: easy
   stages:
@@ -18,6 +19,7 @@ sources:
   - 1
   - 2
 - topic: r4h_richardson_extrapolation
+  technology: required
   params: {}
   difficulty: medium
   stages:

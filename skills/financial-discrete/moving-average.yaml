@@ -20,7 +20,7 @@ sources:
   - 3
   - 4
 - topic: w3_movavg_tiers
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages:

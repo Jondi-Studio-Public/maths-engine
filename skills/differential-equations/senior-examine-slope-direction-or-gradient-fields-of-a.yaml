@@ -31,7 +31,7 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3g_slope_euler
-  technology: required
+  technology: none
   params:
     tier: exam
   difficulty: exam

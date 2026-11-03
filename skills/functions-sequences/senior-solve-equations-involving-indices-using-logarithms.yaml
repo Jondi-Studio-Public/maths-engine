@@ -11,15 +11,17 @@ prerequisites: [function-notation]
 answer: number
 sources:
 - topic: solve_indices_with_logarithms
+  technology: none
   params: {variant: direct}
   difficulty: easy
   stages: [6]
 - topic: solve_indices_with_logarithms
+  technology: none
   params: {variant: coefficient}
   difficulty: medium
   stages: [6]
 - topic: solve_indices_with_logarithms
-  technology: required
+  technology: none
   params: {variant: linear_exponent}
   difficulty: hard
   stages: [6, maintenance]

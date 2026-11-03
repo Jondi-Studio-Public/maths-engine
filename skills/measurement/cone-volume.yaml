@@ -8,18 +8,22 @@ prerequisites: [senior-use-formulas-to-find-the-volume-of-pyramids]
 answer: number
 sources:
 - topic: cone_volume
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: cone_volume
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]
 - topic: cone_volume
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m1_cone_stockpile
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

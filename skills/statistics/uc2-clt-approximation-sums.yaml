@@ -15,6 +15,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r4i_clt_sums
+  technology: required
   params: {}
   difficulty: easy
   stages:
@@ -22,6 +23,7 @@ sources:
   - 1
   - 2
 - topic: r4i_clt_sums
+  technology: required
   params: {}
   difficulty: medium
   stages:

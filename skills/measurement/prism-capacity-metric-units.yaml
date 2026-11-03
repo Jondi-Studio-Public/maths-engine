@@ -13,14 +13,17 @@ prerequisites:
 answer: number
 sources:
 - topic: prism_capacity_conversion
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [6]
 - topic: prism_capacity_conversion
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [6]
 - topic: prism_capacity_conversion
+  technology: required
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]

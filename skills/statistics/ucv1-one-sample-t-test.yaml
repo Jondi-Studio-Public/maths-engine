@@ -13,10 +13,12 @@ prerequisites: [standard-deviation-from-data, z-score]
 answer: number
 sources:
 - topic: ucv1_one_sample_t_test
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ucv1_one_sample_t_test
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

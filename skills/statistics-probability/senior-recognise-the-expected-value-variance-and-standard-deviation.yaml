@@ -13,10 +13,12 @@ prerequisites:
 answer: ordered_list
 sources:
 - topic: p19c_continuous_uniform_moments
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p19c_continuous_uniform_moments
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]

@@ -8,6 +8,7 @@ prerequisites: [partial-derivative-y]
 answer: number
 sources:
 - topic: directional_derivative
+  technology: required
   params: {}
   difficulty: easy
   stages:
@@ -15,6 +16,7 @@ sources:
   - 1
   - 2
 - topic: directional_derivative
+  technology: required
   params: {}
   difficulty: medium
   stages:

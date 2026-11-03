@@ -14,6 +14,7 @@ prerequisites:
 answer: number
 sources:
 - topic: sc_simulated_proportions
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -21,6 +22,7 @@ sources:
   - 1
   - 2
 - topic: sc_simulated_proportions
+  technology: required
   params: {}
   difficulty: medium
   stages:

@@ -29,6 +29,7 @@ sources:
   - 3
   - 4
 - topic: p18a_real_number_applied
+  technology: required
   params: {}
   difficulty: hard
   stages:

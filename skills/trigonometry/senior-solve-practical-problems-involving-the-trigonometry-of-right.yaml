@@ -11,10 +11,12 @@ prerequisites: [right-triangle-angle]
 answer: number
 sources:
 - topic: p14a_practical_triangle
+  technology: required
   params: {variant: direct_angles}
   difficulty: easy
   stages: [6]
 - topic: p14a_practical_triangle
+  technology: required
   params: {variant: swap_orientation}
   difficulty: medium
   stages: [6]

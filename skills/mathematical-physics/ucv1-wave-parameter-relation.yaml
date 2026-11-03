@@ -24,12 +24,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: p14f_wave_parameter_relation
-  technology: required
+  technology: none
   params: {variant: solve_lambda_unit, hi: 9}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3j_wave_shoaling
-  technology: required
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

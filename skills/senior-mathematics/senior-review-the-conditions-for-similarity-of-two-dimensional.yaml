@@ -27,7 +27,7 @@ sources:
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_sc6_similarity
-  technology: required
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

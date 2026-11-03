@@ -27,7 +27,7 @@ sources:
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2k_binomial_suitability
-  technology: required
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

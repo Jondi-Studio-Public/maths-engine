@@ -16,9 +16,6 @@ description: Given a principal, a simple interest rate and a compound interest r
   neighbouring skills simple-interest and compound-interest.
 status: active
 technology: required
-technology: required
-technology: required
-technology: required
 placement_eligible: false
 prerequisites: [simple-interest]
 answer: number

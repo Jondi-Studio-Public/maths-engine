@@ -9,18 +9,22 @@ prerequisites: [f10-measurement-error-interpretation]
 answer: number
 sources:
 - topic: p10e_exact_approx_repeated_calc
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p10e_exact_approx_repeated_calc
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p10e_exact_approx_repeated_calc
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_n3_unit_price_rounding
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

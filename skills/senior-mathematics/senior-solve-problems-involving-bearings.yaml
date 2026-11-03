@@ -20,12 +20,14 @@ sources:
   stages:
   - 6
 - topic: bearings_problem
+  technology: required
   params:
     variant: leg_distance
   difficulty: medium
   stages:
   - 6
 - topic: w3_bearings_general
+  technology: required
   params: {}
   difficulty: medium
   stages:

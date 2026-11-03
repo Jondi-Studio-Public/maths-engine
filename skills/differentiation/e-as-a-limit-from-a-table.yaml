@@ -16,7 +16,7 @@ prerequisites:
 answer: number
 sources:
 - topic: w5b_e_limit_table
-  technology: none
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]

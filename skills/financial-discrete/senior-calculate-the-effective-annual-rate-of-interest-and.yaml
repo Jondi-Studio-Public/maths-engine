@@ -11,10 +11,12 @@ prerequisites: [simple-interest]
 answer: ordered_list
 sources:
 - topic: p19i_effective_annual_rate
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p19i_effective_annual_rate
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

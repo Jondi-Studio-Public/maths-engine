@@ -9,10 +9,12 @@ prerequisites:
 answer: number
 sources:
 - topic: t4_radians_to_degrees_decimal
+  technology: required
   params: {variant: forward_basic}
   difficulty: easy
   stages: [6]
 - topic: t4_radians_to_degrees_decimal
+  technology: required
   params: {variant: forward_signed}
   difficulty: medium
   stages: [6]

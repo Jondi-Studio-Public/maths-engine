@@ -15,9 +15,6 @@ description: >-
   gradient of a^x at x = 2 and the x-intercept of the tangent there.
 status: active
 technology: required
-technology: required
-technology: required
-technology: required
 placement_eligible: false
 prerequisites:
 - differentiate-polynomial

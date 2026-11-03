@@ -15,9 +15,6 @@ description: 'Given bounded, fully specified inputs, calculate probabilities and
   parameter and a stated event proportion and threshold.'
 status: active
 technology: required
-technology: required
-technology: required
-technology: required
 placement_eligible: false
 prerequisites:
 - simple-event-probability

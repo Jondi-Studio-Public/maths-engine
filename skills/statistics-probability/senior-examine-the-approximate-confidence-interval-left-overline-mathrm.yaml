@@ -11,15 +11,17 @@ prerequisites: [simple-event-probability]
 answer: pair
 sources:
 - topic: p8c_confidence_interval_mean
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p8c_confidence_interval_mean
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p8c_confidence_interval_mean
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]

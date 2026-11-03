@@ -11,6 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: sine_cosine_ratio_triangle
+  technology: required
   params: {variant: side_from_angle}
   difficulty: easy
   stages: [0, 1, 2]

@@ -22,6 +22,7 @@ sources:
   - 1
   - 2
 - topic: r4g_sector_degrees
+  technology: required
   params:
     tier: medium
   difficulty: medium

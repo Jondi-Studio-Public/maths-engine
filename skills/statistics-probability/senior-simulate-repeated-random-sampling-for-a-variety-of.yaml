@@ -25,10 +25,12 @@ prerequisites: [simple-event-probability]
 answer: number
 sources:
 - topic: p16b_phat_standardise
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p16b_phat_standardise
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]

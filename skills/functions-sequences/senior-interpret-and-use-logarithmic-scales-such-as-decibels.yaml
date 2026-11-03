@@ -18,6 +18,7 @@ sources:
   difficulty: easy
   stages: [6]
 - topic: p19e_named_log_scale_value
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]

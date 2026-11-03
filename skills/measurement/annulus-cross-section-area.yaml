@@ -12,18 +12,22 @@ prerequisites: [f10-circle-measures]
 answer: number
 sources:
 - topic: annulus_cross_section_area
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: annulus_cross_section_area
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]
 - topic: annulus_cross_section_area
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m1_pipe_mass
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

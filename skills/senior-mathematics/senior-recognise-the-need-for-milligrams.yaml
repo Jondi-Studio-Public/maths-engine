@@ -32,7 +32,7 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3g_dose_units
-  technology: required
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

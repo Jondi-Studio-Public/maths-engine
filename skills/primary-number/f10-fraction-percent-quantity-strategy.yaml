@@ -25,6 +25,7 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr5_discount_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

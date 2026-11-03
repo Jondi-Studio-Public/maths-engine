@@ -8,10 +8,12 @@ prerequisites: [senior-calculate-probabilities-and-quantiles-associated-with-a-g
 answer: number
 sources:
 - topic: r3f_test_errors_power
+  technology: required
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3f_test_errors_power
+  technology: required
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]

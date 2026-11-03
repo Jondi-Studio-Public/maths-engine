@@ -14,10 +14,12 @@ prerequisites: [ucv1-double-integral-rectangle]
 answer: number
 sources:
 - topic: fy1ms_polar_integral
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fy1ms_polar_integral
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

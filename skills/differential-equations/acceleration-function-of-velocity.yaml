@@ -10,10 +10,12 @@ prerequisites:
 answer: number
 sources:
 - topic: r3d_accel_velocity
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3d_accel_velocity
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]

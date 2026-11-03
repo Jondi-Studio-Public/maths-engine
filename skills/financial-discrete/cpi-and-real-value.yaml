@@ -11,6 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r3e_cpi
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -18,14 +19,14 @@ sources:
   - 1
   - 2
 - topic: r3e_cpi
-  technology: none
+  technology: required
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: r3e_cpi
-  technology: none
+  technology: required
   params: {}
   difficulty: hard
   stages:

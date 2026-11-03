@@ -11,10 +11,12 @@ prerequisites: [solve-ode-exponential]
 answer: number
 sources:
 - topic: p13b_vector_resultant_angle
+  technology: required
   params: {tier: easy}
   difficulty: easy
   stages: [6]
 - topic: p13b_vector_resultant_angle
+  technology: required
   params: {tier: medium}
   difficulty: medium
   stages: [6]

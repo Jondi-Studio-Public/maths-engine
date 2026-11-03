@@ -26,6 +26,7 @@ sources:
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_n1_repeated_change_and_reverse
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

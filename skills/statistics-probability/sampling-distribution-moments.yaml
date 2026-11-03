@@ -9,10 +9,12 @@ prerequisites: [standard-deviation-from-data, senior-understand-the-concept-of-t
 answer: number
 sources:
 - topic: r3a_sampling_moments
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3a_sampling_moments
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

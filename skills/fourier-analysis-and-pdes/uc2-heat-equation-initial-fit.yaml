@@ -14,6 +14,7 @@ prerequisites:
 answer: number
 sources:
 - topic: s2c3_heat_equation
+  technology: required
   params: {}
   difficulty: easy
   stages:
@@ -21,6 +22,7 @@ sources:
   - 1
   - 2
 - topic: s2c3_heat_equation
+  technology: required
   params: {}
   difficulty: medium
   stages:

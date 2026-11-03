@@ -16,6 +16,7 @@ sources:
   difficulty: easy
   stages: [6]
 - topic: use_the_equation_of_a_fitted_line_to
+  technology: none
   difficulty: medium
   stages: [6]
 - topic: use_the_equation_of_a_fitted_line_to

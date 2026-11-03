@@ -8,7 +8,7 @@ prerequisites: []
 answer: number
 sources:
 - topic: decimals
-  technology: none
+  technology: required
   params:
     ops:
     - +
@@ -21,6 +21,7 @@ sources:
   - 1
   - 2
 - topic: decimals
+  technology: required
   params:
     ops:
     - +
@@ -32,6 +33,7 @@ sources:
   - 3
   - 4
 - topic: decimals
+  technology: required
   params:
     ops:
     - +

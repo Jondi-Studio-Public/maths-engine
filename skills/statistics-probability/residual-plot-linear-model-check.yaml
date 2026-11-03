@@ -36,7 +36,7 @@ sources:
   - 6
   - maintenance
 - topic: smech_residual_plots_exam
-  technology: required
+  technology: none
   params: {}
   difficulty: exam
   stages:

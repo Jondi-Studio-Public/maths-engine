@@ -15,10 +15,12 @@ prerequisites: [senior-understand-the-concepts-of-a-probability-density-function
 answer: number
 sources:
 - topic: fy1ms_uniform_exponential
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fy1ms_uniform_exponential
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

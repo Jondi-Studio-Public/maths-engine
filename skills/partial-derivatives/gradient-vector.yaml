@@ -28,7 +28,7 @@ sources:
   - 3
   - 4
 - topic: w5c_gradient_vector
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages:

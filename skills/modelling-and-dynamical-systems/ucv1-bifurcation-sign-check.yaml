@@ -19,6 +19,7 @@ sources:
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p13e_bifurcation_sign_check
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]

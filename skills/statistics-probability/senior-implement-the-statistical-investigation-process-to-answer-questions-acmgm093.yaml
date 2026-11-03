@@ -11,20 +11,22 @@ prerequisites: [simple-event-probability]
 answer: number
 sources:
 - topic: p16a_trend_value
+  technology: none
   params: {variant: direct}
   difficulty: easy
   stages: [6]
 - topic: p16a_trend_value
+  technology: none
   params: {variant: period_label}
   difficulty: medium
   stages: [6]
 - topic: p16a_trend_value
-  technology: required
+  technology: none
   params: {variant: two_points}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2k_trend_forecast
-  technology: required
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

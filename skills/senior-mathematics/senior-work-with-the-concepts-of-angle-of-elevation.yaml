@@ -13,10 +13,12 @@ prerequisites:
 answer: number
 sources:
 - topic: elevation_depression_problem
+  technology: required
   params: {variant: elevation}
   difficulty: easy
   stages: [6]
 - topic: elevation_depression_problem
+  technology: required
   params: {variant: depression}
   difficulty: medium
   stages: [6]

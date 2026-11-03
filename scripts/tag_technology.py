@@ -8,10 +8,11 @@ Rules (see skills/README.md, `technology`):
   * the skills in REQUIRED_SKILLS name a tool in their own wording ("using technology", a financial
     calculator, a spreadsheet): the skill is tagged `required` and its sources inherit.
   * a source whose rendered text says calculator, technology or spreadsheet is `required`.
-  * a source whose text asks for decimal places or significant figures is `required` when it is a hard or
-    exam tier outside the early-years domains, and is otherwise left untagged for a hand sort (an untagged
-    source is hidden when technology is off).
-  * a source that never says any of that, over every seed, is `none`.
+  * a source is `required` when it asks for decimal places or significant figures, or has a decimal answer,
+    and its worked solution uses a calculator-only step: a decimal base to a power, compounding, a trig, log
+    or root value, pi.
+  * every other source is `none`. A hard or exam tier that rounds with no calculator-only step is `none` but
+    is listed in the report for a person to confirm. A source that does not build is left untagged and listed.
   * `either` is never written here: it needs a generator that declares both modes.
 
     python scripts/tag_technology.py                  # dry run, summary
@@ -33,7 +34,7 @@ sys.path.insert(0, str(ROOT))
 from mathgen.engine import make_for_skill  # noqa: E402
 from mathgen.skills import load_skills  # noqa: E402
 
-SEEDS = (1, 2, 3, 4, 5, 6)
+SEEDS = tuple(range(1, 61))
 
 REQUIRED_SKILLS = frozenset(
     {
@@ -89,11 +90,40 @@ def _blob(q) -> str:
     return " ".join(str(getattr(q, k, "") or "") for k in ("text", "stem", "parts", "answer_text", "answer_form"))
 
 
+# Operations that need a calculator when the answer is a decimal: a decimal base to a power, compounding, a
+# trig, log or root evaluation, pi. Read from the stem and the worked solution.
+HEAVY = re.compile(
+    r"\d\.\d+\)?\s*\^"  # 1.06^5, 0.85^n
+    r"|\(1\s*[+-]\s*[\d.]+(?:/\d+)?\)\s*\^"  # (1 + 0.04)^5
+    r"|\^\s*[({]?1/\d"  # a root written as a power
+    r"|compound"
+    r"|\b(?:sin|cos|tan|ln|log|arcsin|arccos|arctan)\s*\(?\s*-?\d"  # a trig or log of a number, not of theta
+    r"|√|sqrt|π|\bpi\b|e\^|exp\(",
+    re.I,
+)
+# More places than a person works out by hand.
+LONG_ROUNDING = re.compile(
+    r"(?:\b(?:[4-9]|\d{2,}) decimal places?|\b(?:[5-9]|\d{2,}) significant (?:figures?|digits?))", re.I
+)
+# Hand-checked tiers whose rounding step has no hand route (a median or quantile of a cubic or a log equation).
+FORCE_REQUIRED = frozenset({("pdf-cdf-from-polynomial", "hard"), ("pdf-cdf-from-polynomial", "exam")})
+FINANCE_ITERATION = re.compile(r"compound|recurrence|A\(n ?\+ ?1\)|annuity|iterat", re.I)
+DECIMAL_ANSWER = re.compile(r"\d\.\d{2,}")
+
+
 def classify(job: tuple[str, int]) -> tuple[str, int, str, str]:
-    """(skill id, source index) -> (skill id, index, label, reason). Label: required, none or review."""
+    """(skill id, source index) -> (skill id, index, label, reason). Label: required, none or review.
+
+    required: the text names a calculator or technology; or it asks for decimal places or significant figures
+    and the working uses a calculator-only operation; or the answer is a decimal of two or more places and the
+    working uses one. none: nothing of that over every seed, so the answer is exact or hand-sized.
+    A hard or exam tier that rounds with no calculator-only operation is none, with a reason that starts
+    'confirm' so the report lists it. review: it does not build; it is left untagged."""
     sid, i = job
     skill = _SKILLS[sid]
     src = skill.sources[i]
+    if (sid, src.difficulty) in FORCE_REQUIRED:
+        return sid, i, "required", "hand-checked: no hand route to the rounded value"
     saw_round = False
     for seed in SEEDS:
         try:
@@ -103,13 +133,20 @@ def classify(job: tuple[str, int]) -> tuple[str, int, str, str]:
         text = _blob(q)
         if STRONG.search(NO_TOOL.sub("", text)):
             return sid, i, "required", "text names a calculator or technology"
-        if ROUNDING.search(text):
-            saw_round = True
-    if saw_round:
-        if src.difficulty in ("hard", "exam") and skill.domain not in EARLY_DOMAINS:
-            return sid, i, "required", "rounds to decimal places at a hard or exam tier"
-        return sid, i, "review", "rounds to decimal places"
-    return sid, i, "none", "no rounding or tool wording"
+        rounds = bool(ROUNDING.search(text))
+        if LONG_ROUNDING.search(text):
+            return sid, i, "required", "asks for more places than a person works out by hand"
+        if skill.domain == "financial-discrete" and FINANCE_ITERATION.search(text):
+            return sid, i, "required", "compounding or a recurrence run over many periods"
+        if skill.domain == "financial-discrete" and DECIMAL_ANSWER.search(str(q.answer_text)):
+            return sid, i, "required", "money answer from percentage or compounding arithmetic"
+        saw_round = saw_round or rounds
+        heavy = HEAVY.search(text + " " + str(getattr(q, "working", "") or ""))
+        if heavy and (rounds or DECIMAL_ANSWER.search(str(q.answer_text))):
+            return sid, i, "required", f"decimal answer from a calculator-only step ({heavy.group(0).strip()})"
+    if saw_round and src.difficulty in ("hard", "exam"):
+        return sid, i, "none", "confirm: rounds to decimal places with no calculator-only step"
+    return sid, i, "none", "no calculator-only step"
 
 
 def insert_tags(text: str, skill_tag: str | None, src_tags: dict[int, str]) -> str:
@@ -128,7 +165,7 @@ def insert_tags(text: str, skill_tag: str | None, src_tags: dict[int, str]) -> s
                 idx += 1
                 return f"{{technology: {src_tags[idx]}, topic:" if idx in src_tags else m.group(0)
 
-            out[-1] = re.sub(r"\{topic:", tag, line)
+            out[-1] = re.sub(r"\{(?:technology: \w+, )?topic:", tag, line)
             continue
         if re.match(r"^sources:\s*$", line):
             in_sources = True
@@ -138,7 +175,7 @@ def insert_tags(text: str, skill_tag: str | None, src_tags: dict[int, str]) -> s
         if skill_tag and re.match(r"^status:", line):
             out.append(f"technology: {skill_tag}")
         m = re.match(r"^(\s*)- topic:", line) if in_sources else None
-        flow = re.match(r"^(\s*)- \{topic:", line) if in_sources else None
+        flow = re.match(r"^(\s*)- \{(?:technology: \w+, )?topic:", line) if in_sources else None
         if m:
             idx += 1
             if idx in src_tags:
@@ -178,16 +215,16 @@ def main() -> int:
     counts: dict[str, int] = {"required": 0, "none": 0, "review": 0}
     for sid, i, label, reason in results:
         counts[label] += 1
-        if label == "review":
+        if label == "review" or reason.startswith("confirm"):
             review.append((sid, i, reason))
-        else:
+        if label != "review":
             per_skill.setdefault(sid, {})[i] = label
     print(f"skills forced required: {len(REQUIRED_SKILLS)}")
     print(f"sources: {counts}")
 
     if args.report:
         with open(args.report, "w", encoding="utf-8") as f:
-            f.write("# Technology tags: sources left untagged for a hand sort\n\n")
+            f.write("# Technology tags: sources for a person to confirm\n\n")
             for sid, i, reason in sorted(review):
                 s = by_id[sid]
                 f.write(f"- `{sid}` source {i} ({s.sources[i].difficulty}, {s.domain}): {reason}\n")

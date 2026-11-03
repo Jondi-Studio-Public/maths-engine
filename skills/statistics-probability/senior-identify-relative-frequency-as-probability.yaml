@@ -13,15 +13,17 @@ prerequisites:
 answer: number
 sources:
 - topic: p19c_relative_frequency_estimate
+  technology: none
   params: {variant: bare}
   difficulty: easy
   stages: [6]
 - topic: p19c_relative_frequency_estimate
+  technology: none
   params: {variant: scenario}
   difficulty: medium
   stages: [6]
 - topic: p19c_relative_frequency_estimate
-  technology: required
+  technology: none
   params: {variant: derive}
   difficulty: hard
   stages: [6, maintenance]

@@ -13,9 +13,6 @@ description: Given bounded, fully specified inputs, with the aid of a financial 
   unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
 technology: required
-technology: required
-technology: required
-technology: required
 placement_eligible: false
 prerequisites: [simple-interest]
 answer: number

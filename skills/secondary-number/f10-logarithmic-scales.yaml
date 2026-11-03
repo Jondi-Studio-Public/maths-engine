@@ -19,6 +19,7 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: p10e_logarithmic_scales
+  technology: none
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
