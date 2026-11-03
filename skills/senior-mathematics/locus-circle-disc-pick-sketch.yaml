@@ -40,7 +40,7 @@ sources:
   - 6
   - maintenance
 - topic: sr2l_circle_pick_exam
-  technology: none
+  technology: required
   params: {}
   difficulty: exam
   stages:

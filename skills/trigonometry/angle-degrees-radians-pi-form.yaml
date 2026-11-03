@@ -25,7 +25,7 @@ sources:
   difficulty: hard
   stages: [6, maintenance]
 - topic: t4_degrees_radians_pi_form
-  technology: none
+  technology: required
   params: {variant: forward_fine_exam}
   difficulty: exam
   stages: [exam]

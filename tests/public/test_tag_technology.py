@@ -35,3 +35,9 @@ def test_skill_tag_goes_after_status():
     out = insert_tags(BLOCK, "required", {})
     assert yaml.safe_load(out)["technology"] == "required"
     assert _techs(out) == [None, None]
+
+
+def test_tagging_twice_changes_nothing():
+    once = insert_tags(BLOCK, "required", {0: "none", 1: "required"})
+    # A tagged skill and tagged sources: the second pass has nothing left to tag and adds no lines.
+    assert insert_tags(once, "required", {}) == once

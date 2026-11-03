@@ -76,7 +76,10 @@ EARLY_DOMAINS = frozenset(
 
 STRONG = re.compile(r"calculator|technology|\bCAS\b|(?:use|using|with) (?:a |the )?spreadsheet", re.I)
 NO_TOOL = re.compile(r"(?:without|no|not use|not using|not allowed) (?:a |the |any )?calculator", re.I)
-ROUNDING = re.compile(r"decimal place|\bd\.p\b|significant fig|significant digit", re.I)
+ROUNDING = re.compile(
+    r"decimal place|\bd\.p\b|significant fig|significant digit|\bnearest\b|round(?:ed)? (?:up|down)|numerically",
+    re.I,
+)
 
 _SKILLS: dict = {}
 
@@ -105,20 +108,26 @@ HEAVY = re.compile(
 # When an answer is rounded, these in the stem or the working mean a function, root or statistic is being
 # evaluated, not a plain division: a person needs a calculator for the rounded value.
 ROUND_CALC = re.compile(
-    r"\b(?:sin|cos|tan)\b(?!\s*\(?\s*(?:[θαβφ]|theta))|\b(?:ln|log|exp|sqrt|roots?|pi|logistic|decay|growth|heron|semi-?perimeter)\b"
-    r"|√|π|\d\s*\^\s*\(?[a-z]|∫|curvature|kappa|\b[a-z]\^[a-z]|standard deviation|variance|confidence|interval|margin of error|z-score|normal(?:ly)? (?:distribut|curve|model|probab)|"
-    r"correlation|regression|angle between|(?:find|calculate|determine) the (?:size of the )?angle|acute angle|iterat|newton(?:'s)? method|newton-raphson|simpson|trapez",
+    r"\b(?:sin|cos|tan)\b(?!\s*\(?\s*(?:[θαβφ]|theta))"
+    r"|\b(?:cosine|sine|ln|log|exp|sqrt|roots?|logistic|decay|growth|heron|semi-?perimeter|bearings?|polar|resultant)\b"
+    r"|(?<![A-Za-z])pi(?![A-Za-z])|√|π|\d\s*\^\s*\(?[a-z]|∫|curvature|kappa|\b[a-z]\^[a-z]|cube root|cbrt"
+    r"|standard deviation|variance|confidence interval|interval estimate|sample size|margin of error|z-score"
+    r"|normal(?:ly)? (?:distribut|curve|model|probab)|correlation|regression|angle between"
+    r"|(?:find|calculate|determine) the (?:size of the )?angle|acute angle|iterat|newton(?:'s)? method"
+    r"|newton-raphson|simpson|trapez|nearest degree|numerically",
     re.I,
 )
-# A money answer with real cents (not 7.00, 12.50 or 3.25) from a percentage or rate.
+# A money answer with real cents from interest on a balance: indexation, a loan, a reducing balance, an annuity,
+# compounding. Plain percentages of a price (discount, GST, commission, wages) are hand arithmetic.
 MONEY_CENTS = re.compile(r"\d\.(?!00\b)(?!50\b)(?!25\b)(?!75\b)\d{2}\b")
+MONEY_RATE = re.compile(r"indexation|reducing[- ]balance|loan|annuity|instalment|amortis|compound", re.I)
 # More places than a person works out by hand.
 LONG_ROUNDING = re.compile(
     r"(?:\b(?:[4-9]|\d{2,}) decimal places?|\b(?:[5-9]|\d{2,}) significant (?:figures?|digits?))", re.I
 )
 # Hand-checked tiers whose rounding step has no hand route (a median or quantile of a cubic or a log equation).
 FORCE_REQUIRED = frozenset({("pdf-cdf-from-polynomial", "hard"), ("pdf-cdf-from-polynomial", "exam")})
-FINANCE_ITERATION = re.compile(r"compound|recurrence|A\(n ?\+ ?1\)|annuity|iterat", re.I)
+FINANCE_ITERATION = re.compile(r"compound|recurrence relation|A\(n ?\+ ?1\)|annuity|iterat", re.I)
 DECIMAL_ANSWER = re.compile(r"\d\.\d{2,}")
 
 
@@ -149,11 +158,7 @@ def classify(job: tuple[str, int]) -> tuple[str, int, str, str]:
             return sid, i, "required", "asks for more places than a person works out by hand"
         if skill.domain == "financial-discrete" and FINANCE_ITERATION.search(text):
             return sid, i, "required", "compounding or a recurrence run over many periods"
-        if (
-            skill.domain == "financial-discrete"
-            and MONEY_CENTS.search(str(q.answer_text))
-            and re.search(r"%|per cent|rate", text, re.I)
-        ):
+        if skill.domain == "financial-discrete" and MONEY_CENTS.search(str(q.answer_text)) and MONEY_RATE.search(text):
             return sid, i, "required", "money answer from percentage or compounding arithmetic"
         saw_round = saw_round or rounds
         working = text + " " + str(getattr(q, "working", "") or "")
@@ -175,6 +180,8 @@ def classify(job: tuple[str, int]) -> tuple[str, int, str, str]:
 def insert_tags(text: str, skill_tag: str | None, src_tags: dict[int, str]) -> str:
     """Add `technology:` lines. Skill tag goes after `status:`; a source tag goes right after its `- topic:` line,
     or inside the braces of a one-line `- {topic: ...}` source."""
+    if re.search(r"^technology:", text, re.M):
+        skill_tag = None  # already tagged: never add a second line
     lines = text.split("\n")
     out: list[str] = []
     in_sources = False

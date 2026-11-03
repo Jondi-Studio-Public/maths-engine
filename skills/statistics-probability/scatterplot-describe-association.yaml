@@ -29,7 +29,7 @@ sources:
   difficulty: hard
   stages: [6, maintenance]
 - topic: sr2a_scatter_assoc_chain
-  technology: none
+  technology: required
   params:
     tier: exam
   difficulty: exam

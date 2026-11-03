@@ -26,7 +26,7 @@ sources:
     difficulty: easy
     stages: [0, 1, 2]
   - topic: cartesian_polar_convert
-    technology: none
+    technology: required
     params: {variant: triple}
     difficulty: medium
     stages: [3, 4]

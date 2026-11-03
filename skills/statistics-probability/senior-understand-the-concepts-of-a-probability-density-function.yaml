@@ -13,17 +13,17 @@ prerequisites:
 answer: number
 sources:
 - topic: p19c_density_probability
-  technology: required
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p19c_density_probability
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p19c_density_probability
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]

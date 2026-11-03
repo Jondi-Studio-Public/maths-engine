@@ -21,14 +21,14 @@ sources:
   - 1
   - 2
 - topic: r3h_methods_optimisation
-  technology: none
+  technology: required
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: r3h_methods_optimisation
-  technology: none
+  technology: required
   params: {}
   difficulty: hard
   stages:

@@ -10,7 +10,7 @@ prerequisites:
 answer: number
 sources:
 - topic: smech_newton_second_law
-  technology: none
+  technology: required
   params: {}
   difficulty: easy
   stages:

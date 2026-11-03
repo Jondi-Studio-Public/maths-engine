@@ -35,7 +35,7 @@ sources:
   stages:
   - exam
 - topic: exd_x_g5_flat_loan
-  technology: required
+  technology: none
   params:
     tier: exam
   difficulty: exam

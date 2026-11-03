@@ -35,7 +35,7 @@ sources:
   - 4
   key: general-legs
 - topic: bearings_problem
-  technology: none
+  technology: required
   params:
     variant: leg_bearing
   difficulty: hard

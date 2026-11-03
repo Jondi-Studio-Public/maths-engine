@@ -19,7 +19,7 @@ prerequisites: [simple-interest]
 answer: number
 sources:
 - topic: pv0a_recurrence_steady_state
-  technology: required
+  technology: none
   params: {variant: easy}
   difficulty: easy
   stages: [0, 1, 2]
@@ -29,7 +29,7 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: pv0a_recurrence_steady_state
-  technology: required
+  technology: none
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

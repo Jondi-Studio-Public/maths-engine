@@ -11,17 +11,17 @@ prerequisites:
 answer: mcq
 sources:
 - topic: f10a_data_display_selection
-  technology: required
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: f10a_data_display_selection
-  technology: required
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: f10a_data_display_selection
-  technology: required
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

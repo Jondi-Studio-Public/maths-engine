@@ -10,7 +10,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r3j_recurrence
-  technology: required
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -18,7 +18,7 @@ sources:
   - 1
   - 2
 - topic: r3j_recurrence
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages:
