@@ -25,7 +25,7 @@ from fractions import Fraction
 import sympy
 
 from ..core import attempts, check, rational_text
-from ..recipes import Subject, ask, subject
+from ..recipes import RecipeError, Subject, ask, subject
 from ._r3f_kit import fraction_part
 from ._recipe_kit import PDF_DENSITY, UNKNOWN_PARAMETERS, X, expression_part, formula
 
@@ -97,7 +97,7 @@ class TwoParamPdf(Subject):
     @classmethod
     def draw(cls, rng, technology_active):
         if technology_active:
-            raise ValueError("two_param_pdf asks exact answers only; it has no technology (decimal) form")
+            raise RecipeError("two_param_pdf asks exact answers only; it has no technology (decimal) form")
         for _ in attempts(500, "a two-parameter density with one admissible root and clean prompts"):
             if rng.random() < 0.5:
                 n, k = rng.choice((1, 2, 3)), Fraction(0)
