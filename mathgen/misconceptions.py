@@ -63507,6 +63507,193 @@ _ENTRIES += (
         "Evaluating the trig term of h at the chosen point with the wrong sign or value.",
         area="functions",
     ),
+    CatalogueEntry(
+        "tpp-normalisation-skips-the-divisor",
+        "Setting c times d^(n + 1) equal to 1, forgetting the divisor n + 1 that integrating the power brings in.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-normalisation-drops-the-k-term",
+        "Using only the area of the sloping part, c d^2/2 = 1, and leaving out the area k d under the constant term.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-integral-of-cx-forgets-the-half",
+        "Integrating cx as c x^2, without the factor of one half.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-constant-integrates-to-itself",
+        "Integrating the constant k over [0, d] as k instead of k d.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-mean-taken-as-d",
+        "Giving the stated mean as the upper end d of the interval.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-mean-ratio-inverted",
+        "Turning the ratio between the mean and d upside down: (n + 1)/(n + 2) times the mean where (n + 2)/(n + 1) times it was needed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-mean-ignores-the-k-term",
+        "Solving E(X) = given as if the density were only the sloping part, so the constant term never enters the equation for d.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-extraneous-root-kept",
+        "Keeping the root of the quadratic for d that makes the constant c negative, instead of rejecting it.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-cdf-power-not-raised",
+        "Forgetting to raise the power when integrating the density, so the cumulative distribution is (x/d)^n where (x/d)^(n + 1) was needed.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "tpp-cdf-drops-the-k-term",
+        "Leaving the constant term k out when integrating the density to find a probability.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dd-sd-gives-the-variance",
+        "Giving the variance where the standard deviation was asked, with no square root taken.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dd-sd-gives-the-mean",
+        "Giving the mean of the distribution where the standard deviation was asked.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "dd-sd-root-of-the-mean",
+        "Taking the square root of the mean, as if the variance were np, where np(1 - p) is the variance.",
+        area="statistics",
+    ),
+    CatalogueEntry(
+        "ebin-arrangements-forgotten",
+        "Leaving out the binomial coefficient, the number of ways the successes can be placed among the trials.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "ebin-p-and-q-swapped",
+        "Swapping the powers of p and 1 - p, so the successes are given the failure probability and the reverse.",
+        area="probability",
+    ),
+    CatalogueEntry(
+        "ebin-failures-ignored",
+        "Writing the binomial coefficient times p^k and leaving out the factor (1 - p)^(n - k) for the failures.",
+        area="probability",
+    ),
+)
+
+# -- log of a quadratic (recipe subject `log_quadratic`) ---------------------------------------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "log-domain-outside-the-roots",
+        "Taking the values where the quadratic inside the logarithm is negative, the outside of its roots, as the "
+        "domain, instead of the values where it is positive.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "log-domain-endpoints-included",
+        "Writing the domain of a logarithm with a non-strict inequality, so the roots of its argument, where the "
+        "logarithm is undefined, are included.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "log-domain-one-factor-only",
+        "Applying the condition from only one factor of the quadratic inside the logarithm, so the domain is a ray "
+        "instead of an interval.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "turning-point-gives-the-value",
+        "Giving the maximum value of the function where the x-coordinate of the maximum was asked.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "turning-point-sum-of-roots",
+        "Giving the sum of the roots of the quadratic as the x-coordinate of its vertex, forgetting to halve it.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "turning-point-half-width",
+        "Giving half the distance between the roots as the x-coordinate of the vertex, so the position of the "
+        "midpoint is lost.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "log-equation-argument-set-to-zero",
+        "Solving ln(q(x)) = 0 as q(x) = 0, so the roots of q are given where q(x) = 1 was needed.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "completing-square-root-not-taken",
+        "Leaving the square root out when solving (x - h)^2 = d, so x = h ± d.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "completing-square-drops-the-centre",
+        "Solving (x - h)^2 = d as x = √d, leaving out the h that was moved across.",
+        area="log-of-a-quadratic",
+    ),
+    CatalogueEntry(
+        "log-equation-exponentiated-wrongly",
+        "Writing ln(q(x)) = ln k as q(x) = k + 1, or q(x) = ln k, instead of q(x) = k.",
+        area="log-of-a-quadratic",
+    ),
+)
+
+# -- exponential equations that are quadratic in a^x (recipe subject exponential_g) -----------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "exp-log-argument-used-as-x",
+        "Putting the logarithm's argument in as x: evaluating a^(2x) - b a^x + c at x = k when the point is x = log_a(k).",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-middle-term-sign",
+        "Losing the minus sign on the middle term of a^(2x) - b a^x + c when substituting.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-middle-term-power-dropped",
+        "Replacing the middle term's a^x by 1 (or by b alone) instead of by the value k it equals at x = log_a(k).",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-quadratic-root-given-as-x",
+        "Stating a root of the quadratic in t = a^x as the solution for x, without taking the logarithm.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-log-sign-dropped",
+        "Giving the logarithm of the root with the wrong sign: -log_a(r) for log_a(r).",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "log-base-and-argument-swapped",
+        "Swapping the base and the argument of a logarithm: log_r(a) for log_a(r).",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-other-solution-given",
+        "Giving the other solution when the larger (or smaller) one was asked for.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-root-divided-by-base",
+        "Dividing the root of the quadratic in t = a^x by the base a, instead of taking the logarithm base a.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-log-wrong-argument",
+        "Taking the logarithm of the wrong number: the sum or the product of the roots of the quadratic in t instead of the root itself.",
+        area="exponentials",
+    ),
 )
 
 #: Every entry, by id.
