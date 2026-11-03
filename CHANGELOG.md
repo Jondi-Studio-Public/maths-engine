@@ -12,6 +12,10 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ### Added
 
+- Recipe subject `exponential_g` (g(x) = a^(2x) - b a^x + c) with generic asks `evaluate_at_log`, `integer_solution`,
+  `log_solution` and `solve_shifted`, and the recipe `methods_exponential_g_1` (VCE Methods Exam 1 style, exact answers).
+  Logarithm answers are typed with natural logs (`ln(5)/ln(2)`) because the typed-answer parser reads `log_b(x)` only for
+  b = 2 and 10.
 - Interactive graph answers. Seven answer kinds (`half_planes`, `line_graph`, `number_line_set`, `polygon`, `curve`, `bars`,
   `edges`) read what a learner draws on a graph, as JSON a front end sends or as a typed form. Points are compared as
   exact fractions on the figure's snap grid, with no tolerance, and unreadable or oversized replies are marked wrong.

@@ -1,0 +1,14 @@
+id: methods_exponential_g_1
+title: Exponential function quadratic in a^x (evaluate at a log, solve exactly)
+level: 12
+subject: exponential_g
+technology_active: false
+asks:
+  - ask: evaluate_at_log
+    marks: 2
+  - ask: integer_solution
+    marks: 1
+  - ask: log_solution
+    marks: 2
+  - ask: solve_shifted
+    marks: 2
