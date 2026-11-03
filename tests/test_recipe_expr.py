@@ -252,3 +252,13 @@ def test_a_stationary_point_outside_the_domain_fails_the_draw(registered):
     topic = recipes.register_recipe(_define({"has_stationary_point"}, stationary_points=[0]))
     with pytest.raises(core.VerificationError, match="declares 'has_stationary_point'"):
         core.make(topic, seed=1)
+
+
+def test_text_is_refused_as_an_expression_or_a_witness():
+    """Nothing in ExprSubject reads a string as maths, so no string can be evaluated (see _exact)."""
+    with pytest.raises(TypeError, match="not 'x'"):
+        ExprSubject("x")
+    with pytest.raises(TypeError):
+        sub(x**2, stationary_points=["0"]).check_property("has_stationary_point")
+    with pytest.raises(TypeError):
+        sub(x**2, antiderivative="x**3/3").check_property("has_closed_form_antiderivative")

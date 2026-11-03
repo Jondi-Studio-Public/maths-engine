@@ -23,6 +23,7 @@ adversarial expressions each check must get right.
 from __future__ import annotations
 
 from collections.abc import Callable
+from fractions import Fraction
 from typing import Any
 
 import sympy as sp
@@ -42,6 +43,20 @@ _SAMPLE_POINTS = [
     *(sp.Rational(n, 2) for n in range(-6, 7)),
     *(k * sp.pi / 2 for k in range(-4, 5) if k % 2),
 ]
+
+
+def _exact(value: Any) -> sp.Basic:
+    """A witness or expression as a SymPy object. Text is refused: nothing here ever reads a string as maths, so
+    nothing can be evaluated from one (the guard in tests/test_core_equality_helpers_are_safe.py)."""
+    if isinstance(value, sp.Basic):
+        return value
+    if isinstance(value, bool) or isinstance(value, str):
+        raise TypeError(f"expected a number or a SymPy object, not {value!r}")
+    if isinstance(value, int):
+        return sp.Integer(value)
+    if isinstance(value, Fraction):
+        return sp.Rational(value.numerator, value.denominator)
+    raise TypeError(f"expected an int, a Fraction or a SymPy object, not {value!r}")
 
 
 def expr_text(expr: sp.Expr) -> str:
@@ -85,8 +100,7 @@ def _quadratic_in_exponential(expr: sp.Expr, var: sp.Symbol) -> bool:
 
     def to_t(n):
         e = n.args[0] if isinstance(n, sp.exp) else n.exp
-        coeff = sp.simplify(e / var)
-        return t**coeff
+        return t ** (e / var)  # 2*x gives 2; an exponent that is not a multiple of x leaves x behind and fails below
 
     swapped = expanded.replace(lambda n: _is_exponential(n, var), to_t)
     return not swapped.has(var) and swapped.is_polynomial(t) and sp.degree(swapped, t) == 2
@@ -160,7 +174,7 @@ def _tends_to(expr: sp.Expr, var: sp.Symbol, limit: sp.Expr, direction: int) -> 
 
 
 def _check_witnesses(facts_key: str, check: Callable[[Any], bool], facts: dict[str, Any]) -> bool | None:
-    witnesses = [sp.sympify(w) for w in facts.get(facts_key, [])]
+    witnesses = [_exact(w) for w in facts.get(facts_key, [])]
     if not witnesses:
         return None
     return all(check(w) for w in witnesses)
@@ -176,7 +190,7 @@ class ExprSubject(Subject):
     def __init__(
         self, expr: sp.Expr, var: sp.Symbol = X, domain: sp.Set = sp.S.Reals, facts: dict[str, Any] | None = None
     ):
-        self.expr = sp.sympify(expr)
+        self.expr = _exact(expr)
         self.var = var
         self.domain = domain
         self.facts = dict(facts or {})
@@ -194,13 +208,13 @@ class ExprSubject(Subject):
         # Not provably smooth. A sample of points in the domain (integers, halves and multiples of pi/2, where tan
         # blows up) that the expression is undefined at proves it is not differentiable there: 1/x, log x, sqrt x,
         # tan x, sin(x)/x. A witness in facts["excluded_points"] is sampled too. Otherwise unchecked.
-        for p in [*_SAMPLE_POINTS, *(sp.sympify(w) for w in self.facts.get("excluded_points", []))]:
+        for p in [*_SAMPLE_POINTS, *(_exact(w) for w in self.facts.get("excluded_points", []))]:
             if _in_domain(self.domain, p) and _value(self.expr, self.var, p) is None:
                 return False
         return None
 
     def _roots_verified(self) -> list[sp.Expr] | None:
-        roots = [sp.sympify(r) for r in self.facts.get("roots", [])]
+        roots = [_exact(r) for r in self.facts.get("roots", [])]
         if not roots:
             return None
         if not all(_vanishes(self.expr, self.var, self.domain, r) for r in roots):
@@ -239,7 +253,7 @@ class ExprSubject(Subject):
 
         def asymptote_ok(w):
             limit, direction = w
-            return _tends_to(expr, var, sp.sympify(limit), direction)
+            return _tends_to(expr, var, _exact(limit), direction)
 
         roots = None
         if name in ("has_pi_roots", "has_log_root", "has_surd_roots", "rational_roots_only"):
@@ -260,7 +274,7 @@ class ExprSubject(Subject):
             "has_inflection": lambda: _check_witnesses("inflection_points", inflection, facts),
             "has_asymptote": lambda: self._asymptote(asymptote_ok),
             "has_closed_form_antiderivative": lambda: (
-                None if "antiderivative" not in facts else antiderivative_ok(facts["antiderivative"])
+                None if "antiderivative" not in facts else antiderivative_ok(_exact(facts["antiderivative"]))
             ),
             "has_pi_roots": lambda: None if roots is None else any((r / sp.pi).is_Rational and r != 0 for r in roots),
             "has_log_root": lambda: None if roots is None else any(r.has(sp.log) for r in roots),
@@ -277,7 +291,7 @@ class ExprSubject(Subject):
         horizontal = self.facts.get("horizontal_asymptotes", [])
         if not vertical and not horizontal:
             return None
-        grows = all(any(_grows(self.expr, self.var, sp.sympify(a), side) for side in (1, -1)) for a in vertical)
+        grows = all(any(_grows(self.expr, self.var, _exact(a), side) for side in (1, -1)) for a in vertical)
         return grows and all(horizontal_ok(w) for w in horizontal)
 
     def _rational_roots_only(self) -> bool | None:
