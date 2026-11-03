@@ -1,0 +1,12 @@
+id: methods_ln_quadratic_1
+title: Natural log of a quadratic - implied domain, maximum, solve f(x) = c (non-technology, VCE Methods Exam 1 Q7 shape)
+level: 12
+subject: log_quadratic
+technology_active: false
+asks:
+  - ask: implied_domain
+    marks: 3
+  - ask: stationary_point
+    marks: 1
+  - ask: solve_equal_constant
+    marks: 2
