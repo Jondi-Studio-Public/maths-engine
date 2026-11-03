@@ -101,3 +101,30 @@ def numeric_parity(expr, points=(Rational(1, 3), Rational(2, 1), Rational(7, 5),
     if even and odd:
         return EVEN
     return EVEN if even else ODD if odd else NEITHER
+
+
+def float_term(term, x: float) -> float:
+    """A term evaluated in plain floats (the draw-time property checks use this; sympy is too slow per draw)."""
+    import math
+
+    coeff, kind, p = term
+    if kind == "pow":
+        return float(coeff) * x**p
+    if kind == "sin":
+        return float(coeff) * math.sin(p * x)
+    if kind == "cos":
+        return float(coeff) * math.cos(p * x)
+    return float(coeff)
+
+
+def float_parity(fn, points=(0.37, 1.1, 2.3, 3.7)) -> str:
+    """Classify a one-variable float function as even, odd or neither by evaluating at +-t."""
+    even = odd = True
+    for t in points:
+        v, w = fn(t), fn(-t)
+        scale = max(1.0, abs(v), abs(w))
+        if abs(v - w) > 1e-9 * scale:
+            even = False
+        if abs(v + w) > 1e-9 * scale:
+            odd = False
+    return EVEN if even else ODD if odd else NEITHER

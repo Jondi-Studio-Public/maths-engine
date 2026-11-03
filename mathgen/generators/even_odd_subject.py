@@ -7,7 +7,7 @@ because parity is a conceptual topic with nothing to round.
 
 from __future__ import annotations
 
-from sympy import Rational, pi, simplify
+from sympy import Rational, expand, pi
 
 from ..answers import Distractor
 from ..core import latex_answer
@@ -115,26 +115,49 @@ class EvenOdd(Subject):
 
 @property_check("even_candidate")
 def _even_candidate(s: EvenOdd) -> bool:
-    """The declared parity of p + q and of p * q agree with an independent numeric classification."""
-    pe, qe = m.term_expr(s.p), m.term_expr(s.q)
-    return m.numeric_parity(pe + qe) == s.sum_parity and m.numeric_parity(pe * qe) == s.product_parity
+    """The declared parity of p + q and of p * q agree with an independent float classification."""
+
+    def total(x):
+        return m.float_term(s.p, x) + m.float_term(s.q, x)
+
+    def product(x):
+        return m.float_term(s.p, x) * m.float_term(s.q, x)
+
+    return m.float_parity(total) == s.sum_parity and m.float_parity(product) == s.product_parity
+
+
+def _h(s: EvenOdd, shift: float):
+    import math
+
+    trig = math.sin if s.trig == "sin" else math.cos
+    return lambda x: m.float_term(s.a_term, x) + trig(s.b * x + shift)
 
 
 @property_check("odd_candidate")
 def _odd_candidate(s: EvenOdd) -> bool:
-    """h with c taken from the declared family has the target parity; with a stray shift it has neither."""
-    from sympy import pi as _pi
+    """h with c from the declared family has the target parity; with a stray shift it has neither."""
+    import math
 
-    trig = m.shifted_expr
-    fam = m.phase_family(s.trig, s.target).subs(m.K, 1)
-    a = m.term_expr(s.a_term)
-    ok = m.numeric_parity(a + trig(s.trig, s.b, fam)) == s.target
-    return ok and m.numeric_parity(a + trig(s.trig, s.b, fam + _pi / 3)) == m.NEITHER
+    base = math.pi if m.phase_family_text(s.trig, s.target) == "k*pi" else math.pi / 2
+    return m.float_parity(_h(s, base)) == s.target and m.float_parity(_h(s, base + math.pi / 3)) == m.NEITHER
 
 
 @property_check("periodic")
 def _periodic(s: EvenOdd) -> bool:
-    return m.numeric_parity(m.shifted_expr(s.trig, s.b, 0)) in (m.EVEN, m.ODD) and s.b >= 1
+    """The trig term repeats after 2*pi/b."""
+    import math
+
+    g = _h(s, 0.3)
+    base = m.float_term(s.a_term, 0.0)  # h minus the power term is the trig term: compare it shifted by one period
+    period = 2 * math.pi / s.b
+    return (
+        s.b >= 1
+        and all(
+            abs((g(x + period) - m.float_term(s.a_term, x + period)) - (g(x) - m.float_term(s.a_term, x))) < 1e-9
+            for x in (0.2, 1.3)
+        )
+        and base == 0.0
+    )
 
 
 def _mcq(key: str, tags: dict[str, str], prompt: str, working: list[str]) -> dict:
@@ -260,7 +283,7 @@ def find_phase_shift_c(s: EvenOdd, rng, ctx) -> dict:
 
 
 def _fmt(expr) -> str:
-    return str(simplify(expr)).replace("**", "^")
+    return str(expand(expr)).replace("**", "^")
 
 
 @ask(
