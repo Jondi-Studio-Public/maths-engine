@@ -1,0 +1,12 @@
+id: methods_exact_binomial_1
+title: Exact binomial probabilities
+level: 12
+subject: exact_binomial
+technology_active: false
+asks:
+  - ask: point_probability
+    marks: 1
+  - ask: standard_deviation
+    marks: 2
+  - ask: conditional_at_least
+    marks: 3
