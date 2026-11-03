@@ -2290,8 +2290,13 @@ def _too_costly_to_parse(candidate: str) -> bool:
 # start (the start, or after + - ( , =) and ends where one can end, so "2 3" (implicit multiplication) and
 # "x^2 3/4" are read as before.
 _MIXED_OPERAND_RE = re.compile(r"(^|[+\-(,=])(\s*)(\d+)[ \t]+(\d+)[ \t]*/[ \t]*(\d+)(?=\s*(?:$|[+\-),=]))")
-# "log10(x)", "log_10(x)", "log2(x)", "log_2(x)": a base written into the name.
-_LOG_BASE_RE = re.compile(r"\blog_?(10|2)\s*\(")
+# "log3(x)", "log_3(x)", "log_{3}(x)", "log_{1/2}(x)", "log_0.5(x)": a base written into the name. The base is a short
+# number (digits, a decimal point or one fraction), so no learner text can make the rewrite expensive. It runs after
+# `_round_brackets`, which has already turned a braced base into a bracketed one.
+_LOG_NUMBER = r"\d{1,6}(?:\.\d{1,6})?"
+_LOG_BASE_RE = re.compile(
+    r"\blog(?:_?(" + _LOG_NUMBER + r")|_?[({]\s*(" + _LOG_NUMBER + r"(?:\s*/\s*" + _LOG_NUMBER + r")?)\s*[)}])\s*\("
+)
 
 
 def _mixed_numbers(text: str) -> str:
@@ -2300,8 +2305,9 @@ def _mixed_numbers(text: str) -> str:
 
 
 def _log_bases(text: str) -> str:
-    """`text` with "log10(x)" and "log2(x)" written as sympy's "log(x, 10)" and "log(x, 2)". A call whose brackets
-    never close is left as it is (it is unreadable anyway)."""
+    """`text` with "log3(x)" and "log_{3}(x)" written as sympy's "log(x, 3)", for any positive base but 1. A call whose
+    brackets never close is left as it is (it is unreadable anyway). A base of 0 or 1 (or x/0) is not a logarithm
+    base: it is rewritten to base 1, which SymPy cannot evaluate to a number, so it never matches an answer."""
     while True:
         found = _LOG_BASE_RE.search(text)
         if found is None:
@@ -2312,7 +2318,15 @@ def _log_bases(text: str) -> str:
             i += 1
         if depth:
             return text
-        text = f"{text[: found.start()]}log({text[found.end() : i - 1]}, {found.group(1)}){text[i:]}"
+        top, _, bottom = (found.group(1) or found.group(2)).replace(" ", "").partition("/")
+        try:
+            value = Fraction(Decimal(top)) / Fraction(Decimal(bottom or 1))
+        except ZeroDivisionError:
+            value = Fraction(1)
+        if value <= 0 or value == 1:
+            value = Fraction(1)
+        base = str(value.numerator) if value.denominator == 1 else f"({value.numerator}/{value.denominator})"
+        text = f"{text[: found.start()]}log({text[found.end() : i - 1]}, {base}){text[i:]}"
 
 
 _LATEX_FRACTION = re.compile(r"\\[dt]?frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}")

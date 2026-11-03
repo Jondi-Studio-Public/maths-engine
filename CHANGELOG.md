@@ -53,6 +53,9 @@ Each question's id (below) tells you when the question behind it has changed.
 
 ### Fixed
 
+- A typed expression may write a logarithm in any base: `log_3(5)`, `log3(5)`, `log_{3}(5)`, `log_{1/2}(8)` and
+  `log_0.5(8)` are graded by value, so they match `ln(5)/ln(3)` and `log(5)/log(3)`. Before, only bases 2 and 10 were
+  read. A base of 0 or 1 is not a base and is marked wrong.
 - Seven rounds of a content bug hunt (#121, #124, #125, #126, #127, #130) changed some questions for the same seed, so
   their ids change. Fixed: a wrong key in the cosine and sine ratio angle question (arcsin was keyed for an adjacent
   leg); multiple-choice generators that offered a different number of options from draw to draw (they now always

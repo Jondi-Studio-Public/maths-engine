@@ -73,6 +73,34 @@ def test_log_with_a_base_is_not_graded_as_a_different_number():
     assert read_value("log10(100") is None
 
 
+@pytest.mark.parametrize(
+    "reply",
+    ["log_3(9)", "log3(9)", "log_{3}(9)", "\\log_{3}(9)", "log_{1/3}(1/9)", "log_9(81)/log_9(9)", "log_2(log_3(9)+2)"],
+)
+def test_log_with_any_positive_base_is_graded_by_value(reply):
+    assert grade("expression", _q("2", "2"), reply).correct
+
+
+def test_a_decimal_or_fractional_base_is_exact():
+    assert grade("expression", _q("-1", "-1"), "log_0.5(2)").correct
+    assert grade("expression", _q("-3", "-3"), "log_{1/2}(8)").correct
+    assert not grade("expression", _q("-3", "-3"), "log_{1/3}(8)").correct
+
+
+@pytest.mark.parametrize("answer", ["log(5)/log(3)", "ln(5)/ln(3)"])
+@pytest.mark.parametrize("reply", ["log_3(5)", "log3(5)", "ln(5)/ln(3)", "log(5)/log(3)", "log_{3}(5)", "log_9(5)*2"])
+def test_a_change_of_base_answer_matches_the_log_written_with_its_base(answer, reply):
+    assert grade("expression", _q(answer, answer), reply).correct
+
+
+@pytest.mark.parametrize(
+    "reply", ["log_5(3)", "log_4(5)", "log_3(6)", "log_1(5)", "log_0(5)", "log_{2/2}(5)", "log_{1/0}(5)", "log_3(5"]
+)
+def test_a_different_log_or_an_impossible_base_is_wrong(reply):
+    assert not grade("expression", _q("log(5)/log(3)", "log(5)/log(3)"), reply).correct
+    assert not grade("expression", _q("0", "0"), reply).correct
+
+
 # -- units: M (mega) and m (milli) are different prefixes -------------------------------------------------------
 
 
