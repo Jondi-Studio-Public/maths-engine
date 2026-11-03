@@ -47,6 +47,12 @@ VALID_STAGES = {0, 1, 2, 3, 4, 5, 6, "maintenance", "exam"}
 READ_ALOUD_MAX_WORDS = 15  # the longest prompt a `read_aloud` skill may ask (tests/test_read_aloud.py)
 # The tier a source stands for. An active skill's sources must each name one (see `validate`).
 VALID_DIFFICULTIES = ("easy", "medium", "hard", "exam")
+# How a skill (or one source of it) relates to calculators. `required`: the question needs technology, so a
+# no-technology drill hides it. `either`: the generator honours `make(..., technology_active=...)` both ways.
+# `none`: always hand-solvable; the flag does not change it. Absent means untagged: it is served when no mode
+# is asked for and when technology is on, and hidden when technology is off (an untagged tier may need a
+# calculator, and a no-technology drill must not guess).
+VALID_TECHNOLOGY = ("required", "either", "none")
 SOURCE_KEY_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")  # a source `key`: lower-case words joined by hyphens
 VALID_ALIGNMENT_STATUSES = {"verified", "candidate", "unverified"}
 # Bands (skills/domains.yaml) whose active skills must name a prerequisite: nothing at that level is a
@@ -121,6 +127,7 @@ class Source:
     difficulty: str | None = None
     stages: list | None = None  # None means "all stages"
     key: str | None = None  # stable name within the skill; None means "use the difficulty label"
+    technology: str | None = None  # one of VALID_TECHNOLOGY; None means "the skill's own value"
 
     @property
     def effective_key(self) -> str | None:
@@ -225,6 +232,7 @@ class Skill:
     placement_pass: int = 3
     placement_eligible: bool = True
     learner_band: str = "general"
+    technology: str | None = None  # one of VALID_TECHNOLOGY, see above; None = untagged; a source may override it
     # Coverage, all optional (see skills/README.md): year levels the content belongs to, the Australian
     # Curriculum v9 strands NAPLAN numeracy can test it under, and the senior exam boards that cover it.
     year_level: tuple[str, ...] = ()
@@ -290,6 +298,7 @@ def _source_from_dict(d: dict) -> Source:
         difficulty=d.get("difficulty"),
         stages=d.get("stages"),
         key=d.get("key"),
+        technology=d.get("technology"),
     )
 
 
@@ -386,6 +395,7 @@ def _skill_from_dict(d: dict, path: Path) -> Skill:
         placement_pass=int(d.get("placement_pass", 3)),
         placement_eligible=bool(d.get("placement_eligible", True)),
         learner_band=str(d.get("learner_band", "general")),
+        technology=d.get("technology"),
         year_level=_labels(d.get("year_level")),
         naplan_domain=_labels(d.get("naplan_domain")),
         exam_board=_labels(d.get("exam_board")),
@@ -419,6 +429,31 @@ def _invalid_skill(path: Path, domain: str, exc: Exception) -> Skill:
 # in ~100 modules and every xdist worker collects them all; re-parsing 700
 # files each time was 94% of collection.
 _LOAD_CACHE: dict[Path, tuple[tuple, tuple[list[Domain], list[Skill]]]] = {}
+
+
+def source_technology(skill: Skill, src: Source) -> str | None:
+    """The technology label of one source: its own, else the skill's, else None (untagged)."""
+    return src.technology if src.technology is not None else skill.technology
+
+
+def source_usable(skill: Skill, src: Source, technology_active: bool | None) -> bool:
+    """Whether `src` may be served for `technology_active`. None and True serve every source; False serves
+    only the sources tagged `none` or `either`, so untagged and `required` sources are hidden."""
+    if technology_active is not False:
+        return True
+    return source_technology(skill, src) in ("none", "either")
+
+
+def sources_for_technology(skill: Skill, technology_active: bool | None) -> list[Source]:
+    """`skill.sources` that may be served for `technology_active`, in order."""
+    return [src for src in skill.sources if source_usable(skill, src, technology_active)]
+
+
+def skills_for_technology(skills: list[Skill], technology_active: bool | None) -> list[Skill]:
+    """The skills with at least one source that may be served for `technology_active`. None keeps them all."""
+    if technology_active is None:
+        return list(skills)
+    return [s for s in skills if sources_for_technology(s, technology_active)]
 
 
 def _tree_fingerprint(root: Path) -> tuple:
@@ -702,6 +737,8 @@ def validate(
             report.errors.append(f"{s.id}: placement_questions must be at least 1")
         if not 1 <= s.placement_pass <= s.placement_questions:
             report.errors.append(f"{s.id}: placement_pass must be between 1 and placement_questions")
+        if s.technology is not None and s.technology not in VALID_TECHNOLOGY:
+            report.errors.append(f"{s.id}: technology must be one of {', '.join(VALID_TECHNOLOGY)}")
         if s.learner_band not in ("early", "primary", "general"):
             report.errors.append(f"{s.id}: learner_band must be early, primary or general")
         for name, allowed in COVERAGE_LABELS.items():
@@ -818,6 +855,18 @@ def validate(
                     report.errors.append(
                         f"{s.id}: source {i} (topic={src.topic!r}) difficulty {src.difficulty!r} "
                         f"must be one of {', '.join(VALID_DIFFICULTIES)}"
+                    )
+            from .core import TECHNOLOGY_MODES
+
+            for i, src in enumerate(s.sources):
+                if src.technology is not None and src.technology not in VALID_TECHNOLOGY:
+                    report.errors.append(
+                        f"{s.id}: source {i} technology {src.technology!r} must be one of {', '.join(VALID_TECHNOLOGY)}"
+                    )
+                elif source_technology(s, src) == "either" and TECHNOLOGY_MODES.get(src.topic) != {True, False}:
+                    report.errors.append(
+                        f"{s.id}: source {i} is tagged technology: either, but generator {src.topic!r} does not "
+                        f"declare both modes in @generator(..., technology=(True, False))"
                     )
             for src in s.sources:
                 for seed in range(1, 6):
