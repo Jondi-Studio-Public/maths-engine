@@ -13,18 +13,22 @@ prerequisites:
 answer: number
 sources:
 - topic: amount_as_percentage_review
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: amount_as_percentage_review
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: amount_as_percentage_review
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_n1_share_and_change
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

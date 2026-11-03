@@ -13,21 +13,25 @@ prerequisites:
 answer: expression
 sources:
 - topic: index_laws_review
+  technology: none
   params:
     variant: product
   difficulty: easy
   stages: [6]
 - topic: index_laws_review
+  technology: none
   params:
     variant: product_quotient
   difficulty: medium
   stages: [6]
 - topic: index_laws_review
+  technology: none
   params:
     variant: power_fraction
   difficulty: hard
   stages: [6, maintenance]
 - topic: index_laws_review
+  technology: none
   params:
     variant: exam_algebraic_fraction
   difficulty: exam

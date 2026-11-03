@@ -25,18 +25,22 @@ prerequisites:
 answer: number
 sources:
   - topic: p11c_set_union_cardinality
+    technology: none
     params: {mode: easy}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: p11c_set_union_cardinality
+    technology: none
     params: {mode: two_set_overlap}
     difficulty: medium
     stages: [3, 4]
   - topic: p11c_set_union_cardinality
+    technology: none
     params: {mode: three_set_unknown}
     difficulty: hard
     stages: [5, 6, maintenance]
   - topic: exd_x_r3c_club_overlaps
+    technology: none
     params: {tier: exam}
     difficulty: exam
     stages: [exam]

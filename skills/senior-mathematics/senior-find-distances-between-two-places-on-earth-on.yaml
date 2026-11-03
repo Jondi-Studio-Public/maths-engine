@@ -11,18 +11,22 @@ prerequisites:
 answer: number
 sources:
 - topic: earth_meridian_distance
+  technology: none
   params: {mode: same_hemisphere}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: earth_meridian_distance
+  technology: none
   params: {mode: opposite_hemisphere}
   difficulty: medium
   stages: [3, 4]
 - topic: earth_meridian_distance
+  technology: none
   params: {mode: combined_km}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3f_meridian_voyage
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

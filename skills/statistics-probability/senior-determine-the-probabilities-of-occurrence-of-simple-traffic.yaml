@@ -11,18 +11,22 @@ prerequisites: [simple-event-probability]
 answer: fraction
 sources:
 - topic: traffic_light_probability
+  technology: none
   params: {variant: both_green}
   difficulty: easy
   stages: [6]
 - topic: traffic_light_probability
+  technology: none
   params: {variant: exactly_one}
   difficulty: medium
   stages: [6]
 - topic: traffic_light_probability
+  technology: none
   params: {variant: at_least_one}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_s2_traffic
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

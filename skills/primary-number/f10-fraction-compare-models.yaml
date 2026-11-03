@@ -12,12 +12,15 @@ prerequisites: [f10-fraction-shaded-name]
 answer: mcq
 sources:
 - topic: fraction_compare_models
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fraction_compare_models
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: fraction_compare_models
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

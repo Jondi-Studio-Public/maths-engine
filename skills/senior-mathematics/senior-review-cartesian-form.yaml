@@ -23,23 +23,28 @@ prerequisites:
 answer: pair
 sources:
   - topic: p11c_cartesian_form_equating
+    technology: none
     params: {mode: easy}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: p11c_cartesian_form_equating
+    technology: none
     params: {mode: medium}
     difficulty: medium
     stages: [3, 4]
   - topic: p11c_cartesian_form_equating
+    technology: none
     params: {mode: hard}
     difficulty: hard
     stages: [5, 6, maintenance]
   - topic: exd_x_r2e_complex_equating
+    technology: required
     params: {tier: exam}
     difficulty: exam
     stages:
       - exam
   - topic: exd_x_complex_equating
+    technology: none
     params: {tier: exam}
     difficulty: exam
     key: exam-single

@@ -12,14 +12,17 @@ prerequisites:
 answer: number
 sources:
 - topic: multiplication_division_inverse_unknown
+  technology: none
   params: {shape_choices: ["a_times_missing_equals_c", "missing_times_b_equals_c"]}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: multiplication_division_inverse_unknown
+  technology: none
   params: {shape_choices: ["a_times_missing_equals_c", "missing_times_b_equals_c", "c_div_a_equals_missing", "c_div_missing_equals_a"]}
   difficulty: medium
   stages: [3, 4]
 - topic: multiplication_division_inverse_unknown
+  technology: none
   params: {shape_choices: ["a_times_missing_equals_c", "missing_times_b_equals_c", "c_div_a_equals_missing", "c_div_missing_equals_a", "three_factor_product"]}
   difficulty: hard
   stages: [5, 6, maintenance]

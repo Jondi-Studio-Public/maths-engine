@@ -16,6 +16,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: exd_e2_simplify_radicals_of_monomials
+  technology: none
   params:
     tier: easy
   difficulty: easy
@@ -24,6 +25,7 @@ sources:
   - 1
   - 2
 - topic: exd_e2_simplify_radicals_of_monomials
+  technology: none
   params:
     tier: medium
   difficulty: medium
@@ -31,6 +33,7 @@ sources:
   - 3
   - 4
 - topic: exd_e2_simplify_radicals_of_monomials
+  technology: none
   params:
     tier: hard
   difficulty: hard
@@ -39,12 +42,14 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2j_radical_monomial_chain
+  technology: none
   params:
     tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_e2_simplify_radicals_of_monomials
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

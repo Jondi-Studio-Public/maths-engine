@@ -10,6 +10,7 @@ description: >-
   the base by interpolation (carried forward) and finds where the tangent at (0, 1) meets the x-axis. Distinct from
   senior-estimate-the-limit-of-frac-a-h-1, which estimates the limit for one stated base and does not identify e.
 status: active
+technology: required
 placement_eligible: false
 prerequisites:
 - senior-estimate-the-limit-of-frac-a-h-1

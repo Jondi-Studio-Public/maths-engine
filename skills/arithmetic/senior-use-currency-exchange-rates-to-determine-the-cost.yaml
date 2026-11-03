@@ -11,18 +11,22 @@ prerequisites: [order-of-operations]
 answer: number
 sources:
 - topic: currency_exchange_conversion
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: currency_exchange_conversion
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: currency_exchange_conversion
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_n2_currency_round_trip
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

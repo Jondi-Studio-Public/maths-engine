@@ -8,18 +8,22 @@ prerequisites: [evaluate-powers]
 answer: mcq
 sources:
 - topic: square_roots_perfect_squares
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: square_roots_perfect_squares
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: square_roots_perfect_squares
+  technology: none
   params: {power_form: true}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc5_square_fix
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

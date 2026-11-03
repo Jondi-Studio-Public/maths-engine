@@ -19,18 +19,22 @@ prerequisites: [f6-read-a-dot-plot]
 answer: number
 sources:
 - topic: dg_compare_displays
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: dg_compare_displays
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: dg_compare_displays
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: dg_compare_displays_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

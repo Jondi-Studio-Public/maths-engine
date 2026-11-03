@@ -11,18 +11,22 @@ prerequisites: [simple-interest]
 answer: number
 sources:
 - topic: pv0a_geometric_threshold
+  technology: required
   params: {variant: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv0a_geometric_threshold
+  technology: none
   params: {variant: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: pv0a_geometric_threshold
+  technology: none
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2d_geometric_phases_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -15,18 +15,22 @@ prerequisites: [graph-vertex-degrees-handshaking]
 answer: number
 sources:
 - topic: snet_adjacency
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: snet_adjacency
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: snet_adjacency
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: snet_adjacency_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

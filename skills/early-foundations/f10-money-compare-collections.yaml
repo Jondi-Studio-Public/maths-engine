@@ -13,12 +13,15 @@ prerequisites: [f10-money-count-collection]
 answer: mcq
 sources:
 - topic: money_compare_collections
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: money_compare_collections
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: money_compare_collections
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

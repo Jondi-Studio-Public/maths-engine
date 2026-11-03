@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: earth_longitude_time_difference
+  technology: none
   params: {mode: same_side}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: earth_longitude_time_difference
+  technology: none
   params: {mode: opposite_side}
   difficulty: medium
   stages: [3, 4]
 - topic: earth_longitude_time_difference
+  technology: none
   params: {mode: inverse}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc6_longitude
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -11,6 +11,7 @@ prerequisites:
 answer: pair
 sources:
 - topic: p13a_divide_ratio
+  technology: none
   params:
     tier: easy
   difficulty: easy
@@ -19,6 +20,7 @@ sources:
   - 1
   - 2
 - topic: p13a_divide_ratio
+  technology: none
   params:
     tier: medium
   difficulty: medium
@@ -26,6 +28,7 @@ sources:
   - 3
   - 4
 - topic: p13a_divide_ratio
+  technology: none
   params:
     tier: hard
   difficulty: hard
@@ -34,12 +37,14 @@ sources:
   - 6
   - maintenance
 - topic: p13a_divide_ratio
+  technology: none
   params:
     tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_r3j_ratio_shares
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

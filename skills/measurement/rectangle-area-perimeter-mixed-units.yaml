@@ -10,18 +10,22 @@ prerequisites: [rectangle-area, rectangle-perimeter, convert-metric-length]
 answer: number
 sources:
 - topic: rectangle_mixed_unit_area_perimeter
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [6]
 - topic: rectangle_mixed_unit_area_perimeter
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [6]
 - topic: rectangle_mixed_unit_area_perimeter
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m3_mixed_units_banner
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

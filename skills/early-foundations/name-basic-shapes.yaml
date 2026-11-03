@@ -14,12 +14,15 @@ prerequisites: [count-to-5]
 answer: mcq
 sources:
 - topic: ey_shape_recognise
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey_shape_recognise
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: ey_shape_recognise
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

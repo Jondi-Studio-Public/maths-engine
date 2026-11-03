@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: map_scale_distance
+  technology: none
   params: {mode: verbal_forward}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: map_scale_distance
+  technology: none
   params: {mode: ratio_forward}
   difficulty: medium
   stages: [3, 4]
 - topic: map_scale_distance
+  technology: none
   params: {mode: ratio_reverse}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3e_map_route
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

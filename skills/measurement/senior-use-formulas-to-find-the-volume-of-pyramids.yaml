@@ -12,18 +12,22 @@ prerequisites: [convert-metric-length]
 answer: expression
 sources:
 - topic: volume_of_pyramids_and_spheres
+  technology: none
   params: {mode: square_pyramid}
   difficulty: easy
   stages: [6]
 - topic: volume_of_pyramids_and_spheres
+  technology: none
   params: {mode: rectangular_pyramid}
   difficulty: medium
   stages: [6]
 - topic: volume_of_pyramids_and_spheres
+  technology: none
   params: {mode: sphere}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_fu_pyramid_volume
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

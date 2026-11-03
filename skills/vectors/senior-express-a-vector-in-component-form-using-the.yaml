@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: express_a_vector_in_component_form_using_the
+  technology: none
   params: {variant: single_leg_positive}
   difficulty: easy
   stages: [6]
 - topic: express_a_vector_in_component_form_using_the
+  technology: none
   params: {variant: single_leg_signed}
   difficulty: medium
   stages: [6]
 - topic: express_a_vector_in_component_form_using_the
+  technology: none
   params: {variant: two_leg}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3c_vector_resultant
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -24,22 +24,27 @@ prerequisites:
 answer: pair
 sources:
   - topic: linear_transform_dilation_rotation_reflection
+    technology: none
     params: {variant: dilation}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: linear_transform_dilation_rotation_reflection
+    technology: none
     params: {variant: rotation}
     difficulty: medium
     stages: [3, 4]
   - topic: linear_transform_dilation_rotation_reflection
+    technology: none
     params: {variant: reflection}
     difficulty: hard
     stages: [5, 6, maintenance]
   - topic: exd_x_r2d_lt_reflection_gradient
+    technology: none
     params: {tier: exam}
     difficulty: exam
     stages: [exam]
   - topic: exd_x_g4_lt_basic
+    technology: none
     params: {tier: exam}
     difficulty: exam
     key: exam-single

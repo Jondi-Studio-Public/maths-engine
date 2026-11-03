@@ -8,11 +8,13 @@ prerequisites:
 answer: number
 sources:
 - topic: engineering
+  technology: none
   params:
     kinds:
     - moment
   difficulty: easy
 - topic: exd_x_u2_lever_balance
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

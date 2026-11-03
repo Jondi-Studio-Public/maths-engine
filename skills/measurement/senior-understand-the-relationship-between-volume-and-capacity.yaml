@@ -13,18 +13,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p19h_volcap_general_relationship
+  technology: none
   params: {mode: vc_general_easy}
   difficulty: easy
   stages: [6]
 - topic: p19h_volcap_general_relationship
+  technology: none
   params: {mode: vc_general_medium}
   difficulty: medium
   stages: [6]
 - topic: p19h_volcap_general_relationship
+  technology: none
   params: {mode: vc_general_hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19h_volcap_general_relationship
+  technology: none
   params: {mode: vc_general_exam}
   difficulty: exam
   stages: [exam]

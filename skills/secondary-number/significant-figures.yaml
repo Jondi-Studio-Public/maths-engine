@@ -8,18 +8,22 @@ prerequisites: [round-decimals]
 answer: number
 sources:
 - topic: significant_figures
+  technology: none
   params: {variant: plain}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: significant_figures
+  technology: none
   params: {variant: small_value}
   difficulty: medium
   stages: [3, 4]
 - topic: significant_figures
+  technology: none
   params: {variant: large_trailing_zero}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_n4_sig_fig_product
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: scale_factor_similar_solids
+  technology: none
   params: {mode: direct_ratio}
   difficulty: easy
   stages: [6]
 - topic: scale_factor_similar_solids
+  technology: none
   params: {mode: derive_from_lengths}
   difficulty: medium
   stages: [6]
 - topic: scale_factor_similar_solids
+  technology: none
   params: {mode: cross_exponent}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m5_scale_model_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

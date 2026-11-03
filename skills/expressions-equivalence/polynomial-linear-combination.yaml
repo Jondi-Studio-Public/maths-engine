@@ -19,6 +19,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: polynomial_linear_combination
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -26,12 +27,14 @@ sources:
   - 1
   - 2
 - topic: polynomial_linear_combination
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: polynomial_linear_combination
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -39,6 +42,7 @@ sources:
   - 6
   - maintenance
 - topic: polynomial_linear_combination
+  technology: none
   params: {}
   difficulty: exam
   stages:

@@ -10,18 +10,22 @@ prerequisites:
 answer: expression
 sources:
 - topic: p13e_heat_equation_mode
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p13e_heat_equation_mode
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p13e_heat_equation_mode
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2f_heat_rod_mode
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

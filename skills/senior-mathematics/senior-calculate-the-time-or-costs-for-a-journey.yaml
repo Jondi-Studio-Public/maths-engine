@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: journey_time_or_cost
+  technology: none
   params: {variant: time}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: journey_time_or_cost
+  technology: none
   params: {variant: round_trip_cost}
   difficulty: medium
   stages: [3, 4]
 - topic: journey_time_or_cost
+  technology: none
   params: {variant: fuel_cost}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_journey_cost
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

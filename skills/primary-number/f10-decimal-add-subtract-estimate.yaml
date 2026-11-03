@@ -10,18 +10,22 @@ prerequisites: [decimal-arithmetic, round-decimals]
 answer: number
 sources:
 - topic: decimal_estimate_add_subtract
+  technology: none
   params: {variant: two_place_round_whole}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: decimal_estimate_add_subtract
+  technology: none
   params: {variant: two_place_round_tenth}
   difficulty: medium
   stages: [3, 4]
 - topic: decimal_estimate_add_subtract
+  technology: none
   params: {variant: three_place_round_whole}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr4_decimal_estimate_budget
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

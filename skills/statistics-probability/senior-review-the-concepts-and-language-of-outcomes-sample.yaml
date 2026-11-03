@@ -12,14 +12,17 @@ prerequisites:
 answer: mcq
 sources:
 - topic: outcomes_sample_classify
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: outcomes_sample_classify
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: outcomes_sample_classify
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]

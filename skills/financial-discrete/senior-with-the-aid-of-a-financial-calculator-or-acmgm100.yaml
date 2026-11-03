@@ -12,6 +12,7 @@ description: Given bounded, fully specified inputs, with the aid of a financial 
   certain amount. Return the resulting value, expression, relation, or classification. Does not assess
   unbounded investigations, unstated assumptions, or assessment modes outside capability_gate.
 status: active
+technology: required
 placement_eligible: false
 prerequisites: [simple-interest]
 answer: number

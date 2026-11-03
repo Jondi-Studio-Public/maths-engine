@@ -13,18 +13,22 @@ prerequisites: [function-notation]
 answer: fraction
 sources:
 - topic: pv1c_dilation_factor
+  technology: none
   params: {variant: stretch}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1c_dilation_factor
+  technology: none
   params: {variant: compress_fraction}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1c_dilation_factor
+  technology: none
   params: {variant: negative}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1c_dilation_factor
+  technology: none
   params: {variant: below_axis}
   difficulty: exam
   stages: [exam]

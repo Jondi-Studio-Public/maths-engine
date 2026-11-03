@@ -11,6 +11,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: find_the_equation_of_a_straight_line_given
+  technology: none
   params:
     variant: two_points
   difficulty: easy
@@ -19,6 +20,7 @@ sources:
   - 1
   - 2
 - topic: find_the_equation_of_a_straight_line_given
+  technology: none
   params:
     variant: parallel
   difficulty: medium
@@ -26,6 +28,7 @@ sources:
   - 3
   - 4
 - topic: find_the_equation_of_a_straight_line_given
+  technology: none
   params:
     variant: perpendicular
   difficulty: hard
@@ -34,6 +37,7 @@ sources:
   - 6
   - maintenance
 - topic: find_the_equation_of_a_straight_line_given
+  technology: none
   params:
     variant: standard_form
   difficulty: exam

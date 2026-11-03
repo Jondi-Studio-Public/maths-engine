@@ -11,14 +11,17 @@ prerequisites: [place-value-to-100]
 answer: set
 sources:
 - topic: f10_partition_tens_ones
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: f10_partition_tens_ones
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: f10_partition_tens_ones
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

@@ -18,6 +18,7 @@ prerequisites:
 answer: pair
 sources:
 - topic: sr2l_bisector
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -25,12 +26,14 @@ sources:
   - 1
   - 2
 - topic: sr2l_bisector
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: sr2l_bisector
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -38,6 +41,7 @@ sources:
   - 6
   - maintenance
 - topic: sr2l_bisector_exam
+  technology: required
   params: {}
   difficulty: exam
   stages:

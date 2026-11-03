@@ -10,18 +10,22 @@ prerequisites: [decimal-arithmetic, fraction-arithmetic, integer-arithmetic]
 answer: number
 sources:
 - topic: rational_operation_strategy
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: rational_operation_strategy
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: rational_operation_strategy
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr7_overdrawn_account
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

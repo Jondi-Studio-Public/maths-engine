@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: use_formulas_to_calculate_areas
+  technology: none
   params: {mode: rectangle_square}
   difficulty: easy
   stages: [6]
 - topic: use_formulas_to_calculate_areas
+  technology: none
   params: {mode: triangle_parallelogram}
   difficulty: medium
   stages: [6]
 - topic: use_formulas_to_calculate_areas
+  technology: none
   params: {mode: trapezium}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m5_rectangle_semicircle_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

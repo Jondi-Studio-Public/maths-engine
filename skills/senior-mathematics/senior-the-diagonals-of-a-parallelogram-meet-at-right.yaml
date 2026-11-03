@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: the_diagonals_of_a_parallelogram_meet_at_right
+  technology: none
   params: {variant: diagonals_given}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: the_diagonals_of_a_parallelogram_meet_at_right
+  technology: none
   params: {variant: one_diagonal_given}
   difficulty: medium
   stages: [3, 4]
 - topic: the_diagonals_of_a_parallelogram_meet_at_right
+  technology: none
   params: {variant: converse_rhombus}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3f_rhombus_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

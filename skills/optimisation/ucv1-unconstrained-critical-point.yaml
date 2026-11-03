@@ -9,18 +9,22 @@ prerequisites: [jacobian-two-variable]
 answer: pair
 sources:
 - topic: p14d_critical_point
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p14d_critical_point
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p14d_critical_point
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2f_cubic_critical_point
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

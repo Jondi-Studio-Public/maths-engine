@@ -14,18 +14,22 @@ prerequisites: [senior-find-actual-measurements-from-scale-drawings-such-as, sen
 answer: grid_cells
 sources:
 - topic: grid_scale_plan
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: grid_scale_plan
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: grid_scale_plan
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_w7f_scale_plan_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

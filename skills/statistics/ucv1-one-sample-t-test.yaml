@@ -13,18 +13,22 @@ prerequisites: [standard-deviation-from-data, z-score]
 answer: number
 sources:
 - topic: ucv1_one_sample_t_test
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ucv1_one_sample_t_test
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: ucv1_one_sample_t_test
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_uc_t_test
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

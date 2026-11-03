@@ -10,18 +10,22 @@ prerequisites: [integer-arithmetic, coordinate-plane-readiness]
 answer: ordered_list
 sources:
 - topic: integer_numberline_order
+  technology: none
   params: {count: 4, sign_mix: all_positive}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: integer_numberline_order
+  technology: none
   params: {count: 4, sign_mix: mixed_with_zero}
   difficulty: medium
   stages: [3, 4]
 - topic: integer_numberline_order
+  technology: none
   params: {count: 5, sign_mix: mixed_trap}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr7_signed_temperatures_order
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

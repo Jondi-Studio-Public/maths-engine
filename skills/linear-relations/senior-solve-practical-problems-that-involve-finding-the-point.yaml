@@ -18,18 +18,22 @@ prerequisites: [rate-of-change]
 answer: number
 sources:
 - topic: pv0b_break_even
+  technology: none
   params: {mode: stated}
   difficulty: easy
   stages: [6]
 - topic: pv0b_break_even
+  technology: none
   params: {mode: round_up}
   difficulty: medium
   stages: [6]
 - topic: pv0b_break_even
+  technology: none
   params: {mode: two_points}
   difficulty: hard
   stages: [6, maintenance]
 - topic: pv0b_break_even
+  technology: none
   params: {mode: percentage_fee}
   difficulty: exam
   stages: [exam]

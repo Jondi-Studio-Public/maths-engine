@@ -8,18 +8,22 @@ prerequisites: [modular-arithmetic-congruence, euclidean-algorithm-gcd]
 answer: number
 sources:
 - topic: modular_multiplicative_inverse
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: modular_multiplicative_inverse
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: modular_multiplicative_inverse
+  technology: none
   params: {kind: solve_congruence, modulus_hi: 31}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_u3_affine_decode
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

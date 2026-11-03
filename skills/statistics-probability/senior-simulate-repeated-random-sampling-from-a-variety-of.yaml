@@ -31,18 +31,22 @@ prerequisites: [simple-event-probability]
 answer: number
 sources:
 - topic: p16b_xbar_sigma_standardise
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p16b_xbar_sigma_standardise
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p16b_xbar_sigma_standardise
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p16b_xbar_sigma_standardise
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

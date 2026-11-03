@@ -15,15 +15,19 @@ prerequisites:
 answer: mcq
 sources:
 - topic: pv1f_graph_is_function
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1f_graph_is_function
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: pv1f_graph_is_function
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1f_graph_is_function
+  technology: none
   difficulty: exam
   stages: [exam]
 misconceptions:

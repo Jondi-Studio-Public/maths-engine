@@ -11,18 +11,22 @@ prerequisites: [order-of-operations]
 answer: number
 sources:
 - topic: p13d_seasonal_index
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [6]
 - topic: p13d_seasonal_index
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [6]
 - topic: p13d_seasonal_index
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p13d_seasonal_index
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

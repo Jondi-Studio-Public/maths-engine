@@ -11,18 +11,22 @@ prerequisites: [function-notation]
 answer: expression
 sources:
 - topic: function_composition
+  technology: none
   params: {mode: compose}
   difficulty: easy
   stages: [6]
 - topic: function_composition
+  technology: none
   params: {mode: compose}
   difficulty: medium
   stages: [6]
 - topic: function_composition
+  technology: none
   params: {mode: compose}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f2_compose
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

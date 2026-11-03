@@ -14,18 +14,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p19e_log_model_solve_input
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p19e_log_model_solve_input
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p19e_log_model_solve_input
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19e_log_model_solve_input
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

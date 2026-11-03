@@ -8,6 +8,7 @@ prerequisites: [simple-event-probability]
 answer: fraction
 sources:
 - topic: discrete_expected_value
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -15,12 +16,14 @@ sources:
   - 1
   - 2
 - topic: discrete_expected_value
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: discrete_expected_value
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -28,11 +31,13 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2e_expval_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_s0_expval
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

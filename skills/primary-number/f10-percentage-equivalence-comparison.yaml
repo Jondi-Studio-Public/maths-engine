@@ -10,18 +10,22 @@ prerequisites: [fraction-decimal-percent, percentage-of-quantity]
 answer: fraction
 sources:
 - topic: percentage_to_fraction
+  technology: none
   params: {variant: benchmark, wide: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: percentage_to_fraction
+  technology: none
   params: {variant: two_digit_simplify}
   difficulty: medium
   stages: [3, 4]
 - topic: percentage_to_fraction
+  technology: none
   params: {variant: beyond_familiar_band}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr5_season_rates
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -10,14 +10,17 @@ prerequisites: [multiplication-facts]
 answer: mcq
 sources:
 - topic: odd_even_properties
+  technology: none
   params: {ops: ['+', '-'], chained: false, choose: true, stem: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: odd_even_properties
+  technology: none
   params: {ops: ['-', '*'], chained: false, choose: true, stem: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: odd_even_properties
+  technology: none
   params: {ops: ['+', '-', '*'], chained: true, choose: true, stem: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

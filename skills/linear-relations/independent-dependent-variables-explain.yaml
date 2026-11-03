@@ -14,6 +14,7 @@ prerequisites:
 answer: open_response
 sources:
 - topic: w10_explain_variables
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -21,12 +22,14 @@ sources:
   - 1
   - 2
 - topic: w10_explain_variables
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: w10_explain_variables
+  technology: none
   params: {}
   difficulty: hard
   stages:

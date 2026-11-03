@@ -19,18 +19,22 @@ prerequisites: [simple-interest]
 answer: number
 sources:
 - topic: pv0a_recurrence_steady_state
+  technology: none
   params: {variant: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv0a_recurrence_steady_state
+  technology: none
   params: {variant: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: pv0a_recurrence_steady_state
+  technology: none
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3g_recurrence_fit
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -13,18 +13,21 @@ prerequisites:
 answer: number
 sources:
 - topic: r3c_leslie
+  technology: none
   params:
     tier: easy
   difficulty: easy
   stages:
   - 6
 - topic: r3c_leslie
+  technology: none
   params:
     tier: medium
   difficulty: medium
   stages:
   - 6
 - topic: r3c_leslie
+  technology: required
   params:
     tier: hard
   difficulty: hard
@@ -32,6 +35,7 @@ sources:
   - 6
   - maintenance
 - topic: r3c_leslie_chain
+  technology: none
   params:
     tier: exam
   difficulty: exam

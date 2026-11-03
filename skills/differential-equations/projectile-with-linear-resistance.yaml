@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: w6_projectile_resistance
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: w6_projectile_resistance
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: w6_projectile_resistance
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: w6_projectile_resistance_exam
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

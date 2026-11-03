@@ -12,15 +12,19 @@ prerequisites:
 answer: mcq
 sources:
 - topic: locate_calculation_error
+  technology: none
   difficulty: easy
   stages: [6]
 - topic: locate_calculation_error
+  technology: none
   difficulty: medium
   stages: [6]
 - topic: locate_calculation_error
+  technology: none
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_sc1_check_calculation
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

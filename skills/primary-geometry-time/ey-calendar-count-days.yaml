@@ -14,14 +14,17 @@ prerequisites: [tell-time-to-hour, skip-count-2-5-10]
 answer: number
 sources:
 - topic: ey_calendar_span
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey_calendar_span
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: ey_calendar_span
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

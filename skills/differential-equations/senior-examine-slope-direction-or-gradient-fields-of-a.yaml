@@ -13,21 +13,25 @@ prerequisites:
 answer: mcq
 sources:
 - topic: p13b_slope_field_examine
+  technology: none
   params:
     variant: value_easy
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p13b_slope_field_examine
+  technology: none
   params:
     variant: value_medium
   difficulty: medium
   stages: [3, 4]
 - topic: p13b_slope_field_examine
+  technology: none
   params:
     variant: classify_point
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3g_slope_euler
+  technology: none
   params:
     tier: exam
   difficulty: exam

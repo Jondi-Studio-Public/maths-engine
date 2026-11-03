@@ -13,18 +13,22 @@ answer: mcq
 capability_gates: [authentic_data]
 sources:
 - topic: p19d_target_population
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p19d_target_population
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p19d_target_population
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19d_target_population
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

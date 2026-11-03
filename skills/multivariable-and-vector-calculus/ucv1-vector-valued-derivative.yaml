@@ -9,18 +9,22 @@ prerequisites: [differentiate-polynomial]
 answer: pair
 sources:
 - topic: p14d_vector_curve_derivative
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p14d_vector_curve_derivative
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p14d_vector_curve_derivative
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: p14d_vector_curve_derivative
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

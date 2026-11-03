@@ -10,18 +10,22 @@ prerequisites: [f10-polygon-angle-sums, f10-congruence-similarity-criteria]
 answer: number
 sources:
 - topic: f10c_quadrilateral_properties
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: f10c_quadrilateral_properties
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: f10c_quadrilateral_properties
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc3_quadrilateral_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

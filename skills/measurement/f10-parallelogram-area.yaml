@@ -9,18 +9,22 @@ prerequisites: [rectangle-area]
 answer: number
 sources:
 - topic: parallelogram_area
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: parallelogram_area
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: parallelogram_area
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_m2_parallelogram_slant
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

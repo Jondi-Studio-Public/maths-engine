@@ -11,6 +11,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: r3b_integrate_trig_powers
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -18,12 +19,14 @@ sources:
   - 1
   - 2
 - topic: r3b_integrate_trig_powers
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: r3b_integrate_trig_powers
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -31,6 +34,7 @@ sources:
   - 6
   - maintenance
 - topic: r3b_exam_integrate_trig_powers
+  technology: none
   params: {}
   difficulty: exam
   stages:

@@ -12,14 +12,17 @@ prerequisites:
 answer: number
 sources:
   - topic: decimal_metric_representation
+    technology: none
     params: {}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: decimal_metric_representation
+    technology: none
     params: {}
     difficulty: medium
     stages: [3, 4]
   - topic: decimal_metric_representation
+    technology: none
     params: {}
     difficulty: hard
     stages: [5, 6, maintenance]

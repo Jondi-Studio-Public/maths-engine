@@ -8,11 +8,13 @@ prerequisites:
 answer: number
 sources:
 - topic: engineering
+  technology: none
   params:
     kinds:
     - hookes_law
   difficulty: easy
 - topic: exd_x_u1_spring_two_loads
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

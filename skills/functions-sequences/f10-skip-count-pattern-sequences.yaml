@@ -12,14 +12,17 @@ prerequisites:
 answer: ordered_list
 sources:
 - topic: skip_count_pattern_sequences
+  technology: none
   params: {step_choice: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: skip_count_pattern_sequences
+  technology: none
   params: {step_choice: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: skip_count_pattern_sequences
+  technology: none
   params: {step_choice: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

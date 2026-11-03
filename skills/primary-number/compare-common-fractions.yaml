@@ -12,14 +12,17 @@ prerequisites: [whole-number-division-facts]
 answer: mcq
 sources:
 - topic: compare_common_fractions
+  technology: none
   params: {max_den: 6, include_equal: true}
   stages: [0, 1, 2]
   difficulty: easy
 - topic: compare_common_fractions
+  technology: none
   params: {max_den: 10, include_equal: true}
   stages: [3, 4]
   difficulty: medium
 - topic: compare_common_fractions
+  technology: none
   params: {max_den: 12, include_equal: true, benchmark: true}
   stages: [5, 6, maintenance]
   difficulty: hard

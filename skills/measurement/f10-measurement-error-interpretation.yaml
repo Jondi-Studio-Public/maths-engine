@@ -8,18 +8,22 @@ prerequisites: [f10-estimate-counts-and-check-reasonableness]
 answer: number
 sources:
 - topic: measurement_error_interpretation
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: measurement_error_interpretation
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: measurement_error_interpretation
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_m2_area_limits
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

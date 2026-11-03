@@ -12,18 +12,22 @@ prerequisites: [modular-multiplicative-inverse]
 answer: number
 sources:
 - topic: p12f_rsa_modular_step
+  technology: none
   params: {mode: encrypt, primes: [3, 5, 7, 11, 13], exponents: [3]}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p12f_rsa_modular_step
+  technology: none
   params: {mode: encrypt, primes: [11, 13, 17, 19, 23], exponents: [5, 7]}
   difficulty: medium
   stages: [3, 4]
 - topic: p12f_rsa_modular_step
+  technology: none
   params: {mode: decrypt, primes: [13, 17, 19, 23, 29, 31], exponents: [3, 5, 7]}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3g_rsa_keypair
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -11,6 +11,7 @@ prerequisites: [count-to-5]
 answer: mcq
 sources:
 - topic: ey6a_recognise_numeral
+  technology: none
   params: {lo: 0, hi: 5}
   difficulty: easy
 misconceptions: []

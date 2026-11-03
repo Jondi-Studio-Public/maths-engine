@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: use_formulas_to_find_the_volume
+  technology: none
   params: {mode: cube}
   difficulty: easy
   stages: [6]
 - topic: use_formulas_to_find_the_volume
+  technology: none
   params: {mode: triangular_or_rectangular}
   difficulty: medium
   stages: [6]
 - topic: use_formulas_to_find_the_volume
+  technology: none
   params: {mode: two_volume_difference}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m5_tank_capacity_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

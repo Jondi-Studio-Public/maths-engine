@@ -8,18 +8,22 @@ prerequisites: [expand-single-brackets, combine-like-terms]
 answer: mcq
 sources:
 - topic: integer_polynomial_quotient_remainder
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: integer_polynomial_quotient_remainder
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: integer_polynomial_quotient_remainder
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc1_poly_remainder_unknown
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

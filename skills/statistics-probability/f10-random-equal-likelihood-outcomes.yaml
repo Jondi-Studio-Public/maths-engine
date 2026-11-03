@@ -17,14 +17,17 @@ prerequisites:
 answer: mcq
 sources:
 - topic: random_equal_likelihood_outcomes
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: random_equal_likelihood_outcomes
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: random_equal_likelihood_outcomes
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

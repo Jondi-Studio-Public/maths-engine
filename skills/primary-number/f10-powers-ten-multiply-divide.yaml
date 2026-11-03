@@ -10,18 +10,22 @@ prerequisites: [place-value-to-100, decimal-arithmetic]
 answer: number
 sources:
 - topic: powers_ten_multiply_divide
+  technology: none
   params: {variant: whole_power}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: powers_ten_multiply_divide
+  technology: none
   params: {variant: whole_multiple}
   difficulty: medium
   stages: [3, 4]
 - topic: powers_ten_multiply_divide
+  technology: none
   params: {variant: decimal_power_missing_factor}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr4_powers_ten_fundraiser
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

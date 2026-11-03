@@ -21,9 +21,11 @@ prerequisites:
 answer: number
 sources:
 - topic: probability_scale_estimate
+  technology: none
   params: {}
   difficulty: easy
 - topic: exd_x_u6_probability_expectation
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

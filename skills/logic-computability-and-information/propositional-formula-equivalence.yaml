@@ -8,18 +8,22 @@ prerequisites: [propositional-truth-evaluation]
 answer: mcq
 sources:
 - topic: propositional_formula_equivalence
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: propositional_formula_equivalence
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: propositional_formula_equivalence
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc4_prop_equiv
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

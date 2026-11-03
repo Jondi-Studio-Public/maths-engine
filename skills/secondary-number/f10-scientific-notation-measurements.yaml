@@ -10,18 +10,22 @@ prerequisites: [f10-powers-ten-multiply-divide, scientific-notation]
 answer: number
 sources:
 - topic: scientific_notation_measurements
+  technology: none
   params: {variant: multiply_rate_time}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: scientific_notation_measurements
+  technology: none
   params: {variant: divide_distance_speed}
   difficulty: medium
   stages: [3, 4]
 - topic: scientific_notation_measurements
+  technology: none
   params: {variant: compare_magnitude}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_n3_probe_travel_time
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

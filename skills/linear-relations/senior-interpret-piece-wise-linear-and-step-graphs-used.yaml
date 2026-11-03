@@ -13,18 +13,22 @@ prerequisites: [rate-of-change]
 answer: fraction
 sources:
 - topic: pv1b_step_graph
+  technology: none
   params: {variant: interior}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1b_step_graph
+  technology: none
   params: {variant: boundary}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1b_step_graph
+  technology: none
   params: {variant: two_reads}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1b_step_graph
+  technology: none
   params: {variant: reverse}
   difficulty: exam
   stages: [exam]

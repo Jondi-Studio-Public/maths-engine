@@ -13,18 +13,22 @@ prerequisites: [right-triangle-angle]
 answer: expression
 sources:
 - topic: pv1c_period
+  technology: none
   params: {variant: peaks}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1c_period
+  technology: none
   params: {variant: zeros}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1c_period
+  technology: none
   params: {variant: count_cycles}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1c_period
+  technology: none
   params: {variant: partial_cycle}
   difficulty: exam
   stages: [exam]

@@ -8,18 +8,22 @@ prerequisites: [evaluate-powers]
 answer: expression
 sources:
 - topic: exponent_laws_positive_zero
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: exponent_laws_positive_zero
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: exponent_laws_positive_zero
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_n3_common_base_powers
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

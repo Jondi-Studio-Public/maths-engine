@@ -10,16 +10,20 @@ prerequisites:
 answer: fraction
 sources:
 - topic: condition_number_diagonal
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: condition_number_diagonal
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: condition_number_diagonal
+  technology: none
   params: {size: 3}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_u4_condition_error_bound
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

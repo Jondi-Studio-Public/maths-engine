@@ -14,18 +14,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p19h_volcap_named_equivalence
+  technology: none
   params: {mode: vc_named_easy}
   difficulty: easy
   stages: [6]
 - topic: p19h_volcap_named_equivalence
+  technology: none
   params: {mode: vc_named_medium}
   difficulty: medium
   stages: [6]
 - topic: p19h_volcap_named_equivalence
+  technology: none
   params: {mode: vc_named_hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19h_volcap_named_equivalence
+  technology: none
   params: {mode: vc_named_exam}
   difficulty: exam
   stages: [exam]

@@ -14,12 +14,15 @@ prerequisites: [compare-lengths]
 answer: mcq
 sources:
 - topic: compare_mass_capacity_picture
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: compare_mass_capacity_picture
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: compare_mass_capacity_picture
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

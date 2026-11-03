@@ -12,14 +12,17 @@ prerequisites: [f10-transformations-invariants, f10-symmetry-construction]
 answer: grid_cells
 sources:
 - topic: grid_tessellation_images
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: grid_tessellation_images
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: grid_tessellation_images
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

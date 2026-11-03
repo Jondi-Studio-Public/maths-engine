@@ -12,18 +12,22 @@ prerequisites: [function-notation]
 answer: number
 sources:
 - topic: vm_pseudocode_trace
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: vm_pseudocode_trace
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: vm_pseudocode_trace
+  technology: required
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: vm_pseudocode_trace_exam
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

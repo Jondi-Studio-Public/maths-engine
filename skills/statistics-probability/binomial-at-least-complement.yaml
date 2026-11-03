@@ -9,18 +9,22 @@ prerequisites: [binomial-point-probability]
 answer: number
 sources:
 - topic: r3a_binomial_at_least
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3a_binomial_at_least
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: r3a_binomial_at_least
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3a_binomial_at_least
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

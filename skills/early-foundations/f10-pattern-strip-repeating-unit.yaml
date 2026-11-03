@@ -14,17 +14,21 @@ prerequisites: [continue-patterns]
 answer: mcq
 sources:
 - topic: ey_pattern_unit
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey_pattern_unit
+  technology: none
   key: later-place
   difficulty: medium
   stages: [3, 4]
 - topic: ey_pattern_match
+  technology: none
   key: same-pattern
   difficulty: medium
   stages: [3, 4]
 - topic: ey_pattern_unit
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

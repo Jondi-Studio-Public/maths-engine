@@ -11,18 +11,22 @@ prerequisites:
 answer: number
 sources:
 - topic: the_angle_at_the_centre_subtended_by_an_arc
+  technology: none
   params: {variant: direct}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: the_angle_at_the_centre_subtended_by_an_arc
+  technology: none
   params: {variant: split}
   difficulty: medium
   stages: [3, 4]
 - topic: the_angle_at_the_centre_subtended_by_an_arc
+  technology: none
   params: {variant: reflex}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3e_circle_centre_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

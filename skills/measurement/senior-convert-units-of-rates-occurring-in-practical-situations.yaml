@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: p13a_convert_rate_units
+  technology: none
   params: {mode: easy}
   difficulty: easy
   stages: [6]
 - topic: p13a_convert_rate_units
+  technology: none
   params: {mode: medium}
   difficulty: medium
   stages: [6]
 - topic: p13a_convert_rate_units
+  technology: required
   params: {mode: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p13a_convert_rate_units
+  technology: none
   params: {mode: exam}
   difficulty: exam
   stages: [exam]

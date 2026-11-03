@@ -10,18 +10,22 @@ prerequisites: [decimal-place-value, fraction-decimal-percent]
 answer: number
 sources:
 - topic: decimal_tenths_hundredths_compose
+  technology: none
   params: {variant: single_place}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: decimal_tenths_hundredths_compose
+  technology: none
   params: {variant: both_places}
   difficulty: medium
   stages: [3, 4]
 - topic: decimal_tenths_hundredths_compose
+  technology: none
   params: {variant: forced_trap}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr4_decimal_notation_lengths
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

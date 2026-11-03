@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: represent_a_scalar_multiple_of_a_vector
+  technology: none
   params: {variant: forward_positive}
   difficulty: easy
   stages: [6]
 - topic: represent_a_scalar_multiple_of_a_vector
+  technology: none
   params: {variant: forward_signed}
   difficulty: medium
   stages: [6]
 - topic: represent_a_scalar_multiple_of_a_vector
+  technology: none
   params: {variant: inverse}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3d_vector_parallel_scalar
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

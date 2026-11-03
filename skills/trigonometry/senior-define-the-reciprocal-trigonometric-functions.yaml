@@ -14,18 +14,22 @@ prerequisites:
 answer: expression
 sources:
 - topic: salg_reciprocal_trig_values
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: salg_reciprocal_trig_values
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: salg_reciprocal_trig_values
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: salg_exam_reciprocal_trig_values
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

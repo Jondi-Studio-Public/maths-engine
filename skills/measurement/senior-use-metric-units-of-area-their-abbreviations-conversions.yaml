@@ -13,18 +13,22 @@ prerequisites:
 answer: number
 sources:
 - topic: use_metric_units_of_area
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: use_metric_units_of_area
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: use_metric_units_of_area
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m6_area_tiles
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

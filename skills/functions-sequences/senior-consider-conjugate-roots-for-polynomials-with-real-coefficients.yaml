@@ -11,10 +11,12 @@ prerequisites:
 answer: number
 sources:
   - topic: conjugate_roots_real_coefficients
+    technology: none
     params: {}
     difficulty: easy
     stages: [1, 2, 3]
   - topic: exd_x_f1_conjugate_cubic
+    technology: none
     params: {tier: exam}
     difficulty: exam
     stages: [exam]

@@ -12,15 +12,19 @@ prerequisites:
 answer: number
 sources:
 - topic: use_the_equation_of_a_fitted_line_to
+  technology: none
   difficulty: easy
   stages: [6]
 - topic: use_the_equation_of_a_fitted_line_to
+  technology: none
   difficulty: medium
   stages: [6]
 - topic: use_the_equation_of_a_fitted_line_to
+  technology: none
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_s5_fitted_line_threshold
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

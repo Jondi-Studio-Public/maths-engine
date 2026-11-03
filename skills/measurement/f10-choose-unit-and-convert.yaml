@@ -18,6 +18,7 @@ prerequisites:
 answer: mcq
 sources:
 - topic: fr2c_choose_unit_convert
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -25,12 +26,14 @@ sources:
   - 1
   - 2
 - topic: fr2c_choose_unit_convert
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: fr2c_choose_unit_convert
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -38,6 +41,7 @@ sources:
   - 6
   - maintenance
 - topic: fr2c_choose_unit_convert_exam
+  technology: none
   params: {}
   difficulty: exam
   stages:

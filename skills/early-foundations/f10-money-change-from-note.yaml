@@ -13,12 +13,15 @@ prerequisites: [f10-money-count-collection, subtract-within-100]
 answer: mcq
 sources:
 - topic: money_change_from_note
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: money_change_from_note
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: money_change_from_note
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:
