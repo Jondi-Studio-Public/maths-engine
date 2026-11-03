@@ -25,23 +25,13 @@ from __future__ import annotations
 import sympy
 
 from ..answers import Distractor
-from ..grading import GRADERS
-from ._r3f_kit import ThinOptions
-from types import SimpleNamespace
+from ._r3f_kit import ThinOptions, _accepted as accepted
 
 PDF_DENSITY = "bounded_support"
 UNKNOWN_PARAMETERS = "unknown_constants_2"
 DISCRETE_DISTRIBUTION = None  # no vocabulary property yet: the binomial asks are per-subject (exact_binomial)
 
 X = sympy.Symbol("x")
-
-
-def accepted(kind: str, prompt: str, answer, answer_text: str, reply: str, answer_form=None) -> bool:
-    """Whether the real grader accepts `reply` for a part with this key."""
-    probe = SimpleNamespace(
-        answer=answer, answer_text=answer_text, text=prompt, answer_alt=None, answer_form=answer_form, answer_kind=kind
-    )
-    return bool(GRADERS[kind](probe, reply).correct)
 
 
 def formula(expr) -> str:

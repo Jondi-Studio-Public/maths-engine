@@ -14,7 +14,7 @@ from fractions import Fraction
 import sympy
 
 from ..core import attempts, rational_text
-from ..recipes import Subject, ask, subject
+from ..recipes import RecipeError, Subject, ask, subject
 from ._r3f_kit import fraction_part
 from ._recipe_kit import expression_part
 
@@ -57,7 +57,7 @@ class ExactBinomial(Subject):
     @classmethod
     def draw(cls, rng, technology_active):
         if technology_active:
-            raise ValueError("exact_binomial asks exact answers only; it has no technology (decimal) form")
+            raise RecipeError("exact_binomial asks exact answers only; it has no technology (decimal) form")
         for _ in attempts(500, "a binomial with a surd standard deviation and clean prompts"):
             n, p = rng.choice((2, 3, 4, 5)), rng.choice(_P)
             variance = n * p * (1 - p)

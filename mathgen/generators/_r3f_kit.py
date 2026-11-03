@@ -46,9 +46,10 @@ def number_text(value, places: int) -> str:
     return stated_precision_string(rounded, places) if places else str(int(rounded))
 
 
-def _accepted(kind: str, prompt: str, answer, answer_text: str, reply: str) -> bool:
+def _accepted(kind: str, prompt: str, answer, answer_text: str, reply: str, answer_form=None) -> bool:
+    """Whether the real grader accepts `reply` for a part with this key."""
     probe = SimpleNamespace(
-        answer=answer, answer_text=answer_text, text=prompt, answer_alt=None, answer_form=None, answer_kind=kind
+        answer=answer, answer_text=answer_text, text=prompt, answer_alt=None, answer_form=answer_form, answer_kind=kind
     )
     return bool(GRADERS[kind](probe, reply).correct)
 

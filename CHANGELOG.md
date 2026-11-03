@@ -13,7 +13,7 @@ Each question's id (below) tells you when the question behind it has changed.
 ### Added
 
 - Recipe subject `even_odd` and recipe `methods_even_odd_1`: parity of a sum and a product of functions, the phase shifts `c` that make `sin(bx + c)` or `cos(bx + c)` even or odd (`c = pi/2 + k*pi` or `k*pi`), then an exact evaluation. Closes the missing 2023 VCE Methods Exam 1 Q8d shape.
-- **Log of a quadratic recipe subject.** `log_quadratic` (f(x) = ln of a quadratic with whole-number roots) with three generic asks (`implied_domain`, `stationary_point`, `solve_equal_constant`) giving exact, hand-solvable answers, and the recipe `methods_ln_quadratic_1` in the shape of VCE Methods 2023 Exam 1 Q7. Nine new misconception ids (area `log-of-a-quadratic`).
+- **Log of a quadratic recipe subject.** `log_quadratic` (f(x) = ln of a quadratic with whole-number roots) with three generic asks (`implied_domain`, `stationary_point`, `solve_equal_constant`) giving exact, hand-solvable answers, and the recipe `methods_ln_quadratic_1` in the shape of VCE Methods 2023 Exam 1 Q7. Ten new misconception ids (area `log-of-a-quadratic`).
 - Recipe subject `exponential_g` (g(x) = a^(2x) - b a^x + c) with generic asks `evaluate_at_log`, `integer_solution`,
   `log_solution` and `solve_shifted`, and the recipe `methods_exponential_g_1` (VCE Methods Exam 1 style, exact answers).
   Logarithm answers are typed with natural logs (`ln(5)/ln(2)`) because the typed-answer parser reads `log_b(x)` only for
