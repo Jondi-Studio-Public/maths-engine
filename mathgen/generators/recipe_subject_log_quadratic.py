@@ -38,6 +38,11 @@ def _squarefree(n: int) -> bool:
     return n > 1 and all(e == 1 for e in sp.factorint(n).values())
 
 
+def _shift(root: int) -> str:
+    """x minus a root, written without a double sign: x - 3, x + 2, x."""
+    return "x" if root == 0 else f"x - {root}" if root > 0 else f"x + {-root}"
+
+
 @subject("log_quadratic")
 class LogQuadratic(Subject):
     """f(x) = ln(q(x)), q(x) = -(x - r1)(x - r2) = m^2 - (x - h)^2."""
@@ -87,7 +92,7 @@ class LogQuadratic(Subject):
 
     def domain_working(self) -> list[str]:
         return [
-            f"ln needs {self.q_text()} > 0, that is -(x - {self.r1})(x - {self.r2}) > 0 (the parabola opens downwards).",
+            f"ln needs {self.q_text()} > 0, that is -({_shift(self.r1)})({_shift(self.r2)}) > 0 (the parabola opens downwards).",
             f"q is positive between its roots {self.r1} and {self.r2}.",
         ]
 
@@ -145,9 +150,7 @@ class LogQuadratic(Subject):
 
     def level_working(self) -> list[str]:
         exponent = "e^0 = 1" if self.k == 1 else f"e^(ln {self.k}) = {self.k}"
-        completed = (
-            f"{join_terms([(1, 'x^2'), (-self.b, 'x'), (self.k - self.c, '')])} = 0, so (x - {self.h})^2 = {self.d}."
-        )
+        completed = f"{join_terms([(1, 'x^2'), (-self.b, 'x'), (self.k - self.c, '')])} = 0, so ({_shift(self.h)})^2 = {self.d}."
         return [
             f"ln({self.q_text()}) = {self.level_text()}, so {self.q_text()} = {exponent}.",
             completed,

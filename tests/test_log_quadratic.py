@@ -126,3 +126,15 @@ def test_a_shifted_or_wrong_solution_is_rejected(seed):
         bad += [f"x = √{d}", f"x = {-h} + √{d}"]
     for reply in bad:
         assert not grade("expression", part, reply).correct, reply
+
+
+@pytest.mark.parametrize("seed", range(150))
+def test_no_double_signs_anywhere_in_the_learner_text(seed):
+    """CI's default sweep rejects "- -", "+ -" and "--" in any text a learner reads."""
+    q = core.make(TOPIC, seed=seed)
+    texts = [q.text, *q.working]
+    for part in q.parts:
+        texts += [part.prompt, part.answer_text, *part.working, *part.distractors]
+    for text in texts:
+        for bad in ("- -", "+ -", "--", "+ +"):
+            assert bad not in str(text), (bad, text)
