@@ -2294,8 +2294,15 @@ _MIXED_OPERAND_RE = re.compile(r"(^|[+\-(,=])(\s*)(\d+)[ \t]+(\d+)[ \t]*/[ \t]*(
 # number (digits, a decimal point or one fraction), so no learner text can make the rewrite expensive. It runs after
 # `_round_brackets`, which has already turned a braced base into a bracketed one.
 _LOG_NUMBER = r"\d{1,6}(?:\.\d{1,6})?"
+_LOG_E_RE = re.compile(r"(?<![A-Za-z_])log_[({]?e[)}]?\s*\(")
 _LOG_BASE_RE = re.compile(
-    r"\blog(?:_?(" + _LOG_NUMBER + r")|_?[({]\s*(" + _LOG_NUMBER + r"(?:\s*/\s*" + _LOG_NUMBER + r")?)\s*[)}])\s*\("
+    r"(?<![A-Za-z_])log(?:_?("
+    + _LOG_NUMBER
+    + r")|_?[({]\s*("
+    + _LOG_NUMBER
+    + r"(?:\s*/\s*"
+    + _LOG_NUMBER
+    + r")?)\s*[)}])\s*\("
 )
 
 
@@ -2308,6 +2315,7 @@ def _log_bases(text: str) -> str:
     """`text` with "log3(x)" and "log_{3}(x)" written as sympy's "log(x, 3)", for any positive base but 1. A call whose
     brackets never close is left as it is (it is unreadable anyway). A base of 0 or 1 (or x/0) is not a logarithm
     base: it is rewritten to base 1, which SymPy cannot evaluate to a number, so it never matches an answer."""
+    text = _LOG_E_RE.sub("ln(", text)  # log_e(x) is the natural log
     while True:
         found = _LOG_BASE_RE.search(text)
         if found is None:

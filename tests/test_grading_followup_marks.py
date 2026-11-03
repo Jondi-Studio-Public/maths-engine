@@ -81,6 +81,22 @@ def test_log_with_any_positive_base_is_graded_by_value(reply):
     assert grade("expression", _q("2", "2"), reply).correct
 
 
+@pytest.mark.parametrize("reply", ["2log_3(9)", "2log3(9)", "2 log_3(9)", "2*log_3(9)"])
+def test_a_coefficient_before_a_log_with_a_base(reply):
+    assert grade("expression", _q("4", "4"), reply).correct
+
+
+@pytest.mark.parametrize("reply", ["2log2(8)", "2log_2(8)"])
+def test_a_coefficient_before_log2(reply):
+    assert grade("expression", _q("6", "6"), reply).correct
+
+
+@pytest.mark.parametrize("reply", ["log_e(5)", "log_{e}(5)", "ln(5)"])
+def test_log_base_e_is_the_natural_log(reply):
+    assert grade("expression", _q("ln(5)", "ln(5)"), reply).correct
+    assert not grade("expression", _q("ln(6)", "ln(6)"), reply).correct
+
+
 def test_a_decimal_or_fractional_base_is_exact():
     assert grade("expression", _q("-1", "-1"), "log_0.5(2)").correct
     assert grade("expression", _q("-3", "-3"), "log_{1/2}(8)").correct
