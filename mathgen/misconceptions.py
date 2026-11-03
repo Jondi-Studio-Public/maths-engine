@@ -63444,6 +63444,55 @@ _ENTRIES += (
     ),
 )
 
+# -- exponential equations that are quadratic in a^x (recipe subject exponential_g) -----------------------------------
+_ENTRIES += (
+    CatalogueEntry(
+        "exp-log-argument-used-as-x",
+        "Putting the logarithm's argument in as x: evaluating a^(2x) - b a^x + c at x = k when the point is x = log_a(k).",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-middle-term-sign",
+        "Losing the minus sign on the middle term of a^(2x) - b a^x + c when substituting.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-middle-term-power-dropped",
+        "Replacing the middle term's a^x by 1 (or by b alone) instead of by the value k it equals at x = log_a(k).",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-quadratic-root-given-as-x",
+        "Stating a root of the quadratic in t = a^x as the solution for x, without taking the logarithm.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-log-sign-dropped",
+        "Giving the logarithm of the root with the wrong sign: -log_a(r) for log_a(r).",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "log-base-and-argument-swapped",
+        "Swapping the base and the argument of a logarithm: log_r(a) for log_a(r).",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-other-solution-given",
+        "Giving the other solution when the larger (or smaller) one was asked for.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-root-divided-by-base",
+        "Dividing the root of the quadratic in t = a^x by the base a, instead of taking the logarithm base a.",
+        area="exponentials",
+    ),
+    CatalogueEntry(
+        "exp-log-wrong-argument",
+        "Taking the logarithm of the wrong number: the sum or the product of the roots of the quadratic in t instead of the root itself.",
+        area="exponentials",
+    ),
+)
+
 #: Every entry, by id.
 CATALOGUE: dict[str, CatalogueEntry] = {entry.id: entry for entry in _ENTRIES}
 
