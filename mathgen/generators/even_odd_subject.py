@@ -215,8 +215,14 @@ def polynomial_term_parity(s: EvenOdd, rng, ctx) -> dict:
     return _mcq(key, tags, f"Is the term {term} of h even, odd, neither, or both?", working)
 
 
-@ask(None, "find_c", needs=("odd_candidate", "periodic"), requires=("polynomial_term_parity",), default_marks=3)
-def find_c(s: EvenOdd, rng, ctx) -> dict:
+@ask(
+    None,
+    "find_phase_shift_c",
+    needs=("odd_candidate", "periodic"),
+    requires=("polynomial_term_parity",),
+    default_marks=3,
+)
+def find_phase_shift_c(s: EvenOdd, rng, ctx) -> dict:
     fam = m.phase_family_text(s.trig, s.target)
     other = m.phase_family_text(s.trig, m.ODD if s.target == m.EVEN else m.EVEN)
     single = "0" if fam == "k*pi" else "pi/2"
@@ -257,7 +263,13 @@ def _fmt(expr) -> str:
     return str(simplify(expr)).replace("**", "^")
 
 
-@ask(None, "evaluate_at_multiple_of_pi", needs=("odd_candidate", "periodic"), requires=("find_c",), default_marks=2)
+@ask(
+    None,
+    "evaluate_at_multiple_of_pi",
+    needs=("odd_candidate", "periodic"),
+    requires=("find_phase_shift_c",),
+    default_marks=2,
+)
 def evaluate_at_multiple_of_pi(s: EvenOdd, rng, ctx) -> dict:
     trig = sympy_trig(s.trig)
     c0 = pi if m.phase_family_text(s.trig, s.target) == "k*pi" else pi / 2
@@ -285,7 +297,7 @@ def evaluate_at_multiple_of_pi(s: EvenOdd, rng, ctx) -> dict:
             seen.add(text)
             dis.append(Distractor(text, tag))
     ctx_prompt = (
-        f"Using the smallest positive value of c from part ({ctx.label_of('find_c')}), "
+        f"Using the smallest positive value of c from part ({ctx.label_of('find_phase_shift_c')}), "
         f"find h({'' if s.j == 1 else str(s.j)}\u03c0) exactly."
     )
     working = [
