@@ -58,16 +58,34 @@ def test_quadratic_in_exponential(expr, expected):
         (sp.sin(x) + sp.exp(x), True),
         (sp.Abs(x), False),
         (sp.Max(x, 1), False),
-        (sp.log(x**2 + 1), None),
+        (sp.log(x**2 + 1), None),  # smooth, but not provably so here: unchecked
+        (1 / x, False),
+        (sp.log(x), False),
+        (sp.sqrt(x), False),
+        (sp.tan(x), False),
+        (x ** sp.Rational(1, 3), False),
+        (sp.sin(x) / x, False),
     ],
 )
 def test_differentiable_everywhere_never_raises(expr, verdict):
     assert sub(expr).check_property("differentiable_everywhere") is verdict
 
 
-def test_periodic():
-    assert sub(sp.sin(x)).check_property("periodic") is True
-    assert sub(x**2).check_property("periodic") is False
+@pytest.mark.parametrize(
+    "expr, verdict",
+    [
+        (sp.sin(x), True),
+        (sp.sin(3 * x) * sp.cos(2 * x) + sp.tan(x / 2), True),
+        (sp.sin(x + sp.pi / 3) ** 2 + 1, True),
+        (x**2, False),
+        (sp.exp(x**3) + sp.log(x**2 - 3), False),
+        (sp.sin(x) + x, None),  # x outside the trig: not decided here
+        (sp.sin(sp.sqrt(2) * x), None),  # irrational frequency: not a rational multiple of pi
+        (sp.sin(x**2), None),
+    ],
+)
+def test_periodic_is_structural(expr, verdict):
+    assert sub(expr).check_property("periodic") is verdict
 
 
 # ----- witnesses -------------------------------------------------------------------------------------------------
@@ -139,6 +157,13 @@ def test_restricted_domain_needs_an_undefined_witness():
 def test_properties_without_a_generic_test_are_unchecked():
     assert sub(x**2).check_property("even_candidate") is None
     assert sub(x**2).check_property("unknown_constants_1") is None
+
+
+def test_a_property_check_registered_for_the_name_is_honoured(monkeypatch):
+    from mathgen import recipe_vocabulary
+
+    monkeypatch.setitem(recipe_vocabulary.PROPERTY_CHECKS, "periodic", lambda s: False)
+    assert sub(sp.sin(x)).check_property("periodic") is False
 
 
 def test_expr_text_writes_powers_with_a_caret():

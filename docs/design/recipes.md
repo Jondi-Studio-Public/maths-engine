@@ -133,8 +133,11 @@ arbitrary skills (Plan B).
 they never call `simplify`, `solveset`, `integrate` or `limit`:
 
 - **Structural**, read off the expression: the three argument shapes, `quadratic_in_exponential` (one base; the
-  constant in an exponent is a factor, a surviving `x` disqualifies), `periodic`, and `differentiable_everywhere`
-  (`True` if provably smooth, `False` if it contains a kink such as `Abs`, otherwise unchecked).
+  constant in an exponent is a factor, a surviving `x` disqualifies), `periodic` (every use of `x` inside
+  a sin, cos or tan with argument `a*x + b`, rational a; `False` when there is no trig at all), and
+  `differentiable_everywhere` (`True` if provably smooth; `False` if it has a kink such as `Abs` or is undefined at a
+  sampled point of the domain: integers, halves and odd multiples of pi/2, plus any `excluded_points`, so `1/x`,
+  `log x`, `sqrt x`, `tan x` fail; otherwise unchecked). A `@property_check` registered for a name is honoured too.
 - **Witness**, where `facts` carries exact witnesses that are verified numerically at 40 digits inside the domain:
   `roots` (for `has_pi_roots` as a rational multiple of pi, `has_log_root`, `has_surd_roots`),
   `stationary_points` (f' is zero and continuous there, and f is defined), `inflection_points` (f'' is zero and

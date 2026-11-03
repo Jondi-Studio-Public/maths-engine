@@ -26,7 +26,6 @@ from collections.abc import Callable
 from typing import Any
 
 import sympy as sp
-from sympy.calculus.util import periodicity
 
 from .recipes import Subject
 
@@ -39,6 +38,10 @@ _TOL = sp.Float("1e-20")
 _ELEMENTARY = (sp.exp, sp.log, sp.sin, sp.cos, sp.tan, sp.asin, sp.acos, sp.atan, sp.sinh, sp.cosh, sp.tanh, sp.Abs)
 _KINKS = (sp.Abs, sp.sign, sp.Piecewise, sp.floor, sp.ceiling, sp.Min, sp.Max, sp.Heaviside)
 _SMOOTH_FUNCTIONS = (sp.exp, sp.sin, sp.cos, sp.sinh, sp.cosh)
+_SAMPLE_POINTS = [
+    *(sp.Rational(n, 2) for n in range(-6, 7)),
+    *(k * sp.pi / 2 for k in range(-4, 5) if k % 2),
+]
 
 
 def expr_text(expr: sp.Expr) -> str:
@@ -87,6 +90,30 @@ def _quadratic_in_exponential(expr: sp.Expr, var: sp.Symbol) -> bool:
 
     swapped = expanded.replace(lambda n: _is_exponential(n, var), to_t)
     return not swapped.has(var) and swapped.is_polynomial(t) and sp.degree(swapped, t) == 2
+
+
+def _periodic(expr: sp.Expr, var: sp.Symbol) -> bool | None:
+    """Structural: True when every use of ``var`` sits inside a sin, cos or tan whose argument is ``a*x + b`` with
+    rational a (so all the periods are rational multiples of pi and the sum shares one). False when ``var``
+    appears and there is no trig at all (a polynomial, an exponential, a log). Anything else is unchecked."""
+    if not expr.has(var):
+        return False
+    trig = [n for n in sp.preorder_traversal(expr) if isinstance(n, (sp.sin, sp.cos, sp.tan)) and n.has(var)]
+    if not trig:
+        return False
+    t = sp.Dummy("t")
+    bare = expr.replace(lambda n: isinstance(n, (sp.sin, sp.cos, sp.tan)) and n.has(var), lambda n: t)
+    if bare.has(var):
+        return None
+    for n in trig:
+        arg = n.args[0]
+        if (
+            not arg.is_polynomial(var)
+            or sp.degree(arg, var) != 1
+            or not sp.Poly(arg, var).coeff_monomial(var).is_Rational
+        ):
+            return None
+    return True
 
 
 def _value(expr: sp.Expr, var: sp.Symbol, p: sp.Expr) -> sp.Expr | None:
@@ -162,7 +189,15 @@ class ExprSubject(Subject):
         pow_ok = all(
             (n.exp.is_Integer and n.exp >= 0) or not n.base.has(self.var) for n in nodes if isinstance(n, sp.Pow)
         )
-        return True if funcs_ok and pow_ok else None
+        if funcs_ok and pow_ok:
+            return True
+        # Not provably smooth. A sample of points in the domain (integers, halves and multiples of pi/2, where tan
+        # blows up) that the expression is undefined at proves it is not differentiable there: 1/x, log x, sqrt x,
+        # tan x, sin(x)/x. A witness in facts["excluded_points"] is sampled too. Otherwise unchecked.
+        for p in [*_SAMPLE_POINTS, *(sp.sympify(w) for w in self.facts.get("excluded_points", []))]:
+            if _in_domain(self.domain, p) and _value(self.expr, self.var, p) is None:
+                return False
+        return None
 
     def _roots_verified(self) -> list[sp.Expr] | None:
         roots = [sp.sympify(r) for r in self.facts.get("roots", [])]
@@ -216,7 +251,7 @@ class ExprSubject(Subject):
             "quadratic_argument": lambda: 2 in _degrees(expr, var),
             "polynomial_argument": lambda: any(d >= 3 for d in _degrees(expr, var)),
             "quadratic_in_exponential": lambda: _quadratic_in_exponential(expr, var),
-            "periodic": lambda: periodicity(expr, var) is not None,
+            "periodic": lambda: _periodic(expr, var),
             "differentiable_everywhere": self._smooth,
             "restricted_domain": lambda: _check_witnesses(
                 "excluded_points", lambda p: _value(expr, var, p) is None, facts
@@ -233,7 +268,9 @@ class ExprSubject(Subject):
             "rational_roots_only": self._rational_roots_only,
         }
         test = tests.get(name)
-        return None if test is None else test()
+        verdict = None if test is None else test()
+        registered = super().check_property(name)  # a @property_check for this name is honoured too
+        return False if registered is False else verdict
 
     def _asymptote(self, horizontal_ok: Callable[[Any], bool]) -> bool | None:
         vertical = self.facts.get("vertical_asymptotes", [])
