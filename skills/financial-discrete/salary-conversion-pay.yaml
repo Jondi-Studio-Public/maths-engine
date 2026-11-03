@@ -11,7 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r3j_salary
-  technology: required
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -26,7 +26,7 @@ sources:
   - 3
   - 4
 - topic: r3j_salary
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages:

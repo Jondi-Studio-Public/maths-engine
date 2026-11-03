@@ -11,7 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r3e_utility_bill
-  technology: required
+  technology: none
   params: {}
   difficulty: easy
   stages:

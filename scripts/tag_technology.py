@@ -34,7 +34,7 @@ sys.path.insert(0, str(ROOT))
 from mathgen.engine import make_for_skill  # noqa: E402
 from mathgen.skills import load_skills  # noqa: E402
 
-SEEDS = tuple(range(1, 61))
+SEEDS = (*range(1, 41), *range(1000, 1040))
 
 REQUIRED_SKILLS = frozenset(
     {
@@ -46,6 +46,7 @@ REQUIRED_SKILLS = frozenset(
         "senior-use-technology-to-find-the-correlation-coefficient-an",
         "senior-use-numerical-integration-using-technology-f-left-t",
         "senior-estimate-the-limit-of-frac-a-h-1",
+        "e-as-a-limit-from-a-table",
         "senior-use-a-spreadsheet-to-display-examples-of-the",
         "senior-deseasonalise-a-time-series-by-using-a-seasonal",
         "senior-find-distances-between-two-places-on-earth-using",
@@ -101,6 +102,16 @@ HEAVY = re.compile(
     r"|√|sqrt|π|\bpi\b|e\^|exp\(",
     re.I,
 )
+# When an answer is rounded, these in the stem or the working mean a function, root or statistic is being
+# evaluated, not a plain division: a person needs a calculator for the rounded value.
+ROUND_CALC = re.compile(
+    r"\b(?:sin|cos|tan)\b(?!\s*\(?\s*(?:[θαβφ]|theta))|\b(?:ln|log|exp|sqrt|roots?|pi|logistic|decay|growth|heron|semi-?perimeter)\b"
+    r"|√|π|\d\s*\^\s*\(?[a-z]|∫|curvature|kappa|\b[a-z]\^[a-z]|standard deviation|variance|confidence|interval|margin of error|z-score|normal(?:ly)? (?:distribut|curve|model|probab)|"
+    r"correlation|regression|angle between|(?:find|calculate|determine) the (?:size of the )?angle|acute angle|iterat|newton(?:'s)? method|newton-raphson|simpson|trapez",
+    re.I,
+)
+# A money answer with real cents (not 7.00, 12.50 or 3.25) from a percentage or rate.
+MONEY_CENTS = re.compile(r"\d\.(?!00\b)(?!50\b)(?!25\b)(?!75\b)\d{2}\b")
 # More places than a person works out by hand.
 LONG_ROUNDING = re.compile(
     r"(?:\b(?:[4-9]|\d{2,}) decimal places?|\b(?:[5-9]|\d{2,}) significant (?:figures?|digits?))", re.I
@@ -138,10 +149,22 @@ def classify(job: tuple[str, int]) -> tuple[str, int, str, str]:
             return sid, i, "required", "asks for more places than a person works out by hand"
         if skill.domain == "financial-discrete" and FINANCE_ITERATION.search(text):
             return sid, i, "required", "compounding or a recurrence run over many periods"
-        if skill.domain == "financial-discrete" and DECIMAL_ANSWER.search(str(q.answer_text)):
+        if (
+            skill.domain == "financial-discrete"
+            and MONEY_CENTS.search(str(q.answer_text))
+            and re.search(r"%|per cent|rate", text, re.I)
+        ):
             return sid, i, "required", "money answer from percentage or compounding arithmetic"
         saw_round = saw_round or rounds
-        heavy = HEAVY.search(text + " " + str(getattr(q, "working", "") or ""))
+        working = text + " " + str(getattr(q, "working", "") or "")
+        if rounds and ROUND_CALC.search(working):
+            return (
+                sid,
+                i,
+                "required",
+                f"rounded answer from a function or statistic ({ROUND_CALC.search(working).group(0)})",
+            )
+        heavy = HEAVY.search(working)
         if heavy and (rounds or DECIMAL_ANSWER.search(str(q.answer_text))):
             return sid, i, "required", f"decimal answer from a calculator-only step ({heavy.group(0).strip()})"
     if saw_round and src.difficulty in ("hard", "exam"):

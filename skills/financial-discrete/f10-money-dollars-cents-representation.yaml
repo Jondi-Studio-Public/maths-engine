@@ -10,17 +10,17 @@ prerequisites: [australian-coin-values, money-change]
 answer: number
 sources:
 - topic: money_dollars_cents_representation
-  technology: required
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: money_dollars_cents_representation
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: money_dollars_cents_representation
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

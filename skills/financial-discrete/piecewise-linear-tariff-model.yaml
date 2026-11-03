@@ -14,7 +14,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r4g_two_rate_tariff
-  technology: required
+  technology: none
   params:
     tier: easy
   difficulty: easy

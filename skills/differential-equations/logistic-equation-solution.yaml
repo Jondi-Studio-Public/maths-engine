@@ -27,7 +27,7 @@ sources:
   - 3
   - 4
 - topic: r3h_logistic
-  technology: none
+  technology: required
   params: {}
   difficulty: hard
   stages:

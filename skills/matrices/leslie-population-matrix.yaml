@@ -27,7 +27,7 @@ sources:
   stages:
   - 6
 - topic: r3c_leslie
-  technology: none
+  technology: required
   params:
     tier: hard
   difficulty: hard

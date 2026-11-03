@@ -8,18 +8,18 @@ prerequisites:
 answer: number
 sources:
 - topic: unit_pricing
-  technology: required
+  technology: none
   params: {}
   difficulty: easy
 - topic: w3_unit_tiers
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: w3_unit_tiers
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages:

@@ -34,7 +34,7 @@ sources:
   - 6
   - maintenance
 - topic: fy1ca_ivt_bisection_exam
-  technology: none
+  technology: required
   params: {}
   difficulty: exam
   stages:

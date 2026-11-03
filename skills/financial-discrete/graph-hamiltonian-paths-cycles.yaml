@@ -30,7 +30,7 @@ sources:
   difficulty: hard
   stages: [6, maintenance]
 - topic: snet_hamiltonian_chain
-  technology: required
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -19,7 +19,7 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: r3d_projectile_cartesian
-  technology: none
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

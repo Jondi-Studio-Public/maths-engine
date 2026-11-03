@@ -10,17 +10,17 @@ prerequisites:
 answer: number
 sources:
 - topic: p13e_parametric_curvature
-  technology: none
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p13e_parametric_curvature
-  technology: none
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p13e_parametric_curvature
-  technology: none
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

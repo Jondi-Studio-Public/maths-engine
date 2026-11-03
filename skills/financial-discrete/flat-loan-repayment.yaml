@@ -13,7 +13,7 @@ sources:
   params: {}
   difficulty: easy
 - topic: w3_flatloan_tiers
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages:
@@ -28,7 +28,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2d_flat_loan_term_chain
-  technology: required
+  technology: none
   params:
     tier: exam
   difficulty: exam

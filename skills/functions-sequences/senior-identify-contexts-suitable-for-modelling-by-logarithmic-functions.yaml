@@ -19,7 +19,7 @@ sources:
   difficulty: easy
   stages: [6]
 - topic: p19e_log_model_solve_input
-  technology: none
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]

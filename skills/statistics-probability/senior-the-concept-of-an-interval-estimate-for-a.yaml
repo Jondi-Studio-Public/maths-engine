@@ -11,12 +11,12 @@ prerequisites: [simple-event-probability]
 answer: number
 sources:
 - topic: interval_estimate_proportion_margin
-  technology: none
+  technology: required
   params: {variant: direct}
   difficulty: easy
   stages: [6]
 - topic: interval_estimate_proportion_margin
-  technology: none
+  technology: required
   params: {variant: from_counts}
   difficulty: medium
   stages: [6]

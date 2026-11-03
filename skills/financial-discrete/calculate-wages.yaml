@@ -13,7 +13,7 @@ sources:
     kind: wages
   difficulty: easy
 - topic: w3_wage_tiers
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages:

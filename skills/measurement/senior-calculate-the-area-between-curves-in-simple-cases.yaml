@@ -27,7 +27,7 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_m4_area_between_curves
-  technology: none
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

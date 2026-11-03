@@ -19,7 +19,7 @@ sources:
     kind: simple
   difficulty: easy
 - topic: w3_si_tiers
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages:

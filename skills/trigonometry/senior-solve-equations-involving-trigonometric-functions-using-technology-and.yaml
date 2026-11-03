@@ -22,12 +22,12 @@ capability_gates: [technology_use]
 answer: number
 sources:
 - topic: p14a_solve_trig_equation_technology
-  technology: none
+  technology: required
   params: {variant: direct}
   difficulty: easy
   stages: [4, 5, 6]
 - topic: p14a_solve_trig_equation_technology
-  technology: none
+  technology: required
   params: {variant: coefficient}
   difficulty: medium
   stages: [5, 6]

@@ -12,7 +12,7 @@ prerequisites:
 answer: number
 sources:
 - topic: w7b_unit_cost_depreciation
-  technology: required
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -20,14 +20,14 @@ sources:
   - 1
   - 2
 - topic: w7b_unit_cost_depreciation
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: w7b_unit_cost_depreciation
-  technology: required
+  technology: none
   params: {}
   difficulty: hard
   stages:

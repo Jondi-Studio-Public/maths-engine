@@ -10,7 +10,7 @@ prerequisites: [right-triangle-angle, pythagorean-hypotenuse]
 answer: number
 sources:
 - topic: y910_line_plane_angle
-  technology: none
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]

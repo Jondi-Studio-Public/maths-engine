@@ -12,17 +12,17 @@ capability_gates: [modelling]
 answer: number
 sources:
 - topic: p12c_log_deriv_apply
-  technology: none
+  technology: required
   params: {mode: rate_at_x}
   difficulty: easy
   stages: [6]
 - topic: p12c_log_deriv_apply
-  technology: none
+  technology: required
   params: {mode: rate_at_resolved_x}
   difficulty: medium
   stages: [6]
 - topic: p12c_log_deriv_apply
-  technology: none
+  technology: required
   params: {mode: x_for_rate}
   difficulty: hard
   stages: [6, maintenance]

@@ -19,7 +19,7 @@ sources:
   - 1
   - 2
 - topic: r3e_cpi
-  technology: required
+  technology: none
   params: {}
   difficulty: medium
   stages:
