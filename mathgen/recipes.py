@@ -9,6 +9,7 @@ so ``make()``, ``grade()`` and skills use it unchanged. See ``docs/design/recipe
 
 from __future__ import annotations
 
+import inspect
 import os
 import re
 from collections.abc import Callable
@@ -236,7 +237,10 @@ def register_recipe(recipe: Recipe) -> str:
         return compose(recipe, rng, technology_active)
 
     generate.__name__ = topic
-    core.generator(topic, level=recipe.level)(generate)
+    # A recipe passes the technology flag to its subject, so it honours both modes. `technology=` exists once the
+    # technology-flag change is in `core.generator`; before that `make()` hands the keyword through anyway.
+    extra = {"technology": (True, False)} if "technology" in inspect.signature(core.generator).parameters else {}
+    core.generator(topic, level=recipe.level, **extra)(generate)
     return topic
 
 

@@ -95,6 +95,8 @@ def test_technology_flag_reaches_the_subject(toy):
     core.make(topic, seed=1)
     core.make(topic, seed=1, technology_active=True)
     assert seen == [False, True]
+    if hasattr(core, "TECHNOLOGY_MODES"):  # once the technology-flag change is in, the recipe declares both modes
+        assert core.TECHNOLOGY_MODES[topic] == frozenset({True, False})
 
 
 @pytest.mark.parametrize(
@@ -196,3 +198,8 @@ def test_a_declared_property_must_hold_on_every_draw(toy, monkeypatch):
         core.make(topic, seed=1)
     monkeypatch.setitem(recipe_vocabulary.PROPERTY_CHECKS, "linear_argument", lambda s: s.m > 0)
     assert core.make(topic, seed=1).parts[0].label == "a"
+
+
+def test_the_real_recipe_tree_loads():
+    """A malformed recipe in `recipes/` breaks the package import, so CI must see it here first."""
+    recipes.load_recipes()
