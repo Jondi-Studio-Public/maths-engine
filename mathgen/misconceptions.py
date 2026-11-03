@@ -63443,6 +63443,71 @@ _ENTRIES += (
         area="queueing-inventory",
     ),
     CatalogueEntry(
+        "eo-sum-parity-misjudged",
+        "Naming the wrong parity for a sum of two even or two odd functions: calling a sum of two odd functions even, or the reverse.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-mixed-sum-called-even-or-odd",
+        "Calling the sum of an even and an odd function even or odd, where it is neither.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-same-parity-sum-called-neither",
+        "Calling a sum of two even (or two odd) functions neither even nor odd, because the terms look different.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-both-even-and-odd",
+        "Choosing 'both even and odd' for a function that is only one of them; only the zero function is both.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-product-parity-misjudged",
+        "Naming the wrong parity for a product of an even and an odd function (an even function times an odd function is odd).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-product-odd-times-odd-called-odd",
+        "Calling the product of two odd functions odd, as for whole numbers; f(-x)g(-x) = f(x)g(x), so it is even.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-power-parity-misjudged",
+        "Judging the parity of a power x^n wrongly: taking x^n odd for even n (or the reverse), or calling a single power neither.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-phase-family-swapped",
+        "Swapping the two phase families: giving c = k*pi where c = pi/2 + k*pi is needed (sin and cos mixed up).",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-phase-single-value",
+        "Giving one value of the phase c and not every value (no '+ k*pi').",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-phase-period-2pi",
+        "Giving the phase family with period 2*pi (2k*pi) where period pi (k*pi) is needed, missing half the solutions.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-drops-trig-term",
+        "Evaluating only the polynomial term of h and leaving out the trig term.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-evaluates-at-c-zero",
+        "Evaluating h with c = 0 instead of the value of c just found.",
+        area="functions",
+    ),
+    CatalogueEntry(
+        "eo-evaluation-slip",
+        "Evaluating the trig term of h at the chosen point with the wrong sign or value.",
+        area="functions",
+    ),
+    CatalogueEntry(
         "tpp-normalisation-skips-the-divisor",
         "Setting c times d^(n + 1) equal to 1, forgetting the divisor n + 1 that integrating the power brings in.",
         area="statistics",

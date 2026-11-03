@@ -1,0 +1,15 @@
+id: methods_even_odd_1
+title: Even and odd functions, sums, products and phase shifts
+level: 12
+subject: even_odd
+asks:
+  - ask: sum_parity
+    marks: 1
+  - ask: product_parity
+    marks: 1
+  - ask: polynomial_term_parity
+    marks: 1
+  - ask: find_phase_shift_c
+    marks: 3
+  - ask: evaluate_at_multiple_of_pi
+    marks: 2
