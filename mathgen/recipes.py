@@ -72,6 +72,17 @@ class Subject:
         """An optional figure for the whole question (``mathgen.figures``)."""
         return None
 
+    def check_property(self, name: str) -> bool | None:
+        """Whether this drawn subject really has property ``name``; ``None`` when it cannot be tested here.
+
+        The one mechanism `compose` uses for every declared property: ``False`` fails the draw, ``True`` and
+        ``None`` pass. The default consults a check registered with ``@property_check`` in
+        ``mathgen.recipe_vocabulary``; `mathgen.recipe_expr.ExprSubject` overrides it with cheap checks against its
+        expression and witnesses.
+        """
+        check = PROPERTY_CHECKS.get(name)
+        return None if check is None else bool(check(self))
+
 
 @dataclass
 class AskContext:
@@ -206,8 +217,10 @@ def compose(recipe: Recipe, rng, technology_active: bool | None = None) -> dict:
     tech = technology_active if technology_active is not None else recipe.technology_active
     subj = cls.draw(rng, tech)
     subj.technology_active = tech
-    for prop in sorted(cls.properties & PROPERTY_CHECKS.keys()):
-        core.check(bool(PROPERTY_CHECKS[prop](subj)), f"subject {cls.name!r} declares {prop!r} but this draw lacks it")
+    for prop in sorted(cls.properties):
+        core.check(
+            subj.check_property(prop) is not False, f"subject {cls.name!r} declares {prop!r} but this draw lacks it"
+        )
     parts: list[dict] = []
     ctx = AskContext(label="", index=0)
     for i, (name, marks) in enumerate(recipe.asks):
