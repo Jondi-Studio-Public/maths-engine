@@ -13,18 +13,22 @@ prerequisites: [function-notation]
 answer: pair
 sources:
 - topic: pv1c_inverse_point
+  technology: none
   params: {variant: mirror_drawn}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1c_inverse_point
+  technology: none
   params: {variant: no_mirror}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1c_inverse_point
+  technology: none
   params: {variant: decreasing_negative}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1c_inverse_point
+  technology: none
   params: {variant: crossing_pair}
   difficulty: exam
   stages: [exam]

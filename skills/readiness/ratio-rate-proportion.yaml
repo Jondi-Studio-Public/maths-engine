@@ -10,6 +10,7 @@ prerequisites:
 answer: fraction
 sources:
 - topic: ratio
+  technology: none
   params:
     kind: simplify
   difficulty: easy
@@ -18,6 +19,7 @@ sources:
   - 1
   - 2
 - topic: ratio
+  technology: none
   params:
     kind: simplify
   difficulty: medium
@@ -25,6 +27,7 @@ sources:
   - 3
   - 4
 - topic: ratio
+  technology: none
   params:
     kind: mixed_units
   difficulty: hard

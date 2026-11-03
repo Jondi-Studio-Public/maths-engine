@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: grams_milligrams_convert
+  technology: none
   params: {variant: g_to_mg}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: grams_milligrams_convert
+  technology: none
   params: {variant: mg_to_g}
   difficulty: medium
   stages: [3, 4]
 - topic: grams_milligrams_convert
+  technology: none
   params: {variant: mixed_unit_total}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3c_dose_tablets
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

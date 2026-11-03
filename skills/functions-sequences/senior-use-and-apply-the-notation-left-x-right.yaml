@@ -14,18 +14,22 @@ prerequisites:
 answer: pair
 sources:
 - topic: pv1d_abs_vertex
+  technology: none
   params: {variant: marked}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1d_abs_vertex
+  technology: none
   params: {variant: unmarked}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1d_abs_vertex
+  technology: none
   params: {variant: two_graphs_lettered}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1d_abs_vertex
+  technology: none
   params: {variant: two_graphs_axis}
   difficulty: exam
   stages: [exam]

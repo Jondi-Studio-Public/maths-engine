@@ -8,6 +8,7 @@ prerequisites:
 answer: number
 sources:
 - topic: formula_plugin
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -15,12 +16,14 @@ sources:
   - 1
   - 2
 - topic: formula_plugin
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: formula_plugin
+  technology: none
   params: {unknown: input}
   difficulty: hard
   stages:

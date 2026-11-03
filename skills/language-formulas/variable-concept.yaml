@@ -7,6 +7,7 @@ prerequisites: []
 answer: mcq
 sources:
 - topic: variable_concept
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2, 3, 4, 5, 6, maintenance]

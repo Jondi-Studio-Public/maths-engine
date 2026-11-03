@@ -18,6 +18,7 @@ prerequisites:
 answer: number
 sources:
 - topic: fr2c_grid_area_perimeter
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -25,12 +26,14 @@ sources:
   - 1
   - 2
 - topic: fr2c_grid_area_perimeter
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: fr2c_grid_area_perimeter
+  technology: none
   params: {}
   difficulty: hard
   stages:

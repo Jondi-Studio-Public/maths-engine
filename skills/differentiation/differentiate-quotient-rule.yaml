@@ -8,6 +8,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: differentiation
+  technology: none
   params:
     kinds:
     - quotient_rule
@@ -17,6 +18,7 @@ sources:
   - 1
   - 2
 - topic: differentiation
+  technology: none
   params:
     kinds:
     - quotient_rule
@@ -25,6 +27,7 @@ sources:
   - 3
   - 4
 - topic: differentiation
+  technology: none
   params:
     kinds:
     - quotient_rule
@@ -34,11 +37,13 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2a_quotient_normal
+  technology: none
   params: {}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c1_quotient
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

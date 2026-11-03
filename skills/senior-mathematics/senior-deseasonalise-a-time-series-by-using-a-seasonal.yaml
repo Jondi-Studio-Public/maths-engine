@@ -6,6 +6,10 @@ domain: senior-mathematics
 year_level: ['12']
 description: 'Given a stated actual value and a seasonal index (as a bare percentage number, or a stated percentage change from the 100 baseline), compute the deseasonalised value (actual divided by index/100). Also inverts the operation (find the actual value given the deseasonalised value and index) and composes two deseasonalisations with a follow-on percentage-change comparison.'
 status: active
+technology: required
+technology: required
+technology: required
+technology: required
 placement_eligible: false
 prerequisites:
 - senior-calculate-seasonal-indices-by-using-the-average-percentage

@@ -11,18 +11,22 @@ prerequisites: [function-notation]
 answer: expression
 sources:
 - topic: inverse_one_to_one_function
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: inverse_one_to_one_function
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: inverse_one_to_one_function
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f1_inverse_mobius
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

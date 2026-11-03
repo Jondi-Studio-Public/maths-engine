@@ -9,6 +9,7 @@ prerequisites:
 answer: mcq
 sources:
 - topic: like_terms_select
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -16,12 +17,14 @@ sources:
   - 1
   - 2
 - topic: like_terms_select
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: like_terms_select
+  technology: none
   params: {}
   difficulty: hard
   stages:

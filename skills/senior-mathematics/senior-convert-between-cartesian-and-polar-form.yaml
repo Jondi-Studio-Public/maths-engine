@@ -21,18 +21,22 @@ prerequisites:
 answer: pair
 sources:
   - topic: cartesian_polar_convert
+    technology: none
     params: {variant: axis}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: cartesian_polar_convert
+    technology: none
     params: {variant: triple}
     difficulty: medium
     stages: [3, 4]
   - topic: cartesian_polar_convert
+    technology: required
     params: {variant: reverse}
     difficulty: hard
     stages: [5, 6, maintenance]
   - topic: cartesian_polar_convert
+    technology: required
     params: {variant: exam}
     difficulty: exam
     stages: [exam]

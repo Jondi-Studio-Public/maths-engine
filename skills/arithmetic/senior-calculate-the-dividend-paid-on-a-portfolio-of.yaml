@@ -12,10 +12,12 @@ prerequisites: [order-of-operations]
 answer: table
 sources:
 - topic: senior_dividend_portfolio_table
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: senior_dividend_portfolio_table
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]

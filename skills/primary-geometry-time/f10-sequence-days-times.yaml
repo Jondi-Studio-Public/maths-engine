@@ -10,14 +10,17 @@ prerequisites: [tell-time-to-hour]
 answer: ordered_list
 sources:
 - topic: day_time_sequencing
+  technology: none
   params: {window: day_parts}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: day_time_sequencing
+  technology: none
   params: {window: weekdays, run_lengths: [4]}
   difficulty: medium
   stages: [3, 4]
 - topic: day_time_sequencing
+  technology: none
   params: {window: weekdays, run_lengths: [5, 6]}
   difficulty: hard
   stages: [5, 6, maintenance]

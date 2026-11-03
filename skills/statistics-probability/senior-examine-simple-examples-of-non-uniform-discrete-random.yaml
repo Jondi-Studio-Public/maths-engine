@@ -13,15 +13,19 @@ prerequisites:
 answer: fraction
 sources:
 - topic: non_uniform_discrete_random_variable
+  technology: none
   difficulty: easy
   stages: [6]
 - topic: non_uniform_discrete_random_variable
+  technology: none
   difficulty: medium
   stages: [6]
 - topic: non_uniform_discrete_random_variable
+  technology: none
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_s3_rv
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

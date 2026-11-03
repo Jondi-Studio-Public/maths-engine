@@ -10,18 +10,22 @@ prerequisites: [solve-simultaneous-equations, matrix-rank-small]
 answer: matrix
 sources:
 - topic: fy1la_rref
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fy1la_rref
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: fy1la_rref
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_fy1la_rref
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

@@ -17,6 +17,7 @@ prerequisites:
 answer: number
 sources:
 - topic: ds_sample_vs_pop_gap
+  technology: none
   params:
     tier: easy
   difficulty: easy
@@ -25,6 +26,7 @@ sources:
   - 1
   - 2
 - topic: ds_sample_vs_pop_gap
+  technology: none
   params:
     tier: medium
   difficulty: medium
@@ -32,6 +34,7 @@ sources:
   - 3
   - 4
 - topic: ds_sample_vs_pop_gap
+  technology: none
   params:
     tier: hard
   difficulty: hard
@@ -40,6 +43,7 @@ sources:
   - 6
   - maintenance
 - topic: ds_sample_vs_pop_exam
+  technology: none
   params: {}
   difficulty: exam
   stages:

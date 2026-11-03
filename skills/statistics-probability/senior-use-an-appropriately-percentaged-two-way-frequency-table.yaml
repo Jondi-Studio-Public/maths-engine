@@ -20,10 +20,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: senior_percentaged_two_way_table
+  technology: required
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: senior_percentaged_two_way_table
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

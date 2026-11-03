@@ -11,14 +11,17 @@ prerequisites: [convert-metric-length]
 answer: mcq
 sources:
 - topic: estimate_area_reference
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [6]
 - topic: estimate_area_reference
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [6]
 - topic: estimate_area_reference
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]

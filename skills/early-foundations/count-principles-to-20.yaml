@@ -13,14 +13,17 @@ prerequisites: [count-to-10, f10-number-represent-order-to-20]
 answer: number
 sources:
 - topic: ey2a_count_principles
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey2a_count_principles
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: ey2a_count_principles
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

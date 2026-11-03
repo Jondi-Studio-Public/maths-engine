@@ -11,6 +11,7 @@ prerequisites: [place-value-to-100]
 answer: mcq
 sources:
 - topic: early_addition
+  technology: none
   params: {total_hi: 100}
   difficulty: easy
 misconceptions: []

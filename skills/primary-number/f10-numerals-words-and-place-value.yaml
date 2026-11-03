@@ -12,6 +12,7 @@ prerequisites:
 answer: number
 sources:
 - topic: fr2b_numerals_place_value
+  technology: none
   params:
     tier: easy
   difficulty: easy
@@ -20,6 +21,7 @@ sources:
   - 1
   - 2
 - topic: fr2b_numerals_place_value
+  technology: none
   params:
     tier: medium
   difficulty: medium
@@ -27,6 +29,7 @@ sources:
   - 3
   - 4
 - topic: fr2b_numerals_place_value
+  technology: none
   params:
     tier: hard
   difficulty: hard

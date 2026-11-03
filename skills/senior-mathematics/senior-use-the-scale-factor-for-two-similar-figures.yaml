@@ -13,18 +13,22 @@ prerequisites:
 answer: number
 sources:
 - topic: similar_figure_scale_factor_length
+  technology: none
   params: {mode: direct_ratio}
   difficulty: easy
   stages: [6]
 - topic: similar_figure_scale_factor_length
+  technology: none
   params: {mode: derive_from_pair}
   difficulty: medium
   stages: [6]
 - topic: similar_figure_scale_factor_length
+  technology: none
   params: {mode: derive_perimeter}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3b_similar_scale
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

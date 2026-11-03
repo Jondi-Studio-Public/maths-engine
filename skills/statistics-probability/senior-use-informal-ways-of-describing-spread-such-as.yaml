@@ -12,12 +12,15 @@ prerequisites:
 answer: mcq
 sources:
 - topic: use_informal_ways_of_describing_spread_such_as
+  technology: none
   difficulty: easy
   stages: [6]
 - topic: use_informal_ways_of_describing_spread_such_as
+  technology: none
   difficulty: medium
   stages: [6]
 - topic: use_informal_ways_of_describing_spread_such_as
+  technology: none
   difficulty: hard
   stages: [6, maintenance]
 misconceptions:

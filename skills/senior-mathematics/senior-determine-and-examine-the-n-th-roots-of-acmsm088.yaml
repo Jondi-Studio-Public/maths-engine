@@ -21,18 +21,22 @@ prerequisites:
 answer: pair
 sources:
   - topic: nth_roots_of_complex_number
+    technology: none
     params: {variant: polar_principal}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: nth_roots_of_complex_number
+    technology: none
     params: {variant: polar_k}
     difficulty: medium
     stages: [3, 4]
   - topic: nth_roots_of_complex_number
+    technology: none
     params: {variant: cartesian_axis}
     difficulty: hard
     stages: [5, 6, maintenance]
   - topic: exd_x_r3b_nth_roots
+    technology: none
     params: {tier: exam}
     difficulty: exam
     stages:

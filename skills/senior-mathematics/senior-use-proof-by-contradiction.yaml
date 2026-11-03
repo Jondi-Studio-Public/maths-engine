@@ -12,18 +12,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: proof_by_contradiction_identify
+  technology: none
   params: {variant: single_simple}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: proof_by_contradiction_identify
+  technology: none
   params: {variant: single_computed}
   difficulty: medium
   stages: [3, 4]
 - topic: proof_by_contradiction_identify
+  technology: none
   params: {variant: compound_claim}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pc1_contradiction_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

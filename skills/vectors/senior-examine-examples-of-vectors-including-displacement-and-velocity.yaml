@@ -12,23 +12,28 @@ prerequisites:
 answer: number
 sources:
 - topic: examine_examples_of_vectors_including_displacement_and_velocity
+  technology: none
   params: {variant: single_leg}
   difficulty: easy
   stages: [6]
 - topic: examine_examples_of_vectors_including_displacement_and_velocity
+  technology: none
   params: {variant: velocity_with_red_herring}
   difficulty: medium
   stages: [6]
 - topic: examine_examples_of_vectors_including_displacement_and_velocity
+  technology: none
   params: {variant: two_leg_journey}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2d_velocity_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_g2_velocity_composition
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

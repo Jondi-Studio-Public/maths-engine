@@ -8,6 +8,7 @@ prerequisites:
 answer: number
 sources:
 - topic: integration
+  technology: none
   params:
     kinds:
     - definite
@@ -17,6 +18,7 @@ sources:
   - 1
   - 2
 - topic: integration
+  technology: none
   params:
     kinds:
     - definite
@@ -25,6 +27,7 @@ sources:
   - 3
   - 4
 - topic: integration
+  technology: none
   params:
     kinds:
     - definite
@@ -34,12 +37,14 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2b_area_between_chain
+  technology: none
   params:
     tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c2_definite_integral
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

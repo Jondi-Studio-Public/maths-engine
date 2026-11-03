@@ -21,18 +21,22 @@ prerequisites:
 answer: pair
 sources:
   - topic: complex_number_as_point
+    technology: none
     params: {variant: direct}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: complex_number_as_point
+    technology: none
     params: {variant: degenerate}
     difficulty: medium
     stages: [3, 4]
   - topic: complex_number_as_point
+    technology: none
     params: {variant: sum}
     difficulty: hard
     stages: [5, 6, maintenance]
   - topic: exd_x_r3f_complex_parallelogram
+    technology: none
     params: {tier: exam}
     difficulty: exam
     stages:

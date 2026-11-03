@@ -10,18 +10,22 @@ prerequisites: [f10-estimate-counts-and-check-reasonableness, round-decimals]
 answer: number
 sources:
 - topic: p9e_round_decimal_accuracy
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p9e_round_decimal_accuracy
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: p9e_round_decimal_accuracy
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr4_round_cash_total
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

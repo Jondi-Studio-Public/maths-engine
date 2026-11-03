@@ -12,6 +12,7 @@ prerequisites:
 answer: number
 sources:
 - topic: natural_logarithm_define
+  technology: none
   params: {variant: ln_of_e_power}
   difficulty: easy
   stages: [6]
@@ -20,10 +21,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: natural_logarithm_define
+  technology: required
   params: {variant: e_to_the_k}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f1_ln_exponential_equation
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

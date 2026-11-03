@@ -9,18 +9,22 @@ prerequisites: [f10-exponent-laws-integer-variable, function-notation]
 answer: fraction
 sources:
 - topic: p11d_exponential_common_base_solve
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p11d_exponential_common_base_solve
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p11d_exponential_common_base_solve
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_f0_exponential_matching
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

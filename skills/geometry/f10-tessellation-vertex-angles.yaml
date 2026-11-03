@@ -10,18 +10,22 @@ prerequisites: [f10-polygon-angle-sums]
 answer: number
 sources:
 - topic: fr2a_tessellation_vertex
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fr2a_tessellation_vertex
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: fr2a_tessellation_vertex
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_w7f_tessellation_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

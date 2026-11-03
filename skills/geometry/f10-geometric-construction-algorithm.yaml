@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: f10_geometric_construction_algorithm
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: f10_geometric_construction_algorithm
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: f10_geometric_construction_algorithm
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc2_construction_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

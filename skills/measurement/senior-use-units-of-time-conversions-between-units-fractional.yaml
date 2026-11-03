@@ -11,14 +11,17 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: use_units_of_time_conversions_between_units_fractional
+  technology: none
   params: {mode: minutes_hours_direct}
   difficulty: easy
   stages: [6]
 - topic: use_units_of_time_conversions_between_units_fractional
+  technology: none
   params: {mode: hours_minutes_compound}
   difficulty: medium
   stages: [6]
 - topic: use_units_of_time_conversions_between_units_fractional
+  technology: none
   params: {mode: fraction_of_hour_to_minutes}
   difficulty: hard
   stages: [6, maintenance]

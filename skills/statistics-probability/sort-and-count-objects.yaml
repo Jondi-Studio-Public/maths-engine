@@ -14,14 +14,17 @@ prerequisites: [count-to-10, compare-quantities-to-10]
 answer: number
 sources:
 - topic: ey_sort_objects
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey_sort_objects
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: ey_sort_objects
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

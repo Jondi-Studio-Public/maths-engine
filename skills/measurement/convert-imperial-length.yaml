@@ -11,6 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r3j_imperial
+  technology: none
   params: {}
   difficulty: easy
   stages:

@@ -11,6 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: f10_trig_ratios_similarity
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
@@ -19,10 +20,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: f10_trig_ratios_similarity
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_u7_two_ramps_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

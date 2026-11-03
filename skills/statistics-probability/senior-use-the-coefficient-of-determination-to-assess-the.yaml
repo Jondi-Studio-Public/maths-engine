@@ -20,10 +20,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p19b_coefficient_determination
+  technology: required
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19b_coefficient_determination
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

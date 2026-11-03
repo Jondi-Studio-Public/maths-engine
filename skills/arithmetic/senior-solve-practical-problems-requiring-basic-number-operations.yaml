@@ -11,18 +11,22 @@ prerequisites: [order-of-operations]
 answer: number
 sources:
 - topic: p14b_practical_number_operations
+  technology: none
   params: {}
   difficulty: easy
   stages: [5, 6, maintenance]
 - topic: p14b_practical_number_operations
+  technology: none
   params: {}
   difficulty: medium
   stages: [5, 6, maintenance]
 - topic: p14b_practical_number_operations
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2i_group_purchase
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

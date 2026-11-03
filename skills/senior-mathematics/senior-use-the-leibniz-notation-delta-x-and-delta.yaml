@@ -13,18 +13,22 @@ prerequisites:
 answer: pair
 sources:
 - topic: p9c_leibniz_delta_x_delta_y_increments
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p9c_leibniz_delta_x_delta_y_increments
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p9c_leibniz_delta_x_delta_y_increments
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_h5_increments_unknown_coefficient
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -9,6 +9,7 @@ prerequisites:
 answer: mcq
 sources:
 - topic: propositional_truth_value
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -16,12 +17,14 @@ sources:
   - 1
   - 2
 - topic: propositional_truth_value
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: propositional_truth_value
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -29,6 +32,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_sc4_prop_eval
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

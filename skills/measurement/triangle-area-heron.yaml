@@ -11,6 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: r3j_heron
+  technology: none
   params: {}
   difficulty: easy
   stages:

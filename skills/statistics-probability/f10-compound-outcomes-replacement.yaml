@@ -14,18 +14,22 @@ prerequisites:
 answer: ordered_list
 sources:
 - topic: p11d_compound_outcomes_replacement
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p11d_compound_outcomes_replacement
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p11d_compound_outcomes_replacement
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2x_compound_outcomes_replacement
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

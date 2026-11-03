@@ -11,14 +11,17 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: find_surface_area_of_familiar_solids
+  technology: none
   params: {mode: cube}
   difficulty: easy
   stages: [6]
 - topic: find_surface_area_of_familiar_solids
+  technology: none
   params: {mode: rectangular_prism}
   difficulty: medium
   stages: [6]
 - topic: find_surface_area_of_familiar_solids
+  technology: none
   params: {mode: triangular_prism}
   difficulty: hard
   stages: [6, maintenance]

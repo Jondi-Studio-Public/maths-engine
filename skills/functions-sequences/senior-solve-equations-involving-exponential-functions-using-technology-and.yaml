@@ -21,10 +21,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p14a_solve_exp_technology
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p14a_solve_exp_technology
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

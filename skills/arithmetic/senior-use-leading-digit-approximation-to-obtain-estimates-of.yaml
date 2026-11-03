@@ -11,18 +11,22 @@ prerequisites: [order-of-operations]
 answer: number
 sources:
 - topic: leading_digit_estimate
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: leading_digit_estimate
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: leading_digit_estimate
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_n2_leading_digit_error
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

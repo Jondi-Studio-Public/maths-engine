@@ -12,14 +12,17 @@ prerequisites: [decimal-place-value]
 answer: number
 sources:
 - topic: round_decimal
+  technology: none
   params: {target_places: 0, whole_hi: 50}
   stages: [0, 1, 2]
   difficulty: easy
 - topic: round_decimal
+  technology: none
   params: {target_places: 1, whole_hi: 100}
   stages: [3, 4]
   difficulty: medium
 - topic: round_decimal
+  technology: none
   params: {target_places: 2, whole_hi: 100}
   stages: [5, 6, maintenance]
   difficulty: hard

@@ -12,18 +12,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: similarity_conditions_classify
+  technology: none
   params: {mode: aaa}
   difficulty: easy
   stages: [6]
 - topic: similarity_conditions_classify
+  technology: none
   params: {mode: sss}
   difficulty: medium
   stages: [6]
 - topic: similarity_conditions_classify
+  technology: none
   params: {mode: sas}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_sc6_similarity
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

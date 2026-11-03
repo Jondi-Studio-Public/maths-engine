@@ -8,23 +8,27 @@ prerequisites:
 answer: number
 sources:
 - topic: sequence_term_from_rule
+  technology: none
   difficulty: easy
   stages:
   - 0
   - 1
   - 2
 - topic: sequence_term_from_rule
+  technology: none
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: sequence_term_from_rule
+  technology: none
   difficulty: hard
   stages:
   - 5
   - 6
   - maintenance
 - topic: exd_x_f0_sequence_recurrence
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

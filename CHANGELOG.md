@@ -13,6 +13,7 @@ Each question's id (below) tells you when the question behind it has changed.
 ### Added
 
 - `technology_active` on `make()` and `engine.make_for_skill()`: `True` asks for a calculator-style question, `False` for a hand-solvable one with exact answers, `None` (the default) changes nothing. A generator declares the modes it honours with `@generator(..., technology=(True, False))`; asking for a mode it has not declared raises `ValueError`. Skills and sources gain an optional `technology` label (`required`, `either`, `none`); untagged sources are hidden when technology is off. `skills_for_technology()` and `sources_for_technology()` apply the filter.
+- Technology tags on the skill library, applied by `scripts/tag_technology.py`: 12 skills that name a tool in their own wording are `required`; about 4,500 sources whose rendered questions never ask for rounding or a tool are `none`; about 370 hard or exam tiers that ask for decimal places or a calculator are `required`. About 350 sources that ask for rounding in other cases are left untagged (hidden with technology off) until sorted by hand.
 - Interactive graph answers. Seven answer kinds (`half_planes`, `line_graph`, `number_line_set`, `polygon`, `curve`, `bars`,
   `edges`) read what a learner draws on a graph, as JSON a front end sends or as a typed form. Points are compared as
   exact fractions on the figure's snap grid, with no tolerance, and unreadable or oversized replies are marked wrong.

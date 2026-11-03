@@ -23,10 +23,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: fy1ms_t_test_two_sample
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_fy1ms_t_test_two_sample
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

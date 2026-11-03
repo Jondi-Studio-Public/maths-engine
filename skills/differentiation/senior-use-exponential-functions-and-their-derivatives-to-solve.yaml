@@ -20,10 +20,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p12c_exp_deriv_apply
+  technology: required
   params: {mode: time_for_rate}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2b_exp_model_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

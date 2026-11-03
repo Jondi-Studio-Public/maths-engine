@@ -10,6 +10,7 @@ prerequisites:
 answer: number
 sources:
 - topic: sc_trapezium
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
@@ -18,10 +19,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: sc_trapezium
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: sc_trapezium_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -13,21 +13,25 @@ prerequisites:
 answer: number
 sources:
 - topic: radicals_fractional_indices
+  technology: none
   params:
     variant: root_only
   difficulty: easy
   stages: [6]
 - topic: radicals_fractional_indices
+  technology: none
   params:
     variant: root_then_power
   difficulty: medium
   stages: [6]
 - topic: radicals_fractional_indices
+  technology: none
   params:
     variant: unfamiliar_root
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f3_fracidx
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

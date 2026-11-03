@@ -11,6 +11,7 @@ prerequisites:
 answer: number
 sources:
 - topic: fy1ca_ivt_bisection
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -18,12 +19,14 @@ sources:
   - 1
   - 2
 - topic: fy1ca_ivt_bisection
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: fy1ca_ivt_bisection
+  technology: required
   params: {}
   difficulty: hard
   stages:
@@ -31,6 +34,7 @@ sources:
   - 6
   - maintenance
 - topic: fy1ca_ivt_bisection_exam
+  technology: required
   params: {}
   difficulty: exam
   stages:

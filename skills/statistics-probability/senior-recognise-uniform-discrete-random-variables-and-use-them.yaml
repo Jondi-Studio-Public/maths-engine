@@ -13,18 +13,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: p19c_uniform_discrete_outcome
+  technology: none
   params: {variant: stated_count}
   difficulty: easy
   stages: [6]
 - topic: p19c_uniform_discrete_outcome
+  technology: none
   params: {variant: derived_count}
   difficulty: medium
   stages: [6]
 - topic: p19c_uniform_discrete_outcome
+  technology: none
   params: {variant: hard_read}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19c_uniform_discrete_outcome
+  technology: none
   params: {variant: uniform_vs_nonuniform}
   difficulty: exam
   stages: [exam]

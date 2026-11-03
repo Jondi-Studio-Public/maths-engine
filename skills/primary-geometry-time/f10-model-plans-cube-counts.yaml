@@ -15,18 +15,22 @@ prerequisites: [f10-shape-features-classification]
 answer: number
 sources:
 - topic: grid_model_plans
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: grid_model_plans
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: grid_model_plans
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_w7f_model_plan_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

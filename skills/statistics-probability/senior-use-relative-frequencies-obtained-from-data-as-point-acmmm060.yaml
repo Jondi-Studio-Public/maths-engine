@@ -11,18 +11,22 @@ prerequisites: [simple-event-probability]
 answer: fraction
 sources:
 - topic: p16a_conditional_independence
+  technology: none
   params: {variant: direct_counts}
   difficulty: easy
   stages: [6]
 - topic: p16a_conditional_independence
+  technology: none
   params: {variant: totals_given}
   difficulty: medium
   stages: [6]
 - topic: p16a_conditional_independence
+  technology: none
   params: {variant: percentages}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p16a_conditional_independence
+  technology: none
   params: {variant: three_way}
   difficulty: exam
   stages: [exam]

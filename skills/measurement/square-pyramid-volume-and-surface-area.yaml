@@ -19,6 +19,7 @@ prerequisites:
 answer: pair
 sources:
 - topic: exd_e5_square_pyramid_volume_and_surface_area
+  technology: none
   params:
     tier: easy
   difficulty: easy
@@ -27,6 +28,7 @@ sources:
   - 1
   - 2
 - topic: exd_e5_square_pyramid_volume_and_surface_area
+  technology: none
   params:
     tier: medium
   difficulty: medium
@@ -34,6 +36,7 @@ sources:
   - 3
   - 4
 - topic: exd_e5_square_pyramid_volume_and_surface_area
+  technology: none
   params:
     tier: hard
   difficulty: hard
@@ -47,6 +50,7 @@ sources:
   stages:
   - exam
 - topic: exd_e5_square_pyramid_volume_and_surface_area
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

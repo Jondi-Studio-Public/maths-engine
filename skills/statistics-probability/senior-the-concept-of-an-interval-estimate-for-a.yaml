@@ -19,10 +19,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: interval_estimate_proportion_margin
+  technology: none
   params: {variant: solve_for_n}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_s4_interval
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

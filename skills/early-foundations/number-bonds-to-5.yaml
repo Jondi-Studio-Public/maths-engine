@@ -11,6 +11,7 @@ prerequisites: [before-and-after-to-10]
 answer: mcq
 sources:
 - topic: number_bond
+  technology: none
   params: {total: 5}
   difficulty: easy
 misconceptions: []

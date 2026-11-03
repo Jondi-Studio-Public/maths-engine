@@ -12,18 +12,22 @@ prerequisites: [simple-interest]
 answer: number
 sources:
 - topic: solve_small_scale_network_flow_problems_including_the
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: solve_small_scale_network_flow_problems_including_the
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: solve_small_scale_network_flow_problems_including_the
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3f_network_flow
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

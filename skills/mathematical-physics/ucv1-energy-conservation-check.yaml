@@ -21,10 +21,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: p14f_energy_conservation_check
+  technology: required
   params: {variant: implicit, mk_hi: 8, xv_hi: 6}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3g_oscillator_energy
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

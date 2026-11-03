@@ -22,10 +22,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p12d_outlier_effect_mean
+  technology: required
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p12d_outlier_effect_mean
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

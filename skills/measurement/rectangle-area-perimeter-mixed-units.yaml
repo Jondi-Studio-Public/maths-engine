@@ -10,6 +10,7 @@ prerequisites: [rectangle-area, rectangle-perimeter, convert-metric-length]
 answer: number
 sources:
 - topic: rectangle_mixed_unit_area_perimeter
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [6]

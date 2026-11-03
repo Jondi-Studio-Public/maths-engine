@@ -12,18 +12,22 @@ prerequisites: [fraction-decimal-percent]
 answer: number
 sources:
 - topic: percentage_quantity
+  technology: none
   params: {kind: amount, percents: [10, 50], units_hi: 10}
   stages: [0, 1, 2]
   difficulty: easy
 - topic: percentage_quantity
+  technology: none
   params: {kind: amount, percents: [10, 20, 25, 50], units_hi: 15}
   stages: [3, 4]
   difficulty: medium
 - topic: percentage_quantity
+  technology: none
   params: {kind: amount, percents: [5, 10, 20, 25, 50, 75], units_hi: 20, find_whole: true}
   stages: [5, 6, maintenance]
   difficulty: hard
 - topic: exd_x_pr3_percentage_quantity
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

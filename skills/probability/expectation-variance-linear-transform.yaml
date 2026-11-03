@@ -17,10 +17,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: r3a_linear_transform
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3a_linear_transform
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

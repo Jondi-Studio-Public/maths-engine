@@ -11,14 +11,17 @@ prerequisites: [order-of-operations]
 answer: number
 sources:
 - topic: p7d_complete_rate_calculations
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p7d_complete_rate_calculations
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p7d_complete_rate_calculations
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]

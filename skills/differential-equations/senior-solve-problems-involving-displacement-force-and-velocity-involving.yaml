@@ -19,10 +19,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p13b_vector_resultant_angle
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p13b_vector_resultant_angle
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

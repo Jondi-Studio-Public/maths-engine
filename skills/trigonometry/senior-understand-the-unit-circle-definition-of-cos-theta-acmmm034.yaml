@@ -12,18 +12,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: unit_circle_tan_evaluate
+  technology: none
   params: {variant: quadrant_one}
   difficulty: easy
   stages: [6]
 - topic: unit_circle_tan_evaluate
+  technology: none
   params: {variant: signed_quadrant}
   difficulty: medium
   stages: [6]
 - topic: unit_circle_tan_evaluate
+  technology: none
   params: {variant: mixed_with_quadrantal}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f5_unitcircle
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

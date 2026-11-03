@@ -11,18 +11,22 @@ prerequisites: [simple-interest]
 answer: number
 sources:
 - topic: determine_the_optimum_assignment_s_by_inspection_for
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: determine_the_optimum_assignment_s_by_inspection_for
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: determine_the_optimum_assignment_s_by_inspection_for
+  technology: none
   params: {blocked: 3}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3e_assignment_reduction
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

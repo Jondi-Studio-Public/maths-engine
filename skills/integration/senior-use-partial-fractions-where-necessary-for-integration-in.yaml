@@ -11,23 +11,28 @@ prerequisites:
 answer: expression
 sources:
 - topic: use_partial_fractions_where_necessary_for_integration_in
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: use_partial_fractions_where_necessary_for_integration_in
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: use_partial_fractions_where_necessary_for_integration_in
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2c_partial_fractions
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c4_partial_fractions
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

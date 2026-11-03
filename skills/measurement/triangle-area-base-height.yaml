@@ -11,18 +11,22 @@ prerequisites: [rectangle-area, fraction-of-quantity]
 answer: number
 sources:
 - topic: triangle_area_base_height
+  technology: none
   params: {base_hi: 8, height_hi: 8, figure: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: triangle_area_base_height
+  technology: none
   params: {base_hi: 16, height_hi: 16, figure: true, units: true}
   difficulty: medium
   stages: [3, 4]
 - topic: triangle_area_base_height
+  technology: none
   params: {base_hi: 30, height_hi: 24, slant: true, figure: true, units: true}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_m6_triangle_sails
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

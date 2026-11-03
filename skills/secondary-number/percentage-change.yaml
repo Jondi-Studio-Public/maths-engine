@@ -8,6 +8,7 @@ prerequisites:
 answer: number
 sources:
 - topic: w3_percentage_change
+  technology: none
   params: {}
   difficulty: easy
   stages:

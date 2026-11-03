@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: geometric_nth_term_formula
+  technology: none
   params: {variant: find_t_n}
   difficulty: easy
   stages: [6]
 - topic: geometric_nth_term_formula
+  technology: none
   params: {variant: find_r}
   difficulty: medium
   stages: [6]
 - topic: geometric_nth_term_formula
+  technology: none
   params: {variant: find_n}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f3_geoformula
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

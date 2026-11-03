@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: convert_energy_units
+  technology: none
   params: {mode: j_kj}
   difficulty: easy
   stages: [6]
 - topic: convert_energy_units
+  technology: none
   params: {mode: kj_mj}
   difficulty: medium
   stages: [6]
 - topic: convert_energy_units
+  technology: none
   params: {mode: kwh_kj}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m4_energy_units_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

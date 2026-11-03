@@ -33,10 +33,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p16b_phat_standardise
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p16b_phat_standardise
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

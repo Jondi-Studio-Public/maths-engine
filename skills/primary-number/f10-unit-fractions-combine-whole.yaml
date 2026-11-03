@@ -12,18 +12,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: unit_fractions_combine_whole
+  technology: none
   params: {shape: "multiple", wide: true}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: unit_fractions_combine_whole
+  technology: none
   params: {shape: "complete_the_whole"}
   difficulty: medium
   stages: [3, 4]
 - topic: unit_fractions_combine_whole
+  technology: none
   params: {shape: "complete_two_parts"}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr5_serves_shared
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -11,6 +11,7 @@ prerequisites: [skip-count-2-5-10]
 answer: mcq
 sources:
 - topic: equal_groups
+  technology: none
   params: {groups_hi: 5, each_hi: 5}
   difficulty: easy
 misconceptions: []

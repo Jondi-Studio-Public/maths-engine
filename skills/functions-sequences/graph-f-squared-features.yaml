@@ -15,18 +15,22 @@ prerequisites: [function-notation, senior-graph-reciprocal-abs-compare]
 answer: pair
 sources:
 - topic: gt_f_squared
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: gt_f_squared
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: gt_f_squared
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: gt_f_squared_exam
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

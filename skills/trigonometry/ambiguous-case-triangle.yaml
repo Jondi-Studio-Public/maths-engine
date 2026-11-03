@@ -19,10 +19,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: r3g_ambiguous_case
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: r3g_exam_ambiguous_case
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

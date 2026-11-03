@@ -11,14 +11,17 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: chords_equal_length_equal_angles
+  technology: none
   params: {mode: forward}
   difficulty: easy
   stages: [6]
 - topic: chords_equal_length_equal_angles
+  technology: none
   params: {mode: converse}
   difficulty: medium
   stages: [6]
 - topic: chords_equal_length_equal_angles
+  technology: none
   params: {mode: chained}
   difficulty: hard
   stages: [6, maintenance]

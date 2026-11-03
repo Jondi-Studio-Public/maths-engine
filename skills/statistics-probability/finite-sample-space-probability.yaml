@@ -10,18 +10,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: finite_sample_space_probability
+  technology: none
   params: {space_size: 6, pool_hi: 10, event_type: "single"}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: finite_sample_space_probability
+  technology: none
   params: {space_size: 8, pool_hi: 14, event_type: "multiple"}
   difficulty: medium
   stages: [3, 4]
 - topic: finite_sample_space_probability
+  technology: none
   params: {space_size: 10, pool_hi: 20, event_type: "intersection"}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_s2_sample_space
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

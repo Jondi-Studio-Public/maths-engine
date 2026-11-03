@@ -8,6 +8,7 @@ prerequisites: [f10-estimate-counts-and-check-reasonableness]
 answer: number
 sources:
 - topic: measurement_error_interpretation
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]

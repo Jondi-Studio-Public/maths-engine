@@ -12,18 +12,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: equivalent_fraction_related_denominator
+  technology: none
   params: {shape: "direct"}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: equivalent_fraction_related_denominator
+  technology: none
   params: {shape: "named"}
   difficulty: medium
   stages: [3, 4]
 - topic: equivalent_fraction_related_denominator
+  technology: none
   params: {shape: "backward"}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr5_trail_markers
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

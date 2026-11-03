@@ -12,14 +12,17 @@ prerequisites: [fraction-of-quantity, decimal-place-value]
 answer: mcq
 sources:
 - topic: fraction_decimal_percent
+  technology: none
   params: {denominators: [2, 4, 5, 10]}
   stages: [0, 1, 2]
   difficulty: easy
 - topic: fraction_decimal_percent
+  technology: none
   params: {denominators: [2, 4, 5, 10, 20]}
   stages: [3, 4]
   difficulty: medium
 - topic: fraction_decimal_percent
+  technology: none
   params: {denominators: [2, 4, 5, 10, 20, 25], reverse_directions: true, allow_improper: true}
   stages: [5, 6, maintenance]
   difficulty: hard

@@ -15,21 +15,25 @@ prerequisites:
 answer: mcq
 sources:
 - topic: p13b_formulate_de
+  technology: none
   params:
     variant: easy
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p13b_formulate_de
+  technology: none
   params:
     variant: medium
   difficulty: medium
   stages: [3, 4]
 - topic: p13b_formulate_de
+  technology: none
   params:
     variant: hard
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3i_mixing_rates
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -11,23 +11,28 @@ prerequisites: [simple-interest]
 answer: number
 sources:
 - topic: use_forward_and_backward_scanning_to_determine_the
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: use_forward_and_backward_scanning_to_determine_the
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: use_forward_and_backward_scanning_to_determine_the
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2e_network_missing
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_g6_missing_duration
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

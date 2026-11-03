@@ -13,18 +13,22 @@ prerequisites: [function-notation]
 answer: pair
 sources:
 - topic: pv1c_translated_point
+  technology: none
   params: {variant: shift_up}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1c_translated_point
+  technology: none
   params: {variant: either_direction}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1c_translated_point
+  technology: none
   params: {variant: steep_same_height_trap}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1c_translated_point
+  technology: none
   params: {variant: line_both_readings}
   difficulty: exam
   stages: [exam]

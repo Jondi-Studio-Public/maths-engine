@@ -11,18 +11,22 @@ prerequisites:
 answer: number
 sources:
 - topic: timezone_call_window_overlap
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: timezone_call_window_overlap
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: timezone_call_window_overlap
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc6_call_window
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

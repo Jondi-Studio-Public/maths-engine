@@ -14,6 +14,10 @@ description: 'Given bounded, fully specified inputs, calculate probabilities and
   and, on the exam tier, solving for a missing distribution parameter (mu or sigma) given the other
   parameter and a stated event proportion and threshold.'
 status: active
+technology: required
+technology: required
+technology: required
+technology: required
 placement_eligible: false
 prerequisites:
 - simple-event-probability

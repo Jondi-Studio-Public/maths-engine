@@ -10,14 +10,17 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: pv0c_tangent_secant
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [6]
 - topic: pv0c_tangent_secant
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [6]
 - topic: pv0c_tangent_secant
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]

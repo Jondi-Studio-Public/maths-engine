@@ -11,14 +11,17 @@ prerequisites: [recognise-numerals-to-10, order-numbers-to-10]
 answer: ordered_list
 sources:
 - topic: order_to_twenty
+  technology: none
   params: {count: [3, 4], min_gap: 4, force_zero: false, min_close_pairs: 0}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: order_to_twenty
+  technology: none
   params: {count: 4, force_zero: false, min_close_pairs: 1}
   difficulty: medium
   stages: [3, 4]
 - topic: order_to_twenty
+  technology: none
   params: {count: 5, force_zero: true, min_close_pairs: 2}
   difficulty: hard
   stages: [5, 6, maintenance]

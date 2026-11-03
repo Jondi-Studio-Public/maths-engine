@@ -11,6 +11,7 @@ prerequisites: [number-bonds-to-10]
 answer: mcq
 sources:
 - topic: early_addition
+  technology: none
   params: {total_hi: 10}
   difficulty: easy
 misconceptions: []

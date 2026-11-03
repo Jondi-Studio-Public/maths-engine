@@ -31,6 +31,7 @@ sources:
   - 3
   - 4
 - topic: fpm_sample_size
+  technology: required
   params:
     tier: hard
   difficulty: hard
@@ -39,6 +40,7 @@ sources:
   - 6
   - maintenance
 - topic: fpm_sample_size_exam
+  technology: required
   params: {}
   difficulty: exam
   stages:

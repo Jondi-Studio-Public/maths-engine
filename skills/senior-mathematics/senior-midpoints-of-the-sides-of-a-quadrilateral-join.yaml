@@ -12,18 +12,22 @@ prerequisites:
 answer: pair
 sources:
 - topic: midpoints_of_the_sides_of_a_quadrilateral_join
+  technology: none
   params: {variant: easy, coord_lo: 0, coord_hi: 6}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: midpoints_of_the_sides_of_a_quadrilateral_join
+  technology: none
   params: {variant: medium, coord_lo: -8, coord_hi: 8}
   difficulty: medium
   stages: [3, 4]
 - topic: midpoints_of_the_sides_of_a_quadrilateral_join
+  technology: none
   params: {variant: hard, coord_lo: -14, coord_hi: 14}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_h4_midpoints_reconstruct
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -15,18 +15,22 @@ prerequisites:
 answer: pair
 sources:
 - topic: pv1d_parabola_axis_y
+  technology: none
   params: {variant: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1d_parabola_axis_y
+  technology: none
   params: {variant: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1d_parabola_axis_y
+  technology: none
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1d_parabola_axis_y
+  technology: none
   params: {variant: exam}
   difficulty: exam
   stages: [exam]

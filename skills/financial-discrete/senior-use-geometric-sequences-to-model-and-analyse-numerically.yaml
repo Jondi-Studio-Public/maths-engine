@@ -23,10 +23,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: pv0a_bounce_distance
+  technology: required
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3d_bounce_series_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

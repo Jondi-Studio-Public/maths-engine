@@ -13,14 +13,17 @@ prerequisites:
 answer: number
 sources:
 - topic: scale_factor_similar_areas
+  technology: none
   params: {mode: direct_ratio}
   difficulty: easy
   stages: [6]
 - topic: scale_factor_similar_areas
+  technology: none
   params: {mode: derive_from_lengths}
   difficulty: medium
   stages: [6]
 - topic: scale_factor_similar_areas
+  technology: none
   params: {mode: derive_length_from_areas}
   difficulty: hard
   stages: [6, maintenance]

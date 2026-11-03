@@ -17,18 +17,22 @@ prerequisites: [graph-vertex-degrees-handshaking, graph-walks-trails-paths-cycle
 answer: number
 sources:
 - topic: w4_graph_bridges
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: w4_graph_bridges
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: w4_graph_bridges
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: w4_graph_bridges_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

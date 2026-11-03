@@ -15,6 +15,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: nx_complex_arg_ratio
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -22,12 +23,14 @@ sources:
   - 1
   - 2
 - topic: nx_complex_arg_ratio
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: nx_complex_arg_ratio
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -35,6 +38,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_nx_complex_arg_ratio
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

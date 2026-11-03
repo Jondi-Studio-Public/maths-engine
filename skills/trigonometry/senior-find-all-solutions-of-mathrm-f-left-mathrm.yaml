@@ -11,18 +11,22 @@ prerequisites: [right-triangle-angle]
 answer: list
 sources:
 - topic: w5_trig_all_solutions
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: w5_trig_all_solutions
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: w5_trig_all_solutions
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_w5_trig_all_solutions
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

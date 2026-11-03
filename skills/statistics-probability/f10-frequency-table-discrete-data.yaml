@@ -11,14 +11,17 @@ prerequisites:
 answer: table
 sources:
 - topic: ds_freq_table_easy
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ds_freq_table_derived
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: ds_freq_table_cumulative
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

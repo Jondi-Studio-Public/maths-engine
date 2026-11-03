@@ -21,10 +21,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: p19c_continuous_uniform_moments
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19c_continuous_uniform_moments
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

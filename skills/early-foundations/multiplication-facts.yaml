@@ -11,6 +11,7 @@ prerequisites: [subtract-within-100]
 answer: mcq
 sources:
 - topic: equal_groups
+  technology: none
   params: {groups_hi: 10, each_hi: 10}
   difficulty: easy
 misconceptions: []

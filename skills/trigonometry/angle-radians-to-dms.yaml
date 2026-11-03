@@ -9,18 +9,22 @@ prerequisites:
 answer: pair
 sources:
 - topic: t4_radians_to_dms
+  technology: none
   params: {variant: basic}
   difficulty: easy
   stages: [6]
 - topic: t4_radians_to_dms
+  technology: none
   params: {variant: context}
   difficulty: medium
   stages: [6]
 - topic: t4_radians_to_dms
+  technology: none
   params: {variant: fraction_input}
   difficulty: hard
   stages: [6, maintenance]
 - topic: t4_radians_to_dms
+  technology: none
   params: {variant: exam_pi_fraction}
   difficulty: exam
   stages: [exam]

@@ -11,18 +11,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: counterexample_identify
+  technology: none
   params: {variant: classify, pool: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: counterexample_identify
+  technology: none
   params: {variant: classify, pool: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: counterexample_identify
+  technology: none
   params: {variant: find_counterexample}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc7_counterexample_search
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

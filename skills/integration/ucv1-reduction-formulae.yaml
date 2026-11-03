@@ -20,10 +20,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: ucv1_reduction_formulae
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_fy_reduction_formulae
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

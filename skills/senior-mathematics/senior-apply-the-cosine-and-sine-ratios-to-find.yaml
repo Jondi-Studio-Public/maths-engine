@@ -15,19 +15,23 @@ sources:
   difficulty: easy
   stages: [0, 1, 2]
 - topic: sine_cosine_ratio_triangle
+  technology: none
   params: {variant: angle_from_sides}
   difficulty: medium
   stages: [3, 4]
 - topic: sine_cosine_ratio_triangle
+  technology: required
   params: {variant: chained}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2f_trig_altitude
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_h4_trig_altitude
+  technology: required
   params: {tier: exam}
   difficulty: exam
   key: exam-single

@@ -9,18 +9,22 @@ prerequisites: [two-by-two-eigenvalues, matrix-determinant-3x3]
 answer: list
 sources:
 - topic: fy1la_eigenvalues
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fy1la_eigenvalues
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: fy1la_eigenvalues
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_fy1la_eigenvalues
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

@@ -8,16 +8,20 @@ prerequisites: [solve-ode-separable-poly]
 answer: fraction
 sources:
 - topic: explicit_euler_linear_ode
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: explicit_euler_linear_ode
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: explicit_euler_linear_ode
+  technology: none
   params: {steps: 2}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_u4_euler_steady_state
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

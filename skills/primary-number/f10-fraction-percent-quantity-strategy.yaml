@@ -10,14 +10,17 @@ prerequisites: [fraction-of-quantity, percentage-discount, percentage-of-quantit
 answer: number
 sources:
 - topic: p9e_fraction_percent_quantity_strategy
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p9e_fraction_percent_quantity_strategy
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p9e_fraction_percent_quantity_strategy
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

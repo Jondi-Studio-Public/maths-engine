@@ -19,10 +19,12 @@ sources:
   difficulty: medium
   stages: [3, 4]
 - topic: p19i_effective_annual_rate
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: p19i_effective_annual_rate
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

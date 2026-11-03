@@ -12,18 +12,22 @@ prerequisites: [least-squares-line]
 answer: pair
 sources:
 - topic: p15c_function_space_approximation
+  technology: none
   params: {basis: one_xsq, evaluate_fn: false}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p15c_function_space_approximation
+  technology: none
   params: {basis: x_xsq, evaluate_fn: false}
   difficulty: medium
   stages: [3, 4]
 - topic: p15c_function_space_approximation
+  technology: none
   params: {basis: sq_cube, evaluate_fn: false}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3h_least_squares_basis
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

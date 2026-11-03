@@ -11,10 +11,12 @@ prerequisites: [f10-transformations-invariants]
 answer: number
 sources:
 - topic: enlargement_invariants
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: enlargement_invariants
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
@@ -23,6 +25,7 @@ sources:
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: grid_enlargement_image
+  technology: none
   key: grid-image
   params: {}
   difficulty: hard

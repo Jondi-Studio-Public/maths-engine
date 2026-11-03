@@ -32,15 +32,18 @@ sources:
   difficulty: medium
   stages: [2, 3]
 - topic: standard_deviation_from_data
+  technology: required
   params: {variant: context}
   difficulty: hard
   stages: [4, 5]
 - topic: standard_deviation_from_data
+  technology: required
   params: {variant: compare_sets}
   difficulty: hard
   key: compare-sets
   stages: [6, maintenance]
 - topic: exd_x_s5_sd_summary
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

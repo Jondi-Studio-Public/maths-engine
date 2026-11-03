@@ -13,6 +13,7 @@ prerequisites:
 answer: number
 sources:
 - topic: bearings_problem
+  technology: none
   params:
     variant: back_bearing
   difficulty: easy
@@ -32,6 +33,7 @@ sources:
   - 4
   key: general-legs
 - topic: bearings_problem
+  technology: none
   params:
     variant: leg_bearing
   difficulty: hard
@@ -39,6 +41,7 @@ sources:
   - 6
   - maintenance
 - topic: w3_bearings_general
+  technology: required
   params: {}
   difficulty: hard
   stages:
@@ -47,6 +50,7 @@ sources:
   - maintenance
   key: general-legs-hard
 - topic: exd_x_r3a_bearings_triangle
+  technology: required
   params:
     tier: exam
   difficulty: exam

@@ -11,14 +11,17 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: convert_units_for_rates
+  technology: none
   params: {mode: kmh_to_ms}
   difficulty: easy
   stages: [6]
 - topic: convert_units_for_rates
+  technology: none
   params: {mode: ms_to_kmh}
   difficulty: medium
   stages: [6]
 - topic: convert_units_for_rates
+  technology: none
   params: {mode: km_per_min_to_ms}
   difficulty: hard
   stages: [6, maintenance]

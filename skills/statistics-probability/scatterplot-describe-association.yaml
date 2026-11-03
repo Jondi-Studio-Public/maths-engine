@@ -11,21 +11,25 @@ prerequisites: [senior-describe-the-association-between-two-numerical-variables-
 answer: ordered_list
 sources:
 - topic: sr2a_scatter_assoc
+  technology: none
   params:
     tier: easy
   difficulty: easy
   stages: [6]
 - topic: sr2a_scatter_assoc
+  technology: none
   params:
     tier: medium
   difficulty: medium
   stages: [6]
 - topic: sr2a_scatter_assoc
+  technology: none
   params:
     tier: hard
   difficulty: hard
   stages: [6, maintenance]
 - topic: sr2a_scatter_assoc_chain
+  technology: none
   params:
     tier: exam
   difficulty: exam

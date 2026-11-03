@@ -10,6 +10,7 @@ prerequisites:
 answer: number
 sources:
 - topic: smech_equilibrium
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -23,6 +24,7 @@ sources:
   - 3
   - 4
 - topic: smech_equilibrium
+  technology: required
   params: {}
   difficulty: hard
   stages:
@@ -30,6 +32,7 @@ sources:
   - 6
   - maintenance
 - topic: smech_equilibrium_exam
+  technology: required
   params: {}
   difficulty: exam
   stages:

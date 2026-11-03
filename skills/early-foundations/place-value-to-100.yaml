@@ -11,6 +11,7 @@ prerequisites: [fair-sharing]
 answer: mcq
 sources:
 - topic: teen_place_value
+  technology: none
   params: {hi: 99}
   difficulty: easy
 misconceptions: []

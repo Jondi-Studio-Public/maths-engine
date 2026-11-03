@@ -25,18 +25,22 @@ prerequisites:
 answer: ordered_list
 sources:
 - topic: pv0c_sphere_centre_radius
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: pv0c_sphere_centre_radius
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: pv0c_sphere_centre_radius
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: pv0c_sphere_centre_radius
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

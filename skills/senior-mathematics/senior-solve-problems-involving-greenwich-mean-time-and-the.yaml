@@ -13,18 +13,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: p16c_gmt_dateline
+  technology: none
   params: {variant: single_forward}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p16c_gmt_dateline
+  technology: none
   params: {variant: single_half_hour}
   difficulty: medium
   stages: [3, 4]
 - topic: p16c_gmt_dateline
+  technology: none
   params: {variant: single_day_back}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: p16c_gmt_dateline
+  technology: none
   params: {variant: two_leg}
   difficulty: exam
   stages: [exam]

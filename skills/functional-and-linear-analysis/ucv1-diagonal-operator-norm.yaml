@@ -13,18 +13,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p15c_diagonal_operator_norm
+  technology: none
   params: {variant: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p15c_diagonal_operator_norm
+  technology: none
   params: {variant: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: p15c_diagonal_operator_norm
+  technology: none
   params: {variant: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3g_diagonal_norms
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -11,6 +11,7 @@ prerequisites: [recognise-numerals-to-10]
 answer: mcq
 sources:
 - topic: number_sequence
+  technology: none
   params: {hi: 10}
   difficulty: easy
 misconceptions: []

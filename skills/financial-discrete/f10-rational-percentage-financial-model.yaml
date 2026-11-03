@@ -10,18 +10,22 @@ prerequisites: [f10-fraction-percent-quantity-strategy, f10-rational-percentage-
 answer: number
 sources:
 - topic: rational_percentage_financial_model
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: rational_percentage_financial_model
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: rational_percentage_financial_model
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3e_fee_discount_gst
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

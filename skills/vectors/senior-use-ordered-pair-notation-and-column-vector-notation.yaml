@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: use_ordered_pair_notation_and_column_vector_notation
+  technology: none
   params: {variant: forward_positive}
   difficulty: easy
   stages: [6]
 - topic: use_ordered_pair_notation_and_column_vector_notation
+  technology: none
   params: {variant: forward_signed}
   difficulty: medium
   stages: [6]
 - topic: use_ordered_pair_notation_and_column_vector_notation
+  technology: none
   params: {variant: inverse}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3e_vector_points
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

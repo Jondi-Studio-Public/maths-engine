@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: find_the_surface_area_of_pyramids_such_as
+  technology: none
   params: {mode: square_base}
   difficulty: easy
   stages: [6]
 - topic: find_the_surface_area_of_pyramids_such_as
+  technology: none
   params: {mode: rectangular_base}
   difficulty: medium
   stages: [6]
 - topic: find_the_surface_area_of_pyramids_such_as
+  technology: none
   params: {mode: right_triangle_base}
   difficulty: hard
   stages: [6, maintenance]
 - topic: find_the_surface_area_of_pyramids_such_as
+  technology: none
   params: {mode: square_base_from_height}
   difficulty: exam
   stages: [exam]

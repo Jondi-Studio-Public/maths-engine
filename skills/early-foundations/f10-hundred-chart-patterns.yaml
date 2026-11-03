@@ -13,12 +13,15 @@ prerequisites: [order-numbers-to-10, skip-count-2-5-10]
 answer: number
 sources:
 - topic: hundred_chart_read
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: hundred_chart_read
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: hundred_chart_read
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

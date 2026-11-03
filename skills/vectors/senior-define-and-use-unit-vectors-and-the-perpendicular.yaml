@@ -12,18 +12,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: define_and_use_unit_vectors_and_the_perpendicular
+  technology: none
   params: {variant: unit_positive}
   difficulty: easy
   stages: [6]
 - topic: define_and_use_unit_vectors_and_the_perpendicular
+  technology: none
   params: {variant: unit_signed}
   difficulty: medium
   stages: [6]
 - topic: define_and_use_unit_vectors_and_the_perpendicular
+  technology: none
   params: {variant: perpendicular}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3c_unit_vector_perp
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

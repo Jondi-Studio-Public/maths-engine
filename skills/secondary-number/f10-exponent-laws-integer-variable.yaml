@@ -8,18 +8,22 @@ prerequisites: [f10-exponent-laws-positive-zero, logarithm-laws]
 answer: expression
 sources:
 - topic: exponent_laws_integer_variable
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: exponent_laws_integer_variable
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: exponent_laws_integer_variable
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_n3_exponent_two_variables
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

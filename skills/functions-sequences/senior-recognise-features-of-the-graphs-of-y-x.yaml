@@ -15,15 +15,19 @@ prerequisites:
 answer: pair
 sources:
 - topic: pv1d_parabola_axis_x
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1d_parabola_axis_x
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: pv1d_parabola_axis_x
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1d_parabola_axis_x
+  technology: none
   difficulty: exam
   stages: [exam]
 misconceptions:

@@ -25,14 +25,17 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
   - topic: nth_roots_of_unity
+    technology: none
     params: {variant: direct}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: nth_roots_of_unity
+    technology: none
     params: {variant: periodic}
     difficulty: medium
     stages: [3, 4]
   - topic: nth_roots_of_unity
+    technology: none
     params: {variant: count}
     difficulty: hard
     stages: [5, 6, maintenance]

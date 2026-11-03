@@ -9,11 +9,13 @@ prerequisites:
 answer: number
 sources:
 - topic: structural
+  technology: none
   params:
     kinds:
     - max_bm_udl
   difficulty: easy
 - topic: exd_x_u7_udl_design_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

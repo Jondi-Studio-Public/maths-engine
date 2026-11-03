@@ -23,18 +23,22 @@ prerequisites: [rate-of-change]
 answer: number
 sources:
 - topic: pv1a_fixed_cost
+  technology: none
   params: {mode: read}
   difficulty: easy
   stages: [6]
 - topic: pv1a_fixed_cost
+  technology: none
   params: {mode: offset}
   difficulty: medium
   stages: [6]
 - topic: pv1a_fixed_cost
+  technology: none
   params: {mode: extrapolate}
   difficulty: hard
   stages: [6, maintenance]
 - topic: pv1a_fixed_cost
+  technology: none
   params: {mode: named_fee}
   difficulty: exam
   stages: [exam]

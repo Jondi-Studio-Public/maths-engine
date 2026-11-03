@@ -11,18 +11,22 @@ prerequisites: [function-notation]
 answer: mcq
 sources:
 - topic: function_composition
+  technology: none
   params: {mode: when_defined}
   difficulty: easy
   stages: [6]
 - topic: function_composition
+  technology: none
   params: {mode: when_defined}
   difficulty: medium
   stages: [6]
 - topic: function_composition
+  technology: none
   params: {mode: when_defined}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f2_when_defined
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -17,18 +17,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p14a_matrix_table
+  technology: none
   params: {variant: entry_lookup}
   difficulty: easy
   stages: [6]
 - topic: p14a_matrix_table
+  technology: none
   params: {variant: row_or_column_total}
   difficulty: medium
   stages: [6]
 - topic: p14a_matrix_table
+  technology: none
   params: {variant: directed_adjacency}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3h_network_journeys
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

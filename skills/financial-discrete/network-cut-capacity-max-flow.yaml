@@ -14,22 +14,26 @@ prerequisites:
 answer: number
 sources:
 - topic: w7a_network_cut
+  technology: none
   params: {}
   difficulty: easy
   stages:
   - 6
 - topic: w7a_network_cut
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 6
 - topic: w7a_network_cut
+  technology: none
   params: {}
   difficulty: hard
   stages:
   - 6
   - maintenance
 - topic: exd_x_w7a_network_cut
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

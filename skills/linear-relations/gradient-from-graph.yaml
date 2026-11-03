@@ -14,14 +14,17 @@ prerequisites:
 answer: fraction
 sources:
 - topic: fg1_gradient_from_graph
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fg1_gradient_from_graph
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: fg1_gradient_from_graph
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

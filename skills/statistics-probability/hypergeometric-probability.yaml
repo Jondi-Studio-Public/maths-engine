@@ -8,16 +8,20 @@ prerequisites: [simple-event-probability]
 answer: fraction
 sources:
 - topic: hypergeometric_probability
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: hypergeometric_probability
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: hypergeometric_probability
+  technology: none
   difficulty: hard
   params: {kind: at_least}
   stages: [5, 6, maintenance]
 - topic: exd_x_u6_hypergeometric_acceptance
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

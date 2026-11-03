@@ -12,18 +12,22 @@ prerequisites: [simple-interest]
 answer: number
 sources:
 - topic: use_minimal_spanning_trees_to_solve_minimal_connector
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: use_minimal_spanning_trees_to_solve_minimal_connector
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: use_minimal_spanning_trees_to_solve_minimal_connector
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3a_connector_reroute
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

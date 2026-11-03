@@ -5,6 +5,10 @@ name: Find distances between two places on Earth using appropriate technology
 domain: senior-mathematics
 description: Find the great-circle distance between two places on Earth with different longitudes, given the latitude and longitude of each.
 status: active
+technology: required
+technology: required
+technology: required
+technology: required
 placement_eligible: false
 prerequisites:
 - senior-find-distances-between-two-places-on-earth-on

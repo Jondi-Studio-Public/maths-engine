@@ -15,18 +15,22 @@ prerequisites: [shortest-network-path]
 answer: number
 sources:
 - topic: snet_degrees
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: snet_degrees
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: snet_degrees
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: snet_degrees_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

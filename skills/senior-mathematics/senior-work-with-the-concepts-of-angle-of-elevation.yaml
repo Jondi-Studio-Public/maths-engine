@@ -21,10 +21,12 @@ sources:
   difficulty: medium
   stages: [6]
 - topic: elevation_depression_problem
+  technology: required
   params: {variant: two_observation}
   difficulty: hard
   stages: [6, maintenance]
 - topic: elevation_depression_problem
+  technology: required
   params: {variant: twin_base_distance}
   difficulty: exam
   stages: [exam]

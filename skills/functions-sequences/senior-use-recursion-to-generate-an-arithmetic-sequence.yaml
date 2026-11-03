@@ -13,18 +13,22 @@ prerequisites:
 answer: ordered_list
 sources:
 - topic: arithmetic_recursion_generate
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: arithmetic_recursion_generate
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: arithmetic_recursion_generate
+  technology: none
   params: {variant: from_two_terms}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f3_arithrec
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -12,14 +12,17 @@ prerequisites: [decimal-place-value]
 answer: number
 sources:
 - topic: metric_conversion
+  technology: none
   params: {kind: capacity, max_steps: 1, value_hi: 12}
   stages: [0, 1, 2]
   difficulty: easy
 - topic: metric_conversion
+  technology: none
   params: {kind: capacity, max_steps: 1, value_hi: 20}
   stages: [3, 4]
   difficulty: medium
 - topic: metric_conversion
+  technology: none
   params: {kind: capacity, max_steps: 1, value_hi: 30, combine: true}
   stages: [5, 6, maintenance]
   difficulty: hard

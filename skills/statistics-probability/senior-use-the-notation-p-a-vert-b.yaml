@@ -11,18 +11,22 @@ prerequisites: [simple-event-probability]
 answer: fraction
 sources:
 - topic: conditional_probability_notation
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: conditional_probability_notation
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: conditional_probability_notation
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_s5_condprob
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

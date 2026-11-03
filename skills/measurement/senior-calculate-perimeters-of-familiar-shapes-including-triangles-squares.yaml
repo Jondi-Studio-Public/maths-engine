@@ -11,14 +11,17 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: calculate_perimeters_of_familiar_shapes
+  technology: none
   params: {mode: rectangle_or_square}
   difficulty: easy
   stages: [6]
 - topic: calculate_perimeters_of_familiar_shapes
+  technology: none
   params: {mode: triangle_or_polygon}
   difficulty: medium
   stages: [6]
 - topic: calculate_perimeters_of_familiar_shapes
+  technology: none
   params: {mode: composite}
   difficulty: hard
   stages: [6, maintenance]

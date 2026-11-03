@@ -10,18 +10,22 @@ prerequisites: [place-value-to-100, order-numbers-to-10]
 answer: ordered_list
 sources:
 - topic: order_to_1000
+  technology: none
   params: {count: [3, 4], digit_lengths: [3], min_gap: 100, min_same_hundreds_pairs: 0}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: order_to_1000
+  technology: none
   params: {count: 4, digit_lengths: [3], min_same_hundreds_pairs: 1}
   difficulty: medium
   stages: [3, 4]
 - topic: order_to_1000
+  technology: none
   params: {count: 5, digit_lengths: [2, 3], min_same_hundreds_pairs: 1}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr7_order_to_1000_regrouped
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

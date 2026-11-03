@@ -10,18 +10,22 @@ prerequisites:
 answer: expression
 sources:
 - topic: t4_degrees_radians_pi_form
+  technology: none
   params: {variant: forward_common}
   difficulty: easy
   stages: [6]
 - topic: t4_degrees_radians_pi_form
+  technology: none
   params: {variant: forward_fine}
   difficulty: medium
   stages: [6]
 - topic: t4_degrees_radians_pi_form
+  technology: none
   params: {variant: reverse}
   difficulty: hard
   stages: [6, maintenance]
 - topic: t4_degrees_radians_pi_form
+  technology: none
   params: {variant: forward_fine_exam}
   difficulty: exam
   stages: [exam]
