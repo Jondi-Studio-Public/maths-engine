@@ -166,6 +166,12 @@ properties:
       - sace
       - tasc
       - ib
+  technology:
+    description: 'Whether the skill needs a calculator. required: the questions need technology, so a no-technology drill hides them. either: the generators honour make(..., technology_active=...) both ways. none: always hand-solvable. Omitted means untagged: served normally, hidden when technology is off. A source may override it.'
+    enum:
+    - required
+    - either
+    - none
   needs_figure:
     description: True when the questions carry a figure the learner must see. Such a skill may not have
       a mental block.
@@ -281,6 +287,12 @@ $defs:
         - medium
         - hard
         - exam
+      technology:
+        description: Overrides the skill's technology label for this source. Same values.
+        enum:
+        - required
+        - either
+        - none
       key:
         description: A stable name for this source within its skill, part of every question id
           (<skill>/<key>/<seed>/<hash>). Optional; it defaults to the difficulty label. Needed only when two

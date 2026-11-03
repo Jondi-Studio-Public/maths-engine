@@ -122,6 +122,12 @@ Quote `verified_on` dates (`'2026-10-01'`) so YAML does not turn them into dates
 - **Optional:** `placement_eligible` (default `true`), `placement_order`, `placement_questions`,
   `placement_pass`, `learner_band` (`early`, `primary` or `general`), `framework_areas`, `alignments`,
   `needs_figure`, `read_aloud`, `capability_gates` and `mental` (below).
+- **`technology`** (`required`, `either` or `none`; optional, on the skill and on any source): whether a
+  question needs a calculator. `required` is hidden when a caller asks for no technology; `either` means
+  the generator honours `make(..., technology_active=True|False)` (it must declare both modes in
+  `@generator(..., technology=(True, False))`, which `validate()` checks); `none` is always hand-solvable.
+  Untagged is served normally and hidden when technology is off. `engine.make_for_skill(skill,
+  technology_active=False)` and `skills_for_technology()` apply the filter.
 - **`read_aloud`** (default `false`): the prompts are meant to be read aloud to a young learner, so each
   is at most 15 words and the figure carries the detail. `tests/test_read_aloud.py` checks every
   question of every active `read_aloud` skill against that cap.

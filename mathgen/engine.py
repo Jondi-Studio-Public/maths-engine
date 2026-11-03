@@ -36,7 +36,16 @@ import re
 from . import make
 from .core import display_question, paper_notation  # noqa: F401  (re-exported)
 from .grading import GradeResult, grade as _grade_kind
-from .skills import Domain, Skill, Source, load_skills  # noqa: F401  (re-exported)
+from .skills import (  # noqa: F401  (re-exported)
+    Domain,
+    Skill,
+    Source,
+    load_skills,
+    skills_for_technology,
+    source_technology,
+    source_usable,
+    sources_for_technology,
+)
 
 # The public names: see docs/api.md. Anything else here may change in any release.
 __all__ = [
@@ -48,6 +57,10 @@ __all__ = [
     "parse_question_id",
     "regenerate",
     "pick_source",
+    "skills_for_technology",
+    "sources_for_technology",
+    "source_technology",
+    "source_usable",
     "grade",
     "grade_with_deadline",
     "QuestionChanged",
@@ -91,10 +104,34 @@ def pick_source(skill: Skill, source: Source | int | str | None = None) -> Sourc
     )
 
 
-def make_for_skill(skill: Skill, seed: int | None = None, *, source: Source | int | str | None = None):
-    """Build one verified question for `skill`. Same (skill, source, seed) gives the same question."""
-    src = pick_source(skill, source)
-    return make(src.topic, seed=seed, difficulty=src.difficulty, **_tuplify(src.params))
+def make_for_skill(
+    skill: Skill,
+    seed: int | None = None,
+    *,
+    source: Source | int | str | None = None,
+    technology_active: bool | None = None,
+):
+    """Build one verified question for `skill`. Same (skill, source, seed) gives the same question.
+
+    `technology_active=False` asks for a hand-solvable question: it picks the first source tagged `none` or
+    `either` when no source is named, and refuses a named source that is untagged or `required`. The flag is
+    handed to the generator only for a source tagged `either`; `True` and `None` serve any source."""
+    if technology_active is not None and not isinstance(technology_active, bool):
+        raise TypeError(f"technology_active must be True, False or None, not {technology_active!r}")
+    if source is None and technology_active is False:
+        usable = sources_for_technology(skill, False)
+        if not usable:
+            raise ValueError(f"skill {skill.id!r} has no source that is usable with technology off")
+        src = usable[0]
+    else:
+        src = pick_source(skill, source)
+        if not source_usable(skill, src, technology_active):
+            raise ValueError(
+                f"skill {skill.id!r} source {src.effective_key!r} is not usable with technology off "
+                f"(technology: {source_technology(skill, src)!r})"
+            )
+    flag = technology_active if source_technology(skill, src) == "either" else None
+    return make(src.topic, seed=seed, difficulty=src.difficulty, technology_active=flag, **_tuplify(src.params))
 
 
 def grade(skill: Skill, question, given: str | dict) -> GradeResult:
@@ -151,8 +188,18 @@ def question_id(skill: Skill, source: Source | int | str | None, seed: int, ques
     return f"{skill.id}/{_key_of(skill, src)}/{seed}/{content_hash(question)}"
 
 
-def make_with_id(skill: Skill, seed: int | None, *, source: Source | int | str | None = None):
-    """Build one question for `skill` and its id: `(question, question_id)`. Same question as `make_for_skill`."""
+def make_with_id(
+    skill: Skill,
+    seed: int | None,
+    *,
+    source: Source | int | str | None = None,
+    technology_active: bool | None = None,
+):
+    """Build one question for `skill` and its id: `(question, question_id)`. Same question as `make_for_skill`.
+
+    The id does not spell out `technology_active`, but its hash covers it: a question built with the flag
+    carries `technology_active` in its content, so rebuilding it with `regenerate(qid, skills,
+    technology_active=...)` needs the same value. Keep the mode beside the id."""
     if seed is not None:
         if isinstance(seed, bool):
             raise TypeError("seed must be a whole number (or None for a random one), not a bool")
@@ -162,8 +209,13 @@ def make_with_id(skill: Skill, seed: int | None, *, source: Source | int | str |
             raise TypeError(
                 f"seed must be a whole number (or None for a random one), not {type(seed).__name__}"
             ) from None
+    if source is None and technology_active is False:
+        usable = sources_for_technology(skill, False)
+        if not usable:
+            raise ValueError(f"skill {skill.id!r} has no source that is usable with technology off")
+        source = usable[0]
     src = pick_source(skill, source)
-    question = make_for_skill(skill, seed, source=src)
+    question = make_for_skill(skill, seed, source=src, technology_active=technology_active)
     # `question.seed` is the seed actually used, so a random one (None) still names a question `regenerate` can rebuild.
     return question, question_id(skill, src, question.seed if seed is None else seed, question)
 
@@ -200,8 +252,10 @@ def parse_question_id(qid: str) -> tuple[str, str, int, str]:
     return skill_id, key, seed, digest
 
 
-def regenerate(qid: str, skills):
+def regenerate(qid: str, skills, *, technology_active: bool | None = None):
     """Rebuild the question a `question_id` names. `skills` is a list of `Skill`s or a dict by skill id.
+    Pass the `technology_active` the question was made with (ids do not record it; a different value gives a
+    different hash and raises `QuestionChanged`).
 
     Raises `KeyError` for an unknown skill or source key, `ValueError` for a malformed id, and
     `QuestionChanged` (carrying the new question) when the hash no longer matches."""
@@ -214,7 +268,7 @@ def regenerate(qid: str, skills):
     if not matches:
         known = ", ".join(sorted({s.effective_key for s in skill.sources if s.effective_key})) or "none"
         raise KeyError(f"skill {skill_id!r} has no source with key {key!r} (its keys: {known})")
-    question, new_id = make_with_id(skill, seed, source=matches[0])
+    question, new_id = make_with_id(skill, seed, source=matches[0], technology_active=technology_active)
     if new_id != qid:
         raise QuestionChanged(qid, new_id, question)
     return question

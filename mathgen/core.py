@@ -91,6 +91,9 @@ class Question:
     # Empty for a single-answer question, and omitted from to_dict()/to_json() when empty, like `answer_alt`.
     stem: str | None = None  # a multi-part question's shared information, without the parts' prompts
     # (`text` is the stem followed by every part's prompt). None, and omitted, for a single-answer question.
+    technology_active: bool | None = None  # the mode `make(..., technology_active=...)` asked for: True = a
+    # calculator is allowed, False = hand-solvable with exact answers. None (the default, and omitted from
+    # to_dict()/to_json()) when the caller did not ask, so every existing question hashes as before.
 
     def to_dict(self) -> dict:
         d = asdict(self)
@@ -98,6 +101,8 @@ class Question:
             d.pop("parts", None)
         if d.get("stem") is None:
             d.pop("stem", None)
+        if d.get("technology_active") is None:
+            d.pop("technology_active", None)
         for part in d.get("parts", ()):
             if part.get("sig_figs") is None:
                 part.pop("sig_figs", None)  # omitted when unset, like `answer_alt`, so unset parts hash as before
@@ -241,9 +246,17 @@ class VerificationError(Exception):
 REGISTRY: dict[str, tuple[int, Callable]] = {}
 # topic -> {preset name -> params dict}
 PRESETS: dict[str, dict[str, dict]] = {}
+# topic -> the `technology_active` values its generator honours. A topic missing here ignores the flag's
+# meaning and so refuses `make(..., technology_active=...)` (see `make`).
+TECHNOLOGY_MODES: dict[str, frozenset[bool]] = {}
 
 
-def generator(topic: str, level: int, presets: dict[str, dict] | None = None):
+def generator(
+    topic: str,
+    level: int,
+    presets: dict[str, dict] | None = None,
+    technology: tuple[bool, ...] | None = None,
+):
     """Decorator registering a generator.
 
     A generator takes a random.Random and optional difficulty kwargs and
@@ -255,6 +268,11 @@ def generator(topic: str, level: int, presets: dict[str, dict] | None = None):
 
     `presets` maps difficulty names (e.g. "easy"/"medium"/"hard") to kwargs
     bundles for this generator.
+
+    `technology` declares which `technology_active` values the generator honours: `(True, False)` for one that
+    gives a calculator-style question and a hand-solvable exact one, `(False,)` or `(True,)` for one that gives
+    only one of them. A generator that declares any must accept a `technology_active` keyword; `make()` passes
+    it only when the caller asked for a mode. Undeclared generators never receive the keyword.
     """
 
     def deco(fn: Callable) -> Callable:
@@ -263,17 +281,32 @@ def generator(topic: str, level: int, presets: dict[str, dict] | None = None):
         REGISTRY[topic] = (level, fn)
         if presets:
             PRESETS[topic] = presets
+        if technology:
+            if not all(isinstance(m, bool) for m in technology):
+                raise ValueError(f"{topic}: technology modes must be booleans, not {technology!r}")
+            TECHNOLOGY_MODES[topic] = frozenset(technology)
         return fn
 
     return deco
 
 
-def make(topic: str, seed: int | None = None, difficulty: str | None = None, **params) -> Question:
+def make(
+    topic: str,
+    seed: int | None = None,
+    difficulty: str | None = None,
+    technology_active: bool | None = None,
+    **params,
+) -> Question:
     """Build one verified Question. Same (topic, seed, difficulty) -> same question.
 
     `difficulty` selects a named preset (see PRESETS); explicit **params
     override preset values. An unknown difficulty name raises; a topic with
     no presets simply uses its defaults for any difficulty name.
+
+    `technology_active` asks for a calculator-style question (True) or a hand-solvable one with exact answers
+    (False). The default None changes nothing: same question, same seed stream, as before the argument existed.
+    A topic that has not declared the mode in `@generator(..., technology=...)` raises ValueError rather than
+    quietly returning a question of the other kind.
     """
     if topic not in REGISTRY:
         # Close matches, not the whole list: there are over a thousand topics, and `topics()` lists them.
@@ -290,7 +323,19 @@ def make(topic: str, seed: int | None = None, difficulty: str | None = None, **p
     # random.Random seeded with str hashes via sha512 -> stable across runs
     # and machines (unlike hash() of a str). Difficulty is part of the seed
     # string so easy/hard streams are independent.
-    rng = random.Random(f"{topic}:{difficulty or ''}:{seed}")
+    seed_key = f"{topic}:{difficulty or ''}:{seed}"
+    if technology_active is not None:
+        if not isinstance(technology_active, bool):
+            raise TypeError(f"technology_active must be True, False or None, not {technology_active!r}")
+        if technology_active not in TECHNOLOGY_MODES.get(topic, ()):
+            declared = sorted(TECHNOLOGY_MODES.get(topic, ()))
+            raise ValueError(
+                f"topic {topic!r} does not support technology_active={technology_active}; "
+                f"it declares {declared if declared else 'no technology modes'}"
+            )
+        params = {**params, "technology_active": technology_active}
+        seed_key += f":technology={technology_active}"  # each mode gets its own stream; None keeps the old one
+    rng = random.Random(seed_key)
     d = fn(rng, **params)
     # Tagged distractors become plain option text plus the keyed attributes (mathgen/answers.py), so every consumer
     # that reads `distractors` as strings is unchanged.
@@ -318,7 +363,9 @@ def make(topic: str, seed: int | None = None, difficulty: str | None = None, **p
         from mathgen import figures
 
         figures.check(d["figure"])
-    return Question(topic=topic, level=level, seed=seed, difficulty=difficulty, **d)
+    return Question(
+        topic=topic, level=level, seed=seed, difficulty=difficulty, technology_active=technology_active, **d
+    )
 
 
 def topics() -> list[tuple[int, str]]:
