@@ -697,9 +697,11 @@ def test_every_checkout_drops_its_credentials(path):
                 assert step["with"]["persist-credentials"] is False, f"{job_id}: checkout keeps the token on disk"
 
 
-def test_pull_request_runs_only_target_main_and_only_superseded_pr_runs_are_cancelled():
+def test_pull_request_has_no_branch_filter_and_only_superseded_pr_runs_are_cancelled():
     doc = load()
-    assert doc["on" if "on" in doc else True]["pull_request"] == {"branches": ["main"]}
+    # No branch filter: a stacked pull request has another PR's branch as its base and must get ci-ok too.
+    trigger = doc["on" if "on" in doc else True]["pull_request"]
+    assert not trigger or "branches" not in trigger
     concurrency = doc["concurrency"]
     # The expressions cannot be evaluated here, so this pins their shape: pull requests share a group per
     # PR number and nothing else does (run_id is unique), and only pull_request runs are cancelled.
