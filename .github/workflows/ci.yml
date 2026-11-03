@@ -14,8 +14,9 @@ name: ci
 on:
   push:
     branches: [main]
+  # No branch filter: a stacked pull request has another pull request's branch as its base,
+  # and must get the same checks (and ci-ok) as one into main.
   pull_request:
-    branches: [main]
   schedule:
     - cron: "17 3 * * *"
   workflow_dispatch:
