@@ -13,18 +13,22 @@ prerequisites:
 answer: expression
 sources:
 - topic: p10a_acceleration_to_position_line
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p10a_acceleration_to_position_line
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p10a_acceleration_to_position_line
+  technology: none
   params: {split: true}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_h5_acceleration_rest_or_positions
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

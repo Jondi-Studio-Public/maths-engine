@@ -15,14 +15,17 @@ prerequisites: [f10-nets-build-solids]
 answer: grid_cells
 sources:
 - topic: grid_solid_cross_sections
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: grid_solid_cross_sections
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: grid_solid_cross_sections
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

@@ -11,14 +11,17 @@ prerequisites: [compare-quantities-to-10, count-to-10, f10-number-represent-orde
 answer: mcq
 sources:
 - topic: quantify_compare_to_20
+  technology: none
   params: {mode: direct, hi: 20, min_gap: 5, equal_fraction: 0.0}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: quantify_compare_to_20
+  technology: none
   params: {mode: direct, hi: 20, max_gap: 2, equal_fraction: 0.3}
   difficulty: medium
   stages: [3, 4]
 - topic: quantify_compare_to_20
+  technology: none
   params: {mode: partition, hi: 20, equal_fraction: 0.0}
   difficulty: hard
   stages: [5, 6, maintenance]

@@ -8,6 +8,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: integration
+  technology: none
   params:
     kinds:
     - polynomial
@@ -17,6 +18,7 @@ sources:
   - 1
   - 2
 - topic: integration
+  technology: none
   params:
     kinds:
     - polynomial
@@ -25,6 +27,7 @@ sources:
   - 3
   - 4
 - topic: integration
+  technology: none
   params:
     kinds:
     - rewrite_condition
@@ -34,12 +37,14 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2b_antiderivative_chain
+  technology: none
   params:
     tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c2_integrate_polynomial
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

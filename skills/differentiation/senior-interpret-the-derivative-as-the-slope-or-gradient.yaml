@@ -13,18 +13,22 @@ prerequisites: [differentiate-polynomial]
 answer: fraction
 sources:
 - topic: pv1b_tangent_slope
+  technology: none
   params: {variant: rising}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1b_tangent_slope
+  technology: none
   params: {variant: sign_and_zero}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1b_tangent_slope
+  technology: none
   params: {variant: cubic_crossing}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1b_tangent_slope
+  technology: none
   params: {variant: tangent_or_secant}
   difficulty: exam
   stages: [exam]

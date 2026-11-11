@@ -10,14 +10,17 @@ prerequisites: [f10-addition-facts-related-subtraction, one-step-equations]
 answer: number
 sources:
 - topic: unknown_add_sub_equation
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: unknown_add_sub_equation
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: unknown_add_sub_equation
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

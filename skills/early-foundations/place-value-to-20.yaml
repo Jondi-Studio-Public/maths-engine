@@ -11,6 +11,7 @@ prerequisites: [subtract-within-10]
 answer: mcq
 sources:
 - topic: teen_place_value
+  technology: none
   params: {hi: 20}
   difficulty: easy
 misconceptions: []

@@ -9,11 +9,13 @@ prerequisites:
 answer: pair
 sources:
 - topic: structural
+  technology: none
   params:
     kinds:
     - cantilever_udl
   difficulty: easy
 - topic: exd_x_u7_cantilever_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

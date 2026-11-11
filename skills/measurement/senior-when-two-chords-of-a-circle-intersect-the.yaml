@@ -10,18 +10,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: when_two_chords_of_a_circle_intersect_the_product
+  technology: none
   params: {variant: direct}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: when_two_chords_of_a_circle_intersect_the_product
+  technology: none
   params: {variant: convert}
   difficulty: medium
   stages: [3, 4]
 - topic: when_two_chords_of_a_circle_intersect_the_product
+  technology: none
   params: {variant: quadratic}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_m6_chord_lengths
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

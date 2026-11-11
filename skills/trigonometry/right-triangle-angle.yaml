@@ -8,6 +8,7 @@ prerequisites:
 answer: number
 sources:
 - topic: trigonometry
+  technology: required
   params:
     kinds:
     - angle
@@ -20,6 +21,7 @@ sources:
   - 1
   - 2
 - topic: trigonometry
+  technology: required
   params:
     kinds:
     - angle
@@ -31,6 +33,7 @@ sources:
   - 3
   - 4
 - topic: trigonometry
+  technology: required
   params:
     kinds:
     - angle
@@ -43,6 +46,7 @@ sources:
   - 6
   - maintenance
 - topic: trigonometry
+  technology: required
   params:
     kinds:
     - angle

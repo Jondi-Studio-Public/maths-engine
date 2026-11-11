@@ -11,18 +11,22 @@ prerequisites: [add-within-10, subtract-within-10]
 answer: number
 sources:
 - topic: practical_situation_sum
+  technology: none
   params: {variant: direct}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: practical_situation_sum
+  technology: none
   params: {variant: comparison}
   difficulty: medium
   stages: [3, 4]
 - topic: practical_situation_sum
+  technology: none
   params: {variant: trap}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr1_story_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

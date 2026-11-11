@@ -13,18 +13,22 @@ prerequisites:
 answer: expression
 sources:
 - topic: tan_shift_complementary_identity
+  technology: none
   params: {variant: sin_shift}
   difficulty: easy
   stages: [6]
 - topic: tan_shift_complementary_identity
+  technology: none
   params: {variant: cos_shift}
   difficulty: medium
   stages: [6]
 - topic: tan_shift_complementary_identity
+  technology: none
   params: {variant: tan_asymptote}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f5_tanasym
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

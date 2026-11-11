@@ -10,18 +10,22 @@ prerequisites: [right-triangle-angle, pythagorean-hypotenuse]
 answer: number
 sources:
 - topic: y910_line_plane_angle
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: y910_line_plane_angle
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: y910_line_plane_angle
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_y910_line_plane_angle
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -13,18 +13,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p14f_energy_conservation_check
+  technology: none
   params: {variant: direct, mk_hi: 4, xv_hi: 4, allow_negative: false}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p14f_energy_conservation_check
+  technology: none
   params: {variant: direct, mk_hi: 8, xv_hi: 6, allow_negative: true}
   difficulty: medium
   stages: [3, 4]
 - topic: p14f_energy_conservation_check
+  technology: none
   params: {variant: implicit, mk_hi: 8, xv_hi: 6}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3g_oscillator_energy
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

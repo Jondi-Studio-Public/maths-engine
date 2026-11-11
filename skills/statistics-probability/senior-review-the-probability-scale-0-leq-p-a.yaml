@@ -13,14 +13,17 @@ prerequisites:
 answer: mcq
 sources:
 - topic: probability_scale_classify
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: probability_scale_classify
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: probability_scale_classify
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]

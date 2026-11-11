@@ -9,18 +9,22 @@ prerequisites: [convert-time-systems, elapsed-time, ratio-rate-proportion]
 answer: number
 sources:
 - topic: circle_and_prism_duration_rates
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: circle_and_prism_duration_rates
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: circle_and_prism_duration_rates
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_m1_two_flight_journey
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

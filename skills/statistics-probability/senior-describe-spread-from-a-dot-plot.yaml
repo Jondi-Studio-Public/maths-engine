@@ -18,15 +18,19 @@ prerequisites: [f6-read-a-dot-plot]
 answer: mcq
 sources:
 - topic: ey_dot_plot_spread
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey_dot_plot_spread
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: ey_dot_plot_spread
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: ey_dot_plot_spread_exam
+  technology: none
   difficulty: exam
   stages: [exam]
 misconceptions:

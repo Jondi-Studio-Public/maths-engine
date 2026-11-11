@@ -12,23 +12,28 @@ prerequisites:
 answer: pair
 sources:
 - topic: differentiate_and_integrate_a_vector_function_with_respect
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: differentiate_and_integrate_a_vector_function_with_respect
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: differentiate_and_integrate_a_vector_function_with_respect
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2a_vector_motion_chain
+  technology: required
   params: {}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c3_vector_motion
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

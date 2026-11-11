@@ -13,18 +13,22 @@ prerequisites:
 answer: number
 sources:
 - topic: r3i_series_sums
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3i_series_sums
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: r3i_series_sums
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: r3i_exam_series_sums
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

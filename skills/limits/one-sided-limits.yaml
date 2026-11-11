@@ -8,6 +8,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: limits
+  technology: none
   params:
     kinds:
     - one_sided
@@ -17,6 +18,7 @@ sources:
   - 1
   - 2
 - topic: limits
+  technology: none
   params:
     kinds:
     - one_sided
@@ -25,6 +27,7 @@ sources:
   - 3
   - 4
 - topic: limits
+  technology: none
   params:
     kinds:
     - one_sided_quad
@@ -34,12 +37,14 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2c_one_sided_limits
+  technology: none
   params:
     tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c2_one_sided_limits
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

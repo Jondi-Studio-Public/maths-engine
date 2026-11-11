@@ -9,18 +9,22 @@ prerequisites:
 answer: number
 sources:
 - topic: r3d_vertical_resistance
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3d_vertical_resistance
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: r3d_vertical_resistance
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: r3d_vertical_resistance_exam
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

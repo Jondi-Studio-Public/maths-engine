@@ -14,12 +14,15 @@ prerequisites: [f10-compare-measurement-attributes]
 answer: mcq
 sources:
 - topic: order_by_two_balances
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: order_by_two_balances
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: order_by_two_balances
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 misconceptions:

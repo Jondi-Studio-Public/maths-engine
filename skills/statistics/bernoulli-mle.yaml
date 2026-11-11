@@ -8,16 +8,20 @@ prerequisites: [simple-event-probability]
 answer: fraction
 sources:
 - topic: bernoulli_mle
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: bernoulli_mle
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: bernoulli_mle
+  technology: none
   difficulty: hard
   params: {kind: pooled}
   stages: [5, 6, maintenance]
 - topic: exd_x_u6_bernoulli_invariance
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

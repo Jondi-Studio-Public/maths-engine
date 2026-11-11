@@ -14,14 +14,17 @@ prerequisites: [ey-name-angle-by-size]
 answer: number
 sources:
 - topic: eyz_angle_estimate
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: eyz_angle_estimate
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: eyz_angle_estimate
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

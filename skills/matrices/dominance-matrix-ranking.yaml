@@ -15,18 +15,21 @@ prerequisites:
 answer: ordered_list
 sources:
 - topic: r3c_dominance
+  technology: none
   params:
     tier: easy
   difficulty: easy
   stages:
   - 6
 - topic: r3c_dominance
+  technology: none
   params:
     tier: medium
   difficulty: medium
   stages:
   - 6
 - topic: r3c_dominance
+  technology: none
   params:
     tier: hard
   difficulty: hard
@@ -34,6 +37,7 @@ sources:
   - 6
   - maintenance
 - topic: r3c_dominance_chain
+  technology: none
   params:
     tier: exam
   difficulty: exam

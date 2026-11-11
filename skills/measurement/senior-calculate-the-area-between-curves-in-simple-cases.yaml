@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: area_between_curves_simple_cases
+  technology: none
   params: {mode: "line_and_line"}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: area_between_curves_simple_cases
+  technology: none
   params: {mode: "line_and_parabola"}
   difficulty: medium
   stages: [3, 4]
 - topic: area_between_curves_simple_cases
+  technology: none
   params: {mode: "unordered_line_and_line"}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_m4_area_between_curves
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -10,18 +10,22 @@ prerequisites: [place-value-to-100]
 answer: ordered_list
 sources:
 - topic: large_number_ordering
+  technology: none
   params: {digit_lengths: [5]}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: large_number_ordering
+  technology: none
   params: {digit_lengths: [6]}
   difficulty: medium
   stages: [3, 4]
 - topic: large_number_ordering
+  technology: none
   params: {digit_lengths: [5, 6, 7]}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_pr7_large_numbers_mixed_forms
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

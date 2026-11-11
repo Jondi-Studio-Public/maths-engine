@@ -7,12 +7,15 @@ prerequisites: [order-numbers-to-10]
 answer: number
 sources:
 - topic: summary_statistic
+  technology: none
   params: {kind: median, count: 5, hi: 30}
   difficulty: easy
 - topic: w2_median_even
+  technology: none
   params: {count: 6, hi: 30}
   difficulty: medium
 - topic: exam_median_summary_statistic
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

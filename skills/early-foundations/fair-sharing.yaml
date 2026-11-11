@@ -11,6 +11,7 @@ prerequisites: [equal-groups]
 answer: mcq
 sources:
 - topic: fair_sharing
+  technology: none
   params: {groups_hi: 5, each_hi: 5}
   difficulty: easy
 misconceptions: []

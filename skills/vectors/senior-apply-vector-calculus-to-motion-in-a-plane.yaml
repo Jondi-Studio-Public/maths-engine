@@ -12,23 +12,28 @@ prerequisites:
 answer: number
 sources:
 - topic: p10a_projectile_motion_vector
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p10a_projectile_motion_vector
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p10a_projectile_motion_vector
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2c_projectile
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_g2_projectile_landing
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

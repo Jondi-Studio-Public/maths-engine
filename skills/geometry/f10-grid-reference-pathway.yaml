@@ -10,18 +10,22 @@ prerequisites: [f10-position-location-language]
 answer: pair
 sources:
 - topic: f10_grid_reference_pathway
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: f10_grid_reference_pathway
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: f10_grid_reference_pathway
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc2_grid_hike
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

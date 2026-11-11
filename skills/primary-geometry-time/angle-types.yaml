@@ -8,9 +8,9 @@ needs_figure: true
 prerequisites: [compare-lengths]
 answer: mcq
 sources:
-- {topic: classify_angle, params: {}, difficulty: easy, stages: [0, 1, 2]}
-- {topic: classify_angle_protractor, params: {}, difficulty: medium, stages: [3, 4]}
-- {topic: classify_angle, params: {near_boundary: true}, difficulty: medium, key: boundary, stages: [5]}
-- {topic: classify_angle_protractor, params: {}, difficulty: hard, stages: [6, maintenance]}
+- {technology: none, topic: classify_angle, params: {}, difficulty: easy, stages: [0, 1, 2]}
+- {technology: none, topic: classify_angle_protractor, params: {}, difficulty: medium, stages: [3, 4]}
+- {technology: none, topic: classify_angle, params: {near_boundary: true}, difficulty: medium, key: boundary, stages: [5]}
+- {technology: none, topic: classify_angle_protractor, params: {}, difficulty: hard, stages: [6, maintenance]}
 misconceptions: [{id: ignores-boundaries, description: Confuses the exact 90° and 180° boundary cases.}]
 tags: [expansion-batch-2, primary, angles]

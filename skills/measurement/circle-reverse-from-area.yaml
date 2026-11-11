@@ -8,18 +8,22 @@ prerequisites: [f10-circle-measures]
 answer: number
 sources:
 - topic: circle_reverse_from_area
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: circle_reverse_from_area
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]
 - topic: circle_reverse_from_area
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m1_circle_posts
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

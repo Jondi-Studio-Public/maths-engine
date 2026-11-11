@@ -15,6 +15,7 @@ description: Given a principal, a simple interest rate and a compound interest r
   comparison is dropped) and outside the exam chain never asks for a single account's balance, which is the
   neighbouring skills simple-interest and compound-interest.
 status: active
+technology: required
 placement_eligible: false
 prerequisites: [simple-interest]
 answer: number

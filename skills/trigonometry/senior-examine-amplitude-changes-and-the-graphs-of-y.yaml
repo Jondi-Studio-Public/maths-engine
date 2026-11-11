@@ -13,18 +13,22 @@ prerequisites: [right-triangle-angle]
 answer: fraction
 sources:
 - topic: pv1c_amplitude
+  technology: none
   params: {variant: peak_up}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: pv1c_amplitude
+  technology: none
   params: {variant: signed_near_origin}
   difficulty: medium
   stages: [3, 4]
 - topic: pv1c_amplitude
+  technology: none
   params: {variant: offset_window}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: pv1c_amplitude
+  technology: none
   params: {variant: single_lobe}
   difficulty: exam
   stages: [exam]

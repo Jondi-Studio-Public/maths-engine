@@ -10,18 +10,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: autonomous_equilibrium_stability
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: autonomous_equilibrium_stability
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: autonomous_equilibrium_stability
+  technology: none
   params: {kind: logistic}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc1_harvested_equilibria
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

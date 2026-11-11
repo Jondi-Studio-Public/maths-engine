@@ -14,18 +14,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: p15b_metric_axiom_check
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p15b_metric_axiom_check
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p15b_metric_axiom_check
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3j_metric_missing_distance
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

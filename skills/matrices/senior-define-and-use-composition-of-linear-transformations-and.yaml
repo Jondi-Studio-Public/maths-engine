@@ -12,22 +12,27 @@ prerequisites:
 answer: pair
 sources:
 - topic: linear_transform_composition
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: linear_transform_composition
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: linear_transform_composition
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2d_lt_composition_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]
 - topic: exd_x_g4_lt_composition
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

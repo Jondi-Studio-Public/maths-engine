@@ -17,6 +17,7 @@ prerequisites:
 answer: pair
 sources:
 - topic: exd_e5_circle_area_to_diameter_and_circumference
+  technology: required
   params:
     tier: easy
   difficulty: easy
@@ -25,6 +26,7 @@ sources:
   - 1
   - 2
 - topic: exd_e5_circle_area_to_diameter_and_circumference
+  technology: required
   params:
     tier: medium
   difficulty: medium
@@ -32,6 +34,7 @@ sources:
   - 3
   - 4
 - topic: exd_e5_circle_area_to_diameter_and_circumference
+  technology: required
   params:
     tier: hard
   difficulty: hard
@@ -40,11 +43,13 @@ sources:
   - 6
   - maintenance
 - topic: exam_parts_circle_radius_arc
+  technology: required
   params: {}
   difficulty: exam
   stages:
   - exam
 - topic: exd_e5_circle_area_to_diameter_and_circumference
+  technology: required
   params: {tier: exam}
   difficulty: exam
   key: exam-single

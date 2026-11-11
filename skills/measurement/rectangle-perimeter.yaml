@@ -12,18 +12,22 @@ prerequisites: [add-within-100]
 answer: number
 sources:
 - topic: rectangle_measure
+  technology: none
   params: {kind: perimeter, side_hi: 10}
   stages: [0, 1, 2]
   difficulty: easy
 - topic: rectangle_measure
+  technology: none
   params: {kind: perimeter, side_hi: 20}
   stages: [3, 4]
   difficulty: medium
 - topic: rectangle_measure
+  technology: none
   params: {kind: perimeter, side_hi: 25, find_side: true}
   stages: [5, 6, maintenance]
   difficulty: hard
 - topic: exd_x_m3_rectangle_perimeter_unknown
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

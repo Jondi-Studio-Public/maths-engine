@@ -17,6 +17,7 @@ prerequisites:
 answer: pair
 sources:
 - topic: sr2l_arg_ray
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -24,12 +25,14 @@ sources:
   - 1
   - 2
 - topic: sr2l_arg_ray
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: sr2l_arg_ray
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -37,6 +40,7 @@ sources:
   - 6
   - maintenance
 - topic: sr2l_arg_ray_exam
+  technology: none
   params: {}
   difficulty: exam
   stages:

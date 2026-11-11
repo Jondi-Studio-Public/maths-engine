@@ -10,6 +10,7 @@ prerequisites:
 answer: number
 sources:
 - topic: pythagoras_truss_chain
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -17,12 +18,14 @@ sources:
   - 1
   - 2
 - topic: pythagoras_truss_chain
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: pythagoras_truss_chain
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -30,6 +33,7 @@ sources:
   - 6
   - maintenance
 - topic: symmetric_truss
+  technology: none
   params: {}
   difficulty: exam
   stages:

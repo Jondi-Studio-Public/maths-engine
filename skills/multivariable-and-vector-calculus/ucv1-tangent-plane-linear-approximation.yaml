@@ -14,18 +14,22 @@ prerequisites: [partial-derivative-x, partial-derivative-y]
 answer: number
 sources:
 - topic: fy1ms_tangent_plane
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fy1ms_tangent_plane
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: fy1ms_tangent_plane
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_fy1ms_tangent_plane
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

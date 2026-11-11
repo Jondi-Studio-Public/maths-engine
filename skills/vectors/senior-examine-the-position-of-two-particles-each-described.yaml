@@ -13,15 +13,19 @@ prerequisites:
 answer: mcq
 sources:
 - topic: p19g_particles_meet_mcq
+  technology: none
   difficulty: easy
   stages: [6]
 - topic: p19g_particles_meet_mcq
+  technology: none
   difficulty: medium
   stages: [6]
 - topic: p19g_particles_meet_mcq
+  technology: none
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2i_particles_approach
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

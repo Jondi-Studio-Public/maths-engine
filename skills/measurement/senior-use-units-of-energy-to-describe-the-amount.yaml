@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: p19h_energy_kj_amount
+  technology: none
   params: {mode: kj_easy}
   difficulty: easy
   stages: [6]
 - topic: p19h_energy_kj_amount
+  technology: none
   params: {mode: kj_medium}
   difficulty: medium
   stages: [6]
 - topic: p19h_energy_kj_amount
+  technology: none
   params: {mode: kj_hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19h_energy_kj_amount
+  technology: none
   params: {mode: kj_exam}
   difficulty: exam
   stages: [exam]

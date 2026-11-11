@@ -12,18 +12,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: quantifier_forall_exists_evaluate
+  technology: none
   params: {variant: exists}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: quantifier_forall_exists_evaluate
+  technology: none
   params: {variant: forall}
   difficulty: medium
   stages: [3, 4]
 - topic: quantifier_forall_exists_evaluate
+  technology: none
   params: {variant: select_quantifier}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc7_quantifier_threshold
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

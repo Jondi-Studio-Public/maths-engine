@@ -24,18 +24,22 @@ prerequisites: [function-notation]
 answer: pair
 sources:
 - topic: pv1a_intersection
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [6]
 - topic: pv1a_intersection
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [6]
 - topic: pv1a_intersection
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: pv1a_intersection
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

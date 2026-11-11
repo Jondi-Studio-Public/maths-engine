@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: p19h_energy_kwh_consumption
+  technology: none
   params: {mode: kwh_easy}
   difficulty: easy
   stages: [6]
 - topic: p19h_energy_kwh_consumption
+  technology: none
   params: {mode: kwh_medium}
   difficulty: medium
   stages: [6]
 - topic: p19h_energy_kwh_consumption
+  technology: none
   params: {mode: kwh_hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2l_energy_cost_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

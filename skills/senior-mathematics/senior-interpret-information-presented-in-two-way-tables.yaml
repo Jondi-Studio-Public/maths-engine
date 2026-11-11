@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p19d_two_way_table
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p19d_two_way_table
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p19d_two_way_table
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2i_two_way_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

@@ -19,6 +19,7 @@ prerequisites:
 answer: number
 sources:
 - topic: fr2c_growing_patterns
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -26,12 +27,14 @@ sources:
   - 1
   - 2
 - topic: fr2c_growing_patterns
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: fr2c_growing_patterns
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -39,6 +42,7 @@ sources:
   - 6
   - maintenance
 - topic: fr2c_growing_patterns_exam
+  technology: none
   params: {}
   difficulty: exam
   stages:

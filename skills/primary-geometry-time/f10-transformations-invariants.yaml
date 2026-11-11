@@ -9,14 +9,17 @@ prerequisites: [coordinate-plane-readiness]
 answer: mcq
 sources:
 - topic: transformations_invariants
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: transformations_invariants
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: transformations_invariants
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

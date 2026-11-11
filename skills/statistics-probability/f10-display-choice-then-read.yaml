@@ -12,14 +12,17 @@ prerequisites:
 answer: number
 sources:
 - topic: ds_display_choice_easy
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ds_display_choice_medium
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: ds_display_choice_hard
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

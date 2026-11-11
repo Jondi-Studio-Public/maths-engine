@@ -12,18 +12,22 @@ prerequisites: [senior-use-formulas-to-find-the-volume-of-pyramids]
 answer: number
 sources:
 - topic: frustum_volume
+  technology: required
   params: {}
   difficulty: easy
   stages: [6]
 - topic: frustum_volume
+  technology: required
   params: {}
   difficulty: medium
   stages: [6]
 - topic: frustum_volume
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m3_frustum_slant_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

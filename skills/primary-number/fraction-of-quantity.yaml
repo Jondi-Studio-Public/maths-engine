@@ -12,18 +12,22 @@ prerequisites: [whole-number-division-facts]
 answer: number
 sources:
 - topic: fraction_of_quantity
+  technology: none
   params: {max_den: 5, quantity_hi: 40}
   stages: [0, 1, 2]
   difficulty: easy
 - topic: fraction_of_quantity
+  technology: none
   params: {max_den: 8, quantity_hi: 80}
   stages: [3, 4]
   difficulty: medium
 - topic: fraction_of_quantity
+  technology: none
   params: {max_den: 12, quantity_hi: 144, find_whole: true}
   stages: [5, 6, maintenance]
   difficulty: hard
 - topic: exd_x_pr5_remainder_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

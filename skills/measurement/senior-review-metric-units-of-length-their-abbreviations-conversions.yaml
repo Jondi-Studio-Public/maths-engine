@@ -12,18 +12,22 @@ prerequisites:
 answer: number
 sources:
 - topic: review_metric_units_of_length
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: review_metric_units_of_length
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: review_metric_units_of_length
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2x_metric_length_fencing
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

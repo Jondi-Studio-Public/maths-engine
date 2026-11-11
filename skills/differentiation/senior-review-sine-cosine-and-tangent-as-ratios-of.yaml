@@ -12,18 +12,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: trig_ratio_review_tan
+  technology: none
   params: {variant: direct}
   difficulty: easy
   stages: [6]
 - topic: trig_ratio_review_tan
+  technology: none
   params: {variant: pythagoras}
   difficulty: medium
   stages: [6]
 - topic: trig_ratio_review_tan
+  technology: none
   params: {variant: cofunction}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r3a_right_triangle_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -10,14 +10,17 @@ prerequisites: [add-within-20, f10-part-part-whole-collections-to-10, subtract-w
 answer: number
 sources:
 - topic: add_sub_within_20_strategies
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: add_sub_within_20_strategies
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: add_sub_within_20_strategies
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

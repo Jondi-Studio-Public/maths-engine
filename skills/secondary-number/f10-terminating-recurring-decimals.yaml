@@ -10,18 +10,22 @@ prerequisites: [fraction-decimal-percent, recurring-decimal-to-fraction]
 answer: fraction
 sources:
 - topic: p9e_terminating_recurring_decimal
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p9e_terminating_recurring_decimal
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p9e_terminating_recurring_decimal
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_n4_decimal_sum
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

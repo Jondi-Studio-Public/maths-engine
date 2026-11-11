@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: number
 sources:
 - topic: convert_between_metric_units_of_area
+  technology: none
   params: {mode: m2_ha}
   difficulty: easy
   stages: [6]
 - topic: convert_between_metric_units_of_area
+  technology: none
   params: {mode: ha_km2}
   difficulty: medium
   stages: [6]
 - topic: convert_between_metric_units_of_area
+  technology: none
   params: {mode: combine}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m4_area_units_land_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

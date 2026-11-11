@@ -13,18 +13,22 @@ prerequisites:
 answer: pair
 sources:
 - topic: geometric_recursive_definition_state
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: geometric_recursive_definition_state
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: geometric_recursive_definition_state
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f2_geometric_recursion
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

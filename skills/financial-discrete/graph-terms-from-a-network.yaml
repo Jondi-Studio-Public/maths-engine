@@ -19,18 +19,22 @@ prerequisites: [shortest-network-path]
 answer: number
 sources:
 - topic: dg_graph_terms
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: dg_graph_terms
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: dg_graph_terms
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: dg_graph_terms_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

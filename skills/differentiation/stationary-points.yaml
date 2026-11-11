@@ -9,6 +9,7 @@ prerequisites:
 answer: list
 sources:
 - topic: differentiation
+  technology: none
   params:
     kinds:
     - stationary_points
@@ -18,6 +19,7 @@ sources:
   - 1
   - 2
 - topic: differentiation
+  technology: none
   params:
     kinds:
     - stationary_points
@@ -26,6 +28,7 @@ sources:
   - 3
   - 4
 - topic: differentiation
+  technology: none
   params:
     kinds:
     - stationary_points
@@ -35,11 +38,13 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2a_stationary_double_root
+  technology: none
   params: {}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c1_stationary
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

@@ -9,18 +9,22 @@ prerequisites:
 answer: expression
 sources:
 - topic: fourier_coefficient_simple
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fourier_coefficient_simple
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: fourier_coefficient_simple
+  technology: none
   params: {kind: step}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_u2_fourier_by_parts
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

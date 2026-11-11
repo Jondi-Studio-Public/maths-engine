@@ -8,11 +8,13 @@ prerequisites:
 answer: number
 sources:
 - topic: engineering
+  technology: none
   params:
     kinds:
     - equilibrium
   difficulty: easy
 - topic: exd_x_u1_loaded_plank
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

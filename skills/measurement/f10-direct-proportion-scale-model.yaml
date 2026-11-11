@@ -10,18 +10,22 @@ prerequisites: [ratio-rate-proportion, f10-ratio-rate-financial-model]
 answer: mcq
 sources:
 - topic: p13a_direct_proportion_scale
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p13a_direct_proportion_scale
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p13a_direct_proportion_scale
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2x_direct_proportion_table
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

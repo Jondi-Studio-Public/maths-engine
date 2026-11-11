@@ -16,28 +16,34 @@ prerequisites:
 answer: number
 sources:
 - topic: fr2d_trial_tallies
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: w7f_trial_variants
+  technology: none
   params: {tier: easy}
   difficulty: easy
   key: alt-easy
   stages: [0, 1, 2]
 - topic: fr2d_trial_tallies
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: w7f_trial_variants
+  technology: none
   params: {tier: medium}
   difficulty: medium
   key: alt-medium
   stages: [3, 4]
 - topic: fr2d_trial_tallies
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: w7f_trial_variants
+  technology: none
   params: {tier: hard}
   difficulty: hard
   key: alt-hard

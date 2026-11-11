@@ -16,6 +16,7 @@ prerequisites:
 answer: pair
 sources:
 - topic: exd_e5_prism_capacity_three_units
+  technology: none
   params:
     tier: easy
   difficulty: easy
@@ -24,6 +25,7 @@ sources:
   - 1
   - 2
 - topic: exd_e5_prism_capacity_three_units
+  technology: none
   params:
     tier: medium
   difficulty: medium
@@ -31,6 +33,7 @@ sources:
   - 3
   - 4
 - topic: exd_e5_prism_capacity_three_units
+  technology: none
   params:
     tier: hard
   difficulty: hard
@@ -39,6 +42,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_e5_prism_capacity_three_units
+  technology: none
   params:
     tier: exam
   difficulty: exam

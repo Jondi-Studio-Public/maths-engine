@@ -12,18 +12,22 @@ prerequisites:
 answer: pair
 sources:
   - topic: translations_and_their_representation_as_column_vectors
+    technology: none
     params: {}
     difficulty: easy
     stages: [0, 1, 2]
   - topic: translations_and_their_representation_as_column_vectors
+    technology: none
     params: {}
     difficulty: medium
     stages: [3, 4]
   - topic: translations_and_their_representation_as_column_vectors
+    technology: none
     params: {}
     difficulty: hard
     stages: [5, 6, maintenance]
   - topic: exd_x_g3_translations
+    technology: none
     params: {tier: exam}
     difficulty: exam
     stages:

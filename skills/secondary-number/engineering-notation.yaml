@@ -8,18 +8,22 @@ prerequisites: [scientific-notation]
 answer: mcq
 sources:
 - topic: engineering_notation
+  technology: none
   params: {variant: large_positive}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: engineering_notation
+  technology: none
   params: {variant: small_value}
   difficulty: medium
   stages: [3, 4]
 - topic: engineering_notation
+  technology: none
   params: {variant: wide_exponent}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: engineering_notation
+  technology: none
   params: {variant: sum_difference}
   difficulty: exam
   stages: [exam]

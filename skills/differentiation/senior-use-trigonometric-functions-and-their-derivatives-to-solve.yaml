@@ -13,18 +13,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p12c_trig_deriv_apply
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p12c_trig_deriv_apply
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p12c_trig_deriv_apply
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2j_trig_rate_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

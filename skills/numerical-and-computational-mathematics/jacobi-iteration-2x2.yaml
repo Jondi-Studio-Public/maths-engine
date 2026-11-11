@@ -8,15 +8,19 @@ prerequisites: [matrix-solve-system]
 answer: pair
 sources:
 - topic: jacobi_iteration_2x2
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: jacobi_iteration_2x2
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: jacobi_iteration_2x2
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_u4_jacobi_reordered
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

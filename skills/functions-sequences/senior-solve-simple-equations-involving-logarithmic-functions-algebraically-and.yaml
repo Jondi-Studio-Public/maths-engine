@@ -11,18 +11,22 @@ prerequisites: [function-notation]
 answer: fraction
 sources:
 - topic: pv0b_log_equation
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [6]
 - topic: pv0b_log_equation
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [6]
 - topic: pv0b_log_equation
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: pv0b_log_equation
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

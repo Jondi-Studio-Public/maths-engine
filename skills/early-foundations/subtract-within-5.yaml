@@ -11,6 +11,7 @@ prerequisites: [add-within-5]
 answer: mcq
 sources:
 - topic: early_subtraction
+  technology: none
   params: {total_hi: 5}
   difficulty: easy
 misconceptions: []

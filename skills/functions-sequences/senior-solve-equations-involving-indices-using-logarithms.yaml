@@ -11,18 +11,22 @@ prerequisites: [function-notation]
 answer: number
 sources:
 - topic: solve_indices_with_logarithms
+  technology: required
   params: {variant: direct}
   difficulty: easy
   stages: [6]
 - topic: solve_indices_with_logarithms
+  technology: required
   params: {variant: coefficient}
   difficulty: medium
   stages: [6]
 - topic: solve_indices_with_logarithms
+  technology: required
   params: {variant: linear_exponent}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_f3_logeq
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

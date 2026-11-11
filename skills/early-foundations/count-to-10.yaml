@@ -13,6 +13,7 @@ prerequisites: [recognise-numerals-to-5]
 answer: mcq
 sources:
 - topic: count_objects
+  technology: none
   params: {lo: 4, hi: 10}
   difficulty: easy
 misconceptions: []

@@ -12,18 +12,22 @@ prerequisites: [senior-understand-the-unit-circle-definition-of-cos-theta-acmmm0
 answer: expression
 sources:
 - topic: gt_inverse_trig
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: gt_inverse_trig
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: gt_inverse_trig
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: gt_inverse_trig_exam
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

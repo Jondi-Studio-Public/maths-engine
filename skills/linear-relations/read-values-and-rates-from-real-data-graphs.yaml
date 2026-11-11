@@ -19,18 +19,22 @@ prerequisites: [f10-line-graph-change-over-time]
 answer: number
 sources:
 - topic: dg_real_data_graphs
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: dg_real_data_graphs
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: dg_real_data_graphs
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: dg_real_data_graphs_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

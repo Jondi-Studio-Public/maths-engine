@@ -15,6 +15,7 @@ prerequisites:
 answer: number
 sources:
 - topic: rectangular_frustum_volume
+  technology: none
   params:
     mode: direct
   difficulty: easy
@@ -23,6 +24,7 @@ sources:
   - 1
   - 2
 - topic: rectangular_frustum_volume
+  technology: none
   params:
     mode: scale_factor
   difficulty: medium
@@ -30,6 +32,7 @@ sources:
   - 3
   - 4
 - topic: rectangular_frustum_volume
+  technology: none
   params:
     mode: apex_height
   difficulty: hard
@@ -38,6 +41,7 @@ sources:
   - 6
   - maintenance
 - topic: rectangular_frustum_volume
+  technology: none
   params:
     mode: apex_height_decimal
   difficulty: exam

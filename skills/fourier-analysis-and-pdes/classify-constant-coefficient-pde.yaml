@@ -10,18 +10,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: constant_coefficient_pde_classification
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: constant_coefficient_pde_classification
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: constant_coefficient_pde_classification
+  technology: none
   params: {kind: rearranged}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc2_pde_parameter
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -15,18 +15,22 @@ prerequisites: [f10-nets-build-solids]
 answer: grid_cells
 sources:
 - topic: grid_prism_nets
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: grid_prism_nets
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: grid_prism_nets
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_w7f_box_net_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

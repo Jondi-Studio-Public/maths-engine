@@ -13,6 +13,7 @@ prerequisites:
 answer: number
 sources:
 - topic: p13a_bracketed_number
+  technology: none
   params:
     shape: isolate
   difficulty: easy
@@ -21,6 +22,7 @@ sources:
   - 1
   - 2
 - topic: p13a_bracketed_number
+  technology: none
   params:
     shape: outer_add
   difficulty: medium
@@ -28,6 +30,7 @@ sources:
   - 3
   - 4
 - topic: p13a_bracketed_number
+  technology: none
   params:
     shape: leading_subtract
   difficulty: hard

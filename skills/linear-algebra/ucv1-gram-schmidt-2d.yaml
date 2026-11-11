@@ -12,18 +12,22 @@ prerequisites: [vector-projection]
 answer: ordered_list
 sources:
 - topic: p12f_gram_schmidt_2d
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p12f_gram_schmidt_2d
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p12f_gram_schmidt_2d
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3j_gram_schmidt_qr
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

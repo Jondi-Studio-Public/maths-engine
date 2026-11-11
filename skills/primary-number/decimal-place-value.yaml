@@ -12,18 +12,22 @@ prerequisites: [place-value-to-100]
 answer: number
 sources:
 - topic: decimal_place_value
+  technology: none
   params: {max_places: 1, whole_hi: 20}
   stages: [0, 1, 2]
   difficulty: easy
 - topic: decimal_place_value
+  technology: none
   params: {max_places: 2, whole_hi: 50}
   stages: [3, 4]
   difficulty: medium
 - topic: decimal_place_value
+  technology: none
   params: {max_places: 3, whole_hi: 100, ask_place: true}
   stages: [5, 6, maintenance]
   difficulty: hard
 - topic: exd_x_pr4_decimal_place_value
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

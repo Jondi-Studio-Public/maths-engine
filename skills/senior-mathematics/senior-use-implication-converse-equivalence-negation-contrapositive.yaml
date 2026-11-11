@@ -12,18 +12,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: implication_transform_identify
+  technology: none
   params: {variant: converse}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: implication_transform_identify
+  technology: none
   params: {variant: equivalence_check}
   difficulty: medium
   stages: [3, 4]
 - topic: implication_transform_identify
+  technology: none
   params: {variant: negation_truth}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc7_implication_counts
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -14,14 +14,17 @@ prerequisites: [one-to-one-displays]
 answer: mcq
 sources:
 - topic: ey_tally_tables
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey_tally_tables
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: ey_tally_tables
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

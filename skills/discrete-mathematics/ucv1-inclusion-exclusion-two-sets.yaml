@@ -9,18 +9,22 @@ prerequisites: [finite-set-operations]
 answer: number
 sources:
 - topic: inclusion_exclusion_two_sets
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: inclusion_exclusion_two_sets
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: inclusion_exclusion_two_sets
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_u1_two_set_survey
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

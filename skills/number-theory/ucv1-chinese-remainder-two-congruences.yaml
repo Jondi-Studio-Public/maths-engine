@@ -9,18 +9,22 @@ prerequisites: [modular-arithmetic-congruence, euclidean-algorithm-gcd]
 answer: number
 sources:
 - topic: chinese_remainder_two_congruences
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: chinese_remainder_two_congruences
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: chinese_remainder_two_congruences
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_u3_crt_leftovers
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

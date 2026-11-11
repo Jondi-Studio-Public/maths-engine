@@ -9,14 +9,17 @@ prerequisites: [angle-types, f10-angle-turn-right-reference]
 answer: ordered_list
 sources:
 - topic: p11d_compare_angle_names
+  technology: none
   params: {n: 3, hard_shuffle: false}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p11d_compare_angle_names
+  technology: none
   params: {n: 4, hard_shuffle: false}
   difficulty: medium
   stages: [3, 4]
 - topic: p11d_compare_angle_names
+  technology: none
   params: {n: 5, hard_shuffle: true}
   difficulty: hard
   stages: [5, 6, maintenance]

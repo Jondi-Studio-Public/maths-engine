@@ -10,18 +10,22 @@ prerequisites: [f10-coordinate-movement]
 answer: pair
 sources:
 - topic: p11d_three_dimensional_coordinates
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p11d_three_dimensional_coordinates
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p11d_three_dimensional_coordinates
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_sc3_coordinates_3d_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

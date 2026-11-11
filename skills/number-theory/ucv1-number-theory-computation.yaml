@@ -13,18 +13,22 @@ prerequisites: [modular-arithmetic-congruence]
 answer: number
 sources:
 - topic: p14b_number_theory_computation
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p14b_number_theory_computation
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p14b_number_theory_computation
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3j_euler_power_residue
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

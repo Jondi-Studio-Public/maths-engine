@@ -14,6 +14,7 @@ prerequisites:
 answer: mcq
 sources:
 - topic: w5_equivalent_expressions
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -21,12 +22,14 @@ sources:
   - 1
   - 2
 - topic: w5_equivalent_expressions
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: w5_equivalent_expressions
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -34,6 +37,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_w5_equivalent_expressions
+  technology: none
   params:
     tier: exam
   difficulty: exam

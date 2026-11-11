@@ -8,16 +8,19 @@ prerequisites:
 answer: number
 sources:
 - topic: summary_statistic
+  technology: none
   params:
     kind: mean
   difficulty: easy
 - topic: w3_mean_tiers
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: w3_mean_tiers
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -25,6 +28,7 @@ sources:
   - 6
   - maintenance
 - topic: exam_mean_summary_statistic
+  technology: none
   params: {}
   difficulty: exam
   stages:

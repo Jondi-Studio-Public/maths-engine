@@ -9,18 +9,22 @@ prerequisites: [senior-understand-the-concepts-of-a-probability-density-function
 answer: number
 sources:
 - topic: r3f_piecewise_pdf
+  technology: required
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: r3f_piecewise_pdf
+  technology: required
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: r3f_piecewise_pdf
+  technology: required
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r3f_piecewise_pdf
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

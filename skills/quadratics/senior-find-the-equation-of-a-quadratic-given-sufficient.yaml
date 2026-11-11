@@ -11,6 +11,7 @@ prerequisites:
 answer: expression
 sources:
 - topic: find_the_equation_of_a_quadratic_given_sufficient
+  technology: none
   params:
     variant: vertex_point
   difficulty: easy
@@ -19,6 +20,7 @@ sources:
   - 1
   - 2
 - topic: find_the_equation_of_a_quadratic_given_sufficient
+  technology: none
   params:
     variant: roots_point
   difficulty: medium
@@ -26,6 +28,7 @@ sources:
   - 3
   - 4
 - topic: find_the_equation_of_a_quadratic_given_sufficient
+  technology: none
   params:
     variant: three_points
   difficulty: hard
@@ -34,6 +37,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_a2_quadratic_from_conditions
+  technology: none
   params:
     tier: exam
   difficulty: exam

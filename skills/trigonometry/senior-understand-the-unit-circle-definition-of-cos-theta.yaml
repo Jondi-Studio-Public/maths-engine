@@ -13,18 +13,22 @@ prerequisites:
 answer: expression
 sources:
 - topic: p19g_unit_circle_coordinates
+  technology: none
   params: {variant: easy}
   difficulty: easy
   stages: [6]
 - topic: p19g_unit_circle_coordinates
+  technology: none
   params: {variant: medium}
   difficulty: medium
   stages: [6]
 - topic: p19g_unit_circle_coordinates
+  technology: none
   params: {variant: hard}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19g_unit_circle_coordinates
+  technology: none
   params: {variant: exam}
   difficulty: exam
   stages: [exam]

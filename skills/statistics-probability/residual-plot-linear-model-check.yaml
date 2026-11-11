@@ -13,6 +13,7 @@ prerequisites:
 answer: mcq
 sources:
 - topic: smech_residual_plots
+  technology: none
   params: {}
   difficulty: easy
   stages:
@@ -20,12 +21,14 @@ sources:
   - 1
   - 2
 - topic: smech_residual_plots
+  technology: none
   params: {}
   difficulty: medium
   stages:
   - 3
   - 4
 - topic: smech_residual_plots
+  technology: none
   params: {}
   difficulty: hard
   stages:
@@ -33,6 +36,7 @@ sources:
   - 6
   - maintenance
 - topic: smech_residual_plots_exam
+  technology: none
   params: {}
   difficulty: exam
   stages:

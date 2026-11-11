@@ -18,18 +18,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: fr2d_read_simulation
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: fr2d_read_simulation
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: fr2d_read_simulation
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: fr2d_read_simulation_exam
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

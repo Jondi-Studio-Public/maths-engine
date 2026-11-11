@@ -16,18 +16,22 @@ prerequisites:
 answer: pair
 sources:
 - topic: p19g_concurrent_forces_resultant
+  technology: required
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p19g_concurrent_forces_resultant
+  technology: required
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p19g_concurrent_forces_resultant
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: p19g_concurrent_forces_resultant
+  technology: required
   params: {}
   difficulty: exam
   stages: [exam]

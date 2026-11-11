@@ -8,6 +8,7 @@ prerequisites:
 answer: number
 sources:
 - topic: expression_parts
+  technology: none
   params:
     kind: coefficient
   difficulty: easy
@@ -16,6 +17,7 @@ sources:
   - 1
   - 2
 - topic: expression_parts
+  technology: none
   params:
     kind: coefficient
   difficulty: medium
@@ -23,6 +25,7 @@ sources:
   - 3
   - 4
 - topic: expression_parts
+  technology: none
   params:
     kind: coefficient
   difficulty: hard
@@ -31,6 +34,7 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_sc3_coefficients_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

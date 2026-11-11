@@ -13,14 +13,17 @@ prerequisites: [number-bonds-to-10, f10-part-part-whole-collections-to-10]
 answer: number
 sources:
 - topic: ey2a_part_part_whole_pictures
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey2a_part_part_whole_pictures
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: ey2a_part_part_whole_pictures
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]

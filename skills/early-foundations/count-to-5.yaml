@@ -13,6 +13,7 @@ prerequisites: []
 answer: mcq
 sources:
 - topic: count_objects
+  technology: none
   params: {lo: 1, hi: 5}
   difficulty: easy
 misconceptions: []

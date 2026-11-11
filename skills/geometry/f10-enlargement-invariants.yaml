@@ -11,23 +11,28 @@ prerequisites: [f10-transformations-invariants]
 answer: number
 sources:
 - topic: enlargement_invariants
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: enlargement_invariants
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: enlargement_invariants
+  technology: required
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: grid_enlargement_image
+  technology: none
   key: grid-image
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_sc2_enlargement_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

@@ -17,15 +17,19 @@ prerequisites: [senior-interpret-distance-versus-time-graphs, rate-of-change]
 answer: number
 sources:
 - topic: ey_position_tangent
+  technology: none
   difficulty: easy
   stages: [0, 1, 2]
 - topic: ey_position_tangent
+  technology: none
   difficulty: medium
   stages: [3, 4]
 - topic: ey_position_tangent
+  technology: none
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: ey_position_tangent_exam
+  technology: none
   difficulty: exam
   stages: [exam]
 misconceptions:

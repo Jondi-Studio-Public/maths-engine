@@ -9,18 +9,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: markov_two_state_stationary
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: markov_two_state_stationary
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: markov_two_state_stationary
+  technology: none
   params: {kind: find_transition}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_s2_markov_stationary
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

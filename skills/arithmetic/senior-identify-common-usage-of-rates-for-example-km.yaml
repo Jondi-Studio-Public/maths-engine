@@ -12,18 +12,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: p19h_rate_usage_classification
+  technology: none
   params: {tier: easy}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p19h_rate_usage_classification
+  technology: none
   params: {tier: medium}
   difficulty: medium
   stages: [3, 4]
 - topic: p19h_rate_usage_classification
+  technology: none
   params: {tier: hard}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: p19h_rate_usage_classification
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

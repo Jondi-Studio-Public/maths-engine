@@ -19,18 +19,22 @@ prerequisites: [f10-map-feature-and-landmark-representation]
 answer: grid_cells
 sources:
 - topic: dg_grid_map
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: dg_grid_map
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: dg_grid_map
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: dg_grid_map_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

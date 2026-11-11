@@ -14,6 +14,7 @@ description: 'Given a stated rate parameter lambda greater than zero and stated 
   entirely -- no scenario, dataset or word problem is ever presented, at any difficulty including
   the exam tier.'
 status: active
+technology: required
 placement_eligible: false
 prerequisites:
 - integrate-polynomial

@@ -14,18 +14,22 @@ prerequisites:
 answer: number
 sources:
 - topic: p19e_exponential_model_value
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: p19e_exponential_model_value
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: p19e_exponential_model_value
+  technology: required
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: p19e_exponential_model_value
+  technology: none
   params: {}
   difficulty: exam
   stages: [exam]

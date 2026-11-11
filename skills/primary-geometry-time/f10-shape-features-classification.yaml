@@ -9,14 +9,17 @@ prerequisites: [name-basic-shapes]
 answer: mcq
 sources:
 - topic: shape_features_classification
+  technology: none
   params: {mode: which_curved_straight}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: shape_features_classification
+  technology: none
   params: {mode: forward_sides}
   difficulty: medium
   stages: [3, 4]
 - topic: shape_features_classification
+  technology: none
   params: {mode: inverse_sides}
   difficulty: hard
   stages: [5, 6, maintenance]

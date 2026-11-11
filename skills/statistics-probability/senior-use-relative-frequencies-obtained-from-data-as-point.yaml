@@ -13,18 +13,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: p16a_relative_frequency_estimate
+  technology: none
   params: {variant: single}
   difficulty: easy
   stages: [6]
 - topic: p16a_relative_frequency_estimate
+  technology: none
   params: {variant: union}
   difficulty: medium
   stages: [6]
 - topic: p16a_relative_frequency_estimate
+  technology: none
   params: {variant: complement}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_r2l_relfreq_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

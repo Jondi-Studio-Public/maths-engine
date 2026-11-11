@@ -11,18 +11,22 @@ prerequisites: [convert-metric-length]
 answer: expression
 sources:
 - topic: calculate_surface_areas_of_standard_solids
+  technology: none
   params: {mode: sphere}
   difficulty: easy
   stages: [6]
 - topic: calculate_surface_areas_of_standard_solids
+  technology: none
   params: {mode: cone}
   difficulty: medium
   stages: [6]
 - topic: calculate_surface_areas_of_standard_solids
+  technology: none
   params: {mode: composite}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_m4_cylinder_surface_chain
+  technology: required
   params: {tier: exam}
   difficulty: exam
   stages:

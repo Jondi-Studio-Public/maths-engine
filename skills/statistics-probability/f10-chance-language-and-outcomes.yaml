@@ -17,6 +17,7 @@ prerequisites:
 answer: mcq
 sources:
 - topic: chance_outcome_classify
+  technology: none
   params: {}
   difficulty: easy
 misconceptions:

@@ -10,14 +10,17 @@ prerequisites: [money-change, f10-multiply-divide-one-digit-arrays]
 answer: number
 sources:
 - topic: additive_multiplicative_money_model
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: additive_multiplicative_money_model
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: additive_multiplicative_money_model
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]

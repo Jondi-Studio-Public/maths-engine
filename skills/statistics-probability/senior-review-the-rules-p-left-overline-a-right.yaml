@@ -14,18 +14,22 @@ prerequisites:
 answer: fraction
 sources:
 - topic: probability_complement_union
+  technology: none
   params: {}
   difficulty: easy
   stages: [6]
 - topic: probability_complement_union
+  technology: none
   params: {}
   difficulty: medium
   stages: [6]
 - topic: probability_complement_union
+  technology: none
   params: {}
   difficulty: hard
   stages: [6, maintenance]
 - topic: exd_x_s4_union
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages:

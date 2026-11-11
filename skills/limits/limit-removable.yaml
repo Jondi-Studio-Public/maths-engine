@@ -8,6 +8,7 @@ prerequisites:
 answer: number
 sources:
 - topic: limits
+  technology: none
   params:
     kinds:
     - removable
@@ -17,6 +18,7 @@ sources:
   - 1
   - 2
 - topic: limits
+  technology: none
   params:
     kinds:
     - removable
@@ -25,6 +27,7 @@ sources:
   - 3
   - 4
 - topic: limits
+  technology: none
   params:
     kinds:
     - quad_over_quad
@@ -34,12 +37,14 @@ sources:
   - 6
   - maintenance
 - topic: exd_x_r2c_limit_removable
+  technology: none
   params:
     tier: exam
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c2_limit_removable
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single

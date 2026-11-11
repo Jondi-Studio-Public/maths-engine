@@ -11,18 +11,22 @@ prerequisites:
 answer: mcq
 sources:
 - topic: p15c_symmetry_conservation
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: p15c_symmetry_conservation
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: p15c_symmetry_conservation
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2h_central_force_chain
+  technology: none
   params: {tier: exam}
   difficulty: exam
   stages: [exam]

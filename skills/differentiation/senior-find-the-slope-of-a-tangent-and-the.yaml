@@ -12,23 +12,28 @@ prerequisites:
 answer: expression
 sources:
 - topic: find_the_slope_of_a_tangent_and_the
+  technology: none
   params: {}
   difficulty: easy
   stages: [0, 1, 2]
 - topic: find_the_slope_of_a_tangent_and_the
+  technology: none
   params: {}
   difficulty: medium
   stages: [3, 4]
 - topic: find_the_slope_of_a_tangent_and_the
+  technology: none
   params: {}
   difficulty: hard
   stages: [5, 6, maintenance]
 - topic: exd_x_r2a_parallel_tangent_normal
+  technology: none
   params: {}
   difficulty: exam
   stages:
   - exam
 - topic: exd_x_c3_tangent_normal
+  technology: none
   params: {tier: exam}
   difficulty: exam
   key: exam-single
