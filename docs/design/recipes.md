@@ -123,3 +123,32 @@ an empty list, plus their own independent-oracle tests for each ask.
 
 Wheel packaging of `recipes/` (add when the first real recipe ships), a site renderer, a general way to chain
 arbitrary skills (Plan B).
+
+## Expression subjects
+
+`mathgen/recipe_expr.py` has `ExprSubject`, a Subject holding a sympy `expr`, `var`, `domain` and a `facts` dict.
+`Subject.check_property(name)` is the one mechanism `compose` uses to check a declared property on every draw:
+`False` fails the seed, `True` and `None` pass. The default method consults a check registered with
+`@property_check`; `ExprSubject` overrides it. Checks run on every `make()` against a 250 ms generator ceiling, so
+they never call `simplify`, `solveset`, `integrate` or `limit`:
+
+- **Structural**, read off the expression: the three argument shapes, `quadratic_in_exponential` (one base; the
+  constant in an exponent is a factor, a surviving `x` disqualifies), `periodic` (every use of `x` inside
+  a sin, cos or tan with argument `a*x + b`, rational a; `False` when there is no trig at all), and
+  `differentiable_everywhere` (`True` if provably smooth; `False` if it has a kink such as `Abs` or is undefined at a
+  sampled point of the domain: integers, halves and odd multiples of pi/2, plus any `excluded_points`, so `1/x`,
+  `log x`, `sqrt x`, `tan x` fail; otherwise unchecked). A `@property_check` registered for a name is honoured too.
+- **Witness**, where `facts` carries exact witnesses that are verified numerically at 40 digits inside the domain:
+  `roots` (for `has_pi_roots` as a rational multiple of pi, `has_log_root`, `has_surd_roots`),
+  `stationary_points` (f' is zero and continuous there, and f is defined), `inflection_points` (f'' is zero and
+  changes sign), `vertical_asymptotes` (|f| keeps growing towards the point, so a removable gap fails),
+  `horizontal_asymptotes` (`(L, +1 or -1)`), `excluded_points` (for `restricted_domain`) and `antiderivative` (an
+  elementary F whose derivative matches). A witness that fails fails the draw; no witness means unchecked.
+- `rational_roots_only` is checked for polynomials of degree 6 or less; otherwise unchecked.
+
+Properties with no generic test (`even_candidate`, `odd_candidate`, `unknown_constants_*`, `bounded_support`,
+`invertible_on_domain`, `composite_of_translation`, `by_parts_integrable`, `substitution_integrable`) are unchecked
+here: a subject that declares one overrides `check_property`. `tests/test_recipe_expr.py` holds the adversarial
+expressions each check must get right (a stationary point outside the domain, a removable gap, a non-elementary
+antiderivative, `sin x = 1/3`, `Abs`, `x^5`, two exponential look-alikes) and a cost test. `expr_text(expr)` writes
+an expression as question text (`x^2`, not `x**2`).

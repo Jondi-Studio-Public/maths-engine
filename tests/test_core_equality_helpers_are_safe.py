@@ -296,6 +296,12 @@ _REVIEWED = {
     # a follow-through answer: an expression from `sympify_safely` with the learner's parsed replies substituted
     ("grading/parts.py", "retarget", "N"): "a follow-through value, a SymPy number",
     ("grading/parts.py", "retarget", "nsimplify"): "a follow-through value, a SymPy number",
+    # a recipe subject: its expression and witnesses go through `recipe_expr._exact`, which refuses text, so every
+    # call below is handed SymPy objects (or numbers) and never a string
+    ("recipe_expr.py", "ExprSubject.check_property", "diff"): "the subject's own expression, never text",
+    ("recipe_expr.py", "ExprSubject.check_property.antiderivative_ok", "diff"): "an antiderivative from `_exact`",
+    ("recipe_expr.py", "_quadratic_in_exponential", "expand"): "the subject's own expression, never text",
+    ("recipe_expr.py", "_value", "N"): "the subject's expression at a point, both from `_exact`",
 }  # fmt: skip
 
 
